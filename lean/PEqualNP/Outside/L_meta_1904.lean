@@ -2586,4 +2586,747 @@ lemma large_clause_forces_extra_source {n : ℕ} {I : Type} [DecidableEq I]
 
 end PackingSources
 
+
+namespace ReadOnceExchange
+
+open PEqualNP.MetaComplexity
+
+def vars {n : ℕ} : DMFormula n → Finset (Fin n)
+  | .lit i _ => {i}
+  | .and φ ψ => vars φ ∪ vars ψ
+  | .or φ ψ => vars φ ∪ vars ψ
+
+def PositiveReadOnce {n : ℕ} : DMFormula n → Prop
+  | .lit _ b => b = true
+  | .and φ ψ => PositiveReadOnce φ ∧ PositiveReadOnce ψ ∧ Disjoint (vars φ) (vars ψ)
+  | .or φ ψ => PositiveReadOnce φ ∧ PositiveReadOnce ψ ∧ Disjoint (vars φ) (vars ψ)
+
+def IsTerm {n : ℕ} : DMFormula n → Finset (Fin n) → Prop
+  | .lit i b, S => b = true ∧ S = {i}
+  | .and φ ψ, S => ∃ A B, IsTerm φ A ∧ IsTerm ψ B ∧ S = A ∪ B
+  | .or φ ψ, S => IsTerm φ S ∨ IsTerm ψ S
+
+def evalSet {n : ℕ} (φ : DMFormula n) (S : Finset (Fin n)) : Bool :=
+  φ.eval (fun i => decide (i ∈ S))
+
+def IsMinterm {α : Type*} (f : Finset α → Bool) (M : Finset α) : Prop :=
+  f M = true ∧ ∀ T ⊆ M, f T = true → M ⊆ T
+
+lemma term_subset_vars {n : ℕ} {φ : DMFormula n} {S : Finset (Fin n)}
+    (hS : IsTerm φ S) : S ⊆ vars φ := by
+  induction φ generalizing S with
+  | lit i b => rcases hS with ⟨_, rfl⟩; exact Finset.Subset.rfl
+  | and φ ψ ihφ ihψ =>
+      obtain ⟨A, B, hA, hB, rfl⟩ := hS
+      exact Finset.union_subset_union (ihφ hA) (ihψ hB)
+  | or φ ψ ihφ ihψ =>
+      rcases hS with hS | hS
+      · exact (ihφ hS).trans Finset.subset_union_left
+      · exact (ihψ hS).trans Finset.subset_union_right
+
+lemma term_nonempty {n : ℕ} {φ : DMFormula n} {S : Finset (Fin n)}
+    (hS : IsTerm φ S) : S.Nonempty := by
+  induction φ generalizing S with
+  | lit i b => rcases hS with ⟨_, rfl⟩; exact Finset.singleton_nonempty i
+  | and φ ψ ihφ ihψ =>
+      obtain ⟨A, B, hA, hB, rfl⟩ := hS
+      exact (ihφ hA).mono Finset.subset_union_left
+  | or φ ψ ihφ ihψ =>
+      rcases hS with hS | hS
+      · exact ihφ hS
+      · exact ihψ hS
+
+lemma term_true {n : ℕ} {φ : DMFormula n} {T S : Finset (Fin n)}
+    (hT : IsTerm φ T) (hTS : T ⊆ S) : evalSet φ S = true := by
+  induction φ generalizing T with
+  | lit i b =>
+      obtain ⟨rfl, rfl⟩ := hT
+      have hi := hTS (Finset.mem_singleton_self i)
+      simpa [evalSet, DMFormula.eval] using hi
+  | and φ ψ ihφ ihψ =>
+      obtain ⟨A, B, hA, hB, rfl⟩ := hT
+      exact Bool.and_eq_true_iff.mpr ⟨ihφ hA (Finset.subset_union_left.trans hTS),
+        ihψ hB (Finset.subset_union_right.trans hTS)⟩
+  | or φ ψ ihφ ihψ =>
+      rcases hT with hT | hT
+      · exact Bool.or_eq_true_iff.mpr (Or.inl (ihφ hT hTS))
+      · exact Bool.or_eq_true_iff.mpr (Or.inr (ihψ hT hTS))
+
+lemma eval_has_term {n : ℕ} {φ : DMFormula n} (hRO : PositiveReadOnce φ)
+    {S : Finset (Fin n)} (hS : evalSet φ S = true) :
+    ∃ T, IsTerm φ T ∧ T ⊆ S := by
+  induction φ with
+  | lit i b =>
+      change b = true at hRO
+      subst b
+      have hi : i ∈ S := by simpa [evalSet, DMFormula.eval] using hS
+      exact ⟨{i}, ⟨rfl, rfl⟩, Finset.singleton_subset_iff.mpr hi⟩
+  | and φ ψ ihφ ihψ =>
+      obtain ⟨hφ, hψ⟩ := Bool.and_eq_true_iff.mp hS
+      obtain ⟨A, hA, hAS⟩ := ihφ hRO.1 hφ
+      obtain ⟨B, hB, hBS⟩ := ihψ hRO.2.1 hψ
+      exact ⟨A ∪ B, ⟨A, B, hA, hB, rfl⟩, Finset.union_subset hAS hBS⟩
+  | or φ ψ ihφ ihψ =>
+      rcases Bool.or_eq_true_iff.mp hS with hφ | hψ
+      · obtain ⟨A, hA, hAS⟩ := ihφ hRO.1 hφ
+        exact ⟨A, Or.inl hA, hAS⟩
+      · obtain ⟨B, hB, hBS⟩ := ihψ hRO.2.1 hψ
+        exact ⟨B, Or.inr hB, hBS⟩
+
+lemma minterm_is_term {n : ℕ} {φ : DMFormula n} (hRO : PositiveReadOnce φ)
+    {M : Finset (Fin n)} (hM : IsMinterm (evalSet φ) M) : IsTerm φ M := by
+  obtain ⟨T, hT, hTM⟩ := eval_has_term hRO hM.1
+  have hMT := hM.2 T hTM (term_true hT Finset.Subset.rfl)
+  have heq : T = M := Finset.Subset.antisymm hTM hMT
+  exact heq ▸ hT
+
+lemma left_extract {α : Type*} [DecidableEq α]
+    {L R X A B C D : Finset α} (hd : Disjoint L R) (hXL : X ⊆ L)
+    (hBR : B ⊆ R) (hDR : D ⊆ R) (hX : X ⊆ (A ∪ B) ∪ (C ∪ D)) :
+    X ⊆ A ∪ C := by
+  intro x hx
+  rcases Finset.mem_union.mp (hX hx) with h | h
+  · rcases Finset.mem_union.mp h with h | h
+    · exact Finset.mem_union_left C h
+    · exact (Finset.disjoint_left.mp hd (hXL hx) (hBR h)).elim
+  · rcases Finset.mem_union.mp h with h | h
+    · exact Finset.mem_union_right A h
+    · exact (Finset.disjoint_left.mp hd (hXL hx) (hDR h)).elim
+
+lemma term_exchange {n : ℕ} {φ : DMFormula n} (hRO : PositiveReadOnce φ)
+    {M N P : Finset (Fin n)} (hM : IsTerm φ M) (hN : IsTerm φ N) (hP : IsTerm φ P)
+    (hsub : P ⊆ M ∪ N) (havoid : Disjoint P (M ∩ N)) :
+    ∃ Q, IsTerm φ Q ∧ Q ⊆ (M ∪ N) \ P := by
+  induction φ generalizing M N P with
+  | lit i b =>
+      obtain ⟨_, rfl⟩ := hM
+      obtain ⟨_, rfl⟩ := hN
+      obtain ⟨_, rfl⟩ := hP
+      have := Finset.disjoint_left.mp havoid (Finset.mem_singleton_self i)
+        (Finset.mem_inter.mpr ⟨Finset.mem_singleton_self i, Finset.mem_singleton_self i⟩)
+      exact this.elim
+  | and φ ψ ihφ ihψ =>
+      obtain ⟨Ml, Mr, hMl, hMr, rfl⟩ := hM
+      obtain ⟨Nl, Nr, hNl, hNr, rfl⟩ := hN
+      obtain ⟨Pl, Pr, hPl, hPr, rfl⟩ := hP
+      have hleft : Pl ⊆ Ml ∪ Nl := left_extract hRO.2.2 (term_subset_vars hPl)
+        (term_subset_vars hMr) (term_subset_vars hNr) (Finset.subset_union_left.trans hsub)
+      have hright : Pr ⊆ Mr ∪ Nr := by
+        apply left_extract hRO.2.2.symm (term_subset_vars hPr)
+          (term_subset_vars hMl) (term_subset_vars hNl)
+        simpa only [Finset.union_comm Ml Mr, Finset.union_comm Nl Nr] using
+          (Finset.subset_union_right.trans hsub : Pr ⊆ (Ml ∪ Mr) ∪ (Nl ∪ Nr))
+      have hlavoid : Disjoint Pl (Ml ∩ Nl) := by
+        apply Finset.disjoint_left.mpr
+        intro x hp hm
+        exact Finset.disjoint_left.mp havoid (Finset.mem_union_left Pr hp)
+          (Finset.mem_inter.mpr ⟨Finset.mem_union_left Mr (Finset.mem_inter.mp hm).1,
+            Finset.mem_union_left Nr (Finset.mem_inter.mp hm).2⟩)
+      have hravoid : Disjoint Pr (Mr ∩ Nr) := by
+        apply Finset.disjoint_left.mpr
+        intro x hp hm
+        exact Finset.disjoint_left.mp havoid (Finset.mem_union_right Pl hp)
+          (Finset.mem_inter.mpr ⟨Finset.mem_union_right Ml (Finset.mem_inter.mp hm).1,
+            Finset.mem_union_right Nl (Finset.mem_inter.mp hm).2⟩)
+      obtain ⟨Ql, hQl, hQls⟩ := ihφ hRO.1 hMl hNl hPl hleft hlavoid
+      obtain ⟨Qr, hQr, hQrs⟩ := ihψ hRO.2.1 hMr hNr hPr hright hravoid
+      refine ⟨Ql ∪ Qr, ⟨Ql, Qr, hQl, hQr, rfl⟩, ?_⟩
+      intro x hx
+      rcases Finset.mem_union.mp hx with hx | hx
+      · obtain ⟨hxm, hxp⟩ := Finset.mem_sdiff.mp (hQls hx)
+        refine Finset.mem_sdiff.mpr ⟨?_, ?_⟩
+        · rcases Finset.mem_union.mp hxm with hm | hn
+          · exact Finset.mem_union_left _ (Finset.mem_union_left _ hm)
+          · exact Finset.mem_union_right _ (Finset.mem_union_left _ hn)
+        · intro hp
+          rcases Finset.mem_union.mp hp with hp | hp
+          · exact hxp hp
+          · exact Finset.disjoint_left.mp hRO.2.2 (term_subset_vars hQl hx) (term_subset_vars hPr hp)
+      · obtain ⟨hxm, hxp⟩ := Finset.mem_sdiff.mp (hQrs hx)
+        refine Finset.mem_sdiff.mpr ⟨?_, ?_⟩
+        · rcases Finset.mem_union.mp hxm with hm | hn
+          · exact Finset.mem_union_left _ (Finset.mem_union_right _ hm)
+          · exact Finset.mem_union_right _ (Finset.mem_union_right _ hn)
+        · intro hp
+          rcases Finset.mem_union.mp hp with hp | hp
+          · exact Finset.disjoint_left.mp hRO.2.2 (term_subset_vars hPl hp) (term_subset_vars hQr hx)
+          · exact hxp hp
+  | or φ ψ ihφ ihψ =>
+      have left_right {A B : Finset (Fin n)} (hA : IsTerm φ A) (hB : IsTerm ψ B) :
+          Disjoint A B := Finset.disjoint_left.mpr (fun x hxA hxB =>
+            Finset.disjoint_left.mp hRO.2.2 (term_subset_vars hA hxA) (term_subset_vars hB hxB))
+      have pick_left {A B C : Finset (Fin n)} (hA : IsTerm φ A) (hC : IsTerm ψ C) :
+          ∃ Q, IsTerm (.or φ ψ) Q ∧ Q ⊆ (A ∪ B) \ C := by
+        refine ⟨A, Or.inl hA, ?_⟩
+        intro x hx
+        exact Finset.mem_sdiff.mpr ⟨Finset.mem_union_left B hx,
+          fun hc => Finset.disjoint_left.mp (left_right hA hC) hx hc⟩
+      have pick_right {A B C : Finset (Fin n)} (hB : IsTerm ψ B) (hC : IsTerm φ C) :
+          ∃ Q, IsTerm (.or φ ψ) Q ∧ Q ⊆ (A ∪ B) \ C := by
+        refine ⟨B, Or.inr hB, ?_⟩
+        intro x hx
+        exact Finset.mem_sdiff.mpr ⟨Finset.mem_union_right A hx,
+          fun hc => Finset.disjoint_left.mp (left_right hC hB) hc hx⟩
+      rcases hM with hM | hM <;> rcases hN with hN | hN <;> rcases hP with hP | hP
+      · obtain ⟨Q, hQ, hQs⟩ := ihφ hRO.1 hM hN hP hsub havoid
+        exact ⟨Q, Or.inl hQ, hQs⟩
+      · obtain ⟨x, hx⟩ := term_nonempty hP
+        rcases Finset.mem_union.mp (hsub hx) with hm | hn
+        · exact (Finset.disjoint_left.mp (left_right hM hP) hm hx).elim
+        · exact (Finset.disjoint_left.mp (left_right hN hP) hn hx).elim
+      · exact pick_right hN hP
+      · exact pick_left hM hP
+      · simpa only [Finset.union_comm M N] using (pick_right (A := N) hM hP)
+      · simpa only [Finset.union_comm M N] using (pick_left (B := M) hN hP)
+      · obtain ⟨x, hx⟩ := term_nonempty hP
+        rcases Finset.mem_union.mp (hsub hx) with hm | hn
+        · exact (Finset.disjoint_left.mp (left_right hP hM) hx hm).elim
+        · exact (Finset.disjoint_left.mp (left_right hP hN) hx hn).elim
+      · obtain ⟨Q, hQ, hQs⟩ := ihψ hRO.2.1 hM hN hP hsub havoid
+        exact ⟨Q, Or.inr hQ, hQs⟩
+
+/-- Three minterms can be exchanged across a disjoint middle minterm. -/
+lemma read_once_exchange {n : ℕ} {φ : DMFormula n} (hRO : PositiveReadOnce φ)
+    {M N P : Finset (Fin n)}
+    (hM : IsMinterm (evalSet φ) M) (hN : IsMinterm (evalSet φ) N)
+    (hP : IsMinterm (evalSet φ) P) (hsub : P ⊆ M ∪ N)
+    (havoid : Disjoint P (M ∩ N)) :
+    ∃ Q, evalSet φ Q = true ∧ Q ⊆ (M ∪ N) \ P := by
+  obtain ⟨Q, hQ, hQs⟩ := term_exchange hRO
+    (minterm_is_term hRO hM) (minterm_is_term hRO hN) (minterm_is_term hRO hP) hsub havoid
+  exact ⟨Q, term_true hQ Finset.Subset.rfl, hQs⟩
+
+end ReadOnceExchange
+
+namespace SaturatedReadOnce
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1904_aux.InputSupport
+open PEqualNP.Outside.L_meta_1904_aux.ReadOnceExchange
+
+def Forest {n : ℕ} (L : List (Finset (Fin n)))
+    (w : (Fin n → Bool) → List Bool) (W : Finset ℕ) : Prop :=
+  ∃ F : ℕ → DMFormula n,
+    (∀ j ∈ W, PositiveReadOnce (F j) ∧ vars (F j) = L.getD j ∅ ∧
+      ∀ x, (F j).eval x = (w x).getD j false) ∧
+    ∀ i ∈ W, ∀ j ∈ W, i ≠ j → Disjoint (vars (F i)) (vars (F j))
+
+def Saturated {n : ℕ} (t : ℕ) (L : List (Finset (Fin n)))
+    (w : (Fin n → Bool) → List Bool) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion (fun j => L.getD j ∅)).card = t + W.card → Forest L w W
+
+lemma saturation_nonempty {n : ℕ} {t : ℕ} {L : List (Finset (Fin n))}
+    (hc : Cnt t L) {W : Finset ℕ}
+    (hs : (W.biUnion (fun j => L.getD j ∅)).card = t + W.card)
+    {j : ℕ} (hj : j ∈ W) : (L.getD j ∅).Nonempty := by
+  by_contra hn
+  have hz := Finset.not_nonempty_iff_eq_empty.mp hn
+  have he : W.biUnion (fun j => L.getD j ∅) =
+      (W.erase j).biUnion (fun j => L.getD j ∅) := by
+    conv_lhs => rw [← Finset.insert_erase hj]
+    rw [Finset.biUnion_insert, hz, Finset.empty_union]
+  have hbound := hc (W.erase j)
+  have hcard := Finset.card_erase_add_one hj
+  rw [he] at hs
+  omega
+
+lemma saturated_inputs {n : ℕ} (hn : 0 < n) :
+    Saturated 0 (inputSupps n) (fun x => List.ofFn x) := by
+  intro W hs
+  have hvalid (j : ℕ) (hj : j ∈ W) : j < n := by
+    have hne := saturation_nonempty cnt_inputs hs hj
+    by_contra hjn
+    have hz : (inputSupps n).getD j ∅ = ∅ := List.getD_eq_default _ _ (by simp [inputSupps]; omega)
+    rw [hz] at hne
+    exact Finset.not_nonempty_empty hne
+  let F : ℕ → DMFormula n := fun j =>
+    if h : j < n then .lit ⟨j, h⟩ true else .lit ⟨0, hn⟩ true
+  refine ⟨F, ?_, ?_⟩
+  · intro j hj
+    have hv := hvalid j hj
+    refine ⟨by simp [F, hv, PositiveReadOnce], ?_, ?_⟩
+    · simp [F, hv, vars, inputSupps]
+    · intro x
+      simp [F, hv, DMFormula.eval]
+  · intro i hi j hj hij
+    have hvi := hvalid i hi
+    have hvj := hvalid j hj
+    simp only [F, dite_eq_left hvi, dite_eq_left hvj, vars, Finset.disjoint_singleton_left,
+      Finset.mem_singleton]
+    intro he
+    exact hij (congrArg Fin.val he)
+
+lemma saturated_step {n : ℕ} (t : ℕ) (L : List (Finset (Fin n)))
+    (w : (Fin n → Bool) → List Bool) (g : Gate)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hg : g.inputs.length ≤ 2)
+    (hlen : ∀ x, (w x).length = L.length) (hc : Cnt t L) (hsat : Saturated t L w) :
+    Saturated (t + 1) (L ++ [gateSupp L g])
+      (fun x => w x ++ [g.op.eval (g.inputs.map (fun i => (w x).getD i false))]) := by
+  classical
+  intro W hs
+  have hnew : L.length ∈ W := by
+    by_contra hn
+    have he : W.biUnion (fun j => (L ++ [gateSupp L g]).getD j ∅) =
+        W.biUnion (fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hn (e ▸ hj))
+    rw [he] at hs
+    have := hc W
+    omega
+  let V := W.erase L.length ∪ g.inputs.toFinset
+  have hsub : W.biUnion (fun j => (L ++ [gateSupp L g]).getD j ∅) ⊆
+      V.biUnion (fun j => L.getD j ∅) := by
+    intro i hi
+    obtain ⟨j, hjW, hij⟩ := Finset.mem_biUnion.mp hi
+    by_cases hjl : j = L.length
+    · subst j
+      rw [getD_snoc_eq] at hij
+      obtain ⟨a, ha, hia⟩ := (mem_gateSupp L g i).mp hij
+      exact Finset.mem_biUnion.mpr ⟨a, Finset.mem_union_right _ (List.mem_toFinset.mpr ha), hia⟩
+    · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+      exact Finset.mem_biUnion.mpr ⟨j,
+        Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨hjl, hjW⟩), hij⟩
+  have hvc : V.card ≤ (W.erase L.length).card + g.inputs.toFinset.card := Finset.card_union_le _ _
+  have hic : g.inputs.toFinset.card ≤ g.inputs.length := List.toFinset_card_le _
+  have hwe : (W.erase L.length).card + 1 = W.card := Finset.card_erase_add_one hnew
+  have hbound := hc V
+  have hsupport := Finset.card_le_card hsub
+  have hvcard : V.card = W.card + 1 := by omega
+  have hsV : (V.biUnion (fun j => L.getD j ∅)).card = t + V.card := by omega
+  have hinputcard : g.inputs.toFinset.card = 2 := by omega
+  have hinputlen : g.inputs.length = 2 := by omega
+  have hdis : Disjoint (W.erase L.length) g.inputs.toFinset :=
+    Finset.card_union_eq_card_add_card.mp (by change V.card = _; omega)
+  obtain ⟨a, b, hablist⟩ : ∃ a b, g.inputs = [a, b] := by
+    refine ⟨g.inputs[0]'(by omega), g.inputs[1]'(by omega), ?_⟩
+    exact List.eq_getElem_of_length_eq_two g.inputs hinputlen
+  have hab : a ≠ b := by
+    intro he
+    subst b
+    simp [hablist] at hinputcard
+  have haV : a ∈ V := Finset.mem_union_right _ (by simp [hablist])
+  have hbV : b ∈ V := Finset.mem_union_right _ (by simp [hablist])
+  have holdV {j : ℕ} (hj : j ∈ W) (hjnew : j ≠ L.length) : j ∈ V :=
+    Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨hjnew, hj⟩)
+  have holdne {j : ℕ} (hj : j ∈ W) (hjnew : j ≠ L.length) : j ≠ a ∧ j ≠ b := by
+    have hn : j ∉ g.inputs.toFinset := fun h =>
+      Finset.disjoint_left.mp hdis (Finset.mem_erase.mpr ⟨hjnew, hj⟩) h
+    simpa [hablist] using hn
+  obtain ⟨F, hF, hFd⟩ := hsat V hsV
+  have hA := hF a haV
+  have hB := hF b hbV
+  let φ : DMFormula n := if g.op = GateOp.and then .and (F a) (F b) else .or (F a) (F b)
+  have hφ : PositiveReadOnce φ := by
+    dsimp [φ]
+    split <;> exact ⟨hA.1, hB.1, hFd a haV b hbV hab⟩
+  have hφvars : vars φ = vars (F a) ∪ vars (F b) := by dsimp [φ]; split <;> rfl
+  have hφsupp : vars φ = gateSupp L g := by
+    rw [hφvars, hA.2.1, hB.2.1]
+    simp [gateSupp, hablist]
+  have hφeval : ∀ x, φ.eval x = g.op.eval (g.inputs.map (fun i => (w x).getD i false)) := by
+    intro x
+    rcases hop with hop | hop <;>
+      simp [φ, hop, DMFormula.eval, hablist, GateOp.eval, hA.2.2 x, hB.2.2 x]
+  let F' : ℕ → DMFormula n := fun j => if j = L.length then φ else F j
+  refine ⟨F', ?_, ?_⟩
+  · intro j hj
+    by_cases hjnew : j = L.length
+    · subst j
+      refine ⟨by simpa [F'] using hφ, ?_, ?_⟩
+      · simpa [F', getD_snoc_eq] using hφsupp
+      · intro x
+        rw [show F' L.length = φ by simp [F'], ← hlen x, getD_snoc_eq]
+        exact hφeval x
+    · have hjF := hF j (holdV hj hjnew)
+      refine ⟨by simpa [F', hjnew] using hjF.1, ?_, ?_⟩
+      · rw [show F' j = F j by simp [F', hjnew], getD_snoc_ne _ _ _ _ hjnew]
+        exact hjF.2.1
+      · intro x
+        rw [getD_snoc_ne _ _ _ _ (by rw [hlen x]; exact hjnew)]
+        simpa [F', hjnew] using hjF.2.2 x
+  · intro i hi j hj hij
+    by_cases hinew : i = L.length
+    · subst i
+      have hjnew : j ≠ L.length := Ne.symm hij
+      have hjV := holdV hj hjnew
+      have hjne := holdne hj hjnew
+      rw [show F' L.length = φ by simp [F'], show F' j = F j by simp [F', hjnew], hφvars]
+      exact Finset.disjoint_union_left.mpr ⟨hFd a haV j hjV hjne.1.symm,
+        hFd b hbV j hjV hjne.2.symm⟩
+    · by_cases hjnew : j = L.length
+      · subst j
+        have hiV := holdV hi hinew
+        have hine := holdne hi hinew
+        rw [show F' i = F i by simp [F', hinew], show F' L.length = φ by simp [F'], hφvars]
+        exact Finset.disjoint_union_right.mpr ⟨hFd i hiV a haV hine.1,
+          hFd i hiV b hbV hine.2⟩
+      · simpa [F', hinew, hjnew] using hFd i (holdV hi hinew) j (holdV hj hjnew) hij
+
+
+lemma saturated_suppsFrom {n : ℕ} (gs : List Gate) :
+    ∀ (t : ℕ) (L : List (Finset (Fin n))) (w : (Fin n → Bool) → List Bool),
+    (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) →
+    (∀ x, (w x).length = L.length) → Cnt t L → Saturated t L w →
+    Saturated (t + gs.length) (suppsFrom gs L) (fun x => wiresFrom gs (w x)) := by
+  induction gs with
+  | nil => intro t L w hm hl hc hs; exact hs
+  | cons g gs ih =>
+    intro t L w hm hl hc hs
+    have hg := hm g List.mem_cons_self
+    have hnext := saturated_step t L w g hg.1 hg.2 hl hc hs
+    have hcnext := cnt_step t L g hg.2 hc
+    have hresult := ih (t + 1) (L ++ [gateSupp L g])
+      (fun x => w x ++ [g.op.eval (g.inputs.map (fun i => (w x).getD i false))])
+      (fun a ha => hm a (List.mem_cons_of_mem g ha))
+      (fun x => by simp [hl x]) hcnext hnext
+    change Saturated (t + (gs.length + 1))
+      (suppsFrom gs (L ++ [gateSupp L g]))
+      (fun x => wiresFrom gs (w x ++ [g.op.eval (g.inputs.map (fun i => (w x).getD i false))]))
+    rw [show t + (gs.length + 1) = t + 1 + gs.length by omega]
+    exact hresult
+
+/-- Saturating the binary input-support bound forces a positive read-once formula. -/
+lemma read_once_of_saturated_support {n : ℕ} (C : Circuit) (hmono : Monotone2 C)
+    (hcard : ((suppsFrom C.gates (inputSupps n)).getD C.output ∅).card = C.size + 1) :
+    ∃ φ : DMFormula n, PositiveReadOnce φ ∧
+      vars φ = (suppsFrom C.gates (inputSupps n)).getD C.output ∅ ∧
+      ∀ x : Fin n → Bool, φ.eval x = C.eval (List.ofFn x) := by
+  have hn : 0 < n := by
+    have h := Finset.card_le_univ ((suppsFrom C.gates (inputSupps n)).getD C.output ∅)
+    simp only [Fintype.card_fin] at h
+    omega
+  have hs := saturated_suppsFrom C.gates 0 (inputSupps n) (fun x => List.ofFn x)
+    (fun g hg => ⟨by simpa using (hmono g hg).1, (hmono g hg).2⟩)
+    (fun x => by simp [inputSupps]) cnt_inputs (saturated_inputs hn)
+  have he : (({C.output} : Finset ℕ).biUnion
+      (fun j => (suppsFrom C.gates (inputSupps n)).getD j ∅)).card =
+      0 + C.gates.length + ({C.output} : Finset ℕ).card := by
+    simpa only [Finset.singleton_biUnion, Finset.card_singleton, Nat.zero_add, Circuit.size]
+      using hcard
+  obtain ⟨F, hF, hd⟩ := hs {C.output} he
+  have h := hF C.output (Finset.mem_singleton_self _)
+  exact ⟨F C.output, h.1, h.2.1, h.2.2⟩
+
+end SaturatedReadOnce
+
+namespace InputSupport
+
+open PEqualNP.CircuitLowerBounds
+
+def structuralSupport (n : ℕ) (C : Circuit) : Finset (Fin n) :=
+  (suppsFrom C.gates (inputSupps n)).getD C.output ∅
+
+lemma structuralSupport_card {n : ℕ} (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2) :
+    (structuralSupport n C).card ≤ C.size + 1 := by
+  have hc := cnt_suppsFrom C.gates 0 (inputSupps n) hfanin cnt_inputs {C.output}
+  simpa only [Finset.singleton_biUnion, Finset.card_singleton, zero_add,
+    structuralSupport, Circuit.size] using hc
+
+lemma structuralSupport_agreement {n : ℕ} (C : Circuit)
+    (x y : Fin n → Bool) (hxy : ∀ i ∈ structuralSupport n C, x i = y i) :
+    C.eval (List.ofFn x) = C.eval (List.ofFn y) := by
+  exact (agreement_wiresFrom x y C.gates _ _ _ (agreement_inputs x y)).2.2 C.output hxy
+
+lemma structural_clause_agreement {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n)) (C : Circuit)
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput B x)) = true ↔ UniqueClause.hit G x) :
+    ∀ x y : Fin n → Bool,
+      (∀ i ∈ structuralSupport m C,
+        UniqueClause.clause (B i) x ↔ UniqueClause.clause (B i) y) →
+      (UniqueClause.hit G x ↔ UniqueClause.hit G y) := by
+  intro x y hxy
+  have heq := structuralSupport_agreement C (clauseInput B x) (clauseInput B y) (by
+    intro i hi
+    apply Bool.eq_iff_iff.mpr
+    simpa only [clauseInput_eq_true] using hxy i hi)
+  rw [← hcorrect x, ← hcorrect y, heq]
+
+end InputSupport
+
+namespace SignatureP4
+
+open ReadOnceExchange
+
+def signature {α ι : Type*} [DecidableEq α] (B : ι → Finset α)
+    (U : Finset ι) (v : α) : Finset ι := U.filter (fun i => v ∈ B i)
+
+lemma erase_signature_mimic {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (G : SimpleGraph α) (B : ι → Finset α) (U : Finset ι)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hsmall : ∀ i ∈ U, (B i).card ≤ 2)
+    (huniform : ∀ v, ∀ i ∈ signature B U v,
+      (B i).card = (signature B U v).card)
+    {u v : α} (huv : G.Adj u v) {i : ι} (hi : i ∈ signature B U u) :
+    ∃ a, ¬ G.Adj a v ∧ (signature B U u).erase i ⊆ signature B U a := by
+  have hiU := (Finset.mem_filter.mp hi).1
+  have hcard : (signature B U u).card ≤ 2 := by
+    rw [← huniform u i hi]
+    exact hsmall i hiU
+  by_cases hlow : (signature B U u).card ≤ 1
+  · refine ⟨v, G.irrefl, ?_⟩
+    intro j hj
+    have hji : j = i := Finset.card_le_one.mp hlow j (Finset.mem_of_mem_erase hj) i hi
+    exact ((Finset.mem_erase.mp hj).1 hji).elim
+  · have htwo : (signature B U u).card = 2 := by omega
+    have herase : ((signature B U u).erase i).card = 1 := by
+      have := Finset.card_erase_add_one hi
+      omega
+    obtain ⟨j, hj⟩ := Finset.card_eq_one.mp herase
+    have hjS : j ∈ signature B U u := by
+      apply Finset.mem_of_mem_erase (a := i)
+      rw [hj]
+      exact Finset.mem_singleton_self j
+    obtain ⟨hjU, huB⟩ := Finset.mem_filter.mp hjS
+    have hBtwo : (B j).card = 2 := (huniform u j hjS).trans htwo
+    have hBerase : ((B j).erase u).card = 1 := by
+      have := Finset.card_erase_add_one huB
+      omega
+    obtain ⟨a, ha⟩ := Finset.card_eq_one.mp hBerase
+    have haerase : a ∈ (B j).erase u := by rw [ha]; exact Finset.mem_singleton_self a
+    have hane := (Finset.mem_erase.mp haerase).1
+    have haB := Finset.mem_of_mem_erase haerase
+    refine ⟨a, fun hav => hpacking j hjU u huB a haB hane.symm v ⟨huv, hav⟩, ?_⟩
+    rw [hj]
+    exact Finset.singleton_subset_iff.mpr (Finset.mem_filter.mpr ⟨hjU, haB⟩)
+
+lemma edge_signature_minterm {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (G : SimpleGraph α) (B : ι → Finset α) (U : Finset ι) (F : Finset ι → Bool)
+    (hmono : ∀ S T, S ⊆ T → F S = true → F T = true)
+    (hcorrect : ∀ u v, F (signature B U u ∪ signature B U v) = true ↔ G.Adj u v)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hsmall : ∀ i ∈ U, (B i).card ≤ 2)
+    (huniform : ∀ v, ∀ i ∈ signature B U v,
+      (B i).card = (signature B U v).card)
+    {u v : α} (huv : G.Adj u v) :
+    IsMinterm F (signature B U u ∪ signature B U v) := by
+  have essential {a b : α} (hab : G.Adj a b) {i : ι}
+      (hi : i ∈ signature B U a) {T : Finset ι}
+      (hT : T ⊆ signature B U a ∪ signature B U b) (hFT : F T = true) : i ∈ T := by
+    by_contra hiT
+    obtain ⟨c, hcb, hmimic⟩ := erase_signature_mimic G B U hpacking hsmall huniform hab hi
+    have hsub : T ⊆ signature B U c ∪ signature B U b := by
+      intro j hj
+      rcases Finset.mem_union.mp (hT hj) with hja | hjb
+      · have hji : j ≠ i := by intro e; subst j; exact hiT hj
+        exact Finset.mem_union_left _ (hmimic (Finset.mem_erase.mpr ⟨hji, hja⟩))
+      · exact Finset.mem_union_right _ hjb
+    exact hcb ((hcorrect c b).mp (hmono _ _ hsub hFT))
+  refine ⟨(hcorrect u v).mpr huv, ?_⟩
+  intro T hT hFT i hi
+  rcases Finset.mem_union.mp hi with hi | hi
+  · exact essential huv hi hT hFT
+  · apply essential huv.symm hi _ hFT
+    simpa only [Finset.union_comm] using hT
+
+lemma signature_disjoint_adj {α ι : Type*} [DecidableEq α]
+    (G : SimpleGraph α) (B : ι → Finset α) (U : Finset ι)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    {u v : α} (huv : G.Adj u v) :
+    Disjoint (signature B U u) (signature B U v) := by
+  apply Finset.disjoint_left.mpr
+  intro i hi hj
+  obtain ⟨hiU, hu⟩ := Finset.mem_filter.mp hi
+  exact hind i hiU u hu v (Finset.mem_filter.mp hj).2 huv
+
+lemma signature_disjoint_common {α ι : Type*} [DecidableEq α]
+    (G : SimpleGraph α) (B : ι → Finset α) (U : Finset ι)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    {u v w : α} (hne : u ≠ v) (huw : G.Adj u w) (hvw : G.Adj v w) :
+    Disjoint (signature B U u) (signature B U v) := by
+  apply Finset.disjoint_left.mpr
+  intro i hi hj
+  obtain ⟨hiU, hu⟩ := Finset.mem_filter.mp hi
+  exact hpacking i hiU u hu v (Finset.mem_filter.mp hj).2 hne w ⟨huw, hvw⟩
+
+lemma no_three_edge_walk_to_nonedge {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (G : SimpleGraph α) (B : ι → Finset α) (U : Finset ι) (F : Finset ι → Bool)
+    (hmono : ∀ S T, S ⊆ T → F S = true → F T = true)
+    (hcorrect : ∀ u v, F (signature B U u ∪ signature B U v) = true ↔ G.Adj u v)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hsmall : ∀ i ∈ U, (B i).card ≤ 2)
+    (huniform : ∀ v, ∀ i ∈ signature B U v,
+      (B i).card = (signature B U v).card)
+    (hexchange : ∀ M N P, IsMinterm F M → IsMinterm F N → IsMinterm F P →
+      P ⊆ M ∪ N → Disjoint P (M ∩ N) →
+      ∃ Q, F Q = true ∧ Q ⊆ (M ∪ N) \ P)
+    {u v w z : α} (huv : G.Adj u v) (hvw : G.Adj v w) (hwz : G.Adj w z)
+    (huz : ¬ G.Adj u z) : False := by
+  have huwne : u ≠ w := by intro e; subst w; exact huz hwz
+  have hvzne : v ≠ z := by intro e; subst z; exact huz huv
+  have duw := signature_disjoint_common G B U hpacking huwne huv hvw.symm
+  have dvz := signature_disjoint_common G B U hpacking hvzne hvw hwz.symm
+  have dvw := signature_disjoint_adj G B U hind hvw
+  let M := signature B U u ∪ signature B U v
+  let N := signature B U w ∪ signature B U z
+  let P := signature B U v ∪ signature B U w
+  have hM : IsMinterm F M := edge_signature_minterm G B U F hmono hcorrect hpacking hsmall huniform huv
+  have hN : IsMinterm F N := edge_signature_minterm G B U F hmono hcorrect hpacking hsmall huniform hwz
+  have hP : IsMinterm F P := edge_signature_minterm G B U F hmono hcorrect hpacking hsmall huniform hvw
+  have hsub : P ⊆ M ∪ N := by
+    intro i hi
+    rcases Finset.mem_union.mp hi with hi | hi
+    · exact Finset.mem_union_left _ (Finset.mem_union_right _ hi)
+    · exact Finset.mem_union_right _ (Finset.mem_union_left _ hi)
+  have havoid : Disjoint P (M ∩ N) := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hiMN
+    obtain ⟨hiM, hiN⟩ := Finset.mem_inter.mp hiMN
+    rcases Finset.mem_union.mp hi with hi | hi
+    · rcases Finset.mem_union.mp hiN with hiw | hiz
+      · exact Finset.disjoint_left.mp dvw hi hiw
+      · exact Finset.disjoint_left.mp dvz hi hiz
+    · rcases Finset.mem_union.mp hiM with hiu | hiv
+      · exact Finset.disjoint_left.mp duw hiu hi
+      · exact Finset.disjoint_left.mp dvw hiv hi
+  obtain ⟨Q, hFQ, hQ⟩ := hexchange M N P hM hN hP hsub havoid
+  have hQsub : Q ⊆ signature B U u ∪ signature B U z := by
+    intro i hi
+    obtain ⟨hiMN, hiP⟩ := Finset.mem_sdiff.mp (hQ hi)
+    rcases Finset.mem_union.mp hiMN with hiM | hiN
+    · rcases Finset.mem_union.mp hiM with hiu | hiv
+      · exact Finset.mem_union_left _ hiu
+      · exact (hiP (Finset.mem_union_left _ hiv)).elim
+    · rcases Finset.mem_union.mp hiN with hiw | hiz
+      · exact (hiP (Finset.mem_union_right _ hiw)).elim
+      · exact Finset.mem_union_right _ hiz
+  exact huz ((hcorrect u z).mp (hmono _ _ hQsub hFQ))
+
+lemma formula_support_agreement {m : ℕ} (φ : PEqualNP.MetaComplexity.DMFormula m)
+    (x y : Fin m → Bool) (hxy : ∀ i ∈ vars φ, x i = y i) : φ.eval x = φ.eval y := by
+  induction φ with
+  | lit i b =>
+      have hi := hxy i (Finset.mem_singleton_self i)
+      simp only [PEqualNP.MetaComplexity.DMFormula.eval, hi]
+  | and φ ψ ihφ ihψ =>
+      have hl := ihφ (fun i hi => hxy i (Finset.mem_union_left _ hi))
+      have hr := ihψ (fun i hi => hxy i (Finset.mem_union_right _ hi))
+      simp only [PEqualNP.MetaComplexity.DMFormula.eval, hl, hr]
+  | or φ ψ ihφ ihψ =>
+      have hl := ihφ (fun i hi => hxy i (Finset.mem_union_left _ hi))
+      have hr := ihψ (fun i hi => hxy i (Finset.mem_union_right _ hi))
+      simp only [PEqualNP.MetaComplexity.DMFormula.eval, hl, hr]
+
+lemma read_once_no_three_edge_walk_to_nonedge {α : Type*} [DecidableEq α] {m : ℕ}
+    (G : SimpleGraph α) (B : Fin m → Finset α) (U : Finset (Fin m))
+    (φ : PEqualNP.MetaComplexity.DMFormula m) (hRO : PositiveReadOnce φ)
+    (hvars : vars φ ⊆ U)
+    (hcorrect : ∀ u v, φ.eval (fun i => decide (u ∈ B i ∨ v ∈ B i)) = true ↔ G.Adj u v)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hsmall : ∀ i ∈ U, (B i).card ≤ 2)
+    (huniform : ∀ v, ∀ i ∈ signature B U v,
+      (B i).card = (signature B U v).card)
+    {u v w z : α} (huv : G.Adj u v) (hvw : G.Adj v w) (hwz : G.Adj w z)
+    (huz : ¬ G.Adj u z) : False := by
+  apply no_three_edge_walk_to_nonedge G B U (evalSet φ)
+    (fun S T hST hS => ?_) (fun a b => ?_) hind hpacking hsmall huniform
+    (fun M N P hM hN hP hsub havoid => read_once_exchange hRO hM hN hP hsub havoid)
+    huv hvw hwz huz
+  · obtain ⟨R, hR, hRS⟩ := eval_has_term hRO hS
+    exact term_true hR (hRS.trans hST)
+  · have heq : evalSet φ (signature B U a ∪ signature B U b) =
+        φ.eval (fun i => decide (a ∈ B i ∨ b ∈ B i)) := by
+      apply formula_support_agreement
+      intro i hi
+      have hiU := hvars hi
+      simp [signature, hiU]
+    rw [heq]
+    exact hcorrect a b
+
+lemma pair_input_correct_of_encoder {α : Type*} [DecidableEq α] {m : ℕ}
+    (G : SimpleGraph α) (B : Fin m → Finset α)
+    (F : (Fin m → Bool) → Bool) (encode : (α → Bool) → Fin m → Bool)
+    (hencode : ∀ x i, encode x i = true ↔ ∃ a ∈ B i, x a = true)
+    (hcorrect : ∀ x, F (encode x) = true ↔
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true) :
+    ∀ u v, F (fun i => decide (u ∈ B i ∨ v ∈ B i)) = true ↔ G.Adj u v := by
+  intro u v
+  let x : α → Bool := fun a => decide (a = u ∨ a = v)
+  have henc : encode x = fun i => decide (u ∈ B i ∨ v ∈ B i) := by
+    funext i
+    apply Bool.eq_iff_iff.mpr
+    rw [hencode]
+    simp only [x, decide_eq_true_eq]
+    constructor
+    · rintro ⟨a, ha, rfl | rfl⟩
+      · exact Or.inl ha
+      · exact Or.inr ha
+    · rintro (hu | hv)
+      · exact ⟨u, hu, Or.inl rfl⟩
+      · exact ⟨v, hv, Or.inr rfl⟩
+  rw [← henc, hcorrect]
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    have ha' : a = u ∨ a = v := of_decide_eq_true ha
+    have hb' : b = u ∨ b = v := of_decide_eq_true hb
+    rcases ha' with rfl | rfl <;> rcases hb' with rfl | rfl
+    · exact (G.irrefl hab).elim
+    · exact hab
+    · exact hab.symm
+    · exact (G.irrefl hab).elim
+  · intro huv
+    exact ⟨u, v, huv, by simp [x], by simp [x]⟩
+
+end SignatureP4
+
+namespace PackingSources
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma three_edge_walk_packing_gate_lower_bound {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hind : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (InputSupport.clauseInput B x)) = true ↔
+        UniqueClause.hit G x)
+    {u v w z : Fin n} (huv : G.Adj u v) (hvw : G.Adj v w) (hwz : G.Adj w z)
+    (huz : ¬ G.Adj u z) :
+    n ≤ C.size := by
+  classical
+  let U := InputSupport.structuralSupport m C
+  have hU : U.card ≤ C.size + 1 :=
+    InputSupport.structuralSupport_card C (fun g hg => (hC g hg).2)
+  have hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y := by
+    intro x y hxy
+    exact (InputSupport.structural_clause_agreement G B C hcorrect x y hxy).mp
+  have hnU := card_le_used_packing_sources G B U hne (fun i _ => hpacking i) hagree
+  by_contra hnot
+  have heq : n = U.card := by omega
+  have hsat : U.card = C.size + 1 := by omega
+  have hsmall := equality_forces_singletons_or_pairs G B U hne htri
+    (fun i _ => hind i) (fun i _ => hpacking i) hagree heq
+  have huniform := WeightedEquality.uniform_incidence_of_card_eq
+    (Finset.univ : Finset (Fin n)) U B
+    (fun a _ => small_subfamily_of_essential_vertex G B U a (hne a)
+      (fun i _ => hpacking i) hagree) (by simpa using heq)
+  obtain ⟨φ, hRO, hvars, hsem⟩ :=
+    SaturatedReadOnce.read_once_of_saturated_support (n := m) C hC hsat
+  have hpair := SignatureP4.pair_input_correct_of_encoder G B φ.eval
+    (InputSupport.clauseInput B)
+    (fun x i => InputSupport.clauseInput_eq_true B x i)
+    (by intro x; rw [hsem]; exact hcorrect x)
+  apply SignatureP4.read_once_no_three_edge_walk_to_nonedge G B U φ hRO
+    (by rw [hvars]; exact Finset.Subset.rfl) hpair
+    (fun i _ => hind i) (fun i _ => hpacking i) hsmall
+    (fun a i hi => (huniform a (Finset.mem_univ a)).2 i hi) huv hvw hwz huz
+
+end PackingSources
+
 end PEqualNP.Outside.L_meta_1904_aux
