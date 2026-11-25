@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-84/certificate/path25/Remap.lean:67:37: warning: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [gate, List.map_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

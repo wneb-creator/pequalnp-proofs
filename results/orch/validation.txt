@@ -1,16 +1,22 @@
-PARTIAL CHECKPOINT: L-meta-9502
-Proved lower67: every representing AND/OR circuit has at least 67 gates.
-A separate compiled certificate constructs a 76-gate representation.
-The posted statement needs at least 72 gates and remains open.
-File: lean/PEqualNP/Outside/L_meta_9502.lean (1981 lines).
-lake build PEqualNP.Outside.L_meta_9502: PASS (exit 0), 5149 jobs.
-Compiled axiom audit: lower67 and finite-search exclusion/completeness use only propext, Classical.choice, Quot.sound.
-Additional compiled components and full diagnostics are under results/orch/.
-Local checker: FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
-No final theorem for the posted statement is claimed. No PR opened for this checkpoint.
-Cleanup pass: not applicable to incomplete proof.
-Independent review: lean_setup, PASS for named partial; root, PASS for UniqueOr helper and singleton/pair corollaries.
-UniqueOr source (294lines, including neighborhood constraints) and compiled axiom audit pass; only standard three axioms. Source reviewed independently of author.
-Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
-TIMING total=101.3 subagents=7
-Structural checkpoint: semantic compiler, exact live budget, OR-family updates, class-cardinality≤2, 14-path hitting bound and zero-mask substitutions compile. These are components; their assembly into the final theorem is still pending.
+COMPLETE LEAN PROOF: L-meta-9502
+File: lean/PEqualNP/Outside/L_meta_9502.lean
+Exact posted theorem: no representing Monotone2 circuit with at most71 gates.
+Proof gives72≤C.size, using66 forced inputs and14 disjoint inducedP4s.
+Source SHA256:457f97ff669899edeff9e392a55c75221cf4ce5b711231c15ddbeae5acede6cd
+Lines:1965; bytes:86348.
+lake build PEqualNP.Outside.L_meta_9502: PASS exit0.
+Build completed successfully (5149 jobs).
+Full stdout/stderr: final-build.stdout/final-build.stderr.
+Separate exact-statement example and compiled axiom audit: PASS exit0.
+Axioms: [propext, Classical.choice, Quot.sound].
+Official local checker: FAULT exit3, not a judgment on the proof.
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+Targeted pinned Defs dependencies are cached; full Mathlib artifacts do not fit available disk. No Mathlib source build or lake update was used.
+Cleanup pass: skipped because the official checker cannot run with the available offline cache. Line counts before/after skipped pass:1965→1965.
+Required formatting completed: one outer helper namespace, one final theorem, one allowed import, no forbidden tokens/quotes/attributes; exact statement text matches.
+Independent red-team review: PASS (lean_setup, lean_certificate, representation_strategy, circuit_search, artifact_requirements).
+P9DagTwoTrees is a preserved research artifact only: initialstate+101 sampled table entries checked, no complete finite exclusion claimed; it is not part of the final proof or PR.
+Eight initial null desk replies are recorded verbatim in desk-wait-log.txt; full owned-lease log in desk-log.txt.
+Research sources and diagnostics will remain accessible in this checkpoint's history; the final PR tree will add only the named proof file.
+Sub-agents: status_audit, lean_setup, artifact_requirements, circuit_search, representation_strategy, lean_certificate, row_graph (7 unique agents).
+TIMING total=113.6 subagents=7

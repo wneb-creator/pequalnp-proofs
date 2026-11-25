@@ -1,0 +1,11 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_9502.lean",
+  "sha256": "457f97ff669899edeff9e392a55c75221cf4ce5b711231c15ddbeae5acede6cd",
+  "lines": 1965,
+  "bytes": 86348,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "exact_posted_statement": true,
+  "failures": []
+}

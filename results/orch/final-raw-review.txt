@@ -1,0 +1,18 @@
+Independent mathematical red-team review by representation_strategy
+UTC: 2026-11-25T12:38:03.963040+00:00
+Source: /tmp/oec/pequalnp-pilot-84/lower-bound/FinalRaw.lean
+SHA256: f0f88f29c8e0a8bdb9b749794d8a9fbc27562bc2b0b991db72ada1194e20f62b
+Verdict: PASS (mathematical/source review; whole-file build and local checker run belong to root)
+
+The final statement is byte-for-byte identical to the posted statement.txt.
+No sorry, admit, axiom declaration, or native_decide occurs.
+The temporary freeStep parameter in helper lemmas is discharged by family_free_step and Structural.free_step before Backward.backward is used.
+The live normalization retains all 66 physical inputs using directed cuts, with no assumption about unpromised multi-input circuit behavior.
+The final semantic agreement translates abstract wire pairs to oneEach inputs using injectivity of the 66 input projection functions and dependency on inputSet66.
+Singleton rejection follows from monotonicity and the graph diagonal being false.
+Every exceptional OR class contains at most one left and one right input because rows and columns are distinct; union cardinality is at most twice the number of classes.
+Fourteen explicitly checked vertex-disjoint induced P4s force any deletion set making the residual pairgraph Free to have cardinality at least14.
+The final budget is66+K.card<=C.size+1. Together with14<=2*K.card this implies72<=C.size, contradicting the assumed bound71.
+Fresh AND alias cases require distinct t,p,q; live normalization supplies them, so no duplicate-operand exceptional-class gap remains.
+
+Root is separately consolidating namespace blocks, converting helper theorem declarations to lemma, and removing stale/incompatible comments. Those formatting transformations require the final build/checker and a final source check.

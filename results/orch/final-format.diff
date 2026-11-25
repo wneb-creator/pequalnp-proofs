@@ -1,0 +1,299 @@
+--- FinalRawChecked
++++ L_meta_9502
+@@ -1,10 +1,8 @@
+ import PEqualNP.Defs
+ 
+--- The live-set search and its completeness proof are adapted from
+--- lean/PEqualNP/Outside/L_meta_6345.lean in this repository, widened from 64 to 36
+--- (true entry, false entry) pairs; the rows, the 10-gate search and the conclusion are new.
+-
+-namespace PEqualNP.Outside.L_meta_9502.FullCompile
++namespace PEqualNP.Outside.L_meta_9502
++
++namespace FullCompile
+ 
+ open scoped Classical
+ 
+@@ -24,7 +22,7 @@
+     ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+       ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest)
+ 
+-theorem compress {ops : α → α → Finset α} {goal : α} {k : ℕ} {available : Finset α}
++lemma compress {ops : α → α → Finset α} {goal : α} {k : ℕ} {available : Finset α}
+     (h : build ops goal k available) : ∃ s ⊆ available, live ops goal k s := by
+   induction k generalizing available with
+   | zero =>
+@@ -57,7 +55,7 @@
+           fun h => hzout (hs h), rest, rfl, ?_⟩⟩
+         simpa [rest, Finset.insert_erase hzmem] using hrun
+ 
+-theorem live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
++lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+     (h : live ops goal k s) : s.card ≤ k + 1 := by
+   induction k generalizing s with
+   | zero => change s = {goal} at h; simp [h]
+@@ -71,7 +69,7 @@
+       have h₂ := Finset.card_insert_le b rest
+       omega
+ 
+-theorem live_separates {ops : α → α → Finset α} {goal : α} (D : α → Prop)
++lemma live_separates {ops : α → α → Finset α} {goal : α} (D : α → Prop)
+     (hd : D goal) (hops : ∀ a b, ∀ z ∈ ops a b, D z → D a ∨ D b)
+     {k : ℕ} {s : Finset α} (h : live ops goal k s) : ∃ w ∈ s, D w := by
+   induction k generalizing s with
+@@ -86,7 +84,7 @@
+         · exact ⟨b, hb, h⟩
+       · exact ⟨w, by simp [hw], hD⟩
+ 
+-theorem first_live {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
++lemma first_live {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+     (h : live ops goal (k + 1) s) :
+     s = {goal} ∨
+     ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+@@ -409,32 +407,29 @@
+   rw [hv,Function.update_eq_self]
+   exact hF x
+ 
+-end PEqualNP.Outside.L_meta_9502.FullCompile
+-
+-
+-namespace PEqualNP.Outside.L_meta_9502.Structural
++end FullCompile
++
++namespace Structural
+ 
+ universe u
+ variable {α : Type u} [DecidableEq α]
+ 
+ def on (a c : α) : α → Bool := fun i => decide (i = a) || decide (i = c)
+ 
+-theorem on_iff (a c i : α) : on a c i = true ↔ i = a ∨ i = c := by simp [on]
+-
+-/-- `F` depends only on `N`. -/
++lemma on_iff (a c i : α) : on a c i = true ↔ i = a ∨ i = c := by simp [on]
++
+ def Dep (F : (α → Bool) → Bool) (N : Finset α) : Prop :=
+   ∀ x y : α → Bool, (∀ i ∈ N, x i = y i) → F x = F y
+ 
+-/-- `F` is off at no wire, and accepted pairs of wires not accepted alone have no path. -/
+ def Free (F : (α → Bool) → Bool) : Prop :=
+   F (fun _ => false) = false ∧ ∀ a b c d, F (on a a) = false → F (on b b) = false →
+     F (on c c) = false → F (on d d) = false → F (on a c) = true → F (on a d) = true →
+     F (on b c) = true → F (on b d) = true
+ 
+-theorem bool_ext {a b : Bool} (h : a = true ↔ b = true) : a = b := by
++lemma bool_ext {a b : Bool} (h : a = true ↔ b = true) : a = b := by
+   cases a <;> cases b <;> simp_all
+ 
+-theorem free_or {F : (α → Bool) → Bool} {N : Finset α} (hd : Dep F N) (hf : Free F) {t p q : α}
++lemma free_or {F : (α → Bool) → Bool} {N : Finset α} (hd : Dep F N) (hf : Free F) {t p q : α}
+     (hp : p ∉ N.erase t) (hq : q ∉ N.erase t) (z : α) (hz : z ∉ N) :
+     Free fun x => F (Function.update x t (x p || x q)) := by
+   classical
+@@ -481,7 +476,7 @@
+     simp only [key]
+     exact hf.2 _ _ _ _
+ 
+-theorem free_and_lift {F : (α → Bool) → Bool} {N : Finset α} (hd : Dep F N) {t p q : α}
++lemma free_and_lift {F : (α → Bool) → Bool} {N : Finset α} (hd : Dep F N) {t p q : α}
+     (hf : Free (fun x => F (Function.update x t false)))
+     (ht : t ∈ N) (hpq : p ≠ q) (hp : p ∉ N.erase t) (hq : q ∉ N.erase t) (z : α) (hz : z ∉ N) :
+     Free fun x => F (Function.update x t (x p && x q)) := by
+@@ -553,7 +548,7 @@
+     exact hzF
+   · intro a b c d ha hb hc hd' hac had hbc
+     beta_reduce at ha hb hc hd' hac had hbc
+-    -- a neighbour of `p` or `q` is the other one
++
+     have nb : ∀ e f, (e = p ∨ e = q) →
+         F (Function.update (on f f) t (on f f p && on f f q)) = false →
+         (F (Function.update (on e f) t (on e f p && on e f q)) = true →
+@@ -604,9 +599,6 @@
+         simp only [kill_eq] at hfree
+         exact hfree ha hb hc hd' hac had hbc
+ 
+-
+-
+-
+ def kill (E : Finset α) (x : α → Bool) : α → Bool :=
+   fun i => if i ∈ E then false else x i
+ 
+@@ -690,7 +682,6 @@
+   by_cases he : i ∈ E
+   · simp [kill, he]
+   · simpa only [kill, ite_eq_right he] using hxy i (Finset.mem_sdiff.mpr ⟨hi, he⟩)
+-
+ 
+ lemma kill_update_zero (E : Finset α) (x : α → Bool) (t : α) :
+     Function.update (kill E x) t false = kill (insert t E) x := by
+@@ -792,7 +783,6 @@
+     (hpN : p ∉ N.erase t) (z : α) (hz : z ∉ N) :
+     Free (fun x => F (Function.update (kill D x) t (kill D x p || kill D x q))) := by
+   simpa only [Bool.or_comm] using free_mask_or_old_left hd hf hED ht hq hp hpN z hz
+-
+ 
+ def ORClass (F : (α → Bool) → Bool) (S : Finset α) : Prop :=
+   ∀ a ∈ S, ∀ b ∈ S, ∀ x : α → Bool,
+@@ -1063,7 +1053,6 @@
+   have hfront := class_frontier_card rest p q
+   rw [Finset.card_insert_of_notMem ht]
+   omega
+-
+ 
+ def classPair (a b : α) : α → Bool := fun x => decide (x = a) || decide (x = b)
+ 
+@@ -1142,7 +1131,6 @@
+   · exact fun a ha b hb => hclass a (Finset.mem_inter.mp ha).1 b (Finset.mem_inter.mp hb).1
+   · exact fun a ha => (Finset.mem_inter.mp ha).2
+ 
+-
+ lemma orClasses_valid_union_card {ι κ : Type*} [Fintype ι] [Fintype κ]
+     (F : (α → Bool) → Bool) (A : ι → κ → Bool) (left : ι → α) (right : κ → α)
+     (hpair : ∀ u v, F (classPair (left u) (right v)) = A u v)
+@@ -1168,7 +1156,6 @@
+       orClass_valid_card_le_two F A left right hpair hrows hcols S (hK S hS)
+     _ = 2 * K.card := by simp [Nat.mul_comm]
+ 
+-
+ def cycle33 (a b : Fin 33) : Bool :=
+   decide (∃ i : Fin 11,
+     ((a.val = i.val ∨ a.val = 11 + i.val) ∧
+@@ -1223,8 +1210,6 @@
+   have hc := Fintype.card_le_of_injective f hf
+   simpa using hc
+ 
+-
+-
+ def zeroWires (S : Finset α) (x : α → Bool) : α → Bool :=
+   fun i => if i ∈ S then false else x i
+ 
+@@ -1236,7 +1221,6 @@
+     have hiq : i ≠ q := fun h => hq (h ▸ hi)
+     simp [zeroWires, hi, on, hip, hiq]
+   · simp [zeroWires, hi]
+-
+ 
+ def leftWire (a : Fin 33) : Fin 66 := ⟨a.val, by omega⟩
+ def rightWire (b : Fin 33) : Fin 66 := ⟨33 + b.val, by omega⟩
+@@ -1256,7 +1240,7 @@
+   have hc := Fintype.card_le_of_injective f hf
+   simpa using hc
+ 
+-theorem cycle33_free_deletion_lower_generic
++lemma cycle33_free_deletion_lower_generic
+     (wire : Fin 66 → α) (hinj : Function.Injective wire)
+     (F : (α → Bool) → Bool)
+     (hrep : ∀ a b : Fin 33, F (on (wire (leftWire a)) (wire (rightWire b))) = cycle33 a b)
+@@ -1286,10 +1270,9 @@
+   rw [he4] at hf
+   exact Bool.noConfusion hf
+ 
+-
+-end PEqualNP.Outside.L_meta_9502.Structural
+-
+-namespace PEqualNP.Outside.L_meta_9502.FullCompile
++end Structural
++
++namespace FullCompile
+ open scoped Classical
+ section Budget
+ variable {α : Type}
+@@ -1342,8 +1325,8 @@
+ 
+ end Budget
+ 
+-end PEqualNP.Outside.L_meta_9502.FullCompile
+-namespace PEqualNP.Outside.L_meta_9502.Structural
++end FullCompile
++namespace Structural
+ 
+ universe u
+ variable {α : Type u} [DecidableEq α]
+@@ -1352,7 +1335,7 @@
+   (E.erase t ∪ ({p, q} ∩ rest)) ∪
+     (if isOr = true ∧ t ∈ E then ({p, q} \ rest) else ∅)
+ 
+-theorem free_step {F : (α → Bool) → Bool} {rest E : Finset α} {t p q : α}
++lemma free_step {F : (α → Bool) → Bool} {rest E : Finset α} {t p q : α}
+     (hd : Dep F (insert t rest)) (hf : Free (fun x => F (kill E x)))
+     (hEN : E ⊆ insert t rest) (ht : t ∉ rest)
+     (hpq : p ≠ q) (htp : t ≠ p) (htq : t ≠ q)
+@@ -1450,9 +1433,9 @@
+           rw [hD]
+           exact free_mask_or_fresh hd hf hte (hpFreshE hp) (hqFreshE hq) (by simpa only [hN] using hp) (by simpa only [hN] using hq) z hz
+ 
+-end PEqualNP.Outside.L_meta_9502.Structural
+-
+-namespace PEqualNP.Outside.L_meta_9502.Backward
++end Structural
++
++namespace Backward
+ open FullCompile Structural
+ open scoped Classical
+ variable {ι : Type}
+@@ -1586,9 +1569,8 @@
+       agrees goal F ∧ N.card + K.card ≤ k+1 :=
+   backward_with_step family_free_step hR hl
+ 
+-end PEqualNP.Outside.L_meta_9502.Backward
+-
+-namespace PEqualNP.Outside.L_meta_9502
++end Backward
++
+ open scoped Classical
+ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.Represents
+ namespace SemanticBridge
+@@ -1708,10 +1690,8 @@
+     exact directed_right hr _
+ 
+ end SemanticBridge
+-end PEqualNP.Outside.L_meta_9502
+-
+-
+-namespace PEqualNP.Outside.L_meta_9502.SingletonBridge
++
++namespace SingletonBridge
+ 
+ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.Represents
+ 
+@@ -1779,7 +1759,6 @@
+     split_ifs with hk
+     · exact op_mono g (hg g (by simp)) _ _ H
+     · exact H i
+-
+ 
+ def inp (N : ℕ) (P : Finset ℕ) : List Bool := List.ofFn fun i : Fin N => decide ((i : ℕ) ∈ P)
+ 
+@@ -1884,10 +1863,9 @@
+   rw [hn] at ho
+   exact Bool.noConfusion ho
+ 
+-end PEqualNP.Outside.L_meta_9502.SingletonBridge
+-
+-
+-namespace PEqualNP.Outside.L_meta_9502.Finish
++end SingletonBridge
++
++namespace Finish
+ open scoped Classical
+ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.Represents
+ open FullCompile Structural
+@@ -1961,11 +1939,15 @@
+   rw [Finset.inter_eq_left.mpr hunion] at hc
+   omega
+ 
+-end PEqualNP.Outside.L_meta_9502.Finish
++end Finish
++
++end PEqualNP.Outside.L_meta_9502
++
++open PEqualNP.Outside.L_meta_9502
+ 
+ set_option maxRecDepth 10000 in
+-open PEqualNP.Outside.L_meta_9502 in
+-theorem PEqualNP.Outside.L_meta_9502 : ¬ PEqualNP.Represents.RepSizeAtMost (fun a b : Fin 33 => decide (∃ i : Fin 11, ((a.val = i.val ∨ a.val = 11 + i.val) ∧ (b.val = (i.val + 1) % 11 ∨ b.val = 22 + i.val)) ∨ ((b.val = i.val ∨ b.val = 11 + i.val) ∧ (a.val = (i.val + 1) % 11 ∨ a.val = 22 + i.val)))) 71 := by
++theorem PEqualNP.Outside.L_meta_9502 :
++    ¬ PEqualNP.Represents.RepSizeAtMost (fun a b : Fin 33 => decide (∃ i : Fin 11, ((a.val = i.val ∨ a.val = 11 + i.val) ∧ (b.val = (i.val + 1) % 11 ∨ b.val = 22 + i.val)) ∨ ((b.val = i.val ∨ b.val = 11 + i.val) ∧ (a.val = (i.val + 1) % 11 ∨ a.val = 22 + i.val)))) 71 := by
+   intro h
+   obtain ⟨C,hm,hs,hr⟩ := h
+   change PEqualNP.Represents.Represents SemanticBridge.graph C at hr
