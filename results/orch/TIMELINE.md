@@ -29,3 +29,4 @@
 - 2026-11-25T07:41:16.349040+00:00: strategy review after restart: corrected cofactor route to24+2, capped one-dirty bridge08:05, queued relaxed co-output and bounded-distance repair. Official focusedcache restoration and no-build Defs verification passed.
 - 2026-11-25T07:47:14.663247+00:00: final format-compliant accepting-path, selected dirty-path and first-mixed-growth lemmas passed Lean and independent review; preserving exact sources/logs. These are conditional structural results, not the posted bound.
 - 2026-11-25T07:51:40.365771+00:00: live-localized RootCover (514lines) compiled and independently reviewed; preserving conditional root-pair coverage, without any claimed circuit-size conclusion.
+- 2026-11-25T07:54:59.232127+00:00: SelectedLabels recursion (76lines) compiled and independently reviewed; explicit label assumptions for the conditional cover bridge are discharged.
