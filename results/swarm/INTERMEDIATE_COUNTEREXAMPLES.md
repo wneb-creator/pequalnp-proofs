@@ -1,6 +1,6 @@
 Intermediate counterexamples for L-meta-4970
 
-Neither construction refutes the posted gap. Both satisfy its hypotheses and its conclusion.
+None of these constructions refutes the posted gap. Each satisfies its hypotheses and its conclusion.
 
 Available witness centers versus AND count
 
@@ -44,3 +44,20 @@ For an independent set U, force its variables to true. Count a gate as erased if
 Independent exhaustive checking covered all 256 input assignments and all 66 independent sets. The maximum erased-gate count is 6. The five maximal independent sets give counts 5,6,6,6,5. Consequently, the proposed existence of U erasing at least |E| gates is false.
 
 For U consisting of all private leaves, u remains nonconstant but becomes unused when v becomes true. A stronger argument would have to account for this additional redundancy. The checked generic cofactor budget itself remains valid.
+
+Counting only pure OR gates and OR gates below the output
+
+Use left vertices a,b,c,d and right vertices u,v,w,z, with edges au,av,aw,bw,cz,dz. Compute:
+
+    r = u OR v
+    g = a AND r
+    s = a OR b
+    h = w OR g
+    k = s AND h
+    t = c OR d
+    m = t AND z
+    out = k OR m
+
+The three pure OR gates r,s,t supply all required witnesses. Only out is an OR gate whose entire function is bounded by the output function. Thus these two semantic classes contain four OR gates, less than |E|-1=5. The remaining OR gate h is essential to this nested-cover implementation.
+
+Two independent evaluations checked all 256 assignments, C4-freeness, the witness sets, raw OR reach, and the minimum vertex cover. The cover number is 3, and the full posted bound is equality: 6+3=8+1. This circuit has a safe AND below another AND, so it does not refute a variant restricted to top-form circuits.

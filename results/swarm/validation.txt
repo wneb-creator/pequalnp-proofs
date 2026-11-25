@@ -14,21 +14,28 @@ RootEdgeCount SHA256: 466967bc5d5994e6be39506da66da36522634ce7d1b46505476db30d69
 Official full-gap checker: not run, because no full candidate exists.
 Initial gap-list reduction guard: REFUSED, row lacks reductions:true.
 
-Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check.
-TIMING total=64.6 subagents=17
+Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
+TIMING total=89.1 subagents=19
 
 RootEdgeCount now also constructs a witness-center cover of size <= OR count; its full-bound closure has an explicit additional budget premise, not established universally.
 Helper3StarCountV2 connected-component and one-center toolkit: independent build and source review PASS.
 CofactorBudget: pinned build and independent build/source review PASS; proves restricted essential support plus constant/bypass-erased gate count <= circuit size+1.
 CofactorBudget SHA256: 7255dd13cf5ef9b73e6a33e1e5a9020ed59184295961427f03d373fd3191cfbc
-Available-center cover <= AND count: refuted by independently exhaustive Fano construction. Ordinary minimum vertex cover <= AND count remains unresolved.
+Available-center cover <= AND count: refuted by independently exhaustive Fano construction. Ordinary minimum vertex cover <= AND count is now proved separately in OrdinaryAnd.lean under the posted T0 hypothesis.
 Existence of independent assignment erasing >= E.card gates by constant/bypass alone: refuted by independently exhaustive 7-edge tree construction.
 Live-row reduction guard: REFUSED, row still lacks reductions:true. No guard bypass attempted.
 
-Measurement scope: 9 responsive external helper jobs plus 8 local agent threads, including 2 nested local agents; external helpers own internal teams are not included.
+Measurement scope: 9 responsive external helper jobs plus 10 local agent threads, including 4 nested local agents; external helpers own internal teams are not included.
 H1PartialV2 at helper SHA 4348340c2290de4c632e9297e68d0f06c893bd23: root pinned build PASS. Its star-form closure retains an extra pure-top-operand premise.
 Helper3StarCountV3 at helper SHA a7ec7e53f5adf3b632bb0654e54d1b08bd7634e5: root pinned build PASS; external independent source/axiom review PASS.
 H5EdgeActive at helper SHA 87f88d391a403d76a655db7912519c4a46225777: independent root pinned build and full source review PASS; file SHA256 b8fa3809270a1abcc496f660d7ce04ced8c485460b546bfc4de8cad3ab6049cd. It proves only edge-active normalization for nonempty E.
 LexMin: root pinned build PASS; generic existence of a minimum for four natural-number measures, not a circuit lower bound.
 IncidenceBudget: author pinned build PASS and root source review PASS; finite incidence-cardinality inequality, with circuit budget supplied as a hypothesis.
 Full finite census reported by helper-2: 51 eligible graph shapes with side sizes at most 4 excluded by audited SAT encodings; computational evidence only, not a universal Lean proof.
+
+H8TopForm at helper SHA 53048c93e3ce2fbf3771362a353595b04800308f: independent root source/build PASS, including separate AND/OR nonincrease on the same circuit. Source SHA256 55da23b763c9b457811c271cc0d56b87ac833386cb6755468175c15fbaf9f591.
+OrdinaryAnd.lean: author build and independent pinned build/source/format/axiom review PASS. Exact AO2+C4-free+original circuitFun+posted T0 imply ordinary cover.card <= actual AND count; no served assumption.
+OrdinaryAnd SHA256: f5ddca8c01c874994a394642845748f411fffaec6322b3781fbb48493546f3b9
+OrdinaryAnd uses dual safe traces, two slots per matching edge, and an inlined namespace-renamed Konig proof from existing L_meta_6510.lean.
+Its count partition proves AND count + OR count = circuit size. full_bound_of_or_count explicitly assumes E.card <= OR count + 1; that assumption remains unproved.
+Independent audit of final principal lemmas reports only propext, Classical.choice, Quot.sound. The file is an auxiliary prefix, not a complete posted-gap submission.

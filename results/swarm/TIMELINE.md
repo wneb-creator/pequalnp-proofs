@@ -4,8 +4,8 @@ Swarm L-meta-4970 timeline (UTC)
 - 2026-11-25T22:10:01Z: Nine distinct full-proof/refutation assignments posted to helper-1 through helper-9.
 - 2026-11-25T22:11:01Z: Updated fork checkout from upstream; confirmed canonical desk module PEqualNP.Outside.L_meta_4970. Build setup lacks promised Lean/cache; restoring while proof work continues.
 
-Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check.
-TIMING total=64.6 subagents=17
+Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
+TIMING total=89.1 subagents=19
 
 - 2026-11-25T22:11:14+00:00: helper-1 first result: reusable L_meta_4990 leaf-count machinery; semantic star witnesses may contain AND bypasses.
 - 2026-11-25T22:12:11+00:00: helper-2 first result: IsAO2 excludes malformed-gate shortcuts; T resets at AND; finite counterexample search in preparation.
@@ -27,3 +27,10 @@ TIMING total=64.6 subagents=17
 - 2026-11-25T22:52:37Z: Reviewed partial checkpoint a4922716919bbb89fd918468a104e7eef97b7df5 committed; subsequent push to origin/pnp/swarm-L-meta-4970-orch succeeded. No FINAL.
 - 2026-11-25T23:05:02Z: Independent root review and pinned build of helper-5 edge-active normalization passed; every posted circuit hypothesis is preserved.
 - 2026-11-25T23:13:53Z: Four-measure minimization and generic incidence-graph budget compiled. All nine external helpers active; full statement still unresolved.
+
+- 2026-11-25T23:18:20Z: Reviewed partial checkpoint 763f9b2f426938e496d9575f4e7e614325b2c9a2 committed and subsequently pushed to the fork orch branch.
+- 2026-11-25T23:18:20Z: H8 top-form normalization and separate AND/OR nonincrease independently reviewed and built successfully. This is a normalization theorem only.
+- 2026-11-25T23:19:34Z: Independent eight-gate example refuted the proposed pure-OR-or-below-output counting shortcut; the posted bound holds with equality.
+- 2026-11-25T23:23:08Z: Workspace recovered after environment restart; watcher restarted from saved bus cursor and interrupted local proof tasks resumed.
+- 2026-11-25T23:31:02Z: Replanned around two-colour matching-slot injection; external helpers independently confirmed the mathematical argument.
+- 2026-11-25T23:38:22Z: OrdinaryAnd.lean full helper build, independent semantic review, axiom audit, and format audit PASS. Exact posted AO2, C4-free, output, and T0 assumptions imply an ordinary cover with size at most the actual AND count. Full gap still lacks OR-count bound.
