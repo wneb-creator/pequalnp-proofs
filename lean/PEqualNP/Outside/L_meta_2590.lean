@@ -2369,6 +2369,127 @@ lemma no_dirty_eight {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
   rw [hz] at ha
   exact Finset.notMem_empty _ ha
 
+lemma opposite_slot_member {D : Dag} {u v : V} {f : ℕ × Bool}
+    (hf : Consumer D u f) (hvu : adj v u) : sem_bar f ∈ sem_W 6 D v := by
+  apply sem_mem_W.mpr
+  refine ⟨hf.1, hf.2.2.2.2.1 v (graph_ok.1 _ _ hvu), ?_⟩
+  change v ∉ supp 6 D (6 + f.1)
+  rw [hf.2.2.2.1]
+  exact Finset.notMem_empty _
+
+lemma eligible_pair {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) {v : V} (hv : v ∉ ineligSet 6 D) :
+    ∃ a ∈ ineligSet 6 D, ∃ b ∈ ineligSet 6 D, ∃ ea eb,
+      Consumer D a ea ∧ Consumer D b eb ∧ sem_bar ea ≠ sem_bar eb ∧
+      sem_W 6 D v = {sem_bar ea, sem_bar eb} := by
+  classical
+  obtain ⟨_, _, hI, _, _, _, _⟩ := small_budget h hc hl
+  obtain ⟨a, ha, b, hb, hab, hva, hvb⟩ :=
+    (independent_facts _ (inelig_independent h hc)).2 hI v hv
+  obtain ⟨ea, hea⟩ := consumer_exists h hc ha
+  obtain ⟨eb, heb⟩ := consumer_exists h hc hb
+  have hma := opposite_slot_member hea hva
+  have hmb := opposite_slot_member heb hvb
+  have hne : sem_bar ea ≠ sem_bar eb := by
+    intro heq
+    have hg : ea.1 = eb.1 := by simpa only [sem_bar] using congrArg Prod.fst heq
+    exact hab (consumers_injective hea heb hg)
+  have hp : ({sem_bar ea, sem_bar eb} : Finset (ℕ × Bool)) ⊆ sem_W 6 D v := by
+    intro f hf
+    rcases Finset.mem_insert.mp hf with rfl | hf
+    · exact hma
+    · exact (Finset.mem_singleton.mp hf) ▸ hmb
+  have hcard : ({sem_bar ea, sem_bar eb} : Finset (ℕ × Bool)).card = 2 := by simp [hne]
+  have heq : ({sem_bar ea, sem_bar eb} : Finset (ℕ × Bool)) = sem_W 6 D v :=
+    Finset.eq_of_subset_of_card_le hp (by rw [hcard]; exact exits_le_two h hc hl v)
+  exact ⟨a, ha, b, hb, ea, eb, hea, heb, hne, heq.symm⟩
+
+lemma all_exits_named {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) {v : V} {e : ℕ × Bool} (he : e ∈ sem_W 6 D v) :
+    ∃ u ∈ ineligSet 6 D, ∃ f, Consumer D u f ∧ e.1 = f.1 := by
+  classical
+  by_cases hv : v ∈ ineligSet 6 D
+  · obtain ⟨f, hf⟩ := consumer_exists h hc hv
+    rw [hf.2.2.2.2.2, Finset.mem_singleton] at he
+    exact ⟨v, hv, f, hf, congrArg Prod.fst he⟩
+  · obtain ⟨a, ha, b, hb, ea, eb, hea, heb, _, hW⟩ := eligible_pair h hc hl hv
+    rw [hW, Finset.mem_insert, Finset.mem_singleton] at he
+    rcases he with he | he
+    · exact ⟨a, ha, ea, hea, by simpa only [sem_bar] using congrArg Prod.fst he⟩
+    · exact ⟨b, hb, eb, heb, by simpa only [sem_bar] using congrArg Prod.fst he⟩
+
+lemma singleton_merges_empty {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) (v : V) : merges 6 D (carrierT 6 D {v}) = ∅ := by
+  classical
+  obtain ⟨b, hb, _, _, _, _, hr⟩ := small_budget h hc hl
+  have hcount := sem_code_count graph_ok h hc b hb v
+  rw [hr] at hcount
+  simp only [Finset.filter_empty, Finset.card_empty, add_zero] at hcount
+  apply Finset.card_eq_zero.mp
+  by_cases hv : v ∈ ineligSet 6 D
+  · obtain ⟨e, he⟩ := consumer_exists h hc hv
+    have hne := sem_mem_inelig.mp hv
+    rw [he.2.2.2.2.2] at hcount
+    simp [hne] at hcount
+    exact Finset.card_eq_zero.mpr hcount
+  · obtain ⟨_, _, _, _, ea, eb, _, _, hne, hW⟩ := eligible_pair h hc hl hv
+    have hel : v ∈ eligSet 6 D := by simpa [ineligSet] using hv
+    rw [hW] at hcount
+    simp [hne, hel] at hcount
+    exact Finset.card_eq_zero.mpr hcount
+
+lemma and_singletons_empty {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
+    supp 6 D (6 + j) = ∅ := by
+  classical
+  apply Finset.eq_empty_of_forall_notMem
+  intro v hv
+  have hs := hv
+  rw [sem_supp_and h.1 hj ht, Finset.mem_inter] at hs
+  have hm : j ∈ merges 6 D (carrierT 6 D {v}) := by
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_range.mpr hj, sem_mem_carrier1.mpr hv,
+      sem_mem_carrier1.mpr hs.1, sem_mem_carrier1.mpr hs.2⟩
+  rw [singleton_merges_empty h hc hl v] at hm
+  exact Finset.notMem_empty _ hm
+
+lemma and_cross_clean_unrestricted {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) {j : ℕ} (hj : j < D.length) (ht : tag D j = true) :
+    ∀ a ∈ supp 6 D (opA D j), ∀ b ∈ supp 6 D (opB D j), adj a b := by
+  intro a hA b hB
+  have he : (j, false) ∈ sem_W 6 D a := by
+    apply sem_mem_W.mpr
+    refine ⟨hj, ?_, ?_⟩
+    · simpa only [src, Bool.false_eq_true, ↓reduceIte] using hA
+    · rw [and_singletons_empty h hc hl hj ht]
+      exact Finset.notMem_empty _
+  obtain ⟨v, hv, e, hcon, hje⟩ := all_exits_named h hc hl he
+  obtain ⟨k, s⟩ := e
+  dsimp only at hje
+  subst k
+  cases s
+  · have hsv := hcon.2.2.1
+    simp only [src, Bool.false_eq_true, ↓reduceIte] at hsv
+    rw [hsv, Finset.mem_singleton] at hA
+    subst a
+    exact opposite_clean h hc hl hv hcon hB
+  · have hsv := hcon.2.2.1
+    simp only [src, ↓reduceIte] at hsv
+    rw [hsv, Finset.mem_singleton] at hB
+    subst b
+    exact graph_ok.1 _ _ (opposite_clean h hc hl hv hcon hA)
+
+lemma no_dirty_eight_unrestricted {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) (hl : D.length ≤ 8) {j : ℕ}
+    (hj : j < D.length) (ht : tag D j = true) (x : V → Bool)
+    (hv : val D x (6 + j) = true) : sem_Edge adj x := by
+  classical
+  by_contra hx
+  obtain ⟨a, ha, _⟩ := independent_wire_linear h.1
+    (fun j hj ht => and_cross_clean_unrestricted h hc hl hj ht) x hx (6 + j) (by omega) hv
+  rw [and_singletons_empty h hc hl hj ht] at ha
+  exact Finset.notMem_empty _ ha
+
 end C6
 
 end PEqualNP.Outside.L_meta_2590_aux
