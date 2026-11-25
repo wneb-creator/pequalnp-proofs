@@ -15,3 +15,5 @@
 2026-11-25T15:02:54.044846+00:00 all plane geometry/Read1-cost supporting strategies completed and independently reviewed. Full normalization not established. Fano26SAT started14:55:17 (45min); boundary annealer started15:01:32 (30min). New OR/AND-count route and bounded counterexample census in progress.
 
 2026-11-25 15:06:10 UTC: Second lease invalidated HTTP410 despite15:02renewal expiry15:22:18. Discovered15:07:34 and fullcurl-si diagnostic repeated15:08:15. Searches stopped15:08:19; no witness. Allcheckedcomponents frozen and preservation checkpoint prepared.
+
+2026-11-25T15:13:04.583506+00:00 Final ownership retry returned same2590lease plus max5holdings note. Stopped perbrief; no2590work/release. All checkedresults and complete interruptedsearch artifacts alreadyremote. No acceptedproof timestamp because noneaccepted.

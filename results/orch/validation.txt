@@ -47,3 +47,10 @@ Cleanup: not started; full checker cannot run in available storage.
 2026-11-25T15:02:54.004574+00:00 checkpoint: PlaneReadOneLower2262lines compiled; exact plane READ1 lower bound via upstreamL4897 plus checked geometry. FanoFiniteData and PlanePrivacy compiled; independent reviewPASS. These do not prove the posted unrestricted statement.
 
 Second lease invalidated at15:06:10UTC. PlaneBundle2522lines compiled as a standalone source and independently reviewed; exact copy is now namedL_meta_2583.lean. Latest namedlakebuild was326line version;2522line namedbuild not yet run. No postedtheorem, formatguard REFUSED (missingtheorem); fullchecker remainsblocked by fullMathlibcache. FanoSAT andannealer interrupted byleaseerror, noSAT/UNSAT certificate and no witness. StructuralAdjacentOr.lean is preserved UNVALIDATED (canceled143), unlike checkedcomponents.
+
+Final status: see FINAL.md. No full proof/refutation or PR. Stopped on repeated already-held lease note after required retry. Nulls0.
+Sub-agents: counterexample_search, lemma_routes, reduction_strategy, restriction_review, status_review, structural_proof
+TIMING total=86.8 subagents=6
+
+Final reviewer correction: the2522line bundle formatguard also REFUSED copied top-level helper declarations outside the allowed namespace layout (lines1929 onward), not only the absent final posted theorem. Full outputplane-format-final.txt. The preceding326line guard only lacked the postedtheorem. No guard refusal bypassed and no PRopened.
+Final report measurement: TIMING total=88.5 subagents=6
