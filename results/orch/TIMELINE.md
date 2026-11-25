@@ -47,3 +47,5 @@
 - 2026-11-25 20:18 UTC: Closed coverage pilot passed under6000MB: unary root2.92s, binary root2.21s, parent0 2.24s kernel. Root reviewed actual continuation parameters and exact restoration identities; earlier independent bucket proofs approved. Saved full source/log. Final frozen source review by gate_elimination underway; current posted statement is an exact textual match.
 
 - 2026-11-25 20:19 UTC: Strict normalization and recursive normalized evaluators proved equal to original look/look1 by fuel induction; kernel7.6ms. Root independently reviewed zero/successor cases and unchanged continuation fuel parameters. These are optional performance wrappers; original engine unchanged. Complete source/log saved.
+
+- 2026-11-25 20:25 UTC: Both strict-initial and recursive-normalized6k benchmark files passed. Kernel35.8s and36.6s respectively; recursive normalization offers no measured gain and will be omitted from final computational path. Root reviewed reuse of checked normalization equalities and closed batch assertions. Saving complete sources/logs before testing bounded two-worker checks and direct List lookups.

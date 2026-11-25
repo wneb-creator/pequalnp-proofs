@@ -1,0 +1,50 @@
+import took 5.27s
+parsing took 262ms
+elaboration took 204ms
+elaboration took 2.16s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 148ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 144ms
+linting took 211ms
+process pre-definitions took 304ms
+elaboration took 12.6s
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 114ms
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 165ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 114ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 338ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 628ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 306ms
+linting took 619ms
+elaboration took 142ms
+elaboration took 184ms
+elaboration took 2.54s
+type checking took 36.6s
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryChunk6000Recursive.lean:457:0: warning: Definition `compactBigChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+elaboration took 1.27s
+type checking took 651ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryChunk6000Recursive.lean:553:0: warning: Definition `binGroupsCover` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.762ms
+	blocked (unaccounted) 14.4ms
+	congr simp thm 35.8ms
+	declTypeLinter 196ms
+	elaboration 19.7s
+	fix level params 6.33ms
+	import 5.27s
+	initialization 45.5ms
+	instantiate metavars 69.5ms
+	interpretation 3.44s
+	let-to-have transformation 183ms
+	linting 1.08s
+	module linting 0.0788ms
+	parsing 467ms
+	process pre-definitions 635ms
+	share common exprs 100ms
+	simp 46.4ms
+	tactic execution 91.6ms
+	tacticAnalysis 180ms
+	type checking 37.4s
+	typeclass inference 7.19s
