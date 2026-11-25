@@ -1,14 +1,15 @@
 L-meta-2592 preservation checkpoint
 
-PARTIAL ONLY: the posted theorem is not yet proved. No proof PR has been opened.
-Additional checked components: first/uniqueNOT output exclusion and endpoint simplifications; two-constant projection-mass lemma (archived separately).
-Compiled supporting lemmas: general last-NOT factorization; Petersen15edges, no triangles/squares, independence4, cover6, cover-expression cost20, all10inputs essential.
+PARTIAL ONLY: the posted theorem is not proved. No proof PR is open.
+
 Command: lake build PEqualNP.Outside.L_meta_2592
 Exit: 0
-Complete stdout: empty
-Complete stderr: empty
-Named-file build: lake build PEqualNP.Outside.L_meta_2592; exit0. Full output: results/orch/build.stdout and build.stderr.
-Local checker on posted statement: not run; target theorem is absent.
+Complete build stdout/stderr: results/orch/build.stdout and build.stderr.
+Local checker on posted statement: not run; the exact target theorem is absent.
 
-Sub-agents: status_check (proof map, independent review, geometry), counterexample (SAT), lower_bound (structural bounds), lean_setup (bootstrap and review), partial_lean (finite facts), circuit_search (stochastic search)
-TIMING total=15 subagents=6
+Checked content in named file: general last-NOT factorization; Petersen finite graph invariants and all-input essentiality; restricted star-cover arithmetic bound; first/uniqueNOT output exclusion and endpoint simplifications; explicit20-gate monotone circuit computing the posted function.
+Separately checked and archived: MassTwo projection-counting lemma.
+Independent review records are in results/orch/REVIEW-*.md.
+
+Sub-agents: status_check (proof map, review, geometry), counterexample (SAT), lower_bound (structural bounds), lean_setup (bootstrap and review), partial_lean (finite facts and supporting proofs), circuit_search (stochastic search)
+TIMING total=19 subagents=6
