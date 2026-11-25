@@ -785,6 +785,53 @@ lemma circuit_pure_or_count (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
   ext w
   simp only [pureOrPaid, Finset.mem_filter, Finset.mem_range]
 
+lemma wireSupport_below (n : ℕ) (C : Circuit) (w : ℕ) (Q : Finset (Fin n))
+    (hbelow : ∀ x, wireValue n C w x = true → ∃ i ∈ Q, x i = true) :
+    wireSupport n C w ⊆ Q := by
+  intro i hi
+  obtain ⟨j, hj, hji⟩ := hbelow (fun k => decide (k = i)) ((wireSupport_mem n C w i).mp hi)
+  have heq : j = i := of_decide_eq_true hji
+  exact heq ▸ hj
+
+lemma wireValue_of_support (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (i : Fin n) (hi : i ∈ wireSupport n C w)
+    (x : Fin n → Bool) (hxi : x i = true) : wireValue n C w x = true := by
+  apply wireValue_increasing n C hC w (fun j => decide (j = i)) x
+  · intro j hj
+    have heq : j = i := of_decide_eq_true hj
+    exact heq ▸ hxi
+  · exact (wireSupport_mem n C w i).mp hi
+
+lemma pureOrPaid_true (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (x : Fin n → Bool) (hx : ∀ i ∈ Q, x i = true)
+    (w : ℕ) (hw : w ∈ pureOrPaid n C Q) : wireValue n C w x = true := by
+  have hp := (Finset.mem_filter.mp hw).2
+  have hne : (wireSupport n C w).Nonempty := Finset.card_pos.mp (by omega)
+  obtain ⟨i, hi⟩ := hne
+  apply wireValue_of_support n C hC w i hi x
+  exact hx i (wireSupport_below n C w Q hp.2.2.2 hi)
+
+lemma pureOrPaid_disjoint_false (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (x : Fin n → Bool) (hx : ∀ i ∈ Q, x i = true)
+    (A : Finset ℕ) (hA : ∀ w ∈ A, wireValue n C w x = false) :
+    Disjoint (pureOrPaid n C Q) A := by
+  apply Finset.disjoint_left.mpr
+  intro w hw hwA
+  have ht := pureOrPaid_true n C hC Q x hx w hw
+  rw [hA w hwA] at ht
+  contradiction
+
+lemma pureOrPaid_sub_gates (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
+    pureOrPaid n C Q ⊆ Finset.Ico n (n + C.size) := by
+  intro w hw
+  have hp := Finset.mem_filter.mp hw
+  exact Finset.mem_Ico.mpr ⟨hp.2.1, Finset.mem_range.mp hp.1⟩
+
+lemma pureOrPaid_card_le_size (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
+    (pureOrPaid n C Q).card ≤ C.size := by
+  have h := Finset.card_le_card (pureOrPaid_sub_gates n C Q)
+  simpa using h
+
 end PEqualNP.Outside.L_meta_4970_aux.Structural
 
 namespace PEqualNP.Outside.L_meta_4970.Pruning
@@ -912,5 +959,402 @@ lemma selected_dag_cover
       · simp [he] at hcard
   · simpa using hroot
 
+def selectedSupport (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) : Finset (Fin n) :=
+  if hw : w < n then {⟨w, hw⟩}
+  else if h : a w < w ∧ b w < w then
+    if fork w = true then selectedSupport n a b fork chooseLeft (a w) ∪
+      selectedSupport n a b fork chooseLeft (b w)
+    else if chooseLeft w = true then selectedSupport n a b fork chooseLeft (a w)
+      else selectedSupport n a b fork chooseLeft (b w)
+  else ∅
+termination_by w
+decreasing_by all_goals first | exact h.1 | exact h.2
+
+def selectedStep (n total : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w v : ℕ) : Prop :=
+  n ≤ w ∧ w < total ∧
+    if fork w = true then v = a w ∨ v = b w
+    else if chooseLeft w = true then v = a w else v = b w
+
+def follows (step : ℕ → ℕ → Prop) (root w : ℕ) : Prop :=
+  ∀ S : Set ℕ, root ∈ S → (∀ u ∈ S, ∀ v, step u v → v ∈ S) → w ∈ S
+
+lemma follows_refl (step : ℕ → ℕ → Prop) (root : ℕ) : follows step root root := by
+  intro S hS _
+  exact hS
+
+lemma follows_step (step : ℕ → ℕ → Prop) (root w v : ℕ)
+    (hw : follows step root w) (hv : step w v) : follows step root v := by
+  intro S hS hclosed
+  exact hclosed w (hw S hS hclosed) v hv
+
+noncomputable def selectedActive (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (root : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.range total).filter (follows (selectedStep n total a b fork chooseLeft) root)
+
+noncomputable def selectedUnions (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (root : ℕ) : Finset ℕ := by
+  classical
+  exact (selectedActive n total a b fork chooseLeft root).filter
+    (fun w => n ≤ w ∧ fork w = true)
+
+lemma selectedSupport_input (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) (hw : w < n) : selectedSupport n a b fork chooseLeft w = {⟨w, hw⟩} := by
+  rw [selectedSupport, dite_eq_left hw]
+
+lemma selectedSupport_gate (n : ℕ) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (w : ℕ) (hw : n ≤ w) (hp : a w < w ∧ b w < w) :
+    selectedSupport n a b fork chooseLeft w =
+      if fork w = true then selectedSupport n a b fork chooseLeft (a w) ∪
+        selectedSupport n a b fork chooseLeft (b w)
+      else if chooseLeft w = true then selectedSupport n a b fork chooseLeft (a w)
+        else selectedSupport n a b fork chooseLeft (b w) := by
+  rw [selectedSupport, dite_eq_right (Nat.not_lt.mpr hw), dite_eq_left hp]
+
+lemma selected_cover
+    {A B : Type*} (n total root : ℕ) (left : A → Fin n) (right : B → Fin n)
+    (edges : Finset (A × B)) (a b : ℕ → ℕ) (fork chooseLeft : ℕ → Bool)
+    (hit : ℕ → A → B → Prop)
+    (hroot : root < total)
+    (hparents : ∀ w, n ≤ w → w < total → a w < w ∧ b w < w)
+    (hinput : ∀ w (hw : w < n), ∀ u v, hit w u v → left u = ⟨w, hw⟩ ∨ right v = ⟨w, hw⟩)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true →
+      ∀ u v, hit w u v → hit (a w) u v ∨ hit (b w) u v)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true →
+      ∀ u v, hit w u v → hit (a w) u v ∧ hit (b w) u v)
+    (haccepted : ∀ u v, (u, v) ∈ edges → hit root u v) :
+    (∀ u v, (u, v) ∈ edges →
+      left u ∈ selectedSupport n a b fork chooseLeft root ∨
+      right v ∈ selectedSupport n a b fork chooseLeft root) ∧
+    (selectedSupport n a b fork chooseLeft root).card ≤
+      1 + (selectedUnions n total a b fork chooseLeft root).card := by
+  classical
+  let active := selectedActive n total a b fork chooseLeft root
+  let paid := selectedUnions n total a b fork chooseLeft root
+  let supp := selectedSupport n a b fork chooseLeft
+  let support : ℕ → Finset (Fin n) := fun w => if w ∈ active then supp w else ∅
+  let hits : ℕ → A → B → Prop := fun w u v => w ∈ active ∧ hit w u v
+  have root_mem : root ∈ active := by
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hroot, follows_refl _ _⟩
+  have mem_next (w v : ℕ) (hw : w ∈ active)
+      (hv : selectedStep n total a b fork chooseLeft w v) (hvw : v < w) : v ∈ active := by
+    have hs := Finset.mem_filter.mp hw
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (hvw.trans (Finset.mem_range.mp hs.1)),
+      follows_step _ root w v hs.2 hv⟩
+  have hpaid : Finset.range total ∩ paid = paid := by
+    apply Finset.inter_eq_right.mpr
+    intro w hw
+    exact (Finset.mem_filter.mp (Finset.mem_filter.mp hw).1).1
+  have result := selected_dag_cover left right edges n total root support hits paid hroot
+    (fun u v huv => ⟨root_mem, haccepted u v huv⟩) ?_ ?_
+  · simpa only [support, root_mem, ite_eq_left, hpaid] using result
+  · intro w hw
+    constructor
+    · dsimp only [support, supp]
+      split_ifs
+      · rw [selectedSupport_input n a b fork chooseLeft w hw]
+        simp
+      · simp
+    · intro u v ⟨hactive, hhit⟩
+      dsimp only [support]
+      rw [ite_eq_left hactive]
+      change left u ∈ selectedSupport n a b fork chooseLeft w ∨
+        right v ∈ selectedSupport n a b fork chooseLeft w
+      rw [selectedSupport_input n a b fork chooseLeft w hw]
+      simpa using hinput w hw u v hhit
+  · intro w hn hw
+    by_cases hactive : w ∈ active
+    · have hp := hparents w hn hw
+      have hs : supp w = if fork w = true then supp (a w) ∪ supp (b w)
+          else if chooseLeft w = true then supp (a w) else supp (b w) :=
+        selectedSupport_gate n a b fork chooseLeft w hn hp
+      by_cases hor : fork w = true
+      · have ha : a w ∈ active := mem_next w (a w) hactive
+          ⟨hn, hw, by simp only [hor, ite_eq_left, true_or]⟩ hp.1
+        have hb : b w ∈ active := mem_next w (b w) hactive
+          ⟨hn, hw, by simp only [hor, ite_eq_left, or_true]⟩ hp.2
+        right
+        left
+        refine ⟨Finset.mem_filter.mpr ⟨hactive, hn, hor⟩, a w, hp.1, b w, hp.2, ?_, ?_⟩
+        · simp only [support, hactive, ha, hb, ite_eq_left, hor] at hs ⊢
+          exact hs
+        · intro u v ⟨_, hv⟩
+          rcases hfork w hn hw hor u v hv with h | h
+          · exact Or.inl ⟨ha, h⟩
+          · exact Or.inr ⟨hb, h⟩
+      · left
+        by_cases hl : chooseLeft w = true
+        · have ha : a w ∈ active := mem_next w (a w) hactive
+            ⟨hn, hw, by simp [hor, hl]⟩ hp.1
+          refine ⟨a w, hp.1, ?_, ?_⟩
+          · simp only [support, hactive, ha, ite_eq_left, hor, ite_eq_right, hl] at hs ⊢
+            exact hs
+          · intro u v ⟨_, hv⟩
+            exact ⟨ha, (hchoose w hn hw hor u v hv).1⟩
+        · have hb : b w ∈ active := mem_next w (b w) hactive
+            ⟨hn, hw, by simp [hor, hl]⟩ hp.2
+          refine ⟨b w, hp.2, ?_, ?_⟩
+          · simp only [support, hactive, hb, ite_eq_left, hor, ite_eq_right, hl] at hs ⊢
+            exact hs
+          · intro u v ⟨_, hv⟩
+            exact ⟨hb, (hchoose w hn hw hor u v hv).2⟩
+    · right
+      right
+      refine ⟨by simp [support, hactive], ?_⟩
+      intro u v hv
+      exact hactive hv.1
+
+
+
+lemma selectedSupport_zero (n total : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (value : ℕ → Bool)
+    (hparents : ∀ w, n ≤ w → w < total → a w < w ∧ b w < w)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true → value w = false →
+      value (a w) = false ∧ value (b w) = false)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true → value w = false →
+      (if chooseLeft w = true then value (a w) else value (b w)) = false) :
+    ∀ w, w < total → value w = false →
+      ∀ i ∈ selectedSupport n a b fork chooseLeft w, value i.val = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hv i hi
+    by_cases hin : w < n
+    · rw [selectedSupport_input n a b fork chooseLeft w hin] at hi
+      have hi1 : i = ⟨w, hin⟩ := by simpa using hi
+      subst i
+      exact hv
+    · have hn : n ≤ w := Nat.le_of_not_lt hin
+      have hp := hparents w hn hw
+      rw [selectedSupport_gate n a b fork chooseLeft w hn hp] at hi
+      by_cases hor : fork w = true
+      · simp only [hor, ite_eq_left, Finset.mem_union] at hi
+        rcases hi with hi | hi
+        · exact ih _ hp.1 (hp.1.trans hw) (hfork w hn hw hor hv).1 i hi
+        · exact ih _ hp.2 (hp.2.trans hw) (hfork w hn hw hor hv).2 i hi
+      · have hc := hchoose w hn hw hor hv
+        by_cases hl : chooseLeft w = true
+        · simp [hor, hl] at hi hc
+          exact ih _ hp.1 (hp.1.trans hw) hc i hi
+        · simp [hor, hl] at hi hc
+          exact ih _ hp.2 (hp.2.trans hw) hc i hi
+
+lemma selectedActive_zero (n total root : ℕ) (a b : ℕ → ℕ)
+    (fork chooseLeft : ℕ → Bool) (value : ℕ → Bool)
+    (hzero : value root = false)
+    (hfork : ∀ w, n ≤ w → w < total → fork w = true → value w = false →
+      value (a w) = false ∧ value (b w) = false)
+    (hchoose : ∀ w, n ≤ w → w < total → fork w ≠ true → value w = false →
+      (if chooseLeft w = true then value (a w) else value (b w)) = false) :
+    ∀ w ∈ selectedActive n total a b fork chooseLeft root, value w = false := by
+  classical
+  intro w hw
+  have hr := (Finset.mem_filter.mp hw).2
+  apply hr {v | value v = false} hzero
+  intro u hu v ⟨hn, ht, hv⟩
+  change value v = false
+  by_cases hor : fork u = true
+  · simp only [hor, ite_eq_left] at hv
+    rcases hv with rfl | rfl
+    · exact (hfork u hn ht hor hu).1
+    · exact (hfork u hn ht hor hu).2
+  · have hc := hchoose u hn ht hor hu
+    by_cases hl : chooseLeft u = true
+    · simp [hor, hl] at hv hc
+      rw [hv]
+      exact hc
+    · simp [hor, hl] at hv hc
+      rw [hv]
+      exact hc
+
 end PEqualNP.Outside.L_meta_4970.Pruning
 
+namespace PEqualNP.Outside.L_meta_4970.Pruning
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970_aux.Structural
+
+def circuitFork (n : ℕ) (C : Circuit) (w : ℕ) : Bool := !(wireAnd n C w)
+
+def zeroChoice (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) : Bool :=
+  !(wireValue n C (wireLeft n C w) x)
+
+def pairInput {n : ℕ} (u v : Fin n) : Fin n → Bool :=
+  fun i => decide (i = u ∨ i = v)
+
+lemma circuit_selected_cover {A B : Type*} (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (root : ℕ) (left : A → Fin n) (right : B → Fin n)
+    (edges : Finset (A × B)) (chooseLeft : ℕ → Bool)
+    (hroot : root < n + C.size)
+    (haccepted : ∀ u v, (u, v) ∈ edges →
+      wireValue n C root (pairInput (left u) (right v)) = true) :
+    (∀ u v, (u, v) ∈ edges →
+      left u ∈ selectedSupport n (wireLeft n C) (wireRight n C) (circuitFork n C) chooseLeft root ∨
+      right v ∈ selectedSupport n (wireLeft n C) (wireRight n C) (circuitFork n C) chooseLeft root) ∧
+    (selectedSupport n (wireLeft n C) (wireRight n C) (circuitFork n C) chooseLeft root).card ≤
+      1 + (selectedUnions n (n + C.size) (wireLeft n C) (wireRight n C)
+        (circuitFork n C) chooseLeft root).card := by
+  apply selected_cover n (n + C.size) root left right edges (wireLeft n C) (wireRight n C)
+    (circuitFork n C) chooseLeft
+    (fun w u v => wireValue n C w (pairInput (left u) (right v)) = true) hroot
+    (wireModel_parents n C hC)
+  · intro w hw u v hh
+    rw [wireValue_input n C w hw] at hh
+    change decide ((⟨w, hw⟩ : Fin n) = left u ∨ (⟨w, hw⟩ : Fin n) = right v) = true at hh
+    rcases of_decide_eq_true hh with hh | hh
+    · exact Or.inl hh.symm
+    · exact Or.inr hh.symm
+  · intro w hn hw hor u v hh
+    have hnot : wireAnd n C w = false := by simpa [circuitFork] using hor
+    rw [wireModel_eval n C hC w hn hw, hnot] at hh
+    simpa using hh
+  · intro w hn hw hor u v hh
+    have hnot : wireAnd n C w = true := by simpa [circuitFork] using hor
+    rw [wireModel_eval n C hC w hn hw, hnot] at hh
+    simpa using hh
+  · exact haccepted
+
+lemma circuit_zero_policy (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x : Fin n → Bool) (w : ℕ) (hn : n ≤ w) (hw : w < n + C.size)
+    (hz : wireValue n C w x = false) :
+    (circuitFork n C w = true →
+      wireValue n C (wireLeft n C w) x = false ∧ wireValue n C (wireRight n C w) x = false) ∧
+    (circuitFork n C w ≠ true →
+      (if zeroChoice n C x w = true then wireValue n C (wireLeft n C w) x
+        else wireValue n C (wireRight n C w) x) = false) := by
+  rw [wireModel_eval n C hC w hn hw] at hz
+  constructor
+  · intro hor
+    have hnot : wireAnd n C w = false := by simpa [circuitFork] using hor
+    simpa [hnot] using hz
+  · intro hor
+    have hnot : wireAnd n C w = true := by simpa [circuitFork] using hor
+    simp only [hnot, ite_eq_left, Bool.and_eq_false_iff] at hz
+    by_cases hl : wireValue n C (wireLeft n C w) x = false
+    · simp [zeroChoice, hl]
+    · have hr := hz.resolve_left hl
+      have hl1 : wireValue n C (wireLeft n C w) x = true := Bool.eq_true_of_ne_false hl
+      simp [zeroChoice, hl1, hr]
+
+lemma circuit_selected_zero (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (root : ℕ) (x : Fin n → Bool) (hroot : root < n + C.size)
+    (hz : wireValue n C root x = false) :
+    (∀ i ∈ selectedSupport n (wireLeft n C) (wireRight n C) (circuitFork n C)
+      (zeroChoice n C x) root, x i = false) ∧
+    (∀ w ∈ selectedActive n (n + C.size) (wireLeft n C) (wireRight n C)
+      (circuitFork n C) (zeroChoice n C x) root, wireValue n C w x = false) := by
+  have hf := fun w hn hw hor hz => (circuit_zero_policy n C hC x w hn hw hz).1 hor
+  have hc := fun w hn hw hor hz => (circuit_zero_policy n C hC x w hn hw hz).2 hor
+  constructor
+  · intro i hi
+    have he := selectedSupport_zero n (n + C.size) (wireLeft n C) (wireRight n C)
+      (circuitFork n C) (zeroChoice n C x) (fun w => wireValue n C w x)
+      (wireModel_parents n C hC) hf hc root hroot hz i hi
+    simpa only [wireValue_input n C i.val i.isLt x] using he
+  · exact selectedActive_zero n (n + C.size) root (wireLeft n C) (wireRight n C)
+      (circuitFork n C) (zeroChoice n C x) (fun w => wireValue n C w x) hz hf hc
+
+lemma wireValue_true_bound (n : ℕ) (C : Circuit) (w : ℕ) (x : Fin n → Bool)
+    (hw : wireValue n C w x = true) : w < n + C.size := by
+  by_contra hn
+  have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+    change (wiresFrom C.gates (List.ofFn x)).length = _
+    simpa only [List.length_ofFn, Circuit.size] using length_wiresFrom C.gates (List.ofFn x)
+  have hfalse : wireValue n C w x = false := by
+    unfold PEqualNP.Outside.L_meta_4970_aux.Structural.wireValue
+    rw [List.getD_eq_default _ _ (by omega)]
+  rw [hfalse] at hw
+  contradiction
+
+lemma bipartite_selected_cover (p l : ℕ) (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p + l) C) (hE : E.Nonempty)
+    (hcomp : ∀ x : Fin (p + l) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (p + l) C x =
+        decide (∃ a b, (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (choice : ℕ → Bool) :
+    (∀ a b, (a, b) ∈ E →
+      Fin.castAdd l a ∈ selectedSupport (p + l) (wireLeft (p + l) C) (wireRight (p + l) C)
+        (circuitFork (p + l) C) choice C.output ∨
+      Fin.natAdd p b ∈ selectedSupport (p + l) (wireLeft (p + l) C) (wireRight (p + l) C)
+        (circuitFork (p + l) C) choice C.output) ∧
+    (selectedSupport (p + l) (wireLeft (p + l) C) (wireRight (p + l) C)
+      (circuitFork (p + l) C) choice C.output).card ≤
+      1 + (selectedUnions (p + l) (p + l + C.size) (wireLeft (p + l) C) (wireRight (p + l) C)
+        (circuitFork (p + l) C) choice C.output).card := by
+  have hacc : ∀ a b, (a, b) ∈ E → wireValue (p + l) C C.output
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+    intro a b he
+    have h := hcomp (pairInput (Fin.castAdd l a) (Fin.natAdd p b))
+    change wireValue (p + l) C C.output _ = _ at h
+    rw [h]
+    apply decide_eq_true
+    exact ⟨a, b, he, by simp [pairInput], by simp [pairInput]⟩
+  obtain ⟨⟨a, b⟩, hab⟩ := hE
+  have hroot := wireValue_true_bound (p + l) C C.output _ (hacc a b hab)
+  exact circuit_selected_cover (p + l) C hC C.output (Fin.castAdd l) (Fin.natAdd p)
+    E choice hroot hacc
+
+lemma selected_unions_disjoint_true (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (root : ℕ) (x : Fin n → Bool) (hroot : root < n + C.size)
+    (hz : wireValue n C root x = false) (P : Finset ℕ)
+    (hP : ∀ w ∈ P, wireValue n C w x = true) :
+    Disjoint P (selectedUnions n (n + C.size) (wireLeft n C) (wireRight n C)
+      (circuitFork n C) (zeroChoice n C x) root) := by
+  classical
+  apply Finset.disjoint_left.mpr
+  intro w hw hu
+  have hf := (circuit_selected_zero n C hC root x hroot hz).2 w (Finset.mem_filter.mp hu).1
+  have ht := hP w hw
+  rw [hf] at ht
+  contradiction
+
+lemma bipartite_minimum_cover_pruning (p l : ℕ) (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p + l) C) (hE : E.Nonempty)
+    (hcomp : ∀ x : Fin (p + l) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (p + l) C x =
+        decide (∃ a b, (a, b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (S : Finset (Fin (p + l)))
+    (hcover : ∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S)
+    (hminimum : ∀ R : Finset (Fin (p + l)),
+      (∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ R ∨ Fin.natAdd p b ∈ R) → S.card ≤ R.card) :
+    let x : Fin (p + l) → Bool := fun i => decide (i ∉ S)
+    let choice := zeroChoice (p + l) C x
+    selectedSupport (p + l) (wireLeft (p + l) C) (wireRight (p + l) C)
+      (circuitFork (p + l) C) choice C.output = S ∧
+    S.card ≤ 1 + (selectedUnions (p + l) (p + l + C.size) (wireLeft (p + l) C)
+      (wireRight (p + l) C) (circuitFork (p + l) C) choice C.output).card := by
+  classical
+  dsimp only
+  let x : Fin (p + l) → Bool := fun i => decide (i ∉ S)
+  let choice := zeroChoice (p + l) C x
+  let support := selectedSupport (p + l) (wireLeft (p + l) C) (wireRight (p + l) C)
+    (circuitFork (p + l) C) choice C.output
+  have hz : wireValue (p + l) C C.output x = false := by
+    change PEqualNP.MetaComplexity.circuitFun (p + l) C x = false
+    rw [hcomp]
+    apply decide_eq_false
+    rintro ⟨a, b, hab, ha, hb⟩
+    have hna : Fin.castAdd l a ∉ S := of_decide_eq_true ha
+    have hnb : Fin.natAdd p b ∉ S := of_decide_eq_true hb
+    exact (hcover a b hab).elim hna hnb
+  obtain ⟨⟨a, b⟩, hab⟩ := hE
+  have htrue : wireValue (p + l) C C.output (fun _ => true) = true := by
+    change PEqualNP.MetaComplexity.circuitFun (p + l) C (fun _ => true) = true
+    rw [hcomp]
+    exact decide_eq_true ⟨a, b, hab, rfl, rfl⟩
+  have hroot := wireValue_true_bound (p + l) C C.output _ htrue
+  have hs := bipartite_selected_cover p l E C hC ⟨(a, b), hab⟩ hcomp choice
+  have hsub : support ⊆ S := by
+    intro i hi
+    have hf := (circuit_selected_zero (p + l) C hC C.output x hroot hz).1 i hi
+    simpa [x] using hf
+  have heq : support = S := Finset.eq_of_subset_of_card_le hsub (hminimum support hs.1)
+  constructor
+  · exact heq
+  · have hc := hs.2
+    change support.card ≤ _ at hc
+    rw [heq] at hc
+    exact hc
+
+end PEqualNP.Outside.L_meta_4970.Pruning

@@ -15,3 +15,7 @@ Full target theorem still absent; no PR or exact-statement acceptance.
 
 Checkpoint 4: 916-line named module builds; actual IsAO2 circuit support/count foundation and disjoint aggregation independently reviewed.
 Full theorem remains absent.
+
+Checkpoint 5: named module builds with actual minimum-cover pruning and paid-gate truth/disjointness facts.
+Research artifact counterexample.lean refutes an AND-only intermediate, not L-meta-4970. Its separate build exited 0.
+Full posted theorem remains unproved.
