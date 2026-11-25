@@ -5638,4 +5638,1054 @@ lemma raw_or_pure_fin {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h w : ℕ)
 
 end HoistTransport
 
+namespace JunkActivity
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open MixedFrontier MixedReach MixedCut
+
+lemma operand_raw_or_region {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (g h a : ℕ) (ha : a ∈ ({g, h} : Finset ℕ)) (halt : a < C.gates.length) (b : Fin 2) :
+    opnd C a b < n ∨ ∃ k ∈ region n C g h, opnd C a b = n + k := by
+  by_cases hraw : opnd C a b < n
+  · exact Or.inl hraw
+  obtain ⟨k, heq⟩ : ∃ k, opnd C a b = n + k := ⟨opnd C a b - n, by omega⟩
+  have hbound := hAO.2.1 a halt _ (operand_mem C hAO a halt b)
+  have hklt : k < C.gates.length := by omega
+  refine Or.inr ⟨k, (region_mem C g h k).mpr ⟨hklt, a, ha, b, ?_⟩, heq⟩
+  rw [heq]
+  exact orReach_self n C k hklt
+
+lemma independent_side_nonempty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (a : ℕ) (ha : a ∈ junk G C) (b : Fin 2) : (side (n := n) C a b).Nonempty := by
+  have hamem : a ∈ ({g, h} : Finset ℕ) := by rwa [← hpair]
+  exact raw_or_region_support_nonempty G C hAO hT g h hpair hgh hhg _
+    (operand_raw_or_region C hAO g h a hamem (junk_data G C a ha).1 b)
+
+lemma independent_product {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (a : ℕ) (ha : a ∈ junk G C) (b : Fin 2) (x : Fin n → Bool) :
+    gateVal n C a x =
+      (ColorProjection.setOr (side (n := n) C a b) x &&
+        ColorProjection.setOr (side (n := n) C a (1 - b)) x) := by
+  have hamem : a ∈ ({g, h} : Finset ℕ) := by rwa [← hpair]
+  obtain ⟨halt, hop⟩ := junk_data G C a ha
+  have hsem : ∀ d : Fin 2, wireVal n C (opnd C a d) x =
+      ColorProjection.setOr (side (n := n) C a d) x := by
+    intro d
+    exact raw_or_region_wire_semantics G C hAO hT g h hpair hgh hhg _
+      (operand_raw_or_region C hAO g h a hamem halt d) x
+  have hrec := CriticalEdge.val_rec C hAO x a halt
+  have his : CriticalEdge.isAnd C a = true := by simp [CriticalEdge.isAnd, hop]
+  rw [his, if_pos rfl] at hrec
+  change gateVal n C a x = (wireVal n C (opnd C a 0) x && wireVal n C (opnd C a 1) x) at hrec
+  rw [hsem 0, hsem 1] at hrec
+  fin_cases b
+  · exact hrec
+  · change gateVal n C a x =
+      (ColorProjection.setOr (side (n := n) C a 1) x && ColorProjection.setOr (side (n := n) C a 0) x)
+    rw [Bool.and_comm]
+    exact hrec
+
+lemma independent_mixed_active {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (a : ℕ) (ha : a ∈ junk G C) (b : Fin 2)
+    (hmix : ∀ c : Bool, ∃ i ∈ side (n := n) C a b, s i = c) :
+    ∃ c : Bool, gateVal n C a (mono s c) = true := by
+  exact product_active_mono_of_mixed_factor C s a _ _
+    (independent_product G C hAO hT g h hpair hgh hhg a ha b)
+    hmix (independent_side_nonempty G C hAO hT g h hpair hgh hhg a ha (1 - b))
+
+lemma two_mixed_active {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c) :
+    ∀ a ∈ junk G C, ∃ c : Bool, gateVal n C a (mono s c) = true := by
+  intro a ha
+  have hamem : a ∈ ({g, h} : Finset ℕ) := by rwa [← hpair]
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hamem
+  rcases hamem with hag | hah
+  · subst a
+    exact independent_mixed_active G C s hAO hT g h hpair hgh hhg g ha bg hmixg
+  · subst a
+    exact independent_mixed_active G C s hAO hT g h hpair hgh hhg h ha bh hmixh
+
+end JunkActivity
+
+namespace ActualBoundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open MixedCut MixedFrontier MixedReach
+
+lemma source_boundary_data {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w u : ℕ)
+    (hu : u ∈ BoundarySources.sources n C (ActualCut.boundary n C s g h)
+      (ActualCut.wires n C s g h) w) :
+    (u < n ∨ ∃ k ∈ pureRegion n C s g h, u = n + k) ∧
+      (orIn n C u).Nonempty ∧ (∃ c : Bool, ∀ i ∈ orIn n C u, s i = c) ∧
+      ∀ x : Fin n → Bool, wireVal n C u x = ColorProjection.setOr (orIn n C u) x := by
+  exact ActualCut.boundary_pure G C s hAO hT g h hpair hgh hhg u
+    (BoundarySources.sources_subset n C _ _ w hu)
+
+lemma source_valid {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w u : ℕ)
+    (hu : u ∈ BoundarySources.sources n C (ActualCut.boundary n C s g h)
+      (ActualCut.wires n C s g h) w) : u < n + C.gates.length := by
+  rcases (source_boundary_data G C s hAO hT g h hpair hgh hhg w u hu).1 with
+    hraw | ⟨k, hk, rfl⟩
+  · omega
+  · have hklt := ((region_mem C g h k).mp (Finset.mem_filter.mp hk).1).1
+    omega
+
+lemma mixed_wire_semantics {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ ActualCut.wires n C s g h) (x : Fin n → Bool) :
+    wireVal n C w x = ColorProjection.setOr (orIn n C w) x := by
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+  exact raw_or_region_wire_semantics G C hAO hT g h hpair hgh hhg (n + k)
+    (Or.inr ⟨k, (Finset.mem_sdiff.mp hk).1, rfl⟩) x
+
+lemma source_support_union {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ ActualCut.wires n C s g h) :
+    (BoundarySources.sources n C (ActualCut.boundary n C s g h)
+      (ActualCut.wires n C s g h) w).biUnion (orIn n C) = orIn n C w := by
+  apply BoundaryColors.support_union_eq _ _ _ (wireVal n C)
+  · intro u hu x
+    exact (source_boundary_data G C s hAO hT g h hpair hgh hhg w u hu).2.2.2 x
+  · intro x
+    have heq := BoundarySources.wire_eq_sourceOr C hAO
+      (ActualCut.boundary n C s g h) (ActualCut.wires n C s g h)
+      (ActualCut.wires_or G C s hAO hT g h hpair hgh hhg)
+      (ActualCut.boundary_parents C s hAO g h) x w (Finset.mem_union_right _ hw)
+    change TwoOrBuild.sourceOr C.gates (List.ofFn x) _ = _
+    rw [← heq]
+    exact mixed_wire_semantics G C s hAO hT g h hpair hgh hhg w hw x
+
+lemma sources_hasBoth {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ ActualCut.wires n C s g h) :
+    TwoOrBuild.HasBoth (BoundaryColors.color (orIn n C) s)
+      (BoundarySources.sources n C (ActualCut.boundary n C s g h)
+        (ActualCut.wires n C s g h) w) := by
+  intro c
+  apply BoundaryColors.source_each_color _ _ (orIn n C w) s
+  · intro u hu
+    exact (source_boundary_data G C s hAO hT g h hpair hgh hhg w u hu).2.2.1
+  · exact source_support_union G C s hAO hT g h hpair hgh hhg w hw
+  · obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+    exact mixed_not_monochromatic s _ ((mixedRegion_mem C s g h k).mp hk).2
+
+lemma source_projection_semantics {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ ActualCut.wires n C s g h) (c : Bool) (x : Fin n → Bool) :
+    TwoOrBuild.sourceOr C.gates (List.ofFn x)
+      (TwoOrBuild.projectColor (BoundaryColors.color (orIn n C) s) c
+        (BoundarySources.sources n C (ActualCut.boundary n C s g h)
+          (ActualCut.wires n C s g h) w)) =
+      ColorProjection.setOr (ColorProjection.project (orIn n C w) s c) x := by
+  apply BoundaryColors.source_projection_semantics _ _ (orIn n C w) s (fun u => wireVal n C u x) x
+  · intro u hu
+    exact (source_boundary_data G C s hAO hT g h hpair hgh hhg w u hu).2.2.1
+  · exact source_support_union G C s hAO hT g h hpair hgh hhg w hw
+  · intro u hu
+    exact (source_boundary_data G C s hAO hT g h hpair hgh hhg w u hu).2.2.2 x
+
+end ActualBoundary
+
+namespace CompleteMixedCase
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open Reorder HoistTransport TwoOrBuild
+
+lemma smaller_projection_prefix {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (S T : Finset ℕ)
+    (hS : ∀ w ∈ S, w < n ∨ ∃ j ∈ P, w = n + j.val)
+    (hT : ∀ w ∈ T, w < n ∨ ∃ j ∈ P, w = n + j.val)
+    (color : ℕ → Bool) (c d : Bool) (hSmixed : HasBoth color S) (hTmixed : HasBoth color T)
+    (hcost : pairCost S T ≤ K.card - P.card) :
+    let pre := (permute n C (sortPerm (blockKey P K))).gates.take P.card
+    ∃ (hs : List Gate) (wS wT : ℕ),
+      IsAO2 n ⟨pre ++ hs, wS⟩ ∧ IsAO2 n ⟨pre ++ hs, wT⟩ ∧
+      (∀ g ∈ hs, g.op = GateOp.or) ∧ hs.length < K.card - P.card ∧
+      wS < n + (pre ++ hs).length ∧ wT < n + (pre ++ hs).length ∧
+      ∀ x : Fin n → Bool,
+        wireVal n ⟨pre ++ hs, 0⟩ wS x = sourceOr C.gates (List.ofFn x) (projectColor color c S) ∧
+        wireVal n ⟨pre ++ hs, 0⟩ wT x = sourceOr C.gates (List.ofFn x) (projectColor color d T) := by
+  dsimp only
+  let p := sortPerm (blockKey P K)
+  let D := permute n C p
+  let pre := D.gates.take P.card
+  let f := wireMap n C.gates.length p
+  have hD := (two_closed_hoist_semantics C hAO P K hP hK).1
+  have hprefix : IsAO2 n ⟨pre, 0⟩ := take_isAO2 D hD P.card 0
+  have hcard : P.card ≤ C.gates.length := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using Finset.card_le_univ P
+  have hprefixlen : pre.length = P.card := by
+    simp only [pre, D, permute, List.length_take, List.length_ofFn, Nat.min_eq_left hcard]
+  have hSvalid : ∀ w ∈ S, w < n + C.gates.length := by
+    intro w hw; rcases hS w hw with hh | ⟨j, hj, rfl⟩ <;> omega
+  have hTvalid : ∀ w ∈ T, w < n + C.gates.length := by
+    intro w hw; rcases hT w hw with hh | ⟨j, hj, rfl⟩ <;> omega
+  have hSimage : ∀ w ∈ S.image f, w < n + pre.length := by
+    intro w hw; obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hw
+    rw [hprefixlen]
+    exact (wireMap_two_closed_small_iff P K v (hSvalid v hv)).mpr (hS v hv)
+  have hTimage : ∀ w ∈ T.image f, w < n + pre.length := by
+    intro w hw; obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hw
+    rw [hprefixlen]
+    exact (wireMap_two_closed_small_iff P K v (hTvalid v hv)).mpr (hT v hv)
+  obtain ⟨hs, wS, wT, hAO1, hAO2, hops, hlen, hwS, hwT, heval⟩ :=
+    two_color_projection_circuits_valid n ⟨pre, 0⟩ hprefix
+      (movedColor (n := n) p color) c d (S.image f) (T.image f) hSimage hTimage
+      (hasBoth_image p color S hSvalid hSmixed) (hasBoth_image p color T hTvalid hTmixed)
+  have hshort : hs.length < K.card - P.card := by
+    have heq := pairCost_image p S T hSvalid hTvalid
+    change pairCost (S.image f) (T.image f) = pairCost S T at heq
+    rw [heq] at hlen
+    omega
+  refine ⟨hs, wS, wT, hAO1, hAO2, hops, hshort, hwS, hwT, ?_⟩
+  intro x
+  obtain ⟨hsval, htval⟩ := heval x
+  exact ⟨hsval.trans (hoist_projected_sourceOr C hAO P K hP hK S hS color c x),
+    htval.trans (hoist_projected_sourceOr C hAO P K hP hK T hT color d x)⟩
+
+
+lemma hoist_large_prefix_wireVal {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length)) (hPK : P ⊆ K)
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (w : ℕ) (hw : w < n ∨ ∃ j ∈ K, w = n + j.val) (x : Fin n → Bool) :
+    wireVal n ⟨(permute n C (sortPerm (blockKey P K))).gates.take K.card, 0⟩
+      (wireMap n C.gates.length (sortPerm (blockKey P K)) w) x = wireVal n C w x := by
+  have hvalid : w < n + C.gates.length := by
+    rcases hw with h | ⟨j, hj, rfl⟩ <;> omega
+  have hsmall := (wireMap_two_closed_large_iff P K hPK w hvalid).mpr hw
+  have hcard : K.card ≤ C.gates.length := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using Finset.card_le_univ K
+  rw [take_wireVal _ K.card 0 x _ (by
+    simpa only [permute, List.length_ofFn, Fintype.card_fin, Nat.min_eq_left hcard] using hsmall)]
+  exact (two_closed_hoist_semantics C hAO P K hP hK).2.2.2 x w
+
+lemma hoist_new_prefix_wireVal {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (hs : List Gate) (w : ℕ) (hw : w < n ∨ ∃ j ∈ P, w = n + j.val) (x : Fin n → Bool) :
+    wireVal n ⟨(permute n C (sortPerm (blockKey P K))).gates.take P.card ++ hs, 0⟩
+      (wireMap n C.gates.length (sortPerm (blockKey P K)) w) x = wireVal n C w x := by
+  have hvalid : w < n + C.gates.length := by
+    rcases hw with h | ⟨j, hj, rfl⟩ <;> omega
+  have hsmall := (wireMap_two_closed_small_iff P K w hvalid).mpr hw
+  have hcard : P.card ≤ C.gates.length := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using Finset.card_le_univ P
+  have hkeep := TwoOrBuild.run_prefix
+    ((permute n C (sortPerm (blockKey P K))).gates.take P.card) hs
+    (List.ofFn x) (wireMap n C.gates.length (sortPerm (blockKey P K)) w)
+    (by simpa only [List.length_ofFn, List.length_take, permute, List.length_ofFn,
+      Nat.min_eq_left hcard] using hsmall)
+  exact hkeep.trans (hoist_prefix_wireVal C hAO P K hP hK w hw x)
+
+end CompleteMixedCase
+
+namespace RegionProjection
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_5012.Region
+open PEqualNP.Outside.L_meta_5012.ColorProjection
+
+lemma and_projection_prefix_simulation {n : ℕ} (pOld pNew : List Gate)
+    (g : Gate) (f : ℕ → ℕ) (a b : ℕ) (A B : Finset (Fin n))
+    (s : Fin n → Bool) (c : Bool)
+    (hop : g.op = GateOp.and) (hin : g.inputs = [a, b] ∨ g.inputs = [b, a])
+    (hpure : ∀ v ∈ A, s v = c) (hdis : Disjoint A B)
+    (hOldA : ∀ x : Fin n → Bool, (run pOld (List.ofFn x)).getD a false = setOr A x)
+    (hOldB : ∀ x : Fin n → Bool, (run pOld (List.ofFn x)).getD b false = setOr B x)
+    (hNewA : ∀ x : Fin n → Bool, (run pNew (List.ofFn x)).getD (f a) false = setOr A x)
+    (hNewB : ∀ x : Fin n → Bool,
+      (run pNew (List.ofFn x)).getD (f b) false = setOr (project B s (!c)) x) :
+    (∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun w => (run pNew (List.ofFn x)).getD (f w) false) = true →
+      g.op.eval (g.inputs.map fun w => (run pOld (List.ofFn x)).getD w false) = true) ∧
+    (∀ u v : Fin n, s u ≠ s v →
+      g.op.eval (g.inputs.map fun w =>
+        (run pOld (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD w false) = true →
+      g.op.eval (g.inputs.map fun w =>
+        (run pNew (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD (f w) false) = true) := by
+  have hOld : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun w => (run pOld (List.ofFn x)).getD w false) =
+        (setOr A x && setOr B x) := by
+    intro x
+    have ha := hOldA x
+    have hb := hOldB x
+    simp only [List.getD_eq_getElem?_getD] at ha hb
+    rcases hin with heq | heq <;> simp [hop, heq, GateOp.eval, ha, hb, Bool.and_comm]
+  have hNew : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun w => (run pNew (List.ofFn x)).getD (f w) false) =
+        (setOr A x && setOr (project B s (!c)) x) := by
+    intro x
+    have ha := hNewA x
+    have hb := hNewB x
+    simp only [List.getD_eq_getElem?_getD] at ha hb
+    rcases hin with heq | heq <;> simp [hop, heq, GateOp.eval, ha, hb, Bool.and_comm]
+  constructor
+  · intro x hx
+    rw [hNew, Bool.and_eq_true] at hx
+    rw [hOld, Bool.and_eq_true]
+    exact ⟨hx.1, project_le B s (!c) x hx.2⟩
+  · intro u v huv hx
+    rw [hOld] at hx
+    rw [hNew, product_project_pair A B s c hpure hdis u v huv]
+    exact hx
+
+end RegionProjection
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma permute_gateAt_original (n : ℕ) (C : Circuit)
+    (π : Equiv.Perm (Fin C.gates.length)) (j : Fin C.gates.length) :
+    gateAt (permute n C π) (π j).val = mappedGate n C.gates.length π (gateAt C j.val) := by
+  rw [permute_gateAt, gateAt_get]
+  simp only [π.symm_apply_apply]
+
+lemma hoisted_target_gate_inputs {n : ℕ} (C : Circuit)
+    (π : Equiv.Perm (Fin C.gates.length)) (K : Finset (Fin C.gates.length))
+    (hK : ∀ i : Fin C.gates.length, (π i).val < K.card ↔ i ∈ K)
+    (j : Fin C.gates.length)
+    (hinputs : ∀ w ∈ (gateAt C j.val).inputs,
+      w < n ∨ ∃ i ∈ K, w = n + i.val) :
+    ∀ w ∈ (gateAt (permute n C π) (π j).val).inputs, w < n + K.card := by
+  rw [permute_gateAt_original]
+  intro w hw
+  obtain ⟨v, hv, rfl⟩ := List.mem_map.mp hw
+  rcases hinputs v hv with hn | ⟨i, hi, rfl⟩
+  · rw [wireMap_input π v hn]; omega
+  · rw [wireMap_gate]
+    have := (hK i).mpr hi
+    omega
+
+lemma hoisted_ordinary_gate_inputs {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (π : Equiv.Perm (Fin C.gates.length)) (P K J : Finset (Fin C.gates.length))
+    (hP : ∀ i : Fin C.gates.length, (π i).val < P.card ↔ i ∈ P)
+    (hK : ∀ i : Fin C.gates.length, (π i).val < K.card ↔ i ∈ K)
+    (hexternal : ∀ i ∈ K, i ∉ P → ∀ j : Fin C.gates.length,
+      j ∉ K → n + i.val ∈ (gateAt C j.val).inputs → j ∈ J)
+    (j : Fin C.gates.length) (hjK : j ∉ K) (hj : j ∉ J) :
+    ∀ w ∈ (gateAt (permute n C π) (π j).val).inputs,
+      w < n + P.card ∨ n + K.card ≤ w := by
+  rw [permute_gateAt_original]
+  intro w hw
+  obtain ⟨v, hv, rfl⟩ := List.mem_map.mp hw
+  by_cases hp : wireMap n C.gates.length π v < n + P.card
+  · exact Or.inl hp
+  right
+  by_contra hk
+  have hvalid : v < n + C.gates.length := by
+    have := hC.2.1 j.val j.isLt v hv
+    have := j.isLt
+    omega
+  obtain hn | ⟨i, hi, heq⟩ :=
+    (wireMap_prefix_iff π K hK v hvalid).mp (by omega)
+  · rw [wireMap_input π v hn] at hp
+    omega
+  · subst v
+    have hiP : i ∉ P := by
+      intro hiP
+      rw [wireMap_gate] at hp
+      have := (hP i).mpr hiP
+      omega
+    exact hj (hexternal i hi hiP j hjK hv)
+
+lemma hoisted_target_position {N : ℕ} (π : Equiv.Perm (Fin N))
+    (K J : Finset (Fin N))
+    (hK : ∀ i : Fin N, (π i).val < K.card ↔ i ∈ K)
+    (hJK : Disjoint J K) (j : Fin N) (hj : j ∈ J) :
+    K.card ≤ (π j).val := by
+  by_contra h
+  exact (Finset.disjoint_left.mp hJK hj) ((hK j).mp (by omega))
+
+def suffixTargets {N : ℕ} (π : Equiv.Perm (Fin N)) (K J : Finset (Fin N)) : Finset ℕ :=
+  J.image (fun j => (π j).val - K.card)
+
+lemma suffixTargets_mem_iff {N : ℕ} (π : Equiv.Perm (Fin N))
+    (K J : Finset (Fin N))
+    (hK : ∀ i : Fin N, (π i).val < K.card ↔ i ∈ K)
+    (hJK : Disjoint J K) (k : ℕ) (hk : K.card + k < N) :
+    k ∈ suffixTargets π K J ↔ π.symm ⟨K.card + k, hk⟩ ∈ J := by
+  constructor
+  · intro hkT
+    obtain ⟨j, hj, heq⟩ := Finset.mem_image.mp hkT
+    have hpos := hoisted_target_position π K J hK hJK j hj
+    have hpj : π j = ⟨K.card + k, hk⟩ := Fin.ext (by simp only [Fin.val_mk]; omega)
+    rwa [← hpj, π.symm_apply_apply]
+  · intro hj
+    apply Finset.mem_image.mpr
+    refine ⟨π.symm ⟨K.card + k, hk⟩, hj, ?_⟩
+    rw [π.apply_symm_apply]
+    simp
+
+lemma suffixTargets_lt {N : ℕ} (π : Equiv.Perm (Fin N))
+    (K J : Finset (Fin N))
+    (hK : ∀ i : Fin N, (π i).val < K.card ↔ i ∈ K)
+    (hJK : Disjoint J K) : ∀ k ∈ suffixTargets π K J, k < N - K.card := by
+  intro k hk
+  obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hk
+  have := hoisted_target_position π K J hK hJK j hj
+  have := (π j).isLt
+  omega
+
+end Reorder
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma suffix_gate_eq (D : Circuit) (p s : List Gate) (heq : D.gates = p ++ s)
+    (k : ℕ) (hk : k < s.length) : s[k] = gateAt D (p.length + k) := by
+  unfold gateAt
+  rw [heq, List.getD_eq_getElem _ _ (by simp; omega), List.getElem_append_right (by omega)]
+  simp
+
+lemma hoisted_suffix_metadata {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (π : Equiv.Perm (Fin C.gates.length)) (P K J : Finset (Fin C.gates.length))
+    (hP : ∀ i : Fin C.gates.length, (π i).val < P.card ↔ i ∈ P)
+    (hK : ∀ i : Fin C.gates.length, (π i).val < K.card ↔ i ∈ K)
+    (hJK : Disjoint J K)
+    (hexternal : ∀ i ∈ K, i ∉ P → ∀ j : Fin C.gates.length,
+      j ∉ K → n + i.val ∈ (gateAt C j.val).inputs → j ∈ J)
+    (htarget : ∀ j ∈ J, ∀ w ∈ (gateAt C j.val).inputs,
+      w < n ∨ ∃ i ∈ K, w = n + i.val)
+    (p q s : List Gate) (heq : (permute n C π).gates = (p ++ q) ++ s)
+    (hp : p.length = P.card) (hpq : (p ++ q).length = K.card) :
+    (∀ k (hk : k < s.length), k ∉ suffixTargets π K J → ∀ w ∈ s[k].inputs,
+      w < n + p.length ∨ n + (p ++ q).length ≤ w) ∧
+    (∀ k (hk : k < s.length), k ∈ suffixTargets π K J → ∀ w ∈ s[k].inputs,
+      w < n + (p ++ q).length) := by
+  have hlen : K.card + s.length = C.gates.length := by
+    have := congrArg List.length heq
+    rw [permute_length, List.length_append, hpq] at this
+    omega
+  have hgate : ∀ k (hk : k < s.length),
+      s[k] = gateAt (permute n C π) (K.card + k) := by
+    intro k hk
+    simpa only [hpq] using suffix_gate_eq (permute n C π) (p ++ q) s heq k hk
+  constructor
+  · intro k hk hnot w hw
+    let f : Fin C.gates.length := ⟨K.card + k, by omega⟩
+    let j := π.symm f
+    have hj : j ∉ J := by
+      intro hj
+      exact hnot ((suffixTargets_mem_iff π K J hK hJK k f.isLt).mpr hj)
+    have hmap : (π j).val = K.card + k := by dsimp [j, f]; simp
+    have hg : s[k] = gateAt (permute n C π) (π j).val := by rw [hmap]; exact hgate k hk
+    rw [hg] at hw
+    have hjK : j ∉ K := by
+      intro hjK
+      have := (hK j).mpr hjK
+      omega
+    have h := hoisted_ordinary_gate_inputs C hC π P K J hP hK hexternal j hjK hj w hw
+    simpa only [hp, hpq] using h
+  · intro k hk hyes w hw
+    let f : Fin C.gates.length := ⟨K.card + k, by omega⟩
+    let j := π.symm f
+    have hj : j ∈ J := (suffixTargets_mem_iff π K J hK hJK k f.isLt).mp hyes
+    have hmap : (π j).val = K.card + k := by dsimp [j, f]; simp
+    have hg : s[k] = gateAt (permute n C π) (π j).val := by rw [hmap]; exact hgate k hk
+    rw [hg] at hw
+    have h := hoisted_target_gate_inputs C π K hK j (htarget j hj) w hw
+    simpa only [hpq] using h
+
+end Reorder
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma take_drop_block (gs : List Gate) (a b : ℕ) (hab : a ≤ b) (hb : b ≤ gs.length) :
+    gs = (gs.take a ++ (gs.drop a).take (b-a)) ++ gs.drop b ∧
+    (gs.take a).length = a ∧
+    (gs.take a ++ (gs.drop a).take (b-a)).length = b ∧
+    ((gs.drop a).take (b-a)).length = b-a ∧
+    (gs.drop b).length = gs.length-b := by
+  have ha : a ≤ gs.length := by omega
+  have hdrop : b-a ≤ (gs.drop a).length := by rw [List.length_drop]; omega
+  have heq : gs = (gs.take a ++ (gs.drop a).take (b-a)) ++ gs.drop b := by
+    calc
+      gs = gs.take a ++ gs.drop a := (List.take_append_drop a gs).symm
+      _ = gs.take a ++ ((gs.drop a).take (b-a) ++ (gs.drop a).drop (b-a)) := by
+        simp only [List.take_append_drop]
+      _ = (gs.take a ++ (gs.drop a).take (b-a)) ++ gs.drop b := by
+        rw [← List.append_assoc, List.drop_drop]
+        have : a + (b-a) = b := by omega
+        rw [this]
+  refine ⟨heq, List.length_take_of_le ha, ?_, List.length_take_of_le hdrop, List.length_drop⟩
+  rw [List.length_append, List.length_take_of_le ha, List.length_take_of_le hdrop]
+  omega
+
+lemma hoisted_suffix_gate_data {n : ℕ} (C : Circuit)
+    (π : Equiv.Perm (Fin C.gates.length)) (K : Finset (Fin C.gates.length))
+    (p q s : List Gate) (heq : (permute n C π).gates = (p ++ q) ++ s)
+    (hpq : (p ++ q).length = K.card) (k : ℕ) (hk : k < s.length) :
+    ∃ j : Fin C.gates.length, (π j).val = K.card + k ∧
+      s[k].op = (gateAt C j.val).op ∧
+      s[k].inputs = (gateAt C j.val).inputs.map (wireMap n C.gates.length π) := by
+  have hlen : K.card + s.length = C.gates.length := by
+    have := congrArg List.length heq
+    rw [permute_length, List.length_append, hpq] at this
+    omega
+  let f : Fin C.gates.length := ⟨K.card + k, by omega⟩
+  let j := π.symm f
+  have hmap : (π j).val = K.card + k := by dsimp [j, f]; simp
+  have hg : s[k] = mappedGate n C.gates.length π (gateAt C j.val) := by
+    rw [← permute_gateAt_original, hmap]
+    simpa only [hpq] using suffix_gate_eq (permute n C π) (p ++ q) s heq k hk
+  refine ⟨j, hmap, ?_, ?_⟩
+  · simpa only [mappedGate] using congrArg Gate.op hg
+  · simpa only [mappedGate] using congrArg Gate.inputs hg
+
+end Reorder
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma mapped_factor_locations {n N : ℕ} (π : Equiv.Perm (Fin N)) (P K : Finset (Fin N))
+    (hP : ∀ i : Fin N, (π i).val < P.card ↔ i ∈ P)
+    (hK : ∀ i : Fin N, (π i).val < K.card ↔ i ∈ K)
+    (a b : ℕ) (hA : a < n ∨ ∃ i ∈ P, a = n + i.val)
+    (hB : ∃ i ∈ K, i ∉ P ∧ b = n + i.val) :
+    wireMap n N π a < n + P.card ∧
+    n + P.card ≤ wireMap n N π b ∧ wireMap n N π b < n + K.card := by
+  constructor
+  · rcases hA with ha | ⟨i, hi, rfl⟩
+    · rw [wireMap_input π a ha]; omega
+    · rw [wireMap_gate]
+      have := (hP i).mpr hi
+      omega
+  · obtain ⟨i, hiK, hiP, rfl⟩ := hB
+    rw [wireMap_gate]
+    have hlo : P.card ≤ (π i).val := by
+      by_contra h
+      exact hiP ((hP i).mp (by omega))
+    have hhi := (hK i).mpr hiK
+    omega
+
+lemma mappedGate_and_pair {n N : ℕ} (π : Equiv.Perm (Fin N)) (g : Gate)
+    (a b : ℕ) (hop : g.op = GateOp.and) (hin : g.inputs = [a, b] ∨ g.inputs = [b, a]) :
+    (mappedGate n N π g).op = GateOp.and ∧
+    ((mappedGate n N π g).inputs = [wireMap n N π a, wireMap n N π b] ∨
+      (mappedGate n N π g).inputs = [wireMap n N π b, wireMap n N π a]) := by
+  refine ⟨hop, ?_⟩
+  rcases hin with hin | hin
+  · left; simp [mappedGate, hin]
+  · right; simp [mappedGate, hin]
+
+end Reorder
+
+namespace ActualReplacement
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open Reorder HoistTransport TwoOrBuild MixedFrontier MixedCut
+
+lemma actual_smaller_prefix {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hpureg : ∃ c : Bool, ∀ i ∈ side (n := n) C g (1 - bg), s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c)
+    (c d : Bool) :
+    let P := boundedSet C.gates.length (pureRegion n C s g h)
+    let K := boundedSet C.gates.length (region n C g h)
+    let pre := (permute n C (sortPerm (blockKey P K))).gates.take P.card
+    ∃ (hs : List Gate) (wS wT : ℕ),
+      IsAO2 n ⟨pre ++ hs, wS⟩ ∧ IsAO2 n ⟨pre ++ hs, wT⟩ ∧
+      (∀ j ∈ hs, j.op = GateOp.or) ∧ hs.length < (mixedRegion n C s g h).card ∧
+      wS < n + (pre ++ hs).length ∧ wT < n + (pre ++ hs).length ∧
+      ∀ x : Fin n → Bool,
+        wireVal n ⟨pre ++ hs, 0⟩ wS x =
+          ColorProjection.setOr (ColorProjection.project (side (n := n) C g bg) s c) x ∧
+        wireVal n ⟨pre ++ hs, 0⟩ wT x =
+          ColorProjection.setOr (ColorProjection.project (side (n := n) C h bh) s d) x := by
+  dsimp only
+  let P := boundedSet C.gates.length (pureRegion n C s g h)
+  let K := boundedSet C.gates.length (region n C g h)
+  let B := ActualCut.boundary n C s g h
+  let J := ActualCut.wires n C s g h
+  let S := BoundarySources.sources n C B J (opnd C g bg)
+  let T := BoundarySources.sources n C B J (opnd C h bh)
+  let color := BoundaryColors.color (orIn n C) s
+  have hP := pureRegion_fin_closed G C s hL.1 hT g h hpair hgh hhg
+  have hK := region_fin_closed G C hL.1 hT g h hpair hgh hhg
+  have hgJ : g ∈ junk G C := by rw [hpair]; simp
+  have hhJ : h ∈ junk G C := by rw [hpair]; simp
+  have hrootg := ActualCut.mixed_operand_mem G C s hbip hL hT hJ g h hpair g hgJ bg hmixg
+  have hrooth := ActualCut.mixed_operand_mem G C s hbip hL hT hJ g h hpair h hhJ bh hmixh
+  have hS : ∀ w ∈ S, w < n ∨ ∃ j ∈ P, w = n + j.val := by
+    intro w hw
+    exact raw_or_pure_fin C s g h w
+      (ActualBoundary.source_boundary_data G C s hL.1 hT g h hpair hgh hhg _ w hw).1
+  have hT' : ∀ w ∈ T, w < n ∨ ∃ j ∈ P, w = n + j.val := by
+    intro w hw
+    exact raw_or_pure_fin C s g h w
+      (ActualBoundary.source_boundary_data G C s hL.1 hT g h hpair hgh hhg _ w hw).1
+  have hSmix : HasBoth color S :=
+    ActualBoundary.sources_hasBoth G C s hL.1 hT g h hpair hgh hhg _ hrootg
+  have hTmix : HasBoth color T :=
+    ActualBoundary.sources_hasBoth G C s hL.1 hT g h hpair hgh hhg _ hrooth
+  have hcost : pairCost S T ≤ K.card - P.card := by
+    rw [← mixedRegion_card_sub C s g h]
+    exact ActualCut.pairCost_le_mixedRegion G C s hbip hL hT hJ g h bg bh hpair
+      hgh hhg hpureg hpureh hmixg hmixh
+  obtain ⟨hs, wS, wT, hAO1, hAO2, hops, hlen, hwS, hwT, heval⟩ :=
+    CompleteMixedCase.smaller_projection_prefix C hL.1 P K hP hK S T hS hT'
+      color c d hSmix hTmix hcost
+  refine ⟨hs, wS, wT, hAO1, hAO2, hops, ?_, hwS, hwT, ?_⟩
+  · rwa [mixedRegion_card_sub C s g h]
+  · intro x
+    exact ⟨(heval x).1.trans
+      (ActualBoundary.source_projection_semantics G C s hL.1 hT g h hpair hgh hhg _ hrootg c x),
+      (heval x).2.trans
+      (ActualBoundary.source_projection_semantics G C s hL.1 hT g h hpair hgh hhg _ hrooth d x)⟩
+
+end ActualReplacement
+
+namespace ActualStructure
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open Reorder HoistTransport MixedFrontier MixedCut
+
+lemma junk_fin_disjoint {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g,h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g) :
+    Disjoint (boundedSet C.gates.length (junk G C))
+      (boundedSet C.gates.length (region n C g h)) := by
+  apply Finset.disjoint_left.mpr
+  intro j hj hk
+  exact junk_not_mem_region G C hAO hT g h hpair hgh hhg j.val
+    ((boundedSet_mem _ _ _).mp hj) ((boundedSet_mem _ _ _).mp hk)
+
+lemma external_reader_fin {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g,h})
+    (i j : Fin C.gates.length)
+    (hi : i ∈ boundedSet C.gates.length (region n C g h))
+    (hnot : i ∉ boundedSet C.gates.length (pureRegion n C s g h))
+    (hj : j ∉ boundedSet C.gates.length (region n C g h))
+    (hread : n + i.val ∈ (gateAt C j.val).inputs) :
+    j ∈ boundedSet C.gates.length (junk G C) := by
+  apply (boundedSet_mem _ _ _).mpr
+  apply mixedRegion_external_reader_junk G C s hbip hL hT hJ g h hpair i.val
+    (Finset.mem_sdiff.mpr ⟨(boundedSet_mem _ _ _).mp hi,
+      fun he => hnot ((boundedSet_mem _ _ _).mpr he)⟩) j.val j.isLt ?_ hread
+  intro he
+  exact hj ((boundedSet_mem _ _ _).mpr (Finset.mem_sdiff.mp he).1)
+
+lemma target_inputs_fin {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (g h : ℕ) (hpair : junk G C = {g,h})
+    (j : Fin C.gates.length) (hj : j ∈ boundedSet C.gates.length (junk G C))
+    (w : ℕ) (hw : w ∈ (gateAt C j.val).inputs) :
+    w < n ∨ ∃ i ∈ boundedSet C.gates.length (region n C g h), w = n + i.val := by
+  by_cases hraw : w < n
+  · exact Or.inl hraw
+  let k := w - n
+  have hback := hAO.2.1 j.val j.isLt w hw
+  have hklt : k < C.gates.length := by dsimp [k]; omega
+  have heq : w = n + k := by dsimp [k]; omega
+  have haj : j.val ∈ ({g,h} : Finset ℕ) := by
+    rw [← hpair]; exact (boundedSet_mem _ _ _).mp hj
+  have hbin := hAO.2.2 (gateAt C j.val) (gateAt_mem' C j.val j.isLt)
+  obtain ⟨a,b,hab⟩ := List.length_eq_two.mp hbin
+  have hslot : ∃ d : Fin 2, w = opnd C j.val d := by
+    rw [hab] at hw
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+    rcases hw with rfl | rfl
+    · exact ⟨0, by simp [opnd, hab]⟩
+    · exact ⟨1, by simp [opnd, hab]⟩
+  obtain ⟨d, hd⟩ := hslot
+  refine Or.inr ⟨⟨k,hklt⟩, (boundedSet_mem _ _ _).mpr ?_, heq⟩
+  apply (region_mem C g h k).mpr
+  refine ⟨hklt, j.val, haj, d, ?_⟩
+  rw [← hd, heq]
+  exact orReach_self n C k hklt
+
+lemma pure_operand_fin {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (g h a : ℕ)
+    (hpair : junk G C = {g,h}) (ha : a ∈ junk G C) (b : Fin 2)
+    (hpure : ∃ c : Bool, ∀ i ∈ side (n := n) C a b, s i = c) :
+    opnd C a b < n ∨ ∃ i ∈ boundedSet C.gates.length (pureRegion n C s g h),
+      opnd C a b = n + i.val := by
+  have hamem : a ∈ ({g,h} : Finset ℕ) := by rwa [← hpair]
+  rcases JunkActivity.operand_raw_or_region C hAO g h a hamem (junk_data G C a ha).1 b with
+    hraw | ⟨k,hk,heq⟩
+  · exact Or.inl hraw
+  · have hklt := ((region_mem C g h k).mp hk).1
+    refine Or.inr ⟨⟨k,hklt⟩, (boundedSet_mem _ _ _).mpr ?_, heq⟩
+    exact Finset.mem_filter.mpr ⟨hk, by simpa only [side, heq] using hpure⟩
+
+lemma mixed_operand_fin {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h w : ℕ)
+    (hw : w ∈ ActualCut.wires n C s g h) :
+    ∃ i ∈ boundedSet C.gates.length (region n C g h),
+      i ∉ boundedSet C.gates.length (pureRegion n C s g h) ∧ w = n + i.val := by
+  obtain ⟨k,hk,rfl⟩ := Finset.mem_image.mp hw
+  obtain ⟨hkK,hkP⟩ := Finset.mem_sdiff.mp hk
+  exact ⟨⟨k, ((region_mem C g h k).mp hkK).1⟩, (boundedSet_mem _ _ _).mpr hkK,
+    fun he => hkP ((boundedSet_mem _ _ _).mp he), rfl⟩
+
+lemma operand_pair {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (a : ℕ)
+    (ha : a < C.gates.length) (b : Fin 2) :
+    (gateAt C a).inputs = [opnd C a (1-b), opnd C a b] ∨
+      (gateAt C a).inputs = [opnd C a b, opnd C a (1-b)] := by
+  obtain ⟨u,v,huv⟩ := List.length_eq_two.mp (hAO.2.2 _ (gateAt_mem' C a ha))
+  fin_cases b <;> simp [opnd, huv]
+
+end ActualStructure
+
+namespace RegionProjection
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_5012.Region
+open PEqualNP.Outside.L_meta_5012.RegionLocal
+open PEqualNP.Outside.L_meta_5012.ColorProjection
+
+lemma projected_block_target_simulation {n : ℕ} (p q r : List Gate)
+    (g : Gate) (targetWire : ℕ → ℕ) (k a b : ℕ)
+    (A B : Finset (Fin n)) (color : Fin n → Bool) (c : Bool)
+    (hop : g.op = GateOp.and) (hin : g.inputs = [a, b] ∨ g.inputs = [b, a])
+    (ha : a < n + p.length) (hblo : n + p.length ≤ b) (hbhi : b < n + (p ++ q).length)
+    (hpure : ∀ v ∈ A, color v = c) (hdis : Disjoint A B)
+    (hOldA : ∀ x : Fin n → Bool, (run (p ++ q) (List.ofFn x)).getD a false = setOr A x)
+    (hOldB : ∀ x : Fin n → Bool, (run (p ++ q) (List.ofFn x)).getD b false = setOr B x)
+    (hNewB : ∀ x : Fin n → Bool,
+      (run (p ++ r) (List.ofFn x)).getD (targetWire k) false =
+        setOr (project B color (!c)) x) :
+    (∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun w => (run (p ++ r) (List.ofFn x)).getD
+        (blockMap n p q r targetWire k w) false) = true →
+      g.op.eval (g.inputs.map fun w => (run (p ++ q) (List.ofFn x)).getD w false) = true) ∧
+    (∀ u v : Fin n, color u ≠ color v →
+      g.op.eval (g.inputs.map fun w =>
+        (run (p ++ q) (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD w false) = true →
+      g.op.eval (g.inputs.map fun w =>
+        (run (p ++ r) (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD
+          (blockMap n p q r targetWire k w) false) = true) := by
+  apply and_projection_prefix_simulation (p ++ q) (p ++ r) g
+    (blockMap n p q r targetWire k) a b A B color c hop hin hpure hdis hOldA hOldB
+  · intro x
+    rw [blockMap_keep n p q r targetWire k a ha]
+    rw [run_prefix p r (List.ofFn x) a (by simpa only [List.length_ofFn] using ha)]
+    rw [← run_prefix p q (List.ofFn x) a (by simpa only [List.length_ofFn] using ha)]
+    exact hOldA x
+  · intro x
+    rw [blockMap_region n p q r targetWire k b hblo hbhi]
+    exact hNewB x
+
+lemma least_projected_block_contradiction (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (p q r s : List Gate) (targetWire : ℕ → ℕ) (targets : Finset ℕ)
+    (j : ℕ) (hj : j < s.length)
+    (hL : TopForm.IsLeastAO G ⟨(p ++ q) ++ s, n + (p ++ q).length + j⟩)
+    (hprefix : TopForm.IsAO2 n ⟨p ++ r, 0⟩)
+    (hshort : r.length < q.length)
+    (hroot : ∀ k ∈ targets, targetWire k < n + (p ++ r).length)
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < n + p.length ∨ n + (p ++ q).length ≤ w)
+    (hdata : ∀ k (hk : k < s.length), k ∈ targets →
+      ∃ a b : ℕ, ∃ A B : Finset (Fin n), ∃ c : Bool,
+        s[k].op = GateOp.and ∧ (s[k].inputs = [a, b] ∨ s[k].inputs = [b, a]) ∧
+        a < n + p.length ∧ n + p.length ≤ b ∧ b < n + (p ++ q).length ∧
+        (∀ v ∈ A, color v = c) ∧ Disjoint A B ∧
+        (∀ x : Fin n → Bool, (run (p ++ q) (List.ofFn x)).getD a false = setOr A x) ∧
+        (∀ x : Fin n → Bool, (run (p ++ q) (List.ofFn x)).getD b false = setOr B x) ∧
+        (∀ x : Fin n → Bool, (run (p ++ r) (List.ofFn x)).getD (targetWire k) false =
+          setOr (project B color (!c)) x)) : False := by
+  have htOld : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs,
+      w < n + (p ++ q).length := by
+    intro k hk hkt w hw
+    obtain ⟨a, b, A, B, c, hop, hin, ha, hblo, hbhi, hpure, hdis, hOldA, hOldB, hNewB⟩ :=
+      hdata k hk hkt
+    rcases hin with hin | hin <;> rw [hin] at hw <;>
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+    · rcases hw with rfl | rfl
+      · simp only [List.length_append]; omega
+      · exact hbhi
+    · rcases hw with rfl | rfl
+      · exact hbhi
+      · simp only [List.length_append]; omega
+  apply least_block_with_targets n G p q r s targetWire targets j hj hL hprefix hshort
+    hroot hordinary htOld
+  · intro x hx k hk hkt
+    obtain ⟨a, b, A, B, c, hop, hin, ha, hblo, hbhi, hpure, hdis, hOldA, hOldB, hNewB⟩ :=
+      hdata k hk hkt
+    exact (projected_block_target_simulation p q r s[k] targetWire k a b A B color c
+      hop hin ha hblo hbhi hpure hdis hOldA hOldB hNewB).1 x
+  · intro u v huv k hk hkt
+    obtain ⟨a, b, A, B, c, hop, hin, ha, hblo, hbhi, hpure, hdis, hOldA, hOldB, hNewB⟩ :=
+      hdata k hk hkt
+    exact (projected_block_target_simulation p q r s[k] targetWire k a b A B color c
+      hop hin ha hblo hbhi hpure hdis hOldA hOldB hNewB).2 u v (hbip u v huv)
+
+end RegionProjection
+
+namespace RegionProjection
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_5012.Reorder
+open PEqualNP.Outside.L_meta_5012.ColorProjection
+
+lemma projected_target_hoist_contradiction {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hL : IsLeastAO G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (π : Equiv.Perm (Fin C.gates.length)) (hdep : DependencyOrder n C π)
+    (P K J : Finset (Fin C.gates.length)) (hPK : P ⊆ K)
+    (hP : ∀ i : Fin C.gates.length, (π i).val < P.card ↔ i ∈ P)
+    (hK : ∀ i : Fin C.gates.length, (π i).val < K.card ↔ i ∈ K)
+    (hJK : Disjoint J K)
+    (hexternal : ∀ i ∈ K, i ∉ P → ∀ j : Fin C.gates.length,
+      j ∉ K → n + i.val ∈ (gateAt C j.val).inputs → j ∈ J)
+    (hout : ∃ j < C.gates.length - K.card,
+      (permute n C π).output = n + K.card + j)
+    (r : List Gate) (targetWire : ℕ → ℕ)
+    (hprefix : IsAO2 n ⟨(permute n C π).gates.take P.card ++ r, 0⟩)
+    (hshort : r.length < K.card - P.card)
+    (hroot : ∀ j ∈ J, targetWire ((π j).val - K.card) <
+      n + ((permute n C π).gates.take P.card ++ r).length)
+    (hfactors : ∀ j ∈ J, ∃ a b : ℕ, ∃ A B : Finset (Fin n), ∃ c : Bool,
+      (gateAt C j.val).op = GateOp.and ∧
+      ((gateAt C j.val).inputs = [a,b] ∨ (gateAt C j.val).inputs = [b,a]) ∧
+      (a < n ∨ ∃ i ∈ P, a = n + i.val) ∧
+      (∃ i ∈ K, i ∉ P ∧ b = n + i.val) ∧
+      (∀ v ∈ A, color v = c) ∧ Disjoint A B ∧
+      (∀ x : Fin n → Bool, wireVal n C a x = setOr A x) ∧
+      (∀ x : Fin n → Bool, wireVal n C b x = setOr B x) ∧
+      (∀ x : Fin n → Bool,
+        (Region.run ((permute n C π).gates.take P.card ++ r) (List.ofFn x)).getD
+          (targetWire ((π j).val - K.card)) false = setOr (project B color (!c)) x)) : False := by
+  let D := permute n C π
+  let p := D.gates.take P.card
+  let q := (D.gates.drop P.card).take (K.card - P.card)
+  let s := D.gates.drop K.card
+  have hcard : K.card ≤ D.gates.length := by
+    rw [permute_length]
+    simpa only [Finset.card_univ, Fintype.card_fin] using Finset.card_le_univ K
+  have hcards : P.card ≤ K.card := Finset.card_le_card hPK
+  obtain ⟨hsplit, hplen, hpqlen, hqlen, hslen⟩ := take_drop_block D.gates P.card K.card hcards hcard
+  change D.gates = (p ++ q) ++ s at hsplit
+  change p.length = P.card at hplen
+  change (p ++ q).length = K.card at hpqlen
+  change q.length = K.card - P.card at hqlen
+  change s.length = D.gates.length - K.card at hslen
+  obtain ⟨jo, hjo, hout⟩ := hout
+  change D.output = n + K.card + jo at hout
+  have hjo' : jo < s.length := by rw [hslen, permute_length]; exact hjo
+  have heqD : D = ⟨(p ++ q) ++ s, n + (p ++ q).length + jo⟩ := by
+    cases hD : D with
+    | mk gs out =>
+      have hg : gs = (p ++ q) ++ s := by simpa only [hD] using hsplit
+      have ho : out = n + (p ++ q).length + jo := by
+        simpa only [← hpqlen, hD] using hout
+      simp only [hg, ho]
+  have hleast := permute_isLeastAO G C hL π hdep
+  change IsLeastAO G D at hleast
+  rw [heqD] at hleast
+  have htarget : ∀ j ∈ J, ∀ w ∈ (gateAt C j.val).inputs,
+      w < n ∨ ∃ i ∈ K, w = n + i.val := by
+    intro j hj w hw
+    obtain ⟨a,b,A,B,c,hop,hin,ha,hb,hpure,hdis,hOldA,hOldB,hNew⟩ := hfactors j hj
+    have haK : a < n ∨ ∃ i ∈ K, a = n + i.val := by
+      rcases ha with h | ⟨i,hi,he⟩
+      · exact Or.inl h
+      · exact Or.inr ⟨i,hPK hi,he⟩
+    have hbK : b < n ∨ ∃ i ∈ K, b = n + i.val := by
+      obtain ⟨i,hi,_,he⟩ := hb
+      exact Or.inr ⟨i,hi,he⟩
+    rcases hin with hin | hin <;> rw [hin] at hw <;>
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+    · rcases hw with rfl | rfl <;> assumption
+    · rcases hw with rfl | rfl <;> assumption
+  have hmeta := hoisted_suffix_metadata C hL.1 π P K J hP hK hJK hexternal htarget
+    p q s hsplit hplen hpqlen
+  have hwire : ∀ w, wireMap n C.gates.length π w < n + K.card → ∀ x : Fin n → Bool,
+      (Region.run (p ++ q) (List.ofFn x)).getD (wireMap n C.gates.length π w) false =
+        wireVal n C w x := by
+    intro w hw x
+    have hpres := (permute_semantics C hL.1 π hdep).2.2.2 x w
+    calc
+      _ = (Region.run D.gates (List.ofFn x)).getD (wireMap n C.gates.length π w) false := by
+        rw [hsplit]
+        symm
+        apply Region.run_prefix
+        simpa only [List.length_ofFn, hpqlen] using hw
+      _ = wireVal n C w x := hpres
+  apply least_projected_block_contradiction n G color hbip p q r s targetWire
+    (suffixTargets π K J) jo hjo' hleast hprefix (by rwa [hqlen])
+  · intro k hk
+    obtain ⟨j,hj,he⟩ := Finset.mem_image.mp hk
+    subst k
+    exact hroot j hj
+  · exact hmeta.1
+  · intro k hk hkt
+    obtain ⟨j, hjmap, hjop, hjin⟩ := hoisted_suffix_gate_data C π K p q s hsplit hpqlen k hk
+    have hj : j ∈ J := by
+      have hkN : K.card + k < C.gates.length := by rw [← hjmap]; exact (π j).isLt
+      have hfin : (π j) = ⟨K.card+k,hkN⟩ := Fin.ext hjmap
+      have := (suffixTargets_mem_iff π K J hK hJK k hkN).mp hkt
+      simpa only [← hfin, π.symm_apply_apply] using this
+    obtain ⟨a,b,A,B,c,hop,hin,ha,hb,hpure,hdis,hOldA,hOldB,hNew⟩ := hfactors j hj
+    have hloc := mapped_factor_locations π P K hP hK a b ha hb
+    have hkmap : (π j).val - K.card = k := by omega
+    refine ⟨wireMap n C.gates.length π a, wireMap n C.gates.length π b,
+      A,B,c, hjop.trans hop, ?_, ?_, ?_, ?_, hpure,hdis, ?_, ?_, ?_⟩
+    · rw [hjin]
+      rcases hin with hin | hin
+      · left; simp [hin]
+      · right; simp [hin]
+    · simpa only [hplen] using hloc.1
+    · simpa only [hplen] using hloc.2.1
+    · simpa only [hpqlen] using hloc.2.2
+    · intro x
+      rw [hwire a (by have := hloc.1; omega)]
+      exact hOldA x
+    · intro x
+      rw [hwire b hloc.2.2]
+      exact hOldB x
+    · intro x
+      simpa only [hkmap] using hNew x
+
+end RegionProjection
+
+namespace CompleteRestricted
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge PEqualNP.EdgeOwnership
+open Reorder HoistTransport MixedFrontier MixedCut
+
+lemma independent_semimixed_impossible {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g,h}) (hne : g ≠ h)
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hpureg : ∃ c : Bool, ∀ i ∈ side (n := n) C g (1-bg), s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1-bh), s i = c)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c)
+    (hdisg : Disjoint (side (n := n) C g (1-bg)) (side (n := n) C g bg))
+    (hdish : Disjoint (side (n := n) C h (1-bh)) (side (n := n) C h bh)) : False := by
+  have hJ := JunkActivity.two_mixed_active G C s hL.1 hT g h bg bh hpair hgh hhg hmixg hmixh
+  obtain ⟨cg,hcg⟩ := hpureg
+  obtain ⟨ch,hch⟩ := hpureh
+  let P := boundedSet C.gates.length (pureRegion n C s g h)
+  let K := boundedSet C.gates.length (region n C g h)
+  let J := boundedSet C.gates.length (junk G C)
+  let π := sortPerm (blockKey P K)
+  have hPK : P ⊆ K := pureRegion_fin_subset C s g h
+  have hPc : PredecessorClosed n C P := pureRegion_fin_closed G C s hL.1 hT g h hpair hgh hhg
+  have hKc : PredecessorClosed n C K := region_fin_closed G C hL.1 hT g h hpair hgh hhg
+  have hdep : DependencyOrder n C π := two_closed_hoist_dependency C hL.1 P K hPc hKc
+  have hP : ∀ i, (π i).val < P.card ↔ i ∈ P := two_closed_hoist_prefix_small P K
+  have hK : ∀ i, (π i).val < K.card ↔ i ∈ K := two_closed_hoist_prefix_large P K hPK
+  have hJK : Disjoint J K := ActualStructure.junk_fin_disjoint G C hL.1 hT g h hpair hgh hhg
+  have hgJ : g ∈ junk G C := by rw [hpair]; simp
+  have hhJ : h ∈ junk G C := by rw [hpair]; simp
+  let gf : Fin C.gates.length := ⟨g,(junk_data G C g hgJ).1⟩
+  let hf : Fin C.gates.length := ⟨h,(junk_data G C h hhJ).1⟩
+  have hgf : gf ∈ J := (boundedSet_mem _ _ _).mpr hgJ
+  have hhf : hf ∈ J := (boundedSet_mem _ _ _).mpr hhJ
+  have hposg := hoisted_target_position π K J hK hJK gf hgf
+  have hposh := hoisted_target_position π K J hK hJK hf hhf
+  have hposne : (π hf).val - K.card ≠ (π gf).val - K.card := by
+    intro heq
+    have heq' : π hf = π gf := Fin.ext (by omega)
+    have hhg' : h = g := congrArg Fin.val (π.injective heq')
+    exact hne hhg'.symm
+  obtain ⟨hs,wS,wT,hAO1,hAO2,hops,hlen,hwS,hwT,heval⟩ :=
+    ActualReplacement.actual_smaller_prefix G C s hbip hL hT hJ g h bg bh hpair hgh hhg
+      ⟨cg,hcg⟩ ⟨ch,hch⟩ hmixg hmixh (!cg) (!ch)
+  let targetWire : ℕ → ℕ := fun k => if k = (π gf).val - K.card then wS else wT
+  have htargg : targetWire ((π gf).val - K.card) = wS := by simp [targetWire]
+  have htargh : targetWire ((π hf).val - K.card) = wT := by simp [targetWire,hposne]
+  have houtLo := OutputSupport.output_not_raw G C hL.2.1
+  have houtHi := CriticalEdge.output_lt G C hL.2.1
+    (CriticalEdge.least_nonempty_of_gate G C hL g gf.isLt)
+  have hout := two_closed_hoist_output_suffix C P K hPK houtLo houtHi (by
+    intro j hj
+    exact OutputSupport.region_not_output G C hL.1 hL.2.1 hT g h hpair hgh hhg
+      j.val ((boundedSet_mem _ _ _).mp hj))
+  have hrootg := ActualCut.mixed_operand_mem G C s hbip hL hT hJ g h hpair g hgJ bg hmixg
+  have hrooth := ActualCut.mixed_operand_mem G C s hbip hL hT hJ g h hpair h hhJ bh hmixh
+  have hraw : ∀ a ∈ junk G C, ∀ b : Fin 2, ∀ x : Fin n → Bool,
+      wireVal n C (opnd C a b) x = ColorProjection.setOr (side (n := n) C a b) x := by
+    intro a ha b x
+    have hapair : a ∈ ({g,h} : Finset ℕ) := by rwa [← hpair]
+    exact raw_or_region_wire_semantics G C hL.1 hT g h hpair hgh hhg _
+      (JunkActivity.operand_raw_or_region C hL.1 g h a hapair (junk_data G C a ha).1 b) x
+  apply RegionProjection.projected_target_hoist_contradiction G C hL s hbip π hdep
+    P K J hPK hP hK hJK ?_ hout hs targetWire hAO1 ?_ ?_ ?_
+  · intro i hi hip j hj hread
+    exact ActualStructure.external_reader_fin G C s hbip hL hT hJ g h hpair i j hi hip hj hread
+  · rwa [mixedRegion_card_sub C s g h] at hlen
+  · intro j hj
+    dsimp [targetWire]
+    split <;> assumption
+  · intro j hj
+    have hjJ : j.val ∈ junk G C := (boundedSet_mem _ _ _).mp hj
+    rw [hpair] at hjJ
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hjJ
+    rcases hjJ with hjg | hjh
+    · have heq : j = gf := Fin.ext hjg
+      subst j
+      refine ⟨opnd C g (1-bg),opnd C g bg,side C g (1-bg),side C g bg,cg,
+        (junk_data G C g hgJ).2, ActualStructure.operand_pair C hL.1 g gf.isLt bg,
+        ActualStructure.pure_operand_fin G C s hL.1 g h g hpair hgJ (1-bg) ⟨cg,hcg⟩,
+        ActualStructure.mixed_operand_fin C s g h _ hrootg,hcg,hdisg,
+        hraw g hgJ (1-bg),hraw g hgJ bg,?_⟩
+      intro x
+      rw [htargg]
+      exact (heval x).1
+    · have heq : j = hf := Fin.ext hjh
+      subst j
+      refine ⟨opnd C h (1-bh),opnd C h bh,side C h (1-bh),side C h bh,ch,
+        (junk_data G C h hhJ).2, ActualStructure.operand_pair C hL.1 h hf.isLt bh,
+        ActualStructure.pure_operand_fin G C s hL.1 g h h hpair hhJ (1-bh) ⟨ch,hch⟩,
+        ActualStructure.mixed_operand_fin C s g h _ hrooth,hch,hdish,
+        hraw h hhJ (1-bh),hraw h hhJ bh,?_⟩
+      intro x
+      rw [htargh]
+      exact (heval x).2
+
+end CompleteRestricted
+
 end PEqualNP.Outside.L_meta_5012
