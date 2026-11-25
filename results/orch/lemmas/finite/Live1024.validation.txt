@@ -1,0 +1,30 @@
+L-meta-1890 partial finite engine
+UTC: 2026-11-25T15:18:08.046579+00:00
+File: Live1024.lean
+Compiler: lake env lean ../results/orch/lemmas/finite/Live1024.lean
+Exit: 0
+Scope: total-gate live-state semantics on 1024 rows; extraction; one-NOT four-chain exclusion; width-forced one-NOT bound. No full gap theorem.
+
+Complete compiler output:
+../results/orch/lemmas/finite/Live1024.lean:70:83: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.and_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Live1024.lean:70:98: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.or_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Live1024.lean:70:173: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/finite/Live1024.lean:70:173: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

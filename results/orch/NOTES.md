@@ -165,3 +165,38 @@ LEAN-COMPILED conditional circuit exclusion: SeedNotCircuit.lean passed exit0 (e
 ### Compact nine-bound source audit 2026-11-25T15:13:58+00:00
 - Bounds.lean initial source audit: inverse mapping1294 owned identifiers, namespace/final-theorem normalization, and stripping comments/whitespace gives exact L670 source equality (446582 normalized characters). Rename map injective, no old/new name collision, no mapped identifiers in imported qualified names found. Initial469507-byte file fits512KiB; format scans clean.
 - Compilation is still required: author found whitespace-token collisions (`:=~~~` and Unicode arrow adjacent to owns) and is restoring separators. The source audit does not certify lexical boundaries. Recheck final frozen source/hash after successful compile.
+
+## readtwice 2026-11-25T15:16:05.691880+00:00 — compact finite bound
+
+Prepared exact L670 ordinary nine-vertex Petersen lower16 proof in readtwice/Bounds.lean, namespace BoundsNine, theorem minor_no15. Safe identifier shortening reduces source to474720bytes; independent review verified inverse token/name correspondence. Unicode and :=/=> lexical separators restored after first parse failures. Full build004 now emits a temporary olean for finite-agent reuse; not yet claimed checked. Ordinary nine bound16 subsumes seeded residual15 by adding the seed gate, avoiding duplication of L7215.
+
+## Finite certified partial 2026-11-25T15:18:08.051041+00:00
+
+Live1024.lean compiles with exit0, only inherited simp warnings. It adapts the total-gate live-state engine from checked L1668 to1024 rows and proves the one-NOT chain exclusion directly by Live induction. The width bound gives remainingNOT≤k+1−m. Full compiler output is preserved in Live1024.validation.txt. It is a partial, not the full gap theorem.
+
+Audited fresh v2 searches with explicit NOT budgets, four-chain cuts and restricted-DAG pruning remain unfinished: seeded5,121,707 states (9,391 closed memo states), ordinary4,296,891 states (8,157 closed). No target found. Their checkpoints contain only fully closed states, unlike discarded earlier budget runs.
+
+## counterexample 2026-11-25T15:19:54.206420+00:00
+Root approved fresh full1024-row SAT with ≤3NOT, checked RawRaw repeated-reader clauses, and ≤2constant gate outputs under each endpoint-zero restriction. Constant cuts follow nine-input rewiring + checked L4093.iter + ordinary total minor lower16; still require a formal encoding bridge before any UNSAT certificate is a Lean proof. Stopped older bounded3 run without verdict; its complete log/CNF/incompleteDRAT retained. New run1800s, binaryDRAT160MBcap and64MBfree-disk reserve. Removed only two reproducible pinned-sanity CNFs (hashes logged), retaining their full logs, known20 JSON, and Lean baseline.
+
+### General erasure and NOT-count review 2026-11-25T15:22:14+00:00
+- PASS as compiled partial: SeedEraseGeneral.lean (188 lines,7575 bytes,SHA256 66f9e853a1dfe240dbbf03d505c4a6a2b128b107fe0cfe3bb4c61ee06fb82ef1). Allowed imports, clean format scans, UTF8 regular nonexecutable. Inherited previously reviewed code exactly unchanged.
+- PASS as compiled partial: NotCount.lean (627 lines,25374 bytes,SHA256 284dc38b11c218f6d0d2466edcd9feea044334f3dc82eedeba548abdaadb10f8). Allowed imports, clean format scans, UTF8 regular nonexecutable. Inherited previously reviewed code exactly unchanged.
+- General erasure covers arbitrary edge lists and mapped inputs; seed need only vanish on each edge-pair witness, with no seed monotonicity. NotCount gives operator/count preservation and a one-gate/one-NOT saving for a NOT whose first operand is initially constant. The initial-index bound is explicit and essential to keep that mapping stable.
+
+### Fresh upstream status census 2026-11-25T15:24:50+00:00
+- Fully paginated structured GitHub search: exact L-meta-1890 has15 PRs,0open; exact L-meta-651 has7,0open. No matches updated since job start14:38 UTC. Petersen-keyword PRs updated since14:38:0. JSON object/item shapes, incomplete_results=false, and unique counts checked.
+- Entire recent merged census:190 PRs over2pages; main commits:189 over2pages at that request time. Later compare from14:37:59 base2f3bc5565b6c1acc8e0367038286b246675ea7a2 returned198 commits and200changed files, none named1890or651. No relevant ten-input/Petersen title; no Fin10/Petersen in15available patches. UNVERIFIED: absence of a stronger ordinary lower bound among all new files, because GitHub omitted185large patches. Root informed that an upstream fetch enables a complete local statement scan.
+- Operational update PR16004 adds a root STOP-file mechanism to pnp.sh next/beat/submit; https://github.com/open-goat/pequalnp-proofs/pull/16004 . No desk or git mutation performed by status reviewer. Complete API outputs preserved in scratch review-fresh-*.json.
+- Extracted status_review/Erase4093.lean (560lines24154B), exact L4093 selected deletion/redundancy helpers. Structural agent independently reviewed source/format PASS at SHA25689b418272509e2daf19959ec7a124c115b5e3e1654eb972bac1b5677f3abd25e. Build queued; no checked claim yet.
+
+## counterexample 2026-11-25T15:25:00.167557+00:00
+Prepared bounded3rawred successor mode (not running yet): actual constant operands force Red by L4093.gl0; equal binary operands and NOT-of-NOT also force Red. At most2Red per endpoint-zero restriction follows L4093.iter+minor16. Added the valid conditional NOT cap: threeNOT gates require a seed reader, because an unused-seed ordinary18-gate circuit has ≥16nonNOT and hence≤2NOT by L6581. Current bounded3rawconst generation/output remains unchanged.
+
+## readtwice 2026-11-25T15:26:10.004756+00:00 — signed bridge checked
+
+SignedBridge.lean23969bytes compiled exit0 as scratch SignedBridgeTest.lean. It proves circuit extraction into signed Live with at most nonNOTcount steps, hence ordinary nine-vertex Petersen size≥15 conditional on the signed Live lower14 certificate. Full SignedBounds.lean217712bytes includes that certificate and is still compiling, as is full nine≥16 Bounds.lean474720bytes. No new long builds after root reported lease410.
+
+### Preservation review 2026-11-25T15:26:15+00:00
+- PASS SeedNotCircuitPins.lean116lines5073B,SHA25664ea4d3b6cb01260f30441d0be8701ae9e3135c006f9f25b3f009e72bd4b0df7. Exact NOT-head semantics justify ignoring unused tail operands in safe-wire induction; finite collisions unchanged. Format clean.
+- Root reported unexpected lease410; status reviewer paused broad census and new work. Erase4093 source remains saved and independently reviewed, but build is still waiting for a slot; no successful compile claim.

@@ -48,3 +48,5 @@ Desk renewal at 2026-11-25T15:25:16Z returned HTTP410 despite beat013 promising 
 Additional checked partial: SeedNotCircuitPins.lean (116 lines); compiler exit0. Independent status_review PASS. Effective operands ignore the unused NOT tail exactly as circuit evaluation does. Raw HTTP/log artifacts intentionally retain their complete original whitespace.
 
 Additional checked partial: SignedBridge.lean (493 lines); Lean exit0 and complete validation output adjacent. Root independent review PASS. This proves signed-circuit extraction and the ordinary nine-vertex lower bound15 conditional on the finite signedRoot certificate; the certificate itself remains in a separate pending build.
+
+Preservation checkpoint following HTTP410: draft Lean files, search programs and complete solver logs are archived. Drafts are not asserted to compile. All SAT runs are UNKNOWN or interrupted, with no refutation or UNSAT result. Independently reviewed preservation-only source list is PRESERVATION_REVIEW.txt. Root reviewed solver summary and provenance.

@@ -1,0 +1,28 @@
+Counterexample search snapshot — L-meta-1890, job pequalnp-pilot-134
+
+Stopped on root instruction while lease absent following HTTP410. No counterexample, UNSAT verdict, or accepted full-gap proof was obtained. All processes owned by this agent have stopped. Complete meaningful solver stdout/stderr is copied to logs/. Large CNF and incomplete binary DRAT remain in job scratch; hashes and sizes are in search-snapshot.json.
+
+Completed runs:
+- General stochastic 18-gate search, 600 seconds: 1,493,762,048 mutations; best disagreed with Petersen on12/1024 assignments.
+- Fixed NOT(seed) stochastic search was stopped when it kept leaving the NOT unused; full log retained.
+- Fixed NOT(seed), required on output path, 600 seconds: 1,332,543,488 mutations; best disagreed on25/1024 assignments.
+- General SAT120 seconds, normal-form exploratory SAT300 seconds, exactly-one-NOT(seed) SAT300 seconds: all UNKNOWN.
+- Full1024-row bounded3 SAT: 56106variables,1250791clauses; stopped without verdict before1800-second limit.
+- Full1024-row bounded3+RawRaw+endpoint-constant cuts: 56178variables,1303303clauses; stopped without verdict before1800-second limit.
+
+Logical basis of final SAT runs:
+- L6581 yields at most3NOT gates after prepending the free seed AND.
+- Empty AND is represented as a separate TRUE operation, preserving the NOT budget.
+- RawRaw gives a second reader for each nonendpoint raw input appearing in a raw/raw binary gate.
+- On either endpoint-zero restriction, nine-input rewiring + L4093.iter + ordinary total minor lower16 allow at most2constant gate outputs.
+- Only elementary source ordering, dead-gate pruning, output-last placement and identity padding are assumed.
+- A formal Lean bridge from these custom CNFs to the circuit theorem still needs implementation. Incomplete DRAT is not a proof.
+
+Prepared but NOT RUN: bounded3rawred adds at-most2constant-or-copy gates under each endpoint restriction. A constant effective operand, equal binary operands, or NOT-of-NOT forces the Red flag. Three NOT gates additionally require a seed reader, since an unused-seed ordinary18-gate circuit has at most2NOT by L6581. This mode is not validated by a solver run.
+
+Lean-compiled partials (none is the full posted theorem):
+- SeedNotCollisions.lean: finite endpoint/NOT(seed) information-loss witnesses, exit0.
+- SeedNotCircuit.lean: arbitrary suffix exclusion under full-input avoidance, exit0.
+- SeedNotCircuitPins.lean: stronger suffix exclusion using effective pins, exit0; preferred version.
+- Upper20Symbolic.lean: concrete20-gate upper-bound sanity circuit, exit0 with unused-simp/tactic warnings; NOT a refutation of18bound.
+Original Upper20.lean and Upper20Fast.lean are unsuccessful enumeration drafts, not validated.

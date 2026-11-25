@@ -1,0 +1,50 @@
+{
+  "utc": "2026-11-25T15:27:36.097132+00:00",
+  "code_sha256": {
+    "search.cpp": "77a3e8c089c78f0c04579d7ead9c01e2bf020d1a0521b02080cbece50957ef06",
+    "synth.py": "bc43fe195111453d8c6b9615aecd8c3e5e8d37939280dab4ba66e393bc46f06f",
+    "SeedNotCollisions.lean": "cd1f2bd92295c13f4808d18ee0b48b05665a3c52d5b2a10d2cc9bde75080b9ba",
+    "SeedNotCircuit.lean": "e92103908df3ac223493374bff4c515178358044854b363b03bee2a5737ad9ef",
+    "SeedNotCircuitPins.lean": "64ea4d3b6cb01260f30441d0be8701ae9e3135c006f9f25b3f009e72bd4b0df7",
+    "Upper20Symbolic.lean": "09b2c98ca96db0367b743459b38eef9c017e4bf037c62bdb47b2fe25895d248e"
+  },
+  "scratch_artifacts": {
+    "synth-18-bounded3-0.cnf": {
+      "bytes": 21703766,
+      "sha256": "87d688212c0de9ec1c13c6076fa33efff7f55a6b91d338fa93737d03894c610c",
+      "status": "incomplete; no UNSAT verdict"
+    },
+    "synth-18-bounded3-0.drat": {
+      "bytes": 80740352,
+      "sha256": "e1556a7704f2012909e92c4e243d6350fb0ead3bf0738d60312bc072beb62c24",
+      "status": "incomplete; no UNSAT verdict"
+    },
+    "synth-18-bounded3rawconst-0.cnf": {
+      "bytes": 23023716,
+      "sha256": "4037099e2754ad668cf46aec4d08dd92ec9d3ccd2394d41e8de1801a44e18067",
+      "status": "incomplete; no UNSAT verdict"
+    },
+    "synth-18-bounded3rawconst-0.drat": {
+      "bytes": 65011712,
+      "sha256": "0ce3bd83e7db659d56bcceeec6f82ac89d5729811d5661395462bd10ecaa9c9d",
+      "status": "incomplete; no UNSAT verdict"
+    }
+  },
+  "copied_full_logs": [
+    "circuit-search-18.txt",
+    "circuit-search-18-notseed.txt",
+    "circuit-search-18-required-notseed.txt",
+    "synth-18-0.out",
+    "synth-18-normal-0.out",
+    "synth-18-seednot-0.out",
+    "synth-18-bounded3-0.out",
+    "synth-18-bounded3rawconst-0.out",
+    "synth-known20.out",
+    "synth-bounded3raw-sanity.out",
+    "synth-18-progress.txt",
+    "synth-18-normal-progress.txt",
+    "synth-18-seednot-progress.txt",
+    "synth-18-bounded3-progress.txt",
+    "synth-18-bounded3rawconst-progress.txt"
+  ]
+}

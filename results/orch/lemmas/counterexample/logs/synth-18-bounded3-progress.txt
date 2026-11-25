@@ -1,0 +1,3 @@
+initial rows 1024
+solve 0 vars 56106 clauses 1250791
+solver return -15

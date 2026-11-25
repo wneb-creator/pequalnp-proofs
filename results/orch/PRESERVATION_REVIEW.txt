@@ -1,0 +1,27 @@
+Preservation review only; not a correctness or full-gap claim.
+
+Reviewed UTF-8 regular source/validation files; no credential literals or credential environment access detected. Search scripts perform local computation, task-scratch solver IO, or explicitly requested checkpoint/output IO. No network, git, credential access, or repository-destructive operations found. No scripts executed by this review.
+
+Safe explicit source/validation list:
+results/orch/lemmas/counterexample/Upper20.lean
+results/orch/lemmas/counterexample/Upper20Fast.lean
+results/orch/lemmas/counterexample/search.cpp
+results/orch/lemmas/counterexample/synth.py
+results/orch/lemmas/finite/Bridge.fragment.lean
+results/orch/lemmas/finite/Bridge1024.lean
+results/orch/lemmas/finite/Live1024.lean
+results/orch/lemmas/finite/Live1024.validation.txt
+results/orch/lemmas/finite/LiveRun1024.lean
+results/orch/lemmas/finite/exact_cover.c
+results/orch/lemmas/finite/live_search.py
+results/orch/lemmas/readtwice/Bounds.lean
+results/orch/lemmas/readtwice/SignedBounds.lean
+results/orch/lemmas/readtwice/SignedBridge.lean
+results/orch/lemmas/readtwice/SignedBridge.validation.txt
+results/orch/lemmas/status_review/Erase4093.lean
+results/orch/lemmas/structural/MinorMap.lean
+results/orch/lemmas/structural/RawNotCase.lean
+results/orch/lemmas/structural/ReaderSavings.lean
+
+Also preserve tracked results/orch/NOTES.md.
+Exclude __pycache__ directories and both .pyc files. No binaries/cache files included.

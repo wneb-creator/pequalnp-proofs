@@ -1,0 +1,3 @@
+initial rows 91
+solve 0 vars 5706 clauses 200482
+solver return 0
