@@ -1,6 +1,7 @@
 import PEqualNP.Defs
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
+import Mathlib.Data.Fintype.Card
 
 open PEqualNP.CircuitLowerBounds
 
@@ -360,6 +361,50 @@ lemma fano_strict_hall : ∀ s : Finset (Fin 7),
     s.Nonempty → s ≠ Finset.univ → s.card < (fanoNeighborSet s).card := by
   decide
 
+lemma fano_cover_seven (a b : Finset (Fin 7))
+    (cover : ∀ p l : Fin 7, (p = l ∨ p = l + 1 ∨ p = l + 3) → p ∈ a ∨ l ∈ b)
+    (bound : a.card + b.card ≤ 7) :
+    (a = Finset.univ ∧ b = ∅) ∨ (a = ∅ ∧ b = Finset.univ) := by
+  classical
+  by_cases ha : a = Finset.univ
+  · left
+    refine ⟨ha,Finset.card_eq_zero.mp ?_⟩
+    subst a
+    simp only [Finset.card_univ,Fintype.card_fin] at bound
+    omega
+  by_cases hz : a = ∅
+  · right
+    refine ⟨hz,Finset.eq_univ_of_forall ?_⟩
+    intro l
+    have h := cover l l (Or.inl rfl)
+    simpa [hz] using h
+  have hne : (aᶜ).Nonempty := by
+    by_contra h
+    apply ha
+    apply Finset.eq_univ_of_forall
+    intro p
+    by_contra hp
+    exact h ⟨p,Finset.mem_compl.mpr hp⟩
+  have hproper : aᶜ ≠ Finset.univ := by
+    intro h
+    apply hz
+    apply Finset.ext
+    intro p
+    simp
+    intro hp
+    have hc : p ∈ aᶜ := by rw [h]; exact Finset.mem_univ p
+    exact (Finset.mem_compl.mp hc) hp
+  have hstrict := fano_strict_hall aᶜ hne hproper
+  have hsub : fanoNeighborSet aᶜ ⊆ b := by
+    intro l hl
+    simp only [fanoNeighborSet,Finset.mem_filter,Finset.mem_univ,true_and] at hl
+    obtain ⟨p,hp,he⟩ := hl
+    exact (cover p l he).resolve_left (Finset.mem_compl.mp hp)
+  have hn := Finset.card_le_card hsub
+  have hacard : a.card ≤ 7 := by simpa using Finset.card_le_univ a
+  have hcomp : (aᶜ).card = 7 - a.card := by rw [Finset.card_compl]; rfl
+  omega
+
 def nearCircuit : Circuit := ⟨[
   ⟨.or,[8,7]⟩,
   ⟨.or,[14,12]⟩,
@@ -480,6 +525,309 @@ lemma relaxed_28 : ∃ C : PEqualNP.CircuitLowerBounds.Circuit, C.size ≤ 28 �
     intro m
     exact ⟨(hd.1 (Fin.castAdd 7 m)).trans (by fin_cases m <;> decide),
       (hd.1 (Fin.natAdd 7 m)).trans (by fin_cases m <;> decide)⟩
+
+lemma binaryAO_eval_mono {n : ℕ} {C : Circuit} (normal : BinaryAO n C)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  let step (w : List Bool) (g : Gate) : List Bool :=
+    w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+  let run (gs : List Gate) (w : List Bool) : List Bool := gs.foldl step w
+  have hG : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      ∃ a b : ℕ, g.inputs = [a,b] := by
+    intro g hg
+    obtain ⟨j,hj,he⟩ := List.mem_iff_getElem.mp hg
+    obtain ⟨ho,a,b,hab,_,_,_⟩ := normal j g (List.getElem?_eq_some_iff.mpr ⟨hj,he⟩)
+    exact ⟨ho,a,b,hab⟩
+  have stepMono (u v : List Bool) (g : Gate)
+      (hg : (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ ∃ a b : ℕ, g.inputs = [a,b])
+      (hlen : u.length = v.length)
+      (h : ∀ i, u.getD i false = true → v.getD i false = true) :
+      ∀ i, (step u g).getD i false = true → (step v g).getD i false = true := by
+    intro i hi
+    by_cases hlt : i < u.length
+    · change (u ++ [_]).getD i false = true at hi
+      change (v ++ [_]).getD i false = true
+      rw [List.getD_append _ _ _ _ hlt] at hi
+      rw [List.getD_append _ _ _ _ (by omega)]
+      exact h i hi
+    · change (u ++ [_]).getD i false = true at hi
+      change (v ++ [_]).getD i false = true
+      rw [List.getD_append_right _ _ _ _ (by omega)] at hi
+      rw [List.getD_append_right _ _ _ _ (by omega), ← hlen]
+      by_cases hz : i-u.length = 0
+      · simp only [hz, List.getD_cons_zero] at hi ⊢
+        obtain ⟨ho,a,b,hab⟩ := hg
+        rcases ho with ho | ho
+        · rw [ho, hab] at hi ⊢
+          change ([u.getD a false, u.getD b false].all id) = true at hi
+          change ([v.getD a false, v.getD b false].all id) = true
+          simp only [List.all_cons, List.all_nil, Bool.and_true, id_eq, Bool.and_eq_true] at hi ⊢
+          exact ⟨h a hi.1, h b hi.2⟩
+        · rw [ho, hab] at hi ⊢
+          change ([u.getD a false, u.getD b false].any id) = true at hi
+          change ([v.getD a false, v.getD b false].any id) = true
+          simp only [List.any_cons, List.any_nil, Bool.or_false, id_eq, Bool.or_eq_true] at hi ⊢
+          exact hi.elim (fun ha => Or.inl (h a ha)) (fun hb => Or.inr (h b hb))
+      · rw [List.getD_eq_default _ _ (by simp; omega)] at hi
+        contradiction
+  have runMono : ∀ gs : List Gate,
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ ∃ a b : ℕ, g.inputs = [a,b]) →
+      ∀ (u v : List Bool), u.length = v.length →
+      (∀ i, u.getD i false = true → v.getD i false = true) →
+      ∀ i, (run gs u).getD i false = true → (run gs v).getD i false = true := by
+    intro gs
+    induction gs with
+    | nil => intro hg u v hlen h i hi; exact h i hi
+    | cons g gs ih =>
+      intro hg u v hlen h i hi
+      change (run gs (step u g)).getD i false = true at hi
+      change (run gs (step v g)).getD i false = true
+      exact ih (fun k hk => hg k (by simp [hk])) _ _
+        (by simp [step, hlen]) (stepMono u v g (hg g (by simp)) hlen h) i hi
+  have evalMono (x y : Fin n → Bool) (h : ∀ i, x i = true → y i = true) :
+      C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+    apply runMono C.gates hG _ _ (by simp) ?_ C.output
+    intro i hi
+    simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn] at hi ⊢
+    split at hi
+    · rename_i hlt
+      simp [hlt] at hi ⊢
+      exact h _ hi
+    · simp at hi
+  exact evalMono x y hxy
+
+lemma binaryAO_monotone {n : ℕ} {C : Circuit} (normal : BinaryAO n C) :
+    Monotone (fun x : Fin n → Bool => C.eval (List.ofFn x)) := by
+  intro x y hxy
+  have imp := binaryAO_eval_mono normal x y (fun i hi => by
+    have h := hxy i
+    rw [hi] at h
+    exact Bool.eq_true_of_true_le h)
+  cases hx : C.eval (List.ofFn x) <;> cases hy : C.eval (List.ofFn y) <;> simp_all
+
+
+def boundaryFanoHit (x : Fin 14 → Bool) : Prop :=
+  ∃ u t : Fin 7, (u = t ∨ u = t+1 ∨ u = t+3) ∧
+    x (Fin.castAdd 7 u) = true ∧ x (Fin.natAdd 7 t) = true
+
+def bitRow (mask : ℕ) (i : Fin 14) : Bool := mask.testBit i.val
+
+def positiveMasks : List ℕ := [129, 130, 136, 258, 260, 272, 516, 520, 544, 1032, 1040, 1088, 2064, 2080, 2049, 4128, 4160, 4098, 8256, 8193, 8196]
+
+def negativeMasks : List ℕ := [127, 244, 361, 480, 595, 720, 833, 1063, 1188, 1313, 1539, 2126, 2244, 2376, 2626, 3008, 3078, 4125, 4244, 4361, 4625, 5125, 5889, 6156, 7300, 8250, 8368, 8488, 8722, 9250, 9632, 10250, 11778, 12312, 12944, 14600, 16256]
+
+def allowedLine (points : Fin 7 → Bool) (t : Fin 7) : Bool :=
+  !(points t || points (t+1) || points (t+3))
+
+set_option maxRecDepth 16000 in
+set_option maxHeartbeats 4000000 in
+lemma positiveMasks_cover : ∀ u t : Fin 7, (u = t ∨ u = t+1 ∨ u = t+3) →
+    ∃ m ∈ positiveMasks, ∀ i : Fin 14,
+      bitRow m i = decide (i = Fin.castAdd 7 u ∨ i = Fin.natAdd 7 t) := by
+  decide
+
+set_option maxRecDepth 16000 in
+set_option maxHeartbeats 4000000 in
+lemma negativeMasks_cover : ∀ points : Fin 7 → Bool,
+    ∃ m ∈ negativeMasks,
+      (∀ u : Fin 7, points u = true → bitRow m (Fin.castAdd 7 u) = true) ∧
+      (∀ t : Fin 7, allowedLine points t = true → bitRow m (Fin.natAdd 7 t) = true) := by
+  decide
+
+lemma boundary_correct {C : Circuit} (normal : BinaryAO 14 C)
+    (positive : ∀ m ∈ positiveMasks, C.eval (List.ofFn (bitRow m)) = true)
+    (negative : ∀ m ∈ negativeMasks, C.eval (List.ofFn (bitRow m)) = false) :
+    ∀ x : Fin 14 → Bool, C.eval (List.ofFn x) = true ↔ boundaryFanoHit x := by
+  intro x
+  constructor
+  · intro yes
+    by_contra nohit
+    obtain ⟨m,hm,hpoints,hlines⟩ := negativeMasks_cover
+      (fun u => x (Fin.castAdd 7 u))
+    have below : ∀ i, x i = true → bitRow m i = true := by
+      refine Fin.addCases (m := 7) (n := 7) ?_ ?_
+      · intro u hu
+        exact hpoints u hu
+      · intro t ht
+        apply hlines t
+        have off (u : Fin 7) (hinc : u = t ∨ u = t+1 ∨ u = t+3) :
+            x (Fin.castAdd 7 u) = false := by
+          cases h : x (Fin.castAdd 7 u) with
+          | false => rfl
+          | true => exact False.elim (nohit ⟨u,t,hinc,h,ht⟩)
+        simp [allowedLine,off t (Or.inl rfl),
+          off (t+1) (Or.inr (Or.inl rfl)),off (t+3) (Or.inr (Or.inr rfl))]
+    have bad := binaryAO_eval_mono normal x (bitRow m) below yes
+    rw [negative m hm] at bad
+    contradiction
+  · rintro ⟨u,t,hinc,hpoint,hline⟩
+    obtain ⟨m,hm,hrow⟩ := positiveMasks_cover u t hinc
+    apply binaryAO_eval_mono normal (bitRow m) x ?_ (positive m hm)
+    intro i hi
+    rw [hrow i] at hi
+    rcases of_decide_eq_true hi with rfl | rfl
+    · exact hpoint
+    · exact hline
+
+lemma boundary_correct_of_checks {C : Circuit} (normal : BinaryAO 14 C)
+    (positive : positiveMasks.all (fun m => C.eval (List.ofFn (bitRow m))) = true)
+    (negative : negativeMasks.all (fun m => !(C.eval (List.ofFn (bitRow m)))) = true) :
+    ∀ x : Fin 14 → Bool, C.eval (List.ofFn x) = true ↔ boundaryFanoHit x := by
+  apply boundary_correct normal
+  · exact List.all_eq_true.mp positive
+  · intro m hm
+    have h := List.all_eq_true.mp negative m hm
+    cases hc : C.eval (List.ofFn (bitRow m)) <;> simp_all
+
+lemma positiveMasks_valid : ∀ m ∈ positiveMasks, boundaryFanoHit (bitRow m) := by
+  let : DecidablePred boundaryFanoHit := fun x => by unfold boundaryFanoHit; infer_instance
+  have checks : positiveMasks.all (fun m => decide (boundaryFanoHit (bitRow m))) = true := by decide
+  intro m hm
+  exact of_decide_eq_true (List.all_eq_true.mp checks m hm)
+
+lemma negativeMasks_valid : ∀ m ∈ negativeMasks, ¬ boundaryFanoHit (bitRow m) := by
+  let : DecidablePred boundaryFanoHit := fun x => by unfold boundaryFanoHit; infer_instance
+  have checks : negativeMasks.all (fun m => decide (¬ boundaryFanoHit (bitRow m))) = true := by decide
+  intro m hm
+  exact of_decide_eq_true (List.all_eq_true.mp checks m hm)
+
+def supportWireStep (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma support_run_extends (gs : List Gate) (w : List Bool) :
+    ∃ t : List Bool, gs.foldl supportWireStep w = w++t ∧ t.length=gs.length := by
+  induction gs generalizing w with
+  | nil => exact ⟨[],by simp,rfl⟩
+  | cons g gs ih =>
+    obtain ⟨t,ht,hlen⟩ := ih (supportWireStep w g)
+    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false)::t,?_,?_⟩
+    · simpa [supportWireStep,List.append_assoc] using ht
+    · simp [hlen]
+
+lemma support_wire_input {n : ℕ} (C : Circuit) (x : Fin n → Bool) (i : Fin n) :
+    (C.wires (List.ofFn x)).getD i.val false = x i := by
+  obtain ⟨t,ht,_⟩ := support_run_extends C.gates (List.ofFn x)
+  change (C.gates.foldl supportWireStep (List.ofFn x)).getD i.val false = _
+  rw [ht,List.getD_append _ _ _ _ (by simp)]
+  simp [List.getD_eq_getElem?_getD]
+
+lemma support_wire_gate {n : ℕ} (C : Circuit) (x : Fin n → Bool)
+    (j : ℕ) (g : Gate) (a b : ℕ) (hj : C.gates[j]?=some g)
+    (hab : g.inputs=[a,b]) (ha : a<n+j) (hb : b<n+j) :
+    (C.wires (List.ofFn x)).getD (n+j) false =
+      g.op.eval [(C.wires (List.ofFn x)).getD a false,
+        (C.wires (List.ofFn x)).getD b false] := by
+  have hlt := (List.getElem?_eq_some_iff.mp hj).1
+  have split : C.gates = C.gates.take j ++ g :: C.gates.drop (j+1) := by
+    have h := List.take_append_drop j C.gates
+    rw [List.drop_eq_getElem?_toList_append,hj] at h
+    simpa using h.symm
+  let pre := (C.gates.take j).foldl supportWireStep (List.ofFn x)
+  have plen : pre.length=n+j := by
+    obtain ⟨t,ht,hlen⟩ := support_run_extends (C.gates.take j) (List.ofFn x)
+    change ((C.gates.take j).foldl supportWireStep (List.ofFn x)).length=n+j
+    rw [ht,List.length_append,List.length_ofFn,hlen,List.length_take]
+    omega
+  obtain ⟨t,ht,_⟩ := support_run_extends (C.gates.drop (j+1)) (supportWireStep pre g)
+  have full : C.wires (List.ofFn x) =
+      pre ++ g.op.eval (g.inputs.map fun i => pre.getD i false)::t := by
+    change C.gates.foldl supportWireStep (List.ofFn x) = _
+    rw [split,List.foldl_append,List.foldl_cons]
+    simpa [pre,supportWireStep,List.append_assoc] using ht
+  have preserve (i : ℕ) (hi : i<n+j) :
+      (C.wires (List.ofFn x)).getD i false = pre.getD i false := by
+    rw [full,List.getD_append _ _ _ _ (by omega)]
+  rw [preserve a ha,preserve b hb,full]
+  rw [List.getD_append_right _ _ _ _ (by omega)]
+  simp [plen,hab]
+
+lemma derivative_support_of_bounds {n : ℕ} {C : Circuit}
+    (normal : BinaryAO n C) (base seed target : Fin n → Bool) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C base seed d)
+    (hbase : ∀ i, base i=true → target i=true)
+    (hseed : ∀ i, seed i=true → target i=true) :
+    ∀ w, w<n+C.gates.length →
+      ((C.wires (List.ofFn base)).getD w false=true →
+        (C.wires (List.ofFn target)).getD w false=true) ∧
+      (d w=true → (C.wires (List.ofFn target)).getD w false=true) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hin : w<n
+    · rw [support_wire_input C base ⟨w,hin⟩,
+        support_wire_input C target ⟨w,hin⟩,trace.1 ⟨w,hin⟩]
+      exact ⟨hbase _,hseed _⟩
+    · have hj : w-n<C.gates.length := by omega
+      let g : Gate := C.gates[w-n]
+      have hget : C.gates[w-n]?=some g :=
+        List.getElem?_eq_some_iff.mpr ⟨hj,rfl⟩
+      obtain ⟨hop,a,b,hab,_,ha,hb⟩ := normal (w-n) g hget
+      have heq : n+(w-n)=w := by omega
+      have ia := ih a (by omega) (by omega)
+      have ib := ih b (by omega) (by omega)
+      have bv := support_wire_gate C base (w-n) g a b hget hab ha hb
+      have tv := support_wire_gate C target (w-n) g a b hget hab ha hb
+      have dv := trace.2 (w-n) g a b hget hab
+      rcases hop with hop | hop
+      · have bv' : (C.wires (List.ofFn base)).getD w false =
+            ((C.wires (List.ofFn base)).getD a false &&
+              (C.wires (List.ofFn base)).getD b false) := by
+          simpa [heq,hop,GateOp.eval] using bv
+        have tv' : (C.wires (List.ofFn target)).getD w false =
+            ((C.wires (List.ofFn target)).getD a false &&
+              (C.wires (List.ofFn target)).getD b false) := by
+          simpa [heq,hop,GateOp.eval] using tv
+        have dv' : d w =
+            (((C.wires (List.ofFn base)).getD a false && d b) ||
+              (d a && (C.wires (List.ofFn base)).getD b false)) := by
+          simpa [heq] using dv.1 hop
+        rw [bv',tv',dv']
+        simp only [Bool.and_eq_true_iff,Bool.or_eq_true_iff]
+        constructor
+        · intro h
+          exact ⟨ia.1 h.1,ib.1 h.2⟩
+        · rintro (h|h)
+          · exact ⟨ia.1 h.1,ib.2 h.2⟩
+          · exact ⟨ia.2 h.1,ib.1 h.2⟩
+      · have bv' : (C.wires (List.ofFn base)).getD w false =
+            ((C.wires (List.ofFn base)).getD a false ||
+              (C.wires (List.ofFn base)).getD b false) := by
+          simpa [heq,hop,GateOp.eval] using bv
+        have tv' : (C.wires (List.ofFn target)).getD w false =
+            ((C.wires (List.ofFn target)).getD a false ||
+              (C.wires (List.ofFn target)).getD b false) := by
+          simpa [heq,hop,GateOp.eval] using tv
+        have dv' : d w=(d a || d b) := by simpa [heq] using dv.2 hop
+        rw [bv',tv',dv']
+        simp only [Bool.or_eq_true_iff]
+        exact ⟨Or.imp ia.1 ib.1,Or.imp ia.2 ib.2⟩
+
+lemma derivative_support {n : ℕ} {C : Circuit} (normal : BinaryAO n C)
+    (base seed : Fin n → Bool) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C base seed d) (w : ℕ) (hw : w<n+C.gates.length) :
+    d w=true →
+      (C.wires (List.ofFn (fun i => base i || seed i))).getD w false=true := by
+  exact (derivative_support_of_bounds normal base seed (fun i => base i || seed i) d trace
+    (fun i hi => by simp [hi]) (fun i hi => by simp [hi]) w hw).2
+
+lemma derivative_false_of_pair_false {n : ℕ} {C : Circuit}
+    (normal : BinaryAO n C) (a b : Fin n) (d : ℕ → Bool)
+    (trace : DerivativeTrace n C
+      (fun i => decide (i=a)) (fun i => decide (i=b)) d)
+    (w : ℕ) (hw : w<n+C.gates.length)
+    (off : (C.wires (List.ofFn (fun i : Fin n => decide (i=a ∨ i=b)))).getD w false=false) :
+    d w=false := by
+  cases hd : d w with
+  | false => rfl
+  | true =>
+    have ht := derivative_support normal _ _ d trace w hw hd
+    have heq : (fun i : Fin n => decide (i=a) || decide (i=b)) =
+        (fun i : Fin n => decide (i=a ∨ i=b)) := by
+      funext i
+      simp
+    rw [heq,off] at ht
+    contradiction
 
 lemma baseline_size : baseline.size = 27 := rfl
 

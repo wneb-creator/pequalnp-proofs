@@ -1,9 +1,10 @@
 L-meta-1479 PARTIAL ONLY
-Named file: lean/PEqualNP/Outside/L_meta_1479.lean, 490 lines.
-Includes a Lean-checked 28-gate circuit satisfying all target clauses except the required bound of27; normalized correct27-gate baseline; derivative-trace validators; Fano no-four-cycle and final-AND singleton-support restrictions; strictHall.
-Build: lake build PEqualNP.Outside.L_meta_1479, exit0. Build completed successfully (5149 jobs).
-Checker: not run; no final target theorem yet.
-Independent component reviews: PASS (status_review and algebraic_route), and root reviewed finite strictHall and merge.
-Complete build stdout/stderr archived alongside this file.
+Named file: lean/PEqualNP/Outside/L_meta_1479.lean, 838 lines.
+Includes a checked 28-gate witness satisfying every posted clause except the required 27-gate bound; correct normalized 27-gate baseline; trace validators; Fano structural and cover lemmas; 58-row correctness certificate; derivative-support lemma.
+Build: lake build PEqualNP.Outside.L_meta_1479, exit 0. Build completed successfully (5149 jobs).
+Checker: not run; final target theorem is absent.
+Axiom audit of relaxed_28, support_thin, strict_hall and baseline_correct: only propext, Classical.choice, Quot.sound.
+Independent whole-file review: PASS by constructive_search; independently verified exactly 21 positive and 37 maximal negative rows on all 16,384 inputs.
+Complete build and axiom stdout/stderr are archived alongside this file.
 Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
-TIMING total=49.9 subagents=6
+TIMING total=60.6 subagents=6
