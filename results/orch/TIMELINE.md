@@ -45,3 +45,5 @@ No complete proof or accepted submission yet.
 2026-11-25T09:22:36.504414+00:00 — TwoSilentProducts graph-count core compiled and independently reviewed; preserving immediately. Named partial unchanged. Recovery replies 12 all null.
 
 2026-11-25T09:24:01.378550+00:00 — TwoSilentProductsStar conditional prototype compiled and independently reviewed; preserving source/log immediately.
+
+2026-11-25T09:26:55.280344+00:00 — Stronger graph-only two-product theorem and fan-in-at-most-two input bound passed compilation, independent review and axiom audit. Preserving prototypes and complete logs.

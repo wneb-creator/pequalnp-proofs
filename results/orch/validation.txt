@@ -11,12 +11,13 @@ Cleanup: not reached because the full posted theorem is absent; no accepted-proo
 Axiom audit: final conditional theorem uses only propext, Classical.choice, Quot.sound. All143 earlier integrated lemmas were audited too; full logs retained.
 Finite archive:137 independently reviewed artifacts. Solver evidence and UNKNOWN timeouts do not constitute a Lean proof.
 Free-OR archive:14 CNFs independently reconstructed; all5 SAT models fully checked;6 UNSAT/5 SAT/3 UNKNOWN.
-Desk next nulls:12. Recovery polling active; no live lease currently held.
+Desk next nulls:13. Recovery polling active; no live lease currently held.
 Sub-agents: 7 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof)
-TIMING total=139.6 subagents=7
+TIMING total=143.9 subagents=7
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 Final red-team review: PASS FOR PARTIAL CHECKPOINT, not a proof PR. No full theorem/refutation found.
 EssentialP4.lean compiled; independent source and executable checks passed; no full-gap refutation claimed.
 Desk renewal at08:31:23 returned no-such-live-lease; mandatory curl-si repeat returned HTTP410. Previous successful timer renewal reported expiry08:43:23. Timer stopped automatically. No release request was made; own lease was already unavailable. Response headers/body retained in desk-renewal-error.txt with Cloudflare telemetry query omitted.
 TwoSilentProducts.lean:201lines,8883bytes,SHA256dcd70e69fe55877223e70e35f5872a5b1e0f8dcd94161fb39a3d4a49f67a33bb; compile exit0, complete empty output two-silent-products-build.log. Independent core review PASS. Explicit four-support graph hypothesis; not the posted theorem.
 TwoSilentProductsStar.lean:249lines,11306bytes,SHA2565c2fa14af13702dcca9de5421e3b00a9521faac4ec6e907585febcc0d59d7463; compile exit0; independent review PASS as conditional prototype. Imports named partial and L2074; not final-import compliant. Assumes public minimum AO2 circuit and whole-function four-support representation.
+TwoSilentProductsGraphOnly.lean:445lines,19722bytes,SHA256e504f6940b327d5af4892bcb2455c6e04088f5ae7bf819b3aee9fca2e89b2903; compile exit0 and independent review PASS. Explicit four-support adjacency hypothesis defines a graph subclass of at most two disjoint stars. No supplied minimum/AO2/junk-count premise. Prototype imports named partial; standalone extraction in progress. All three audited lemmas use only standard axioms; complete log two-silent-products-axioms.log.
