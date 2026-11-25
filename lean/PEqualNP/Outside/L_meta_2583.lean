@@ -5124,4 +5124,477 @@ lemma minimum_frontier_and_children_have_separating_inputs (n : ℕ)
 
 end GlobalOrFrontier
 
+
+namespace GlobalOrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover
+open ProductFactor
+
+def IsForwardClosure (n : ℕ) (D : Circuit) (j : ℕ) (S : ℕ → Prop) : Prop :=
+  (∀ w < n + j, ¬ S w) ∧ S (n + j) ∧
+    ∀ k < D.size, k ≠ j → (S (n + k) ↔ ∃ u ∈ (gateAt D k).inputs, S u)
+
+lemma or_frontier_forward_closure (n : ℕ) (D : Circuit) (j : ℕ) (S : ℕ → Prop)
+    (hS : IsOrFrontier n D j S) : IsForwardClosure n D j S :=
+  ⟨hS.1, hS.2.1, fun k hk hkj => (hS.2.2 k hk hkj).1⟩
+
+lemma copyGate_forward_bounds (n : ℕ) (D : Circuit) (j c : ℕ) (S : ℕ → Prop)
+    (hD : IsAO2 n D) (hj : j < D.size) (hc : c < n + j)
+    (hS : IsForwardClosure n D j S)
+    (hdom : ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true →
+      PEqualNP.BlindGate.wireValue D n x c = true) (x : Fin n → Bool) :
+    ∀ w < n + D.size,
+      (PEqualNP.BlindGate.wireValue D n x w = true →
+        PEqualNP.BlindGate.wireValue (copyGate D j c) n x w = true) ∧
+      (PEqualNP.BlindGate.wireValue (copyGate D j c) n x w = true →
+        PEqualNP.BlindGate.wireValue D n x w = true ∨
+          (S w ∧ PEqualNP.BlindGate.wireValue D n x c = true)) := by
+  have hcD : c < n + D.size := by omega
+  have hnew : IsAO2 n (copyGate D j c) := copyGate_ao2 n D j c hD hc
+  intro w
+  induction w using Nat.strongRecOn with
+  | ind w ih =>
+    intro hw
+    by_cases hinput : w < n
+    · rw [SplitAux.wireValue_input n (copyGate D j c) x w hinput,
+        SplitAux.wireValue_input n D x w hinput]
+      exact ⟨fun h => h, fun h => Or.inl h⟩
+    · let k := w - n
+      have hwk : w = n + k := by dsimp [k]; omega
+      have hk : k < D.size := by omega
+      have hknew : k < (copyGate D j c).size := by rwa [copyGate_size]
+      by_cases hkj : k = j
+      · have hwj : w = n + j := by omega
+        obtain ⟨hcm, hcu⟩ := ih c (by omega) hcD
+        have hceq : PEqualNP.BlindGate.wireValue (copyGate D j c) n x c =
+            PEqualNP.BlindGate.wireValue D n x c := by
+          apply Bool.eq_iff_iff.mpr
+          constructor
+          · intro h
+            rcases hcu h with h | h
+            · exact h
+            · exact False.elim (hS.1 c hc h.1)
+          · exact hcm
+        have hnewJ : PEqualNP.BlindGate.wireValue (copyGate D j c) n x (n + j) =
+            PEqualNP.BlindGate.wireValue D n x c := by
+          rw [SplitAux.wireValue_gate n (copyGate D j c) x j
+            (by simpa [copyGate, Circuit.size] using hj) hnew.2.1,
+            copyGate_at D j c j hj, ite_eq_left rfl]
+          simp only [List.map_cons, List.map_nil, GateOp.eval, List.any_cons, List.any_nil,
+            id_eq, Bool.or_false, Bool.or_self, hceq]
+        rw [hwj, hnewJ]
+        exact ⟨hdom x, fun h => Or.inr ⟨hS.2.1, h⟩⟩
+      · obtain ⟨u, v, hin, hu, hv⟩ := SplitAux.gate_inputs_two n D hD k hk
+        obtain ⟨hmu, hbu⟩ := ih u (by omega) (by omega)
+        obtain ⟨hmv, hbv⟩ := ih v (by omega) (by omega)
+        have hnewval := SplitAux.wireValue_gate n (copyGate D j c) x k hknew hnew.2.1
+        rw [copyGate_at D j c k hk, ite_eq_right (Ne.symm hkj), hin] at hnewval
+        simp only [List.map_cons, List.map_nil] at hnewval
+        have holdval := SplitAux.wireValue_gate n D x k hk hD.2.1
+        rw [hin] at holdval
+        simp only [List.map_cons, List.map_nil] at holdval
+        have hiff : S (n + k) ↔ S u ∨ S v := by
+          simpa [hin] using hS.2.2 k hk hkj
+        have hmark : S u ∨ S v → S (n + k) := hiff.mpr
+        have hop : (gateAt D k).op = GateOp.and ∨ (gateAt D k).op = GateOp.or := by
+          rw [SplitAux.gateAt_eq_getElem D k hk]
+          exact hD.1 _ (List.getElem_mem hk)
+        rw [hwk, holdval, hnewval]
+        rcases hop with hop | hop
+        · rw [hop]
+          simp only [GateOp.eval, List.all_cons, List.all_nil, id_eq, Bool.and_true,
+            Bool.and_eq_true]
+          constructor
+          · rintro ⟨h1, h2⟩
+            exact ⟨hmu h1, hmv h2⟩
+          · rintro ⟨h1, h2⟩
+            rcases hbu h1 with huold | huchange
+            · rcases hbv h2 with hvold | hvchange
+              · exact Or.inl ⟨huold, hvold⟩
+              · exact Or.inr ⟨hmark (Or.inr hvchange.1), hvchange.2⟩
+            · exact Or.inr ⟨hmark (Or.inl huchange.1), huchange.2⟩
+        · rw [hop]
+          simp only [GateOp.eval, List.any_cons, List.any_nil, id_eq, Bool.or_false,
+            Bool.or_eq_true]
+          constructor
+          · intro h
+            rcases h with h | h
+            · exact Or.inl (hmu h)
+            · exact Or.inr (hmv h)
+          · intro h
+            rcases h with h | h
+            · rcases hbu h with huold | huchange
+              · exact Or.inl (Or.inl huold)
+              · exact Or.inr ⟨hmark (Or.inl huchange.1), huchange.2⟩
+            · rcases hbv h with hvold | hvchange
+              · exact Or.inl (Or.inr hvold)
+              · exact Or.inr ⟨hmark (Or.inr hvchange.1), hvchange.2⟩
+
+
+lemma copyGate_preserves_residual_mixed (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (j c : ℕ) (S : ℕ → Prop)
+    (hres : IsResidual n F D B) (hj : j < D.size)
+    (hc : c < n + j) (hS : IsForwardClosure n D j S)
+    (hdom : ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true →
+      PEqualNP.BlindGate.wireValue D n x c = true)
+    (hdisjoint : ∀ t ∈ B, ¬ (S t.1 ∧ S t.2))
+    (hleft : ∀ t ∈ B, S t.1 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.2 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true)
+    (hright : ∀ t ∈ B, S t.2 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true) :
+    IsResidual n F (copyGate D j c) B := by
+  refine ⟨copyGate_ao2 n D j c hres.1 hc, ?_, ?_, ?_⟩
+  · intro t ht
+    simpa only [copyGate_size] using hres.2.1 t ht
+  · intro w hw
+    rw [copyGate_size] at hw
+    obtain ⟨x, hx, hfalse⟩ := hres.2.2.1 w hw
+    exact ⟨x, (copyGate_forward_bounds n D j c S hres.1 hj hc hS hdom x w hw).1 hx, hfalse⟩
+  · intro x
+    constructor
+    · intro hF
+      obtain ⟨t, ht, h1, h2⟩ := (hres.2.2.2 x).mp hF
+      exact ⟨t, ht,
+        (copyGate_forward_bounds n D j c S hres.1 hj hc hS hdom x t.1 (hres.2.1 t ht).1).1 h1,
+        (copyGate_forward_bounds n D j c S hres.1 hj hc hS hdom x t.2 (hres.2.1 t ht).2).1 h2⟩
+    · rintro ⟨t, ht, h1, h2⟩
+      have hupper1 :=
+        (copyGate_forward_bounds n D j c S hres.1 hj hc hS hdom x t.1 (hres.2.1 t ht).1).2 h1
+      have hupper2 :=
+        (copyGate_forward_bounds n D j c S hres.1 hj hc hS hdom x t.2 (hres.2.1 t ht).2).2 h2
+      rcases hupper1 with hold1 | ⟨hs1, hc1⟩
+      · rcases hupper2 with hold2 | ⟨hs2, hc2⟩
+        · exact (hres.2.2.2 x).mpr ⟨t, ht, hold1, hold2⟩
+        · exact hright t ht hs2 x hold1 hc2
+      · rcases hupper2 with hold2 | ⟨hs2, hc2⟩
+        · exact hleft t ht hs1 x hold2 hc1
+        · exact False.elim (hdisjoint t ht ⟨hs1, hs2⟩)
+
+lemma erase_mixed_frontier_dominating (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (j c : ℕ) (S : ℕ → Prop)
+    (hres : IsResidual n F D B) (hj : j < D.size)
+    (hc : c < n + j) (hS : IsForwardClosure n D j S)
+    (hdom : ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true →
+      PEqualNP.BlindGate.wireValue D n x c = true)
+    (hdisjoint : ∀ t ∈ B, ¬ (S t.1 ∧ S t.2))
+    (hleft : ∀ t ∈ B, S t.1 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.2 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true)
+    (hright : ∀ t ∈ B, S t.2 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true) :
+    ∃ (E : Circuit) (T : List (ℕ × ℕ)), IsResidual n F E T ∧
+      E.size + 2 * T.length + 1 = D.size + 2 * B.length := by
+  have hnew := copyGate_preserves_residual_mixed n F D B j c S
+    hres hj hc hS hdom hdisjoint hleft hright
+  have hjnew : j < (copyGate D j c).size := by rwa [copyGate_size]
+  have hcopy : gateAt (copyGate D j c) j = ⟨GateOp.or, [c, c]⟩ := by
+    rw [copyGate_at D j c j hj, ite_eq_left rfl]
+  obtain ⟨E, T, hET, hcost⟩ := CopyErase.erase_copy_residual n F (copyGate D j c) B j c
+    hnew hjnew hcopy hc
+  exact ⟨E, T, hET, by simpa only [copyGate_size] using hcost⟩
+
+lemma minimum_mixed_frontier_has_unsafe_partner (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (j c : ℕ) (S : ℕ → Prop)
+    (hres : IsResidual n F D B) (hj : j < D.size)
+    (hc : c < n + j) (hS : IsForwardClosure n D j S)
+    (hdom : ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true →
+      PEqualNP.BlindGate.wireValue D n x c = true)
+    (hdisjoint : ∀ t ∈ B, ¬ (S t.1 ∧ S t.2))
+    (hmin : ∀ (E : Circuit) (T : List (ℕ × ℕ)), IsResidual n F E T →
+      D.size + 2 * B.length ≤ E.size + 2 * T.length) :
+    ∃ t ∈ B, ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x c = true ∧ F x = false ∧
+      ((S t.1 ∧ ¬ S t.2 ∧ PEqualNP.BlindGate.wireValue D n x t.2 = true) ∨
+        (S t.2 ∧ ¬ S t.1 ∧ PEqualNP.BlindGate.wireValue D n x t.1 = true)) := by
+  classical
+  by_contra hn
+  have hleft : ∀ t ∈ B, S t.1 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.2 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true := by
+    intro t ht hs x hpartner hC
+    by_contra hF
+    have hfalse : F x = false := by simpa only [Bool.not_eq_true] using hF
+    have hnot : ¬ S t.2 := fun h => hdisjoint t ht ⟨hs, h⟩
+    exact hn ⟨t, ht, x, hC, hfalse, Or.inl ⟨hs, hnot, hpartner⟩⟩
+  have hright : ∀ t ∈ B, S t.2 → ∀ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x t.1 = true →
+      PEqualNP.BlindGate.wireValue D n x c = true → F x = true := by
+    intro t ht hs x hpartner hC
+    by_contra hF
+    have hfalse : F x = false := by simpa only [Bool.not_eq_true] using hF
+    have hnot : ¬ S t.1 := fun h => hdisjoint t ht ⟨h, hs⟩
+    exact hn ⟨t, ht, x, hC, hfalse, Or.inr ⟨hs, hnot, hpartner⟩⟩
+  obtain ⟨E, T, hET, hcost⟩ := erase_mixed_frontier_dominating n F D B j c S
+    hres hj hc hS hdom hdisjoint hleft hright
+  have := hmin E T hET
+  omega
+
+end GlobalOrFrontier
+
+namespace GlobalOrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+
+lemma descendants_forward_closure (n : ℕ) (D : Circuit) (j : ℕ)
+    (hD : IsAO2 n D) : IsForwardClosure n D j (descendants n D j) := by
+  refine ⟨?_, Relation.ReflTransGen.refl, ?_⟩
+  · intro w hw hreach
+    have := descendants_le n D j w hD hreach
+    omega
+  · intro k hk hkj
+    exact descendants_gate n D j k hk hkj
+
+end GlobalOrFrontier
+
+namespace GlobalOrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover
+open ProductFactor
+
+lemma wire_true_mono (n : ℕ) (D : Circuit) (hD : IsAO2 n D)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    ∀ w < n + D.size, PEqualNP.BlindGate.wireValue D n x w = true →
+      PEqualNP.BlindGate.wireValue D n y w = true := by
+  intro w
+  induction w using Nat.strongRecOn with
+  | ind w ih =>
+    intro hw hx
+    by_cases hin : w < n
+    · rw [SplitAux.wireValue_input n D x w hin] at hx
+      rw [SplitAux.wireValue_input n D y w hin]
+      exact hxy ⟨w, hin⟩ hx
+    · let k := w - n
+      have hwk : w = n + k := by dsimp [k]; omega
+      have hk : k < D.size := by omega
+      rw [hwk, SplitAux.wireValue_gate n D x k hk hD.2.1] at hx
+      rw [hwk, SplitAux.wireValue_gate n D y k hk hD.2.1]
+      have hop : (gateAt D k).op = GateOp.and ∨ (gateAt D k).op = GateOp.or := by
+        apply hD.1
+        rw [SplitAux.gateAt_eq_getElem D k hk]
+        exact List.getElem_mem hk
+      apply LiftAux.gateOp_eval_mono _ hop _ _ _ ?_ hx
+      intro u hu huval
+      have hub := hD.2.1 k hk u hu
+      exact ih u (by omega) (by omega) huval
+
+lemma frontier_context_forces_output (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (j : ℕ) (S : ℕ → Prop)
+    (hres : IsResidual n F D B) (hS : IsOrFrontier n D j S)
+    (t : ℕ × ℕ) (ht : t ∈ B) (x : Fin n → Bool)
+    (hcontext : (S t.1 ∧ PEqualNP.BlindGate.wireValue D n x t.2 = true) ∨
+      (S t.2 ∧ PEqualNP.BlindGate.wireValue D n x t.1 = true))
+    (hJ : PEqualNP.BlindGate.wireValue D n x (n + j) = true) : F x = true := by
+  rcases hcontext with ⟨hs, hp⟩ | ⟨hs, hp⟩
+  · exact (hres.2.2.2 x).mpr ⟨t, ht,
+      frontier_dominates n D j S hres.1 hS t.1 (hres.2.1 t ht).1 hs x hJ, hp⟩
+  · exact (hres.2.2.2 x).mpr ⟨t, ht, hp,
+      frontier_dominates n D j S hres.1 hS t.2 (hres.2.1 t ht).2 hs x hJ⟩
+
+lemma minimum_frontier_false_join_triple (n : ℕ)
+    (F : (Fin n → Bool) → Bool) (D : Circuit) (B : List (ℕ × ℕ))
+    (j A C : ℕ) (S : ℕ → Prop) (hres : IsResidual n F D B) (hj : j < D.size)
+    (hgate : gateAt D j = ⟨GateOp.and, [A, C]⟩) (hS : IsOrFrontier n D j S)
+    (hmin : ∀ (E : Circuit) (T : List (ℕ × ℕ)), IsResidual n F E T →
+      D.size + 2 * B.length ≤ E.size + 2 * T.length) :
+    ∃ x y z : Fin n → Bool,
+      F x = false ∧ F y = false ∧ F z = false ∧
+      PEqualNP.BlindGate.wireValue D n x A = true ∧
+      PEqualNP.BlindGate.wireValue D n x C = false ∧
+      PEqualNP.BlindGate.wireValue D n y A = false ∧
+      PEqualNP.BlindGate.wireValue D n y C = true ∧
+      PEqualNP.BlindGate.wireValue D n z (n + j) = true ∧
+      F (fun i => x i || y i) = true ∧
+      F (fun i => x i || z i) = true ∧
+      F (fun i => y i || z i) = true := by
+  obtain ⟨t, ht, x, hAx, hCx, hFx, hctx⟩ :=
+    minimum_frontier_and_children_have_separating_inputs n F D B j A C S hres hj hgate hS
+      hmin A C (Or.inl ⟨rfl, rfl⟩)
+  obtain ⟨u, hu, y, hCy, hAy, hFy, hcty⟩ :=
+    minimum_frontier_and_children_have_separating_inputs n F D B j A C S hres hj hgate hS
+      hmin C A (Or.inr ⟨rfl, rfl⟩)
+  obtain ⟨z, hJz, hFz⟩ := hres.2.2.1 (n + j) (by omega)
+  have hAb : A < n + D.size := by
+    have := hres.1.2.1 j hj A (by rw [hgate]; simp)
+    omega
+  have hCb : C < n + D.size := by
+    have := hres.1.2.1 j hj C (by rw [hgate]; simp)
+    omega
+  have hleft (a b : Fin n → Bool) (w : ℕ) (hw : w < n + D.size)
+      (hv : PEqualNP.BlindGate.wireValue D n a w = true) :
+      PEqualNP.BlindGate.wireValue D n (fun i => a i || b i) w = true :=
+    wire_true_mono n D hres.1 a (fun i => a i || b i)
+      (by intro i hi; rw [hi]; rfl) w hw hv
+  have hright (a b : Fin n → Bool) (w : ℕ) (hw : w < n + D.size)
+      (hv : PEqualNP.BlindGate.wireValue D n b w = true) :
+      PEqualNP.BlindGate.wireValue D n (fun i => a i || b i) w = true :=
+    wire_true_mono n D hres.1 b (fun i => a i || b i)
+      (by intro i hi; rw [hi]; exact Bool.or_true _) w hw hv
+  have hcontextUp (v : ℕ × ℕ) (hv : v ∈ B) (a b : Fin n → Bool)
+      (h : (S v.1 ∧ ¬ S v.2 ∧ PEqualNP.BlindGate.wireValue D n a v.2 = true) ∨
+        (S v.2 ∧ ¬ S v.1 ∧ PEqualNP.BlindGate.wireValue D n a v.1 = true)) :
+      (S v.1 ∧ PEqualNP.BlindGate.wireValue D n (fun i => a i || b i) v.2 = true) ∨
+        (S v.2 ∧ PEqualNP.BlindGate.wireValue D n (fun i => a i || b i) v.1 = true) := by
+    rcases h with h | h
+    · exact Or.inl ⟨h.1, hleft a b v.2 (hres.2.1 v hv).2 h.2.2⟩
+    · exact Or.inr ⟨h.1, hleft a b v.1 (hres.2.1 v hv).1 h.2.2⟩
+  have hJxy : PEqualNP.BlindGate.wireValue D n (fun i => x i || y i) (n + j) = true := by
+    rw [SplitAux.wireValue_gate n D _ j hj hres.1.2.1, hgate]
+    simp [GateOp.eval, hleft x y A hAb hAx, hright x y C hCb hCy]
+  refine ⟨x, y, z, hFx, hFy, hFz, hAx, hCx, hAy, hCy, hJz, ?_, ?_, ?_⟩
+  · exact frontier_context_forces_output n F D B j S hres hS t ht _
+      (hcontextUp t ht x y hctx) hJxy
+  · exact frontier_context_forces_output n F D B j S hres hS t ht _
+      (hcontextUp t ht x z hctx) (hright x z (n + j) (by omega) hJz)
+  · exact frontier_context_forces_output n F D B j S hres hS u hu _
+      (hcontextUp u hu y z hcty) (hright y z (n + j) (by omega) hJz)
+
+end GlobalOrFrontier
+
+namespace GlobalOrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover
+open ProductFactor
+
+lemma true_wire_has_or_trace_atom (n : ℕ) (D : Circuit) (hD : IsAO2 n D)
+    (x : Fin n → Bool) :
+    ∀ w < n + D.size, PEqualNP.BlindGate.wireValue D n x w = true →
+      ∃ r ≤ w, PEqualNP.BlindGate.wireValue D n x r = true ∧
+        (r < n ∨ ∃ k < D.size, r = n + k ∧ (gateAt D k).op = GateOp.and) ∧
+        ∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y r = true →
+          PEqualNP.BlindGate.wireValue D n y w = true := by
+  intro w
+  induction w using Nat.strongRecOn with
+  | ind w ih =>
+    intro hw hx
+    by_cases hin : w < n
+    · exact ⟨w, Nat.le_refl _, hx, Or.inl hin, fun _ h => h⟩
+    · let k := w - n
+      have hwk : w = n + k := by dsimp [k]; omega
+      have hk : k < D.size := by omega
+      have hop : (gateAt D k).op = GateOp.and ∨ (gateAt D k).op = GateOp.or := by
+        apply hD.1
+        rw [SplitAux.gateAt_eq_getElem D k hk]
+        exact List.getElem_mem hk
+      rcases hop with hand | hor
+      · exact ⟨w, Nat.le_refl _, hx, Or.inr ⟨k, hk, hwk, hand⟩, fun _ h => h⟩
+      · have hvalue (y : Fin n → Bool) : PEqualNP.BlindGate.wireValue D n y w = true ↔
+            ∃ u ∈ (gateAt D k).inputs, PEqualNP.BlindGate.wireValue D n y u = true := by
+          rw [hwk, SplitAux.wireValue_gate n D y k hk hD.2.1, hor]
+          simp [GateOp.eval]
+        obtain ⟨u, hu, hux⟩ := (hvalue x).mp hx
+        have hub := hD.2.1 k hk u hu
+        obtain ⟨r, hru, hrx, hatom, hdom⟩ := ih u (by omega) (by omega) hux
+        exact ⟨r, by omega, hrx, hatom, fun y hy => (hvalue y).mpr ⟨u, hu, hdom y hy⟩⟩
+
+lemma separating_context_has_atomic_guard (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (B : List (ℕ × ℕ)) (j c : ℕ) (S : ℕ → Prop)
+    (hres : IsResidual n F D B) (hS : IsOrFrontier n D j S)
+    (t : ℕ × ℕ) (ht : t ∈ B) (x : Fin n → Bool)
+    (hc : PEqualNP.BlindGate.wireValue D n x c = true) (hF : F x = false)
+    (hcontext : (S t.1 ∧ PEqualNP.BlindGate.wireValue D n x t.2 = true) ∨
+      (S t.2 ∧ PEqualNP.BlindGate.wireValue D n x t.1 = true)) :
+    ∃ r < n + D.size, PEqualNP.BlindGate.wireValue D n x r = true ∧
+      (r < n ∨ ∃ k < D.size, r = n + k ∧ (gateAt D k).op = GateOp.and) ∧
+      (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y (n + j) = true →
+        PEqualNP.BlindGate.wireValue D n y r = true → F y = true) ∧
+      ¬ (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y c = true →
+        PEqualNP.BlindGate.wireValue D n y r = true → F y = true) := by
+  have build (q : ℕ) (hq : q < n + D.size)
+      (hqx : PEqualNP.BlindGate.wireValue D n x q = true)
+      (hqsafe : ∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y (n + j) = true →
+        PEqualNP.BlindGate.wireValue D n y q = true → F y = true) :
+      ∃ r < n + D.size, PEqualNP.BlindGate.wireValue D n x r = true ∧
+        (r < n ∨ ∃ k < D.size, r = n + k ∧ (gateAt D k).op = GateOp.and) ∧
+        (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y (n + j) = true →
+          PEqualNP.BlindGate.wireValue D n y r = true → F y = true) ∧
+        ¬ (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y c = true →
+          PEqualNP.BlindGate.wireValue D n y r = true → F y = true) := by
+    obtain ⟨r, hrq, hrx, hatom, hdom⟩ := true_wire_has_or_trace_atom n D hres.1 x q hq hqx
+    refine ⟨r, by omega, hrx, hatom, ?_, ?_⟩
+    · intro y hJ hr
+      exact hqsafe y hJ (hdom y hr)
+    · intro hall
+      have := hall x hc hrx
+      rw [hF] at this
+      cases this
+  rcases hcontext with ⟨hs, hp⟩ | ⟨hs, hp⟩
+  · apply build t.2 (hres.2.1 t ht).2 hp
+    intro y hJ hq
+    exact (hres.2.2.2 y).mpr ⟨t, ht,
+      frontier_dominates n D j S hres.1 hS t.1 (hres.2.1 t ht).1 hs y hJ, hq⟩
+  · apply build t.1 (hres.2.1 t ht).1 hp
+    intro y hJ hq
+    exact (hres.2.2.2 y).mpr ⟨t, ht, hq,
+      frontier_dominates n D j S hres.1 hS t.2 (hres.2.1 t ht).2 hs y hJ⟩
+
+lemma last_and_atomic_guard_is_earlier (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (D : Circuit) (j r : ℕ)
+    (hlast : ∀ k < D.size, j < k → (gateAt D k).op = GateOp.or)
+    (hdirty : ∃ x : Fin n → Bool,
+      PEqualNP.BlindGate.wireValue D n x (n + j) = true ∧ F x = false)
+    (hatom : r < n ∨ ∃ k < D.size, r = n + k ∧ (gateAt D k).op = GateOp.and)
+    (hsafe : ∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y (n + j) = true →
+      PEqualNP.BlindGate.wireValue D n y r = true → F y = true) :
+    r < n ∨ ∃ k < j, r = n + k ∧ (gateAt D k).op = GateOp.and := by
+  rcases hatom with hin | ⟨k, hk, rfl, hand⟩
+  · exact Or.inl hin
+  · have hkle : k ≤ j := by
+      by_contra hnot
+      have hor := hlast k hk (by omega)
+      rw [hand] at hor
+      cases hor
+    have hne : k ≠ j := by
+      intro heq
+      subst k
+      obtain ⟨x, hJ, hF⟩ := hdirty
+      have := hsafe x hJ hJ
+      rw [hF] at this
+      cases this
+    exact Or.inr ⟨k, by omega, rfl, hand⟩
+
+lemma minimum_last_and_has_earlier_atomic_guards (n : ℕ)
+    (F : (Fin n → Bool) → Bool) (D : Circuit) (B : List (ℕ × ℕ))
+    (j A C : ℕ) (hres : IsResidual n F D B) (hj : j < D.size)
+    (hgate : gateAt D j = ⟨GateOp.and, [A, C]⟩)
+    (hlast : ∀ k < D.size, j < k → (gateAt D k).op = GateOp.or)
+    (hmin : ∀ (E : Circuit) (T : List (ℕ × ℕ)), IsResidual n F E T →
+      D.size + 2 * B.length ≤ E.size + 2 * T.length) :
+    ∀ keep drop : ℕ, (keep = A ∧ drop = C) ∨ (keep = C ∧ drop = A) →
+      ∃ (x : Fin n → Bool) (r : ℕ), r < n + D.size ∧
+        PEqualNP.BlindGate.wireValue D n x keep = true ∧ F x = false ∧
+        PEqualNP.BlindGate.wireValue D n x r = true ∧
+        (r < n ∨ ∃ k < j, r = n + k ∧ (gateAt D k).op = GateOp.and) ∧
+        (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y (n + j) = true →
+          PEqualNP.BlindGate.wireValue D n y r = true → F y = true) ∧
+        ¬ (∀ y : Fin n → Bool, PEqualNP.BlindGate.wireValue D n y keep = true →
+          PEqualNP.BlindGate.wireValue D n y r = true → F y = true) := by
+  intro keep drop hwhich
+  let S := descendants n D j
+  have hS : IsOrFrontier n D j S := last_and_descendants_frontier n D j hres.1 hlast
+  obtain ⟨t, ht, x, hkeep, _, hF, hctx⟩ :=
+    minimum_frontier_and_children_have_separating_inputs n F D B j A C S hres hj hgate hS
+      hmin keep drop hwhich
+  have hcontext : (S t.1 ∧ PEqualNP.BlindGate.wireValue D n x t.2 = true) ∨
+      (S t.2 ∧ PEqualNP.BlindGate.wireValue D n x t.1 = true) := by
+    rcases hctx with h | h
+    · exact Or.inl ⟨h.1, h.2.2⟩
+    · exact Or.inr ⟨h.1, h.2.2⟩
+  obtain ⟨r, hr, hrx, hatom, hsafe, hunsafe⟩ :=
+    separating_context_has_atomic_guard n F D B j keep S hres hS t ht x hkeep hF hcontext
+  have hdirty := hres.2.2.1 (n + j) (by omega)
+  exact ⟨x, r, hr, hkeep, hF, hrx,
+    last_and_atomic_guard_is_earlier n F D j r hlast hdirty hatom hsafe, hsafe, hunsafe⟩
+
+end GlobalOrFrontier
+
 end PEqualNP.Outside.L_meta_2583
