@@ -1,0 +1,48 @@
+[
+  {
+    "file": "anneal-petersen-01-best.txt",
+    "false_negative_count": 9,
+    "false_positive_count": 0,
+    "rejected_edges": [
+      [
+        4,
+        0
+      ]
+    ],
+    "false_positives": [],
+    "false_negatives": [
+      17,
+      21,
+      81,
+      85,
+      145,
+      209,
+      273,
+      277,
+      401
+    ]
+  },
+  {
+    "file": "anneal-petersen-01-nonread-best.txt",
+    "false_negative_count": 9,
+    "false_positive_count": 0,
+    "rejected_edges": [
+      [
+        2,
+        3
+      ]
+    ],
+    "false_positives": [],
+    "false_negatives": [
+      12,
+      13,
+      44,
+      76,
+      77,
+      108,
+      524,
+      525,
+      556
+    ]
+  }
+]

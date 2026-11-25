@@ -16,6 +16,8 @@ The neutral adjacent-gate swap checks that the second gate does not read the fir
 
 Verdict: PASS for preserving the heuristic search source, not a proof of the assigned lower bound.
 
+The separate `anneal_hot.cpp` snapshot at SHA256 `ee7c3a7e65761d0f4053123acdb3a678668420cead0f87262ef57d1a3b4c439b` changes only search temperature, restart length, archive sampling, and one-error-row export. Delta audit PASS: exact candidate acceptance and independent exhaustive verification are unchanged. Near-result exports remain approximate candidates, not witnesses.
+
 ## Petersen graph component
 
 `lemmas/PetersenGraph.lean`: 65 lines, 2,425 bytes, SHA256 `a1d72e82a1afb5b65958d01f7a79e4f826e38d06a7b7058b65b655118e0b205d`.
@@ -50,11 +52,17 @@ The prefix is exactly the existing L7961 source through before `single_drop`, ex
 
 The confirmed successful build logs `semantic2590-restriction.*` contain only three simp suggestions and empty stderr. Official plain/import/namespace parsing passes with the same in-memory parser-only sentinel described above. Verdict: PASS for preserving this generic component; it supplies no complete Petersen lower bound by itself.
 
+`SemanticChargeSet.lean` extends that exact frozen prefix with the finite union of direct input readers and later consumers of AND gates reading that input: 528 lines, 23,872 bytes, SHA256 `b83d6f1feb076eb6591660c1c4da05a9a97fa04a202361b481fc5597ade1b9eb`. Every index is range-bounded and charged only once through finset membership. The size inequality follows from the audited restriction compiler. Both bounds of three (the explicit union and the full propagated dropped set) explicitly assume size at most 19, a nonconstant cofactor, and a lower bound of 16 for all monotone circuits computing that cofactor. No concrete Petersen cofactor lower bound is asserted here. Successful logs contain only inherited simp suggestions and empty stderr; official parser checks pass. Verdict: PASS for preservation.
+
+`SemanticInputMap.lean` is the exact frozen restriction prefix plus a generic input-substitution suffix: 512 lines, 23,165 bytes, SHA256 `65ebee4262acdfd68ecbecbfc50ec8fa630756750a80eeec082a49450f11f2b3`. An input may be mapped to false or to any new input; injectivity is not assumed. The initial-state invariant handles both in-range mapped inputs and missing reads. The inherited compiler proves exact substituted evaluation, monotonicity, and no increase in gate count. Nonconstant substituted output is an explicit hypothesis. The confirmed successful `semantic2590-inputmap.*` logs contain only simp suggestions and empty stderr; official parser checks pass. Verdict: PASS for preservation, including the zero-input edge case through its explicit nonconstant hypothesis.
+
 ## READ1 SAT propagation
 
 Reviewed `counterexample.cpp` at SHA256 `23c993e41f8493470b1ca1c56c4e8e720ffc8c91d6743ce04699183202a3e65c`. The selected proof flag is equated to the selected source flag. Singleton-once proofs propagate only through OR. Pair-once proofs propagate through OR or through an AND of opposite endpoint singleton proofs. The CNF implications enforce these equivalences in both directions. The last-active-gate guard is `padding[g] OR NOT padding[g+1]`; it activates the READ1/nonREAD1 restriction exactly before the identity padding suffix. An independent evaluator tracks capped endpoint multiplicities and checks encoded counts.
 
 Verdict: PASS for these encoding additions as research machinery. For a nonREAD1-only search, general dominance normalization must be justified by the READ1 lower bound of 20 (making every correct circuit of size at most 19 nonREAD1), or by a separate preservation argument. It is not automatically valid for arbitrary nonREAD1 circuits of larger size. No UNSAT certificate is claimed.
+
+The later `addSingletonFalseCuts` addition also passes source review. Its negated operation selector correctly implements constant-false propagation by OR for an AND gate and by AND for an OR gate. Either false operand deletes the gate, including an OR that aliases its other operand. The sequential counter forces every reached count threshold and admits exact cumulative counts whenever the cap holds. The cutoff `count - 16` needs the separately transported Petersen nine-vertex lower bound of 16; the generic restriction compiler alone does not establish that premise. Constant status and deletion are distinct flags, correctly maintained. Identity padding adds gates without adding false-output losses, so it does not invalidate the cutoff.
 
 ## READ1 Petersen lower bound
 
@@ -63,3 +71,17 @@ Verdict: PASS for these encoding additions as research machinery. For a nonREAD1
 Verified exact composition: the previously reviewed `ReadLower.General` prefix from the L2583 work, renamed to L2590; the final graph component at hash `728d616d...`; and the exact 25-line specialization suffix. The generic cover bound, no-four-cycle certificate, 15 edges, and cover size at least six imply circuit size at least 20. Hypotheses explicitly require `IsAO2 10`, exact Petersen evaluation, and `IsReadK 10 C 1`. The corollary correctly negates READ1 for size at most 19. No preservation of READ1 across a public `Monotone2` normalization is claimed.
 
 The confirmed successful `2590-read-one-lower.*` logs contain only inherited warnings and empty stderr. Official plain/import/namespace parsing passes with the parser-only sentinel. Verdict: PASS for preservation of this restricted lower bound, not the unrestricted assigned theorem.
+
+The subsequent `ReadOneWitness.lean` snapshot is exactly that frozen lower-bound file plus the 48-line witness suffix: 2,019 lines, 99,435 bytes, SHA256 `f6f32ffb61524adcf0d73a9797a1b866d7d171c4e51cdd3f958e2e5e7fdbf6f7`. The suffix proves that a prime implicant of the exact Petersen function is an edge pair, by contradicting minimality if the contained edge were proper. It then specializes the negation of READ1 to an edge pair with `readsAtMost ... 1 = false`. AO2, exact computation, and size at most 19 remain explicit. Confirmed build exit zero, inherited/style warnings only, stderr empty; official parser checks pass. Verdict: PASS for preservation.
+
+## Preservation after the third lease failure
+
+Only read-only source and artifact review was performed after the coordinator paused the fleet. The completed search notes report no exact target witness and no target UNSAT result. Annealing near-candidates fail at least one positive extremal edge; they are not counterexamples. The smaller free-OR SAT search never started: only its fixed 17-total-gate baseline was validated.
+
+The 94 cuts in `counterexample-logs/petersen-minus9-cuts.txt` exactly equal the inherited JSON entries containing removed vertex 9, with that vertex removed from each mask and maximum lower bound retained per mask. All nine singleton entries agree with their documented inherited values. `prepare_minus9_cuts.py` records this reproducible transformation (SHA256 `bc89a54f4bd23969e51150f59860a7300a7bffd4b2e4fdaa92b14b0a020b2a53`). The free OR remains a physically counted gate. Current SAT source SHA256 is `5188d0e5fefc2f90108602ede58029c79a147a742428174b397db8034ddcb196`; its multi-input false propagation is the reviewed single-input logic with only initial status changed.
+
+`supergraph_seed.py` explicitly builds a 19-gate circuit for Petersen plus nonedge (0,2), verifies all 1,024 assignments against that augmented graph, and separately verifies each relabeled seed. These 30 seeds deliberately compute augmented graphs, not the posted target. Its SHA256 is `7c059c3fc9fe63e7206b7071da2f3a51c787e72a02394b250699a7e1decde137`. `anneal_super.cpp` (SHA256 `609864653be4b050432637431a72c67b3bb23a4ce79ac421ac3ac0f2fc8b7abc`) changes seed loading and heuristic weighting while preserving exact candidate verification. It remains UNCOMPILED and UNRUN, as documented.
+
+Finite prefix scripts and compressed checkpoints are bounded computational research, not formal exclusion certificates; automorphism/TopForm reductions have the conditional review above, and no complete search result is claimed. `MonotoneCofactor.lean`, `MonotoneCofactorBase.lean`, their suffix/consumer test, and `SemanticPetersenDeletion.lean` with its suffix remain UNCOMPILED drafts. In particular, a missing-file consumer-build failure is not validation. The last newly compiled and independently reviewed component is `SemanticInputMap.lean`.
+
+Final preservation verdict: PASS for archiving these correctly scoped partial proofs, sources, logs, approximate seeds, checkpoints, and explicitly uncompiled drafts. No full proof or refutation of L-meta-2590 is established.

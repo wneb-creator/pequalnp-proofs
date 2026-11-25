@@ -1,0 +1,14 @@
+{"children": 840, "separation": 552, "restriction": 86, "open_unique": 202, "states": 52, "depth": 2, "cap": 19, "parents_processed": 2, "parents_total": 2, "automorphisms": 120}
+{"children": 24044, "separation": 12671, "restriction": 6520, "open_unique": 4829, "states": 1359, "depth": 3, "cap": 19, "parents_processed": 52, "parents_total": 52, "automorphisms": 120}
+{"depth": 4, "processed": 100, "parents": 1359, "states": 3963, "elapsed": 30.81584119796753}
+{"depth": 4, "processed": 200, "parents": 1359, "states": 7252, "elapsed": 51.29511308670044}
+{"depth": 4, "processed": 300, "parents": 1359, "states": 9583, "elapsed": 69.0976345539093}
+{"depth": 4, "processed": 400, "parents": 1359, "states": 12271, "elapsed": 88.19903683662415}
+{"depth": 4, "processed": 500, "parents": 1359, "states": 14039, "elapsed": 111.97246026992798}
+{"depth": 4, "processed": 600, "parents": 1359, "states": 16140, "elapsed": 131.91067266464233}
+{"depth": 4, "processed": 700, "parents": 1359, "states": 18830, "elapsed": 152.75898385047913}
+{"depth": 4, "processed": 800, "parents": 1359, "states": 21312, "elapsed": 166.07534193992615}
+{"depth": 4, "processed": 900, "parents": 1359, "states": 23314, "elapsed": 177.80847430229187}
+{"depth": 4, "processed": 1000, "parents": 1359, "states": 25031, "elapsed": 187.81945705413818}
+{"children": 540596, "restriction": 239125, "separation": 217407, "open_unique": 83197, "states": 26530, "depth": 4, "cap": 19, "parents_processed": 1059, "parents_total": 1359, "automorphisms": 120}
+{"elapsed_seconds": 197.40661573410034, "stopped": true, "found": false}

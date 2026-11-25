@@ -25,4 +25,23 @@ Checker: no full-target run or acceptance claimed. Official syntax guards were r
 No proof PR. Three reduction slots alreadyfull.
 
 Sub-agents:6 (status review, semantic restriction, SATcounterexample, combinatorial search, annealing, READ1 bound)
-TIMING total=81.00 subagents=6
+TIMING total=87.20 subagents=6
+
+ReadOneWitness.lean: Any <=19 AO2 exact Petersen circuit has an explicit edge whose joint READ1 test fails.
+Leanexit0; complete logs retained, harmless inherited/style warnings only, stderr empty. Independent preservation audit PASS. SHA256 f6f32ffb61524adcf0d73a9797a1b866d7d171c4e51cdd3f958e2e5e7fdbf6f7, 2019lines/99435bytes.
+
+SemanticChargeSet.lean: Direct-reader/AND-consumer union and full propagation drop-set have card<=3 assuming an explicit ordinary cofactorfloor16.
+Leanexit0; complete logs retained, harmless inherited/style warnings only, stderr empty. Independent preservation audit PASS. SHA256 b83d6f1feb076eb6591660c1c4da05a9a97fa04a202361b481fc5597ade1b9eb, 528lines/23872bytes.
+
+SemanticInputMap.lean: Generic false-or-input substitution changes input dimension while preserving semantics, Monotone2, and no-larger size; outputnonconstancy explicit.
+Leanexit0; complete logs retained, harmless inherited/style warnings only, stderr empty. Independent preservation audit PASS. SHA256 65ebee4262acdfd68ecbecbfc50ec8fa630756750a80eeec082a49450f11f2b3, 512lines/23165bytes.
+
+Third lease ended: renewal returned no livelease before prior expiry15:37:55.057Z. All proof/search work stopped immediately.
+Required repeated curl-si at2026-11-25T15:23:58Z confirmedHTTP410. Full response headers/body and stderr are preserved. No expired or otherpilot lease released.
+
+Search results: no counterexample and no target UNSAT certificate. SAT outputs complete in counterexample-logs; finalstrongsearch has minimum-prefix/order/nonREAD1/cofactor restrictions explained in counterexample.md. Smaller minus9/freeOR phase was NEVERSTARTED, only its17gate baseline verified.
+Annealing completed two300second runs with1,588,645,936 mutation proposals, no witness. Fulllogs and15nearfits preserved; each nearfit still misses an edge. All30 supergraph seeds are exact19gate circuits for Petersen plusone nonedge, exhaustively verified on1024inputs; they are not targetrefutations. Prepared supergraph-search variant is UNCOMPILED/UNRUN.
+Finite TopForm all-auto prefix search completed depth3 with1359states; partialdepth4 has26530states after1059of1359parents. Full logs/checkpoints preserved; this is not a lower-bound certificate.
+MonotoneCofactorBase, MonotoneCofactorSuffix, MonotoneCofactor, MonotoneCofactorConsumerTest, SemanticPetersenDeletion and itsSuffix are UNCOMPILED drafts. The recorded consumer attempt failed because its path did not exist; no successful certificate build claimed.
+Desk null replies:0. Recovery request follows thispreservationpush underexplicit410 rule.
+Exact full theorem unproved; full-target checker and proofPR not run/opened.

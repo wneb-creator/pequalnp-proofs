@@ -1,0 +1,8 @@
+extremal rows 3 variables 53
+round 0 elapsed 0
+SAT full truth-table mismatches 0
+AND 0 1
+AND 2 2
+output 3
+read1 incident pairs 0 / 1
+active prefix gates 2 encoded read1 0 checked read1 0

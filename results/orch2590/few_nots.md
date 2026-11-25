@@ -9,3 +9,10 @@ Validation: PetersenGraph Lean exit0 in2590-petersen-graph5.*, ReadOneLower exit
 Local certificate search for a stronger9-input cofactor with premade OR(x4,x6): L1908 gives unique later readers when total size≤15; L1910 and L3346/3348/3350 prove total size≥16. L3064/3066/3068 exclude a finalAND/OR/NOT after≤13additional gates. These establish15remaining gates when the premadeOR is free, one short of the proposed16remaining target. No stronger accepted descendant was found among83matching localfiles; full census/statements are2590-freeor-files.txt and2590-freeor-statements.json in scratch. Counterexample agent was informed of the new smaller SAT target.
 
 Other useful source: L9781 excludes Monotone2 size≤16 for Petersen with adjacent outeredges(0,1),(1,2) removed, leaving13edges. Root was informed for possible edge-deletion accounting.
+
+
+ReadOneWitness.lean now also compiles exit0 (2590-read-one-witness.stdout/.stderr). `prime_is_edge` identifies every prime implicant with an unordered adjacent vertex pair. `small_has_reread_edge` therefore supplies a concrete Petersen edge whose joint read-vector test is false for every AO2 computing circuit with≤19gates.
+
+Optional finite SAT splitting: FirstPairEdgeOrbits.json lists bad-edge orbits under automorphisms preserving the unordered first-input pair. Adjacent pair01 has stabilizer8 and4edge orbits, representatives01,04,23,38. Nonadjacent pair02 has stabilizer4 and6edge orbits, reps01,04,16,34,38,68. These orbit lists are computational rather than Lean-checked.
+
+The proposed freeOR(4,6) 15-continuation-gate target has an immediate rigidity consequence from the existing8-input adjacent-pair-deletion general lower13: each of4,6 can have at most2continuation reader gates, since fixing thatinputfalse deletes the premadeOR plus each reader. This observation was sent to root/SAT agent; its new instantiation has not been formalized here.

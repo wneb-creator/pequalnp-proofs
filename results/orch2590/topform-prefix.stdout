@@ -1,0 +1,4 @@
+{"pair": [0, 1], "children": 420, "separation": 277, "restriction": 43, "open_unique": 100, "states": 22, "depth": 2, "cap": 19, "parents_processed": 1, "parents_total": 1, "stabilizer": 8}
+{"pair": [0, 1], "children": 10240, "separation": 5363, "restriction": 2878, "open_unique": 1989, "states": 762, "depth": 3, "cap": 19, "parents_processed": 22, "parents_total": 22, "stabilizer": 8}
+{"pair": [0, 1], "children": 244128, "restriction": 107401, "separation": 99645, "open_unique": 36631, "states": 15720, "depth": 4, "cap": 19, "parents_processed": 480, "parents_total": 762, "stabilizer": 8}
+{"elapsed_seconds": 101.91489791870117, "stopped": true, "found": false}

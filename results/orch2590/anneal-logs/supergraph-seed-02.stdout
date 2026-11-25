@@ -1,0 +1,2 @@
+SUPERGRAPH verified all1024; gates=19; extraedge=(0,2); falsepositives= [5, 69, 261, 517, 773] falsenegatives= []
+all verified supergraph seeds 30
