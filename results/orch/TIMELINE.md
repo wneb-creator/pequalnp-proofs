@@ -11,3 +11,7 @@
 - 2026-11-25T03:06:48.523376+00:00: full reduction named-file build passed; independent review passed. Official checker started. Structural and support lemmas also compiled.
 - 2026-11-25T03:08:32.207806+00:00: at-most-one-junk baseline compiled and independently reviewed for preservation.
 - 2026-11-25T03:09:17.720563+00:00: official local checker ACCEPTED (reduce), 1665 constants; cleanup pass started from112lines.
+- 2026-11-25T03:10:17.312681+00:00: opposite-junk all-AND-chain exclusion compiled; root notified for push.
+
+- 2026-11-25T03:10:29.135849+00:00: Counterexample strategy finished finite graph/circuit checks. No counterexample found; theta synthesis timed out with no verdict. Core child checked vacuous for all girth-five graphs through nine vertices by exhaustive computation.
+- 2026-11-25T03:11:49.361992+00:00: cleanup80lines builds; independent source review by root passed; final checker running. Moore/girth and structural chain partials compiled and reviewed.

@@ -1,0 +1,8 @@
+n=6 graphs=3424 nonempty_3cores=0 recursion_nodes=10319 seconds=0.000394801
+edges=0 graphs=1
+edges=1 graphs=15
+edges=2 graphs=105
+edges=3 graphs=435
+edges=4 graphs=1080
+edges=5 graphs=1368
+edges=6 graphs=420

@@ -1,0 +1,8 @@
+{
+  "counts": {
+    "prefixes": 600641,
+    "minimal_graph_circuits": 3790,
+    "topform_minimal": 2110
+  },
+  "examples": {}
+}

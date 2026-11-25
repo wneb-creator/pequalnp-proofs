@@ -1,0 +1,5 @@
+{"depth": 1, "states": 20, "seconds": 0.0016884803771972656, "functions": 25, "graph_targets": 10}
+{"depth": 2, "states": 310, "seconds": 0.006405353546142578, "functions": 105, "graph_targets": 40}
+{"depth": 3, "states": 4440, "seconds": 0.0312504768371582, "functions": 365, "graph_targets": 75}
+{"depth": 4, "states": 62565, "seconds": 0.3216555118560791, "functions": 907, "graph_targets": 170}
+{"depth": 5, "states": 896104, "seconds": 6.063774585723877, "functions": 1727, "graph_targets": 290}

@@ -11,3 +11,5 @@ Update: LemmaSearch.lean 90 lines, adds bound_of_core. Independent compile exit0
 Full reduction R_meta_1770_63: lake build passed, exact posted conclusion independently verified; official reduce checker running. Structural and AlternativeSupport compiled and independently reviewed.
 
 Official local checker: ACCEPTED (reduce): PEqualNP.Outside.R_meta_1770_63; axioms [propext, Quot.sound, Classical.choice]; kernel rechecked1665constants. Two children printed181 and1446characters. Baseline112lines.
+
+Cleanup:112to80lines, hypotheses/conclusion unchanged, target lake build exit0. Root independently reviewed cleanup, StructuralChain and AlternativeGirth additions; all permitted constructs. Counterexample sources/logs reviewed independently by root and status_review; computational claims distinguished.

@@ -1,0 +1,10 @@
+n=7 graphs=53365 nonempty_3cores=0 recursion_nodes=175144 seconds=0.00667096
+edges=0 graphs=1
+edges=1 graphs=21
+edges=2 graphs=210
+edges=3 graphs=1295
+edges=4 graphs=5250
+edges=5 graphs=13629
+edges=6 graphs=19999
+edges=7 graphs=11700
+edges=8 graphs=1260
