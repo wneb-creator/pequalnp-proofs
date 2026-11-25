@@ -1,12 +1,13 @@
 PARTIAL CHECKPOINT: L-meta-9502
-Proved lower65: every representing AND/OR circuit has at least 65 gates.
+Proved lower66: every representing AND/OR circuit has at least 66 gates.
 The posted statement needs at least 72 gates and remains open.
-File: lean/PEqualNP/Outside/L_meta_9502.lean
+File: lean/PEqualNP/Outside/L_meta_9502.lean (619 lines).
 lake build PEqualNP.Outside.L_meta_9502: PASS (exit 0), 5149 jobs.
-Local checker: FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
+Compiled axiom audit: lower66, path, back use only propext, Classical.choice, Quot.sound.
+Additional compiled components: results/orch/lemmas/RowProto.lean and RowGraph.lean.
+Local checker: previous FAULT (exit 3), full prebuilt Mathlib cache missing; disk capacity prevents full cache.
 No final theorem for the posted statement is claimed. No PR opened for this checkpoint.
 Cleanup pass: not applicable to incomplete proof.
-Lean lines: 228
-Independent review: lean_setup, PASS for explicitly marked partial only.
-Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate
-TIMING total=39.1 subagents=6
+Independent review: lean_setup, PASS for explicitly marked partial batch only.
+Sub-agents: status_audit (lower bound), lean_setup (environment and review), artifact_requirements (nested artifact audit), circuit_search, representation_strategy, lean_certificate, row_graph (nested certificate helper)
+TIMING total=43.9 subagents=7

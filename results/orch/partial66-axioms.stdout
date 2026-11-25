@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_9502.lower66' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_9502.back' depends on axioms: [propext, Classical.choice, Quot.sound]
