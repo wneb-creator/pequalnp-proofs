@@ -598,4 +598,200 @@ lemma sole_or_reader_private_neighbor_guard_below_graph {n : ℕ}
     exact False.elim (htu (hprivate t htv))
 
 
+
+def supportUnion {α : Type} [DecidableEq α] (F : Finset (Finset α)) : Finset α :=
+  F.biUnion id
+
+def SupportBudget {α : Type} [DecidableEq α] (family : Finset (Finset α)) (k : ℕ) : Prop :=
+  ∀ F ⊆ family, (supportUnion F).card ≤ F.card + k
+
+lemma supportBudget_initial {α : Type} [DecidableEq α] (family : Finset (Finset α))
+    (h : ∀ S ∈ family, S.card ≤ 1) : SupportBudget family 0 := by
+  intro F hF
+  have hall : ∀ S ∈ F, S.card ≤ 1 := fun S hS => h S (hF hS)
+  clear hF h family
+  induction F using Finset.induction_on with
+  | empty => simp [supportUnion]
+  | @insert S F hSF ih =>
+    have hS := hall S (by simp)
+    have hF := ih (by intro T hT; exact hall T (by simp [hT]))
+    have hu := Finset.card_union_le S (supportUnion F)
+    simp only [supportUnion, Finset.biUnion_insert, id_eq] at hF hu ⊢
+    rw [Finset.card_insert_of_notMem hSF]
+    omega
+
+lemma supportBudget_insert {α : Type} [DecidableEq α]
+    (family : Finset (Finset α)) (k c : ℕ) (S : Finset α) (T : Finset (Finset α))
+    (hbudget : SupportBudget family k) (hT : T ⊆ family)
+    (hS : S ⊆ supportUnion T) (hcard : T.card ≤ c + 1) :
+    SupportBudget (insert S family) (k + c) := by
+  intro F hF
+  by_cases hSF : S ∈ F
+  · let F' := F.erase S ∪ T
+    have hF' : F' ⊆ family := by
+      intro A hA
+      rcases Finset.mem_union.mp hA with hA | hA
+      · have hAf := hF (Finset.mem_of_mem_erase hA)
+        exact (Finset.mem_insert.mp hAf).resolve_left (Finset.ne_of_mem_erase hA)
+      · exact hT hA
+    have hu : supportUnion F ⊆ supportUnion F' := by
+      intro a ha
+      obtain ⟨A, hA, ha⟩ := Finset.mem_biUnion.mp ha
+      by_cases hAS : A = S
+      · subst A
+        obtain ⟨B, hB, hab⟩ := Finset.mem_biUnion.mp (hS ha)
+        exact Finset.mem_biUnion.mpr ⟨B, Finset.mem_union.mpr (Or.inr hB), hab⟩
+      · exact Finset.mem_biUnion.mpr
+          ⟨A, Finset.mem_union.mpr (Or.inl (Finset.mem_erase.mpr ⟨hAS, hA⟩)), ha⟩
+    have h1 := Finset.card_le_card hu
+    have h2 := hbudget F' hF'
+    have h3 : F'.card ≤ (F.erase S).card + T.card := Finset.card_union_le _ _
+    have h4 := Finset.card_erase_add_one hSF
+    omega
+  · have hF' : F ⊆ family := by
+      intro A hA
+      exact (Finset.mem_insert.mp (hF hA)).resolve_left (by
+        intro heq
+        exact hSF (heq ▸ hA))
+    have := hbudget F hF'
+    omega
+
+def falseSupports {α : Type} [DecidableEq α] : List (Bool × Finset α) → Finset (Finset α)
+  | [] => {∅}
+  | (b, S) :: w => if b then falseSupports w else insert S (falseSupports w)
+
+lemma falseSupports_append {α : Type} [DecidableEq α]
+    (w : List (Bool × Finset α)) (b : Bool) (S : Finset α) :
+    falseSupports (w ++ [(b, S)]) =
+      if b then falseSupports w else insert S (falseSupports w) := by
+  induction w with
+  | nil => cases b <;> simp [falseSupports]
+  | cons a w ih =>
+    rcases a with ⟨a, T⟩
+    cases a <;> cases b <;> simp [falseSupports, ih, Finset.insert_comm]
+
+lemma falseSupports_getD {α : Type} [DecidableEq α]
+    (w : List (Bool × Finset α)) (i : ℕ)
+    (h : (w.getD i (false, ∅)).1 = false) :
+    (w.getD i (false, ∅)).2 ∈ falseSupports w := by
+  induction w generalizing i with
+  | nil => simp [falseSupports]
+  | cons a w ih =>
+    rcases a with ⟨b, S⟩
+    cases i with
+    | zero =>
+      have hb : b = false := by simpa using h
+      subst b
+      simp [falseSupports]
+    | succ i =>
+      have hi : (w.getD i (false, ∅)).1 = false := by simpa using h
+      have hm := ih i hi
+      cases b <;> simp_all [falseSupports]
+
+lemma falseSupports_small {α : Type} [DecidableEq α]
+    (w : List (Bool × Finset α))
+    (h : ∀ d ∈ w, d.1 = false → d.2.card ≤ 1) :
+    ∀ S ∈ falseSupports w, S.card ≤ 1 := by
+  induction w with
+  | nil => simp [falseSupports]
+  | cons d w ih =>
+    rcases d with ⟨b, T⟩
+    have hi := ih (by intro d hd; exact h d (by simp [hd]))
+    cases b
+    · intro S hS
+      rcases Finset.mem_insert.mp hS with rfl | hS
+      · exact h (false, S) (by simp) rfl
+      · exact hi S hS
+    · simpa [falseSupports] using hi
+
+def supportGate {α : Type} [Fintype α] [DecidableEq α]
+    (g : Gate) (w : List (Bool × Finset α)) : Bool × Finset α :=
+  (g.op.eval (g.inputs.map fun i => (w.getD i (false, ∅)).1),
+    Finset.univ.filter fun a =>
+      g.op.eval (g.inputs.map fun i => decide (a ∈ (w.getD i (false, ∅)).2)) = true)
+
+def supportStep {α : Type} [Fintype α] [DecidableEq α]
+    (w : List (Bool × Finset α)) (g : Gate) : List (Bool × Finset α) :=
+  w ++ [supportGate g w]
+
+def falseOrCharge (op : GateOp) (baseline : Bool) : ℕ :=
+  match op with
+  | .or => if baseline then 0 else 1
+  | _ => 0
+
+def falseOrCount {α : Type} [Fintype α] [DecidableEq α] :
+    List Gate → List (Bool × Finset α) → ℕ
+  | [], _ => 0
+  | g :: gs, w => falseOrCharge g.op (supportGate g w).1 +
+      falseOrCount gs (supportStep w g)
+
+lemma supportBudget_step {α : Type} [Fintype α] [DecidableEq α]
+    (g : Gate) (w : List (Bool × Finset α)) (k : ℕ)
+    (hbudget : SupportBudget (falseSupports w) k)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hlen : g.inputs.length ≤ 2) :
+    SupportBudget (falseSupports (supportStep w g))
+      (k + falseOrCharge g.op (supportGate g w).1) := by
+  rw [supportStep, falseSupports_append]
+  cases hb : (supportGate g w).1 with
+  | true =>
+    rcases hop with hop | hop <;> simpa [hop, falseOrCharge] using hbudget
+  | false =>
+    simp only [Bool.false_eq_true, ↓reduceIte]
+    rcases hop with hop | hop
+    · have hi : ∃ i ∈ g.inputs, (w.getD i (false, ∅)).1 = false := by
+        by_contra! hn
+        have ht : (supportGate g w).1 = true := by
+          simp only [supportGate, hop, GateOp.eval, List.all_map, List.all_eq_true,
+            Function.comp_apply, id_eq]
+          intro i hi
+          cases hv : (w.getD i (false, ∅)).1 <;> simp_all
+        rw [hb] at ht
+        contradiction
+      obtain ⟨i, hi, hif⟩ := hi
+      let S := (w.getD i (false, ∅)).2
+      have hS : S ∈ falseSupports w := falseSupports_getD w i hif
+      have hsub : (supportGate g w).2 ⊆ supportUnion {S} := by
+        intro a ha
+        have ha := (Finset.mem_filter.mp ha).2
+        simp only [hop, GateOp.eval, List.all_map, List.all_eq_true,
+          Function.comp_apply, id_eq] at ha
+        have hh : a ∈ S := of_decide_eq_true (ha i hi)
+        simpa [supportUnion] using hh
+      have H := supportBudget_insert (falseSupports w) k 0 (supportGate g w).2 {S}
+        hbudget (by simpa using hS) hsub (by simp)
+      simpa [hop, falseOrCharge] using H
+    · have hi : ∀ i ∈ g.inputs, (w.getD i (false, ∅)).1 = false := by
+        intro i hi
+        cases hv : (w.getD i (false, ∅)).1 with
+        | false => rfl
+        | true =>
+          have ht : (supportGate g w).1 = true := by
+            simp only [supportGate, hop, GateOp.eval, List.any_map, List.any_eq_true,
+              Function.comp_apply, id_eq]
+            exact ⟨i, hi, hv⟩
+          rw [hb] at ht
+          contradiction
+      let T := g.inputs.toFinset.image fun i => (w.getD i (false, ∅)).2
+      have hT : T ⊆ falseSupports w := by
+        intro S hS
+        obtain ⟨i, hi', rfl⟩ := Finset.mem_image.mp hS
+        exact falseSupports_getD w i (hi i (by simpa using hi'))
+      have hsub : (supportGate g w).2 ⊆ supportUnion T := by
+        intro a ha
+        have ha := (Finset.mem_filter.mp ha).2
+        simp only [hop, GateOp.eval, List.any_map, List.any_eq_true,
+          Function.comp_apply, id_eq] at ha
+        obtain ⟨i, hi', ha⟩ := ha
+        exact Finset.mem_biUnion.mpr ⟨_, Finset.mem_image.mpr
+          ⟨i, by simpa using hi', rfl⟩, of_decide_eq_true ha⟩
+      have hcard : T.card ≤ 1 + 1 := by
+        calc
+          T.card ≤ g.inputs.toFinset.card := Finset.card_image_le
+          _ ≤ g.inputs.length := List.toFinset_card_le g.inputs
+          _ ≤ 1 + 1 := hlen
+      have H := supportBudget_insert (falseSupports w) k 1 (supportGate g w).2 T
+        hbudget hT hsub hcard
+      simpa [hop, falseOrCharge] using H
+
+
 end PEqualNP.Outside.L_meta_2056
