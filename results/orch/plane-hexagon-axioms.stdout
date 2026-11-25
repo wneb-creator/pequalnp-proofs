@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_2583.regular_plane_dual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583.incidence_induced_hexagon' does not depend on any axioms

@@ -62,3 +62,37 @@ Fano incidence p−l mod7∈{0,1,3};37maximalindependentsets,21positiveedges. Or
 2026-11-25T14:04:43.601640+00:00 — L-meta-2583 geometry: compiled plane_geometry.lean, 82 lines, same namespace2583, empty compiler logs. Exact hypotheses imply q+1 lines per point by counting all other points in unique-line fibers of size q; no4cycle, at-most-one common point of two lines, and no isolated point/line. Existing sources L1721 and L1719 supply the counting patterns. Hall-based perfectmatching extraction is in progress (targeted official Hall.Basic cache fetched successfully, own compressed cache cleaned). No weak-hypothesis counterexample found.
 
 2026-11-25T14:05:15.163026+00:00 — L-meta-2583 perfectmatching: plane_matching.lean compiles (49 lines, empty logs). Positive regular incidence relation on equal finite sides has matching permutation by Hall and edge-count double count. Combined with plane_geometry.lines_through gives the matching prerequisite of checked L7639. Also incidence_card rewrites total incidence count as sum of rowdegrees, hence N*(q+1). Hall.Basic targeted official cache fetch succeeded; compressed task cache cleaned. Remaining target is the sharp unrestricted lower bound N*(q+2)-1; these geometric facts do not prove it.
+
+[2026-11-25T14:07:37.542192+00:00] pilot94_research
+## Broad lower-bound census for2583
+Scope: local upstream snapshotecce0276, all Outside L_*.lean containing Circuit or Monotone selected with rg-l. Parsed2949 finaltheorem declarations from2951candidates; the only two without finaltheorem are currentworking partials L_meta_1904 andL_meta_2583. Complete extracted declarations saved all-circuit-final-statements.json in plane-research scratch.102 plane-shaped statements (quadraticN axiom),446 potential tail-lowerbounds,46 edge/incidence-card-plus-budget candidates. No unconditional theorem yielding N*(q+2)<=C.size+1 found.
+Closest sharp candidates and missing hypotheses:
+- L_meta_8933 (mainline1468;1476lines71961bytes): NoFourCycle+AO2+correctness+nonempty => exact edge-plus-coverbudget if NO unsafe AND fires on TWO distinct edges whose read1 tests bothfail. This weaker condition may provide an alternative core to fullread1 normalization.
+- L_meta_7241 (main921): requires every AND false on all nonedge pairinputs.
+- L_meta_8569 (main966): leastAO+TopForm+emptyjunk.
+- L_meta_4606 (main687): every AND's inputs are in OR-only inputclosure.
+- L_meta_7649: every wire notBelowOutput must be OR with children also notBelowOutput; gives starcover decomposition.
+- L_meta_8951: has desired coverconclusion but assumes secondgate absent, hence onlytrivial circuits.
+- L_meta_1956 has(q+2)*N bound but assumes a universal precursorbound and zero-point/zero-line-degree restriction at everyAND;1955/1958 also conditional assemblytheorems.
+- L_meta_3525/1737 exact edge+cover require acyclicity.
+- L_meta_3706 gives edge+cover minus countofreadtwiceedges, so the same missingcore remains.
+Unconditional weaker bounds applicable toplane:
+- L_meta_2988 (main986;1026lines47005bytes):3*N<=C.size+1, merelyMonotone2 andcorrect pairinputs.
+- L_meta_8805 (main2293):same3*N bound from genericincidence rejection.
+- L_meta_5351 (main3191):349*N<=100*C.size whenq>=200.
+- L_meta_1778/3308:atleast2*q^2+1 ORgates;L_meta_3499 converts plusANDlowerbound to4*q^2+2+N<=2*C.size (ordered-input assumption).
+Finiteq3 sharp64 candidates1751/2420/5158/5162/8791/2059 all require restrictedANDnesting/line-degree/emptyjunk; none unconditional. FiniteFano1483 gives only20gates.
+
+2026-11-25T14:07:51.674115+00:00 FanoSATsymmetry audited by enumerating336graphautomorphisms:91inputpairs split42samepart,21incident,28nonincident; representatives(0,1),(0,7),(2,7)minimal by(max,min). BothactiveSATsearches remaininconclusive. Prepared independent stochasticlocal-search implementation initialized from27gateFano/15gateK4incidence upper circuits; willrunafterSATslotfree.
+
+### 2026-11-25T14:12:26.161892+00:00 counterexample search, L-meta-2583
+- Ordered exact SAT found no Fano 26-gate witness before its 480 s cap (7254 variables, 149801 clauses), and no K4-incidence 14-gate witness before its 480 s cap (1918 variables, 22637 clauses). Both UNKNOWN, not UNSAT.
+- Exact monotone checks use all minimal positive edges and maximal independent negative sets: Fano 21+37=58 vectors; K4-incidence 12+12=24. Any SAT or local-search candidate is additionally checked on every input.
+- First Fano local search reached distance 1 but only misses edge {1,12}; 47 of 16384 truth-table inputs are wrong. This is not a counterexample. Weighted-positive local search is being prepared to escape missing-edge traps. Full artifacts are under /tmp/oec/pequalnp-pilot-94/plane-counterexample/.
+
+### 2026-11-25T14:15:59.968235+00:00 finite-search update, L-meta-2583
+- Fano26 and K4-incidence14 randomized local searches each completed 240 seconds without a witness. K4 checked 2,858,078,888 mutations / 60,591 restarts; its nearest circuit misses edge {2,7}, so 13 of 1024 inputs are wrong. These are heuristic searches, not lower-bound proofs.
+- Weighted Fano search preserves every required incidence but best candidate still has two extra nonedges {0,8}, {4,13}; exhaustive 16,384-input check identifies 23 prime pairs and no other prime implicants. This 26-gate circuit computes the wrong graph and is explicitly not a counterexample.
+- Independently reviewed root fixed-edge squarefree-proof SAT encoding; exact three-state recurrence is correct. Computed 16-element stabilizer of fixed edge {0,7}, 14 pair orbits saved fano-edge-stabilizer.json.
+
+Fixed-edge SAT strategy: three squarefree proof states track singleton point, singleton line, and pair. Tiny controls passed: one-edge one-gate READ1 SAT; same circuit required unread UNSAT; five-gate path4 unread SAT with full truth-table verification. Full Fano run fixes unread edge(0,7), uses its16-element automorphism stabilizer, and omits gate-order symmetry.

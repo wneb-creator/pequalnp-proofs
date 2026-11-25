@@ -1,0 +1,26 @@
+{
+  "automorphisms_checked": 336,
+  "pair_orbits": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "size": 42
+    },
+    {
+      "representative": [
+        0,
+        7
+      ],
+      "size": 21
+    },
+    {
+      "representative": [
+        2,
+        7
+      ],
+      "size": 28
+    }
+  ]
+}
