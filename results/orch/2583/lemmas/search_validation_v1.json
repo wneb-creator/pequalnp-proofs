@@ -1,0 +1,52 @@
+{
+  "status": "completed smoke and validation records only; no claimed counterexample or lower-bound proof",
+  "files": {
+    "search_fano_baseline.json": {
+      "sha256": "963add34ef55f9976877dc12e9472408cc76b670fec3d1e7980ec7baefe07e23",
+      "status": "frozen"
+    },
+    "search_fano26_v1.cpp": {
+      "sha256": "772a0451d4f24c70dac406a479bc9dd6e5a01e34ae146f5d1ca54be62848d4c3",
+      "status": "frozen"
+    },
+    "search_fano26_run1_manifest.json": {
+      "sha256": "0260d282660c19a492133e976e0b7f68ea3a701e63d32e9c84f0c73d16da695e",
+      "status": "frozen"
+    },
+    "search_read1_tracker.py": {
+      "sha256": "e804d2479b5b8d971fc0411d9d3418da523822df08b264639edd4016baa90f04",
+      "status": "frozen"
+    },
+    "search_fano26_v2.cpp": {
+      "sha256": "b49b2a7755dc0ea073a6c84e86113be046152afd1b86298ab2512d3160eab631",
+      "status": "frozen"
+    },
+    "search_cycle_smt.py": {
+      "sha256": "7f7f8ab13928c08fc4a1334fc50a9bec066596ee3006e45773d3d17613561f8c",
+      "status": "frozen"
+    }
+  },
+  "checks": {
+    "fano_baseline": "plane axioms,27gates,all16384Boolean inputs,21prime edges,37maximal false inputs,jointREAD1 on21edges",
+    "read1_tracker": "1002circuits and21042edge tests matched exact capped-vector recursion",
+    "fano26_v1": "ASan/UBSan1second and independent critical-signature smoke verification passed;600second search output is still running and excluded",
+    "fano26_v2": "ASan/UBSan1second and all7printed candidates independently matched for truth errors and exact per-edge READ1 status",
+    "cycles": "bounded5seconds per query; inspect raw solver verdicts; not Lean certificates"
+  },
+  "completed_logs": [
+    "2583-search-fano26-sanitizer-compile.stdout",
+    "2583-search-fano26-sanitizer-compile.stderr",
+    "2583-search-fano26-smoke.stdout",
+    "2583-search-fano26-smoke.stderr",
+    "2583-search-fano26-compile.stdout",
+    "2583-search-fano26-compile.stderr",
+    "2583-search-read1-tracker.stdout",
+    "2583-search-read1-tracker.stderr",
+    "2583-search-fano26-v2-sanitizer-compile.stdout",
+    "2583-search-fano26-v2-sanitizer-compile.stderr",
+    "2583-search-fano26-v2-smoke.stdout",
+    "2583-search-fano26-v2-smoke.stderr",
+    "2583-search-cycle-smt.stdout",
+    "2583-search-cycle-smt.stderr"
+  ]
+}

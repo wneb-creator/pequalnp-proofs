@@ -1,0 +1,3 @@
+cycle 6 gates 7 critical_rows 11 status -1 seconds 1.4315358310000192
+cycle 8 gates 10 critical_rows 18 status 0 seconds 5.012297600999773
+reason timeout
