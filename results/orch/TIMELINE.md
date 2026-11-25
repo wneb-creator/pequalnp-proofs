@@ -12,3 +12,5 @@
 - 2026-11-25T15:50:12.800153+00:00: lemma_search compiled abstract selected-DAG vertex cover and paid-union cardinal bound.
 - 2026-11-25T15:50:54.695788+00:00: ledger private-edge selection lemma compiled; 12-helper checkpoint published.
 - 2026-11-25T15:52:15.595234+00:00: semantic DAG gate-count helpers and abstract output pruning reviewed; partial checkpoint 3.
+- 2026-11-25T15:54:04.861434+00:00: simultaneous disjoint gate charging and family aggregation compiled (18-helper ledger checkpoint).
+- 2026-11-25T16:00:42.424183+00:00: actual circuit singleton-support gate count and disjoint charging compiled; partial checkpoint 4.

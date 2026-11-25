@@ -12,3 +12,6 @@ Exact posted theorem remains unproved; no exact-statement checker acceptance.
 Checkpoint 3: named module (391 lines) build passed; independently reviewed semantic DAG count.
 Pruning candidate compiled separately; full log library-pruning-build.txt.
 Full target theorem still absent; no PR or exact-statement acceptance.
+
+Checkpoint 4: 916-line named module builds; actual IsAO2 circuit support/count foundation and disjoint aggregation independently reviewed.
+Full theorem remains absent.
