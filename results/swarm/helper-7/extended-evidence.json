@@ -1,5 +1,5 @@
 {
-  "snapshot_utc": "2026-11-25T22:38:22.188032+00:00",
+  "snapshot_utc": "2026-11-25T23:02:09.857159+00:00",
   "gap_status": "No final theorem or counterexample; L-meta-3566 unresolved by this helper",
   "solver_scope": "External solver results only; no independent UNSAT certificate included",
   "all_pruning_control": {
@@ -93,18 +93,44 @@
       ],
       "and_bound_scope": "generic MIS bound only",
       "complete_graph_boundary": true
+    },
+    {
+      "graph": "C10chords0",
+      "gate_target": 15,
+      "explicit_min_and": 0,
+      "status": "RUNNING",
+      "constraints": [
+        "MIS lower bound",
+        "lexicographic minimum ordering",
+        "input-slot budget",
+        "primary-reader bound",
+        "pivotal edges",
+        "two pivotal edges for dirty ANDs",
+        "MIS/AND and edge/OR pair separation"
+      ],
+      "and_bound_scope": "generic MIS bound only; no AND>=5 or OR>=9 restriction",
+      "complete_graph_boundary": true
     }
   ],
   "restricted_book3_query": {
+    "fixture": "C6book3",
     "and_cap": 6,
     "private_or_cap": 15,
-    "status": "RUNNING",
-    "scope": "Sufficient witness family; UNSAT is not a total-size lower bound",
-    "and_kraft": false
+    "and_kraft": false,
+    "scope": "restricted private-OR witness family; UNSAT is not a full lower bound",
+    "smt_sha256": "e78cb7c6790440d4e96fe1583300ebe01ba7696134479b18f6af57fa72ad7ff5",
+    "smt_bytes": 39350,
+    "solver": {
+      "status": "unknown",
+      "seconds": 1200.113935382,
+      "z3_version": "4.13.3.0",
+      "raw_status": "unknown"
+    },
+    "status": "UNKNOWN"
   },
   "lean_helper": {
     "file": "lean/PEqualNP/Outside/L_meta_3566.lean",
-    "lemma_count": 45,
+    "lemma_count": 69,
     "named_build": "PASS",
     "axioms": [
       "propext",
@@ -113,5 +139,20 @@
     ],
     "final_gap_theorem_present": false
   },
-  "diagnostics": "Complete original stdout/stderr and solver inputs retained in job workspace; only small summaries are bundled"
+  "diagnostics": "Complete original stdout/stderr and solver inputs retained in job workspace; only small summaries are bundled",
+  "restricted_book3_linear_kraft_query": {
+    "and_cap": 6,
+    "private_or_cap": 15,
+    "and_kraft": true,
+    "and_kraft_full": false,
+    "status": "RUNNING",
+    "scope": "Sufficient private-OR witness family; no lower-bound conclusion"
+  },
+  "full_kraft_validation": {
+    "arithmetic_vectors": 1274,
+    "fixed_circuit_cases": 14,
+    "legacy_fingerprints": 24,
+    "independent_review": "PASS",
+    "target_query_run": false
+  }
 }

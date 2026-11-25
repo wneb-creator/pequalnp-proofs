@@ -1,0 +1,69 @@
+{
+  "source_fixture": "C10chords0",
+  "target_fixture": "helper-2 balanced n10-g256",
+  "n": 10,
+  "mapping": [
+    8,
+    0,
+    9,
+    2,
+    5,
+    6,
+    1,
+    7,
+    4,
+    3
+  ],
+  "target_edges": [
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "checked_ordered_pairs": 100,
+  "scope": "Finite relabeling check only; no lower-bound certificate"
+}

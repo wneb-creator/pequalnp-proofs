@@ -38,9 +38,34 @@ sole-AND/OR neighbor lemmas, occurrence bound, and weighted counting argument ar
 all formalized in the named Lean file. The selected-set extension requires degree
 at least two only for vertices in a chosen set S, and proves that at least |S|
 gates read an input from S. All other vertices may have any degree. The complementary
-bound is C.size - |S|. Its 45 helper lemmas passed an axiom audit
+bound is C.size - |S|. The named file now has 69 helper lemmas, with axiom audits
 using only propext, Classical.choice, and Quot.sound. There is still no final
 theorem for L-meta-3566.
+
+The strict selected-set bound gives at least |S|+1 reader gates if any selected
+vertex occurs three or more times in operand positions. Equality in the reader
+bound therefore limits every selected occurrence count to two. Under equality,
+a gate with precisely one selected operand must read an input occurring exactly
+once globally. These conclusions preserve the degree assumption only on S.
+
+The sole-reader extensions use a distinct sibling wire and the actual circuit
+order. For graphs with NoFourCycle, a sole OR reader at v has a sibling false on every singleton when v has
+at least two neighbors; this independently rederives helper-5's endpoint.
+More generally, if an independent set S activates that sibling, then
+G.degree(v) <= |S.erase(v)|. Thus degree at least three makes the sibling false
+on every nonedge pair. This does not establish correctness on larger independent
+sets or global cleanliness. A sole AND reader's sibling accepts every neighbor
+singleton; that result needs neither NoFourCycle nor a degree lower bound.
+All these endpoints passed independent source review and fresh Lean elaboration.
+
+An exact paper identity sharpens the count: 2q(S)=2|S|+E(S)+D(S), where E sums
+max(occ(v)-2,0) over S, and D counts gates with exactly one S operand whose
+selected input is repeated globally. Seven explicit graph circuits were checked
+independently on all 616 truth rows and all 552 eligible selected subsets.
+A nine-gate C6 example has q=n and a sole OR reader, so equality alone does not
+exclude sole OR readers or imply circuit minimality. The exact identity and its
+multigraph interpretation are mathematical observations, not additional Lean
+statements in this file; only the stated strictness/equality corollaries are formalized.
 
 The optional `--primary-reader-bound` encoding enforces these occurrence and gate
 counts after checking the graph hypotheses. `--edge-pivotal` chooses a minimum
@@ -77,8 +102,9 @@ Current targets and independently enumerated graph data:
 | GP8del_inc | 14 | 19 | 7 | 39 | 24 |
 | GP8del_noninc | 14 | 18 | 7 | 44 | 23 |
 | C6book3 | 14 | 16 | 7 | 41 | 21 |
+| C10chords0 | 10 | 12 | 5 | 14 | 15 |
 
-Each target is one below edges + cover number - 1. All four graphs are bipartite
+Each target is one below edges + cover number - 1. All five graphs are bipartite
 and have no four-cycle. These searches were still running at this snapshot.
 The full solver diagnostics remain in the job workspace; only portable scripts,
 graph fixtures, and small checked records are committed.
@@ -90,7 +116,8 @@ Existing-source discoveries retired several earlier targets:
 - The internal `fano27` helper in `L_meta_7945.lean` gives the unconditional
   27-gate Heawood lower bound; this refers to that helper, not the conditional
   final theorem of the file.
-- `L_meta_723.lean` gives the unconditional 15-gate subdivision-of-K4 bound.
+- `L_meta_723.lean` gives an unconditional 15-gate bound for a different,
+  unbalanced subdivision of K4; it does not settle the current C10chords0 target.
 - `L_meta_9732.lean` gives the unconditional 21-gate bound for Heawood12inc.
   `h12inc-9732-isomorphism.json` records the exact relabeling, checked on all 144
   ordered vertex pairs. This helper inspected the source statement and graph
@@ -127,16 +154,24 @@ removes false/dead gates and duplicates, shares available OR computations, check
 readback and evaluates all 16,384 inputs. The published
 `C6book3-standard-calibration.json` is explicitly a known 22-gate control with
 seven ANDs and fifteen ORs, not a six-AND witness. Its full truth table was checked
-independently. The restricted six-AND pilot is still running at this snapshot.
+independently. The original restricted six-AND pilot ended UNKNOWN after 1200.11 seconds.
+A separate linear-Kraft variant is still running at this snapshot. Neither is a
+completed lower bound. The CLI and reconstruction require a nonempty edge set;
+low-level generation retains empty graphs for arithmetic boundary checks.
 
-The optional `--and-kraft` constraint in this generator uses the general bound
+The optional `--and-kraft` constraint enforces only a linear consequence of the bound
 sum over maximal false rows of 2^(equal AND operand count) <= 2^k for k ANDs.
 At some AND, any two such rows must have opposite 10/01 states; the corresponding
 partial-signature cubes are disjoint. Since 2^e >= e+1, the sum of all equal 00/11
 operand counts is at most 2^k - M. This bound includes syntactic false padding.
-The implementation uses the complete MIS suffix, exact-width arithmetic and an
+The linear implementation uses the complete MIS suffix, exact-width arithmetic and an
 explicit contradiction when M > 2^k. It passed independent mathematical/code
 review and finite arithmetic tests. For book3 at k=6, its budget is 23.
+The separate `--and-kraft-full` flag enforces the full exponential sum, with
+width bit_length(M*2^k) preventing shift or accumulator overflow. Independent
+checks covered 1,274 arithmetic vectors, 14 fixed circuits, 24 unchanged legacy
+fingerprints and moved-directory execution. No target query using this new flag
+has completed at this snapshot.
 
 A bounded repository census found no applicable existing lower bound for either
 GP8 deletion. It checked 112 files mentioning exact dimension 14, ten nearby
@@ -165,6 +200,7 @@ python3 test_edge_pivotal.py
 python3 test_pair_separation.py
 python3 free_or_and_query.py --self-test
 python3 test_free_or_and_kraft.py
+python3 test_free_or_and_kraft_full.py
 python3 count_query.py --graph C6 --k 7 --min-and 0 --mis-lower --lex --input-budget --seconds 60
 python3 single_query.py --help
 python3 h12_and5_reproducer.py --output h12-and5.smt2 --solve
@@ -174,3 +210,8 @@ The exact counter tests and small-circuit checks are implementation validation,
 not a formal proof of the general synthesis normalization. Independent review
 covered the mathematical arguments, CNF clauses, padding, explicit restrictions,
 all new fixtures, and execution from a different directory.
+
+C10chords0 is independently isomorphic to helper-2's balanced n10-g256 fixture.
+`C10chords0-g256-isomorphism.json` checks the relabeling on all 100 ordered pairs.
+The current total-15 query uses only the generic four-AND MIS lower bound; it
+does not impose the separately reported five-AND or nine-OR bounds.

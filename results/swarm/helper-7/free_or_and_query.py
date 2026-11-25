@@ -4,8 +4,12 @@ The default encoder has the same complete normalization as the independently
 reviewed H12 query: arbitrary OR source subsets, disjoint common-source factoring,
 left/right orientation, greedy colex gate order, and unused false padding.
 The optional private-OR cap restricts the witness family; UNSAT with that cap is
-not a lower bound for circuits that share OR subexpressions. The optional AND
-Kraft bound counts equal operand states over every maximal false assignment.
+not a lower bound for circuits that share OR subexpressions. The optional
+linear consequence of the AND Kraft inequality counts equal operand states
+over every maximal false assignment. The CLI and circuit reconstruction require
+a graph with at least one edge; generate() also supports the constant-false
+empty graph for boundary arithmetic checks. The separate --and-kraft-full option
+enforces the full exponential inequality sum(2^e) <= 2^k.
 """
 
 import argparse
@@ -37,7 +41,33 @@ def boundary(n, edges):
     return positive, negative
 
 
-def generate(n, edges, k, timeout_ms=1200000, private_or_cap=None, and_kraft=False):
+def append_full_kraft(q, k, negative_row_indices):
+    """Append the exact exponential Kraft bound after kraft_diff<i> definitions.
+
+    Each row has 0 <= e <= k. Every term is at most 2^k and their sum is at
+    most M*2^k. The chosen unsigned width represents that maximum exactly;
+    it also exceeds k, so neither the shift nor the additions can overflow.
+    """
+    assert k >= 0 and negative_row_indices
+    width = max(1, (len(negative_row_indices) << k).bit_length())
+    zero, one = f'(_ bv0 {width})', f'(_ bv1 {width})'
+    total = zero
+    for row_index in negative_row_indices:
+        equal_count = zero
+        for i in range(k):
+            equal = f'(= ((_ extract {row_index} {row_index}) kraft_diff{i}) #b0)'
+            equal_count = f'(bvadd {equal_count} (ite {equal} {one} {zero}))'
+        name = f'kraft_full_equal_{row_index}'
+        q.append(f'(define-fun {name} () (_ BitVec {width}) {equal_count})')
+        term = f'(bvshl {one} {name})'
+        total = f'(bvadd {total} {term})'
+    q.append(f'(define-fun kraft_full_total () (_ BitVec {width}) {total})')
+    q.append(f'(assert (bvule kraft_full_total (_ bv{1 << k} {width})))')
+    return width
+
+
+def generate(n, edges, k, timeout_ms=1200000, private_or_cap=None, and_kraft=False,
+             and_kraft_full=False):
     assert k >= 0 and timeout_ms > 0
     assert private_or_cap is None or private_or_cap >= 0
     positive, negative = boundary(n, edges)
@@ -68,7 +98,7 @@ def generate(n, edges, k, timeout_ms=1200000, private_or_cap=None, and_kraft=Fal
     for i in range(k):
         left = aggregate(f'l{i}', n + i)
         right = aggregate(f'r{i}', n + i)
-        if and_kraft:
+        if and_kraft or and_kraft_full:
             q.append(f'(define-fun kraft_left{i} () (_ BitVec {bits}) {left})')
             q.append(f'(define-fun kraft_right{i} () (_ BitVec {bits}) {right})')
             left, right = f'kraft_left{i}', f'kraft_right{i}'
@@ -107,6 +137,13 @@ def generate(n, edges, k, timeout_ms=1200000, private_or_cap=None, and_kraft=Fal
             q.append(f'(define-fun kraft_equal_total () (_ BitVec {count_width}) {total})')
             q.append(f'(assert (bvule kraft_equal_total (_ bv{budget} {count_width})))')
 
+    if and_kraft_full:
+        # The linear option already defines these, unless it detects M > 2^k.
+        if not and_kraft or (1 << k) < len(negative):
+            for i in range(k):
+                q.append(f'(define-fun kraft_diff{i} () (_ BitVec {bits}) (bvxor kraft_left{i} kraft_right{i}))')
+        full_width = append_full_kraft(q, k, list(range(len(positive), bits)))
+
     if private_or_cap is not None:
         # Exact sum max(region membership count - 1, 0). The accumulator width
         # exceeds the largest possible total, so bit-vector addition cannot wrap.
@@ -136,6 +173,11 @@ def generate(n, edges, k, timeout_ms=1200000, private_or_cap=None, and_kraft=Fal
     if and_kraft:
         metadata.update(and_kraft=True, and_kraft_mis_count=len(negative),
                         and_kraft_equal_budget=(1 << k) - len(negative))
+    if and_kraft_full:
+        metadata.update(and_kraft_full=True, and_kraft_full_mis_count=len(negative),
+                        and_kraft_full_exponential_budget=1 << k,
+                        and_kraft_full_accumulator_width=full_width,
+                        and_kraft_full_constraint='sum_MIS 2^(number of equal AND operand states) <= 2^k')
     return source, metadata
 
 
@@ -220,6 +262,9 @@ def validate_selected_model(metadata, values):
     if metadata.get('and_kraft', False):
         counts = equal_operand_counts(metadata, values)
         assert counts['equal_total'] <= metadata['and_kraft_equal_budget']
+    if metadata.get('and_kraft_full', False):
+        counts = equal_operand_counts(metadata, values)
+        assert counts['exponential_total'] <= metadata['and_kraft_full_exponential_budget']
     return private_cost
 
 
@@ -243,6 +288,9 @@ def equal_operand_counts(metadata, values):
 
 
 def reconstruct(metadata, values):
+    """Reconstruct a constant-free AO2 circuit for a graph with at least one edge."""
+    if not metadata['edges']:
+        raise ValueError('reconstruct requires a graph with at least one edge')
     private_cost = validate_selected_model(metadata, values)
     n, k = metadata['n'], metadata['and_cap']
     abstract_gates, abstract_output = selected_regions(metadata, values)
@@ -375,7 +423,10 @@ def main():
     parser.add_argument('--fixture', type=Path)
     parser.add_argument('--and-cap', type=int, default=6)
     parser.add_argument('--private-or-cap', type=int)
-    parser.add_argument('--and-kraft', action='store_true')
+    parser.add_argument('--and-kraft', action='store_true',
+                        help='enforce only the linear consequence sum(e) <= 2^k - M of the AND Kraft inequality')
+    parser.add_argument('--and-kraft-full', action='store_true',
+                        help='enforce the full AND Kraft inequality sum_MIS(2^e) <= 2^k')
     parser.add_argument('--timeout-ms', type=int, default=1200000)
     parser.add_argument('--smt-out', type=Path)
     parser.add_argument('--result-out', type=Path)
@@ -390,15 +441,18 @@ def main():
     if args.solve and args.result_out is None:
         parser.error('--result-out is required with --solve')
     fixture = json.loads(args.fixture.read_text())
+    if not fixture['edges']:
+        parser.error('--fixture must describe a graph with at least one edge')
     source, meta = generate(fixture['n'], fixture['edges'], args.and_cap,
-                            args.timeout_ms, args.private_or_cap, args.and_kraft)
+                            args.timeout_ms, args.private_or_cap, args.and_kraft,
+                            args.and_kraft_full)
     args.smt_out.write_text(source)
     result = {'fixture': fixture.get('name', args.fixture.name), 'model': meta}
     if args.solve:
         result['solver'] = solve(source, meta['selectors'])
         if result['solver']['status'] == 'sat':
             result['circuit'] = reconstruct(meta, result['solver']['selectors'])
-            if args.and_kraft:
+            if args.and_kraft or args.and_kraft_full:
                 result['and_kraft_counts'] = equal_operand_counts(meta, result['solver']['selectors'])
     if args.result_out is not None:
         args.result_out.write_text(json.dumps(result, indent=2) + '\n')
@@ -414,6 +468,10 @@ def main():
                        checked_inputs=result['circuit']['exhaustively_checked_inputs'])
     if args.and_kraft:
         summary.update(and_kraft=True, and_kraft_equal_budget=meta['and_kraft_equal_budget'])
+    if args.and_kraft_full:
+        summary.update(and_kraft_full=True,
+                       and_kraft_full_exponential_budget=meta['and_kraft_full_exponential_budget'],
+                       and_kraft_full_accumulator_width=meta['and_kraft_full_accumulator_width'])
     print(json.dumps(summary, indent=2), flush=True)
 
 

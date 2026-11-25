@@ -1,5 +1,5 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 22:37:57 UTC. This directory is a computational research artifact, not a proof submission.
+Snapshot recorded 2026-11-25 23:02:09 UTC. This directory is a computational research artifact, not a proof submission.
 No final theorem or counterexample to L-meta-3566 was produced.
 The bounded-synthesis lower results have no Lean certificate. The named Lean file
 contains a local double-cover diagnostic and general primary-reader counting helpers.
@@ -28,7 +28,7 @@ after existing unconditional bounds were located; see research-notes.md. A Heawo
 ended UNKNOWN after 606 seconds: three relaxed witnesses failed exhaustive evaluation
 with 186, 181, and 173 false-positive inputs; the fourth query timed out at 300 seconds.
 Full-boundary searches on Heawood12noninc (19 gates), GP8del_inc (24),
-GP8del_noninc (23), and C6book3 (21) are running at this snapshot. None has produced
+GP8del_noninc (23), C6book3 (21), and C10chords0 (15) are running at this snapshot. None has produced
 a verified witness or a completed lower-bound result. Earlier variants were interrupted
 to add reviewed constraints and retain UNKNOWN status.
 The current H12 total-19 variant uses AND>=6, supported separately by an independently
@@ -80,11 +80,15 @@ Encoding and validation:
 - The generalized free-OR generator passed independent source/model/cost review,
   tiny SAT/UNSAT controls, exact H12 hash regression and reconstruction checks.
   The known book3 calibration has 7 ANDs + 15 ORs = 22 gates and passed all
-  16,384 inputs. A separate cap-six/private-OR-at-most-fifteen pilot is running;
-  any UNSAT result there describes only that restricted witness family.
+  16,384 inputs. The cap-six/private-OR-at-most-fifteen pilot ended UNKNOWN
+  after 1200.11 seconds. A separate linear-Kraft variant is still running; any
+  UNSAT result there describes only that restricted witness family.
   Its optional full-MIS Kraft counter passed independent arithmetic/model tests,
   including padding, zero ANDs and impossible budgets. Existing running queries
-  were not modified to add it.
+  were not modified to add it. The separate full exponential Kraft option passed
+  independent source review, 1,274 arithmetic vectors, 14 fixed circuit cases,
+  24 legacy fingerprints and moved-directory checks. The CLI now rejects empty
+  graph fixtures before writing outputs; low-level arithmetic generation retains them.
 
 Solver: Kissat 4.0.4, official source commit
 8af8e56f174b778aef3aa45af9f739b2a5f492c2.
@@ -110,6 +114,7 @@ Portable reproduction (run from this directory):
   python3 test_pair_separation.py
   python3 free_or_and_query.py --self-test
   python3 test_free_or_and_kraft.py
+  python3 test_free_or_and_kraft_full.py
 Here PATH means the local Kissat executable. New CNFs and complete solver stdout/stderr
 are retained under synthesis/ and excluded from version control. evidence.json contains
 only small result summaries and SAT witnesses; full original diagnostics remain with
@@ -143,10 +148,18 @@ Checked general primary-reader bounds:
   with degree >=2 required only on S; leaves and isolates outside S are allowed.
   count_no_selected_input_bound gives the complementary C.size - S.card bound.
   The selected-set appendix passed independent source review/fresh elaboration.
-  The integrated named build and all 45 helper lemma axiom checks passed using
+  The integrated named build and all 69 helper lemma axiom checks passed using
   only propext, Classical.choice and Quot.sound.
+  Strictness/equality lemmas bound selected occurrence counts and force a sole
+  occurrence in a gate with just one selected operand when the reader count is tight.
+  Under NoFourCycle, sole-OR sibling activation on independent S forces
+  degree(v) <= |S.erase v|;
+  degree >=3 therefore gives rejection of every nonedge pair, not global cleanliness.
+  Sole-AND siblings accept all neighbor singletons, without NoFourCycle.
+  Each appendix passed independent source review and fresh elaboration. The final
+  integrated named build passed (26 seconds); all 69 axiom lists use standard3 only.
   No final theorem for the posted gap is present; the target remains unresolved.
 
 Sub-agents: toolchain, sat_setup, optimization_review, toolchain/mixed_count
-TIMING total=96.5 subagents=4
+TIMING total=120.7 subagents=4
 Timing is cumulative at this research snapshot; work continues toward the full target.
