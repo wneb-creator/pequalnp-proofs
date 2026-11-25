@@ -45,3 +45,5 @@ Eleventh checkpoint: ReaderDeletion and ReaderRename compiled exit0; independent
 Twelfth checkpoint: NorCompression, CleanReader, and TwoNotSwap compiled exit0 and passed independent source reviews. Compression saves one gate and one NOT under explicit unused-wire hypotheses. Clean positive-reader existence and a symmetric conditional reader bound are now proved; they do not finish the main gap.
 
 Thirteenth checkpoint: NorReaders, NegOrReassociate, and TwoStepSeed compile exit0 and pass independent reviews. The conditional NOR-prefix compression is assembled; two additional signed-Live subclasses have residual binary lower16. These results do not settle the exact posted theorem.
+
+Fourteenth checkpoint: TwoOrSeed and CubeCircuit compiled exit0, root independent source review PASS. The former excludes intersecting OR seeds with independent nonshared endpoints; the latter provides an ordinary-circuit16-nonNOT lower bound with a free negative-OR cube. Exact main theorem remains absent.

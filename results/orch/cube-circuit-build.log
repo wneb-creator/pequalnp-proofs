@@ -1,0 +1,7 @@
+../results/orch/lemmas/CubeCircuit.lean:46:33: warning: This simp argument is unused:
+  PEqualNP.Outside.L_meta_2592.FewNot.pin
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [z, c, a, b, bit_bin, assign]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
