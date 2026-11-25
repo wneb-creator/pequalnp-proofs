@@ -1,0 +1,15 @@
+{
+  "python_sha256": "b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0",
+  "lean_sha256": "b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0",
+  "bytes_each": 45245056,
+  "python_exit": 0,
+  "lean_exit": 0,
+  "lean_stderr_bytes": 0,
+  "kernel_smoke_exit": 0,
+  "kernel_smoke_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "completed_target_unsat_certificate": false
+}

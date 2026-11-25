@@ -1,0 +1,21 @@
+{
+  "encoding": "PEqualNP.Library.LRAT.LinkN.enc2",
+  "n": 14,
+  "gates": 24,
+  "negative_rows": 552,
+  "positive_rows": 19,
+  "total_rows": 571,
+  "clauses": 1466230,
+  "max_variable": 3251953,
+  "used_variables": 42543,
+  "bytes": 45245056,
+  "sha256": "b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0",
+  "literal_map": "DIMACS d > 0 maps to Lean 2*d; -d maps to Lean 2*d+1",
+  "op_codes": {
+    "AND": 0,
+    "OR": 1,
+    "TRUE": 2,
+    "NOT": 3
+  },
+  "semantic_warning": "SAT must be validated on all assignments; UNSAT suffices for the subset via link2"
+}

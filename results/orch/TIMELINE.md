@@ -49,3 +49,4 @@
 
 - 2026-11-25T12:58:40.728963+00:00 lemma_search: three arbitrary-NOT single-reader blocking components Lean-checked; first two independently approved; SAT agent notified. Global bound remains20.
 2026-11-25T12:58:57.244761+00:00 dirty-chain gate pair rectangle derived from actual circuit hypotheses; degree-three arbitrary-NOT blocking refinement checked. All independent reviews passed.
+2026-11-25T13:01:34.898665+00:00 official LRAT encoding and kernel-only certificate pipeline independently reviewed; exact Lean/Python CNF match; first240-second screen UNKNOWN, longer1200-second official screen started.

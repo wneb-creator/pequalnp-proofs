@@ -1,0 +1,7 @@
+{
+  "output": 6,
+  "cnf_clauses_verified": 1052,
+  "exhaustive_inputs_verified": 4,
+  "mismatch_count": 0,
+  "exact": true
+}
