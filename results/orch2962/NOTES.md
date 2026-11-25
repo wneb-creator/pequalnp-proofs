@@ -30,3 +30,16 @@ This separates a syntactic budget from the unresolved semantic charge. Either `|
 Root found a general obstruction: clone every input by `x AND x`, then compute the graph's star circuits using only these clones. All primary-input ports are confined to the clone gates, so there are only `2n` such ports. The star outputs now reread their accepted edges and are cores. A projective-plane incidence graph of order at least three has `|E| + tau(G) > 2n`, contradicting the proposed semantic lower bound. This does not contradict `core_input_ports` (an upper bound) or the posted cone-size inequality, since U still counts every clone and internal gate. The semantic port-charge strategy therefore requires substantial extra normalization and should not be pursued as a general lemma.
 
 Root warning: a semantic lower bound on primary-input ports alone is false without normalization. Clone each input using AND(x,x); all later star gates read these clones. Every edge then rereads both endpoints, while primary-input slots stay 2n. For an incidence plane with q>=3, m+tau>2n. The original gate-union budget still counts clone and internal gates, so this does not refute L2962.
+
+2026-11-25T15:48:15.524985+00:00 semantic_proof
+SemanticActiveNested.lean compiled exit0. Strengthens nested witness: for each accepted pair at a belowF AND where ReadTwiceAt holds, there is an AND strictly in its cone that is true on the same pair. The pure-OR tracing closure is only needed on pair-active wires, allowing inactive nested AND gates. Exposes active_nested_and and core_has_active_nested_and. No fixedpoint/bipartite/C4 assumptions. Frozen independent artifact, full logs semantic2962-active.stdout/.stderr.
+
+## Counterexample search, 2026-11-25 15:49 UTC
+
+The exact evaluator uses full Boolean truth tables, exact singleton/pair READ1 flags, dependency cones, and exact minimum vertex-cover recursion. It restricts every gate to valid backward binary AND/OR. All searched gates can be made dead by appending an independent live star-cover circuit; this preserves maximal-core data and ensures the live lift-fixed-point condition. The evaluator passed independent logic review and reproduced accepted examples L2969 and L3762.
+
+C6: more than3million mutations, no violation; minimum posted margin1. K4 incidence:2,435,282 mutations, no violation; minimum posted margin1 and stronger D-cover margin0. Fano search is running for90 seconds. These are heuristic searches, not exhaustive certificates.
+
+A posted equality example exists on the path x-y-z-w: dead gates a=x AND y; b=a OR z; c=y OR w; d=b AND c. The last gate is a core because the accepted edge xy must reread y. With an independent live path circuit appended, D is all3 edges, minimum cover2, union-cone size4, one maximal core, and residual cover0. Thus5=5. This is not a refutation.
+
+Primary-input port inequalities are diagnostic only: the input-cloning construction supplied by root/few_nots disproves that stronger route at sufficient graph density.

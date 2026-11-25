@@ -8,3 +8,9 @@ TIMING total=107 subagents=6
 StructuralCones.lean: lake env lean exit 0; lines=244; bytes=10732; sha256=257f0462ac13a4c1ea4b55b0975d8e3dca1301a14d46f3d4044e266897f4721e
 CountingExamples.lean: lake env lean exit 0; lines=54; bytes=2236; sha256=2031a5b55faebc9f62ca0f5d19d0dd7575ace1273dd1ffba766966c3df82937d
 StructuralPorts.lean: lake env lean exit 0; lines=294; bytes=13417; sha256=53345c0df7eff215701b184cddb71bcdc5b8e90c1c76ed02b21b745977ba4e68
+2026-11-25T15:50:27.277215+00:00
+CombinatorialMatching.lean: lake env lean exit 0; lines=61; bytes=2483; sha256=76a16c93b9c79aa6fc799cc61c13ff272b40ff10a5dbc8e2348ed3e3b31acf71
+CountingShared.lean: lake env lean exit 0; lines=64; bytes=2581; sha256=224b10e1c6742b2ffea73b53e0e2cdcde94b52e330ef2cf9ff420be57494d5cc
+StructuralBudget.lean: lake env lean exit 0; lines=332; bytes=15364; sha256=51f2d0c3cdd63dad7708242102ba0d03a5f16d0b7e8f415575216f819ebc6a80
+SemanticNested.lean: lake env lean exit 0; lines=802; bytes=34250; sha256=000c13937adf76922c56b292cd06a76182f3e7f4e1def2317c09f25494e1c3f8
+SemanticActiveNested.lean: lake env lean exit 0; lines=818; bytes=35190; sha256=c81731c2542b7e6671497b974f0742da49b29b144abaf0146939b8c6133d4fe8
