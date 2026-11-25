@@ -1,6 +1,0 @@
-{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 0, "states": 1, "total": 1, "next_states": 28, "elapsed": 9.1552734375e-05}
-{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 1, "states": 28, "total": 29, "next_states": 753, "elapsed": 0.003831624984741211}
-{"event": "free_and_depth", "n": 2, "m": 3, "or_count": 2, "states": 753, "total": 782, "next_states": 0, "elapsed": 0.007794618606567383}
-{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 0, "states": 1, "total": 1, "next_states": 54, "elapsed": 0.00017452239990234375}
-{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 1, "states": 54, "total": 55, "next_states": 2589, "elapsed": 0.028532981872558594}
-{"event": "free_and_depth", "n": 3, "m": 3, "or_count": 2, "states": 2589, "total": 2644, "next_states": 0, "elapsed": 0.05663108825683594}

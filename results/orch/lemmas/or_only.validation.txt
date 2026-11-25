@@ -1,8 +1,0 @@
-Pinned Lean 4.36.0
-Command: lake env lean ../results/orch/lemmas/or_only.lean
-Working directory: lean/
-Exit code: 0
-stdout: empty
-stderr: empty
-Completed UTC: 2026-11-24T23:21:55.209076+00:00
-Six pure combinatorial helper lemmas compiled; no claim of the full L-meta-5324 theorem.

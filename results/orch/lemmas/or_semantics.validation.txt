@@ -1,9 +1,0 @@
-Pinned Lean 4.36.0
-Command: lake env lean ../results/orch/lemmas/or_semantics.lean
-Working directory: lean/
-Exit code: 0
-stdout: empty
-stderr: empty
-Completed UTC: 2026-11-24T23:29:16.277496+00:00
-Main partial theorem: OR-only actual circuits satisfy matching cardinality <= safe pair count.
-Not a proof of full L-meta-5324.

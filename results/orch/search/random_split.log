@@ -1,3 +1,0 @@
-{"event": "random_split_done", "n": 4, "m": 4, "edges": [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2], [3, 0], [3, 2], [3, 3]], "trials": 10000, "maxg": 15, "best_margins": [0, 0], "cover_families": 447}
-{"event": "random_split_done", "n": 5, "m": 5, "edges": [[0, 0], [0, 4], [1, 0], [1, 1], [2, 1], [2, 2], [3, 0], [3, 2], [3, 3], [4, 1], [4, 3], [4, 4]], "trials": 10000, "maxg": 15, "best_margins": [0, 0], "cover_families": 1777}
-{"event": "random_split_done", "n": 6, "m": 6, "edges": [[0, 0], [0, 4], [1, 0], [1, 1], [1, 5], [2, 1], [2, 2], [3, 0], [3, 2], [3, 3], [4, 1], [4, 3], [4, 4], [5, 2], [5, 4], [5, 5]], "trials": 10000, "maxg": 15, "best_margins": [0, 0], "cover_families": 3742}

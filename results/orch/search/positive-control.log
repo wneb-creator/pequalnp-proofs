@@ -1,2 +1,0 @@
-{"event": "split_exhaustive_depth", "n": 2, "m": 2, "edges": [[0, 0], [0, 1], [1, 0], [1, 1]], "depth": 0, "states": 1, "total": 1, "distinct_cover_families": 1}
-COUNTEREXAMPLE {"n": 2, "m": 2, "edges": [[0, 0], [0, 1], [1, 0], [1, 1]], "ws": [43690, 52428, 61680, 65280, 65520], "depth": 1, "ands": 0, "edge_margin": 1, "matching_margin": 0, "cover": [3, 12]}
