@@ -210,3 +210,28 @@ Complete compiler stderr: results/orch/logs/canonical-not-bound-001.stderr
 Full-gap checker: previous diagnostic FAULT/no verdict; posted exclusion theorem remains unproved.
 Sub-agents: 6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
 TIMING total=36.9 subagents=6
+
+Checkpoint 8: 2026-11-25T14:29:44.853579+00:00
+
+Artifact: lean/PEqualNP/Outside/L_meta_2592.lean
+SHA256: 5c110b42139a933999a8914c816a0151afc794f0273eeab1cab10eefeb180181
+Lines: 4247
+Build: lake build PEqualNP.Outside.L_meta_2592 (workdir lean/), exit0.
+Independent review: status_1035 exact-hash review PASS; few_not composition review PASS.
+Complete compiler stdout: results/orch/logs/named-partial-build-002.stdout
+Complete compiler stderr: results/orch/logs/named-partial-build-002.stderr
+
+Artifact: results/orch/lemmas/CanonicalSortedNotBound.lean
+SHA256: 5c110b42139a933999a8914c816a0151afc794f0273eeab1cab10eefeb180181
+Lines: 4247
+Build: lake env lean ../results/orch/lemmas/CanonicalSortedNotBound.lean (workdir lean/), exit0.
+Independent review: status_1035 exact-hash review PASS; few_not composition review PASS.
+Complete compiler stdout: results/orch/logs/canonical-sorted-bound-003.stdout
+Complete compiler stderr: results/orch/logs/canonical-sorted-bound-003.stderr
+
+Named build summary: Built PEqualNP.Outside.L_meta_2592 (97s); Build completed successfully (5149 jobs); zero errors.
+Scope: conditional exact19 sorted canonical model with1–4NOTs. The posted exclusion theorem remains absent and unproved. No proof PR is appropriate.
+Cleanup pass: skipped because full-gap checker could not issue a verdict and no final proof exists. Line count before/after skipped cleanup:4247/4247.
+Checker: previous unmodified diagnostic FAULT, missing Batteries.olean, exit3/no verdict.
+Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=44.8 subagents=6
