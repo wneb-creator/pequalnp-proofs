@@ -1,4 +1,5 @@
 import Mathlib
+import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_10760
 
@@ -471,6 +472,8 @@ end Core
 end LRAT
 
 namespace CNF
+
+open PEqualNP.CircuitLowerBounds
 
 def litVal (a : Nat → Bool) (l : Nat) : Bool := a (l / 2) == (l % 2 == 0)
 def ClauseSat (a : Nat → Bool) (c : List Nat) : Prop := ∃ l ∈ c, litVal a l = true
@@ -1029,6 +1032,250 @@ lemma encTight_sat {n s : ℕ} {g : ℕ → Bool} {rows : List ℕ} {M : Model}
   · exact s_fLast input hlast c hc
   · exact s_notAtMost input hnot c hc
   · exact s_notAtLeast input hex c hc
+
+def basisGate (g : Gate) : Prop :=
+  (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2
+
+def padRun (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun v g => v ++ [g.op.eval (g.inputs.map fun i => v.getD i false)]) w
+
+lemma padRun_append (gs hs : List Gate) (w : List Bool) :
+    padRun (gs ++ hs) w = padRun hs (padRun gs w) := by
+  simp only [padRun, List.foldl_append]
+
+lemma padRun_length (gs : List Gate) (w : List Bool) :
+    (padRun gs w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp [padRun]
+  | cons g gs ih =>
+    change (padRun gs (w ++ [_])).length = _
+    rw [ih]
+    simp only [List.length_append, List.length_cons, List.length_nil]
+    omega
+
+lemma padRun_prefix (gs : List Gate) (w : List Bool) :
+    ∃ tail, padRun gs w = w ++ tail := by
+  induction gs generalizing w with
+  | nil => exact ⟨[], by simp [padRun]⟩
+  | cons g gs ih =>
+    obtain ⟨tail, ht⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    exact ⟨_ :: tail, by simpa only [padRun, List.foldl_cons, List.append_assoc,
+      List.singleton_append] using ht⟩
+
+lemma padRun_getD (gs : List Gate) (w : List Bool) (o : ℕ) (ho : o < w.length) :
+    (padRun gs w).getD o false = w.getD o false := by
+  obtain ⟨tail, ht⟩ := padRun_prefix gs w
+  rw [ht, List.getD_append _ _ _ _ ho]
+
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = padRun C.gates x := rfl
+
+variable (input : ℕ → ℕ → Bool)
+
+def xr (n r : ℕ) : List Bool := List.ofFn fun i : Fin n => input i r
+
+
+def nm (n j a : ℕ) : ℕ := if a < n + j then a else n + j
+
+
+def code (n : ℕ) (g : Gate) (j : ℕ) : ℕ × ℕ × ℕ :=
+  match g.op, g.inputs with
+  | .and, [] => (2, n + j, n + j)
+  | .and, [a] => (0, nm n j a, nm n j a)
+  | .and, a :: b :: _ => (0, nm n j a, nm n j b)
+  | .or, [] => (1, n + j, n + j)
+  | .or, [a] => (1, nm n j a, nm n j a)
+  | .or, a :: b :: _ => (1, nm n j a, nm n j b)
+  | .not, [] => (3, n + j, n + j)
+  | .not, a :: _ => (3, nm n j a, nm n j a)
+  | _, _ => (2, n + j, n + j)
+
+
+def gateAt (C : Circuit) (j : ℕ) : Gate := C.gates.getD j ⟨.and, []⟩
+
+
+def ofCirc (n s : ℕ) (C : Circuit) : Model :=
+  ((fun j => (code n (gateAt C j) j).1),
+   (fun j => (code n (gateAt C j) j).2.1),
+   (fun j => (code n (gateAt C j) j).2.2),
+   (if C.output < n + C.gates.length then C.output else n + s),
+   (fun j r => if j < C.gates.length then (C.wires (xr input n r)).getD (n + j) false else true))
+
+lemma xr_length (n r : ℕ) : (xr input n r).length = n := by simp [xr]
+
+lemma xr_getD (n r a : ℕ) (ha : a < n) : (xr input n r).getD a false = input a r := by
+  simp [xr, List.getD_eq_getElem?_getD, ha]
+
+lemma code_le (n : ℕ) (g : Gate) (j : ℕ) :
+    (code n g j).1 < 4 ∧ (code n g j).2.1 ≤ n + j ∧ (code n g j).2.2 ≤ n + j := by
+  have h : ∀ a, nm n j a ≤ n + j := fun a => by unfold nm; split_ifs <;> omega
+  rcases g with ⟨op, ins⟩
+  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, l⟩⟩ <;> simp [code, h]
+
+lemma code_not (n : ℕ) (g : Gate) (j : ℕ) (h : (code n g j).1 = 3) :
+    (code n g j).2.1 = (code n g j).2.2 := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, l⟩⟩ <;> simp_all [code]
+
+lemma code_eval (n : ℕ) (g : Gate) (hop : g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp))
+    (hlen : g.inputs.length ≤ 2) (j : ℕ) (S : ℕ → Bool) (hS : S (n + j) = false) :
+    g.op.eval (g.inputs.map fun i => S (nm n j i)) =
+      gfun (code n g j).1 (S (code n g j).2.1) (S (code n g j).2.2) := by
+  rcases g with ⟨op, ins⟩
+  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+  dsimp only at hlen
+  rcases hop with rfl | rfl | rfl <;>
+    rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
+    simp_all [code, GateOp.eval, gfun]
+
+
+lemma wire_gate (C : Circuit) (x : List Bool) (j : ℕ) (hj : j < C.gates.length) :
+    (C.wires x).getD (x.length + j) false =
+      (gateAt C j).op.eval ((gateAt C j).inputs.map fun i =>
+        (padRun (C.gates.take j) x).getD i false) ∧
+    ∀ i, (padRun (C.gates.take j) x).getD i false =
+      if i < x.length + j then (C.wires x).getD i false else false := by
+  have hsplit : C.gates = C.gates.take j ++ (gateAt C j :: C.gates.drop (j + 1)) := by
+    rw [gateAt, List.getD_eq_getElem _ _ hj, List.cons_getElem_drop_succ, List.take_append_drop]
+  set V := padRun (C.gates.take j) x with hV
+  have hVl : V.length = x.length + j := by
+    rw [hV, padRun_length, List.length_take]; omega
+  set e := (gateAt C j).op.eval ((gateAt C j).inputs.map fun i => V.getD i false)
+  have hw : C.wires x = padRun (C.gates.drop (j + 1)) (V ++ [e]) := by
+    rw [wires_eq]
+    conv_lhs => rw [hsplit]
+    rw [padRun_append]; rfl
+  have hpre : ∀ i < x.length + j + 1, (C.wires x).getD i false = (V ++ [e]).getD i false := by
+    intro i hi
+    rw [hw, padRun_getD _ _ _ (by simp [hVl]; omega)]
+  refine ⟨?_, ?_⟩
+  · rw [hpre _ (by omega), ← hVl, getD_snoc_eq]
+  · intro i
+    split_ifs with hi
+    · rw [hpre i (by omega), List.getD_append _ _ _ _ (by omega)]
+    · exact List.getD_eq_default _ _ (by omega)
+  where
+    getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by simp
+
+lemma wires_length (C : Circuit) (x : List Bool) :
+    (C.wires x).length = x.length + C.gates.length := by
+  rw [wires_eq, padRun_length]
+
+lemma ofCirc_sv (n s : ℕ) (C : Circuit) (j r k : ℕ) (hj : k < n + C.gates.length)
+    (hk : k < n + j) : (ofCirc input n s C).sv input n j k r = (C.wires (xr input n r)).getD k false := by
+  unfold Model.sv
+  by_cases h6 : k < n
+  · rw [if_pos h6, wires_eq, padRun_getD _ _ _ (by rw [xr_length]; exact h6),
+      xr_getD input n r k h6]
+  · rw [if_neg h6, if_pos hk]
+    simp only [ofCirc, Model.w, show k - n < C.gates.length by omega, if_true]
+    congr 1
+    omega
+
+
+lemma valid_ofCirc (n s : ℕ) (g : ℕ → Bool) (R : ℕ → Prop) (C : Circuit)
+    (hC : ∀ gate ∈ C.gates, basisGate gate)
+    (hsz : C.gates.length ≤ s) (hev : ∀ r, R r → C.eval (xr input n r) = g r) :
+    Valid input n s g R (ofCirc input n s C) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · intro j _; exact (code_le n _ j).1
+  · intro j _ h; exact code_not n _ j h
+  · intro j _; exact (code_le n _ j).2.1
+  · intro j _; exact (code_le n _ j).2.2
+  · change (if C.output < n + C.gates.length then C.output else n + s) ≤ n + s
+    split_ifs <;> omega
+  · intro j hj r _
+    by_cases hjl : j < C.gates.length
+    · have hmem : gateAt C j ∈ C.gates := by
+        rw [gateAt, List.getD_eq_getElem _ _ hjl]; exact List.getElem_mem hjl
+      have hg := hC (gateAt C j) hmem
+      obtain ⟨h1, h2⟩ := wire_gate C (xr input n r) j hjl
+      rw [xr_length] at h1 h2
+      have hS : ∀ i, (padRun (C.gates.take j) (xr input n r)).getD i false =
+          (ofCirc input n s C).sv input n j (nm n j i) r := by
+        intro i
+        rw [h2 i]
+        unfold nm
+        split_ifs with hi
+        · rw [ofCirc_sv input n s C j r i (by omega) hi]
+        · simp [Model.sv]
+      simp only [hS] at h1
+      have hw : (ofCirc input n s C).w j r = if j < C.gates.length then
+          (C.wires (xr input n r)).getD (n + j) false else true := rfl
+      have hgop : (gateAt C j).op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp) := by
+        simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using hg.1
+      rw [hw, if_pos hjl, h1, code_eval n _ hgop hg.2 j
+        (fun k => (ofCirc input n s C).sv input n j k r) (by simp [Model.sv])]
+      rfl
+    · have hga : gateAt C j = ⟨.and, []⟩ := by
+        rw [gateAt, List.getD_eq_default _ _ (by omega)]
+      simp [ofCirc, Model.w, Model.op, Model.s1, Model.s2, hjl, hga, code, gfun]
+  · intro r hr
+    rw [← hev r hr, Circuit.eval]
+    have hso : (ofCirc input n s C).so =
+        if C.output < n + C.gates.length then C.output else n + s := rfl
+    rw [hso]
+    split_ifs with ho
+    · by_cases h6 : C.output < n
+      · simp only [Model.sv, if_pos h6]
+        rw [wires_eq, padRun_getD _ _ _ (by rw [xr_length]; exact h6), xr_getD input n r _ h6]
+      · rw [ofCirc_sv input n s C s r _ ho (by omega)]
+    · rw [List.getD_eq_default _ _ (by rw [wires_length, xr_length]; omega)]
+      simp [Model.sv]
+
+lemma code_op_not_iff (n : ℕ) (g : Gate) (j : ℕ) : (code n g j).1 = 3 ↔ g.op = GateOp.not := by
+  rcases g with ⟨op, ins⟩
+  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, l⟩⟩ <;> simp [code]
+
+lemma ofCirc_op_not_iff (n s : ℕ) (C : Circuit) (j : ℕ) :
+    (ofCirc input n s C).op j = 3 ↔
+      ∃ hj : j < C.gates.length, (C.gates[j]).op = GateOp.not := by
+  change (code n (gateAt C j) j).1 = 3 ↔ _
+  rw [code_op_not_iff]
+  by_cases hj : j < C.gates.length
+  · rw [gateAt, List.getD_eq_getElem _ _ hj]
+    constructor
+    · intro h; exact ⟨hj, h⟩
+    · rintro ⟨_, h⟩; exact h
+  · rw [gateAt, List.getD_eq_default _ _ (by omega)]
+    simp [hj]
+
+lemma circuit_encOne_sat (n s : ℕ) (g : ℕ → Bool) (rows : List ℕ)
+    (hrows : ∀ r ∈ rows, r < 128) (C : Circuit)
+    (hC : ∀ gate ∈ C.gates, basisGate gate) (hsz : C.gates.length ≤ s)
+    (hev : ∀ r ∈ rows, C.eval (xr input n r) = g r)
+    (hu : ∀ i j : Fin C.gates.length,
+      (C.gates.get i).op = GateOp.not → (C.gates.get j).op = GateOp.not → i = j)
+    (hn : ∃ i : Fin C.gates.length, (C.gates.get i).op = GateOp.not) :
+    FormulaSat (encOne input n s g rows) := by
+  have hv := valid_ofCirc input n s g (· ∈ rows) C hC hsz hev
+  apply encOne_sat input hrows hv
+  · intro i hi j hj hni hnj
+    obtain ⟨hil, hiop⟩ := (ofCirc_op_not_iff input n s C i).mp hni
+    obtain ⟨hjl, hjop⟩ := (ofCirc_op_not_iff input n s C j).mp hnj
+    have he := hu ⟨i, hil⟩ ⟨j, hjl⟩ hiop hjop
+    exact congrArg Fin.val he
+  · obtain ⟨i, hi⟩ := hn
+    refine ⟨i.val, lt_of_lt_of_le i.isLt hsz, ?_⟩
+    exact (ofCirc_op_not_iff input n s C i.val).mpr ⟨i.isLt, hi⟩
+
+def raw7Input (k r : ℕ) : Bool := r.testBit k
+
+def rowFun7 (f : (Fin 7 → Bool) → Bool) (r : ℕ) : Bool := f fun i => r.testBit i
+
+lemma raw7_link (s : ℕ) (f : (Fin 7 → Bool) → Bool) (rows : List ℕ)
+    (hrows : ∀ r ∈ rows, r < 128) (gs : List Gate) (o : ℕ)
+    (hgs : ∀ gate ∈ gs, basisGate gate) (hsz : gs.length ≤ s)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
+    (hn : ∃ i : Fin gs.length, (gs.get i).op = GateOp.not)
+    (hev : ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, o⟩ (List.ofFn x) = f x) :
+    FormulaSat (encOne raw7Input 7 s (rowFun7 f) rows) := by
+  apply circuit_encOne_sat raw7Input 7 s (rowFun7 f) rows hrows ⟨gs, o⟩ hgs hsz
+  · intro r _
+    exact hev (fun i => r.testBit i)
+  · exact hu
+  · exact hn
 
 end CNF
 
