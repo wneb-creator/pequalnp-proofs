@@ -1,0 +1,40 @@
+Checked local circuit transformation; not the complete L-meta-1904 statement.
+Command: lake env lean -j1 -M6500 --profile /workspace/pequalnp-proofs/results/orch/lemmas/clean-and-lower/DiamondRewrite.lean
+SHA256: 1e8956cf8603f13c24bee0af984e4726bb6b361c28bbfd0d6c2779e9e9e8c7d2
+{
+  "exit_code": 0,
+  "elapsed_seconds": 9.14024905000042,
+  "peak_rss_kib": 2892544
+}
+
+Complete stdout:
+simp took 264ms
+simp took 248ms
+
+Complete stderr:
+import took 3.84s
+cumulative profiling times:
+	attribute application 0.23ms
+	compilation (IR) 0.43ms
+	compilation (LCNF base) 6.37ms
+	compilation (LCNF impure) 1.77ms
+	compilation (LCNF mono) 2.99ms
+	congr simp thm 37.6ms
+	declTypeLinter 40.9ms
+	elaboration 130ms
+	fix level params 1.35ms
+	import 3.84s
+	initialization 98.9ms
+	instantiate metavars 3.39ms
+	interpretation 523ms
+	let-to-have transformation 0.25ms
+	linting 25.7ms
+	module linting 0.107ms
+	parsing 10.7ms
+	process pre-definitions 10.2ms
+	share common exprs 41.8ms
+	simp 995ms
+	tactic execution 158ms
+	tacticAnalysis 5.3ms
+	type checking 236ms
+	typeclass inference 312ms

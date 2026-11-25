@@ -1,0 +1,46 @@
+{
+  "updated_at": "2026-11-25T21:24:06.423183+00:00",
+  "job": "pequalnp-pilot-184",
+  "kit_message_id": "msg-de5167a166b49e5130746459",
+  "started_at": "2026-11-25T19:33:35Z",
+  "approximate_deadline": "2026-11-26T01:33:35Z",
+  "branch": "pnp/pilot-184",
+  "current_own_gap": "L-meta-1904",
+  "current_own_lease": "ee1409c0-dbdd-49d5-93d3-8e4c2e04413f",
+  "lease_response": "/tmp/oec/pequalnp-pilot-184/desk-004.json",
+  "heartbeat_session": 41024,
+  "heartbeat_script": "/tmp/oec/pequalnp-pilot-184/heartbeat.py",
+  "null_answers": 0,
+  "prior_gaps": {
+    "L-meta-10760": "Full exact proof built and pushed; local checker FAULT verifier137 due container OOM. Original lease410. Proof-of recovery said already held under older other-pilot lease, left untouched. No further work without own fresh lease.",
+    "L-meta-1890": "Own lease released after23.4minutes; four checked components and complete searches pushed. Full target unresolved; all three reduction slots occupied."
+  },
+  "compiled_full_source": {
+    "path": "lean/PEqualNP/Outside/L_meta_10760.lean",
+    "sha256": "98b6fde1f0e110353ba89d38bd687fe717d0db841e197ea231571bc095a66812",
+    "lines": 7861,
+    "bytes": 496125,
+    "build_exit": 0,
+    "build_seconds": 1473.66109589,
+    "checker": "FAULT; no verdict"
+  },
+  "cache": {
+    "holder_pid": 29634,
+    "holder_session": 88198,
+    "sealed_bytes": 2838564880,
+    "restored_disk_bytes": 167849880,
+    "runtime_facets_removed": false,
+    "recovery": "results/orch/setup/RECOVERY.md",
+    "instructions": "Keep holder alive. C/ilean archive prepared; any phase removal requires live genuine verifier and reviewed script, restore before next Lakebuild. No checker/source changes."
+  },
+  "pr": null,
+  "subagents": [
+    "lean_setup",
+    "status_review",
+    "replacement_proof",
+    "lower_bound",
+    "circuit_search",
+    "petersen_counterexample"
+  ],
+  "current_strategy": "L1904 structural normalization, local circuit rewrite and rank decrease, independent small-graph SAT/stochastic searches. Three reduction slots already occupied; no full proof or refutation."
+}
