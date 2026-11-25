@@ -12,3 +12,4 @@
 -2026-11-25 19:05 UTC: self-collision bug fixed; restriction bounds restarted. LRAT helper assembly ready pending initial build.
 -2026-11-25 19:07 UTC: redundant solver jobs stopped to prioritize first Lean build under constrained CPU.
 -2026-11-25 19:07:55 UTC: named-file build passed;14gate upper bound Lean-checked.
+-2026-11-25 19:11:12 UTC:13gate lower bound Lean-checked.

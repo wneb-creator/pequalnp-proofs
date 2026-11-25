@@ -8,3 +8,8 @@ Independent review: repo_review PASS for partial preservation.
 Line count before cleanup:28. After:28. Cleanup deferred until full proof.
 Sub-agents:6 (repository/LRAT review, structural reuse, finite search, Lean setup, certificate search, gate elimination)
 TIMING total=12.3 subagents=6
+
+Lower13 partial: scratch Lean compile passed19:11:12 UTC, exit0.
+Source and complete compiler output preserved in results/orch.
+Independent red-team review: gate_elimination PASS conditional on Lean; Lean now passed.
+Full target theorem remains unproved.

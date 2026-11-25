@@ -43,3 +43,20 @@ Let u be the monotone function entering the only NOT. If u ≤ f pointwise, repl
 Thus any genuinely essential NOT for this f has u=true on an independent set of size at most 2. This reduces the hard structural cases to singleton or nonedge-pair witnesses, but I do not yet have a complete size-preserving simplification for those cases. Do not assume a general one-NOT elimination theorem.
 
 Scratch DP: `/tmp/oec/pequalnp-pilot-178/gate_elimination/basic.py`.
+
+## Independent review of the 13-gate lower-bound candidate
+
+Reviewed `/tmp/oec/pequalnp-pilot-178/certificate_search/Lower13.lean`, 3787 lines, 223078 bytes, SHA256 `139aa8ff86fa6f697837a4a6e8832ba5203acbb98efaa15cec5b56cd10130900`.
+
+Verdict: no semantic loophole found; acceptable as a partial lower bound conditional on its Lean/kernel checks succeeding. No build was started by this reviewer.
+
+- Independently diffed it against accepted `L_meta_10762.lean`. The generic proof engine and circuit bridge are unchanged. Changes consist of namespace, generated constants, certificate bound layers, explicit names for two noncomputable sections, target graph expressions, and the final lower13 helper.
+- Independently decoded all large decimal limb expressions. They match the data JSON exactly.
+- Independently checked all 820 used row bits against the exact target edge function. Every target bit agrees.
+- Verified all 42 X and 17 Y segments have constant source assignments, valid zero boundary bits, and the correct HX/HY carry markers.
+- The `f` and `EF` expressions use exactly edges 02,13,04,14,24,05,15,35,06,26,36,56.
+- The bridge quantifies over the real project Circuit and FanInTwo definitions and maps actual circuit evaluation to the sample model. The conclusion is 13 ≤ D.size with only fan-in-two legality and target-computation hypotheses.
+- No `_root_`, quotes, `sorry`, `native_decide`, axiom/unsafe declarations, prohibited commands, attributes, or decimal numeral longer than 20 digits found.
+- The final posted replacement theorem is absent. This file is a partial lower-bound component, not a complete proof of the leased statement.
+
+The prior suspected delete0 bound11 was indeed invalid: a concrete monotone10gate restriction witness is `(x3∨x5)(x1∨x6) ∨ x1x4 ∨ x2(x4∨x6) ∨ x3x5`. Sent its explicit gate list to certificate_search to diagnose the Python port. Current Lower13 bound layer uses10 for that restriction.
