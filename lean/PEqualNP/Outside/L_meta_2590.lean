@@ -8476,3 +8476,144 @@ lemma finish_condition_card_le_two
   Boolean_card_le_two (fun _ h => condition_card_le_two h) G hG hU hfinish
 
 end PEqualNP.Outside.L_meta_2590.TopFormFinite
+
+namespace PEqualNP.Outside.L_meta_2590.SlotGateIds
+open FiniteSlots
+
+set_option maxRecDepth 12000 in
+set_option maxHeartbeats 0 in
+lemma slot_bar : ∀ (p : Fin 45) (h : H),
+    SlotTables.slot p (barH h) = SlotOrbits.flip (SlotTables.slot p h) := by
+  decide +kernel
+
+lemma same_gate_cases {e f : Slot} (h : e.1 = f.1) : e = f ∨ e = bar f := by
+  rcases e with ⟨j, s⟩
+  rcases f with ⟨k, t⟩
+  dsimp only at h
+  subst k
+  cases s <;> cases t <;> simp [bar]
+
+lemma signed_gate_injective {α : Type} (f : α × Bool → Slot)
+    (hf : Function.Injective f) (hb : ∀ a b, f (a, !b) = bar (f (a, b))) :
+    Function.Injective (fun a => (f (a, false)).1) := by
+  intro a b h
+  rcases same_gate_cases h with he | he
+  · exact congrArg Prod.fst (hf he)
+  · have he' : f (a, false) = f (b, true) := he.trans (hb b false).symm
+    exact congrArg Prod.fst (hf he')
+
+lemma gate_eq_iff (t : H → Slot) (p : Fin 45)
+    (hb : ∀ h, t (barH h) = bar (t h))
+    (heq : ∀ h k, t h = t k ↔ SlotTables.slot p h = SlotTables.slot p k)
+    (h k : H) :
+    (t h).1 = (t k).1 ↔ SlotTables.slot p h = SlotTables.slot p k ∨
+      SlotTables.slot p h = SlotOrbits.flip (SlotTables.slot p k) := by
+  constructor
+  · intro hg
+    rcases same_gate_cases hg with he | he
+    · exact Or.inl ((heq h k).mp he)
+    · right
+      rw [← slot_bar p k]
+      apply (heq h (barH k)).mp
+      rw [hb k]
+      exact he
+  · rintro (hsame | hopp)
+    · exact congrArg Prod.fst ((heq h k).mpr hsame)
+    · have hc : SlotTables.slot p h = SlotTables.slot p (barH k) := by
+        rw [slot_bar p k]
+        exact hopp
+      have ha := (heq h (barH k)).mpr hc
+      rw [hb k] at ha
+      simpa only [bar] using congrArg (fun e : Slot => e.1) ha
+
+lemma paired_iff_div_two : ∀ a b : Fin 30,
+    (a = b ∨ a = SlotOrbits.flip b) ↔ a.val / 2 = b.val / 2 := by
+  decide +kernel
+
+lemma gate_id_eq_iff (t : H → Slot) (p : Fin 45)
+    (hb : ∀ h, t (barH h) = bar (t h))
+    (heq : ∀ h k, t h = t k ↔ SlotTables.slot p h = SlotTables.slot p k)
+    (h k : H) : (t h).1 = (t k).1 ↔
+      (SlotTables.slot p h).val / 2 = (SlotTables.slot p k).val / 2 :=
+  (gate_eq_iff t p hb heq h k).trans (paired_iff_div_two _ _)
+
+lemma mem_lower_iff_selected (t : H → Slot) (v : V) (h : H) :
+    v ∈ lower t h ↔ t h ∈ selected t v := by
+  rw [mem_selected]
+  simp only [lower, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma selected_subset_W (t : H → Slot) (W : V → Finset Slot)
+    (hw : ∀ h, t h ∈ W (endpoint h)) (v : V) : selected t v ⊆ W v := by
+  intro s hs
+  obtain ⟨h, rfl, rfl⟩ := mem_selected.mp hs
+  exact hw h
+
+end PEqualNP.Outside.L_meta_2590.SlotGateIds
+
+namespace PEqualNP.Outside.L_meta_2590.TopFormFinite
+
+def missedEdges (S : Finset V) : Finset I :=
+  Finset.univ.filter fun i => (ends i).1 ∉ S ∧ (ends i).2 ∉ S
+
+set_option synthInstance.maxSize 10000 in
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma small_cover_misses : ∀ S : Finset V,
+    (S.card ≤ 5 → 2 ≤ (missedEdges S).card) ∧
+    (S.card ≤ 4 → 3 ≤ (missedEdges S).card) := by
+  decide +kernel
+
+lemma edge_injective : Function.Injective edge := by
+  unfold Function.Injective
+  decide +kernel
+
+lemma missed_card_le_removed
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ∀ u v : V, G.Adj u v ↔ v ∈ neighbors u)
+    (U : Finset (Sym2 V)) (S : Finset V)
+    (hcover : ∀ u v : V, (G.deleteEdges ↑U).Adj u v → u ∈ S ∨ v ∈ S) :
+    (missedEdges S).card ≤ U.card := by
+  have hsub : (missedEdges S).image edge ⊆ U := by
+    intro e he
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp he
+    have hout := (Finset.mem_filter.mp hi).2
+    by_contra hnot
+    have hadj : G.Adj (ends i).1 (ends i).2 :=
+      (hG _ _).mpr ((neighbor_ends _ _).mpr ⟨i, Or.inl ⟨rfl, rfl⟩⟩)
+    have hdeleted : (G.deleteEdges ↑U).Adj (ends i).1 (ends i).2 := by
+      apply SimpleGraph.deleteEdges_adj.mpr
+      refine ⟨hadj, ?_⟩
+      change edge i ∉ U
+      exact hnot
+    rcases hcover _ _ hdeleted with hleft | hright
+    · exact hout.1 hleft
+    · exact hout.2 hright
+  have hcard := Finset.card_le_card hsub
+  rw [Finset.card_image_of_injective _ edge_injective] at hcard
+  exact hcard
+
+lemma cover_after_delete_le_one
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ∀ u v : V, G.Adj u v ↔ v ∈ neighbors u)
+    {U : Finset (Sym2 V)} {S : Finset V} (hU : U.card ≤ 1)
+    (hcover : ∀ u v : V, (G.deleteEdges ↑U).Adj u v → u ∈ S ∨ v ∈ S) :
+    6 ≤ S.card := by
+  have hmiss := missed_card_le_removed G hG U S hcover
+  by_contra hsmall
+  have hS : S.card ≤ 5 := by omega
+  have htwo := (small_cover_misses S).1 hS
+  omega
+
+lemma cover_after_delete_le_two
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ∀ u v : V, G.Adj u v ↔ v ∈ neighbors u)
+    {U : Finset (Sym2 V)} {S : Finset V} (hU : U.card ≤ 2)
+    (hcover : ∀ u v : V, (G.deleteEdges ↑U).Adj u v → u ∈ S ∨ v ∈ S) :
+    5 ≤ S.card := by
+  have hmiss := missed_card_le_removed G hG U S hcover
+  by_contra hsmall
+  have hS : S.card ≤ 4 := by omega
+  have hthree := (small_cover_misses S).2 hS
+  omega
+
+end PEqualNP.Outside.L_meta_2590.TopFormFinite
