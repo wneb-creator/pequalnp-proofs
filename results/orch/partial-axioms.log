@@ -1,0 +1,22 @@
+'PEqualNP.Outside.L_meta_2448_aux.minimal_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.cross_nonedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.star_of_proper_pair_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.owns_bipartite_on_singleton_silent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.odd_owned_closed_walk_has_singleton' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.component.component_extraction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448.cross.component.component_gate_saving' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.diamond.not_minimal_diamond' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.matching.not_minimal_matching' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.doubleStar_guards' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.doubleStar_guard_adjacent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.keep_left.repair_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.keep_left.starPrefix_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.twoCenter_guard_adjacent' depends on axioms: [propext, Classical.choice, Quot.sound]

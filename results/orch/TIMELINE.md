@@ -21,3 +21,5 @@ No complete proof or accepted submission yet.
 - 2026-11-25T07:29:41.065612+00:00: Matching repair, local odd-walk obstruction, and double-star guard lemmas integrated; 1166-line file builds. Finite artifacts independently reviewed and preserved.
 
 - 2026-11-25T07:36:33.702174+00:00: Integrated star-prefix extension and component extraction; named file builds at 1717 lines. All added fragments independently reviewed.
+
+- 2026-11-25T07:42:41.587429+00:00: Frozen 601-line one-junk conditional cover result independently reviewed and preserved as a scratch artifact; full target remains open. Integrated helper axiom audit passed.

@@ -6,6 +6,8 @@ Local checker: REJECTED (no-theorem), expected for partial; full output retained
 Independent red-team reviews: PASS for minimum existence, cross-nonedge witness, proper-pair-sound star criterion, and bipartite ownership lemma.
 Line counts: first partial 142; integrated partial 1717; final cleanup not started.
 Sub-agents: 6 (status review, structural proof, library route, finite cases, Lean setup, global normal form)
-TIMING total=33.6 subagents=6
+TIMING total=39.7 subagents=6
 Finite artifacts: independent review passed; 38 manifest entries validated, 1197 BFS witnesses rechecked. Heuristic negatives are not proofs.
 Independent review passed: equal-size star-prefix repair, component extraction with explicit boundary bound, and generalized two-center lemma.
+OneJunk.lean: independently reviewed conditional cover bound; lake env lean exit 0, empty full log. Its Outside import is prototype-only, not allowed in a final gap PR.
+Axiom audit: 14 exposed integrated helpers use only propext, Classical.choice and Quot.sound.

@@ -30,3 +30,7 @@ Strategy-specific notes go in separate Markdown files in this directory to avoid
 Existing lower bounds and the one-junk proof do not close the target: they rely on a global assignment of residual edges and, in one critical case, on exclusion of a five-cycle. Earliest/latest bad-gate choices do not supply those hypotheses.
 
 Continue four routes: whole common-singleton component extraction; graph-only guard classification with a separate small pentagon case; explicit context-preserving circuit repairs; exact and heuristic circuit synthesis on interacting-cycle graphs. The theorem remains unproved.
+
+## Conditional one-junk result
+
+`lemmas/OneJunk.lean` proves the cover-size bound for a least exact-two AO circuit in TopForm on a triangle/four-cycle-free graph, assuming exactly one junk AND gate and silence on singleton inputs. This removes the old global bipartition premise for that subcase. It imports checked L_meta_3760 as a prototype dependency, so it cannot be copied into the final gap file without extracting the used helper proofs. It does not address multiple interacting junk gates and does not prove the posted theorem.
