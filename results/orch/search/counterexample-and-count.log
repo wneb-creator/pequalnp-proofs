@@ -1,0 +1,18 @@
+2026-11-25T15:46:09.845438+00:00 targets 120
+first AND functions 1415
+progress 0 / 1415 AND2 candidates 2080 seconds 0.0
+progress 100 / 1415 AND2 candidates 325123 seconds 0.09
+progress 200 / 1415 AND2 candidates 657428 seconds 0.2
+progress 300 / 1415 AND2 candidates 950652 seconds 0.28
+progress 400 / 1415 AND2 candidates 1318749 seconds 0.39
+progress 500 / 1415 AND2 candidates 1682741 seconds 0.49
+progress 600 / 1415 AND2 candidates 2020810 seconds 0.59
+progress 700 / 1415 AND2 candidates 2343853 seconds 0.68
+progress 800 / 1415 AND2 candidates 2650548 seconds 0.77
+progress 900 / 1415 AND2 candidates 2982653 seconds 0.86
+progress 1000 / 1415 AND2 candidates 3305358 seconds 0.97
+progress 1100 / 1415 AND2 candidates 3595919 seconds 1.05
+progress 1200 / 1415 AND2 candidates 3894065 seconds 1.15
+progress 1300 / 1415 AND2 candidates 4165000 seconds 1.25
+progress 1400 / 1415 AND2 candidates 4434305 seconds 1.34
+PASS: no 3x3 C4-free graph with tau=3 has a circuit with <=2 AND gates, even with unlimited OR gates. 4465825

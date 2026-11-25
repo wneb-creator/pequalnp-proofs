@@ -1,0 +1,34 @@
+2026-11-25T15:51:38.045237+00:00 ANY 5 x 5 tau 5 AND budget 4 T0 False
+RESULT unknown seconds 120.022
+REASON timeout
+(:max-memory              67.20
+ :memory                  22.18
+ :num-allocs              5467752796.00
+ :rlimit-count            807335736
+ :sat-ate                 2
+ :sat-backjumps           364329
+ :sat-bce                 5899
+ :sat-conflicts           364329
+ :sat-decisions           604865
+ :sat-del-clause          404371
+ :sat-elim-bool-vars-res  18948
+ :sat-elim-literals       22232
+ :sat-gc-clause           301643
+ :sat-minimized-lits      3402449
+ :sat-mk-clause-2ary      75038
+ :sat-mk-clause-3ary      23894
+ :sat-mk-clause-nary      463154
+ :sat-mk-var              30995
+ :sat-propagations-2ary   466736619
+ :sat-propagations-nary   432885633
+ :sat-restarts            29195
+ :sat-scc-elim-binary     8
+ :sat-scc-elim-vars       162
+ :sat-subs-resolution     13871
+ :sat-subs-resolution-dyn 174523
+ :sat-subsumed            7725
+ :sat-tr                  8
+ :sat-units               4
+ :solve-eqs-elim-vars     29
+ :solve-eqs-steps         2949
+ :time                    120.02)

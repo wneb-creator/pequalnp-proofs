@@ -34,3 +34,10 @@ ledger-forced-cofactor-checked.lean SHA256 16896e9f4e9b313de3c815f36a5b19d29bca3
 and-count-cut-checked.lean SHA256 7871b9f85bc17857f69808c99a8f711551d87a88a12d4d01db13d0eb9e8b4828
 Forced cofactor snapshot independently approved by toolchain_setup; strict count snapshot by status_review.
 TIMING total=53.6 subagents=6
+
+Witness-preserving TopForm normalization compiled successfully (3430 lines). Full stdout and stderr retained together in semantic-topform-build-combined.log. Independently approved: earlier typed components, status_review minimality layer, and_lower_bound final TopForm layer.
+Protected forced-wire input certificate and |Q| <= branching AND count compiled successfully; independently approved by status_review. Complete separate build streams retained.
+These are partial results. Global additive star/dirty-gate budget and exact assigned theorem remain unproved. Checker against posted statement not run.
+Counterexample-search bundle preserved: 47 manifest entries verified, 13 Python programs parse and I/O reviewed; solver UNSAT is computational evidence only, timeouts explicitly UNKNOWN, no posted counterexample found.
+Sub-agents: 6 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit, AND lowerbound)
+TIMING total=61.4 subagents=6

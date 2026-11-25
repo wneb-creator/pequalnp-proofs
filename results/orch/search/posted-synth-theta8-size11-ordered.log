@@ -1,0 +1,37 @@
+2026-11-25T16:10:21.563178+00:00 GRAPH theta8 size 11 patterns 40 edges 9 maxzeros 9
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT unknown seconds 180.037
+REASON timeout
+(:max-memory              57.31
+ :memory                  20.47
+ :num-allocs              4571983355.00
+ :rlimit-count            404775352
+ :sat-ate                 3892
+ :sat-backjumps           867113
+ :sat-bce                 404
+ :sat-conflicts           867113
+ :sat-decisions           1802692
+ :sat-del-clause          867366
+ :sat-elim-bool-vars-res  7177
+ :sat-elim-clauses        62
+ :sat-elim-literals       174796
+ :sat-gc-clause           785813
+ :sat-minimized-lits      18830566
+ :sat-mk-clause-2ary      25455
+ :sat-mk-clause-3ary      16205
+ :sat-mk-clause-nary      927229
+ :sat-mk-var              12509
+ :sat-probing-assigned    1
+ :sat-propagations-2ary   92036502
+ :sat-propagations-nary   346526271
+ :sat-restarts            67991
+ :sat-scc-elim-binary     249
+ :sat-scc-elim-vars       88
+ :sat-subs-resolution     62196
+ :sat-subs-resolution-dyn 832468
+ :sat-subsumed            14380
+ :sat-tr                  343
+ :sat-units               38
+ :solve-eqs-elim-vars     31
+ :solve-eqs-steps         1550
+ :time                    180.04)

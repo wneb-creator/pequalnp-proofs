@@ -1,0 +1,35 @@
+2026-11-25T16:08:38.406958+00:00 CYCLE 6 size 7 patterns 23 edges 6 maxzeros 5
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT unsat seconds 11.778
+(:max-memory              34.15
+ :memory                  17.88
+ :num-allocs              104709119
+ :rlimit-count            33029127
+ :sat-ate                 79
+ :sat-backjumps           164592
+ :sat-bce                 132
+ :sat-conflicts           164593
+ :sat-decisions           334350
+ :sat-del-clause          157314
+ :sat-elim-bool-vars-res  1761
+ :sat-elim-clauses        13577
+ :sat-elim-literals       74346
+ :sat-gc-clause           116216
+ :sat-minimized-lits      2735767
+ :sat-mk-clause-2ary      7600
+ :sat-mk-clause-3ary      4651
+ :sat-mk-clause-nary      177007
+ :sat-mk-var              3384
+ :sat-propagations-2ary   8372800
+ :sat-propagations-nary   27877016
+ :sat-restarts            13503
+ :sat-scc-elim-binary     51
+ :sat-scc-elim-vars       44
+ :sat-subs-resolution     36829
+ :sat-subs-resolution-dyn 96722
+ :sat-subsumed            11973
+ :sat-tr                  77
+ :sat-units               294
+ :solve-eqs-elim-vars     13
+ :solve-eqs-steps         696
+ :time                    11.78)

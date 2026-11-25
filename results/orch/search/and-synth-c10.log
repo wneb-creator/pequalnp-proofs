@@ -1,0 +1,29 @@
+2026-11-25T15:50:05.839831+00:00 cycle 10 AND budget 4 truth bits 1024
+RESULT unsat seconds 9.561
+(:max-memory              51.61
+ :memory                  21.26
+ :num-allocs              385834421
+ :rlimit-count            71495923
+ :sat-backjumps           34987
+ :sat-conflicts           34988
+ :sat-decisions           64919
+ :sat-del-clause          85992
+ :sat-elim-bool-vars-res  16757
+ :sat-elim-clauses        20498
+ :sat-elim-literals       32601
+ :sat-gc-clause           9921
+ :sat-minimized-lits      310889
+ :sat-mk-clause-2ary      73624
+ :sat-mk-clause-3ary      22603
+ :sat-mk-clause-nary      116086
+ :sat-mk-var              30396
+ :sat-propagations-2ary   48467479
+ :sat-propagations-nary   34109329
+ :sat-restarts            2174
+ :sat-subs-resolution     3
+ :sat-subs-resolution-dyn 8195
+ :sat-subsumed            246
+ :sat-units               668
+ :solve-eqs-elim-vars     4
+ :solve-eqs-steps         232
+ :time                    9.56)

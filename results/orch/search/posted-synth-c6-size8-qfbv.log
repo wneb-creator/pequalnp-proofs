@@ -1,0 +1,32 @@
+2026-11-25T16:08:38.594380+00:00 CYCLE 6 size 8 patterns 23 edges 6 maxzeros 5
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT sat seconds 2.093
+VERIFIED_FULL_TRUTH_TABLE {"p": 3, "q": 3, "edges": [[0, 0], [1, 1], [2, 2], [0, 1], [1, 2], [2, 0]], "gates": [[true, 0, 1], [true, 0, 2], [false, 3, 7], [false, 4, 6], [true, 1, 2], [false, 5, 10], [true, 9, 11], [true, 8, 12]], "output": 13, "star_witnesses": [[], [], [], [1], [0], [4]]}
+(:max-memory              28.64
+ :memory                  18.14
+ :num-allocs              19893224
+ :rlimit-count            3388659
+ :sat-backjumps           15716
+ :sat-conflicts           15716
+ :sat-decisions           36509
+ :sat-del-clause          8594
+ :sat-elim-bool-vars-res  1802
+ :sat-elim-clauses        33
+ :sat-elim-literals       207
+ :sat-minimized-lits      139551
+ :sat-mk-clause-2ary      6714
+ :sat-mk-clause-3ary      4837
+ :sat-mk-clause-nary      30862
+ :sat-mk-var              4135
+ :sat-propagations-2ary   646162
+ :sat-propagations-nary   2642647
+ :sat-restarts            1310
+ :sat-scc-elim-binary     15
+ :sat-scc-elim-vars       17
+ :sat-subs-resolution     173
+ :sat-subs-resolution-dyn 5925
+ :sat-subsumed            875
+ :sat-units               12
+ :solve-eqs-elim-vars     14
+ :solve-eqs-steps         828
+ :time                    2.09)

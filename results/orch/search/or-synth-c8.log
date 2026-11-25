@@ -1,0 +1,30 @@
+2026-11-25T15:59:23.020035+00:00 cycle 8 OR budget 6 all star witnesses
+RESULT unsat seconds 3.859
+(:max-memory              36.47
+ :memory                  19.52
+ :num-allocs              122500146
+ :rlimit-count            19924377
+ :sat-backjumps           16023
+ :sat-conflicts           16024
+ :sat-decisions           23976
+ :sat-del-clause          29583
+ :sat-elim-bool-vars-res  6517
+ :sat-elim-clauses        7538
+ :sat-elim-literals       38990
+ :sat-minimized-lits      151271
+ :sat-mk-clause-2ary      47921
+ :sat-mk-clause-3ary      10701
+ :sat-mk-clause-nary      50413
+ :sat-mk-var              14158
+ :sat-probing-assigned    3
+ :sat-propagations-2ary   20224538
+ :sat-propagations-nary   3139733
+ :sat-restarts            510
+ :sat-scc-elim-vars       11
+ :sat-subs-resolution     7
+ :sat-subs-resolution-dyn 34124
+ :sat-subsumed            372
+ :sat-units               879
+ :solve-eqs-elim-vars     6
+ :solve-eqs-steps         322
+ :time                    3.82)

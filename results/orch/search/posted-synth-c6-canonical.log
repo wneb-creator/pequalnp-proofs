@@ -1,0 +1,11 @@
+2026-11-25T16:02:47.303248+00:00 CYCLE 6 size 8 patterns 23 edges 6 maxzeros 5
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT sat seconds 0.007
+VERIFIED_FULL_TRUTH_TABLE {"p": 3, "q": 3, "edges": [[0, 0], [1, 1], [2, 2], [0, 1], [1, 2], [2, 0]], "gates": [[true, 3, 4], [false, 0, 6], [true, 4, 5], [false, 1, 8], [true, 3, 5], [false, 2, 10], [true, 7, 9], [true, 11, 12]], "output": 13, "star_witnesses": [[0], [2], [4], [], [], []]}
+(:max-memory          17.47
+ :memory              17.43
+ :num-allocs          31615
+ :rlimit-count        14321
+ :solve-eqs-elim-vars 49
+ :solve-eqs-steps     49
+ :time                0.00)

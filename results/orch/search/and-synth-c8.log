@@ -1,0 +1,29 @@
+2026-11-25T15:49:59.802803+00:00 cycle 8 AND budget 3 truth bits 256
+RESULT unsat seconds 0.133
+(:max-memory              28.12
+ :memory                  18.06
+ :num-allocs              10177122
+ :rlimit-count            837927
+ :sat-backjumps           1287
+ :sat-conflicts           1288
+ :sat-decisions           2329
+ :sat-del-clause          10098
+ :sat-elim-bool-vars-res  2943
+ :sat-elim-clauses        336
+ :sat-elim-literals       688
+ :sat-minimized-lits      4221
+ :sat-mk-clause-2ary      11171
+ :sat-mk-clause-3ary      5610
+ :sat-mk-clause-nary      12817
+ :sat-mk-var              4819
+ :sat-propagations-2ary   403069
+ :sat-propagations-nary   385971
+ :sat-restarts            46
+ :sat-scc-elim-vars       1
+ :sat-subs-resolution     211
+ :sat-subs-resolution-dyn 186
+ :sat-subsumed            148
+ :sat-units               1
+ :solve-eqs-elim-vars     3
+ :solve-eqs-steps         144
+ :time                    0.13)

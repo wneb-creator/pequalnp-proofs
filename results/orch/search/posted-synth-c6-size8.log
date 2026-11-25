@@ -1,0 +1,35 @@
+2026-11-25T16:00:50.237740+00:00 CYCLE 6 size 8 patterns 23 edges 6 maxzeros 5
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT sat seconds 94.839
+VERIFIED_FULL_TRUTH_TABLE {"p": 3, "q": 3, "edges": [[0, 0], [1, 1], [2, 2], [0, 1], [1, 2], [2, 0]], "gates": [[true, 4, 5], [false, 1, 6], [true, 3, 5], [true, 3, 4], [false, 2, 8], [true, 7, 10], [false, 0, 9], [true, 11, 12]], "output": 13, "star_witnesses": [[3], [0], [2], [], [], []]}
+(:added-eqs           60347246
+ :arith-make-feasible 2
+ :arith-max-columns   4
+ :binary-propagations 71280965
+ :bv-bit2core         36138105
+ :bv-diseqs           603
+ :bv-dynamic-diseqs   4436016
+ :bv-dynamic-eqs      47987
+ :bv->core-eq         12315776
+ :conflicts           291172
+ :decisions           483368
+ :del-clause          13020166
+ :final-checks        1
+ :max-memory          29.14
+ :memory              20.87
+ :minimized-lits      6448249
+ :mk-bool-var         9879579
+ :mk-clause           13044534
+ :mk-clause-binary    8987
+ :num-allocs          6833256231.00
+ :num-checks          1
+ :pb-conflicts        2
+ :pb-predicates       1
+ :pb-propagations     2131
+ :pb-resolves         2
+ :propagations        145321225
+ :restarts            680
+ :rlimit-count        342310926
+ :solve-eqs-elim-vars 24
+ :solve-eqs-steps     1322
+ :time                94.77)

@@ -1,0 +1,29 @@
+RESTRICTED SEARCH: canonical left star OR prefix, all remaining gates used.
+2026-11-25T16:03:21.787639+00:00 CYCLE 12 size 16 patterns 65 edges 12 maxzeros 29
+T0 and all posted star witnesses encoded; no assumptions on intermediate gate purity.
+RESULT unknown seconds 180.024
+REASON timeout
+(:added-eqs           43345437
+ :binary-propagations 51989164
+ :bv-bit2core         58679387
+ :bv-diseqs           1763
+ :bv-dynamic-diseqs   4725546
+ :bv-dynamic-eqs      13994
+ :bv->core-eq         3614785
+ :conflicts           230196
+ :decisions           968372
+ :del-clause          21859161
+ :max-memory          37.48
+ :memory              21.31
+ :minimized-lits      4499346
+ :mk-bool-var         10052969
+ :mk-clause           21903139
+ :mk-clause-binary    13996
+ :num-allocs          31873447716.00
+ :num-checks          1
+ :propagations        118712945
+ :restarts            592
+ :rlimit-count        333703451
+ :solve-eqs-elim-vars 67
+ :solve-eqs-steps     3739
+ :time                180.02)

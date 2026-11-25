@@ -12,3 +12,5 @@
 - 2026-11-25T16:00:53.600083+00:00: first 20-minute proof replan. Keep normalization, cofactor/dirty-use charging, and direct C12 counterexample synthesis; abandon residual-empty-singleton gate count (Lean counterexample) and naive cover-exchange disjointness.
 - 2026-11-25T16:05:18.385763+00:00: preserved concrete zero compression, OR-witness recovery, cofactor/forced-value semantics, binary-AND minterm certificate, and vertex-cover baseline OR count.
 - 2026-11-25T16:16:13.197536+00:00: full typed cut/lift and actual forced-cofactor checkpoint compiled and independently reviewed; preservation push.
+- 2026-11-25T16:20:11.053990+00:00: second roughly20-minute replan. Typed AND cut/lift and complete T0 OR bypass compiled. Finish lexicographic TopForm normalization, then pivot most effort to global dirty-use/OR charge accounting; direct total-gate SAT searches timed out, no posted counterexample.
+- 2026-11-25T16:24:03.312753+00:00: full witness-preserving TopForm and protected dirty-use charge compiled and independently reviewed; preserving both plus finite-search bundle.

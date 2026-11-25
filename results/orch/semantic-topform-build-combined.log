@@ -1,0 +1,95 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:858:5: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:858:30: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1090:14: warning: This simp argument is unused:
+  hA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ha, hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1093:14: warning: This simp argument is unused:
+  hA
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ha, hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1177:22: warning: This simp argument is unused:
+  List.getElem_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroCut, hij, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1177:39: warning: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroCut, List.getElem_set, Ne.symm hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1247:16: warning: This simp argument is unused:
+  List.set_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [zeroCut, Semantic.zeroGate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1690:70: warning: This simp argument is unused:
+  andGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andNum, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1702:65: warning: This simp argument is unused:
+  andGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andNum, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1711:67: warning: This simp argument is unused:
+  andGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andNum, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1736:72: warning: This simp argument is unused:
+  andGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andNum, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:1742:74: warning: This simp argument is unused:
+  andGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [andNum, hd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:2061:18: warning: This simp argument is unused:
+  Finset.card_insert_of_notMem hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg, hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/semantic.lean:2308:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [pre, g, post, List.concat_eq_append, List.append_assoc]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

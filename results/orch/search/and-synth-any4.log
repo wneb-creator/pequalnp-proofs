@@ -1,0 +1,29 @@
+2026-11-25T15:51:32.247870+00:00 ANY 4 x 4 tau 4 AND budget 3 T0 False
+RESULT unsat seconds 0.486
+(:max-memory              28.29
+ :memory                  18.20
+ :num-allocs              14439274
+ :rlimit-count            3796108
+ :sat-backjumps           7248
+ :sat-conflicts           7249
+ :sat-decisions           11783
+ :sat-del-clause          20060
+ :sat-elim-bool-vars-res  2968
+ :sat-elim-clauses        9188
+ :sat-elim-literals       5033
+ :sat-minimized-lits      38962
+ :sat-mk-clause-2ary      12731
+ :sat-mk-clause-3ary      5479
+ :sat-mk-clause-nary      19162
+ :sat-mk-var              4961
+ :sat-propagations-2ary   1811511
+ :sat-propagations-nary   2189914
+ :sat-restarts            274
+ :sat-scc-elim-vars       39
+ :sat-subs-resolution     175
+ :sat-subs-resolution-dyn 2791
+ :sat-subsumed            123
+ :sat-units               269
+ :solve-eqs-elim-vars     19
+ :solve-eqs-steps         1150
+ :time                    0.49)
