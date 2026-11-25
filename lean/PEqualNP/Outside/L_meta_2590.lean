@@ -6459,3 +6459,198 @@ lemma budget_one_first_zero_star {D : Dag}
   exact single_residual_first_zero_star h hc b hb zero hi hr
 
 end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I1UniqueChain
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+
+lemma ineligible_reachable_chain {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (zero : Bzero n D = 0) {i : Fin n} (hi : i ∈ ineligSet n D) {w : Nat}
+    (path : Relation.ReflTransGen (sem_step n D) i.val w) : sem_Chain n D i.val w := by
+  rcases sem_path_chain path with chain | ⟨b,chain,hf⟩
+  · exact chain
+  · have hs := sem_branch_empty hG h.1 hc hi chain hf
+    have bound : fanout D b - 1 ≤
+        ∑ v ∈ (inner n D).filter (fun v => ¬ (supp n D v).Nonempty), (fanout D v - 1) :=
+      Finset.single_le_sum (f := fun v => fanout D v - 1)
+        (fun _ _ => Nat.zero_le _) (sem_bzero_mem h.1 hf hs)
+    unfold Bzero surplusOn at zero
+    omega
+
+lemma chain_gate_input {n : Nat} {D : Dag} {i : Fin n} {g : Nat}
+    (chain : sem_Chain n D i.val (n+g)) :
+    ∃ s : Bool, sem_Chain n D i.val (src D (g,s)) ∧ fanout D (src D (g,s)) = 1 := by
+  rcases Relation.ReflTransGen.cases_tail chain with he | ⟨w,hw,step⟩
+  · have hi := i.isLt
+    omega
+  · obtain ⟨j,s,hj,he,hs⟩ := sem_step_iff.mp step.1
+    have hgj : g = j := by omega
+    subst j
+    exact ⟨s,by simpa only [sem_Chain,hs] using hw,by simpa only [hs] using step.2⟩
+
+lemma chain_and_neighbor_slots {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hc : sem_Comp n G D)
+    {i : Fin n} {g : Nat} (hg : g < D.length) (ht : tag D g = true) (s : Bool)
+    (hi : sem_Chain n D i.val (src D (g,s))) (hf : fanout D (src D (g,s)) = 1) :
+    (∀ a, G i a → a ∈ supp n D (src D (g,!s))) ∧
+    (∀ a, G i a → (g,!s) ∈ sem_W n D a) := by
+  have all (a) (hia : G i a) : a ∈ supp n D (src D (g,!s)) := by
+    have independent : val D (single a) (src D (g,!s)) =
+        val D (sem_ins i (single a)) (src D (g,!s)) :=
+      sem_sibling_indep hS i hg (!s) (by simpa using hi) (by simpa using hf)
+        _ _ (sem_ins_agree i (single a))
+    have chain : sem_Chain n D i.val (n+g) :=
+      Relation.ReflTransGen.tail hi ⟨sem_step_src hg s,hf⟩
+    have he : sem_Edge G (sem_ins i (single a)) :=
+      ⟨i,a,hia,sem_ins_self i _,by simp [sem_ins,single]⟩
+    have hv := (sem_dom_split hS hc (single a) i (n+g)
+      (sem_chain_dom hS chain) (sem_single_no_edge hG a) he).2
+    rw [sem_val_gate_src hS _ hg s,ht,gop_true,Bool.and_eq_true] at hv
+    exact mem_supp.mpr (independent.trans hv.2)
+  refine ⟨all,fun a ha => sem_mem_W.mpr ⟨hg,all a ha,?_⟩⟩
+  intro hout
+  have hcontrol := sem_supp_and_sub hS hg ht s hout
+  have pure := sem_dom_pure hG hS hc i _ (sem_chain_dom hS hi) hcontrol
+  have eq := Finset.mem_singleton.mp pure
+  exact hG.2.1 i (eq ▸ ha)
+
+lemma reachable_and_neighbor_slots {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (zero : Bzero n D = 0) {i : Fin n} (hi : i ∈ ineligSet n D)
+    {g : Nat} (hg : g < D.length) (ht : tag D g = true)
+    (path : Relation.ReflTransGen (sem_step n D) i.val (n+g)) :
+    ∃ s : Bool, (∀ a, G i a → a ∈ supp n D (src D (g,s))) ∧
+      (∀ a, G i a → (g,s) ∈ sem_W n D a) := by
+  obtain ⟨s,chain,fan⟩ := chain_gate_input (ineligible_reachable_chain hG h hc zero hi path)
+  exact ⟨!s,chain_and_neighbor_slots hG h.1 hc hg ht s chain fan⟩
+
+lemma reachable_ands_unique_of_empty_neighbor {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {x : V} (hx : Adj 0 x)
+    (empty : ∀ u ∈ residualUnits 10 D b, x ∉ supp 10 D u.1)
+    {g j : Nat} (hg : g < D.length) (htg : tag D g = true)
+    (pg : Relation.ReflTransGen (sem_step 10 D) 0 (10+g))
+    (hj : j < D.length) (htj : tag D j = true)
+    (pj : Relation.ReflTransGen (sem_step 10 D) 0 (10+j)) : g = j := by
+  classical
+  by_contra ne
+  obtain ⟨s,sg,wg⟩ := reachable_and_neighbor_slots graph_ok h hc zero hi hg htg pg
+  obtain ⟨t,sj,wj⟩ := reachable_and_neighbor_slots graph_ok h hc zero hi hj htj pj
+  have count := sem_code_count graph_ok h hc b hb x
+  have filt : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro u hu
+    exact empty u (Finset.mem_filter.mp hu).1 (Finset.mem_filter.mp hu).2
+  rw [filt,Finset.card_empty] at count
+  have singleton : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have small : (sem_W 10 D x).card ≤ 2 := by omega
+  obtain ⟨A,ind,_,hit0,hitx⟩ := I1Exposure.exposure_geometry hx
+    (show (2 : V) ≠ 0 by decide) (show ¬ Adj 0 2 by decide +kernel)
+  obtain ⟨f,u,hf,_,hxs,hxo,free⟩ := sem_exposure graph_ok h.1 hc A ind x hitx
+  have wf : (f,u) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hf,hxs,hxo⟩
+  obtain ⟨a,ha,hia⟩ := hit0
+  have gaf : (g,s) ≠ (f,u) := by
+    intro eq
+    have has := sg a hia
+    rw [eq] at has
+    exact Finset.disjoint_left.mp free has ha
+  have jaf : (j,t) ≠ (f,u) := by
+    intro eq
+    have has := sj a hia
+    rw [eq] at has
+    exact Finset.disjoint_left.mp free has ha
+  have gj : (g,s) ≠ (j,t) := fun eq => ne (congrArg Prod.fst eq)
+  have large : 2 < (sem_W 10 D x).card :=
+    Finset.two_lt_card.mpr ⟨(g,s),wg x hx,(j,t),wj x hx,(f,u),wf,gj,gaf,jaf⟩
+  omega
+
+lemma empty_neighbor_of_support_ne {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hne : supp 10 D r.1 ≠ ({1,4,5} : Finset V)) :
+    ∃ x : V, Adj 0 x ∧ ∀ u ∈ residualUnits 10 D b, x ∉ supp 10 D u.1 := by
+  classical
+  have miss : ∃ x : V, Adj 0 x ∧ x ∉ supp 10 D r.1 := by
+    by_contra no
+    have all (x : V) (hx : Adj 0 x) : x ∈ supp 10 D r.1 := by
+      by_contra hn
+      exact no ⟨x,hx,hn⟩
+    apply hne
+    apply Finset.Subset.antisymm
+    · exact single_residual_support_subset_of_bzero h hc b hb zero hi hR
+        ⟨1,by decide +kernel,all 1 (by decide +kernel)⟩
+    · intro x hx
+      exact all x ((zero_neighbors x).mpr hx)
+  obtain ⟨x,hx,hxr⟩ := miss
+  refine ⟨x,hx,fun u hu => ?_⟩
+  have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+  exact eq ▸ hxr
+
+lemma reachable_ands_unique_of_support_ne {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hne : supp 10 D r.1 ≠ ({1,4,5} : Finset V))
+    {g j : Nat} (hg : g < D.length) (htg : tag D g = true)
+    (pg : Relation.ReflTransGen (sem_step 10 D) 0 (10+g))
+    (hj : j < D.length) (htj : tag D j = true)
+    (pj : Relation.ReflTransGen (sem_step 10 D) 0 (10+j)) : g = j := by
+  obtain ⟨x,hx,empty⟩ := empty_neighbor_of_support_ne h hc b hb zero hi hR hne
+  exact reachable_ands_unique_of_empty_neighbor h hc b hb zero hi hx empty hg htg pg hj htj pj
+
+lemma first_consumer_only_reachable_and {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hne : supp 10 D r.1 ≠ ({1,4,5} : Finset V)) :
+    ∃ e : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+      supp 10 D (src D e) = {0} ∧ supp 10 D (10+e.1) = ∅ ∧
+      ∀ g, g < D.length → tag D g = true →
+        Relation.ReflTransGen (sem_step 10 D) 0 (10+g) → g = e.1 := by
+  obtain ⟨e,he,ht,hs,hout,_,_,_⟩ := sem_inelig_consumer graph_ok h hc hi
+  have member : (0 : V) ∈ supp 10 D (src D e) := hs.symm ▸ Finset.mem_singleton_self 0
+  have chain := sem_inelig_chain h.1 hi member
+  have reach : Relation.ReflTransGen (sem_step 10 D) 0 (10+e.1) :=
+    Relation.ReflTransGen.tail (sem_rtg_mono (fun _ _ hh => hh.1) chain) (sem_step_src he e.2)
+  refine ⟨e,he,ht,hs,hout,fun g hg htg pg => ?_⟩
+  exact reachable_ands_unique_of_support_ne h hc b hb zero hi hR hne hg htg pg he ht reach
+
+end PEqualNP.Outside.L_meta_2590_aux.I1UniqueChain
+
+namespace PEqualNP.Outside.L_meta_2590_aux.I1UniqueChain
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+lemma first_zero_star_only_reachable_and {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hne : supp 10 D r.1 ≠ ({1,4,5} : Finset V)) :
+    ∃ e : Nat × Bool, e.1 < D.length ∧ tag D e.1 = true ∧
+      supp 10 D (src D e) = ({0} : Finset V) ∧ supp 10 D (10+e.1) = ∅ ∧
+      supp 10 D (src D (e.1,!e.2)) = ({1,4,5} : Finset V) ∧
+      exitArcs 10 D (carrierT 10 D {0}) = {e} ∧
+      merges 10 D (carrierT 10 D {0}) = ∅ ∧ fanout D (src D e) = 1 ∧
+      ∀ g, g < D.length → tag D g = true →
+        Relation.ReflTransGen (sem_step 10 D) 0 (10+g) → g = e.1 := by
+  obtain ⟨e,he,ht,hs,hout,hop,hexits,hmerges,hfan⟩ :=
+    single_residual_first_zero_star h hc b hb zero hi hR
+  have member : (0 : V) ∈ supp 10 D (src D e) := hs.symm ▸ Finset.mem_singleton_self 0
+  have chain := sem_inelig_chain h.1 hi member
+  have reach : Relation.ReflTransGen (sem_step 10 D) 0 (10+e.1) :=
+    Relation.ReflTransGen.tail (sem_rtg_mono (fun _ _ hh => hh.1) chain) (sem_step_src he e.2)
+  refine ⟨e,he,ht,hs,hout,hop,hexits,hmerges,hfan,fun g hg htg pg => ?_⟩
+  exact reachable_ands_unique_of_support_ne h hc b hb zero hi hR hne hg htg pg he ht reach
+
+end PEqualNP.Outside.L_meta_2590_aux.I1UniqueChain
