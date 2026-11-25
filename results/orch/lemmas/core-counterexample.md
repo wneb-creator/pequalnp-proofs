@@ -93,3 +93,158 @@ AND ports lexicographically; order AND nodes by nondecreasing largest selected
 source-wire index using greedy topological ordering; require every AND output to
 be consumed or output. Dead-node deletion and idempotent padding preserve
 completeness. The ordered seven-AND control also passes CNF and full truth replay.
+
+## 07:17 UTC: completed component optimization and variable-graph SAT
+
+The 20-minute separate-component optimization finished: 6,476,400 evaluations,
+3,007,729 eligible cyclic accepted-edge cases. All six minima were zero: each of
+OR+mc-|D|, AND-tau(D), and AND-tau(G)+tau(G-D), on both Fano and the order-3
+plane. No component or target counterexample was found. Across the completed
+search phases in this agent, the count is 30,570,811 evaluations (with repeated
+circuits and overlapping tests; this is not a count of distinct networks).
+
+Both initial six-AND Fano SAT jobs and their reviewed ordered follow-ups reached
+their 300-second limits: UNKNOWN in all four cases. This does not establish any
+lower bound for six-AND Fano circuits.
+
+A new exact finite encoding lets the C4-free bipartite graph vary. It fixes a
+perfect matching, allows all other cross edges to be Boolean variables, forbids
+every four-edge square, and enforces output(S) implies an edge exists inside S
+for every Boolean assignment S. It requires acceptance of the matching pairs.
+The same arbitrary-OR-subset AND normal form is used. Independent review passed
+both the graph constraints and the full-row BelowF implication.
+
+Results:
+
+* Four-by-four graph, three AND gates, 256 truth rows: UNSAT; solver reported
+  0.52 seconds wall time, 9,920 conflicts (5,013 variables, 20,235 clauses).
+* Five-by-five graph, four AND gates, 1,024 truth rows: UNSAT; solver reported
+  156.24 seconds wall time, 1,906,360 conflicts (29,966 variables, 130,123 clauses).
+* Positive control: four AND gates compute the four-edge matching, expanding to
+  4 AND plus 3 OR binary gates. All CNF clauses, C4-freeness, and all 256 truth
+  assignments were replayed independently.
+
+These are solver results, not Lean theorems. Restricting an arbitrary larger
+counterexample to endpoints of four or five accepted matching edges, then
+eliminating the resulting zero constants, would give one of these finite
+instances. Thus the UNSAT findings provide evidence for the stronger AND-cover
+claim through AND budget four, but do not prove the general claim.
+
+Direct target encoder `unknown_core_target_sat.py` now searches variable graphs
+on four plus four vertices with a fixed diagonal matching witness. It designates
+one or two incomparable terminal cores and makes every other gate reach one of
+them, so U is the full gate set and the maximal cores are exactly the designated
+roots. Core tests use full BelowF, not-both-implicant operands, and exact root-AND
+READ-1 computed from child pure-OR singleton supports. A chosen vertex set covers
+the residual graph. The inequality tested is |D|+p > g+mc+|Y|, where p is the
+matching witness cardinality. Since tau(G)>=p and tau(G-D)<=|Y|, every model is
+an actual numerical violation. With p=4, tau(G)=4 exactly. Parent/reviewer were
+notified of the p<4 undersearch caveat.
+
+Direct encoder controls: the embedded P4 equality network decodes to margin 0;
+the known K2,2 excluded-assumption example decodes to margin -1 when the no-C4
+constraint is deliberately disabled. Both replay all CNF clauses and all truth
+assignments. A real model still requires the independent canonical live-output
+extension and Lean checking before it would refute the posted statement.
+
+## 07:27 UTC: direct-target result, graph symmetry, and equivalence
+
+The direct variable-graph query with nine gates and one core returned UNSAT in
+263.02 seconds wall time (2,804,391 conflicts). Its scope is all C4-free bipartite
+four-by-four graphs containing a perfect matching, after relabeling that matching
+to the diagonal. The ten-gate/two-core query reached 300 seconds: UNKNOWN.
+
+An independent complete census found 311 C4-free four-by-four graphs containing
+the diagonal matching. Simultaneous row/column permutations and transposition
+partition them into 16 orbits. The maximum edge count is nine; its graphs form
+one orbit, representative bit mask 38371. Reviewer independently checked all
+65,536 Boolean matrices, all square constraints, and all 48 matching-preserving
+relabelings. The p=4 direct-target follow-up may therefore restrict its graph to
+these 16 representatives without losing any witness. This does not apply to the
+p<4 case. An orbit-reduced ten-gate/two-core follow-up is running.
+
+The stronger AND-cover test was also explored through fixed antichain-code CNFs.
+The six 2-subsets of four coordinates give a five-AND CNF accepting exactly a
+six-edge matching on pair assignments. No C4-free bipartite graph can contain
+that matching and dominate the entire CNF: a 36-edge-variable completion SAT is
+UNSAT. Likewise, all four isomorphism types of seven 2-subsets selected from five
+coordinates give six-AND CNFs with no such graph completion. Each completion
+instance has 50 variables and 534--538 clauses after reducing full truth tables
+to 85--89 minimal true assignments; all four are UNSAT immediately. These are
+auxiliary tests of the stronger claim, not refutations of the posted statement.
+Agent combinatorial_bound supplied independent degree/counting explanations.
+
+Independent mathematical review of the global-bound equivalence:
+
+1. Suppose the exact gate lower bound m >= |E|+tau(G)-1 is true for every
+   nonempty bipartite C4-free graph. Compress the union of maximal-core cones
+   into |U| gates, OR their mc outputs with mc-1 gates, and combine with a star
+   circuit for G-D. All core outputs are below fG and accept the pairs in D,
+   so their OR together with f(G-D) computes fG exactly. The size is
+   |U|+mc+|E-D|+tau(G-D)-1. If the residual is empty, use only the OR of cores;
+   its size |U|+mc-1 gives the same cancellation. D empty is trivial. Applying
+   the global lower bound yields the posted core-cover inequality.
+2. Conversely, prune any circuit A computing nonempty fG to its output cone;
+   let F be its output and m its original gate count. Choose any input x and
+   append q=F OR x and r=q AND F. The q wire is nonimplicant (singleton x);
+   F is implicant. No READ-1 pair proof can pass through r because F has no
+   singleton proof. Thus r is a core, dominates every previous core, and
+   has cone size at most m+2. Append an independent canonical graph-DNF live
+   output so that the earlier block is dead and the whole circuit is lift
+   fixed. This preserves the sole maximal core r and gives D=E. The posted
+   inequality yields m >= |E|+tau(G)-3.
+3. Apply this construction to the disjoint union of three copies of G. Three
+   copies of A joined by two OR gates cost at most 3m+2. Both |E| and tau add
+   across components, so the posted inequality gives
+   3(|E|+tau(G)) <= 3m+5. Integrality implies m >= |E|+tau(G)-1.
+
+Thus the posted statement is informally equivalent to the global exact monotone
+binary-gate lower bound on bipartite C4-free graph functions. The transformations
+are not yet Lean formalized. In particular, one gate saved below the canonical
+star bound could be amplified into a genuine core-cover counterexample using
+three disjoint copies and the wrapper, even when the unamplified small graph
+has no direct core-cover counterexample.
+
+## 07:32 UTC: normalized auxiliary model
+
+`normalized_and_sat.py` adds a sound restriction for the free-OR AND-budget
+model: the two operands of each AND select disjoint sets of source wires. If
+both operands contain common source set C, the identity
+(A OR C) AND (B OR C) = (A AND B) OR C
+extracts C and routes it into all later OR operands and the final OR. Gates
+whose residual operand becomes empty are deleted. The resulting circuit uses
+no more ANDs; unused ANDs of two distinct inputs pad the budget. Consequently,
+the normalized model removes the old live-only requirement. Port symmetry and
+greedy source ordering remain valid. This normalization can increase OR count
+and must never be imposed on a total-gate-count query.
+
+Independent reviewer checked this completeness argument and the implementation.
+Pinned positive Fano/seven-AND and C12/six-AND controls passed full CNF replay
+and full truth tables. The C12 control expands to six AND plus eleven OR gates.
+The normalized C12/five-AND query returned UNSAT in 9.36 seconds wall time,
+with 279,744 conflicts. This is a solver finding, not a Lean theorem.
+
+The orbit-reduced ten-gate/two-core direct-target query still timed out at 300
+seconds (UNKNOWN). At 07:31 UTC, after parent renewal, launched the normalized
+exact Fano/six-AND query and a normalized variable-graph six-by-six/five-AND
+query, each capped at 300 seconds. The latter has 4,096 full truth rows,
+168,362 variables, and 767,989 clauses. No further search expansion is planned
+without a new candidate or strategy.
+
+## 07:39 UTC: interruption and final research handoff
+
+The environment disconnected/reconnected during the final two normalized
+auxiliary jobs. On resumption, their process IDs 16191 and 16194 were defunct
+(zombie state), although earlier process-presence checks had suggested survival.
+Their complete available logs stop around 204--205 CPU seconds, without a
+SAT/UNSAT/UNKNOWN footer, and their solution files contain no result. These two
+instances are therefore **INTERRUPTED, NO VERDICT**. They are not reported as
+300-second timeouts or UNSAT results. No duplicate jobs were launched.
+
+No posted-statement proof or counterexample was found by this agent. The checked
+P4 equality witness remains a valid Lean partial already delivered to parent.
+All computational evidence, scripts, complete available stdout/stderr, CNFs,
+metadata, controls, and candidate networks are being snapshotted in
+`results/orch/core-counterexample-evidence.tar.gz`, with an index generated from
+actual archive members. `STATUS.json` in that archive records final query states.
+The separate parent archive may also contain copies of this evidence.

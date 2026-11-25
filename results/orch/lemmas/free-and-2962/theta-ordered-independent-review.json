@@ -1,0 +1,20 @@
+{
+  "encoder_sha256": "5cf905f9ed622a9598eb75e5117382c37c97df442b290b93cd2e34c0720f9c98",
+  "decoder_sha256": "3ee08880224e9494634a3a8ca633b06bcc9326c1e020d4dfd2b8ecb2ed7663d4",
+  "all_cnf_clauses": 8479,
+  "all_truth_rows": 256,
+  "OR_generators": 8,
+  "all_live": true,
+  "disjoint_ports": true,
+  "nondecreasing_max_predecessor": [
+    7,
+    8,
+    8,
+    9,
+    10,
+    12,
+    12,
+    14
+  ],
+  "result": "Eight-OR positive control passed; live-at-seven completeness remains conditional on six-OR UNSAT."
+}

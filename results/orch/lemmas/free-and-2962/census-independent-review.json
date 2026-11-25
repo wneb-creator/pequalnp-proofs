@@ -1,0 +1,15 @@
+{
+  "census_sha256": "2975657d0a8253165aa07b9187490a5e51804a8b4ca311a469c791ee61fb5a8e",
+  "mask_encoder_sha256": "382a2284001e3df105a5365bbe1c4f4d39527ff38f11356c7d169f074195bc05",
+  "independent_square_mask_census": 1608,
+  "independent_full_row_column_group_orbits": {
+    "43399": 288,
+    "43377": 576,
+    "43380": 288,
+    "38483": 288,
+    "51863": 96,
+    "43365": 72
+  },
+  "maximum_edges": 9,
+  "result": "Complete for 4+4 C4-free bipartite incidence matrices with at least eight edges; side swaps not quotiented."
+}

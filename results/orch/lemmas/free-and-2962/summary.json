@@ -1,0 +1,19 @@
+{
+  "solver": "CaDiCaL 2.1.2",
+  "semantics": "computational research only; no Lean proof or full L-meta-2962 verdict",
+  "c6_or4": "UNSAT",
+  "c8_partial_or4_all_four_omission_distances": "UNSAT",
+  "four_noncycle_4by4_eight_edge_classes_or6": "UNSAT",
+  "theta_or6": {
+    "status": "UNSAT",
+    "real_seconds": 30.26
+  },
+  "theta_or7": {
+    "unrestricted": "UNKNOWN after300 seconds",
+    "disjoint": "UNKNOWN after300 seconds",
+    "disjoint_live": "UNKNOWN after300 seconds",
+    "disjoint_live_predecessor_order": "UNKNOWN after300 seconds",
+    "disjoint_live_graph_automorphism": "UNKNOWN after180 seconds"
+  },
+  "positive_controls": "Every saved model passes all CNF clauses and complete truth table; live/ordered/aut variants also explicitly validate their structural constraints."
+}
