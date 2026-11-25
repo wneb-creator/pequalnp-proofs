@@ -61,4 +61,23 @@ lemma exchanged_owns :
 
 lemma exchange_saves : exchangedCircuit.size < filteredCircuit.size := by decide +kernel
 
+lemma filtered_not_minimal : ¬IsMinimalMonoCircuit 4 filteredCircuit := by
+  intro h
+  have lower := h.2 exchangedCircuit exchanged_mono
+    (exchanged_correct.trans filtered_correct.symm)
+  exact (Nat.not_le_of_lt exchange_saves) lower
+
+lemma filtered_last_pivotal :
+    ∀ u v : Fin 4, pathGraph.Adj u v →
+      gateVal 4 filteredCircuit 4 (pairInput u v) = true ∧
+        circuitFun 4 (PEqualNP.CircuitMoves.eraseGate 4 filteredCircuit 4 9)
+          (pairInput u v) = false := by
+  decide +kernel
+
+lemma operand_bypasses_fail :
+    ∀ i : Fin 2, ∃ x : Fin 4 → Bool,
+      circuitFun 4 (PEqualNP.CircuitMoves.eraseGate 4 filteredCircuit 4 (6 + i.val)) x ≠
+        circuitFun 4 filteredCircuit x := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_1772.Repair

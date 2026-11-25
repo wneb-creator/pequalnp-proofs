@@ -83,3 +83,18 @@ Read Jukna primary paper via built-in read-only web on 2026-11-25: https://web.v
 ## 2026-11-25T08:49:16.483727+00:00 minimal-route TopForm normalization (frozen)
 
 topform_route.lean compiles, exit 0, complete log /tmp/oec/pequalnp-pilot-77/topform-route-build-1.log. Frozen pending independent review/push. Includes clean_route as prefix, then adapted L_meta_5779 exchange machinery (Defs only source), then new bridge PEqualNP.Outside.L_meta_1772_aux.topform.minimal_has_topform. This gives an equal-size minimal Monotone2 TopForm circuit for every minimal graph circuit, even empty graphs, with no girth assumption. Choose topform_route instead of clean_route in final assembly.
+
+2026-11-25T08:51:50.881250+00:00 status_review
+
+Fourth independent partial review PASS. topform_route.lean 1543 lines SHA256 aa2c43baec244382a29e62226d21aa96fe3042a4676e8f5e4c231c80436ac80b contains exact approved clean prefix, exact L_meta_5779 helper block under renamed namespace, and a valid minimum-monotone-to-TopForm wrapper (empty case separately forces zero gates). dirty_repair_route.lean 297 lines SHA256 82fcf98ff53e2955822da6d4e612bcdc3de69d61d64824ff7ba33a2724ea4bdc contains exact L_meta_8305 helper block and a valid contradiction proof that a least-junk dirty gate has a pivotal pair distinct from any specified graph edge. No prohibited source syntax or format violations; logs no errors.
+
+Finite artifact review PASS as computational evidence only. Independently reran both README commands, exit zero and empty stderr; all JSON rows matched stored n4/n5 logs after removing elapsed time. Four vertices: 38/38 eligible graphs; five vertices: 291/303 found by five gates, 958669 depth-five states, and no six-gate five-cycle witness. All recorded minimum witnesses have ownership. Reviewed semantic-state deduplication, omission of duplicate signals, free false via missing wire, constant true handling, and strict AND-cone tracking. None of these finite lower bounds is Lean-certified. Program SHA256 f8ff1c914bb63a4d2ea0092584f005cfae19be94c11c568d49b0ee0b7c7e6316.
+
+## 2026-11-25T08:52:49.252061+00:00 minimal-route junk-preserving TopForm (frozen)
+
+Added minimal_has_topform_junk to topform_route.lean; exit 0, log /tmp/oec/pequalnp-pilot-77/topform-route-build-2.log. Witness D preserves minimum size and junk cardinality and satisfies TopForm. Original bridge retained. Graph-normal-form agent owns minimum-junk selection and canonical witness assembly with two-pivot dirty repair.
+
+## 2026-11-25T08:52:52.477673+00:00 ownership_route singleton phase (frozen)
+
+singleton_route.lean compiles, 258 lines, empty full log singleton-route-build-2.log, exit 0. Includes the original 147-line ownership_route prefix unchanged; use singleton_route instead of ownership_route in final assembly. New gate_mono, own_ancestor_singleton_false, and topform_bad_has_dirty_owner. The last proves: in TopForm, a non-owning AND true on a pair has a strictly earlier dirty AND in its cone owning that same pair. Hence every pivotal edge of a bad AND is blocked by a dirty owning ancestor, not merely any AND ancestor. No graph-girth assumption needed for this lemma. Root notified for independent review/push.
+Singleton-false normal-form claim remains unproved: saved finite minimum witnesses (eligible n4 and n5 forests) satisfy it; no claim of exhaustive circuit-structure verification.

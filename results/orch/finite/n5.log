@@ -1,0 +1,26 @@
+{"depth": 1, "states": 21, "found": 11, "targets": 303, "elapsed": 0.00024366378784179688}
+{"depth": 2, "states": 330, "found": 41, "targets": 303, "elapsed": 0.0029888153076171875}
+{"depth": 3, "states": 4750, "found": 76, "targets": 303, "elapsed": 0.0218963623046875}
+{"depth": 4, "states": 67005, "found": 171, "targets": 303, "elapsed": 0.5458986759185791}
+{"depth": 5, "states": 958669, "found": 291, "targets": 303, "elapsed": 9.310402393341064}
+{"cycle5_six_gate_witness": null, "elapsed": 36.89025831222534}
+{
+  "n": 5,
+  "targets": 303,
+  "found": 291,
+  "all_found": false,
+  "all_stored_minimum_witnesses_have_ownership": true,
+  "size_distribution": {
+    "0": 1,
+    "1": 10,
+    "2": 30,
+    "3": 35,
+    "4": 95,
+    "5": 120
+  },
+  "missing_edge_counts": {
+    "5": 12
+  },
+  "constant_gate_witnesses": 0,
+  "bad_witnesses": []
+}

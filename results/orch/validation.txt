@@ -687,3 +687,8 @@ Command: lake env lean ../results/orch/lemmas/dirty_repair_route.lean
 Exit: 0
 Complete stdout/stderr:
 
+
+Fifth partial review: PASS for stronger concrete exchange certificates and reproduced finite searches.
+repair_route.lean: lake env lean, exit0. Complete stdout/stderr:
+
+Finite searches independently reproduced; all result rows match stored logs except timing. Their minimum-size results are computational, not Lean-certified.

@@ -1,0 +1,21 @@
+{"depth": 1, "states": 13, "found": 7, "targets": 38, "elapsed": 9.226799011230469e-05}
+{"depth": 2, "states": 126, "found": 19, "targets": 38, "elapsed": 0.0008437633514404297}
+{"depth": 3, "states": 1102, "found": 26, "targets": 38, "elapsed": 0.006333351135253906}
+{"depth": 4, "states": 9279, "found": 38, "targets": 38, "elapsed": 0.07864880561828613}
+{
+  "n": 4,
+  "targets": 38,
+  "found": 38,
+  "all_found": true,
+  "all_stored_minimum_witnesses_have_ownership": true,
+  "size_distribution": {
+    "0": 1,
+    "1": 6,
+    "2": 12,
+    "3": 7,
+    "4": 12
+  },
+  "missing_edge_counts": {},
+  "constant_gate_witnesses": 0,
+  "bad_witnesses": []
+}
