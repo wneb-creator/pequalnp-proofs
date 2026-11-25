@@ -1,0 +1,23 @@
+{
+  "result": "UNSAT for uncut five-AND arbitrary-OR-subset abstraction",
+  "solver_seconds": 69.8485,
+  "only_syntactic_symmetry": "commutative side ordering",
+  "empty_OR_false_allowed": true,
+  "unused_AND_nodes_allowed": true,
+  "dirty_support": "any independent input of size at most2",
+  "positive_live_cut": false,
+  "child_incomparability_cut": false,
+  "Kraft_cut": false,
+  "dirty_pair_family_cut": false,
+  "proof_checker": "LRAT independently accepted by bundled Lean LRAT.check at runtime; no kernel circuit theorem",
+  "no_total_gate_lower_bound_claim": true,
+  "standalone_solver_exit": 20,
+  "standalone_solver_seconds": 55.62,
+  "lrat_bytes": 338548973,
+  "lrat_sha256": "3a3c6e07e017bfc25b80ffeda949ce5951afa4a9ca0d1bb17a05e1fab81cf58b",
+  "lrat_checker": "independent bundled Lean LRAT.check returned true, exit0; runtime validation only",
+  "lrat_checker_actions": 1344681,
+  "lrat_checker_exit": 0,
+  "cnf_sha256": "22ca7bc804ae788ea657175af3c8b9beac024da7e9b1ec0965b782f8a944b7f6",
+  "proof_format": "ASCII LRAT, gzip-compressed"
+}

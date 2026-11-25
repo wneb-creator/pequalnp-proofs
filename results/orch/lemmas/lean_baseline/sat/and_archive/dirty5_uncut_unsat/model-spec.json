@@ -1,0 +1,11 @@
+{
+  "declared_binary_AND_nodes": 5,
+  "OR_subsets": "arbitrary raw and earlierAND subsets; empty means false",
+  "constants": "false via emptyOR; no trueconstant",
+  "unused_nodes": "allowed",
+  "fanin_cardinality_caps": null,
+  "side_order": "commutative lexicographic orientation only",
+  "dirty_required": true,
+  "total_gate_bound_established": false,
+  "UNSAT_scope": "this declaredANDcount abstraction with stated constraints"
+}

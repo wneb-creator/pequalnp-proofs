@@ -1,0 +1,107 @@
+{
+  "recorded_utc": "2026-11-25T06:15:39.586502+00:00",
+  "runner": "RuntimeLRATCheck.lean",
+  "runner_sha256": "6458e358f4739ac8ede381485ee32f651553b8421d0188549f4e2a8c9bf9a0b5",
+  "independent_source_review": "Root reviewed the runner independently of its author; range, clause count, literal conversion and addition-ID invariants match the bundled checker API.",
+  "lean_version": "4.36.0",
+  "lean_commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
+  "checker": "Std.Tactic.BVDecide.LRAT.check",
+  "soundness_theorem": "Std.Tactic.BVDecide.LRAT.check_sound",
+  "runs": [
+    {
+      "label": "strengthened",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-57/elan/toolchains/leanprover--lean4---v4.36.0/bin/lean",
+        "-j1",
+        "-M3000",
+        "--run",
+        "/tmp/oec/pequalnp-pilot-57/RuntimeLRATCheck.lean",
+        "/tmp/oec/pequalnp-pilot-57/and5-dirty-count-prototype/model.cnf",
+        "/tmp/oec/pequalnp-pilot-57/and5-dirty-count-prototype/proof.lrat"
+      ],
+      "exit_code": 0,
+      "checker_result": true,
+      "variables": 3988,
+      "clauses": 14827,
+      "actions": 29160,
+      "cnf_sha256": "dbf04a651301be7ae7af38aa693ad8f829331dc25f51fe78201db5691fad4763",
+      "cnf_bytes": 219253,
+      "lrat_sha256": "d71c33e4a7cf3aeb11384da1e8b74ab4f0f755d4104fa78ae0ad8edae6ea027d",
+      "lrat_bytes": 4850555,
+      "complete_log": "reviewer-a5-strengthened-lrat-runtime-002.log",
+      "complete_log_sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae"
+    },
+    {
+      "label": "uncut",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-57/elan/toolchains/leanprover--lean4---v4.36.0/bin/lean",
+        "-j1",
+        "-M3000",
+        "--run",
+        "/tmp/oec/pequalnp-pilot-57/RuntimeLRATCheck.lean",
+        "/tmp/oec/pequalnp-pilot-57/and5-dirty-unrestricted-crosscheck/model.cnf",
+        "/tmp/oec/pequalnp-pilot-57/and5-dirty-unrestricted-crosscheck/proof.lrat"
+      ],
+      "exit_code": 0,
+      "checker_result": true,
+      "variables": 2623,
+      "clauses": 10330,
+      "actions": 1344681,
+      "cnf_sha256": "22ca7bc804ae788ea657175af3c8b9beac024da7e9b1ec0965b782f8a944b7f6",
+      "cnf_bytes": 147560,
+      "lrat_sha256": "3a3c6e07e017bfc25b80ffeda949ce5951afa4a9ca0d1bb17a05e1fab81cf58b",
+      "lrat_bytes": 338548973,
+      "complete_log": "reviewer-a5-uncut-lrat-runtime.log",
+      "complete_log_sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4"
+    }
+  ],
+  "controls": [
+    {
+      "cnf": "reviewer-lrat-tiny-unsat.cnf",
+      "proof": "reviewer-lrat-tiny.proof",
+      "exit_code": 0,
+      "checker_result": true
+    },
+    {
+      "cnf": "reviewer-lrat-tiny-sat.cnf",
+      "proof": "reviewer-lrat-tiny.proof",
+      "exit_code": 1,
+      "checker_result": false
+    }
+  ],
+  "scope": "Runtime execution of the independent Lean LRAT implementation whose general soundness theorem is in Std. This does not provide a kernel proof of check=true for these concrete inputs, a proof that the circuit abstraction is encoded completely, an A6 bound, or a refutation of L-meta-650. No native_decide is used.",
+  "files": {
+    "RuntimeLRATCheck.lean": {
+      "sha256": "6458e358f4739ac8ede381485ee32f651553b8421d0188549f4e2a8c9bf9a0b5",
+      "bytes": 2475
+    },
+    "reviewer-a5-strengthened-lrat-runtime-002.log": {
+      "sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae",
+      "bytes": 256
+    },
+    "reviewer-a5-uncut-lrat-runtime.log": {
+      "sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4",
+      "bytes": 258
+    },
+    "reviewer-lrat-tiny-unsat.cnf": {
+      "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+      "bytes": 19
+    },
+    "reviewer-lrat-tiny-sat.cnf": {
+      "sha256": "139098746dcb0c2fbf2ca679aa3685151ae36a54f2e527a67cb0cbac1606bed4",
+      "bytes": 18
+    },
+    "reviewer-lrat-tiny.proof": {
+      "sha256": "2e9bf73f333fd3624376d1eb676ce8d6240ba39924936c22bc1a522bfb01b8cc",
+      "bytes": 10
+    },
+    "reviewer-lrat-tiny-unsat.log": {
+      "sha256": "43e09a93572f5d3f25ce7e27f702d002cb67de6400e341645059c720a07767ea",
+      "bytes": 245
+    },
+    "reviewer-lrat-tiny-sat.log": {
+      "sha256": "a2bda522003dd6ba18b1f7df06a8d1a02731281dbf0ae1d222e6e5dfc3e7da81",
+      "bytes": 246
+    }
+  }
+}

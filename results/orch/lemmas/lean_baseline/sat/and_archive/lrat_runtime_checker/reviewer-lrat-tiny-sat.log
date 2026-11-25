@@ -1,0 +1,3 @@
+variables=1 clauses=2 actions=1
+Std.Tactic.BVDecide.LRAT.check=false
+Scope: runtime evaluation of Lean's independently implemented, soundness-proved LRAT checker; no kernel proof of this input's UNSAT or circuit-encoding completeness is claimed.

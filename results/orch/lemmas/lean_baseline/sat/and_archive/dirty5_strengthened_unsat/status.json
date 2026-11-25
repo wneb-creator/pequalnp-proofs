@@ -1,0 +1,16 @@
+{
+  "result": "UNSAT for the stated five-AND abstraction with documented necessary cuts",
+  "elapsed_solver_seconds": 0.3629,
+  "independent_executable_exit": 20,
+  "standalone_solver": "bundled CaDiCaL",
+  "proof_format": "ASCII DRAT and ASCII LRAT, each gzip-compressed",
+  "proof_sha256": "129e0233c276fe0a50e58b460456906edcfa46717e44e4a3afb3a0951541eec6",
+  "proof_checker": "LRAT independently accepted by bundled Lean LRAT.check at runtime; no kernel circuit theorem",
+  "no_total_gate_bound": true,
+  "lrat_sha256": "d71c33e4a7cf3aeb11384da1e8b74ab4f0f755d4104fa78ae0ad8edae6ea027d",
+  "lrat_checker": "independent bundled Lean LRAT.check returned true, exit0; runtime validation only",
+  "lrat_checker_actions": 29160,
+  "lrat_checker_exit": 0,
+  "cnf_sha256": "dbf04a651301be7ae7af38aa693ad8f829331dc25f51fe78201db5691fad4763",
+  "drat_checker": "DRAT not independently checked; independently checked LRAT certifies the same CNF"
+}
