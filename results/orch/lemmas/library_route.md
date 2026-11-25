@@ -52,3 +52,11 @@ Further finite-search lead: L_meta_4807.lean defines `Live target k t S` with bo
 ## Compilation result
 
 2026-11-25T14:09:50.240117+00:00: Partial16.lean compiled with exit 0 using pinned Lean v4.36.0 via lake env lean. Full logs: /tmp/oec/pequalnp-pilot-99/library_route/partial16.stdout and .stderr. 172 inherited linter warnings, zero errors. This is a checked partial bound, not the full posted theorem. Parent notified immediately for push.
+
+## 2026-11-25 14:22 UTC: seventeen-binary strengthening
+
+The independently compiled retention wrapper shows both inputs of the first signed binary gate remain in its tail pool. Arbitrary Petersen-vertex deletion projections are now being Lean checked in `Projection17.lean`; each maps the full target to the existing nine-vertex graph with signed lower bound fifteen. A lightweight `ProjectionHarness.lean` contains the original contraction model and uses `nineFloor` only as an explicit hypothesis, not an axiom. Its `tail_bound_left` charges the retained deleted pin as a constant, giving at least sixteen tail gates and seventeen binary gates in total.
+
+Prepared `Seventeen.lean.txt` combines retention and projection and derives at most two NOT gates for a computing circuit of size at most nineteen. The lower_bound agent separately prepares a two-constant charge for first AND-type gates, giving eighteen binary gates in that case. Generic duplicate-root charging for first OR is invalid (a multiplexer counterexample); reduction_strategy investigates the Petersen-specific next-gate structure.
+
+The initial Partial16 cache export failed because Lean required an explicit package root for an output olean. Corrected command uses `lean -R /tmp/oec/pequalnp-pilot-99/library_route -o .../Partial16.olean`; one corrected base cache build is running.

@@ -48,3 +48,11 @@ The minimum representative uses ordinary `Nat.find`; no added axiom, executable 
 - `L_meta_5367`: its internal `Main1672.finalBound` proves the 9-input graph needs at least 15 total gates. Its main result gives `15 + count(effective readers of x0 or its supplied complement) ≤ size` for circuits supplied with a free complement of input zero.
 
 No full lower bound or counterexample established by this strategy yet.
+
+## Cost-relevant first-gate certificate, around 14:15 UTC
+
+`FirstCollision.lean` compiles with empty successful logs. Its namespace and definitions exactly match `PEqualNP.Outside.L_meta_2592.Extended`, the renamed L_meta_6581 source. The helper-only append source is `FirstCollision.append.txt`; the standalone validation prefix must not be duplicated when integrating.
+
+For distinct initial pins a,b and each signed binary operation d=0,1,2,3, `firstCollision` gives two rows on which the target differs while `bin d a b` and all initial pins except a agree. It uses 200 explicit small row pairs, with ordinary kernel checking split into ten lemmas. The generator exhaustively confirmed all ordered input pairs with the other input fixed at either Boolean value.
+
+Consequently a live first binary step must retain a; swapping inputs and operation also forces b retained. For the three AND-shaped operations, setting the positive input to zero makes both the retained input and the new gate constant. Against the 15-binary floor for the nine-vertex graph, this should force 18 binary gates. For first OR, the corresponding restriction supplies one constant and forces 17. The lower-bound and library agents are assembling those deductions.

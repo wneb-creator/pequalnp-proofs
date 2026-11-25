@@ -1,25 +1,18 @@
-L-meta-2592 PARTIAL CHECKPOINT, NOT A PROOF OF POSTED STATEMENT
+L-meta-2592 partial research checkpoint
 
-Named file: lean/PEqualNP/Outside/L_meta_2592.lean
-Build: lake build PEqualNP.Outside.L_meta_2592 passed,6655 jobs.
-Independent red-team review: passed all503lines across frozen component hashes. Missing main theorem expected.
-Local checker: pending; incomplete posted theorem.
-Line count503. Full-proof cleanup pending.
-Sub-agents: 6 (status_review,lower_bound,counterexample,library_route,reduction_strategy,sat_encoding)
-TIMING total=20 subagents=6
+Status: incomplete. No proof PR has been opened.
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean (503 lines).
+Named build: lake build PEqualNP.Outside.L_meta_2592 passed (6655 jobs).
+Local checker: REJECTED (no-theorem), because the full posted theorem is not declared.
+Plain-file guard: only the missing final theorem requirements fail.
+Full build/checker stdout and stderr are preserved in results/orch/validation/.
 
-Additional compiled partials (each lake env lean exit0): CompleteCNF (circuit-to-SAT completeness,529lines),OneNotCross (48lines),Partial16 (non-NOT bound,4579lines). None provesfullstatement. Exactsource archived underresults/orch/lemmas/checked; all independentlyreviewed beforepush.
-TIMING total=24 subagents=6
+Checked components include last-NOT factorization, monotonicity and endpoint lemmas, unused-gate erasure, connected representatives, essential-NOT witnesses, the existing sixteen-binary-gate lower bound, unrestricted circuit-to-CNF completeness, exact NOT-count preservation, the at-most-three-NOT encoding, the conditional Petersen LRAT bridge, first-gate retention, and arbitrary-vertex deletion projections. Components under lemmas/checked/ were compiled separately and independently reviewed before each push. Some are conditional lemmas; none is a proof of the full gap.
 
-PetersenCNF.lean (548lines) compiled and independentlyreviewed; conditional conclusion exactlymatchespostedstatement. UNSATpremise unproved.
-Local checker on503line namedpartial: REJECTED(no-theorem), missing PEqualNP.Outside.L_meta_2592. Full checker stdout/stderr archived. No accepted proof/PR.
-TIMING total=27 subagents=6
+Kernel replay controls accept valid toy certificates and reject a corrupted certificate. The LRAT packing utility passed independent review and text/binary/slicing/packing tests. Generated data must still pass the Lean checker.
 
-RetainedInput andFirstCollision eachcompiled exit0 with emptylogs; independentreview passed including360finitecollisioncases. Full17/18bound assembly pending.
-TIMING total=30 subagents=6
+The seventeen/eighteen-binary-gate strengthening is being assembled. No solver has returned a counterexample or an UNSAT certificate. Timeouts and partial proof traces are not lower-bound proofs.
 
-InitialRetained andPetersenReplay eachcompiled exit0; independentreview passed. Replay derivesexactpostedstatement from checkW=true, stillunproved. Bothfirstgateinputsretained nowproved;17boundpending.
-TIMING total=34 subagents=6
-
-AtMostThree compiled exit0 and independentlyreviewed: countpreservation plus3876CNFclauses; ReplayControls acceptedvalidfixture andrejectedcorruption via kerneldecide. Namedpartialguard fails solelymissingmaintheorem; outputarchived.
-TIMING total=37 subagents=6
+Cleanup: not started; the full posted theorem has not passed the checker.
+Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
+TIMING total=42.2 subagents=6
