@@ -2663,3 +2663,1432 @@ lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
         exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
 
 end PEqualNP.Outside.L_meta_2590.FiveGroup.IndexSchedule
+
+namespace PEqualNP.Outside.L_meta_2590.S45.CausalBarrier
+
+abbrev Wire := Finset (Fin 10) × Bool
+
+def Safe (T : Finset (Fin 10)) (w : Wire) : Prop :=
+  w.2 = true → (w.1 ∩ T).Nonempty
+
+def Join (a b : Wire) : Wire := (a.1 ∪ b.1, a.2 || b.2)
+
+def Meet (a b : Wire) : Wire := (a.1 ∩ b.1, a.2 && b.2)
+
+def Separates (T A B : Finset (Fin 10)) : Prop :=
+  ¬ ((A ∩ T).Nonempty ∧ (B ∩ T).Nonempty)
+
+lemma safe_join {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) : Safe T (Join a b) := by
+  intro h
+  change a.2 || b.2 = true at h
+  rcases Bool.or_eq_true_iff.mp h with h | h
+  · rcases ha h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inl (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+  · rcases hb h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inr (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+
+lemma safe_meet {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) (hs : Separates T a.1 b.1) :
+    Safe T (Meet a b) := by
+  intro h
+  change a.2 && b.2 = true at h
+  rcases Bool.and_eq_true_iff.mp h with ⟨ha', hb'⟩
+  exact False.elim (hs ⟨ha ha', hb hb'⟩)
+
+def Step (T : Finset (Fin 10)) (pool : List Wire) (w : Wire) : Prop :=
+  ∃ a ∈ pool, ∃ b ∈ pool,
+    w = Join a b ∨ (Separates T a.1 b.1 ∧ w = Meet a b)
+
+def Trace (T : Finset (Fin 10)) (pool : List Wire) : List Wire → Prop
+  | [] => True
+  | w :: ws => Step T pool w ∧ Trace T (w :: pool) ws
+
+lemma safe_step {T : Finset (Fin 10)} {pool : List Wire} {w : Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Step T pool w) : Safe T w := by
+  rcases h with ⟨a, ha, b, hb, h | ⟨hs, h⟩⟩
+  · subst w
+    exact safe_join (hp a ha) (hp b hb)
+  · subst w
+    exact safe_meet (hp a ha) (hp b hb) hs
+
+lemma safe_trace {T : Finset (Fin 10)} {pool ws : List Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Trace T pool ws) :
+    ∀ w ∈ ws, Safe T w := by
+  induction ws generalizing pool with
+  | nil => simp
+  | cons a ws ih =>
+      obtain ⟨hs, ht⟩ := h
+      have ha := safe_step hp hs
+      have hp' : ∀ b ∈ a :: pool, Safe T b := by
+        intro b hb
+        rcases List.mem_cons.mp hb with rfl | hb
+        · exact ha
+        · exact hp b hb
+      intro w hw
+      rcases List.mem_cons.mp hw with rfl | hw
+      · exact ha
+      · exact ih hp' ht w hw
+
+lemma safe_zero_false {T : Finset (Fin 10)} {w : Wire}
+    (h : Safe T w) (hz : w.1 = ∅) : w.2 = false := by
+  cases hv : w.2
+  · rfl
+  · have hn := h hv
+    simp [hz] at hn
+
+def OtherSides : List (Finset (Fin 10) × Finset (Fin 10)) :=
+  [({0}, {1, 4, 5}), ({1}, {6}), ({2}, {1, 3, 7}), ({3}, {4, 8}), ({7}, {5, 9}), (∅, ∅)]
+
+def DirtyEdges : List (Finset (Fin 10)) :=
+  [{4, 9}, {5, 8}, {6, 8}, {6, 9}]
+
+def UniversalEdge (v : Fin 10) : Finset (Fin 10) :=
+  match v.val with
+  | 0 => {6, 8}
+  | 1 => {4, 9}
+  | 2 => {4, 9}
+  | 3 => {6, 9}
+  | 4 => {4, 9}
+  | 5 => {5, 8}
+  | 6 => {6, 8}
+  | 7 => {6, 8}
+  | 8 => {5, 8}
+  | _ => {4, 9}
+
+def UniversalBarrier (v : Fin 10) : Finset (Fin 10) := insert v (UniversalEdge v)
+
+lemma universal_edge_valid : ∀ v : Fin 10, UniversalEdge v ∈ DirtyEdges := by decide
+
+lemma all_vertices_separation :
+    ∀ (v : Fin 10), ∀ AB ∈ OtherSides,
+      Separates (UniversalBarrier v) AB.1 AB.2 ∧
+      Separates (UniversalBarrier v) AB.2 AB.1 := by
+  intro v
+  simp [OtherSides, Separates]
+  revert v
+  decide
+
+end PEqualNP.Outside.L_meta_2590.S45.CausalBarrier
+
+namespace PEqualNP.Outside.L_meta_2590.S45.ResourceExclusion
+
+open CausalBarrier
+
+abbrev Resource := Finset (Fin 10) × (Finset (Fin 10) → Bool)
+
+def CrossPairs : List (Finset (Fin 10)) :=
+  [{4, 8}, {4, 9}, {5, 8}, {5, 9}, {6, 8}, {6, 9}]
+
+def RSafe (E T : Finset (Fin 10)) (w : Resource) : Prop :=
+  w.2 E = true → (w.1 ∩ T).Nonempty
+
+def Ordinary (w : Resource) : Prop := ∀ E ∈ CrossPairs, RSafe E E w
+
+def AllOrdinary (p : Multiset Resource) : Prop := ∀ w ∈ p, Ordinary w
+
+def RJoin (a b : Resource) : Resource :=
+  (a.1 ∪ b.1, fun E => a.2 E || b.2 E)
+
+def RMeet (a b : Resource) : Resource :=
+  (a.1 ∩ b.1, fun E => a.2 E && b.2 E)
+
+def AllowedSides (a b : Resource) : Prop :=
+  (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides
+
+def Keep (w : Resource) : Multiset Resource :=
+  if w.1 = ∅ then 0 else {w}
+
+def Next (a b c : Resource) (rest : Multiset Resource) : Multiset Resource :=
+  c ::ₘ (Keep a + Keep b + rest)
+
+def ResourceStep (p q : Multiset Resource) : Prop :=
+  (∃ a b c rest, p = a ::ₘ b ::ₘ rest ∧ q = Next a b c rest ∧
+    (c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b))) ∨
+  (∃ w rest, w.1 ≠ ∅ ∧ p = w ::ₘ rest ∧ q = w ::ₘ w ::ₘ rest) ∨
+  (∃ w rest, p = w ::ₘ rest ∧ q = rest)
+
+def Blocked (p : Multiset Resource) : Prop :=
+  ∃ E ∈ DirtyEdges, ∃ T : Finset (Fin 10),
+    (∀ AB ∈ OtherSides, Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1) ∧
+    ∀ w ∈ p, RSafe E T w
+
+def Exceptional (p : Multiset Resource) : Prop :=
+  ∃ d rest, p = d ::ₘ rest ∧ d.1 = ∅ ∧
+    (∀ E ∈ CrossPairs, d.2 E = true) ∧ AllOrdinary rest
+
+def Invariant (p : Multiset Resource) : Prop := Blocked p ∨ Exceptional p
+
+def Target (w : Resource) : Prop :=
+  w.1 = ∅ ∧ (∀ E ∈ DirtyEdges, w.2 E = true) ∧ w.2 {4, 8} = false
+
+lemma rsafe_join {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) : RSafe E T (RJoin a b) := by
+  exact safe_join (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb
+
+lemma rsafe_meet {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hs : Separates T a.1 b.1) :
+    RSafe E T (RMeet a b) := by
+  exact safe_meet (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb hs
+
+lemma rsafe_zero_false {E T : Finset (Fin 10)} {w : Resource}
+    (h : RSafe E T w) (hz : w.1 = ∅) : w.2 E = false :=
+  safe_zero_false (w := (w.1, w.2 E)) h hz
+
+lemma cross_separation :
+    ∀ E ∈ CrossPairs, ∀ AB ∈ OtherSides,
+      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
+  simp [CrossPairs, OtherSides, Separates]
+
+lemma dirty_mem_cross : ∀ E ∈ DirtyEdges, E ∈ CrossPairs := by
+  simp [DirtyEdges, CrossPairs]
+
+lemma ordinary_join {a b : Resource} (ha : Ordinary a) (hb : Ordinary b) :
+    Ordinary (RJoin a b) := by
+  intro E hE
+  exact rsafe_join (ha E hE) (hb E hE)
+
+lemma ordinary_meet {a b : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hs : AllowedSides a b) : Ordinary (RMeet a b) := by
+  intro E hE
+  apply rsafe_meet (ha E hE) (hb E hE)
+  rcases hs with hs | hs
+  · exact (cross_separation E hE _ hs).1
+  · exact (cross_separation E hE _ hs).2
+
+lemma keep_mem {a w : Resource} (h : w ∈ Keep a) : w = a := by
+  classical
+  by_cases hz : a.1 = ∅
+  · simp [Keep, hz] at h
+  · simpa [Keep, hz] using h
+
+lemma allOrdinary_next {a b c : Resource} {rest : Multiset Resource}
+    (ha : Ordinary a) (hb : Ordinary b) (hc : Ordinary c) (hr : AllOrdinary rest) :
+    AllOrdinary (Next a b c rest) := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma allOrdinary_blocked {p : Multiset Resource} (hp : AllOrdinary p) : Blocked p := by
+  refine ⟨{4, 9}, by simp [DirtyEdges], {4, 9}, ?_, ?_⟩
+  · exact cross_separation _ (by simp [CrossPairs])
+  · intro w hw
+    exact hp w hw _ (by simp [CrossPairs])
+
+lemma blocked_no_target {p : Multiset Resource} (hp : Blocked p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨E, hE, T, _, hs⟩ := hp
+  rintro ⟨hz, ht, _⟩
+  have hf := rsafe_zero_false (hs w hw) hz
+  rw [ht E hE] at hf
+  contradiction
+
+lemma exceptional_no_target {p : Multiset Resource} (hp : Exceptional p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨d, rest, rfl, hd, hdt, hr⟩ := hp
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · rintro ⟨_, _, hf⟩
+    have ht := hdt {4, 8} (by simp [CrossPairs])
+    rw [hf] at ht
+    contradiction
+  · exact blocked_no_target (allOrdinary_blocked hr) hw
+
+lemma invariant_no_target {p : Multiset Resource} (hp : Invariant p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  rcases hp with hp | hp
+  · exact blocked_no_target hp hw
+  · exact exceptional_no_target hp hw
+
+
+lemma all_safe_next {E T : Finset (Fin 10)} {a b c : Resource}
+    {rest : Multiset Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hc : RSafe E T c)
+    (hr : ∀ w ∈ rest, RSafe E T w) :
+    ∀ w ∈ Next a b c rest, RSafe E T w := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma blocked_step {p q : Multiset Resource} (hp : Blocked p)
+    (hstep : ResourceStep p q) : Blocked q := by
+  obtain ⟨E, hE, T, hT, hs⟩ := hp
+  refine ⟨E, hE, T, hT, ?_⟩
+  rcases hstep with ⟨a, b, c, rest, rfl, rfl, hc⟩ | ⟨w, rest, _, rfl, rfl⟩ | ⟨w, rest, rfl, rfl⟩
+  · have ha := hs a (by simp)
+    have hb := hs b (by simp)
+    have hr : ∀ w ∈ rest, RSafe E T w := fun w hw => hs w (by simp [hw])
+    apply all_safe_next ha hb ?_ hr
+    rcases hc with rfl | ⟨hside, rfl⟩
+    · exact rsafe_join ha hb
+    · apply rsafe_meet ha hb
+      rcases hside with hside | hside
+      · exact (hT _ hside).1
+      · exact (hT _ hside).2
+  · intro a ha
+    simp only [Multiset.mem_cons, or_self_left] at ha
+    exact hs a (Multiset.mem_cons.mpr ha)
+  · intro a ha
+    exact hs a (by simp [ha])
+
+lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
+    (hc : c.1.Nonempty) (hr : AllOrdinary rest) : Blocked (c ::ₘ rest) := by
+  obtain ⟨v, hv⟩ := hc
+  refine ⟨UniversalEdge v, universal_edge_valid v, UniversalBarrier v,
+    all_vertices_separation v, ?_⟩
+  intro w hw
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · intro _
+    exact ⟨v, Finset.mem_inter.mpr ⟨hv, Finset.mem_insert_self _ _⟩⟩
+  · intro ht
+    obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
+    obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
+    exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
+
+lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
+  intro a ha
+  exact (keep_mem ha) ▸ h
+
+lemma allOrdinary_add {p q : Multiset Resource}
+    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
+  intro w hw
+  rcases Multiset.mem_add.mp hw with hw | hw
+  · exact hp w hw
+  · exact hq w hw
+
+lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
+    (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
+  intro a ha
+  rcases Multiset.mem_cons.mp ha with rfl | ha
+  · exact hw
+  · exact hp a ha
+
+lemma zero_side_of_allowed {a b : Resource} (ha : a.1 = ∅) (hs : AllowedSides a b) :
+    b.1 = ∅ := by
+  have hzero : ∀ AB ∈ OtherSides,
+      (AB.1 = ∅ → AB.2 = ∅) ∧ (AB.2 = ∅ → AB.1 = ∅) := by
+    simp [OtherSides]
+  rcases hs with hs | hs
+  · exact (hzero _ hs).1 ha
+  · exact (hzero _ hs).2 ha
+
+lemma exceptional_left_step {d b c : Resource} {rest : Multiset Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (hb : Ordinary b) (hr : AllOrdinary rest)
+    (hc : c = RJoin d b ∨ (AllowedSides d b ∧ c = RMeet d b)) :
+    Invariant (Next d b c rest) := by
+  classical
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · by_cases hbs : b.1 = ∅
+    · right
+      refine ⟨RJoin d b, rest, ?_, ?_, ?_, hr⟩
+      · simp [Next, Keep, hd, hbs]
+      · simp [RJoin, hd, hbs]
+      · intro E hE
+        simp [RJoin, hdt E hE]
+    · left
+      have hbp : (RJoin d b).1.Nonempty := by
+        simpa [RJoin, hd] using Finset.nonempty_iff_ne_empty.mpr hbs
+      have hpool : AllOrdinary (Keep d + Keep b + rest) := by
+        simpa [Keep, hd, hbs] using allOrdinary_cons hb hr
+      exact ordinary_carrier_blocked hbp hpool
+  · left
+    have hbs := zero_side_of_allowed hd hs
+    have hc : Ordinary (RMeet d b) := by
+      intro E hE ht
+      have hbf := rsafe_zero_false (hb E hE) hbs
+      simp [RMeet, hbf] at ht
+    apply allOrdinary_blocked
+    simpa [Next, Keep, hd, hbs] using allOrdinary_cons hc hr
+
+
+lemma next_swap (a b c : Resource) (rest : Multiset Resource) :
+    Next a b c rest = Next b a c rest := by
+  simp only [Next, add_comm (Keep a) (Keep b)]
+
+lemma rjoin_swap (a b : Resource) : RJoin a b = RJoin b a := by
+  apply Prod.ext
+  · exact Finset.union_comm _ _
+  · funext E
+    exact Bool.or_comm _ _
+
+lemma rmeet_swap (a b : Resource) : RMeet a b = RMeet b a := by
+  apply Prod.ext
+  · exact Finset.inter_comm _ _
+  · funext E
+    exact Bool.and_comm _ _
+
+lemma ordinary_result {a b c : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hc : c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b)) : Ordinary c := by
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · exact ordinary_join ha hb
+  · exact ordinary_meet ha hb hs
+
+lemma exceptional_step {p q : Multiset Resource} (hp : Exceptional p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  classical
+  obtain ⟨d, r0, hpd, hd, hdt, hr0⟩ := hp
+  rcases hstep with ⟨a, b, c, rest, hpab, rfl, hc⟩ |
+    ⟨w, rest, hws, hpw, rfl⟩ | ⟨w, rest, hpw, hqr⟩
+  · have heq : d ::ₘ r0 = a ::ₘ b ::ₘ rest := hpd.symm.trans hpab
+    by_cases had : a = d
+    · subst a
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact exceptional_left_step hd hdt (hr0 b (by simp))
+        (fun w hw => hr0 w (by simp [hw])) hc
+    · by_cases hbd : b = d
+      · subst b
+        rw [Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        rw [next_swap]
+        apply exceptional_left_step hd hdt (hr0 a (by simp))
+          (fun w hw => hr0 w (by simp [hw]))
+        rcases hc with hc | ⟨hs, hc⟩
+        · left
+          exact hc.trans (rjoin_swap _ _)
+        · right
+          exact ⟨Or.symm hs, hc.trans (rmeet_swap _ _)⟩
+      · have hdm : d ∈ a ::ₘ b ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+        have hdr : d ∈ rest := by
+          simpa [Ne.symm had, Ne.symm hbd] using hdm
+        obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+        rw [Multiset.cons_swap b d, Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        have ha : Ordinary a := hr0 a (by simp)
+        have hb : Ordinary b := hr0 b (by simp)
+        have hr : AllOrdinary r := fun w hw => hr0 w (by simp [hw])
+        right
+        refine ⟨d, Next a b c r, ?_, hd, hdt,
+          allOrdinary_next ha hb (ordinary_result ha hb hc) hr⟩
+        simp only [Next, Multiset.add_cons]
+        exact Multiset.cons_swap _ _ _
+  · have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    have hdw : d ≠ w := by
+      intro h
+      subst w
+      exact hws hd
+    have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+    have hdr : d ∈ rest := by simpa [hdw] using hdm
+    obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+    rw [Multiset.cons_swap w d] at heq
+    have hrEq := (Multiset.cons_inj_right d).mp heq
+    rw [hrEq] at hr0
+    right
+    refine ⟨d, w ::ₘ w ::ₘ r, ?_, hd, hdt, ?_⟩
+    · rw [Multiset.cons_swap w d, Multiset.cons_swap w d]
+    · exact allOrdinary_cons (hr0 w (by simp)) hr0
+  · rw [hqr]
+    have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    by_cases hdw : d = w
+    · subst w
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inl (allOrdinary_blocked hr0)
+    · have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+      have hdr : d ∈ rest := by simpa [hdw] using hdm
+      obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+      rw [Multiset.cons_swap w d] at heq
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inr ⟨d, r, rfl, hd, hdt, fun a ha => hr0 a (by simp [ha])⟩
+
+lemma invariant_step {p q : Multiset Resource} (hp : Invariant p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  rcases hp with hp | hp
+  · exact Or.inl (blocked_step hp hstep)
+  · exact exceptional_step hp hstep
+
+def ResourceTrace (p : Multiset Resource) : List (Multiset Resource) → Prop
+  | [] => True
+  | q :: qs => ResourceStep p q ∧ ResourceTrace q qs
+
+lemma invariant_trace {p : Multiset Resource} {qs : List (Multiset Resource)}
+    (hp : Invariant p) (ht : ResourceTrace p qs) : ∀ q ∈ qs, Invariant q := by
+  induction qs generalizing p with
+  | nil => simp
+  | cons q qs ih =>
+      obtain ⟨hs, ht⟩ := ht
+      have hq := invariant_step hp hs
+      intro r hr
+      rcases List.mem_cons.mp hr with rfl | hr
+      · exact hq
+      · exact ih hq ht r hr
+
+lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
+    {qs : List (Multiset Resource)} {q : Multiset Resource} {out : Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (ho : AllOrdinary ordinary) (ht : ResourceTrace (d ::ₘ ordinary) qs)
+    (hq : q ∈ qs) (hout : out ∈ q) : ¬ Target out := by
+  have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
+  exact invariant_no_target (invariant_trace hi ht q hq) hout
+
+end PEqualNP.Outside.L_meta_2590.S45.ResourceExclusion
+
+namespace PEqualNP.Outside.L_meta_2590.S45.IndexSchedule
+
+open ResourceExclusion
+
+def Pool (W : ℕ → Resource) (ids : Finset ℕ) : Multiset Resource := ids.val.map W
+
+def DropZero (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  if (W i).1 = ∅ then ids.erase i else ids
+
+def NextIds (W : ℕ → Resource) (a b out : ℕ) (ids : Finset ℕ) : Finset ℕ :=
+  insert out (DropZero W b (DropZero W a ids))
+
+def Available (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) : ℕ → Finset ℕ
+  | 0 => Finset.range start
+  | t + 1 => NextIds W (A (start + t)) (B (start + t)) (start + t)
+      (Available W start A B t)
+
+lemma drop_subset (W : ℕ → Resource) (i : ℕ) (ids : Finset ℕ) :
+    DropZero W i ids ⊆ ids := by
+  unfold DropZero
+  split
+  · exact Finset.erase_subset _ _
+  · exact Finset.Subset.refl _
+
+lemma mem_drop {W : ℕ → Resource} {i x : ℕ} {ids : Finset ℕ}
+    (hx : x ∈ ids) (hkeep : (W x).1 ≠ ∅ ∨ x ≠ i) : x ∈ DropZero W i ids := by
+  unfold DropZero
+  split_ifs with hi
+  · apply Finset.mem_erase.mpr
+    refine ⟨?_, hx⟩
+    rcases hkeep with hkeep | hkeep
+    · intro hxi
+      subst x
+      exact hkeep hi
+    · exact hkeep
+  · exact hx
+
+lemma available_bounded (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x ∈ Available W start A B t, x < start + t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hx
+      rcases Finset.mem_insert.mp hx with rfl | hx
+      · omega
+      · have hx' := drop_subset W _ _ (drop_subset W _ _ hx)
+        have hb := ih x hx'
+        omega
+
+lemma available_complete (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ)
+    (t : ℕ) : ∀ x, x < start + t →
+      ((W x).1 ≠ ∅ ∨ ∀ j < t, A (start + j) ≠ x ∧ B (start + j) ≠ x) →
+      x ∈ Available W start A B t := by
+  induction t with
+  | zero => simp [Available]
+  | succ t ih =>
+      intro x hbound hunused
+      by_cases hlast : x = start + t
+      · subst x
+        exact Finset.mem_insert_self _ _
+      · have hold : x < start + t := by omega
+        have hprev : (W x).1 ≠ ∅ ∨ ∀ j < t,
+            A (start + j) ≠ x ∧ B (start + j) ≠ x := by
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (fun j hj => hu j (by omega))
+        have hmem := ih x hold hprev
+        apply Finset.mem_insert_of_mem
+        apply mem_drop
+        · apply mem_drop hmem
+          rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).1)
+        · rcases hunused with hp | hu
+          · exact Or.inl hp
+          · exact Or.inr (Ne.symm (hu t (by omega)).2)
+
+def Reads (A B : ℕ → ℕ) (i x : ℕ) : Prop := A i = x ∨ B i = x
+
+def LinearUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ i < n, ∀ j < n, ∀ x, (W x).1 = ∅ →
+    Reads A B (start + i) x → Reads A B (start + j) x → i = j
+
+lemma source_available {W : ℕ → Resource} {start n t x : ℕ} {A B : ℕ → ℕ}
+    (hlin : LinearUpTo W start A B n) (ht : t < n)
+    (hx : x < start + t) (hr : Reads A B (start + t) x) :
+    x ∈ Available W start A B t := by
+  apply available_complete W start A B t x hx
+  by_cases hp : (W x).1 = ∅
+  · right
+    intro j hj
+    constructor
+    · intro hja
+      have heq := hlin t ht j (by omega) x hp hr (Or.inl hja)
+      omega
+    · intro hjb
+      have heq := hlin t ht j (by omega) x hp hr (Or.inr hjb)
+      omega
+  · exact Or.inl hp
+
+lemma pool_insert {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∉ ids) :
+    Pool W (insert i ids) = W i ::ₘ Pool W ids := by
+  simp only [Pool, Finset.insert_val_of_notMem hi, Multiset.map_cons]
+
+lemma pool_erase_decomp {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    Pool W ids = W i ::ₘ Pool W (ids.erase i) := by
+  calc
+    Pool W ids = Pool W (insert i (ids.erase i)) := by rw [Finset.insert_erase hi]
+    _ = W i ::ₘ Pool W (ids.erase i) := pool_insert (Finset.notMem_erase _ _)
+
+lemma pool_two_decomp {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W ids = W a ::ₘ W b ::ₘ Pool W ((ids.erase a).erase b) := by
+  rw [pool_erase_decomp ha]
+  rw [pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)]
+
+lemma pool_drop_two {W : ℕ → Resource} {ids : Finset ℕ} {a b : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) :
+    Pool W (DropZero W b (DropZero W a ids)) =
+      Keep (W a) + Keep (W b) + Pool W ((ids.erase a).erase b) := by
+  classical
+  by_cases hza : (W a).1 = ∅ <;> by_cases hzb : (W b).1 = ∅
+  · simp [DropZero, Keep, hza, hzb]
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, zero_add]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_true, ite_false, add_zero]
+    rw [Finset.erase_right_comm]
+    exact pool_erase_decomp (Finset.mem_erase.mpr ⟨hab, ha⟩)
+  · simp only [DropZero, Keep, hza, hzb, ite_false]
+    simpa using pool_two_decomp ha hb hab
+
+lemma index_resource_step {W : ℕ → Resource} {ids : Finset ℕ} {a b out : ℕ}
+    (ha : a ∈ ids) (hb : b ∈ ids) (hab : a ≠ b) (hout : out ∉ ids)
+    (hg : W out = RJoin (W a) (W b) ∨
+      (AllowedSides (W a) (W b) ∧ W out = RMeet (W a) (W b))) :
+    ResourceStep (Pool W ids) (Pool W (NextIds W a b out ids)) := by
+  left
+  refine ⟨W a, W b, W out, Pool W ((ids.erase a).erase b),
+    pool_two_decomp ha hb hab, ?_, hg⟩
+  have hfresh : out ∉ DropZero W b (DropZero W a ids) := by
+    intro h
+    exact hout (drop_subset W _ _ (drop_subset W _ _ h))
+  rw [NextIds, pool_insert hfresh, pool_drop_two ha hb hab]
+  rfl
+
+
+def ValidUpTo (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n, A (start + t) < start + t ∧ B (start + t) < start + t ∧
+    A (start + t) ≠ B (start + t)
+
+def CanonicalUpTo (W : ℕ → Resource) (start : ℕ) (A B : ℕ → ℕ) (n : ℕ) : Prop :=
+  ∀ t < n,
+    W (start + t) = RJoin (W (A (start + t))) (W (B (start + t))) ∨
+    (AllowedSides (W (A (start + t))) (W (B (start + t))) ∧
+      W (start + t) = RMeet (W (A (start + t))) (W (B (start + t))))
+
+lemma available_step {W : ℕ → Resource} {start n t : ℕ} {A B : ℕ → ℕ}
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) (ht : t < n) :
+    ResourceStep (Pool W (Available W start A B t))
+      (Pool W (Available W start A B (t + 1))) := by
+  obtain ⟨ha, hb, hab⟩ := hv t ht
+  have haa := source_available hl ht ha (Or.inl rfl)
+  have hba := source_available hl ht hb (Or.inr rfl)
+  apply index_resource_step haa hba hab ?_ (hc t ht)
+  intro h
+  have := available_bounded W start A B t _ h
+  omega
+
+lemma program_invariant {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t ≤ n, Invariant (Pool W (Available W start A B t)) := by
+  intro t
+  induction t with
+  | zero => intro _; exact hp
+  | succ t ih =>
+      intro ht
+      exact invariant_step (ih (by omega)) (available_step hv hl hc (by omega))
+
+lemma pool_mem {W : ℕ → Resource} {ids : Finset ℕ} {i : ℕ} (hi : i ∈ ids) :
+    W i ∈ Pool W ids := by
+  exact Multiset.mem_map.mpr ⟨i, hi, rfl⟩
+
+lemma canonical_program_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) := by
+  intro t ht
+  have hinv := program_invariant hp hv hl hc (t + 1) (by omega)
+  apply invariant_no_target hinv
+  apply pool_mem
+  exact Finset.mem_insert_self _ _
+
+lemma initial_exceptional {W : ℕ → Resource} {start d : ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i)) :
+    Invariant (Pool W (Finset.range start)) := by
+  right
+  refine ⟨W d, Pool W ((Finset.range start).erase d),
+    pool_erase_decomp (Finset.mem_range.mpr hd), hz, ht, ?_⟩
+  intro w hw
+  obtain ⟨i, hi, rfl⟩ := Multiset.mem_map.mp hw
+  have hi' : i ∈ (Finset.range start).erase d := hi
+  obtain ⟨hid, hir⟩ := Finset.mem_erase.mp hi'
+  exact ho i (Finset.mem_range.mp hir) hid
+
+lemma seeded_program_exclusion {W : ℕ → Resource} {start n d : ℕ} {A B : ℕ → ℕ}
+    (hd : d < start) (hz : (W d).1 = ∅)
+    (ht : ∀ E ∈ CrossPairs, (W d).2 E = true)
+    (ho : ∀ i < start, i ≠ d → Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ t < n, ¬ Target (W (start + t)) :=
+  canonical_program_exclusion (initial_exceptional hd hz ht ho) hv hl hc
+
+
+lemma program_any_wire_exclusion {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : Invariant (Pool W (Finset.range start)))
+    (hv : ValidUpTo start A B n) (hl : LinearUpTo W start A B n)
+    (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, ¬ Target (W i) := by
+  intro i hi
+  by_cases hold : i < start
+  · exact invariant_no_target hp (pool_mem (Finset.mem_range.mpr hold))
+  · have ht : i - start < n := by omega
+    have heq : start + (i - start) = i := by omega
+    simpa only [heq] using canonical_program_exclusion hp hv hl hc (i - start) ht
+
+lemma ordinary_prefix {W : ℕ → Resource} {start n : ℕ} {A B : ℕ → ℕ}
+    (hp : ∀ i < start, Ordinary (W i))
+    (hv : ValidUpTo start A B n) (hc : CanonicalUpTo W start A B n) :
+    ∀ i < start + n, Ordinary (W i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+      intro hi
+      by_cases hold : i < start
+      · exact hp i hold
+      · have ht : i - start < n := by omega
+        have heq : start + (i - start) = i := by omega
+        obtain ⟨ha, hb, _⟩ := hv (i - start) ht
+        rw [heq] at ha hb
+        have hca := hc (i - start) ht
+        rw [heq] at hca
+        exact ordinary_result (ih _ ha (by omega)) (ih _ hb (by omega)) hca
+
+end PEqualNP.Outside.L_meta_2590.S45.IndexSchedule
+
+namespace PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def gop : Bool → Bool → Bool → Bool
+  | true, a, b => a && b
+  | false, a, b => a || b
+
+lemma gop_true (a b : Bool) : gop true a b = (a && b) := rfl
+
+lemma gop_false (a b : Bool) : gop false a b = (a || b) := rfl
+
+abbrev Dag := List (Bool × ℕ × ℕ)
+
+def tag (D : Dag) (j : ℕ) : Bool := (D.getD j (false, 0, 0)).1
+
+def opA (D : Dag) (j : ℕ) : ℕ := (D.getD j (false, 0, 0)).2.1
+
+def opB (D : Dag) (j : ℕ) : ℕ := (D.getD j (false, 0, 0)).2.2
+
+def wstep (w : List Bool) (g : Bool × ℕ × ℕ) : List Bool :=
+  w ++ [gop g.1 (w.getD g.2.1 false) (w.getD g.2.2 false)]
+
+def wl (D : Dag) (w : List Bool) : List Bool := D.foldl wstep w
+
+def val (D : Dag) {n : ℕ} (x : Fin n → Bool) (w : ℕ) : Bool :=
+  (wl D (List.ofFn x)).getD w false
+
+def Strict (n : ℕ) (D : Dag) : Prop :=
+  ∀ j, j < D.length → opA D j < n + j ∧ opB D j < n + j ∧ opA D j ≠ opB D j
+
+def readers (D : Dag) (w : ℕ) : Finset ℕ :=
+  (Finset.range D.length).filter (fun j => opA D j = w ∨ opB D j = w)
+
+def fanout (D : Dag) (w : ℕ) : ℕ := (readers D w).card
+
+def Live (n : ℕ) (D : Dag) : Prop := ∀ w, w + 1 < n + D.length → 1 ≤ fanout D w
+
+def StrictLive (n : ℕ) (D : Dag) : Prop := Strict n D ∧ Live n D ∧ D ≠ []
+
+def outW (n : ℕ) (D : Dag) : ℕ := n + D.length - 1
+
+def single {n : ℕ} (v : Fin n) : Fin n → Bool := fun i => decide (i = v)
+
+def supp (n : ℕ) (D : Dag) (w : ℕ) : Finset (Fin n) :=
+  Finset.univ.filter (fun v => val D (single v) w = true)
+
+def surplusOn (D : Dag) (K : Finset ℕ) : ℕ := ∑ w ∈ K, (fanout D w - 1)
+
+def inner (n : ℕ) (D : Dag) : Finset ℕ := Finset.range (n + D.length - 1)
+
+def totalSurplus (n : ℕ) (D : Dag) : ℕ := surplusOn D (inner n D)
+
+def Bplus (n : ℕ) (D : Dag) : ℕ :=
+  surplusOn D ((inner n D).filter (fun w => (supp n D w).Nonempty))
+
+def Bzero (n : ℕ) (D : Dag) : ℕ :=
+  surplusOn D ((inner n D).filter (fun w => ¬ (supp n D w).Nonempty))
+
+def branchW (n : ℕ) (D : Dag) : Finset ℕ :=
+  (Finset.range (n + D.length)).filter (fun w => 2 ≤ fanout D w)
+
+def eligSet (n : ℕ) (D : Dag) : Finset (Fin n) := (branchW n D).biUnion (supp n D)
+
+def ineligSet (n : ℕ) (D : Dag) : Finset (Fin n) := Finset.univ \ eligSet n D
+
+def units (n : ℕ) (D : Dag) : Finset (Σ _ : ℕ, ℕ) :=
+  (inner n D).sigma (fun w => Finset.range (fanout D w - 1))
+
+def unitsPlus (n : ℕ) (D : Dag) : Finset (Σ _ : ℕ, ℕ) :=
+  (units n D).filter (fun u => (supp n D u.1).Nonempty)
+
+def arcs (D : Dag) : Finset (ℕ × Bool) := Finset.range D.length ×ˢ Finset.univ
+
+def src (D : Dag) (e : ℕ × Bool) : ℕ := if e.2 = true then opB D e.1 else opA D e.1
+
+def exitArcs (n : ℕ) (D : Dag) (K : Finset ℕ) : Finset (ℕ × Bool) :=
+  (arcs D).filter (fun e => src D e ∈ K ∧ n + e.1 ∉ K)
+
+def merges (n : ℕ) (D : Dag) (K : Finset ℕ) : Finset ℕ :=
+  (Finset.range D.length).filter (fun j => n + j ∈ K ∧ opA D j ∈ K ∧ opB D j ∈ K)
+
+def sources (n : ℕ) (K : Finset ℕ) : Finset ℕ := K.filter (fun w => w < n)
+
+def carrierT (n : ℕ) (D : Dag) (T : Finset (Fin n)) : Finset ℕ :=
+  (Finset.range (n + D.length)).filter (fun w => (supp n D w ∩ T).Nonempty)
+
+def carrierDiff (n : ℕ) (D : Dag) (x y : Fin n) : Finset ℕ :=
+  (Finset.range (n + D.length)).filter (fun w => x ∈ supp n D w ∧ y ∉ supp n D w)
+
+def PureBranch (n : ℕ) (D : Dag) (b : Fin n → ℕ) : Prop :=
+  ∀ v ∈ eligSet n D, 2 ≤ fanout D (b v) ∧ supp n D (b v) = {v}
+
+def reservedUnits (n : ℕ) (D : Dag) (b : Fin n → ℕ) : Finset (Σ _ : ℕ, ℕ) :=
+  (eligSet n D).image (fun v => (⟨b v, 0⟩ : Σ _ : ℕ, ℕ))
+
+def residualUnits (n : ℕ) (D : Dag) (b : Fin n → ℕ) : Finset (Σ _ : ℕ, ℕ) :=
+  unitsPlus n D \ reservedUnits n D b
+
+lemma tag_eq (D : Dag) (j : ℕ) (h : j < D.length) : tag D j = (D[j]).1 := by
+  simp [tag, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h]
+
+lemma opA_eq (D : Dag) (j : ℕ) (h : j < D.length) : opA D j = (D[j]).2.1 := by
+  simp [opA, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h]
+
+lemma opB_eq (D : Dag) (j : ℕ) (h : j < D.length) : opB D j = (D[j]).2.2 := by
+  simp [opB, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h]
+
+lemma wl_cons (g : Bool × ℕ × ℕ) (D : Dag) (w : List Bool) :
+    wl (g :: D) w = wl D (wstep w g) := rfl
+
+lemma wl_append (D E : Dag) (w : List Bool) : wl (D ++ E) w = wl E (wl D w) := by
+  simp [wl, List.foldl_append]
+
+lemma wstep_length (w : List Bool) (g : Bool × ℕ × ℕ) : (wstep w g).length = w.length + 1 := by
+  simp [wstep]
+
+lemma wl_length (D : Dag) : ∀ w : List Bool, (wl D w).length = w.length + D.length := by
+  induction D with
+  | nil => intro w; simp [wl]
+  | cons g D ih => intro w; rw [wl_cons, ih, wstep_length]; simp; omega
+
+lemma wstep_getD_lt (w : List Bool) (g : Bool × ℕ × ℕ) (i : ℕ) (h : i < w.length) :
+    (wstep w g).getD i false = w.getD i false := by
+  simp [wstep, List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+
+lemma wl_getD_lt (D : Dag) : ∀ (w : List Bool) (i : ℕ), i < w.length →
+    (wl D w).getD i false = w.getD i false := by
+  induction D with
+  | nil => intro w i _; rfl
+  | cons g D ih =>
+    intro w i h
+    rw [wl_cons, ih _ _ (by rw [wstep_length]; omega), wstep_getD_lt _ _ _ h]
+
+lemma getD_ge (w : List Bool) (i : ℕ) (h : w.length ≤ i) : w.getD i false = false := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none h]
+
+lemma wstep_getD_last (w : List Bool) (g : Bool × ℕ × ℕ) :
+    (wstep w g).getD w.length false = gop g.1 (w.getD g.2.1 false) (w.getD g.2.2 false) := by
+  simp [wstep, List.getD_eq_getElem?_getD]
+
+lemma wl_getD_gate (D : Dag) (w : List Bool) (j : ℕ) (hj : j < D.length) :
+    (wl D w).getD (w.length + j) false =
+      gop (tag D j) ((wl (D.take j) w).getD (opA D j) false)
+        ((wl (D.take j) w).getD (opB D j) false) := by
+  have hsplit : D = D.take j ++ D[j] :: D.drop (j + 1) := by simp
+  have hlen : (wl (D.take j) w).length = w.length + j := by
+    rw [wl_length, List.length_take]; omega
+  rw [tag_eq D j hj, opA_eq D j hj, opB_eq D j hj]
+  conv_lhs => rw [hsplit, wl_append, wl_cons]
+  rw [wl_getD_lt _ _ _ (by rw [wstep_length, hlen]; omega), ← hlen, wstep_getD_last]
+
+lemma wl_take_getD (D : Dag) (w : List Bool) (j i : ℕ) (hi : i < w.length + j)
+    (hj : j ≤ D.length) :
+    (wl (D.take j) w).getD i false = (wl D w).getD i false := by
+  have hsplit : D = D.take j ++ D.drop j := by simp
+  have hlen : (wl (D.take j) w).length = w.length + j := by
+    rw [wl_length, List.length_take]; omega
+  conv_rhs => rw [hsplit, wl_append]
+  rw [wl_getD_lt (D.drop j) (wl (D.take j) w) i (by rw [hlen]; exact hi)]
+
+lemma val_input (D : Dag) {n : ℕ} (x : Fin n → Bool) (i : ℕ) (h : i < n) :
+    val D x i = x ⟨i, h⟩ := by
+  unfold val
+  rw [wl_getD_lt _ _ _ (by simpa using h)]
+  simp [List.getD_eq_getElem?_getD, h]
+
+lemma val_ge (D : Dag) {n : ℕ} (x : Fin n → Bool) (w : ℕ) (h : n + D.length ≤ w) :
+    val D x w = false := by
+  unfold val
+  exact getD_ge _ _ (by rw [wl_length]; simpa using h)
+
+lemma val_take (D : Dag) {n : ℕ} (x : Fin n → Bool) (k w : ℕ) (hw : w < n + k)
+    (hk : k ≤ D.length) : val (D.take k) x w = val D x w := by
+  unfold val
+  exact wl_take_getD D _ k w (by simpa using hw) hk
+
+lemma val_gate {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (j : ℕ)
+    (hj : j < D.length) :
+    val D x (n + j) = gop (tag D j) (val D x (opA D j)) (val D x (opB D j)) := by
+  obtain ⟨ha, hb, -⟩ := hS j hj
+  have h := wl_getD_gate D (List.ofFn x) j hj
+  simp only [List.length_ofFn] at h
+  unfold val
+  rw [h, wl_take_getD D _ j _ (by simpa using ha) hj.le,
+    wl_take_getD D _ j _ (by simpa using hb) hj.le]
+
+lemma val_unique {n : ℕ} {D : Dag} (hS : Strict n D) (x : Fin n → Bool) (f : ℕ → Bool)
+    (hin : ∀ i (h : i < n), f i = x ⟨i, h⟩)
+    (hg : ∀ j, j < D.length → f (n + j) = gop (tag D j) (f (opA D j)) (f (opB D j))) :
+    ∀ w, w < n + D.length → val D x w = f w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hn : w < n
+    · rw [val_input D x w hn, hin w hn]
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < D.length := by omega
+      obtain ⟨ha, hb, -⟩ := hS j hj
+      rw [val_gate hS x j hj, hg j hj, ih _ ha (by omega), ih _ hb (by omega)]
+
+
+variable {n : ℕ} {D : Dag}
+
+lemma mem_supp {v : Fin n} {w : ℕ} : v ∈ supp n D w ↔ val D (single v) w = true := by
+  simp [supp]
+
+lemma val_mono (hS : Strict n D) (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true)
+    (w : ℕ) : val D x w = true → val D y w = true := by
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    by_cases hn : w < n
+    · rw [val_input D x w hn, val_input D y w hn]; exact hxy _
+    · by_cases hw : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        obtain ⟨ha, hb, -⟩ := hS j hj
+        rw [val_gate hS x j hj, val_gate hS y j hj]
+        have h1 := ih _ ha
+        have h2 := ih _ hb
+        cases tag D j <;>
+          simp only [gop_true, gop_false, Bool.and_eq_true, Bool.or_eq_true] <;> tauto
+      · rw [val_ge D x w (by omega)]; simp
+
+lemma supp_input (D : Dag) (i : Fin n) : supp n D i.val = {i} := by
+  ext v
+  rw [mem_supp, val_input D (single v) i.val i.isLt]
+  simp [single, eq_comm]
+
+lemma supp_ge (D : Dag) (w : ℕ) (h : n + D.length ≤ w) : supp n D w = ∅ := by
+  ext v
+  simp [mem_supp, val_ge D (single v) w h]
+
+lemma supp_gate (hS : Strict n D) (j : ℕ) (hj : j < D.length) :
+    supp n D (n + j) = if tag D j = true then supp n D (opA D j) ∩ supp n D (opB D j)
+      else supp n D (opA D j) ∪ supp n D (opB D j) := by
+  ext v
+  rw [mem_supp, val_gate hS _ j hj]
+  cases tag D j <;> simp [mem_supp, gop]
+
+end PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+
+namespace PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+open ResourceExclusion IndexSchedule CausalBarrier
+
+def DagResource (D : Dag) (w : ℕ) : Resource :=
+  (supp 10 D w, fun E => val D (fun v => decide (v ∈ E)) w)
+
+lemma zero_reader_unique {D : Dag} (hS : Strict 10 D) (hz : Bzero 10 D = 0)
+    {j k w : ℕ} (hj : j < D.length) (hk : k < D.length)
+    (he : supp 10 D w = ∅)
+    (hrj : opA D j = w ∨ opB D j = w)
+    (hrk : opA D k = w ∨ opB D k = w) : j = k := by
+  have hw : w < 10 + j := by
+    obtain ⟨ha, hb, _⟩ := hS j hj
+    rcases hrj with h | h <;> omega
+  have hinner : w ∈ (inner 10 D).filter (fun u => ¬ (supp 10 D u).Nonempty) := by
+    apply Finset.mem_filter.mpr
+    constructor
+    · simp only [inner, Finset.mem_range]
+      omega
+    · simp [he]
+  have hsum : fanout D w - 1 ≤ Bzero 10 D := by
+    unfold Bzero surplusOn
+    exact Finset.single_le_sum (f := fun u => fanout D u - 1) (fun _ _ => Nat.zero_le _) hinner
+  have hcard : (readers D w).card ≤ 1 := by
+    change fanout D w ≤ 1
+    omega
+  apply Finset.card_le_one.mp hcard j ?_ k ?_
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, hrj⟩
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hrk⟩
+
+lemma input_ordinary (D : Dag) {i : ℕ} (hi : i < 10) : Ordinary (DagResource D i) := by
+  intro E _ ht
+  change val D (fun v => decide (v ∈ E)) i = true at ht
+  rw [val_input D _ i hi] at ht
+  have hm : (⟨i, hi⟩ : Fin 10) ∈ E := of_decide_eq_true ht
+  refine ⟨⟨i, hi⟩, Finset.mem_inter.mpr ⟨?_, hm⟩⟩
+  change (⟨i, hi⟩ : Fin 10) ∈ supp 10 D i
+  rw [supp_input D ⟨i, hi⟩]
+  simp
+
+lemma resource_gate {D : Dag} (hS : Strict 10 D) {j : ℕ} (hj : j < D.length) :
+    DagResource D (10 + j) =
+      if tag D j = true then RMeet (DagResource D (opA D j)) (DagResource D (opB D j))
+      else RJoin (DagResource D (opA D j)) (DagResource D (opB D j)) := by
+  cases ht : tag D j
+  · simp only [Bool.false_eq_true, ite_false]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RJoin, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RJoin, DagResource])
+  · simp only [ite_true]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RMeet, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RMeet, DagResource])
+
+lemma support_hit_true {D : Dag} (hS : Strict 10 D) {w : ℕ} {E : Finset (Fin 10)}
+    (hh : (supp 10 D w ∩ E).Nonempty) : (DagResource D w).2 E = true := by
+  obtain ⟨v, hv⟩ := hh
+  obtain ⟨hvs, hvE⟩ := Finset.mem_inter.mp hv
+  apply val_mono hS (single v) (fun u => decide (u ∈ E)) ?_ w (mem_supp.mp hvs)
+  intro u hu
+  have huv : u = v := by simpa [single] using hu
+  subst u
+  exact decide_eq_true hvE
+
+def DirtyA : Finset (Fin 10) := {3, 6, 7}
+
+def DirtyB : Finset (Fin 10) := {2, 8, 9}
+
+def DirtySides (D : Dag) (g : ℕ) : Prop :=
+  (supp 10 D (opA D g) = DirtyA ∧ supp 10 D (opB D g) = DirtyB) ∨
+  (supp 10 D (opA D g) = DirtyB ∧ supp 10 D (opB D g) = DirtyA)
+
+lemma cross_hits : ∀ E ∈ CrossPairs,
+    (DirtyA ∩ E).Nonempty ∧ (DirtyB ∩ E).Nonempty := by
+  simp [CrossPairs, DirtyA, DirtyB]
+
+lemma dirty_seed {D : Dag} (hS : Strict 10 D) {g : ℕ} (hg : g < D.length)
+    (ht : tag D g = true) (hs : DirtySides D g) :
+    (DagResource D (10 + g)).1 = ∅ ∧
+      ∀ E ∈ CrossPairs, (DagResource D (10 + g)).2 E = true := by
+  constructor
+  · change supp 10 D (10 + g) = ∅
+    rw [supp_gate hS g hg, ht]
+    simp only [ite_true]
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [ha, hb]
+      decide
+    · rw [ha, hb]
+      decide
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) (10 + g) = true
+    rw [val_gate hS _ g hg, ht]
+    change (DagResource D (opA D g)).2 E && (DagResource D (opB D g)).2 E = true
+    have hcross := cross_hits E hE
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [support_hit_true hS (by simpa [ha] using hcross.1),
+        support_hit_true hS (by simpa [hb] using hcross.2)]
+      rfl
+    · rw [support_hit_true hS (by simpa [ha] using hcross.2),
+        support_hit_true hS (by simpa [hb] using hcross.1)]
+      rfl
+
+
+def Left (D : Dag) (w : ℕ) : ℕ := opA D (w - 10)
+
+def Right (D : Dag) (w : ℕ) : ℕ := opB D (w - 10)
+
+lemma window_valid {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length) :
+    ValidUpTo (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  obtain ⟨ha, hb, hab⟩ := hS (offset + t) hj
+  simp only [Left, Right, hsub]
+  exact ⟨by omega, by omega, hab⟩
+
+lemma window_linear {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {offset count : ℕ} (hbound : offset + count ≤ D.length) :
+    LinearUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro i hi j hj w he hri hrj
+  have his : 10 + offset + i - 10 = offset + i := by omega
+  have hjs : 10 + offset + j - 10 = offset + j := by omega
+  change supp 10 D w = ∅ at he
+  simp only [Reads, Left, Right, his] at hri
+  simp only [Reads, Left, Right, hjs] at hrj
+  have heq := zero_reader_unique hS hB (by omega : offset + i < D.length)
+    (by omega : offset + j < D.length) he hri hrj
+  omega
+
+lemma window_canonical {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length)
+    (hsides : ∀ j, offset ≤ j → j < offset + count → tag D j = true →
+      AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))) :
+    CanonicalUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  have hout : 10 + offset + t = 10 + (offset + t) := by omega
+  simp only [Left, Right, hsub]
+  rw [hout]
+  have hgate := resource_gate hS hj
+  cases ht : tag D (offset + t)
+  · left
+    simpa only [ht, Bool.false_eq_true, ite_false] using hgate
+  · right
+    exact ⟨hsides _ (by omega) (by omega) ht, by simpa only [ht, ite_true] using hgate⟩
+
+def OtherAndSides (D : Dag) (g : ℕ) : Prop :=
+  ∀ j < D.length, j ≠ g → tag D j = true →
+    AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))
+
+lemma before_seed_ordinary {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (hsides : OtherAndSides D g) :
+    ∀ i < 10 + g, Ordinary (DagResource D i) := by
+  apply ordinary_prefix (start := 10) (n := g) (A := Left D) (B := Right D)
+  · exact fun i hi => input_ordinary D hi
+  · exact window_valid (offset := 0) hS (by omega)
+  · apply window_canonical (offset := 0) hS (by omega)
+    intro j _ hj ht
+    exact hsides j (by omega) (by omega) ht
+
+lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) :
+    ∀ w < 10 + D.length, ¬ Target (DagResource D w) := by
+  obtain ⟨hdz, hdt⟩ := dirty_seed hS hg ht hdirty
+  have hbefore := before_seed_ordinary hS hg hsides
+  have hinit : Invariant (Pool (DagResource D) (Finset.range (10 + (g + 1)))) := by
+    apply initial_exceptional (d := 10 + g) (by omega) hdz hdt
+    intro i hi hne
+    exact hbefore i (by omega)
+  have hcount : g + 1 + (D.length - (g + 1)) ≤ D.length := by omega
+  have hvalid := window_valid hS hcount
+  have hlinear := window_linear hS hB hcount
+  have hcanonical : CanonicalUpTo (DagResource D) (10 + (g + 1)) (Left D) (Right D)
+      (D.length - (g + 1)) := by
+    apply window_canonical hS hcount
+    intro j hlo hhi ht
+    exact hsides j (by omega) (by omega) ht
+  intro w hw
+  exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
+
+end PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+
+namespace PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+open ResourceExclusion IndexSchedule CausalBarrier
+
+def DagResource (D : Dag) (w : ℕ) : Resource :=
+  (supp 10 D w, fun E => val D (fun v => decide (v ∈ E)) w)
+
+lemma zero_reader_unique {D : Dag} (hS : Strict 10 D) (hz : Bzero 10 D = 0)
+    {j k w : ℕ} (hj : j < D.length) (hk : k < D.length)
+    (he : supp 10 D w = ∅)
+    (hrj : opA D j = w ∨ opB D j = w)
+    (hrk : opA D k = w ∨ opB D k = w) : j = k := by
+  have hw : w < 10 + j := by
+    obtain ⟨ha, hb, _⟩ := hS j hj
+    rcases hrj with h | h <;> omega
+  have hinner : w ∈ (inner 10 D).filter (fun u => ¬ (supp 10 D u).Nonempty) := by
+    apply Finset.mem_filter.mpr
+    constructor
+    · simp only [inner, Finset.mem_range]
+      omega
+    · simp [he]
+  have hsum : fanout D w - 1 ≤ Bzero 10 D := by
+    unfold Bzero surplusOn
+    exact Finset.single_le_sum (f := fun u => fanout D u - 1) (fun _ _ => Nat.zero_le _) hinner
+  have hcard : (readers D w).card ≤ 1 := by
+    change fanout D w ≤ 1
+    omega
+  apply Finset.card_le_one.mp hcard j ?_ k ?_
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, hrj⟩
+  · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hrk⟩
+
+lemma input_ordinary (D : Dag) {i : ℕ} (hi : i < 10) : Ordinary (DagResource D i) := by
+  intro E _ ht
+  change val D (fun v => decide (v ∈ E)) i = true at ht
+  rw [val_input D _ i hi] at ht
+  have hm : (⟨i, hi⟩ : Fin 10) ∈ E := of_decide_eq_true ht
+  refine ⟨⟨i, hi⟩, Finset.mem_inter.mpr ⟨?_, hm⟩⟩
+  change (⟨i, hi⟩ : Fin 10) ∈ supp 10 D i
+  rw [supp_input D ⟨i, hi⟩]
+  simp
+
+lemma resource_gate {D : Dag} (hS : Strict 10 D) {j : ℕ} (hj : j < D.length) :
+    DagResource D (10 + j) =
+      if tag D j = true then RMeet (DagResource D (opA D j)) (DagResource D (opB D j))
+      else RJoin (DagResource D (opA D j)) (DagResource D (opB D j)) := by
+  cases ht : tag D j
+  · simp only [Bool.false_eq_true, ite_false]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RJoin, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RJoin, DagResource])
+  · simp only [ite_true]
+    apply Prod.ext
+    · exact (supp_gate hS j hj).trans (by simp [ht, RMeet, DagResource])
+    · funext E
+      exact (val_gate hS (fun v => decide (v ∈ E)) j hj).trans (by simp [ht, gop, RMeet, DagResource])
+
+lemma support_hit_true {D : Dag} (hS : Strict 10 D) {w : ℕ} {E : Finset (Fin 10)}
+    (hh : (supp 10 D w ∩ E).Nonempty) : (DagResource D w).2 E = true := by
+  obtain ⟨v, hv⟩ := hh
+  obtain ⟨hvs, hvE⟩ := Finset.mem_inter.mp hv
+  apply val_mono hS (single v) (fun u => decide (u ∈ E)) ?_ w (mem_supp.mp hvs)
+  intro u hu
+  have huv : u = v := by simpa [single] using hu
+  subst u
+  exact decide_eq_true hvE
+
+def DirtyA : Finset (Fin 10) := {4, 5, 6}
+
+def DirtyB : Finset (Fin 10) := {8, 9}
+
+def DirtySides (D : Dag) (g : ℕ) : Prop :=
+  (supp 10 D (opA D g) = DirtyA ∧ supp 10 D (opB D g) = DirtyB) ∨
+  (supp 10 D (opA D g) = DirtyB ∧ supp 10 D (opB D g) = DirtyA)
+
+lemma cross_hits : ∀ E ∈ CrossPairs,
+    (DirtyA ∩ E).Nonempty ∧ (DirtyB ∩ E).Nonempty := by
+  simp [CrossPairs, DirtyA, DirtyB]
+
+lemma dirty_seed {D : Dag} (hS : Strict 10 D) {g : ℕ} (hg : g < D.length)
+    (ht : tag D g = true) (hs : DirtySides D g) :
+    (DagResource D (10 + g)).1 = ∅ ∧
+      ∀ E ∈ CrossPairs, (DagResource D (10 + g)).2 E = true := by
+  constructor
+  · change supp 10 D (10 + g) = ∅
+    rw [supp_gate hS g hg, ht]
+    simp only [ite_true]
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [ha, hb]
+      decide
+    · rw [ha, hb]
+      decide
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) (10 + g) = true
+    rw [val_gate hS _ g hg, ht]
+    change (DagResource D (opA D g)).2 E && (DagResource D (opB D g)).2 E = true
+    have hcross := cross_hits E hE
+    rcases hs with ⟨ha, hb⟩ | ⟨ha, hb⟩
+    · rw [support_hit_true hS (by simpa [ha] using hcross.1),
+        support_hit_true hS (by simpa [hb] using hcross.2)]
+      rfl
+    · rw [support_hit_true hS (by simpa [ha] using hcross.2),
+        support_hit_true hS (by simpa [hb] using hcross.1)]
+      rfl
+
+
+def Left (D : Dag) (w : ℕ) : ℕ := opA D (w - 10)
+
+def Right (D : Dag) (w : ℕ) : ℕ := opB D (w - 10)
+
+lemma window_valid {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length) :
+    ValidUpTo (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  obtain ⟨ha, hb, hab⟩ := hS (offset + t) hj
+  simp only [Left, Right, hsub]
+  exact ⟨by omega, by omega, hab⟩
+
+lemma window_linear {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {offset count : ℕ} (hbound : offset + count ≤ D.length) :
+    LinearUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro i hi j hj w he hri hrj
+  have his : 10 + offset + i - 10 = offset + i := by omega
+  have hjs : 10 + offset + j - 10 = offset + j := by omega
+  change supp 10 D w = ∅ at he
+  simp only [Reads, Left, Right, his] at hri
+  simp only [Reads, Left, Right, hjs] at hrj
+  have heq := zero_reader_unique hS hB (by omega : offset + i < D.length)
+    (by omega : offset + j < D.length) he hri hrj
+  omega
+
+lemma window_canonical {D : Dag} (hS : Strict 10 D) {offset count : ℕ}
+    (hbound : offset + count ≤ D.length)
+    (hsides : ∀ j, offset ≤ j → j < offset + count → tag D j = true →
+      AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))) :
+    CanonicalUpTo (DagResource D) (10 + offset) (Left D) (Right D) count := by
+  intro t ht
+  have hj : offset + t < D.length := by omega
+  have hsub : 10 + offset + t - 10 = offset + t := by omega
+  have hout : 10 + offset + t = 10 + (offset + t) := by omega
+  simp only [Left, Right, hsub]
+  rw [hout]
+  have hgate := resource_gate hS hj
+  cases ht : tag D (offset + t)
+  · left
+    simpa only [ht, Bool.false_eq_true, ite_false] using hgate
+  · right
+    exact ⟨hsides _ (by omega) (by omega) ht, by simpa only [ht, ite_true] using hgate⟩
+
+def OtherAndSides (D : Dag) (g : ℕ) : Prop :=
+  ∀ j < D.length, j ≠ g → tag D j = true →
+    AllowedSides (DagResource D (opA D j)) (DagResource D (opB D j))
+
+lemma before_seed_ordinary {D : Dag} (hS : Strict 10 D) {g : ℕ}
+    (hg : g < D.length) (hsides : OtherAndSides D g) :
+    ∀ i < 10 + g, Ordinary (DagResource D i) := by
+  apply ordinary_prefix (start := 10) (n := g) (A := Left D) (B := Right D)
+  · exact fun i hi => input_ordinary D hi
+  · exact window_valid (offset := 0) hS (by omega)
+  · apply window_canonical (offset := 0) hS (by omega)
+    intro j _ hj ht
+    exact hsides j (by omega) (by omega) ht
+
+lemma canonical_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) :
+    ∀ w < 10 + D.length, ¬ Target (DagResource D w) := by
+  obtain ⟨hdz, hdt⟩ := dirty_seed hS hg ht hdirty
+  have hbefore := before_seed_ordinary hS hg hsides
+  have hinit : Invariant (Pool (DagResource D) (Finset.range (10 + (g + 1)))) := by
+    apply initial_exceptional (d := 10 + g) (by omega) hdz hdt
+    intro i hi hne
+    exact hbefore i (by omega)
+  have hcount : g + 1 + (D.length - (g + 1)) ≤ D.length := by omega
+  have hvalid := window_valid hS hcount
+  have hlinear := window_linear hS hB hcount
+  have hcanonical : CanonicalUpTo (DagResource D) (10 + (g + 1)) (Left D) (Right D)
+      (D.length - (g + 1)) := by
+    apply window_canonical hS hcount
+    intro j hlo hhi ht
+    exact hsides j (by omega) (by omega) ht
+  intro w hw
+  exact program_any_wire_exclusion hinit hvalid hlinear hcanonical w (by omega)
+
+end PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+
+namespace PEqualNP.Outside.L_meta_2590.DAGBridge
+
+open DagTools
+
+lemma petersen_single_false : ∀ v : Fin 10,
+    PEqualNP.Outside.L_meta_2590.edgeFn (single v) = false := by
+  decide
+
+end PEqualNP.Outside.L_meta_2590.DAGBridge
+
+namespace PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+open PEqualNP.Outside.L_meta_2590.DAGBridge
+open ResourceExclusion CausalBarrier
+
+lemma target_of_computes {D : Dag} {w : ℕ}
+    (hc : ∀ x : Fin 10 → Bool, val D x w = PEqualNP.Outside.L_meta_2590.edgeFn x) :
+    Target (DagResource D w) := by
+  refine ⟨?_, ?_, ?_⟩
+  · change supp 10 D w = ∅
+    ext v
+    simp only [Finset.notMem_empty, iff_false]
+    intro hv
+    have ht := mem_supp.mp hv
+    rw [hc, petersen_single_false] at ht
+    contradiction
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) w = true
+    rw [hc]
+    have hfinite : ∀ E ∈ DirtyEdges, PEqualNP.Outside.L_meta_2590.edgeFn (fun v => decide (v ∈ E)) = true := by
+      simp [DirtyEdges, PEqualNP.Outside.L_meta_2590.edgeFn]
+    exact hfinite E hE
+  · change val D (fun v => decide (v ∈ ({3, 9} : Finset (Fin 10)))) w = false
+    rw [hc]
+    decide
+
+lemma petersen_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) {w : ℕ} (hw : w < 10 + D.length) :
+    ¬ ∀ x : Fin 10 → Bool, val D x w = PEqualNP.Outside.L_meta_2590.edgeFn x := by
+  intro hc
+  exact canonical_dag_exclusion hS hB hg ht hdirty hsides w hw (target_of_computes hc)
+
+end PEqualNP.Outside.L_meta_2590.FiveGroup.DAGBridge
+
+namespace PEqualNP.Outside.L_meta_2590.S45.DAGBridge
+
+open PEqualNP.Outside.L_meta_2590.DAGBridge.DagTools
+open PEqualNP.Outside.L_meta_2590.DAGBridge
+open ResourceExclusion CausalBarrier
+
+lemma target_of_computes {D : Dag} {w : ℕ}
+    (hc : ∀ x : Fin 10 → Bool, val D x w = PEqualNP.Outside.L_meta_2590.edgeFn x) :
+    Target (DagResource D w) := by
+  refine ⟨?_, ?_, ?_⟩
+  · change supp 10 D w = ∅
+    ext v
+    simp only [Finset.notMem_empty, iff_false]
+    intro hv
+    have ht := mem_supp.mp hv
+    rw [hc, petersen_single_false] at ht
+    contradiction
+  · intro E hE
+    change val D (fun v => decide (v ∈ E)) w = true
+    rw [hc]
+    have hfinite : ∀ E ∈ DirtyEdges, PEqualNP.Outside.L_meta_2590.edgeFn (fun v => decide (v ∈ E)) = true := by
+      simp [DirtyEdges, PEqualNP.Outside.L_meta_2590.edgeFn]
+    exact hfinite E hE
+  · change val D (fun v => decide (v ∈ ({4, 8} : Finset (Fin 10)))) w = false
+    rw [hc]
+    decide
+
+lemma petersen_dag_exclusion {D : Dag} (hS : Strict 10 D) (hB : Bzero 10 D = 0)
+    {g : ℕ} (hg : g < D.length) (ht : tag D g = true) (hdirty : DirtySides D g)
+    (hsides : OtherAndSides D g) {w : ℕ} (hw : w < 10 + D.length) :
+    ¬ ∀ x : Fin 10 → Bool, val D x w = PEqualNP.Outside.L_meta_2590.edgeFn x := by
+  intro hc
+  exact canonical_dag_exclusion hS hB hg ht hdirty hsides w hw (target_of_computes hc)
+
+end PEqualNP.Outside.L_meta_2590.S45.DAGBridge
