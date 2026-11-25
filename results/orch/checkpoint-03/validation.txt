@@ -1,0 +1,11 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap:L-meta-2592
+Named module lake build:PASS
+Main file now includes20-gate witness, graph bounds, monotonicity, all inputs essential, and restricted input-NOT elimination.
+The posted ≤19-gate lower bound remains unproved; no final theorem or PR.
+Intake guard: expected partial rejection, the file holds no theorem.
+Local checker: pending full Mathlib cache restoration.
+Independent actual-file review:PASS, results/orch/partial-review-03.md
+Lines before/after cleanup:178/178 (cleanup not applicable to incomplete proof).
+Sub-agents:6
+TIMING total=22.3 subagents=6
