@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2602_aux.Witness65.size65_double_read' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

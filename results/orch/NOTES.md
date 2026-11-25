@@ -165,3 +165,9 @@ The unrestricted nine-gate eight-input double-star synthesis problem is computat
 A separate trusted replay now compiles: results/orch/lemmas/Reductions.lean proves UNSAT of the exact concrete five-gate, four-input path synthesis CNF. It copies the repo LRAT checker and uses decide +kernel with 1,274 trimmed RUP steps. Axiom audit lists only propext, Classical.choice, Quot.sound. Source is 341095 bytes. Archive: results/orch/search/kernel_lrat_control/. The circuit-to-CNF bridge is not yet proved; no statement about five-gate circuits follows formally until that bridge is supplied. Default bv_decide was rejected after a tiny test introduced a native axiom.
 
 Current work: reconstructing a typed five-gate candidate and every Tseitin-variable expression to prove the semantic encoding bridge with ordinary Lean proofs. Regenerated CNF is byte-identical to the certified input. First 30 clause proofs compile; all clause kinds and output/derivative clauses are being checked before the full 2537-clause proof.
+
+### 2026-11-25 04:12 UTC — AND-count bridge test
+
+An incremental variant of the existing normalized AND-count SAT search started with only 28 pure/single-side maximal negative inputs, rather than immediately adding all 704. Plain12AND timed out at60.35s; symmetry/reduced variant timed out at180.31s. Both are UNKNOWN, no candidate or certificate. Complete sources, CNFs, stdout/stderr and limitations are archived in `results/orch/search/and_plane_incremental/`.
+
+A reverse-formal-derivative route also loses too much information: in the distributed65 construction `(A∨p)∧(A∨L)`, point derivatives at all-point-zero have only16 accepted singleton incidence edges, and line derivatives at all-line-zero have only4. Thus one additional OR can erase most formal read-once supports. Missing derivative edges cannot be charged independently to many extra gates.

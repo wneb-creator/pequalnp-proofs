@@ -1,0 +1,26 @@
+[
+  {
+    "path": "and-plane3-12-incremental/round-0.stdout.gz",
+    "sha256": "a440281082b0d7693c1be79c3b17c6147b57381839e6789c249d9aaeef001909",
+    "original_sha256": "a8c55f0c7e3ad4b3d9dbfa140af0444bffb8ac3a78eef090def0367d296ea7fa",
+    "original_bytes": 8273
+  },
+  {
+    "path": "and-plane3-12-incremental/round-0.stderr.gz",
+    "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_bytes": 0
+  },
+  {
+    "path": "and-plane3-12-sym-reduced-incremental/round-0.stdout.gz",
+    "sha256": "54916dd3468d57be157515ff9a035a6623337ae46d19a56efe2577e12ed8e0c1",
+    "original_sha256": "45d4b5588e141c485195faf435875773e1aa0bda7bb9d121b7a15a705cd345be",
+    "original_bytes": 14271
+  },
+  {
+    "path": "and-plane3-12-sym-reduced-incremental/round-0.stderr.gz",
+    "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_bytes": 0
+  }
+]

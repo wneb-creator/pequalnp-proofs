@@ -1,0 +1,84 @@
+{
+  "recorded_at": "2026-11-25T04:10:36.710932+00:00",
+  "toolchain": "Lean4.36.0",
+  "path_prefix": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin",
+  "method": "Each exact source copy had one #print axioms command appended, then compiled with lake env lean. Allcombinedstdout/stderr retained.",
+  "scope": "Trust audit of already checked partial theorems only, not the posted L-meta-2602 theorem or the repository submission checker.",
+  "runs": [
+    {
+      "source": "results/orch/lemmas/Witness65.lean",
+      "source_sha256": "2d77ce67e2913b46eed59023f53df0151ebbf36110ac89a2caf855c9d187dda9",
+      "audit_copy": "/tmp/oec/pequalnp-pilot-64/TrustAuditWitness65.lean",
+      "audit_copy_sha256": "089cb8099985377b8c6de86b90717dd59318911a39258e079e8e30c8fcf04ae7",
+      "theorem": "PEqualNP.Outside.L_meta_2602_aux.Witness65.size65_double_read",
+      "exit_code": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compile_argv": [
+        "lake",
+        "env",
+        "lean",
+        "/tmp/oec/pequalnp-pilot-64/TrustAuditWitness65.lean"
+      ],
+      "workdir": "/workspace/pequalnp-proofs/lean",
+      "log": {
+        "file": "Witness65.log",
+        "bytes": 125,
+        "sha256": "173fc84460c3eb1c369b79d9cc83be7449c1029f570fd0685a5339f3a4747cd1"
+      }
+    },
+    {
+      "source": "results/orch/lemmas/PlaneOrBound.lean",
+      "source_sha256": "32f53c901432992c0a7585001d359f4203c28ef873df4c9f063bfb1e1c4822ce",
+      "audit_copy": "/tmp/oec/pequalnp-pilot-64/TrustAuditPlaneOrBound.lean",
+      "audit_copy_sha256": "4d4c2fa0d8ff73480b2d2c208ee7aa1216293101d2adccf44675af13e32d717b",
+      "theorem": "PEqualNP.Outside.L_meta_2602_aux.PlaneOrBound.plane_or_lower_bound",
+      "exit_code": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compile_argv": [
+        "lake",
+        "env",
+        "lean",
+        "/tmp/oec/pequalnp-pilot-64/TrustAuditPlaneOrBound.lean"
+      ],
+      "workdir": "/workspace/pequalnp-proofs/lean",
+      "log": {
+        "file": "PlaneOrBound.log",
+        "bytes": 1957,
+        "sha256": "e50efbd83224b53eb053e8f72786180c83506d4cb64c3b4940ba16accf1141b2"
+      }
+    },
+    {
+      "source": "results/orch/lemmas/CofactorProductive.lean",
+      "source_sha256": "b5eb4a789db0dacac3dd42f59610d4efbd236936ab4f7275a1f089a7f51b6f8a",
+      "audit_copy": "/tmp/oec/pequalnp-pilot-64/TrustAuditCofactorProductive.lean",
+      "audit_copy_sha256": "3ed093f7add5278075facc65ee1914c07924a7fe4dcd2683ae04e548bfe1d621",
+      "theorem": "PEqualNP.Outside.L_meta_2602_aux.CofactorProductive.cofactor_productive_lower_bound",
+      "exit_code": 0,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compile_argv": [
+        "lake",
+        "env",
+        "lean",
+        "/tmp/oec/pequalnp-pilot-64/TrustAuditCofactorProductive.lean"
+      ],
+      "workdir": "/workspace/pequalnp-proofs/lean",
+      "log": {
+        "file": "CofactorProductive.log",
+        "bytes": 3386,
+        "sha256": "a5472f40d1e4dbc6723cd5b6e2f7de3a3915a1c3a68797f03af19f12d201f7ed"
+      }
+    }
+  ]
+}

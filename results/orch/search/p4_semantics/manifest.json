@@ -1,0 +1,100 @@
+{
+  "scope": "Compiled equality of encoded traces with explicit five-gate evaluation and formal derivatives. Full clause bridge and lower-bound composition pending.",
+  "theorems": [
+    "PEqualNP.Outside.Pilot64Bridge.output_eq_evalCircuit",
+    "PEqualNP.Outside.Pilot64Bridge.derivativeLeft_eq",
+    "PEqualNP.Outside.Pilot64Bridge.derivativeRight_eq"
+  ],
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "files": [
+    {
+      "file": "p4_bridge_generate.py",
+      "bytes": 3599,
+      "sha256": "c27d941c9855cf69fb9aa780b0ea66633a2d7b9b190280e9e69b8c20ab783832"
+    },
+    {
+      "file": "p4_bridge_lean.py",
+      "bytes": 5840,
+      "sha256": "6f2af64183dfe9ff8f4d8d7b41fde0577505555e0d9e1588780efb21f8393e2b"
+    },
+    {
+      "file": "p4_semantics_generate.py",
+      "bytes": 3273,
+      "sha256": "0c7ea7505a326e29abf980c0d10ce27a143ab9caf6982f48689236268b164588"
+    },
+    {
+      "file": "ReductionsSample49.lean",
+      "bytes": 10637,
+      "sha256": "a22c7f196855be5f780c21c26d00d4db04c9b9f60b7a5321ad271b21c8253e76"
+    },
+    {
+      "file": "p4-ir-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "p4-semantics-build-2.log.gz",
+      "bytes": 261,
+      "sha256": "56bc33da85005d01147b4dc4a1d59687f52a31b6f4fc16ab87b1fe178d42733b",
+      "original_bytes": 359,
+      "original_sha256": "88b8d691e08dcdd0a97ae395789afb1b74fbd679b67ba205a090f428a07a64bf",
+      "encoding": "gzip"
+    },
+    {
+      "file": "p4-semantics-axioms.log.gz",
+      "bytes": 138,
+      "sha256": "0abd55c552551b01e78cd6123b5f526ef57cdfabe9346de4c3a93d0b122bb505",
+      "original_bytes": 281,
+      "original_sha256": "b22373c4ce74010a0f0f77305985c6fc60678b6226c14b630b71469bcc19367c",
+      "encoding": "gzip"
+    },
+    {
+      "file": "p4-bridge-build-sample-2.log.gz",
+      "bytes": 184,
+      "sha256": "9bcd873ecb1eb379d86a1e82152187d713a68ed821fb6dd450171ab0298daa37",
+      "original_bytes": 772,
+      "original_sha256": "323cdee2c799878058419df983b6a073d601afee85b1e82bdbd7b4b98ce90936",
+      "encoding": "gzip"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1601,
+      "sha256": "c175c1de3cf73dc0ca8ee67a011471e8e50d7d3ac31a9a70a3c88d55a39b5fac"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/ReductionsIR.lean",
+      "bytes": 79691,
+      "sha256": "c6017c154255c2e20a078365e9e47ff6448457134eba1e4fd3ac48777798a152"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsSemantics.lean",
+      "bytes": 15161,
+      "sha256": "af76f3f045ce5c533bdfbb8b93dbb1d5c67ab800b8ca41843f6c686fb954433f"
+    },
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    },
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "results/orch/search/and_count_search.py",
+      "bytes": 6697,
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1"
+    }
+  ],
+  "cnf_input_reference": "results/orch/search/kernel_lrat_control/audit-path-center5.cnf.gz",
+  "source_build_identity": "Referenced IR and semantics files are exact copies of compiled scratch modules. The sample source was reconstructed and renamed from ReductionsBridge.lean to ReductionsSample49.lean."
+}

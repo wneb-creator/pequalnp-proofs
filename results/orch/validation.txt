@@ -60,3 +60,9 @@ ClassificationObstruction.lean v2: lake env lean passed, exit0;81lines, empty ou
 ClassificationObstruction.lean v3: lake env lean passed, exit0;103lines, empty output. Added explicit size7 and posted-style binary AND/OR distinct-earlier operand legality for the classification countermodel. Independent review PASS.
 Theta3 OR-count audit: three seven-OR searches timed out (UNKNOWN); eight-OR SAT control independently verified all256assignments and143532CNFclauses. Full outputs/hashes preserved; independent archive review PASS. No theorem for the posted gap.
 Alternative66 seed:14AND+52OR; exact52positive edges and704maximal-independent negatives plusbothformaltraces independently checked by scalar and bitset evaluators. Research seed only, not a64gate counterexample.
+
+FirstAnd.lean: lake env lean passed, exit0;61lines, empty output. A pair-accepting singleton-rejecting topological wire has an earlier AND combining opposite singleton supports. No injectivity or gate lower bound claimed. Independent review PASS.
+ReductionsIR.lean948lines andReductionsSemantics.lean185lines: lake env lean passed, exit0. Encoded16truth outputs andbothformalderivatives equal direct fivegateevaluation; axiom audit uses onlypropext/Quot.sound. Independent review PASS. FullCNFbridge remains in progress.
+P4prefix30: compiled checkpoint of30localclauseproofs; exported proposition isTrue. Preserved onlyascompilationprovenance, not a useful lower-bound theorem. Independent review PASS.
+Majorpartialtrustaudit: Witness65,PlaneOrBound,CofactorProductive compiled with explicit axiom audit; each depends only onpropext,Classical.choice,Quot.sound. Completeoutputs and source hashes independentlyreviewed.
+12ANDincrementaldiagnostics: both restricted encodings timedoutUNKNOWN; no candidate/noUNSAT. Both impose original-input disjointness, reducedadds earlier-AND disjointness; completenessunproved. Independent archive review PASS.

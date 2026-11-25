@@ -1,0 +1,2 @@
+{"case": "plane3", "n": 26, "ands": 12, "positives": 52, "all_negatives": 704}
+{"round": 0, "negatives": 28, "variables": 14832, "clauses": 58997, "code": 0, "seconds": 60.35}

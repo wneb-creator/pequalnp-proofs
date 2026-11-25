@@ -1,0 +1,60 @@
+{
+  "scope": "Compilation checkpoint only. The final proposition is True; no circuit encoding bridge is claimed.",
+  "files": [
+    {
+      "file": "ReductionsPrefix30.lean",
+      "bytes": 84860,
+      "sha256": "ce706a3ef17ad2bbdec68ac7a933d672283d852c53e4c806e8b8a56686776072"
+    },
+    {
+      "file": "p4-bridge-build-30.log.gz",
+      "bytes": 362,
+      "sha256": "ae9013cee183a17f89bf541e2d181c54eb3b0bfb294eaf8171c3154fe7927c47",
+      "original_bytes": 2820,
+      "original_sha256": "81434d8c181e74f0ca07993ca263b42d50db7c0ad2bd00cbf66f1c239e1b47ab",
+      "encoding": "gzip"
+    },
+    {
+      "file": "p4_bridge_generate.py",
+      "bytes": 3599,
+      "sha256": "c27d941c9855cf69fb9aa780b0ea66633a2d7b9b190280e9e69b8c20ab783832"
+    },
+    {
+      "file": "p4_bridge_lean.py",
+      "bytes": 5744,
+      "sha256": "42f0743e58404b547689ab4960e8a31c6ddf71cf14ea5250c4e51ba0f73e7f7a"
+    },
+    {
+      "file": "p4-bridge-trace.json",
+      "bytes": 386734,
+      "sha256": "c4d3ef0dee85e29d88141bafe159caa18a5151285ee0aca0bc0021a29ca82c4d"
+    },
+    {
+      "file": "p4-bridge-generation.log.gz",
+      "bytes": 164,
+      "sha256": "fdec84d6099c9bc5c302cadfab3bab00ff490aa68bed1c50b3e37642095da9c2",
+      "original_bytes": 192,
+      "original_sha256": "b6599ac3a02c8bc6fc68d111f446639d9987f4c95b98b76cbe485cbe48279f3e",
+      "encoding": "gzip"
+    },
+    {
+      "file": "p4-ir-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1074,
+      "sha256": "84d9046e9c5bc8601a4ca2eae1d0c7b2e7f709eb2694a930e7b67e9cc222258f"
+    }
+  ],
+  "rename": "Compiled as scratch ReductionsBridge.lean; archived as ReductionsPrefix30.lean.",
+  "reproduction": [
+    "python p4_bridge_generate.py",
+    "python p4_bridge_lean.py --count 30 --output ReductionsPrefix30.lean"
+  ],
+  "import_dependency": "results/orch/lemmas/Reductions.lean"
+}
