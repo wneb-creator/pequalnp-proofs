@@ -1,0 +1,5 @@
+{
+  "utc": "2026-11-25T11:22:50.027813+00:00",
+  "terminated_exact_matches": 1,
+  "reason": "checkpoint first5-minute high phase to add ordinary-function class snapshots; heuristic and evaluator unchanged; original end cutoff retained"
+}

@@ -1,0 +1,16 @@
+PASS — preservation checkpoint scope/metadata review
+Reviewed UTC: 2026-11-25T11:47:25.842308+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1145-files.json
+Manifest SHA256: 5a1281fbffff0aaa507eb1e3bc660ae4a267f227398299a4f6757cc9469ffe2f
+
+All 192 selected paths are unique regular files under results/orch; total 1,209,806 bytes. Every byte count and SHA256 matches the frozen manifest. No named proof file, credentials, unrelated repository path, active solver output or other pilot lease is included. This checkpoint is preservation on the owned work branch, not a proof PR or a final checker submission.
+
+All seven selected Lean files have zero occurrences of sorry, axiom, native_decide, _root_, or double quotes. The frozen standalone pruning, short posted bridge and protected-mask packages have matching successful build receipts and independent mathematical/source reviews. No Lean build was rerun for this metadata review. The three copies of the posted existential in the short bridge match statement.txt literally after extracting the declaration/conclusion text. Both final negations retain the missing structural no-quiet premise.
+
+The ledger and validation report preserve the open canonical cases, the explicit all-mask hypothesis, the ordinary p14 nature of the SAT target, and the distinction between an exact 35-gate Fano control and a synthetic 27-gate matching control. The named partial proof still lacks the final target theorem, and validation explicitly retains REJECTED (no-theorem). Nothing in this checkpoint claims the full gap proved or refuted.
+
+The completed high-search archive has 157 internally hashed files totaling 416,270 bytes; every internal hash matches. The root's fresh verifier outputs exactly match the archived complete verification reports, with empty stderr: 68 and 74 snapshots, all 16,384 truth rows and direct derivatives, no quiet witness at most27 gates. Documentation states the replayed RNG prefix, CSE eligibility limitation and bounded heuristic scope; it makes no UNSAT claim. K4 control JSON/source hashes match the independent review, and the 15/16/17-gate examples are correctly presented as examples rather than a universal eligibility theorem.
+
+Sensitive-pattern scan across every selected payload found no token-shaped GitHub credential, private-key block, credential-bearing URL or literal bearer credential. No credential value was printed or copied. Source/config/log preservation does not add network actions or credential access.
+
+No blocking issue found for this exact preservation checkpoint. Recheck any changed manifest entry before committing; the active SAT workers and newer multi-unit cofactor package are outside this reviewed set.

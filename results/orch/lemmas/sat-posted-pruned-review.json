@@ -1,0 +1,34 @@
+{
+  "verdict": "PASS (independent mathematical/source review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:43:03.705209+00:00",
+  "source": "results/orch/lemmas/formalization-posted-pruned-tail.lean",
+  "sha256": "b0e20354c56da4b518201c93fbdde0f40f96f0cf7fd6ff3a959e124e12b7129c",
+  "checks": [
+    "Posted1479 and both final negated conclusions still match the entire desk statement exactly modulo whitespace.",
+    "Changed posted_to_heawood uses the reviewed generic trace-preserving trim/delete theorem on the direct Dag, with the original Circuit output. It invokes no minimality or ordinary lower-bound theorem.",
+    "Both original derivatives pull back through the same rho; rho maps the new output to C.output, so both quiet equations transfer directly. The subsequent cyclic relabel composes inverse liftP inside rho in the correct order.",
+    "Gate count only decreases, the full computed cyclic function is preserved, and accepted-label relabel/adjacency and canonicalization remain as previously reviewed.",
+    "The final canonical/universal noquiet hypotheses remain explicit.",
+    "The final permitted-import standalone source matches the accepted2472-line prefix and exact reviewed tail, with successful frozen build receipt."
+  ],
+  "issues": [],
+  "limits": [
+    "Final noquiet structural premise remains explicit; this is conditional integration."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/formalization-posted-pruned-standalone.lean",
+    "sha256": "415a76814dca13132f12bfc038bef73f298a02ee39c5197a8a57dcdf0518b75d",
+    "tail_sha256": "b0e20354c56da4b518201c93fbdde0f40f96f0cf7fd6ff3a959e124e12b7129c",
+    "lines": 3050,
+    "bytes": 144941,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T11:42:48.177883+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "scope": "Conditional exact posted-statement refutation bridge via trace-preserving prefix trim and dead-gate deletion. No minimality/lower-bound premise. Universal/canonical no-double-quiet remains explicit.",
+    "accepted_prefix_lines": 2472,
+    "stdout": "results/orch/lemmas/formalization-posted-pruned-standalone.stdout",
+    "stderr": "results/orch/lemmas/formalization-posted-pruned-standalone.stderr"
+  }
+}

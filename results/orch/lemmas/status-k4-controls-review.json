@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "reviewed_utc": "2026-11-25T11:44:24.560911+00:00",
+  "json_sha256": "e75398a4544b20211dd61a60367cdbf5b07fe34a9d79068c55abd91947871ad9",
+  "source_sha256": "aa513cd0565de6d25712828aabe311c2f4ab7be6b4928ff3e67e07d62c81ed65",
+  "controls": [
+    {
+      "size": 15,
+      "eligible_originals": [],
+      "Bplus": 6,
+      "Bzero": 0
+    },
+    {
+      "size": 16,
+      "eligible_originals": [
+        0,
+        1
+      ],
+      "Bplus": 7,
+      "Bzero": 0
+    },
+    {
+      "size": 17,
+      "eligible_originals": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "Bplus": 8,
+      "Bzero": 0
+    }
+  ],
+  "scope": "Exact live distinct-input K4 circuits only, not a universal lower bound."
+}

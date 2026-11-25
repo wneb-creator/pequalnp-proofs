@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS (independent mathematical/source review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:38:32.502429+00:00",
+  "source": "results/orch/lemmas/formalization-prune-traces-tail.lean",
+  "sha256": "79e5b1581b6117e47f8975ce0bd7c65ecb42229e929bcbcf03fa149f99757d78",
+  "checks": [
+    "delete_dead_trace removes only a gate whose output has fanout0. Every remaining operand differs from that wire, so the shift/unshift equations and na_del_val preserve both product-rule terms and OR derivative terms.",
+    "prune_live_traces_aux deletes only a nonoutput dead wire. A dead primary input contradicts the explicit essential-input premise. Gate deletion reduces length and preserves nonempty output prefix and the computed function.",
+    "The composed map rho sends the new output to the old output and works simultaneously for every base, marked input and supplied trace. It is constructed independently of those traces.",
+    "take_trace restricts to a gate prefix and uses backward wiring to keep both operands inside that prefix. It preserves the original trace values without any gate aliasing.",
+    "strict_live_preserves_traces derives a valid internal output from nonconstancy/nonprojection, trims through exactly that output, then removes unused gates. Size only decreases and both arbitrary original traces pull back through the same output-respecting map.",
+    "No ordinary lower-bound/minimality premise, idempotence simplification or repeated-input collapse is used. Strict distinct operands are maintained by the accepted dead-deletion construction."
+  ],
+  "issues": [],
+  "limits": [],
+  "build": {
+    "source": "results/orch/lemmas/formalization-prune-traces-standalone.lean",
+    "sha256": "e73796420dc922af32906cd61743fb1000c5ec12b47e4db9655df988d64ec1a5",
+    "tail_sha256": "79e5b1581b6117e47f8975ce0bd7c65ecb42229e929bcbcf03fa149f99757d78",
+    "lines": 777,
+    "bytes": 34386,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T11:38:44.689523+00:00",
+    "scope": "Generic exact formal-trace-preserving prefix trim and dead-gate deletion. No minimality or ordinary lower bound assumed."
+  }
+}

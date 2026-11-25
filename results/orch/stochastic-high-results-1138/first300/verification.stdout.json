@@ -1,0 +1,3570 @@
+{
+  "snapshots": 68,
+  "truth_rows_each": 16384,
+  "boundary_rows": [
+    21,
+    37
+  ],
+  "marked_inputs": [
+    0,
+    7
+  ],
+  "best_exact_quiet_gates": 28,
+  "witnesses_at_most27": 0,
+  "validation": "PASS: all reported boundary and derivative error signatures agree with full independent evaluation",
+  "results": [
+    {
+      "file": "stochastic-high-phase-best.json",
+      "sha256": "b84cc9045f4e5d9ee1ddc4fa52de848cc8f45a2534c5453e7e5f40757cbc98db",
+      "gates": 28,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p11-bz1.json",
+      "sha256": "902bac4989ecdb6e56c0d6a5d1854136a05bf9d35da5feeae26eb6e88373c997",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 17,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p12-bz0.json",
+      "sha256": "0e9a9e67cd62ac3915d51951a9169096fdcf6f996628088e4dfb14c2439ef920",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 18,
+      "Bzero": 0,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p12-bz1.json",
+      "sha256": "b21501d9c0ee70d49405f781e914f450553d450b273af325f1b03406682ceffa",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 17,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p13-bz0.json",
+      "sha256": "3462950368d0f6fd3644080271d111b7931c136e73280f4a0caef6f5a09a78f8",
+      "gates": 32,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 19,
+      "Bzero": 0,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p7-bz1.json",
+      "sha256": "14ce166ac68d2f49ac502919b2ef78da62ad3ce7d2d2e340297d4031277af70c",
+      "gates": 28,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p7-bz2.json",
+      "sha256": "d8bed469ad3dc8c39f7d151c0805131e6bf10bfb76ab359e2a0211a8af7e81a4",
+      "gates": 29,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 14,
+      "Bzero": 2,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p7-bz3.json",
+      "sha256": "ff731a6dd7f05c0a773e47a5025da00fd5780686c3f6a0181db3f61033255a5b",
+      "gates": 30,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 3,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p8-bz1.json",
+      "sha256": "730b601299826a51ec1e349cbadee509ff70d116349ae3957f3c43e33ef81624",
+      "gates": 29,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12
+      ],
+      "Bplus": 15,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p8-bz2.json",
+      "sha256": "2e2bad5eb2fe55e32d3563f47c5778575c98391808399b1dc316e8e6763c17f4",
+      "gates": 30,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "Bplus": 15,
+      "Bzero": 2,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p8-bz3.json",
+      "sha256": "74939f3ea25be5d65bcea0ab3e76caa2e39401de94575925ae3af4739a026b88",
+      "gates": 31,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "Bplus": 15,
+      "Bzero": 3,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p9-bz1.json",
+      "sha256": "21d5fd0d90a0236a030ae8482c03ef75fdd6fc32aa92b501ea6857d4fdac54ba",
+      "gates": 29,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "Bplus": 15,
+      "Bzero": 1,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-exact-p9-bz2.json",
+      "sha256": "4342287d8abfc9eb3125ea0c710430dcc38cc7260183d73080d9455566b37470",
+      "gates": 30,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "Bplus": 15,
+      "Bzero": 2,
+      "failed_boundary_bits": [],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": true
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz0.json",
+      "sha256": "a72ced7405c4b0c3443124cfeb63e5a290f0298e201059ca7b72c1255ad5b2b7",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 15,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz1.json",
+      "sha256": "ec3a685512a7e9b9994396f6e60c936ffc288a43a8a5bdecde20d61cb2a6558d",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        11
+      ],
+      "Bplus": 12,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        6,
+        7,
+        8,
+        18,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 408,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz2.json",
+      "sha256": "d4d19f2083f7d95097be9b2970f0a33afe901e2914c03a23cd7bc320c387f185",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12
+      ],
+      "Bplus": 13,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        2,
+        5,
+        9,
+        10,
+        11,
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 540,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz3.json",
+      "sha256": "659ecbf81c904862520097aad2cd9445e2c0dd38b595012e6427225dd63c85e8",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        10,
+        11,
+        12
+      ],
+      "Bplus": 10,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        7,
+        8,
+        9,
+        14,
+        16,
+        17,
+        18,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 787,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz4.json",
+      "sha256": "39f433aff22b7029ca3ba37ddf9045e244e887b4b10256b3502ec213749b5611",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        13
+      ],
+      "Bplus": 8,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        12,
+        13,
+        14,
+        15,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 962,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p10-bz5.json",
+      "sha256": "22c57cefbe24b4e7dff0cb9e850e2c5f300d864bc458457aaae0ab52352638a5",
+      "gates": 22,
+      "used_inputs": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        10,
+        11,
+        13
+      ],
+      "Bplus": 7,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 8758,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p11-bz0.json",
+      "sha256": "f8558b85210ee0445d8bbe184fd94d926f39a8871d63b19f6079bc1f6ee9f19f",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "Bplus": 15,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        8,
+        13,
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p11-bz1.json",
+      "sha256": "9fd40842276bee2f726466f89b127ca0ff73b1577f8a3803f3c480d2b975a0c4",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        2,
+        5,
+        9,
+        10,
+        11,
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 540,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p11-bz2.json",
+      "sha256": "830cc4c211fe44b199516eb3213ab50aeeec11bfe59ed8aca19b4fa49578b779",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        1,
+        5,
+        6,
+        9,
+        10,
+        11,
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 558,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p11-bz3.json",
+      "sha256": "4a4ac0d7755353beec2652ac8dcc007865f4c3e8de0d5d71bb30c65b6ba5c585",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "Bplus": 9,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        7,
+        12,
+        13,
+        15,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 937,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p11-bz4.json",
+      "sha256": "eb9856f46692f5f52082dc24c69018e8aadd19baf63c276d0a22ac3229b8a09e",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 1846,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p12-bz0.json",
+      "sha256": "1174dc81d9893a1efc8c782a725ba508b2f3a4f978c90dde37910bedd26774d1",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        5,
+        7,
+        11,
+        14,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 387,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p12-bz1.json",
+      "sha256": "24bd4e2eb29e022f274cdd1d91e464baa1540d2a53d264bdb6e70b9e57e0e875",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        1,
+        5,
+        9,
+        10,
+        11,
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 478,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p12-bz2.json",
+      "sha256": "0273d0535f568401a833593fa355b06a03695ff2b6282199fd145ce110fbdfd9",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        4,
+        7,
+        9,
+        14,
+        16,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 435,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p12-bz3.json",
+      "sha256": "354b158cc509ca1aeba9013df45a9238a9f425059bd26127cec98e24fdea50c6",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12
+      ],
+      "Bplus": 11,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        4,
+        7,
+        9,
+        10,
+        11,
+        14,
+        15,
+        17,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 1112,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p13-bz0.json",
+      "sha256": "2cf43eb489582c0ed123133cd68c715fb4f4770e4628cda1e137c0cf14e55aac",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        7,
+        9,
+        14,
+        16,
+        17,
+        18
+      ],
+      "false_positives": 0,
+      "false_negatives": 465,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p13-bz1.json",
+      "sha256": "8df6515aae6538f5fa326cc2c2f5a4a3dcda8d5c7a1c5145c23e98e86a4645f3",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        7,
+        9,
+        14,
+        16,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 496,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p13-bz2.json",
+      "sha256": "648d85fee2365cd47f3b9e8c477f9ad291ac98c05a9a4eed44fe91a8eb863f15",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 11,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        12,
+        13,
+        15,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 820,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p13-bz3.json",
+      "sha256": "60ee17be296a275e09721a1f27275b4e3491717fc4df6c23f2546c65fe7b85ff",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 10,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 3958,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p14-bz0.json",
+      "sha256": "435a4095cf28bf39f3178211e7ae5f9a619e4712a81553b3a8ee9d483bce1cb7",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        7,
+        9,
+        14,
+        16,
+        17,
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 496,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p14-bz1.json",
+      "sha256": "ec32fcdb3597222a201b207e0dfc09428de1ddad47a116fb48e02d5f669109ae",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        1,
+        2,
+        4,
+        12,
+        13,
+        15,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 820,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz0.json",
+      "sha256": "78f3921eeb325bbc4bab81f4a4b4ab3cbab553d9524650547b13eaa6c2a82c1a",
+      "gates": 25,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        1,
+        13,
+        14,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 348,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz1.json",
+      "sha256": "3baf8bd5d9c7486c8d05002c5b56b89c76962f628bbb1d982ebf52c9d885bbf8",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        4,
+        5
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz2.json",
+      "sha256": "cc6c82f0ad99747e6d85b5b34b0c21d2c48b9f5d1080e0a2e20f7ec80e207467",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        3,
+        4
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz3.json",
+      "sha256": "65242f41264fe679c39b71882780035e8d7d33c581a1d5c88f77c196356f114c",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        5,
+        10,
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz4.json",
+      "sha256": "0e5d7884e5a5a41ef66e79ee55ff24e18862d23578685defc7a4483b6261a5c3",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        6,
+        7,
+        8,
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 300,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p8-bz5.json",
+      "sha256": "8a4714cb0c6a330dd766e3608a26386eaaf5739bc8bcba623dd72796c1dcae98",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "Bplus": 9,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        7,
+        8,
+        12,
+        18,
+        19,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 486,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz0.json",
+      "sha256": "c332c21b545ada54cde13ae4798083c2521ac525de63f6bf22b389efad1c5435",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        2,
+        3,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "Bplus": 13,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        1,
+        13,
+        14,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 254,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz1.json",
+      "sha256": "f20fc261a440bc0449ee52fb4a3639c607060dc3354395adb82b5241a8f0c24a",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        15,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 119,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz2.json",
+      "sha256": "76bd1ef45fb6a07edaa40b1cbe07ce09f47bb2b483881e1d64aa233b0ba6b45e",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "Bplus": 12,
+      "Bzero": 2,
+      "failed_boundary_bits": [
+        15,
+        16,
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 232,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz3.json",
+      "sha256": "e8dd0d7d1136e6438611e3c5cd5dfca4a08f4be9bac40d66adf7fafd0ff10fed",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 12,
+      "Bzero": 3,
+      "failed_boundary_bits": [
+        2,
+        5,
+        7,
+        10,
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 408,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz4.json",
+      "sha256": "59b00890e2635d7fb22f06afe2c2462f51ab9d7cb14879bf18c9871f6245bf45",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "Bplus": 11,
+      "Bzero": 4,
+      "failed_boundary_bits": [
+        1,
+        12,
+        18,
+        19,
+        20,
+        26,
+        36,
+        55,
+        57
+      ],
+      "false_positives": 41,
+      "false_negatives": 349,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-frontier-p9-bz5.json",
+      "sha256": "cf932b5211c0ca58934fd68be10bd8f634065caa8ddf67b7fd545853afac6c42",
+      "gates": 23,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 7,
+      "Bzero": 5,
+      "failed_boundary_bits": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        17,
+        18,
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 8502,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-0.json",
+      "sha256": "f9a6837352cb542b19238736616c03850cc17be17b4fdf817279502950d383b9",
+      "gates": 26,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        0
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-1.json",
+      "sha256": "6964c17d5c94a5356f5c00026c815c73d64de0068ee9c87fc76a49ab869eec49",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        1
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-10.json",
+      "sha256": "982bf6d7781efe092de91a62aefd60c9583ae3843af6a7a5a51ae4a8b39cdb9f",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        10
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-11.json",
+      "sha256": "7e447de20761102c47888555d1bbe81f21067c4f08082c18be35c0495cb0cb3e",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        11
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-12.json",
+      "sha256": "8f09c018fbe02c054ed9b3dbad5d70b6a5fdebdf9fd51149d3a3c2938dca2a45",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        12
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-13.json",
+      "sha256": "9009fd3983afb6b30ef7228199528d4921cdc16615157a4edc8dc2e596a72f74",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        13
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-14.json",
+      "sha256": "f1b6bf37ad52e8176620bfcaa235b41c5c4ed1f94c88b55f2e615646221081af",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        14
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-15.json",
+      "sha256": "eb1dfa0c34c464aeacd04927ab373e6d97f786cc7d8b65454ea558114c936daf",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        15
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-16.json",
+      "sha256": "22846c1c01dfa85f3d1c178bdb091915b971855137d36abb2a2f11aa425cb66f",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        16
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-17.json",
+      "sha256": "9533bfce1e5964f90157d4da24bc49b1855fd1f4dff04fc60e8db4006a157f4c",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        17
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-18.json",
+      "sha256": "a93dc8825f6920987e9d563eddd0444d86e9651aa8e132ab37c166387a685697",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        18
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-19.json",
+      "sha256": "c906f14a7aecf95d1352b9eeb66c7c54c04b0b8f7d885d3dd10de821c80ba5bd",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        19
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-2.json",
+      "sha256": "8b517c3acd73dd3219811ad13e75875b1e091c719e71bf9d2d2c950d355785ea",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        2
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-20.json",
+      "sha256": "e4fda1b8f64b3c74747748d47aba70849b73c06309be5a7c4302e2537d8788df",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        20
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-3.json",
+      "sha256": "25fda1b78ff5ced35fbcbdf966e3031646d9d6436782628c28ed3a4b1423059e",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        3
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-4.json",
+      "sha256": "a1ca2e4f7bb3df8c74ec1a719f20777421237edf53e4cbc1943f5f3a338207db",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        4
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-5.json",
+      "sha256": "690e20a275b82e000b9689244ea133e893be01a2fd388c1029c31eb3acd7d890",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        5
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-6.json",
+      "sha256": "ce249589c2059c5191cccc46ee4bd35db0dcdada583de2debd55af4fd37b3df0",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        6
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-7.json",
+      "sha256": "437e5a062b80166fcf8c535e801ffca0aabcb3eb3109d6f51b16c24e535c65be",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        7
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-8.json",
+      "sha256": "cd3aef28f9a7fc6feb76178b81b6c054d5fa3b41947b010ebbfdfec8284bdecd",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        8
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-near-9.json",
+      "sha256": "fb7c51d0bfe0c80ce14fe33059a138130bb423dcce46cf7dbba95062b98900f1",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "Bplus": 13,
+      "Bzero": 1,
+      "failed_boundary_bits": [
+        9
+      ],
+      "false_positives": 0,
+      "false_negatives": 47,
+      "bases_derivatives": [
+        [
+          false,
+          false
+        ],
+        [
+          false,
+          false
+        ]
+      ],
+      "exact_quiet_function": false
+    },
+    {
+      "file": "stochastic-high-phase-trace-only-12.json",
+      "sha256": "60cb2cde0dfe7103c67e722f870cd9d47fb0c40a1287feedde2add14d0c14612",
+      "gates": 27,
+      "used_inputs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "eligible_inputs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "Bplus": 14,
+      "Bzero": 0,
+      "failed_boundary_bits": [
+        60,
+        61
+      ],
+      "false_positives": 0,
+      "false_negatives": 0,
+      "bases_derivatives": [
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "exact_quiet_function": false
+    }
+  ]
+}

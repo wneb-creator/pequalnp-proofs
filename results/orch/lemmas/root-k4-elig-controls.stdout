@@ -1,0 +1,57 @@
+[
+  {
+    "gates": 15,
+    "eligible": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "eligible_originals": [],
+    "Bplus": 6,
+    "Bzero": 0,
+    "totalSurplus": 6,
+    "truth_rows": 1024
+  },
+  {
+    "gates": 16,
+    "eligible": [
+      0,
+      1,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "eligible_originals": [
+      0,
+      1
+    ],
+    "Bplus": 7,
+    "Bzero": 0,
+    "totalSurplus": 7,
+    "truth_rows": 1024
+  },
+  {
+    "gates": 17,
+    "eligible": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "eligible_originals": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "Bplus": 8,
+    "Bzero": 0,
+    "totalSurplus": 8,
+    "truth_rows": 1024
+  }
+]

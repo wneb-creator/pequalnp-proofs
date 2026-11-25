@@ -68,3 +68,11 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 The all-mask combination now has a successful standalone build and independent composition review. P14 structural restrictions also have a successful standalone build. The one-sided p9 case is reduced in the active proof work to a finite residual-support predicate; its certificate and actual-circuit transfer are still being checked. The exact posted-to-canonical bridge has a reviewed cached build, with standalone recheck pending.
 
 The exact posted-to-canonical bridge now has a successful standalone build and independent review. Its missing structural theorem remains an explicit hypothesis. A shorter direct dead-gate/trim transport is being developed to avoid the ordinary lower-bound dependency. The reviewed p14 ordinary-feasibility SAT worker is scheduled to take the stochastic slot after11:37:50, while the broad quiet27 solver continues.
+
+## Re-plan at 11:45 UTC
+
+- The exact-statement bridge now uses trace-preserving output trimming and dead-gate deletion, reducing its standalone source from502345 to144941 bytes. The structural no-quiet premise remains open.
+- P9 one-sided: actual-circuit transfer, protected masks, cofactor closure, and the six-line all-mask contradiction are ready in the cached development. The bounded finite residual-mask certificate is still compiling; no complete p9 result is claimed yet.
+- P10 one-sided line case: two independent enumerations found a two-residual-unit contradiction using generic co-label and consumption constraints. A small Boolean kernel certificate and Finset transfer are being developed; the larger residual budgets remain open.
+- P14: the broad and targeted ordinary SAT workers run separately. The stochastic phase ended without a witness. Structural work now considers marked-edge routing and multi-unit cofactor loss, with K4 surplus7 eligibility as a possible refinement.
+- Continue preserving every compiled reviewed component. No proof PR until the exact target or its negated twin passes the full checker.

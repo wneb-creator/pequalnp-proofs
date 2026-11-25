@@ -1,0 +1,16 @@
+{
+  "source": "results/orch/lemmas/formalization-posted-pruned-standalone.lean",
+  "sha256": "415a76814dca13132f12bfc038bef73f298a02ee39c5197a8a57dcdf0518b75d",
+  "tail_sha256": "b0e20354c56da4b518201c93fbdde0f40f96f0cf7fd6ff3a959e124e12b7129c",
+  "lines": 3050,
+  "bytes": 144941,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T11:42:48.177883+00:00",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "scope": "Conditional exact posted-statement refutation bridge via trace-preserving prefix trim and dead-gate deletion. No minimality/lower-bound premise. Universal/canonical no-double-quiet remains explicit.",
+  "accepted_prefix_lines": 2472,
+  "stdout": "results/orch/lemmas/formalization-posted-pruned-standalone.stdout",
+  "stderr": "results/orch/lemmas/formalization-posted-pruned-standalone.stderr"
+}

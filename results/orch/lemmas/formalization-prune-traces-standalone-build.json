@@ -1,0 +1,10 @@
+{
+  "source": "results/orch/lemmas/formalization-prune-traces-standalone.lean",
+  "sha256": "e73796420dc922af32906cd61743fb1000c5ec12b47e4db9655df988d64ec1a5",
+  "tail_sha256": "79e5b1581b6117e47f8975ce0bd7c65ecb42229e929bcbcf03fa149f99757d78",
+  "lines": 777,
+  "bytes": 34386,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T11:38:44.689523+00:00",
+  "scope": "Generic exact formal-trace-preserving prefix trim and dead-gate deletion. No minimality or ordinary lower bound assumed."
+}

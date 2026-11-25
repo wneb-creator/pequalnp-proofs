@@ -1,0 +1,327 @@
+BEST t=0 it=0 gates=28
+EXACT_CLASS t=0 gates=28 p=7 Bzero=1
+PROGRESS t=0 it=0 mode=0 score=39.28 best=28 eligible=127 Bplus=14 Bzero=1
+FRONTIER t=0 gates=26 p=8 Bzero=1 poserr=3 negerr=0
+FRONTIER t=0 gates=25 p=8 Bzero=0 poserr=0 negerr=12
+FRONTIER t=0 gates=27 p=8 Bzero=1 poserr=2 negerr=0
+FRONTIER t=0 gates=27 p=8 Bzero=2 poserr=3 negerr=37
+FRONTIER t=0 gates=25 p=8 Bzero=2 poserr=4 negerr=0
+NEAR t=0 it=307 gates=27 bit=11
+NEAR t=0 it=386 gates=27 bit=14
+FRONTIER t=0 gates=26 p=9 Bzero=1 poserr=4 negerr=4
+NEAR t=0 it=467 gates=27 bit=16
+FRONTIER t=0 gates=25 p=9 Bzero=0 poserr=2 negerr=12
+NEAR t=0 it=593 gates=27 bit=0
+EXACT_CLASS t=0 gates=29 p=8 Bzero=1
+FRONTIER t=0 gates=27 p=9 Bzero=1 poserr=3 negerr=0
+FRONTIER t=0 gates=26 p=9 Bzero=0 poserr=0 negerr=12
+FRONTIER t=0 gates=26 p=10 Bzero=2 poserr=5 negerr=4
+FRONTIER t=0 gates=27 p=8 Bzero=2 poserr=3 negerr=0
+FRONTIER t=0 gates=27 p=10 Bzero=0 poserr=1 negerr=19
+NEAR t=0 it=2646 gates=27 bit=5
+NEAR t=0 it=2757 gates=27 bit=9
+NEAR t=0 it=3020 gates=27 bit=19
+NEAR t=0 it=3105 gates=27 bit=2
+NEAR t=0 it=3109 gates=27 bit=18
+NEAR t=0 it=3133 gates=27 bit=20
+FRONTIER t=0 gates=25 p=8 Bzero=3 poserr=5 negerr=0
+NEAR t=0 it=3765 gates=27 bit=12
+NEAR t=0 it=4334 gates=27 bit=7
+NEAR t=0 it=4462 gates=27 bit=4
+NEAR t=0 it=5327 gates=27 bit=1
+NEAR t=0 it=5921 gates=27 bit=3
+NEAR t=0 it=5972 gates=27 bit=15
+FRONTIER t=0 gates=27 p=9 Bzero=2 poserr=3 negerr=12
+EXACT_CLASS t=0 gates=30 p=8 Bzero=2
+FRONTIER t=0 gates=27 p=10 Bzero=1 poserr=3 negerr=20
+NEAR t=0 it=27172 gates=27 bit=8
+NEAR t=0 it=27260 gates=27 bit=10
+NEAR t=0 it=27705 gates=27 bit=6
+EXACT_CLASS t=0 gates=29 p=7 Bzero=2
+NEAR t=0 it=29240 gates=27 bit=17
+FRONTIER t=0 gates=27 p=9 Bzero=2 poserr=4 negerr=4
+FRONTIER t=0 gates=27 p=10 Bzero=1 poserr=6 negerr=12
+FRONTIER t=0 gates=26 p=9 Bzero=2 poserr=4 negerr=0
+NEAR t=0 it=38684 gates=27 bit=13
+FRONTIER t=0 gates=25 p=9 Bzero=3 poserr=6 negerr=4
+FRONTIER t=0 gates=25 p=10 Bzero=0 poserr=2 negerr=15
+FRONTIER t=0 gates=26 p=10 Bzero=1 poserr=5 negerr=7
+NEAR t=1 it=151436 gates=26 bit=0
+FRONTIER t=1 gates=25 p=10 Bzero=1 poserr=5 negerr=6
+FRONTIER t=1 gates=26 p=10 Bzero=1 poserr=6 negerr=4
+FRONTIER t=2 gates=26 p=8 Bzero=3 poserr=4 negerr=0
+FRONTIER t=4 gates=26 p=10 Bzero=0 poserr=1 negerr=14
+FRONTIER t=4 gates=27 p=8 Bzero=4 poserr=7 negerr=0
+FRONTIER t=5 gates=26 p=8 Bzero=0 poserr=10 negerr=0
+PROGRESS t=5 it=1000000 mode=0 score=38.29 best=28 eligible=383 Bplus=15 Bzero=1
+FRONTIER t=5 gates=27 p=9 Bzero=0 poserr=6 negerr=5
+EXACT_CLASS t=6 gates=30 p=9 Bzero=1
+FRONTIER t=6 gates=27 p=10 Bzero=0 poserr=0 negerr=12
+FRONTIER t=6 gates=27 p=11 Bzero=0 poserr=1 negerr=37
+FRONTIER t=6 gates=25 p=11 Bzero=0 poserr=10 negerr=9
+EXACT_CLASS t=6 gates=29 p=9 Bzero=1
+FRONTIER t=6 gates=27 p=10 Bzero=1 poserr=3 negerr=6
+FRONTIER t=6 gates=27 p=9 Bzero=1 poserr=2 negerr=0
+FRONTIER t=6 gates=26 p=9 Bzero=2 poserr=3 negerr=0
+FRONTIER t=6 gates=27 p=8 Bzero=2 poserr=2 negerr=0
+EXACT_CLASS t=6 gates=30 p=9 Bzero=2
+FRONTIER t=6 gates=27 p=10 Bzero=1 poserr=3 negerr=4
+FRONTIER t=6 gates=27 p=10 Bzero=0 poserr=6 negerr=5
+FRONTIER t=6 gates=25 p=10 Bzero=1 poserr=5 negerr=0
+FRONTIER t=6 gates=27 p=10 Bzero=2 poserr=4 negerr=4
+FRONTIER t=6 gates=27 p=11 Bzero=1 poserr=4 negerr=6
+FRONTIER t=6 gates=26 p=11 Bzero=0 poserr=1 negerr=14
+PROGRESS t=6 it=1500000 mode=1 score=176.75 best=28 eligible=6059 Bplus=12 Bzero=0
+FRONTIER t=6 gates=20 p=11 Bzero=0 poserr=11 negerr=0
+FRONTIER t=6 gates=20 p=12 Bzero=0 poserr=12 negerr=5
+FRONTIER t=6 gates=20 p=12 Bzero=0 poserr=11 negerr=0
+FRONTIER t=6 gates=21 p=10 Bzero=0 poserr=10 negerr=0
+FRONTIER t=6 gates=20 p=9 Bzero=0 poserr=10 negerr=0
+FRONTIER t=6 gates=21 p=11 Bzero=0 poserr=10 negerr=0
+FRONTIER t=6 gates=21 p=12 Bzero=0 poserr=10 negerr=0
+FRONTIER t=6 gates=21 p=13 Bzero=0 poserr=12 negerr=5
+FRONTIER t=7 gates=21 p=12 Bzero=1 poserr=16 negerr=0
+FRONTIER t=7 gates=22 p=13 Bzero=0 poserr=16 negerr=0
+FRONTIER t=7 gates=22 p=13 Bzero=1 poserr=15 negerr=15
+FRONTIER t=7 gates=22 p=13 Bzero=0 poserr=15 negerr=0
+FRONTIER t=7 gates=22 p=12 Bzero=1 poserr=15 negerr=0
+FRONTIER t=7 gates=21 p=11 Bzero=2 poserr=17 negerr=0
+FRONTIER t=7 gates=22 p=13 Bzero=1 poserr=15 negerr=0
+FRONTIER t=7 gates=22 p=14 Bzero=0 poserr=16 negerr=5
+FRONTIER t=7 gates=22 p=12 Bzero=2 poserr=16 negerr=0
+FRONTIER t=7 gates=21 p=11 Bzero=2 poserr=15 negerr=0
+FRONTIER t=7 gates=22 p=14 Bzero=0 poserr=15 negerr=0
+FRONTIER t=7 gates=22 p=12 Bzero=1 poserr=13 negerr=0
+FRONTIER t=7 gates=22 p=11 Bzero=2 poserr=13 negerr=0
+FRONTIER t=7 gates=22 p=13 Bzero=0 poserr=13 negerr=0
+FRONTIER t=7 gates=22 p=13 Bzero=1 poserr=14 negerr=0
+PROGRESS t=9 it=2500000 mode=1 score=207.14 best=28 eligible=11691 Bplus=6 Bzero=0
+PROGRESS t=9 it=3000000 mode=2 score=28.27 best=28 eligible=16167 Bplus=14 Bzero=0
+FRONTIER t=10 gates=24 p=12 Bzero=1 poserr=11 negerr=0
+FRONTIER t=10 gates=24 p=13 Bzero=0 poserr=11 negerr=0
+FRONTIER t=10 gates=24 p=11 Bzero=0 poserr=9 negerr=0
+FRONTIER t=10 gates=24 p=10 Bzero=0 poserr=9 negerr=0
+FRONTIER t=10 gates=23 p=8 Bzero=0 poserr=9 negerr=0
+FRONTIER t=10 gates=24 p=9 Bzero=0 poserr=9 negerr=0
+FRONTIER t=10 gates=25 p=11 Bzero=1 poserr=9 negerr=0
+FRONTIER t=10 gates=24 p=12 Bzero=0 poserr=9 negerr=0
+FRONTIER t=10 gates=24 p=12 Bzero=1 poserr=10 negerr=0
+FRONTIER t=10 gates=24 p=13 Bzero=0 poserr=10 negerr=0
+FRONTIER t=10 gates=25 p=12 Bzero=1 poserr=9 negerr=0
+FRONTIER t=10 gates=25 p=13 Bzero=0 poserr=9 negerr=0
+FRONTIER t=11 gates=23 p=10 Bzero=3 poserr=16 negerr=0
+FRONTIER t=11 gates=25 p=11 Bzero=3 poserr=17 negerr=0
+PROGRESS t=11 it=4000000 mode=2 score=189.6 best=28 eligible=395 Bplus=4 Bzero=0
+TRACE_ONLY t=12 gates=27 pattern=12
+PROGRESS t=12 it=4500000 mode=0 score=32.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=14 it=5500000 mode=0 score=31.28 best=28 eligible=16258 Bplus=15 Bzero=0
+PROGRESS t=15 it=6000000 mode=1 score=168.76 best=28 eligible=14251 Bplus=13 Bzero=0
+FRONTIER t=15 gates=25 p=9 Bzero=0 poserr=6 negerr=0
+FRONTIER t=15 gates=21 p=8 Bzero=0 poserr=7 negerr=0
+FRONTIER t=15 gates=25 p=10 Bzero=0 poserr=6 negerr=0
+FRONTIER t=15 gates=24 p=8 Bzero=0 poserr=6 negerr=0
+FRONTIER t=15 gates=25 p=11 Bzero=0 poserr=6 negerr=0
+FRONTIER t=15 gates=25 p=11 Bzero=1 poserr=7 negerr=0
+FRONTIER t=15 gates=26 p=12 Bzero=0 poserr=7 negerr=0
+FRONTIER t=15 gates=26 p=12 Bzero=1 poserr=8 negerr=0
+FRONTIER t=15 gates=26 p=12 Bzero=1 poserr=7 negerr=0
+FRONTIER t=15 gates=26 p=13 Bzero=0 poserr=8 negerr=0
+FRONTIER t=15 gates=26 p=13 Bzero=0 poserr=7 negerr=0
+FRONTIER t=15 gates=26 p=13 Bzero=1 poserr=9 negerr=0
+FRONTIER t=15 gates=24 p=11 Bzero=2 poserr=10 negerr=0
+FRONTIER t=15 gates=25 p=11 Bzero=2 poserr=9 negerr=0
+FRONTIER t=15 gates=27 p=13 Bzero=1 poserr=8 negerr=0
+FRONTIER t=15 gates=27 p=11 Bzero=2 poserr=8 negerr=0
+FRONTIER t=15 gates=25 p=12 Bzero=2 poserr=9 negerr=0
+FRONTIER t=15 gates=27 p=14 Bzero=0 poserr=8 negerr=4
+FRONTIER t=15 gates=27 p=13 Bzero=1 poserr=7 negerr=0
+FRONTIER t=15 gates=25 p=10 Bzero=3 poserr=11 negerr=0
+FRONTIER t=15 gates=27 p=14 Bzero=0 poserr=10 negerr=0
+FRONTIER t=15 gates=27 p=14 Bzero=0 poserr=9 negerr=0
+FRONTIER t=15 gates=27 p=14 Bzero=0 poserr=8 negerr=0
+FRONTIER t=17 gates=22 p=9 Bzero=4 poserr=17 negerr=0
+FRONTIER t=17 gates=27 p=13 Bzero=2 poserr=17 negerr=0
+FRONTIER t=17 gates=24 p=9 Bzero=5 poserr=19 negerr=0
+FRONTIER t=17 gates=25 p=12 Bzero=3 poserr=19 negerr=0
+FRONTIER t=17 gates=25 p=11 Bzero=4 poserr=19 negerr=0
+FRONTIER t=17 gates=24 p=13 Bzero=3 poserr=19 negerr=0
+FRONTIER t=17 gates=27 p=14 Bzero=1 poserr=18 negerr=3
+FRONTIER t=17 gates=22 p=10 Bzero=5 poserr=19 negerr=0
+FRONTIER t=17 gates=25 p=10 Bzero=4 poserr=19 negerr=0
+PROGRESS t=17 it=7000000 mode=1 score=141.77 best=28 eligible=16379 Bplus=15 Bzero=0
+FRONTIER t=17 gates=27 p=12 Bzero=3 poserr=17 negerr=0
+PROGRESS t=18 it=7500000 mode=2 score=34.27 best=28 eligible=16256 Bplus=13 Bzero=1
+PROGRESS t=19 it=8500000 mode=2 score=128.7 best=28 eligible=16311 Bplus=9 Bzero=0
+PROGRESS t=20 it=9000000 mode=0 score=32.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=22 it=10000000 mode=0 score=31.28 best=28 eligible=16258 Bplus=15 Bzero=0
+FRONTIER t=23 gates=26 p=9 Bzero=0 poserr=5 negerr=0
+PROGRESS t=23 it=10500000 mode=1 score=36.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=25 it=11500000 mode=1 score=114.71 best=28 eligible=15859 Bplus=9 Bzero=0
+PROGRESS t=26 it=12000000 mode=2 score=24.27 best=28 eligible=8047 Bplus=14 Bzero=0
+PROGRESS t=28 it=13000000 mode=2 score=164.65 best=28 eligible=415 Bplus=8 Bzero=0
+PROGRESS t=29 it=13500000 mode=0 score=32.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=31 it=14500000 mode=0 score=31.28 best=28 eligible=16258 Bplus=15 Bzero=0
+PROGRESS t=32 it=15000000 mode=1 score=168.76 best=28 eligible=16269 Bplus=13 Bzero=0
+FRONTIER t=32 gates=26 p=9 Bzero=0 poserr=4 negerr=0
+FRONTIER t=32 gates=25 p=8 Bzero=0 poserr=5 negerr=0
+FRONTIER t=32 gates=26 p=10 Bzero=0 poserr=4 negerr=0
+FRONTIER t=32 gates=25 p=9 Bzero=3 poserr=9 negerr=0
+FRONTIER t=32 gates=26 p=10 Bzero=3 poserr=10 negerr=0
+FRONTIER t=33 gates=26 p=12 Bzero=3 poserr=10 negerr=0
+FRONTIER t=33 gates=23 p=9 Bzero=4 poserr=13 negerr=0
+FRONTIER t=33 gates=23 p=11 Bzero=3 poserr=12 negerr=0
+PROGRESS t=33 it=16000000 mode=1 score=151.21 best=28 eligible=7402 Bplus=10 Bzero=0
+PROGRESS t=34 it=16500000 mode=2 score=28.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=36 it=17500000 mode=2 score=210.59 best=28 eligible=387 Bplus=4 Bzero=0
+EXACT_CLASS t=37 gates=31 p=12 Bzero=0
+PROGRESS t=37 it=18000000 mode=0 score=20.81 best=28 eligible=8159 Bplus=18 Bzero=0
+FRONTIER t=37 gates=27 p=11 Bzero=0 poserr=3 negerr=0
+FRONTIER t=37 gates=27 p=10 Bzero=0 poserr=3 negerr=0
+PROGRESS t=41 it=19000000 mode=0 score=22.29 best=28 eligible=8031 Bplus=16 Bzero=0
+PROGRESS t=42 it=19500000 mode=1 score=168.76 best=28 eligible=14251 Bplus=13 Bzero=0
+PROGRESS t=44 it=20500000 mode=1 score=170.17 best=28 eligible=13191 Bplus=8 Bzero=0
+PROGRESS t=45 it=21000000 mode=2 score=28.27 best=28 eligible=8023 Bplus=14 Bzero=0
+PROGRESS t=47 it=22000000 mode=2 score=212.09 best=28 eligible=131 Bplus=3 Bzero=0
+PROGRESS t=49 it=22500000 mode=0 score=20.81 best=28 eligible=16287 Bplus=18 Bzero=0
+PROGRESS t=51 it=23500000 mode=0 score=22.29 best=28 eligible=16159 Bplus=16 Bzero=0
+EXACT_CLASS t=52 gates=33 p=12 Bzero=1
+EXACT_CLASS t=52 gates=31 p=11 Bzero=1
+PROGRESS t=52 it=24000000 mode=1 score=168.76 best=28 eligible=8139 Bplus=13 Bzero=0
+PROGRESS t=55 it=25000000 mode=1 score=192.66 best=28 eligible=9651 Bplus=7 Bzero=0
+PROGRESS t=56 it=25500000 mode=2 score=28.27 best=28 eligible=12079 Bplus=14 Bzero=0
+PROGRESS t=58 it=26500000 mode=2 score=158.63 best=28 eligible=415 Bplus=6 Bzero=0
+PROGRESS t=59 it=27000000 mode=0 score=20.81 best=28 eligible=14271 Bplus=18 Bzero=0
+PROGRESS t=61 it=28000000 mode=0 score=25.3 best=28 eligible=14143 Bplus=17 Bzero=0
+PROGRESS t=62 it=28500000 mode=1 score=124.25 best=28 eligible=16264 Bplus=12 Bzero=0
+FRONTIER t=63 gates=25 p=13 Bzero=2 poserr=13 negerr=0
+FRONTIER t=63 gates=26 p=13 Bzero=2 poserr=12 negerr=0
+FRONTIER t=63 gates=25 p=10 Bzero=4 poserr=16 negerr=0
+FRONTIER t=63 gates=23 p=10 Bzero=4 poserr=14 negerr=0
+PROGRESS t=64 it=29500000 mode=1 score=102.74 best=28 eligible=15871 Bplus=12 Bzero=0
+FRONTIER t=64 gates=26 p=13 Bzero=3 poserr=15 negerr=0
+FRONTIER t=64 gates=27 p=14 Bzero=1 poserr=15 negerr=0
+FRONTIER t=64 gates=23 p=8 Bzero=5 poserr=17 negerr=0
+FRONTIER t=64 gates=27 p=14 Bzero=1 poserr=14 negerr=0
+PROGRESS t=64 it=30000000 mode=2 score=34.27 best=28 eligible=16256 Bplus=13 Bzero=1
+FRONTIER t=64 gates=27 p=9 Bzero=3 poserr=5 negerr=0
+PROGRESS t=67 it=31000000 mode=2 score=219.07 best=28 eligible=8577 Bplus=3 Bzero=0
+PROGRESS t=69 it=31500000 mode=0 score=20.81 best=28 eligible=15357 Bplus=18 Bzero=0
+PROGRESS t=72 it=32500000 mode=0 score=21.3 best=28 eligible=15358 Bplus=17 Bzero=0
+PROGRESS t=73 it=33000000 mode=1 score=36.27 best=28 eligible=127 Bplus=14 Bzero=0
+FRONTIER t=74 gates=27 p=11 Bzero=1 poserr=6 negerr=0
+FRONTIER t=74 gates=27 p=10 Bzero=2 poserr=7 negerr=0
+FRONTIER t=74 gates=27 p=10 Bzero=2 poserr=6 negerr=0
+FRONTIER t=74 gates=26 p=11 Bzero=3 poserr=11 negerr=0
+FRONTIER t=74 gates=27 p=11 Bzero=2 poserr=7 negerr=0
+FRONTIER t=74 gates=27 p=12 Bzero=1 poserr=6 negerr=0
+FRONTIER t=74 gates=26 p=11 Bzero=3 poserr=10 negerr=0
+FRONTIER t=76 gates=27 p=13 Bzero=2 poserr=11 negerr=0
+FRONTIER t=76 gates=27 p=13 Bzero=2 poserr=10 negerr=0
+FRONTIER t=76 gates=27 p=14 Bzero=1 poserr=10 negerr=0
+FRONTIER t=76 gates=25 p=10 Bzero=4 poserr=12 negerr=0
+PROGRESS t=77 it=34000000 mode=1 score=134.21 best=28 eligible=7099 Bplus=9 Bzero=0
+PROGRESS t=81 it=34500000 mode=2 score=28.27 best=28 eligible=16256 Bplus=14 Bzero=0
+FRONTIER t=86 gates=24 p=8 Bzero=5 poserr=16 negerr=0
+PROGRESS t=88 it=35500000 mode=2 score=134.69 best=28 eligible=16307 Bplus=8 Bzero=0
+PROGRESS t=90 it=36000000 mode=0 score=32.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=94 it=37000000 mode=0 score=31.28 best=28 eligible=16258 Bplus=15 Bzero=0
+PROGRESS t=96 it=37500000 mode=1 score=36.27 best=28 eligible=16256 Bplus=14 Bzero=0
+FRONTIER t=97 gates=25 p=12 Bzero=0 poserr=6 negerr=0
+FRONTIER t=97 gates=27 p=13 Bzero=0 poserr=6 negerr=0
+FRONTIER t=97 gates=26 p=10 Bzero=3 poserr=8 negerr=0
+FRONTIER t=97 gates=27 p=14 Bzero=0 poserr=6 negerr=0
+FRONTIER t=97 gates=27 p=13 Bzero=1 poserr=6 negerr=0
+FRONTIER t=97 gates=27 p=12 Bzero=2 poserr=6 negerr=0
+PROGRESS t=97 it=38500000 mode=1 score=113.22 best=28 eligible=7103 Bplus=11 Bzero=0
+PROGRESS t=98 it=39000000 mode=2 score=28.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=100 it=40000000 mode=2 score=141.66 best=28 eligible=14573 Bplus=6 Bzero=0
+PROGRESS t=102 it=40500000 mode=0 score=39.28 best=28 eligible=16256 Bplus=14 Bzero=1
+FRONTIER t=102 gates=27 p=8 Bzero=3 poserr=3 negerr=0
+FRONTIER t=103 gates=26 p=8 Bzero=4 poserr=5 negerr=0
+PROGRESS t=106 it=41500000 mode=0 score=39.28 best=28 eligible=16256 Bplus=14 Bzero=1
+PROGRESS t=108 it=42000000 mode=1 score=36.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=111 it=43000000 mode=1 score=116.23 best=28 eligible=16363 Bplus=10 Bzero=0
+PROGRESS t=113 it=43500000 mode=2 score=32.27 best=28 eligible=14836 Bplus=14 Bzero=0
+PROGRESS t=117 it=44500000 mode=2 score=199.09 best=28 eligible=10625 Bplus=3 Bzero=0
+PROGRESS t=119 it=45000000 mode=0 score=20.81 best=28 eligible=16287 Bplus=18 Bzero=0
+PROGRESS t=123 it=46000000 mode=0 score=22.29 best=28 eligible=16159 Bplus=16 Bzero=0
+PROGRESS t=126 it=46500000 mode=1 score=36.27 best=28 eligible=127 Bplus=14 Bzero=0
+FRONTIER t=128 gates=25 p=11 Bzero=3 poserr=9 negerr=0
+FRONTIER t=128 gates=26 p=13 Bzero=2 poserr=9 negerr=0
+FRONTIER t=128 gates=25 p=10 Bzero=4 poserr=9 negerr=0
+FRONTIER t=128 gates=26 p=13 Bzero=2 poserr=8 negerr=0
+FRONTIER t=128 gates=26 p=14 Bzero=1 poserr=8 negerr=0
+FRONTIER t=128 gates=25 p=9 Bzero=4 poserr=11 negerr=0
+PROGRESS t=130 it=47500000 mode=1 score=148.69 best=28 eligible=11739 Bplus=10 Bzero=0
+PROGRESS t=131 it=48000000 mode=2 score=28.27 best=28 eligible=13308 Bplus=14 Bzero=0
+PROGRESS t=134 it=49000000 mode=2 score=137.19 best=28 eligible=15771 Bplus=10 Bzero=0
+PROGRESS t=136 it=49500000 mode=0 score=32.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=140 it=50500000 mode=0 score=28.79 best=28 eligible=511 Bplus=16 Bzero=0
+PROGRESS t=141 it=51000000 mode=1 score=168.76 best=28 eligible=14283 Bplus=13 Bzero=0
+PROGRESS t=149 it=52000000 mode=1 score=195.16 best=28 eligible=8679 Bplus=8 Bzero=0
+PROGRESS t=152 it=52500000 mode=2 score=28.27 best=28 eligible=14844 Bplus=14 Bzero=0
+PROGRESS t=160 it=53500000 mode=2 score=150.68 best=28 eligible=14333 Bplus=6 Bzero=0
+PROGRESS t=164 it=54000000 mode=0 score=20.81 best=28 eligible=16363 Bplus=18 Bzero=0
+PROGRESS t=172 it=55000000 mode=0 score=22.29 best=28 eligible=8047 Bplus=16 Bzero=0
+PROGRESS t=173 it=55500000 mode=1 score=168.76 best=28 eligible=10495 Bplus=13 Bzero=0
+PROGRESS t=176 it=56500000 mode=1 score=206.14 best=28 eligible=8391 Bplus=6 Bzero=0
+PROGRESS t=178 it=57000000 mode=2 score=28.27 best=28 eligible=7422 Bplus=14 Bzero=0
+PROGRESS t=182 it=58000000 mode=2 score=178.12 best=28 eligible=3473 Bplus=5 Bzero=0
+PROGRESS t=184 it=58500000 mode=0 score=39.28 best=28 eligible=127 Bplus=14 Bzero=1
+EXACT_CLASS t=186 gates=31 p=8 Bzero=3
+FRONTIER t=187 gates=26 p=8 Bzero=5 poserr=6 negerr=0
+FRONTIER t=187 gates=27 p=9 Bzero=4 poserr=5 negerr=4
+FRONTIER t=187 gates=27 p=8 Bzero=4 poserr=4 negerr=0
+PROGRESS t=191 it=59500000 mode=0 score=31.28 best=28 eligible=383 Bplus=15 Bzero=0
+PROGRESS t=194 it=60000000 mode=1 score=36.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=202 it=61000000 mode=1 score=124.22 best=28 eligible=16095 Bplus=10 Bzero=0
+PROGRESS t=205 it=61500000 mode=2 score=32.27 best=28 eligible=7156 Bplus=14 Bzero=0
+PROGRESS t=209 it=62500000 mode=2 score=168.14 best=28 eligible=6369 Bplus=6 Bzero=0
+PROGRESS t=212 it=63000000 mode=0 score=20.81 best=28 eligible=8175 Bplus=18 Bzero=0
+EXACT_CLASS t=212 gates=31 p=12 Bzero=1
+EXACT_CLASS t=212 gates=32 p=13 Bzero=0
+PROGRESS t=221 it=64000000 mode=0 score=25.3 best=28 eligible=8047 Bplus=17 Bzero=0
+PROGRESS t=227 it=64500000 mode=1 score=124.77 best=28 eligible=16320 Bplus=13 Bzero=1
+PROGRESS t=231 it=65500000 mode=1 score=212.13 best=28 eligible=10419 Bplus=6 Bzero=0
+PROGRESS t=233 it=66000000 mode=2 score=28.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=234 it=67000000 mode=2 score=182.12 best=28 eligible=10443 Bplus=6 Bzero=0
+PROGRESS t=235 it=67500000 mode=0 score=20.81 best=28 eligible=16347 Bplus=18 Bzero=0
+PROGRESS t=237 it=68500000 mode=0 score=25.3 best=28 eligible=8031 Bplus=17 Bzero=0
+PROGRESS t=238 it=69000000 mode=1 score=36.27 best=28 eligible=127 Bplus=14 Bzero=0
+FRONTIER t=239 gates=25 p=11 Bzero=4 poserr=15 negerr=0
+PROGRESS t=240 it=70000000 mode=1 score=146.25 best=28 eligible=16319 Bplus=12 Bzero=0
+PROGRESS t=241 it=70500000 mode=2 score=28.27 best=28 eligible=16256 Bplus=14 Bzero=0
+PROGRESS t=243 it=71500000 mode=2 score=167.14 best=28 eligible=14755 Bplus=6 Bzero=0
+FRONTIER t=243 gates=23 p=9 Bzero=5 poserr=18 negerr=0
+PROGRESS t=244 it=72000000 mode=0 score=39.28 best=28 eligible=16256 Bplus=14 Bzero=1
+EXACT_CLASS t=244 gates=30 p=7 Bzero=3
+PROGRESS t=246 it=73000000 mode=0 score=38.29 best=28 eligible=16258 Bplus=15 Bzero=1
+PROGRESS t=246 it=73500000 mode=1 score=176.75 best=28 eligible=14275 Bplus=12 Bzero=0
+FRONTIER t=247 gates=26 p=11 Bzero=4 poserr=12 negerr=0
+PROGRESS t=248 it=74500000 mode=1 score=200.16 best=28 eligible=2463 Bplus=8 Bzero=0
+PROGRESS t=249 it=75000000 mode=2 score=28.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=251 it=76000000 mode=2 score=187.6 best=28 eligible=283 Bplus=4 Bzero=0
+PROGRESS t=252 it=76500000 mode=0 score=20.81 best=28 eligible=14331 Bplus=18 Bzero=0
+PROGRESS t=254 it=77500000 mode=0 score=22.29 best=28 eligible=14203 Bplus=16 Bzero=0
+PROGRESS t=255 it=78000000 mode=1 score=176.75 best=28 eligible=11509 Bplus=12 Bzero=0
+PROGRESS t=257 it=79000000 mode=1 score=200.14 best=28 eligible=2451 Bplus=5 Bzero=0
+PROGRESS t=258 it=79500000 mode=2 score=34.27 best=28 eligible=16256 Bplus=13 Bzero=1
+PROGRESS t=260 it=80500000 mode=2 score=164.65 best=28 eligible=1943 Bplus=7 Bzero=0
+PROGRESS t=261 it=81000000 mode=0 score=20.81 best=28 eligible=16363 Bplus=18 Bzero=0
+PROGRESS t=264 it=82000000 mode=0 score=21.3 best=28 eligible=16363 Bplus=17 Bzero=0
+PROGRESS t=269 it=82500000 mode=1 score=176.75 best=28 eligible=6043 Bplus=12 Bzero=0
+PROGRESS t=274 it=83500000 mode=1 score=194.65 best=28 eligible=475 Bplus=7 Bzero=0
+PROGRESS t=276 it=84000000 mode=2 score=28.27 best=28 eligible=5951 Bplus=14 Bzero=0
+PROGRESS t=278 it=85000000 mode=2 score=153.65 best=28 eligible=14831 Bplus=4 Bzero=0
+PROGRESS t=280 it=85500000 mode=0 score=20.81 best=28 eligible=8175 Bplus=18 Bzero=0
+PROGRESS t=283 it=86500000 mode=0 score=22.29 best=28 eligible=8047 Bplus=16 Bzero=0
+PROGRESS t=284 it=87000000 mode=1 score=176.75 best=28 eligible=6391 Bplus=12 Bzero=0
+PROGRESS t=287 it=88000000 mode=1 score=90.24 best=28 eligible=11263 Bplus=12 Bzero=0
+PROGRESS t=288 it=88500000 mode=2 score=24.27 best=28 eligible=6015 Bplus=14 Bzero=0
+PROGRESS t=290 it=89500000 mode=2 score=122.73 best=28 eligible=7611 Bplus=13 Bzero=0
+PROGRESS t=291 it=90000000 mode=0 score=20.81 best=28 eligible=8159 Bplus=18 Bzero=0
+PROGRESS t=293 it=91000000 mode=0 score=22.29 best=28 eligible=8031 Bplus=16 Bzero=0
+PROGRESS t=294 it=91500000 mode=1 score=168.76 best=28 eligible=14589 Bplus=13 Bzero=0
+PROGRESS t=296 it=92500000 mode=1 score=117.21 best=28 eligible=11255 Bplus=10 Bzero=0
+PROGRESS t=297 it=93000000 mode=2 score=28.27 best=28 eligible=127 Bplus=14 Bzero=0
+PROGRESS t=299 it=94000000 mode=2 score=172.13 best=28 eligible=281 Bplus=5 Bzero=0

@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS (independent mathematical/source review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:37:34.002449+00:00",
+  "source": "results/orch/lemmas/algebraic-protected-full.lean",
+  "sha256": "bf7c60af171e6b711162dbb7545161150e4dce1a5d7774fb24f0659450ecb876",
+  "lines": 7460,
+  "checks": [
+    "The first7190 lines match the accepted L6659 source exactly; both new tail files occur unchanged in the standalone source.",
+    "Protected reachability gives a unique-reader chain because each actual outgoing step supplies fanout at least1 and the explicit protection hypothesis gives at most1.",
+    "The protected full-mask lemma retains a strong explicit protection premise and a separate condition on every other consumer of a chosen neighbor. It rules out later AND gates by dominator purity and sibling-neighbor support, then applies accepted sem_full_support.",
+    "Residual co-label inclusion uses accepted ri_gen and a finite Fano separation fact. If the assigned operand lacked the co-label, it would be the unique exceptional consumer; a separate consumer avoiding the co-label and the separating neighbor then contradicts both possibilities. Eligibility/ineligibility supplies the required distinct label premise.",
+    "The three-slot lemma uses two distinct assigned positions and one fresh third-neighbor consumer to exhaust a carrier with at most3 exits. Its explicit protected-input hypothesis supplies the full-neighborhood conclusion.",
+    "The assigned-budget inequalities use injectivity of assigned positions and cc_le. The extra slot is genuinely distinct because its opposite label is eligible, whereas assigned-position private labels are ineligible.",
+    "The coordinate normalization assumes exactly3 residual units and label7 residual count1 or2 explicitly. It constructs an injective exhaustive enumeration and reindexes it by a Fin3 permutation. Image, cardinality and inclusion lemmas preserve the original residual-label sets exactly.",
+    "No hidden Bzero=0 premise or unconditional p9 exclusion appears. These are helper theorems with all needed protection, residual-size and label-count assumptions explicit."
+  ],
+  "issues": [],
+  "limits": [
+    "This package supports the p9 proof but does not itself prove the whole p9 exclusion or the posted statement."
+  ]
+}

@@ -34,3 +34,5 @@
 2026-11-25T11:33:52.843998+00:00 — All-mask theorem compiled standalone and independently reviewed; preserving it with p14 structural restrictions. P9 finite residual-support certificate and actual-circuit bridge are in progress.
 
 2026-11-25T11:36:00.385835+00:00 — Conditional exact posted-statement integration compiled standalone and independently reviewed. Preserving the bridge and reviewed p14 SAT model; the structural exclusion premise remains open.
+
+2026-11-25T11:45:13.733203+00:00 — Short trace-preserving integration compiled standalone and reviewed. Re-plan: finish p9 finite certificate, test the p10 two-unit obstruction, continue p14 structural/SAT routes. Preserve completed high-search logs and independently verified K4 controls.
