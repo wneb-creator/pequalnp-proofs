@@ -7495,6 +7495,348 @@ lemma no_center_merge_residual_at_least_three {D : Dag} (h : StrictLive 10 D)
 end R2Actual
 end NeighborCover
 
+open DagTools
+
+lemma val_append_prefix (n : ℕ) (D tail : Dag) (x : Fin n → Bool)
+    (w : ℕ) (hw : w < n + D.length) :
+    val (D ++ tail) x w = val D x w := by
+  unfold val
+  rw [wl_append]
+  exact wl_getD_lt tail (wl D (List.ofFn x)) w (by simpa [wl_length] using hw)
+
+lemma supp_append_prefix (n : ℕ) (D tail : Dag) (w : ℕ)
+    (hw : w < n + D.length) :
+    supp n (D ++ tail) w = supp n D w := by
+  ext x
+  simp only [supp, Finset.mem_filter, Finset.mem_univ, true_and]
+  rw [val_append_prefix n D tail (single x) w hw]
+
+lemma tag_append_prefix (D tail : Dag) (j : ℕ) (hj : j < D.length) :
+    tag (D ++ tail) j = tag D j := by
+  simp [tag, List.getD_eq_getElem?_getD, List.getElem?_append_left hj]
+
+namespace VirtualAnd
+
+open DagTools
+
+lemma append_and_family {n : ℕ} {D : Dag} (hS : Strict n D) (z : Fin n)
+    (F : Finset ℕ) (hne : F.Nonempty)
+    (hvalid : ∀ a ∈ F, a < n + D.length)
+    (hz : ∀ a ∈ F, z ∈ supp n D a) :
+    ∃ tail : Dag, ∃ w : ℕ,
+      Strict n (D ++ tail) ∧ tail.length + 1 = F.card ∧
+      w < n + (D ++ tail).length ∧ (w ∈ F ∨ n + D.length ≤ w) ∧
+      (∀ x : Fin n → Bool, val (D ++ tail) x w = true ↔ ∀ a ∈ F, val D x a = true) ∧
+      ∀ j, D.length ≤ j → j < (D ++ tail).length →
+        tag (D ++ tail) j = true ∧ z ∈ supp n (D ++ tail) (n + j) := by
+  classical
+  induction F using Finset.induction_on with
+  | empty => exact False.elim (Finset.not_nonempty_empty hne)
+  | @insert a F ha ih =>
+    by_cases hF : F.Nonempty
+    · obtain ⟨tail, w, hE, hcost, hw, horigin, hval, hvirtual⟩ :=
+        ih hF (fun u hu => hvalid u (Finset.mem_insert_of_mem hu))
+          (fun u hu => hz u (Finset.mem_insert_of_mem hu))
+      let E := D ++ tail
+      have haD : a < n + D.length := hvalid a (Finset.mem_insert_self _ _)
+      have haE : a < n + E.length := by simp only [E, List.length_append]; omega
+      have hwE : w < n + E.length := hw
+      have hwa : w ≠ a := by
+        intro heq
+        rcases horigin with hwF | hwnew
+        · exact ha (heq ▸ hwF)
+        · omega
+      have hnext : Strict n (E ++ [(true, w, a)]) := na_strict_snoc hE true w a hwE haE hwa
+      have hgate (x : Fin n → Bool) :
+          val (E ++ [(true, w, a)]) x (n + E.length) = (val E x w && val D x a) := by
+        rw [val_gate hnext x E.length (by simp)]
+        simp only [tag, opA, opB, na_getD_snoc, gop_true]
+        rw [val_append_prefix n E _ x w hwE, val_append_prefix n E _ x a haE,
+          val_append_prefix n D tail x a haD]
+      have hznew : z ∈ supp n (E ++ [(true, w, a)]) (n + E.length) := by
+        rw [mem_supp, hgate, Bool.and_eq_true]
+        exact ⟨(hval (single z)).mpr (fun u hu => mem_supp.mp (hz u (Finset.mem_insert_of_mem hu))),
+          mem_supp.mp (hz a (Finset.mem_insert_self _ _))⟩
+      refine ⟨tail ++ [(true, w, a)], n + E.length, ?_⟩
+      simp only [← List.append_assoc]
+      refine ⟨hnext, ?_, ?_, Or.inr ?_, ?_, ?_⟩
+      · rw [List.length_append, List.length_singleton, Finset.card_insert_of_notMem ha]
+        omega
+      · simp only [E, List.length_append, List.length_singleton]
+        omega
+      · simp only [E, List.length_append]
+        omega
+      · intro x
+        rw [hgate, Bool.and_eq_true, hval]
+        constructor
+        · rintro ⟨hFx, hax⟩ u hu
+          rcases Finset.mem_insert.mp hu with rfl | hu
+          · exact hax
+          · exact hFx u hu
+        · intro hall
+          exact ⟨fun u hu => hall u (Finset.mem_insert_of_mem hu), hall a (Finset.mem_insert_self _ _)⟩
+      · intro j hjold hjnew
+        change j < (E ++ [(true, w, a)]).length at hjnew
+        by_cases hjE : j < E.length
+        · obtain ⟨ht, hzs⟩ := hvirtual j hjold hjE
+          exact ⟨(tag_append_prefix E _ j hjE).trans ht,
+            (supp_append_prefix n E _ (n + j) (by omega)).symm ▸ hzs⟩
+        · have hj : j = E.length := by
+            simp only [List.length_append, List.length_singleton] at hjnew
+            omega
+          subst j
+          refine ⟨?_, hznew⟩
+          change tag (E ++ [(true, w, a)]) E.length = true
+          simp only [tag, na_getD_snoc]
+    · have hFempty : F = ∅ := Finset.not_nonempty_iff_eq_empty.mp hF
+      subst F
+      refine ⟨[], a, ?_⟩
+      simp only [List.append_nil]
+      refine ⟨hS, by simp, hvalid a (by simp), Or.inl (by simp), ?_, ?_⟩
+      · intro x
+        simp
+      · intro j hj hj'
+        omega
+
+lemma append_and_family_support {n : ℕ} {D : Dag} (hS : Strict n D) (z : Fin n)
+    (F : Finset ℕ) (hne : F.Nonempty)
+    (hvalid : ∀ a ∈ F, a < n + D.length)
+    (hz : ∀ a ∈ F, z ∈ supp n D a) :
+    ∃ tail : Dag, ∃ w : ℕ,
+      Strict n (D ++ tail) ∧ tail.length + 1 = F.card ∧ w < n + (D ++ tail).length ∧
+      (∀ v : Fin n, v ∈ supp n (D ++ tail) w ↔ ∀ a ∈ F, v ∈ supp n D a) ∧
+      ∀ j, D.length ≤ j → j < (D ++ tail).length →
+        tag (D ++ tail) j = true ∧ z ∈ supp n (D ++ tail) (n + j) := by
+  obtain ⟨tail, w, hE, hcost, hw, _, hval, hvirtual⟩ := append_and_family hS z F hne hvalid hz
+  refine ⟨tail, w, hE, hcost, hw, ?_, hvirtual⟩
+  intro v
+  simpa only [mem_supp] using hval (single v)
+
+end VirtualAnd
+
+namespace VirtualAnd
+
+open DagTools
+
+lemma append_three_and_families_support {n : ℕ} {D : Dag} (hS : Strict n D)
+    (z : Fin n) (F : Fin 3 → Finset ℕ) (hne : ∀ i, (F i).Nonempty)
+    (hvalid : ∀ i, ∀ a ∈ F i, a < n + D.length)
+    (hz : ∀ i, ∀ a ∈ F i, z ∈ supp n D a) :
+    ∃ tail : Dag, ∃ w : Fin 3 → ℕ,
+      Strict n (D ++ tail) ∧ tail.length + 3 = ∑ i, (F i).card ∧
+      (∀ i, w i < n + (D ++ tail).length) ∧
+      (∀ i v, v ∈ supp n (D ++ tail) (w i) ↔ ∀ a ∈ F i, v ∈ supp n D a) ∧
+      ∀ j, D.length ≤ j → j < (D ++ tail).length →
+        tag (D ++ tail) j = true ∧ z ∈ supp n (D ++ tail) (n + j) := by
+  classical
+  obtain ⟨t0, w0, hs0, hc0, hw0, hp0, hv0⟩ :=
+    append_and_family_support hS z (F 0) (hne 0) (hvalid 0) (hz 0)
+  let E0 := D ++ t0
+  change w0 < n + E0.length at hw0
+  have hvalid0 : ∀ i, ∀ a ∈ F i, a < n + E0.length := by
+    intro i a ha
+    have := hvalid i a ha
+    simp only [E0, List.length_append]
+    omega
+  have hz0 : ∀ i, ∀ a ∈ F i, z ∈ supp n E0 a := by
+    intro i a ha
+    rw [supp_append_prefix n D t0 a (hvalid i a ha)]
+    exact hz i a ha
+  obtain ⟨t1, w1, hs1, hc1, hw1, hp1, hv1⟩ :=
+    append_and_family_support (D := E0) hs0 z (F 1) (hne 1) (hvalid0 1) (hz0 1)
+  let E1 := E0 ++ t1
+  change w1 < n + E1.length at hw1
+  have hvalid1 : ∀ i, ∀ a ∈ F i, a < n + E1.length := by
+    intro i a ha
+    have := hvalid0 i a ha
+    simp only [E1, List.length_append]
+    omega
+  have hz1 : ∀ i, ∀ a ∈ F i, z ∈ supp n E1 a := by
+    intro i a ha
+    rw [supp_append_prefix n E0 t1 a (hvalid0 i a ha)]
+    exact hz0 i a ha
+  obtain ⟨t2, w2, hs2, hc2, hw2, hp2, hv2⟩ :=
+    append_and_family_support (D := E1) hs1 z (F 2) (hne 2) (hvalid1 2) (hz1 2)
+  let E2 := E1 ++ t2
+  have hE0 : E0.length ≤ E1.length := by simp [E1]
+  have hE1 : E1.length ≤ E2.length := by simp [E2]
+  have hD0 : D.length ≤ E0.length := by simp [E0]
+  have hsupp0 (a : ℕ) (ha : a < n + E0.length) :
+      supp n E2 a = supp n E0 a := by
+    rw [supp_append_prefix n E1 t2 a (by omega), supp_append_prefix n E0 t1 a ha]
+  have hsuppD (i : Fin 3) (a : ℕ) (ha : a ∈ F i) :
+      supp n E1 a = supp n D a := by
+    rw [supp_append_prefix n E0 t1 a (hvalid0 i a ha),
+      supp_append_prefix n D t0 a (hvalid i a ha)]
+  refine ⟨(t0 ++ t1) ++ t2, ![w0, w1, w2], ?_⟩
+  have heq : D ++ ((t0 ++ t1) ++ t2) = E2 := by simp [E2, E1, E0, List.append_assoc]
+  rw [heq]
+  refine ⟨hs2, ?_, ?_, ?_, ?_⟩
+  · have hsum : (∑ i : Fin 3, (F i).card) = (F 0).card + (F 1).card + (F 2).card := by
+      simp [Fin.sum_univ_succ, Nat.add_assoc]
+    rw [hsum]
+    simp only [List.length_append]
+    omega
+  · intro i
+    fin_cases i
+    · change w0 < n + E2.length
+      omega
+    · change w1 < n + E2.length
+      omega
+    · exact hw2
+  · intro i v
+    fin_cases i
+    · change v ∈ supp n E2 w0 ↔ ∀ a ∈ F 0, v ∈ supp n D a
+      rw [hsupp0 w0 hw0]
+      exact hp0 v
+    · change v ∈ supp n E2 w1 ↔ ∀ a ∈ F 1, v ∈ supp n D a
+      rw [supp_append_prefix n E1 t2 w1 hw1, hp1]
+      exact forall₂_congr fun a ha => by rw [supp_append_prefix n D t0 a (hvalid 1 a ha)]
+    · change v ∈ supp n E2 w2 ↔ ∀ a ∈ F 2, v ∈ supp n D a
+      rw [hp2]
+      exact forall₂_congr fun a ha => by rw [hsuppD 2 a ha]
+  · intro j hjD hjE2
+    by_cases hj0 : j < E0.length
+    · obtain ⟨ht, hzj⟩ := hv0 j hjD hj0
+      refine ⟨?_, ?_⟩
+      · rw [tag_append_prefix E1 t2 j (by omega), tag_append_prefix E0 t1 j hj0]
+        exact ht
+      · rw [hsupp0 (n + j) (by omega)]
+        exact hzj
+    · by_cases hj1 : j < E1.length
+      · obtain ⟨ht, hzj⟩ := hv1 j (by omega) hj1
+        refine ⟨?_, ?_⟩
+        · rw [tag_append_prefix E1 t2 j hj1]
+          exact ht
+        · rw [supp_append_prefix n E1 t2 (n + j) (by omega)]
+          exact hzj
+      · exact hv2 j (by omega) hjE2
+
+end VirtualAnd
+
+namespace VirtualAnd
+
+open DagTools
+
+lemma append_three_source_families {α : Type*} [DecidableEq α] {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z : Fin n) (A : Fin 3 → Finset α) (source : α → ℕ)
+    (hne : ∀ i, (A i).Nonempty)
+    (hvalid : ∀ i, ∀ e ∈ A i, source e < n + D.length)
+    (hz : ∀ i, ∀ e ∈ A i, z ∈ supp n D (source e)) :
+    ∃ tail : Dag, ∃ w : Fin 3 → ℕ,
+      Strict n (D ++ tail) ∧ tail.length + 3 ≤ ∑ i, (A i).card ∧
+      (∀ i, w i < n + (D ++ tail).length) ∧
+      (∀ i v, v ∈ supp n (D ++ tail) (w i) ↔ ∀ e ∈ A i, v ∈ supp n D (source e)) ∧
+      (∀ j, D.length ≤ j → j < (D ++ tail).length →
+        tag (D ++ tail) j = true ∧ z ∈ supp n (D ++ tail) (n + j)) ∧
+      (∀ x : Fin n → Bool, ∀ a, a < n + D.length → val (D ++ tail) x a = val D x a) ∧
+      ∀ a, a < n + D.length → supp n (D ++ tail) a = supp n D a := by
+  classical
+  let F : Fin 3 → Finset ℕ := fun i => (A i).image source
+  have hFn : ∀ i, (F i).Nonempty := by
+    intro i
+    obtain ⟨e, he⟩ := hne i
+    exact ⟨source e, Finset.mem_image.mpr ⟨e, he, rfl⟩⟩
+  have hFv : ∀ i, ∀ a ∈ F i, a < n + D.length := by
+    intro i a ha
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+    exact hvalid i e he
+  have hFz : ∀ i, ∀ a ∈ F i, z ∈ supp n D a := by
+    intro i a ha
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+    exact hz i e he
+  obtain ⟨tail, w, hE, hcost, hw, hsupport, hvirtual⟩ :=
+    append_three_and_families_support hS z F hFn hFv hFz
+  refine ⟨tail, w, hE, ?_, hw, ?_, hvirtual,
+    fun x a ha => val_append_prefix n D tail x a ha,
+    fun a ha => supp_append_prefix n D tail a ha⟩
+  · rw [hcost]
+    exact Finset.sum_le_sum (fun i _ => Finset.card_image_le)
+  · intro i v
+    rw [hsupport i v]
+    constructor
+    · intro hv e he
+      exact hv (source e) (Finset.mem_image.mpr ⟨e, he, rfl⟩)
+    · intro hv a ha
+      obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp ha
+      exact hv e he
+
+end VirtualAnd
+
+namespace VirtualMarks
+
+def original (d : ℕ) (M : Finset ℕ) : Finset ℕ := M.filter (fun j => j < d)
+
+lemma original_subset (d : ℕ) (M : Finset ℕ) : original d M ⊆ M :=
+  Finset.filter_subset _ _
+
+lemma mem_original {d j : ℕ} {M : Finset ℕ} : j ∈ original d M ↔ j ∈ M ∧ j < d := by
+  simp only [original, Finset.mem_filter]
+
+lemma original_card_bound (d t : ℕ) (M : Finset ℕ)
+    (hvalid : M ⊆ Finset.range (d+t)) : M.card ≤ (original d M).card + t := by
+  classical
+  let V := M.filter (fun j => ¬ j < d)
+  have hV : V ⊆ Finset.Ico d (d+t) := by
+    intro j hj
+    obtain ⟨hjM, hjd⟩ := Finset.mem_filter.mp hj
+    exact Finset.mem_Ico.mpr ⟨by omega, Finset.mem_range.mp (hvalid hjM)⟩
+  have hcard : V.card ≤ t := by
+    have hh := Finset.card_le_card hV
+    simpa using hh
+  have hsplit := Finset.card_filter_add_card_filter_not (s := M) (fun j => j < d)
+  change (original d M).card + V.card = M.card at hsplit
+  omega
+
+lemma first_label_pullback {α : Type*} {n d j : ℕ} {L K : ℕ → Finset α}
+    (hprefix : ∀ w, w < n+d → L w = K w) (hj : j < d)
+    (hfirst : ∀ w, w < n+j → L w ≠ L (n+j)) :
+    ∀ w, w < n+j → K w ≠ K (n+j) := by
+  intro w hw heq
+  apply hfirst w hw
+  rw [hprefix w (by omega), hprefix (n+j) (by omega)]
+  exact heq
+
+lemma original_properties {α : Type*} {n d : ℕ} {L K : ℕ → Finset α}
+    (hprefix : ∀ w, w < n+d → L w = K w)
+    (M : Finset ℕ) (P : Finset α → Prop)
+    (hM : ∀ j ∈ M, P (L (n+j)) ∧ ∀ w, w < n+j → L w ≠ L (n+j)) :
+    ∀ j ∈ original d M, P (K (n+j)) ∧ ∀ w, w < n+j → K w ≠ K (n+j) := by
+  intro j hj
+  obtain ⟨hjM, hjd⟩ := mem_original.mp hj
+  refine ⟨?_, first_label_pullback hprefix hjd (hM j hjM).2⟩
+  rw [← hprefix (n+j) (by omega)]
+  exact (hM j hjM).1
+
+lemma original_label_injective {α : Type*} {n d : ℕ} {L K : ℕ → Finset α}
+    (hprefix : ∀ w, w < n+d → L w = K w) (M : Finset ℕ)
+    (hinj : Set.InjOn (fun j => L (n+j)) M) :
+    Set.InjOn (fun j => K (n+j)) (original d M) := by
+  intro a ha b hb he
+  obtain ⟨haM, had⟩ := mem_original.mp ha
+  obtain ⟨hbM, hbd⟩ := mem_original.mp hb
+  apply hinj haM hbM
+  change L (n+a) = L (n+b)
+  change K (n+a) = K (n+b) at he
+  rw [hprefix (n+a) (by omega), hprefix (n+b) (by omega)]
+  exact he
+
+lemma compensated_marks (d t T : ℕ) (M : Finset ℕ)
+    (hvalid : M ⊆ Finset.range (d+t)) (hsix : 6 ≤ M.card) (hcost : t+3≤T) :
+    12 ≤ T+3+(original d M).card := by
+  have hc := original_card_bound d t M hvalid
+  omega
+
+lemma counted_contradiction (d t T q kept : ℕ) (M : Finset ℕ)
+    (hvalid : M ⊆ Finset.range (d+t)) (hsix : 6 ≤ M.card) (hcost : t+3≤T)
+    (hsize : d ≤ 19)
+    (hbudget : q+T+3+(original d M).card ≤ d+kept)
+    (hc6 : 8+kept ≤ q) : False := by
+  have hc := compensated_marks d t T M hvalid hsix hcost
+  omega
+
+end VirtualMarks
+
 end I3Branch
 
 namespace ResidualFour
