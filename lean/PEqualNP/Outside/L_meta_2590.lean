@@ -8568,4 +8568,2057 @@ lemma h3_residual_saturated_two_exclusion {D : Dag} (h : StrictLive 10 D)
 
 end DagTools
 
+
+namespace DagTools
+
+lemma h3_exposure_exit {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) (x : Fin n)
+    (hnb : ∃ a ∈ A, G x a) :
+    ∃ e ∈ exitArcs n D (carrierT n D {x}), Disjoint (supp n D (src D e)) A := by
+  obtain ⟨j, s, hj, _, hx, hn, hd⟩ := sem_exposure hG hS hC A hA x hnb
+  exact ⟨(j, s), sem_mem_exit1.mpr ⟨hj, hx, hn⟩, hd⟩
+
+lemma h3_two_blocked_exits_equal {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x : Fin n} {e f : ℕ × Bool} (hc : (exitArcs n D (carrierT n D {x})).card ≤ 2)
+    (he : e ∈ exitArcs n D (carrierT n D {x})) (hf : f ∈ exitArcs n D (carrierT n D {x}))
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) (hnb : ∃ a ∈ A, G x a)
+    (hbe : ¬ Disjoint (supp n D (src D e)) A) (hbf : ¬ Disjoint (supp n D (src D f)) A) : e = f := by
+  by_contra hne
+  have hp : ({e, f} : Finset (ℕ × Bool)) = exitArcs n D (carrierT n D {x}) := by
+    apply Finset.eq_of_subset_of_card_le
+    · intro a ha
+      simp only [Finset.mem_insert, Finset.mem_singleton] at ha
+      rcases ha with rfl | rfl <;> assumption
+    · simpa [hne] using hc
+  obtain ⟨g, hg, hd⟩ := h3_exposure_exit hG hS hC A hA x hnb
+  rw [← hp] at hg
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hg
+  rcases hg with rfl | rfl
+  · exact hbe hd
+  · exact hbf hd
+
+lemma h3_remaining_exit_disjoint {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x : Fin n} {e f : ℕ × Bool}
+    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ b ∈ A, ¬ G a b) (hnb : ∃ a ∈ A, G x a)
+    (hbe : ¬ Disjoint (supp n D (src D e)) A) : Disjoint (supp n D (src D f)) A := by
+  obtain ⟨g, hg, hd⟩ := h3_exposure_exit hG hS hC A hA x hnb
+  have hh := hW hg
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hh
+  rcases hh with rfl | rfl
+  · exact (hbe hd).elim
+  · exact hd
+
+lemma h3_two_exit_avoid {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x y : Fin n} {e f : ℕ × Bool}
+    (hW : exitArcs n D (carrierT n D {x}) ⊆ {e, f})
+    (hbar : y ∉ supp n D (src D (h3_opp e))) (hxy : G x y) :
+    h3_opp f ∈ exitArcs n D (carrierT n D {y}) := by
+  obtain ⟨j, hj, _, _, hxn, hyn, s, hxs, _, hys, _⟩ := sem_joint_meeting hG hS hC hxy
+  have hh := hW (sem_mem_exit1.mpr ⟨hj, hxs, hxn⟩)
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hh
+  rcases hh with he | hf
+  · exact False.elim (hbar (by simpa only [← he, h3_opp] using hys))
+  · apply sem_mem_exit1.mpr
+    simpa only [← hf, h3_opp] using And.intro hj (And.intro hys hyn)
+
+lemma h3_singleton_one_core {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hc : ∀ x : Fin 10, x ≠ 0 → x ≠ 1 → (exitArcs 10 D (carrierT 10 D {x})).card ≤ 2) :
+    ∃ e0 e4 e5 d a b : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      exitArcs 10 D (carrierT 10 D {0}) = {e0} ∧
+      exitArcs 10 D (carrierT 10 D {4}) = {h3_opp e0, e4} ∧
+      exitArcs 10 D (carrierT 10 D {5}) = {h3_opp e0, e5} ∧
+      exitArcs 10 D (carrierT 10 D {3}) = {h3_opp e4, d} ∧
+      exitArcs 10 D (carrierT 10 D {7}) = {h3_opp e5, d} ∧
+      exitArcs 10 D (carrierT 10 D {8}) = {h3_opp e5, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {9}) = {h3_opp e4, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {2}) = {h3_opp d, a} ∧
+      exitArcs 10 D (carrierT 10 D {6}) = {d, b} ∧
+      h3_opp e0 ∈ exitArcs 10 D (carrierT 10 D {1}) ∧
+      h3_opp a ∈ exitArcs 10 D (carrierT 10 D {1}) ∧
+      h3_opp b ∈ exitArcs 10 D (carrierT 10 D {1}) ∧
+      h3_opp a ≠ h3_opp e0 ∧ h3_opp b ≠ h3_opp e0 ∧
+      1 ∉ supp 10 D (src D d) ∧ 1 ∉ supp 10 D (src D (h3_opp d)) := by
+  obtain ⟨e0, he0, _, hp0, ho0, hn0, hW0, _⟩ := sem_inelig_consumer petersen_graph_ok h hC hz
+  let A := h3_opp e0
+  have hbarA : supp 10 D (src D (h3_opp A)) = {(0 : Fin 10)} := by
+    simpa only [A, h3_opp_opp] using hp0
+  have hAN : ({1, 4, 5} : Finset (Fin 10)) ⊆ supp 10 D (src D A) := by
+    intro x hx
+    apply hn0
+    have hh : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) → petersenAdj 0 a := by
+      unfold petersenAdj
+      decide
+    exact hh x hx
+  have hAmem : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)), A ∈ exitArcs 10 D (carrierT 10 D {x}) := by
+    intro x hx
+    apply sem_mem_exit1.mpr
+    exact ⟨he0, hAN hx, by rw [show 10 + A.1 = 10 + e0.1 from rfl, ho0]; simp⟩
+  have hc4 : (exitArcs 10 D (carrierT 10 D {(4 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 4 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC (x := (4 : Fin 10)) (y := (1 : Fin 10)) (hAmem 4 (by decide)) (hAN (by decide)) (by decide))
+  have hc5 : (exitArcs 10 D (carrierT 10 D {(5 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 5 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC (x := (5 : Fin 10)) (y := (1 : Fin 10)) (hAmem 5 (by decide)) (hAN (by decide)) (by decide))
+  obtain ⟨e4, _, hW4⟩ := h3_pair_of_card_two (hAmem 4 (by decide)) hc4
+  obtain ⟨e5, _, hW5⟩ := h3_pair_of_card_two (hAmem 5 (by decide)) hc5
+  have hp4 : supp 10 D (src D e4) = {(4 : Fin 10)} :=
+    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW4]) (by rw [hW4]; simp) hAN
+  have hp5 : supp 10 D (src D e5) = {(5 : Fin 10)} :=
+    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW5]) (by rw [hW5]; simp) hAN
+  have ha3 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {3}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha9 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {9}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha7 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {7}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha8 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {8}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have hc3 : (exitArcs 10 D (carrierT 10 D {(3 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 3 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC ha3 (sem_mem_exit1.mp ha9).2.1 (by decide))
+  have hc7 : (exitArcs 10 D (carrierT 10 D {(7 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 7 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC ha7 (sem_mem_exit1.mp ha8).2.1 (by decide))
+  have hc8 : (exitArcs 10 D (carrierT 10 D {(8 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 8 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC ha8 (sem_mem_exit1.mp ha7).2.1 (by decide))
+  have hc9 : (exitArcs 10 D (carrierT 10 D {(9 : Fin 10)})).card = 2 :=
+    Nat.le_antisymm (hc 9 (by decide) (by decide))
+      (sem_nonpure_exit_card petersen_graph_ok h.1 hC ha9 (sem_mem_exit1.mp ha3).2.1 (by decide))
+  obtain ⟨g3, _, hW3⟩ := h3_pair_of_card_two ha3 hc3
+  obtain ⟨g7, _, hW7⟩ := h3_pair_of_card_two ha7 hc7
+  obtain ⟨g8, _, hW8⟩ := h3_pair_of_card_two ha8 hc8
+  obtain ⟨g9, _, hW9⟩ := h3_pair_of_card_two ha9 hc9
+  have hb4 : supp 10 D (src D (h3_opp (h3_opp e4))) = {(4 : Fin 10)} := by rw [h3_opp_opp]; exact hp4
+  have hb5 : supp 10 D (src D (h3_opp (h3_opp e5))) = {(5 : Fin 10)} := by rw [h3_opp_opp]; exact hp5
+  have h38 : h3_opp g3 = g8 := h3_split_edge_pair petersen_graph_ok h.1 hC
+    (by rw [hW3]) (by rw [hW8]) hb4 hb5 (by decide) (by decide) (by unfold petersenAdj; decide)
+  have h79 : h3_opp g7 = g9 := h3_split_edge_pair petersen_graph_ok h.1 hC
+    (by rw [hW7]) (by rw [hW9]) hb5 hb4 (by decide) (by decide) (by unfold petersenAdj; decide)
+  have h23 : h3_opp g3 ∈ exitArcs 10 D (carrierT 10 D {2}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW3]) hb4 (by unfold petersenAdj; decide) (by decide)
+  have h27 : h3_opp g7 ∈ exitArcs 10 D (carrierT 10 D {2}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW7]) hb5 (by unfold petersenAdj; decide) (by decide)
+  have hI : ∀ a ∈ ({1, 8, 9} : Finset (Fin 10)), ∀ b ∈ ({1, 8, 9} : Finset (Fin 10)), ¬ petersenAdj a b := by
+    unfold petersenAdj
+    decide
+  have hJ : ∀ a ∈ ({1, 3, 7} : Finset (Fin 10)), ∀ b ∈ ({1, 3, 7} : Finset (Fin 10)), ¬ petersenAdj a b := by
+    unfold petersenAdj
+    decide
+  have heq : h3_opp g3 = h3_opp g7 := by
+    apply h3_two_blocked_exits_equal petersen_graph_ok h.1 hC (hc 2 (by decide) (by decide)) h23 h27 {1, 8, 9} hI
+      ⟨1, by decide, by unfold petersenAdj; decide⟩
+    · intro hd
+      have hm : (8 : Fin 10) ∈ supp 10 D (src D (h3_opp g3)) := by
+        rw [h38]
+        exact (sem_mem_exit1.mp (by rw [hW8]; simp : g8 ∈ exitArcs 10 D (carrierT 10 D {8}))).2.1
+      exact Finset.disjoint_left.mp hd hm (by decide)
+    · intro hd
+      have hm : (9 : Fin 10) ∈ supp 10 D (src D (h3_opp g7)) := by
+        rw [h79]
+        exact (sem_mem_exit1.mp (by rw [hW9]; simp : g9 ∈ exitArcs 10 D (carrierT 10 D {9}))).2.1
+      exact Finset.disjoint_left.mp hd hm (by decide)
+  have hg7 : g7 = g3 := by
+    have hh := congrArg h3_opp heq
+    simpa only [h3_opp_opp] using hh.symm
+  have hg8 : g8 = h3_opp g3 := h38.symm
+  have hg9 : g9 = h3_opp g3 := by rw [← h79, hg7]
+  have hnd : (1 : Fin 10) ∉ supp 10 D (src D g3) := by
+    have hd := h3_remaining_exit_disjoint petersen_graph_ok h.1 hC (by rw [hW3]) {1, 8, 9} hI
+      (x := (3 : Fin 10)) ⟨8, by decide, by unfold petersenAdj; decide⟩ (by
+        intro he
+        exact Finset.disjoint_left.mp he (sem_mem_exit1.mp ha9).2.1 (by decide))
+    exact fun hm => Finset.disjoint_left.mp hd hm (by decide)
+  have hnbd : (1 : Fin 10) ∉ supp 10 D (src D (h3_opp g3)) := by
+    have hd := h3_remaining_exit_disjoint petersen_graph_ok h.1 hC (by rw [hW8, hg8]) {1, 3, 7} hJ
+      (x := (8 : Fin 10)) ⟨3, by decide, by unfold petersenAdj; decide⟩ (by
+        intro he
+        exact Finset.disjoint_left.mp he (sem_mem_exit1.mp ha7).2.1 (by decide))
+    exact fun hm => Finset.disjoint_left.mp hd hm (by decide)
+  have h6d : g3 ∈ exitArcs 10 D (carrierT 10 D {6}) := by
+    have hh := sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW8]) hb5
+      (x := (8 : Fin 10)) (y := (6 : Fin 10)) (by unfold petersenAdj; decide) (by decide)
+    change h3_opp g8 ∈ exitArcs 10 D (carrierT 10 D {6}) at hh
+    simpa only [hg8, h3_opp_opp] using hh
+  have hc2 : (exitArcs 10 D (carrierT 10 D {(2 : Fin 10)})).card = 2 := by
+    apply Nat.le_antisymm (hc 2 (by decide) (by decide))
+    apply sem_nonpure_exit_card petersen_graph_ok h.1 hC h23 (y := (8 : Fin 10))
+    · rw [h38]
+      exact (sem_mem_exit1.mp (by rw [hW8]; simp : g8 ∈ exitArcs 10 D (carrierT 10 D {(8 : Fin 10)}))).2.1
+    · decide
+  have hc6 : (exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})).card = 2 := by
+    apply Nat.le_antisymm (hc 6 (by decide) (by decide))
+    apply sem_nonpure_exit_card petersen_graph_ok h.1 hC h6d (y := (3 : Fin 10))
+    · exact (sem_mem_exit1.mp (by rw [hW3]; simp : g3 ∈ exitArcs 10 D (carrierT 10 D {(3 : Fin 10)}))).2.1
+    · decide
+  obtain ⟨a, _, hW2⟩ := h3_pair_of_card_two h23 hc2
+  obtain ⟨b, _, hW6⟩ := h3_pair_of_card_two h6d hc6
+  have ha1 : h3_opp a ∈ exitArcs 10 D (carrierT 10 D {1}) :=
+    h3_two_exit_avoid petersen_graph_ok h.1 hC (by rw [hW2]) (by simpa only [h3_opp_opp] using hnd)
+      (by unfold petersenAdj; decide)
+  have hb1 : h3_opp b ∈ exitArcs 10 D (carrierT 10 D {1}) :=
+    h3_two_exit_avoid petersen_graph_ok h.1 hC (by rw [hW6]) hnbd (by unfold petersenAdj; decide)
+  have hna : h3_opp a ≠ h3_opp e0 := by
+    intro he
+    have haeq : a = e0 := by have hh := congrArg h3_opp he; simpa only [h3_opp_opp] using hh
+    have hm := (sem_mem_exit1.mp (by rw [hW2]; simp : a ∈ exitArcs 10 D (carrierT 10 D {2}))).2.1
+    rw [haeq, hp0] at hm
+    simp at hm
+  have hnb : h3_opp b ≠ h3_opp e0 := by
+    intro he
+    have hbeq : b = e0 := by have hh := congrArg h3_opp he; simpa only [h3_opp_opp] using hh
+    have hm := (sem_mem_exit1.mp (by rw [hW6]; simp : b ∈ exitArcs 10 D (carrierT 10 D {6}))).2.1
+    rw [hbeq, hp0] at hm
+    simp at hm
+  refine ⟨e0, e4, e5, g3, a, b, hp0, hp4, hp5, hW0, hW4, hW5, hW3, ?_, ?_, ?_, hW2, hW6,
+    hAmem 1 (by decide), ha1, hb1, hna, hnb, hnd, hnbd⟩
+  · simpa only [hg7] using hW7
+  · simpa only [hg8] using hW8
+  · simpa only [hg9] using hW9
+
+lemma h3_card_three_two_remaining {α : Type} [DecidableEq α] {W : Finset α} {a b c : α}
+    (hcard : W.card = 3) (ha : a ∈ W) (hb : b ∈ W) (hc : c ∈ W)
+    (hba : b ≠ a) (hca : c ≠ a) :
+    (b = c ∧ ∃ f, f ≠ a ∧ f ≠ b ∧ W = {a, b, f}) ∨
+    (b ≠ c ∧ W = {a, b, c}) := by
+  have he : (W.erase a).card = 2 := by rw [Finset.card_erase_of_mem ha, hcard]
+  obtain ⟨f, hfb, hWf⟩ := h3_pair_of_card_two (Finset.mem_erase.mpr ⟨hba, hb⟩) he
+  have hfm : f ∈ W.erase a := by rw [hWf]; simp
+  have hfa := (Finset.mem_erase.mp hfm).1
+  have hW : W = {a, b, f} := by rw [← Finset.insert_erase ha, hWf]
+  by_cases hbc : b = c
+  · exact Or.inl ⟨hbc, f, hfa, hfb, hW⟩
+  · refine Or.inr ⟨hbc, ?_⟩
+    rw [hW] at hc
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hc
+    rcases hc with he | he | he
+    · exact (hca he).elim
+    · exact (hbc he.symm).elim
+    · simpa only [← he] using hW
+
+lemma h3_singleton_one_profiles {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hc : ∀ x : Fin 10, x ≠ 0 → x ≠ 1 → (exitArcs 10 D (carrierT 10 D {x})).card ≤ 2)
+    (hc1 : (exitArcs 10 D (carrierT 10 D {(1 : Fin 10)})).card = 3) :
+    ∃ e0 e4 e5 d a b : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      exitArcs 10 D (carrierT 10 D {0}) = {e0} ∧
+      exitArcs 10 D (carrierT 10 D {4}) = {h3_opp e0, e4} ∧
+      exitArcs 10 D (carrierT 10 D {5}) = {h3_opp e0, e5} ∧
+      exitArcs 10 D (carrierT 10 D {3}) = {h3_opp e4, d} ∧
+      exitArcs 10 D (carrierT 10 D {7}) = {h3_opp e5, d} ∧
+      exitArcs 10 D (carrierT 10 D {8}) = {h3_opp e5, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {9}) = {h3_opp e4, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {2}) = {h3_opp d, a} ∧
+      exitArcs 10 D (carrierT 10 D {6}) = {d, b} ∧
+      ((a = b ∧ ∃ f, f ≠ h3_opp e0 ∧ f ≠ h3_opp a ∧
+          exitArcs 10 D (carrierT 10 D {(1 : Fin 10)}) = {h3_opp e0, h3_opp a, f}) ∨
+       (a ≠ b ∧ exitArcs 10 D (carrierT 10 D {(1 : Fin 10)}) = {h3_opp e0, h3_opp a, h3_opp b})) := by
+  obtain ⟨e0, e4, e5, d, a, b, hp0, hp4, hp5, hW0, hW4, hW5, hW3, hW7, hW8, hW9,
+    hW2, hW6, hm0, hma, hmb, hna, hnb, _, _⟩ := h3_singleton_one_core h hC hz hc
+  refine ⟨e0, e4, e5, d, a, b, hp0, hp4, hp5, hW0, hW4, hW5, hW3, hW7, hW8, hW9, hW2, hW6, ?_⟩
+  rcases h3_card_three_two_remaining hc1 hm0 hma hmb hna hnb with ⟨he, f, hfa, hfb, hW⟩ | ⟨he, hW⟩
+  · left
+    refine ⟨?_, f, hfa, hfb, hW⟩
+    have hh := congrArg h3_opp he
+    simpa only [h3_opp_opp] using hh
+  · right
+    refine ⟨?_, hW⟩
+    intro hab
+    exact he (congrArg h3_opp hab)
+
+
+end DagTools
+
+namespace S1BaseGeometry
+
+def side (i : Fin 11) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 50, 2, 68, 16, 520, 32, 384, 200, 772, 2] : List Nat).getD i.val 0)
+
+def allowed (i : Fin 11) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 1023, 1023, 68, 17, 520, 33, 384, 200, 772, 1023] : List Nat).getD i.val 0)
+
+def witnessCode (i : Fin 11) (y : Fin 10) : Nat :=
+  ([0, 2, 20, 10, 16, 32, 80, 130, 258, 514, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2433, 2306, 0, 2568, 2322, 2594, 0, 2432, 2306, 2562, 0, 4106, 4644, 4106, 0, 4136, 4200, 4234, 4866, 4610, 3141, 3218, 3140, 0, 3152, 3172, 3140, 3216, 3456, 0, 0, 5250, 5396, 5258, 5264, 0, 5328, 5250, 5378, 5890, 7237, 7210, 7236, 7208, 7252, 7208, 7236, 0, 0, 7688, 3589, 3842, 3588, 0, 6420, 3620, 0, 0, 3840, 3588, 2121, 8330, 0, 2120, 2256, 2152, 2120, 2240, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : List Nat).getD (i.val * 10 + y.val) 0
+
+def witnessVertex (i : Fin 11) (y : Fin 10) : Fin 10 :=
+  ⟨witnessCode i y / 1024 % 10, Nat.mod_lt _ (by decide)⟩
+
+def witnessSet (i : Fin 11) (y : Fin 10) : Finset (Fin 10) :=
+  SideGeometry.mask (witnessCode i y % 1024)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma witness_valid : ∀ i : Fin 11, ∀ y : Fin 10, y ∉ allowed i →
+    let x := witnessVertex i y
+    let A := witnessSet i y
+    x ∈ side i ∧ y ∈ A ∧
+    (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) ∧
+    (∃ v ∈ A, SideGeometry.adj x v) ∧
+    ∀ j : Fin 11, x ∈ side j → j ≠ i → (side j ∩ A).Nonempty := by
+  unfold SideGeometry.adj
+  decide +kernel
+
+lemma support_bound (S : Fin 11 → Finset (Fin 10))
+    (hsub : ∀ i, side i ⊆ S i)
+    (hex : ∀ x A, (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) →
+      (∃ v ∈ A, SideGeometry.adj x v) →
+      ∃ i : Fin 11, x ∈ side i ∧ Disjoint (S i) A) :
+    ∀ i, S i ⊆ allowed i := by
+  intro i y hy
+  by_contra hn
+  obtain ⟨hx, hyA, hA, hnb, hother⟩ := witness_valid i y hn
+  obtain ⟨j, hj, hd⟩ := hex _ _ hA hnb
+  by_cases he : j = i
+  · subst j
+    exact Finset.disjoint_left.mp hd hy hyA
+  · obtain ⟨v, hv⟩ := hother j hj he
+    obtain ⟨hv, hvA⟩ := Finset.mem_inter.mp hv
+    exact Finset.disjoint_left.mp hd (hsub j hv) hvA
+
+end S1BaseGeometry
+
+namespace DagTools
+
+lemma h3_s1_base_source_bounds {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (r : Fin 11 → Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ S1BaseGeometry.side i)).image r) :
+    ∀ i, supp 10 D (src D (r i)) ⊆ S1BaseGeometry.allowed i := by
+  apply S1BaseGeometry.support_bound
+  · intro i x hx
+    apply (sem_mem_W.mp ?_).2.1
+    rw [hW]
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
+  · intro x A hA hnb
+    obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ :=
+      sem_exposure petersen_graph_ok h.1 hC A hA x hnb
+    have hm : (j, s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hj, hxs, hxn⟩
+    rw [hW] at hm
+    obtain ⟨i, hi, hri⟩ := Finset.mem_image.mp hm
+    exact ⟨i, (Finset.mem_filter.mp hi).2, by simpa only [hri] using hd⟩
+
+end DagTools
+
+namespace S1SplitGeometry
+
+def side (i : Fin 12) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 50, 2, 4, 2, 64, 16, 520, 32, 384, 200, 772] : List Nat).getD i.val 0)
+
+def allowed (i : Fin 12) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 1023, 1023, 68, 1023, 68, 17, 520, 33, 384, 200, 772] : List Nat).getD i.val 0)
+
+def witnessCode (i : Fin 12) (y : Fin 10) : Nat :=
+  ([0, 2, 20, 10, 16, 32, 80, 130, 258, 514, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2433, 2306, 0, 2568, 2322, 2594, 0, 2432, 2306, 2562, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6529, 6154, 0, 6154, 6290, 6186, 0, 6274, 6528, 6664, 0, 4106, 4644, 4106, 0, 4136, 4200, 4234, 4866, 4610, 3141, 3218, 3140, 0, 3152, 3172, 3140, 3216, 3456, 0, 0, 5250, 5396, 5258, 5264, 0, 5328, 5250, 5378, 5890, 7237, 7210, 7236, 7208, 7252, 7208, 7236, 0, 0, 7688, 3589, 3842, 3588, 0, 7444, 3620, 0, 0, 3840, 3588, 8329, 8330, 0, 8328, 8400, 9320, 8384, 8328, 0, 0] : List Nat).getD (i.val * 10 + y.val) 0
+
+def witnessVertex (i : Fin 12) (y : Fin 10) : Fin 10 :=
+  ⟨witnessCode i y / 1024 % 10, Nat.mod_lt _ (by decide)⟩
+
+def witnessSet (i : Fin 12) (y : Fin 10) : Finset (Fin 10) :=
+  SideGeometry.mask (witnessCode i y % 1024)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma witness_valid : ∀ i : Fin 12, ∀ y : Fin 10, y ∉ allowed i →
+    let x := witnessVertex i y
+    let A := witnessSet i y
+    x ∈ side i ∧ y ∈ A ∧
+    (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) ∧
+    (∃ v ∈ A, SideGeometry.adj x v) ∧
+    ∀ j : Fin 12, x ∈ side j → j ≠ i → (side j ∩ A).Nonempty := by
+  unfold SideGeometry.adj
+  decide +kernel
+
+lemma support_bound (S : Fin 12 → Finset (Fin 10))
+    (hsub : ∀ i, side i ⊆ S i)
+    (hex : ∀ x A, (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) →
+      (∃ v ∈ A, SideGeometry.adj x v) →
+      ∃ i : Fin 12, x ∈ side i ∧ Disjoint (S i) A) :
+    ∀ i, S i ⊆ allowed i := by
+  intro i y hy
+  by_contra hn
+  obtain ⟨hx, hyA, hA, hnb, hother⟩ := witness_valid i y hn
+  obtain ⟨j, hj, hd⟩ := hex _ _ hA hnb
+  by_cases he : j = i
+  · subst j
+    exact Finset.disjoint_left.mp hd hy hyA
+  · obtain ⟨v, hv⟩ := hother j hj he
+    obtain ⟨hv, hvA⟩ := Finset.mem_inter.mp hv
+    exact Finset.disjoint_left.mp hd (hsub j hv) hvA
+
+end S1SplitGeometry
+
+namespace DagTools
+
+lemma h3_s1_split_source_bounds {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (r : Fin 12 → Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 12 => x ∈ S1SplitGeometry.side i)).image r) :
+    ∀ i, supp 10 D (src D (r i)) ⊆ S1SplitGeometry.allowed i := by
+  apply S1SplitGeometry.support_bound
+  · intro i x hx
+    apply (sem_mem_W.mp ?_).2.1
+    rw [hW]
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
+  · intro x A hA hnb
+    obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ :=
+      sem_exposure petersen_graph_ok h.1 hC A hA x hnb
+    have hm : (j, s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hj, hxs, hxn⟩
+    rw [hW] at hm
+    obtain ⟨i, hi, hri⟩ := Finset.mem_image.mp hm
+    exact ⟨i, (Finset.mem_filter.mp hi).2, by simpa only [hri] using hd⟩
+
+end DagTools
+
+namespace S1BaseGeometry
+
+def incidenceIndices (x : Fin 10) : Finset (Fin 11) :=
+  ([{0}, {1, 2, 10}, {3, 9}, {5, 8}, {1, 4}, {1, 6}, {3, 8}, {7, 8}, {7, 9}, {5, 9}] : List (Finset (Fin 11))).getD x.val ∅
+
+lemma incidence_indices : ∀ x : Fin 10,
+    Finset.univ.filter (fun i : Fin 11 => x ∈ side i) = incidenceIndices x := by
+  decide +kernel
+
+end S1BaseGeometry
+
+namespace S1SplitGeometry
+
+def incidenceIndices (x : Fin 10) : Finset (Fin 12) :=
+  ([{0}, {1, 2, 4}, {3, 11}, {7, 10}, {1, 6}, {1, 8}, {5, 10}, {9, 10}, {9, 11}, {7, 11}] : List (Finset (Fin 12))).getD x.val ∅
+
+lemma incidence_indices : ∀ x : Fin 10,
+    Finset.univ.filter (fun i : Fin 12 => x ∈ side i) = incidenceIndices x := by
+  decide +kernel
+
+end S1SplitGeometry
+
+namespace DagTools
+
+def h3_s1_baseMap (e0 e4 e5 d a f : ℕ × Bool) (i : Fin 11) : ℕ × Bool :=
+  ([e0, h3_opp e0, h3_opp a, a, e4, h3_opp e4, e5, h3_opp e5, d, h3_opp d, f] :
+    List (ℕ × Bool)).getD i.val e0
+
+def h3_s1_splitMap (e0 e4 e5 d a b : ℕ × Bool) (i : Fin 12) : ℕ × Bool :=
+  ([e0, h3_opp e0, h3_opp a, a, h3_opp b, b, e4, h3_opp e4, e5, h3_opp e5, d, h3_opp d] :
+    List (ℕ × Bool)).getD i.val e0
+
+lemma h3_s1_indexed_profiles {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hc : ∀ x : Fin 10, x ≠ 0 → x ≠ 1 → (sem_W 10 D x).card ≤ 2)
+    (hc1 : (sem_W 10 D (1 : Fin 10)).card = 3) :
+    (∃ e0 e4 e5 d a f : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      ∀ x : Fin 10, sem_W 10 D x =
+        (Finset.univ.filter (fun i : Fin 11 => x ∈ S1BaseGeometry.side i)).image (h3_s1_baseMap e0 e4 e5 d a f)) ∨
+    (∃ e0 e4 e5 d a b : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      ∀ x : Fin 10, sem_W 10 D x =
+        (Finset.univ.filter (fun i : Fin 12 => x ∈ S1SplitGeometry.side i)).image (h3_s1_splitMap e0 e4 e5 d a b)) := by
+  obtain ⟨e0, e4, e5, d, a, b, hp0, hp4, hp5, hW0, hW4, hW5, hW3, hW7, hW8, hW9, hW2, hW6, hcase⟩ :=
+    h3_singleton_one_profiles h hC hz hc hc1
+  rcases hcase with ⟨hab, f, _, _, hW1⟩ | ⟨hab, hW1⟩
+  · subst b
+    left
+    refine ⟨e0, e4, e5, d, a, f, hp0, hp4, hp5, ?_⟩
+    intro x
+    rw [S1BaseGeometry.incidence_indices]
+    fin_cases x
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW0
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW1
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW2
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW3
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW4
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW5
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW6
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW7
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW8
+    · simpa [sem_W, h3_s1_baseMap, S1BaseGeometry.incidenceIndices, Finset.pair_comm] using hW9
+  · right
+    refine ⟨e0, e4, e5, d, a, b, hp0, hp4, hp5, ?_⟩
+    intro x
+    rw [S1SplitGeometry.incidence_indices]
+    fin_cases x
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW0
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW1
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW2
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW3
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW4
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW5
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW6
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW7
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW8
+    · simpa [sem_W, h3_s1_splitMap, S1SplitGeometry.incidenceIndices, Finset.pair_comm] using hW9
+
+end DagTools
+
+namespace R1FlexibleResource.ResourceExclusion
+open CausalBarrier
+
+lemma h3_allowed_if_difference_singleton (a b : Resource) (v : Fin 10)
+    (hv : ({v}, ∅) ∈ OtherSides)
+    (he : ∀ x : Fin 10, x ≠ v → (x ∈ a.1 ↔ x ∈ b.1)) :
+    AllowedSides a b := by
+  classical
+  have hbase (a b : Resource) (hs : a.1 ⊆ b.1)
+      (he : ∀ x : Fin 10, x ≠ v → (x ∈ a.1 ↔ x ∈ b.1)) :
+      AllowedSides a b := by
+    by_cases ha : a.1.Nonempty
+    · exact Or.inl (Or.inr (Or.inl ⟨ha, hs⟩))
+    · have haz : a.1 = ∅ := Finset.not_nonempty_iff_eq_empty.mp ha
+      have hbsub : b.1 ⊆ {v} := by
+        intro x hx
+        apply Finset.mem_singleton.mpr
+        by_contra hn
+        have hxa := (he x hn).mpr hx
+        rw [haz] at hxa
+        exact Finset.notMem_empty _ hxa
+      by_cases hbz : b.1 = ∅
+      · exact Or.inl (Or.inl (Or.inl (haz.trans hbz.symm)))
+      · have hbe : b.1 = {v} := by
+          obtain ⟨x, hx⟩ := Finset.nonempty_iff_ne_empty.mpr hbz
+          have hxv := Finset.mem_singleton.mp (hbsub hx)
+          exact Finset.Subset.antisymm hbsub
+            (Finset.singleton_subset_iff.mpr (hxv ▸ hx))
+        exact Or.inl (Or.inl (Or.inr (Or.inr (by simpa only [haz, hbe] using hv))))
+  by_cases hs : a.1 ⊆ b.1
+  · exact hbase a b hs he
+  · obtain ⟨w, hwa, hwb⟩ := Finset.not_subset.mp hs
+    have hw : w = v := by
+      by_contra hn
+      exact hwb ((he w hn).mp hwa)
+    have hsub : b.1 ⊆ a.1 := by
+      intro x hx
+      by_cases hxv : x = v
+      · exact False.elim (hwb (by simpa only [hw, hxv] using hx))
+      · exact (he x hxv).mpr hx
+    exact allowed_sides_swap (hbase b a hsub (fun x hx => (he x hx).symm))
+
+lemma h3_allowed_if_difference_one (a b : Resource)
+    (he : ∀ x : Fin 10, x ≠ 1 → (x ∈ a.1 ↔ x ∈ b.1)) :
+    AllowedSides a b :=
+  h3_allowed_if_difference_singleton a b 1 (by decide +kernel) he
+
+end R1FlexibleResource.ResourceExclusion
+
+namespace DagTools
+open R1FlexibleResource.CausalBarrier R1FlexibleResource.ResourceExclusion
+  R1FlexibleResource.DAGBridge
+
+lemma h3_indexed_except_one_exclusion {D : Dag} (hS : Strict 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hB0 : Bzero 10 D = 0)
+    {ι : Type*} (r : ι → Nat × Bool) (side : ι → Finset (Fin 10)) (op : ι → ι) (dirty : ι)
+    (hopp : ∀ i, r (op i) = ((r i).1, !(r i).2))
+    (hsrc : ∀ i, supp 10 D (src D (r i)) = side i)
+    (hvalid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (hda : side dirty = DirtyA) (hdb : side (op dirty) = DirtyB)
+    (hothers : ∀ i, i ≠ dirty → op i ≠ dirty →
+      (side i, side (op i)) ∈ OtherSides ∨ (side (op i), side i) ∈ OtherSides)
+    (hcover : ∀ x : Fin 10, x ≠ 1 → ∀ e ∈ sem_W 10 D x, ∃ i, r i = e) : False := by
+  have hdirty : DirtySides D (r dirty).1 := by
+    have hA := hsrc dirty
+    have hB := hsrc (op dirty)
+    rw [hda] at hA
+    rw [hdb] at hB
+    cases hb : (r dirty).2
+    · left
+      exact ⟨by simpa [src, hb] using hA, by simpa [hopp, src, hb] using hB⟩
+    · right
+      exact ⟨by simpa [hopp, src, hb] using hB, by simpa [src, hb] using hA⟩
+  have hother : OtherAndSides D (r dirty).1 := by
+    intro j hj hjd ht
+    by_cases hex : ∃ i, (r i).1 = j
+    · obtain ⟨i, hi⟩ := hex
+      have he : ∃ k, r k = (j, false) := by
+        cases hb : (r i).2
+        · exact ⟨i, Prod.ext hi hb⟩
+        · refine ⟨op i, ?_⟩
+          rw [hopp, hi, hb]
+          rfl
+      obtain ⟨k, hk⟩ := he
+      have hka : supp 10 D (opA D j) = side k := by
+        simpa [hk, src] using hsrc k
+      have hkb : supp 10 D (opB D j) = side (op k) := by
+        simpa [hopp, hk, src] using hsrc (op k)
+      have hkd : k ≠ dirty := by
+        intro he
+        subst k
+        exact hjd (congrArg Prod.fst hk).symm
+      have hkod : op k ≠ dirty := by
+        intro he
+        have hh := congrArg Prod.fst (hopp k)
+        rw [he, hk] at hh
+        exact hjd hh.symm
+      apply Or.inl
+      apply Or.inl
+      apply Or.inr
+      change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides ∨
+        (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides
+      rw [hka, hkb]
+      exact hothers k hkd hkod
+    · apply h3_allowed_if_difference_one
+      exact h3_nonindexed_and_same_off hS r 1 hcover hj ht (fun i hi => hex ⟨i, hi⟩)
+  exact h3_r1_flexible_allowed_sides_exclusion hS hC hB0
+    (hvalid dirty).1 (hvalid dirty).2 hdirty hother
+
+
+def h3_s1_splitOpposite (i : Fin 12) : Fin 12 :=
+  ([1, 0, 3, 2, 5, 4, 7, 6, 9, 8, 11, 10] : List (Fin 12)).getD i.val 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h3_s1_base_other_sides : ∀ i : Fin 10, i ≠ 8 → SideGeometry.opposite i ≠ 8 →
+    (SideGeometry.side i, SideGeometry.side (SideGeometry.opposite i)) ∈ OtherSides ∨
+    (SideGeometry.side (SideGeometry.opposite i), SideGeometry.side i) ∈ OtherSides := by
+  unfold SideGeometry.side SideGeometry.mask SideGeometry.opposite OtherSides
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h3_s1_split_other_sides : ∀ i : Fin 12, i ≠ 10 → h3_s1_splitOpposite i ≠ 10 →
+    (S1SplitGeometry.side i, S1SplitGeometry.side (h3_s1_splitOpposite i)) ∈ OtherSides ∨
+    (S1SplitGeometry.side (h3_s1_splitOpposite i), S1SplitGeometry.side i) ∈ OtherSides := by
+  unfold S1SplitGeometry.side SideGeometry.mask h3_s1_splitOpposite OtherSides
+  decide +kernel
+
+lemma h3_s1_base_indexed_exclusion {D : Dag} (hS : Strict 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hB0 : Bzero 10 D = 0)
+    (r : Fin 10 → Nat × Bool)
+    (hopp : ∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2))
+    (hsrc : ∀ i, supp 10 D (src D (r i)) = SideGeometry.side i)
+    (hvalid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (hcover : ∀ x : Fin 10, x ≠ 1 → ∀ e ∈ sem_W 10 D x, ∃ i, r i = e) : False :=
+  h3_indexed_except_one_exclusion hS hC hB0 r SideGeometry.side SideGeometry.opposite 8
+    hopp hsrc hvalid (by decide +kernel) (by decide +kernel) h3_s1_base_other_sides hcover
+
+lemma h3_s1_split_indexed_exclusion {D : Dag} (hS : Strict 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hB0 : Bzero 10 D = 0)
+    (r : Fin 12 → Nat × Bool)
+    (hopp : ∀ i, r (h3_s1_splitOpposite i) = ((r i).1, !(r i).2))
+    (hsrc : ∀ i, supp 10 D (src D (r i)) = S1SplitGeometry.side i)
+    (hvalid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (hcover : ∀ x : Fin 10, x ≠ 1 → ∀ e ∈ sem_W 10 D x, ∃ i, r i = e) : False :=
+  h3_indexed_except_one_exclusion hS hC hB0 r S1SplitGeometry.side h3_s1_splitOpposite 10
+    hopp hsrc hvalid (by decide +kernel) (by decide +kernel) h3_s1_split_other_sides hcover
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_s1_baseMap_prefix (e0 e4 e5 d a f : Nat × Bool) (i : Fin 10) :
+    h3_s1_baseMap e0 e4 e5 d a f ⟨i.val, by omega⟩ = h3_sideMap e0 (h3_opp a) e4 e5 d i := by
+  fin_cases i <;> simp [h3_s1_baseMap, h3_sideMap, h3_opp_opp]
+
+lemma h3_s1_splitMap_opposite (e0 e4 e5 d a b : Nat × Bool) : ∀ i : Fin 12,
+    h3_s1_splitMap e0 e4 e5 d a b (h3_s1_splitOpposite i) =
+      ((h3_s1_splitMap e0 e4 e5 d a b i).1, !(h3_s1_splitMap e0 e4 e5 d a b i).2) := by
+  intro i
+  fin_cases i <;> simp [h3_s1_splitMap, h3_s1_splitOpposite, h3_opp]
+
+lemma h3_nonempty_incidence_gate_valid {D : Dag} (hS : Strict 10 D)
+    {ι : Type*} [Fintype ι] [DecidableEq ι] (side : ι → Finset (Fin 10))
+    (r : ι → Nat × Bool) (hn : ∀ i, (side i).Nonempty)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i => x ∈ side i)).image r) :
+    ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true := by
+  intro i
+  obtain ⟨x, hx⟩ := hn i
+  have hm : r i ∈ sem_W 10 D x := by
+    rw [hW]
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
+  exact ⟨(sem_mem_W.mp hm).1, h3_exit_tag_and hS hm⟩
+
+lemma h3_s1_base_first_ten_cover {D : Dag} (e0 e4 e5 d a f : Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ S1BaseGeometry.side i)).image
+        (h3_s1_baseMap e0 e4 e5 d a f)) :
+    ∀ x : Fin 10, x ≠ 1 → ∀ e ∈ sem_W 10 D x,
+      ∃ i : Fin 10, h3_sideMap e0 (h3_opp a) e4 e5 d i = e := by
+  intro x hx e he
+  rw [hW] at he
+  obtain ⟨i, hi, hr⟩ := Finset.mem_image.mp he
+  by_cases hlt : i.val < 10
+  · refine ⟨⟨i.val, hlt⟩, ?_⟩
+    rw [← h3_s1_baseMap_prefix e0 e4 e5 d a f]
+    convert hr using 1
+  · have hi10 : i = 10 := Fin.ext (by omega)
+    subst i
+    have hm := (Finset.mem_filter.mp hi).2
+    have hs : S1BaseGeometry.side 10 = {(1 : Fin 10)} := by decide +kernel
+    rw [hs, Finset.mem_singleton] at hm
+    exact (hx hm).elim
+
+lemma h3_s1_split_cover {D : Dag} (r : Fin 12 → Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 12 => x ∈ S1SplitGeometry.side i)).image r) :
+    ∀ x : Fin 10, x ≠ 1 → ∀ e ∈ sem_W 10 D x, ∃ i, r i = e := by
+  intro x _ e he
+  rw [hW] at he
+  obtain ⟨i, _, hr⟩ := Finset.mem_image.mp he
+  exact ⟨i, hr⟩
+
+lemma h3_s1_base_gate_valid {D : Dag} (hS : Strict 10 D) (e0 e4 e5 d a f : Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ S1BaseGeometry.side i)).image
+        (h3_s1_baseMap e0 e4 e5 d a f)) :
+    ∀ i : Fin 10, (h3_sideMap e0 (h3_opp a) e4 e5 d i).1 < D.length ∧
+      tag D (h3_sideMap e0 (h3_opp a) e4 e5 d i).1 = true := by
+  have hv := h3_nonempty_incidence_gate_valid hS S1BaseGeometry.side
+    (h3_s1_baseMap e0 e4 e5 d a f) (by decide +kernel) hW
+  intro i
+  simpa only [h3_s1_baseMap_prefix] using hv ⟨i.val, by omega⟩
+
+lemma h3_s1_split_gate_valid {D : Dag} (hS : Strict 10 D) (r : Fin 12 → Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 12 => x ∈ S1SplitGeometry.side i)).image r) :
+    ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true :=
+  h3_nonempty_incidence_gate_valid hS S1SplitGeometry.side r (by decide +kernel) hW
+
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_s1_no_and_output {D : Dag} (hS : Strict 10 D) (x : Fin 10)
+    (hM : merges 10 D (carrierT 10 D {x}) = ∅)
+    {j : Nat} (hj : j < D.length) (ht : tag D j = true) : x ∉ supp 10 D (10+j) := by
+  intro hx
+  have ha : x ∈ supp 10 D (opA D j) := sem_supp_and_sub hS hj ht false hx
+  have hb : x ∈ supp 10 D (opB D j) := sem_supp_and_sub hS hj ht true hx
+  have hm : j ∈ merges 10 D (carrierT 10 D {x}) :=
+    Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hj, sem_mem_carrier1.mpr hx,
+      sem_mem_carrier1.mpr ha,sem_mem_carrier1.mpr hb⟩
+  rw [hM] at hm
+  exact Finset.notMem_empty j hm
+
+lemma h3_s1_pair_output_empty {D : Dag} (hS : Strict 10 D)
+    (hM2 : merges 10 D (carrierT 10 D {(2 : Fin 10)}) = ∅)
+    (hM6 : merges 10 D (carrierT 10 D {(6 : Fin 10)}) = ∅)
+    (e : Nat × Bool) (he : e.1 < D.length) (ht : tag D e.1 = true)
+    (hb : supp 10 D (src D (h3_opp e)) ⊆ {(2 : Fin 10),6}) :
+    supp 10 D (10+e.1) = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro x hx
+  have hb' : x ∈ supp 10 D (src D (h3_opp e)) := sem_supp_and_sub hS he ht (!e.2) hx
+  have hm := hb hb'
+  simp only [Finset.mem_insert,Finset.mem_singleton] at hm
+  rcases hm with rfl | rfl
+  · exact h3_s1_no_and_output hS 2 hM2 he ht hx
+  · exact h3_s1_no_and_output hS 6 hM6 he ht hx
+
+lemma h3_three_slots_distinct {α : Type*} [DecidableEq α] (a b c : α)
+    (hc : ({a,b,c} : Finset α).card = 3) : b ≠ a ∧ c ≠ a ∧ b ≠ c := by
+  have hab : b ≠ a := by
+    intro h; subst b
+    have hh : ({a,c} : Finset α).card ≤ 2 := Finset.card_le_two
+    have hc' : ({a,c} : Finset α).card = 3 := by simpa using hc
+    omega
+  have hac : c ≠ a := by
+    intro h; subst c
+    have hh : ({a,b} : Finset α).card ≤ 2 := Finset.card_le_two
+    have he : ({a,b,a} : Finset α) = {a,b} := by ext x; simp; tauto
+    rw [he] at hc
+    omega
+  have hbc : b ≠ c := by
+    intro h; subst b
+    have hh : ({a,c} : Finset α).card ≤ 2 := Finset.card_le_two
+    have hc' : ({a,c} : Finset α).card = 3 := by simpa using hc
+    omega
+  exact ⟨hab,hac,hbc⟩
+
+lemma h3_indexed_source_lower {D : Dag} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (r : ι → Nat × Bool) (side : ι → Finset (Fin 10))
+    (hW : ∀ x : Fin 10, sem_W 10 D x = (Finset.univ.filter (fun i => x ∈ side i)).image r) :
+    ∀ i, side i ⊆ supp 10 D (src D (r i)) := by
+  intro i x hx
+  apply (sem_mem_W.mp ?_).2.1
+  rw [hW]
+  exact Finset.mem_image.mpr ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ i,hx⟩,rfl⟩
+
+lemma h3_indexed_mem_of_side {D : Dag} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (r : ι → Nat × Bool) (side : ι → Finset (Fin 10))
+    (hW : ∀ x : Fin 10, sem_W 10 D x = (Finset.univ.filter (fun i => x ∈ side i)).image r)
+    {i : ι} {x : Fin 10} (hx : x ∈ side i) : r i ∈ sem_W 10 D x := by
+  rw [hW]
+  exact Finset.mem_image.mpr ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ i,hx⟩,rfl⟩
+
+lemma h3_source_index_of_empty_output {D : Dag} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (r : ι → Nat × Bool) (side : ι → Finset (Fin 10))
+    (hW : ∀ x : Fin 10, sem_W 10 D x = (Finset.univ.filter (fun i => x ∈ side i)).image r)
+    {e : Nat × Bool} (he : e.1 < D.length) (hout : supp 10 D (10+e.1) = ∅)
+    {y : Fin 10} (hy : y ∈ supp 10 D (src D e)) : ∃ j, y ∈ side j ∧ r j = e := by
+  have hm : e ∈ sem_W 10 D y := sem_mem_W.mpr ⟨he,hy,by rw [hout]; simp⟩
+  rw [hW] at hm
+  obtain ⟨j,hj,heq⟩ := Finset.mem_image.mp hm
+  exact ⟨j,(Finset.mem_filter.mp hj).2,heq⟩
+
+lemma h3_private_one_source {D : Dag} {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (r : ι → Nat × Bool) (side allowed : ι → Finset (Fin 10)) (star : ι)
+    (hW : ∀ x : Fin 10, sem_W 10 D x = (Finset.univ.filter (fun i => x ∈ side i)).image r)
+    (hb : ∀ i, supp 10 D (src D (r i)) ⊆ allowed i)
+    (hgeo : ∀ j y, (1 : Fin 10) ∈ allowed j → y ∈ side j → y ≠ 1 → j = star)
+    {e : Nat × Bool} (he : e ∈ sem_W 10 D (1 : Fin 10))
+    (hout : supp 10 D (10+e.1) = ∅) (hne : e ≠ r star) :
+    supp 10 D (src D e) = {(1 : Fin 10)} := by
+  apply Finset.Subset.antisymm
+  · intro y hy
+    apply Finset.mem_singleton.mpr
+    by_contra hy1
+    obtain ⟨j,hj,hrj⟩ := h3_source_index_of_empty_output r side hW (sem_mem_W.mp he).1 hout hy
+    have h1 : (1 : Fin 10) ∈ allowed j := hb j (by rw [hrj]; exact (sem_mem_W.mp he).2.1)
+    have hjstar := hgeo j y h1 hj hy1
+    exact hne (hrj.symm.trans (congrArg r hjstar))
+  · exact Finset.singleton_subset_iff.mpr (sem_mem_W.mp he).2.1
+
+end DagTools
+
+namespace S1BaseGeometry
+lemma one_location : ∀ j : Fin 11, ∀ y : Fin 10,
+    1 ∈ allowed j → y ∈ side j → y ≠ 1 → j = 1 := by decide +kernel
+end S1BaseGeometry
+
+namespace S1SplitGeometry
+lemma one_location : ∀ j : Fin 12, ∀ y : Fin 10,
+    1 ∈ allowed j → y ∈ side j → y ≠ 1 → j = 1 := by decide +kernel
+lemma six_with_two : ∀ j : Fin 12, 6 ∈ side j → 2 ∈ allowed j → j = 5 := by decide +kernel
+lemma two_with_six : ∀ j : Fin 12, 2 ∈ side j → 6 ∈ allowed j → j = 3 := by decide +kernel
+end S1SplitGeometry
+
+namespace DagTools
+
+lemma h3_s1_base_sources {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0)
+    (hM2 : merges 10 D (carrierT 10 D {(2 : Fin 10)}) = ∅)
+    (hM6 : merges 10 D (carrierT 10 D {(6 : Fin 10)}) = ∅)
+    (e0 e4 e5 d a f : Nat × Bool)
+    (hp0 : supp 10 D (src D e0) = {0})
+    (hp4 : supp 10 D (src D e4) = {4})
+    (hp5 : supp 10 D (src D e5) = {5})
+    (hc1 : (sem_W 10 D (1 : Fin 10)).card = 3)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ S1BaseGeometry.side i)).image
+        (h3_s1_baseMap e0 e4 e5 d a f)) :
+    ∀ i : Fin 11, i ≠ 10 →
+      supp 10 D (src D (h3_s1_baseMap e0 e4 e5 d a f i)) = S1BaseGeometry.side i := by
+  let R := h3_s1_baseMap e0 e4 e5 d a f
+  have hb := h3_s1_base_source_bounds h hC R hW
+  have hlo := h3_indexed_source_lower R S1BaseGeometry.side hW
+  have hfromBounds (i : Fin 11) (hi : S1BaseGeometry.allowed i = S1BaseGeometry.side i) :
+      supp 10 D (src D (R i)) = S1BaseGeometry.side i := by
+    apply Finset.Subset.antisymm
+    · simpa only [hi] using hb i
+    · exact hlo i
+  have hc : ({R 1,R 2,R 10} : Finset (Nat × Bool)).card = 3 := by
+    rw [hW,S1BaseGeometry.incidence_indices] at hc1
+    simpa [S1BaseGeometry.incidenceIndices,R] using hc1
+  have hneq := h3_three_slots_distinct (R 1) (R 2) (R 10) hc
+  have hm2 : R 2 ∈ sem_W 10 D (1 : Fin 10) :=
+    h3_indexed_mem_of_side R S1BaseGeometry.side hW (by decide)
+  have hbar : supp 10 D (src D (h3_opp (R 2))) ⊆ {(2 : Fin 10),6} := by
+    have hu := hb 3
+    rw [show S1BaseGeometry.allowed 3 = ({2,6} : Finset (Fin 10)) by decide] at hu
+    simpa [R,h3_s1_baseMap,h3_opp_opp] using hu
+  have hout2 := h3_s1_pair_output_empty h.1 hM2 hM6 (R 2)
+    (sem_mem_W.mp hm2).1 (sem_W_and h.1 hm2) hbar
+  have hp1 := h3_private_one_source R S1BaseGeometry.side S1BaseGeometry.allowed 1 hW hb
+    S1BaseGeometry.one_location hm2 hout2 hneq.1
+  have hW4 : sem_W 10 D (4 : Fin 10) = {h3_opp e0,e4} := by
+    rw [hW,S1BaseGeometry.incidence_indices]
+    simp [h3_s1_baseMap,S1BaseGeometry.incidenceIndices]
+  have hN : ({1,4,5} : Finset (Fin 10)) ⊆ supp 10 D (src D (h3_opp e0)) := by
+    have hh := hlo 1
+    rw [show S1BaseGeometry.side 1 = ({1,4,5} : Finset (Fin 10)) by decide] at hh
+    simpa [R,h3_s1_baseMap] using hh
+  have hstar := h3_star0_exact_of_two_exit_pure_companion h hC hz hB0 (h3_opp e0) e4 hW4 hp4 hN
+  intro i hi
+  fin_cases i
+  · exact hp0.trans (by decide)
+  · exact hstar.trans (by decide)
+  · exact hp1.trans (by decide)
+  · exact hfromBounds 3 (by decide)
+  · exact hp4.trans (by decide)
+  · exact hfromBounds 5 (by decide)
+  · exact hp5.trans (by decide)
+  · exact hfromBounds 7 (by decide)
+  · exact hfromBounds 8 (by decide)
+  · exact hfromBounds 9 (by decide)
+  · exact (hi rfl).elim
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_s1_split_sources {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0)
+    (hM2 : merges 10 D (carrierT 10 D {(2 : Fin 10)}) = ∅)
+    (hM6 : merges 10 D (carrierT 10 D {(6 : Fin 10)}) = ∅)
+    (e0 e4 e5 d a b : Nat × Bool)
+    (hp0 : supp 10 D (src D e0) = {0})
+    (hp4 : supp 10 D (src D e4) = {4})
+    (hp5 : supp 10 D (src D e5) = {5})
+    (hc1 : (sem_W 10 D (1 : Fin 10)).card = 3)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 12 => x ∈ S1SplitGeometry.side i)).image
+        (h3_s1_splitMap e0 e4 e5 d a b)) :
+    ∀ i : Fin 12,
+      supp 10 D (src D (h3_s1_splitMap e0 e4 e5 d a b i)) = S1SplitGeometry.side i := by
+  let R := h3_s1_splitMap e0 e4 e5 d a b
+  have hbnd := h3_s1_split_source_bounds h hC R hW
+  have hlo := h3_indexed_source_lower R S1SplitGeometry.side hW
+  have hfromBounds (i : Fin 12) (hi : S1SplitGeometry.allowed i = S1SplitGeometry.side i) :
+      supp 10 D (src D (R i)) = S1SplitGeometry.side i := by
+    apply Finset.Subset.antisymm
+    · simpa only [hi] using hbnd i
+    · exact hlo i
+  have hc : ({R 1,R 2,R 4} : Finset (Nat × Bool)).card = 3 := by
+    rw [hW,S1SplitGeometry.incidence_indices] at hc1
+    simpa [S1SplitGeometry.incidenceIndices,R] using hc1
+  have hneq := h3_three_slots_distinct (R 1) (R 2) (R 4) hc
+  have hm2 : R 2 ∈ sem_W 10 D (1 : Fin 10) :=
+    h3_indexed_mem_of_side R S1SplitGeometry.side hW (by decide)
+  have hm4 : R 4 ∈ sem_W 10 D (1 : Fin 10) :=
+    h3_indexed_mem_of_side R S1SplitGeometry.side hW (by decide)
+  have hm3 : R 3 ∈ sem_W 10 D (2 : Fin 10) :=
+    h3_indexed_mem_of_side R S1SplitGeometry.side hW (by decide)
+  have hm5 : R 5 ∈ sem_W 10 D (6 : Fin 10) :=
+    h3_indexed_mem_of_side R S1SplitGeometry.side hW (by decide)
+  have hbar2 : supp 10 D (src D (h3_opp (R 2))) ⊆ {(2 : Fin 10),6} := by
+    have hu := hbnd 3
+    rw [show S1SplitGeometry.allowed 3 = ({2,6} : Finset (Fin 10)) by decide] at hu
+    simpa [R,h3_s1_splitMap,h3_opp_opp] using hu
+  have hbar4 : supp 10 D (src D (h3_opp (R 4))) ⊆ {(2 : Fin 10),6} := by
+    have hu := hbnd 5
+    rw [show S1SplitGeometry.allowed 5 = ({2,6} : Finset (Fin 10)) by decide] at hu
+    simpa [R,h3_s1_splitMap,h3_opp_opp] using hu
+  have hout2 := h3_s1_pair_output_empty h.1 hM2 hM6 (R 2)
+    (sem_mem_W.mp hm2).1 (sem_W_and h.1 hm2) hbar2
+  have hout4 := h3_s1_pair_output_empty h.1 hM2 hM6 (R 4)
+    (sem_mem_W.mp hm4).1 (sem_W_and h.1 hm4) hbar4
+  have hpA := h3_private_one_source R S1SplitGeometry.side S1SplitGeometry.allowed 1 hW hbnd
+    S1SplitGeometry.one_location hm2 hout2 hneq.1
+  have hpB := h3_private_one_source R S1SplitGeometry.side S1SplitGeometry.allowed 1 hW hbnd
+    S1SplitGeometry.one_location hm4 hout4 hneq.2.1
+  have h35 : R 3 ≠ R 5 := by
+    intro he
+    apply hneq.2.2
+    simpa [R,h3_s1_splitMap,h3_opp_opp] using congrArg h3_opp he
+  have hout3 : supp 10 D (10+(R 3).1) = ∅ := by simpa [R,h3_s1_splitMap,h3_opp] using hout2
+  have hout5 : supp 10 D (10+(R 5).1) = ∅ := by simpa [R,h3_s1_splitMap,h3_opp] using hout4
+  have hnot6 : (6 : Fin 10) ∉ supp 10 D (src D (R 3)) := by
+    intro hy
+    obtain ⟨j,hj,hrj⟩ := h3_source_index_of_empty_output R S1SplitGeometry.side hW
+      (sem_mem_W.mp hm3).1 hout3 hy
+    have h2 : (2 : Fin 10) ∈ S1SplitGeometry.allowed j := hbnd j (by
+      rw [hrj]; exact (sem_mem_W.mp hm3).2.1)
+    have hj5 := S1SplitGeometry.six_with_two j hj h2
+    rw [hj5] at hrj
+    exact h35 hrj.symm
+  have hnot2 : (2 : Fin 10) ∉ supp 10 D (src D (R 5)) := by
+    intro hy
+    obtain ⟨j,hj,hrj⟩ := h3_source_index_of_empty_output R S1SplitGeometry.side hW
+      (sem_mem_W.mp hm5).1 hout5 hy
+    have h6 : (6 : Fin 10) ∈ S1SplitGeometry.allowed j := hbnd j (by
+      rw [hrj]; exact (sem_mem_W.mp hm5).2.1)
+    have hj3 := S1SplitGeometry.two_with_six j hj h6
+    rw [hj3] at hrj
+    exact h35 hrj
+  have hp3 : supp 10 D (src D (R 3)) = {(2 : Fin 10)} := by
+    apply Finset.Subset.antisymm
+    · intro x hx
+      have hh := hbnd 3 hx
+      rw [show S1SplitGeometry.allowed 3 = ({2,6} : Finset (Fin 10)) by decide] at hh
+      simp only [Finset.mem_insert,Finset.mem_singleton] at hh
+      rcases hh with he | he
+      · exact Finset.mem_singleton.mpr he
+      · exact (hnot6 (he ▸ hx)).elim
+    · exact Finset.singleton_subset_iff.mpr (sem_mem_W.mp hm3).2.1
+  have hp5' : supp 10 D (src D (R 5)) = {(6 : Fin 10)} := by
+    apply Finset.Subset.antisymm
+    · intro x hx
+      have hh := hbnd 5 hx
+      rw [show S1SplitGeometry.allowed 5 = ({2,6} : Finset (Fin 10)) by decide] at hh
+      simp only [Finset.mem_insert,Finset.mem_singleton] at hh
+      rcases hh with he | he
+      · exact (hnot2 (he ▸ hx)).elim
+      · exact Finset.mem_singleton.mpr he
+    · exact Finset.singleton_subset_iff.mpr (sem_mem_W.mp hm5).2.1
+  have hW4 : sem_W 10 D (4 : Fin 10) = {h3_opp e0,e4} := by
+    rw [hW,S1SplitGeometry.incidence_indices]
+    simp [h3_s1_splitMap,S1SplitGeometry.incidenceIndices]
+  have hN : ({1,4,5} : Finset (Fin 10)) ⊆ supp 10 D (src D (h3_opp e0)) := by
+    have hh := hlo 1
+    rw [show S1SplitGeometry.side 1 = ({1,4,5} : Finset (Fin 10)) by decide] at hh
+    simpa [R,h3_s1_splitMap] using hh
+  have hstar := h3_star0_exact_of_two_exit_pure_companion h hC hz hB0 (h3_opp e0) e4 hW4 hp4 hN
+  intro i
+  fin_cases i
+  · exact hp0.trans (by decide)
+  · exact hstar.trans (by decide)
+  · exact hpA.trans (by decide)
+  · exact hp3.trans (by decide)
+  · exact hpB.trans (by decide)
+  · exact hp5'.trans (by decide)
+  · exact hp4.trans (by decide)
+  · exact hfromBounds 7 (by decide)
+  · exact hp5.trans (by decide)
+  · exact hfromBounds 9 (by decide)
+  · exact hfromBounds 10 (by decide)
+  · exact hfromBounds 11 (by decide)
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_s1_base_side_prefix (i : Fin 10) :
+    S1BaseGeometry.side ⟨i.val, by omega⟩ = SideGeometry.side i := by
+  fin_cases i <;> decide +kernel
+
+lemma h3_singleton_one_exclusion {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0)
+    (hM2 : merges 10 D (carrierT 10 D {(2 : Fin 10)}) = ∅)
+    (hM6 : merges 10 D (carrierT 10 D {(6 : Fin 10)}) = ∅)
+    (hc : ∀ x : Fin 10, x ≠ 0 → x ≠ 1 → (sem_W 10 D x).card ≤ 2)
+    (hc1 : (sem_W 10 D (1 : Fin 10)).card = 3) : False := by
+  rcases h3_s1_indexed_profiles h hC hz hc hc1 with
+    ⟨e0, e4, e5, d, a, f, hp0, hp4, hp5, hW⟩ | ⟨e0, e4, e5, d, a, b, hp0, hp4, hp5, hW⟩
+  · have hsrc : ∀ i : Fin 10,
+        supp 10 D (src D (h3_sideMap e0 (h3_opp a) e4 e5 d i)) = SideGeometry.side i := by
+      intro i
+      have hs := h3_s1_base_sources h hC hz hB0 hM2 hM6 e0 e4 e5 d a f hp0 hp4 hp5 hc1 hW
+        ⟨i.val, by omega⟩ (by intro he; have hv := congrArg Fin.val he; simp at hv; omega)
+      simpa only [h3_s1_baseMap_prefix, h3_s1_base_side_prefix] using hs
+    exact h3_s1_base_indexed_exclusion h.1 hC hB0 (h3_sideMap e0 (h3_opp a) e4 e5 d)
+      (h3_sideMap_opposite e0 (h3_opp a) e4 e5 d) hsrc
+      (h3_s1_base_gate_valid h.1 e0 e4 e5 d a f hW)
+      (h3_s1_base_first_ten_cover e0 e4 e5 d a f hW)
+  · have hsrc := h3_s1_split_sources h hC hz hB0 hM2 hM6 e0 e4 e5 d a b hp0 hp4 hp5 hc1 hW
+    exact h3_s1_split_indexed_exclusion h.1 hC hB0 (h3_s1_splitMap e0 e4 e5 d a b)
+      (h3_s1_splitMap_opposite e0 e4 e5 d a b) hsrc
+      (h3_s1_split_gate_valid h.1 (h3_s1_splitMap e0 e4 e5 d a b) hW)
+      (h3_s1_split_cover (h3_s1_splitMap e0 e4 e5 d a b) hW)
+
+
+end DagTools
+
+namespace DagTools
+
+section SemDiff
+
+variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+
+lemma sem_mem_diff {x y : Fin n} {w : ℕ} :
+    w ∈ carrierDiff n D x y ↔ x ∈ supp n D w ∧ y ∉ supp n D w := by
+  simp only [carrierDiff, Finset.mem_filter, Finset.mem_range]
+  exact ⟨fun h => h.2, fun h => ⟨sem_supp_lt h.1, h⟩⟩
+
+lemma sem_mem_exit_diff {x y : Fin n} {e : ℕ × Bool} :
+    e ∈ exitArcs n D (carrierDiff n D x y) ↔ e.1 < D.length ∧
+      (x ∈ supp n D (src D e) ∧ y ∉ supp n D (src D e)) ∧
+      ¬ (x ∈ supp n D (n + e.1) ∧ y ∉ supp n D (n + e.1)) := by
+  simp only [exitArcs, arcs, Finset.mem_filter, Finset.mem_product, Finset.mem_range,
+    Finset.mem_univ, and_true, sem_mem_diff]
+
+lemma sem_surplus_diff (hS : Strict n D) (b : Fin n → ℕ) (hb : PureBranch n D b)
+    {x y : Fin n} (hxy : x ≠ y) (hx : x ∈ eligSet n D) :
+    surplusOn D (carrierDiff n D x y) = 1 + ((residualUnits n D b).filter
+      (fun u => x ∈ supp n D u.1 ∧ y ∉ supp n D u.1)).card := by
+  have h1 : surplusOn D (carrierDiff n D x y) =
+      ((units n D).filter (fun u => x ∈ supp n D u.1 ∧ y ∉ supp n D u.1)).card := by
+    rw [sb_card_units_filter n D (fun w => x ∈ supp n D w ∧ y ∉ supp n D w)]
+    symm
+    refine Finset.sum_subset (fun w hw => ?_) (fun w hw hnot => ?_)
+    · rw [Finset.mem_filter] at hw
+      exact sem_mem_diff.mpr hw.2
+    · have hni : w ∉ inner n D := fun hc => hnot (Finset.mem_filter.mpr ⟨hc, sem_mem_diff.mp hw⟩)
+      rw [sb_mem_inner] at hni
+      simp [fanout_eq_zero_of_ge hS w (by omega)]
+  have h2 : (units n D).filter (fun u => x ∈ supp n D u.1 ∧ y ∉ supp n D u.1) =
+      {(⟨b x, 0⟩ : Σ _ : ℕ, ℕ)} ∪ (residualUnits n D b).filter
+        (fun u => x ∈ supp n D u.1 ∧ y ∉ supp n D u.1) := by
+    ext u
+    have hsub := reserved_subset hS b hb
+    simp only [residualUnits, unitsPlus, Finset.mem_union, Finset.mem_filter, Finset.mem_sdiff,
+      Finset.mem_singleton]
+    constructor
+    · intro hu
+      by_cases hr : u ∈ reservedUnits n D b
+      · left
+        obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hr
+        have hxv := hu.2.1
+        rw [(hb v hv).2, Finset.mem_singleton] at hxv
+        rw [hxv]
+      · exact Or.inr ⟨⟨⟨hu.1, ⟨x, hu.2.1⟩⟩, hr⟩, hu.2⟩
+    · rintro (rfl | hu)
+      · have hbx := hb x hx
+        refine ⟨(Finset.mem_filter.mp (hsub (Finset.mem_image.mpr ⟨x, hx, rfl⟩))).1, ?_, ?_⟩
+        · rw [hbx.2]; exact Finset.mem_singleton_self x
+        · rw [hbx.2, Finset.mem_singleton]; exact fun hc => hxy hc.symm
+      · exact ⟨hu.1.1.1, hu.2⟩
+  have h3 : (⟨b x, 0⟩ : Σ _ : ℕ, ℕ) ∉ (residualUnits n D b).filter
+      (fun u => x ∈ supp n D u.1 ∧ y ∉ supp n D u.1) := by
+    intro hc
+    exact (Finset.mem_sdiff.mp (Finset.mem_filter.mp hc).1).2 (Finset.mem_image.mpr ⟨x, hx, rfl⟩)
+  rw [h1, h2, Finset.singleton_union, Finset.card_insert_of_notMem h3]
+  omega
+
+lemma sem_first_joint (hS : Strict n D) {x y : Fin n} (hxy : x ≠ y) {w : ℕ}
+    (hw : x ∈ supp n D w ∧ y ∈ supp n D w) :
+    ∃ j s, j < D.length ∧ tag D j = false ∧ x ∈ supp n D (n + j) ∧ y ∈ supp n D (n + j) ∧
+      x ∈ supp n D (src D (j, s)) ∧ y ∉ supp n D (src D (j, s)) ∧
+      y ∈ supp n D (src D (j, !s)) ∧ x ∉ supp n D (src D (j, !s)) := by
+  classical
+  have hex : ∃ u, x ∈ supp n D u ∧ y ∈ supp n D u := ⟨w, hw⟩
+  obtain ⟨h1, h2⟩ := Nat.find_spec hex
+  have hmin : ∀ u, u < Nat.find hex → ¬ (x ∈ supp n D u ∧ y ∈ supp n D u) :=
+    fun u hu => Nat.find_min hex hu
+  generalize Nat.find hex = f at h1 h2 hmin
+  have hlt := sem_supp_lt h1
+  have hn : n ≤ f := by
+    by_contra hc
+    have hs : supp n D f = {⟨f, by omega⟩} := supp_input D ⟨f, by omega⟩
+    rw [hs, Finset.mem_singleton] at h1 h2
+    exact hxy (h1.trans h2.symm)
+  obtain ⟨j, rfl⟩ : ∃ j, f = n + j := ⟨f - n, by omega⟩
+  have hj : j < D.length := by omega
+  obtain ⟨ha, hb, -⟩ := hS j hj
+  have hna := hmin _ ha
+  have hnb := hmin _ hb
+  cases ht : tag D j
+  · have h1' := h1
+    have h2' := h2
+    rw [sem_supp_or hS hj ht, Finset.mem_union] at h1' h2'
+    refine ⟨j, ?_⟩
+    rcases h1' with hxa | hxb
+    · have hya : y ∉ supp n D (opA D j) := fun hc => hna ⟨hxa, hc⟩
+      have hyb : y ∈ supp n D (opB D j) := h2'.resolve_left hya
+      exact ⟨false, hj, ht, h1, h2, by simpa [src] using hxa, by simpa [src] using hya,
+        by simpa [src] using hyb, by simpa [src] using fun hc => hnb ⟨hc, hyb⟩⟩
+    · have hyb : y ∉ supp n D (opB D j) := fun hc => hnb ⟨hxb, hc⟩
+      have hya : y ∈ supp n D (opA D j) := h2'.resolve_right hyb
+      exact ⟨true, hj, ht, h1, h2, by simpa [src] using hxb, by simpa [src] using hyb,
+        by simpa [src] using hya, by simpa [src] using fun hc => hna ⟨hc, hya⟩⟩
+  · exfalso
+    rw [sem_supp_and hS hj ht, Finset.mem_inter] at h1 h2
+    exact hna ⟨h1.1, h2.1⟩
+
+lemma sem_diff_two_exits (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) {x c z : Fin n} (hxc : x ≠ c)
+    (hx : x ∈ eligSet n D)
+    (hres : ∀ u ∈ residualUnits n D b, x ∈ supp n D u.1 → c ∈ supp n D u.1)
+    {w : ℕ} (hw : x ∈ supp n D w ∧ c ∈ supp n D w) (hxz : G x z) (hcz : ¬ G c z) :
+    surplusOn D (carrierDiff n D x c) = 1 ∧ merges n D (carrierDiff n D x c) = ∅ ∧
+      (exitArcs n D (carrierDiff n D x c)).card = 2 ∧
+      ∃ e ∈ exitArcs n D (carrierDiff n D x c), tag D e.1 = false ∧ c ∈ supp n D (n + e.1) := by
+  have hS := h.1
+  have hsur : surplusOn D (carrierDiff n D x c) = 1 := by
+    rw [sem_surplus_diff hS b hb hxc hx, Finset.filter_eq_empty_iff.mpr
+      (fun u hu hc => hc.2 (hres u hu hc.1)), Finset.card_empty]
+  have hfl := carrier_flow_diff h x c hxc
+    (by rw [sem_supp_out hG hC]; exact Finset.notMem_empty x)
+  rw [hsur] at hfl
+  obtain ⟨j1, s1, hj1, ht1, hx1, hc1, hxs1, hcs1, -, -⟩ := sem_first_joint hS hxc hw
+  have he1 : (j1, s1) ∈ exitArcs n D (carrierDiff n D x c) :=
+    sem_mem_exit_diff.mpr ⟨hj1, ⟨hxs1, hcs1⟩, fun hc => hc.2 hc1⟩
+  have hA : ∀ u ∈ ({c, z} : Finset (Fin n)), ∀ v ∈ ({c, z} : Finset (Fin n)), ¬ G u v := by
+    intro u hu v hv
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hu hv
+    rcases hu with hu | hu <;> rcases hv with hv | hv <;> rw [hu, hv]
+    · exact hG.2.1 c
+    · exact hcz
+    · exact fun hc => hcz (hG.1 _ _ hc)
+    · exact hG.2.1 z
+  obtain ⟨j2, s2, hj2, -, hx2, hn2, hd2⟩ := sem_exposure hG hS hC {c, z} hA x ⟨z, by simp, hxz⟩
+  have he2 : (j2, s2) ∈ exitArcs n D (carrierDiff n D x c) :=
+    sem_mem_exit_diff.mpr ⟨hj2, ⟨hx2, fun hc => Finset.disjoint_left.mp hd2 hc (by simp)⟩,
+      fun hc => hn2 hc.1⟩
+  have hne : (j1, s1) ≠ (j2, s2) := by
+    intro heq
+    rw [Prod.mk.injEq] at heq
+    exact hn2 (heq.1 ▸ hx1)
+  have h2 : 2 ≤ (exitArcs n D (carrierDiff n D x c)).card :=
+    Finset.one_lt_card.mpr ⟨_, he1, _, he2, hne⟩
+  exact ⟨hsur, Finset.card_eq_zero.mp (by omega), by omega, (j1, s1), he1, ht1, hc1⟩
+
+end SemDiff
+
+lemma omission_unique_of_code_inclusion
+    {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (b : Fin n → Nat) (hb : PureBranch n D b)
+    {x c : Fin n} (hne : x ≠ c) (hx : x ∈ eligSet n D)
+    (incl : ∀ u ∈ residualUnits n D b, x ∈ supp n D u.1 → c ∈ supp n D u.1)
+    {w : Nat} (hw : x ∈ supp n D w ∧ c ∈ supp n D w) :
+    ∃ e₀, ∀ e ∈ sem_W n D x, e ≠ e₀ → c ∈ supp n D (src D e) := by
+  classical
+  obtain ⟨z,hxz,hcz⟩ := hG.2.2.1 x c hne
+  obtain ⟨_,_,h2,e₁,he₁,ht₁,_⟩ := sem_diff_two_exits hG h hc b hb hne hx incl hw hxz hcz
+  have count : ((exitArcs n D (carrierDiff n D x c)).erase e₁).card = 1 := by
+    rw [Finset.card_erase_of_mem he₁,h2]
+  obtain ⟨e₀,he₀⟩ := Finset.card_eq_one.mp count
+  refine ⟨e₀,fun e he hne₀ => ?_⟩
+  by_contra hce
+  obtain ⟨helt,hxsrc,hxout⟩ := sem_mem_W.mp he
+  have mem : e ∈ (exitArcs n D (carrierDiff n D x c)).erase e₁ :=
+    Finset.mem_erase.mpr ⟨fun eq => by
+      have ht := sem_W_and h.1 he
+      rw [eq,ht₁] at ht
+      exact Bool.false_ne_true ht,
+      sem_mem_exit_diff.mpr ⟨helt,⟨hxsrc,hce⟩,fun hh => hxout hh.1⟩⟩
+  rw [he₀,Finset.mem_singleton] at mem
+  exact hne₀ mem
+
+lemma residual_separation_of_two_omissions
+    {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (b : Fin n → Nat) (hb : PureBranch n D b)
+    {x c : Fin n} (hne : x ≠ c) (hx : x ∈ eligSet n D)
+    (nonempty : ∃ u ∈ residualUnits n D b, x ∈ supp n D u.1)
+    {e f : Nat × Bool} (he : e ∈ sem_W n D x) (hf : f ∈ sem_W n D x)
+    (hef : e ≠ f) (hec : c ∉ supp n D (src D e)) (hfc : c ∉ supp n D (src D f)) :
+    ∃ u ∈ residualUnits n D b, x ∈ supp n D u.1 ∧ c ∉ supp n D u.1 := by
+  classical
+  by_contra hno
+  have incl : ∀ u ∈ residualUnits n D b, x ∈ supp n D u.1 → c ∈ supp n D u.1 := by
+    intro u hu hxu
+    by_contra hcu
+    exact hno ⟨u,hu,hxu,hcu⟩
+  obtain ⟨u,hu,hxu⟩ := nonempty
+  obtain ⟨e₀,other⟩ := omission_unique_of_code_inclusion hG h hc b hb hne hx incl
+    ⟨hxu,incl u hu hxu⟩
+  by_cases he₀ : e = e₀
+  · exact hfc (other f hf (fun hf₀ => hef (he₀.trans hf₀.symm)))
+  · exact hec (other e he he₀)
+
+end DagTools
+
+namespace H3ResidualLocalization
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.H3CoStar
+
+set_option maxHeartbeats 0 in
+lemma zero_neighbors : ∀ x : (Fin 10), petersenAdj 0 x ↔ x ∈ ({1,4,5} : Finset (Fin 10)) := by
+  unfold petersenAdj
+  decide +kernel
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+lemma exposure_vertices : ∀ x c : (Fin 10), petersenAdj 0 x → c ≠ 0 → ¬ petersenAdj 0 c →
+    ∃ m y : (Fin 10), petersenAdj x m ∧ petersenAdj 0 y ∧ ¬ petersenAdj c m ∧ ¬ petersenAdj c y ∧ ¬ petersenAdj m y := by
+  unfold petersenAdj
+  decide +kernel
+
+lemma exposure_geometry {x c : (Fin 10)} (hx : petersenAdj 0 x) (hc : c ≠ 0) (hcn : ¬ petersenAdj 0 c) :
+    ∃ A : Finset (Fin 10), (∀ a ∈ A, ∀ d ∈ A, ¬ petersenAdj a d) ∧ c ∈ A ∧
+      (∃ a ∈ A, petersenAdj 0 a) ∧ (∃ a ∈ A, petersenAdj x a) := by
+  obtain ⟨m,y,hxm,hiy,hcm,hcy,hmy⟩ := exposure_vertices x c hx hc hcn
+  refine ⟨{c,m,y},?_,by simp,⟨y,by simp,hiy⟩,⟨m,by simp,hxm⟩⟩
+  intro a ha d hd
+  simp only [Finset.mem_insert,Finset.mem_singleton] at ha hd
+  rcases ha with rfl | rfl | rfl <;> rcases hd with rfl | rfl | rfl
+  · exact petersen_graph_ok.2.1 _
+  · exact hcm
+  · exact hcy
+  · exact fun hmc => hcm (petersen_graph_ok.1 _ _ hmc)
+  · exact petersen_graph_ok.2.1 _
+  · exact hmy
+  · exact fun hyc => hcy (petersen_graph_ok.1 _ _ hyc)
+  · exact fun hym => hmy (petersen_graph_ok.1 _ _ hym)
+  · exact petersen_graph_ok.2.1 _
+
+lemma residual_support_eligible {n : Nat} {D : Dag} {b : Fin n → Nat}
+    {r : Sigma (fun _ : Nat => Nat)} (hr : r ∈ residualUnits n D b) :
+    supp n D r.1 ⊆ eligSet n D := by
+  have hu : r ∈ unitsPlus n D := (Finset.mem_sdiff.mp hr).1
+  have hm : r ∈ units n D := (Finset.mem_filter.mp hu).1
+  have hf := (mem_units.mp hm).2
+  intro a ha
+  exact mem_eligSet.mpr ⟨r.1,by omega,ha⟩
+
+def ZeroOmission (D : Dag) (c : (Fin 10)) : Prop :=
+  ∃ e : Nat × Bool, (∀ x : (Fin 10), petersenAdj 0 x → e ∈ sem_W 10 D x) ∧
+    c ∉ supp 10 D (src D e) ∧ ∀ a : (Fin 10), petersenAdj 0 a → a ∈ supp 10 D (src D e)
+
+lemma outside_not_in_single_residual {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 petersenAdj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : (Fin 10)) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    {x c : (Fin 10)} (hx : petersenAdj 0 x) (hxr : x ∈ supp 10 D r.1)
+    (hcE : c ∈ eligSet 10 D) (hcn : ¬ petersenAdj 0 c) (localExit : ZeroOmission D c) :
+    c ∉ supp 10 D r.1 := by
+  have hr : r ∈ residualUnits 10 D b := hR ▸ Finset.mem_singleton_self r
+  have hxE := residual_support_eligible hr hxr
+  have hc0 : c ≠ 0 := by
+    intro he
+    exact (sem_mem_inelig.mp hi) (he ▸ hcE)
+  obtain ⟨A,ind,ca,hit0,hitx⟩ := exposure_geometry hx hc0 hcn
+  obtain ⟨e,he,hec,hall⟩ := localExit
+  obtain ⟨g,s,hg,_,hxs,hxo,free⟩ := sem_exposure petersen_graph_ok h.1 hc A ind x hitx
+  have hf : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hxs,hxo⟩
+  have hfc : c ∉ supp 10 D (src D (g,s)) := fun hm => Finset.disjoint_left.mp free hm ca
+  have hef : e ≠ (g,s) := by
+    intro eq
+    obtain ⟨a,ha,hia⟩ := hit0
+    have has := hall a hia
+    rw [eq] at has
+    exact Finset.disjoint_left.mp free has ha
+  obtain ⟨u,hu,_,hcu⟩ := residual_separation_of_two_omissions petersen_graph_ok h hc b hb
+    (show x ≠ c from fun eq => hcn (eq ▸ hx)) hxE ⟨r,hr,hxr⟩ (he x hx) hf hef hec hfc
+  have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+  exact eq ▸ hcu
+
+lemma single_residual_support_subset {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 petersenAdj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : (Fin 10)) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x : (Fin 10), petersenAdj 0 x ∧ x ∈ supp 10 D r.1)
+    (localExits : ∀ c : (Fin 10), c ∈ eligSet 10 D → ¬ petersenAdj 0 c → ZeroOmission D c) :
+    supp 10 D r.1 ⊆ ({1,4,5} : Finset (Fin 10)) := by
+  obtain ⟨x,hx,hxr⟩ := coded
+  have hr : r ∈ residualUnits 10 D b := hR ▸ Finset.mem_singleton_self r
+  intro c hcr
+  apply (zero_neighbors c).mp
+  by_contra hcn
+  have hcE := residual_support_eligible hr hcr
+  exact outside_not_in_single_residual h hc b hb hi hR hx hxr hcE hcn
+    (localExits c hcE hcn) hcr
+
+
+lemma single_residual_support_subset_of_bzero {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 petersenAdj D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : (Fin 10)) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x : (Fin 10), petersenAdj 0 x ∧ x ∈ supp 10 D r.1) :
+    supp 10 D r.1 ⊆ ({1,4,5} : Finset (Fin 10)) := by
+  classical
+  exact single_residual_support_subset h hc b hb hi hR coded
+    (fun c _ hcn => sem_neighbor_exclusion_slot_of_bzero petersen_graph_ok h hc zero hi c hcn)
+
+end H3ResidualLocalization
+
+namespace DagTools
+
+lemma h3_single_residual_support_subset_of_bzero {D : Dag}
+    (h : StrictLive 10 D) (hC : sem_Comp 10 petersenAdj D)
+    (b : Fin 10 → ℕ) (hb : PureBranch 10 D b)
+    (hB0 : Bzero 10 D = 0) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    {r : Σ _ : ℕ, ℕ} (hR : residualUnits 10 D b = {r})
+    (coded : ∃ x ∈ ({1, 4, 5} : Finset (Fin 10)), x ∈ supp 10 D r.1) :
+    supp 10 D r.1 ⊆ ({1, 4, 5} : Finset (Fin 10)) := by
+  obtain ⟨x, hx, hxr⟩ := coded
+  exact H3ResidualLocalization.single_residual_support_subset_of_bzero h hC b hb hB0 hz hR
+    ⟨x, (H3ResidualLocalization.zero_neighbors x).mpr hx, hxr⟩
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_saturated_one_exclusion {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0)
+    (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {1}) : False := by
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch petersen_graph_ok h.1 hC
+  have hcard : (residualUnits 10 D b).card = 1 := by
+    have := card_residual h.1 b hb
+    omega
+  obtain ⟨r, hR⟩ := Finset.card_eq_one.mp hcard
+  have h1 : (1 : Fin 10) ∈ h3_saturatedSet 10 D := by
+    rw [hSat]
+    exact Finset.mem_singleton_self _
+  have h13 : 3 ≤ (sem_W 10 D (1 : Fin 10)).card :=
+    (Finset.mem_filter.mp h1).2
+  obtain ⟨hc1, _, _, h1R⟩ := sem_saturated petersen_graph_ok h hC b hb hR h13
+  have hRS := h3_single_residual_support_subset_of_bzero h hC b hb hB0 hz hR
+    ⟨1, by decide, h1R⟩
+  have hc := h3_saturated_one_other_exit_cards h hC hz hSat
+  have hm (x : Fin 10) (hx0 : x ≠ 0) (hx1 : x ≠ 1)
+      (hxR : x ∉ ({1, 4, 5} : Finset (Fin 10))) :
+      merges 10 D (carrierT 10 D {x}) = ∅ := by
+    have hxR' : x ∉ supp 10 D r.1 := fun hh => hxR (hRS hh)
+    have hf := h3_residual_singleton_flow petersen_graph_ok h hC b hb r hR x
+    rw [hc x hx0 hx1, if_neg hxR'] at hf
+    have he : (if x ∈ eligSet 10 D then 1 else 0) ≤ 1 := by split <;> omega
+    exact Finset.card_eq_zero.mp (by omega)
+  exact h3_singleton_one_exclusion h hC hz hB0
+    (hm 2 (by decide) (by decide) (by decide))
+    (hm 6 (by decide) (by decide) (by decide))
+    (fun x hx0 hx1 => (hc x hx0 hx1).le) hc1
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_no_opposite_exit {n : Nat} {D : Dag} (hS : Strict n D)
+    {x : Fin n} {e : Nat × Bool}
+    (he : e ∈ exitArcs n D (carrierT n D {x})) :
+    h3_opp e ∉ exitArcs n D (carrierT n D {x}) := by
+  intro hf
+  obtain ⟨j,s⟩ := e
+  obtain ⟨hj,hx,hn⟩ := sem_mem_exit1.mp he
+  have hy := (sem_mem_exit1.mp hf).2.1
+  apply hn
+  rw [sem_supp_and hS hj (h3_exit_tag_and hS he)]
+  cases s
+  · exact Finset.mem_inter.mpr ⟨hx,hy⟩
+  · exact Finset.mem_inter.mpr ⟨hy,hx⟩
+
+lemma h3_common_terminals_force_pair {n : Nat} {D : Dag} (hS : Strict n D)
+    {x y : Fin n} {A B C P Q : Nat × Bool}
+    (hycard : (exitArcs n D (carrierT n D {y})).card = 3)
+    (hAy : A ∈ exitArcs n D (carrierT n D {y}))
+    (hBy : B ∈ exitArcs n D (carrierT n D {y}))
+    (hCy : C ∈ exitArcs n D (carrierT n D {y}))
+    (hAB : A ≠ B) (hAC : A ≠ C)
+    (hBx : h3_opp B ∈ exitArcs n D (carrierT n D {x}))
+    (hCx : h3_opp C ∈ exitArcs n D (carrierT n D {x}))
+    (hPx : P ∈ exitArcs n D (carrierT n D {x}))
+    (hPy : P ∈ exitArcs n D (carrierT n D {y}))
+    (hQx : Q ∈ exitArcs n D (carrierT n D {x}))
+    (hQy : Q ∈ exitArcs n D (carrierT n D {y})) (hPQ : P ≠ Q) : B = C := by
+  by_contra hBC
+  have hWy : exitArcs n D (carrierT n D {y}) = {A,B,C} := by
+    symm
+    apply Finset.eq_of_subset_of_card_le
+    · intro e he
+      simp only [Finset.mem_insert, Finset.mem_singleton] at he
+      rcases he with rfl | rfl | rfl <;> assumption
+    · rw [hycard]
+      simp [hAB,hAC,hBC]
+  have hcommon (e : Nat × Bool)
+      (hex : e ∈ exitArcs n D (carrierT n D {x}))
+      (hey : e ∈ exitArcs n D (carrierT n D {y})) : e = A := by
+    rw [hWy] at hey
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hey
+    rcases hey with heA | heB | heC
+    · exact heA
+    · subst e
+      exact False.elim (h3_no_opposite_exit hS hex hBx)
+    · subst e
+      exact False.elim (h3_no_opposite_exit hS hex hCx)
+  exact hPQ ((hcommon P hPx hPy).trans (hcommon Q hQx hQy).symm)
+
+lemma h3_pair26_exit_pattern {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hc : ∀ x : Fin 10, x ≠ 0 → x ≠ 2 → x ≠ 6 → (exitArcs 10 D (carrierT 10 D {x})).card = 2)
+    (hc2 : (exitArcs 10 D (carrierT 10 D {(2 : Fin 10)})).card = 3)
+    (hc6 : (exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})).card = 3)
+    (P Q : Nat × Bool) (hPQ : P ≠ Q)
+    (hP2 : P ∈ exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}))
+    (hP6 : P ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)}))
+    (hQ2 : Q ∈ exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}))
+    (hQ6 : Q ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})) :
+    ∃ e0 e1 e4 e5 d q : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e1) = {1} ∧
+      supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      exitArcs 10 D (carrierT 10 D {0}) = {e0} ∧
+      exitArcs 10 D (carrierT 10 D {1}) = {h3_opp e0, e1} ∧
+      exitArcs 10 D (carrierT 10 D {2}) = {h3_opp e1, h3_opp d, q} ∧
+      exitArcs 10 D (carrierT 10 D {3}) = {h3_opp e4, d} ∧
+      exitArcs 10 D (carrierT 10 D {4}) = {h3_opp e0, e4} ∧
+      exitArcs 10 D (carrierT 10 D {5}) = {h3_opp e0, e5} ∧
+      exitArcs 10 D (carrierT 10 D {6}) = {h3_opp e1, d, q} ∧
+      exitArcs 10 D (carrierT 10 D {7}) = {h3_opp e5, d} ∧
+      exitArcs 10 D (carrierT 10 D {8}) = {h3_opp e5, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {9}) = {h3_opp e4, h3_opp d} ∧
+      q ≠ h3_opp e1 ∧ q ≠ h3_opp d ∧ q ≠ d := by
+  obtain ⟨e0, he0, _, hp0, ho0, hn0, hW0, _⟩ := sem_inelig_consumer petersen_graph_ok h hC hz
+  let A := h3_opp e0
+  have hbarA : supp 10 D (src D (h3_opp A)) = {(0 : Fin 10)} := by
+    simpa only [A, h3_opp_opp] using hp0
+  have hAN : ({1, 4, 5} : Finset (Fin 10)) ⊆ supp 10 D (src D A) := by
+    intro x hx
+    apply hn0
+    have hh : ∀ a : Fin 10, a ∈ ({1, 4, 5} : Finset (Fin 10)) → petersenAdj 0 a := by
+      unfold petersenAdj
+      decide
+    exact hh x hx
+  have hAmem : ∀ x ∈ ({1, 4, 5} : Finset (Fin 10)), A ∈ exitArcs 10 D (carrierT 10 D {x}) := by
+    intro x hx
+    apply sem_mem_exit1.mpr
+    exact ⟨he0, hAN hx, by rw [show 10 + A.1 = 10 + e0.1 from rfl, ho0]; simp⟩
+  obtain ⟨e1, _, hW1⟩ := h3_pair_of_card_two (hAmem 1 (by decide)) (hc 1 (by decide) (by decide) (by decide))
+  obtain ⟨e4, _, hW4⟩ := h3_pair_of_card_two (hAmem 4 (by decide)) (hc 4 (by decide) (by decide) (by decide))
+  obtain ⟨e5, _, hW5⟩ := h3_pair_of_card_two (hAmem 5 (by decide)) (hc 5 (by decide) (by decide) (by decide))
+  have hp1 : supp 10 D (src D e1) = {(1 : Fin 10)} :=
+    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW1]) (by rw [hW1]; simp) hAN
+  have hp4 : supp 10 D (src D e4) = {(4 : Fin 10)} :=
+    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW4]) (by rw [hW4]; simp) hAN
+  have hp5 : supp 10 D (src D e5) = {(5 : Fin 10)} :=
+    petersen_other_exit_pure h.1 hC hz (by decide) (by rw [hW5]) (by rw [hW5]; simp) hAN
+  have ha2 : h3_opp e1 ∈ exitArcs 10 D (carrierT 10 D {2}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW1]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha6 : h3_opp e1 ∈ exitArcs 10 D (carrierT 10 D {6}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW1]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha3 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {3}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha9 : h3_opp e4 ∈ exitArcs 10 D (carrierT 10 D {9}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW4]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha7 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {7}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
+  have ha8 : h3_opp e5 ∈ exitArcs 10 D (carrierT 10 D {8}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW5]) hbarA (by unfold petersenAdj; decide) (by decide)
+  obtain ⟨g3, _, hW3⟩ := h3_pair_of_card_two ha3 (hc 3 (by decide) (by decide) (by decide))
+  obtain ⟨g7, _, hW7⟩ := h3_pair_of_card_two ha7 (hc 7 (by decide) (by decide) (by decide))
+  obtain ⟨g8, _, hW8⟩ := h3_pair_of_card_two ha8 (hc 8 (by decide) (by decide) (by decide))
+  obtain ⟨g9, _, hW9⟩ := h3_pair_of_card_two ha9 (hc 9 (by decide) (by decide) (by decide))
+  have hb1 : supp 10 D (src D (h3_opp (h3_opp e1))) = {(1 : Fin 10)} := by rw [h3_opp_opp]; exact hp1
+  have hb4 : supp 10 D (src D (h3_opp (h3_opp e4))) = {(4 : Fin 10)} := by rw [h3_opp_opp]; exact hp4
+  have hb5 : supp 10 D (src D (h3_opp (h3_opp e5))) = {(5 : Fin 10)} := by rw [h3_opp_opp]; exact hp5
+  have h38 : h3_opp g3 = g8 := h3_split_edge_pair petersen_graph_ok h.1 hC
+    (by rw [hW3]) (by rw [hW8]) hb4 hb5 (by decide) (by decide) (by unfold petersenAdj; decide)
+  have h79 : h3_opp g7 = g9 := h3_split_edge_pair petersen_graph_ok h.1 hC
+    (by rw [hW7]) (by rw [hW9]) hb5 hb4 (by decide) (by decide) (by unfold petersenAdj; decide)
+  have hd2 : h3_opp g3 ∈ exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW3]) hb4
+      (by unfold petersenAdj; decide) (by decide)
+  have hd6a : g3 ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)}) := by
+    have hh := sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW8]) hb5
+      (by unfold petersenAdj; decide : petersenAdj 8 6) (by decide : (6 : Fin 10) ≠ 5)
+    simpa [← h38, h3_opp] using hh
+  have hd2b : h3_opp g7 ∈ exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}) :=
+    sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW7]) hb5
+      (by unfold petersenAdj; decide) (by decide)
+  have hd6b : g7 ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)}) := by
+    have hh := sem_two_exit_remaining_slot petersen_graph_ok h.1 hC (by rw [hW9]) hb4
+      (by unfold petersenAdj; decide : petersenAdj 9 6) (by decide : (6 : Fin 10) ≠ 4)
+    simpa [← h79, h3_opp] using hh
+  have hAd3 : h3_opp e1 ≠ g3 := by
+    intro he
+    exact h3_no_opposite_exit h.1 (he ▸ ha2) hd2
+  have hAd7 : h3_opp e1 ≠ g7 := by
+    intro he
+    exact h3_no_opposite_exit h.1 (he ▸ ha2) hd2b
+  have hd37 : g3 = g7 := h3_common_terminals_force_pair h.1 hc6 ha6 hd6a hd6b
+    hAd3 hAd7 hd2 hd2b hP2 hP6 hQ2 hQ6 hPQ
+  have hg9 : g9 = h3_opp g3 := by rw [← h79, ← hd37]
+
+  have hg3mem : g3 ∈ exitArcs 10 D (carrierT 10 D {(3 : Fin 10)}) := by rw [hW3]; simp
+  have h3in : (3 : Fin 10) ∈ supp 10 D (src D g3) := (sem_mem_exit1.mp hg3mem).2.1
+  have hneq : h3_opp e1 ≠ h3_opp g3 := by
+    intro he
+    have he' : e1 = g3 := by
+      have ht := congrArg h3_opp he
+      simpa only [h3_opp_opp] using ht
+    rw [← he', hp1] at h3in
+    simp at h3in
+  have hcardErase : ((exitArcs 10 D (carrierT 10 D {(2 : Fin 10)})).erase (h3_opp e1)).card = 2 := by
+    rw [Finset.card_erase_of_mem ha2, hc2]
+  have hdErase : h3_opp g3 ∈ (exitArcs 10 D (carrierT 10 D {(2 : Fin 10)})).erase (h3_opp e1) :=
+    Finset.mem_erase.mpr ⟨Ne.symm hneq, hd2⟩
+  obtain ⟨q, hqd, hrest⟩ := h3_pair_of_card_two hdErase hcardErase
+  have hqErase : q ∈ (exitArcs 10 D (carrierT 10 D {(2 : Fin 10)})).erase (h3_opp e1) := by
+    rw [hrest]; simp
+  have hq1 := (Finset.mem_erase.mp hqErase).1
+  have hW2 : exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}) = {h3_opp e1, h3_opp g3, q} := by
+    rw [← Finset.insert_erase ha2, hrest]
+  have hd6 : g3 ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)}) := hd6a
+  have hcardErase6 : ((exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})).erase (h3_opp e1)).card = 2 := by
+    rw [Finset.card_erase_of_mem ha6, hc6]
+  have hdErase6 : g3 ∈ (exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})).erase (h3_opp e1) :=
+    Finset.mem_erase.mpr ⟨Ne.symm hAd3, hd6⟩
+  obtain ⟨q6, hq6d, hrest6⟩ := h3_pair_of_card_two hdErase6 hcardErase6
+  have hW6 : exitArcs 10 D (carrierT 10 D {(6 : Fin 10)}) = {h3_opp e1, g3, q6} := by
+    rw [← Finset.insert_erase ha6, hrest6]
+  have hcommon (e : Nat × Bool) (heA : e ≠ h3_opp e1)
+      (he2 : e ∈ exitArcs 10 D (carrierT 10 D {(2 : Fin 10)}))
+      (he6 : e ∈ exitArcs 10 D (carrierT 10 D {(6 : Fin 10)})) : e = q ∧ e = q6 := by
+    have heD : e ≠ g3 := by
+      intro hh
+      exact h3_no_opposite_exit h.1 (hh ▸ he2) hd2
+    have heBarD : e ≠ h3_opp g3 := by
+      intro hh
+      exact h3_no_opposite_exit h.1 hd6 (hh ▸ he6)
+    rw [hW2] at he2
+    rw [hW6] at he6
+    simp only [Finset.mem_insert, Finset.mem_singleton] at he2 he6
+    exact ⟨he2.resolve_left heA |>.resolve_left heBarD,
+      he6.resolve_left heA |>.resolve_left heD⟩
+  have hqq6 : q = q6 := by
+    by_cases hPA : P = h3_opp e1
+    · have hQA : Q ≠ h3_opp e1 := fun hh => hPQ (hPA.trans hh.symm)
+      exact (hcommon Q hQA hQ2 hQ6).1.symm.trans (hcommon Q hQA hQ2 hQ6).2
+    · exact (hcommon P hPA hP2 hP6).1.symm.trans (hcommon P hPA hP2 hP6).2
+  refine ⟨e0, e1, e4, e5, g3, q, hp0, hp1, hp4, hp5, hW0, hW1, hW2,
+    hW3, hW4, hW5, ?_, ?_, ?_, ?_, hq1, hqd, ?_⟩
+  · simpa only [hqq6] using hW6
+  · simpa only [← hd37] using hW7
+  · simpa only [← h38] using hW8
+  · simpa only [hg9] using hW9
+  · exact hqq6 ▸ hq6d
+
+
+lemma h3_saturated_pair26_exit_pattern {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {2,6}) :
+    ∃ e0 e1 e4 e5 d q : ℕ × Bool,
+      supp 10 D (src D e0) = {0} ∧ supp 10 D (src D e1) = {1} ∧
+      supp 10 D (src D e4) = {4} ∧ supp 10 D (src D e5) = {5} ∧
+      exitArcs 10 D (carrierT 10 D {0}) = {e0} ∧
+      exitArcs 10 D (carrierT 10 D {1}) = {h3_opp e0, e1} ∧
+      exitArcs 10 D (carrierT 10 D {2}) = {h3_opp e1, h3_opp d, q} ∧
+      exitArcs 10 D (carrierT 10 D {3}) = {h3_opp e4, d} ∧
+      exitArcs 10 D (carrierT 10 D {4}) = {h3_opp e0, e4} ∧
+      exitArcs 10 D (carrierT 10 D {5}) = {h3_opp e0, e5} ∧
+      exitArcs 10 D (carrierT 10 D {6}) = {h3_opp e1, d, q} ∧
+      exitArcs 10 D (carrierT 10 D {7}) = {h3_opp e5, d} ∧
+      exitArcs 10 D (carrierT 10 D {8}) = {h3_opp e5, h3_opp d} ∧
+      exitArcs 10 D (carrierT 10 D {9}) = {h3_opp e4, h3_opp d} ∧
+      q ≠ h3_opp e1 ∧ q ≠ h3_opp d ∧ q ≠ d := by
+  have hfin : ∀ x ∈ ({1,4,5} : Finset (Fin 10)), x ∉ ({2,6} : Finset (Fin 10)) := by decide
+  have hlo := h3_outside_le_two_nonzero_ge_two h hC hz
+    (fun x hx => h3_outside_saturated_le_two hSat (hfin x hx))
+  have hc (x : Fin 10) (hx0 : x ≠ 0) (hx2 : x ≠ 2) (hx6 : x ≠ 6) :
+      (exitArcs 10 D (carrierT 10 D {x})).card = 2 :=
+    Nat.le_antisymm (h3_outside_saturated_le_two hSat (by simp [hx2,hx6])) (hlo x hx0)
+  have hm2 : (2 : Fin 10) ∈ h3_saturatedSet 10 D := by rw [hSat]; simp
+  have hm6 : (6 : Fin 10) ∈ h3_saturatedSet 10 D := by rw [hSat]; simp
+  have hc2 := (h3_one_residual_saturation petersen_graph_ok h hC hone 2 hm2).1
+  have hc6 := (h3_one_residual_saturation petersen_graph_ok h hC hone 6 hm6).1
+  obtain ⟨P,Q,hPQ,hcommon⟩ := h3_one_residual_common_terminals petersen_graph_ok h hC hone
+  exact h3_pair26_exit_pattern h hC hz hc hc2 hc6 P Q
+    (fun he => hPQ (congrArg Prod.fst he))
+    (hcommon 2 hm2).1 (hcommon 6 hm6).1 (hcommon 2 hm2).2 (hcommon 6 hm6).2
+
+
+end DagTools
+
+namespace Pair26Geometry
+
+def side (i : Fin 11) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 50, 2, 68, 16, 520, 32, 384, 200, 772, 68] : List Nat).getD i.val 0)
+
+def allowed (i : Fin 11) : Finset (Fin 10) :=
+  SideGeometry.mask (([1, 1023, 3, 1023, 17, 520, 33, 384, 200, 772, 1023] : List Nat).getD i.val 0)
+
+def witnessCode (i : Fin 11) (y : Fin 10) : Nat :=
+  ([0, 2, 20, 10, 16, 32, 80, 130, 258, 514, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1044, 1128, 1044, 1060, 1104, 1232, 1300, 1572, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4106, 4644, 4106, 0, 4136, 4200, 4234, 4866, 4610, 3141, 3218, 3140, 0, 3152, 3172, 3140, 3216, 3456, 0, 0, 5250, 5396, 5258, 5264, 0, 5328, 5250, 5378, 5890, 7237, 7210, 7236, 7208, 7252, 7208, 7236, 0, 0, 7688, 3589, 3842, 3588, 0, 6420, 3620, 0, 0, 3840, 3588, 2121, 8330, 0, 2120, 2256, 2152, 2120, 2240, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : List Nat).getD (i.val * 10 + y.val) 0
+
+def witnessVertex (i : Fin 11) (y : Fin 10) : Fin 10 :=
+  ⟨witnessCode i y / 1024 % 10, Nat.mod_lt _ (by decide)⟩
+
+def witnessSet (i : Fin 11) (y : Fin 10) : Finset (Fin 10) :=
+  SideGeometry.mask (witnessCode i y % 1024)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma witness_valid : ∀ i : Fin 11, ∀ y : Fin 10, y ∉ allowed i →
+    let x := witnessVertex i y
+    let A := witnessSet i y
+    x ∈ side i ∧ y ∈ A ∧
+    (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) ∧
+    (∃ v ∈ A, SideGeometry.adj x v) ∧
+    ∀ j : Fin 11, x ∈ side j → j ≠ i → (side j ∩ A).Nonempty := by
+  unfold SideGeometry.adj
+  decide +kernel
+
+lemma support_bound (S : Fin 11 → Finset (Fin 10))
+    (hsub : ∀ i, side i ⊆ S i)
+    (hex : ∀ x A, (∀ u ∈ A, ∀ v ∈ A, ¬ SideGeometry.adj u v) →
+      (∃ v ∈ A, SideGeometry.adj x v) →
+      ∃ i : Fin 11, x ∈ side i ∧ Disjoint (S i) A) :
+    ∀ i, S i ⊆ allowed i := by
+  intro i y hy
+  by_contra hn
+  obtain ⟨hx, hyA, hA, hnb, hother⟩ := witness_valid i y hn
+  obtain ⟨j, hj, hd⟩ := hex _ _ hA hnb
+  by_cases he : j = i
+  · subst j
+    exact Finset.disjoint_left.mp hd hy hyA
+  · obtain ⟨v, hv⟩ := hother j hj he
+    obtain ⟨hv, hvA⟩ := Finset.mem_inter.mp hv
+    exact Finset.disjoint_left.mp hd (hsub j hv) hvA
+
+end Pair26Geometry
+
+namespace DagTools
+
+lemma h3_pair26_source_bounds {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (r : Fin 11 → Nat × Bool)
+    (hW : ∀ x : Fin 10, sem_W 10 D x =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ Pair26Geometry.side i)).image r) :
+    ∀ i, supp 10 D (src D (r i)) ⊆ Pair26Geometry.allowed i := by
+  apply Pair26Geometry.support_bound
+  · intro i x hx
+    apply (sem_mem_W.mp ?_).2.1
+    rw [hW]
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i, hx⟩, rfl⟩
+  · intro x A hA hnb
+    obtain ⟨j, s, hj, _, hxs, hxn, hd⟩ :=
+      sem_exposure petersen_graph_ok h.1 hC A hA x hnb
+    have hm : (j, s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hj, hxs, hxn⟩
+    rw [hW] at hm
+    obtain ⟨i, hi, hri⟩ := Finset.mem_image.mp hm
+    exact ⟨i, (Finset.mem_filter.mp hi).2, by simpa only [hri] using hd⟩
+
+end DagTools
+
+namespace DagTools
+
+def h3_pair26_sideMap (e0 e1 e4 e5 d q : ℕ × Bool) (i : Fin 11) : ℕ × Bool :=
+  ([e0,h3_opp e0,e1,h3_opp e1,e4,h3_opp e4,e5,h3_opp e5,d,h3_opp d,q] :
+    List (ℕ × Bool)).getD i.val e0
+
+def h3_pair26_incidenceIndices (x : Fin 10) : Finset (Fin 11) :=
+  match x.val with
+  | 0 => {0}
+  | 1 => {1,2}
+  | 2 => {3,9,10}
+  | 3 => {5,8}
+  | 4 => {1,4}
+  | 5 => {1,6}
+  | 6 => {3,8,10}
+  | 7 => {7,8}
+  | 8 => {7,9}
+  | _ => {5,9}
+
+set_option maxRecDepth 100000 in
+lemma h3_pair26_incidence_indices : ∀ x : Fin 10,
+    Finset.univ.filter (fun i : Fin 11 => x ∈ Pair26Geometry.side i) = h3_pair26_incidenceIndices x := by
+  decide +kernel
+
+lemma h3_saturated_pair26_sources_exist {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0)
+    (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {2,6}) :
+    ∃ r : Fin 10 → ℕ × Bool, ∃ q : ℕ × Bool,
+      Function.Injective r ∧
+      (∀ i, r (SideGeometry.opposite i) = ((r i).1, !(r i).2)) ∧
+      (∀ i, supp 10 D (src D (r i)) = SideGeometry.side i) ∧
+      (∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
+        (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r ∪
+          if x ∈ ({2,6} : Finset (Fin 10)) then {q} else ∅) ∧
+      (∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true ∧ supp 10 D (10+(r i).1) = ∅) ∧
+      q ≠ r 3 ∧ q ≠ r 9 ∧ q ≠ r 8 := by
+  obtain ⟨e0,e1,e4,e5,d,q,hp0,hp1,hp4,hp5,hW0,hW1,hW2,hW3,hW4,hW5,
+    hW6,hW7,hW8,hW9,hq1,hqd,hqd2⟩ := h3_saturated_pair26_exit_pattern h hC hz hone hSat
+  let r := h3_sideMap e0 e1 e4 e5 d
+  let R := h3_pair26_sideMap e0 e1 e4 e5 d q
+  have hW11 : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
+      (Finset.univ.filter (fun i : Fin 11 => x ∈ Pair26Geometry.side i)).image R := by
+    intro x
+    rw [h3_pair26_incidence_indices]
+    fin_cases x
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW0
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW1
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW2
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW3
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW4
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW5
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW6
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW7
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW8
+    · simpa [R,h3_pair26_sideMap,h3_pair26_incidenceIndices] using hW9
+  have hb := h3_pair26_source_bounds h hC R hW11
+  have hlo : ∀ i : Fin 11, Pair26Geometry.side i ⊆ supp 10 D (src D (R i)) := by
+    intro i x hx
+    apply (sem_mem_exit1.mp ?_).2.1
+    rw [hW11]
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ i,hx⟩,rfl⟩
+  have hfirst : ∀ i : Fin 10, R ⟨i.val, Nat.lt_trans i.isLt (by decide)⟩ = r i := by
+    intro i; fin_cases i <;> rfl
+  have hside : ∀ i : Fin 10,
+      Pair26Geometry.side ⟨i.val, Nat.lt_trans i.isLt (by decide)⟩ = SideGeometry.side i := by
+    decide +kernel
+  have hfromBounds : ∀ i : Fin 10,
+      Pair26Geometry.allowed ⟨i.val, Nat.lt_trans i.isLt (by decide)⟩ = SideGeometry.side i →
+      supp 10 D (src D (r i)) = SideGeometry.side i := by
+    intro i hi
+    have hu := hb ⟨i.val, Nat.lt_trans i.isLt (by decide)⟩
+    have hl := hlo ⟨i.val, Nat.lt_trans i.isLt (by decide)⟩
+    rw [hfirst i, hi] at hu
+    rw [hfirst i,hside i] at hl
+    exact Finset.Subset.antisymm hu hl
+  have hAN : ({1,4,5} : Finset (Fin 10)) ⊆ supp 10 D (src D (h3_opp e0)) := by
+    have hh := hlo (1 : Fin 11)
+    have he : Pair26Geometry.side 1 = ({1,4,5} : Finset (Fin 10)) := by decide +kernel
+    simpa [he, R, h3_pair26_sideMap] using hh
+  have hstar := h3_star0_exact_of_two_exit_pure_companion h hC hz hB0
+    (h3_opp e0) e4 hW4 hp4 hAN
+  have hpartial : ∀ i : Fin 10, i ≠ 3 → supp 10 D (src D (r i)) = SideGeometry.side i := by
+    intro i hi
+    fin_cases i
+    · exact hp0.trans (by decide)
+    · exact hstar.trans (by decide)
+    · exact hp1.trans (by decide)
+    · exact False.elim (hi rfl)
+    · exact hp4.trans (by decide)
+    · exact hfromBounds 5 (by decide)
+    · exact hp5.trans (by decide)
+    · exact hfromBounds 7 (by decide)
+    · exact hfromBounds 8 (by decide)
+    · exact hfromBounds 9 (by decide)
+  have hme1 : e1 ∈ exitArcs 10 D (carrierT 10 D {(1 : Fin 10)}) := by rw [hW1]; simp
+  have hj1 := (sem_mem_exit1.mp hme1).1
+  have ht1 := h3_exit_tag_and h.1 hme1
+  have hout1 : supp 10 D (10+e1.1) = ∅ := by
+    apply Finset.not_nonempty_iff_eq_empty.mp
+    rintro ⟨x,hx⟩
+    have hs := sem_supp_and_sub h.1 hj1 ht1 e1.2 hx
+    change x ∈ supp 10 D (src D e1) at hs
+    rw [hp1,Finset.mem_singleton] at hs
+    exact (sem_mem_exit1.mp hme1).2.2 (hs ▸ hx)
+  have hKlow : ({2,6} : Finset (Fin 10)) ⊆ supp 10 D (src D (r 3)) := by
+    have hh := hlo (3 : Fin 11)
+    have he : Pair26Geometry.side 3 = ({2,6} : Finset (Fin 10)) := by decide +kernel
+    simpa [he,R,h3_pair26_sideMap,r,h3_sideMap] using hh
+  have hKexact : supp 10 D (src D (r 3)) = ({2,6} : Finset (Fin 10)) := by
+    apply Finset.Subset.antisymm ?_ hKlow
+    intro x hx
+    by_contra hxN
+    have hm : r 3 ∈ exitArcs 10 D (carrierT 10 D {x}) := by
+      apply sem_mem_exit1.mpr
+      refine ⟨hj1,hx,?_⟩
+      change x ∉ supp 10 D (10+e1.1)
+      rw [hout1]
+      exact Finset.notMem_empty x
+    rw [hW11] at hm
+    obtain ⟨j,hj,hje⟩ := Finset.mem_image.mp hm
+    have hxj := (Finset.mem_filter.mp hj).2
+    have hj10 : j.val < 10 := by
+      by_contra hn
+      have je : j = 10 := Fin.ext (by omega)
+      subst j
+      have he : Pair26Geometry.side 10 = ({2,6} : Finset (Fin 10)) := by decide +kernel
+      exact hxN (he ▸ hxj)
+    let k : Fin 10 := ⟨j.val,hj10⟩
+    have hjk : j = ⟨k.val,Nat.lt_trans k.isLt (by decide)⟩ := Fin.ext rfl
+    have hkr : r k = r 3 := by rw [hjk,hfirst k] at hje; exact hje
+    have hk3 : k ≠ 3 := by
+      intro he
+      have heSide : Pair26Geometry.side 3 = ({2,6} : Finset (Fin 10)) := by decide +kernel
+      have hh : j = 3 := Fin.ext (congrArg (fun a : Fin 10 => a.val) he)
+      exact hxN (by simpa only [hh,heSide] using hxj)
+    have hforbid : ∀ i : Fin 10, i ≠ 3 → ¬ ({2,6} : Finset (Fin 10)) ⊆ SideGeometry.side i := by
+      decide +kernel
+    apply hforbid k hk3
+    rw [← hpartial k hk3,hkr]
+    exact hKlow
+  have hsources : ∀ i : Fin 10, supp 10 D (src D (r i)) = SideGeometry.side i := by
+    intro i
+    by_cases hi : i = 3
+    · subst i
+      exact hKexact.trans (by decide +kernel)
+    · exact hpartial i hi
+  have hSideInj : Function.Injective SideGeometry.side := by decide +kernel
+  have hinj : Function.Injective r := by
+    intro i j hij
+    apply hSideInj
+    rw [← hsources i, ← hsources j, hij]
+  have hopp : ∀ i : Fin 10, r (SideGeometry.opposite i) = ((r i).1, !(r i).2) :=
+    h3_sideMap_opposite e0 e1 e4 e5 d
+  have hW : ∀ x : Fin 10, exitArcs 10 D (carrierT 10 D {x}) =
+      (Finset.univ.filter (fun i : Fin 10 => x ∈ SideGeometry.side i)).image r ∪
+        if x ∈ ({2,6} : Finset (Fin 10)) then {q} else ∅ := by
+    intro x
+    rw [SideGeometry.incidence_indices]
+    fin_cases x
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW0
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW1
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices,Finset.insert_comm] using hW2
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW3
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW4
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW5
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW6
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW7
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW8
+    · simpa [r,h3_sideMap,SideGeometry.incidenceIndices] using hW9
+  have hvalid : ∀ i : Fin 10, (r i).1 < D.length ∧ tag D (r i).1 = true ∧
+      supp 10 D (10+(r i).1) = ∅ := by
+    intro i
+    obtain ⟨x,hx⟩ := SideGeometry.side_nonempty i
+    have hm : r i ∈ exitArcs 10 D (carrierT 10 D {x}) := by
+      rw [hW]
+      apply Finset.mem_union_left
+      exact Finset.mem_image.mpr ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ i,hx⟩,rfl⟩
+    have hj := (sem_mem_exit1.mp hm).1
+    have ht := h3_exit_tag_and h.1 hm
+    refine ⟨hj,ht,?_⟩
+    have hd : Disjoint (supp 10 D (src D (r i)))
+        (supp 10 D (src D ((r i).1, !(r i).2))) := by
+      rw [← hopp i, hsources i, hsources (SideGeometry.opposite i)]
+      exact SideGeometry.paired_disjoint i
+    rw [sem_supp_and h.1 hj ht]
+    apply Finset.disjoint_iff_inter_eq_empty.mp
+    rcases he : r i with ⟨j,s⟩
+    cases s <;> simpa only [he, Bool.not_false, Bool.not_true, sb_src_false, sb_src_true,
+      disjoint_comm] using hd
+  refine ⟨r,q,hinj,hopp,hsources,hW,hvalid,?_,?_,?_⟩
+  · simpa [r,h3_sideMap] using hq1
+  · simpa [r,h3_sideMap] using hqd
+  · simpa [r,h3_sideMap] using hqd2
+
+
+end DagTools
+
+namespace DagTools
+
+lemma h3_nonindexed_and_shared_extra_type {n : Nat} {D : Dag} (hS : Strict n D)
+    {ι : Type*} (r : ι → Nat × Bool) (X : Finset (Fin n)) (q : Nat × Bool)
+    (hcover : ∀ x : Fin n, ∀ e ∈ exitArcs n D (carrierT n D {x}),
+      (∃ i, r i = e) ∨ (x ∈ X ∧ e = q))
+    (hq : ∀ x ∈ X, q ∈ exitArcs n D (carrierT n D {x}))
+    {j : Nat} (hj : j < D.length) (ht : tag D j = true)
+    (hne : ∀ i, (r i).1 ≠ j) :
+    supp n D (opA D j) = supp n D (opB D j) ∨
+    ((supp n D (opA D j)).Nonempty ∧ supp n D (opA D j) ⊆ supp n D (opB D j)) ∨
+    ((supp n D (opB D j)).Nonempty ∧ supp n D (opB D j) ⊆ supp n D (opA D j)) ∨
+    (supp n D (opA D j) = ∅ ∧ supp n D (opB D j) = X) ∨
+    (supp n D (opB D j) = ∅ ∧ supp n D (opA D j) = X) := by
+  have hdiff (s : Bool) {x : Fin n}
+      (hx : x ∈ supp n D (src D (j,s)))
+      (hn : x ∉ supp n D (src D (j,!s))) : x ∈ X ∧ (j,s) = q := by
+    have hm : (j,s) ∈ exitArcs n D (carrierT n D {x}) := by
+      apply sem_mem_exit1.mpr
+      exact ⟨hj,hx,fun hh => hn (sem_supp_and_sub hS hj ht (!s) hh)⟩
+    rcases hcover x (j,s) hm with ⟨i,hi⟩ | he
+    · exact False.elim (hne i (congrArg Prod.fst hi))
+    · exact he
+  have hlow (s : Bool) (he : (j,s) = q) : X ⊆ supp n D (src D (j,s)) := by
+    intro x hx
+    have hh := (sem_mem_exit1.mp (hq x hx)).2.1
+    simpa only [← he] using hh
+  by_cases hab : supp n D (opA D j) ⊆ supp n D (opB D j)
+  · by_cases hba : supp n D (opB D j) ⊆ supp n D (opA D j)
+    · exact Or.inl (Finset.Subset.antisymm hab hba)
+    · obtain ⟨x,hxb,hxa⟩ := Finset.not_subset.mp hba
+      have hqe := (hdiff true hxb hxa).2
+      by_cases hneA : (supp n D (opA D j)).Nonempty
+      · exact Or.inr (Or.inl ⟨hneA,hab⟩)
+      · have ha0 : supp n D (opA D j) = ∅ := Finset.not_nonempty_iff_eq_empty.mp hneA
+        have hbX : supp n D (opB D j) = X := by
+          apply Finset.Subset.antisymm ?_ (hlow true hqe)
+          intro y hy
+          exact (hdiff true hy (by change y ∉ supp n D (opA D j); rw [ha0]; simp)).1
+        exact Or.inr (Or.inr (Or.inr (Or.inl ⟨ha0,hbX⟩)))
+  · obtain ⟨x,hxa,hxb⟩ := Finset.not_subset.mp hab
+    have hqe := (hdiff false hxa hxb).2
+    have hba : supp n D (opB D j) ⊆ supp n D (opA D j) := by
+      intro y hy
+      by_contra hn
+      have hqe' := (hdiff true hy hn).2
+      have hh := congrArg Prod.snd (hqe.trans hqe'.symm)
+      simp at hh
+    by_cases hneB : (supp n D (opB D j)).Nonempty
+    · exact Or.inr (Or.inr (Or.inl ⟨hneB,hba⟩))
+    · have hb0 : supp n D (opB D j) = ∅ := Finset.not_nonempty_iff_eq_empty.mp hneB
+      have haX : supp n D (opA D j) = X := by
+        apply Finset.Subset.antisymm ?_ (hlow false hqe)
+        intro y hy
+        exact (hdiff false hy (by change y ∉ supp n D (opB D j); rw [hb0]; simp)).1
+      exact Or.inr (Or.inr (Or.inr (Or.inr ⟨hb0,haX⟩)))
+
+
+end DagTools
+
+namespace DagTools
+
+open R1FlexibleResource.CausalBarrier R1FlexibleResource.ResourceExclusion
+  R1FlexibleResource.DAGBridge
+
+lemma h3_residual_saturated_pair26_exclusion {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 petersenAdj D) (hz : (0 : Fin 10) ∈ ineligSet 10 D)
+    (hB0 : Bzero 10 D = 0) (hone : Bplus 10 D = (eligSet 10 D).card + 1)
+    (hSat : h3_saturatedSet 10 D = {2,6}) : False := by
+  obtain ⟨r,q,_,hopp,hsrc,hW,hvalid,_⟩ := h3_saturated_pair26_sources_exist h hC hz hB0 hone hSat
+  have hp : r 9 = ((r 8).1, !(r 8).2) := by
+    simpa [SideGeometry.opposite] using hopp 8
+  have hdirty : DirtySides D (r 8).1 := by
+    have h8 := hsrc 8
+    have h9 := hsrc 9
+    have h8S : SideGeometry.side 8 = DirtyA := by decide +kernel
+    have h9S : SideGeometry.side 9 = DirtyB := by decide +kernel
+    rw [h8S] at h8
+    rw [h9S] at h9
+    cases hb : (r 8).2
+    · left
+      exact ⟨by simpa [src, hb] using h8, by simpa [hp, src, hb] using h9⟩
+    · right
+      exact ⟨by simpa [hp, src, hb] using h9, by simpa [src, hb] using h8⟩
+  have hcover : ∀ x : Fin 10, ∀ e ∈ exitArcs 10 D (carrierT 10 D {x}),
+      (∃ i, r i = e) ∨ (x ∈ ({2,6} : Finset (Fin 10)) ∧ e = q) := by
+    intro x e he
+    rw [hW] at he
+    rcases Finset.mem_union.mp he with he | he
+    · obtain ⟨i,_,hi⟩ := Finset.mem_image.mp he
+      exact Or.inl ⟨i,hi⟩
+    · right
+      by_cases hx : x ∈ ({2,6} : Finset (Fin 10))
+      · rw [ite_eq_left hx,Finset.mem_singleton] at he
+        exact ⟨hx,he⟩
+      · simp only [ite_eq_right hx,Finset.notMem_empty] at he
+  have hq : ∀ x ∈ ({2,6} : Finset (Fin 10)), q ∈ exitArcs 10 D (carrierT 10 D {x}) := by
+    intro x hx
+    rw [hW]
+    apply Finset.mem_union_right
+    rw [ite_eq_left hx]
+    exact Finset.mem_singleton_self q
+  have hother : OtherAndSides D (r 8).1 := by
+    intro j hj hjd ht
+    by_cases hex : ∃ i, (r i).1 = j
+    · obtain ⟨i, hi⟩ := hex
+      have he : ∃ k, r k = (j, false) := by
+        cases hb : (r i).2
+        · exact ⟨i, Prod.ext hi hb⟩
+        · refine ⟨SideGeometry.opposite i, ?_⟩
+          rw [hopp, hi, hb]
+          rfl
+      obtain ⟨k, hk⟩ := he
+      have hka : supp 10 D (opA D j) = SideGeometry.side k := by
+        simpa [hk, src] using hsrc k
+      have hkb : supp 10 D (opB D j) = SideGeometry.side (SideGeometry.opposite k) := by
+        simpa [hopp, hk, src] using hsrc (SideGeometry.opposite k)
+      have hk8 : k ≠ 8 := by
+        intro he
+        subst k
+        exact hjd (congrArg Prod.fst hk).symm
+      have hk9 : k ≠ 9 := by
+        intro he
+        subst k
+        have heq := congrArg Prod.fst hk
+        rw [hp] at heq
+        exact hjd heq.symm
+      apply Or.inl
+      apply Or.inl
+      apply Or.inr
+      change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides ∨
+        (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides
+      rw [hka, hkb]
+      exact h3_all_two_flexible_other_sides k hk8 hk9
+    · rcases h3_nonindexed_and_shared_extra_type h.1 r {2,6} q hcover hq hj ht
+        (fun i hi => hex ⟨i,hi⟩) with he | ha | hb | ⟨ha0,hbX⟩ | ⟨hb0,haX⟩
+      · exact Or.inl (Or.inl (Or.inl he))
+      · exact Or.inl (Or.inr (Or.inl ha))
+      · exact Or.inl (Or.inr (Or.inr hb))
+      · apply Or.inl
+        apply Or.inl
+        apply Or.inr
+        right
+        change (supp 10 D (opB D j), supp 10 D (opA D j)) ∈ OtherSides
+        simp [OtherSides,ha0,hbX]
+      · apply Or.inl
+        apply Or.inl
+        apply Or.inr
+        left
+        change (supp 10 D (opA D j), supp 10 D (opB D j)) ∈ OtherSides
+        simp [OtherSides,hb0,haX]
+  exact h3_r1_flexible_allowed_sides_exclusion h.1 hC hB0
+    (hvalid 8).1 (hvalid 8).2.1 hdirty hother
+
+
+end DagTools
+
 end PEqualNP.Outside.L_meta_2590_aux
