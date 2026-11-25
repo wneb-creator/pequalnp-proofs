@@ -4,9 +4,9 @@ File: lean/PEqualNP/Outside/L_meta_2448.lean
 Build: lake build PEqualNP.Outside.L_meta_2448, exit 0
 Local checker: REJECTED (no-theorem), expected for partial; full output retained.
 Independent red-team reviews: PASS for minimum existence, cross-nonedge witness, proper-pair-sound star criterion, and bipartite ownership lemma.
-Line counts: first partial 142; integrated partial 2012; final cleanup not started.
+Line counts: first partial 142; integrated partial 2049; final cleanup not started.
 Sub-agents: 7 (status review, structural proof, library route, finite cases, Lean setup, global normal form, fresh main proof)
-TIMING total=65.3 subagents=7
+TIMING total=71.2 subagents=7
 Finite artifacts: independent review passed; 38 manifest entries validated, 1197 BFS witnesses rechecked. Heuristic negatives are not proofs.
 Independent review passed: equal-size star-prefix repair, component extraction with explicit boundary bound, and generalized two-center lemma.
 OneJunk.lean: independently reviewed conditional cover bound; lake env lean exit 0, empty full log. Its Outside import is prototype-only, not allowed in a final gap PR.
@@ -18,3 +18,5 @@ AtMostOneJunkStarIntegrated2.lean: 1814-line conditional result compiled; aggreg
 Free-OR archive: 14 independently reconstructed CNFs, 5 fully verified SAT models; 6 UNSAT / 5 SAT / 3 UNKNOWN. These are bounded-AND computational evidence, not Lean proofs or total-size lower bounds.
 Desk: first next request assigned own gap; null count 0. Sanitized response log preserved.
 Build09: exit 0, 2012 lines; TwoJunkExample integrated exactly after independent review. It is a nonminimum witness, not a refutation of the posted gap.
+Checker09: REJECTED (no-theorem), full output retained. TwoJunkContrast independently reviewed and compiled; explicitly proves the local obstruction witness is nonminimum by a five-gate star competitor.
+Build10: exit 0, 2049 lines; reviewed TwoJunkContrast integrated. Current source remains helper-only.
