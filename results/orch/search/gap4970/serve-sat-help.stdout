@@ -1,0 +1,11 @@
+usage: serve_sat.py [-h] --graph GRAPH --gates GATES [--seconds SECONDS]
+                    --output OUTPUT [--generate-only] [--output-before-last]
+
+options:
+  -h, --help            show this help message and exit
+  --graph GRAPH
+  --gates GATES
+  --seconds SECONDS
+  --output OUTPUT
+  --generate-only
+  --output-before-last

@@ -1,0 +1,23 @@
+Independent red-team review: APPROVED as partial helpers, not as a complete proof of L-meta-4970.
+
+Reviewer: pilot94_research.
+Scope: the frozen StarLedger, ReadObstruction, and Structure helper files; OrPartition was deliberately excluded from this review.
+
+Validation: concatenated the exact helper sources with imports moved to the top in a scratch audit file, appended #print axioms for eight principal declarations, and ran prepared lake env lean. Exit code 0, stderr empty. Every inspected helper depends only on propext, Classical.choice, Quot.sound. Existing individual compile logs were also empty and successful.
+
+Static checks: no sorry, axiom, native_decide, unsafe, partial, opaque, initialize, run_cmd, or elab declarations; no _root_ text, quotes, attributes, or set_option. Imports are PEqualNP.Defs and Mathlib.Tactic on import lines. Each helper is under its gap-specific namespace. No declaration claims the exact posted final theorem.
+
+Semantic review: StarLedger uses actual circuit wire semantics including out-of-range reads false, and its cut proof counts only removed gates. assigned counts wires whose singleton support has at least two inputs and is contained in the target; missing/input wires cannot enter it. pure_or_card_assigned correctly handles the empty support case. ReadObstruction computes a star followed by an idempotent output AND; it disproves the direct READ1 implication while satisfying the star-service condition and T=0. It does not refute the held size statement. Structure proves uniqueness of semantic nontrivial star centers using no-C4, distinguishes point/line supports on split assignments, and constructs a vertex cover of size at most a finite witness set J; J need not be minimal or all live gates.
+
+Provenance: StarLedger inherited run/value/cut/card_assigned toolkit was copied/adapted from merged L_meta_782 (which credits k-sandhu PR149 and notes card_assigned adapted from L270), with new assigned_disjoint and pure_or_card_assigned corollaries. ReadObstruction and Structure are new helper implementations for this job.
+
+Frozen hashes:
+- results/orch/lemmas/gap4970_star_ledger.lean: afde4d31f0e2c32ff1d3c2149907c96dc750299a9f4d3a4a98a9c1060fc89168 (325 lines)
+- results/orch/lemmas/gap4970_read_obstruction.lean: a9c14fbf33ae8d98181765cd151d087201b2fabd3ba4a28ef9792cf6fe104caa (33 lines)
+- results/orch/lemmas/gap4970_structure.lean: 9972ce8a5cc1bd6c065328012355b7b3cb83e51526f31a676d6185f410b85c29 (126 lines)
+
+Audit outputs retained at /tmp/oec/pequalnp-pilot-94/plane-research/4970-review-audit.stdout and .stderr; static data in 4970-review-static.json.
+
+Named integration review APPROVED: lean/PEqualNP/Outside/L_meta_4970.lean, 484 lines, sha256 3b38a082914478f3fd4cce85e6885ca03b47750ca9bb6ee7d2f08101ba83a79e. All three declaration/proof bodies match the independently reviewed frozen sources verbatim after only namespace/import/open relocation. Imports first, one allowed outer namespace, no prohibited keywords, _root_ text, quotes, attributes, options, or claimed final target. Approval is for a compiled partial checkpoint, not completion of the gap.
+
+Named 797-line integration independently APPROVED at sha256 57f1c6ea089da6f5026435bc7326f68968acc54dd08b61d8e601883a852c4bf4; all four proof bodies match frozen reviewed helpers after namespace/import/open relocation; source rules clean. OrPartition source sha256 30d82ea23a5c2bb10a8e19d243d7bdfff656b4a410d350f3442e463b4429a7b9. This remains a partial checkpoint.

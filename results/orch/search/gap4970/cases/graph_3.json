@@ -1,0 +1,18 @@
+{
+  "p": 3,
+  "l": 3,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "mask": 3,
+  "cover_number": 1,
+  "counterexample_gates": 1,
+  "labeled_cases": 18
+}

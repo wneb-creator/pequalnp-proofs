@@ -1,0 +1,16 @@
+Independent SAT search review: APPROVED for computational counterexample search.
+
+serve_sat.py sha256 617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9
+make_cases.py sha256 0bf5d16b532ecbb738f1784c32ca613231dc9c09fec374427b302c7065499309
+
+Reviewed op/selector/value/color encoding and model extraction. Exactly-one auxiliary logic independently exhaustively validated for input sizes 0 through 8. Each gate is AND/OR with two earlier operands, equality allowed; ordered operands are only commutativity symmetry. Syntactic OR reach is the union at OR and empty at AND, so T=0 is modeled faithfully even with AND(x,x) barriers. Any gate can be the output; later unused witnesses are allowed.
+
+Output testing on all edge minterms and maximal independent negative assignments is complete by monotonicity. A monotone wire is exactly OR(Q) iff it is true on each singleton in Q and false on the assignment with every variable outside Q true. Thus the service flags enforce the full semantic pure-star condition, including an actual OR gate, and no restriction stronger than the target. All neighbor subsets of size at least two are offered.
+
+Nonempty edge functions cannot output an input or an out-of-range wire, so gate-only output selection loses no relevant case. Exact-size SAT also covers smaller circuits by appending unused AND(output,output) gates; existing witnesses and T=0 are preserved. Empty graphs are trivial. An edge with both endpoint degrees one cannot have a serving star, so excluding isolated K2 components is sound.
+
+Independently recomputed the 3-by-3 graph census without importing generator code: 10 bipartition-preserving/whole-side-swap isomorphism orbits and 228 labeled graphs, matching all canonical masks and orbit sizes. This is not a claim that every ordinary unlabeled graph representation has a unique fixed bipartition.
+
+Independently replayed P4 5-gate output-before-last control on all 16 assignments and C6 8-gate control on all 64 assignments using integer truth tables, recomputing T=0 and semantic serving coverage. Also read the complete solver assignments and checked every DIMACS clause independently: P4 314 variables / 1641 clauses; C6 959 variables / 7531 clauses. Both passed.
+
+Limit: UNSAT outcomes are trusted computational solver evidence only; no DRAT/LRAT certificate or Lean proof was checked. They must not be reported as machine-checked Lean lower bounds or as proof of the general gap.

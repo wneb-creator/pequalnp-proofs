@@ -1,0 +1,101 @@
+{
+  "p": 2,
+  "l": 2,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "cover_number": 2,
+  "gates": 5,
+  "tests": 10,
+  "star_options": 2,
+  "variables": 314,
+  "clauses": 1641,
+  "started_utc": "2026-11-25T15:31:03.822981+00:00",
+  "output_before_last": true,
+  "bound_counterexample_threshold": 3,
+  "seconds": 0.012715230999674532,
+  "returncode": 10,
+  "status": "SAT",
+  "circuit": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      4
+    ],
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      1,
+      0,
+      1
+    ]
+  ],
+  "output": 7,
+  "verification": {
+    "inputs_verified": 16,
+    "tCount": 0,
+    "edge_witnesses": [
+      {
+        "edge": [
+          0,
+          0
+        ],
+        "gate": 4,
+        "center": 2,
+        "leaves": [
+          0,
+          1
+        ]
+      },
+      {
+        "edge": [
+          1,
+          0
+        ],
+        "gate": 0,
+        "center": 1,
+        "leaves": [
+          2,
+          3
+        ]
+      },
+      {
+        "edge": [
+          1,
+          1
+        ],
+        "gate": 0,
+        "center": 1,
+        "leaves": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "counterexample": false
+}

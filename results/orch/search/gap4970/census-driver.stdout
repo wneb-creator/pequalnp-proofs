@@ -1,0 +1,10 @@
+{"mask": 3, "gates": 1, "status": "UNSAT", "seconds": 0.004603915000188863, "reused": false, "counterexample": false}
+{"mask": 7, "gates": 2, "status": "UNSAT", "seconds": 0.002894944000217947, "reused": false, "counterexample": false}
+{"mask": 11, "gates": 3, "status": "UNSAT", "seconds": 0.002876856000511907, "reused": false, "counterexample": false}
+{"mask": 15, "gates": 4, "status": "UNSAT", "seconds": 0.010780959000840085, "reused": false, "counterexample": false}
+{"mask": 29, "gates": 4, "status": "UNSAT", "seconds": 0.006005213999742409, "reused": false, "counterexample": false}
+{"mask": 78, "gates": 4, "status": "UNSAT", "seconds": 0.005774514000222553, "reused": false, "counterexample": false}
+{"mask": 79, "gates": 5, "status": "UNSAT", "seconds": 0.08162148100018385, "reused": false, "counterexample": false}
+{"mask": 87, "gates": 6, "status": "UNSAT", "seconds": 0.20946001799893565, "reused": false, "counterexample": false}
+{"mask": 94, "gates": 6, "status": "UNSAT", "seconds": 0.21369186200172408, "reused": false, "counterexample": false}
+{"mask": 238, "gates": 7, "status": "UNSAT", "seconds": 2.005605573000139, "reused": true, "counterexample": false}

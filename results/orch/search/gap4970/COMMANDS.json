@@ -1,0 +1,67 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "positive_path4": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "path4",
+    "--gates",
+    "5",
+    "--seconds",
+    "10",
+    "--output-before-last",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail"
+  ],
+  "positive_cycle6": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "cycle6",
+    "--gates",
+    "8",
+    "--seconds",
+    "10",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8"
+  ],
+  "negative_path4": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "path4",
+    "--gates",
+    "4",
+    "--seconds",
+    "10",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4"
+  ],
+  "negative_cycle6": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "cycle6",
+    "--gates",
+    "7",
+    "--seconds",
+    "10",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7"
+  ],
+  "generate_cases": [
+    "python3",
+    "results/orch/search/gap4970/make_cases.py"
+  ],
+  "census": [
+    "python3",
+    "results/orch/search/gap4970/run_cases.py",
+    "--output-dir",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/census",
+    "--control-dir",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/controls",
+    "--seconds",
+    "10"
+  ],
+  "solver": "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/bin/cadical"
+}

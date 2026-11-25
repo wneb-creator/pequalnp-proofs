@@ -1,0 +1,164 @@
+{
+  "p": 3,
+  "l": 3,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "cover_number": 3,
+  "gates": 8,
+  "tests": 23,
+  "star_options": 6,
+  "variables": 959,
+  "clauses": 7531,
+  "started_utc": "2026-11-25T15:31:03.831161+00:00",
+  "output_before_last": false,
+  "bound_counterexample_threshold": 7,
+  "seconds": 1.326468131999718,
+  "returncode": 10,
+  "status": "SAT",
+  "circuit": [
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      2,
+      7
+    ],
+    [
+      0,
+      0,
+      6
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      1,
+      10
+    ],
+    [
+      1,
+      8,
+      9
+    ],
+    [
+      1,
+      11,
+      12
+    ]
+  ],
+  "output": 13,
+  "verification": {
+    "inputs_verified": 64,
+    "tCount": 0,
+    "edge_witnesses": [
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "gate": 0,
+        "center": 0,
+        "leaves": [
+          4,
+          5
+        ]
+      },
+      {
+        "edge": [
+          0,
+          2
+        ],
+        "gate": 0,
+        "center": 0,
+        "leaves": [
+          4,
+          5
+        ]
+      },
+      {
+        "edge": [
+          1,
+          0
+        ],
+        "gate": 4,
+        "center": 1,
+        "leaves": [
+          3,
+          5
+        ]
+      },
+      {
+        "edge": [
+          1,
+          2
+        ],
+        "gate": 4,
+        "center": 1,
+        "leaves": [
+          3,
+          5
+        ]
+      },
+      {
+        "edge": [
+          2,
+          0
+        ],
+        "gate": 1,
+        "center": 2,
+        "leaves": [
+          3,
+          4
+        ]
+      },
+      {
+        "edge": [
+          2,
+          1
+        ],
+        "gate": 1,
+        "center": 2,
+        "leaves": [
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "counterexample": false
+}

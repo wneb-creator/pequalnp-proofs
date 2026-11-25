@@ -1,0 +1,271 @@
+{
+  "classes": [
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "mask": 3,
+      "cover_number": 1,
+      "counterexample_gates": 1,
+      "labeled_cases": 18
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "mask": 7,
+      "cover_number": 1,
+      "counterexample_gates": 2,
+      "labeled_cases": 6
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "mask": 11,
+      "cover_number": 2,
+      "counterexample_gates": 3,
+      "labeled_cases": 36
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "mask": 15,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 36
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "mask": 29,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 36
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 78,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 9
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 79,
+      "cover_number": 2,
+      "counterexample_gates": 5,
+      "labeled_cases": 9
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 87,
+      "cover_number": 3,
+      "counterexample_gates": 6,
+      "labeled_cases": 36
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 94,
+      "cover_number": 3,
+      "counterexample_gates": 6,
+      "labeled_cases": 36
+    },
+    {
+      "p": 3,
+      "l": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "mask": 238,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 6
+    }
+  ],
+  "class_count": 10,
+  "labeled_count": 228,
+  "excluded": "Empty graphs are trivial; an isolated K2 component contradicts the serving-star hypothesis."
+}
