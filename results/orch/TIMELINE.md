@@ -42,3 +42,4 @@
 - 2026-11-25T19:42Z re-plan: guarded residual necessity is kernel-checked. Focus on Ustar-preserving clean-star replacement and independent-junk OR overhead. Geometric single-star/flag claim sent for finite falsification before more proof code. Full target remains open.
 
 2026-11-25T19:48:50.013662+00:00 restriction: Ustar-only lowering and first-rung clean-star exclusion compiled; independent review requested.
+- 2026-11-25T19:51:19.897957+00:00: lease renewed; expires 2026-11-25T20:11:18.501Z.

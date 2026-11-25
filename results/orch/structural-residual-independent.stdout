@@ -1,0 +1,42 @@
+../results/orch/lemmas/structural_residual_independent.lean:423:16: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_left_comm, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_residual_independent.lean:423:31: warning: This simp argument is unused:
+  Bool.or_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_assoc, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_residual_independent.lean:549:18: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_left_comm, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_residual_independent.lean:549:33: warning: This simp argument is unused:
+  Bool.or_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_assoc, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_residual_independent.lean:740:29: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ha, hb, hguv, Bool.or_false, Bool.true_and, Bool.or_true, Bool.and_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_residual_independent.lean:740:60: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ha, hb, hguv, Bool.false_and, Bool.or_false, Bool.or_true, Bool.and_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

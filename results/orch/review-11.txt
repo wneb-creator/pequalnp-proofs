@@ -1,0 +1,45 @@
+Checkpoint 11 independent review: PASS for partial preservation.
+No full posted theorem or completed PR is claimed.
+
+restriction_star_edges.lean: PASS, 1611 lines, 71933 bytes.
+SHA256 3455594d5afb8e01885db8afb3f3fd548d0eb5f78b72ae880803eb4423b92f10
+The 63 first-rung prefix declarations have identical bodies; a trailing comment
+is the only difference. The 53 shared source L_meta_5412 helper bodies are exact.
+Read all eight new proofs. Least gates reach the output; TopForm forces OR-only
+descendants of a clean AND, so changing a dirty AND preserves propagation from
+clean tops. Their original OR input supports survive, hence original starEdges
+remain accepted. Pointwise lowering and equality on Ustar therefore preserve the
+whole graph function and leastness. The independent second dirty gate keeps its
+negative witness, yielding exactly singleton junk and the stated hfirst
+contradiction. Earlier-wire, lowering, cleanliness, independence and Ustar
+coverage assumptions remain explicit. Compile log has warnings only, no errors;
+stderr is empty. Format scan passes.
+
+restriction_essential_cross.lean: PASS, 1733 lines, 78083 bytes.
+SHA256 0098adb1afae1d5462cb92a317cd3f3bcb1d5acfe57ccf9a13d5f71e7ef35bde
+All 87 shared star_edges declarations and 30 shared nested-helper declarations
+have identical bodies. Read the two new proofs. If an earlier dominated wire
+loses no accepted Ustar edge, replacing the dirty gate by that wire AND itself
+preserves leastness; the equivalent-earlier-wire deletion then contradicts
+leastness. The singleton-input specialization gives a Ustar edge avoiding that
+input. Nonempty graph, TopForm and domination assumptions are retained; no
+unproved hfirst or two-junk conclusion is asserted. Compile log has warnings
+only, no errors; stderr is empty. Format scan passes.
+
+structural_residual_independent.lean: PASS, 1683 lines, 75924 bytes.
+SHA256 0ecee10e152b2c0055c0b7142c4bc65ebb9f066c3e7974ef4d3cb8b6f2d702bd
+All 45 shared marked_two_junk and 69 shared inventory_residual_complete
+declaration bodies are exact. The restriction reviewer independently cleared
+the marked-semantic prefix and final wrappers. The present reviewer also read
+all three new final proofs: a residual edge supplies a jointly accepted pair
+unguarded at both junk gates, ruling out either dependency direction. TopForm
+and the exact junk pair then exclude every AND ancestor of each gate; existing
+pure-cone semantics yield two pure input-OR products. The nonempty residual
+hypothesis remains explicit; this does not claim all two-junk circuits are
+independent. Compile log has warnings only, no errors; stderr is empty.
+Format scan passes. Helper theorem keywords in this standalone artifact must
+be changed to lemma when incorporated into the final one-theorem PR file.
+
+Reviews were read-only except for this report. No desk or git mutations.
+
+Additional independently cleared frozen partials: restriction_ustar_hit SHA25671366d8df8910b8852436bb608aab9d467e45fb774b931ddb9f1ccee98a767c5 (status reviewer); antecedent_star_dichotomy_counterexample SHA256e4b05038ecb6af6db3f4a80d6fc7d06ec4f6ebbcaf37c64c9dbecfb1af44e869 (structural reviewer). Both compiled; geometric counterexample explicitly not least and does not refute target.

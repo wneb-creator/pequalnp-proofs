@@ -112,3 +112,13 @@ Machine checked strict deficit from shared active child or overlapping singleton
 - Normalized C8 and theta333 searches continue, each with a 1200-second solver timeout. No result yet.
 
 [2026-11-25T19:48:50.013662+00:00] restriction: restriction_star_edges.lean COMPILED exit 0 and frozen; root/reviewer informed. rewireAnd_starEdges_survive proves raw clean-top edges survive any dirty-AND rewrite: OR input paths preserved and leastness+TopForm propagate clean tops to output. rewireAnd_Ustar_least therefore needs equality only on Ustar. no_independent_Ustar_lowering and no_independent_Ustar_star give exact local first-rung contradiction under that weaker condition, with other junk outside edited gate cone. Full posted theorem still open: need geometric Ustar condition or budget case completion.
+
+## 2026-11-25T19:49:40.181958+00:00 — normalized searches interrupted
+Both 1200-second normalized C8/theta333 sessions were killed by the environment restart; processes are defunct, sessions unknown, and logs contain metadata only. Recorded INTERRUPTED, not UNKNOWN. Beginning finite pure-product global clean-star/flag claim testing.
+
+## 2026-11-25 19:52:21 UTC — geometric dichotomy obstruction checked
+Connected P4 edges02,03,12 has two dirty products g=(0∨1)∧(0∨2), h=(0∨1)∧(2∨3) with g∧h=F. Each accepts/guards every graph edge; wmax(g)={2,3}, wmax(h)={0,2}. Neither edge set is a star, g is overlapping rather than a disjoint flag, and deleting the clean-covered middle edge02 leaves the matching03,12. Thus global star-lowering-or-two-flags fails without leastness. Compiled79line artifact `antecedent_star_dichotomy_counterexample.lean` also proves this6gate circuit is NOT least via4gate witness. SHA256 e4b05038ecb6af6db3f4a80d6fc7d06ec4f6ebbcaf37c64c9dbecfb1af44e869; build-2 logs empty. Root/reviewer notified.
+
+[2026-11-25T19:52:27.693146+00:00] restriction: restriction_essential_cross.lean compiled/reviewed: least_junk_has_Ustar_loss forces loss edge for any dominated earlier wire; singleton_junk_has_Ustar_cross gives off-r Ustar edge when singleton r implies junk g. restriction_ustar_hit.lean then compiled: every dirty gate in least TopForm/nonempty graph hits some Ustar edge (forcefalse + preserve raw clean stars + compiler savesgate). Both artifacts frozen; full proof still requires global geometric/budget case.
+
+2026-11-25T19:52:57.826663+00:00 — disjoint-arm geometric strengthening also fails on P5: E02,04,12,13; g=(0∨1)∧(2∨3), h=(0∨1∨3)∧(2∨4); wmax={1,2,4}/{0}, guarded-edge union all E. Full32-row check, no leastness claim. Flag means distinguished centers, not necessarily exact wmax cardinal2 (external cleaner4 occurs).
