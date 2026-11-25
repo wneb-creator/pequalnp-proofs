@@ -185,3 +185,52 @@ The original three-child R_meta_2585_46 is now locally ACCEPTED(reduce), with on
 Research read2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, section3.5 gives edge-count lower bounds for K2,2-free graphs under the SINGLE-LEVEL restriction; section8 Problem8.2 historically asks for explicit quadratic functions with superlinear monotone circuit bounds. Inference: the remaining all-C4free cover charge is substantial, since dense incidence graphs would give such bounds. Current2026 status of that historical question UNVERIFIED: no current primary resolution located. This is context, not a proof or refutation.
 
 The current R46 now restricts the charge child to globally least normalized circuits. Its exact posted conclusion is unchanged. The short function-equality transport removes five lines (48 to43); named build and local reduction checker pass again. This remains a conditional theorem, and public submission eligibility is still absent. A new closed CleanNF bridge proves ReadK1 for normalized circuits when all AND wires lie below the output; the remaining issue is handling dirty AND gates in least circuits. The current checkpoint preserves all source and checker outputs.
+
+Recorded 2026-11-25T00:50:28.818406+00:00 by counterexample agent.
+
+
+### L-meta-2585 separate gate-count SAT attack
+
+A stronger finite encoder now tests a bound on one gate type while allowing arbitrarily many of the other type. Flatten every uncounted-only region into a nonempty aggregate of input variables and earlier counted outputs; each counted gate keeps two aggregated inputs; the final output is another aggregate. This is equivalent to unrestricted AO2 circuits with at most k counted gates for nonconstant targets. Identical operands are allowed. Unused counted gates may be pruned; exact-count padding uses counted duplicate-input gates at the output, preserving liveness. Structural agent independently checked this collapse argument.
+
+SAT truth constraints use every edge-positive input and every maximal independent set as a negative input, sufficient by monotonicity. Every SAT witness is expanded into binary gates and validated on the complete Boolean truth table. The encoder passed expected SAT/UNSAT boundary cases for the 3-edge path. Solver memory is capped at1900MiB, each invocation at300s or less; complete CNF and stdout/stderr retained. These are computational checks, NOT Lean proofs.
+
+- C6: AND count≤2 is UNSAT with no OR-count limit (0.006s). OR count≤4 is UNSAT with no AND-count limit (0.217s). Thus both proposed split bounds hold on this graph computationally.
+- Theta4x4,9edges: AND count≤3 is UNSAT (0.034s). OR count≤7 search was terminated after about140s without a verdict to prioritize a stronger test and improved symmetry.
+- C12 (6x6 cycle incidence): AND count≤5 now searching. It has29 maximal independent sets, so the elementary maxterm-count bound forces only5AND while the proposed vertex-cover bound predicts6; this is the first cycle where that elementary count does not settle the desired bound.
+- Fano7x7 has37 maximal independent sets, similarly allowing a nontrivial6AND test against the proposed7AND bound.
+
+Scripts: `macro_count_search.py` (gate-count collapse), `ao_boundary_search.py` (total size with boundary rows and optional root normalization), scratch `/tmp/oec/pequalnp-pilot-46/gap-2585/counterexample/`.
+
+2585 split-count route: testing #AND>=minimum cover and #OR>=edgecount-1 separately. Defs/AndCountCircuit flattens freeOR regions. ExistingL217 proves cover<=AND only up tocover5 by451KB finitecatalogue; L634 Fano7 is290KB certificate; no generic bipartite bound located. L1006 refutes generalC4free graph cover<=AND using11vertices(two triangles+pentagon),6AND vscover7; nonbipartite so not a refutation here. Counterexampleagent macroSAT independently sanitychecked: arbitrary nonempty free-op aggregates over inputs/earlier counted gates exactly exhaust all circuits, copies allowed. C6 AND<=2 andOR<=4 UNSAT with unlimited opposite-type gates; theta4x4 AND<=3 UNSAT. C12 AND<=5 targeted because29MIS leaves ceil-log lowerbound5 belowcover6, unlike C6/C8/C10. Dual OR problem is AND lowerbound on vertex-cover2CNF; K2,2 factorization is elementary saving obstruction, but absence alone does not yet prove multilevel lowerbound.
+
+UTC 2026-11-25T00:55:56.344047+00:00
+### Structural count-route update
+
+- Checked search for matching/fooling-set helpers found16 Outside files, all specialized certificates or plane bounds; no generic C4-free matching-to-AND lower bound.
+- The proposed split remains unproved: AND count at least minimum cover (or maximum matching) and OR count at least edge count minus1. Free-OR macro SAT from the counterexample agent verified C6 needs3AND and C12 needs6AND, plus the theta4x4 graph needs4AND. These are finite computational checks, not Lean proofs of the general split.
+- Important semantic correction: L_meta_1006 refutes a boundary-only assertion. Its6AND circuit does not compute the full11-vertex graph function. Exhaustive2048-input evaluation found39 mismatches, including missed edges (4,10),(5,9),(6,7),(6,10),(7,9),(8,9). It does not refute full-function AND-cover or AND-matching bounds.
+- Matching edges are only a communication fooling set at clean AND gates; a dirty first rectangle may create nonedges that later AND gates filter. An induced matching does yield the standard exponential zero-assignment family and hence the AND bound via L634.proj_count, but a general matching does not supply those independent assignments.
+
+### 2026-11-25T00:56:21.429664+00:00 — least-gate private boundary (certificate_optimization)
+Checked `gap-2585/direct/LeastGatePrivateBoundary.lean`, SHA256 `984de15ff09224c0e0357c88123492acc9b8108da9facdd17ddb9aedeec442bb`, Lean exit 0; complete log `least-gate-private-boundary.log`. Extends the private positive-edge witness for every OR operand in a least AO graph circuit with the dual negative-boundary witness for every AND operand. Any cofinal family of negative inputs suffices, including maximal independent assignments. Proof deletes the AND and redirects readers to the chosen operand, uses monotonicity to extend every negative input to the boundary, then contradicts least size. This is a necessary condition for least circuits and safe minimum-count SAT pruning; it does not establish the missing dirty-AND charge.
+Read L3706 frontier accounting and residual-cover reductions R2384: existing proof only charges squarefree/read-one edges. Extra missing debt is |U| + tau(G) - tau(G\U); the reductions assume rather than prove its compensation. No unproved cone-disjointness or NF-implies-Read1 claim is being used.
+
+## 2026-11-25T00:57:45+00:00 sibling: conditional refutation machinery compiled
+
+`/tmp/oec/pequalnp-pilot-46/gap-2585/sibling/CoverLowerBoundFull.lean` compiles with Defs only (`lean -j 1 -M 6000`, exit 0, full log `cover-lower-bound-004.log`). 2037 lines, 102060 bytes, SHA256 c427b0a1552ed95907de089a8e0ae078b676dd077b3293b8c0887a366d4c2983. First 1961 lines adapt checked L4897 by namespace rename and dropping redundant Mathlib import; new tail proves matching-cover lower bound and exact negation of L2585 conditional on a correct small AO2 witness. No witness or refutation claimed. Matching size k plus edge count m requires witness size + 1 < m + k. Independent review requested.
+
+The derivative/semi-disjoint literature follow-up is in sibling/LITERATURE.md. It supplies no verified unrestricted size-preserving Boolean cofactor conversion. Lingas-Persson semi-disjointness excludes incidence outputs with repeated endpoint variables; Baur-Strassen is arithmetic and loses a factor up to five.
+
+
+### Count-search update 2026-11-25T00:58:49.824387+00:00
+
+C12 with at most5AND gates and arbitrarily many OR gates is UNSAT in45.089s. This establishes a finite computational6AND lower bound beyond the elementary29-maxterm bound; not Lean checked. Full CNF/log: `cycle12-macro-topo-and5.*`.
+
+Theta4x4 with at most7OR gates and arbitrarily many AND gates remained unresolved after300.062s, even with private-boundary/copy and topological symmetry constraints. No SAT/UNSAT verdict. Fano6AND search was stopped after~120s without verdict once Structural identified the existing checked7AND lower bound L_meta_634.
+
+Private-boundary SAT constraints permit either both operand-private boundary witnesses or an identical-aggregate copy gate, preserving exact-count padding. Certificate agent subsequently Lean-checked the dual AND negative-boundary lemma in direct/LeastGatePrivateBoundary.lean.
+
+Next search varies the C4-free6x6 incidence graph itself while fixing a diagonal perfect matching and5AND gates, with unrestricted OR regions. Initial2-hot assignments enforce the chosen graph; full truth tables find higher-order false positives, which become dynamic graph/circuit SAT constraints. Script `variable_graph_search.py`; no result yet.
+
+Additional checked components: LeastGatePrivateBoundary proves necessary private positive/negative boundary conditions for gates in a globally least circuit. CoverLowerBound contains the checked read1 cover-cost bound and matching-based conditional refutation adapter. The adapter would turn an actual26gateFano or11gateTheta witness into a refutation; none has been found. These are partials, not a proof/refutation of2585. The source for the current accepted conditional reduction is unchanged.

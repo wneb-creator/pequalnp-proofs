@@ -25,3 +25,6 @@ Current R46: SHA256 ea94d10a40c78564ac2154f6c5894a3c0a660476cc8789bc4296a1f51fef
 CleanNF2585: standalone Lean exit0 with empty log; proves the clean-AND case only. Full L2585 statement remains unproved.
 Sub-agents: 6 (definition audit, source review, synthesis, normalization, circuit counting, counterexample search)
 TIMING total=96.0 subagents=6
+LeastGatePrivateBoundary2585 and CoverLowerBound2585: standalone Lean exit0, independent source/provenance/log review PASS. The latter is a conditional refutation adapter only; no circuit witness is asserted. Current R46 remains locally ACCEPTED(reduce), publication ineligible.
+Sub-agents: 7 (six primary delegates plus an independent matching-bound brainstorm)
+TIMING total=108.1 subagents=7
