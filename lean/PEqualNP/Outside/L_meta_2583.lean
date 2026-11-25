@@ -1307,6 +1307,183 @@ lemma point_degree (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
 
 end PEqualNP.Outside.L_meta_2583_aux
 
+namespace PEqualNP.Outside.L_meta_2583_aux.Cover
+
+open scoped BigOperators
+
+lemma incidence_card (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hline : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) :
+    (Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)).card = N * (q + 1) := by
+  classical
+  let E := Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)
+  have hf (l : Fin N) : (E.filter (fun e => e.2 = l)).card =
+      (Finset.univ.filter (fun p => I p l)).card := by
+    apply Finset.card_bij (fun e _ => e.1)
+    · intro e he
+      have he' : I e.1 e.2 ∧ e.2 = l := by simpa [E] using he
+      simpa [he'.2] using he'.1
+    · intro e he e' he' heq
+      have h : e.2 = l := (Finset.mem_filter.mp he).2
+      have h' : e'.2 = l := (Finset.mem_filter.mp he').2
+      exact Prod.ext heq (h.trans h'.symm)
+    · intro p hp
+      refine ⟨(p, l), ?_, rfl⟩
+      simpa [E] using hp
+  have hs := Finset.sum_card_fiberwise_eq_card_filter E (Finset.univ : Finset (Fin N)) Prod.snd
+  have heq : E.card = ∑ l : Fin N, (Finset.univ.filter (fun p => I p l)).card := by
+    simpa only [hf, Finset.mem_univ, Finset.filter_true] using hs.symm
+  change E.card = N * (q + 1)
+  rw [heq]
+  simp [hline]
+
+lemma point_degree (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hline : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (p : Fin N) : (Finset.univ.filter (fun l => I p l)).card = q + 1 := by
+  classical
+  let L : Finset (Fin N) := Finset.univ.filter (fun l => I p l)
+  let F (l : Fin N) : Finset (Fin N) := (Finset.univ.filter (fun r => I r l)).erase p
+  have hc : ∀ l ∈ L, (F l).card = q := by
+    intro l hl
+    have hp : p ∈ Finset.univ.filter (fun r => I r l) := by
+      simpa [L] using hl
+    simp only [F, Finset.card_erase_of_mem hp, hline]
+    omega
+  have hd : (L : Set (Fin N)).PairwiseDisjoint F := by
+    intro l hl l' hl' hne
+    apply Finset.disjoint_left.mpr
+    intro r hr hr'
+    have hrl : r ≠ p ∧ I r l := by simpa [F] using hr
+    have hrl' : r ≠ p ∧ I r l' := by simpa [F] using hr'
+    have hpl : I p l := by simpa [L] using hl
+    have hpl' : I p l' := by simpa [L] using hl'
+    obtain ⟨a, ha, hu⟩ := hpair p r (Ne.symm hrl.1)
+    exact hne ((hu l ⟨hpl, hrl.2⟩).trans (hu l' ⟨hpl', hrl'.2⟩).symm)
+  have hu : L.biUnion F = Finset.univ.erase p := by
+    ext r
+    simp only [Finset.mem_biUnion, L, F, Finset.mem_filter, Finset.mem_univ,
+      true_and, Finset.mem_erase]
+    constructor
+    · rintro ⟨l, hpl, hrp, hrl⟩
+      exact ⟨hrp, trivial⟩
+    · rintro ⟨hrp, _⟩
+      obtain ⟨l, ⟨hpl, hrl⟩, _⟩ := hpair p r (Ne.symm hrp)
+      exact ⟨l, hpl, hrp, hrl⟩
+  have hsum : (L.biUnion F).card = L.card * q := by
+    rw [Finset.card_biUnion hd]
+    exact Finset.sum_const_nat hc
+  have hcount : (Finset.univ.erase p).card + 1 = N := by
+    simpa using Finset.card_erase_add_one (Finset.mem_univ p)
+  rw [← hu, hsum] at hcount
+  change L.card = q + 1
+  have hmul : q * L.card = q * (q + 1) := by nlinarith
+  exact Nat.eq_of_mul_eq_mul_left (by omega : 0 < q) hmul
+
+lemma restricted_incidence_card_left (N d : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (P : Finset (Fin N))
+    (hdegree : ∀ p : Fin N, (Finset.univ.filter (fun l => I p l)).card = d) :
+    ((Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)).filter
+      (fun e => e.1 ∈ P)).card = P.card * d := by
+  classical
+  let E := Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)
+  have hf (p : Fin N) : (E.filter (fun e => e.1 = p)).card =
+      (Finset.univ.filter (fun l => I p l)).card := by
+    apply Finset.card_bij (fun e _ => e.2)
+    · intro e he
+      have he' : I e.1 e.2 ∧ e.1 = p := by simpa [E] using he
+      simpa [he'.2] using he'.1
+    · intro e he e' he' heq
+      have h : e.1 = p := (Finset.mem_filter.mp he).2
+      have h' : e'.1 = p := (Finset.mem_filter.mp he').2
+      exact Prod.ext (h.trans h'.symm) heq
+    · intro l hl
+      refine ⟨(p, l), ?_, rfl⟩
+      simpa [E] using hl
+  have hs := Finset.sum_card_fiberwise_eq_card_filter E P Prod.fst
+  change (E.filter (fun e => e.1 ∈ P)).card = P.card * d
+  rw [← hs]
+  exact Finset.sum_const_nat (fun p _ => (hf p).trans (hdegree p))
+
+lemma restricted_incidence_card_right (N d : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (L : Finset (Fin N))
+    (hdegree : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = d) :
+    ((Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)).filter
+      (fun e => e.2 ∈ L)).card = L.card * d := by
+  classical
+  let E := Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)
+  have hf (l : Fin N) : (E.filter (fun e => e.2 = l)).card =
+      (Finset.univ.filter (fun p => I p l)).card := by
+    apply Finset.card_bij (fun e _ => e.1)
+    · intro e he
+      have he' : I e.1 e.2 ∧ e.2 = l := by simpa [E] using he
+      simpa [he'.2] using he'.1
+    · intro e he e' he' heq
+      have h : e.2 = l := (Finset.mem_filter.mp he).2
+      have h' : e'.2 = l := (Finset.mem_filter.mp he').2
+      exact Prod.ext heq (h.trans h'.symm)
+    · intro p hp
+      refine ⟨(p, l), ?_, rfl⟩
+      simpa [E] using hp
+  have hs := Finset.sum_card_fiberwise_eq_card_filter E L Prod.snd
+  change (E.filter (fun e => e.2 ∈ L)).card = L.card * d
+  rw [← hs]
+  exact Finset.sum_const_nat (fun l _ => (hf l).trans (hdegree l))
+
+lemma incidence_cover_size (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hline : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hpair : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (P L : Finset (Fin N)) (hcover : ∀ p l, I p l → p ∈ P ∨ l ∈ L) :
+    N ≤ P.card + L.card := by
+  classical
+  let E := Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)
+  have hsub : E ⊆ E.filter (fun e => e.1 ∈ P) ∪ E.filter (fun e => e.2 ∈ L) := by
+    intro e he
+    have hi : I e.1 e.2 := by simpa [E] using he
+    rcases hcover e.1 e.2 hi with hp | hl
+    · exact Finset.mem_union.mpr (Or.inl (Finset.mem_filter.mpr ⟨he, hp⟩))
+    · exact Finset.mem_union.mpr (Or.inr (Finset.mem_filter.mpr ⟨he, hl⟩))
+  have hcount := (Finset.card_le_card hsub).trans (Finset.card_union_le _ _)
+  have he := incidence_card q N I hline
+  have hp := restricted_incidence_card_left N (q + 1) I P (point_degree q N I hq hN hline hpair)
+  have hl := restricted_incidence_card_right N (q + 1) I L hline
+  change E.card = N * (q + 1) at he
+  change (E.filter (fun e => e.1 ∈ P)).card = P.card * (q + 1) at hp
+  change (E.filter (fun e => e.2 ∈ L)).card = L.card * (q + 1) at hl
+  rw [he, hp, hl] at hcount
+  have hm : N * (q + 1) ≤ (P.card + L.card) * (q + 1) := by nlinarith
+  exact Nat.le_of_mul_le_mul_right hm (by omega)
+
+end PEqualNP.Outside.L_meta_2583_aux.Cover
+
+namespace PEqualNP.Outside.L_meta_2583_aux.NoC4
+
+lemma common_lines_card (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hpair : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (p p' : Fin N) (hne : p ≠ p') :
+    (Finset.univ.filter (fun l => I p l ∧ I p' l)).card = 1 := by
+  obtain ⟨l, hl, hu⟩ := hpair p p' hne
+  apply Finset.card_eq_one.mpr
+  refine ⟨l, ?_⟩
+  ext l'
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_singleton]
+  exact ⟨fun h => hu l' h, fun h => h ▸ hl⟩
+
+lemma common_points_card_le_one (N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hpair : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (l l' : Fin N) (hne : l ≠ l') :
+    (Finset.univ.filter (fun p => I p l ∧ I p l')).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro p hp p' hp'
+  by_contra hpp'
+  have hpI : I p l ∧ I p l' := by simpa using hp
+  have hpI' : I p' l ∧ I p' l' := by simpa using hp'
+  obtain ⟨a, ha, hu⟩ := hpair p p' hpp'
+  exact hne ((hu l ⟨hpI.1, hpI'.1⟩).trans (hu l' ⟨hpI.2, hpI'.2⟩).symm)
+
+end PEqualNP.Outside.L_meta_2583_aux.NoC4
+
 namespace PEqualNP.Outside.L_meta_2583
 
 open PEqualNP.CircuitLowerBounds
@@ -1942,4 +2119,324 @@ lemma exists_least_lift_normal (n : ℕ) (C : Circuit)
   rw [hDs]
   exact hMin E ⟨hEA, hEf, hEo⟩
 
+lemma input_not_below_graph (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hf : PEqualNP.MetaComplexity.circuitFun n C = graphFun G ∅)
+    (i : Fin n) : ¬ WireBelowOutput n C i.val := by
+  intro hi
+  let x : Fin n → Bool := fun j => decide (j = i)
+  have hlen : i.val < (List.ofFn x).length := by simp
+  have hw : (C.wires (List.ofFn x)).getD i.val false = true := by
+    change (evalGates C.gates (List.ofFn x)).getD i.val false = true
+    rw [evalGates_getD_lt _ _ _ hlen, List.getD_eq_getElem _ _ hlen]
+    simp [x]
+  have ht := hi x hw
+  change PEqualNP.MetaComplexity.circuitFun n C x = true at ht
+  rw [hf] at ht
+  simp [graphFun, x] at ht
+
+lemma normal_is_core_fixed (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C)
+    (hf : PEqualNP.MetaComplexity.circuitFun n C = graphFun G ∅)
+    (hNF : ∀ m < C.gates.length, ∀ a b : ℕ,
+      C.gates[m]? = some ⟨GateOp.or, [a, b]⟩ →
+      (n ≤ b → WireBelowOutput n C b → WireBelowOutput n C a) ∧
+      (n ≤ a → WireBelowOutput n C a → WireBelowOutput n C b)) :
+    PEqualNP.Core.IsLiftFixedPoint G C := by
+  rintro ⟨m, hm, b, _, hOr, hNot, hImp⟩
+  have hg : gateAt C m = C.gates[m] := gateAt_eq_getElem C m hm
+  have hTwo := hAO.2.2 (C.gates[m]) (List.getElem_mem hm)
+  obtain ⟨a, d, hInputs⟩ := List.length_eq_two.mp hTwo
+  have hGate : C.gates[m]? = some ⟨GateOp.or, [a, d]⟩ := by
+    have hOp : (C.gates[m]).op = GateOp.or := by simpa only [hg] using hOr
+    have he : C.gates[m] = ⟨GateOp.or, [a, d]⟩ := by
+      cases hval : C.gates[m] with
+      | mk op ins => simp_all
+    simpa only [List.getElem?_eq_getElem hm] using congrArg some he
+  have hBelow : WireBelowOutput n C (opnd C m b) := by
+    intro x hx
+    change PEqualNP.MetaComplexity.circuitFun n C x = true
+    rw [hf]
+    exact hImp.1 x hx
+  have hIndex : n ≤ opnd C m b := by
+    by_contra hlt
+    have hlt' : opnd C m b < n := by omega
+    exact input_not_below_graph n G C hf ⟨opnd C m b, hlt'⟩ hBelow
+  have hab : WireBelowOutput n C a ∧ WireBelowOutput n C d := by
+    fin_cases b
+    · have ha : WireBelowOutput n C a := by simpa [opnd, hg, hInputs] using hBelow
+      have hna : n ≤ a := by simpa [opnd, hg, hInputs] using hIndex
+      exact ⟨ha, (hNF m hm a d hGate).2 hna ha⟩
+    · have hd : WireBelowOutput n C d := by simpa [opnd, hg, hInputs] using hBelow
+      have hnd : n ≤ d := by simpa [opnd, hg, hInputs] using hIndex
+      exact ⟨(hNF m hm a d hGate).1 hnd hd, hd⟩
+  apply hNot
+  intro x hx
+  change (C.wires (List.ofFn x)).getD (n + m) false = true at hx
+  rw [gate_m_val n C m a d hAO.2.1 hm (Or.inl hGate)
+    (List.ofFn x) List.length_ofFn] at hx
+  have he : PEqualNP.MetaComplexity.circuitFun n C x = true :=
+    (Bool.or_eq_true_iff.mp hx).elim (hab.1 x) (hab.2 x)
+  simpa only [hf] using he
+
+lemma output_lt_of_true (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (htrue : PEqualNP.MetaComplexity.circuitFun n C x = true) :
+    C.output < n + C.gates.length := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.gates.length := by
+    change (evalGates C.gates (List.ofFn x)).length = n + C.gates.length
+    simpa using evalGates_length C.gates (List.ofFn x)
+  by_contra h
+  have hout : (C.wires (List.ofFn x)).length ≤ C.output := by omega
+  change (C.wires (List.ofFn x)).getD C.output false = true at htrue
+  rw [List.getD_eq_default _ _ hout] at htrue
+  cases htrue
+
+lemma exists_least_graph_fixed (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C)
+    (hf : PEqualNP.MetaComplexity.circuitFun n C = graphFun G ∅)
+    (htrue : ∃ x : Fin n → Bool, graphFun G ∅ x = true) :
+    ∃ D : Circuit, IsLeastAO G D ∧ D.size ≤ C.size ∧
+      PEqualNP.Core.IsLiftFixedPoint G D := by
+  obtain ⟨x, hx⟩ := htrue
+  have hout := output_lt_of_true n C x (by simpa only [hf] using hx)
+  obtain ⟨D, hDA, hDf, hDs, hDo, hNF, hMin⟩ := exists_least_lift_normal n C hAO hout
+  have hDG : PEqualNP.MetaComplexity.circuitFun n D = graphFun G ∅ := hDf.trans hf
+  refine ⟨D, ⟨hDA, hDG, ?_⟩, hDs, normal_is_core_fixed n G D hDA hDG hNF⟩
+  intro E hEA hEf
+  exact hMin E hEA (hEf.trans hf.symm)
+    (output_lt_of_true n E x (by simpa only [hEf] using hx))
+
 end PEqualNP.Outside.L_meta_2583.Normalization
+
+namespace PEqualNP.Outside.L_meta_2583
+
+abbrev fanoIncidence (p l : Fin 7) : Prop := p = l ∨ p = l + 1 ∨ p = l + 3
+
+lemma fano_columns : ∀ l : Fin 7,
+    (Finset.univ.filter fun p => fanoIncidence p l).card = 2 + 1 := by
+  decide
+
+lemma fano_unique_line : ∀ p p' : Fin 7, p ≠ p' →
+    ∃! l : Fin 7, fanoIncidence p l ∧ fanoIncidence p' l := by
+  unfold ExistsUnique
+  decide
+
+def fanoStarCircuit : PEqualNP.CircuitLowerBounds.Circuit :=
+  ⟨[⟨.or, [0, 1]⟩, ⟨.or, [14, 3]⟩, ⟨.and, [15, 7]⟩,
+    ⟨.or, [1, 2]⟩, ⟨.or, [17, 4]⟩, ⟨.and, [18, 8]⟩,
+    ⟨.or, [2, 3]⟩, ⟨.or, [20, 5]⟩, ⟨.and, [21, 9]⟩,
+    ⟨.or, [3, 4]⟩, ⟨.or, [23, 6]⟩, ⟨.and, [24, 10]⟩,
+    ⟨.or, [0, 4]⟩, ⟨.or, [26, 5]⟩, ⟨.and, [27, 11]⟩,
+    ⟨.or, [1, 5]⟩, ⟨.or, [29, 6]⟩, ⟨.and, [30, 12]⟩,
+    ⟨.or, [0, 2]⟩, ⟨.or, [32, 6]⟩, ⟨.and, [33, 13]⟩,
+    ⟨.or, [16, 19]⟩, ⟨.or, [35, 22]⟩, ⟨.or, [36, 25]⟩,
+    ⟨.or, [37, 28]⟩, ⟨.or, [38, 31]⟩, ⟨.or, [39, 34]⟩], 40⟩
+
+lemma fanoStarCircuit_size : fanoStarCircuit.size = 27 := rfl
+
+lemma fanoStarCircuit_ao : PEqualNP.TopForm.IsAO2 14 fanoStarCircuit := by
+  decide
+
+set_option maxRecDepth 10000 in
+lemma fanoStarCircuit_reads_pair : ∀ p l : Fin 7, fanoIncidence p l →
+    PEqualNP.ReadK.readsAtMost fanoStarCircuit 14 [p.val, 7 + l.val] 1 = true := by
+  decide
+
+end PEqualNP.Outside.L_meta_2583
+
+namespace PEqualNP.Outside.L_meta_2583.AndErasure
+
+open PEqualNP.CircuitLowerBounds PEqualNP.CircuitMoves PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+  PEqualNP.Outside.L_meta_2583.Normalization
+
+lemma eraseGate_wires_mono (n : ℕ) (C : Circuit) (m p : ℕ)
+    (hAO : IsAO2 n C) (hm : m < C.gates.length) (hp : p < n + m)
+    (x : List Bool) (hx : x.length = n)
+    (hlocal : (C.wires x).getD (n + m) false = true →
+      (C.wires x).getD p false = true) :
+    ∀ k < n + (eraseGate n C m p).gates.length,
+      (C.wires x).getD (if k < n + m then k else k + 1) false = true →
+      ((eraseGate n C m p).wires x).getD k false = true := by
+  have hEAO := eraseGate_isAO2 n C m p hAO hm hp
+  have hElen := eraseGate_gates_length n C m p hm
+  intro k
+  induction k using Nat.strongRecOn with
+  | ind k ih =>
+    intro hk htrue
+    by_cases hkm : k < n + m
+    · simp only [hkm, ↓reduceIte] at htrue
+      rwa [eraseGate_wires_prefix n C m p hm x hx k hkm]
+    · simp only [hkm, ↓reduceIte] at htrue
+      set j := k - n
+      have hkj : k = n + j := by omega
+      have hmj : m ≤ j := by omega
+      have hjE : j < (eraseGate n C m p).gates.length := by omega
+      have hjC : j + 1 < C.gates.length := by omega
+      rw [hkj] at htrue ⊢
+      have hkj1 : n + j + 1 = n + (j + 1) := by omega
+      rw [hkj1] at htrue
+      rw [wires_getD_gate n C hAO.2.1 x hx (j + 1) hjC] at htrue
+      rw [wires_getD_gate n (eraseGate n C m p) hEAO.2.1 x hx j hjE]
+      rw [eraseGate_getElem_ge n C m p j hm hmj hjE]
+      rw [List.map_map]
+      have hop : (C.gates[j + 1]).op = GateOp.and ∨ (C.gates[j + 1]).op = GateOp.or :=
+        hAO.1 _ (List.getElem_mem hjC)
+      refine gateOp_eval_mono _ hop _ _ _ ?_ htrue
+      intro u hu huC
+      have hu_lt : u < n + (j + 1) := by
+        have := hAO.2.1 (j + 1) hjC u
+        rw [gateAt_eq_getElem C (j + 1) hjC] at this
+        exact this hu
+      simp only [Function.comp_apply]
+      unfold eraseRedirect
+      split_ifs with heq hgt
+      · rw [heq] at huC
+        rw [eraseGate_wires_prefix n C m p hm x hx p hp]
+        exact hlocal huC
+      · have hnotlt : ¬ (u - 1 < n + m) := by omega
+        apply ih (u - 1) (by omega) (by omega)
+        simpa only [hnotlt, ↓reduceIte, Nat.sub_add_cancel (by omega : 1 ≤ u)] using huC
+      · have hult : u < n + m := by omega
+        rwa [eraseGate_wires_prefix n C m p hm x hx u hult]
+
+lemma eraseGate_wires_eq (n : ℕ) (C : Circuit) (m p : ℕ)
+    (hAO : IsAO2 n C) (hm : m < C.gates.length) (hp : p < n + m)
+    (x : List Bool) (hx : x.length = n)
+    (hlocal : (C.wires x).getD (n + m) false = (C.wires x).getD p false) :
+    ∀ k < n + (eraseGate n C m p).gates.length,
+      ((eraseGate n C m p).wires x).getD k false =
+      (C.wires x).getD (if k < n + m then k else k + 1) false := by
+  have hEAO := eraseGate_isAO2 n C m p hAO hm hp
+  have hElen := eraseGate_gates_length n C m p hm
+  intro k
+  induction k using Nat.strongRecOn with
+  | ind k ih =>
+    intro hk
+    by_cases hkm : k < n + m
+    · simp only [hkm, ↓reduceIte]
+      exact eraseGate_wires_prefix n C m p hm x hx k hkm
+    · simp only [hkm, ↓reduceIte]
+      set j := k - n
+      have hkj : k = n + j := by omega
+      have hmj : m ≤ j := by omega
+      have hjE : j < (eraseGate n C m p).gates.length := by omega
+      have hjC : j + 1 < C.gates.length := by omega
+      rw [hkj]
+      have hkj1 : n + j + 1 = n + (j + 1) := by omega
+      rw [hkj1]
+      rw [wires_getD_gate n (eraseGate n C m p) hEAO.2.1 x hx j hjE]
+      rw [eraseGate_getElem_ge n C m p j hm hmj hjE]
+      rw [List.map_map]
+      rw [wires_getD_gate n C hAO.2.1 x hx (j + 1) hjC]
+      congr 1
+      apply List.map_congr_left
+      intro u hu
+      have hu_lt : u < n + (j + 1) := by
+        have := hAO.2.1 (j + 1) hjC u
+        rw [gateAt_eq_getElem C (j + 1) hjC] at this
+        exact this hu
+      simp only [Function.comp_apply]
+      unfold eraseRedirect
+      split_ifs with heq hgt
+      · rw [heq, hlocal]
+        exact eraseGate_wires_prefix n C m p hm x hx p hp
+      · have hstep := ih (u - 1) (by omega) (by omega)
+        have hnotlt : ¬ (u - 1 < n + m) := by omega
+        simp only [hnotlt, ↓reduceIte] at hstep
+        have hu1 : u - 1 + 1 = u := by omega
+        rwa [hu1] at hstep
+      · have hult : u < n + m := by omega
+        exact eraseGate_wires_prefix n C m p hm x hx u hult
+
+lemma gate_m_and_val (n : ℕ) (C : Circuit) (m p h : ℕ)
+    (hRB : ReadsBack n C) (hm : m < C.gates.length)
+    (hgate : C.gates[m]? = some ⟨GateOp.and, [p, h]⟩ ∨
+      C.gates[m]? = some ⟨GateOp.and, [h, p]⟩)
+    (x : List Bool) (hx : x.length = n) :
+    (C.wires x).getD (n + m) false =
+      ((C.wires x).getD p false && (C.wires x).getD h false) := by
+  rw [wires_getD_gate n C hRB x hx m hm]
+  have hg : C.gates[m] = ⟨GateOp.and, [p, h]⟩ ∨
+      C.gates[m] = ⟨GateOp.and, [h, p]⟩ := by
+    rcases hgate with h1 | h1
+    · left; simpa [hm] using h1
+    · right; simpa [hm] using h1
+  rcases hg with h1 | h1
+  · rw [h1]; simp [GateOp.eval]
+  · rw [h1]; simp [GateOp.eval, Bool.and_comm]
+
+lemma erase_and_eval_eq (n : ℕ) (C : Circuit) (m p h : ℕ)
+    (hAO : IsAO2 n C) (hout : C.output < n + C.gates.length)
+    (hm : m < C.gates.length) (hp : p < n + m)
+    (hgate : C.gates[m]? = some ⟨GateOp.and, [p, h]⟩ ∨
+      C.gates[m]? = some ⟨GateOp.and, [h, p]⟩)
+    (hBelowP : WireBelowOutput n C p) (v : Fin n → Bool) :
+    (eraseGate n C m p).eval (List.ofFn v) = C.eval (List.ofFn v) := by
+  have hx : (List.ofFn v).length = n := List.length_ofFn
+  have hEout : (eraseGate n C m p).output = eraseRedirect n m p C.output := by
+    simp [eraseGate, hm]
+  have hElen := eraseGate_gates_length n C m p hm
+  cases hb : C.eval (List.ofFn v)
+  · have hpfalse : (C.wires (List.ofFn v)).getD p false = false := by
+      cases hpv : (C.wires (List.ofFn v)).getD p false
+      · rfl
+      · have := hBelowP v hpv
+        rw [hb] at this
+        contradiction
+    have hlocal : (C.wires (List.ofFn v)).getD (n + m) false =
+        (C.wires (List.ofFn v)).getD p false := by
+      rw [gate_m_and_val n C m p h hAO.2.1 hm hgate (List.ofFn v) hx, hpfalse]
+      rfl
+    have heval : (eraseGate n C m p).eval (List.ofFn v) = C.eval (List.ofFn v) := by
+      unfold Circuit.eval
+      rw [hEout]
+      unfold eraseRedirect
+      split_ifs with heq hgt
+      · rw [heq, hlocal]
+        exact eraseGate_wires_prefix n C m p hm (List.ofFn v) hx p hp
+      · have hstep := eraseGate_wires_eq n C m p hAO hm hp (List.ofFn v) hx
+          hlocal (C.output - 1) (by omega)
+        have hnotlt : ¬ (C.output - 1 < n + m) := by omega
+        simp only [hnotlt, ↓reduceIte] at hstep
+        have ho1 : C.output - 1 + 1 = C.output := by omega
+        rwa [ho1] at hstep
+      · have holt : C.output < n + m := by omega
+        exact eraseGate_wires_prefix n C m p hm (List.ofFn v) hx C.output holt
+    exact heval.trans hb
+  · have hlocal : (C.wires (List.ofFn v)).getD (n + m) false = true →
+        (C.wires (List.ofFn v)).getD p false = true := by
+      rw [gate_m_and_val n C m p h hAO.2.1 hm hgate (List.ofFn v) hx]
+      intro ht
+      simpa using (Bool.and_eq_true_iff.mp ht).1
+    unfold Circuit.eval at hb ⊢
+    rw [hEout]
+    unfold eraseRedirect
+    split_ifs with heq hgt
+    · rw [heq] at hb
+      rw [eraseGate_wires_prefix n C m p hm (List.ofFn v) hx p hp]
+      exact hlocal hb
+    · apply eraseGate_wires_mono n C m p hAO hm hp (List.ofFn v) hx hlocal
+        (C.output - 1) (by omega)
+      have hnotlt : ¬ (C.output - 1 < n + m) := by omega
+      simpa only [hnotlt, ↓reduceIte,
+        Nat.sub_add_cancel (by omega : 1 ≤ C.output)] using hb
+    · have holt : C.output < n + m := by omega
+      rwa [eraseGate_wires_prefix n C m p hm (List.ofFn v) hx C.output holt]
+
+lemma least_and_not_below (n : ℕ) (C : Circuit)
+    (hAO : IsAO2 n C) (hout : C.output < n + C.gates.length)
+    (hmin : ∀ D : Circuit, IsAO2 n D →
+      (∀ v : Fin n → Bool, D.eval (List.ofFn v) = C.eval (List.ofFn v)) →
+      C.size ≤ D.size)
+    (m p h : ℕ) (hm : m < C.gates.length) (hp : p < n + m)
+    (hgate : C.gates[m]? = some ⟨GateOp.and, [p, h]⟩ ∨
+      C.gates[m]? = some ⟨GateOp.and, [h, p]⟩) :
+    ¬ WireBelowOutput n C p := by
+  intro hBelow
+  have hsize := hmin (eraseGate n C m p) (eraseGate_isAO2 n C m p hAO hm hp)
+    (erase_and_eval_eq n C m p h hAO hout hm hp hgate hBelow)
+  have hlen := eraseGate_gates_length n C m p hm
+  unfold Circuit.size at hsize
+  omega
+
+end PEqualNP.Outside.L_meta_2583.AndErasure

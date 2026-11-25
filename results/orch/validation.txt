@@ -15,3 +15,12 @@ Source guard finds only expected absent final theorem; no other finding.
 Named-module build output is saved completely in build-checkpoint-2.log.
 The arbitrary AO2 lower bound remains unproved. No proof PR is opened.
 TIMING total=50 subagents=6
+
+Checkpoint 3: named file now 2442 lines and 113015 bytes. Added minimum
+graph-circuit fixed point, sharp cover lower bound, no-four-cycle facts,
+Fano finite checks, and the least-circuit AND-erasure lemma.
+Independent reviewer: status_1035, PASS AS PARTIAL, source SHA256
+a35586f6b1b57fc94605a10755def1ae215c35b617bee8d829b46f93916c920b.
+No declaration collisions. Source guard reports only absent final theorem.
+Complete named build output: build-checkpoint-3.log. Full goal still open.
+TIMING total=54 subagents=6
