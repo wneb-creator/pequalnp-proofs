@@ -1,0 +1,11 @@
+{
+  "source_sha256": "6f47202014470ad0cf2f2b517997a01b2461ae207428c3e074a217cb945c6d84",
+  "original_hypotheses_exact_match": 20,
+  "reduced_hypotheses": 18,
+  "elimination_conditions_match": true,
+  "source_integer_certificate_verified": true,
+  "certificate_support": 582,
+  "constant_bits": 259,
+  "scope": "20 original normalized same-chart equations imply False; permanent-to-coefficient bridge remains separate",
+  "seconds": 1.4785316319994308
+}

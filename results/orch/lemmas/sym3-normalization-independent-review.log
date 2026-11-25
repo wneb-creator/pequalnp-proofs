@@ -1,0 +1,1 @@
+rules_review APPROVED SHA256e291b0afd7f2a1b91c50d9ef00d3f867b47645fdd514d35f26f4d1ce9b01f006. Coverage unchanged. Independently verified normalized graph identities from q(u),q(v),q(u+v), inverse-minor rebasing and preservation of all vanishing functions. Format clean, own namespace, scoped limits. Matching exit0/24.78s/empty log. Matrix-to-Witt bridge separate.

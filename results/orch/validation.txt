@@ -149,3 +149,9 @@ Sym3ChartCoverage.lean: SHA256 633754b65f9173b7b7fb4be3dbd9897720796e1dd435e6ab0
 RowKernelScaffold.lean: SHA256 027e0b25d5082db10bd7e436e150ee0790cb354ae4a9e366e0489a64a41641f4; 123lines; exit0 in3.52s. Full log:lemmas/row-kernel-scaffold-lean.log; independent review:lemmas/row-kernel-scaffold-independent-review.log.
 RowKernelScaffold gives a row-map dichotomy and four nonzero zero-row directions when all maps are singular. Distinctness/independence and global classification remain separate. Sym3ChartCoverage is a coordinate-level four-minor cover. No full target proof or checker verdict.
 Also preserved21 independently reviewed failed-Lean/numerical research artifacts with manifests/status; these are explicitly nonproof diagnostics.
+
+2026-11-25T11:20:14.355914+00:00 Additional checked/reviewed partials
+Sym3ChartNormalization.lean: SHA256 e291b0afd7f2a1b91c50d9ef00d3f867b47645fdd514d35f26f4d1ce9b01f006;190lines;exit0 in24.78s. Complete log lemmas/geometry-sym3chartnormalization-lean.log; independent review lemmas/sym3-normalization-independent-review.log.
+DoubleSingleSameCertificate.lean: SHA256 6f47202014470ad0cf2f2b517997a01b2461ae207428c3e074a217cb945c6d84;181lines;exit0 in30.14s. Complete log lemmas/construction_search_double-single-same-certificate.log; independent review lemmas/double-single-same-independent-review.log.
+CollinearLeafConditions.lean: SHA256 2d60d0ba270798cd08ab071fb19e2a0915d36be705581c334c411b3e31ad2fd2;245lines;exit0 in8.07s. Complete log lemmas/collinear-leaf-lean.log; independent review lemmas/collinear-leaf-independent-review.log.
+Scope: same repeated-kernel coefficient chart excluded; automatic leaf nonzero conditions proved; Witt chart normalization proved. Full target and chart coverage/bridges remain incomplete; no target checker run.

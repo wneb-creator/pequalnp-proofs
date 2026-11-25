@@ -1,0 +1,190 @@
+import Mathlib.Basic.Complex.Basic
+import Mathlib.Tactic.LinearCombination
+import Mathlib.Tactic.FinCases
+import Mathlib.Data.Fintype.Fin
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.Tactic.FieldSimp
+
+namespace PEqualNP.Outside.L_gct_231.Sym3Coverage
+
+def wittQ (u : Fin 5 → ℂ) : ℂ := 2*u 0*u 2+2*u 1*u 3+18*(u 4)^2
+
+def minor (u v : Fin 5 → ℂ) (i j : Fin 5) : ℂ := u i*v j-u j*v i
+
+lemma minor_self (u v : Fin 5 → ℂ) (i : Fin 5) : minor u v i i=0 := by
+  simp [minor]
+
+lemma minor_swap (u v : Fin 5 → ℂ) (i j : Fin 5) :
+    minor u v i j= -minor u v j i := by
+  dsimp [minor]
+  ring
+
+lemma minor_isotropic (u v : Fin 5 → ℂ)
+    (hq : ∀ a b : ℂ, wittQ (fun i => a*u i+b*v i)=0) (i : Fin 5) :
+    2*minor u v i 0*minor u v i 2+2*minor u v i 1*minor u v i 3+
+      18*(minor u v i 4)^2=0 := by
+  have he := hq (v i) (-u i)
+  dsimp [wittQ] at he
+  dsimp [minor]
+  linear_combination he
+
+lemma minor_polar (u v : Fin 5 → ℂ)
+    (hq : ∀ a b : ℂ, wittQ (fun i => a*u i+b*v i)=0) (i j : Fin 5) :
+    minor u v i 0*minor u v j 2+minor u v i 2*minor u v j 0+
+      minor u v i 1*minor u v j 3+minor u v i 3*minor u v j 1+
+      18*minor u v i 4*minor u v j 4=0 := by
+  have hi := hq (v i) (-u i)
+  have hj := hq (v j) (-u j)
+  have hij := hq (v i+v j) (-u i-u j)
+  dsimp [wittQ] at hi hj hij
+  dsimp [minor]
+  linear_combination (1/2:ℂ)*(hij-hi-hj)
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma four_minors_cover (u v : Fin 5 → ℂ)
+    (hq : ∀ a b : ℂ, wittQ (fun i => a*u i+b*v i)=0)
+    (h01 : minor u v 0 1=0) (h03 : minor u v 0 3=0)
+    (h21 : minor u v 2 1=0) (h23 : minor u v 2 3=0) :
+    ∀ i j : Fin 5, minor u v i j=0 := by
+  have h10 : minor u v 1 0=0 := by rw [minor_swap, h01, neg_zero]
+  have h12 : minor u v 1 2=0 := by rw [minor_swap, h21, neg_zero]
+  have h30 : minor u v 3 0=0 := by rw [minor_swap, h03, neg_zero]
+  have h32 : minor u v 3 2=0 := by rw [minor_swap, h23, neg_zero]
+  have h04 : minor u v 0 4=0 := by
+    have he := minor_isotropic u v hq 0
+    simp only [minor_self, h01, h03, mul_zero, zero_mul, zero_add] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination (1/18:ℂ)*he
+  have h14 : minor u v 1 4=0 := by
+    have he := minor_isotropic u v hq 1
+    simp only [minor_self, h10, h12, mul_zero, zero_mul, zero_add] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination (1/18:ℂ)*he
+  have h24 : minor u v 2 4=0 := by
+    have he := minor_isotropic u v hq 2
+    simp only [minor_self, h21, h23, mul_zero, zero_add] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination (1/18:ℂ)*he
+  have h34 : minor u v 3 4=0 := by
+    have he := minor_isotropic u v hq 3
+    simp only [minor_self, h30, h32, mul_zero, zero_add] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination (1/18:ℂ)*he
+  have h02 : minor u v 0 2=0 := by
+    have he := minor_polar u v hq 0 2
+    rw [minor_swap u v 2 0] at he
+    simp only [minor_self, h01, h03, h04, mul_zero, zero_mul, zero_add, add_zero] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination -he
+  have h13 : minor u v 1 3=0 := by
+    have he := minor_polar u v hq 1 3
+    rw [minor_swap u v 3 1] at he
+    simp only [minor_self, h10, h12, h14, mul_zero, zero_mul, zero_add, add_zero] at he
+    apply eq_zero_of_pow_eq_zero (n := 2)
+    linear_combination -he
+  have h20 : minor u v 2 0=0 := by rw [minor_swap, h02, neg_zero]
+  have h31 : minor u v 3 1=0 := by rw [minor_swap, h13, neg_zero]
+  have h40 : minor u v 4 0=0 := by rw [minor_swap, h04, neg_zero]
+  have h41 : minor u v 4 1=0 := by rw [minor_swap, h14, neg_zero]
+  have h42 : minor u v 4 2=0 := by rw [minor_swap, h24, neg_zero]
+  have h43 : minor u v 4 3=0 := by rw [minor_swap, h34, neg_zero]
+  intro i j
+  fin_cases i <;> fin_cases j <;>
+    first | exact minor_self u v _ | exact h01 | exact h02 | exact h03 | exact h04
+          | exact h10 | exact h12 | exact h13 | exact h14 | exact h20 | exact h21
+          | exact h23 | exact h24 | exact h30 | exact h31 | exact h32 | exact h34
+          | exact h40 | exact h41 | exact h42 | exact h43
+
+lemma nonzero_chart_minor (u v : Fin 5 → ℂ)
+    (hq : ∀ a b : ℂ, wittQ (fun i => a*u i+b*v i)=0)
+    (hind : ∃ i j : Fin 5, minor u v i j≠0) :
+    minor u v 0 1≠0 ∨ minor u v 0 3≠0 ∨ minor u v 2 1≠0 ∨ minor u v 2 3≠0 := by
+  by_contra hn
+  have h01 : minor u v 0 1=0 := by
+    by_contra h
+    exact hn (Or.inl h)
+  have h03 : minor u v 0 3=0 := by
+    by_contra h
+    exact hn (Or.inr (Or.inl h))
+  have h21 : minor u v 2 1=0 := by
+    by_contra h
+    exact hn (Or.inr (Or.inr (Or.inl h)))
+  have h23 : minor u v 2 3=0 := by
+    by_contra h
+    exact hn (Or.inr (Or.inr (Or.inr h)))
+  obtain ⟨i,j,hij⟩ := hind
+  exact hij (four_minors_cover u v hq h01 h03 h21 h23 i j)
+
+def chartU (p h k : ℂ) : Fin 5 → ℂ := ![1,0,-9*h^2,-p-9*h*k,h]
+def chartV (p h k : ℂ) : Fin 5 → ℂ := ![0,1,p-9*h*k,-9*k^2,k]
+
+lemma normalized_pair (u v : Fin 5 → ℂ)
+    (hq : ∀ a b : ℂ, wittQ (fun i => a*u i+b*v i)=0)
+    (hu0 : u 0=1) (hu1 : u 1=0) (hv0 : v 0=0) (hv1 : v 1=1) :
+    ∃ p h k : ℂ, u=chartU p h k ∧ v=chartV p h k := by
+  have hU := hq 1 0
+  have hV := hq 0 1
+  have hUV := hq 1 1
+  simp only [wittQ,hu0,hu1,hv0,hv1,one_mul,zero_mul,mul_zero,mul_one,
+    zero_add,add_zero] at hU hV hUV
+  have hu2 : u 2= -9*(u 4)^2 := by linear_combination (1/2:ℂ)*hU
+  have hv3 : v 3= -9*(v 4)^2 := by linear_combination (1/2:ℂ)*hV
+  have hcross : u 3+v 2+18*u 4*v 4=0 := by
+    linear_combination (1/2:ℂ)*(hUV-hU-hV)
+  refine ⟨(v 2-u 3)/2,u 4,v 4,?_,?_⟩
+  · funext i
+    fin_cases i
+    · exact hu0
+    · exact hu1
+    · exact hu2
+    · change u 3= -((v 2-u 3)/2)-9*u 4*v 4
+      linear_combination (1/2:ℂ)*hcross
+    · rfl
+  · funext i
+    fin_cases i
+    · exact hv0
+    · exact hv1
+    · change v 2=(v 2-u 3)/2-9*u 4*v 4
+      linear_combination (1/2:ℂ)*hcross
+    · exact hv3
+    · rfl
+
+lemma rebase_pair (u v : Fin 5 → ℂ) (i j : Fin 5)
+    (hm : minor u v i j≠0) (F : (Fin 5 → ℂ) → ℂ)
+    (hF : ∀ a b : ℂ, F (fun r => a*u r+b*v r)=0) :
+    ∃ U V : Fin 5 → ℂ, U i=1 ∧ U j=0 ∧ V i=0 ∧ V j=1 ∧
+      (∀ a b : ℂ, F (fun r => a*U r+b*V r)=0) ∧
+      (∀ G : (Fin 5 → ℂ) → ℂ, (∀ a b : ℂ, G (fun r => a*u r+b*v r)=0) →
+        ∀ a b : ℂ, G (fun r => a*U r+b*V r)=0) := by
+  let D := minor u v i j
+  let U : Fin 5 → ℂ := fun r => (v j*u r-u j*v r)/D
+  let V : Fin 5 → ℂ := fun r => (-v i*u r+u i*v r)/D
+  have hD : D≠0 := hm
+  have heq (a b : ℂ) : (fun r => a*U r+b*V r)=
+      (fun r => ((a*v j-b*v i)/D)*u r+((-a*u j+b*u i)/D)*v r) := by
+    funext r
+    dsimp [U,V]
+    field_simp
+    ring
+  refine ⟨U,V,?_,?_,?_,?_,?_,?_⟩
+  · dsimp [U,D,minor]
+    apply (div_eq_one_iff_eq hm).2
+    dsimp [minor]
+    ring
+  · dsimp [U]
+    rw [show v j*u j-u j*v j=0 by ring,zero_div]
+  · dsimp [V]
+    rw [show -v i*u i+u i*v i=0 by ring,zero_div]
+  · dsimp [V,D,minor]
+    apply (div_eq_one_iff_eq hm).2
+    dsimp [minor]
+    ring
+  · intro a b
+    rw [heq]
+    exact hF _ _
+  · intro G hG a b
+    rw [heq]
+    exact hG _ _
+
+end PEqualNP.Outside.L_gct_231.Sym3Coverage

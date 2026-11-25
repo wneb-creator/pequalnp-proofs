@@ -1,0 +1,5 @@
+APPROVED CollinearLeafConditions exact SHA256 2d60d0ba270798cd08ab071fb19e2a0915d36be705581c334c411b3e31ad2fd2
+Reviewed OverlapBlocks body copied verbatim. Simultaneous permutation preserves permanent, symmetry and actual nonzero matrices. All three explicit forward/inverse permutations and target zero-row indices verified independently.
+Assuming each missing leaf row produces two supported overlapping nonzero directions (B,A+B), (A,A+B), or(A,B). Parameter substitutions hpBS and hpAS correctly preserve the constant-permanent family. Each contradicts the reviewed overlap obstruction.
+Final scope: nonzero A,B,A+B with the stated three zero-row relations force three nonzero leaf rows. No independence or global coverage assertion.
+Format clean; recorded Lean exit0,8.07s,empty log.
