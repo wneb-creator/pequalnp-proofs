@@ -65,3 +65,5 @@
 
 2026-11-25T02:14:34.234384+00:00 graph_ownership: graph-general normalized circuit OR≥3 from soundness and4acceptededgepairs compiled; finalwrapper standardaxiom auditPASS. Independentlyreviewed firstORdeletion300lineextensionPASS.
 - 2026-11-25T02:10:04.683077+00:00: counterexample agent started the1816-line standalone C5 certificate verification after fresh own-lease renewal; source combines all102 kernel cases with generic soundness, OR≥4, AND≥3, seven-gate witness, exact normalized optimum7, and eight transitive axiom audits.
+
+- 2026-11-25T02:21:09.641410+00:00 normal_form: first-OR branch uniqueness for sound3OR/≥5pairs compiled and axiom-audited; private-MIS search portfolio finished with Petersen timeout and Fano memory-limit UNKNOWN.

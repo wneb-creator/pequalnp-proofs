@@ -1,0 +1,45 @@
+L-meta-1031 overall status: INCOMPLETE
+The posted theorem is not proved or refuted. No proof PR has been opened.
+Work branch: pnp/pilot-55; only the authorized origin fork has been pushed.
+The exact statement and public gap metadata are preserved alongside this file.
+Three reductions were already live on assignment; no fourth reduction was submitted.
+
+Named-file lake build: not run; no file proving the posted theorem exists.
+Posted-statement local checker: not run for the same reason. The checker environment is functional.
+Partial proofs were compiled individually and axiom-audited; complete outputs and exact source hashes are in the validation files.
+The combined normalized-C5 optimum certificate is currently undergoing its final compilation; all102 individual finite cases already passed.
+Cleanup of a completed gap proof: not applicable; before/after line counts for a gap proof: not applicable.
+
+Desk null responses:0. No null-response message was received.
+Only our own L-meta-1031 lease is renewed; all other pilots' leases are untouched.
+Start:2026-11-25T01:03:52Z
+Job message:msg-2d7c32ea33db18905f052117
+Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
+TIMING total=79.48 subagents=6
+
+
+## 2026-11-25T02:22:26.393723+00:00 first_or_reduction
+
+Source: results/orch/lemmas/first_or_reduction.lean
+Lines:839
+SHA256:6fde7a84ee5c2c47a0f8361965325e21421ba5a906e4a914de20eb6650960e20
+Command: lake env lean -M2000 /tmp/oec/pequalnp-pilot-55/first-or-reduction.lean
+Exit:0
+Complete stdout:
+
+Complete stderr:
+
+Axiom audit command: lake env lean -M2000 /tmp/oec/pequalnp-pilot-55/first-or-reduction-audit.lean
+Exit:0
+Complete audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.first_left_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.first_swap' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.first_right_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete audit stderr:
+
+Independent review: graph_ownership PASS on exact SHA above. Scope: sound3OR compact program with≥5 accepted two-element supports in a C4-free graph has at most one distinct original variable per first operand. Does not yet exclude empty operands or equal literals. Does not prove L-meta-1031.
