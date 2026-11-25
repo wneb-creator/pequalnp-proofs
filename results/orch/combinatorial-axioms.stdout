@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2592_aux.binaryFloorSeventeen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.partial_only_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Seventeen.after_first_nonOr_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

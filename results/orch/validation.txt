@@ -36,3 +36,7 @@ TIMING total=27 subagents=6
 SignedGate.lean: lake env lean exit0; independent review PASS; local Boolean identities only, not full signed-DAG transport.
 Sub-agents: 7 (six initial workers plus fresh strategy)
 TIMING total=33 subagents=7
+
+PetersenPartial.lean: standalone compile exit0; only PEqualNP.Defs import;4889lines299494bytes; independent review PASS. Unconditional17+notCount lower bound and ≥3NOT exclusion. Axiom audit: propext, Classical.choice, Quot.sound only. No cleanup of a full proof and no full-gap local checker run.
+Sub-agents: 7
+TIMING total=37 subagents=7
