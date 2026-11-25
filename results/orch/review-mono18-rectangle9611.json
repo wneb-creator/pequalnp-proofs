@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "37ce07d4023fd4a9af6fe6203265fb28c8673e34dccd991be907df0833f539b2",
+  "fixture_sha256": "1b62162bd333e95c240404b645aad3e587621800c824d8403285f533dbce3879",
+  "signals": 12,
+  "children": 12,
+  "occurrences": 179,
+  "cost_sums": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    76,
+    76,
+    76
+  ]
+}

@@ -1,0 +1,18 @@
+Independent complete archive integrity/structural review: PASS
+Reviewer: lean_setup
+Archive: results/orch/search/mono18-or-edge-fresh-proof
+Manifest SHA256: b2f20d15ad0bf3d0e58fc454e2d2e57fee0914f713c5329143345af6ba1f6465
+Auditor SHA256: 30a50cd601378962c50eb0dfe0f88a9b2664990aa7817102d92f9ecebb070662
+Audit compiler/process: Python exited0, no solver or Lean run.
+
+All11 manifest entries match full stored-file sizes and SHA256 hashes. Exact file census matches the manifest-resolved filenames. All4 gzip streams were completely decompressed with CRC, original sizes/hashes and newline/footer checks; banks.jsonl is intentionally empty. The complete proof stream is 24552952bytes, SHA256 dd073be53987beb8d20db01157d0f2760885b4b7f49e0628379c948fcb90236a. Source equals the reviewed exporter b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021 and fixedV3 equals37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5. Command/exit agree, no memo import occurs, cap18 is exact, stderr is empty and stdout has finished found=0 without a limit marker.
+
+Mode: strong mono16. All29449 sequential nodes have one completed status, with no open/found/unknown statuses or dangling children. Every expanded node has its complete finite table and one completed child per retained entry. Every child preserves its exact count residual, duplicated wire, gate budget and reconstructed formula history. All3378 memo references point to an earlier completed expansion/tight closure with exactly the same budget and canonical signal-ID state. The root has17 remaining gates and closes all11 entries/children.
+
+All29948 retained entry records and53839 omitted-candidate records satisfy count/provenance/code bookkeeping; selected-history indices and strict cofactor inequalities match the appropriate original strong/weak profile bounds. All9523 final signal dictionary entries are well formed and resolve every proof reference. The exact10 inputs/Petersen target and all120 graph automorphisms were independently checked.
+
+All18143 rectangle records refer to the actual closed node/state/budget and have the stated strict root-cost margin. The26 loaded matrix payloads match every value in fixedV3. Rectangle footer signals resolve every reference. The completed memo has1534 unique records and contains the initial edge-OR root orbit.
+
+The auditor adapts the independently reviewed freshmono19 streaming auditor only for bound18, these two frozen archive layouts/manifests and the weak15 switch, with extra rejection of unknown done kinds and an exact archive-file census. It retains compact arrays rather than a full JSON graph. Full source/JSON/output are verification/audit-mono18-root-stream.py and audit-mono18-root-strong.json/-output.txt. PeakRSS22604KiB; elapsed1.546seconds.
+
+Scope limit: complete archive integrity and structural/completion consistency, not all truth-level gate/canonical actions, cofactor supplies, rectangle maxima or exhaustive closure coverage. Finite kernel replay of the whole root remains unfinished. This is one first-OR-edge computational case of18-gate monotone circuits, not the19-gate case, all first-gate classes, or proof of L-meta-2373.

@@ -1,0 +1,21 @@
+{
+  "records": 299,
+  "used_profiles": 300,
+  "cofactor_instances": 287361,
+  "exception": [
+    {
+      "event": "subtree_cut",
+      "node": 77420,
+      "left": 9,
+      "right": 12,
+      "op": 0,
+      "signal": 58743,
+      "code": 4608,
+      "remaining": 12,
+      "profile": 1086,
+      "lower": 6,
+      "mass": 7,
+      "selected_history": []
+    }
+  ]
+}

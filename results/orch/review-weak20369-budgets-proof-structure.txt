@@ -1,0 +1,11 @@
+Independent review: PASS
+Reviewer: proof_structure, independent of status_review.
+Artifact: Weak20369Budgets.lean, 2958 bytes.
+SHA256: 53d512efe9e3f030501fbbc950991ec44ac57cddf3dca9bab2cd66ad2c4b54ce
+Reported compiler exit0; complete archived output is empty. No extra build.
+
+Read every declaration. The twelve9611 children are transported by exact checked ordered-list equality to the separately checked rectangle bank cuts. Their cap+1 equals bank length, supplying the required tight-run inequality. childBudget9611 has depth0, matching a depth1 parent's copied children. The ten20369 terminal cases use exactly terminalRun20370..20380 excluding20376; the memo is index6 and is explicitly guarded out. These copied children receive depth1, matching the depth2 parent. The five gate cuts preserve the outside-label list plus a single new false-side label; caps are13,13,13,12,12 and the compressed depth is1. No value-level deduplication occurs.
+
+All supplied label Nodup, basis, value and cardinal premises come from the independently audited Supports module. Its exact unchanged source SHA8b0e950233f3c4a6fa8c110443273a2a786f01e9d21a5d84f854fcd11f95820f now also compiled exit0 with empty output. The prior data audit parsed all23 child lists and five compressed lists against the frozen fixture, including repeated raw values and the derived OR entry. runCofactorCheck and rectangle semantic soundness remain their independently reviewed dependency proofs.
+
+Scope: canonical BudgetRunCut adapters only. The nonidentity memo and recursive PrunedNode conclusion are intentionally proved elsewhere; this module does not assume the memo child is a terminal cut or claim the entire graph lower bound.

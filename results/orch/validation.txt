@@ -20,7 +20,7 @@ The final post-acceptance cleanup pass has not been reached. Earlier partial tri
 Desk null replies:0. Only the L-meta-2373 lease is held; it is renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=243.9 subagents=6
+TIMING total=258.8 subagents=6
 
 A real ten-wire subtree is now fully kernel-checked: all1440 ordered branches are excluded, giving signed Lower13 for that frontier. Its exact symbolic-word compression reduces the append-only proof package104656→59138bytes, with both versions and full logs preserved. The adjacent-OR positive-formula lower bound20 leaves is independently checked; it does not cover arbitrary circuit sharing. Indexed/intermediate/compressed-wire cofactor bridges and the positive-width generic foundation are also checked partials.
 
@@ -57,3 +57,5 @@ Current named target lake build PASS:8179lines,376638bytes, SHA c74bd69129237388
 Preservation update: all6159 rectangle profiles,177807 subset checks and19 weight arrays now compile across27 data modules, with34 checked table/helpers/adapters and exact status/review bindings in mono18-rectangle-preservation.json. The real node38 leaf is checked. Full table is130642 bytes before Live/cofactor/boundary dependencies. The codec and94-file certificate measurement archives passed independent integrity/source/data replay; their payload sizes do not establish complete512KiB proof feasibility. Generic cofactor catalog core, nonidentity memo transport and finite20369 data are checked/reviewed. The next recursive fixture and full gap remain unfinished. Current8179-line named target repository checker is running; no ACCEPTED verdict is claimed.
 
 2026-11-25T16:57:44Z: Current named-file checker finished exit1 REJECTED (no-theorem), after successful trustLevel0 import. No exact theorem or ACCEPTED result; current source remains8179lines. Full output and source/status hash are preserved. New Lean build window reopened.
+
+New checked/reviewed checkpoint: all299 weak cofactor catalog records and the one required1086-to1089 concrete replacement are kernel checked. The complete20369 two-node subtree exercises a nonidentity memo permutation with all12 rectangle children,10 cofactor terminals and5 omitted gates discharged. NotOrBank/NotOrCircuit reduce an ordinary one-NOT circuit whose source is an OR of two inputs to monotone Live18 or one of two exact signed-source positive banks with tail≤17; they do not exclude those banks. Full freshmono18 OR-edge strong/weak computational archives now pass independent closed-tree/memo/hash/footer audits; neither is a full Lean root certificate. The current8179-line named target is unchanged and its actual repository checker verdict remains REJECTED(no-theorem).

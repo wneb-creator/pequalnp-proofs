@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_2373.Live1024.NotOrBank.used_bank_cases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373.Live1024.NotOrBank.circuit_reduction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373.Live1024.NotOrBank.circuit_reduction_small' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

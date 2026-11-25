@@ -1,0 +1,42 @@
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:68:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  targetCost ↑0
+in the target expression
+  (List.map (fun a => recordCap (matrixWeight 0) a.2) (childPairs9611 i)).sum < targetCost 0
+
+i : Fin 12
+⊢ (List.map (fun a => recordCap (matrixWeight 0) a.2) (childPairs9611 i)).sum < targetCost 0
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:77:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+case cap
+i : Fin 12
+k : ℕ
+cap : k + 1 ≤ (childSignals9611 i).length
+trace : Run false (observe graph) k (List.map observe (childSignals9611 i))
+⊢ ?m.20 + 1 ≤ (childPairs9611 i).length
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:80:10: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+case trace
+i : Fin 12
+k : ℕ
+cap : k + 1 ≤ (childSignals9611 i).length
+trace : Run false (observe graph) k (List.map observe (childSignals9611 i))
+⊢ Run false (observe graph) ?m.20 (List.map (fun a => observe a.1) (childPairs9611 i))
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:83:4: error: Type mismatch: After simplification, term
+  cap
+ has type
+  k + 1 ≤ (labels9611 i).length
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type`
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:84:4: error: Type mismatch: After simplification, term
+  trace
+ has type
+  Run false (observe graph) k (List.map (observe ∘ signal) (labels9611 i))
+but is expected to have type
+  ∀ a ∈ List.map (fun j => (signal j, record j)) (labels9611 i), checkRecord (matrixWeight 0) a.2 = true
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:73:72: error: unsolved goals
+i : Fin 12
+k : ℕ
+cap : k + 1 ≤ (childSignals9611 i).length
+trace : Run false (observe graph) k (List.map observe (childSignals9611 i))
+⊢ ∀ a ∈ childPairs9611 i, supportCheck 0 a.2 a.1 = true

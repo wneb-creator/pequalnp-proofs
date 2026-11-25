@@ -1,0 +1,11 @@
+Independent immutable assembly review: PASS.
+
+Weak20369Complete.lean SHA256 6306a520f008c46386664367d1e9db0286f1c38491bfbf42b43e8f94d61980c1, 5,806 bytes; author compile EXIT0 with an empty archived log. Full source read, including its exact Weak20369Budgets and Memo20376 interfaces. Source format has no prohibited trust additions or options.
+
+node9611 first builds the universal CountNode at depth1 from all checked leaves/gate combinations, five compressed-wire cuts and twelve whole copied-bank rectangle cuts. Each arbitrary support is linked to the canonical support by exact class counts and the existing multiplicity-preserving cut transports. The source/value equalities are used in the right direction; no injectivity of truth values or arbitrary label choice is assumed.
+
+memoNode20376 then applies countNode_rename_regroup with the actual four-swap row permutation, its checked surjectivity and fixed Petersen target, and the exact nonidentity eleven-class map. Independently parsed total vectors give fourteen occurrences on both sides and exact regrouped multiplicities. Positive-class-only agreement is stronger here because Memo20376.signals holds for every class.
+
+The parent has thirteen occurrences and depth2. Its memo branch is exactly copy slot6; duplicating that singleton class increases precisely class6 by one, yielding the fourteen-occurrence sourceTotal of memo20376. The other ten copied branches use explicit cofactor Run cuts at depth1. The memo branch uses the parent provenance DAG and copied_count_node_bridge, so removed child subformula entries are handled by the already-checked provenance/cut machinery, not assumed to be direct table members. Parent compressed-cut table is empty and its impossible membership branch is discharged explicitly.
+
+All children in the final two CountNodes are closed checked statements; no prior-node hypothesis remains. This review covers the new assembly and exact dependency interfaces, relying on the separate finite data/prior/rectangle reviews for those imported modules. The conclusion is a two-nonterminal transitive subtree with a nonidentity memo link, not the whole mono18 case or the original gap.

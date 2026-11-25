@@ -1,0 +1,13 @@
+Independent immutable source/data review: PASS
+Reviewer: lean_setup
+Source: results/orch/lemmas/Weak20369Cofactors.lean
+SHA256: 5d5400b5fe31912e43a0581ef421f0b435a79f8d89c0933cd819360b79e53f1f
+Size9180bytes/174lines. Author reports EXIT0; complete archived log is empty. No new build.
+
+Read every declaration. Each checker lemma is an ordinary decide+kernel computation, and its Run wrapper passes precisely the checked catalogSlice, checker result and matching explicit cap to runCofactorCheck_sound. The actual finite catalog and generic checker have independent reviews.
+
+Independently matched all10 terminal lists and5 omitted-gate lists to the frozen complete-fixture-20369.json, preserving order and every duplicate wire. Selected history choices, profileIDs, bounds and budgets match the exact exported cut. Omitted-gate histories recursively reconstruct derived entry provenance, including the nonleaf OR entry; they are not treated as free roots. All original and derived histories were replayed on1024-bit words, with every input supplied earlier. All required Lean signature literals match the fixture.
+
+For each cofactor independently computed the exact zero/one domain from the unchangedCPP weak profile table, replayed every paid projected gate, checked every final root is supplied, counted constant root occurrences with multiplicity, and verified strict lower+mass > cap+paid. Terminal caps are all14; gate caps13,13,13,12,12. None uses missing originalprofile1086 or monotone16.
+
+Audit code and full15-record output: verification/audit-weak20369-cofactors.py/.json. No new axioms, datatypes, instances, forbidden tactics, strings or attributes. These are15 bounded Run exclusions; the actual two-node DAG composition is a separately reviewed consumer, and neither constitutes the posted gap.

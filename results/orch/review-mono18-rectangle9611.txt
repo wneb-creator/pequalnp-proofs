@@ -1,0 +1,6 @@
+PASS — independent finite-data and semantic bridge review
+Source: results/orch/lemmas/Mono18Rectangle9611.lean
+SHA256: 37ce07d4023fd4a9af6fe6203265fb28c8673e34dccd991be907df0833f539b2
+Author reports EXIT0; preserved complete compiler output is empty.
+
+Read the entire source. Independently matched all12 truth words, packed records and certifiedAt locations against the frozen metadata; every one of179 repeated child-root occurrences matches the complete20369 fixture exactly. The first11 child lists have15 roots, last has14. Cost sums are nine72 then three76, all strictly below matrix total79. Kernel-checked support inclusion and the already reviewed record-validity theorems feed run_exclusion_of_records with exact sample-positive/sample-negative proofs. List maps preserve duplicates, and cap is exactly k+1≤root-list length. No normalization or fullcase exclusion is assumed. No forbidden trust/format constructs found.

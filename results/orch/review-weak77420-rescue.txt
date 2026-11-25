@@ -1,0 +1,11 @@
+Independent source/application review: PASS
+Reviewer: root (not the source author).
+Source: lemmas/Weak77420Rescue.lean
+SHA256: 2d9ff491c59847dc131100c5688ccb46150331c961154acaf45ceb001dc4821f
+Bytes: 1068. Full archived compiler output states exit code0.
+
+Read every definition and proof, the current RunCofactorCheck soundness interface, and the frozen profile1086 replacement record. The six definitions reproduce its history exactly: OR(0,1), OR(3,6), AND(8,second), OR(9,third), OR(2,fourth), AND(first,fifth). The13 root occurrences reproduce state IDs1 through9,134,6754,58737,58743 in the exact order; input9 is not silently retained. This is the actual bank of the omitted gate cut at node77420, not the preceding parent bank.
+
+The finite decide+kernel assertion uses profile1089, cap12 and an empty selected history. The record reports lower7 and constant mass6, so the strict budget inequality is13>12. The generic Run soundness theorem consumes the actual checked Slice and cap; it does not assume the original1086 prior or an external search verdict. The catalog's independent literal review is a separate dependency review. This wrapper introduces no axiom, datatype, string, forbidden attribute or unsupported option.
+
+This proves only the stated Run exclusion on this concrete13-occurrence bank. The original immutable trace still cites1086; any complete replay must explicitly substitute this theorem at its one matching cut. It is not a whole-node, whole-search, or posted-gap proof.

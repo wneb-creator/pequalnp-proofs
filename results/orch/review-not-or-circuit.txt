@@ -1,0 +1,11 @@
+PASS — NotOrCircuit independent immutable mathematical review
+Source SHA256: aadf5691da328c21f581758eab0959107f2b0ae792e2ec5cb72acda9dcb03b90; 6182 bytes.
+Compiler: author reported EXIT0; complete archived log empty. No new build for this review.
+
+Read the whole source against the previously reviewed OneForcedCircuit extraction and NotOrBank interfaces. The circuit decomposition explicitly locates the NOT input at the stored producer index10+pre.length, and stored_gate_value handles arbitrary positive pre/mid gates and default wire semantics. The producer's actual value is an explicit equality to the canonical OR source; no syntactic ordering or unproved first-gate normalization is assumed.
+
+For both OR choices, the source isfalse at row0 andtrue at row1; its negation drops. Positive execution therefore cannot reproduce that negated value. This justifies both protected pullback calls and preserves its membership while earlier positive chunks are charged. The producer is skipped only after its actual value is supplied in the free pair. The bounds charge precisely two removed gates (producer and NOT), leaving k+2<=C.size. The final subset and retained-negative hypotheses are exactly those needed by used_bank_cases, yielding the two explicit banks.
+
+If the negated source is absent from the extracted frontier, the code pulls back the complete positive prefix including the producer and charges only the removed NOT, obtaining k+1<=C.size on the ordinary input bank. The small-size corollary combines that branch with the existing monotone lower18 to force k=18; the used branch only asserts k<=17. It does not exclude either remaining bank, does not cover arbitrary negated producer functions, and makes no complete one-NOT or posted-gap claim.
+
+No new axioms, forbidden trust mechanisms, strings, attributes or unproved circuit normalization appear. Research imports must be inlined for a final single-file submission.

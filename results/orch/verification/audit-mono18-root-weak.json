@@ -1,0 +1,61 @@
+{
+  "verdict": "PASS",
+  "mode": "weak signed15",
+  "cap": 18,
+  "manifest_sha256": "d4ef2462044fd4b1e22761302ac5b6299c54b5a9b53188f767b0bc6edada6b76",
+  "manifest_entries": 11,
+  "proof_bytes": 106305331,
+  "proof_sha256": "8117acc597729ddcda0cada9e03eab0a772b475c89c648c83d393d745214a977",
+  "proof_events": {
+    "header": 1,
+    "node": 106030,
+    "canonical": 15253,
+    "basis": 4876,
+    "entry": 107598,
+    "closure_complete": 4876,
+    "copy_child": 106029,
+    "done": 106030,
+    "subtree_cut": 266517,
+    "signal": 53871
+  },
+  "node_status": {
+    "cofactor": 20844,
+    "prefix_formula": 1562,
+    "rectangle": 68371,
+    "expand": 4804,
+    "memo": 10377,
+    "tight_closure": 72
+  },
+  "root": {
+    "kind": "expand",
+    "children": 11,
+    "entries": 11,
+    "remaining": 17,
+    "state": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      12
+    ]
+  },
+  "memo_dependencies": 10377,
+  "memo_records": 4876,
+  "root_orbit_memo_records": 1,
+  "rectangle_events": {
+    "header": 1,
+    "matrix_loaded": 26,
+    "rectangle": 68371,
+    "signal": 4617
+  },
+  "bank_histories_replayed": 0,
+  "seconds": 5.759179446000417,
+  "max_rss_kib": 29680,
+  "scope": "Full archival hashes/CRC and structural completion audit. Every memo reference targets an earlier completed same-budget canonical state; every expanded node closes every retained-entry child. Histories/count/provenance shapes and strict cofactor inequalities checked. This does not recompute all 1024-row operations, canonical truth actions, cofactor supplies, weighted rectangle maxima, or exhaustive closure coverage, and is not a Lean proof of the complete case or posted gap."
+}

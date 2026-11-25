@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-87/finite_invariants/mono18-rectangle/Mono18Rectangle9611.lean:89:4: error: Type mismatch: After simplification, term
+  trace
+ has type
+  @Run Row false (observe graph) k (List.map (observe ∘ signal) (labels9611 i))
+but is expected to have type
+  @Run Row false (observe graph) k (List.map ((fun a => observe a.1) ∘ fun j => (signal j, record j)) (labels9611 i))

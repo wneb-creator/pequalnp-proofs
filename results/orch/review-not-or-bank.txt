@@ -1,0 +1,6 @@
+PASS — independent source and finite-data review
+Source: results/orch/lemmas/NotOrBank.lean
+SHA256: 2fdbb9d32606f409ee4ed9059cadfadf1f21b3afbd7b16695c1c7d10981c9eb3
+Author reports EXIT0; preserved complete compiler output is empty.
+
+Read all87 lines. Independently checked all20 literal row pairs against the15 Petersen edges and original witness JSON: each pair differs only at its designated input, separates graph values, and keeps the OR source (hence its negation) fixed. Positive live-row order therefore forces every original input into S. The two exact bank alternatives follow by membership case analysis, conditional on using the negative source. Kernel-checked cardinalities12/11 agree with the distinct truth functions. No circuit lower bound or complete NOT-OR family exclusion is claimed. No forbidden trust/format constructs found.

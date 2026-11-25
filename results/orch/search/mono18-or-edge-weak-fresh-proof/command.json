@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/copy_search_first_prooftrace",
+    "--cap",
+    "18",
+    "--first",
+    "oredge",
+    "--mono-nine15",
+    "--seconds",
+    "300",
+    "--nodes",
+    "5000000",
+    "--extra-rectangles",
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/rectangles-v3.txt",
+    "--memo-out",
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/completed.memo",
+    "--rect-trace",
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/rectangles.jsonl",
+    "--proof-trace",
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/proof.jsonl",
+    "--bank-trace",
+    "/tmp/oec/pequalnp-pilot-87/root-mono18-oredge-weak-proof/banks.jsonl"
+  ],
+  "source_sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021",
+  "matrix_sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5",
+  "cofactor_mode": "weak signed15 table",
+  "memo_input": null,
+  "cpu": 3,
+  "address_space_limit_bytes": 1800000000,
+  "started_at": "2026-11-25T16:26:31.265027+00:00"
+}

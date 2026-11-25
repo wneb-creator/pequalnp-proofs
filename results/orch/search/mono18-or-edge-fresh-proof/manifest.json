@@ -1,0 +1,54 @@
+{
+  "copy_search_first_prooftrace.cpp": {
+    "bytes": 91153,
+    "sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+  },
+  "rectangles-v3.txt": {
+    "bytes": 15842,
+    "sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5"
+  },
+  "command.json": {
+    "bytes": 1032,
+    "sha256": "7df47128476a6b37077a17b920a29c5ca0060a4495517ac4a69cde3b2cbffcb8"
+  },
+  "exit.json": {
+    "bytes": 1141,
+    "sha256": "8a89cc78efd451877fb407e8a0147e14c0817622a2cec7ad7ba3efdd031ad364"
+  },
+  "stdout.txt": {
+    "bytes": 5531,
+    "sha256": "849764774d7badbca38a9ae6723ff48630a3ab16d86f9d5b3314d5b8b9e83722"
+  },
+  "stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "completed.memo": {
+    "original_bytes": 5856638,
+    "original_sha256": "ae61c0d237e472b365cf7d44f88cc8f34a9348633140ad782ce0503efa04e77d",
+    "gzip_bytes": 54695,
+    "gzip_sha256": "14efe5c2e305c18fa70ca70d199d0affb0faabb9133860cf6a5c045996a8cd31"
+  },
+  "rectangles.jsonl": {
+    "original_bytes": 3763890,
+    "original_sha256": "a44af4f15238b6c7ab7c88e1d7c111e4c4ca41191273687b44ee531b1748755b",
+    "gzip_bytes": 229547,
+    "gzip_sha256": "64fb6753308cf542cf193a89ccf3cecc3de5fa5e3a607fb91fee1fb8330fdc1c"
+  },
+  "proof.jsonl": {
+    "original_bytes": 24552952,
+    "original_sha256": "dd073be53987beb8d20db01157d0f2760885b4b7f49e0628379c948fcb90236a",
+    "gzip_bytes": 1741733,
+    "gzip_sha256": "8b24c1b6229ba81f25e6068e391ee3d4cefe0fcd517be779ce6e851edaa43755"
+  },
+  "banks.jsonl": {
+    "original_bytes": 0,
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gzip_bytes": 20,
+    "gzip_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+  },
+  "README.md": {
+    "bytes": 1342,
+    "sha256": "7fa5c399edf373bb4cbea622a418a1846b0984cc104ffed56cd93ab305b6d525"
+  }
+}

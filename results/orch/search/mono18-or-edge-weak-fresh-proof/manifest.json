@@ -1,0 +1,54 @@
+{
+  "copy_search_first_prooftrace.cpp": {
+    "bytes": 91153,
+    "sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+  },
+  "rectangles-v3.txt": {
+    "bytes": 15842,
+    "sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5"
+  },
+  "command.json": {
+    "bytes": 1089,
+    "sha256": "276d2e9e71f55bb3db329d7b3fb0698d6576d441c0e050a3a1113744e267af07"
+  },
+  "exit.json": {
+    "bytes": 1197,
+    "sha256": "cb034b1bb814f5e4b7e260b88f3766cb56924def0b9f7c78eed8da2926013bfa"
+  },
+  "stdout.txt": {
+    "bytes": 6684,
+    "sha256": "182d3622e3c6a2972795e8692be31b2844b5d1cbacd34740a36962b9f304b868"
+  },
+  "stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "completed.memo": {
+    "original_bytes": 18551323,
+    "original_sha256": "0ab9ae8e31b899d9eabe3c1f19da9752e3669a8018cb8b942957e40e775c0680",
+    "gzip_bytes": 178338,
+    "gzip_sha256": "c41c57e5ac542c541046ec069ab1d3dd4e02d14f2db453b7c609347448003d46"
+  },
+  "rectangles.jsonl": {
+    "original_bytes": 14081376,
+    "original_sha256": "29402d78efb0bf717870cb933fa660d887f66409c05a07d30ac8663c6edf233e",
+    "gzip_bytes": 852394,
+    "gzip_sha256": "33b35b643db39d597e0ad3def1d9217ac49aa81e633c091ebf62bb4e93592672"
+  },
+  "proof.jsonl": {
+    "original_bytes": 106305331,
+    "original_sha256": "8117acc597729ddcda0cada9e03eab0a772b475c89c648c83d393d745214a977",
+    "gzip_bytes": 7318311,
+    "gzip_sha256": "ff4d9f177f6f336f41aac05edea39cabd5cc380756a2eaadeaae371326e6f22c"
+  },
+  "banks.jsonl": {
+    "original_bytes": 0,
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gzip_bytes": 20,
+    "gzip_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+  },
+  "README.md": {
+    "bytes": 1345,
+    "sha256": "c26e9d798e1491cbfb48a2d1caee378975e7c6d80a7128bc56b57d204ce5d78f"
+  }
+}

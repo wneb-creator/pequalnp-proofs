@@ -1,0 +1,11 @@
+{
+  "module": "Weak20369Cofactors",
+  "sha256": "5d5400b5fe31912e43a0581ef421f0b435a79f8d89c0933cd819360b79e53f1f",
+  "bytes": 9180,
+  "lines": 174,
+  "compiler_exit": 0,
+  "log_bytes": 0,
+  "terminal_cuts": 10,
+  "subtree_cuts": 5,
+  "scope": "Concrete weak cofactor Run exclusions only; recursive fixture assembly remains separate."
+}

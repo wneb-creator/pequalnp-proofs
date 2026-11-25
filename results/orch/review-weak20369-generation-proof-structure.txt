@@ -1,0 +1,8 @@
+Independent archive review: PASS
+Reviewer: proof_structure.
+Manifest SHA256: 383e290024c3c627af2a2a8d33de535758c50e0762113f52c5a2dcc1b0fcbfcb.
+All11 manifest members,56146bytes, verified by exact length and SHA256.
+
+Read both original generators previously in the independent finite data review. Compared each portable replay against its original: only sys import and input/output path setup differ. No gate/cut/provenance/row/support algorithm changes. Independently ran both portable scripts into a new scratch directory, complete stdout/stderr captured; both exited0. Resulting Weak20369Data.lean and Weak20369Supports.lean match the frozen compiled archives byte-for-byte, and the generation JSON matches exactly.
+
+The frozen25-node fixture hash agrees with the independently checked finite data audit. README explicitly limits this archive to finite-data generation and points to separate terminal, memo, and recursive proof modules. It does not claim the entire OR-edge case or gap theorem. This review adds portability and archive integrity to the existing mathematical/data review; no Lean rebuild was needed.

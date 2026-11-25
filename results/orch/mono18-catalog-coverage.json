@@ -1,0 +1,23 @@
+{
+  "trace": "root-mono18-oredge-weak-proof/proof.jsonl",
+  "original_used_profiles": 300,
+  "verified_catalog_records": 299,
+  "original_cofactor_instances": 287361,
+  "omitted_original_profile": 1086,
+  "original_occurrences": 1,
+  "replacement_profile": 1089,
+  "replacement_node": 77420,
+  "replacement_left": 9,
+  "replacement_right": 12,
+  "replacement_op": 0,
+  "replacement_signal": 58743,
+  "replacement_lower": 7,
+  "replacement_mass": 6,
+  "replacement_paid": 0,
+  "replacement_budget": 12,
+  "replacement_selected_history": [],
+  "scope": "Original immutable trace unchanged. All 299 profile records are kernel checked (exit0). Whole replay must explicitly substitute profile1089 for the sole original1086 cut. That exact concrete Run exclusion is separately kernel checked in Weak77420Rescue.lean (exit0); this is not a whole-trace proof.",
+  "replacement_lean_file": "lemmas/Weak77420Rescue.lean",
+  "replacement_lean_sha256": "2d9ff491c59847dc131100c5688ccb46150331c961154acaf45ceb001dc4821f",
+  "replacement_compile_exit": 0
+}

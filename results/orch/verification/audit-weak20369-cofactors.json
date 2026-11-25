@@ -1,0 +1,159 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "5d5400b5fe31912e43a0581ef421f0b435a79f8d89c0933cd819360b79e53f1f",
+  "exact_frozen_fixture": true,
+  "all_1024_bit_histories": true,
+  "records": [
+    {
+      "kind": "terminal",
+      "num": 20370,
+      "profile": 0,
+      "lower": 15,
+      "cap": 14,
+      "mass": 3,
+      "paid": 3,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20371,
+      "profile": 20,
+      "lower": 13,
+      "cap": 14,
+      "mass": 4,
+      "paid": 2,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20372,
+      "profile": 122,
+      "lower": 10,
+      "cap": 14,
+      "mass": 5,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20373,
+      "profile": 3,
+      "lower": 15,
+      "cap": 14,
+      "mass": 2,
+      "paid": 2,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20374,
+      "profile": 200,
+      "lower": 11,
+      "cap": 14,
+      "mass": 5,
+      "paid": 1,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20375,
+      "profile": 163,
+      "lower": 10,
+      "cap": 14,
+      "mass": 5,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20377,
+      "profile": 8,
+      "lower": 15,
+      "cap": 14,
+      "mass": 2,
+      "paid": 2,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20378,
+      "profile": 181,
+      "lower": 10,
+      "cap": 14,
+      "mass": 5,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20379,
+      "profile": 17,
+      "lower": 11,
+      "cap": 14,
+      "mass": 4,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "terminal",
+      "num": 20380,
+      "profile": 17,
+      "lower": 11,
+      "cap": 14,
+      "mass": 4,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "gate",
+      "num": 0,
+      "profile": 0,
+      "lower": 15,
+      "cap": 13,
+      "mass": 2,
+      "paid": 3,
+      "margin": 1
+    },
+    {
+      "kind": "gate",
+      "num": 1,
+      "profile": 37,
+      "lower": 13,
+      "cap": 13,
+      "mass": 3,
+      "paid": 2,
+      "margin": 1
+    },
+    {
+      "kind": "gate",
+      "num": 2,
+      "profile": 19,
+      "lower": 11,
+      "cap": 13,
+      "mass": 3,
+      "paid": 0,
+      "margin": 1
+    },
+    {
+      "kind": "gate",
+      "num": 3,
+      "profile": 37,
+      "lower": 13,
+      "cap": 12,
+      "mass": 2,
+      "paid": 2,
+      "margin": 1
+    },
+    {
+      "kind": "gate",
+      "num": 4,
+      "profile": 19,
+      "lower": 11,
+      "cap": 12,
+      "mass": 3,
+      "paid": 0,
+      "margin": 2
+    }
+  ],
+  "scope": "Ten terminal and five omitted-gate bounded Run exclusions; parent DAG/gluing is separate."
+}

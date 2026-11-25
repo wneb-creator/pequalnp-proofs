@@ -1,0 +1,60 @@
+{
+  "scope": "Frozen two-node fixture and exact reproducible finite-data generation; terminal and recursive proofs are separate modules.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 945,
+      "sha256": "ae2e19b30e189b318db7c1ab174c8a8093e1a9eb40c731bc2a1eb45132acbfec"
+    },
+    {
+      "path": "complete-fixture-20369.json",
+      "bytes": 29283,
+      "sha256": "1b62162bd333e95c240404b645aad3e587621800c824d8403285f533dbce3879"
+    },
+    {
+      "path": "generate_weak20369.py",
+      "bytes": 4951,
+      "sha256": "a22d74dcdda9bb7703dccb2636acfc08b97972d039564a9da257eea5e2ba9022"
+    },
+    {
+      "path": "generate_weak20369_supports.py",
+      "bytes": 4513,
+      "sha256": "36659dc29dd9bd431070749f6cc3bff5afb11e58725ec78e951e4be262451be6"
+    },
+    {
+      "path": "replay_data.py",
+      "bytes": 4933,
+      "sha256": "228572999445cec2e9629b36962be6c2df4be1fec5f5af6382d1a5e5c47189b0"
+    },
+    {
+      "path": "replay_supports.py",
+      "bytes": 4495,
+      "sha256": "21cb6c2d302b9c378f4624a96c52e9d6a3ab542a1423d5c07dff65bcddcddf1b"
+    },
+    {
+      "path": "weak20369-generation.json",
+      "bytes": 2338,
+      "sha256": "ca72da9fac64277a1e25801bff8a79902505b5a4c0388669fd7b08d9b13120a2"
+    },
+    {
+      "path": "weak20369-generation.txt",
+      "bytes": 2338,
+      "sha256": "ca72da9fac64277a1e25801bff8a79902505b5a4c0388669fd7b08d9b13120a2"
+    },
+    {
+      "path": "weak20369-replay-data.txt",
+      "bytes": 2338,
+      "sha256": "ca72da9fac64277a1e25801bff8a79902505b5a4c0388669fd7b08d9b13120a2"
+    },
+    {
+      "path": "weak20369-replay-supports.txt",
+      "bytes": 6,
+      "sha256": "1df96cd1082af86f2936e067d72b594d326e74995ea804e404fb72c5ecaba47b"
+    },
+    {
+      "path": "weak20369-supports-generation.txt",
+      "bytes": 6,
+      "sha256": "1df96cd1082af86f2936e067d72b594d326e74995ea804e404fb72c5ecaba47b"
+    }
+  ]
+}

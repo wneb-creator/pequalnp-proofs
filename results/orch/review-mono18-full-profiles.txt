@@ -1,0 +1,13 @@
+Independent immutable source/data review: PASS
+Reviewer: lean_setup
+Source: results/orch/lemmas/Mono18FullProfiles.lean
+SHA256: 2b83836202f5b43a658e3f28aae93b0295a532f8e93fad0ed2ebcdd5cd87a9df
+Size23798bytes/466lines. Complete archived compiler log records exit0 without diagnostics; no new build.
+
+Read the catalog/proof/lookup structure and reviewed the full literal audit script. Reran that independent exact-integer evaluator against the actual frozen Lean records, checked canonical source and originalCPP profile table. All299 unique profile records match original zero/one masks and weak signed lower bounds. Each record independently satisfies all12 full1024-bit identities: transformed graph equals its canonical target, domain becomes all ones, and every one of10 input images is free or constant in the canonical prior. The rerun output exactly matches the archived audit. No monotone16 prior is used.
+
+All19 chunks are checked with ordinary decide+kernel; catalog_checked concatenates exactly those proofs. The fallback is an actual checked member of chunk0. entry_checked covers both successful find and missing-ID cases; consequently slice(p) always proves the Slice of its own decoded domain/bound. It does not assert that missingIDs retain an externalCPP meaning: notably1086 is absent and lookup would return the fallback. Whole-trace replay must explicitly use the independently checked1089 rescue for that sole occurrence.
+
+Independently streamed the frozen weak proof to verify coverage:300 used profiles across287361 cofactor instances; catalog covers exactly all except1086, which occurs once at node77420,left9,right12,op0,signal58743. The exact coverage event is preserved in verification/audit-mono18-catalog-coverage-independent.json. Root separately reviews Weak77420Rescue.
+
+No new axioms, datatypes, instances, forbidden tactics/strings/attributes; only maxRecDepth/maxHeartbeats limits. Prior soundness and generic check_sound were already independently reviewed. This completes the literal catalog review; it is not a proof of the full root or posted gap.
