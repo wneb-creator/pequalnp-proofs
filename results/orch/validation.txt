@@ -25,3 +25,9 @@ Independent SAT search: one-edit and two-edit neighborhoods UNSAT; broader searc
 
 Checkpoint2: independently reviewed compiled components PetersenSamples, PetersenFormula (formula lower bound21 leaves), CountDichotomy. Combined named2590 build is still running; no success claimed yet.
 RAM overlay setup: first mount denied, attempt stopped; full-checker cache remains unavailable.
+
+Named2590 combined partial build: PASS, Build completed successfully (5149 jobs),601lines. Independent review approved source correspondence and constraints. No final theorem exists.
+Correction to local-repair UNSAT scope: Fano one/two-edit repair exclusions used distinct gate operands; they are not unrestricted Monotone2 lower bounds.
+
+Current2590 local checker attempt: CHECKER FAULT: the prebuilt Mathlib cache is missing. Exit3.
+Kernel axiom audit of formula bound/count dichotomy/sample circuit uses only propext, Classical.choice, Quot.sound.

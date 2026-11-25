@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2590.Formula.leaves_ge_twentyone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2590.count_dichotomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2590.petersenCircuitRows' depends on axioms: [propext]
