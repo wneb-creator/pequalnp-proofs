@@ -1,0 +1,30 @@
+{
+  "gap": "L-meta-1772",
+  "status": "incomplete",
+  "full_statement_proved": false,
+  "full_statement_refuted": false,
+  "pr": null,
+  "checker": "NOT RUN: exact posted theorem not completed",
+  "component_validation": "Successful Lean builds and independent reviews; full outputs in validation.txt and validation/",
+  "cleanup": "Not reached: full statement build and checker did not pass",
+  "release": {
+    "released": "L-meta-1772",
+    "reason": "other"
+  },
+  "release_utc": "2026-11-25T10:09:17Z",
+  "subagents": [
+    "counterexample",
+    "graph_normal_form",
+    "lean_setup",
+    "ownership_route",
+    "repair_exchange",
+    "status_review"
+  ],
+  "subagent_count": 6,
+  "elapsed_minutes_at_record": 113.6,
+  "lease_effort_minutes": 91.4,
+  "last_proof_archive_commit": "6880c7210f352320afcb53d4e6c7ff2c06aa6302",
+  "branch": "pnp/pilot-77",
+  "null_desk_responses": 5,
+  "remaining_obligation": "Derive a cost-preserving ownership repair from an arbitrary bad gate with large OR supports and shared earlier AND signals."
+}

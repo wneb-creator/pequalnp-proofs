@@ -1,6 +1,6 @@
 # L-meta-1772: checked partial results
 
-Status: the posted theorem is not proved or refuted. No proof PR has been opened and the full-statement checker has not been run. All Lean files here are research components; they are not submissions of the posted statement.
+Status: the posted theorem is not proved or refuted. The job lease was released with reason `other` after all finished results were pushed; see `OUTCOME.json`. No proof PR has been opened and the full-statement checker has not been run. All Lean files here are research components; they are not submissions of the posted statement.
 
 ## Most useful files
 
