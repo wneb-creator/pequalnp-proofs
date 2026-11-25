@@ -1,0 +1,13 @@
+L-meta-2592 — partial preservation only
+
+The posted 19-gate lower bound remains unproved. This commit contains checked Petersen witness lemmas and excludes simple partners for a read-once AND input. No proof PR is being opened.
+
+Named module build: lake build PEqualNP.Outside.L_meta_2592 — exit 0.
+Checker: not yet run against the posted statement; no final theorem exists in this partial.
+Independent red-team review: restriction_review checked mathematical meaning, namespace, imports, forbidden syntax, regular-file mode and exact SHA256 af5f01ac5fbbad52b8c1be5b7efab0b9419890efbfe67987d9752609edaf0cb8. Verdict: valid partial, not a proof of the posted statement.
+
+Lines before cleanup: 76
+Lines after cleanup: 76 (cleanup not attempted; full theorem incomplete).
+
+Sub-agents: 6 (status/toolchain review, structural proof, lemma routes, counterexample search, SAT/reduction strategy, independent restriction/review).
+TIMING total=16 subagents=6
