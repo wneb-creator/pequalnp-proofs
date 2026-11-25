@@ -15,3 +15,5 @@ Agents: append findings to separate named files in this folder; root consolidate
 Current proof map: L_meta_6581 provides16binary gates withNOT free, so a ≤19gate counterexample can have only1–3NOT. L_meta_5236 provides16binary gates with a first nonedgeOR supplied free. Three reduction slots already occupied. lower_bound+status_check are attempting≥17binary gates via firstgate projection.
 
 Lean setup complete using scratch environment script; cache downloaded9117files and Defs build succeeded. Supporting LastNot and finitePetersen proofs compiling.
+
+20minute replan: prioritize structural17binary proof and restricted18binary firstAND extension. Generic17 full firstcompile hadone fixedbit_one error; finiteGeometry and finalcountwrapper passedseparately. Exactninevariablecofactor has16gate monotoneupperbound; missingoneNOTsize16case is beingsearched. Fixed19 searchtimeouts are notlowerboundevidence.

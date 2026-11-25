@@ -8,8 +8,8 @@ Complete build stdout/stderr: results/orch/build.stdout and build.stderr.
 Local checker on posted statement: not run; the exact target theorem is absent.
 
 Checked content in named file: general last-NOT factorization; Petersen finite graph invariants and all-input essentiality; restricted star-cover arithmetic bound; first/uniqueNOT output exclusion and endpoint simplifications; explicit20-gate monotone circuit computing the posted function.
-Separately checked and archived: MassTwo projection-counting lemma.
+Separately checked and archived: MassTwo projection-counting lemma; actual finiteBitVec projection/witness identities in GeometryCheck; semantic last-NOT constant-replacement identities in NotElimination.
 Independent review records are in results/orch/REVIEW-*.md.
 
 Sub-agents: status_check (proof map, review, geometry), counterexample (SAT), lower_bound (structural bounds), lean_setup (bootstrap and review), partial_lean (finite facts and supporting proofs), circuit_search (stochastic search)
-TIMING total=19 subagents=6
+TIMING total=23 subagents=6

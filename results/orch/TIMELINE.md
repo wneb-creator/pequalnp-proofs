@@ -11,3 +11,4 @@ UTC timeline
 2026-11-25T14:12:07.602502+00:00 Combined finitefacts+lastNOT namedfile build passed.
 2026-11-25T14:14:01.949795+00:00 Named partialwithSingleNot buildpassed; MassTwo standalonecompiled.
 2026-11-25T14:17:45.277288+00:00 Namedfilewith20gateconstruction buildpassed; preservingcheckpoint.
+2026-11-25T14:22:07.009352+00:00 GeometryCheck and NotElimination compiled and independentlyreviewed; preserving.
