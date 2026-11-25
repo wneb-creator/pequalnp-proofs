@@ -1,0 +1,185 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace/toy-unit.f4.in",
+  "trace": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace/toy-unit.trace",
+  "variables": [
+    "x0",
+    "x1"
+  ],
+  "record_counts": {
+    "G": 3,
+    "I": 10,
+    "O": 6,
+    "A": 4,
+    "S": 2
+  },
+  "verified_output_count": 6,
+  "proved_nonzero_constant": true,
+  "constant_step": 4,
+  "needed_steps": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "polynomial": [
+        [
+          [
+            0,
+            0
+          ],
+          "-1"
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          "1"
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 0
+      },
+      "parents": []
+    },
+    {
+      "index": 1,
+      "polynomial": [
+        [
+          [
+            0,
+            1
+          ],
+          "-1"
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 1
+      },
+      "parents": []
+    },
+    {
+      "index": 2,
+      "polynomial": [
+        [
+          [
+            0,
+            1
+          ],
+          "1"
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "generator": 2
+      },
+      "parents": []
+    },
+    {
+      "index": 3,
+      "polynomial": [
+        [
+          [
+            0,
+            1
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "output_node": 7
+      },
+      "parents": [
+        [
+          2,
+          [
+            0,
+            0
+          ],
+          "1/2"
+        ],
+        [
+          1,
+          [
+            0,
+            0
+          ],
+          "-1/2"
+        ]
+      ]
+    },
+    {
+      "index": 4,
+      "polynomial": [
+        [
+          [
+            0,
+            0
+          ],
+          "1"
+        ]
+      ],
+      "kind": {
+        "output_node": 15
+      },
+      "parents": [
+        [
+          0,
+          [
+            0,
+            0
+          ],
+          "-1"
+        ],
+        [
+          1,
+          [
+            1,
+            0
+          ],
+          "1"
+        ],
+        [
+          1,
+          [
+            0,
+            1
+          ],
+          "1"
+        ],
+        [
+          3,
+          [
+            0,
+            1
+          ],
+          "2"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+--- baseline/gb.c
++++ certificate-trace/gb.c
+@@ -28,6 +28,7 @@
+ 
+ #include "libneogb.h"
+ #include "data.c"
++#include "cert_trace.c"
+ #include "meta_data.c"/* computational meta data */
+ #include "tools.c"    /* tools like inversion mod p,
+                        * tracer construction, timings etc. */
+--- baseline/engine.c
++++ certificate-trace/engine.c
+@@ -104,6 +104,7 @@
+         }
+     }
+ 
++    ct_initialize_basis(bs);
+     *bsp  = bs;
+     *bhtp = bht;
+     *stp  = st;
+--- baseline/hash.c
++++ certificate-trace/hash.c
+@@ -1363,6 +1363,7 @@
+     enlarge_hash_table(sht);
+   }
+   insert_poly_in_hash_table(row, poly, bht, sht);
++  ct_seed(row,sht);
+ 
+   return row;
+ }
+@@ -1385,6 +1386,7 @@
+     enlarge_hash_table(sht);
+   }
+   insert_multiplied_poly_in_hash_table(row, hm, em, poly, bht, sht);
++  ct_seed(row,sht);
+ 
+   return row;
+ }
+--- baseline/la_qq.c
++++ certificate-trace/la_qq.c
+@@ -27,6 +27,8 @@
+         const len_t len
+         )
+ {
++    mpz_t ct_before;
++    if (ct_log) mpz_init_set(ct_before,row[0]);
+     len_t i;
+     long remove = 1;
+ 
+@@ -65,6 +67,11 @@
+             mpz_neg(row[i+2], row[i+2]);
+             mpz_neg(row[i+3], row[i+3]);
+         }
++    }
++    if (ct_log) {
++        const void *ct_row=(const void*)(uintptr_t)ct_get(&ct_coeff_rows,row);
++        ct_scale(ct_row,row[0],ct_before);
++        mpz_clear(ct_before);
+     }
+     return row;
+ }
+@@ -310,7 +317,8 @@
+ 
+         /* check if lead coefficient of dr is multiple of lead coefficient
+          * of cfs, generate corresponding multipliers respectively */
+-        if (mpz_divisible_p(dr[i], cfs[0]) != 0) {
++        const int ct_divisible=mpz_divisible_p(dr[i], cfs[0]) != 0;
++        if (ct_divisible) {
+             mpz_divexact(mul2, dr[i], cfs[0]);
+         } else {
+             mpz_lcm(mul1, dr[i], cfs[0]);
+@@ -325,6 +333,7 @@
+                 }
+             }
+         }
++        ct_reduce(dr,dts,mul1,mul2,ct_divisible);
+         for (j = 0; j < os; ++j) {
+             mpz_submul(dr[ds[j]], mul2, cfs[j]);
+         }
+@@ -342,6 +351,10 @@
+         row[PRELOOP]  = rlen % UNROLL;
+         row[LENGTH]   = rlen;
+         mat->cf_qq[tmp_pos]  = cf;
++        if (ct_log) {
++            ct_bind(row,dr);
++            ct_put(&ct_coeff_rows,cf,(uint64_t)(uintptr_t)row);
++        }
+     }
+     mpz_clears(mul1, mul2, NULL);
+     return row;
+@@ -646,6 +659,7 @@
+                 }
+             }
+             free(cfs);
++            ct_bind(drl,npiv);
+             free(npiv);
+             npiv  = reduce_dense_row_by_known_pivots_sparse_qq(
+                     drl, mat, bs, pivs, sc, i);
+@@ -710,6 +724,7 @@
+                 mpz_swap(dr[ds[j+3]], cfs[j+3]);
+                 mpz_clear(cfs[j+3]);
+             }
++            ct_bind(dr,pivs[k]);
+             free(pivs[k]);
+             free(cfs);
+             pivs[k] = NULL;
+@@ -858,6 +873,7 @@
+                 mpz_swap(dr[ds[j+2]], cfs[j+2]);
+                 mpz_swap(dr[ds[j+3]], cfs[j+3]);
+             }
++            ct_bind(dr,pivs[l]);
+             free(pivs[l]);
+             pivs[l] = NULL;
+             pivs[l] = mat->tr[k--] =
+--- baseline/convert.c
++++ certificate-trace/convert.c
+@@ -702,6 +702,7 @@
+         rows[i][COEFFS]   = bl+k;
+         bs->hm[bl+k]      = rows[i];
+         bs->hm[bl+k][DEG] = deg;
++        if (ct_log) ct_output(bs->hm[bl+k],bs->cf_qq[bl+k],bht);
+         if (deg == 0) {
+             bs->constant  = 1;
+         }

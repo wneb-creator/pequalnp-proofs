@@ -1,0 +1,19 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/trace-rowzero.in",
+  "source_sha256": "27ce247c3d34e585c409bf69dddb4a8fca7682c34d362d170943bb94e190e71f",
+  "original_variables": [
+    "s",
+    "t",
+    "u",
+    "r"
+  ],
+  "companion_variables": [
+    "x0",
+    "x1",
+    "x2",
+    "x3"
+  ],
+  "input_sha256": "f17d8cd21e427239c8680ff164d3cfe2c8c032243e8807837ef722d457559545",
+  "generators": 11,
+  "terms": 98
+}

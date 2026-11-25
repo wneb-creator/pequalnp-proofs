@@ -125,3 +125,15 @@ The full path 18-variable chart, batch32, failed under its 2 GiB address-space c
 ### Trace Lean calibration checked
 
 The corrected exact row-trace Lean theorem `rowzero_even_trace` compiled with exit0 in58.933seconds, peakprocessgroupRSS5,994,936KiB. Source71,633bytes/128lines, SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483. Global independently checked the same source, its emitted polynomial identities, and both calibration systems. The complete reviewed archive is `f4-trace/`, including buildlogs and resource metadata; no full-gap conclusion is claimed.
+
+### Quartic-only common-kernel boundary
+
+A concrete three-dimensional symmetric permanent-zero plane can have no common kernel. Put k=i(sqrt(2)-1) and
+
+T(x,y,z) = [[x,ix,z,0],[ix,x,kz,0],[z,kz,y,iy],[0,0,iy,y]].
+
+Exact expansion of all24permutation terms gives per(T)=0 identically; det(T(1,1,0))=4. Independence follows from entries00,22,02. Thus no common-kernel claim can follow from the quartic condition alone. This plane does NOT satisfy per(J+T)=24, so it does not refute or prove the posted statement. Complete tiny CAS output is `perzero-no-kernel.log`.
+
+### Sparse neogb certificate adapter checked
+
+The isolated serial QQ adapter passes three toy controls and the known rowzero system. Independent review checks every polynomial-state transition and the entire51-step certificate DAG. The unit's22-step slice emits9,528bytes/46lines of Lean. It compiled with exit0 in11.503seconds; axiom audit reports exactly propext,Classical.choice,Quot.sound. Source SHA256d39e7504d7591248b27a37320f6ce9589021360e7582b17edc4b8c0d9a6cfce8. Complete frozen archive: `neogb-trace/`. No full chart was run with this tracer and no full-gap conclusion is claimed.

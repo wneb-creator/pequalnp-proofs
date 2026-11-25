@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_cert_trace.py", line 74, in <module>
+    edit('convert.c',lambda s:once(s,'        bs->hm[bl+k][DEG] = deg;',
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_cert_trace.py", line 20, in edit
+    p=engine/name;p.write_text(change(p.read_text()))
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_cert_trace.py", line 74, in <lambda>
+    edit('convert.c',lambda s:once(s,'        bs->hm[bl+k][DEG] = deg;',
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_cert_trace.py", line 17, in once
+    assert text.count(old)==1,(old,text.count(old))
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: ('        bs->hm[bl+k][DEG] = deg;', 2)

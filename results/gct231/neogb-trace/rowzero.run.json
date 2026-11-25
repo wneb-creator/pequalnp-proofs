@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "wall_seconds": 0.009063233999768272,
+  "seconds_limit": 30,
+  "memory_mib_limit": 1024,
+  "pairs": 0,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace/rowzero.in",
+  "input_sha256": "f17d8cd21e427239c8680ff164d3cfe2c8c032243e8807837ef722d457559545",
+  "companion_sha256": "11e21d3f32095b4ad2e3888c7f569de500e1e8c34583faa10deb48d3a93b4e3c",
+  "binary_sha256": "ad11d46ffee62adcdf3579460bf10774cccc6ee94e6b4755fb47cd687cd120f7"
+}

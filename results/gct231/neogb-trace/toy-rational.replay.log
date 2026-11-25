@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace/toy-rational.f4.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace/toy-rational.trace", "variables": ["x0", "x1"], "record_counts": {"G": 2, "I": 6, "O": 5, "A": 2, "S": 2}, "verified_output_count": 5, "proved_nonzero_constant": false, "constant_step": null}
+needed_steps 0 all_steps 6

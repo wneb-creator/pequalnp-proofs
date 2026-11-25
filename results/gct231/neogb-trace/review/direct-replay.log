@@ -1,0 +1,5 @@
+{"stem": "toy-unit", "trace_sha256": "04e86da9c43fe640e3e43090056b01cc3d9e546ae7abf70b22f1bcf18eeec5e8", "counts": {"G": 3, "I": 10, "O": 6, "A": 4, "S": 2}, "nonzero_constants": ["1", "1"], "verdict": "PASS"}
+{"stem": "toy-nonunit", "trace_sha256": "b3246f80f83c2bcd4ce3b35aa1b20bd35e9bf24ffaa2d50e2e52c99385d8f302", "counts": {"G": 2, "I": 4, "O": 4}, "nonzero_constants": [], "verdict": "PASS"}
+{"stem": "toy-rational", "trace_sha256": "e4ea681ea35af42444cba55df6ed1befb5225acd1aa3c5a0a996fe1679d562af", "counts": {"G": 2, "I": 6, "O": 5, "A": 2, "S": 2}, "nonzero_constants": [], "verdict": "PASS"}
+{"stem": "rowzero", "trace_sha256": "59d579e8e4bc61584147945f37b79ee966d51eb792c75e8456916f1de2555796", "counts": {"G": 11, "I": 152, "O": 43, "S": 180, "A": 566}, "nonzero_constants": ["1", "1"], "verdict": "PASS"}
+PASS exact original11equations/98terms -> sparse -> x0,x1,x2,x3 companion

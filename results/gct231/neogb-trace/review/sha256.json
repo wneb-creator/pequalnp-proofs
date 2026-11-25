@@ -1,0 +1,12 @@
+{
+  "NeoTraceRowzero.regenerated.lean": "d39e7504d7591248b27a37320f6ce9589021360e7582b17edc4b8c0d9a6cfce8",
+  "REVIEW.md": "fbc9eb441668e8e9d18810e00d62c963e838e947136ae605acdadc17a54a4379",
+  "certificate-review.log": "62e3293013f4eb10ecd051f281bc9f473ffc10543fe936badc4d8768ec1f88ce",
+  "certificate-verdicts.json": "aa8f4b0a1ba8b103b503811c893df9ec9e3254b09ee8d113da6a6b047233b46f",
+  "direct-replay.log": "be403e3369566f967a959960faa786d6564bba9f8d3d9a8bc5025668d3d23380",
+  "direct_replay.py": "7ccc12a139ac5ff7c3b91ec90de1e35fc29bd8fbb3f4f3418dc99cb0e328edee",
+  "emitter.log": "c5e0ebdadb6fc65b2ca41e010ff991c190a84e3f50702ab85c19e65c5ae93b79",
+  "source-diff.txt": "904ff5acfc9f42b0a1b92f8b60f431966de13dd87489ab1ed27c78940a516e85",
+  "source-discovery.txt": "973639fc76d165bebff378357128685586715e997eb32e9c9cff0c4b8fc7104f",
+  "verify_certificate.py": "13012ea03ff9a327b9beaa15b17cc78020429b7504a4f7ade618f7c56e917725"
+}
