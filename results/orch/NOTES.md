@@ -39,3 +39,11 @@ Official Z3 5.3.3 installed in job scratch. Python exhaustive truth table confir
 ## 2026-11-25T03:04:58.522257+00:00 — full normalization component ready
 
 `results/orch/lemmas/NormalizationFull.lean` (36,068 bytes, 713 lines) compiled with exit 0. Full empty diagnostics: `normalization-full-build.log` in job scratch. This adapts checked `L_meta_4334.lean` by renaming its namespace to `PEqualNP.Outside.L_meta_670.Normalize` and moving its final theorem inside as helper `normalization`. Only imports Mathlib and PEqualNP.Defs. `normalization` gives exactly the R670419 normal premise: a suffix circuit D with D.size+1 ≤ C.size, canonical NOT0/4 or six binary pair representatives, AND/NOT/OR priority restrictions, exact suffix evaluation with appended seed. Root notified immediately; component can be concatenated after removing duplicate import lines.
+
+## 2026-11-25T03:06:24.491419+00:00 — computational search stopped
+
+Full 512-row synthesis for 15 gates with first AND(0,1) returned UNKNOWN after 180.47 seconds (timeout). Two boundary-row CEGIS searches, one monotone with first AND(0,1), one at most two NOT gates with first NOT(0), were interrupted unresolved when all fourteen proved cases were located. No 15-gate witness or UNSAT certificate obtained. Search scripts and full logs remain under job scratch. Switching to self-contained raw proof aggregation.
+
+## 2026-11-25T03:07:40.485490+00:00 — suffix-to-circuit bridge compiled
+
+`results/orch/lemmas/Prepend.lean` compiled exit 0 (empty `prepend-build.log`). Namespace `PEqualNP.Outside.L_meta_670.Seed`. `seedCircuit D k a b` prepends the legal fanin-two seed gate. `seed_fanin`, `seed_size`, `seed_eval`, and `seed_first` prove legality, exact size increase by one, suffix evaluation equivalence, and semantic first-wire value. This lets Normalize.normalization feed every existing whole-circuit first-gate lower-bound case. APIs sent to assembly authors and root immediately.

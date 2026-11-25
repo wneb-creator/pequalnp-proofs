@@ -9,3 +9,6 @@ Full gap checker: not run; partial results only.
 Independent review: status_review approved symmetry and upper-bound partial snapshot.
 Sub-agents: status/inventory/review, toolchain/search, structural, finite verification, normalization, restriction mathematics (6 total).
 TIMING total=21.9 subagents=6
+
+Prepend.lean: lake env lean, exit 0, stdout/stderr empty. Root independent review passed.
+First partial snapshot pushed c570baf111e48dadc13c84178a64e977566f4670.
