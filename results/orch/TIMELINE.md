@@ -18,3 +18,7 @@
 
 - 2026-11-25T10:03:11.050997+00:00 geometry_route longF4 ended viaSIGXCPU after1066.7swall;degree8,lastpairbacklog120140,noGBverdict.
 - 2026-11-25T10:04:17.344658+00:00: crossed-star two-polynomial certificate compiled and independently reviewed; preserving partial.
+
+- 2026-11-25T10:20:40.672566+00:00 geometry_route: launched improved row-sum graph F4 (18 variables, 31 equations, mod 97), LA44, batch 2048, two threads, 6 GiB address limit, 3600 s CPU/wall caps; safe round-boundary checkpoints every 300 s and save-stop margin 300 s. Checkpoints are partial ideal generators, never a GB verdict.
+
+- 2026-11-25T10:24:16.585922+00:00: RankOne.lean compiled, independently approved; preserving checked partial. Target unresolved.
