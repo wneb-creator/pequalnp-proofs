@@ -1,0 +1,5 @@
+case 0 round 0 rows 20 result 10 time 0
+errors 308
+case 0 round 1 rows 52 result 0 time 60
+case 0 round 1 rows 52 result 0 time 120
+case 0 round 1 rows 52 result 0 time 180

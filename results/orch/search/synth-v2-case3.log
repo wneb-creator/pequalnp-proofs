@@ -1,0 +1,14 @@
+case 3 round 0 rows 20 result 10 time 0
+errors 708
+case 3 round 1 rows 52 result 10 time 31
+errors 144
+case 3 round 2 rows 84 result 0 time 91
+case 3 round 2 rows 84 result 0 time 151
+case 3 round 2 rows 84 result 0 time 211
+case 3 round 2 rows 84 result 0 time 272
+case 3 round 2 rows 84 result 0 time 332
+case 3 round 2 rows 84 result 0 time 392
+case 3 round 2 rows 84 result 0 time 452
+case 3 round 2 rows 84 result 0 time 512
+case 3 round 2 rows 84 result 0 time 572
+case 3 round 2 rows 84 result 0 time 632

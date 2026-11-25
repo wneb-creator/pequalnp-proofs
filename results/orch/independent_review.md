@@ -43,3 +43,16 @@ Review timestamp: 2026-11-25T14:29:34.571656+00:00
 PASS for archival partial push. The delta adds only the finite raw_bin_fresh_samples certificate and raw_bin_fresh theorem (16 lines). Independently checked all 360 ordered-distinct-input/signed-operation combinations produce a truth table different from every raw input. Reviewed the List.all elimination proof. Source exactly matches compiled scratch and recorded SHA256 fd1119437485f59593db267baac1117135207a1cc98793b90b234ece4c183942; 221 lines; complete archived build log empty, validation reports exit 0. No forbidden tokens. This remains a partial component, not the posted theorem.
 
 Review timestamp: 2026-11-25T14:33:16.328790+00:00
+
+## Stochastic search review
+
+PASS for candidate soundness; no witness existed at review time.
+
+- search.cpp evaluates sixteen 64-bit words, covering all 1024 assignments with input bit i representing x_i. Target0 uses exactly the fifteen posted Petersen edges. Target1 omits the three edges incident to vertex9; the auxiliary target is x4 OR x6.
+- A mode1 solution with sixteen gates extends to a nineteen-gate full solution by appending OR(aux,x7), AND(x9,newOR), and OR(Houtput,newAND), at wire indices26,27,28. Existing outputs are below26. No new NOTs are added.
+- Weighted distance is nonnegative and zero exactly when all truth-table bits match. score0 also requires one or two NOT gates; mode1 requires both H and auxiliary outputs exact. Consequently the WITNESS condition cannot arise from partial-row agreement alone.
+- Mutation allows a predecessor equal to the current gate index. Because the entire value table is freshly zero-initialized, that gate reads false, matching Lean unavailable-wire semantics. All other predecessors are earlier wires. NOT ignores its second operand, also matching Lean.
+- Independently simulated current saved full and H candidates using list-style unavailable-wire reads. Their recorded error counts22 and20 (auxiliary0) matched all1024-input recomputation. The full run log had no WITNESS announcement.
+- Exact gate count, positive NOT count, and complete graph identity must still be rechecked independently on any future witness, followed by Lean and the repository checker. This review is not a lower-bound certificate or a claim of a counterexample.
+
+Review timestamp: 2026-11-25T14:38:05.942312+00:00

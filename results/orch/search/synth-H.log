@@ -1,0 +1,15 @@
+case 2 round 0 rows 15 result 10 time 0
+errors 312
+case 2 round 1 rows 47 result 10 time 52
+errors 58
+case 2 round 2 rows 79 result 0 time 112
+case 2 round 2 rows 79 result 0 time 172
+case 2 round 2 rows 79 result 0 time 232
+case 2 round 2 rows 79 result 0 time 292
+case 2 round 2 rows 79 result 0 time 352
+case 2 round 2 rows 79 result 0 time 412
+case 2 round 2 rows 79 result 0 time 472
+case 2 round 2 rows 79 result 0 time 532
+case 2 round 2 rows 79 result 0 time 592
+case 2 round 2 rows 79 result 0 time 652
+case 2 round 2 rows 79 result 0 time 712

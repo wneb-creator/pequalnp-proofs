@@ -1,0 +1,16 @@
+seed 118 seconds 5 full covers 5 H covers 3
+BEST t=0.000333841 mode=0 score=194 errors=138 aux=0 iterations=1
+BEST t=0.000582775 mode=0 score=185 errors=129 aux=0 iterations=54
+BEST t=0.00658631 mode=0 score=171 errors=75 aux=0 iterations=234
+BEST t=0.0946703 mode=0 score=167 errors=79 aux=0 iterations=9923
+BEST t=0.102359 mode=0 score=148 errors=60 aux=0 iterations=11223
+BEST t=0.119378 mode=0 score=146 errors=66 aux=0 iterations=13511
+BEST t=0.126924 mode=0 score=143 errors=63 aux=0 iterations=14449
+BEST t=0.188686 mode=0 score=123 errors=51 aux=0 iterations=19058
+STATUS seconds=0.277073 iterations=30000 restarts=1 fullscore=123 fullerrors=51 Hscore=100000 Herrors=100000 Haux=0 SATseeds=1
+BEST t=1.01018 mode=0 score=117 errors=69 aux=0 iterations=111017
+BEST t=1.01116 mode=0 score=100 errors=52 aux=0 iterations=111303
+BEST t=1.38393 mode=0 score=58 errors=18 aux=0 iterations=150002
+BEST t=1.3877 mode=0 score=56 errors=24 aux=0 iterations=150593
+BEST t=2.42488 mode=0 score=38 errors=22 aux=0 iterations=270117
+FINISHED iterations=540000 restarts=18 fullscore=38 Hscore=100000

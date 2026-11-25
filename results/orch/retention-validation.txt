@@ -1,0 +1,6 @@
+UTC: 2026-11-25T14:28:31.872191+00:00
+Command: lake env lean /tmp/oec/pequalnp-pilot-118/RetentionStandalone.lean
+Exit status: 0
+Complete stdout and stderr: empty
+SHA256: 31ea9f275eb47583062f56d2c4c06c2379c24db4af1564c28e69a5bf7a39be96
+Result: both operands of the first signed binary gate must remain available for the Petersen truth table. This is a partial lemma, not the posted L-meta-2592 statement.

@@ -13,3 +13,15 @@ TIMING total=16.4 subagents=6
 RetentionFresh.lean: compiled, exit0, empty full output in retention-fresh-build.log. Independent review PASS; all360 operation/input freshness checks verified. Original statement still unresolved.
 Sub-agents: six
 TIMING total=20.1 subagents=6
+
+LEASE LOSS CHECKPOINT
+UTC: 2026-11-25T14:40:35.358355+00:00
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean,4578lines; build paused, NOT claimed compiled.
+Compiled components: RetentionStandalone,RetentionFresh (exit0).
+FirstProjection/FirstCombined: uncompiled research; mathematical review only.
+Original-statement checker: NOT RUN; no full target theorem.
+Searches: no valid witness and no unrestricted UNSAT result. Best stochastic candidates have22(full) /20(H) erroneous rows.
+Full logs preserved under results/orch/logs, search, stochastic.
+Desk: null responses0; renewal410 exactmessage: no such live lease: it expired or was released. Ask /desk/next again.
+Sub-agents: six (status/library,counterexample,lower bound,toolchain/stochastic,descendants,independent review)
+TIMING total=27.4 subagents=6

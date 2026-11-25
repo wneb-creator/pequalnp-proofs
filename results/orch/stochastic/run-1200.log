@@ -1,0 +1,51 @@
+seed 1182592 seconds 1200 full covers 5 H covers 3
+BEST t=0.000258618 mode=0 score=132 errors=52 aux=0 iterations=1
+BEST t=0.552558 mode=0 score=90 errors=34 aux=0 iterations=7
+BEST t=0.608464 mode=0 score=85 errors=45 aux=0 iterations=68
+BEST t=8.88657 mode=0 score=82 errors=34 aux=0 iterations=15570
+BEST t=12.056 mode=0 score=81 errors=33 aux=0 iterations=21430
+BEST t=12.7559 mode=0 score=79 errors=31 aux=0 iterations=22798
+BEST t=16.114 mode=0 score=77 errors=29 aux=0 iterations=27672
+STATUS seconds=17.8525 iterations=30000 restarts=1 fullscore=77 fullerrors=29 Hscore=100000 Herrors=100000 Haux=0 SATseeds=1
+STATUS seconds=33.3999 iterations=60000 restarts=2 fullscore=77 fullerrors=29 Hscore=100000 Herrors=100000 Haux=0 SATseeds=1
+BEST t=33.9525 mode=1 score=240 errors=96 aux=0 iterations=60001
+BEST t=33.9529 mode=1 score=232 errors=120 aux=0 iterations=60030
+BEST t=34.1645 mode=1 score=188 errors=116 aux=0 iterations=60085
+BEST t=34.2973 mode=1 score=182 errors=110 aux=0 iterations=60139
+BEST t=34.2983 mode=1 score=160 errors=96 aux=0 iterations=60186
+BEST t=34.669 mode=1 score=156 errors=92 aux=0 iterations=60287
+BEST t=37.3824 mode=1 score=152 errors=104 aux=0 iterations=93422
+BEST t=37.383 mode=1 score=144 errors=88 aux=0 iterations=93469
+BEST t=37.3834 mode=1 score=142 errors=86 aux=0 iterations=93562
+BEST t=37.3842 mode=1 score=138 errors=90 aux=0 iterations=93716
+BEST t=37.4033 mode=1 score=132 errors=84 aux=0 iterations=97795
+BEST t=37.4069 mode=1 score=108 errors=60 aux=0 iterations=98535
+BEST t=37.4106 mode=1 score=100 errors=60 aux=0 iterations=99314
+BEST t=39.1089 mode=1 score=80 errors=32 aux=0 iterations=120040
+BEST t=39.1925 mode=1 score=76 errors=28 aux=0 iterations=120112
+STATUS seconds=56.7177 iterations=180000 restarts=6 fullscore=77 fullerrors=29 Hscore=76 Herrors=28 Haux=0 SATseeds=1
+BEST t=66.1578 mode=0 score=73 errors=33 aux=0 iterations=234669
+BEST t=66.1965 mode=0 score=71 errors=31 aux=0 iterations=234763
+STATUS seconds=73.1637 iterations=300000 restarts=10 fullscore=71 fullerrors=31 Hscore=76 Herrors=28 Haux=0 SATseeds=1
+BEST t=84.1611 mode=0 score=70 errors=38 aux=0 iterations=360112
+STATUS seconds=89.6642 iterations=390000 restarts=13 fullscore=70 fullerrors=38 Hscore=76 Herrors=28 Haux=0 SATseeds=1
+BEST t=96.8074 mode=1 score=66 errors=34 aux=0 iterations=420288
+STATUS seconds=105.686 iterations=450000 restarts=15 fullscore=70 fullerrors=38 Hscore=66 Herrors=34 Haux=0 SATseeds=1
+STATUS seconds=128.218 iterations=510000 restarts=17 fullscore=70 fullerrors=38 Hscore=66 Herrors=34 Haux=0 SATseeds=1
+STATUS seconds=145.492 iterations=690000 restarts=23 fullscore=70 fullerrors=38 Hscore=66 Herrors=34 Haux=0 SATseeds=1
+BEST t=147.563 mode=0 score=68 errors=20 aux=0 iterations=810006
+BEST t=147.563 mode=0 score=41 errors=9 aux=0 iterations=810007
+BEST t=150.103 mode=1 score=54 errors=38 aux=0 iterations=1380010
+BEST t=154.589 mode=1 score=50 errors=26 aux=0 iterations=1945141
+BEST t=159.397 mode=1 score=44 errors=28 aux=0 iterations=2580121
+BEST t=159.398 mode=1 score=40 errors=24 aux=0 iterations=2580179
+STATUS seconds=160.494 iterations=2730000 restarts=91 fullscore=41 fullerrors=9 Hscore=40 Herrors=24 Haux=0 SATseeds=1
+BEST t=161.373 mode=1 score=36 errors=20 aux=0 iterations=2837822
+STATUS seconds=175.664 iterations=4710000 restarts=157 fullscore=41 fullerrors=9 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+BEST t=184.575 mode=0 score=38 errors=22 aux=0 iterations=6360008
+STATUS seconds=190.678 iterations=7710000 restarts=257 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+STATUS seconds=206.109 iterations=10260000 restarts=342 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+STATUS seconds=221.315 iterations=12150000 restarts=405 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+STATUS seconds=236.401 iterations=14130000 restarts=471 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+STATUS seconds=253.057 iterations=16890000 restarts=563 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1
+STATUS seconds=270.184 iterations=17610000 restarts=587 fullscore=38 fullerrors=22 Hscore=36 Herrors=20 Haux=0 SATseeds=1

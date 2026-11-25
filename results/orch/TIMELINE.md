@@ -6,3 +6,4 @@
 2026-11-25T14:29:37.665829+00:00: retained-input lemma compiled and independently reviewed; first partial push checkpoint.
 2026-11-25T14:32:30.080459+00:00: first partial push succeeded: c5e117823ceb6f3566b049b4e8ffc6fff1dc8dc1. Named >=4-NOT partial build in progress; projection extension queued. Stochastic full-truth-table search added alongside SAT.
 2026-11-25T14:33:21.241645+00:00: freshness extension compiled and independently reviewed; second partial push.
+2026-11-25T14:40:35.358355+00:00: renewal returned HTTP410 despite previous14:54expiry; diagnostic curl-si confirmed no live lease. All workers paused. Archive checkpoint before same-gap re-request.
