@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2592.FewNot.Extended.live_seventeen_starts_or' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592.FewNot.Extended.two_not_or_first' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
