@@ -47,3 +47,19 @@ Root 13:48 UTC: Lean v4.36.0 installed locally under /tmp/oec/pequalnp-pilot-93/
 2026-11-25T14:12:13.954772+00:00 root: latest lease expiry 2026-11-25T14:32:13.496Z; current full lease state in scratch lease-current.json. Only root renews.
 
 2026-11-25T14:14:46.130980+00:00 or_first_bound: OrFirstAlgebra.lean compiled exit0 with empty log; bin identities simplify (a OR b) AND NOT a to b AND NOT a, and or_difference_front moves this second operation before OR or deletes unusedOR. OrFirstFloor.lean compiled against full Floor18 modules, exit0 with empty logs; firstOrDifferenceFloor yields18 binary gates, firstOrDifferenceDropFloor yields19 when initialOR signal is not retained. Exact logs or-first-algebra-olean2, or-first-olean2, or-first-floor2 in scratch. Companions frozen; combined standalone still compiling.
+
+2026-11-25T14:16:31.150513+00:00 root renewal; expires 2026-11-25T14:36:30.611Z.
+
+2026-11-25T14:16:33.858629+00:00 reduction_routes: SecondAnd.lean compiled exit0 (99 lines, one unused simp warning), emits SecondAnd.olean. firstOrSecondAndFloor rules out signed runs with fewer than18 binary gates when first gate is OR and second combines that OR with a distinct input using AND or complement-left AND. It applies the retained-input-and-constant-result projection bound with Reach cost1 for the first OR.
+
+2026-11-25T14:18:39.466937+00:00 reduction_routes: COMPLETE standalone Structural17.lean compiled exit0; source4984lines/307046bytes, sole import PEqualNP.Defs. This proves binaryFloor17: 17+notCount C<=C.size for all fan-in-two Petersen circuits, and threeNotImpossible: no budget19 circuit with>=3NOT computes Petersen. No extra hypotheses beyond the claimed partial statements. Full log /tmp/oec/pequalnp-pilot-93/structural17-build.txt contains inherited warnings only. Root notified for immediate reviewed push.
+
+## 2026-11-25 14:18:42 UTC — finite certificate update
+
+SeededRows.lean compiled with kernel decide and narrow Mathlib.Data.Nat.Bitwise import. It checks that the 13 selected 6-input rows encode the four neighborhood OR seeds, four intermediate ORs, six raw inputs, constants, and the three-pair matching target exactly. Full 114-first-signal three-gate certificate remains running, with no diagnostics so far.
+
+A fresh signed-binary 9-input, 15-gate CNF for the Petersen graph with vertex 9 deleted has 23,610 variables and 498,707 clauses (full 512 rows). A random concrete circuit satisfied every structural and evaluation clause; exactly its 390 incorrect output rows violated the corresponding final unit clauses. Solver run pending parent renewal.
+
+2026-11-25 14:19:07 UTC [structural_proof] OneNotPetersen.lean compiled exit 0: a raw input used only at the unique NOT makes the output antitone in that input, contradicting explicit Petersen witnesses. Next proving that a raw input used only by an AND/OR gate with a distinct raw input also cannot compute Petersen, regardless of other gate operations.
+
+2026-11-25T14:20:54.241054+00:00 or_first_bound: Preferred self-contained OrFirstCore.lean passed Lean, exit 0, empty or-first-core.stdout/stderr. It has 217 lines and 23,045 bytes, sole import PEqualNP.Defs, and contains only the definitions needed for second-gate retention and OR/difference commutation. The redundant 301KB full-prefix standalone build was canceled with exit 130; its log is not a success record. OrFirstCore, OrFirst, OrFirstAlgebra and OrFirstFloor are frozen checked artifacts.

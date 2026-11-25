@@ -29,5 +29,12 @@ Checkpoint5:
 Complete logs, source hashes, candidates, and per-window manifests are preserved.
 Repository full-statement checker has not run; the posted theorem remains unproved.
 
+Checkpoint6:
+- Structural17.lean: complete standalone partial, sole import PEqualNP.Defs,4984lines/307046bytes. Lean exit0. It proves17+notCount<=size for Petersen, excluding at least3NOT under budget19.
+- Printed axioms of binaryFloor17 and threeNotImpossible: only propext,Classical.choice,Quot.sound. Complete output preserved.
+- OneNotInput.lean: checked restricted antitonicity lemma for an input read only by the unique NOT.
+- Floor17Live,Floor18,OrFirstFloor,SecondAnd: checked research companions with explicit first-/second-gate hypotheses; Retention/Restriction dependencies preserved for reconstruction. These companions are not standalone PR files.
+Independent review passed all frozen sources. One-NOT and two-NOT cases of the posted theorem remain open.
+
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=31.4 subagents=6
+TIMING total=38.1 subagents=6

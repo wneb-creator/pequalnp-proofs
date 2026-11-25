@@ -14,3 +14,10 @@
 2026-11-25T14:11:28.394655+00:00 secondgate OR-prefix retention packed certificate compiled
 2026-11-25T14:14:46.130980+00:00 OR/difference commutation and conditional18/19 binary floors compiled
 2026-11-25T14:15:56.572009+00:00 Fifth reviewed checkpoint: research search archive and OR/finite partials
+2026-11-25T14:16:33.858629+00:00 first-OR then AND/d3 floor18 Lean checked
+2026-11-25T14:16:54.272728+00:00 start fixed-prefix NOT searches for input pairs (0,1) and (0,2), 600 seconds each
+2026-11-25T14:18:39.466937+00:00 standalone Petersen binaryFloor17 and threeNotImpossible compiled exit0
+
+- 2026-11-25 14:20:50 UTC: Started capped300s signed-binary SAT on the full512-row 9-input Petersen vertex-deletion graph,15 gates, free0 input. Main lease renewed14:20:32; expiry14:40:32.
+2026-11-25T14:20:54.241054+00:00 compact standalone OR-prefix partial compiled
+2026-11-25T14:22:36.532176+00:00 Sixth reviewed checkpoint: unconditional17binary floor, standard axioms verified
