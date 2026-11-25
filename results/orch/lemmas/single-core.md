@@ -34,3 +34,13 @@
 - `core_cover_star_forest` proves the full posted conclusion under that graph structure for D, with arbitrary shared cones and many edges per core.
 - Uses the strict shared endpoint bound; no bipartite/C4free/fixedpoint/exact-output assumptions beyond AO2 are needed for this special case.
 - Clean combined StrictStar.lean compiled with exit0 and empty stdout/stderr.
+
+## Checked gate-charge implication
+
+`GateCharges.lean` checks `core_cover_of_gate_charges`: |D| <= OR(U)+mc and T.card <= AND(U)+Tprime.card imply the exact target conclusion. It proves from definitions that U lies in the gate range and that AO2 gates partition into the AND and OR filters. No gate partition is assumed. The two substantive charge inequalities remain unproved.
+
+## Prospective gate-charge reduction format
+
+`ProspectiveGateCut.lean` compiles using only PEqualNP.Defs. It contains one top-level theorem named R_meta_2962_71 with two independent universal propositions and the exact desk conclusion. The source hypotheses are 800 and 961 characters. The proof reconstructs the gate-range inclusion and AND/OR partition without helpers.
+
+This is only a prospective format artifact: the current row does not enable reductions, no R file was placed in Outside, and neither the reduction checker nor any public submission was run. The artifact does not prove either charge inequality.

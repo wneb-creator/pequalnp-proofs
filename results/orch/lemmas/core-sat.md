@@ -23,3 +23,13 @@ Remaining S2975 has10inducededges. Caseacceptall10 alreadyUNSAT; exactly9accepte
 All five necessary support orbits for a 9-gate single-core Fano violation now returned UNSAT. General S2975 finished187.05seconds; its omitted outer/inner splits also returnedUNSAT53.70/43.42seconds. Summary with CNF hashes: structural/fano-sat-summary.json. This is a complete computational search under the independently enumerated support/orbit reductions, NOT a Lean proof.
 
 Important search-direction update: every one-edge omission from S2975 raises residual tau from4to5. Thus a 10-gate/9-input violation must accept the full induced graph on each relevant support. For genuine higher-support flexibility with two extra fanout uses, next promising case is11gates/10inputs on S3007 (12inducededges).
+
+Ten-gate phase: original9-input casesS959/S1951/S2975 eachtimedout300seconds; ordered-onlyS959 also timedout. First11gate/10inputS3007 timedout300seconds. No verdict inferred from any timeout.
+
+Stronger search encoder now optionally orders gates lexicographically by(maxinput,mininput,op), projects truthrows to exactsupport and removes dominated projected independentsets, and adds minimal accepted-edge patterns determined by exact residual-cover computations. Every residual cover computation constructs a matching and an equally sized vertex cover and checks both certificates. The projected/ordered positive calibration passed and its fulltruth-table evaluator agreed.
+
+Full10-input orbit queue started with workerlimit1, now2 afterolder jobsfinished; totalconcurrent solversneverexceeds5. ControlS3007 (10gates/10inputs) UNSAT49.07seconds. Queue logs:structural/sat-control-queue.log; control summary:structural/sat-control-summary.json.
+
+All12 ten-input support controls returnedUNSAT (3–49seconds percase). Results:structural/sat-control-summary.json. Three10gate/9input cases remain unresolved; earlier runs timedout, currentfinal pattern-pruned runs ongoing.
+
+The generic fanout budget is r=g-m+1 extra operand arcs beyond one per used nonroot wire. New optional forward-threshold encoding limits their sum to r; independently reviewed and validated on a pinned6gate/5input positive core with one input readthree times. FullCNF and independenttruth-table checks pass. After parentrenewal06:50:18(expiry07:10:18), launched budget-pruned g11/S3007 and g10/S2975, each300secondcap.

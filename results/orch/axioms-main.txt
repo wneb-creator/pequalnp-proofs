@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_2962_aux.core_cover_singleton_incidence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.core_cover_matching_incidence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.core_op_and' depends on axioms: [propext, Classical.choice, Quot.sound]

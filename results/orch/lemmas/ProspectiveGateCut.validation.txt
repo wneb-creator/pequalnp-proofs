@@ -1,0 +1,7 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/ProspectiveGateCut.lean
+exit code: 0
+stdout: empty
+stderr: empty
+Prospective reduction-format artifact only. Desk row L-meta-2962 does not enable reductions.
+No file was created in Outside for this artifact. No reduction checker run, acceptance claim, or submission.
+Exactly one theorem, two independent hypotheses, exact saved desk conclusion, only import PEqualNP.Defs. Hypothesis source lengths: 800 and 961 characters; authoritative printed-length screening not run.

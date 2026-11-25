@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/GateCharges.lean
+exit code: 0
+stdout: empty
+stderr: empty
+Checks a conditional implication from two gate-charge inequalities. Does not prove either inequality or the full posted statement.

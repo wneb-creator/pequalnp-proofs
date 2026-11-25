@@ -52,3 +52,17 @@ The 2005 primary preprint https://eccc.weizmann.ac.il/report/2005/021/download/ 
 Independent mathematical sanity check: agent single_core reviewed the dead-wrapper reduction and found it sound for nonempty H, contingent on formalizing pruning and the ReadK proof-tree semantics. In particular, the canonical live output adds no core, while every old core lies below the new root. No Lean verification of the whole reduction is claimed.
 
 The obstruction already uses one maximal core: arbitrary DAG sharing remains inside its cone. Disjointness between different maximal core cones does not permit replacing a circuit by a formula without charging duplicated shared gates.
+
+## Separate AND-count route (research, not proved)
+
+Parent proposes the two inequalities |D| <= OR(U)+mc and tau(G)-tau(G-D) <= AND(U). For the second, a sufficient stronger theorem would be: if a monotone circuit output h is below the edge function of a bipartite C4-free graph, and D is the graph of accepted pairs of h, then tau(D) <= its number of AND gates. OR-combining all core outputs introduces no AND gates, and covers of D and G-D combine. Alternatively, an exact-graph AND lower bound tau(G) <= AND(C) suffices after adding a canonical star circuit for the residual graph. Neither stronger theorem has been established.
+
+The first-creation charging rule is insufficient: (a OR b) AND (c OR d), subsequently AND (a OR c), computes the P4 graph with edges ac,ad,bc. All three edges are first created at the first AND, but two vertices are required to cover them. A successful proof must charge the later filtering AND even though it first creates no edge.
+
+Primary sources read 2026-11-25:
+
+- Ingo Wegener, The Complexity of Boolean Functions (1987), https://web.vu.lt/mif/s.jukna/boolean/blaues_book.pdf, section6.8 and exercise6.18: exact AND counts for Boolean matrix product and disjoint bilinear forms use special replacement rules. These hypotheses do not hold for arbitrary single-output bipartite C4-free graph functions. No generic bilinear normalization follows from this source.
+- Andrzej Lingas and Mia Persson, Improved Lower Bounds for Monotone q-Multilinear Boolean Circuits (2023), https://arxiv.org/pdf/2305.07364, introduction and Theorem4: the stated AND lower bound applies to read-once/multilinear semi-disjoint bilinear forms. A general circuit may reread variables, precisely the issue here.
+- Teofilo Gonzalez and Joseph Ja'Ja', On the Complexity of Computing Bilinear Forms with {0,1} Constants (1980), https://sites.cs.ucsb.edu/~teo/papers/JCSS-BForm.pdf: the model explicitly restricts each nonscalar product to an x-linear times a y-linear form over integers. Its graph decomposition characterization cannot be imported into unrestricted Boolean circuits.
+
+No authoritative primary source found proves or refutes the unrestricted AND-count claim. Its current status remains UNVERIFIED; failure to find a theorem is not evidence of falsity.
