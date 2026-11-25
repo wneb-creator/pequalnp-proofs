@@ -12,3 +12,4 @@
 - 2026-11-25T14:21:04.322109+00:00: first20-minute re-plan; pursue17binary integration, conditional18/19 deletions, finiteOR-state certificates, and compactAIGsearch.
 - 2026-11-25T14:23:30.820959+00:00: plain signed model, first-gate savings, conditional phase cases, and Reach bridge compiled and independently audited; preserving all.
 - 2026-11-25T14:26:45.040088+00:00: BinarySixteen.lean compiled with exit0; immediate preservation push. BinarySeventeen integration assigned to semantic agent.
+- 2026-11-25T14:32:46.676065+00:00: false-cofactor transport and conditional reader-budget components compiled and reviewed; preserved.

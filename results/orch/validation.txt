@@ -72,3 +72,17 @@ Scope: every FanInTwo Petersen circuit has16+notCount<=size; excludes at least4 
 Lean exit0. Complete stdout/stderr saved beside this validation.
 Independent source review: status_review PASS before compilation.
 SHA256: f01350812f5cc03411dc9d2c36d113fc3453e4fe6767b9576f5b45d2ce6d32f1
+
+Artifact: results/orch/lemmas/CofactorFloorTest.lean
+Scope: Transport of the explicit model floor to every Petersen false cofactor; model floor is an explicit hypothesis.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review and root PASS as partial.
+SHA256: 409c80c3d5f63e947a2d9ea2d70c07524bb866112690ad7296ba00a0bc491d02
+
+Artifact: results/orch/lemmas/ReadBudget.lean
+Scope: Conditional reader-count and phase bounds from ZeroFloor15; complete checked bundle.
+Lean exit0; stdout/stderr empty.
+Independent source review: status_review and root PASS as partial.
+SHA256: 43b2a4982158384b3a514645634d6eebd86a11249dce5685182541fa9ea05c25
+
+Combinatorial inverse automorphisms compiled and independently audited. SHA256: 99a121d1581840f39eabc4de32490e15a079c967470fd75d1d482444a1e9e590

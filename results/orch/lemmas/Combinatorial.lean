@@ -99,4 +99,31 @@ lemma pet_vertexPerm : ∀ (v : Fin 10) (x : Fin 10 → Bool),
     pet (x ∘ vertexPerm v) = pet x := by
   decide +kernel
 
+def vertexInv (v : Fin 10) : Fin 10 → Fin 10 :=
+  (![![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    ![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+    ![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+    ![2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+    ![1, 2, 3, 4, 0, 6, 7, 8, 9, 5],
+    ![5, 8, 6, 9, 7, 0, 3, 1, 4, 2],
+    ![7, 5, 8, 6, 9, 2, 0, 3, 1, 4],
+    ![9, 7, 5, 8, 6, 4, 2, 0, 3, 1],
+    ![6, 9, 7, 5, 8, 1, 4, 2, 0, 3],
+    ![8, 6, 9, 7, 5, 3, 1, 4, 2, 0]]) v
+
+lemma vertexInv_left : ∀ v i : Fin 10, vertexInv v (vertexPerm v i) = i := by
+  decide +kernel
+
+lemma vertexInv_zero (v : Fin 10) : vertexInv v v = 0 := by
+  simpa only [vertexPerm_zero] using vertexInv_left v 0
+
+lemma pet_vertexInv (v : Fin 10) (x : Fin 10 → Bool) :
+    pet (x ∘ vertexInv v) = pet x := by
+  have h := pet_vertexPerm v (x ∘ vertexInv v)
+  have hid : (x ∘ vertexInv v) ∘ vertexPerm v = x := by
+    funext i
+    simp only [Function.comp_apply, vertexInv_left]
+  rw [hid] at h
+  exact h.symm
+
 end PEqualNP.Outside.L_meta_2592_aux.PairSeparation
