@@ -2,7 +2,9 @@ import PEqualNP.Defs
 import Mathlib.Combinatorics.Hall.Basic
 import Mathlib.Combinatorics.Enumerative.DoubleCounting
 
-namespace PEqualNP.Outside.L_meta_4970.H4OrBlock
+namespace PEqualNP.Outside.L_meta_4970
+
+namespace H4OrBlock
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -565,9 +567,9 @@ lemma or_then_and_or_count {l r : ℕ} (G E : Finset (Fin l × Fin r))
   have h := or_then_and_edge_count G E C os as hc4 hg hsound hacc
   simpa [hg, List.filter_map, Function.comp_def] using h
 
-end PEqualNP.Outside.L_meta_4970.H4OrBlock
+end H4OrBlock
 
-namespace PEqualNP.Outside.L_meta_4970.SafeBirth
+namespace SafeBirth
 
 variable {α β : Type*} [DecidableEq α] [DecidableEq β]
 
@@ -650,9 +652,9 @@ lemma safe_fresh_edges_share_endpoint (E : α → β → Prop)
         safe_singletons_adjacent E f g hf hg hsafe _ _ hfb hga',
         safe_singletons_adjacent E f g hf hg hsafe _ _ hfb' hga'⟩
 
-end PEqualNP.Outside.L_meta_4970.SafeBirth
+end SafeBirth
 
-namespace PEqualNP.Outside.L_meta_4970.BirthObstruction
+namespace BirthObstruction
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -732,16 +734,16 @@ lemma first_birth_collision :
   unfold born
   decide +kernel
 
-lemma birth_gate_is_unsafe :
+lemma birth_gate_accepts_nonedge :
     value 2 (pair 1 0) = true ∧ circuitFun 4 circuit (pair 1 0) = false := by
   decide +kernel
 
 lemma size_six : circuit.size = 6 := by
   rfl
 
-end PEqualNP.Outside.L_meta_4970.BirthObstruction
+end BirthObstruction
 
-namespace PEqualNP.Outside.L_meta_4970.FamilySafety
+namespace FamilySafety
 
 variable {α β ι : Type*} [Fintype ι]
 
@@ -829,9 +831,9 @@ lemma triple_hitting_bound (E : α → β → Prop)
       · exact ⟨true, h⟩)
   simpa using h
 
-end PEqualNP.Outside.L_meta_4970.FamilySafety
+end FamilySafety
 
-namespace PEqualNP.Outside.L_meta_4970.H4OrErase
+namespace H4OrErase
 
 def conjunction {α : Type*} [DecidableEq α] (M : Finset α) (x : α → Bool) : Bool :=
   decide (∀ i ∈ M, x i = true)
@@ -1015,9 +1017,9 @@ lemma accepted_edge_budget {p l : ℕ}
   change E.card ≤ good.card + 1
   omega
 
-end PEqualNP.Outside.L_meta_4970.H4OrErase
+end H4OrErase
 
-namespace PEqualNP.Outside.L_meta_4970.H4SingletonMerge
+namespace H4SingletonMerge
 
 def singleton {α : Type*} [DecidableEq α] (i : α) : α → Bool :=
   fun j => decide (j = i)
@@ -1128,9 +1130,9 @@ lemma lost_edge_pair_context {p l : ℕ}
   · rw [hev]
     simpa [mergeBefore, singleton] using hsingle (Fin.castAdd l v)
 
-end PEqualNP.Outside.L_meta_4970.H4SingletonMerge
+end H4SingletonMerge
 
-namespace PEqualNP.Outside.L_meta_4970.H4ContextBound
+namespace H4ContextBound
 
 def mergeBefore {p l : ℕ} (F : (Fin (p + l) → Bool) → Bool → Bool)
     (u v : Fin p) (x : Fin (p + l) → Bool) : Bool :=
@@ -1218,9 +1220,9 @@ lemma context_upper_bound {p l : ℕ}
   · exact Or.inl h
   · exact Or.inr (independent_context_neighbors F u v G hF hsound x hx h)
 
-end PEqualNP.Outside.L_meta_4970.H4ContextBound
+end H4ContextBound
 
-namespace PEqualNP.Outside.L_meta_4970.Orientation
+namespace Orientation
 
 lemma distinct_representatives_of_two
     {α β : Type*} [Fintype α] [DecidableEq α] [DecidableEq β]
@@ -1301,4 +1303,201 @@ lemma serving_orientation_of_endpoints
   obtain ⟨orient, ho, ht⟩ := surjective_serving_orientation t ht hd hc
   exact ⟨orient, ho, fun b => (Finset.mem_filter.mp (ht b)).2⟩
 
-end PEqualNP.Outside.L_meta_4970.Orientation
+end Orientation
+
+namespace H4PostfilterObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def edges : Finset (Fin 2 × Fin 4) := {(0, 0), (0, 1), (1, 2), (1, 3)}
+
+def circuit : Circuit :=
+  { gates := [
+      ⟨.or, [0, 1]⟩,
+      ⟨.or, [2, 3]⟩,
+      ⟨.or, [4, 5]⟩,
+      ⟨.and, [0, 0]⟩,
+      ⟨.and, [1, 1]⟩,
+      ⟨.or, [9, 8]⟩,
+      ⟨.or, [7, 10]⟩,
+      ⟨.or, [7, 8]⟩,
+      ⟨.and, [6, 11]⟩,
+      ⟨.and, [14, 12]⟩,
+      ⟨.and, [15, 13]⟩],
+    output := 16 }
+
+def graphValue (x : Fin 6 → Bool) : Bool :=
+  decide (∃ (a : Fin 2) (b : Fin 4), (a, b) ∈ edges ∧
+    x (Fin.castAdd 4 a) = true ∧ x (Fin.natAdd 2 b) = true)
+
+lemma edges_no_four : ∀ (a a' : Fin 2) (b b' : Fin 4), a ≠ a' → b ≠ b' →
+    ¬ ((a, b) ∈ edges ∧ (a, b') ∈ edges ∧ (a', b) ∈ edges ∧ (a', b') ∈ edges) := by
+  decide +kernel
+
+lemma circuit_ao2 : PEqualNP.TopForm.IsAO2 6 circuit := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma circuit_computes : ∀ x : Fin 6 → Bool, circuitFun 6 circuit x = graphValue x := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma circuit_t_zero : PEqualNP.TwoColour.tCount 6 circuit (fun i => decide (2 ≤ i)) = 0 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma served_left : ∀ (a : Fin 2) (b : Fin 4), (a, b) ∈ edges →
+    ∃ (j : ℕ) (Q : Finset (Fin 4)), j < circuit.gates.length ∧
+      (PEqualNP.MetaComplexity.NestedCover.gateAt circuit j).op = GateOp.or ∧
+      2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, (a, b') ∈ edges) ∧
+      ∀ x : Fin 6 → Bool,
+        (circuit.wires (List.ofFn x)).getD (6 + j) false =
+          decide (∃ b' ∈ Q, x (Fin.natAdd 2 b') = true) := by
+  intro a b hab
+  fin_cases a
+  · refine ⟨1, {0, 1}, by decide, by rfl, by decide, ?_, by decide, by decide +kernel⟩
+    fin_cases b <;> simp [edges] at hab ⊢
+  · refine ⟨2, {2, 3}, by decide, by rfl, by decide, ?_, by decide, by decide +kernel⟩
+    fin_cases b <;> simp [edges] at hab ⊢
+
+lemma circuit_size : circuit.size = 11 := rfl
+
+lemma edges_card : edges.card = 4 := by decide
+
+def counterfactual : Circuit :=
+  { gates := ⟨.and, []⟩ :: circuit.gates.tail, output := 16 }
+
+def allLeaves : Fin 6 → Bool := fun i => decide (2 ≤ i.val)
+
+def edgeInput (e : Fin 2 × Fin 4) : Fin 6 → Bool :=
+  fun i => decide (i = Fin.castAdd 4 e.1 ∨ i = Fin.natAdd 2 e.2)
+
+def wireValue (w : Fin 17) (x : Fin 6 → Bool) : Bool :=
+  (counterfactual.wires (List.ofFn x)).getD w.val false
+
+noncomputable def wireConjunction (S : Finset (Fin 17)) (x : Fin 6 → Bool) : Bool :=
+  S.toList.all (fun w => wireValue w x)
+
+lemma wireConjunction_spec (S : Finset (Fin 17)) (x : Fin 6 → Bool) :
+    wireConjunction S x = true ↔ ∀ w ∈ S, wireValue w x = true := by
+  simp only [wireConjunction, List.all_eq_true, Finset.mem_toList]
+
+noncomputable def postfilter (S : Finset (Fin 17)) (x : Fin 6 → Bool) : Bool :=
+  circuitFun 6 counterfactual x && wireConjunction S x
+
+lemma allLeaves_independent : graphValue allLeaves = false := by decide +kernel
+
+lemma counterfactual_allLeaves : circuitFun 6 counterfactual allLeaves = true := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma false_wires_at_allLeaves : ∀ w : Fin 17, wireValue w allLeaves = false ↔
+    w = 0 ∨ w = 1 ∨ w = 9 ∨ w = 10 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma false_wire_rejects_star : ∀ w : Fin 17, wireValue w allLeaves = false →
+    (∀ b : Fin 4, wireValue w (edgeInput (0, b)) = false) ∨
+      (∀ b : Fin 4, wireValue w (edgeInput (1, b)) = false) := by
+  decide +kernel
+
+lemma bool_false_of_not_true (b : Bool) (h : b ≠ true) : b = false := by
+  cases b with
+  | false => rfl
+  | true => exact False.elim (h rfl)
+
+lemma postfilter_false_of_wire_false (S : Finset (Fin 17)) (w : Fin 17) (hw : w ∈ S)
+    (x : Fin 6 → Bool) (hx : wireValue w x = false) : postfilter S x = false := by
+  have hc : wireConjunction S x = false := by
+    apply bool_false_of_not_true
+    intro hh
+    have ht := (wireConjunction_spec S x).mp hh w hw
+    exact (by decide : false ≠ true) (hx.symm.trans ht)
+  simp [postfilter, hc]
+
+lemma not_all_true_has_false {α : Type*} [DecidableEq α] (S : Finset α)
+    (f : α → Bool) (h : ¬ ∀ w ∈ S, f w = true) :
+    ∃ w ∈ S, f w = false := by
+  push Not at h
+  obtain ⟨w, hw, hf⟩ := h
+  refine ⟨w, hw, ?_⟩
+  cases hx : f w with
+  | false => rfl
+  | true => exact False.elim (hf hx)
+
+lemma rejecting_postfilter_has_false_wire (S : Finset (Fin 17))
+    (h : postfilter S allLeaves = false) :
+    ∃ w ∈ S, wireValue w allLeaves = false := by
+  have hc : wireConjunction S allLeaves = false := by
+    simpa only [postfilter, counterfactual_allLeaves, Bool.true_and] using h
+  have hn : ¬ ∀ w ∈ S, wireValue w allLeaves = true := by
+    intro hall
+    exact (by decide : false ≠ true)
+      (hc.symm.trans ((wireConjunction_spec S allLeaves).mpr hall))
+  exact not_all_true_has_false S (fun w => wireValue w allLeaves) hn
+
+lemma rejecting_postfilter_rejects_star (S : Finset (Fin 17))
+    (h : postfilter S allLeaves = false) :
+    (∀ b : Fin 4, postfilter S (edgeInput (0, b)) = false) ∨
+      (∀ b : Fin 4, postfilter S (edgeInput (1, b)) = false) := by
+  obtain ⟨w, hw, hfalse⟩ := rejecting_postfilter_has_false_wire S h
+  rcases false_wire_rejects_star w hfalse with hzero | hone
+  · exact Or.inl (fun b => postfilter_false_of_wire_false S w hw _ (hzero b))
+  · exact Or.inr (fun b => postfilter_false_of_wire_false S w hw _ (hone b))
+
+lemma accepted_card_le_two_of_reject_star (P : (Fin 2 × Fin 4) → Bool)
+    (h : (∀ b : Fin 4, P (0, b) = false) ∨ (∀ b : Fin 4, P (1, b) = false)) :
+    (edges.filter fun e => P e = true).card ≤ 2 := by
+  rcases h with hzero | hone
+  · have hs : edges.filter (fun e => P e = true) ⊆ edges.filter (fun e => e.1 = 1) := by
+      intro e he
+      obtain ⟨hem, hp⟩ := Finset.mem_filter.mp he
+      refine Finset.mem_filter.mpr ⟨hem, ?_⟩
+      obtain ⟨a, b⟩ := e
+      fin_cases a
+      · change P (0, b) = true at hp
+        rw [hzero b] at hp
+        contradiction
+      · rfl
+    exact (Finset.card_le_card hs).trans (by decide)
+  · have hs : edges.filter (fun e => P e = true) ⊆ edges.filter (fun e => e.1 = 0) := by
+      intro e he
+      obtain ⟨hem, hp⟩ := Finset.mem_filter.mp he
+      refine Finset.mem_filter.mpr ⟨hem, ?_⟩
+      obtain ⟨a, b⟩ := e
+      fin_cases a
+      · rfl
+      · change P (1, b) = true at hp
+        rw [hone b] at hp
+        contradiction
+    exact (Finset.card_le_card hs).trans (by decide)
+
+lemma rejecting_postfilter_edge_budget (S : Finset (Fin 17))
+    (h : postfilter S allLeaves = false) :
+    (edges.filter fun e => postfilter S (edgeInput e) = true).card ≤ 2 :=
+  accepted_card_le_two_of_reject_star (fun e => postfilter S (edgeInput e))
+    (rejecting_postfilter_rejects_star S h)
+
+lemma sound_postfilter_edge_budget (S : Finset (Fin 17))
+    (hsound : ∀ x : Fin 6 → Bool, postfilter S x = true → graphValue x = true) :
+    (edges.filter fun e => postfilter S (edgeInput e) = true).card ≤ 2 := by
+  have hreject : postfilter S allLeaves = false :=
+    bool_false_of_not_true _ (fun hx =>
+      (by decide : false ≠ true) (allLeaves_independent.symm.trans (hsound allLeaves hx)))
+  exact rejecting_postfilter_edge_budget S hreject
+
+lemma sound_postfilter_cannot_lose_at_most_one (S : Finset (Fin 17))
+    (hsound : ∀ x : Fin 6 → Bool, postfilter S x = true → graphValue x = true) :
+    ¬ edges.card ≤ (edges.filter fun e => postfilter S (edgeInput e) = true).card + 1 := by
+  have hb := sound_postfilter_edge_budget S hsound
+  rw [edges_card]
+  omega
+
+end H4PostfilterObstruction
+
+end PEqualNP.Outside.L_meta_4970
