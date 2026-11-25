@@ -15,3 +15,6 @@
 2026-11-25T15:11:47.134499+00:00 Recovery assigned new gap L-meta-2590; expiry 2026-11-25T15:30:16.739Z.
 2026-11-25T15:19:39.933576+00:00 L-meta-2590: kernel RUP checker using BinaryTree compiled; independent review PASS. OR-count≥14 route disproved computationally by20gate13OR+7AND witness.
 2026-11-25T15:22:24.657970+00:00 Petersen read1≥20 and gate-count partition compiled; independent review PASS.
+
+2026-11-25T15:23:38.109872+00:00 readk_strategy Petersen work stopped by lease loss. Exact read1≥20 bound compiled; general19gate exclusion remains unresolved.
+2026-11-25T15:25:15.462544+00:00 Second lease vanished before expiry; HTTP410 confirmed. Petersen searches stopped. library_profile compiled; AND6 and20gate witness Lean sources UNVERIFIED after termination.

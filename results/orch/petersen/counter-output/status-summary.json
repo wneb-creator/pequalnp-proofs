@@ -1,0 +1,12 @@
+{
+  "counter-c6-share-7.solution": "s UNSATISFIABLE",
+  "counter-petersen-and-edge-strong.solution": "c UNKNOWN",
+  "counter-petersen-and-edge.solution": "c UNKNOWN",
+  "counter-petersen-or-edge-strong.solution": "c UNKNOWN",
+  "counter-petersen-or-edge.solution": "c UNKNOWN",
+  "counter-petersen-or-nonedge-strong.solution": "c UNKNOWN",
+  "counter-petersen-or-nonedge.solution": "c UNKNOWN",
+  "counter-petersen-or-edge-ordered": "Interrupted on lease loss; no verdict",
+  "counter-petersen-or-nonedge-ordered": "Interrupted on lease loss; no verdict",
+  "counter-petersen-and-edge-ordered": "Interrupted on lease loss; no verdict"
+}

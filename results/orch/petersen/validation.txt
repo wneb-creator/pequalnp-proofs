@@ -10,3 +10,11 @@ TIMING total=26.57 subagents=7
 readk_bound.lean: compiled exit0; proves≥20 under extra AO2 and ReadK1 assumptions. Independent reviewPASS.
 Named L_meta_2590.lean:46lines; lake build passed18423jobs; only partition and conditional contradiction lemmas, no posted theorem.
 False route abandoned: unconditional OR≥14 disproved by computationally verified20gate13OR+7AND witness.
+
+library_profile.lean: compiled exit0; finite Petersen edge-loss and residual-cover bounds; independent reviewPASS. Full stdout/stderr preserved.
+normal_and6.lean and library_witness.lean: UNVERIFIED, validation stopped on lease loss. External20gate witness checked on1024 inputs.
+No19gate witness; no full proof; no proofPR.
+Lease failure: HTTP410, prior expiry15:38:41.568Z; exact message: no such live lease: it expired or was released. Ask /desk/next again.
+No null desk responses (0). Neither lost lease was released by this job.
+Sub-agents:7 total.
+TIMING total=32.16 subagents=7

@@ -1,0 +1,34 @@
+{
+  "nonread_edges": [
+    {
+      "edge": [
+        4,
+        0
+      ],
+      "vectors": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "edge": [
+        2,
+        7
+      ],
+      "vectors": [
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ],
+  "minimum_edges_in_k_vertices": {
+    "4": 0,
+    "5": 2,
+    "6": 3,
+    "7": 6
+  }
+}

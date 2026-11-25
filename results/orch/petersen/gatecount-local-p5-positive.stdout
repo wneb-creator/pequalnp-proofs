@@ -1,0 +1,102 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from 'results/orch/petersen/gatecount-local-p5-positive.cnf'
+c opening file to read 'results/orch/petersen/gatecount-local-p5-positive.cnf'
+c found 'p cnf 586 5533' header
+c parsed 5533 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 5500 553 94%
+c {  0.00  4  0 0   0    0    0  0% 0 5500 553 94%
+c i  0.00  4 53 0   6   99   85 63% 3 5500 552 94%
+c -  0.01  4 27 1  34  300  261 58% 4 5394 552 94%
+c i  0.01  4 25 1  52  379  331 59% 4 5394 551 94%
+c i  0.01  4 25 1  52  380  331 59% 4 5394 550 94%
+c i  0.01  4 25 1  53  381  331 59% 4 5394 549 94%
+c i  0.01  4 25 1  53  382  331 58% 4 5394 548 94%
+c -  0.01  4 20 2 131  901  751 58% 5 5216 548 94%
+c }  0.01  4 19 2 136 1001  843 58% 5 5216 548 94%
+c [  0.01  4  0 2 136 1001  843  0% 0 5216 548 94%
+c O  0.01  4 12 2 136 1002  844 94% 4 5216 548 94%
+c -  0.02  4  9 3 136 1801 1355 62% 6 5216 548 94%
+c ]  0.04  4  9 3 137 2548 1793 59% 6 5216 548 94%
+c 1  0.04  4  9 3 137 2548 1793 59% 6 5216 548 94%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to 'results/orch/petersen/gatecount-local-p5-positive.model'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.04   99.85% search
+c         0.02   68.35% stable
+c         0.01   30.25% unstable
+c         0.00    5.49% parse
+c         0.00    1.02% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.04   93.93% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               673        26.41 %  of conflicts
+c conflicts:                  2548     71665.64    per second
+c decisions:                  5319    149603.42    per second
+c fixed:                        38         6.48 %  of all variables
+c learned:                    2435        95.57 %  per conflict
+c learned_lits:              44517       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  10752        24.15 %  learned literals
+c minishrunken:               5550        12.47 %  learned literals
+c otfs:                         39         1.53 %  of conflict
+c propagations:             213808         6.01 M  per second
+c reduced:                     166         6.51 %  per conflict
+c rephased:                      1      2548.00    interval
+c restarts:                    137        18.60    interval
+c stabilizing:                   1        60.68 %  of conflicts
+c subsumed:                    472         5.95 %  of all clauses
+c strengthened:                 38         0.48 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.04    seconds
+c total real time since initialization:            0.10    seconds
+c maximum resident set size of process:            4.16    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

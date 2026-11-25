@@ -1,0 +1,14 @@
+{
+  "counter-petersen-and-edge-strong.lrat": {
+    "bytes": 201494262,
+    "sha256": "3c24dd4064c8a65f1235ee118765093c01f676b31592ce81a567d180239bab15"
+  },
+  "counter-petersen-or-edge-strong.lrat": {
+    "bytes": 250188306,
+    "sha256": "85b9259644d98629bd816b794bde9247700bf5f17781b832ba1dc0e825644bd7"
+  },
+  "counter-petersen-or-nonedge-strong.lrat": {
+    "bytes": 167920616,
+    "sha256": "90c309aba5b4ab9733739584529e8da270d6c50d3b5c873d509b54d8dc8e9d67"
+  }
+}

@@ -1,3 +1,7 @@
+# Current task: L-meta-2590, Petersen monotone19 lower bound
+
+Lease returned by recovery request; root owns desk calls. Exact statement /tmp/oec/pequalnp-pilot-143/statement-2590.txt. Reductions_open true but reductions_live=3 (cap already reached). New scratch work under results/orch/petersen/. Previous plane work below is archived and stopped.
+
 # Current status: stopped after lost lease; partial only
 
 The named module compiles, but has no theorem proving the posted gap. Local checker: REJECTED (no-theorem). All searches stopped; no full proof or refutation. Earlier progress entries below are historical.
@@ -38,3 +42,18 @@ Assigned statement and lease metadata are in /tmp/oec/pequalnp-pilot-143/desk-ne
 2026-11-25T15:08:05.145656+00:00 counterexample STOP on lease loss: no running owned searches; Fano26 unrestricted/TopForm SAT both UNKNOWN after240s, q2/q3 stochastic searches no witness. Full logs saved counter-output/.
 
 2026-11-25T15:08:21.800302+00:00 gate_count_theory: stopped on lost-lease notice; C6 4-OR and Fano19-OR searches found no witness (best1error); no general OR-count proof. Saved notes, source, data, logs.
+
+2026-11-25T15:14:49.785544+00:00 normal_form: New Petersen gap2590. Checked L635 proves AndCount≥6, and L7541 compiles original Monotone2 into OR-free model bounded by original AND count. Inlined/specialized combined scratch normal_and6.lean (2821 lines) now compiling; root notified.
+
+2026-11-25T15:18:52.841921+00:00 Petersen library_route: safeMathlib-tree RUPchecker compiled; OR14 conjecture refuted by20gate13OR7AND witness, kernel verification underway.
+
+2026-11-25T15:22:09.806331+00:00 Petersen gate_count_theory: found and fully truth-table-validated20gate witness13OR+7AND, refuting OR≥14 split; local4gateP5/5gatefullcontext UNSAT with SATpositivecontrols; lower-size search continues.
+
+2026-11-25T15:23:20.856972+00:00 normal_form STOP: Petersen lease lost. normal_and6.lean complete source UNVERIFIED; improved validation pending, initial algebraic bridge needed a recursion-depth increase. Saved detailed caveats in petersen/normal-and6.md.
+
+2026-11-25T15:23:32.000630+00:00 Petersen gate_count_theory: all searches stopped immediately on lost-lease notice (exit130); 12OR/freeAND and13OR/6AND produced no new witness.20gate13OR+7AND result and allsource/CNF/logs preserved.
+
+2026-11-25T15:23:38.109872+00:00 readk_strategy: stopped Petersen work on secondlease-loss; checked readk_bound stable, structuralprobe logs saved.
+
+2026-11-25T15:23:45.766362+00:00 library route: compiledPetersen finite residualcoverprofile library_profile.lean; compiledinlineRUPchecker saved. Witness20 gates external1024checkconfirmed OR13/AND7, finalLeanproofpending whenleasevanished. Child toldstop.
+2026-11-25T15:23:56.816565+00:00 counterexample STOP on Petersen lease loss: all owned searches terminated, no19-gate witness; sixSATruns UNKNOWN, threeorderedruns interrupted UNKNOWN. Sources/logs and C6resource UNSAT/LRAT preserved results/orch/petersen/counter-output/.
