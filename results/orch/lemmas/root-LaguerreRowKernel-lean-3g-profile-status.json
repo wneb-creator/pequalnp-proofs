@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/LaguerreRowKernel.lean",
+  "sha256": "398563b9b0305ceb037c0fc7cae0f05c43ca0816960419a9c56e994363389dfd",
+  "source_sha256_after": "398563b9b0305ceb037c0fc7cae0f05c43ca0816960419a9c56e994363389dfd",
+  "started_utc": "2026-11-25T13:04:58.071239+00:00",
+  "finished_utc": "2026-11-25T13:05:01.587098+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2336116736,
+  "seconds": 3.515883351001321,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}
