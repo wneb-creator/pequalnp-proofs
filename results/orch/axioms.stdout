@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_1904.pair_safe_implies_safe' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1904.exists_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1904.edgeless' depends on axioms: [propext, Quot.sound]

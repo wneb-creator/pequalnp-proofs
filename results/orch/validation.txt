@@ -1,0 +1,13 @@
+pequalnp-pilot-94 — L-meta-1904 partial checkpoint
+
+Named file: lean/PEqualNP/Outside/L_meta_1904.lean
+Build: lake build PEqualNP.Outside.L_meta_1904
+Result: Build completed successfully (6655 jobs).
+Three helper lemmas compile; the posted theorem is not proved.
+Independent review passed for a partial checkpoint; helper axiom audit uses only propext, Classical.choice, Quot.sound.
+Official source guard refuses the absent final theorem, as expected for this partial.
+No proof PR opened. Full statement checker acceptance has not been claimed.
+Line count before/after cleanup: 185/185; full-proof cleanup has not started.
+Provenance: pair_safe_implies_safe extracted from merged R_meta_1904_493; root adds minimum selection and edgeless case.
+Sub-agents: 5 (status/setup/review, structure, counterexample search, lemmas, research)
+TIMING total=8 subagents=5
