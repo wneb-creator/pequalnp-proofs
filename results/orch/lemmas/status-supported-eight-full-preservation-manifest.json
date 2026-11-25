@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-11-25T13:18:00.960811+00:00",
+  "scope": "Full Defs-only supported-eight cofactor lower bound and independent composition review; separate computational sharp17gate K4 protected-matching control and independent all-input/derivative audit. Neither is a27gate Fano target proof.",
+  "lean_exit_code": 0,
+  "lean_stdout": "Two inherited unused-variable warnings; no errors.",
+  "control_scope": "17gate K4 subdivision circuit, exact1024truthrows and24directed derivatives; Bplus8/Bzero0, protected5/8, all derivatives bright. Computational example only.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-standalone.lean",
+      "bytes": 416899,
+      "sha256": "f1ef4fe0816e2c3cacdfd993c9b07f30be2094b72494d534d9a0ff01bd9cb6b6"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-standalone-build.json",
+      "bytes": 296,
+      "sha256": "0ad76565bfd1679a75cffddaf66a240726b5fcdf97e07ff8ae08cc3b7537c283"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-standalone-build.stdout",
+      "bytes": 818,
+      "sha256": "c888b145314881b4712ebd42eaf8da8bbe91db349b03bc63663ef95da8137e8f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-supported-eight-standalone.json",
+      "bytes": 2545,
+      "sha256": "0a0b52f18f0bab1c32b8368dcb3b025878548f3b1d3105b2826fe1a8af5b44f4"
+    },
+    {
+      "path": "results/orch/lemmas/status-k4-protected-matching-control.py",
+      "bytes": 2876,
+      "sha256": "5f3ec5a4d220891e7df59a3a9a4a1a5deba40abd68dd4b8bfa323013725badf8"
+    },
+    {
+      "path": "results/orch/lemmas/status-k4-protected-matching-control.json",
+      "bytes": 2668,
+      "sha256": "ccccb9a1f98201029809c41bd04b135c37d020714c1b1b2a9071b2390685a3fd"
+    },
+    {
+      "path": "results/orch/lemmas/status-k4-protected-matching-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-k4-protected-control-review.py",
+      "bytes": 2663,
+      "sha256": "de004368648e6358dc99868c5dc9bf2ebbbec53b38b5ff767bc99669af0c39eb"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-k4-protected-control-review.json",
+      "bytes": 897,
+      "sha256": "c6e4132be010bbab19bef52bebaacf20e511dad792ef80b974eea585ced3f953"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-k4-protected-control-review.stdout",
+      "bytes": 819,
+      "sha256": "e18a9ea288b4b44f32936fb5515e1f7d9eb2b9d1a951663eb7b37046c177c722"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-k4-protected-control-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

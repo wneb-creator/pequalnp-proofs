@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS independent source/math review and complete permitted-import build binding",
+  "source": "results/orch/lemmas/constructive-mixed9-finite.lean",
+  "sha256": "763ee35ab89eb6933cc91ad866468b703bb10dc4e4f9a273d6c9c4532bbb2adb",
+  "lines": 996,
+  "reviewed_utc": "2026-11-25T13:10:26.644205+00:00",
+  "checks": [
+    "Exact predicate prefix matches independently reviewed finite core fa87e0a9.",
+    "All128 block statements cover exactly firstcoordinate1/3 and every pair of nextcoordinates; names and vector endpoints agree.",
+    "m9_good_from_checked exhausts the9 pairs of Fin3 choices and contradicts a specific true disjunct of m9_bad against checked=false.",
+    "m9_point_from_good projects exactly the7 nonzero pointAllowed conjuncts; zero-mask case is definitionally false.",
+    "Final APIs preserve first-coordinate normalization and full normal predicate; no hypothesis was weakened or discarded.",
+    "Trust/format scan clean; only allowed recursion/heartbeat limits."
+  ],
+  "scope": "Conclusion glue and unchanged finite statement assembly, not an actual-circuit transfer or full gap proof.",
+  "prior_core_review": "results/orch/lemmas/stochastic-mixed9-predicate-review.json",
+  "build": {
+    "receipt": "results/orch/lemmas/constructive-mixed9-finite-build.json",
+    "exit_code": 0,
+    "checked_source_matches_exactly": true,
+    "olean_sha256": "f322691a3b54da60b9145c266c5dc240800c7ba509b071280b10dfe8b8657ef8",
+    "diagnostics": "Complete stdout668bytes contains two unused-simp warnings only; stderr empty."
+  },
+  "finalized_utc": "2026-11-25T13:21:02.208099+00:00"
+}

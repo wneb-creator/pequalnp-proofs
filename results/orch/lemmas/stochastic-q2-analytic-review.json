@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS independent mathematical/source review and exact standalone exit-0 binding",
+  "source": "results/orch/lemmas/algebraic-q2-analytic.lean",
+  "sha256": "cce10b1a328b25900d7beac6a5b876428d380431bd28dae965215f688ab80c8a",
+  "receipt": {
+    "source": "results/orch/lemmas/algebraic-q2-analytic.lean",
+    "sha256": "cce10b1a328b25900d7beac6a5b876428d380431bd28dae965215f688ab80c8a",
+    "lines": 218,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T13:11:58.230034+00:00",
+    "command": "PATH=\"/tmp/oec/pequalnp-pilot-81/lean-4.36.0-linux/bin:${PATH}\" lake env lean -j1 -M10000 /workspace/pequalnp-proofs/results/orch/lemmas/algebraic-q2-analytic.lean",
+    "workdir": "/workspace/pequalnp-proofs/lean",
+    "stdout": "results/orch/lemmas/algebraic-q2-analytic-build.stdout",
+    "stderr": "results/orch/lemmas/algebraic-q2-analytic-build.stderr",
+    "scope": "Abstract residual-unit contradiction only; actual circuit transfer is separate. Defs-only standalone; tiny Fin3 facts checked with decide +kernel."
+  },
+  "independent_antichain_checks": 3072,
+  "checks": [
+    "The two tiny antichain facts are valid on Fin3: omitting one coordinate or containing one coordinate leaves a Boolean square of width2. Independently checked all3072 cases.",
+    "When r0 has size2, residual inclusion in r0 is equivalent to avoiding its unique complementary unit. Center\u22645 forces that unit support to have\u22653 line labels; allowed-mask classification and missing0 then force it to equalS.",
+    "Budget at0 makes r0 nonempty; the center bound excludes size3. If0belongsS, allfour assigned rows consume0, forcing size2 and contradicting the previous missing-unit conclusion.",
+    "With0absentS, assigned rows0/1/3 equal their own distinct required triples. Nonempty-source co-label then prevents r0 from being contained in any other residual label-set.",
+    "The three labels1/5/6 are nonempty by two assigned consumers plus the eligible-neighbor extra. Co-label and the three exact rows make these sets pairwise incomparable.",
+    "Size2 r0 forces allthree candidate sets to contain the complementary unit; size1 forces them all to omit its unit. The respective Fin3 antichain facts finish both cases.",
+    "Only nonempty-source co-label is used. Fixed sharing is needed upstream for the actual center inequality, not as a premise of this abstract theorem; S strictness is also unnecessary.",
+    "All critical assumptions remain explicit: allowed residual masks, neighborhood supersets and assigned choices, A2=S, per-line budgets, nonempty-source co-label, and center bound."
+  ],
+  "scope": "Abstract residual-unit contradiction only. The source is Defs-only and kernel-checked, but the actual-circuit allowed-mask and residual-coordinate transfers are separate."
+}

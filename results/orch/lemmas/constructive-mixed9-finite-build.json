@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-finite.lean",
+  "sha256": "763ee35ab89eb6933cc91ad866468b703bb10dc4e4f9a273d6c9c4532bbb2adb",
+  "lines": 996,
+  "bytes": 33989,
+  "checked_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.lean",
+  "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.olean",
+  "olean_sha256": "f322691a3b54da60b9145c266c5dc240800c7ba509b071280b10dfe8b8657ef8",
+  "completed_observed_utc": "2026-11-25T13:20:23.385589+00:00",
+  "exit_code": 0,
+  "stdout_bytes": 668,
+  "stderr_bytes": 0,
+  "warnings": "Two unused-simp-argument warnings only; no errors.",
+  "command": "PATH=/tmp/oec/pequalnp-pilot-81/lean-4.36.0-linux/bin:$PATH lake env lean -j1 -M6000 -R /tmp/oec/pequalnp-pilot-81/lean-cache -o /tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.olean /tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.lean",
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "scope": "Complete permitted-import finite mixed-p9 certificate with unconditional m9_point_empty API. Actual-circuit composition remains separate; no full posted theorem or refutation."
+}

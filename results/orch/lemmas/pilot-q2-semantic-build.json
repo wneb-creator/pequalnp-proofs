@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean",
+  "sha256": "5daeb8647133f30d7d7df5b64331136c36b61ed919b4f2fed8ceb172d1a16680",
+  "started_utc": "2026-11-25T13:08:27.799234+00:00",
+  "finished_utc": "2026-11-25T13:09:53.580341+00:00",
+  "exit_code": 0,
+  "scope": "Conditional q2 residual semantic contradiction; finite certificate remains an explicit premise"
+}

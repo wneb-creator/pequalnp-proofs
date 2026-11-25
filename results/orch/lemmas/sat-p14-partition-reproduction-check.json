@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "utc": "2026-11-25T13:15:29.096873+00:00",
+  "verifier": "constructive-partition-audit.py",
+  "scope": "Fresh-directory independent portable audit. No solver launched.",
+  "stdout": "sat-p14-partition-reproduction-check.stdout",
+  "stderr": "sat-p14-partition-reproduction-check.stderr"
+}

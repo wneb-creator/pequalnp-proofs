@@ -1,0 +1,49 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:90:37: warning: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_count, Nat.add_comm, Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:94:37: warning: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_count, Nat.add_comm, Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:98:36: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_sub, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:102:36: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_sub, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:106:38: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_empty, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:110:38: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_empty, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:370:57: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [budgetB, centerB, labelsB, Bool.and_true, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

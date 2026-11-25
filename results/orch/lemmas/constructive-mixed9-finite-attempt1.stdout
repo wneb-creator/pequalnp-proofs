@@ -1,0 +1,163 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-finite.lean:892:10: error: unsolved goals
+case false.«0».«0»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«0».«1»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«0».«2»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨0, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«1».«0»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«1».«1»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«1».«2»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨1, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«2».«0»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨0, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«2».«1»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨1, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+
+case false.«2».«2»
+r : Fin 6 → Fin 8
+first : r 0 = 1 ∨ r 0 = 3
+normal : m9_normal r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = true
+good : m9_good r ((fun i => i) ⟨2, ⋯⟩) ((fun i => i) ⟨2, ⋯⟩) = false
+bad :
+  ((((((((m9_normal r 0 0 = true → m9_good r 0 0 = true) ∧ (m9_normal r 0 1 = true → m9_good r 0 1 = true)) ∧
+                (m9_normal r 0 2 = true → m9_good r 0 2 = true)) ∧
+              (m9_normal r 1 0 = true → m9_good r 1 0 = true)) ∧
+            (m9_normal r 1 1 = true → m9_good r 1 1 = true)) ∧
+          (m9_normal r 1 2 = true → m9_good r 1 2 = true)) ∧
+        (m9_normal r 2 0 = true → m9_good r 2 0 = true)) ∧
+      (m9_normal r 2 1 = true → m9_good r 2 1 = true)) ∧
+    (m9_normal r 2 2 = true → m9_good r 2 2 = true)
+⊢ false = true
+/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-finite.lean:893:49: warning: This simp argument is unused:
+  normal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [m9_bad, good] at bad
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-finite.lean:893:56: warning: This simp argument is unused:
+  good
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [m9_bad, normal] at bad
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-finite.lean:895:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

@@ -1,0 +1,11 @@
+{
+  "source": "results/orch/lemmas/algebraic-m9-conditional-cache.lean",
+  "sha256": "1af5ab756f3ed4bd9d59af9d9a922402dba1d75ea1c31b2768b368c043c54acb",
+  "lines": 2400,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T13:15:20.378589+00:00",
+  "checked_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/AlgebraicM9Conditional.lean",
+  "scope": "Conditional canonical mixed p9 exclusion: exact ineligible set {0,1,2,5,11}, exact missing cap neighborhoods {2,5}, total surplus\u226414; assumes the explicit m9_point_empty finite certificate. Cached import PNPNineFree; not yet a standalone permitted-import file. Six preexisting style/deprecation warnings only.",
+  "stdout": "results/orch/lemmas/algebraic-m9-conditional-cache-build.stdout",
+  "stderr": "results/orch/lemmas/algebraic-m9-conditional-cache-build.stderr"
+}

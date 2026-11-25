@@ -1,0 +1,28 @@
+{
+  "reviewer": "status_review",
+  "checked_utc": "2026-11-25T13:17:23.949612+00:00",
+  "verdict": "PASS",
+  "scope": "Independent source/math review of the two listed helpers only, checked as exact single occurrences in the successful cached conditional composition. No full target claim.",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-coordinate-tail.lean",
+      "sha256": "733ddb9ef216f04a4cb7f01296223b8f9da8e6aa8cd3bcd96cb5cdac02b63264"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-zero-points-tail.lean",
+      "sha256": "01a2c7453b92a678ed71e93d68fc0d9e57957b1f8955820d9e51e7a0ff286bee"
+    }
+  ],
+  "checked_composition": {
+    "path": "results/orch/lemmas/algebraic-m9-conditional-cache.lean",
+    "sha256": "1af5ab756f3ed4bd9d59af9d9a922402dba1d75ea1c31b2768b368c043c54acb",
+    "receipt": "results/orch/lemmas/algebraic-m9-conditional-cache-build.json",
+    "exit_code": 0
+  },
+  "findings": [
+    "Coordinate normalization first obtains an injective enumeration of the exactly three residual units. Positive and proper line7 coordinate set gives residual cardinality1 or2; the existing permutation helper then normalizes it to{0} or{0,1}. No cardinality inflation or surjective padding.",
+    "Zero-points helper retains explicit missing2/missing5, protection, coordinate bijection, first-set normalization, and finite-certificate hypotheses. It applies the actual-circuit constraint transfer and the reviewed Finset-to-Boolean contradiction, then uses exact coordinate cardinality to conclude ru3/4/6 empty.",
+    "The finite-certificate hypothesis is explicit; these helpers do not assert the certificate without proof. Neither helper adds declarations of trust, admissions, forbidden formatting or meta machinery."
+  ],
+  "standalone_status": "Not claimed here; the two helpers were checked within the cached conditional composition."
+}

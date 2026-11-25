@@ -67,3 +67,12 @@
 2026-11-25T12:47:51.801477+00:00: Checkpoint1245 freeze prepared; full target remains unresolved.
 
 2026-11-25T13:01:43.528398+00:00 — Preparing checkpoint1300 from newly completed reviewed standalone components and exact timeout diagnostics. No full target proof/refutation; independent preservation audit follows.
+
+2026-11-25T13:09:53Z: Conditional q2 semantic wrapper completed standalone exit0.
+2026-11-25T13:11:58Z:218-line analytic q2 residual obstruction completed standalone exit0 and independent reviews; the larger exhaustive residual job was deliberately stopped at13:12:18 with exit143.
+2026-11-25T13:15:20Z: Complete canonical mixed-p9 missing-{2,5} composition completed cached exit0 with its finite certificate still an explicit premise.
+2026-11-25T13:17:20Z: Actual q2 circuit transfer completed cached exit0 under explicit projected-mask family hypotheses.
+2026-11-25T13:17:45Z: Nine-free/topological quiet SAT variant completed UNKNOWN; reviewed incomparability/partition successor launched separately.
+2026-11-25T13:19:03.269765+00:00: Checkpoint1320 prepared for independent audit; full posted target remains unresolved.
+
+2026-11-25T13:21:29.307409+00:00: Complete repaired mixed-p9 finite certificate observed exit0; unconditional m9_point_empty exported. Independent source/build review finalized; preserving before subsequent circuit composition.

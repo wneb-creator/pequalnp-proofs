@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-11-25T13:17:57.928062+00:00",
+  "status": "UNKNOWN",
+  "scope": "20-minute computational SAT timeout; no witness and no impossibility claim.",
+  "source_sha256": "8fa003dd5c3828cf5e633aa095172f5c9dff5fb8c6dd1e8e5bf95338b2809eb5",
+  "started_utc": "2026-11-25T12:57:44.945445+00:00",
+  "completed_utc": "2026-11-25T13:17:45.852812+00:00",
+  "wrapper_exit": 0,
+  "immutable_inputs": [
+    {
+      "suffix": ".cnf",
+      "archived_path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine18.cnf.gz",
+      "sha256": "639d238daeb7ff3bda925eaf50eda20693b0ebca0932e3f9366c62dbc5068759",
+      "exact_match": true
+    },
+    {
+      "suffix": ".metadata.json",
+      "archived_path": "results/orch/lemmas/sat-archive/sat-p14-compact-nine18.metadata.json.gz",
+      "sha256": "0fad6886fc9caf023f50c6e13c6943a4a603d16fe29b650f99e2da5bb89ce183",
+      "exact_match": true
+    }
+  ],
+  "requires": [
+    "results/orch/lemmas/sat-p14-nine-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine18-run.stdout.gz",
+      "bytes": 10875,
+      "sha256": "e9d36ab16935f85c870f1de44872a7cc96ec8d86680b11adddd4553ba1eaf0a1",
+      "restore_as": "sat-p14-compact-nine18-run.stdout",
+      "gzip": true,
+      "raw_bytes": 41599,
+      "raw_sha256": "ad77762241aa16e96439f440e6f7a9566a419135b3907582f55caab0c84c9996"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine18-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-nine18-run.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine18-run.runlog.gz",
+      "bytes": 158,
+      "sha256": "860a1e558b6d470c82b229d31a45cac42bb339507909417e11693590f0e32d28",
+      "restore_as": "sat-p14-compact-nine18-run.runlog",
+      "gzip": true,
+      "raw_bytes": 176,
+      "raw_sha256": "45d6f2b7cd834c64d72227f273d7900b34a3c3d735957e3a23ae51f9757252e7"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine18-run.driver.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-nine18-run.driver.stderr",
+      "gzip": true,
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nine18-run.receipt.json.gz",
+      "bytes": 308,
+      "sha256": "940e6bb18583f9616a83c7a3f21499d626c62200b1cb3df6eb08db156539a15c",
+      "restore_as": "sat-p14-compact-nine18-run.receipt.json",
+      "gzip": true,
+      "raw_bytes": 496,
+      "raw_sha256": "a3abc930e450617f9c3b5bf3e7f7a8f5708176da0cac1ff5fd0d1f6dd604fe91"
+    }
+  ]
+}

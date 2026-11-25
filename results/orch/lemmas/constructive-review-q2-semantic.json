@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "source_sha256": "5daeb8647133f30d7d7df5b64331136c36b61ed919b4f2fed8ceb172d1a16680",
+  "build_status": "Permitted-import standalone passed exit0; exact reviewed interface prefix plus final semantic tail verified. Final edits only specialize Boolean rewrites and introduce a local OR-splitting helper.",
+  "scope": "Semantic conditions imply contradiction under the explicit finite q2_bad certificate. No unconditional circuit exclusion claimed.",
+  "checks": [
+    "Each row unfolds exactly its three neighborhood bit positions:11={0,1,3},69={0,2,6},98={1,5,6},49={0,4,5}.",
+    "Force combines residual inclusion with nonempty source or the explicit shared witness; the label hypothesis exactly supplies the target context membership.",
+    "Consumer and center cardinal/indicator budgets convert through the already compiled q2_count_card and q2_sub_iff.",
+    "The final Bool conjunction is exactly q2_bad, contradicting only the explicit certificate assumption."
+  ],
+  "reviewed_utc": "2026-11-25T13:11:23.151279+00:00",
+  "tail_sha256": "02c9a211c38422b2ac3be3ef6e02520b8c2766239ffebfc9e96fafa4ffb392b4",
+  "receipt": "pilot-q2-semantic-build.json",
+  "logs": {
+    "stdout": "d9caed536d327779d2e2ab2cabcf8f5716e293dc795b1db1b466375958c05d40",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

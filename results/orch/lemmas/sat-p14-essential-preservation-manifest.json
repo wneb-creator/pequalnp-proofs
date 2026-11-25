@@ -1,0 +1,198 @@
+{
+  "created_utc": "2026-11-25T13:10:28.669845+00:00",
+  "scope": "Independently reviewed compact AND-operand incomparability extension; no solver outcome or Lean certificate.",
+  "source_sha256": "314a4ca70293fd75ff985df0a2e47f12b54a7e825acfe36f8d2ce01e894bacca",
+  "requires": [
+    "results/orch/lemmas/sat-p14-nine-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential.py",
+      "bytes": 2912,
+      "sha256": "314a4ca70293fd75ff985df0a2e47f12b54a7e825acfe36f8d2ce01e894bacca",
+      "restore_as": "sat-p14-compact-essential.py",
+      "gzip": false,
+      "raw_sha256": "314a4ca70293fd75ff985df0a2e47f12b54a7e825acfe36f8d2ce01e894bacca"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-controls.py",
+      "bytes": 4772,
+      "sha256": "0e752e05abf5d84231989c569ff235f20d7329f8e55e379ec8eb6150bfcaffec",
+      "restore_as": "sat-p14-compact-essential-controls.py",
+      "gzip": false,
+      "raw_sha256": "0e752e05abf5d84231989c569ff235f20d7329f8e55e379ec8eb6150bfcaffec"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-controls.json",
+      "bytes": 1102,
+      "sha256": "3b98fa20708dd6a6cdd7ecc9c8921ee855c96868bf6bda75368449a61a44a68f",
+      "restore_as": "sat-p14-compact-essential-controls.json",
+      "gzip": false,
+      "raw_sha256": "3b98fa20708dd6a6cdd7ecc9c8921ee855c96868bf6bda75368449a61a44a68f"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-controls.stdout",
+      "bytes": 888,
+      "sha256": "c0c3b3815343dadd8b140cffc2614b69a353046df0267ac9ec7979ba87cc1451",
+      "restore_as": "sat-p14-compact-essential-controls.stdout",
+      "gzip": false,
+      "raw_sha256": "c0c3b3815343dadd8b140cffc2614b69a353046df0267ac9ec7979ba87cc1451"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-essential-controls.stderr",
+      "gzip": false,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-essential-audit.py",
+      "bytes": 5804,
+      "sha256": "3bf3d91dda0d536806369118e622cfead5223a42ae15b6350b0659bf10d845cb",
+      "restore_as": "constructive-essential-audit.py",
+      "gzip": false,
+      "raw_sha256": "3bf3d91dda0d536806369118e622cfead5223a42ae15b6350b0659bf10d845cb"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-essential-encoder-review.json",
+      "bytes": 2391,
+      "sha256": "54c094c9440dd6d90f3a1115e453449dcd5931728cf2718cf4f283c733bc43bf",
+      "restore_as": "constructive-essential-encoder-review.json",
+      "gzip": false,
+      "raw_sha256": "54c094c9440dd6d90f3a1115e453449dcd5931728cf2718cf4f283c733bc43bf"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-essential-audit.stdout",
+      "bytes": 879,
+      "sha256": "14d81d15e40528aa85d0e7446f3ee0455dbefa431c52cfec0dc27d36cc5989f5",
+      "restore_as": "constructive-essential-audit.stdout",
+      "gzip": false,
+      "raw_sha256": "14d81d15e40528aa85d0e7446f3ee0455dbefa431c52cfec0dc27d36cc5989f5"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-essential-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-essential-audit.stderr",
+      "gzip": false,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-fano-canonical28-control.json",
+      "bytes": 1380,
+      "sha256": "bf8293db74cad9df4f9c6b07138cfbc14fa967f00ac29d43a99cad2e3f7ffe0b",
+      "restore_as": "sat-fano-canonical28-control.json",
+      "gzip": false,
+      "raw_sha256": "bf8293db74cad9df4f9c6b07138cfbc14fa967f00ac29d43a99cad2e3f7ffe0b"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential28-control.cnf.gz",
+      "bytes": 102031,
+      "sha256": "473d3f44b74f48623c51c1c8a6a562ed37849abf02fcbebe88bc61a4577f2e6f",
+      "restore_as": "sat-p14-compact-essential28-control.cnf",
+      "gzip": true,
+      "raw_sha256": "79d125b273b2943af59bf992a4b3e9877ebe6bed1f91cdd9227ee06c4b329f20"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential28-control.metadata.json.gz",
+      "bytes": 21458,
+      "sha256": "61be682d8ffcde9c4f308bff45e92b5fbadb320683c927520414808a20bb14a8",
+      "restore_as": "sat-p14-compact-essential28-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "0acb576cec9bdd383990c6b95051437cb757902a09232bf3be6d39193de38784"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential28-control.complete-assignment.json.gz",
+      "bytes": 16464,
+      "sha256": "9238663e3f4a8032311d0f06e91ae133b2636cb515ab7c35845ff359c5928b8d",
+      "restore_as": "sat-p14-compact-essential28-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "b095ce5df6f1763175902e44f5293bc5904fdeeaa19f376407c730134632ff84"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential28-control.compact-control.json.gz",
+      "bytes": 261,
+      "sha256": "7f7dee2d767fcb6221b639a7836a79056b5c23a8a8b1f445b5059f4de7811b93",
+      "restore_as": "sat-p14-compact-essential28-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "a128f4991090a93b53f5a0e05330d03d86af008dc84d844045cac997f9e01eb5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-host-control.cnf.gz",
+      "bytes": 1264106,
+      "sha256": "c787103241ab9172c0ae89e372a1a30b1290bf93886f8aa971e0ec6b4e929955",
+      "restore_as": "sat-p14-compact-essential-host-control.cnf",
+      "gzip": true,
+      "raw_sha256": "0f61a59dac71a65ea0e84ab857e0bb227cb4bb1a9c8409daba90ecaa4e9144c3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-host-control.metadata.json.gz",
+      "bytes": 248152,
+      "sha256": "55022674feb05d785ce906f4408aeb594912e97e1726bc44515c13983f7769ec",
+      "restore_as": "sat-p14-compact-essential-host-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "5b3e3cf37d4f8df4f28ec435337571ba166015b8bc34d77f4508e1b57dbeb747"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-host-control.complete-assignment.json.gz",
+      "bytes": 190394,
+      "sha256": "7b2047fcf1c2c6b5c3d2e0ef50f361aa87967d5010bb23e0d5ec9619461fc18a",
+      "restore_as": "sat-p14-compact-essential-host-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "bd0f208def5ef4ae35ac2857aec66e8597fcc333e6e727444d20cc19f49a85ad"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential-host-control.compact-control.json.gz",
+      "bytes": 321,
+      "sha256": "7634e93bb539f3fd48479dd8fe9ba3e06ff1b75cd2d5d716212b72001213d9e3",
+      "restore_as": "sat-p14-compact-essential-host-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "5f14f7b5f4aa483a0a11f07fdc2ef3b73a0ad810f434b4316510d1ab24dfeb6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential18-target.cnf.gz",
+      "bytes": 532607,
+      "sha256": "dca069e5d0ebd1ea71b15247453876ac0be6fceb9b353f08fedd0d32cfc6b520",
+      "restore_as": "sat-p14-compact-essential18-target.cnf",
+      "gzip": true,
+      "raw_sha256": "7f1adeb6aa48a3038e6b18012012107da935005309cbd61fbe5d2258a9b080b5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-essential18-target.metadata.json.gz",
+      "bytes": 108948,
+      "sha256": "79f813fbf8750a51c62616826e80e7a43ac12fd518da582657bc8da486223d75",
+      "restore_as": "sat-p14-compact-essential18-target.metadata.json",
+      "gzip": true,
+      "raw_sha256": "e55484c596f71d61e4549ba87f2ab0bfac2198ddcdfa49a2de43a6617d80665c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-essential-model.md",
+      "bytes": 2013,
+      "sha256": "12a4c3b491d38ff37e82acdc5e605689362ef3bca85b70be275130f9f7877b17",
+      "restore_as": "sat-p14-essential-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-essential-reproduction-check.stdout",
+      "bytes": 879,
+      "sha256": "14d81d15e40528aa85d0e7446f3ee0455dbefa431c52cfec0dc27d36cc5989f5",
+      "restore_as": "sat-p14-essential-reproduction-check.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-essential-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-essential-reproduction-check.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-essential-reproduction-check.json",
+      "bytes": 415,
+      "sha256": "4766f5f6c95e5796191f53e89d5e18c95daf2cde50250664bce6320b818b45cc",
+      "restore_as": "sat-p14-essential-reproduction-check.json",
+      "gzip": false
+    }
+  ]
+}

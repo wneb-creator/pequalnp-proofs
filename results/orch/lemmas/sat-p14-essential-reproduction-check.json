@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "utc": "2026-11-25T13:10:44.627154+00:00",
+  "verifier": "constructive-essential-audit.py",
+  "restored_from": "sat-p14-essential-preservation-manifest.json",
+  "scope": "Fresh-directory rerun of the independent portable audit. No solver was launched.",
+  "stdout": "sat-p14-essential-reproduction-check.stdout",
+  "stderr": "sat-p14-essential-reproduction-check.stderr"
+}

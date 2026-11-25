@@ -1,0 +1,204 @@
+{
+  "created_utc": "2026-11-25T13:14:30.852484+00:00",
+  "scope": "Independently reviewed same-side primary-slot transitivity extension; no solver outcome or Lean certificate.",
+  "source_sha256": "eeb593f05c662f599f8117daa5afb2cd7132be7f690fcfd7b4b2088fa61f5eb8",
+  "requires": [
+    "results/orch/lemmas/sat-p14-essential-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition.py",
+      "bytes": 2947,
+      "sha256": "eeb593f05c662f599f8117daa5afb2cd7132be7f690fcfd7b4b2088fa61f5eb8",
+      "restore_as": "sat-p14-compact-partition.py",
+      "gzip": false,
+      "raw_sha256": "eeb593f05c662f599f8117daa5afb2cd7132be7f690fcfd7b4b2088fa61f5eb8"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-controls.py",
+      "bytes": 4833,
+      "sha256": "88a270c32c7ff66f9083c88f329af89342ee74f1901180bc0bbed47ed84c01f1",
+      "restore_as": "sat-p14-compact-partition-controls.py",
+      "gzip": false,
+      "raw_sha256": "88a270c32c7ff66f9083c88f329af89342ee74f1901180bc0bbed47ed84c01f1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-controls.json",
+      "bytes": 1153,
+      "sha256": "c434391dd1bcdb7526636b426df2e83570814b035dcd552a1337852415478bd3",
+      "restore_as": "sat-p14-compact-partition-controls.json",
+      "gzip": false,
+      "raw_sha256": "c434391dd1bcdb7526636b426df2e83570814b035dcd552a1337852415478bd3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-controls.stdout",
+      "bytes": 927,
+      "sha256": "782887a3057012342d1f0a2aa253e593fa98ca10bd69377febebce708e443778",
+      "restore_as": "sat-p14-compact-partition-controls.stdout",
+      "gzip": false,
+      "raw_sha256": "782887a3057012342d1f0a2aa253e593fa98ca10bd69377febebce708e443778"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-partition-controls.stderr",
+      "gzip": false,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-partition-audit.py",
+      "bytes": 7795,
+      "sha256": "647a4ab49635b3a373c99e18e976142af920424bfe8c5729e3f51b84a8266c37",
+      "restore_as": "constructive-partition-audit.py",
+      "gzip": false,
+      "raw_sha256": "647a4ab49635b3a373c99e18e976142af920424bfe8c5729e3f51b84a8266c37"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-partition-encoder-review.json",
+      "bytes": 3207,
+      "sha256": "00e3ef86cd9b81af75f397a7d9023d35c8a072e5a497b70c514ceb792f79ace3",
+      "restore_as": "constructive-partition-encoder-review.json",
+      "gzip": false,
+      "raw_sha256": "00e3ef86cd9b81af75f397a7d9023d35c8a072e5a497b70c514ceb792f79ace3"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-partition-audit.stdout",
+      "bytes": 1063,
+      "sha256": "014b187bcf43298371f658e3dda647c6d98157ba15b9039fe37361e07d215e37",
+      "restore_as": "constructive-partition-audit.stdout",
+      "gzip": false,
+      "raw_sha256": "014b187bcf43298371f658e3dda647c6d98157ba15b9039fe37361e07d215e37"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-partition-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-partition-audit.stderr",
+      "gzip": false,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition28-control.cnf.gz",
+      "bytes": 102031,
+      "sha256": "473d3f44b74f48623c51c1c8a6a562ed37849abf02fcbebe88bc61a4577f2e6f",
+      "restore_as": "sat-p14-compact-partition28-control.cnf",
+      "gzip": true,
+      "raw_sha256": "79d125b273b2943af59bf992a4b3e9877ebe6bed1f91cdd9227ee06c4b329f20"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition28-control.metadata.json.gz",
+      "bytes": 21495,
+      "sha256": "215a5d637e95b8e1cb8914938a7ea579663246c6f21e2af3b3f6f7ea8480cbfd",
+      "restore_as": "sat-p14-compact-partition28-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "3b6e5670379154b9712a141c1ff918b64dfe42bad68c56d2c4264b51e465a36c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition28-control.complete-assignment.json.gz",
+      "bytes": 16464,
+      "sha256": "9238663e3f4a8032311d0f06e91ae133b2636cb515ab7c35845ff359c5928b8d",
+      "restore_as": "sat-p14-compact-partition28-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "b095ce5df6f1763175902e44f5293bc5904fdeeaa19f376407c730134632ff84"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition28-control.compact-control.json.gz",
+      "bytes": 261,
+      "sha256": "7f7dee2d767fcb6221b639a7836a79056b5c23a8a8b1f445b5059f4de7811b93",
+      "restore_as": "sat-p14-compact-partition28-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "a128f4991090a93b53f5a0e05330d03d86af008dc84d844045cac997f9e01eb5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-host-control.cnf.gz",
+      "bytes": 1265242,
+      "sha256": "2838eb5fa4886051a956caee5dc0c1c3d9e98e76304d3d6ef19ceb8a4a3c23c9",
+      "restore_as": "sat-p14-compact-partition-host-control.cnf",
+      "gzip": true,
+      "raw_sha256": "6504d06c1bf9b7be943d0190400ea61d51e9bc46ec9d97c00b670179f7515769"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-host-control.metadata.json.gz",
+      "bytes": 249011,
+      "sha256": "6823e54e71497cb5fb910482b4b18cb8c7111f6a9673ff9d146cf72d614a5f9c",
+      "restore_as": "sat-p14-compact-partition-host-control.metadata.json",
+      "gzip": true,
+      "raw_sha256": "ebfcbefdf4ea45940ed33d2518cd24bc5a33cecc1ce5531e10f49c7d9d2e3341"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-host-control.complete-assignment.json.gz",
+      "bytes": 190394,
+      "sha256": "7b2047fcf1c2c6b5c3d2e0ef50f361aa87967d5010bb23e0d5ec9619461fc18a",
+      "restore_as": "sat-p14-compact-partition-host-control.complete-assignment.json",
+      "gzip": true,
+      "raw_sha256": "bd0f208def5ef4ae35ac2857aec66e8597fcc333e6e727444d20cc19f49a85ad"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition-host-control.compact-control.json.gz",
+      "bytes": 321,
+      "sha256": "7634e93bb539f3fd48479dd8fe9ba3e06ff1b75cd2d5d716212b72001213d9e3",
+      "restore_as": "sat-p14-compact-partition-host-control.compact-control.json",
+      "gzip": true,
+      "raw_sha256": "5f14f7b5f4aa483a0a11f07fdc2ef3b73a0ad810f434b4316510d1ab24dfeb6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition18-target.cnf.gz",
+      "bytes": 533846,
+      "sha256": "f4c8369465125aad524f4ceee1ef4559473adfd3017aa1203e639e7a1b320233",
+      "restore_as": "sat-p14-compact-partition18-target.cnf",
+      "gzip": true,
+      "raw_sha256": "12e84b8159e80c6c0f5c71cddbcac14bc39181209e87d7715fb844c35c6251c3"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-partition18-target.metadata.json.gz",
+      "bytes": 109852,
+      "sha256": "71c2fd90173ede21094edeb2521c69cfb7ff577a88603469aae699d1e1b94001",
+      "restore_as": "sat-p14-compact-partition18-target.metadata.json",
+      "gzip": true,
+      "raw_sha256": "5eebefbd7550e80353022930855f5d8c010bfbf9cb2b21284a0e1a13f9fda3a8"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-partition-model.md",
+      "bytes": 1652,
+      "sha256": "376a88f2b6e91ab8752907652136a9d7204a0a177bd76245e0de9a7e7ec95e68",
+      "restore_as": "sat-p14-partition-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-partition-reproduction-check.stdout",
+      "bytes": 1063,
+      "sha256": "014b187bcf43298371f658e3dda647c6d98157ba15b9039fe37361e07d215e37",
+      "restore_as": "sat-p14-partition-reproduction-check.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-partition-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-partition-reproduction-check.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reviewed-driver.py",
+      "bytes": 2673,
+      "sha256": "fa20eae21070f27aa918d7306649540cc3665a40ac3fe22ed02f8a246580c308",
+      "restore_as": "sat-p14-reviewed-driver.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-partition-reproduction-check.json",
+      "bytes": 331,
+      "sha256": "20e91e48956f24c5c4342be48190637fbb23c31ca9d88bf99da594f27aae081e",
+      "restore_as": "sat-p14-partition-reproduction-check.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-reviewed-driver-review.json",
+      "bytes": 982,
+      "sha256": "a4d943af95986e371c9892174144f2af08f4127819e2d26717252f62a4414107",
+      "restore_as": "constructive-reviewed-driver-review.json",
+      "gzip": false
+    }
+  ]
+}

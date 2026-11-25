@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "source_sha256": "13540b7999008da1cdc161e588aa0d624d87e35ecea7fe1cf0afb0b4401d7291",
+  "scope": "Conditional canonical mixed-p9 missing-cap-exactly-{2,5} exclusion. Explicit finite certificate remains a premise.",
+  "build_status": "Complete conditional cached composition passed exit0; exact successful source and all five final tails verified. Explicit finite-certificate premise remains; full permitted-import standalone pending.",
+  "checks": [
+    "Missing-mask exact set yields protection of occurring points0/1 through saturated occurrence chains.",
+    "Bzero2 and Bplus lower12 with total14 force three residual units after nine eligible reserved branches.",
+    "FirstBranch choice supplies PureBranch and the chain hypotheses for the seven-unit cofactor loss.",
+    "Normalized coordinates and finite conditional conclusion give empty residual sets at points3/4/6.",
+    "Raw cofactor upper7 contradicts supported lower8 on the same cfL3; protected original points0/1 map to K4 labels5/8."
+  ],
+  "reviewed_utc": "2026-11-25T13:15:55.287636+00:00",
+  "cached_source_sha256": "1af5ab756f3ed4bd9d59af9d9a922402dba1d75ea1c31b2768b368c043c54acb",
+  "receipt": "algebraic-m9-conditional-cache-build.json",
+  "component_hashes": {
+    "algebraic-m9-cofactor-loss-tail.lean": "f0ce3b1b24f1cc4cfc348a79146c51c4a560179e0a202a3b56d46e440240ea9b",
+    "algebraic-m9-cofactor-upper-tail.lean": "b019b556e63d29e0fb831a59ff6ef4937a0c8bcc1de60ac5bb810b441d270187",
+    "constructive-mixed9-coordinate-tail.lean": "733ddb9ef216f04a4cb7f01296223b8f9da8e6aa8cd3bcd96cb5cdac02b63264",
+    "constructive-mixed9-zero-points-tail.lean": "01a2c7453b92a678ed71e93d68fc0d9e57957b1f8955820d9e51e7a0ff286bee",
+    "algebraic-m9-endgame-tail.lean": "13540b7999008da1cdc161e588aa0d624d87e35ecea7fe1cf0afb0b4401d7291"
+  },
+  "independence_note": "Algebraic endgame/upper and composition independently reviewed by constructive_search; the coordinate/zero-point helpers were authored by constructive_search and have been sent separately to status_review for independent review."
+}

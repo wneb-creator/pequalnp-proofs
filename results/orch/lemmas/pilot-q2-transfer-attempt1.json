@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-cache.lean",
+  "sha256": "99d5687e86cae056d995c17d3a2926ac5a07cf27b49d32415b00667a3050f8ba",
+  "started_utc": "2026-11-25T13:15:55.571286+00:00",
+  "finished_utc": "2026-11-25T13:16:10.827523+00:00",
+  "exit_code": 1,
+  "scope": "Cached q2 actual residual transfer under explicit occurring-triples and allowed-family hypotheses"
+}

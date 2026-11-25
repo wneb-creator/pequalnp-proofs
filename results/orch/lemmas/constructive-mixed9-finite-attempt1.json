@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "source_sha256": "ea75210ac7cb7e7774afeadc5c55fa1ac24e832e23e145ce91829eb08e53ab2a",
+  "completed_observed_utc": "2026-11-25T12:58:19.503083+00:00",
+  "result": "All128 finite decision blocks and m9_certificate checked without diagnostics; final m9_good_of_normal left9 proposition goals and m9_point_empty hit default200k heartbeats. This is not a successful full-file build."
+}

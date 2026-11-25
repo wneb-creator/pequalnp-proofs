@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:16:06.426804+00:00",
+  "source_sha256": "fa20eae21070f27aa918d7306649540cc3665a40ac3fe22ed02f8a246580c308",
+  "scope": "Source-only launch/capture/validation guard review; no solver result asserted.",
+  "checks": [
+    "Source is restricted to the assigned scratch directory and its frozen SHA256 is checked before execution.",
+    "Run tag is a basename and all prior result/log/receipt artifacts must be absent, preventing stale solver status reuse.",
+    "Encoder and reconstructor run via argv arrays without shell interpolation; complete stdout/stderr and explicit exit outcomes are retained.",
+    "SAT status triggers independent reconstruction, exact16384-row validation, exactly21 derivative records, explicit27-gate/output40 checks, and the actual marked0,0 double-quiet condition.",
+    "UNKNOWN and computational UNSAT remain explicitly distinguished from a Lean proof."
+  ]
+}

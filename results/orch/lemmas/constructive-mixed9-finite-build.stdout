@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.lean:895:80: warning: This simp argument is unused:
+  Bool.or_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [m9_bad, normal, good, Bool.not_false, Bool.and_true, Bool.true_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/PNPMixed9Finite.lean:959:67: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [m9_bad, normal, good, Bool.not_false, Bool.and_true, Bool.or_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

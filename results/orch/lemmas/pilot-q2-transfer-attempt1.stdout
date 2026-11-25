@@ -1,0 +1,64 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-cache.lean:543:36: error: Type mismatch
+  Eq.symm hw ▸ hit
+has type
+  t ∈ qa_mask D w
+but is expected to have type
+  qa_line t ∈ Finset.filter (Membership.mem (supp 14 D w)) ?m.1364
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-cache.lean:544:36: error: Type mismatch
+  Eq.symm hw ▸ h0
+has type
+  0 ∈ qa_mask D w
+but is expected to have type
+  qa_line 0 ∈ Finset.filter (Membership.mem (supp 14 D w)) ?m.1374
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-transfer-cache.lean:560:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ru D b (qa_line 0)).card
+in the target expression
+  (ru D b 7).card + X.card + 9 ≤ totalSurplus 14 D
+
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+hI : ineligSet 14 D = {0, 1, 2, 3}
+hB : Bplus 14 D = 13
+hS : totalSurplus 14 D ≤ 14
+occurs : ∀ i ∈ {0, 1, 3}, ∃ w, qa_mask D w = qa_nb i
+S : Finset (Fin 7)
+hshape : ∀ (w : ℕ), qa_allowed S (qa_mask D w)
+b : Fin 14 → ℕ
+hb : PureBranch 14 D b
+pos : Fin 14 → ℕ × Bool
+hpos : k4_Pos 14 (fun u v => Adj u v) D pos
+hp : 4 + (eligSet 14 D).card = 14
+hres : (residualUnits 14 D b).card + (eligSet 14 D).card = Bplus 14 D
+hcard : (residualUnits 14 D b).card = 3
+R : Finset ((_ : ℕ) × ℕ) := residualUnits 14 D b
+e : ↥R ≃ Fin 3 := Fintype.equivFinOfCardEq ⋯
+a : Fin 3 → (_ : ℕ) × ℕ := fun k => ↑(e.symm k)
+ainj : Function.Injective a
+onto : ∀ (u : (_ : ℕ) × ℕ), u ∈ residualUnits 14 D b ↔ ∃ k, a k = u
+r : Fin 7 → Finset (Fin 3) := fun t => {k | qa_line t ∈ supp 14 D (a k).fst}
+image : ∀ (t : Fin 7), Finset.image a (r t) = ru D b (qa_line t)
+card : ∀ (t : Fin 7), (r t).card = (ru D b (qa_line t)).card
+point_in : ∀ (i : Fin 4), qa_point i ∈ ineligSet 14 D
+line_el : ∀ (t : Fin 7), qa_line t ∈ eligSet 14 D
+A : Fin 4 → Finset (Fin 7) := fun i => qa_mask D (src D (pos (qa_point i)))
+supersets : ∀ (i : Fin 4), qa_nb i ⊆ A i
+choices : ∀ (i : Fin 4), A i = qa_nb 0 ∨ A i = qa_nb 1 ∨ A i = qa_nb 3 ∨ A i = S
+missing : A 2 = S
+allowed : ∀ (j : Fin 3), qa_allowed S (qa_unit r j)
+labels : ∀ (i : Fin 4) (x t : Fin 7), x ∈ qa_nb i → (r x).Nonempty → r x ⊆ r t → t ∈ A i
+budget : ∀ (t : Fin 7), ((qa_consumers A t).card + if t = 0 then 0 else 1) ≤ 2 + (r t).card
+T : Finset (Fin 7) := {t ∈ Finset.univ.erase 0 | r t ⊆ r 0}
+X : Finset (Fin 14) := Finset.image qa_line T
+hX :
+  ∀ x ∈ X,
+    x ∈ eligSet 14 D ∧
+      x ≠ qa_line 0 ∧
+        (∀ u ∈ residualUnits 14 D b, x ∈ supp 14 D u.fst → qa_line 0 ∈ supp 14 D u.fst) ∧
+          ∃ w, x ∈ supp 14 D w ∧ qa_line 0 ∈ supp 14 D w
+hJgeo :
+  ∀ i ∈ {1, 2, 3},
+    ↑i < 4 ∧ cf_iota cfL7 i ∉ {0, 1, 2, 3} ∧ cf_iota cfL7 i ≠ qa_line 0 ∧ ∀ (t : Fin 7), cf_iota cfL7 i ≠ qa_line t
+bound : (ru D b 7).card + X.card + 9 ≤ totalSurplus 14 D
+xcard : X.card = T.card
+⊢ False

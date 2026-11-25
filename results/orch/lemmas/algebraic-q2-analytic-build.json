@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/algebraic-q2-analytic.lean",
+  "sha256": "cce10b1a328b25900d7beac6a5b876428d380431bd28dae965215f688ab80c8a",
+  "lines": 218,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T13:11:58.230034+00:00",
+  "command": "PATH=\"/tmp/oec/pequalnp-pilot-81/lean-4.36.0-linux/bin:${PATH}\" lake env lean -j1 -M10000 /workspace/pequalnp-proofs/results/orch/lemmas/algebraic-q2-analytic.lean",
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "stdout": "results/orch/lemmas/algebraic-q2-analytic-build.stdout",
+  "stderr": "results/orch/lemmas/algebraic-q2-analytic-build.stderr",
+  "scope": "Abstract residual-unit contradiction only; actual circuit transfer is separate. Defs-only standalone; tiny Fin3 facts checked with decide +kernel."
+}

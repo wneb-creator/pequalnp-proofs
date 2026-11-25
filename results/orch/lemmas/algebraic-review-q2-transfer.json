@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T13:17:48.485266+00:00",
+  "source": "results/orch/lemmas/pilot-q2-transfer-tail.lean",
+  "sha256": "92f67057003943041d8902f8debe8111fc123c543b75ef8b40a7580c12ac02a3",
+  "scope": "Actual strict-live Fano circuit with I={0,1,2,3}, Bplus=13, total surplus\u226414, three required projected masks occurring, and one allowed projected-mask family yields False. Family-shape hypothesis remains explicit.",
+  "checks": [
+    "Three residual units follow from supported surplus13 and eligible cardinal10; Fin3 coordinates are bijective.",
+    "Assigned operand masks contain their exact point neighborhoods and have size at least3, so the allowed-mask family gives precisely the four abstract choices.",
+    "Nonempty residual-source inclusion implies co-label via an actual shared residual wire.",
+    "Off-center lines all have an eligible adjacent point; the extra-slot bound supplies exactly the +1 in the abstract budget.",
+    "All six lines share one of the three required triples with line7, supplying cofactor co-occurrence even for empty residual masks.",
+    "The three free original K4 inputs of cfL7 indexed1/2/3 are points4/5/6, eligible and outside the line-only charged set. The +9 bound gives the exact center\u22645 constraint."
+  ],
+  "pending": [],
+  "cached_receipt": "pilot-q2-transfer-cache-build.json",
+  "cached_source_sha256": "045d09bd457c9e9ebb5c6ffd244f20c3a78f24368f1f967fad32ca6ec3c5efff",
+  "exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

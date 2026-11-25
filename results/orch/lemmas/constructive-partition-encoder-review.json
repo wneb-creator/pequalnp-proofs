@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:13:30.464997+00:00",
+  "encoder_sha256": "eeb593f05c662f599f8117daa5afb2cd7132be7f690fcfd7b4b2088fa61f5eb8",
+  "controls": [
+    {
+      "tag": "sat-p14-compact-partition28-control",
+      "incomparability_clauses_reconstructed": 1792,
+      "partition_clauses_reconstructed": 0,
+      "new_variables_checked": 592,
+      "partition_enabled": false,
+      "clauses_checked": 24960,
+      "variables_checked": 6624,
+      "active_atoms": 7,
+      "inactive_suffix": 1,
+      "truth_rows_checked": 16384,
+      "derivatives": [
+        false,
+        false
+      ],
+      "maximal_negative_rows": 37
+    },
+    {
+      "tag": "sat-p14-compact-partition-host-control",
+      "incomparability_clauses_reconstructed": 0,
+      "partition_clauses_reconstructed": 210,
+      "new_variables_checked": 0,
+      "partition_enabled": true,
+      "clauses_checked": 355126,
+      "variables_checked": 78613,
+      "active_atoms": 20,
+      "inactive_suffix": 1,
+      "truth_rows_checked": 16384,
+      "derivatives": [
+        false,
+        false
+      ],
+      "maximal_negative_rows": 128
+    },
+    {
+      "tag": "sat-p14-compact-partition18-target",
+      "incomparability_clauses_reconstructed": 4032,
+      "partition_clauses_reconstructed": 210,
+      "new_variables_checked": 1332,
+      "partition_enabled": true
+    }
+  ],
+  "mathematical_audit": [
+    "For distinct same-side labels a,b,c, cooccurrence of a,b in slotS and b,c in slotT implies S=T: if distinct, the Heawood cover-free lemma for centerb and nonadjacent a,c requires a third b-slot excluding both, contradicting exactlytwo b-slots. Thus a,c cooccur. No gatewise biclique assumption is made.",
+    "The flattened primary slot sets coincide with original singleton supports at consumption positions because every AND output is singleton-support-empty; exacttwo is the p14 equality consequence. Each of the70 same-side triples contributes exactlythree transitivity clauses; no variables are added.",
+    "If an AND operand implies the other on every maximal negative assignment, replacing that AND by the implying operand preserves all maximal-negative output zeros. It only increases outputs, so retains every positive edge. Monotonicity and the boundary certificate give the same Fano function with one fewer gate, contradicting the accepted ordinary27 lower bound. This argument is about minimal27 Fano circuits, not arbitrary circuits.",
+    "The new cut therefore requires both directions of operand incomparability at maximal negative rows, guarded by active. It does not assume trace-preserving deletion.",
+    "Every added clause and variable is reconstructed independently from frozen metadata; complete controls are checked against every CNF clause and their exact selected operands, full truth tables, and direct raw derivatives.",
+    "The28gate Fano control enables the new cut with equality/nine-free cuts disabled. The matching control retains old cuts but disables the Fano-minimality cut. The inactive suffix remains allowed."
+  ],
+  "scope": "Independent encoder/positive-control review only; no SAT outcome or Lean certificate."
+}

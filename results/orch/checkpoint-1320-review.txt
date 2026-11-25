@@ -1,0 +1,14 @@
+Independent checkpoint1320 review: PASS, ready for preservation push.
+Reviewer: status_review
+Checked UTC: 2026-11-25T13:20:35.952716+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1320-files.json
+Manifest SHA256: e02a0901f7f68163dd258523660770bb1cea817e60ede2e68493c4af3797ee96
+Payload:119 files,5,946,181 bytes; every manifest size and SHA256 rechecked, all exact.
+
+The four metadata diffs accurately distinguish successful standalone Lean checks, cached checks with explicit hypotheses, computational controls, UNKNOWN SAT outcomes, exit1 failed finite wrappers, and the intentionally stopped exit143 exhaustive run. They retain the exact final-target status: REJECTED(no-theorem), named1301-line partial unchanged, no complete proof/refutation or PR readiness claimed. TIMING total261.9/subagents6 is consistent with the frozen checkpoint time.
+
+The full supported-eight result is bound to f1ef4fe0 source, exit0 receipt, complete diagnostics (two inherited unused-variable warnings), and the independent exact composition review. The sharp17gate K4 control has complete truth/derivative audit and is correctly labeled computational, with no Fano witness claim. New q2 and mixed-p9 compositions retain their actual finite/family premises. Active finite/solver outputs and symmetry drafts are excluded; failed/stopped diagnostics are retained separately.
+
+All119 named paths are under results/orch; no unrelated repository edits are in this payload. Sensitive-marker scan of all files, including decompressed gzip artifacts, found no credential/token/private-key/authenticated-URL pattern; no environment credential was inspected. Lean scan found no admissions/new axioms/native_decide/forbidden namespace marker/string literals. Attributes are simp/local simp only; options are allowed limits. An initial broad attribute pattern flagged the two inherited local simp attributes, which were inspected and are ordinary simp annotations.
+
+This is an archival partial checkpoint audit, not a rerun of every theorem or a final proof checker verdict. Root should stage only the manifest files and this review, then run git status before committing.

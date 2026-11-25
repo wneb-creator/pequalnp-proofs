@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:12:34.300386+00:00",
+  "source_sha256": "cce10b1a328b25900d7beac6a5b876428d380431bd28dae965215f688ab80c8a",
+  "tail_sha256": "a0902350bedcc8dbece8fb6ed82cd77cea5a51683f0fffadab4f09298424b0de",
+  "receipt": "algebraic-q2-analytic-build.json",
+  "build_status": "Permitted-import standalone passed exit0, complete empty logs; exact tail composition and format checked.",
+  "scope": "Abstract residual-unit contradiction under explicit allowed-unit family, assigned-row choices, consumer budgets, co-label forcing and center bound. Actual-circuit transfer remains separate.",
+  "mathematical_review": [
+    "Three consumers ofline0 force r0 nonempty; the center bound excludes r0=univ, so its cardinal is1or2.",
+    "When r0 has2units, its missing unit occurs on at least3of the six other lines by the center bound. Its support omits0, so the allowed-unit alternatives force it to be exactlyS.",
+    "If0 belonged toS, all4rows would consume0 and force r0card2; the preceding missing-unit argument would contradict0inS. Thus0notinS.",
+    "The three other row choices are therefore their own distinct neighborhoods. Co-label forcing makes r0 incomparable below every other line mask, and gives three pairwise incomparable nonempty masks atlines1,5,6.",
+    "For r0card2 those three masks all contain its missing unit; for r0card1 all omit its unique unit. Both violate the explicitly kernel-checked width2 antichain facts on a two-element residual ground set.",
+    "The proof never assumes the actual circuit family or finite1.2million-state predicate; all required semantic hypotheses are visible in the theorem."
+  ]
+}

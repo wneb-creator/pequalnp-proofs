@@ -1,0 +1,53 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:09:21.541102+00:00",
+  "encoder_sha256": "314a4ca70293fd75ff985df0a2e47f12b54a7e825acfe36f8d2ce01e894bacca",
+  "controls": [
+    {
+      "tag": "sat-p14-compact-essential28-control",
+      "new_clauses_reconstructed": 1792,
+      "new_variables_checked": 592,
+      "enabled": true,
+      "clauses_checked": 24960,
+      "variables_checked": 6624,
+      "active_atoms": 7,
+      "inactive_suffix": 1,
+      "truth_rows_checked": 16384,
+      "derivatives": [
+        false,
+        false
+      ],
+      "maximal_negative_rows": 37
+    },
+    {
+      "tag": "sat-p14-compact-essential-host-control",
+      "new_clauses_reconstructed": 0,
+      "new_variables_checked": 0,
+      "enabled": false,
+      "clauses_checked": 354916,
+      "variables_checked": 78613,
+      "active_atoms": 20,
+      "inactive_suffix": 1,
+      "truth_rows_checked": 16384,
+      "derivatives": [
+        false,
+        false
+      ],
+      "maximal_negative_rows": 128
+    },
+    {
+      "tag": "sat-p14-compact-essential18-target",
+      "new_clauses_reconstructed": 4032,
+      "new_variables_checked": 1332,
+      "enabled": true
+    }
+  ],
+  "mathematical_audit": [
+    "If an AND operand implies the other on every maximal negative assignment, replacing that AND by the implying operand preserves all maximal-negative output zeros. It only increases outputs, so retains every positive edge. Monotonicity and the boundary certificate give the same Fano function with one fewer gate, contradicting the accepted ordinary27 lower bound. This argument is about minimal27 Fano circuits, not arbitrary circuits.",
+    "The new cut therefore requires both directions of operand incomparability at maximal negative rows, guarded by active. It does not assume trace-preserving deletion.",
+    "Every added clause and variable is reconstructed independently from frozen metadata; complete controls are checked against every CNF clause and their exact selected operands, full truth tables, and direct raw derivatives.",
+    "The28gate Fano control enables the new cut with equality/nine-free cuts disabled. The matching control retains old cuts but disables the Fano-minimality cut. The inactive suffix remains allowed."
+  ],
+  "scope": "Independent encoder/positive-control review only; no SAT outcome or Lean certificate."
+}

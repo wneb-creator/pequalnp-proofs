@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-finite.lean",
+  "sha256": "3d3cb85cdf1fa828c09c2bbb8e487f864c69739a6f84be7f741a3dba5c6d7052",
+  "started_utc": "2026-11-25T12:51:28.496088+00:00",
+  "finished_utc": "2026-11-25T13:12:18.236486+00:00",
+  "exit_code": 143,
+  "scope": "Finite simplified q2 residual obstruction only; not a complete circuit exclusion or posted theorem"
+}

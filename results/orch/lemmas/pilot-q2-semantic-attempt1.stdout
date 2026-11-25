@@ -1,0 +1,211 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:90:37: warning: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_count, Nat.add_comm, Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:94:37: warning: This simp argument is unused:
+  Nat.add_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_count, Nat.add_comm, Nat.add_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:98:36: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_sub, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:102:36: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_sub, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:106:38: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_empty, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:110:38: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_empty, Bool.and_comm, Bool.and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:305:16: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:319:13: error(lean.unknownIdentifier): Unknown constant `Bool.or_eq_true.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:319:40: error: Tactic `rcases` failed: `x✝ : ?m.730` is not an inductive datatype
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:325:13: error(lean.unknownIdentifier): Unknown constant `Bool.or_eq_true.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:325:40: error: Tactic `rcases` failed: `x✝ : ?m.745` is not an inductive datatype
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:331:13: error(lean.unknownIdentifier): Unknown constant `Bool.or_eq_true.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:331:40: error: Tactic `rcases` failed: `x✝ : ?m.760` is not an inductive datatype
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:337:13: error(lean.unknownIdentifier): Unknown constant `Bool.or_eq_true.mp`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:337:40: error: Tactic `rcases` failed: `x✝ : ?m.775` is not an inductive datatype
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:347:45: error: unsolved goals
+certificate : ∀ (c : Fin 34) (a b d : Fin 33), q2_bad c a b d = false
+c : Fin 34
+a b d : Fin 33
+budget :
+  ∀ (t : Fin 7),
+    ((q2_bit (q2_ctx c 1) t).toNat + (q2_bit (q2_ctx c 2) t).toNat + (q2_bit (q2_ctx c 3) t).toNat +
+          (q2_bit (q2_ctx c 4) t).toNat +
+        if t = 0 then 0 else 1) ≤
+      2 + (q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) t).card
+labels :
+  ∀ (i : Fin 4) (x t : Fin 7),
+    x ∈ q2_decode (q2_nb i) →
+      q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) x ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) t →
+        (q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) x).Nonempty ∨ q2_shared x t = true →
+          t ∈ q2_decode (q2_ctx c i.succ)
+center :
+  (((((((q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0).card +
+                if
+                    q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 1 ⊆
+                      q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+                  1
+                else 0) +
+              if
+                  q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 2 ⊆
+                    q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+                1
+              else 0) +
+            if
+                q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 3 ⊆
+                  q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+              1
+            else 0) +
+          if
+              q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 4 ⊆
+                q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+            1
+          else 0) +
+        if q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 5 ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+          1
+        else 0) +
+      if q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 6 ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then 1
+      else 0) ≤
+    5
+u : Fin 128 := q2_unit c a
+v : Fin 128 := q2_unit c b
+w : Fin 128 := q2_unit c d
+hb : ∀ (t : Fin 7), q2_budget_at c u v w t = true
+budgetB : q2_budget c u v w = true
+force :
+  ∀ (i : Fin 4) (x t : Fin 7), x ∈ q2_decode (q2_nb i) → q2_force u v w x t = true → q2_bit (q2_ctx c i.succ) t = true
+row : ∀ (i : Fin 4) (t : Fin 7), q2_row u v w i t = true → q2_bit (q2_ctx c i.succ) t = true
+entry : ∀ (i : Fin 4) (t : Fin 7), (!q2_row u v w i t || q2_bit (q2_ctx c i.succ) t) = true
+⊢ ((!q2_row u v w 0 0 || q2_bit (q2_ctx c 1) 0) && (!q2_row u v w 0 1 || q2_bit (q2_ctx c 1) 1) &&
+                                                        (!q2_row u v w 0 2 || q2_bit (q2_ctx c 1) 2) &&
+                                                      (!q2_row u v w 0 3 || q2_bit (q2_ctx c 1) 3) &&
+                                                    (!q2_row u v w 0 4 || q2_bit (q2_ctx c 1) 4) &&
+                                                  (!q2_row u v w 0 5 || q2_bit (q2_ctx c 1) 5) &&
+                                                (!q2_row u v w 0 6 || q2_bit (q2_ctx c 1) 6) &&
+                                              (!q2_row u v w 1 0 || q2_bit (q2_ctx c 2) 0) &&
+                                            (!q2_row u v w 1 1 || q2_bit (q2_ctx c 2) 1) &&
+                                          (!q2_row u v w 1 2 || q2_bit (q2_ctx c 2) 2) &&
+                                        (!q2_row u v w 1 3 || q2_bit (q2_ctx c 2) 3) &&
+                                      (!q2_row u v w 1 4 || q2_bit (q2_ctx c 2) 4) &&
+                                    (!q2_row u v w 1 5 || q2_bit (q2_ctx c 2) 5) &&
+                                  (!q2_row u v w 1 6 || q2_bit (q2_ctx c 2) 6) &&
+                                (!q2_row u v w 2 0 || q2_bit (q2_ctx c 3) 0) &&
+                              (!q2_row u v w 2 1 || q2_bit (q2_ctx c 3) 1) &&
+                            (!q2_row u v w 2 2 || q2_bit (q2_ctx c 3) 2) &&
+                          (!q2_row u v w 2 3 || q2_bit (q2_ctx c 3) 3) &&
+                        (!q2_row u v w 2 4 || q2_bit (q2_ctx c 3) 4) &&
+                      (!q2_row u v w 2 5 || q2_bit (q2_ctx c 3) 5) &&
+                    (!q2_row u v w 2 6 || q2_bit (q2_ctx c 3) 6) &&
+                  (!q2_row u v w 3 0 || q2_bit (q2_ctx c 4) 0) &&
+                (!q2_row u v w 3 1 || q2_bit (q2_ctx c 4) 1) &&
+              (!q2_row u v w 3 2 || q2_bit (q2_ctx c 4) 2) &&
+            (!q2_row u v w 3 3 || q2_bit (q2_ctx c 4) 3) &&
+          (!q2_row u v w 3 4 || q2_bit (q2_ctx c 4) 4) &&
+        (!q2_row u v w 3 5 || q2_bit (q2_ctx c 4) 5) &&
+      (!q2_row u v w 3 6 || q2_bit (q2_ctx c 4) 6)) =
+    true
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:356:21: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:357:47: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:360:38: error: unsolved goals
+certificate : ∀ (c : Fin 34) (a b d : Fin 33), q2_bad c a b d = false
+c : Fin 34
+a b d : Fin 33
+budget :
+  ∀ (t : Fin 7),
+    ((q2_bit (q2_ctx c 1) t).toNat + (q2_bit (q2_ctx c 2) t).toNat + (q2_bit (q2_ctx c 3) t).toNat +
+          (q2_bit (q2_ctx c 4) t).toNat +
+        if t = 0 then 0 else 1) ≤
+      2 + (q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) t).card
+labels :
+  ∀ (i : Fin 4) (x t : Fin 7),
+    x ∈ q2_decode (q2_nb i) →
+      q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) x ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) t →
+        (q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) x).Nonempty ∨ q2_shared x t = true →
+          t ∈ q2_decode (q2_ctx c i.succ)
+center :
+  (((((((q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0).card +
+                if
+                    q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 1 ⊆
+                      q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+                  1
+                else 0) +
+              if
+                  q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 2 ⊆
+                    q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+                1
+              else 0) +
+            if
+                q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 3 ⊆
+                  q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+              1
+            else 0) +
+          if
+              q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 4 ⊆
+                q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+            1
+          else 0) +
+        if q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 5 ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then
+          1
+        else 0) +
+      if q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 6 ⊆ q2_res (q2_unit c a) (q2_unit c b) (q2_unit c d) 0 then 1
+      else 0) ≤
+    5
+u : Fin 128 := q2_unit c a
+v : Fin 128 := q2_unit c b
+w : Fin 128 := q2_unit c d
+hb : ∀ (t : Fin 7), q2_budget_at c u v w t = true
+budgetB : q2_budget c u v w = true
+force :
+  ∀ (i : Fin 4) (x t : Fin 7), x ∈ q2_decode (q2_nb i) → q2_force u v w x t = true → q2_bit (q2_ctx c i.succ) t = true
+row : ∀ (i : Fin 4) (t : Fin 7), q2_row u v w i t = true → q2_bit (q2_ctx c i.succ) t = true
+entry : ∀ (i : Fin 4) (t : Fin 7), (!q2_row u v w i t || q2_bit (q2_ctx c i.succ) t) = true
+labelsB : q2_labels c u v w = true
+subcount : ∀ (x t : Fin 7), (q2_sub u v w x t).toNat = if q2_res u v w x ⊆ q2_res u v w t then 1 else 0
+centerB : q2_center u v w = true
+⊢ (true && decide True) = true
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:348:26: warning: This simp argument is unused:
+  entry
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_labels, Bool.and_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-semantic.lean:348:33: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2_labels, entry]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

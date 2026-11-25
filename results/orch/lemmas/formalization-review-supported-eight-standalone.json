@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS exact standalone composition and successful build binding",
+  "reviewer": "lean_setup",
+  "reviewed_utc": "2026-11-25T13:14:55.677312+00:00",
+  "source": "results/orch/lemmas/structural-cofactor-supported-eight-standalone.lean",
+  "source_sha256": "f1ef4fe0816e2c3cacdfd993c9b07f30be2094b72494d534d9a0ff01bd9cb6b6",
+  "lines": 8425,
+  "accepted_prefix_lines": 7400,
+  "tails": [
+    {
+      "path": "results/orch/lemmas/structural-k4-residual-one-tail.lean",
+      "sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-mask-certificates.lean",
+      "sha256": "537d9988d70e808a3bac680a1762023f076e3703243bbede65eadb79fa16b2fd",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-low-elig-tail.lean",
+      "sha256": "7074fb8266a0f775c680b0ec1fd6e279bc0e6c8ae3b25c9e541d6e86a424f3b6",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-close-tail.lean",
+      "sha256": "2e90297498e825083051d2126b5c2c1be8112943c0001617c9ed858147c5b47f",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-tail.lean",
+      "sha256": "6ba60fb3c21d2bf8dc6a24ec138d32972b995f8238d09a2e7a541ad2acad43cd",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-protected-supported-tail.lean",
+      "sha256": "c79b9df64fbcfe28309c43d7d6a62046d5c0f74914c058a6e2f99baec6948f23",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-tail.lean",
+      "sha256": "1882bb573710c069a46970ca6894bfb33ec32b32fc79cbb9722cef031450884c",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-restrict-tail.lean",
+      "sha256": "3b4f4cbf8ad60e86140fbff98a1897119f07bab0e7cb80b526e261d8ec577593",
+      "exact_body_found": true
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-tail.lean",
+      "sha256": "d8b1861f1c86bfe7e2663bf8d811d836e13eb09dac6a80dc2e46aee87bd3caeb",
+      "exact_body_found": true
+    }
+  ],
+  "exit_code": 0,
+  "stdout_scope": "Full diagnostics retained; only inherited unused-variable warnings.",
+  "stderr_bytes": 0,
+  "scope": "Two protected matching K4 inputs force raw cofactor supported surplus at least8, under the theorem explicit hypotheses. No complete Fano case or posted result claimed."
+}
