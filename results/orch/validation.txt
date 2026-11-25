@@ -32,3 +32,7 @@ TIMING total=37.1 subagents=6
 2026-11-25T02:39:16.684161+00:00 SpecializedLiftFast.lean: exit0, only inherited unused warnings; exact L-meta-650 conclusion follows conditionally from either an18-gate k4 witness or28-gate k6 witness. No such witness yet.
 Normalization.lean and NormalizationSmall.lean: exit0, empty logs; semantic OR/AND/zero replacement under a monotone downstream context. No gate-elimination circuit implementation asserted. Independent review passed; root confirmed both versions differ only in permitted imports.
 Original SpecializedLift.lean was interrupted and is not checked.
+
+2026-11-25T02:48:05.449251+00:00 NormalizationMore.lean: exit0, empty full log; semantic signed-dominance and constant-true substitutions only, no Circuit rewiring or size claim. Independently reviewed.
+PendantCycleLower.lean: exit0, empty full log, dependency build passed. Independently reviewed and axiom audit gives exactly propext,Classical.choice,Quot.sound. Proves no10-gate circuit for the9-input pendant-cycle core, including AND/OR/NOT gates. RESEARCH ONLY: imports exceed L650 allowed list; not a full-gap refutation and not final-PR-ready.
+Optional public GitHub header read hit VENDOR-LIMITATION git-auth-401; no retry helper found on PATH, no credentials changed; local work continues.
