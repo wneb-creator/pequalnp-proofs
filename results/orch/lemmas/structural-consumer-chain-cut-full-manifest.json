@@ -1,0 +1,53 @@
+{
+  "created_utc": "2026-11-25T14:25:57.392421+00:00",
+  "scope": "Independently reviewed permitted-import standalone for unordered consumer-chain agreement and positive-barrier corollary; no gate rewrite or target proof. Complete failed first assembly retained; one equivalent path-order helper call repaired. Frozen cached source and review unchanged.",
+  "file_count": 9,
+  "bytes": 254271,
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone.lean",
+      "bytes": 126002,
+      "sha256": "8cd48095c3be0bb3eadaa93c2bcfaa982530d1304f81e29302d762b1af9669a2"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.json",
+      "bytes": 434,
+      "sha256": "8543f254dea56d031522820a32a5ecbc5dfe803e5d21e98c64cf04655925d83d"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-consumer-cut-standalone.json",
+      "bytes": 1327,
+      "sha256": "6d5d06027b0392ed9f8924e9d17a50e55c176612360af8435f82d27c4e4838b1"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.lean",
+      "bytes": 125976,
+      "sha256": "83eb16b2868749ee2c8479787f276de4aef9d44f95303e39897db5c094e45921"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.json",
+      "bytes": 367,
+      "sha256": "824ce2efd997594eae8d51b16973ffb65ce36189e81710dddf627612e8eb3e20"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.stdout",
+      "bytes": 165,
+      "sha256": "8033219f745c2c34ce9ce026923f427633ca92be18ce9690d76eacd71f013249"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

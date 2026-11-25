@@ -1,0 +1,27 @@
+{
+  "reviewed_utc": "2026-11-25T14:18:58.929266+00:00",
+  "reviewer": "algebraic_route",
+  "verdict": "PASS source, mathematics, and matching cached build",
+  "tail": "results/orch/lemmas/structural-fullstar-first-filter-tail.lean",
+  "tail_sha256": "fb9f834be939b394ec5aaf4558dd65654075bfb7069093ddff2ee84eef784f60",
+  "cached_source": "results/orch/lemmas/structural-fullstar-first-filter.lean",
+  "cached_source_sha256": "476d69daab42c16e0fa3ed4296414ff0cbaa2bc7cd78e4029a026a19ff2124fa",
+  "checks": [
+    "The chain and strict wire order force f.gate<j, excluding the original full-star gate from the candidate AND.",
+    "Any occurrence of x in the opposite input of j would make that position one of exactly e or f, contradicting the assumed gate distinction.",
+    "The single-reader chain excludes an alternate route to the opposite input. The independently checked consumer barrier makes every x-neighbor pair true at j; off-route agreement then puts every neighbor into the opposite singleton support.",
+    "Two distinct neighbors consequently share both old and new consumption positions. The W-cardinality bound identifies their complete two-slot code, contradicting the generic operand antichain lemma.",
+    "All required global W bounds, empty-AND-output support, empty opposite support, exact x consumption code, and single-reader endpoint assumptions remain explicit. No circuit rewrite, quietness, or full-case result is claimed."
+  ],
+  "trust_format": {
+    "forbidden_root_marker": false,
+    "strings": false,
+    "new_axioms": false,
+    "sorry": false,
+    "native_decide": false
+  },
+  "build_scope": "Exact cached source completed with explicit exit0 and empty complete stdout/stderr; standalone not claimed.",
+  "build_receipt": "results/orch/lemmas/structural-fullstar-first-filter-build.json",
+  "build_receipt_sha256": "0d832691c8fad57b408aacc430abf42d676ad92c0c4465952eef1356f38e22c4",
+  "finalized_utc": "2026-11-25T14:19:29.678755+00:00"
+}

@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/structural-consumer-chain-cut-standalone.lean",
+  "sha256": "83eb16b2868749ee2c8479787f276de4aef9d44f95303e39897db5c094e45921",
+  "lines": 2729,
+  "exit_code": 1,
+  "started_utc": "2026-11-25T14:18:57.868075+00:00",
+  "completed_utc": "2026-11-25T14:20:30.743371+00:00",
+  "command_scope": "Permitted-import standalone, lean -j1"
+}

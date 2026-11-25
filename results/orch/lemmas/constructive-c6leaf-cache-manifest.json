@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-11-25T14:25:08.775357+00:00",
+  "scope": "Frozen cached local obstruction: exact C6 plus3private leaves on9inputs cannot have size\u226411 with all3pointlabels eligible. Accepted module import used in cached development check; permitted-import standalone queued and excluded. No globalFano protected-star deletion or assigned-gap proof claimed.",
+  "result": "PASS cached Lean exit0 and independent source/math review",
+  "review": "results/orch/lemmas/formalization-review-c6leaf.json",
+  "count": 11,
+  "bytes": 54754,
+  "files": [
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-tail.lean",
+      "sha256": "b527a0ae8ddf820dee87bb931686270f1222ed347c7338f28480065fac233ae9",
+      "bytes": 15310
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache.lean",
+      "sha256": "a210b61248dd942eec4389745b1bfcaf2a6f3092d94fbf3188c25b07cf82e84c",
+      "bytes": 15333
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.json",
+      "sha256": "fe141b7c15c1133a2a3a30844c7ab5baad1daf58a98610eb67f0cf169076d825",
+      "bytes": 510
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.lean",
+      "sha256": "2f3b7236e745a085979471c38a867c795eb808d5a8791fc1a5f639ee823d2d2b",
+      "bytes": 15165
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.json",
+      "sha256": "eefc6ea178312b8dac7fd2ec8c4bc55cad20202f4f82b7842c6f5ab9f5478290",
+      "bytes": 303
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.stdout",
+      "sha256": "c17fcfd3129be0c31eeb18f5e5baa1bafc88b2ec35a7dbb32dc8c7fdcd2982d2",
+      "bytes": 3913
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-notes.md",
+      "sha256": "eea52d7b345d865245f1b07d09fea7ad055e773f98a4c3c14dda6c863f1081b6",
+      "bytes": 2164
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-c6leaf.json",
+      "sha256": "14b59f111b5009cd6eb64298c2703004bc219cfeb01d627363c24ab82c02647e",
+      "bytes": 2056
+    }
+  ]
+}

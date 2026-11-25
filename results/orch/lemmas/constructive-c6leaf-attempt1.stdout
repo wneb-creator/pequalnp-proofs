@@ -1,0 +1,123 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:193:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  supp n D (n + eu.1)
+in the target expression
+  p ∉ supp n D (n + (sem_bar eu).1)
+
+n : ℕ
+G : Fin n → Fin n → Prop
+D : Dag
+hsym : ∀ (u v : Fin n), G u v → G v u
+hirr : ∀ (u : Fin n), ¬G u u
+h : StrictLive n D
+hC : sem_Comp n G D
+p u v z : Fin n
+hu : u ∈ ineligSet n D
+hv : v ∈ ineligSet n D
+sepu : ∀ (w : Fin n), u ≠ w → ∃ a, G u a ∧ ¬G w a
+sepv : ∀ (w : Fin n), v ≠ w → ∃ a, G v a ∧ ¬G w a
+pu : G p u
+pv : G p v
+pz : G p z
+uv : u ≠ v
+zu : z ≠ u
+zv : z ≠ v
+eu : ℕ × Bool
+heu : eu.1 < List.length D
+left✝³ : tag D eu.1 = true
+pureu : supp n D (src D eu) = {u}
+emptyu : supp n D (n + eu.1) = ∅
+nbu : ∀ (a : Fin n), G u a → a ∈ supp n D (src D (eu.1, !eu.2))
+left✝² : exitArcs n D (carrierT n D {u}) = {eu}
+right✝¹ : merges n D (carrierT n D {u}) = ∅
+ev : ℕ × Bool
+hev : ev.1 < List.length D
+left✝¹ : tag D ev.1 = true
+purev : supp n D (src D ev) = {v}
+emptyv : supp n D (n + ev.1) = ∅
+nbv : ∀ (a : Fin n), G v a → a ∈ supp n D (src D (ev.1, !ev.2))
+left✝ : exitArcs n D (carrierT n D {v}) = {ev}
+right✝ : merges n D (carrierT n D {v}) = ∅
+⊢ p ∉ supp n D (n + (sem_bar eu).1)
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:195:36: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  supp n D (n + ev.1)
+in the target expression
+  p ∉ supp n D (n + (sem_bar ev).1)
+
+n : ℕ
+G : Fin n → Fin n → Prop
+D : Dag
+hsym : ∀ (u v : Fin n), G u v → G v u
+hirr : ∀ (u : Fin n), ¬G u u
+h : StrictLive n D
+hC : sem_Comp n G D
+p u v z : Fin n
+hu : u ∈ ineligSet n D
+hv : v ∈ ineligSet n D
+sepu : ∀ (w : Fin n), u ≠ w → ∃ a, G u a ∧ ¬G w a
+sepv : ∀ (w : Fin n), v ≠ w → ∃ a, G v a ∧ ¬G w a
+pu : G p u
+pv : G p v
+pz : G p z
+uv : u ≠ v
+zu : z ≠ u
+zv : z ≠ v
+eu : ℕ × Bool
+heu : eu.1 < List.length D
+left✝³ : tag D eu.1 = true
+pureu : supp n D (src D eu) = {u}
+emptyu : supp n D (n + eu.1) = ∅
+nbu : ∀ (a : Fin n), G u a → a ∈ supp n D (src D (eu.1, !eu.2))
+left✝² : exitArcs n D (carrierT n D {u}) = {eu}
+right✝¹ : merges n D (carrierT n D {u}) = ∅
+ev : ℕ × Bool
+hev : ev.1 < List.length D
+left✝¹ : tag D ev.1 = true
+purev : supp n D (src D ev) = {v}
+emptyv : supp n D (n + ev.1) = ∅
+nbv : ∀ (a : Fin n), G v a → a ∈ supp n D (src D (ev.1, !ev.2))
+left✝ : exitArcs n D (carrierT n D {v}) = {ev}
+right✝ : merges n D (carrierT n D {v}) = ∅
+wpu : sem_bar eu ∈ sem_W n D p
+⊢ p ∉ supp n D (n + (sem_bar ev).1)
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:259:75: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 2
+  0 ≤ a ≤ 11
+where
+ a := ↑(List.length D)
+ c := ↑(fanout D (b v))
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:260:30: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ -1
+  c ≥ 2
+  0 ≤ a ≤ 11
+where
+ a := ↑(List.length D)
+ c := ↑(fanout D (b v))
+ d := ↑⟨b v, 0⟩.snd
+ e := ↑(fanout D ⟨b v, 0⟩.fst)
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:282:56: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 2
+  0 ≤ c ≤ 3
+  0 ≤ a ≤ 11
+where
+ a := ↑(List.length D)
+ c := ↑(totalSurplus 9 D)
+ d := ↑(fanout D w)
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean:282:67: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ -1
+  d ≥ 2
+  0 ≤ c ≤ 3
+  0 ≤ a ≤ 11
+where
+ a := ↑(List.length D)
+ c := ↑(totalSurplus 9 D)
+ d := ↑(fanout D w)
+ e := ↑⟨w, 0⟩.snd
+ f := ↑(fanout D ⟨w, 0⟩.fst)

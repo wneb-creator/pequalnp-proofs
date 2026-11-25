@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS for the dated research snapshot; final status refresh still required before delivery",
+  "reviewer": "/root/stochastic_search",
+  "checked_utc": "2026-11-25T14:23:46.140029+00:00",
+  "source": "results/orch/HANDOFF.md",
+  "sha256": "d6f02ba4d789574a286ff3a01cc27be00fc1013c70f7bdfb47f4e92359162e8d",
+  "bytes": 5498,
+  "baseline_case_ledger_sha256": "cdddad976c945a9a5b7a31af8c1001d5011d741dc43c42c0aecd14c73d97fe1d",
+  "checks": [
+    "Explicitly says the posted target remains unproved, main file lacks the final theorem and checker rejects no-theorem, and the archival branch must not be used directly for a proof PR.",
+    "Verified main file is1301lines, SHAe28847ec5358fd33ed13b84cabc628af63538adfb2e02e9101dac2a336632325; successful partial build is distinguished from gap completion.",
+    "Verified all49 point/line adjacency pairs under accepted line7+t -> posted cyclic line(-t mod7), with point labels unchanged.",
+    "Canonical p7/p8, p9 one-sided, p10 cap and cached mixed-p9/q2 subcase claims agree with CASE_LEDGER and successful component receipts; remaining Bplus14/high cases are not promoted to no-quiet results.",
+    "Conditional posted-statement bridge retains its structural premise, and local C6/private-leaf result retains the separate restriction/deletion gap.",
+    "Correctly distinguishes cached development modules, permitted-import standalone sources, failed/parser-only attempts, memory abort134, and pending fullbuilds. The C6 component currently has cached exit0 and standalone pending, as its separate review records.",
+    "The singleton support and hidden nonlinear-term pitfalls match the archived independent counterexample i=0,H=points2*3*4. Protected-star deletion is explicitly unproved.",
+    "49 residual survivors/12orbits are correctly described as abstract models; timeoutUNKNOWN and control-PASS are not solver or circuit results.",
+    "Corrected28-gate control wording matches actual flags: cross-support/redundancy off, incomparability/shared-slot on. Hosted matching controls are not promoted to Fano witnesses.",
+    "Archived public report checked2026-11-25T13:56:12 records three live1479 reductions; quota claim is expressly last-refresh status, not a new live check.",
+    "Referenced statement.txt, CASE_LEDGER.md, validation.txt and TIMELINE.md exist relative to the handoff. Scope and next-pilot pitfalls are useful and concrete.",
+    "No credential/private-key/token/credential-URL patterns found; no environment credentials accessed."
+  ],
+  "before_final_publication": [
+    {
+      "severity": "status_refresh",
+      "text": "As root planned, refresh pending mixed-p9/q2/consumer-chain/C6 build outcomes and update the final snapshot/commit after completion. This review binds only the current dated draft."
+    },
+    {
+      "severity": "delivery_refresh",
+      "text": "Ensure final preservation push and lease status are recorded before final handoff; assigned-step wording no longer implies a currently active lease."
+    }
+  ],
+  "scope": "Read-only handoff/content review only. No proof, checker, solver or final push was rerun, and no source/global metadata was edited.",
+  "reviewed_update": {
+    "previous_sha256": "d6f02ba4d789574a286ff3a01cc27be00fc1013c70f7bdfb47f4e92359162e8d",
+    "changes": [
+      "Added explicit2026-11-25 14:23UTC snapshot and archival checkpoint073a3a7fb0d15108a6ddea68a420da9d5bb2f850.",
+      "Changed held step to assigned step.",
+      "Clarified exact at-most27 gate bound.",
+      "Replaced mixed-p9 receipt wording with separately tracked checks and final exit receipts when available."
+    ],
+    "no_new_proof_claim": true
+  }
+}

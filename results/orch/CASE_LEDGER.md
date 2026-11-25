@@ -43,3 +43,5 @@ Checkpoint1353 (2026-11-25T13:53:22.171769+00:00): all mixed-p9 two-missing case
 Checkpoint1403 (2026-11-25T14:03:19.293067+00:00): full mixed-p9 case closed in cached Lean with independent review; full standalone pending. The combined q2 standalone had a resource failure134; independently reviewed pruning candidate is under preliminary checking, so its previous cached result is the strongest complete combined result. Public reduction quota is full.
 
 Checkpoint1416 (2026-11-25T14:17:28.180078+00:00): actual Fano nonedge first-filter is standalone checked. Generic unordered consumer-chain cut/edge-survival is cached checked; explicit hypotheses remain. Corrected q2 standalone is active after a parser-only failed preliminary run. No further canonical row or posted target is newly closed.
+
+Checkpoint1425 (2026-11-25T14:26:31.450653+00:00): unordered consumer-chain cut is now standalone checked; full-star chain identity and separate11-gate C6 obstruction are cached checked with explicit hypotheses. The global Fano restriction bridge and remaining canonical cases are still open. The second local witness search endedUNKNOWN; final strengthened search is active.

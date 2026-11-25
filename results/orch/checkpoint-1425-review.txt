@@ -1,0 +1,10 @@
+PASS — independent checkpoint1425 preservation audit
+UTC: 2026-11-25T14:27:52.043336+00:00
+Manifest SHA256: 805d0571d5da44821876c72377d36ecc1345d364234803053f1d9dad4327b804
+Exact scratch/repository manifest copies match; all41 payload hashes/sizes match (429936bytes). All31 nested manifest entries verify. All7 Lean payloads pass admission/native-evaluation/root-marker/string scans; no credential/private-key patterns found in any raw or decompressed payload. No active shared/final SAT diagnostic is included.
+
+The consumer-chain cut has exact permitted-import standalone source/receipt binding, explicit exit0, empty complete logs and independent composition review. Its failed first attempt is separately preserved with exit1. Fullstar and C6+private-leaf results are correctly labeled cached partials with explicit hypotheses; their exact successful source hashes and empty logs verify. C6 first-attempt failures are retained. No global protected-star deletion, full p14 result, or whole-target proof is asserted.
+
+The completed localminimal SAT receipt is UNKNOWN after1800.447seconds, driverexit0; full compressed diagnostics and exact reviewed input hashes verify. Active final/shared searches are only described as active. The dated HANDOFF binds its independent review hash and explicitly states the target is unfinished and the local checker rejects no-theorem. Later checkpoint paragraphs supersede historical pending states; the handoff is a dated research snapshot requiring final status refresh before delivery. Main named-file build is not promoted to target completion. No PR is claimed.
+
+This was a read-only preservation/scope/security audit. No build, solver, checker, desk, git staging, push or source/global metadata mutation was performed. Only this separate review report was written.

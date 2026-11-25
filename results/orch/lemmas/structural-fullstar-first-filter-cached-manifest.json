@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-11-25T14:19:52.245379+00:00",
+  "scope": "Cached compiled and independently reviewed full-star chain AND identity. Explicit W\u22642, empty AND-output support, two x-consumers and full-neighbor opposite-slot hypotheses. Any AND reached by a single-reader prefix from the full-star consumer is the other empty-opposite consumer. No ordinary surgery or full-target claim; standalone remains separate.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-tail.lean",
+      "bytes": 3877,
+      "sha256": "fb9f834be939b394ec5aaf4558dd65654075bfb7069093ddff2ee84eef784f60"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter.lean",
+      "bytes": 18581,
+      "sha256": "476d69daab42c16e0fa3ed4296414ff0cbaa2bc7cd78e4029a026a19ff2124fa"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.json",
+      "bytes": 298,
+      "sha256": "0d832691c8fad57b408aacc430abf42d676ad92c0c4465952eef1356f38e22c4"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-fullstar-first-filter.json",
+      "bytes": 1975,
+      "sha256": "5365a8238f6ddca4063f38cb6dc16ec8edbb46c739266bde538c03f4a7589acc"
+    }
+  ],
+  "file_count": 6,
+  "bytes": 24731
+}

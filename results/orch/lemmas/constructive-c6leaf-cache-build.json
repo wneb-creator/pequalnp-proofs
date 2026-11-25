@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 64.9448709487915,
+  "source": "/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveC6Leaf.lean",
+  "sha256": "a210b61248dd942eec4389745b1bfcaf2a6f3092d94fbf3188c25b07cf82e84c",
+  "tail_sha256": "b527a0ae8ddf820dee87bb931686270f1222ed347c7338f28480065fac233ae9",
+  "archived_source": "results/orch/lemmas/constructive-c6leaf-cache.lean",
+  "scope": "Cached development check against accepted6659; local C6+three-private-leaves obstruction only, no full Fano reduction."
+}

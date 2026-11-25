@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-fullstar-first-filter.lean",
+  "sha256": "476d69daab42c16e0fa3ed4296414ff0cbaa2bc7cd78e4029a026a19ff2124fa",
+  "lines": 398,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T14:18:07.779351+00:00",
+  "completed_utc": "2026-11-25T14:18:45.944442+00:00"
+}

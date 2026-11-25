@@ -86,3 +86,5 @@
 - 2026-11-25T14:03:19.293067+00:00: 13:56:21 fullmixedp9 cached endgame passed;13:57:52 combinedq2 original memoryabort134;14:00 prunedq2 preliminary build launched. Preservation checkpoint1403 records exact status without a fulltarget claim.
 
 - 2026-11-25T14:17:28.180078+00:00: 14:07:07 Fano first-filter standalone exit0;14:07:31 q2pruned preliminary exit1 only10orphancomments;14:10:17 corrected fullq2 launch;14:15:32 unordered consumer-chaincut cached exit0.
+
+- 2026-11-25T14:26:31.450653+00:00: 14:24:01.162 localminimalSAT UNKNOWN;14:24 final1200SATlaunch;14:24:55.727 unorderedconsumerchaincut standalone exit0. Checkpoint1425 preserves these exact statuses.

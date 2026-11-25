@@ -1,0 +1,215 @@
+{
+  "created_utc": "2026-11-25T14:26:31.450653+00:00",
+  "file_count": 41,
+  "bytes": 429936,
+  "scope": "Completed unordered consumer-chain cut standalone; explicit-hypothesis fullstar/C6 cached partials; complete UNKNOWN localminimal diagnostics; dated independently reviewed handoff. Fulltargetunproved; all active diagnostics excluded.",
+  "subagents": 6,
+  "timing_total_minutes": 329.3,
+  "files": [
+    {
+      "path": "results/orch/CASE_LEDGER.md",
+      "bytes": 7223,
+      "sha256": "80fd5720262df2b0abf25ab903f97d55e7e189975cf093242014fe252577595a"
+    },
+    {
+      "path": "results/orch/HANDOFF.md",
+      "bytes": 5498,
+      "sha256": "d6f02ba4d789574a286ff3a01cc27be00fc1013c70f7bdfb47f4e92359162e8d"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 16119,
+      "sha256": "a12610288f19b7b7eebce12a6d5a04ce08eab532793fe2826040375bb02cdba7"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 9079,
+      "sha256": "0c35c0278d8dd0f9617117e9ad6cb09fdeafb0c1c817a779937578e07994f447"
+    },
+    {
+      "path": "results/orch/handoff-review.json",
+      "bytes": 3667,
+      "sha256": "14c41a869ee456eb23736601a52eb0df451ab00aaeb0f5d131a3697d6b48a0a0"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-fullstar-first-filter.json",
+      "bytes": 1975,
+      "sha256": "5365a8238f6ddca4063f38cb6dc16ec8edbb46c739266bde538c03f4a7589acc"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.json",
+      "bytes": 303,
+      "sha256": "eefc6ea178312b8dac7fd2ec8c4bc55cad20202f4f82b7842c6f5ab9f5478290"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.lean",
+      "bytes": 15165,
+      "sha256": "2f3b7236e745a085979471c38a867c795eb808d5a8791fc1a5f639ee823d2d2b"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-attempt1.stdout",
+      "bytes": 3913,
+      "sha256": "c17fcfd3129be0c31eeb18f5e5baa1bafc88b2ec35a7dbb32dc8c7fdcd2982d2"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.json",
+      "bytes": 510,
+      "sha256": "fe141b7c15c1133a2a3a30844c7ab5baad1daf58a98610eb67f0cf169076d825"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache-manifest.json",
+      "bytes": 2628,
+      "sha256": "24d2e07dc1d489bce3af8ce0a792b1f6665bd9e40fb73df8716d5c467a6214f2"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-cache.lean",
+      "bytes": 15333,
+      "sha256": "a210b61248dd942eec4389745b1bfcaf2a6f3092d94fbf3188c25b07cf82e84c"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-notes.md",
+      "bytes": 2164,
+      "sha256": "eea52d7b345d865245f1b07d09fea7ad055e773f98a4c3c14dda6c863f1081b6"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-tail.lean",
+      "bytes": 15310,
+      "sha256": "b527a0ae8ddf820dee87bb931686270f1222ed347c7338f28480065fac233ae9"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-consumer-cut-standalone.json",
+      "bytes": 1327,
+      "sha256": "6d5d06027b0392ed9f8924e9d17a50e55c176612360af8435f82d27c4e4838b1"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-c6leaf.json",
+      "bytes": 2056,
+      "sha256": "14b59f111b5009cd6eb64298c2703004bc219cfeb01d627363c24ab82c02647e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-15-run.driver.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-15-run.receipt.json.gz",
+      "bytes": 337,
+      "sha256": "d6fd33ee6ba7ab4c3bba2570065c28504ce8e0843e9803f0bdbfa92c4129ebd0"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-15-run.runlog.gz",
+      "bytes": 140,
+      "sha256": "23874dc842baaa2e92b2469d90def7f578d5e459b214d5c8ad27b863ec5e5932"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-15-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-15-run.stdout.gz",
+      "bytes": 15018,
+      "sha256": "04d6283238e3d0b199b3f33db61b6c868e3416d5fd5805f2717427e949f5e2eb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-collinear4-minimal-outcome-manifest.json",
+      "bytes": 2999,
+      "sha256": "34e872348905697a4b9143cf092f48336c1406a1d28ec7f6851116998dac5296"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-full-manifest.json",
+      "bytes": 2269,
+      "sha256": "e26f27de73191ac59686c0956c61cd300824bd20dba7d273cfc2840f66927395"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.json",
+      "bytes": 367,
+      "sha256": "824ce2efd997594eae8d51b16973ffb65ce36189e81710dddf627612e8eb3e20"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.lean",
+      "bytes": 125976,
+      "sha256": "83eb16b2868749ee2c8479787f276de4aef9d44f95303e39897db5c094e45921"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-attempt1.stdout",
+      "bytes": 165,
+      "sha256": "8033219f745c2c34ce9ce026923f427633ca92be18ce9690d76eacd71f013249"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.json",
+      "bytes": 434,
+      "sha256": "8543f254dea56d031522820a32a5ecbc5dfe803e5d21e98c64cf04655925d83d"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-consumer-chain-cut-standalone.lean",
+      "bytes": 126002,
+      "sha256": "8cd48095c3be0bb3eadaa93c2bcfaa982530d1304f81e29302d762b1af9669a2"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.json",
+      "bytes": 298,
+      "sha256": "0d832691c8fad57b408aacc430abf42d676ad92c0c4465952eef1356f38e22c4"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-cached-manifest.json",
+      "bytes": 1660,
+      "sha256": "72bd1a51639797ff7aee654e305211837797345d20b3faf2c25fb2c1d2be85be"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter-tail.lean",
+      "bytes": 3877,
+      "sha256": "fb9f834be939b394ec5aaf4558dd65654075bfb7069093ddff2ee84eef784f60"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-first-filter.lean",
+      "bytes": 18581,
+      "sha256": "476d69daab42c16e0fa3ed4296414ff0cbaa2bc7cd78e4029a026a19ff2124fa"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 29503,
+      "sha256": "8d24f7eb55212e9a1b76d79fc18977c6542b33a8c7531badc30cfceb4d72439d"
+    }
+  ]
+}

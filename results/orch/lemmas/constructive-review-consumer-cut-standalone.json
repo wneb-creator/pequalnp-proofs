@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS exact standalone composition and permitted-import compilation",
+  "reviewer": "constructive_search",
+  "utc": "2026-11-25T14:25:27.054217+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-consumer-chain-cut-standalone.lean",
+  "sha256": "8cd48095c3be0bb3eadaa93c2bcfaa982530d1304f81e29302d762b1af9669a2",
+  "lines": 2729,
+  "composition": "Exact accepted first2534 lines, closes SemCodes and namespace, then frozen cached192line body without imports; only uniform namespace rename and blank separators. Existing source/math review constructive-review-consumer-chain-cut.json remains unchanged. One equivalent path-order helper substitution recorded below.",
+  "scope": "Generic consumer-chain cut and barrier-positive corollary. No Fano theorem, deletion equivalence or size-saving claim.",
+  "repair": "Only sem_rtg_le path-order call replaced by already-present single_reader_path_le after projecting sem_step edges. Mathematically identical structural reachability bound; cached source remains unchanged.",
+  "build_receipt": "structural-consumer-chain-cut-standalone-build.json",
+  "exit_code": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

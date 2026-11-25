@@ -1,0 +1,18 @@
+{
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:18:29.055488+00:00",
+  "verdict": "PASS mathematical/source review and exact cached exit0 binding; standalone pending",
+  "source_sha256": "a210b61248dd942eec4389745b1bfcaf2a6f3092d94fbf3188c25b07cf82e84c",
+  "tail_sha256": "b527a0ae8ddf820dee87bb931686270f1222ed347c7338f28480065fac233ae9",
+  "receipt_sha256": "fe141b7c15c1133a2a3a30844c7ab5baad1daf58a98610eb67f0cf169076d825",
+  "findings": [
+    "Looplessness alone makes singleton output support empty. The first joint edge meeting follows from minimality of a true pair wire carrying neither endpoint and strict backwards operands.",
+    "Dominator purity uses symmetry, irreflexivity and separation only for the consumed label. The construction does not assume false global separation for degree-one private leaves.",
+    "For a locally separated ineligible label with a neighbor, singleton-carrier flow yields one pure consuming position covering its full neighborhood. Two distinct such neighbor labels plus a third neighbor force three distinct consuming positions for the center.",
+    "In the explicit9-input C6-plus-private-leaves graph, points0/1/2 and shared lines3/5 satisfy the local hypotheses. Private leaves are never assumed separated.",
+    "If all three points are eligible and size\u226411, their distinct first pure branch units exhaust the totalSurplus\u22643 budget. Every eligible label is one of those points, which provides the required PureBranch family without a global sem_Gr hypothesis.",
+    "Carrier-flow/residual accounting then forces W0\u22642, contradicting the independently established W0\u22653. The final theorem excludes size\u226411 only under all-three-point eligibility."
+  ],
+  "scope": "Ordinary local9-input graph obstruction with explicit eligibility/size hypotheses. No derivative preservation, cofactor transport, or full1479 theorem is claimed.",
+  "complete_diagnostics": "Cached stdout/stderr empty and explicit exit0 receipt checked. Separate permitted-import standalone is not yet claimed."
+}
