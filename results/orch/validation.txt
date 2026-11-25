@@ -19,3 +19,5 @@ Derivatives.lean: lake env lean passed, exit0;122 lines, no output. Generic size
 
 Counterexample.lean: lake env lean passed, exit0;39 lines, no output. Monotone OR boundary criterion and Boolean identities.
 Distributed.lean: lake env lean passed, exit0;112 lines, no output. Distributive wrapper equivalence with +1 gate relative to ordinary form.
+
+Structural.lean v2: lake env lean passed, exit0;255 lines. Rectangle-cover bound13 and exact normalized minimum-cover classification; independent review passed.

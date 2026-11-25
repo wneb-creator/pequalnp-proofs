@@ -13,3 +13,7 @@
 2026-11-25T03:20:24.421350+00:00 generic distributed wrapper size/evaluation lemmas compiled firstpass (exit0); awaiting root preservation.
 
 2026-11-25T03:20:38.527574+00:00 Counterexample.lean and Distributed.lean compiled; independent review passed.
+2026-11-25T03:20:43.789290+00:00 counterexample partial lemmas compiled; independent review PASS; finite search reached exact65 gates and64-gate one-edge near-miss.
+2026-11-25T03:20:57.584149+00:00 ANDcount12 full-plane SAT reached180s cap; pivot to local64-gate near-miss repair SAT.
+
+2026-11-25T03:21:31.121085+00:00 Structural.lean v2 compiled; independent review passed.

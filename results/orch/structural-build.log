@@ -1,6 +1,18 @@
-../results/orch/lemmas/Structural.lean:80:4: warning: `simp` already closes the goal
+../results/orch/lemmas/Structural.lean:81:4: warning: `simp` already closes the goal
 
 Hint: Use `simp` instead of `simpa`:
   [apply] simp [hi] at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/Structural.lean:209:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/Structural.lean:216:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hS.1] at hi
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

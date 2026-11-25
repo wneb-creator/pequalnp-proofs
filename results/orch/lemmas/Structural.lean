@@ -1,4 +1,5 @@
 import Mathlib.Data.Fintype.Fin
+import Mathlib.Data.Fintype.Card
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Logic.Function.Iterate
 
@@ -150,5 +151,105 @@ lemma rectangle_card_le_four (S T : Finset (Fin 13))
     simpa [he] using hbT
   · have he : T.card = 1 := by omega
     simpa [he] using hbS
+
+lemma rectangle_cover_count {k : ℕ} (A B : Fin k → Finset (Fin 13))
+    (valid : ∀ i, ∀ p ∈ A i, ∀ l ∈ B i, incident p l)
+    (cover : ∀ p l, incident p l → ∃ i, p ∈ A i ∧ l ∈ B i) : 13 ≤ k := by
+  classical
+  have pick (p : Fin 13) : ∃ i, p ∈ A i ∧ p ∈ B i :=
+    cover p p (diagonal_incident p)
+  let f (p : Fin 13) : Fin k := Classical.choose (pick p)
+  have hf (p : Fin 13) : p ∈ A (f p) ∧ p ∈ B (f p) :=
+    Classical.choose_spec (pick p)
+  have inj : Function.Injective f := by
+    intro p q he
+    have hq := hf q
+    rw [← he] at hq
+    rcases rectangle_thin (A (f p)) (B (f p)) (valid (f p)) with ha | hb
+    · exact Finset.card_le_one.mp ha p (hf p).1 q hq.1
+    · exact Finset.card_le_one.mp hb p (hf p).2 q hq.2
+  simpa using Fintype.card_le_of_injective f inj
+
+lemma singleton_of_small_card (S : Finset (Fin 13)) (p : Fin 13)
+    (hp : p ∈ S) (hs : S.card ≤ 1) : S = {p} := by
+  ext q
+  constructor
+  · intro hq
+    exact Finset.mem_singleton.mpr (Finset.card_le_one.mp hs q hq p hp)
+  · intro hq
+    have he : q = p := Finset.mem_singleton.mp hq
+    simpa [he] using hp
+
+lemma normalized_rectangles_orientation (A B : Fin 13 → Finset (Fin 13))
+    (valid : ∀ i, ∀ p ∈ A i, ∀ l ∈ B i, incident p l)
+    (diag : ∀ i, i ∈ A i ∧ i ∈ B i)
+    (cover : ∀ p l, incident p l → ∃ i, p ∈ A i ∧ l ∈ B i) :
+    (∀ i, A i = {i}) ∨ (∀ i, B i = {i}) := by
+  classical
+  have side (i : Fin 13) : A i = {i} ∨ B i = {i} := by
+    rcases rectangle_thin (A i) (B i) (valid i) with ha | hb
+    · exact Or.inl (singleton_of_small_card (A i) i (diag i).1 ha)
+    · exact Or.inr (singleton_of_small_card (B i) i (diag i).2 hb)
+  let S := Finset.univ.filter fun i => A i = {i}
+  have smem (i : Fin 13) : i ∈ S ↔ A i = {i} := by simp [S]
+  have hcover (p l : Fin 13) (edge : incident p l) : p ∈ S ∨ l ∈ Sᶜ := by
+    obtain ⟨i, hp, hl⟩ := cover p l edge
+    by_cases ha : A i = {i}
+    · rw [ha] at hp
+      have he : p = i := Finset.mem_singleton.mp hp
+      subst p
+      exact Or.inl ((smem i).mpr ha)
+    · have hb := (side i).resolve_left ha
+      rw [hb] at hl
+      have he : l = i := Finset.mem_singleton.mp hl
+      subst l
+      exact Or.inr (Finset.mem_compl.mpr (fun hi => ha ((smem i).mp hi)))
+  have hsize : S.card + Sᶜ.card ≤ 13 := by
+    have hc := Finset.card_add_card_compl S
+    simpa using hc.le
+  rcases minimum_vertex_cover S Sᶜ hcover hsize with hS | hS
+  · right
+    intro i
+    apply (side i).resolve_left
+    intro ha
+    have hi : i ∈ S := (smem i).mpr ha
+    simpa [hS.1] using hi
+  · left
+    intro i
+    apply (smem i).mp
+    rw [hS.1]
+    exact Finset.mem_univ i
+
+lemma normalized_rectangles_exact (A B : Fin 13 → Finset (Fin 13))
+    (valid : ∀ i, ∀ p ∈ A i, ∀ l ∈ B i, incident p l)
+    (diag : ∀ i, i ∈ A i ∧ i ∈ B i)
+    (cover : ∀ p l, incident p l → ∃ i, p ∈ A i ∧ l ∈ B i) :
+    (∀ i, A i = {i} ∧ B i = Finset.univ.filter (fun l => incident i l)) ∨
+    (∀ i, B i = {i} ∧ A i = Finset.univ.filter (fun p => incident p i)) := by
+  rcases normalized_rectangles_orientation A B valid diag cover with ha | hb
+  · left
+    intro i
+    refine ⟨ha i, ?_⟩
+    ext l
+    constructor
+    · intro hl
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ l, valid i i (diag i).1 l hl⟩
+    · intro hl
+      obtain ⟨j, hi, hj⟩ := cover i l (Finset.mem_filter.mp hl).2
+      rw [ha j] at hi
+      have he : i = j := Finset.mem_singleton.mp hi
+      simpa [he] using hj
+  · right
+    intro i
+    refine ⟨hb i, ?_⟩
+    ext p
+    constructor
+    · intro hp
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ p, valid i p hp i (diag i).2⟩
+    · intro hp
+      obtain ⟨j, hj, hi⟩ := cover p i (Finset.mem_filter.mp hp).2
+      rw [hb j] at hi
+      have he : i = j := Finset.mem_singleton.mp hi
+      simpa [he] using hj
 
 end PEqualNP.Outside.L_meta_2602_aux

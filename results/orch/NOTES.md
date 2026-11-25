@@ -64,3 +64,15 @@ Independent audit update 2026-11-25T03:15:27.411594+00:00: `Audit.lean` compiled
 - Derivatives.lean CHECKED by Lean (exit0, derivatives-check-4.log): wrapper size/topology/eval/linear-zero lemmas. Frozen for early push; developing stronger distributive wrapper in Distributed.lean.
 
 - Distributed.lean CHECKED firstpass (distributed-check-1.log, exit0): (F OR z) AND (F OR t) uses one more gate than F OR (z AND t), with exact eval equality on all inputs. Generic append-one-gate API included. Linear-zero and topology extensions next.
+
+Counterexample update 2026-11-25T03:20:43.789290+00:00: 39-line Counterexample.lean compiled via lake env lean, exit0, empty counterexample-lemmas-build.log; independent review passed. Exact65-gate relaxed-threshold witness and64-gate one-edge near-miss saved as scratch plane-exact65.json and plane-nearmiss64.json, independently scalar-verified on52positive edges and704maximal independent sets. The near-miss lacks only edge(8,8), input wires(8,21). No posted-statement counterexample.
+
+Searches active: three64-gate fullplane variants (seeds64,65,66), plus independent38-gate13-output OR-sums synthesis on26-row monotone boundary basis, plus C6 with4OR/unboundedAND to test a possible general OR-count lemma. Complete logs and scripts in job scratch.
+
+## AND/OR count alternative (reductions agent)
+
+- Enumerated all8192 point subsets and their closed opposite neighborhoods. The order3 incidence graph has704 maximal independent sets: side sizes (0,13):1,(1,9):13,(2,6):78,(3,3):52,(3,4):234,(4,3):234,(6,2):78,(9,1):13,(13,0):1. Generic negative-certificate counting gives only ANDcount≥10, not13.
+- Built `and_count_search.py` under job scratch: normalized AND-count circuits with free OR sides; edge positives and all maximal-independent-set negatives characterize the exact monotone function. Matching3 controls:2AND UNSAT in0.01s,3AND SAT exact in0.05s. Fano6AND (37negative rows) timed out60s with/without symmetry normalization. Plane12AND full704negative rows timed out182.62s (no verdict).
+- Dual control for OR count:6-cycle with4OR gates UNSAT in1.5s;8-cycle with6OR gates timed out30s. These are computational observations, not Lean proofs.
+- A naive general C4free ORcount≥edges−1 invariant is false: checked `L_meta_1006` has16edges and a realization with14OR gates; graph has triangles. Restricting to bipartite graphs still needs a genuine absorption argument.
+- Pivoting to bounded local SAT repair of the64-gate near-miss. `repair_nearmiss.py` fixes all but selected gate neighborhoods, enforces distinct earlier operands, all52edge positives, negative-basis CEGIS over704maximal independent sets, and both exact directional derivative recurrences false. Current neighborhoods6 and8 gates have first-round relaxed candidates, full negative refinement ongoing. Complete stdout/stderr are retained per run in scratch.
