@@ -1,0 +1,33 @@
+AUTOMORPHISMS 336 first_pair_reps [(0, 1), (0, 7), (0, 8)]
+START fano n 14 k 26 rows 58 mode any timeout 180
+RESULT unknown seconds 180.13896369934082
+(:added-eqs           19962300
+ :binary-propagations 25516226
+ :bv-bit2core         29284814
+ :bv-diseqs           8700
+ :bv-dynamic-diseqs   8156978
+ :bv-dynamic-eqs      1692
+ :bv->core-eq         499560
+ :conflicts           124146
+ :decisions           2958690
+ :del-clause          299543670
+ :max-memory          64.70
+ :memory              24.66
+ :minimized-lits      579512
+ :mk-bool-var         96840758
+ :mk-clause           299833052
+ :mk-clause-binary    45144
+ :num-allocs          117938906098.00
+ :num-checks          2
+ :pb-conflicts        42
+ :pb-predicates       6
+ :pb-propagations     66348
+ :pb-resolves         42
+ :propagations        100383664
+ :random-seed         2062
+ :restarts            532
+ :rlimit-count        123456112
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 26
+ :solve-eqs-steps     6691
+ :time                180.13)

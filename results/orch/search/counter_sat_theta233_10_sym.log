@@ -1,0 +1,36 @@
+AUTOMORPHISMS 4 first_pair_reps [(0, 1), (0, 2), (0, 3), (0, 4), (2, 3), (3, 4), (3, 5), (3, 6)]
+START theta233 n 7 k 10 rows 15 mode any timeout 120
+RESULT unknown seconds 120.0623049736023
+(:max-memory              44.37
+ :memory                  18.27
+ :num-allocs              701073597
+ :rlimit-count            178600901
+ :sat-ate                 442
+ :sat-backjumps           625272
+ :sat-bce                 255
+ :sat-conflicts           625272
+ :sat-decisions           1159660
+ :sat-del-clause          601492
+ :sat-elim-bool-vars-res  2165
+ :sat-elim-clauses        443
+ :sat-elim-literals       152068
+ :sat-gc-clause           566802
+ :sat-minimized-lits      15345071
+ :sat-mk-clause-2ary      8916
+ :sat-mk-clause-3ary      3919
+ :sat-mk-clause-nary      644113
+ :sat-mk-var              4124
+ :sat-probing-assigned    22
+ :sat-propagations-2ary   27589285
+ :sat-propagations-nary   171541435
+ :sat-restarts            47582
+ :sat-scc-elim-binary     73
+ :sat-scc-elim-vars       174
+ :sat-subs-resolution     52353
+ :sat-subs-resolution-dyn 753644
+ :sat-subsumed            16369
+ :sat-tr                  47
+ :sat-units               88
+ :solve-eqs-elim-vars     34
+ :solve-eqs-steps         1095
+ :time                    120.06)

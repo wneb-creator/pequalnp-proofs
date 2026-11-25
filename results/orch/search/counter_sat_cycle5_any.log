@@ -1,0 +1,33 @@
+START cycle5 n 5 k 7 rows 10 mode any timeout 30
+RESULT sat seconds 0.3549535274505615
+GATES [[0, 0, 1], [1, 0, 3], [1, 1, 3], [0, 2, 7], [1, 4, 5], [0, 6, 9], [1, 8, 10]]
+FULL_TABLE_ERRORS []
+(:max-memory              26.23
+ :memory                  17.43
+ :num-allocs              2495747
+ :rlimit-count            979735
+ :sat-backjumps           5690
+ :sat-conflicts           5690
+ :sat-decisions           11658
+ :sat-del-clause          3908
+ :sat-elim-bool-vars-res  731
+ :sat-elim-clauses        203
+ :sat-elim-literals       818
+ :sat-minimized-lits      49785
+ :sat-mk-clause-2ary      2849
+ :sat-mk-clause-3ary      1279
+ :sat-mk-clause-nary      11409
+ :sat-mk-var              1539
+ :sat-probing-assigned    22
+ :sat-propagations-2ary   248012
+ :sat-propagations-nary   690759
+ :sat-restarts            381
+ :sat-scc-elim-binary     18
+ :sat-scc-elim-vars       49
+ :sat-subs-resolution     124
+ :sat-subs-resolution-dyn 1218
+ :sat-subsumed            369
+ :sat-units               36
+ :solve-eqs-elim-vars     15
+ :solve-eqs-steps         503
+ :time                    0.35)

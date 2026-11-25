@@ -1,0 +1,2 @@
+START path7aux n 7 k 9 rows 17 variables 2657 clauses 48166 autos 2 cnfbytes 690212
+RESULT unsat seconds 5.157249212265015 exit 20

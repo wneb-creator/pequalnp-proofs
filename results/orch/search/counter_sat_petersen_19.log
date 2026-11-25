@@ -1,0 +1,36 @@
+START petersen n 10 k 19 rows 30 mode any timeout 300
+RESULT unknown seconds 300.06527638435364
+(:max-memory              88.48
+ :memory                  23.44
+ :num-allocs              16339358986.00
+ :rlimit-count            623912864
+ :sat-ate                 11351
+ :sat-backjumps           770861
+ :sat-backtracks          79
+ :sat-bce                 2145
+ :sat-conflicts           770940
+ :sat-decisions           1767680
+ :sat-del-clause          813685
+ :sat-elim-bool-vars-res  11589
+ :sat-elim-clauses        1343
+ :sat-elim-literals       316447
+ :sat-gc-clause           696187
+ :sat-minimized-lits      20422808
+ :sat-mk-clause-2ary      36819
+ :sat-mk-clause-3ary      14604
+ :sat-mk-clause-nary      911142
+ :sat-mk-var              23446
+ :sat-probing-assigned    40
+ :sat-propagations-2ary   79824078
+ :sat-propagations-nary   572086859
+ :sat-restarts            67589
+ :sat-scc-elim-binary     108
+ :sat-scc-elim-vars       697
+ :sat-subs-resolution     50329
+ :sat-subs-resolution-dyn 1217082
+ :sat-subsumed            12380
+ :sat-tr                  132
+ :sat-units               115
+ :solve-eqs-elim-vars     33
+ :solve-eqs-steps         3461
+ :time                    300.06)

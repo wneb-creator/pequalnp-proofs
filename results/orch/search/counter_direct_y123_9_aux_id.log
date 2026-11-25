@@ -1,0 +1,2 @@
+START y123aux n 7 k 9 rows 16 variables 2648 clauses 45763 autos 1 cnfbytes 652443
+RESULT unsat seconds 44.315731048583984 exit 20

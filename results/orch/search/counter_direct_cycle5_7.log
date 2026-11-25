@@ -1,0 +1,4 @@
+START cycle5 n 5 k 7 rows 10 variables 910 clauses 10450 autos 10 cnfbytes 134398
+RESULT sat seconds 0.07564330101013184 exit 10
+GATES [(0, 0, 1), (1, 0, 3), (1, 1, 3), (0, 4, 6), (0, 2, 7), (1, 5, 8), (1, 9, 10)]
+FULL_TABLE_ERRORS []

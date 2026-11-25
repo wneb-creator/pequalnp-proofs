@@ -1,0 +1,35 @@
+START cycle5leaf n 6 k 8 rows 11 mode dirty timeout 60
+RESULT unsat seconds 11.3174409866333
+(:max-memory              31.58
+ :memory                  17.58
+ :num-allocs              53069766
+ :rlimit-count            28499841
+ :sat-ate                 73
+ :sat-backjumps           145089
+ :sat-bce                 113
+ :sat-conflicts           145090
+ :sat-decisions           251362
+ :sat-del-clause          126285
+ :sat-elim-bool-vars-res  1087
+ :sat-elim-clauses        5128
+ :sat-elim-literals       62826
+ :sat-gc-clause           99960
+ :sat-minimized-lits      2325967
+ :sat-mk-clause-2ary      5245
+ :sat-mk-clause-3ary      1968
+ :sat-mk-clause-nary      153516
+ :sat-mk-var              2153
+ :sat-probing-assigned    17
+ :sat-propagations-2ary   6839062
+ :sat-propagations-nary   24611382
+ :sat-restarts            9417
+ :sat-scc-elim-binary     36
+ :sat-scc-elim-vars       149
+ :sat-subs-resolution     26122
+ :sat-subs-resolution-dyn 116242
+ :sat-subsumed            7243
+ :sat-tr                  48
+ :sat-units               114
+ :solve-eqs-elim-vars     14
+ :solve-eqs-steps         697
+ :time                    11.31)

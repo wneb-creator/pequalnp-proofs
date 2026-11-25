@@ -1,0 +1,35 @@
+START theta233 n 7 k 10 rows 15 mode any timeout 120
+RESULT unknown seconds 120.01887106895447
+(:max-memory              45.52
+ :memory                  18.29
+ :num-allocs              633321820
+ :rlimit-count            148859121
+ :sat-ate                 614
+ :sat-backjumps           537450
+ :sat-bce                 227
+ :sat-conflicts           537450
+ :sat-decisions           915184
+ :sat-del-clause          510392
+ :sat-elim-bool-vars-res  2187
+ :sat-elim-clauses        466
+ :sat-elim-literals       196134
+ :sat-gc-clause           482917
+ :sat-minimized-lits      12581650
+ :sat-mk-clause-2ary      8414
+ :sat-mk-clause-3ary      3914
+ :sat-mk-clause-nary      556605
+ :sat-mk-var              4116
+ :sat-probing-assigned    17
+ :sat-propagations-2ary   24334602
+ :sat-propagations-nary   141094023
+ :sat-restarts            30311
+ :sat-scc-elim-binary     54
+ :sat-scc-elim-vars       150
+ :sat-subs-resolution     72451
+ :sat-subs-resolution-dyn 498222
+ :sat-subsumed            8412
+ :sat-tr                  75
+ :sat-units               61
+ :solve-eqs-elim-vars     34
+ :solve-eqs-steps         1095
+ :time                    120.02)

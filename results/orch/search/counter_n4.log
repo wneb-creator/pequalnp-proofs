@@ -1,0 +1,5 @@
+n=4 limit=4 nodes=81985 graphs=37 found=37
+minimum=1 star=1 graphs=6
+minimum=2 star=1 graphs=12
+minimum=3 star=1 graphs=7
+minimum=4 star=1 graphs=12

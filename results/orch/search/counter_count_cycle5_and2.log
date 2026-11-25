@@ -1,0 +1,2 @@
+START cycle5 and 2 rows 10 cnfbytes 9496
+RESULT unsat seconds 0.010255813598632812 exit 20

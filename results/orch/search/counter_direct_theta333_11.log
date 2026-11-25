@@ -1,0 +1,2 @@
+START theta333 n 8 k 11 rows 18 variables 3850 clauses 74269 autos 12 cnfbytes 1102352
+RESULT unknown seconds 180.009019613266 exit 0

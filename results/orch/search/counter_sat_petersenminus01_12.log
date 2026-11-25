@@ -1,0 +1,35 @@
+START petersenminus01 n 8 k 12 rows 19 mode any timeout 180
+RESULT unknown seconds 180.06567573547363
+(:max-memory              54.66
+ :memory                  19.16
+ :num-allocs              1567076279
+ :rlimit-count            242662670
+ :sat-ate                 1047
+ :sat-backjumps           635714
+ :sat-bce                 467
+ :sat-conflicts           635714
+ :sat-decisions           1344651
+ :sat-del-clause          611311
+ :sat-elim-bool-vars-res  3582
+ :sat-elim-clauses        679
+ :sat-elim-literals       213353
+ :sat-gc-clause           572027
+ :sat-minimized-lits      14441658
+ :sat-mk-clause-2ary      12860
+ :sat-mk-clause-3ary      6171
+ :sat-mk-clause-nary      669653
+ :sat-mk-var              6995
+ :sat-probing-assigned    30
+ :sat-propagations-2ary   37841930
+ :sat-propagations-nary   225695193
+ :sat-restarts            58398
+ :sat-scc-elim-binary     81
+ :sat-scc-elim-vars       237
+ :sat-subs-resolution     71621
+ :sat-subs-resolution-dyn 659359
+ :sat-subsumed            7461
+ :sat-tr                  76
+ :sat-units               75
+ :solve-eqs-elim-vars     32
+ :solve-eqs-steps         1551
+ :time                    180.03)

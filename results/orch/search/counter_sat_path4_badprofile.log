@@ -1,0 +1,19 @@
+START path4 n 4 k 5 rows 6 mode badprofile timeout 30
+RESULT sat seconds 0.07583808898925781
+GATES [[1, 0, 2], [1, 2, 3], [0, 4, 5], [1, 0, 1], [0, 6, 7]]
+FULL_TABLE_ERRORS []
+(:max-memory            25.74
+ :memory                17.29
+ :num-allocs            240392
+ :rlimit-count          48067
+ :sat-backjumps         13
+ :sat-conflicts         13
+ :sat-decisions         55
+ :sat-mk-clause-2ary    1330
+ :sat-mk-clause-nary    1489
+ :sat-mk-var            744
+ :sat-propagations-2ary 1126
+ :sat-propagations-nary 1009
+ :solve-eqs-elim-vars   17
+ :solve-eqs-steps       259
+ :time                  0.07)

@@ -1,0 +1,33 @@
+START cycle6 n 6 k 8 rows 11 mode dirty timeout 60
+RESULT unsat seconds 9.032853126525879
+(:max-memory              31.25
+ :memory                  17.57
+ :num-allocs              38215533
+ :rlimit-count            23559836
+ :sat-backjumps           123124
+ :sat-conflicts           123125
+ :sat-decisions           218251
+ :sat-del-clause          112111
+ :sat-elim-bool-vars-res  1012
+ :sat-elim-clauses        19379
+ :sat-elim-literals       68053
+ :sat-gc-clause           80722
+ :sat-minimized-lits      2007852
+ :sat-mk-clause-2ary      4829
+ :sat-mk-clause-3ary      1906
+ :sat-mk-clause-nary      131276
+ :sat-mk-var              2162
+ :sat-probing-assigned    18
+ :sat-propagations-2ary   5241514
+ :sat-propagations-nary   20614852
+ :sat-restarts            6457
+ :sat-scc-elim-binary     32
+ :sat-scc-elim-vars       124
+ :sat-subs-resolution     14721
+ :sat-subs-resolution-dyn 58711
+ :sat-subsumed            5619
+ :sat-tr                  24
+ :sat-units               320
+ :solve-eqs-elim-vars     14
+ :solve-eqs-steps         697
+ :time                    9.03)

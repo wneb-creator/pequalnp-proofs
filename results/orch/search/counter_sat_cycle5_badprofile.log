@@ -1,0 +1,32 @@
+START cycle5 n 5 k 7 rows 10 mode badprofile timeout 60
+RESULT unsat seconds 4.085099697113037
+(:max-memory              27.03
+ :memory                  17.79
+ :num-allocs              8490551
+ :rlimit-count            5525728
+ :sat-backjumps           25217
+ :sat-conflicts           25218
+ :sat-decisions           41568
+ :sat-del-clause          23591
+ :sat-elim-bool-vars-res  972
+ :sat-elim-clauses        9935
+ :sat-elim-literals       11844
+ :sat-gc-clause           8810
+ :sat-minimized-lits      272572
+ :sat-mk-clause-2ary      4892
+ :sat-mk-clause-3ary      2008
+ :sat-mk-clause-nary      32695
+ :sat-mk-var              2306
+ :sat-probing-assigned    11
+ :sat-propagations-2ary   1580433
+ :sat-propagations-nary   4302989
+ :sat-restarts            1126
+ :sat-scc-elim-binary     19
+ :sat-scc-elim-vars       122
+ :sat-subs-resolution     157
+ :sat-subs-resolution-dyn 8395
+ :sat-subsumed            419
+ :sat-units               486
+ :solve-eqs-elim-vars     15
+ :solve-eqs-steps         503
+ :time                    4.08)

@@ -1,0 +1,11 @@
+n=5 limit=5 nodes=27160961 graphs=302 found=290
+minimum=1 star=1 graphs=10
+minimum=2 star=1 graphs=30
+minimum=3 star=1 graphs=35
+minimum=4 star=1 graphs=95
+minimum=5 star=1 graphs=120
+minimum=999 star=0 graphs=12
+
+real	0m0.364s
+user	0m0.363s
+sys	0m0.000s

@@ -1,0 +1,2 @@
+START cycle8 and 3 rows 18 cnfbytes 31545
+RESULT unsat seconds 0.03235745429992676 exit 20

@@ -1,0 +1,32 @@
+START variablegraph 8 10 12 alpha<= 4 timeout 180
+RESULT unknown seconds 180.17324018478394
+(:added-eqs           30691404
+ :binary-propagations 25686344
+ :bv-bit2core         56130520
+ :bv-diseqs           18206
+ :bv-dynamic-diseqs   836128
+ :bv-dynamic-eqs      28530
+ :bv->core-eq         7369640
+ :conflicts           103774
+ :decisions           1625460
+ :del-clause          133582420
+ :max-memory          96.20
+ :memory              37.43
+ :minimized-lits      1286698
+ :mk-bool-var         46433428
+ :mk-clause           133793648
+ :mk-clause-binary    65050
+ :num-allocs          80431143816.00
+ :num-checks          2
+ :pb-conflicts        2540
+ :pb-predicates       6
+ :pb-propagations     143242
+ :pb-resolves         2502
+ :propagations        81625416
+ :random-seed         2062
+ :restarts            390
+ :rlimit-count        134287308
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 12
+ :solve-eqs-steps     1718
+ :time                180.17)

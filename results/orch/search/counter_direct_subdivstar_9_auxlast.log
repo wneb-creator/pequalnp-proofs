@@ -1,0 +1,2 @@
+START subdivstar_full n 7 k 9 rows 128 variables 3260 clauses 261359 autos 6 cnfbytes 4184793
+RESULT unsat seconds 8.476883888244629 exit 20

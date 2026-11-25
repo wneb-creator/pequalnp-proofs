@@ -1,0 +1,33 @@
+AUTOMORPHISMS 120 first_pair_reps [(0, 1), (0, 2)]
+START petersen n 10 k 19 rows 30 mode any timeout 180
+RESULT unknown seconds 180.0464882850647
+(:added-eqs           52578636
+ :binary-propagations 64784824
+ :bv-bit2core         47473894
+ :bv-diseqs           3240
+ :bv-dynamic-diseqs   13519380
+ :bv-dynamic-eqs      4034
+ :bv->core-eq         1097594
+ :conflicts           415196
+ :decisions           2631334
+ :del-clause          190797694
+ :max-memory          49.78
+ :memory              23.63
+ :minimized-lits      3563578
+ :mk-bool-var         66690318
+ :mk-clause           191052782
+ :mk-clause-binary    29418
+ :num-allocs          14120875337.00
+ :num-checks          2
+ :pb-conflicts        264
+ :pb-predicates       6
+ :pb-propagations     117966
+ :pb-resolves         260
+ :propagations        374896028
+ :random-seed         2062
+ :restarts            1022
+ :rlimit-count        310193662
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 19
+ :solve-eqs-steps     3447
+ :time                180.04)

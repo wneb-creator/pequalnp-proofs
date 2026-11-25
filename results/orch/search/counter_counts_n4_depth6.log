@@ -1,0 +1,42 @@
+n=4 limit=6 nodes=76599433 graphs=37 found=37
+minimum=1 star=1 graphs=6
+minimum=2 star=1 graphs=12
+minimum=3 star=1 graphs=7
+minimum=4 star=1 graphs=12
+COUNTS graph=52 edges=3 cover=1 minands=1 minors=2 violation=0
+COUNTS graph=50 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=48 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=44 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=40 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=12 edges=2 cover=2 minands=2 minors=1 violation=0
+COUNTS graph=49 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=10 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=19 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=9 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=14 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=6 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=8 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=41 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=17 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=4 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=42 edges=3 cover=1 minands=1 minors=2 violation=0
+COUNTS graph=16 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=13 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=18 edges=2 cover=2 minands=2 minors=1 violation=0
+COUNTS graph=2 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=33 edges=2 cover=2 minands=2 minors=1 violation=0
+COUNTS graph=7 edges=3 cover=1 minands=1 minors=2 violation=0
+COUNTS graph=22 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=20 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=1 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=24 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=25 edges=3 cover=1 minands=1 minors=2 violation=0
+COUNTS graph=3 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=26 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=35 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=5 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=28 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=37 edges=3 cover=2 minands=2 minors=2 violation=0
+COUNTS graph=32 edges=1 cover=1 minands=1 minors=0 violation=0
+COUNTS graph=34 edges=2 cover=1 minands=1 minors=1 violation=0
+COUNTS graph=36 edges=2 cover=1 minands=1 minors=1 violation=0
