@@ -1,0 +1,47 @@
+import took 4.43s
+simp took 105ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 102ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 104ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 105ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 114ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 103ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 104ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 103ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 109ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 101ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 101ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 108ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalDirectionNormalization.lean:82:20: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalDirectionNormalization.lean:106:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+cumulative profiling times:
+	attribute application 0.159ms
+	compilation (IR) 0.161ms
+	compilation (LCNF base) 1.75ms
+	compilation (LCNF impure) 0.682ms
+	compilation (LCNF mono) 1.22ms
+	congr simp thm 5.47ms
+	declTypeLinter 4.52ms
+	elaboration 123ms
+	fix level params 4.27ms
+	import 4.43s
+	initialization 80ms
+	instantiate metavars 26.9ms
+	interpretation 2.33s
+	let-to-have transformation 0.282ms
+	linting 62.2ms
+	module linting 0.0804ms
+	norm_num 1.54s
+	parsing 6.62ms
+	process pre-definitions 58.6ms
+	ring 202ms
+	share common exprs 91.4ms
+	simp 423ms
+	tactic execution 227ms
+	tacticAnalysis 2.51ms
+	type checking 208ms
+	typeclass inference 645ms

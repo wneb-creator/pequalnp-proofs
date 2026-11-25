@@ -245,3 +245,7 @@ TIMING total=237.1 subagents=7
 2026-11-25T12:38:32.168373+00:00 Preserved independently reviewed TopAllZeroMatrixBridgeComplete.lean (pinnedLean exit0/27.318s,peak3.383GB). Exact actual scaled symmetric matrix permanent expansion plus19 coefficient extractions gives all20 checked certificate equations under h²24. Independent source parser verified complete24-permutation integer identity and19×19 interpolation. Explicit-model obstruction composition remains queued; general full-row and global target remain unresolved. No target checker result.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=242.8 subagents=7
+
+2026-11-25T12:41:32.330000+00:00 Preserved independently reviewed SparseStarSubmoduleComplete.lean (31687bytes,Lean exit0/60.01s), excluding every qualifying rank3 matrix submodule containing the specified sparse star, without callbacks. Also preserved FramePathPairedCases (four10-term conditional scalar certificates,exit0/4.54s) and ExceptionalDirectionNormalization (actual singular-direction shape,exit0/7.95s). Global statement remains unresolved; stronger exceptional endpoint is actively checking under13GiB cap. No target checker result.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=245.8 subagents=7

@@ -1,0 +1,65 @@
+{
+  "scope": "Four Lean-checked scalar path cases conditional on three opposite-root pairs and both triangle chords being zero; base cubic implications remain unproved.",
+  "files": [
+    {
+      "file": "FramePathPairedCases.lean",
+      "bytes": 3938,
+      "sha256": "1a2d58e1245640caa5f703b1f35d7907bac3a93e9fab5702c435167cc12a5e17"
+    },
+    {
+      "file": "frame_path_paired_cases.py",
+      "bytes": 3700,
+      "sha256": "a5f2ad6016da59f905356d1c80e40e960fb0e00ed46ea7ff7c2108154ea46f23"
+    },
+    {
+      "file": "frame-path-paired-exact-certificates.json",
+      "bytes": 13912,
+      "sha256": "b6fa73c2367107afcf235c136d307df0bc98908ca38edcff89b3120f5b04af75"
+    },
+    {
+      "file": "frame-path-paired-cases.log",
+      "bytes": 396,
+      "sha256": "200bfd5fe2cd1a6f9de410bce9eb62239b37509fe6203f49e25cc2386e54cfa9"
+    },
+    {
+      "file": "frame_path_paired_lean_generate.py",
+      "bytes": 2759,
+      "sha256": "ff0eb238a1d76988a258c5b1ca58f63a6ada0289e6cfa0a9fc7070e3477fa017"
+    },
+    {
+      "file": "frame-path-paired-integer-certificates.json",
+      "bytes": 3414,
+      "sha256": "a924bba941747cb1669f1d287aca33289aafea2181568605d5b30d8181f546c2"
+    },
+    {
+      "file": "frame-path-paired-lean-generate.log",
+      "bytes": 426,
+      "sha256": "28f39e6c7645ad654514576d5fe3e40a22762bf723d96a3be77dd77de734b8e6"
+    },
+    {
+      "file": "frame-path-paired-cases-lean.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "frame-path-paired-cases-lean.status.json",
+      "bytes": 190,
+      "sha256": "1b7b309c1e961eb4d76855e2cc49199445f49cd86752046b3a74fe1a26b134ec"
+    },
+    {
+      "file": "three_plane_verify_path_paired_cases.py",
+      "bytes": 3919,
+      "sha256": "bb0e49f0203050d81a877953929fcda1399f2aea0a84d40c0eb582480ddf5bc2"
+    },
+    {
+      "file": "three-plane-path-paired-cases-independent-verification.log",
+      "bytes": 1135,
+      "sha256": "dddd211712736ddb9fa42c0349409420a2fef62e4532156a34d65a41e979c260"
+    },
+    {
+      "file": "three-plane-path-paired-cases-independent-verification.json",
+      "bytes": 1459,
+      "sha256": "7d864eb12c1d7776e2d72c7848a028d538f99c129969e6097b14f35a13fda4ff"
+    }
+  ]
+}

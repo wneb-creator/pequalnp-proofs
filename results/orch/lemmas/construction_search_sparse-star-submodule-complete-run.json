@@ -1,0 +1,10 @@
+{
+  "pid": 38856,
+  "mode": "submodule-complete",
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 2924441600,
+  "seconds": 60.01476293499945,
+  "memory_limit_bytes": 4294967296
+}

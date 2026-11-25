@@ -1,0 +1,60 @@
+{
+  "scope": "Checked actual-matrix normalization for the exceptional zero-row direction; does not prove the large combined partner obstruction or a global refutation",
+  "files": [
+    {
+      "file": "ExceptionalDirectionNormalization.lean",
+      "bytes": 5274,
+      "sha256": "542c6c04d5f77ba5000ecae94f44973de4c6805d5b64a0214bbba19639001671"
+    },
+    {
+      "file": "root-ExceptionalDirectionNormalization-lean-3g-profile.log",
+      "bytes": 2217,
+      "sha256": "b1a0c6d06c6c45ff4fb04d9d8cc0612fe59890c906fb2d360da778b75a63c526"
+    },
+    {
+      "file": "root-ExceptionalDirectionNormalization-lean-3g-profile-status.json",
+      "bytes": 526,
+      "sha256": "c99bc72bc984ada9d46af46c6dab51ecc4d8bdefe55198e9047b7012b2a7b4a2"
+    },
+    {
+      "file": "geometry-exceptional-normalization.py",
+      "bytes": 1276,
+      "sha256": "49f94041d755e493b17b3d7c3973f1d4bc3067b0e0fa9b656172183a7d5f2ecf"
+    },
+    {
+      "file": "geometry-exceptional-normalization-identities.json",
+      "bytes": 472,
+      "sha256": "bee1c47626740f3b6d1c7da26cc1cb51582c6630e5b135b1da09977788e2cf98"
+    },
+    {
+      "file": "geometry-exceptional-normalization-gen.log",
+      "bytes": 577,
+      "sha256": "36776981719cfc2f9870490fc707ad5f37aceea503944a2ab7d3fb33e3b9f213"
+    },
+    {
+      "file": "geometry-exceptional-normalization-lean.py",
+      "bytes": 2948,
+      "sha256": "1afd2a0a4bb9f7aba3e0d94cb66fca8777dd4204de28aa4f7722d70fb9b14dd0"
+    },
+    {
+      "file": "geometry-exceptional-normalization-v1.log",
+      "bytes": 2507,
+      "sha256": "f9cf7dd93e2b2971b7c2eceab978f8c7cbbddd35089fe3e28f76a9885381bb0a"
+    },
+    {
+      "file": "geometry-exceptional-normalization-v1-status.json",
+      "bytes": 526,
+      "sha256": "9090ce26a9bbe648e22f5ec01e899e35ba09bd12b6f15dc37b5381d634ccb9b2"
+    },
+    {
+      "file": "fresh_exception_direction_norm_review.py",
+      "bytes": 1719,
+      "sha256": "82698a95467bc8b9f3dfe08826f921a24cb4ced0428e2e72848bbece3fd0eb42"
+    },
+    {
+      "file": "fresh_exception_direction_norm_review.log",
+      "bytes": 333,
+      "sha256": "7b3f93a9f49478aca74f7fe08733946289ea8987f21952f4f4f59573b324cf66"
+    }
+  ]
+}

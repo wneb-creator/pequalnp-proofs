@@ -1,0 +1,1 @@
+PASS exact source 542c6c04d5f77ba5000ecae94f44973de4c6805d5b64a0214bbba19639001671 Lean exit0 7.9506845850009995 sec 2351345664 bytes; normalized matrix permanent verified 24 permutations, both scalar and both fixed-coordinate identities, nonzero-r cancellation and directional hypotheses, independent of the downstream obstruction.

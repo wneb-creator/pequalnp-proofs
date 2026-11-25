@@ -1,0 +1,4 @@
+{"signs": [1, 1, 1], "degree": 2, "rows": 12, "columns": 12, "rank": 10, "constant_member": true}
+{"signs": [1, 1, -1], "degree": 2, "rows": 12, "columns": 12, "rank": 10, "constant_member": true}
+{"signs": [1, -1, 1], "degree": 2, "rows": 12, "columns": 12, "rank": 10, "constant_member": true}
+{"signs": [1, -1, -1], "degree": 2, "rows": 12, "columns": 12, "rank": 10, "constant_member": true}

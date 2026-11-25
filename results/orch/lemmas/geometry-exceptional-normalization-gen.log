@@ -1,0 +1,11 @@
+q 4*a**2*r**2 + 2*r**2 + 4*r + 2 substituted 2*(r + 1)**2*(r**4 - 4*r**3 + 14*r**2 - 4*r + 1)/(r - 1)**4
+{
+  "quadratic": "4*a**2*r**2 + 2*r**2 + 4*r + 2",
+  "sum": "a*(1 - r)**2 + 2*r + 2",
+  "quartic": "r**4 - 4*r**3 + 14*r**2 - 4*r + 1",
+  "quartic_factor": "2",
+  "quartic_sum_multiplier": "4*a*r**4 - 8*a*r**3 + 4*a*r**2 - 8*r**3 - 8*r**2",
+  "alpha_sum_multiplier": "r**3 - 7*r**2/2 + 12*r + 5/2",
+  "alpha_quartic_multiplier": "-a*r + 3*a/2 - 2",
+  "permanent": "4*a**2*r**2*z**2 + 6*a*r**2*z - 12*a*r*z + 6*a*z + 2*r**2*z**2 + 4*r*z**2 + 12*r*z + 2*z**2 + 12*z + 24"
+}

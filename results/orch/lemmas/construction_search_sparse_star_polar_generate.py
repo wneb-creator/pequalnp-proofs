@@ -1,0 +1,4 @@
+from pathlib import Path
+import sympy as s,itertools,json,resource
+resource.setrlimit(resource.RLIMIT_CORE,(0,0));resource.setrlimit(resource.RLIMIT_AS,(1024**3,1024**3));resource.setrlimit(resource.RLIMIT_CPU,(60,60))
+job=Path('/tmp/oec/pequalnp-pilot-79');a,u,v,w,b,m,c,d,e,f,X,Y=s.symbols('a u v w b m c d e f X Y');M=s.Matrix([[a,u,v,w],[u,b,m,c],[v,m,d,e],[w,c,e,f]]);S=s.Matrix([[0,1,-1,0],[1,0,0,0],[-1,0,0,0],[0,0,0,0]]);N=s.ones(4)+X*S+Y*M;F=s.expand(sum(s.prod(N[r,p[r]] for r in range(4)) for p in itertools.permutations(range(4)))-24);q2=s.Poly(F,X).coeff_monomial(X**2);q1=s.Poly(F,X).coeff_monomial(X);data={'x2y':str(s.Poly(q2,Y).coeff_monomial(Y)),'x2y2':str(s.Poly(q2,Y).coeff_monomial(Y**2)),'xy':str(s.Poly(q1,Y).coeff_monomial(Y)),'matrix':str(M),'star':str(S)};print(json.dumps(data,indent=2));(job/'sparse-star-polar-coefficients.json').write_text(json.dumps(data,indent=2))

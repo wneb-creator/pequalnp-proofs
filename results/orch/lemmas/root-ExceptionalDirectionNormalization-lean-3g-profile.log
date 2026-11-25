@@ -1,0 +1,47 @@
+import took 1.47s
+simp took 136ms
+simp took 125ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 120ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 113ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 108ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 109ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 103ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 101ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 104ms
+type checking took 103ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalDirectionNormalization.lean:82:20: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalDirectionNormalization.lean:103:90: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalDirectionNormalization.lean:103:90: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+cumulative profiling times:
+	attribute application 0.181ms
+	compilation (IR) 0.2ms
+	compilation (LCNF base) 1.78ms
+	compilation (LCNF impure) 0.724ms
+	compilation (LCNF mono) 1.47ms
+	congr simp thm 5.22ms
+	declTypeLinter 4.7ms
+	elaboration 160ms
+	fix level params 6.2ms
+	import 1.47s
+	initialization 53.4ms
+	instantiate metavars 28ms
+	interpretation 2.31s
+	let-to-have transformation 0.328ms
+	linting 73.3ms
+	module linting 0.0807ms
+	norm_num 1.53s
+	parsing 8.36ms
+	process pre-definitions 70ms
+	ring 272ms
+	share common exprs 107ms
+	simp 480ms
+	tactic execution 236ms
+	tacticAnalysis 3.4ms
+	type checking 250ms
+	typeclass inference 716ms

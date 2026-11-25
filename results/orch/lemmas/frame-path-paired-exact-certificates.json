@@ -1,0 +1,686 @@
+{
+  "classification": "exact conditional path cases after triangle removes both chords and paired-root relations hold",
+  "cases": [
+    {
+      "case": {
+        "signs": [
+          1,
+          1,
+          1
+        ],
+        "substitutions": {
+          "u01": "1",
+          "u02": "0",
+          "u13": "0",
+          "a": "u03*(2*r - 4)",
+          "b": "r*(-2*u03 - 2) - 2*u03 + 2",
+          "g": "u12*(-2*r - 4)",
+          "h": "2*r*u23 - 6*u03 + 2*u23",
+          "k": "r*(-2*u03 - 2*u23) + 2*u03 - 2*u23"
+        },
+        "linear": "-6*u03 - 6*u12",
+        "eliminated": "u03",
+        "elimination": "-u12",
+        "variables": [
+          "u12",
+          "u23"
+        ],
+        "quadratics": [
+          "r*(-12*u12*u23 - 12*u23**2) - 27*u12**2 - 18*u12*u23 - 15*u23**2",
+          "r*(-12*u12**2 + 12*u12*u23 + 24*u23**2) + 24*u12**2 + 24*u12*u23 + 30*u23**2",
+          "r*(12*u12**2 + 12*u12*u23) + 12*u12**2 + 18*u12*u23 + 6*u12",
+          "r*(12*u12**2 - 12*u23**2) - 15*u12**2 - 6*u12*u23 - 15*u23**2",
+          "r*(-12*u12*u23 + 12*u12) - 6*u12**2 - 18*u12*u23 - 18*u12",
+          "r*(12 - 12*u12**2) - 15*u12**2 - 6*u12 - 15"
+        ]
+      },
+      "status": {
+        "signs": [
+          1,
+          1,
+          1
+        ],
+        "degree": 2,
+        "rows": 12,
+        "columns": 12,
+        "rank": 10,
+        "constant_member": true,
+        "support": 10,
+        "max_bits": 7
+      },
+      "certificate": [
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -2,
+          "denominator": 9
+        },
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -1,
+          "denominator": 6
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -67,
+          "denominator": 126
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -8,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 5,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 4,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -53,
+          "denominator": 63
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -25,
+          "denominator": 42
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 5,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 4,
+          "denominator": 21
+        }
+      ]
+    },
+    {
+      "case": {
+        "signs": [
+          1,
+          1,
+          -1
+        ],
+        "substitutions": {
+          "u01": "1",
+          "u02": "0",
+          "u13": "0",
+          "a": "u03*(2*r - 4)",
+          "b": "r*(2*u03 - 2) - 2*u03 + 2",
+          "g": "u12*(-2*r - 4)",
+          "h": "r*(4*u03 + 2*u23) - 6*u03 + 2*u23",
+          "k": "r*(-2*u03 - 2*u23) + 2*u03 - 2*u23"
+        },
+        "linear": "r*(4*u03 - 4*u12) - 6*u03 - 6*u12",
+        "eliminated": "u03",
+        "elimination": "-12*r*u12 - 17*u12",
+        "variables": [
+          "u12",
+          "u23"
+        ],
+        "quadratics": [
+          "r*(-32*u12**2 - 36*u12*u23 - 12*u23**2) - 43*u12**2 - 50*u12*u23 - 15*u23**2",
+          "r*(164*u12**2 + 108*u12*u23 + 24*u23**2) + 232*u12**2 + 152*u12*u23 + 30*u23**2",
+          "r*(-116*u12**2 - 44*u12*u23) - 164*u12**2 - 62*u12*u23 + 6*u12",
+          "r*(804*u12**2 - 72*u12*u23 - 12*u23**2) + 1137*u12**2 - 102*u12*u23 - 15*u23**2",
+          "r*(-1656*u12**2 + 44*u12*u23 - 12*u12) - 2342*u12**2 + 62*u12*u23 - 18*u12",
+          "r*(804*u12**2 + 8*u12 + 12) + 1137*u12**2 + 10*u12 - 15"
+        ]
+      },
+      "status": {
+        "signs": [
+          1,
+          1,
+          -1
+        ],
+        "degree": 2,
+        "rows": 12,
+        "columns": 12,
+        "rank": 10,
+        "constant_member": true,
+        "support": 10,
+        "max_bits": 13
+      },
+      "certificate": [
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -838,
+          "denominator": 351
+        },
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -395,
+          "denominator": 234
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -6389,
+          "denominator": 4914
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -752,
+          "denominator": 819
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -19,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -40,
+          "denominator": 63
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -523,
+          "denominator": 2457
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -27,
+          "denominator": 182
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 5,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 4,
+          "denominator": 21
+        }
+      ]
+    },
+    {
+      "case": {
+        "signs": [
+          1,
+          -1,
+          1
+        ],
+        "substitutions": {
+          "u01": "1",
+          "u02": "0",
+          "u13": "0",
+          "a": "u03*(2*r - 4)",
+          "b": "r*(2 - 2*u03) - 2*u03 + 2",
+          "g": "u12*(-2*r - 4)",
+          "h": "-2*r*u23 - 6*u03 + 2*u23",
+          "k": "r*(-2*u03 + 2*u23) + 2*u03 - 2*u23"
+        },
+        "linear": "-6*u03 - 6*u12",
+        "eliminated": "u03",
+        "elimination": "-u12",
+        "variables": [
+          "u12",
+          "u23"
+        ],
+        "quadratics": [
+          "r*(20*u12*u23 + 12*u23**2) - 27*u12**2 - 34*u12*u23 - 15*u23**2",
+          "r*(-12*u12**2 - 36*u12*u23 - 24*u23**2) + 24*u12**2 + 56*u12*u23 + 30*u23**2",
+          "r*(12*u12**2 + 4*u12*u23 - 8*u12) + 12*u12**2 + 2*u12*u23 - 10*u12",
+          "r*(12*u12**2 + 16*u12*u23 + 12*u23**2) - 15*u12**2 - 22*u12*u23 - 15*u23**2",
+          "r*(-4*u12*u23 + 4*u12) - 6*u12**2 - 2*u12*u23 - 2*u12",
+          "r*(-12*u12**2 - 16*u12 - 12) - 15*u12**2 - 22*u12 - 15"
+        ]
+      },
+      "status": {
+        "signs": [
+          1,
+          -1,
+          1
+        ],
+        "degree": 2,
+        "rows": 12,
+        "columns": 12,
+        "rank": 10,
+        "constant_member": true,
+        "support": 10,
+        "max_bits": 10
+      },
+      "certificate": [
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 22,
+          "denominator": 147
+        },
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -23,
+          "denominator": 882
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 25,
+          "denominator": 294
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -16,
+          "denominator": 441
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": -13,
+          "denominator": 147
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 16,
+          "denominator": 147
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 1,
+          "denominator": 49
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -41,
+          "denominator": 882
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 5,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -4,
+          "denominator": 21
+        }
+      ]
+    },
+    {
+      "case": {
+        "signs": [
+          1,
+          -1,
+          -1
+        ],
+        "substitutions": {
+          "u01": "1",
+          "u02": "0",
+          "u13": "0",
+          "a": "u03*(2*r - 4)",
+          "b": "r*(2*u03 + 2) - 2*u03 + 2",
+          "g": "u12*(-2*r - 4)",
+          "h": "r*(4*u03 - 2*u23) - 6*u03 + 2*u23",
+          "k": "r*(-2*u03 + 2*u23) + 2*u03 - 2*u23"
+        },
+        "linear": "r*(4*u03 - 4*u12) - 6*u03 - 6*u12",
+        "eliminated": "u03",
+        "elimination": "-12*r*u12 - 17*u12",
+        "variables": [
+          "u12",
+          "u23"
+        ],
+        "quadratics": [
+          "r*(-32*u12**2 - 4*u12*u23 + 12*u23**2) - 43*u12**2 - 2*u12*u23 - 15*u23**2",
+          "r*(164*u12**2 - 4*u12*u23 - 24*u23**2) + 232*u12**2 - 8*u12*u23 + 30*u23**2",
+          "r*(-116*u12**2 + 12*u12*u23 - 8*u12) - 164*u12**2 + 18*u12*u23 - 10*u12",
+          "r*(804*u12**2 + 8*u12*u23 + 12*u23**2) + 1137*u12**2 + 10*u12*u23 - 15*u23**2",
+          "r*(-1656*u12**2 - 12*u12*u23 + 44*u12) - 2342*u12**2 - 18*u12*u23 + 62*u12",
+          "r*(804*u12**2 - 72*u12 - 12) + 1137*u12**2 - 102*u12 - 15"
+        ]
+      },
+      "status": {
+        "signs": [
+          1,
+          -1,
+          -1
+        ],
+        "degree": 2,
+        "rows": 12,
+        "columns": 12,
+        "rank": 10,
+        "constant_member": true,
+        "support": 10,
+        "max_bits": 12
+      },
+      "certificate": [
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 718,
+          "denominator": 1911
+        },
+        {
+          "origin": [
+            0,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 1003,
+          "denominator": 3822
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 773,
+          "denominator": 3822
+        },
+        {
+          "origin": [
+            1,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 248,
+          "denominator": 1911
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 9,
+          "denominator": 49
+        },
+        {
+          "origin": [
+            2,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": 4,
+          "denominator": 49
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 55,
+          "denominator": 1911
+        },
+        {
+          "origin": [
+            3,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -11,
+          "denominator": 3822
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            0
+          ],
+          "numerator": 5,
+          "denominator": 21
+        },
+        {
+          "origin": [
+            5,
+            [
+              0,
+              0
+            ],
+            1
+          ],
+          "numerator": -4,
+          "denominator": 21
+        }
+      ]
+    }
+  ],
+  "seconds": 0.5572027090001939
+}
