@@ -28,3 +28,5 @@
 
 2026-11-25T03:36:02.888562+00:00 SupportConnect compiled and independently reviewed; completed search archive hashes reverified.
 2026-11-25T03:36:07.219926+00:00 structural geometry completed; generic nine-gate cut route blocked by unproved cross-sharing/derivative-preserving pruning inequality.
+
+2026-11-25T03:38:40.135363+00:00 Witness65 full incidence semantics and unary-DAG count compiled and independently reviewed.

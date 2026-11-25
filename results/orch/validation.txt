@@ -33,3 +33,6 @@ Witness65.lean: lake env lean passed, exit0;86 lines. Explicit65-gate circuit, s
 ClausePrune.lean: lake env lean passed, exit0;134 lines. Semantic pure-clause AND bypass and singleton replacement; independent review passed.
 
 SupportConnect.lean: lake env lean passed, exit0;106 lines, no output. Singleton-support connectivity through abstract topological AND/OR wires; independent review passed.
+
+OrFamilyBound.lean initial: lake env lean passed, exit0;92 lines. Finite union-DAG count extended by uncharged unary redirects; independent review passed.
+Witness65.lean semantic extension: lake env lean passed, exit0;373 lines. Exact incidence specification for all26-bit inputs; legality and formal derivative traces not yet included. Independent review passed.
