@@ -1,0 +1,4 @@
+Desk null responses:0
+Owned gap L-meta-2592. Last successful renewal14:36:01UTC promised expiry14:56:01UTC. Scheduled renewal14:46:02UTC returnedHTTP410, confirmed by curl-si.
+Exact body: {"error":"no such live lease: it expired or was released. Ask /desk/next again."}
+Work paused when root learned of410 at14:48:52UTC; all searches stopped. Backup precedes re-request under owner410rule.

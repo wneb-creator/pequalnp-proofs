@@ -16,3 +16,4 @@ UTC timeline for pilot-113
 2026-11-25T14:39:30.656476+00:00: genuine cofactor certificate compiled; first-AND18, first-OR17, first-step decomposition and canonical first-gate cases compiled.
 2026-11-25T14:43:08.910808+00:00: GlobalData and GlobalWitness actual Lean checks passed; global17 ordinary proof assembly handed to library_route.
 2026-11-25T14:48:13.909386+00:00: unconditional17nonNOT bound compiled and independently approved; sixth sub-agent added for global proof review.
+2026-11-25T14:50:51.542536+00:00: lease410 confirmed; allworkpaused; preservation-only backup before re-request.

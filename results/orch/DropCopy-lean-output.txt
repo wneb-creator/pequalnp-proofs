@@ -1,0 +1,3 @@
+Command: lake env lean /tmp/oec/pequalnp-pilot-113/formal-invariants/DropCopy.lean
+Exit status:0
+Complete stdout and stderr:

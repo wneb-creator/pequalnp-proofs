@@ -9,7 +9,7 @@ Independent review: helper mathematics and forbidden-form audit passed; last-NOT
 SAT positive control: checked20gate L_meta_587 witness accepted on all1024 rows. Search UNSAT would not yet be a Lean proof.
 
 Sub-agents: 6 (lower bounds, library lemmas, synthesis, formal invariants, two independent reviewers)
-TIMING total=36.2 subagents=6
+TIMING total=38.8 subagents=6
 
 Second checkpoint: input-renaming helpers and run-agreement helper compile. Input-renaming source independently reviewed; combined193line named partial lake build passed.
 
@@ -18,3 +18,5 @@ Third checkpoint: finite graph symmetry certificate compiled and independently r
 Fourth checkpoint: canonical first-gate cases and genuine first-AND18/first-OR17 components compile. These OR/AND research modules currently use existing Outside.L_meta_6581 and require dependency inlining before a PR. Full L-meta-2592 remains unproved.
 
 Fifth checkpoint: unconditional global17nonNOT lower bound and exclusion of≥3NOT atsize≤19 compiled. Allfinite data and finalcount proof independently reviewed. Generic mode/floor lemma also compiled. Originalone/twoNOT cases remain open. Scratchdependencies still need inlining for self-contained namedfile.
+
+Lease loss checkpoint: HTTP410 at14:46, despite previously returned14:56expiry. All proof/search work paused. Compiled head-gate deletion, mode realization, and CONDITIONAL total18 bound preserved. Only global17nonNOT bound is unconditional; no proof/refutation of fullL-meta-2592 and no PR.
