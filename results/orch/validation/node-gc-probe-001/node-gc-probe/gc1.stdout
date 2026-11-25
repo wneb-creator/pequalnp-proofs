@@ -1,0 +1,3 @@
+{"stage":"before","VmHWM":"29208 kB","VmRSS":"29208 kB","RssAnon":"11416 kB","RssFile":"17792 kB","RssShmem":"0 kB"}
+{"stage":"first_hash_then_build","VmHWM":"262580 kB","VmRSS":"262580 kB","RssAnon":"244468 kB","RssFile":"18112 kB","RssShmem":"0 kB"}
+{"stage":"second_hash_then_verify","VmHWM":"262412 kB","VmRSS":"262412 kB","RssAnon":"243736 kB","RssFile":"18676 kB","RssShmem":"0 kB"}

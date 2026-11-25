@@ -1,0 +1,16 @@
+{
+  "source_url": "https://data.pequalnp.com/data/desk/gaps.json",
+  "updated_at": "2026-11-25T01:42:03.529Z",
+  "gap_present": true,
+  "reductions": true,
+  "reductions_live": 2,
+  "pr_numbers": [
+    10649,
+    10907
+  ],
+  "statement_matches": true,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "raw_sha256": "3d1f0a8b7ad3a8fa3c712318c5f76e8439e2d5f9db6add43ba7108f32fe29a09"
+}

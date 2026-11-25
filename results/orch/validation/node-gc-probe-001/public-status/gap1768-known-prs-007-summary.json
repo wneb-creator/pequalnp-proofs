@@ -1,0 +1,50 @@
+{
+  "utc": "2026-11-25T01:41:09.412581+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "graphql",
+    "-f",
+    "query=query { repository(owner: \"brilliant-hq\", name: \"pequalnp-proofs\") { nameWithOwner url first: pullRequest(number: 10649) { number title url state isDraft createdAt updatedAt closedAt mergedAt headRefName baseRefName author { login } } second: pullRequest(number: 10907) { number title url state isDraft createdAt updatedAt closedAt mergedAt headRefName baseRefName author { login } } } }"
+  ],
+  "exit": 0,
+  "raw_sha256": "28519238a19dcf5f18269d3300a3ab928ca28a582e2758a323e161bc5a6aadb4",
+  "raw_bytes": 904,
+  "stderr_bytes": 0,
+  "repository": {
+    "nameWithOwner": "open-goat/pequalnp-proofs",
+    "url": "https://github.com/open-goat/pequalnp-proofs",
+    "first": {
+      "number": 10649,
+      "title": "Reduce L-meta-1768 to L-meta-5326 and L-meta-5328",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/10649",
+      "state": "OPEN",
+      "isDraft": false,
+      "createdAt": "2026-11-24T23:12:53Z",
+      "updatedAt": "2026-11-24T23:22:19Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headRefName": "codex/l-meta-1768-263",
+      "baseRefName": "main",
+      "author": {
+        "login": "GSJProgo"
+      }
+    },
+    "second": {
+      "number": 10907,
+      "title": "L-meta-1768",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/10907",
+      "state": "OPEN",
+      "isDraft": false,
+      "createdAt": "2026-11-24T23:58:12Z",
+      "updatedAt": "2026-11-24T23:58:12Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headRefName": "pnp/l-meta-1768-resume",
+      "baseRefName": "main",
+      "author": {
+        "login": "0xshuzo"
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "utc": "2026-11-25T01:35:24.235731+00:00",
+  "status": "SYNTHETIC_REPRODUCIBLE_BUFFER_RELEASE_NOT_CHECKER_ACCEPTANCE",
+  "recommended_cli_flags": [
+    "--gc-global",
+    "--stress-scavenge=1",
+    "--fuzzer-random-seed=1"
+  ],
+  "faithful_cases": 5,
+  "faithful_exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "baseline_anon_kib": 246536,
+  "flagged_anon_kib": [
+    12756,
+    12720,
+    12748,
+    12736,
+    12760
+  ],
+  "measured_anon_saved_bytes_min": 239386624,
+  "measured_anon_saved_bytes_max": 239427584,
+  "protected_hashes": {
+    "/workspace/pequalnp-proofs/tools/check-lean.mjs": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad",
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/R_meta_1768_45.lean": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983"
+  },
+  "verifier_sha256": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+  "source_urls": [
+    "https://github.com/nodejs/node/blob/v24.22.3/deps/v8/src/heap/stress-scavenge-observer.cc",
+    "https://github.com/nodejs/node/blob/v24.22.3/deps/v8/src/heap/heap.cc",
+    "https://github.com/nodejs/node/blob/v24.22.3/deps/v8/src/heap/heap-allocator.cc"
+  ],
+  "source_interpretation": "stress_scavenge installs a64-byte allocation observer and requests ordinary GC at a0\u20131percent new-space threshold; gc_global chooses mark-compact when GC occurs. gc_interval trigger is conditional on V8_ENABLE_ALLOCATION_TIMEOUT. These are GC scheduling controls; no checker/proof/Lean artifact bytes are modified. Real checker memory must be measured; synthetic children do not establish acceptance.",
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe.mjs",
+      "bytes": 1211,
+      "sha256": "bef3e7c599f01a9498bed15ff0424ac1d4ebd0af5943570eabb0353565ac24cf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py",
+      "bytes": 301,
+      "sha256": "b367413119d7b2eb580a8f8670cf867fb780f8f6362425e9057d091907a973ec"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+      "bytes": 3205,
+      "sha256": "5930c36a360eeb80c01340a03640ddd126595b3f1deae08a9887f5699caaf971"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/runtime-options-002.json",
+      "bytes": 2084,
+      "sha256": "ddce2a7aa97b05d402d3eb3e4369a0987e02d32882d5432cc12e76da38309dc8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/runtime-options-003.json",
+      "bytes": 5925,
+      "sha256": "e2cf99e4ff087581b798b2ef1c7750c2d6d23dfe0f4a3c0a445e3e52ff492317"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/runtime-options-004-faithful.json",
+      "bytes": 6264,
+      "sha256": "3610b4481b7898bc922f1552e0e7407754145d7393f91d72bf998b242ed319b6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-gc1.stdout",
+      "bytes": 389,
+      "sha256": "f376255503861de8fffca2f8b96bb5cd622d437363e45c2facea49fd8c618aa1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-gc1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1.stdout",
+      "bytes": 385,
+      "sha256": "3195a891db87910df8c769822c6e987d06bd5845f6f6aa4a7f587de960e2a914"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-marking1.stdout",
+      "bytes": 389,
+      "sha256": "32d1e8927c7b8d06d2a22db5565095adfd17224c893c762eb32983ae0cf010a1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-marking1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-gc1-sync-buffer.stdout",
+      "bytes": 389,
+      "sha256": "cdf53da1c63faa430260c709902fe1dc20fb69345d6c5a337119899c81e862c0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-gc1-sync-buffer.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed1.stdout",
+      "bytes": 387,
+      "sha256": "5476ef371ee8f36a7f00accfa0eab43e0e7061d53980fa6c4d636cf9552f30b0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed2.stdout",
+      "bytes": 385,
+      "sha256": "cc007d226ec611dd1f1b3d55d693157b3c58ecbcb673eed5c5a54bcdc79fa4f3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed3.stdout",
+      "bytes": 385,
+      "sha256": "625bdeb0875dfd7e902e3c7cb7de296b14f0464c12342f5b81bee600854d61d5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed4.stdout",
+      "bytes": 385,
+      "sha256": "5606d1dcfcdf16bd9617ae9000f573adfe08036c4179bae43d7ab5952f28470e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed5.stdout",
+      "bytes": 385,
+      "sha256": "f2b94cbf82f5c797b41ac4a2ecf2cf3403858729e3f05eac28ad2dfa64e95eb5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/global-scavenge1-seed5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-baseline.stdout",
+      "bytes": 228,
+      "sha256": "06410a46119c2190faf9ca3bc4a31bf0a0e026b684f70810d57cd32d5cf49240"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-baseline.stderr",
+      "bytes": 163,
+      "sha256": "744ab1756ede3f573986e52a09c3f63233a104a90c6b8667f4539cdb7eb63801"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed1.stdout",
+      "bytes": 226,
+      "sha256": "6fb06514c3468b84e272005c635de18362cf07a2c3e2f5028825fd8213edab89"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed1.stderr",
+      "bytes": 163,
+      "sha256": "19ba049e12f4b91ac72e640a1e7f9e55b84f6bb1ed29f6c9a19b2711e3fe3e2c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed2.stdout",
+      "bytes": 226,
+      "sha256": "9d999a2631077fc05a03261c3329547ae61e1d830b29d847ec994bcfd33e474c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed2.stderr",
+      "bytes": 163,
+      "sha256": "a3b343ee94d613495ad42963f1ae9ff0b04a93db99e5fe51427306211676a0e3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed3.stdout",
+      "bytes": 226,
+      "sha256": "b58f1df2e988ed0917469c45fd88e65ace9a04ca4393426ef652a261251411f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed3.stderr",
+      "bytes": 163,
+      "sha256": "19ba049e12f4b91ac72e640a1e7f9e55b84f6bb1ed29f6c9a19b2711e3fe3e2c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed4.stdout",
+      "bytes": 226,
+      "sha256": "576680c3c343f9a3ccffbb986881d4746bb3b4463b87341e230a791cf7366783"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed4.stderr",
+      "bytes": 163,
+      "sha256": "744ab1756ede3f573986e52a09c3f63233a104a90c6b8667f4539cdb7eb63801"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed5.stdout",
+      "bytes": 226,
+      "sha256": "ec5c0ddb9c0fa63ed33c9f32b949deda34218d31a2bdd3c73338909796d3a157"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/node-gc-probe/faithful-global-scavenge1-seed5.stderr",
+      "bytes": 163,
+      "sha256": "19ba049e12f4b91ac72e640a1e7f9e55b84f6bb1ed29f6c9a19b2711e3fe3e2c"
+    }
+  ]
+}

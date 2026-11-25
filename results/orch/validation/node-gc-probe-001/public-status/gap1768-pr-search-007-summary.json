@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-25T01:40:59.847586+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "graphql",
+    "--paginate",
+    "-f",
+    "query=query($endCursor: String) { search(query: \"repo:brilliant-hq/pequalnp-proofs is:pr 1768\", type: ISSUE, first: 100, after: $endCursor) { issueCount pageInfo { hasNextPage endCursor } nodes { ... on PullRequest { number title url state isDraft createdAt updatedAt closedAt mergedAt headRefName baseRefName author { login } } } } }"
+  ],
+  "exit": 0,
+  "stdout_bytes": 192,
+  "stdout_sha256": "4f9f4645f1893c329e174c342ab6abd6345438be536c6653db958c4bbfc3141d",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "pages": 1,
+  "count": 0,
+  "complete": true,
+  "pull_requests": [],
+  "saved_feed_timestamp": "2026-11-25T01:10:04.565Z",
+  "fresh_public_feed_checked": false
+}

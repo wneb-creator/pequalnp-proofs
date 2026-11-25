@@ -1,0 +1,165 @@
+{
+  "cases": [
+    {
+      "name": "faithful-baseline",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 1.2849560060003569,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "266076 kB",
+          "VmRSS": "266076 kB",
+          "RssAnon": "246536 kB",
+          "RssFile": "19540 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    },
+    {
+      "name": "faithful-global-scavenge1-seed1",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--gc-global",
+        "--stress-scavenge=1",
+        "--fuzzer-random-seed=1",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 1.6507931550004287,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "265936 kB",
+          "VmRSS": "33112 kB",
+          "RssAnon": "12756 kB",
+          "RssFile": "20356 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    },
+    {
+      "name": "faithful-global-scavenge1-seed2",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--gc-global",
+        "--stress-scavenge=1",
+        "--fuzzer-random-seed=2",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 3.0010801930002344,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "498904 kB",
+          "VmRSS": "33092 kB",
+          "RssAnon": "12720 kB",
+          "RssFile": "20372 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    },
+    {
+      "name": "faithful-global-scavenge1-seed3",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--gc-global",
+        "--stress-scavenge=1",
+        "--fuzzer-random-seed=3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 1.6038050989991461,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "265864 kB",
+          "VmRSS": "33072 kB",
+          "RssAnon": "12748 kB",
+          "RssFile": "20324 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    },
+    {
+      "name": "faithful-global-scavenge1-seed4",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--gc-global",
+        "--stress-scavenge=1",
+        "--fuzzer-random-seed=4",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 1.890559055000267,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "266072 kB",
+          "VmRSS": "33112 kB",
+          "RssAnon": "12736 kB",
+          "RssFile": "20376 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    },
+    {
+      "name": "faithful-global-scavenge1-seed5",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--gc-global",
+        "--stress-scavenge=1",
+        "--fuzzer-random-seed=5",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/probe-faithful.mjs",
+        "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/tmp/oec/pequalnp-pilot-45/node-gc-probe/observer.py"
+      ],
+      "exit": 0,
+      "seconds": 1.8497503939997841,
+      "observations": [
+        {
+          "stage": "faithful_second_hash_then_verify",
+          "verifierHash": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620",
+          "VmHWM": "266008 kB",
+          "VmRSS": "33132 kB",
+          "RssAnon": "12760 kB",
+          "RssFile": "20372 kB",
+          "RssShmem": "0 kB"
+        }
+      ]
+    }
+  ],
+  "protected_hashes_before": {
+    "/workspace/pequalnp-proofs/tools/check-lean.mjs": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad",
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/R_meta_1768_45.lean": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983"
+  },
+  "protected_hashes_after": {
+    "/workspace/pequalnp-proofs/tools/check-lean.mjs": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad",
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/R_meta_1768_45.lean": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983"
+  }
+}

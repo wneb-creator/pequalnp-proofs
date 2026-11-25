@@ -43,3 +43,7 @@
 
 - 2026-11-25T01:31:27Z: checker008 completed exit 3 with FAULT/native exit null and no verdict; cgroup oom_kill rose 9 to 10. Final resource observation confirms both storage phases restored.
 - 2026-11-25T01:33:09.283797+00:00: preserved 115 exact small machinery/configuration/provenance/diagnostic files (425,432 source bytes) after allowlist hash checks. Independent exact restoration audits pass for 32,691 files/2,880,839,320 bytes, including two shared libraries, 112 retained-core files and 2,322 excluded-core files. Proof remains 97 lines/SHA256 191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983; no acceptance. Elapsed 225.62 minutes from the 21:47:32 UTC baseline.
+
+- 2026-11-25T01:35:24Z: GC probe summary reports five faithful seeds passing with 239,386,624 to 239,427,584 bytes of synthetic anonymous-memory saving. This does not establish checker acceptance or actual checker009 memory savings.
+- 2026-11-25T01:42:03Z: fresh public desk feed still lists L-meta-1768 with two live reductions, unchanged statement/Defs import and pending PRs 10649/10907.
+- 2026-11-25T01:44:02.792214+00:00: preserved exact small GC probe/source/observer/argv/log evidence, current monitor and complete compressed public status/GitHub responses (73 files/917,165 copied bytes). Checker009 has not run; checker008 remains FAULT. Proof is unchanged at 97 lines/SHA256 191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983. Elapsed 236.51 minutes from 21:47:32 UTC baseline.

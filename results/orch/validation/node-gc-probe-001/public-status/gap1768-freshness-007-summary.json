@@ -1,0 +1,151 @@
+{
+  "utc": "2026-11-25T01:41:40.303193+00:00",
+  "fresh_github_search_at": "2026-11-25T01:41:20.811358+00:00",
+  "complete_search_count": 8,
+  "canonical_repo": "open-goat/pequalnp-proofs",
+  "old_owner_search_is_not_reliable_after_rename": true,
+  "related_pull_requests": [
+    {
+      "number": 10907,
+      "title": "L-meta-1768",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/10907",
+      "state": "OPEN",
+      "isDraft": false,
+      "createdAt": "2026-11-24T23:58:12Z",
+      "updatedAt": "2026-11-24T23:58:12Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headRefName": "pnp/l-meta-1768-resume",
+      "baseRefName": "main",
+      "author": {
+        "login": "0xshuzo"
+      }
+    },
+    {
+      "number": 7299,
+      "title": "R-meta-1768-233",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/7299",
+      "state": "OPEN",
+      "isDraft": false,
+      "createdAt": "2026-11-24T15:02:56Z",
+      "updatedAt": "2026-11-24T23:10:29Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headRefName": "R-meta-1768-233",
+      "baseRefName": "main",
+      "author": {
+        "login": "reticuli-labs"
+      }
+    },
+    {
+      "number": 10649,
+      "title": "Reduce L-meta-1768 to L-meta-5326 and L-meta-5328",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/10649",
+      "state": "OPEN",
+      "isDraft": false,
+      "createdAt": "2026-11-24T23:12:53Z",
+      "updatedAt": "2026-11-24T23:22:19Z",
+      "closedAt": null,
+      "mergedAt": null,
+      "headRefName": "codex/l-meta-1768-263",
+      "baseRefName": "main",
+      "author": {
+        "login": "GSJProgo"
+      }
+    },
+    {
+      "number": 7161,
+      "title": "R-meta-1768-417",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/7161",
+      "state": "MERGED",
+      "isDraft": false,
+      "createdAt": "2026-11-24T14:40:54Z",
+      "updatedAt": "2026-11-24T21:55:16Z",
+      "closedAt": "2026-11-24T21:55:16Z",
+      "mergedAt": "2026-11-24T21:55:16Z",
+      "headRefName": "reduce-meta-1768-417",
+      "baseRefName": "main",
+      "author": {
+        "login": "stephenus"
+      }
+    },
+    {
+      "number": 4677,
+      "title": "Reduce L-meta-1768 by separating direct and nested witnesses",
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/4677",
+      "state": "MERGED",
+      "isDraft": false,
+      "createdAt": "2026-11-24T08:56:59Z",
+      "updatedAt": "2026-11-24T18:43:01Z",
+      "closedAt": "2026-11-24T18:43:01Z",
+      "mergedAt": "2026-11-24T18:43:01Z",
+      "headRefName": "R-meta-1768-1",
+      "baseRefName": "main",
+      "author": {
+        "login": "Bowen-Xue-ac2"
+      }
+    }
+  ],
+  "latest_saved_public_feed": {
+    "updated_at": "2026-11-25T01:10:04.565Z",
+    "gap_present": true,
+    "reductions_live": 2,
+    "pr_numbers": [
+      10649,
+      10907
+    ],
+    "statement_matches": true,
+    "withdrawn": null,
+    "raw_sha256": "7533121c1221ad2713232be9a3df10112873bc83352bed3ef7355ac787da80cc"
+  },
+  "fresh_public_statement_checked": false,
+  "fresh_public_reductions_live_checked_by_this_agent": false,
+  "desk_calls_by_this_agent": 0,
+  "artifacts": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-pr-search-007.stdout.json.gz",
+      "bytes": 171,
+      "sha256": "b52e2ac4e8d69128468e1325a58cb8929711a8bb3a743cf438dbf7a2f37939a2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-pr-search-007.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-pr-search-007-summary.json",
+      "bytes": 866,
+      "sha256": "12d834f57e7988db8dbc391c0071f2ccbdd363c38075890354a361780db4d9d5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-known-prs-007.stdout.json.gz",
+      "bytes": 394,
+      "sha256": "262a31a9f02e1ae0f27bd27a77ef5275ef22c65eb6ea4ad3a2930b8fc7d6d23c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-known-prs-007.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-known-prs-007-summary.json",
+      "bytes": 1737,
+      "sha256": "005b938b968ed6d504db8abe4978979d05698163c830c3cb92068e819d7430b2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-canonical-search-007.stdout.json.gz",
+      "bytes": 798,
+      "sha256": "c2fc16a634ce239c7ae74846f03968f2d0e0de1469efb31f9c1336f32fed5151"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-canonical-search-007.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/gap1768-canonical-search-007-summary.json",
+      "bytes": 4524,
+      "sha256": "98668a81f8085f014b0d17c19075761147c33bbf327f8dc1e74d4cf610eb741d"
+    }
+  ]
+}
