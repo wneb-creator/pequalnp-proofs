@@ -1,0 +1,11 @@
+PARTIAL CHECKPOINT — not a proof submission
+Gap: L-meta-2592
+Named module lake build: PASS
+Main file: graph independence4/cover6 plus a restricted input-NOT elimination lemma.
+Additional compiled candidates: explicit20-gate witness, monotonicity, every input essential.
+The posted ≤19-gate lower bound is not proved; final theorem absent; no PR.
+Local checker: not yet run; full Mathlib cache restoration ongoing.
+Independent diff review: PASS, results/orch/partial-review-02.md
+Main file lines before/after cleanup:101/101 (cleanup not applicable to incomplete proof).
+Sub-agents:6 (environment/review, direct lower bound, counterexample, graphfacts, Lean structure/review, exact synthesis)
+TIMING total=17.0 subagents=6
