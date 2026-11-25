@@ -1,0 +1,41 @@
+[
+  {
+    "file": "results/orch/finite/plane65_theta.json",
+    "sha256": "c3afbe40481da930c16debb4b56239a7c7d270b1f1de543fc153d9e084a9b2d2",
+    "gate_count": 65,
+    "and_count": 14,
+    "minimal_monomials": 52,
+    "full_semantics": "PASS via symbolic antichains",
+    "double_edge": [
+      0,
+      13
+    ],
+    "output_derivatives": [
+      false,
+      false
+    ],
+    "legal_distinct_earlier_inputs": true
+  },
+  {
+    "file": "results/orch/finite/tree10_double12.json",
+    "sha256": "db39f9f16b675f6cc7ccbfca61c4e0fb96a533ad7de99918587f1ef3a1e6f92f",
+    "gate_count": 12,
+    "and_count": 3,
+    "minimal_monomials": 10,
+    "full_semantics": "PASS via symbolic antichains",
+    "double_edge": [
+      1,
+      7
+    ],
+    "output_derivatives": [
+      false,
+      false
+    ],
+    "legal_distinct_earlier_inputs": true,
+    "matching_and_vertex_cover_size": 3
+  },
+  {
+    "rectangle_cnf_certificate_graphs": 21,
+    "finite_certificate_check": "PASS"
+  }
+]

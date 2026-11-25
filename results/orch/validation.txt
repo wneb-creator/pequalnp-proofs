@@ -3,7 +3,7 @@ Gap: L-meta-2602
 Status: checked partial components only; exact gap theorem is NOT proved.
 
 Sub-agents: 6 (status/counterexample search, structural proof, lemma route, finite search, toolchain, independent review)
-TIMING total=54.27 subagents=6
+TIMING total=63.63 subagents=6
 
 Lean: v4.36.0; pinned Mathlib cache fetched successfully (9117 files).
 Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean ../results/orch/lemmas/lemma_route.lean
@@ -59,3 +59,6 @@ Integrated canonical partial: 1232 lines; lake build exit 0, 28.70 seconds, peak
 Independent merge review PASS. Resource concern resolved for this checked snapshot.
 Active-junk theorem and rectangle-meet helpers independently reviewed PASS and compiled; preserved separately pending integration.
 The full posted statement remains unproved.
+
+Combined active-junk proof (607 lines), rectangle four-clause certificate (73 lines), and finite witnesses compiled or independently validated. Review PASS; keyword-only helper declaration change recompiled. Preserved as partial components.
+Finite 65-gate plane and 12-gate tree witnesses verified by exact symbolic monomials and traces. Neither refutes the posted 64-gate bound. SAT UNKNOWN and heuristic no-hit results remain inconclusive.

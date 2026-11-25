@@ -53,3 +53,5 @@
 - 2026-11-25 03:56 UTC: structure_proof completes stronger active-pair dirty-count trace theorem and shared-rectangle center certificate; both Lean-checked. Pair-only dirty-count strategy rejected by counterexamples.
 
 2026-11-25T03:59:44.455140+00:00 Integrated resource-safe TopForm partial and active-junk/rectangle-meet snapshots saved.
+
+- 2026-11-25T04:09:06.079753+00:00: Preserving combined active-junk, finite rectangle certificate, and independently validated finite witnesses; exact gap still open.

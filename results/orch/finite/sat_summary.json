@@ -1,0 +1,87 @@
+[
+  {
+    "file": "local1210-ordered-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 180.01
+  },
+  {
+    "file": "local0-cross3-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.0
+  },
+  {
+    "file": "local05-ordered-sat.log",
+    "verdict": "UNSAT",
+    "seconds": 104.36
+  },
+  {
+    "file": "tree-cross9-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.0
+  },
+  {
+    "file": "local12-sat.log",
+    "verdict": "UNSAT",
+    "seconds": 1.68
+  },
+  {
+    "file": "local12-control-sat.log",
+    "verdict": "SAT",
+    "seconds": 0.05
+  },
+  {
+    "file": "local0-raw-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.0
+  },
+  {
+    "file": "local0-sat.log",
+    "verdict": "UNSAT",
+    "seconds": 0.91
+  },
+  {
+    "file": "local1210-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 180.01
+  },
+  {
+    "file": "tree10-ordinary11-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 180.0
+  },
+  {
+    "file": "local12-raw-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.01
+  },
+  {
+    "file": "local12-extra-sat.log",
+    "verdict": "UNSAT",
+    "seconds": 4.91
+  },
+  {
+    "file": "local2-sat.log",
+    "verdict": "UNSAT",
+    "seconds": 1.53
+  },
+  {
+    "file": "local0511-ordered-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 180.0
+  },
+  {
+    "file": "local0511-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.02
+  },
+  {
+    "file": "local05-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 180.0
+  },
+  {
+    "file": "local0-cross9-sat.log",
+    "verdict": "UNKNOWN",
+    "seconds": 300.0
+  }
+]
