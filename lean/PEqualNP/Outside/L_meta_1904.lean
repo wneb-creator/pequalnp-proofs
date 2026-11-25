@@ -674,4 +674,440 @@ lemma distinct_active_vertices_have_one_outside_neighbor
 
 end OneBitCut
 
+namespace FiniteCut
+
+open OneBitCut
+
+variable {V Code : Type*} [DecidableEq V]
+
+def Factors (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool) : Prop :=
+  ∀ I ⊆ S, ∀ J ⊆ O, HasEdge G (I ∪ J) ↔ decode (code I) J = true
+
+lemma equal_singleton_codes_same_neighbors
+    (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) {u v : V}
+    (hu : u ∈ S) (hv : v ∈ S) (same : code {u} = code {v}) :
+    ∀ w ∈ O, G.Adj u w ↔ G.Adj v w := by
+  intro w hw
+  have left := factors {u} (by simpa using hu) {w} (by simpa using hw)
+  have right := factors {v} (by simpa using hv) {w} (by simpa using hw)
+  simp only [Finset.singleton_union, edge_pair] at left right
+  rw [same] at left
+  exact left.trans right.symm
+
+lemma crossing_code_ne_empty
+    (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) {u v : V}
+    (inside : u ∈ S) (outside : v ∈ O) (crossing : G.Adj u v) :
+    code {u} ≠ code ∅ := by
+  have edge : HasEdge G ({u} ∪ {v}) := by
+    simpa only [Finset.singleton_union] using (edge_pair G u v).mpr crossing
+  have yes := (factors {u} (by simpa using inside) {v} (by simpa using outside)).mp edge
+  intro same
+  rw [same] at yes
+  have single : HasEdge G {v} := by
+    simpa using (factors ∅ (Finset.empty_subset S) {v} (by simpa using outside)).mpr yes
+  exact no_edge_singleton G v single
+
+lemma internal_code_ne_empty
+    (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) (internal : HasEdge G S) :
+    code S ≠ code ∅ := by
+  intro same
+  have yes : decode (code S) ∅ = true :=
+    (factors S Finset.Subset.rfl ∅ (Finset.empty_subset O)).mp (by simpa using internal)
+  rw [same] at yes
+  have empty : HasEdge G ∅ := by
+    simpa using (factors ∅ (Finset.empty_subset S) ∅ (Finset.empty_subset O)).mpr yes
+  exact no_edge_empty G empty
+
+lemma internal_code_ne_singleton
+    (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) (internal : HasEdge G S)
+    {u : V} (inside : u ∈ S) : code S ≠ code {u} := by
+  intro same
+  have yes : decode (code S) ∅ = true :=
+    (factors S Finset.Subset.rfl ∅ (Finset.empty_subset O)).mp (by simpa using internal)
+  rw [same] at yes
+  have single : HasEdge G {u} := by
+    simpa using (factors {u} (by simpa using inside) ∅ (Finset.empty_subset O)).mpr yes
+  exact no_edge_singleton G u single
+
+lemma representative_codes_injective
+    (G : SimpleGraph V) (S O A : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) (subset : A ⊆ S)
+    (different : ∀ u ∈ A, ∀ v ∈ A, u ≠ v →
+      ∃ w ∈ O, ¬ (G.Adj u w ↔ G.Adj v w)) :
+    Set.InjOn (fun u => code {u}) A := by
+  intro u hu v hv same
+  by_contra separate
+  obtain ⟨w, hw, differs⟩ := different u hu v hv separate
+  exact differs
+    (equal_singleton_codes_same_neighbors G S O code decode factors (subset hu) (subset hv) same w hw)
+
+lemma active_neighborhood_capacity [Fintype Code]
+    (G : SimpleGraph V) (S O A : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) (subset : A ⊆ S)
+    (active : ∀ u ∈ A, ∃ w ∈ O, G.Adj u w)
+    (different : ∀ u ∈ A, ∀ v ∈ A, u ≠ v →
+      ∃ w ∈ O, ¬ (G.Adj u w ↔ G.Adj v w)) :
+    A.card + 1 ≤ Fintype.card Code := by
+  classical
+  let B := A.image fun u => code {u}
+  have size : B.card = A.card :=
+    Finset.card_image_iff.mpr (representative_codes_injective G S O A code decode factors subset different)
+  have absent : code ∅ ∉ B := by
+    intro mem
+    obtain ⟨u, hu, equal⟩ := Finset.mem_image.mp mem
+    obtain ⟨w, hw, edge⟩ := active u hu
+    exact crossing_code_ne_empty G S O code decode factors (subset hu) hw edge equal
+  have bound := Finset.card_le_univ (insert (code ∅) B)
+  simpa [Finset.card_insert_of_notMem absent, size] using bound
+
+lemma internal_edge_capacity [Fintype Code]
+    (G : SimpleGraph V) (S O A : Finset V)
+    (code : Finset V → Code) (decode : Code → Finset V → Bool)
+    (factors : Factors G S O code decode) (subset : A ⊆ S)
+    (active : ∀ u ∈ A, ∃ w ∈ O, G.Adj u w)
+    (different : ∀ u ∈ A, ∀ v ∈ A, u ≠ v →
+      ∃ w ∈ O, ¬ (G.Adj u w ↔ G.Adj v w))
+    (internal : HasEdge G S) :
+    A.card + 2 ≤ Fintype.card Code := by
+  classical
+  let B := A.image fun u => code {u}
+  have size : B.card = A.card :=
+    Finset.card_image_iff.mpr (representative_codes_injective G S O A code decode factors subset different)
+  have absentEmpty : code ∅ ∉ B := by
+    intro mem
+    obtain ⟨u, hu, equal⟩ := Finset.mem_image.mp mem
+    obtain ⟨w, hw, edge⟩ := active u hu
+    exact crossing_code_ne_empty G S O code decode factors (subset hu) hw edge equal
+  have absentInternal : code S ∉ insert (code ∅) B := by
+    intro mem
+    rcases Finset.mem_insert.mp mem with equal | mem
+    · exact internal_code_ne_empty G S O code decode factors internal equal
+    · obtain ⟨u, hu, equal⟩ := Finset.mem_image.mp mem
+      exact internal_code_ne_singleton G S O code decode factors internal (subset hu) equal.symm
+  have bound := Finset.card_le_univ (insert (code S) (insert (code ∅) B))
+  simpa [Finset.card_insert_of_notMem absentInternal,
+    Finset.card_insert_of_notMem absentEmpty, size, Nat.add_assoc] using bound
+
+lemma two_bit_neighborhood_capacity
+    (G : SimpleGraph V) (S O A : Finset V)
+    (code : Finset V → Bool × Bool) (decode : Bool × Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) (subset : A ⊆ S)
+    (active : ∀ u ∈ A, ∃ w ∈ O, G.Adj u w)
+    (different : ∀ u ∈ A, ∀ v ∈ A, u ≠ v →
+      ∃ w ∈ O, ¬ (G.Adj u w ↔ G.Adj v w)) : A.card ≤ 3 := by
+  have bound := active_neighborhood_capacity G S O A code decode factors subset active different
+  simp only [Fintype.card_prod, Fintype.card_bool] at bound
+  omega
+
+lemma two_bit_internal_edge_capacity
+    (G : SimpleGraph V) (S O A : Finset V)
+    (code : Finset V → Bool × Bool) (decode : Bool × Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) (subset : A ⊆ S)
+    (active : ∀ u ∈ A, ∃ w ∈ O, G.Adj u w)
+    (different : ∀ u ∈ A, ∀ v ∈ A, u ≠ v →
+      ∃ w ∈ O, ¬ (G.Adj u w ↔ G.Adj v w))
+    (internal : HasEdge G S) : A.card ≤ 2 := by
+  have bound := internal_edge_capacity G S O A code decode factors subset active different internal
+  simp only [Fintype.card_prod, Fintype.card_bool] at bound
+  omega
+
+end FiniteCut
+
+namespace LiteralGridRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def rect₁ (a b c d : Bool) : Bool := (a || c) && (b || d)
+
+def rect₂ (a b c d : Bool) : Bool := (a || d) && (b || c)
+
+lemma grid_identity (a b c d : Bool) :
+    (rect₁ a b c d && rect₂ a b c d) = ((a && b) || (c && d)) := by
+  cases a <;> cases b <;> cases c <;> cases d <;> rfl
+
+def hit {n : ℕ} (G : SimpleGraph (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true
+
+def pair {n : ℕ} (u v : Fin n) (i : Fin n) : Bool := decide (i = u ∨ i = v)
+
+lemma adjacent_of_pair {n : ℕ} (G : SimpleGraph (Fin n)) {u v p q : Fin n}
+    (huv : G.Adj u v) (hpq : p ≠ q)
+    (hp : pair u v p = true) (hq : pair u v q = true) : G.Adj p q := by
+  have hp' : p = u ∨ p = v := of_decide_eq_true hp
+  have hq' : q = u ∨ q = v := of_decide_eq_true hq
+  rcases hp' with rfl|rfl <;> rcases hq' with rfl|rfl
+  · exact (hpq rfl).elim
+  · exact huv
+  · exact huv.symm
+  · exact (hpq rfl).elim
+
+lemma hit_pair_iff {n : ℕ} (G : SimpleGraph (Fin n)) (u v : Fin n) :
+    hit G (pair u v) ↔ G.Adj u v := by
+  constructor
+  · rintro ⟨p,q,hpq,hp,hq⟩
+    have hp' : p = u ∨ p = v := of_decide_eq_true hp
+    have hq' : q = u ∨ q = v := of_decide_eq_true hq
+    rcases hp' with rfl|rfl <;> rcases hq' with rfl|rfl
+    · exact (G.irrefl hpq).elim
+    · exact hpq
+    · exact hpq.symm
+    · exact (G.irrefl hpq).elim
+  · intro huv
+    exact ⟨u,v,huv,by simp [pair],by simp [pair]⟩
+
+lemma cross_exclusion {n : ℕ} (G : SimpleGraph (Fin n)) (a b c d : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (square : ∀ w x y z, G.Adj w x → G.Adj x y → G.Adj y z → G.Adj z w →
+      w = y ∨ x = z)
+    (hab : G.Adj a b) (hcd : G.Adj c d)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d) :
+    (G.Adj a c → ¬ G.Adj a d ∧ ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+    (G.Adj a d → ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+    (G.Adj b c → ¬ G.Adj b d) := by
+  refine ⟨?_,?_,?_⟩
+  · intro he
+    refine ⟨?_,?_,?_⟩
+    · intro hf
+      exact triangle a c d he hcd hf.symm
+    · intro hf
+      exact triangle a b c hab hf he.symm
+    · intro hf
+      rcases square a b d c hab hf hcd.symm he.symm with h|h
+      · exact had h
+      · exact hbc h
+  · intro he
+    constructor
+    · intro hf
+      rcases square a b c d hab hf hcd he.symm with h|h
+      · exact hac h
+      · exact hbd h
+    · intro hf
+      exact triangle a b d hab hf he.symm
+  · intro he hf
+    exact triangle b c d he hcd hf.symm
+
+lemma rectangles_have_negative_witnesses {n : ℕ} (G : SimpleGraph (Fin n))
+    (a b c d : Fin n)
+    (hcross : (G.Adj a c → ¬ G.Adj a d ∧ ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+      (G.Adj a d → ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+      (G.Adj b c → ¬ G.Adj b d)) :
+    (∃ x : Fin n → Bool, ¬ hit G x ∧ rect₁ (x a) (x b) (x c) (x d) = true) ∧
+    (∃ x : Fin n → Bool, ¬ hit G x ∧ rect₂ (x a) (x b) (x c) (x d) = true) := by
+  classical
+  constructor
+  · by_cases had : G.Adj a d
+    · refine ⟨pair b c,?_,by simp [rect₁,pair]⟩
+      exact fun h => (hcross.2.1 had).1 ((hit_pair_iff G b c).mp h)
+    · refine ⟨pair a d,?_,by simp [rect₁,pair]⟩
+      exact fun h => had ((hit_pair_iff G a d).mp h)
+  · by_cases hac : G.Adj a c
+    · refine ⟨pair b d,?_,by simp [rect₂,pair]⟩
+      exact fun h => (hcross.1 hac).2.2 ((hit_pair_iff G b d).mp h)
+    · refine ⟨pair a c,?_,by simp [rect₂,pair]⟩
+      exact fun h => hac ((hit_pair_iff G a c).mp h)
+
+def firstValue {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (x : Fin n → Bool) : Bool :=
+  if G.Adj a c then x a && (x b || x c)
+  else if G.Adj a d then x a && (x b || x d)
+  else if G.Adj b c then x b && (x a || x c)
+  else if G.Adj b d then x b && (x a || x d)
+  else x a && x b
+
+def repairValue {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (x : Fin n → Bool) : Bool :=
+  firstValue G a b c d x || (x c && x d)
+
+def inducedValue {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (x : Fin n → Bool) : Bool :=
+  (x a && x b) || (x c && x d) ||
+    (decide (G.Adj a c) && (x a && x c)) ||
+    (decide (G.Adj a d) && (x a && x d)) ||
+    (decide (G.Adj b c) && (x b && x c)) ||
+    (decide (G.Adj b d) && (x b && x d))
+
+lemma repair_eq_induced {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n)
+    (hcross : (G.Adj a c → ¬ G.Adj a d ∧ ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+      (G.Adj a d → ¬ G.Adj b c ∧ ¬ G.Adj b d) ∧
+      (G.Adj b c → ¬ G.Adj b d)) (x : Fin n → Bool) :
+    repairValue G a b c d x = inducedValue G a b c d x := by
+  by_cases hac : G.Adj a c
+  · obtain ⟨had,hbc,hbd⟩ := hcross.1 hac
+    cases ha : x a <;> cases hb : x b <;> cases hc : x c <;> cases hd : x d <;>
+      simp [repairValue,firstValue,inducedValue,hac,had,hbc,hbd,ha,hb,hc,hd]
+  · by_cases had : G.Adj a d
+    · obtain ⟨hbc,hbd⟩ := hcross.2.1 had
+      cases ha : x a <;> cases hb : x b <;> cases hc : x c <;> cases hd : x d <;>
+        simp [repairValue,firstValue,inducedValue,hac,had,hbc,hbd,ha,hb,hc,hd]
+    · by_cases hbc : G.Adj b c
+      · have hbd := hcross.2.2 hbc
+        cases ha : x a <;> cases hb : x b <;> cases hc : x c <;> cases hd : x d <;>
+          simp [repairValue,firstValue,inducedValue,hac,had,hbc,hbd,ha,hb,hc,hd]
+      · by_cases hbd : G.Adj b d
+        · cases ha : x a <;> cases hb : x b <;> cases hc : x c <;> cases hd : x d <;>
+            simp [repairValue,firstValue,inducedValue,hac,had,hbc,hbd,ha,hb,hc,hd]
+        · simp [repairValue,firstValue,inducedValue,hac,had,hbc,hbd]
+
+lemma first_safe {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (hab : G.Adj a b) (x : Fin n → Bool) :
+    firstValue G a b c d x = true → hit G x := by
+  unfold firstValue
+  split_ifs with hac had hbc hbd
+  · simp only [Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨ha,hb|hc⟩
+    · exact ⟨a,b,hab,ha,hb⟩
+    · exact ⟨a,c,hac,ha,hc⟩
+  · simp only [Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨ha,hb|hd⟩
+    · exact ⟨a,b,hab,ha,hb⟩
+    · exact ⟨a,d,had,ha,hd⟩
+  · simp only [Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨hb,ha|hc⟩
+    · exact ⟨a,b,hab,ha,hb⟩
+    · exact ⟨b,c,hbc,hb,hc⟩
+  · simp only [Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨hb,ha|hd⟩
+    · exact ⟨a,b,hab,ha,hb⟩
+    · exact ⟨b,d,hbd,hb,hd⟩
+  · simp only [Bool.and_eq_true]
+    rintro ⟨ha,hb⟩
+    exact ⟨a,b,hab,ha,hb⟩
+
+lemma repair_safe {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (hab : G.Adj a b) (hcd : G.Adj c d) (x : Fin n → Bool) :
+    repairValue G a b c d x = true → hit G x := by
+  simp only [repairValue,Bool.or_eq_true,Bool.and_eq_true]
+  rintro (hf|⟨hc,hd⟩)
+  · exact first_safe G a b c d hab x hf
+  · exact ⟨c,d,hcd,hc,hd⟩
+
+lemma repair_zero_on_negative {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (hab : G.Adj a b) (hcd : G.Adj c d) (x : Fin n → Bool)
+    (hx : ¬ hit G x) : repairValue G a b c d x = false := by
+  apply Bool.eq_false_iff.mpr
+  exact fun h => hx (repair_safe G a b c d hab hcd x h)
+
+lemma induced_dominates_rectangles {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (u v : Fin n) (huv : G.Adj u v) :
+    (rect₁ (pair u v a) (pair u v b) (pair u v c) (pair u v d) = true →
+      inducedValue G a b c d (pair u v) = true) ∧
+    (rect₂ (pair u v a) (pair u v b) (pair u v c) (pair u v d) = true →
+      inducedValue G a b c d (pair u v) = true) := by
+  constructor
+  · simp only [rect₁,Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨ha|hc,hb|hd⟩
+    · simp [inducedValue,ha,hb]
+    · have he := adjacent_of_pair G huv had ha hd
+      simp [inducedValue,he,ha,hd]
+    · have he := adjacent_of_pair G huv hbc hb hc
+      simp [inducedValue,he,hb,hc]
+    · simp [inducedValue,hc,hd]
+  · simp only [rect₂,Bool.and_eq_true,Bool.or_eq_true]
+    rintro ⟨ha|hd,hb|hc⟩
+    · simp [inducedValue,ha,hb]
+    · have he := adjacent_of_pair G huv hac ha hc
+      simp [inducedValue,he,ha,hc]
+    · have he := adjacent_of_pair G huv hbd hb hd
+      simp [inducedValue,he,hb,hd]
+    · simp [inducedValue,hc,hd]
+
+def borrowedInputs {n : ℕ} (a b c d : Fin n) (x : Fin n → Bool) : List Bool :=
+  [x a,x b,x c,x d,x a || x c,x b || x d,x a || x d,x b || x c]
+
+def firstGate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) : Gate :=
+  if G.Adj a c then ⟨.and,[0,7]⟩
+  else if G.Adj a d then ⟨.and,[0,5]⟩
+  else if G.Adj b c then ⟨.and,[1,4]⟩
+  else if G.Adj b d then ⟨.and,[1,6]⟩
+  else ⟨.and,[0,1]⟩
+
+def block {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) : Circuit :=
+  ⟨[firstGate G a b c d,⟨.and,[2,3]⟩,⟨.or,[8,9]⟩],10⟩
+
+lemma block_size {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) : (block G a b c d).size = 3 := rfl
+
+lemma block_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) : Monotone2 (block G a b c d) := by
+  unfold block firstGate
+  split_ifs <;> simp [Monotone2]
+
+lemma block_values {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (x : Fin n → Bool) :
+    ((block G a b c d).wires (borrowedInputs a b c d x)).getD 8 false =
+        firstValue G a b c d x ∧
+    ((block G a b c d).wires (borrowedInputs a b c d x)).getD 9 false = (x c && x d) ∧
+    (block G a b c d).eval (borrowedInputs a b c d x) = repairValue G a b c d x := by
+  unfold block firstGate firstValue repairValue
+  split_ifs <;>
+    simp_all [firstValue,Circuit.wires,Circuit.eval,borrowedInputs,GateOp.eval,
+      List.getD_eq_getElem?_getD]
+
+lemma block_safe {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n) (hab : G.Adj a b) (hcd : G.Adj c d) :
+    ∀ j g, (block G a b c d).gates[j]? = some g → g.op = .and →
+      ∀ x : Fin n → Bool,
+        ((block G a b c d).wires (borrowedInputs a b c d x)).getD (8+j) false = true → hit G x := by
+  intro j g hj hop x hx
+  have bound : j < 3 := by
+    obtain ⟨hh,_⟩ := List.getElem?_eq_some_iff.mp hj
+    simpa [block] using hh
+  interval_cases j
+  · change ((block G a b c d).wires (borrowedInputs a b c d x)).getD 8 false = true at hx
+    rw [(block_values G a b c d x).1] at hx
+    exact first_safe G a b c d hab x hx
+  · change ((block G a b c d).wires (borrowedInputs a b c d x)).getD 9 false = true at hx
+    rw [(block_values G a b c d x).2.1] at hx
+    obtain ⟨hc,hd⟩ := Bool.and_eq_true_iff.mp hx
+    exact ⟨c,d,hcd,hc,hd⟩
+  · have he : g = ⟨.or,[8,9]⟩ := by simpa [block] using hj.symm
+    simp [he] at hop
+
+lemma signed_grid_certificate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (square : ∀ w x y z, G.Adj w x → G.Adj x y → G.Adj y z → G.Adj z w →
+      w = y ∨ x = z)
+    (hab : G.Adj a b) (hcd : G.Adj c d)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d) :
+    (block G a b c d).size = 3 ∧ Monotone2 (block G a b c d) ∧
+    (∀ x : Fin n → Bool, ¬ hit G x →
+      (block G a b c d).eval (borrowedInputs a b c d x) = false) ∧
+    (∀ u v : Fin n, G.Adj u v →
+      (rect₁ (pair u v a) (pair u v b) (pair u v c) (pair u v d) = true ∨
+       rect₂ (pair u v a) (pair u v b) (pair u v c) (pair u v d) = true) →
+        (block G a b c d).eval (borrowedInputs a b c d (pair u v)) = true) ∧
+    (∀ j g, (block G a b c d).gates[j]? = some g → g.op = .and →
+      ∀ x : Fin n → Bool,
+        ((block G a b c d).wires (borrowedInputs a b c d x)).getD (8+j) false = true → hit G x) := by
+  refine ⟨block_size G a b c d,block_mono G a b c d,?_,?_,block_safe G a b c d hab hcd⟩
+  · intro x hx
+    rw [(block_values G a b c d x).2.2]
+    exact repair_zero_on_negative G a b c d hab hcd x hx
+  · intro u v huv hrect
+    rw [(block_values G a b c d (pair u v)).2.2,
+      repair_eq_induced G a b c d
+        (cross_exclusion G a b c d triangle square hab hcd hac had hbc hbd)]
+    exact hrect.elim
+      (induced_dominates_rectangles G a b c d hac had hbc hbd u v huv).1
+      (induced_dominates_rectangles G a b c d hac had hbc hbd u v huv).2
+
+end LiteralGridRepair
+
 end PEqualNP.Outside.L_meta_1904
