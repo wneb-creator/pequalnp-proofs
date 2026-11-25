@@ -3056,4 +3056,484 @@ lemma flipPatternBits_testBit_bounded {m i r : Nat} (hm : m ≤ 10) (hi : i < m)
 
 end PNFlip
 
+
+
+namespace BitmapCollision
+
+def collisionMask (flip : Nat → Nat) (domainBits P N G : Nat) : Nat :=
+  (P &&& flip N) &&& (domainBits ^^^ (G ^^^ flip G))
+
+lemma collisionMask_testBit (flip delta : Nat → Nat) (domainBits P N G p : Nat)
+    (hflip : ∀ B, (flip B).testBit p = B.testBit (delta p))
+    (hdomain : domainBits.testBit p = true) :
+    (collisionMask flip domainBits P N G).testBit p = true ↔
+      P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) := by
+  simp only [collisionMask, Nat.testBit_and, Nat.testBit_xor, hflip, hdomain]
+  cases P.testBit p <;> cases N.testBit (delta p) <;>
+    cases G.testBit p <;> cases G.testBit (delta p) <;> decide
+
+lemma collisionMask_ne_zero_iff (flip delta : Nat → Nat) (domainBits P N G : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (hsupport : ∀ p, P.testBit p = true → domainBits.testBit p = true) :
+    collisionMask flip domainBits P N G ≠ 0 ↔
+      ∃ p, P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) := by
+  constructor
+  · intro hnonzero
+    obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hnonzero
+    have hP : P.testBit p = true := by
+      have h := hp
+      simp only [collisionMask, Nat.testBit_and, Bool.and_eq_true] at h
+      exact h.1.1
+    exact ⟨p, (collisionMask_testBit flip delta domainBits P N G p
+      (fun B => hflip B p hP) (hsupport p hP)).mp hp⟩
+  · rintro ⟨p, hp, hn, hg⟩ hzero
+    have h := (collisionMask_testBit flip delta domainBits P N G p
+      (fun B => hflip B p hp) (hsupport p hp)).mpr ⟨hp, hn, hg⟩
+    simp only [hzero, Nat.zero_testBit, Bool.false_eq_true] at h
+
+lemma selfMask_ne_zero_iff (flip delta : Nat → Nat) (P N G : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q)) :
+    collisionMask flip P P N G ≠ 0 ↔
+      ∃ p, P.testBit p = true ∧ N.testBit (delta p) = true ∧
+        G.testBit p = G.testBit (delta p) :=
+  collisionMask_ne_zero_iff flip delta P P N G hflip (fun _ hp => hp)
+
+lemma projected_overlap_of_collision
+    (flip delta f : Nat → Nat) (domainBits P N G projectedP projectedN : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (hsupport : ∀ p, P.testBit p = true → domainBits.testBit p = true)
+    (himageP : ∀ q, projectedP.testBit q = true ↔
+      ∃ p, P.testBit p = true ∧ f p = q)
+    (himageN : ∀ q, projectedN.testBit q = true ↔
+      ∃ p, N.testBit p = true ∧ f p = q)
+    (hmap : ∀ p, P.testBit p = true → N.testBit (delta p) = true →
+      G.testBit p = G.testBit (delta p) → f p = f (delta p))
+    (hnonzero : collisionMask flip domainBits P N G ≠ 0) :
+    projectedP &&& projectedN ≠ 0 := by
+  obtain ⟨p, hp, hn, hg⟩ :=
+    (collisionMask_ne_zero_iff flip delta domainBits P N G hflip hsupport).mp hnonzero
+  have hP : projectedP.testBit (f p) = true :=
+    (himageP (f p)).mpr ⟨p, hp, rfl⟩
+  have hN : projectedN.testBit (f p) = true :=
+    (himageN (f p)).mpr ⟨delta p, hn, (hmap p hp hn hg).symm⟩
+  intro hzero
+  have hbit : (projectedP &&& projectedN).testBit (f p) = true := by
+    simp only [Nat.testBit_and, hP, hN, Bool.and_self]
+  simp only [hzero, Nat.zero_testBit, Bool.false_eq_true] at hbit
+
+lemma projected_overlap_of_selfMask
+    (flip delta f : Nat → Nat) (P N G projectedP projectedN : Nat)
+    (hflip : ∀ B q, P.testBit q = true → (flip B).testBit q = B.testBit (delta q))
+    (himageP : ∀ q, projectedP.testBit q = true ↔
+      ∃ p, P.testBit p = true ∧ f p = q)
+    (himageN : ∀ q, projectedN.testBit q = true ↔
+      ∃ p, N.testBit p = true ∧ f p = q)
+    (hmap : ∀ p, P.testBit p = true → N.testBit (delta p) = true →
+      G.testBit p = G.testBit (delta p) → f p = f (delta p))
+    (hnonzero : collisionMask flip P P N G ≠ 0) :
+    projectedP &&& projectedN ≠ 0 :=
+  projected_overlap_of_collision flip delta f P P N G projectedP projectedN
+    hflip (fun _ hp => hp) himageP himageN hmap hnonzero
+
+end BitmapCollision
+
+namespace PNDropFlip
+
+open PnProjection PnTransition
+
+lemma delBit_xor_self (i x : Nat) : delBit i (x ^^^ 2^i) = delBit i x := by
+  apply Nat.eq_of_testBit_eq
+  intro k
+  rw [testBit_delBit, Nat.testBit_xor, testBit_delBit, Nat.testBit_two_pow]
+  have hne : i ≠ (if k < i then k else k+1) := by
+    split_ifs <;> omega
+  simp [hne]
+
+lemma delBit_xor_below {i j : Nat} (hij : i < j) (x : Nat) :
+    delBit j (x ^^^ 2^i) = (delBit j x) ^^^ 2^i := by
+  apply Nat.eq_of_testBit_eq
+  intro k
+  simp only [testBit_delBit, Nat.testBit_xor, Nat.testBit_two_pow]
+  by_cases hk : k < j
+  · simp [hk]
+  · have hne : i ≠ k := by omega
+    have hne' : i ≠ k+1 := by omega
+    simp [hk, hne, hne']
+
+lemma dropPattern_xor_left {i j : Nat} (hij : i < j) (keep : Fin 4)
+    (hdrop : keep.val &&& 1 = 0) (x : Nat) :
+    dropPattern i j keep (x ^^^ 2^i) = dropPattern i j keep x := by
+  by_cases hk : keep.val &&& 2 = 0
+  · simp [dropPattern, hdrop, hk, delBit_xor_below hij, delBit_xor_self]
+  · simp [dropPattern, hdrop, hk, delBit_xor_self]
+
+lemma dropPattern_xor_right (i j : Nat) (keep : Fin 4)
+    (hdrop : keep.val &&& 2 = 0) (x : Nat) :
+    dropPattern i j keep (x ^^^ 2^j) = dropPattern i j keep x := by
+  simp [dropPattern, hdrop, delBit_xor_self]
+
+lemma dropPattern_xor_both {i j : Nat} (hij : i < j) (x : Nat) :
+    dropPattern i j (0 : Fin 4) ((x ^^^ 2^i) ^^^ 2^j) = dropPattern i j 0 x := by
+  rw [dropPattern_xor_right i j 0 (by decide), dropPattern_xor_left hij 0 (by decide)]
+
+lemma dropPattern_xor_both_mask {i j : Nat} (hij : i < j) (x : Nat) :
+    dropPattern i j (0 : Fin 4) (x ^^^ (2^i ^^^ 2^j)) = dropPattern i j 0 x := by
+  rw [← Nat.xor_assoc]
+  exact dropPattern_xor_both hij x
+
+end PNDropFlip
+
+namespace PNFlipRows
+
+lemma xor_power_bound {m i r : Nat} (hi : i < m) (hr : r < 2^m) :
+    r ^^^ 2^i < 2^m :=
+  Nat.xor_lt_two_pow hr (Nat.pow_lt_pow_right (by decide) hi)
+
+lemma flipPatternBits_twice_testBit {m i j r : Nat} (hm : m ≤ 10)
+    (hi : i < m) (hj : j < m) (hr : r < 2^m) (B : Nat) :
+    (PNFlip.flipPatternBits i (PNFlip.flipPatternBits j B)).testBit r =
+      B.testBit ((r ^^^ 2^i) ^^^ 2^j) := by
+  rw [PNFlip.flipPatternBits_testBit_bounded hm hi hr,
+    PNFlip.flipPatternBits_testBit_bounded hm hj (xor_power_bound hi hr)]
+
+lemma gateMask_testBit_bounded {m i j r : Nat} (hm : m ≤ 10)
+    (hi : i < m) (hj : j < m) (hr : r < 2^m) (op : Fin 4) :
+    (PNPlanes.gateMask i j op).testBit r =
+      ChromGate.eval op (r.testBit i) (r.testBit j) := by
+  have hr1024 : r < 1024 := lt_of_lt_of_le hr
+    (by exact Nat.pow_le_pow_right (by decide) hm)
+  exact PNPlanes.gateMask_bits ⟨i, by omega⟩ ⟨j, by omega⟩ op ⟨r, hr1024⟩
+
+lemma gateMask_xor_left {m i j r : Nat} (hm : m ≤ 10)
+    (hij : i < j) (hj : j < m) (hr : r < 2^m) (op : Fin 4) :
+    (PNPlanes.gateMask i j op).testBit (r ^^^ 2^i) =
+      ChromGate.eval op (!(r.testBit i)) (r.testBit j) := by
+  rw [gateMask_testBit_bounded hm (by omega) hj (xor_power_bound (by omega) hr)]
+  simp [Nat.testBit_xor, Nat.ne_of_lt hij]
+
+lemma gateMask_xor_right {m i j r : Nat} (hm : m ≤ 10)
+    (hij : i < j) (hj : j < m) (hr : r < 2^m) (op : Fin 4) :
+    (PNPlanes.gateMask i j op).testBit (r ^^^ 2^j) =
+      ChromGate.eval op (r.testBit i) (!(r.testBit j)) := by
+  rw [gateMask_testBit_bounded hm (by omega) hj (xor_power_bound hj hr)]
+  simp [Nat.testBit_xor, Nat.ne_of_gt hij]
+
+lemma gateMask_xor_both {m i j r : Nat} (hm : m ≤ 10)
+    (hij : i < j) (hj : j < m) (hr : r < 2^m) (op : Fin 4) :
+    (PNPlanes.gateMask i j op).testBit ((r ^^^ 2^i) ^^^ 2^j) =
+      ChromGate.eval op (!(r.testBit i)) (!(r.testBit j)) := by
+  rw [gateMask_testBit_bounded hm (by omega) hj
+    (xor_power_bound hj (xor_power_bound (by omega) hr))]
+  simp [Nat.testBit_xor, Nat.ne_of_lt hij, Nat.ne_of_gt hij]
+
+lemma gateMask_xor_both_mask {m i j r : Nat} (hm : m ≤ 10)
+    (hij : i < j) (hj : j < m) (hr : r < 2^m) (op : Fin 4) :
+    (PNPlanes.gateMask i j op).testBit (r ^^^ (2^i ^^^ 2^j)) =
+      ChromGate.eval op (!(r.testBit i)) (!(r.testBit j)) := by
+  rw [← Nat.xor_assoc]
+  exact gateMask_xor_both hm hij hj hr op
+
+end PNFlipRows
+
+namespace PNGateSpecs
+
+open PNPlanes
+
+def gateSpec (i j : Nat) (d : Fin 4) : Nat × Nat × Nat × Nat :=
+  let li := PNMasks.lowMask i
+  let lj := PNMasks.lowMask j
+  let hi := highMask i
+  let hj := highMask j
+  let different := hi ^^^ hj
+  let same := allPatterns ^^^ different
+  match d.val with
+  | 0 => (hi &&& hj, lj, li, different)
+  | 1 => (hi ||| hj, hj, hi, different)
+  | 2 => (hi &&& lj, hj, li, same)
+  | _ => (hj &&& li, lj, hi, same)
+
+lemma gateSpec_gate (i j : Nat) (d : Fin 4) :
+    (gateSpec i j d).1 = gateMask i j d := by
+  fin_cases d <;> rfl
+
+lemma allPatterns_bits (x : Fin 1024) : allPatterns.testBit x.val = true := by
+  simp [allPatterns, x.isLt]
+
+lemma gateSpec_samei_bits (i j : Fin 10) (x : Fin 1024) (d : Fin 4) :
+    (gateSpec i.val j.val d).2.1.testBit x.val =
+      decide (ChromGate.eval d (x.val.testBit i.val) (x.val.testBit j.val) =
+        ChromGate.eval d (!(x.val.testBit i.val)) (x.val.testBit j.val)) := by
+  fin_cases d <;>
+    simp only [gateSpec, ChromGate.eval, highMask_bits, PNMasks.lowMask_bits] <;>
+    cases x.val.testBit i.val <;> cases x.val.testBit j.val <;> rfl
+
+lemma gateSpec_samej_bits (i j : Fin 10) (x : Fin 1024) (d : Fin 4) :
+    (gateSpec i.val j.val d).2.2.1.testBit x.val =
+      decide (ChromGate.eval d (x.val.testBit i.val) (x.val.testBit j.val) =
+        ChromGate.eval d (x.val.testBit i.val) (!(x.val.testBit j.val))) := by
+  fin_cases d <;>
+    simp only [gateSpec, ChromGate.eval, highMask_bits, PNMasks.lowMask_bits] <;>
+    cases x.val.testBit i.val <;> cases x.val.testBit j.val <;> rfl
+
+lemma gateSpec_sameij_bits (i j : Fin 10) (x : Fin 1024) (d : Fin 4) :
+    (gateSpec i.val j.val d).2.2.2.testBit x.val =
+      decide (ChromGate.eval d (x.val.testBit i.val) (x.val.testBit j.val) =
+        ChromGate.eval d (!(x.val.testBit i.val)) (!(x.val.testBit j.val))) := by
+  fin_cases d <;>
+    simp only [gateSpec, ChromGate.eval, Nat.testBit_xor, highMask_bits, allPatterns_bits] <;>
+    cases x.val.testBit i.val <;> cases x.val.testBit j.val <;> rfl
+
+end PNGateSpecs
+
+namespace PNKeepLogic
+
+def validKeep (keep ci cj cij samei samej sameij : Nat) : Bool :=
+  if keep == 3 then true
+  else if keep == 1 then cj &&& samej == 0
+  else if keep == 2 then ci &&& samei == 0
+  else ci &&& samei == 0 && cj &&& samej == 0 && cij &&& sameij == 0
+
+lemma validKeep_of_checks (keep : Fin 4) (ci cj cij samei samej sameij : Nat)
+    (hleft : keep.val &&& 1 = 0 → ci &&& samei = 0)
+    (hright : keep.val &&& 2 = 0 → cj &&& samej = 0)
+    (hboth : keep.val = 0 → cij &&& sameij = 0) :
+    validKeep keep.val ci cj cij samei samej sameij = true := by
+  fin_cases keep <;> simp_all [validKeep]
+
+end PNKeepLogic
+
+namespace PNPreCollision
+
+open PnTransition
+
+lemma transition_overlap_of_collision {m i j P N : Nat}
+    (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hP : P < 2^(2^m)) (hN : N < 2^(2^m)) (keep : Fin 4) (G domainBits : Nat)
+    (flip delta : Nat → Nat)
+    (hflip : ∀ B p, P.testBit p = true → (flip B).testBit p = B.testBit (delta p))
+    (hsupport : ∀ p, P.testBit p = true → domainBits.testBit p = true)
+    (hdrop : ∀ p, P.testBit p = true → N.testBit (delta p) = true →
+      G.testBit p = G.testBit (delta p) →
+      dropPattern i j keep p = dropPattern i j keep (delta p))
+    (hbad : BitmapCollision.collisionMask flip domainBits P N G ≠ 0) :
+    transitionSet m i j keep G P &&& transitionSet m i j keep G N ≠ 0 := by
+  apply BitmapCollision.projected_overlap_of_collision flip delta
+    (fun p => dropPattern i j keep p + (if G.testBit p then 2^(m-2+keepSize keep) else 0))
+    domainBits P N G _ _ hflip hsupport ?_ ?_ ?_ hbad
+  · intro y
+    rw [transitionSet_image hij hj hm hP]
+    apply exists_congr
+    intro p
+    exact and_congr_right (fun _ => eq_comm)
+  · intro y
+    rw [transitionSet_image hij hj hm hN]
+    apply exists_congr
+    intro p
+    exact and_congr_right (fun _ => eq_comm)
+  · intro p hp hn hg
+    rw [hdrop p hp hn hg, hg]
+
+lemma transition_overlap_of_selfMask {m i j P N : Nat}
+    (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hP : P < 2^(2^m)) (hN : N < 2^(2^m)) (keep : Fin 4) (G : Nat)
+    (flip delta : Nat → Nat)
+    (hflip : ∀ B p, P.testBit p = true → (flip B).testBit p = B.testBit (delta p))
+    (hdrop : ∀ p, dropPattern i j keep p = dropPattern i j keep (delta p))
+    (hbad : BitmapCollision.collisionMask flip P P N G ≠ 0) :
+    transitionSet m i j keep G P &&& transitionSet m i j keep G N ≠ 0 :=
+  transition_overlap_of_collision hij hj hm hP hN keep G P flip delta hflip
+    (fun _ hp => hp) (fun p _ _ _ => hdrop p) hbad
+
+lemma sameMask_zero_of_disjoint {m i j P N : Nat}
+    (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hP : P < 2^(2^m)) (hN : N < 2^(2^m)) (keep : Fin 4) (G sameMask : Nat)
+    (flip delta : Nat → Nat)
+    (hflip : ∀ B p, P.testBit p = true → (flip B).testBit p = B.testBit (delta p))
+    (hsame : ∀ p, P.testBit p = true → sameMask.testBit p = true →
+      G.testBit p = G.testBit (delta p))
+    (hdrop : ∀ p, dropPattern i j keep p = dropPattern i j keep (delta p))
+    (hdisjoint : transitionSet m i j keep G P &&& transitionSet m i j keep G N = 0) :
+    (P &&& flip N) &&& sameMask = 0 := by
+  by_contra hbad
+  obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hbad
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hp
+  have hNbit : N.testBit (delta p) = true := by
+    rw [← hflip N p hp.1.1]
+    exact hp.1.2
+  have hcollision : BitmapCollision.collisionMask flip P P N G ≠ 0 :=
+    (BitmapCollision.selfMask_ne_zero_iff flip delta P N G hflip).mpr
+      ⟨p, hp.1.1, hNbit, hsame p hp.1.1 hp.2⟩
+  exact transition_overlap_of_selfMask hij hj hm hP hN keep G flip delta hflip hdrop
+    hcollision hdisjoint
+
+end PNPreCollision
+
+namespace PNPrecheck
+
+open PnTransition PNPlanes PNFlip PNFlipRows PNGateSpecs
+
+def precheck (i j : Nat) (keep op : Fin 4) (P N : Nat) : Bool :=
+  let spec := gateSpec i j op
+  let fi := flipPatternBits i N
+  let fj := flipPatternBits j N
+  PNKeepLogic.validKeep keep.val (P &&& fi) (P &&& fj)
+    (P &&& flipPatternBits i fj) spec.2.1 spec.2.2.1 spec.2.2.2
+
+lemma validKeep_of_disjoint {m i j P N : Nat}
+    (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hP : P < 2^(2^m)) (hN : N < 2^(2^m)) (keep op : Fin 4)
+    (hdisjoint : transitionSet m i j keep (gateMask i j op) P &&&
+      transitionSet m i j keep (gateMask i j op) N = 0) :
+    precheck i j keep op P N = true := by
+  have hi : i < m := by omega
+  have hi10 : i < 10 := by omega
+  have hj10 : j < 10 := by omega
+  have pbound (p : Nat) (hp : P.testBit p = true) : p < 2^m :=
+    PnProjection.bitIndex_lt hP hp
+  have p1024 (p : Nat) (hp : P.testBit p = true) : p < 1024 :=
+    lt_of_lt_of_le (pbound p hp) (by exact Nat.pow_le_pow_right (by decide) hm)
+  unfold precheck
+  apply PNKeepLogic.validKeep_of_checks
+  · intro hdrop
+    apply PNPreCollision.sameMask_zero_of_disjoint hij hj hm hP hN keep
+      (gateMask i j op) (gateSpec i j op).2.1 (flipPatternBits i)
+      (fun p => p ^^^ 2^i) ?_ ?_ ?_ hdisjoint
+    · intro B p hp
+      exact flipPatternBits_testBit_bounded hm hi (pbound p hp) B
+    · intro p hp hs
+      rw [gateSpec_samei_bits ⟨i,hi10⟩ ⟨j,hj10⟩ ⟨p,p1024 p hp⟩ op] at hs
+      rw [gateMask_testBit_bounded hm hi hj (pbound p hp),
+        gateMask_xor_left hm hij hj (pbound p hp)]
+      exact of_decide_eq_true hs
+    · intro p
+      exact (PNDropFlip.dropPattern_xor_left hij keep hdrop p).symm
+  · intro hdrop
+    apply PNPreCollision.sameMask_zero_of_disjoint hij hj hm hP hN keep
+      (gateMask i j op) (gateSpec i j op).2.2.1 (flipPatternBits j)
+      (fun p => p ^^^ 2^j) ?_ ?_ ?_ hdisjoint
+    · intro B p hp
+      exact flipPatternBits_testBit_bounded hm hj (pbound p hp) B
+    · intro p hp hs
+      rw [gateSpec_samej_bits ⟨i,hi10⟩ ⟨j,hj10⟩ ⟨p,p1024 p hp⟩ op] at hs
+      rw [gateMask_testBit_bounded hm hi hj (pbound p hp),
+        gateMask_xor_right hm hij hj (pbound p hp)]
+      exact of_decide_eq_true hs
+    · intro p
+      exact (PNDropFlip.dropPattern_xor_right i j keep hdrop p).symm
+  · intro hzero
+    have he : keep = (0 : Fin 4) := Fin.ext hzero
+    subst keep
+    apply PNPreCollision.sameMask_zero_of_disjoint hij hj hm hP hN 0
+      (gateMask i j op) (gateSpec i j op).2.2.2
+      (fun B => flipPatternBits i (flipPatternBits j B))
+      (fun p => (p ^^^ 2^i) ^^^ 2^j) ?_ ?_ ?_ hdisjoint
+    · intro B p hp
+      exact flipPatternBits_twice_testBit hm hi hj (pbound p hp) B
+    · intro p hp hs
+      rw [gateSpec_sameij_bits ⟨i,hi10⟩ ⟨j,hj10⟩ ⟨p,p1024 p hp⟩ op] at hs
+      rw [gateMask_testBit_bounded hm hi hj (pbound p hp),
+        gateMask_xor_both hm hij hj (pbound p hp)]
+      exact of_decide_eq_true hs
+    · intro p
+      exact (PNDropFlip.dropPattern_xor_both hij p).symm
+
+end PNPrecheck
+
+namespace PNConcrete
+
+open PnTransition PNPlanes PNFlip PNKeepLogic PNGateSpecs
+
+def keepCheck (i j P N : Nat) (keep gate : Fin 4) : Bool :=
+  let spec := gateSpec i j gate
+  validKeep keep.val (P &&& flipPatternBits i N) (P &&& flipPatternBits j N)
+    (P &&& flipPatternBits i (flipPatternBits j N)) spec.2.1 spec.2.2.1 spec.2.2.2
+
+def precheckedChildren (budget : Nat) (state : Nat × Nat × Nat) : List (Nat × Nat × Nat) :=
+  (List.range state.1).flatMap fun j =>
+    (List.range j).flatMap fun i =>
+      let fi := flipPatternBits i state.2.2
+      let fj := flipPatternBits j state.2.2
+      let ci := state.2.1 &&& fi
+      let cj := state.2.1 &&& fj
+      let cij := state.2.1 &&& flipPatternBits i fj
+      (List.finRange 4).flatMap fun gate =>
+        let spec := gateSpec i j gate
+        if PNGuards.redundant state.1 (state.2.1 ||| state.2.2) (gateMask i j gate) then [] else
+          (((List.finRange 4).filter fun keep =>
+            decide (keepSize keep ≤ budget+1-state.1) &&
+              validKeep keep.val ci cj cij spec.2.1 spec.2.2.1 spec.2.2.2).map
+            fun keep => childState state.1 state.2.1 state.2.2 i j keep gate).filter
+              fun child => child.2.1 &&& child.2.2 == 0
+
+lemma childState_mem_prechecked {budget m P N i j : Nat} (keep gate : Fin 4)
+    (hij : i < j) (hj : j < m)
+    (hred : PNGuards.redundant m (P ||| N) (gateMask i j gate) = false)
+    (hkeep : keepSize keep ≤ budget+1-m)
+    (hpre : keepCheck i j P N keep gate = true)
+    (hdisjoint : (childState m P N i j keep gate).2.1 &&&
+      (childState m P N i j keep gate).2.2 = 0) :
+    childState m P N i j keep gate ∈ precheckedChildren budget (m,P,N) := by
+  apply List.mem_flatMap.mpr
+  refine ⟨j, by simp [hj], List.mem_flatMap.mpr ?_⟩
+  refine ⟨i, by simp [hij], List.mem_flatMap.mpr ?_⟩
+  refine ⟨gate, by simp, ?_⟩
+  simp only [hred, Bool.false_eq_true, ite_false, List.mem_filter, List.mem_map,
+    Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq]
+  exact ⟨⟨keep,⟨by simp,⟨hkeep,hpre⟩⟩,rfl⟩,hdisjoint⟩
+
+lemma rep_bitmap_bound {width k m P N : Nat} {target : BitVec width} {anchor : Fin width}
+    {ws : List (BitVec width)} (rep : Rep target anchor k (m,P,N) ws) (value : Bool) :
+    (if value then P else N) < 2^(2^m) := by
+  apply bitmap_bound (code := PNFrontier.rowCode ws) (label := fun r => target[r.val] = value)
+  · intro r
+    simpa only [rep.1] using PNFrontier.rowCode_lt ws r
+  · exact rep.2.2.2.2 value
+
+lemma precheckedCoordinateCover {width k : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {state : Nat × Nat × Nat} {ws r front : List (BitVec width)}
+    (hg : goal = target ∨ goal = ~~~target)
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) state ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ child ∈ precheckedChildren (k+1) state,
+      ∃ ys, Rep target anchor k child ys ∧ ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨m,P,N⟩ := state
+  obtain ⟨i,j,keep,gate,hij,hj,hred,hkeep,hdisjoint,ys,hrep,hp⟩ :=
+    transitionCover_guards hg hn rep hpair hfront hz fresh tail
+  have hpre := PNPrecheck.validKeep_of_disjoint hij hj rep.2.2.1
+    (rep_bitmap_bound rep true) (rep_bitmap_bound rep false) keep gate hdisjoint
+  exact ⟨childState m P N i j keep gate,
+    childState_mem_prechecked keep gate hij hj hred
+      (by simpa [Nat.add_assoc] using hkeep) hpre hdisjoint,ys,hrep,hp⟩
+
+lemma prechecked_liveState_step {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} (hg : goal = target ∨ goal = ~~~target)
+    (k : Nat) (s : Nat × Nat × Nat)
+    (run : PNQuotient.liveState (Rep target anchor) goal (k+1) s) :
+    solved s.1 s.2.1 s.2.2 = true ∨ ∃ t ∈ precheckedChildren (k+1) s,
+      PNQuotient.liveState (Rep target anchor) goal k t := by
+  apply PNQuotient.liveState_step (children := precheckedChildren)
+    (fun _ _ hrep => solved_singleton hg hrep) ?_ run
+  intro k s ws a b z r front hn hrep hpair hfront hz fresh tail
+  exact precheckedCoordinateCover hg hn hrep hpair hfront hz fresh tail
+
+lemma prechecked_search_complete {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} {admissible : Nat → (Nat × Nat × Nat) → Bool}
+    (hg : goal = target ∨ goal = ~~~target)
+    (allowed : ∀ k s, PNQuotient.liveState (Rep target anchor) goal (k+1) s →
+      admissible (k+1) s = true)
+    {k : Nat} {s : Nat × Nat × Nat}
+    (run : PNQuotient.liveState (Rep target anchor) goal k s) :
+    PNQuotient.search (fun state => solved state.1 state.2.1 state.2.2)
+      admissible precheckedChildren k s = true :=
+  PNQuotient.search_complete (fun _ _ hrep => solved_singleton hg hrep)
+    (prechecked_liveState_step hg) allowed run
+
+end PNConcrete
+
 end PEqualNP.Outside.L_meta_10760
