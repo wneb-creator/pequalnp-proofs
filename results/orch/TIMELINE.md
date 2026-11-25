@@ -13,3 +13,5 @@
 2026-11-25T14:17:59.113323+00:00 Geometry slice component compiled and independently reviewed.
 
 2026-11-25T14:21:06.286250+00:00 Generic Live/Run contraction core compiled and independently reviewed.
+
+2026-11-25T14:22:28.053900+00:00 Checked complementary-restriction upper bound: 14 binary gates plus one NOT. This closes the attempted restricted lower-bound strategy, not the posted gap.

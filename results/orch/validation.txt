@@ -20,3 +20,6 @@ TIMING total=17 subagents=6
 
 CombinatorialCore.lean: lake env lean exit0; independent research review PASS.
 TIMING total=20 subagents=6
+
+NegationRestriction.lean: lake env lean exit0; independent research review PASS. Restricted function only.
+TIMING total=22 subagents=6
