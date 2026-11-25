@@ -1,5 +1,7 @@
-Supporting indispensability certificate: Lean 4.36.0 exit 0, no diagnostics.
-R_meta_3178_52: lake build exit 0; build completed successfully (5147 jobs).
-Format/import guard: PASS. Independent static red-team review: PASS.
-Reduction checker pending.
+R_meta_3178_52: lake build exit 0.
+Format/import guard: PASS. Independent red-team review: PASS.
+Local checker: ACCEPTED (reduce); standard axioms propext, Quot.sound, Classical.choice;1653constants kernel rechecked.
+Complete output: checker-before-cleanup.log.
+Supporting indispensability certificate and exact binaryBound child each compiled with Lean4.36.0, exit0.
+Cleanup begins at107lines.
 Sub-agents: 5 (checker review, parent proof analysis, reduction draft, finite validation, Lean setup)

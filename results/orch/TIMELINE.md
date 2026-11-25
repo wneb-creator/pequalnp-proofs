@@ -6,3 +6,4 @@
 - 2026-11-25 00:34:33: structural bound plus restricted-tail strategy selected; duplicate symmetry strategy dropped.
 - 2026-11-25T00:37:56.105204+00:00: supporting indispensability certificate compiled successfully.
 - 2026-11-25T00:38:18.308460+00:00: R_meta_3178_52 initial build passed; 109 lines before cleanup.
+- 2026-11-25T00:41:24.447569+00:00: local reduction checker ACCEPTED (reduce); exact binaryBound child supporting proof compiled; cleanup starts at107lines.
