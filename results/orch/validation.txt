@@ -43,3 +43,9 @@ PruningCost proves forced-false semantics, AO2 validity, and removal of at least
 Independent review: AND-count agent reviewed ReaderCharge; combinatorial agent reviewed PruningCost; inventory audited PruningCore axioms; root reviewed other new components.
 MatchingConsequence/TargetImplication compile but assume Posted; they are only formal hardness implications, not proofs of Posted.
 TIMING total=32.9 subagents=7
+
+Checkpoint8: named file now2579 lines/112304bytes; lake build succeeds in31s.
+Independent assembly and guard review passed; guard errors only for absent full theorem.
+Source SHA256:1bd555514cad4ed1e31a610d5068012c5fca49dd19e65a40647fea0882b7bd5f.
+OrReachAPI and ReaderSemantics independently reviewed after successful compilation.
+TIMING total=37.6 subagents=7

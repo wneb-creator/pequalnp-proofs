@@ -151,3 +151,7 @@ For opposite-colour g=(OR A) AND (OR B), the checked ReaderCharge/RestoreStar ha
 If |A|=1, say A={a0}, choose a missing edge (a0,b) inside the dirty rectangle. Any productive line-oriented reader forces its pure-line support Q to consist entirely of neighbours of a0, by evaluating {a0,b,q}; replacing g by raw a0 through point-colour cones is therefore safe. Point-oriented readers cannot have a0 in their pure-point support, so g contributes no positive edge pair there and may be deleted from line-colour cones. The symmetric |B|=1 case is analogous.
 
 These are one-junk proof routes only. The full multiple-dirty lower bound is still unresolved.
+
+## OR-reach API compiled 2026-11-25T17:39:53.553060+00:00
+
+`results/orch/lemmas/OrReachAPI.lean` (291 lines) compiles, SHA256 2f9e74db9b2e6216aa75b81fe91e753c44833249346bbb161927be2ba56e14a0. Namespace `.OrReachAPI`. New API: `orIn_input`, `orIn_non_or`, `mem_orIn_or_iff`, `orIn_or_pair`, `orReaches_append_prefix`, `orIn_append_prefix`. Arbitrary append preserves orIn below n+oldGateCount, without ReadsBack. Basis is the OR-closure portion of checked MaskingNext, extracted into own namespace, no unallowed imports. Full build output empty at `or-reach-api-build.log`; frozen copy `OrReachAPI-frozen.lean`. Normalization agent uses this for tCount-preserving pruning.
