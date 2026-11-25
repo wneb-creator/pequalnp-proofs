@@ -30,3 +30,8 @@ SupportBudget.lean: independent root standalone build/type/axiom audit PASS, sta
 Existing L_meta_603 OrBound603.or_bound: named build and root type/axiom audit PASS. OR>=edges-1 applies to no-four-cycle pseudoforests; full planes fail the induced-density hypothesis.
 Fourth root stripped-core20 SAT variant adds pair-active gates; canonical21 positive control SAT. No search has produced a candidate or UNSAT result.
 TIMING total=60.7 subagents=11 (known root/external jobs only; helper-descendant census requested for final aggregate).
+
+2026-11-25T22:52:57.948645+00:00 progress update
+SeparatedOperandBound.lean: root standalone build PASS; independent exact SHA a935c03670547a713458c2cad07c83f48ca6af83f4334f3f0ec31d13ea799a40 rebuild/full-type/axiom audit PASS. Direct graph and plane bounds explicitly assume every AND operand is point/line OR-separable. Standard three axioms only. No unconditional target theorem.
+Sub-agents: 9 external helpers plus 2 local support/audit agents; external descendant census still in progress.
+TIMING total=74.6 subagents=11 (root/external jobs only; final count will include descendants).

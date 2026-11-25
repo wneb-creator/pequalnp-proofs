@@ -56,3 +56,5 @@ First substantive helper results (distinct from setup check-ins):
 - 2026-11-25T22:28:32Z: Refreshed upstream main 7a1c8135e2be6a24df7c4062b7e4bffd0953d200; independent census of all 283 new/changed proof files found no unrestricted plane lower bound or normalization theorem. Worktree base unchanged.
 
 - 2026-11-25T22:39:07Z: SupportBudget.lean independently rebuilt and type/axiom-audited by root. Generic reachable birth/merge budget and refined multi-root frontier imply the cover-cost bound under explicit root coverage/count hypotheses. Those hypotheses are not yet derived for arbitrary plane circuits.
+
+- 2026-11-25T22:52:57.948645+00:00: SeparatedOperandBound.lean independently rebuilt by root and source auditor. For arbitrary bipartite no-four-cycle graphs, separated AND operands imply edge-plus-cover lower bound; exact plane premises yield N*(q+2)-1. No TopForm assumption remains. Size-preserving operand separation is still unproved, so this is not the posted theorem.
