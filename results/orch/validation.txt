@@ -1,0 +1,24 @@
+Gap: L-meta-1770
+Result: checked REDUCTION, not a full unconditional proof.
+File: lean/PEqualNP/Outside/R_meta_1770_63.lean
+SHA256: c97545b37174916aaaf32f220edb49a6aaf249ad2ea19b094b638707c9c0ce29
+
+Build: lake build PEqualNP.Outside.R_meta_1770_63
+Build exit: 0
+Checker: node tools/check-lean.mjs lean/PEqualNP/Outside/R_meta_1770_63.lean statement.txt reduce
+Checker exit: 0
+ACCEPTED (reduce): PEqualNP.Outside.R_meta_1770_63; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 1664 constants of [PEqualNP.Defs.Base, PEqualNP.Defs.Classes, PEqualNP.Defs.CircuitLowerBounds, PEqualNP.Defs.MetaComplexity, PEqualNP.Defs.MetaComplexityLocal, PEqualNP.Defs.MetaComplexitySparse, PEqualNP.Defs.MetaComplexityMinimal, PEqualNP.Defs.MetaComplexityLgp, PEqualNP.Defs.MetaComplexityLgpMono, PEqualNP.Defs.BinaryCircuit, PEqualNP.Defs.MetaComplexityCoverCircuit, PEqualNP.Defs.ProofComplexity, PEqualNP.Defs.ProofComplexityLin, PEqualNP.Defs.ProofComplexityLinK, PEqualNP.Defs.ProofComplexityLift, PEqualNP.Defs.ProofComplexityResK, PEqualNP.Defs.ProofComplexityRestrict, PEqualNP.Defs.ProofComplexityBit, PEqualNP.Defs.ProofComplexityPC, PEqualNP.Defs.ProofComplexityMoment, PEqualNP.Defs.ProofComplexityChain, PEqualNP.Defs.ProofComplexityGeneral, PEqualNP.Defs.Search, PEqualNP.Defs.SearchQ, PEqualNP.Defs.SearchQTree, PEqualNP.Defs.SearchCP, PEqualNP.Defs.SearchRUP, PEqualNP.Defs.SearchQSyn, PEqualNP.Defs.SearchSoS, PEqualNP.Defs.Gct, PEqualNP.Defs.Oracle, PEqualNP.Defs.Algebraic, PEqualNP.Defs.Expanders, PEqualNP.Defs.RiffleRank, PEqualNP.Defs.TimeAlt, PEqualNP.Defs.CoverPromise, PEqualNP.Defs.SingleLevel, PEqualNP.Defs.DeMorganFormula, PEqualNP.Defs.MetaComplexityTypedRank, PEqualNP.Defs.Pebble, PEqualNP.Defs.Subdivision, PEqualNP.Defs.AndCountCircuit, PEqualNP.Defs.PebbleThreeWay, PEqualNP.Defs.CoLevel, PEqualNP.Defs.Peelable, PEqualNP.Defs.NestedCoverCircuit, PEqualNP.Defs.LiteralPartition, PEqualNP.Defs.MinimumComplex, PEqualNP.Defs.PendantBit, PEqualNP.Defs.BorrowedCoverCircuit, PEqualNP.Defs.LineDegree, PEqualNP.Defs.CircuitMoves, PEqualNP.Defs.LowMerge, PEqualNP.Defs.NewLowMerge, PEqualNP.Defs.AffinePlane, PEqualNP.Defs.EdgeOwnership, PEqualNP.Defs.PencilGate, PEqualNP.Defs.BlindGate, PEqualNP.Defs.BicliqueBlockCost, PEqualNP.Defs.SharingOrder, PEqualNP.Defs.NotPremium, PEqualNP.Defs.NotBracket, PEqualNP.Defs.PairShadow, PEqualNP.Defs.SplitCount, PEqualNP.Defs.InvisibleWire, PEqualNP.Defs.SharedOr, PEqualNP.Defs.CleanedNonEdge, PEqualNP.Defs.MergeCost, PEqualNP.Defs.CarriedProduct, PEqualNP.Defs.TopForm, PEqualNP.Defs.SyntacticMultilinear, PEqualNP.Defs.TopFormNames, PEqualNP.Defs.HeptadCover, PEqualNP.Defs.ReadK, PEqualNP.Defs.GenericRejection, PEqualNP.Defs.CrossAnd, PEqualNP.Defs.ReadKJoin, PEqualNP.Defs.SharedBlockCost, PEqualNP.Defs.ReadTwo, PEqualNP.Defs.LratEncoding, PEqualNP.Defs.Core, PEqualNP.Defs.PointTypes, PEqualNP.Defs.FactorSubst, PEqualNP.Defs.TwoColour, PEqualNP.Defs.Represents, PEqualNP.Defs, PEqualNP.Outside.R_meta_1770_63]
+
+Cleanup: 112 -> 80 lines; 8535 -> 7213 bytes. Baseline and cleaned builds/checkers passed.
+Repository proof-file guards: PASS.
+Independent final source review: PASS by status_review; root independently reviewed cleanup.
+Support premise is the checked L-meta-2074 statement. The residual minimum-degree-three core premise remains open.
+Finite validation: checked Moore/girth lemmas show no nonempty degree-three core below ten vertices. Computational evidence is separately labelled in Counterexample_report.md.
+
+Sub-agents: status_review, structural_proof, counterexample, reduction_design, lemma_search, alternative_route
+TIMING total=19.9 subagents=6
+
+Desk null count: 1
+Exact null message: no step is free that you have not already looked at and handed back in the last hour (7); new steps are posted through the day, ask again in a few minutes
+L-meta-1035 status: not_open; no matching open PR found in complete census.
+KIT-MESSAGE-ID msg-7a79a6288fdcd6232236b08f
