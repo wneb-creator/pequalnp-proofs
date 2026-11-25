@@ -1,0 +1,14 @@
+Gap: L-gct-231
+Status: checked partial helpers only; posted existential not yet proved.
+UTC: 2026-11-25T09:21:31.336625+00:00
+File: results/orch/lemmas/Dimension.lean
+Lines: 82
+SHA256: 45477b47bc0905224d253d839acb245e018cae545bedc4e83d657395b008da04
+Command (cwd lean/): lake env lean ../results/orch/lemmas/Dimension.lean
+Build exit status: 0
+Complete build stdout and stderr follows (empty means no diagnostics):
+
+Local tools/check-lean.mjs: not run; this is a helper file, not the submitted gap theorem.
+Independent review: valid helper lemmas; no posted-statement proof claimed.
+Sub-agents: six (rules/status review; Lean setup/dimension; algebra construction; computational construction; geometry; three-plane search).
+TIMING total=45.8 subagents=6
