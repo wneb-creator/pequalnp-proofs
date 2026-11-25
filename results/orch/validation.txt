@@ -57,3 +57,7 @@ Current assigned gap L-meta-1884 after recovery; previous L-meta-4970 no longer 
 TIMING total=75.7 subagents=6
 
 L-meta-1884 additional partials compiled and independently reviewed by root: exact input relabeling and four unary cases(117lines), essential-input classification(88lines), pivotal/adjacency/cofactor facts(87lines). Full build streams retained in gap-1884/. No full target theorem.
+
+ExpandednamedL_meta_1884.lean now205lines. lakebuild passes(5149jobs), complete streams retained. Independentreviewstatus_review approvedallvertexcofactorisomorphisms andnoAND/ORfunnel facts. Prepended-NOT bridge171lines independentlycompiled/reviewed byledger_proof; ordinary≥16nonNOT remainsa premise ofthat smallsnapshot, largeracceptedcertificatebeingadapted.
+Rootrestricted mask-insertion search:12 canonicalPv16starformulas,23232 planpairs, full1024inputs each, no candidate. Independently reviewed bystatus_review; no generalexhaustiveness claim.
+TIMING total=86.4 subagents=6
