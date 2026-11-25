@@ -11,3 +11,13 @@ TIMING total=12.0 subagents=6
 Named-file lake build output:
 ✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (4.2s)
 Build completed successfully (3 jobs).
+
+Second checked partial snapshot:
+- GateInputOccurrences.lean: 116 lines; author and independent reviewer Lean4.36 exit0.
+- ComparableNot.lean: 147 lines; author Lean4.36 exit0; independent mathematical/format review PASS.
+Named-file lake build:
+✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (2.4s)
+Build completed successfully (3 jobs).
+
+Local checker output (exit3):
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).

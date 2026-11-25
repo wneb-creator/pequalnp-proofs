@@ -69,4 +69,48 @@ theorem exists_unique_input (reads : List Nat) (s : Nat) (hs : 0 < s)
   have pos := List.count_pos_iff.mpr (essential i hi)
   exact ⟨i, hi, by omega⟩
 
+
+theorem flatten_length_le_twice (gs : List (List Nat))
+    (fan : ∀ g ∈ gs, g.length ≤ 2) : gs.flatten.length ≤ 2 * gs.length := by
+  induction gs with
+  | nil => simp
+  | cons g gs ih =>
+    have head := fan g (by simp)
+    have tail := ih (fun h mem => fan h (by simp [mem]))
+    simp only [List.flatten_cons, List.length_append, List.length_cons]
+    omega
+
+theorem flatten_length_lt_twice (gs : List (List Nat))
+    (fan : ∀ g ∈ gs, g.length ≤ 2)
+    (unary : ∃ g ∈ gs, g.length ≤ 1) : gs.flatten.length < 2 * gs.length := by
+  induction gs with
+  | nil => simp at unary
+  | cons g gs ih =>
+    have head := fan g (by simp)
+    have tailFan : ∀ h ∈ gs, h.length ≤ 2 := fun h mem => fan h (by simp [mem])
+    obtain ⟨h, mem, short⟩ := unary
+    rcases List.mem_cons.mp mem with eq | mem
+    · subst h
+      have tail := flatten_length_le_twice gs tailFan
+      simp only [List.flatten_cons, List.length_append, List.length_cons]
+      omega
+    · have tail := ih tailFan ⟨h, mem, short⟩
+      simp only [List.flatten_cons, List.length_append, List.length_cons]
+      omega
+
+theorem live_gate_trace_unique_input (gs : List (List Nat))
+    (budget : gs.length ≤ 19)
+    (fan : ∀ g ∈ gs, g.length ≤ 2)
+    (unary : ∃ g ∈ gs, g.length ≤ 1)
+    (internal : ∀ i, 10 ≤ i → i < 10 + gs.length - 1 → i ∈ gs.flatten)
+    (essential : ∀ i < 10, i ∈ gs.flatten) :
+    ∃ i < 10, gs.flatten.count i = 1 := by
+  have hs : 0 < gs.length := by
+    obtain ⟨g, mem, _⟩ := unary
+    cases gs with
+    | nil => simp at mem
+    | cons h hs => simp
+  exact exists_unique_input gs.flatten gs.length hs budget
+    (flatten_length_lt_twice gs fan unary) internal essential
+
 end PEqualNP.Outside.L_meta_2592_aux
