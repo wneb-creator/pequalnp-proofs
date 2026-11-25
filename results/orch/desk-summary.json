@@ -8,6 +8,9 @@
   "successful_renewals": 21,
   "first_lease_expiry": "2026-11-25T00:53:07.785Z",
   "latest_lease_expiry": "2026-11-25T02:26:19.822Z",
-  "release_status": "pending",
-  "note": "Full desk responses are retained in the task scratch desk-log.txt; capability identifiers are omitted from this public summary."
+  "release_status": "released",
+  "note": "Full desk responses are retained in the task scratch desk-log.txt; capability identifiers are omitted from this public summary.",
+  "released_gap": "L-meta-3451",
+  "release_reason": "other",
+  "released_at": "2026-11-25T02:11:29.821392+00:00"
 }

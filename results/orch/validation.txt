@@ -33,6 +33,6 @@ Colored heuristic: no exact candidate after 300 seconds; retained candidate with
 Complete outputs, seeds, rejected candidates, CNFs, and independent reviews are preserved in results/orch.
 
 Desk next requests: 1. Null responses: 0. Exact null message text: none.
-Own successful lease renewals: 21. Release status: pending until the final evidence push; planned reason other (general proof unresolved).
+Own successful lease renewals: 21. Release status: released 2026-11-25T02:11:29.821392+00:00 with reason other (general proof unresolved), after final evidence push f1468c48b8205c7ceebf315678ffc1b53944d6c6.
 Sub-agents: 6 (counterexample, global_strategy, normalization, reduction, status_review, toolchain)
-TIMING total=97.5 subagents=6
+TIMING total=101.2 subagents=6

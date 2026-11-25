@@ -80,3 +80,5 @@
 - 2026-11-25T02:06:20.052839+00:00: renewed own lease; expiry 2026-11-25T02:26:19.822Z.
 
 - 2026-11-25T02:08:43.986536+00:00: all mathematical attempts and searches complete; no full proof or refutation accepted. Final source is a checked partial file; preservation and lease closure remain.
+
+- 2026-11-25T02:11:29.821392+00:00: own L-meta-3451 lease released successfully with reason other, after final preservation push. No PR opened; no full proof or refutation accepted.
