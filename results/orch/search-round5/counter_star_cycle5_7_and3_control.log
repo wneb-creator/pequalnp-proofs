@@ -1,0 +1,11 @@
+AUTOMORPHISMS 10 first_pair_reps [(0, 1), (0, 2)]
+START cycle5 n 5 k 7 rows 10 mode star timeout 30
+CNF 276995 bytes
+RESULT sat seconds 0.13565349578857422 exit 10
+GATES [[1, 0, 2], [0, 0, 4], [1, 2, 4], [0, 1, 5], [1, 3, 6], [0, 7, 9], [1, 8, 10]]
+FULL_TABLE_ERRORS []
+(:max-memory   19.45
+ :memory       18.81
+ :num-allocs   277579
+ :rlimit-count 19389
+ :sat-mk-var   1)

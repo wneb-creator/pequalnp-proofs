@@ -12,3 +12,7 @@
 
 - 2026-11-25T01:56:35.552071+00:00: inventory_forest.lean compiled exit0; exact posted existential conclusion for all acyclic graphs. Full no-C3/no-C4 statement remains open.
 2026-11-25T02:12:08.368106+00:00 third replan: forest case proved; OR-count route refuted in Lean; reuse existing cycle results; continue direct ownership exchanges and larger gadget synthesis. No full-proof acceptance.
+
+- 2026-11-25T02:37:22.029933+00:00 — Passed 90 minutes of work. Full theorem still unresolved. Final conceptual reviews exclude the tested local shortcuts; last bounded searches continue. Named 6066-line source and checker-fault diagnostics are already pushed.
+
+- 2026-11-25T02:40:34.021787+00:00 — Own lease renewal returned HTTP410 at02:39, despite prior announced expiry02:49. Diagnostic curl-si repeated the same call once; complete response preserved. Timer stopped. Saving all reviewed results before recovery request.

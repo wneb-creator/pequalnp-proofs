@@ -1,0 +1,12 @@
+AUTOMORPHISMS 4 first_pair_reps [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (0, 7), (1, 2), (1, 5), (1, 6)]
+START cycle8_aux03_47 n 8 k 13 rows 24 mode any timeout 30
+CNF 1658757 bytes
+RESULT sat seconds 0.20290470123291016 exit 10
+GATES [[1, 0, 3], [1, 1, 3], [1, 3, 5], [1, 1, 7], [1, 4, 7], [1, 5, 7], [0, 2, 9], [0, 4, 10], [0, 0, 11], [0, 6, 13], [1, 14, 16], [1, 15, 18], [1, 17, 19]]
+OUTPUTS [20, 8, 12]
+FULL_TABLE_ERRORS []
+(:max-memory   38.00
+ :memory       34.59
+ :num-allocs   2785714
+ :rlimit-count 62694
+ :sat-mk-var   1)

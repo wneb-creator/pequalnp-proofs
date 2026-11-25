@@ -1,0 +1,3 @@
+DISJOINT first-pair orbits [(0, 1), (0, 2), (0, 3), (0, 7), (0, 8), (0, 9), (0, 10), (7, 8), (7, 9), (7, 10)] automorphisms 14
+START gpet7_2 and 8 rows 70 cnfbytes 738593
+RESULT unknown seconds 180.00941443443298 exit 0

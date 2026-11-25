@@ -1,0 +1,567 @@
+{
+  "status": "Finite computational witness, not a Lean certificate or a refutation of L-meta-1031.",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        1
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        3
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        5,
+        6
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        7,
+        4
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        8,
+        0
+      ]
+    }
+  ],
+  "output": 9,
+  "size": 5,
+  "AND_count": 2,
+  "OR_count": 3,
+  "ownership_definition": "Gate true on a graph-edge pair; every strict AND ancestor false on that pair. Dependencies use earlier input wires only.",
+  "AND_ownership": [
+    {
+      "gate_index": 2,
+      "wire": 7,
+      "strict_gate_ancestors": [
+        0,
+        1
+      ],
+      "strict_AND_ancestors": [],
+      "owned_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "common_centers": [
+        0
+      ],
+      "dirty_masks": [
+        6,
+        10,
+        14,
+        22,
+        26,
+        30
+      ]
+    },
+    {
+      "gate_index": 4,
+      "wire": 9,
+      "strict_gate_ancestors": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "strict_AND_ancestors": [
+        2
+      ],
+      "owned_edges": [
+        [
+          0,
+          4
+        ]
+      ],
+      "common_centers": [
+        0,
+        4
+      ],
+      "dirty_masks": []
+    }
+  ],
+  "all_ANDs_own_a_nonempty_star": true,
+  "all_ANDs_globally_imply_graph_function": false,
+  "full_truth_table": [
+    {
+      "mask": 0,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 1,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 2,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 3,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 4,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 5,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 6,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 7,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 8,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 9,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 10,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 11,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 12,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 13,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 14,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 15,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 16,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 17,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 18,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 19,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 20,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 21,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 22,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 23,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 24,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 25,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 26,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 27,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 28,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 29,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    },
+    {
+      "mask": 30,
+      "graph": false,
+      "output": false,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "optimal_output": false
+    },
+    {
+      "mask": 31,
+      "graph": true,
+      "output": true,
+      "gate_values": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "optimal_output": true
+    }
+  ],
+  "optimal_witness": {
+    "gates": [
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          3
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          5,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          6
+        ]
+      }
+    ],
+    "output": 7,
+    "size": 3,
+    "all_32_assignments_verified": true
+  },
+  "minimum_size": 3,
+  "minimum_justification": "The graph is a star with center0 and three leaves2,3,4. The displayed3-gate circuit computes it, while the four essential inputs0,2,3,4 require at least3 fan-in-two gates; this bound is also the already-compiled StarLower.star_optimal special case.",
+  "limitation": "The5-gate witness is not minimum. It refutes ownership-implies-global-AND-soundness without a minimality assumption; it does not refute the posted existential minimum-circuit theorem."
+}

@@ -1,0 +1,5 @@
+DISJOINT first-pair orbits [(0, 1), (0, 2)] automorphisms 24
+START matching3_parity_aux or 10 rows 64 cnfbytes 1639906
+RESULT sat seconds 9.206369638442993 exit 10
+SUBSETS {"l0": [2, 3], "r0": [0, 1], "l1": [2], "r1": [0], "l2": [9], "r2": [4], "l3": [8], "r3": [4, 5], "l4": [2], "r4": [1], "l5": [12], "r5": [5], "l6": [3], "r6": [1], "l7": [5], "r7": [0], "l8": [15], "r8": [3], "l9": [14], "r9": [4], "out0": [11], "out1": [10], "out2": [17], "out3": [13], "out4": [16]}
+FULL_TABLE_ERRORS []

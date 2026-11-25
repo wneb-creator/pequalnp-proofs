@@ -1,0 +1,12 @@
+Artifact: results/orch/lemmas/setup_or_counter.lean
+Purpose: refute auxiliary ORcount >= |E|-1 claim; not a refutation of L-meta-1031.
+Pinned toolchain: Lean 4.36.0
+Command (cwd lean/): LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/setup_or_counter.lean
+Run: setup-or-counter-002; exit_code=0; stdout empty; stderr empty.
+Checks: graph edges=10; no triangles; no four-cycles; all 256 Boolean inputs; binary monotone circuit; size=14; ORcount=8 < 10-1.
+Proof method: kernel decide, no native_decide.
+Historical limited token scan: no matches, rg exit1. This did not establish instance or option compliance; the format issues are recorded below.
+Lines: 67
+SHA256: 2a58a9e362c95053b605314b52973382bfeb83c5ba9a649c6cf3eaaec7321655
+Repository gap checker: not run for this auxiliary helper; no posted-statement claim.
+Format review: mathematical PASS; this original checkpoint has custom decidability instances and global limit options; corrected variant is compiling separately.

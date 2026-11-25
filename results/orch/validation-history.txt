@@ -1,0 +1,17 @@
+Initial checkpoint (historical 26-line partial; current update follows below)
+Gap: L-meta-1031
+Status: PARTIAL; posted theorem is not proved. No PR opened.
+File: lean/PEqualNP/Outside/L_meta_1031.lean
+Build: lake build PEqualNP.Outside.L_meta_1031 exited 0.
+Complete build stdout/stderr: first-build.stdout and first-build.stderr.
+Checker: NOT RUN; the partial has no theorem proving the posted statement.
+Independent review: partial checkpoint accepted conditional on compilation; compilation passed.
+Commit: e63b2a8875c0d69336a581057eab9e8c0b40f12f pushed to origin/pnp/pilot-56.
+Cleanup: deferred until full theorem and checker pass. Current line count: 26; before/after cleanup: 26/26.
+Desk requests: 1; null responses: 0; assigned L-meta-1031.
+Sub-agents: 6 (status/normalization, toolchain/star bounds, pair soundness/composition, finite counterexamples, circuit existence/construction, independent review)
+TIMING total=17.67 subagents=6
+
+Checkpoint update 2026-11-25T01:32:00.697222+00:00
+Named file now 119 lines; graph_has_minimum proves first three conjuncts for all finite graphs. Named lake build passed; full stdout/stderr named-graph-build.stdout/.stderr.
+Commit eaf303b48c5a7d262b1134e86773f4d9a6f1e5b7 pushed. Ownership remains unproved; checker not run; no PR.

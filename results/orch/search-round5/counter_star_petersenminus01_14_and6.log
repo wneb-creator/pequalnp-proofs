@@ -1,0 +1,9 @@
+AUTOMORPHISMS 8 first_pair_reps [(0, 1), (0, 2), (0, 4), (0, 6), (1, 5), (1, 6)]
+START petersenminus01 n 8 k 14 rows 19 mode star timeout 60
+CNF 2199364 bytes
+RESULT unknown seconds 60.13538718223572 exit 0
+(:max-memory   68.18
+ :memory       52.52
+ :num-allocs   4731201
+ :rlimit-count 99780
+ :sat-mk-var   1)

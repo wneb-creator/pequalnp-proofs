@@ -1,0 +1,387 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:299:72: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:299:76: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:299:76: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:360:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:362:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:364:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:360:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:362:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:364:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:391:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:391:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:397:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:397:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1333:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1355:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1511:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hil, hjl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1567:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hip, hjp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1611:16: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hll', hpl'.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1621:43: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hip, hjp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1690:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1774:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1784:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:1796:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl'l, hpl'.ne.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2347:3: error: unexpected token 'prefix'; expected identifier
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2351:49: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2351:55: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2353:22: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2356:34: error: unexpected token 'prefix'; expected term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2357:10: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2357:48: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2358:14: error: unexpected token ','; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2373:5: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2373:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2374:14: error: unexpected token ','; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2381:7: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2377:32: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred (skips n gs acc)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2381:6: error: (↥) must have a function type, not
+  Sort ?u.32
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2380:7: error: Missing cases:
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2378:34: error: unsolved goals
+n : ℕ
+gs : List Gate
+acc : List Stat × List Gate
+step : (j : ℕ) → j < gs.length → sorry
+⊢ (elim n gs acc).2.length + sorry = acc.2.length + gs.length
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2381:13: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2382:15: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2387:46: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2388:40: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2391:13: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2395:35: error: unexpected token ','; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2407:15: error: unexpected token ']'; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2409:6: warning: declaration uses `sorry`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2437:7: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2437:13: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2438:54: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2449:5: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2449:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2450:37: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2451:42: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2453:17: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2458:35: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2458:41: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2459:40: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2461:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2472:5: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2472:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2473:12: error: unexpected token ','; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2480:11: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2480:17: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2492:57: error: unsolved goals
+case cons.cons.nil.inl.inl
+m : ℕ
+val✝¹ val✝ : Bool
+hc : val✝¹ = false ∨ val✝ = false
+⊢ val✝¹ = true → val✝ = false
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2519:30: error: don't know how to synthesize placeholder for argument `acc`
+context:
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+b : Bool
+j : ℕ
+hj : j < C.gates.length
+hu : ↑u ∈ C.gates[j].inputs
+⊢ List Stat × List Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2517:44: error: unsolved goals
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+b : Bool
+j : ℕ
+hj : j < C.gates.length
+hu : ↑u ∈ C.gates[j].inputs
+⊢ skips n C.gates (initAt n u b, []) j
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2525:5: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2525:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2532:43: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2534:13: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2542:5: error: unexpected token 'prefix'; expected ')', '_', '↑', '↥', '⇑', identifier or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2542:11: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2549:41: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2551:13: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2565:32: error: don't know how to synthesize placeholder for argument `acc`
+context:
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+a b c : ℕ
+hnd : [a, b, c].Nodup
+ha : a < C.gates.length
+hb : b < C.gates.length
+hc : c < C.gates.length
+hac : a < c
+hop : (gateAt C a).op = GateOp.and
+hua : ↑u ∈ (gateAt C a).inputs
+hub : ↑u ∈ (gateAt C b).inputs
+hca : n + a ∈ C.gates[c].inputs
+hsa : skips n C.gates (initAt n u false, []) a
+hsb : skips n C.gates (initAt n u false, []) b
+⊢ List Stat × List Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2570:31: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  j = c ∨ j ∈ []
+
+case inr.inr
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+a b c : ℕ
+hnd : [a, b, c].Nodup
+ha : a < C.gates.length
+hb : b < C.gates.length
+hc : c < C.gates.length
+hac : a < c
+hop : (gateAt C a).op = GateOp.and
+hua : ↑u ∈ (gateAt C a).inputs
+hub : ↑u ∈ (gateAt C b).inputs
+hca : n + a ∈ (gateAt C c).inputs
+hsa : skips n C.gates (initAt n u false, []) a
+hsb : skips n C.gates (initAt n u false, []) b
+hsc : skips n C.gates (initAt n u false, []) c
+j : ℕ
+h✝ : j = c ∨ j ∈ []
+⊢ j < C.gates.length ∧ skips n C.gates (initAt n u false, []) j
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2574:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (elim n C.gates (initAt n u false, [])).2.length + {a, b, c}.card ≤ C.gates.length
+but is expected to have type
+  (elim n C.gates (initAt n u false, [])).2.length + 3 ≤ C.gates.length
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2569:49: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_toFinset, List.mem_cons] at hj
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2585:32: error: don't know how to synthesize placeholder for argument `acc`
+context:
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+a b c d : ℕ
+hnd : [a, b, c, d].Nodup
+ha : a < C.gates.length
+hb : b < C.gates.length
+hc : c < C.gates.length
+hd : d < C.gates.length
+hac : a < c
+hbd : b < d
+hoa : (gateAt C a).op = GateOp.or
+hob : (gateAt C b).op = GateOp.or
+hua : ↑u ∈ (gateAt C a).inputs
+hub : ↑u ∈ (gateAt C b).inputs
+hca : n + a ∈ C.gates[c].inputs
+hdb : n + b ∈ (gateAt C d).inputs
+hsa : skips n C.gates (initAt n u true, []) a
+hsb : skips n C.gates (initAt n u true, []) b
+⊢ List Stat × List Gate
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2594:37: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  j = d ∨ j ∈ []
+
+case inr.inr.inr
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+a b c d : ℕ
+hnd : [a, b, c, d].Nodup
+ha : a < C.gates.length
+hb : b < C.gates.length
+hc : c < C.gates.length
+hd : d < C.gates.length
+hac : a < c
+hbd : b < d
+hoa : (gateAt C a).op = GateOp.or
+hob : (gateAt C b).op = GateOp.or
+hua : ↑u ∈ (gateAt C a).inputs
+hub : ↑u ∈ (gateAt C b).inputs
+hca : n + a ∈ (gateAt C c).inputs
+hdb : n + b ∈ (gateAt C d).inputs
+hsa : skips n C.gates (initAt n u true, []) a
+hsb : skips n C.gates (initAt n u true, []) b
+hsc : skips n C.gates (initAt n u true, []) c
+hsd : skips n C.gates (initAt n u true, []) d
+j : ℕ
+h✝ : j = d ∨ j ∈ []
+⊢ j < C.gates.length ∧ skips n C.gates (initAt n u true, []) j
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2599:2: error: Type mismatch: After simplification, term
+  hh
+ has type
+  (elim n C.gates (initAt n u true, [])).2.length + {a, b, c, d}.card ≤ C.gates.length
+but is expected to have type
+  (elim n C.gates (initAt n u true, [])).2.length + 4 ≤ C.gates.length
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2593:49: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_toFinset, List.mem_cons] at hj
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2608:30: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_cons] at ha hb hi
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2644:12: error: unexpected token 'prefix'; expected ')', '↑', '↥', '⇑' or term
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2634:64: error: Application type mismatch: The argument
+  b
+has type
+  ℕ
+of sort `Type` but is expected to have type
+  a ∈ [b, c, d]
+of sort `Prop` in the application
+  (List.nodup_cons.mp hnd).left b
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2630:76: error: unsolved goals
+n : ℕ
+C : Circuit
+hC : Monotone2 C
+u : Fin n
+a b c d : ℕ
+hnd : [a, b, c, d].Nodup
+ha : a < C.gates.length
+hb : b < C.gates.length
+hc : c < C.gates.length
+hd : d < C.gates.length
+hac : a < c
+hbc : b < c
+hcd : c < d
+hoa : (gateAt C a).op = GateOp.or
+hob : (gateAt C b).op = GateOp.or
+hua : ↑u ∈ (gateAt C a).inputs
+hub : ↑u ∈ (gateAt C b).inputs
+hca : n + a ∈ (gateAt C c).inputs
+hcb : n + b ∈ (gateAt C c).inputs
+hdc : n + c ∈ (gateAt C d).inputs
+hab : a ≠ b
+hsa : skips n C.gates (initAt n u true, []) a
+hsb : skips n C.gates (initAt n u true, []) b
+hca' : n + a ∈ C.gates[c].inputs
+hcb' : n + b ∈ C.gates[c].inputs
+hcca : sorry
+hccb : sorry
+⊢ (elim n C.gates (initAt n u true, [])).2.length + 4 ≤ C.gates.length
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2644:18: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2646:15: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2649:18: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2651:15: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2662:25: error: unexpected identifier; expected ':'
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2689:38: warning: This simp argument is unused:
+  wiresFrom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hu, Stat.Valid, Stat.val, List.getD_eq_getElem?_getD, hi, Function.update_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2690:8: warning: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hu, Stat.Valid, Stat.val, wiresFrom, List.getD_eq_getElem?_getD, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/proof_cycle_work.lean:2692:8: warning: This simp argument is unused:
+  Function.update_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hu, Stat.Valid, Stat.val, wiresFrom, List.getD_eq_getElem?_getD, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

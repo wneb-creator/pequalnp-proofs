@@ -1,0 +1,60 @@
+{
+  "file": "counter_cycle5_star_control_binary_witness.json",
+  "size": 7,
+  "and_count": 3,
+  "or_count": 4,
+  "errors": [],
+  "triangles": [],
+  "squares": [],
+  "vertex_cover": 3,
+  "ownership": [
+    {
+      "gate": 1,
+      "wire": 6,
+      "edges": [
+        [
+          0,
+          4
+        ]
+      ],
+      "centers": [
+        0,
+        4
+      ]
+    },
+    {
+      "gate": 3,
+      "wire": 8,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "centers": [
+        1
+      ]
+    },
+    {
+      "gate": 5,
+      "wire": 10,
+      "edges": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "centers": [
+        3
+      ]
+    }
+  ]
+}
