@@ -1479,6 +1479,344 @@ lemma coverCircuitB_twoLevel (Np Nl : ℕ) (own : List (ℕ × List ℕ))
   · simpa only [closed,Finset.mem_Ico,gateAt,coverCircuitB_gates] using hshape.2.1
   · simpa only [gateAt,coverCircuitB_gates] using hshape.2.2
 
+
+
+
+lemma gates_length_false : ∀ (own : List (ℕ × List ℕ)) (B a : ℕ), (∀ p ∈ own, p.2 ≠ []) →
+    (coverGatesB B false a own).length =
+      (own.map (fun p : ℕ × List ℕ => p.2.length)).sum + own.length
+  | [], _, _, _ => by simp [coverGatesB]
+  | (t, []) :: os, B, a, h => by simp at h
+  | (t, v1 :: rest) :: os, B, a, h => by
+      have ih := gates_length_false os (B + (blockGates B a t v1 rest false).length)
+        (B + (blockGates B a t v1 rest false).length - 1)
+        (fun p hp => h p (List.mem_cons_of_mem _ hp))
+      simp only [coverGatesB, List.length_append]
+      rw [ih, block_length]
+      simp only [List.map_cons, List.sum_cons, List.length_cons]
+      simp
+      omega
+
+lemma circuit_size (n : ℕ) (own : List (ℕ × List ℕ)) (hne : own ≠ [])
+    (h : ∀ p ∈ own, p.2 ≠ []) :
+    (coverCircuitB n own).size + 1 =
+      (own.map (fun p : ℕ × List ℕ => p.2.length)).sum + own.length := by
+  match own, hne, h with
+  | (t, []) :: os, _, h => simp at h
+  | (t, v1 :: rest) :: os, _, h =>
+      have ih := gates_length_false os (n + (blockGates n 0 t v1 rest true).length)
+        (n + (blockGates n 0 t v1 rest true).length - 1)
+        (fun p hp => h p (List.mem_cons_of_mem _ hp))
+      have hgl : (coverGatesB n true 0 ((t, v1 :: rest) :: os)).length =
+          rest.length + 1 + ((os.map (fun p : ℕ × List ℕ => p.2.length)).sum + os.length) := by
+        simp only [coverGatesB, List.length_append]
+        rw [ih, block_length]
+        simp
+      have hnn : coverGatesB n true 0 ((t, v1 :: rest) :: os) ≠ [] := by
+        intro h0
+        have h1 := congrArg List.length h0
+        rw [hgl] at h1
+        simp at h1
+      unfold coverCircuitB Circuit.size
+      rw [if_neg hnn]
+      simp only [hgl, List.map_cons, List.sum_cons, List.length_cons]
+      omega
+
+
+
+
+def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = C.gates.foldl step x := rfl
+
+lemma fold_app (gs : List Gate) : ∀ w : List Bool, ∃ t : List Bool,
+    gs.foldl step w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp, rfl⟩
+  | cons g gs ih =>
+    intro w
+    obtain ⟨t, ht, hl⟩ := ih (step w g)
+    refine ⟨(g.op.eval (g.inputs.map fun i => w.getD i false)) :: t, ?_, ?_⟩
+    · rw [List.foldl_cons, ht]; simp [step]
+    · simp [hl]
+
+lemma getD_app_left {w t : List Bool} {i : ℕ} (h : i < w.length) :
+    (w ++ t).getD i false = w.getD i false := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_append_left h, ← List.getD_eq_getElem?_getD]
+
+lemma getD_app_right {w t : List Bool} {i : ℕ} :
+    (w ++ t).getD (w.length + i) false = t.getD i false := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_append_right (by omega), Nat.add_sub_cancel_left,
+    ← List.getD_eq_getElem?_getD]
+
+lemma getD_snoc' (l : List Bool) (b : Bool) (i : ℕ) (h : i = l.length) :
+    (l ++ [b]).getD i false = b := by
+  subst h
+  simpa using getD_app_right (w := l) (t := [b]) (i := 0)
+
+lemma fold_length (gs : List Gate) (w : List Bool) :
+    (gs.foldl step w).length = w.length + gs.length := by
+  obtain ⟨t, ht, hl⟩ := fold_app gs w
+  rw [ht, List.length_append, hl]
+
+lemma fold_keep (gs : List Gate) (w : List Bool) {i : ℕ} (h : i < w.length) :
+    (gs.foldl step w).getD i false = w.getD i false := by
+  obtain ⟨t, ht, _⟩ := fold_app gs w
+  rw [ht, getD_app_left h]
+
+lemma any_congr_mem {l : List ℕ} {f g : ℕ → Bool} (h : ∀ u ∈ l, f u = g u) :
+    l.any f = l.any g := by
+  induction l with
+  | nil => rfl
+  | cons b l ih =>
+    simp only [List.any_cons]
+    rw [h b (by simp), ih (fun u hu => h u (by simp [hu]))]
+
+
+def cv (w : List Bool) (v1 : ℕ) (rest : List ℕ) (k : ℕ) : Bool :=
+  w.getD v1 false || (rest.take k).any (fun u => w.getD u false)
+
+lemma chain_read (w : List Bool) (B v1 : ℕ) (rest : List ℕ) (hw : w.length = B)
+    (hv1 : v1 < B) (k : ℕ) (hk : k ≤ rest.length) :
+    (w ++ (List.range k).map (fun i => cv w v1 rest (i + 1))).getD
+        ((v1 :: (List.range rest.length).map (fun j => B + j)).getD k 0) false
+      = cv w v1 rest k := by
+  cases k with
+  | zero =>
+    simp only [List.getD_cons_zero]
+    rw [getD_app_left (by omega)]
+    simp [cv]
+  | succ j =>
+    have hj : j < rest.length := by omega
+    have e1 : (v1 :: (List.range rest.length).map (fun j => B + j)).getD (j + 1) 0 = B + j := by
+      simp [List.getD_cons_succ, List.getD_eq_getElem?_getD, hj]
+    rw [e1, ← hw, getD_app_right]
+    simp [List.getD_eq_getElem?_getD, List.getElem?_map, List.getElem?_range (show j < j + 1 by omega)]
+
+lemma chain (w : List Bool) (B v1 : ℕ) (rest : List ℕ) (hw : w.length = B)
+    (hv1 : v1 < B) (hrest : ∀ u ∈ rest, u < B) :
+    ∀ k ≤ rest.length,
+      ((List.range k).map (fun i => (⟨GateOp.or,
+          [(v1 :: (List.range rest.length).map (fun j => B + j)).getD i 0, rest.getD i 0]⟩ : Gate))).foldl
+        step w = w ++ (List.range k).map (fun i => cv w v1 rest (i + 1)) := by
+  intro k
+  induction k with
+  | zero => intro _; simp
+  | succ k ih =>
+    intro hk
+    rw [List.range_succ, List.map_append, List.foldl_append, ih (by omega)]
+    simp only [List.map_cons, List.map_nil, List.foldl_cons, List.foldl_nil, step]
+    rw [List.append_assoc]
+    congr 2
+    have hkr : k < rest.length := by omega
+    have hrk : rest.getD k 0 = rest[k] := by
+      simp [List.getD_eq_getElem?_getD, hkr]
+    have hlt : rest[k] < w.length := by rw [hw]; exact hrest _ (List.getElem_mem hkr)
+    simp only [List.map_cons, List.map_nil, GateOp.eval]
+    rw [chain_read w B v1 rest hw hv1 k (by omega), hrk, getD_app_left hlt]
+    simp only [cv, List.take_succ, List.getElem?_eq_getElem hkr, Option.toList_some,
+      List.any_append, List.any_cons, List.any_nil, List.any_cons, Bool.or_false, id]
+    simp [Bool.or_assoc, List.getElem?_eq_getElem hkr]
+
+lemma block_val (w : List Bool) (B a t v1 : ℕ) (rest : List ℕ) (lead : Bool)
+    (hw : w.length = B) (ha : lead = false → a < B) (ht : t < B) (hv1 : v1 < B)
+    (hrest : ∀ u ∈ rest, u < B) :
+    ((blockGates B a t v1 rest lead).foldl step w).getD
+        (B + (blockGates B a t v1 rest lead).length - 1) false
+      = if lead then (w.getD t false && (w.getD v1 false || rest.any (fun u => w.getD u false)))
+        else (w.getD a false ||
+          (w.getD t false && (w.getD v1 false || rest.any (fun u => w.getD u false)))) := by
+  have hc := chain w B v1 rest hw hv1 hrest rest.length le_rfl
+  have hr := chain_read w B v1 rest hw hv1 rest.length le_rfl
+  have hcvr : cv w v1 rest rest.length = (w.getD v1 false || rest.any (fun u => w.getD u false)) := by
+    simp [cv]
+  set L := (List.range rest.length).map (fun i => cv w v1 rest (i + 1)) with hL
+  have hLl : L.length = rest.length := by simp [hL]
+  have htW : (w ++ L).getD t false = w.getD t false := getD_app_left (by omega)
+  rw [block_length]
+  cases lead with
+  | true =>
+    simp only [blockGates, ↓reduceIte, List.foldl_append, hc, List.foldl_cons, List.foldl_nil,
+      step]
+    rw [getD_snoc']
+    · simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil]
+      rw [htW, hr, hcvr]
+      simp
+    · simp [hLl, hw]
+  | false =>
+    have ha' : a < B := ha rfl
+    simp only [blockGates, Bool.false_eq_true, ↓reduceIte, List.foldl_append, hc, List.foldl_cons,
+      List.foldl_nil, step]
+    rw [getD_snoc']
+    · simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil]
+      rw [getD_app_left (by simp; omega), getD_app_left (by omega), getD_snoc']
+      · simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil]
+        rw [htW, hr, hcvr]
+        simp
+      · simp [hLl, hw]
+    · simp [hLl, hw]
+
+
+def F (x : List Bool) (own : List (ℕ × List ℕ)) : Bool :=
+  own.any (fun p => x.getD p.1 false && p.2.any (fun u => x.getD u false))
+
+lemma gates_nil_F (x : List Bool) : ∀ (own : List (ℕ × List ℕ)) (B : ℕ) (lead : Bool) (a : ℕ),
+    coverGatesB B lead a own = [] → F x own = false
+  | [], _, _, _, _ => rfl
+  | (t, []) :: os, B, lead, a, h => by
+      simp only [coverGatesB] at h
+      have := gates_nil_F x os B lead a h
+      simp only [F, List.any_cons, List.any_nil, Bool.and_false, Bool.false_or] at this ⊢
+      exact this
+  | (t, v1 :: rest) :: os, B, lead, a, h => by
+      simp only [coverGatesB] at h
+      cases lead <;> simp [blockGates] at h
+
+lemma main (n : ℕ) (x : List Bool) :
+    ∀ (own : List (ℕ × List ℕ)) (B : ℕ) (lead : Bool) (a : ℕ) (w : List Bool),
+      (∀ p ∈ own, p.1 < n ∧ ∀ u ∈ p.2, u < n) → w.length = B → n ≤ B →
+      (∀ i < n, w.getD i false = x.getD i false) → (lead = false → a < B) →
+      coverGatesB B lead a own ≠ [] →
+      ((coverGatesB B lead a own).foldl step w).getD
+          (B + (coverGatesB B lead a own).length - 1) false
+        = if lead then F x own else (w.getD a false || F x own)
+  | [], _, _, _, _, _, _, _, _, _, hne => by simp [coverGatesB] at hne
+  | (t, []) :: os, B, lead, a, w, hown, hw, hnB, hwx, ha, hne => by
+      simp only [coverGatesB] at hne ⊢
+      rw [main n x os B lead a w (fun p hp => hown p (List.mem_cons_of_mem _ hp)) hw hnB hwx ha
+        hne]
+      simp [F]
+  | (t, v1 :: rest) :: os, B, lead, a, w, hown, hw, hnB, hwx, ha, _ => by
+      have hp := hown (t, v1 :: rest) (by simp)
+      have ht : t < n := hp.1
+      have hv1 : v1 < n := hp.2 v1 (by simp)
+      have hrest : ∀ u ∈ rest, u < n := fun u hu => hp.2 u (by simp [hu])
+      have hos : ∀ p ∈ os, p.1 < n ∧ ∀ u ∈ p.2, u < n :=
+        fun p hp => hown p (List.mem_cons_of_mem _ hp)
+      have hbv := block_val w B a t v1 rest lead hw ha (by omega) (by omega)
+        (fun u hu => by have := hrest u hu; omega)
+      have hrx : rest.any (fun u => w.getD u false) = rest.any (fun u => x.getD u false) :=
+        any_congr_mem (fun u hu => hwx u (hrest u hu))
+      rw [hrx, hwx t ht, hwx v1 hv1] at hbv
+      set bg := blockGates B a t v1 rest lead with hbg
+      have hm : 0 < bg.length := by rw [hbg, block_length]; omega
+      set W1 := bg.foldl step w with hW1
+      have hW1l : W1.length = B + bg.length := by rw [hW1, fold_length, hw]
+      have hW1x : ∀ i < n, W1.getD i false = x.getD i false := by
+        intro i hi
+        rw [hW1, fold_keep bg w (by omega)]
+        exact hwx i hi
+      have hW1a : lead = false → W1.getD a false = w.getD a false := by
+        intro hl
+        rw [hW1, fold_keep bg w (by have := ha hl; omega)]
+      have hcons : F x ((t, v1 :: rest) :: os) =
+          ((x.getD t false && (x.getD v1 false || rest.any (fun u => x.getD u false))) || F x os) :=
+        rfl
+      rw [hcons]
+      simp only [coverGatesB]
+      rw [← hbg, List.foldl_append, ← hW1, List.length_append]
+      by_cases hnil : coverGatesB (B + bg.length) false (B + bg.length - 1) os = []
+      · have hF := gates_nil_F x os _ false _ hnil
+        rw [hnil, List.foldl_nil, List.length_nil, Nat.add_zero, hbv]
+        rw [hF]
+        cases lead <;> simp
+      · have ih := main n x os (B + bg.length) false (B + bg.length - 1) W1 hos hW1l (by omega)
+          hW1x (fun _ => by omega) hnil
+        have hidx : B + (bg.length + (coverGatesB (B + bg.length) false (B + bg.length - 1) os).length) - 1
+            = B + bg.length + (coverGatesB (B + bg.length) false (B + bg.length - 1) os).length - 1 := by
+          omega
+        rw [hidx, ih, hbv]
+        cases lead <;> simp [Bool.or_assoc]
+
+lemma circuit_fun (n : ℕ) (own : List (ℕ × List ℕ))
+    (h : ∀ p ∈ own, p.1 < n ∧ ∀ w ∈ p.2, w < n) (x : Fin n → Bool) :
+    ((coverCircuitB n own).eval (List.ofFn x) = true ↔
+      ∃ p ∈ own, (List.ofFn x).getD p.1 false = true ∧
+        ∃ w ∈ p.2, (List.ofFn x).getD w false = true) := by
+  have hF : (∃ p ∈ own, (List.ofFn x).getD p.1 false = true ∧
+        ∃ w ∈ p.2, (List.ofFn x).getD w false = true) ↔ F (List.ofFn x) own = true := by
+    simp [F, List.any_eq_true]
+  rw [hF]
+  unfold coverCircuitB Circuit.eval
+  split_ifs with hnil
+  · rw [gates_nil_F _ own n true 0 hnil, wires_eq]
+    simp [List.getD_eq_getElem?_getD]
+  · rw [wires_eq]
+    simp only
+    rw [main n (List.ofFn x) own n true 0 (List.ofFn x) h (by simp) le_rfl (fun _ _ => rfl)
+      (by simp) hnil]
+    simp
+
+
+lemma coverCircuitB_size_eq (n : ℕ) (own : List (ℕ × List ℕ))
+    (ho : ∀ tx ∈ own, tx.2 ≠ []) :
+    (coverCircuitB n own).size = (own.map (fun tx => tx.2.length)).sum + own.length - 1 := by
+  by_cases hn : own = []
+  · subst own
+    simp [coverCircuitB,coverGatesB,Circuit.size]
+  · have hs := circuit_size n own hn ho
+    omega
+
+lemma read_fin (n : ℕ) (z : Fin n → Bool) (i : Fin n) :
+    (List.ofFn z).getD i.val false = z i := by
+  simp [List.getD_eq_getElem?_getD]
+
+lemma coverCircuitB_incidence (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
+    [DecidableRel I] (own : List (ℕ × List ℕ))
+    (ho : ∀ tx ∈ own,
+      (tx.1 < Np ∧ ∀ u ∈ tx.2, Np ≤ u ∧ u < Np+Nl) ∨
+      (Np ≤ tx.1 ∧ tx.1 < Np+Nl ∧ ∀ u ∈ tx.2, u < Np))
+    (hc : ∀ p l, I p l ↔ ∃ tx ∈ own,
+      (tx.1 = p.val ∧ Np+l.val ∈ tx.2) ∨
+      (tx.1 = Np+l.val ∧ p.val ∈ tx.2)) :
+    ∀ z : Fin (Np+Nl) → Bool, circuitFun (Np+Nl) (coverCircuitB (Np+Nl) own) z =
+      decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧ z (Fin.natAdd Np l) = true) := by
+  have hb : ∀ tx ∈ own, tx.1 < Np+Nl ∧ ∀ u ∈ tx.2, u < Np+Nl := by
+    intro tx htx
+    rcases ho tx htx with ⟨ht,hu⟩ | ⟨ht,ht',hu⟩
+    · exact ⟨by omega,fun u h => (hu u h).2⟩
+    · exact ⟨ht',fun u h => by have := hu u h; omega⟩
+  intro z
+  apply Bool.eq_iff_iff.mpr
+  change ((coverCircuitB (Np+Nl) own).eval (List.ofFn z) = true) ↔ _
+  rw [circuit_fun (Np+Nl) own hb z]
+  simp only [decide_eq_true_eq]
+  constructor
+  · rintro ⟨tx,htx,ht,u,hu,huv⟩
+    rcases ho tx htx with ⟨hleft,hr⟩ | ⟨hlo,hhi,hr⟩
+    · obtain ⟨hul,huh⟩ := hr u hu
+      let p : Fin Np := ⟨tx.1,hleft⟩
+      let l : Fin Nl := ⟨u-Np,by omega⟩
+      have he : Np+l.val = u := by dsimp [l]; omega
+      have hI : I p l := (hc p l).mpr ⟨tx,htx,Or.inl ⟨rfl,he.symm ▸ hu⟩⟩
+      have hp : (List.ofFn z).getD tx.1 false = z (Fin.castAdd Nl p) :=
+        read_fin (Np+Nl) z (Fin.castAdd Nl p)
+      have hl : (List.ofFn z).getD u false = z (Fin.natAdd Np l) := by
+        have hh := read_fin (Np+Nl) z (Fin.natAdd Np l)
+        simpa only [Fin.val_natAdd,he] using hh
+      exact ⟨p,l,hI,hp.symm.trans ht,hl.symm.trans huv⟩
+    · have hup := hr u hu
+      let p : Fin Np := ⟨u,hup⟩
+      let l : Fin Nl := ⟨tx.1-Np,by omega⟩
+      have he : Np+l.val = tx.1 := by dsimp [l]; omega
+      have hI : I p l := (hc p l).mpr ⟨tx,htx,Or.inr ⟨he.symm,hu⟩⟩
+      have hp : (List.ofFn z).getD u false = z (Fin.castAdd Nl p) :=
+        read_fin (Np+Nl) z (Fin.castAdd Nl p)
+      have hl : (List.ofFn z).getD tx.1 false = z (Fin.natAdd Np l) := by
+        have hh := read_fin (Np+Nl) z (Fin.natAdd Np l)
+        simpa only [Fin.val_natAdd,he] using hh
+      exact ⟨p,l,hI,hp.symm.trans huv,hl.symm.trans ht⟩
+  · rintro ⟨p,l,hI,hp,hl⟩
+    obtain ⟨tx,htx,h⟩ := (hc p l).mp hI
+    have hpv : (List.ofFn z).getD p.val false = true :=
+      (read_fin (Np+Nl) z (Fin.castAdd Nl p)).trans hp
+    have hlv : (List.ofFn z).getD (Np+l.val) false = true :=
+      (read_fin (Np+Nl) z (Fin.natAdd Np l)).trans hl
+    rcases h with ⟨ht,hu⟩ | ⟨ht,hu⟩
+    · exact ⟨tx,htx,ht ▸ hpv,Np+l.val,hu,hlv⟩
+    · exact ⟨tx,htx,ht ▸ hlv,p.val,hu,hpv⟩
+
 end PEqualNP.Outside.L_meta_2685_aux
 
 namespace PEqualNP.Outside.L_meta_2685
@@ -1518,6 +1856,102 @@ lemma and_below_linear {α : Type*} (A : Finset α)
     · exact False.elim (hy ⟨a, ha, hya⟩)
   simp only [z, hxa, hya, Bool.or_self, Bool.false_eq_true] at hza
 
+def oneInput {α : Type*} [DecidableEq α] (a : α) : α → Bool :=
+  fun b => decide (b = a)
+
+lemma oneInput_le {α : Type*} [DecidableEq α] {a : α} {x : α → Bool}
+    (h : x a = true) : oneInput a ≤ x := by
+  intro b
+  by_cases hb : b = a
+  · subst b
+    simp only [oneInput, decide_true, h, le_refl]
+  · simp only [oneInput, hb, decide_false, Bool.false_le]
+
+lemma below_linear_singleton {α : Type*} [DecidableEq α] (A : Finset α)
+    (f : (α → Bool) → Bool)
+    (h : ∀ x, f x = true → ∃ a ∈ A, x a = true)
+    {a : α} (ha : f (oneInput a) = true) : a ∈ A := by
+  obtain ⟨b, hb, hba⟩ := h (oneInput a) ha
+  have : b = a := by simpa only [oneInput, decide_eq_true_eq] using hba
+  simpa only [this] using hb
+
+lemma linear_or_singletons {α : Type*} [DecidableEq α] (A : Finset α)
+    (f g : (α → Bool) → Bool) (hf : Monotone f) (hg : Monotone g)
+    (h : ∀ x, (f x || g x) = true ↔ ∃ a ∈ A, x a = true) :
+    ∀ x, (f x || g x) = true ↔
+      (∃ a, f (oneInput a) = true ∧ x a = true) ∨ g x = true := by
+  intro x
+  constructor
+  · intro hfg
+    obtain ⟨a, ha, hxa⟩ := (h x).mp hfg
+    have hp : (f (oneInput a) || g (oneInput a)) = true :=
+      (h _).mpr ⟨a, ha, by simp only [oneInput, decide_true]⟩
+    rw [Bool.or_eq_true_eq_eq_true_or_eq_true] at hp
+    rcases hp with hfa | hga
+    · exact Or.inl ⟨a, hfa, hxa⟩
+    · exact Or.inr (le_antisymm le_top (hga ▸ hg (oneInput_le hxa)))
+  · rintro (⟨a, hfa, hxa⟩ | hgx)
+    · rw [Bool.or_eq_true_eq_eq_true_or_eq_true]
+      exact Or.inl (le_antisymm le_top (hfa ▸ hf (oneInput_le hxa)))
+    · rw [Bool.or_eq_true_eq_eq_true_or_eq_true]
+      exact Or.inr hgx
+
+lemma shared_singleton_support {α : Type*} [DecidableEq α] (A B : Finset α)
+    (f : (α → Bool) → Bool)
+    (hA : ∀ x, f x = true → ∃ a ∈ A, x a = true)
+    (hB : ∀ x, f x = true → ∃ a ∈ B, x a = true)
+    (hAB : ∀ a ∈ A, ∀ b ∈ A, a ∈ B → b ∈ B → a = b)
+    {a b : α} (ha : f (oneInput a) = true) (hb : f (oneInput b) = true) :
+    a = b := by
+  exact hAB a (below_linear_singleton A f hA ha)
+    b (below_linear_singleton A f hA hb)
+    (below_linear_singleton B f hB ha) (below_linear_singleton B f hB hb)
+
+lemma eq_of_true_iff (a b : Bool) (h : a = true ↔ b = true) : a = b := by
+  cases a <;> cases b <;> simp_all
+
+lemma shared_linear_replace {α β : Type*} [DecidableEq α]
+    (A : β → Finset α) (v : (α → Bool) → Bool)
+    (h : β → (α → Bool) → Bool) (hv : Monotone v)
+    (hh : ∀ k, Monotone (h k))
+    (hout : ∀ k x, (v x || h k x) = true ↔ ∃ a ∈ A k, x a = true)
+    (i j : β)
+    (hij : ∀ a ∈ A i, ∀ b ∈ A i, a ∈ A j → b ∈ A j → a = b) :
+    (∀ k x, (v x || h k x) = h k x) ∨
+      ∃ a, v (oneInput a) = true ∧
+        ∀ k x, (v x || h k x) = (x a || h k x) := by
+  classical
+  have hbelow (k : β) : ∀ x, v x = true → ∃ a ∈ A k, x a = true := by
+    intro x hx
+    apply (hout k x).mp
+    simp only [hx, Bool.true_or]
+  have unique {a b : α} (ha : v (oneInput a) = true)
+      (hb : v (oneInput b) = true) : a = b :=
+    shared_singleton_support (A i) (A j) v (hbelow i) (hbelow j) hij ha hb
+  by_cases hs : ∃ a, v (oneInput a) = true
+  · obtain ⟨a, ha⟩ := hs
+    right
+    refine ⟨a, ha, ?_⟩
+    intro k x
+    apply eq_of_true_iff
+    rw [linear_or_singletons (A k) v (h k) hv (hh k) (hout k) x,
+      Bool.or_eq_true_eq_eq_true_or_eq_true]
+    apply or_congr _ Iff.rfl
+    constructor
+    · rintro ⟨b, hb, hxb⟩
+      simpa only [unique hb ha] using hxb
+    · intro hxa
+      exact ⟨a, ha, hxa⟩
+  · left
+    intro k x
+    apply eq_of_true_iff
+    rw [linear_or_singletons (A k) v (h k) hv (hh k) (hout k) x]
+    constructor
+    · rintro (⟨a, ha, _⟩ | hkx)
+      · exact False.elim (hs ⟨a, ha⟩)
+      · exact hkx
+    · exact Or.inr
+
 end PEqualNP.Outside.L_meta_2685
 
 namespace PEqualNP.Outside.L_meta_2685
@@ -1537,3 +1971,79 @@ lemma empty_incidence (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop) [DecidableR
   · simp
 
 end PEqualNP.Outside.L_meta_2685
+
+namespace PEqualNP.Outside.L_meta_2685.EliminationRoute
+
+lemma leaf_zero {Np Nl : ℕ} (I : Fin Np → Fin Nl → Prop) [DecidableRel I]
+    (p0 : Fin Np) (x : Fin Np → Bool) (y : Fin Nl → Bool) :
+    decide (∃ p l, I p l ∧ Function.update x p0 false p = true ∧ y l = true) =
+      decide (∃ p l, I p l ∧ p ≠ p0 ∧ x p = true ∧ y l = true) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_eq]
+  constructor
+  · rintro ⟨p, l, hp, hx, hy⟩
+    have hne : p ≠ p0 := by
+      rintro rfl
+      simp at hx
+    exact ⟨p, l, hp, hne, by simpa [Function.update_of_ne hne] using hx, hy⟩
+  · rintro ⟨p, l, hp, hne, hx, hy⟩
+    exact ⟨p, l, hp, by simpa [Function.update_of_ne hne] using hx, hy⟩
+
+lemma leaf_one {Np Nl : ℕ} (I : Fin Np → Fin Nl → Prop) [DecidableRel I]
+    (p0 : Fin Np) (l0 : Fin Nl) (edge : I p0 l0)
+    (leaf : ∀ l, I p0 l → l = l0) (x : Fin Np → Bool) (y : Fin Nl → Bool) :
+    decide (∃ p l, I p l ∧ Function.update x p0 true p = true ∧ y l = true) =
+      (y l0 || decide (∃ p l, I p l ∧ l ≠ l0 ∧ x p = true ∧ y l = true)) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_eq, Bool.or_eq_true]
+  constructor
+  · rintro ⟨p, l, hp, hx, hy⟩
+    by_cases hl : l = l0
+    · exact Or.inl (hl ▸ hy)
+    · right
+      have hne : p ≠ p0 := by
+        rintro rfl
+        exact hl (leaf l hp)
+      exact ⟨p, l, hp, hl, by simpa [Function.update_of_ne hne] using hx, hy⟩
+  · rintro (hy | ⟨p, l, hp, hl, hx, hy⟩)
+    · exact ⟨p0, l0, edge, by simp, hy⟩
+    · have hne : p ≠ p0 := by
+        rintro rfl
+        exact hl (leaf l hp)
+      exact ⟨p, l, hp, by simpa [Function.update_of_ne hne] using hx, hy⟩
+
+lemma duplicate_leaf_cover {Np Nl : ℕ} (I : Fin Np → Fin Nl → Prop)
+    (p0 p1 : Fin Np) (l0 : Fin Nl) (distinct : p0 ≠ p1)
+    (edge : I p1 l0) (leaf0 : ∀ l, I p0 l → l = l0)
+    (leaf1 : ∀ l, I p1 l → l = l0)
+    (A : Finset (Fin Np)) (B : Finset (Fin Nl))
+    (cover : ∀ p l, I p l → p ≠ p0 → p ∈ A ∨ l ∈ B) :
+    ∃ (A' : Finset (Fin Np)) (B' : Finset (Fin Nl)),
+      (∀ p l, I p l → p ∈ A' ∨ l ∈ B') ∧
+      A'.card + B'.card ≤ A.card + B.card := by
+  classical
+  by_cases hb : l0 ∈ B
+  · refine ⟨A, B, ?_, le_rfl⟩
+    intro p l hp
+    by_cases h : p = p0
+    · exact Or.inr ((leaf0 l (h ▸ hp)) ▸ hb)
+    · exact cover p l hp h
+  · have ha : p1 ∈ A := (cover p1 l0 edge distinct.symm).resolve_right hb
+    refine ⟨A.erase p1, insert l0 B, ?_, ?_⟩
+    · intro p l hp
+      by_cases hp0 : p = p0
+      · right
+        have h := leaf0 l (hp0 ▸ hp)
+        simp [h]
+      by_cases hp1 : p = p1
+      · right
+        have h := leaf1 l (hp1 ▸ hp)
+        simp [h]
+      rcases cover p l hp hp0 with h | h
+      · exact Or.inl (Finset.mem_erase.mpr ⟨hp1, h⟩)
+      · exact Or.inr (Finset.mem_insert_of_mem h)
+    · have he := Finset.card_erase_add_one ha
+      rw [Finset.card_insert_of_notMem hb]
+      omega
+
+end PEqualNP.Outside.L_meta_2685.EliminationRoute

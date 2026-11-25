@@ -1,0 +1,93 @@
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:39:10: warning: This simp argument is unused:
+  List.getD_cons_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hi']
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:373:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:408:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:445:12: warning: This simp argument is unused:
+  List.getD_cons_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:447:38: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_range (show j < j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:447:57: warning: This simp argument is unused:
+  List.getElem?_range (show j < j + 1 by omega)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_map]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:470:19: warning: `List.take_succ` has been deprecated: Use `List.take_add_one` instead
+
+Hint: Replace the deprecated name:
+  List.take_s̵u̵c̵c̵a̲d̲d̲_̲o̲n̲e̲
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:468:15: warning: This simp argument is unused:
+  List.map_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_nil, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:468:30: warning: This simp argument is unused:
+  List.map_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:470:35: warning: This simp argument is unused:
+  List.getElem?_eq_getElem hkr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cv, List.take_succ, Option.toList_some, List.any_append, List.any_cons, List.any_nil,
+    List.any_cons, Bool.or_false, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:470:65: warning: This simp argument is unused:
+  Option.toList_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cv, List.take_succ, List.getElem?_eq_getElem hkr, List.any_append, List.any_cons, List.any_nil,
+    List.any_cons, Bool.or_false, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:506:19: warning: This simp argument is unused:
+  GateOp.eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.map_nil, List.all_cons, List.all_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:506:32: warning: This simp argument is unused:
+  List.map_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_nil, List.all_cons, List.all_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-58/counting-realize.lean:506:47: warning: This simp argument is unused:
+  List.map_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.all_cons, List.all_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

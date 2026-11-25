@@ -1,7 +1,8 @@
 L-meta-2685 PARTIAL snapshot; posted theorem remains unproved.
-Named-file lake build: PASS; includes least TopForm, canonical two-level shape, linear AND bypass, empty incidence.
+Named-file lake build: PASS.
+Constructive realization, exact cost and two-level shape proved; shared-linear operand replacement and leaf restrictions proved.
 Local checker: not run; target theorem is not yet present.
-Library normalization simplification: 1473 to 1149 lines; integrated target 1539 lines.
-Independent review: partial snapshot, not eligible for proof PR.
+Library normalization simplification: 1473 to 1149 lines.
+Independent review required before this partial push; no proof PR until full statement passes.
 Sub-agents: 6 (library route, environment/elimination, independent reviewer, normalization, counterexample search, construction/counting).
-TIMING total=14 subagents=6
+TIMING total=19 subagents=6

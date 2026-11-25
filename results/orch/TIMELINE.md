@@ -10,3 +10,6 @@
 
 2026-11-25T02:23:26.134369+00:00 counting-route full coverCircuitB two-level shape lemma compiled.
 - 2026-11-25T02:23:28.784276+00:00: integrated 324-line simplification and compiled construction, linear-AND, empty-incidence partials.
+
+2026-11-25T02:27:03.104230+00:00 counting-route incidence realization and exact size compiled.
+- 2026-11-25T02:27:58.572119+00:00: integrated full canonical realization and size, shared-linear replacement, and leaf restriction lemmas.
