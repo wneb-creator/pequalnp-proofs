@@ -1,0 +1,15 @@
+{
+  "gap": "L-meta-2448",
+  "state": "server_reported_not_live",
+  "last_success_utc": "2026-11-25T08:22:50.996031+00:00",
+  "last_advertised_expiry": "2026-11-25T08:42:51.121Z",
+  "error_utc": "2026-11-25T08:31:28Z",
+  "error_http_status": 410,
+  "error_message": "no such live lease: it expired or was released. Ask /desk/next again.",
+  "renewal_timer_stopped": true,
+  "release_attempted": false,
+  "reason_for_no_release": "Desk already reports no live lease; no other pilot lease was touched.",
+  "search_stop_utc": "2026-11-25T08:32:44Z",
+  "search_outcome": "interrupted UNKNOWN; no normal model status or candidate",
+  "complete_diagnostic": "desk-http-410-response.txt"
+}

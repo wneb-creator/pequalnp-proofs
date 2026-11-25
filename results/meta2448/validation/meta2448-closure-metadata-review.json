@@ -1,0 +1,35 @@
+{
+  "review": "PASS explicit lease-loss closure metadata, no full result",
+  "files": [
+    {
+      "path": "results/meta2448/validation.txt",
+      "sha256": "a52f68f24748188d0a90f4ca5130391bb13075c7224cc97664d48828f9915ae5",
+      "bytes": 3432
+    },
+    {
+      "path": "results/meta2448/NOTES.md",
+      "sha256": "c7b871f14f0c67923f7e014b40341c151207958b0790ad35afdf610255a3b9b5",
+      "bytes": 6101
+    },
+    {
+      "path": "results/meta2448/TIMELINE.md",
+      "sha256": "3f1a274727602d8aa6eda5f29814e7d8e8bddde04ca72c1adc3c6d07a1c97e83",
+      "bytes": 3251
+    },
+    {
+      "path": "results/meta2448/validation/lease-loss-record.json",
+      "sha256": "ec1d773cec1eb8b5b494bb2d4058ef34cd2180ee971d231da2a858638dcc05d2",
+      "bytes": 682
+    },
+    {
+      "path": "results/meta2448/validation/desk-http-410-response.txt",
+      "sha256": "0fadbedb93147e7956835d4fe6af4a7f4bf59d204d7644a999745c0118ef992c",
+      "bytes": 778
+    },
+    {
+      "path": "results/meta2448/validation/closure-metadata-independent-review.json",
+      "sha256": "0b589fd53487982ad3120598847ff0ccb8453162fd4cb757829b30e09b39f70e",
+      "bytes": 1588
+    }
+  ]
+}

@@ -28,3 +28,8 @@
 - A reviewed graph isomorphism identifies the8vertex core with accepted L_meta_1007; its12gate impossibility was already known. Completed local UNKNOWNs add no lower bound.
 - Accepted L584 has an exact20gate Petersen circuit with13OR+7AND and a nonstar owner. Its input-copy extension has30gates,13OR and star profile. Hence OR≥14 is false even with star profile absent a minimum-size requirement. This is not a refutation of2448.
 - Last strengthened Petersen19 model uses accepted AND≥6 plus reviewed earliest-prefix substitution cuts; running under a detached guardian until about08:36:47. Limited local seed-deletion/two-edit searches have found no witness.
+
+## Lease loss and closure 2026-11-25T08:34:42.205227+00:00
+- The08:31:28 renewal returned410; the exactcurl-si retry returned the same full error. Last successful expiry had been08:42:51, so the cause is unknown. Root stopped its timer; no invalid release request or other pilot lease was touched.
+- Main strengthened Petersen19 was stopped at08:32:44; wrapperexit-2 and explicit SIGINT evidence are preserved. It is interruptedUNKNOWN, not a completed20minute query and not a SAT/UNSAT verdict. Full final source/CNF/log archive is lossless and independently under review.
+- All mathematical work stopped. The2341-line partial and all174-declaration audits are already pushed; unrestricted2448 remains unproved, no valid refutation orPR.

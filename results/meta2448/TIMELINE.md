@@ -25,3 +25,6 @@
 - 2026-11-25T08:15:04.979729+00:00: lease renewed; expires 2026-11-25T08:35:05.175Z.
 - 2026-11-25T08:19:10.756774+00:00: lease renewed; expires 2026-11-25T08:39:10.915Z.
 - 2026-11-25T08:21:19.474551+00:00: final2341-line partial built and all174 declarations audited; checkerFAULT missing Batteries.olean; full target remains unproved. Last strengthened Petersen19 search scheduled to end08:36:47UTC.
+- 2026-11-25T08:22:50.996031+00:00: lease renewed; expires 2026-11-25T08:42:51.121Z.
+- 2026-11-25T08:32:41.573290+00:00: renewal returned410 before the last advertised08:42:51 expiry; exactcurl-si diagnostic captured. Own renewal timer stopped; active search termination and preservation requested. Cause not inferred.
+- 2026-11-25T08:34:42.205227+00:00: final interruptedPetersen archive frozen; no active solver or renewal timer. Updating final preservation metadata before the user-required410 recovery request.

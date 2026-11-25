@@ -1,5 +1,5 @@
 PARTIAL CHECKPOINT — L-meta-2448
-UTC: 2026-11-25T08:21:19.474551+00:00
+UTC: 2026-11-25T08:34:42.205227+00:00
 The posted theorem remains unproved. No full proof, valid refutation, or PR exists.
 Named file: lean/PEqualNP/Outside/L_meta_2448.lean
 SHA256: 511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3
@@ -11,7 +11,8 @@ Official tools/check-lean.mjs: FAULT/exit3, missing Batteries.olean, no verdict.
 Format: onlyDefs import; no forbidden root text, double quotes, or unsupported attributes. Full scan: validation/named-2341-format.json.
 Main checked progress: minimum existence; ownership/pair-soundness; explicit star-profile construction; semantic pruning; pure two-center repair; actual constant-propagation reader deletion; actual four-gate repair; weighted true-AND count; concrete cofactor properties; traced size-and-count repair for the same circuit. Structural and sample hypotheses remain explicit. No unrestricted star normalization is proved.
 The concrete two-center exchange gives newsize+readerCount≤oldsize+3 and preserves the exact graph function; it excludes at least4 readers in that restricted configuration for a minimum circuit. The traced conditional exchange also gives a strict sampled count decrease. The low-fanout, nonlinear-operand, and missing-center cases remain unresolved.
-Finite search status: completed Petersen19/900s, core12/300s and core-nonstar13/300s queries ended UNKNOWN. The core12 impossibility was subsequently found already proved by accepted L_meta_1007 under an independently checked isomorphism; no new lower-bound result is claimed. Accepted L584 gives a20-gate Petersen circuit with13ORs, so the proposed OR-only lower bound14 is false; this does not refute L-meta-2448. The final strengthened Petersen19 query is running to about08:36:47UTC.
+Finite search status: completed Petersen19/900s, core12/300s and core-nonstar13/300s queries ended UNKNOWN. The core12 impossibility was subsequently found already proved by accepted L_meta_1007 under an independently checked isomorphism; no new lower-bound result is claimed. Accepted L584 gives a20-gate Petersen circuit with13ORs, so the proposed OR-only lower bound14 is false; this does not refute L-meta-2448. The final strengthened Petersen19 query was interrupted on lease loss: root renewal and exact curl-si diagnostic returned410 at08:31:28UTC; SIGINT was sent only to the recorded owned model group at08:32:44, guardian completed08:32:45.876, wrapper exit-2. Solver log records944.34CPU seconds. No normal model status or candidate was produced; outcome is interruptedUNKNOWN, not a completed timeout, SAT or UNSAT. Complete interrupted archive: search-20261125T083344Z-final/.
 Research branch includes prior L-meta-1896 work archived before its lease returned410. It is not a one-file proof PR.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=337.9 subagents=7
+TIMING total=351.2 subagents=7
+Lease status: desk reported no live lease before its previously advertised08:42:51 expiry. Cause not inferred. Own timer stopped; no release attempted on the already-dead lease. Full headers/body: validation/desk-http-410-response.txt. All work stopped pending preservation and the user-required desk recovery request.
