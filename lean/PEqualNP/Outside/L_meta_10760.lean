@@ -1501,3 +1501,57 @@ lemma build_iff_patternBitmaps {k m n budget : ℕ}
     ((patternBitmap_eq_iff _ _ _ _ false false).mp negative)
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+
+def sortedLabelKey (a b : ℕ) : ℕ × ℕ := (min a b, max a b)
+
+lemma sortedLabelKey_eq_iff (a b c d : ℕ) :
+    sortedLabelKey a b = sortedLabelKey c d ↔
+      (a = c ∧ b = d) ∨ (a = d ∧ b = c) := by
+  constructor
+  · intro h
+    have hmin := congrArg Prod.fst h
+    have hmax := congrArg Prod.snd h
+    simp only [sortedLabelKey] at hmin hmax
+    omega
+  · rintro (⟨rfl, rfl⟩ | ⟨rfl, rfl⟩)
+    · rfl
+    · simp [sortedLabelKey, min_comm, max_comm]
+
+lemma sortedLabelKey_injective_tagged (f : ℕ → Bool) (a b c d : ℕ)
+    (ha : f a = true) (_hb : f b = false) (_hc : f c = true) (hd : f d = false)
+    (h : sortedLabelKey a b = sortedLabelKey c d) : a = c ∧ b = d := by
+  rcases (sortedLabelKey_eq_iff _ _ _ _).mp h with same | swapped
+  · exact same
+  · have hf := congrArg f swapped.1
+    simp only [ha, hd, Bool.true_eq_false] at hf
+
+lemma live_signed_iff_swappedBitmaps {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : patternBitmap front goal true = patternBitmap front' goal' false)
+    (negative : patternBitmap front goal false = patternBitmap front' goal' true) :
+    (live basicOps goal budget (frontierRoots front) ∨
+      live basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (live basicOps goal' budget (frontierRoots front') ∨
+      live basicOps (~~~goal') budget (frontierRoots front')) :=
+  live_signed_iff_swappedKeys front goal front' goal'
+    ((patternBitmap_eq_iff _ _ _ _ true false).mp positive)
+    ((patternBitmap_eq_iff _ _ _ _ false true).mp negative)
+
+lemma live_mono_budget {α : Type} [DecidableEq α] (ops : α → α → Finset α)
+    (goal : α) {j k : ℕ} {s : Finset α} (le : j ≤ k) (run : live ops goal j s) :
+    live ops goal k s := by
+  obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le le
+  clear le
+  induction d with
+  | zero => simpa using run
+  | succ d ih => exact Or.inl ih
+
+lemma not_live_of_larger_failure {α : Type} [DecidableEq α] (ops : α → α → Finset α)
+    (goal : α) {j k : ℕ} {s : Finset α} (le : j ≤ k) (fail : ¬live ops goal k s) :
+    ¬live ops goal j s :=
+  fun run => fail (live_mono_budget ops goal le run)
+
+end PEqualNP.Outside.L_meta_10760
