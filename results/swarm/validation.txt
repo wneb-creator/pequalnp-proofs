@@ -1,0 +1,18 @@
+L-meta-4970 swarm validation checkpoint
+
+Full posted statement: NOT PROVED OR REFUTED.
+No FINAL posted; no PR opened; lease not released.
+
+Pinned Lean 4.36.0 release checksum verified.
+lake exe cache get: PASS, 9117 artifacts.
+lake build +PEqualNP.Defs checklemma: PASS.
+H1Partial, H2SemanticTests, Helper3StarCount: independent root builds PASS.
+WitnessBasics, GateLedger: pinned Lean builds and independent source review PASS.
+RootEdgeCount: pinned Lean build PASS; independent source and semantic review PASS.
+RootEdgeCount proves only E.card <= 2*OR-gate-count from the posted C4-free, IsAO2, and served-star assumptions.
+RootEdgeCount SHA256: 51eaedf4bad462827b2235c3dd3600a01f10a67b5e87812a110f0b676cccf106
+Official full-gap checker: not run, because no full candidate exists.
+Initial gap-list reduction guard: REFUSED, row lacks reductions:true.
+
+Sub-agents: external helper-1, helper-2, helper-3; local independent_audit, restore_lean, bipartite_refutation. Six additional external helpers assigned but not yet responsive.
+TIMING total=23.1 subagents=6
