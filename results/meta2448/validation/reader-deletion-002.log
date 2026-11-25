@@ -1,0 +1,107 @@
+import took 1.31s
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+tactic execution of Lean.Parser.Tactic.simpAll took 167ms
+simp took 113ms
+simp took 116ms
+simp took 103ms
+simp took 103ms
+simp took 114ms
+simp took 101ms
+simp took 107ms
+simp took 115ms
+simp took 152ms
+simp took 109ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+typeclass inference of Nonempty took 120ms
+typeclass inference of Nonempty took 134ms
+simp took 584ms
+simp took 421ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:341:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a + b - c - d ≥ 0
+  a + b - d - e ≤ -1
+where
+ a := ↑pre.length
+ b := ↑post.length
+ c := ↑(elim n post ((List.ofFn fun i => Sum.inr ↑i) ++ [Sum.inl false], pre)).2.length
+ d := ↑(readerCount (n + pre.length) post)
+ e := ↑(elim n post (seed n pre)).2.length
+cumulative profiling times:
+	attribute application 0.466ms
+	blocked (unaccounted) 267ms
+	compilation (IR) 1.39ms
+	compilation (LCNF base) 35.9ms
+	compilation (LCNF impure) 16.8ms
+	compilation (LCNF mono) 17.7ms
+	congr simp thm 52.7ms
+	declTypeLinter 25.8ms
+	elaboration 560ms
+	fix level params 3.39ms
+	import 1.31s
+	initialization 36.8ms
+	instantiate metavars 59.3ms
+	interpretation 829ms
+	let-to-have transformation 0.5ms
+	linting 145ms
+	module linting 0.0262ms
+	parsing 77.5ms
+	process pre-definitions 166ms
+	share common exprs 36.9ms
+	simp 7.48s
+	tactic execution 2.05s
+	tacticAnalysis 46.8ms
+	type checking 390ms
+	typeclass inference 1.65s
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 8.03170537099868
+USER_SECONDS 8.265473
+SYS_SECONDS 1.179099
+PEAK_RSS_KIB 2953796
+PEAK_CGROUP_BYTES 4723605504

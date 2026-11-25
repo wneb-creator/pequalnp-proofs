@@ -1,0 +1,88 @@
+import took 1.71s
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+tactic execution of Lean.Parser.Tactic.simpAll took 136ms
+simp took 168ms
+simp took 106ms
+simp took 153ms
+simp took 153ms
+simp took 110ms
+simp took 102ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+simp took 122ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 268ms
+simp took 273ms
+cumulative profiling times:
+	.olean serialization 69.3ms
+	attribute application 0.364ms
+	blocked (unaccounted) 253ms
+	compilation (IR) 1.08ms
+	compilation (LCNF base) 19.4ms
+	compilation (LCNF impure) 19.9ms
+	compilation (LCNF mono) 14.3ms
+	congr simp thm 105ms
+	declTypeLinter 21.1ms
+	elaboration 300ms
+	fix level params 3.19ms
+	import 1.71s
+	initialization 35.4ms
+	instantiate metavars 20.4ms
+	interpretation 769ms
+	let-to-have transformation 0.388ms
+	linting 141ms
+	module linting 0.0208ms
+	parsing 20.1ms
+	process pre-definitions 56.5ms
+	share common exprs 43.5ms
+	simp 6.24s
+	tactic execution 1.69s
+	tacticAnalysis 21.7ms
+	type checking 429ms
+	typeclass inference 1.12s
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 9.513029978999839
+USER_SECONDS 7.905922
+SYS_SECONDS 1.673239
+PEAK_RSS_KIB 2961760
+PEAK_CGROUP_BYTES 4751204352

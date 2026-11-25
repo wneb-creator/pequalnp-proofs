@@ -1,0 +1,135 @@
+import took 9.95s
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:99:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:101:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:103:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+tactic execution of Lean.Parser.Tactic.simpAll took 180ms
+simp took 164ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:130:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:136:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:270:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:272:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:311:66: error: Application type mismatch: The argument
+  hn.right
+has type
+  g.op = GateOp.not → g.inputs.length ≤ 1
+but is expected to have type
+  g.op = GateOp.not → (List.map (fun i => acc.1.getD i (Sum.inl false)) g.inputs).length ≤ 1
+in the application
+  simplify_count g.op (n + acc.2.length) (List.map (fun i => acc.1.getD i (Sum.inl false)) g.inputs) hn.left.left ?m.182
+    hn.right
+simp took 884ms
+simp took 465ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:326:3: error: typeclass instance problem is stuck
+  HAppend (List (?m.12 ⊕ Fin (n + pre.length))) (List (Bool ⊕ ?m.16)) (List Stat)
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and second type arguments to `HAppend` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:336:5: error: unsolved goals
+n : ℕ
+pre post : List Gate
+hmono : ∀ g ∈ post, MonoGate g
+⊢ n + pre.length < (sorry n pre).1.length
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:336:22: error: unsolved goals
+n : ℕ
+pre post : List Gate
+hmono : ∀ g ∈ post, MonoGate g
+⊢ (sorry n pre).1[n + pre.length]?.getD (Sum.inl false) = Sum.inl false
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:336:14: warning: declaration uses `sorry`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:345:10: error: unsolved goals
+n : ℕ
+pre : List Gate
+x : Fin n → Bool
+hl : (wiresFrom pre (List.ofFn x)).length = n + pre.length
+⊢ (sorry n pre).1.length = n + pre.length + 1
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:350:34: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:353:33: error: Type mismatch: After simplification, term
+  hi
+ has type
+  ¬i = n + pre.length
+but is expected to have type
+  ¬i = (wiresFrom pre (List.ofFn x)).length
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:353:75: error: Type mismatch: After simplification, term
+  hi
+ has type
+  ¬i = n + pre.length
+but is expected to have type
+  ¬?m.90 = List.length ?m.87
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:345:19: warning: declaration uses `sorry`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletion.lean:378:75: error: Application type mismatch: The argument
+  hpre
+has type
+  ∀ g ∈ pre, MonoGate g
+but is expected to have type
+  ∀ g ∈ (seed n pre).2, MonoGate g
+in the application
+  elim_mono n post (seed n pre) hpost hpre
+cumulative profiling times:
+	attribute application 0.608ms
+	blocked (unaccounted) 341ms
+	compilation (IR) 6.33ms
+	compilation (LCNF base) 50.3ms
+	compilation (LCNF impure) 32.4ms
+	compilation (LCNF mono) 80.7ms
+	congr simp thm 37.8ms
+	declTypeLinter 72.2ms
+	elaboration 354ms
+	fix level params 23.6ms
+	import 9.95s
+	initialization 57.7ms
+	instantiate metavars 20.4ms
+	interpretation 948ms
+	let-to-have transformation 0.324ms
+	linting 174ms
+	module linting 0.0737ms
+	parsing 18.9ms
+	process pre-definitions 110ms
+	share common exprs 28.3ms
+	simp 5.96s
+	tactic execution 1.48s
+	tacticAnalysis 33.4ms
+	type checking 365ms
+	typeclass inference 1.18s
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 20.023125920000894
+USER_SECONDS 11.0024
+SYS_SECONDS 3.669773
+PEAK_RSS_KIB 2950408
+PEAK_CGROUP_BYTES 4728492032

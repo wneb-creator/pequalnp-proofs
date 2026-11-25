@@ -1,0 +1,15 @@
+{
+  "review": "PASS exact compiled partial and full attempt history",
+  "source": "results/meta2448/checked/reader-deletion.lean",
+  "sha256": "5290542f7c2e0783f6b28c17a3cde6495875413a7ab55c1d498ac7715bc0f3ed",
+  "lines": 427,
+  "build_exit": 0,
+  "wall_seconds": 9.513029978999839,
+  "failed_attempts": [
+    "001: elaboration/type errors, exit1",
+    "002: arithmetic proof error, exit1"
+  ],
+  "scope": "Actual Monotone2 circuit computes the forced-false cofactor. The removed gate and each direct reader cost no emitted gate; zero-input rejection excludes a true constant output. Three direct readers therefore save at least four gates. This does not prove original-function preservation, a graph normalization, appended repair, or a minimum-star-profile theorem.",
+  "format": "OnlyDefs; no prohibited proof escapes, strings, root qualification or custom datatype/instance. Uses Sum for constant/wire statuses.",
+  "dependency": "Self-contained checked source; evolving working ReaderDeletion.lean excluded from this immutable manifest."
+}

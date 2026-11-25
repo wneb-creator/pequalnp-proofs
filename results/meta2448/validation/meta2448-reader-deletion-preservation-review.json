@@ -1,0 +1,56 @@
+{
+  "review": "PASS exact compiled partial and full attempt history",
+  "scope": "Actual Monotone2 circuit computes the forced-false cofactor. The removed gate and each direct reader cost no emitted gate; zero-input rejection excludes a true constant output. Three direct readers therefore save at least four gates. This does not prove original-function preservation, a graph normalization, appended repair, or a minimum-star-profile theorem.",
+  "files": [
+    {
+      "path": "results/meta2448/checked/reader-deletion.lean",
+      "sha256": "5290542f7c2e0783f6b28c17a3cde6495875413a7ab55c1d498ac7715bc0f3ed",
+      "bytes": 19269
+    },
+    {
+      "path": "results/meta2448/reader-deletion-independent-review.json",
+      "sha256": "e3d3538f45117124193fe739defb6cde152b0791863fa8bb7bf68c254a5a0415",
+      "bytes": 1785
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-result.json",
+      "sha256": "af6d6f58ceb9b565a11efd36c765aa10798ed0c011c023146cd087542d8d604c",
+      "bytes": 477
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-001.log",
+      "sha256": "31d44484703eb390b3df9d9e812f93265e738123ed63a4d29007411262d6de8d",
+      "bytes": 6895
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-001.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-002.log",
+      "sha256": "61987b851c7837c437ccfe766eef9385be71ec0b91ae30fb0ce2aef7eef6df95",
+      "bytes": 4639
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-002.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-003.log",
+      "sha256": "fe999e16d9cedeaf51846e7b3d88b564b4c01dc8f6325bc54cd9f0bdf275291d",
+      "bytes": 4049
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-003.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-preservation-independent-review.json",
+      "sha256": "b001d4dae0996371b8f53f77482e8863336e8e1d7274ae818c53ac018f6e5ee7",
+      "bytes": 1045
+    }
+  ]
+}

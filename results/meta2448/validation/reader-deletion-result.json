@@ -1,0 +1,8 @@
+{
+  "source": "results/meta2448/checked/reader-deletion.lean",
+  "sha256": "5290542f7c2e0783f6b28c17a3cde6495875413a7ab55c1d498ac7715bc0f3ed",
+  "lines": 427,
+  "exit": 0,
+  "log": "results/meta2448/validation/reader-deletion-003.log",
+  "scope": "Actual Monotone2 circuit for forced-false cofactor, with simultaneous direct-reader deletion count; three readers save at least four total gates. Does not yet append H, prove a graph normalization or preserve later ownership."
+}

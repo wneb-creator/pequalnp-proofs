@@ -1,0 +1,21 @@
+{
+  "source": "results/meta2448/checked/reader-deletion.lean",
+  "sha256": "5290542f7c2e0783f6b28c17a3cde6495875413a7ab55c1d498ac7715bc0f3ed",
+  "status": "Independent mathematical and source review PASS at compiled exact hash",
+  "reviewer": "/root/or_lower_bound",
+  "scope": "Forcing one gate output to false and propagating constants produces an actual Monotone2 circuit, deleting that gate and all direct readers. It computes the forced cofactor, not necessarily the original graph function. No graph normalization or bad-pair decrease theorem is claimed.",
+  "findings": [
+    "The seed retains the original prefix and uses a constant-false status for the removed gate; original forward reads in the prefix remain false.",
+    "Every suffix gate reading that fixed old wire emits no gate, and each other suffix gate emits at most one; readerCount counts distinct gate occurrences rather than duplicate operands.",
+    "The invariant transports every old forced wire value to a valid new status, including invalid reads via the false default.",
+    "The output uses a valid surviving wire or an out-of-range false index. The explicit zero-input premise excludes a constant-true output without paying for a new gate.",
+    "three_readers_delete_four correctly translates the list bound to Circuit.size under the exact gate-list decomposition.",
+    "The emitted-origin value-decreasing correspondence is mathematically available but not formalized by this module; later appending gates must handle its false-output sentinel explicitly."
+  ],
+  "validation": "Full validation/reader-deletion-003.log has EXIT 0, RESOURCE_STOPPED False; warnings are tactic-linter notices.",
+  "format": {
+    "no_root_text": true,
+    "no_double_quotes": true,
+    "no_custom_inductive": true
+  }
+}
