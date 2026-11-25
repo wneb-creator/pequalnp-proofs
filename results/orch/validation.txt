@@ -61,3 +61,6 @@ L-meta-1884 additional partials compiled and independently reviewed by root: exa
 ExpandednamedL_meta_1884.lean now205lines. lakebuild passes(5149jobs), complete streams retained. Independentreviewstatus_review approvedallvertexcofactorisomorphisms andnoAND/ORfunnel facts. Prepended-NOT bridge171lines independentlycompiled/reviewed byledger_proof; ordinary≥16nonNOT remainsa premise ofthat smallsnapshot, largeracceptedcertificatebeingadapted.
 Rootrestricted mask-insertion search:12 canonicalPv16starformulas,23232 planpairs, full1024inputs each, no candidate. Independently reviewed bystatus_review; no generalexhaustiveness claim.
 TIMING total=86.4 subagents=6
+
+PetersenkernelSATbridge2598lines compiled and independently approvedbystatus_review; SHA256a485c32e2e51e9bdd8999f0195a0fa6d0b31d2356a9e8a40e18b2284e02841c3. ReusesprojectLibrary/LRAT checkerandnormalization copiedunderownnamespace; exactcorrelatedfreeNOTrowsverifiedarithmetically. BothbridgesrequireUNSATasexplicitpremise. NoUNSATcertificateorfullproof claimed.
+TIMING total=88.7 subagents=6
