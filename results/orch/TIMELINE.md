@@ -63,3 +63,4 @@
 - 2026-11-25 20:46 UTC: graph-only deletion/minimum-cover partial passedLean; independentred-teamreviewPASS.
 - 2026-11-25 20:48 UTC: exactAO2upper plus conditionalpeel combined namedfile lakebuildPASS, independentreviewPASS. General lowerbound remainsopen.
 - 2026-11-25T20:53:44.850291+00:00: preservedcheckedConverseandRestrictpartials afterindependentreview; targetfullstatementstillopen.
+- 2026-11-25T20:54:41.913502+00:00: Heawoodgraphsidecertificatecompiledandindependentlyreviewed; preservingpartial.
