@@ -17,3 +17,5 @@
 - 2026-11-25T16:30:36.624997+00:00: selected-terminal structural budget compiled and independently reviewed; preserving while testing stronger accounting of positive AND filters.
 - 2026-11-25T16:30:59Z: automatic renewal unexpectedly returned410; last successful renewal at16:25:59 advertised expiry16:45:59.344Z. Root discovered loss during manual pre-build renewal16:32:37, repeated curl-si and paused team.
 - 2026-11-25T16:33:48.211226+00:00: preserving remaining completed artifacts before required410 recovery request.
+- 2026-11-25T16:35Z: recovery assignedL-meta-1884 with a newlease; allagents reassigned Petersen strategies.
+- 2026-11-25T16:38:18.452392+00:00: firstPetersen finitegraphpartial compiled and independently reviewed; preserving immediately.

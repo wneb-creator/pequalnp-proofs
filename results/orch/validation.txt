@@ -52,3 +52,6 @@ CNF score stress-test artifacts retained; solver/finite computations do not cons
 Sub-agents: 6
 TIMING total=71.2 subagents=6
 Strengthened selected-terminal structural bound2B+M+J<=size+1 compiled in527lines; SHA256edad61d15df9280dda64d059d99b5ec4b67782ea990f2e3a72e4ba2cf396e360. Independently reviewed and compiled by ledger_proof. No semantic E+tau lower bound claimed.
+
+Current assigned gap L-meta-1884 after recovery; previous L-meta-4970 no longer held. Named file L_meta_1884.lean contains35lines proving finite pivotal probes only, not the target theorem. lake build PEqualNP.Outside.L_meta_1884 passed(5149jobs), full streams in gap-1884/first-build.*. Independentpartialreview approved by status_review and root. Checkeragainstpostedstatement not run; no PR.
+TIMING total=75.7 subagents=6
