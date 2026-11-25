@@ -1,7 +1,7 @@
 L-meta-4970 PARTIAL ONLY
-Integrated 690-line helper snapshot compiled in the named module. Posted theorem not yet proved.
+Integrated 1081-line helper snapshot compiled in the named module. Posted theorem not yet proved.
 Build: PASS, named module; full log in partial-build.txt.
 Checker: NOT RUN; helper-only file has no final theorem. Full Mathlib cache also exceeds available disk.
 Independent review: PASS for archival partial push. Guard correctly refuses missing final theorem.
-Sub-agents: 5 (status review, toolchain setup, counting, lemma search/semantics, counterexample search)
-TIMING total=7.0 subagents=5
+Sub-agents: 6 (status review, toolchain setup, counting, lemma search/semantics, counterexample search, independent global argument)
+TIMING total=17.8 subagents=6
