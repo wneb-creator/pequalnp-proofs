@@ -1,0 +1,7 @@
+UTC 2026-11-25T15:44:05.328065+00:00
+disk before usage(total=8417406976, used=6774542336, free=1196593152)
+Removed post-baseline generated cache files 33267 bytes 2021351931
+Removing disposable archive stage1.tar.zst 524669647 d8b10c0e6355aa3d8274e5131423bd77b758a68701f6d3d58c7bd9a6dbda421d
+Removing disposable archive stage2.tar.zst 482126565 2d3fdd7a07abc66688657626c3ecaa942b37da053084c2467160c873f9dc7182
+disk after usage(total=8417406976, used=3640639488, free=4330496000)
+RAM MemAvailable:    5337176 kB

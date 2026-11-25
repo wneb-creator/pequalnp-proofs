@@ -1,0 +1,145 @@
+info: plausible: materializing new dependency
+info: plausible: fetching revision '054b228ce0ac61d767c6e71ba73a24728f191b72' from https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '054b228ce0ac61d767c6e71ba73a24728f191b72'
+info: LeanSearchClient: materializing new dependency
+info: LeanSearchClient: fetching revision '4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9' from https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision '4fb58e749ef3fc0395fe274f6cab70c2ea85f1c9'
+info: importGraph: materializing new dependency
+info: importGraph: fetching revision '8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0' from https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision '8370c640afcd1cc3fb1cb9bf1560cc66eafee5e0'
+info: proofwidgets: materializing new dependency
+info: proofwidgets: fetching revision '2f0f3520daeac2d9310ff25b7a877a0e5cdaa203' from https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '2f0f3520daeac2d9310ff25b7a877a0e5cdaa203'
+info: aesop: materializing new dependency
+info: aesop: fetching revision '66ff77cf0c4c898799e4b94d14db55f7a02d0c5a' from https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '66ff77cf0c4c898799e4b94d14db55f7a02d0c5a'
+info: Qq: materializing new dependency
+info: Qq: fetching revision 'ff055a2fcc835935e0ae607339b455a5f5896b4b' from https://github.com/leanprover-community/quote4
+info: Qq: checking out revision 'ff055a2fcc835935e0ae607339b455a5f5896b4b'
+info: batteries: materializing new dependency
+info: batteries: fetching revision 'b4b25a3886a16daacaf6615c2eea7170a6e8f458' from https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'b4b25a3886a16daacaf6615c2eea7170a6e8f458'
+info: Cli: materializing new dependency
+info: Cli: fetching revision '50810f72af7618bee62fe9800dc26e806c188703' from https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision '50810f72af7618bee62fe9800dc26e806c188703'
+✔ [1/7] Built Cache.Cli (300ms)
+✔ [3/7] Built Cache.Lean (392ms)
+✔ [8/61] Built Cache.Cli:c.o (279ms)
+✔ [9/61] Built Cache.Env (473ms)
+✔ [11/61] Built Cache.Lean:c.o (296ms)
+✔ [12/61] Built Cache.Env:c.o (283ms)
+✔ [13/61] Built Batteries.Tactic.OpenPrivate (1.0s)
+✔ [15/61] Built Cache.Infra (390ms)
+✔ [17/61] Built Cache.Infra:c.o (204ms)
+✔ [18/61] Built Cache.Location (575ms)
+✔ [20/61] Built Cache.Location:c.o (425ms)
+✔ [21/61] Built Batteries.Tactic.OpenPrivate:c.o (1.4s)
+✔ [22/61] Built Cache.IO (1.4s)
+✔ [24/61] Built Cache.Hashing (437ms)
+✔ [26/61] Built Cache.Hashing:c.o (803ms)
+✔ [27/61] Built Cache.IO:c.o (1.8s)
+✔ [28/61] Built Cache.Requests (1.9s)
+✔ [30/61] Built Cache.Marker (262ms)
+✔ [32/61] Built Cache.Marker:c.o (228ms)
+✔ [33/61] Built Cache.Upload.Curl (448ms)
+✔ [35/61] Built Cache.Upload.Rclone (518ms)
+✔ [37/61] Built Cache.Query (682ms)
+✔ [38/61] Built Cache.Upload.Curl:c.o (375ms)
+✔ [40/61] Built Cache.Upload.Rclone:c.o (403ms)
+✔ [41/61] Built Cache.Upload.Azure (450ms)
+✔ [43/61] Built Cache.Query:c.o (396ms)
+✔ [44/61] Built Cache.Upload.S3 (571ms)
+✔ [46/61] Built Cache.Upload.Azure:c.o (153ms)
+✔ [47/61] Built Cache.Warning (591ms)
+✔ [49/61] Built Cache.Upload.S3:c.o (469ms)
+✔ [50/61] Built Cache.Upload.Defs (467ms)
+✔ [52/61] Built Cache.Warning:c.o (433ms)
+✔ [53/61] Built Cache.Upload.Defs:c.o (200ms)
+✔ [54/61] Built Cache.Upload (295ms)
+✔ [56/61] Built Cache.Requests:c.o (3.7s)
+✔ [57/61] Built Cache.Upload:c.o (101ms)
+✔ [58/61] Built Cache.Main (660ms)
+✔ [60/61] Built Cache.Main:c.o (816ms)
+✔ [61/61] Built cache:exe (766ms)
+Mathlib4 caching CLI
+Usage: cache [OPTIONS] [COMMAND]
+
+Commands:
+  get  [ARGS]    Download linked files missing on the local cache and decompress
+  get! [ARGS]    Download all linked files and decompress
+  get- [ARGS]    Download linked files missing to the local cache, but do not decompress
+  pack           Compress non-compressed build files into the local cache
+  pack!          Compress build files into the local cache (no skipping)
+  unpack         Decompress linked already downloaded files
+  unpack!        Decompress linked already downloaded files (no skipping)
+  clean          Delete non-linked files
+  clean!         Delete everything on the local cache
+  lookup [ARGS]  Show information about cache files for the given Lean files
+  query [REF]    Without REF: find the most recent cached Mathlib commit.
+                 With REF (e.g. HEAD, a SHA): boolean probe; exit 0 if cached, 1 if not.
+
+  # Staging
+  stage        Move files not already 'pack'ed to an output directory
+  stage!       Move all linked cache files to an output directory
+  unstage      Copy *.ltar files from the staging directory to the local cache
+  unstage!     Copy *.ltar files from the staging directory to the local cache (overwrite existing files)
+
+The upload commands (put, put!, put-staged) and their options and variables
+are internal to mathlib CI. To operate an external cache, 'stage' the
+artifacts, upload the staging directory under your endpoint's `f/` path with
+any storage client, and serve it to readers via MATHLIB_CACHE_GET_URL.
+
+Options:
+  --repo=OWNER/REPO  Override the repository to fetch cache for
+  --staging-dir=<output-directory> Required for 'stage', 'stage!', 'unstage'
+                     and 'unstage!': staging directory.
+  --cache-from=LIST  Comma-separated, trust-ordered list of containers to read from
+                     (e.g. `--cache-from=master,forks`). Overrides the per-repo default.
+                     Known containers: master, forks.
+  --scope=REF        The per-commit namespace (any git ref `git rev-parse`
+                     accepts: HEAD, branch, tag, SHA). For reads: the fork
+                     SHA-scoped namespace to read instead of the default, the
+                     Mathlib checkout's HEAD. Refs resolve in that checkout.
+                     Use the SHA reported by `cache query`.
+                     Reading another commit's scope means trusting the
+                     artifacts produced at that commit; `cache get` prints a
+                     security notice when the scope differs from HEAD.
+  --unsafe           (get only) Instead of pinning one --scope, automatically walk
+                     Mathlib's history and try the most recent cached fork
+                     commits as scopes, in order, until the cache is satisfied.
+                     Trusts the artifacts of every commit it tries. Mutually
+                     exclusive with --scope; always prints a security notice.
+  --unsafe-window=N  Number of cached fork commits --unsafe will try (default
+                     1). Implies --unsafe.
+
+* Linked files refer to local cache files with corresponding Lean sources
+* Commands that end with '!' do not skip files: use them manually when a
+  hot-fix must force a re-download, a re-pack, or an overwrite
+
+# The arguments for 'get', 'get!', 'get-' and 'lookup'
+
+'get', 'get!', 'get-' and 'lookup' can process a list of module names or file names.
+
+'get [ARGS]' will only get the cache for the specified Lean files and all files imported by one.
+
+Valid arguments are:
+
+* Module names like 'Mathlib.Init'
+* Module globs like 'Mathlib.Data.+' (find all Lean files inside `Mathlib/Data/`)
+* Module globs like 'Mathlib.Data.*' (both of the above)
+* File names like 'Mathlib/Init.lean'
+* Folder names like 'Mathlib/Data/' (find all Lean files inside `Mathlib/Data/`)
+* With bash's automatic glob expansion one can also write things like
+  'Mathlib/**/Order/*.lean'. However, one would need to write `Mathlib.Data.\*`
+  to prevent glob expansion.
+
+# Environment variables
+
+* MATHLIB_CACHE_DIR       Local cache directory (default: ~/.cache/mathlib)
+* MATHLIB_CACHE_GET_URL   Download from this single URL as a flat namespace.
+                          Allows third parties to use their own cache endpoint.
+                          An empty value means unset.
+* MATHLIB_CACHE_PARALLEL_MAX
+                          Number of simultaneous curl transfers (default: 50).
+                          Keep it well below the open-file limit (`ulimit -n`).
+

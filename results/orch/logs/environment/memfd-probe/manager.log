@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-144/memfd-probe/serve.py", line 18, in <module>
+    fcntl.fcntl(fd, fcntl.F_ADD_SEALS,
+                    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'fcntl' has no attribute 'F_ADD_SEALS'

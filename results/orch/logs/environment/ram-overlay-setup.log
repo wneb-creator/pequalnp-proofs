@@ -1,0 +1,11 @@
+Running: mount --bind /workspace/pequalnp-proofs/lean/.lake /tmp/oec/pequalnp-pilot-144/checker-lower
+mount: /tmp/oec/pequalnp-pilot-144/checker-lower: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-144/start_ram_overlay.py", line 18, in <module>
+    run(['mount', '--bind', lake, lower])
+  File "/tmp/oec/pequalnp-pilot-144/start_ram_overlay.py", line 14, in run
+    subprocess.run(list(map(str, args)), check=True)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['mount', '--bind', '/workspace/pequalnp-proofs/lean/.lake', '/tmp/oec/pequalnp-pilot-144/checker-lower']' returned non-zero exit status 32.

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-25T15:45:01.782575+00:00",
+  "stages": [
+    {
+      "name": "stage1",
+      "status": "restored-live",
+      "files": 2854,
+      "bytes": 2147489644,
+      "pid": 10297,
+      "process_exists": false
+    },
+    {
+      "name": "stage2",
+      "status": "restored-live",
+      "files": 2481,
+      "bytes": 1610606688,
+      "pid": 12834,
+      "process_exists": false
+    }
+  ],
+  "mathlib_source_modules": 8712,
+  "mathlib_cached_modules": 2547,
+  "Mathlib_umbrella_present": false,
+  "full_cache_max_modules": 5084,
+  "disk": {
+    "total": 8417406976,
+    "used": 7410302976,
+    "free": 560832512
+  },
+  "mem_available": "MemAvailable:    9362820 kB",
+  "no_build_preflight_pass": true,
+  "proof_sources_modified": false
+}

@@ -1,0 +1,7 @@
+Batch 20261125T152849Z missing before 6523 roots 50
+Batch completed 0 missing after 6165
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         7.9G  5.2G  2.3G  70% /
+               total        used        free      shared  buff/cache   available
+Mem:           9.7Gi       2.9Gi       3.9Gi       2.0Gi       5.2Gi       6.8Gi
+Swap:             0B          0B          0B

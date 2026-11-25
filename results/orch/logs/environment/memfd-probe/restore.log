@@ -1,0 +1,2 @@
+Manager shutdown makes all three links unavailable as expected.
+All disposable artifacts restored atomically from retained copies.

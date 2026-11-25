@@ -37,3 +37,28 @@ Second lease loss:2590 beat returned410 before lastreportedexpiry15:40:39; exact
 Draft Compression and Rename sources are archived but NOT claimed compiled; interrupted solver runs have no verdict.
 Sub-agents: 6 — repo_recon, structural_proof, dirty_blocks, counterexample, lemma_search, sat_search.
 TIMING total=33.4 subagents=6
+
+Same-gap recovery returned gap:null because checker backlog; nullcount1. Exact message preserved in logs/desk-recovery-2590.json. Proof work paused pending lease.
+
+Special task verified: L-meta-1035 is already refuted by checked L-meta-1036; its own conjecture status is misleading. No1035lease/work undertaken.
+
+Final outcome: PARTIAL RESULTS ONLY; no complete proof or refutation; no PR opened.
+Last fresh lease: L-meta-2590, issued 2026-11-25T15:07:28.124Z. It returned HTTP 410 before the latest reported expiry. No release was called.
+Recovery null count: 3, at 15:27:04, 15:31:43 and 15:36:00 UTC. Full exact messages are in logs/desk-recovery-2590.json, desk-poll-2.json and desk-poll-3.json.
+At 15:40:01 and the one permitted retry at 15:41:08, the desk returned the same L-meta-4970 lease originally issued at 15:22:04.914 UTC. This is another pilot's existing lease. No work, beat or release was performed for it.
+Exact stopping message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+User's explicit existing-lease stopping rule applies; no further polling is authorized under that rule.
+Retrospective correction: the initial L-meta-2583 response also had an older issue time and holding-limit note. It was initially interpreted as an assignment; ownership cannot be attributed to this job. Its checked partials remain preserved, and no release was called.
+
+Named partial builds: PASS for L_meta_2583 and L_meta_2590, each reporting Build completed successfully (5149 jobs).
+Local checker: CHECKER FAULT: the prebuilt Mathlib cache is missing. Exit 3; neither posted theorem was accepted.
+The named files omit the final posted theorem. The branch includes research artifacts and two named partial files, so it must not be presented as a valid single-file proof PR.
+Cleanup was skipped because the local checker could not run. Line counts before/after: L_meta_2583 766/766; L_meta_2590 601/601.
+Both named files are unchanged since their reviewed checkpoints. Full successful build and checker output, source components, failed/interrupted drafts and search logs are committed on this branch.
+Special task: L-meta-1035 is already refuted by checked L-meta-1036. No new refutation was needed.
+Environment closeout: all 5,335 migrated immutable files restored and hash/metadata verified; both memory-file managers stopped safely. Final no-build preflight PASS: All targets up-to-date (5153 jobs). Usable targeted Mathlib cache retained (2,547/8,712 modules); full Mathlib remains unavailable. Complete logs and state are in logs/environment/.
+
+Independent closeout review: lemma_search approved the final documentation; repo_recon approved preservation, and root independently checked the final environment report. No source changes since reviewed commit b32a0e83.
+Sub-agents: 6 — repo_recon, structural_proof, structural_proof/dirty_blocks, counterexample, lemma_search, sat_search.
+TIMING total=53.4 subagents=6
+KIT-MESSAGE-ID msg-dff04cd5f8d997249819b16b

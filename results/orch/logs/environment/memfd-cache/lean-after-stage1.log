@@ -1,0 +1,2 @@
+Lake.Package : Type
+CoeFun.{u, v} (α : Sort u) (γ : outParam (α → Sort v)) : Sort (max (max 1 u) v)
