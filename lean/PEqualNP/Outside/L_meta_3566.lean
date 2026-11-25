@@ -4904,3 +4904,234 @@ lemma erase_alias_family_with_weights (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
     fun W => GateWeight.sum_add_discarded_le_of_gate_embedding C D f hf hOp hVal J hAvoid W⟩
 
 end PEqualNP.Outside.L_meta_3566.Absorption
+
+namespace PEqualNP.Outside.L_meta_3566.JunkPivotal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma correct_of_pivotal_cover_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hFun : circuitFun n C = graphFun G ∅)
+    (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hgop : g.op = GateOp.and ∨ g.op = GateOp.or) (hglen : g.inputs.length = 2)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hPos : ∀ a b : Fin n, G.Adj a b → pivotal C j a b →
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = true)
+    (hLe : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false) :
+    IsAO2 n (SharedRewrite.replace C j g) ∧
+      circuitFun n (SharedRewrite.replace C j g) = graphFun G ∅ ∧
+      (SharedRewrite.replace C j g).size = C.size := by
+  classical
+  have hD := SharedRewrite.replace_ao C hAO j hj g hgop hglen hgback
+  refine ⟨hD, ?_, SharedRewrite.replace_size C j g⟩
+  apply EdgeProfile.eq_of_edges_and_below G _
+  · intro x y hxy hx
+    exact Bool.le_iff_imp.mp
+      (SharedRewrite.circuitFun_monotone n _ hD.1 (fun i => Bool.le_iff_imp.mpr (hxy i))) hx
+  · intro x hx
+    have ht := Bool.le_iff_imp.mp (SharedRewrite.replace_ge n C j hj g hgback hAO.1 x (hLe x)) hx
+    rw [hFun] at ht
+    exact ht
+  · intro a b hab
+    by_cases hp : pivotal C j a b
+    · have hnew := hPos a b hab hp
+      apply Bool.le_iff_imp.mp (SharedRewrite.replace_le n C j hj g hgback hAO.1
+        (pairInput a b) (by rw [hnew]; exact Bool.le_true _))
+      rw [hFun]
+      have he : ∃ u v : Fin n, G.Adj u v ∧ pairInput a b u = true ∧ pairInput a b v = true :=
+        ⟨a, b, hab, by simp [pairInput], by simp [pairInput]⟩
+      simpa [graphFun] using he
+    · have hdisabled : circuitFun n (disable C j) (pairInput a b) = true :=
+        Bool.eq_true_of_not_eq_false hp
+      exact Bool.le_iff_imp.mp (disable_le_replace n C hAO.1 j hj g hgback (pairInput a b))
+        hdisabled
+
+end PEqualNP.Outside.L_meta_3566.JunkPivotal
+
+namespace PEqualNP.Outside.L_meta_3566.InputAlias
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma least_no_input_pivotal_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (u : Fin n)
+    (hDown : ∀ x : Fin n → Bool, x u = true → gateVal n C j x = true)
+    (hPivot : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      pairInput a b u = true) : False := by
+  let g : Gate := ⟨GateOp.and, [u.val, u.val]⟩
+  let D := SharedRewrite.replace C j g
+  have hj' : j < C.gates.length := hj
+  have hback : ∀ i ∈ g.inputs, i < n + j := by
+    intro i hi
+    have hi' : i = u.val := by simpa [g] using hi
+    subst i
+    omega
+  have heval (x : Fin n → Bool) :
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = x u := by
+    simp only [g, GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+      List.all_nil, id_eq, Bool.and_true, Bool.and_self, SharedRewrite.input_val]
+  obtain ⟨hD, hfun, hsize⟩ := JunkPivotal.correct_of_pivotal_cover_le G C hC.1 hC.2.1
+    j hj' g (Or.inl rfl) rfl hback
+    (by intro a b hab hp; rw [heval]; exact hPivot a b hab hp)
+    (by intro x; rw [heval]; exact Bool.le_iff_imp.mpr (hDown x))
+  have hLeast : IsLeastAO G D := by
+    refine ⟨hD, hfun, ?_⟩
+    intro E hE hEFun
+    rw [hsize]
+    exact hC.2.2 E hE hEFun
+  have hjD : j < D.size := by
+    change j < (SharedRewrite.replace C j g).size
+    omega
+  have hjD' : j < D.gates.length := hjD
+  have hgate : gateAt D j = g := by
+    simp [D, SharedRewrite.replace_gateAt C j g hj' j]
+  have ho : D.output < n + D.size :=
+    least_output_bound_of_gate G D hLeast j hjD
+  apply Absorption.least_no_equivalent n G D hLeast j u.val hjD
+    (by have := u.isLt; omega) ho
+  intro x
+  have heq := LeafStep.Pruning.gate_eq D hD j hjD' x
+  simp only [hgate, g, LeafStep.Pruning.isA, LeafStep.Pruning.opv, opnd] at heq
+  change gateVal n D j x = (wireVal n D u.val x && wireVal n D u.val x) at heq
+  have hVal : gateVal n D j x = x u := by
+    simpa only [wireVal, SharedRewrite.input_val, Bool.and_self] using heq
+  simpa only [wireVal, gateVal, SharedRewrite.input_val] using hVal
+
+
+lemma exists_pivotal_edge_avoiding_input {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (u : Fin n)
+    (hDown : ∀ x : Fin n → Bool, x u = true → gateVal n C j x = true) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      pairInput a b u = false := by
+  classical
+  by_contra hnone
+  apply least_no_input_pivotal_cover G C hC j hj u hDown
+  intro a b hab hp
+  apply Bool.eq_true_of_not_eq_false
+  intro hu
+  exact hnone ⟨a, b, hab, hp, hu⟩
+
+end PEqualNP.Outside.L_meta_3566.InputAlias
+
+namespace PEqualNP.Outside.L_meta_3566.InputAlias
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma exists_pivotal_edge_avoiding_singleton {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (u : Fin n)
+    (hu : gateVal n C j (pairInput u u) = true) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      pairInput a b u = false := by
+  apply exists_pivotal_edge_avoiding_input G C hC j hj u
+  intro x hxu
+  apply Bool.le_iff_imp.mp (PureWireSupport.gateVal_monotone n C hC.1.1 j ?_) hu
+  intro i
+  apply Bool.le_iff_imp.mpr
+  intro hi
+  have hiu : i = u := by simpa [pairInput] using hi
+  simpa [hiu] using hxu
+
+end PEqualNP.Outside.L_meta_3566.InputAlias
+
+namespace PEqualNP.Outside.L_meta_3566.OnePureFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def orSet {n : ℕ} (S : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  decide (∃ a ∈ S, x a = true)
+
+lemma orSet_pair {n : ℕ} (S : Finset (Fin n)) (a b : Fin n) :
+    orSet S (pairInput a b) = true ↔ a ∈ S ∨ b ∈ S := by
+  change (decide (∃ u ∈ S, pairInput a b u = true) = true) ↔ _
+  rw [decide_eq_true_eq]
+  constructor
+  · rintro ⟨u, hu, hv⟩
+    have h : u = a ∨ u = b := by simpa [pairInput] using hv
+    rcases h with rfl | rfl
+    · exact Or.inl hu
+    · exact Or.inr hu
+  · rintro (ha | hb)
+    · exact ⟨a, ha, by simp [pairInput]⟩
+    · exact ⟨b, hb, by simp [pairInput]⟩
+
+lemma common_center {n : ℕ} {ι : Type*} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hFour : NoFourCycle G)
+    (color : Fin n → Bool) (S T : Finset (Fin n))
+    (hDisjoint : Disjoint S T) (hMany : 2 ≤ S.card)
+    (hLeft : ∀ a ∈ S, color a = false)
+    (Q : ι → (Fin n → Bool) → Bool)
+    (hPure : ∀ i a b, color a = false → color b = true →
+      Q i (pairInput a b) = Q i (pairInput b b))
+    (hClean : ∀ i x, (orSet S x && orSet T x && Q i x) = true →
+      graphFun G ∅ x = true)
+    (E : Fin n → Fin n → Prop) (hNonempty : ∃ a b, E a b)
+    (hColor : ∀ a b, E a b → color a = false ∧ color b = true)
+    (hOn : ∀ a b, E a b → (orSet S (pairInput a b) && orSet T (pairInput a b)) = true)
+    (hCovered : ∀ a b, E a b → ∃ i, Q i (pairInput a b) = true) :
+    ∃ z, color z = true ∧ z ∈ T ∧ (∀ a ∈ S, G.Adj a z) ∧
+      ∀ a b, E a b → b = z := by
+  have center (a b : Fin n) (hab : E a b) : b ∈ T ∧ ∀ u ∈ S, G.Adj u b := by
+    obtain ⟨haColor, hbColor⟩ := hColor a b hab
+    have hBoth : orSet S (pairInput a b) = true ∧ orSet T (pairInput a b) = true := by
+      simpa using hOn a b hab
+    have hbNot : b ∉ S := by
+      intro hbS
+      have h := hLeft b hbS
+      rw [hbColor] at h
+      exact Bool.noConfusion h
+    have haS : a ∈ S := ((orSet_pair S a b).mp hBoth.1).resolve_right hbNot
+    have haNot : a ∉ T := fun haT => Finset.disjoint_left.mp hDisjoint haS haT
+    have hbT : b ∈ T := ((orSet_pair T a b).mp hBoth.2).resolve_left haNot
+    obtain ⟨i, hQi⟩ := hCovered a b hab
+    have hQb : Q i (pairInput b b) = true := (hPure i a b haColor hbColor).symm.trans hQi
+    refine ⟨hbT, fun u hu => ?_⟩
+    have hSu : orSet S (pairInput u b) = true := (orSet_pair S u b).mpr (Or.inl hu)
+    have hTu : orSet T (pairInput u b) = true := (orSet_pair T u b).mpr (Or.inr hbT)
+    have hQu : Q i (pairInput u b) = true := (hPure i u b (hLeft u hu) hbColor).trans hQb
+    have hF := hClean i (pairInput u b) (by simp [hSu, hTu, hQu])
+    by_contra hAdj
+    rw [SharedExit.graphFun_nonedge_pair G u b hAdj] at hF
+    exact Bool.false_ne_true hF
+  obtain ⟨a, z, haz⟩ := hNonempty
+  obtain ⟨hzT, hzAll⟩ := center a z haz
+  refine ⟨z, (hColor a z haz).2, hzT, hzAll, fun u b hub => ?_⟩
+  by_contra hbz
+  obtain ⟨v, hvS, hNot⟩ := SharedExit.support_has_nonneighbor G hFour z b hbz S hMany
+    (fun v hv => (hzAll v hv).symm)
+  exact hNot ((center u b hub).2 v hvS).symm
+
+lemma clean_star_of_common_center {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (S T : Finset (Fin n)) (z : Fin n)
+    (hz : z ∈ T) (hAdj : ∀ a ∈ S, G.Adj a z)
+    (E : Fin n → Fin n → Prop)
+    (hOn : ∀ a b, E a b → orSet S (pairInput a b) = true)
+    (hCenter : ∀ a b, E a b → b = z) :
+    (∀ x, (orSet S x && x z) = true → graphFun G ∅ x = true) ∧
+    (∀ x, (orSet S x && x z) = true → (orSet S x && orSet T x) = true) ∧
+    (∀ a b, E a b → (orSet S (pairInput a b) && pairInput a b z) = true) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro x hx
+    obtain ⟨hS, hzOn⟩ : orSet S x = true ∧ x z = true := by simpa using hx
+    obtain ⟨a, ha, haOn⟩ : ∃ a ∈ S, x a = true := of_decide_eq_true hS
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨a, z, hAdj a ha, haOn, hzOn⟩
+  · intro x hx
+    obtain ⟨hS, hzOn⟩ : orSet S x = true ∧ x z = true := by simpa using hx
+    have hT : orSet T x = true := by
+      exact decide_eq_true (show ∃ a ∈ T, x a = true from ⟨z, hz, hzOn⟩)
+    simp [hS, hT]
+  · intro a b hab
+    have hbz := hCenter a b hab
+    simp [hOn a b hab, ← hbz, pairInput]
+
+end PEqualNP.Outside.L_meta_3566.OnePureFrontier
