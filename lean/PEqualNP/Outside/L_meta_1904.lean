@@ -2137,4 +2137,581 @@ lemma extremal_excludes_grid {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G
 
 end GridBatchSplice
 
+namespace C6RegionSeed
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def cycleValue (a b c d e v : Bool) : Bool :=
+  ((c && (b || d)) || (v && (a || e))) || ((a && b) || (d && e))
+
+def oldValues (a b c d e v : Bool) : List Bool :=
+  let A := a || e
+  let B := b || d
+  let C := b || e
+  let D := a || d
+  let S := C && D
+  let U := A && S
+  let M₁ := c || U
+  let T₁ := B && M₁
+  let V := B && S
+  let M₂ := v || V
+  let T₂ := A && M₂
+  [A,B,C,D,S,U,M₁,T₁,V,M₂,T₂,T₁ || T₂]
+
+def redirectedValues (a b c d e v : Bool) : List Bool :=
+  let H := cycleValue a b c d e v
+  [a || e,b || d,b || e,a || d,H,H,c,H,H,v,H,H]
+
+lemma old_output (a b c d e v : Bool) :
+    (oldValues a b c d e v).getD 11 false = cycleValue a b c d e v := by
+  cases a <;> cases b <;> cases c <;> cases d <;> cases e <;> cases v <;> rfl
+
+lemma redirect_on_zero (a b c d e v : Bool)
+    (hz : cycleValue a b c d e v = false) (i : Fin 12) :
+    (redirectedValues a b c d e v).getD i.val false = true →
+      (oldValues a b c d e v).getD i.val false = true := by
+  fin_cases i <;> cases a <;> cases b <;> cases c <;> cases d <;>
+    cases e <;> cases v <;> simp_all [cycleValue,oldValues,redirectedValues]
+
+lemma redirect_on_onehot (a b c d e v : Bool)
+    (hone : [a,b,c,d,e,v].count true ≤ 1) :
+    redirectedValues a b c d e v = oldValues a b c d e v := by
+  cases a <;> cases b <;> cases c <;> cases d <;> cases e <;> cases v <;>
+    simp_all [cycleValue,oldValues,redirectedValues]
+
+lemma redirect_on_S_zero (a b c d e v : Bool)
+    (hH : cycleValue a b c d e v = false) (hS : ((b || e) && (a || d)) = false) :
+    redirectedValues a b c d e v = oldValues a b c d e v := by
+  cases a <;> cases b <;> cases c <;> cases d <;> cases e <;> cases v <;>
+    simp_all [cycleValue,oldValues,redirectedValues]
+
+def hit {n : ℕ} (G : SimpleGraph (Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true
+
+lemma cycle_safe {n : ℕ} (G : SimpleGraph (Fin n)) (a b c d e v : Fin n)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a)
+    (x : Fin n → Bool) (h : cycleValue (x a) (x b) (x c) (x d) (x e) (x v) = true) :
+    hit G x := by
+  simp only [cycleValue,Bool.or_eq_true,Bool.and_eq_true] at h
+  rcases h with (⟨hc,hb|hd⟩ | ⟨hv,ha|he⟩) | (⟨ha,hb⟩ | ⟨hd,he⟩)
+  · exact ⟨b,c,hbc,hb,hc⟩
+  · exact ⟨c,d,hcd,hc,hd⟩
+  · exact ⟨v,a,hva,hv,ha⟩
+  · exact ⟨e,v,hev,he,hv⟩
+  · exact ⟨a,b,hab,ha,hb⟩
+  · exact ⟨d,e,hde,hd,he⟩
+
+def seed {n : ℕ} (a b c d e v : Fin n) : Circuit :=
+  ⟨[⟨.or,[a.val,e.val]⟩,⟨.or,[b.val,d.val]⟩,
+    ⟨.or,[b.val,e.val]⟩,⟨.or,[a.val,d.val]⟩,
+    ⟨.and,[c.val,n+1]⟩,⟨.and,[v.val,n]⟩,
+    ⟨.and,[a.val,b.val]⟩,⟨.and,[d.val,e.val]⟩,
+    ⟨.or,[n+4,n+5]⟩,⟨.or,[n+6,n+7]⟩,⟨.or,[n+8,n+9]⟩],n+10⟩
+
+lemma seed_size {n : ℕ} (a b c d e v : Fin n) : (seed a b c d e v).size = 11 := rfl
+
+lemma seed_mono {n : ℕ} (a b c d e v : Fin n) : Monotone2 (seed a b c d e v) := by
+  simp [seed,Monotone2]
+
+lemma primary_value {n : ℕ} (x : Fin n → Bool) (a : Fin n) :
+    (List.ofFn x).getD a.val false = x a := by simp [List.getD,a.isLt]
+
+lemma primary_value_tail {n : ℕ} (x : Fin n → Bool) (a : Fin n) (tail : List Bool) :
+    (List.ofFn x ++ tail).getD a.val false = x a := by
+  rw [List.getD_append _ _ _ _ (by simp)]
+  exact primary_value x a
+
+lemma extra_value_tail {n : ℕ} (x : Fin n → Bool) (tail : List Bool) (j : ℕ) :
+    (List.ofFn x ++ tail).getD (n+j) false = tail.getD j false := by
+  simp [List.getD,List.getElem?_append]
+
+def seedValues (a b c d e v : Bool) : List Bool :=
+  [a || e,b || d,b || e,a || d,
+    c && (b || d),v && (a || e),a && b,d && e,
+    (c && (b || d)) || (v && (a || e)),(a && b) || (d && e),
+    cycleValue a b c d e v]
+
+lemma seed_wires {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool) :
+    (seed a b c d e v).wires (List.ofFn x) =
+      List.ofFn x ++ seedValues (x a) (x b) (x c) (x d) (x e) (x v) := by
+  simp only [seed,seedValues,cycleValue,Circuit.wires,List.foldl_cons,List.foldl_nil,
+    List.map_cons,List.map_nil,GateOp.eval,List.any_cons,List.any_nil,List.all_cons,
+    List.all_nil,Bool.or_false,Bool.and_true,List.append_assoc,primary_value,
+    primary_value_tail,extra_value_tail]
+  simp [List.getD]
+
+lemma seed_gate_value {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool) (j : ℕ) :
+    ((seed a b c d e v).wires (List.ofFn x)).getD (n+j) false =
+      (seedValues (x a) (x b) (x c) (x d) (x e) (x v)).getD j false := by
+  rw [seed_wires,extra_value_tail]
+
+lemma seed_eval {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool) :
+    (seed a b c d e v).eval (List.ofFn x) =
+      cycleValue (x a) (x b) (x c) (x d) (x e) (x v) := by
+  change ((seed a b c d e v).wires (List.ofFn x)).getD (n+10) false = _
+  rw [seed_gate_value]
+  rfl
+
+def slotWire {n : ℕ} (c v : Fin n) (i : Fin 12) : ℕ :=
+  if i.val < 4 then n + i.val else if i.val = 6 then c.val
+  else if i.val = 9 then v.val else n+10
+
+lemma slotWire_bound {n : ℕ} (c v : Fin n) (i : Fin 12) : slotWire c v i < n+11 := by
+  unfold slotWire
+  split_ifs <;> have hc := c.isLt <;> have hv := v.isLt <;> omega
+
+lemma slotWire_value {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool) (i : Fin 12) :
+    ((seed a b c d e v).wires (List.ofFn x)).getD (slotWire c v i) false =
+      (redirectedValues (x a) (x b) (x c) (x d) (x e) (x v)).getD i.val false := by
+  rw [seed_wires]
+  fin_cases i <;> simp [slotWire,seedValues,redirectedValues]
+  · exact primary_value_tail x c _
+  · exact primary_value_tail x v _
+
+lemma seed_safe {n : ℕ} (G : SimpleGraph (Fin n)) (a b c d e v : Fin n)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a) :
+    ∀ j g, (seed a b c d e v).gates[j]? = some g → g.op = .and →
+      ∀ x : Fin n → Bool,
+        ((seed a b c d e v).wires (List.ofFn x)).getD (n+j) false = true → hit G x := by
+  intro j g hj hop x hx
+  have bound : j < 11 := by
+    obtain ⟨hh,_⟩ := List.getElem?_eq_some_iff.mp hj
+    simpa [seed] using hh
+  have hj' : j = 4 ∨ j = 5 ∨ j = 6 ∨ j = 7 := by
+    interval_cases j <;> simp_all [seed] <;> subst g <;> cases hop
+  rcases hj' with rfl|rfl|rfl|rfl <;> rw [seed_gate_value] at hx
+  · change (x c && (x b || x d)) = true at hx
+    simp only [Bool.and_eq_true,Bool.or_eq_true] at hx
+    rcases hx with ⟨hc,hb|hd⟩
+    · exact ⟨b,c,hbc,hb,hc⟩
+    · exact ⟨c,d,hcd,hc,hd⟩
+  · change (x v && (x a || x e)) = true at hx
+    simp only [Bool.and_eq_true,Bool.or_eq_true] at hx
+    rcases hx with ⟨hv,ha|he⟩
+    · exact ⟨v,a,hva,hv,ha⟩
+    · exact ⟨e,v,hev,he,hv⟩
+  · change (x a && x b) = true at hx
+    obtain ⟨ha,hb⟩ := Bool.and_eq_true_iff.mp hx
+    exact ⟨a,b,hab,ha,hb⟩
+  · change (x d && x e) = true at hx
+    obtain ⟨hd,he⟩ := Bool.and_eq_true_iff.mp hx
+    exact ⟨d,e,hde,hd,he⟩
+
+lemma signed_negative {n : ℕ} (G : SimpleGraph (Fin n)) (a b c d e v : Fin n)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a)
+    (x : Fin n → Bool) (hx : ¬ hit G x) (i : Fin 12) :
+    ((seed a b c d e v).wires (List.ofFn x)).getD (slotWire c v i) false = true →
+      (oldValues (x a) (x b) (x c) (x d) (x e) (x v)).getD i.val false = true := by
+  rw [slotWire_value]
+  apply redirect_on_zero
+  apply Bool.eq_false_iff.mpr
+  exact fun h => hx (cycle_safe G a b c d e v hab hbc hcd hde hev hva x h)
+
+lemma signed_onehot {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool)
+    (hone : [x a,x b,x c,x d,x e,x v].count true ≤ 1) (i : Fin 12) :
+    (oldValues (x a) (x b) (x c) (x d) (x e) (x v)).getD i.val false = true →
+      ((seed a b c d e v).wires (List.ofFn x)).getD (slotWire c v i) false = true := by
+  rw [slotWire_value,redirect_on_onehot _ _ _ _ _ _ hone]
+  exact id
+
+lemma signed_S_zero {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool)
+    (hH : cycleValue (x a) (x b) (x c) (x d) (x e) (x v) = false)
+    (hS : ((x b || x e) && (x a || x d)) = false) (i : Fin 12) :
+    (oldValues (x a) (x b) (x c) (x d) (x e) (x v)).getD i.val false = true →
+      ((seed a b c d e v).wires (List.ofFn x)).getD (slotWire c v i) false = true := by
+  rw [slotWire_value,redirect_on_S_zero _ _ _ _ _ _ hH hS]
+  exact id
+
+end C6RegionSeed
+
+namespace BatchRestore
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity BatchSubstitution
+
+def appendOr (n : ℕ) (C : Circuit) (h : ℕ) : Circuit :=
+  ⟨C.gates ++ [⟨.or,[C.output,h]⟩],n+C.gates.length⟩
+
+lemma appendOr_size (n : ℕ) (C : Circuit) (h : ℕ) :
+    (appendOr n C h).size = C.size + 1 := by
+  simp [appendOr,Circuit.size]
+
+lemma appendOr_mono (n : ℕ) (C : Circuit) (h : ℕ) (hC : Monotone2 C) :
+    Monotone2 (appendOr n C h) := by
+  intro g hg
+  simp only [appendOr,List.mem_append,List.mem_singleton] at hg
+  rcases hg with hg|rfl
+  · exact hC g hg
+  · simp
+
+lemma appendOr_eval (n : ℕ) (C : Circuit) (h : ℕ) (x : List Bool)
+    (hx : x.length = n) :
+    (appendOr n C h).eval x = (C.eval x || (C.wires x).getD h false) := by
+  have hl : (run C.gates x).length = n+C.gates.length := by
+    simp [run_length,hx]
+  change (run (C.gates ++ [⟨.or,[C.output,h]⟩]) x).getD
+    (n+C.gates.length) false = _
+  rw [run_append]
+  have hlast : run [⟨.or,[C.output,h]⟩] (run C.gates x) =
+      run C.gates x ++
+        [(run C.gates x).getD C.output false || (run C.gates x).getD h false] := by
+    simp [run,evalGate,GateOp.eval]
+  rw [hlast,← hl]
+  simp [Circuit.eval,Circuit.wires,run,evalGate]
+
+lemma compile_seed_value (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output h : ℕ) (x : List Bool)
+    (hx : x.length = n) (hh : h < n+prebuilt.length) :
+    ((compileCircuit n prebuilt entries output).wires x).getD h false =
+      (run prebuilt x).getD h false := by
+  obtain ⟨mt,gt,hm,hg⟩ := scan_prefix n entries (List.range n,prebuilt)
+  change (run (scan n entries (List.range n,prebuilt)).2 x).getD h false = _
+  rw [hg,run_append]
+  obtain ⟨tail,ht,_⟩ := run_prefix gt (run prebuilt x)
+  apply extends_getD ⟨tail,ht⟩
+  simpa only [run_length,hx] using hh
+
+def restoreCircuit (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output h : ℕ) : Circuit :=
+  appendOr n (compileCircuit n prebuilt entries output) h
+
+lemma restore_eval (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output h : ℕ) (x : List Bool)
+    (hx : x.length = n) (hh : h < n+prebuilt.length) :
+    (restoreCircuit n prebuilt entries output h).eval x =
+      ((compileCircuit n prebuilt entries output).eval x || (run prebuilt x).getD h false) := by
+  rw [restoreCircuit,appendOr_eval n _ h x hx,
+    compile_seed_value n prebuilt entries output h x hx hh]
+
+lemma restore_size (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output h : ℕ) :
+    (restoreCircuit n prebuilt entries output h).size =
+      prebuilt.length + entries.countP (fun e => e.2.isNone) + 1 := by
+  rw [restoreCircuit,appendOr_size,compile_size]
+
+lemma restore_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (prebuilt : List Gate) (entries : List (Gate × Option ℕ)) (output h : ℕ)
+    (hseed : Monotone2 ⟨prebuilt,0⟩)
+    (hsource : Monotone2 ⟨entries.map Prod.fst,output⟩)
+    (correct : Computes G ⟨entries.map Prod.fst,output⟩)
+    (hh : h < n+prebuilt.length)
+    (safe : ∀ x : Fin n → Bool,
+      (run prebuilt (List.ofFn x)).getD h false = true → EdgeTrue G x)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < n+prebuilt.length)
+    (hpositive : ∀ u v, G.Adj u v →
+      (run prebuilt (List.ofFn (LiteralGridRepair.pair u v))).getD h false = false →
+      ∀ j e, entries[j]? = some e → ∀ k, e.2 = some k → Related true
+        ((run (entries.map Prod.fst) (List.ofFn (LiteralGridRepair.pair u v))).getD (n+j) false)
+        ((run prebuilt (List.ofFn (LiteralGridRepair.pair u v))).getD k false))
+    (hnegative : ∀ x : Fin n → Bool, ¬ EdgeTrue G x → ∀ j e,
+      entries[j]? = some e → ∀ k, e.2 = some k → Related false
+        ((run (entries.map Prod.fst) (List.ofFn x)).getD (n+j) false)
+        ((run prebuilt (List.ofFn x)).getD k false)) :
+    let repaired := restoreCircuit n prebuilt entries output h
+    Monotone2 repaired ∧
+      repaired.size = prebuilt.length + entries.countP (fun e => e.2.isNone) + 1 ∧
+      Computes G repaired := by
+  dsimp only
+  have hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or := by
+    intro e he
+    simpa using (hsource e.1 (List.mem_map.mpr ⟨e,he,rfl⟩)).1
+  have hm : Monotone2 (restoreCircuit n prebuilt entries output h) :=
+    appendOr_mono n _ h (compile_mono n prebuilt entries output hseed
+      (fun e he => hsource e.1 (List.mem_map.mpr ⟨e,he,rfl⟩)))
+  refine ⟨hm,restore_size n prebuilt entries output h,?_⟩
+  intro x
+  by_cases hx : EdgeTrue G x
+  · have result : (restoreCircuit n prebuilt entries output h).eval (List.ofFn x) = true := by
+      obtain ⟨u,v,huv,hu,hv⟩ := hx
+      have small : (restoreCircuit n prebuilt entries output h).eval
+          (List.ofFn (LiteralGridRepair.pair u v)) = true := by
+        rw [restore_eval n prebuilt entries output h _ (by simp) hh]
+        by_cases hlocal : (run prebuilt (List.ofFn (LiteralGridRepair.pair u v))).getD h false = true
+        · rw [hlocal]
+          cases (compileCircuit n prebuilt entries output).eval
+            (List.ofFn (LiteralGridRepair.pair u v)) <;> rfl
+        · have hzero : (run prebuilt (List.ofFn (LiteralGridRepair.pair u v))).getD h false = false :=
+            Bool.eq_false_iff.mpr hlocal
+          have hp : EdgeTrue G (LiteralGridRepair.pair u v) :=
+            ⟨u,v,huv,by simp [LiteralGridRepair.pair],by simp [LiteralGridRepair.pair]⟩
+          have old : (Circuit.mk (entries.map Prod.fst) output).eval
+              (List.ofFn (LiteralGridRepair.pair u v)) = true := by
+            rw [correct]
+            simp [hp]
+          have transfer := compile_eval_related true n prebuilt entries output
+            (List.ofFn (LiteralGridRepair.pair u v)) (by simp) hops hbound
+            (hpositive u v huv hzero)
+          simpa only [hzero,Bool.or_false] using transfer old
+      apply BatchGraphCorrect.eval_mono _ hm (LiteralGridRepair.pair u v) x ?_ small
+      intro w hw
+      simp only [LiteralGridRepair.pair,decide_eq_true_eq] at hw
+      rcases hw with rfl|rfl
+      · exact hu
+      · exact hv
+    simpa [hx] using result
+  · have old : (Circuit.mk (entries.map Prod.fst) output).eval (List.ofFn x) = false := by
+      rw [correct]
+      simp [hx]
+    have transfer := compile_eval_related false n prebuilt entries output
+      (List.ofFn x) (by simp) hops hbound (hnegative x hx)
+    have compiledZero : (compileCircuit n prebuilt entries output).eval (List.ofFn x) = false := by
+      apply Bool.eq_false_iff.mpr
+      intro hval
+      have impossible := transfer hval
+      rw [old] at impossible
+      cases impossible
+    have localZero : (run prebuilt (List.ofFn x)).getD h false = false := by
+      apply Bool.eq_false_iff.mpr
+      exact fun hval => hx (safe x hval)
+    have result : (restoreCircuit n prebuilt entries output h).eval (List.ofFn x) = false := by
+      rw [restore_eval n prebuilt entries output h _ (by simp) hh,compiledZero,localZero]
+      rfl
+    simpa [hx] using result
+
+lemma appendOr_prefix_value (n : ℕ) (C : Circuit) (h i : ℕ) (x : List Bool)
+    (hx : x.length = n) (hi : i < n+C.gates.length) :
+    ((appendOr n C h).wires x).getD i false = (C.wires x).getD i false := by
+  change (run (C.gates ++ [⟨.or,[C.output,h]⟩]) x).getD i false = _
+  rw [run_append]
+  obtain ⟨tail,ht,_⟩ := run_prefix [⟨.or,[C.output,h]⟩] (run C.gates x)
+  apply extends_getD ⟨tail,ht⟩
+  simpa only [run_length,hx] using hi
+
+lemma appendOr_safe_iff {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit)
+    (h j : ℕ) (hj : j < C.size) :
+    SafeAt G (appendOr n C h) j ↔ SafeAt G C j := by
+  have hj' : j < C.gates.length := hj
+  constructor
+  · intro safe g entry op x active
+    have newentry : (appendOr n C h).gates[j]? = some g := by
+      simpa only [appendOr,List.getElem?_append_left hj'] using entry
+    apply safe g newentry op x
+    rw [appendOr_prefix_value n C h (n+j) (List.ofFn x) (by simp) (by omega)]
+    exact active
+  · intro safe g entry op x active
+    have oldentry : C.gates[j]? = some g := by
+      simpa only [appendOr,List.getElem?_append_left hj'] using entry
+    apply safe g oldentry op x
+    rw [appendOr_prefix_value n C h (n+j) (List.ofFn x) (by simp) (by omega)] at active
+    exact active
+
+lemma appendOr_badSet {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit) (h : ℕ) :
+    badSet G (appendOr n C h) = badSet G C := by
+  classical
+  ext j
+  rw [mem_badSet,mem_badSet,appendOr_size]
+  constructor
+  · rintro ⟨bound,bad⟩
+    by_cases hj : j < C.size
+    · exact ⟨hj,fun safe => bad ((appendOr_safe_iff G C h j hj).mpr safe)⟩
+    · have he : j = C.size := by omega
+      subst j
+      exfalso
+      apply bad
+      intro g entry op
+      have hg : g = ⟨.or,[C.output,h]⟩ := by
+        simpa [appendOr,Circuit.size] using entry.symm
+      simp [hg] at op
+  · rintro ⟨bound,bad⟩
+    exact ⟨by omega,fun safe => bad ((appendOr_safe_iff G C h j bound).mp safe)⟩
+
+lemma restore_same_size (n : ℕ) (prebuilt : List Gate)
+    (entries : List (Gate × Option ℕ)) (output h : ℕ)
+    (count : entries.countP (fun e => e.2.isSome) = prebuilt.length + 1) :
+    (restoreCircuit n prebuilt entries output h).size =
+      (Circuit.mk (entries.map Prod.fst) output).size := by
+  rw [restore_size]
+  have partition := copy_skip_partition entries
+  simp only [Circuit.size,List.length_map]
+  omega
+
+lemma restore_bad_count_lt {n : ℕ} (G : SimpleGraph (Fin n))
+    (prebuilt : List Gate) (entries : List (Gate × Option ℕ)) (output h : ℕ)
+    (seedSafe : ∀ j, SafeAt G ⟨prebuilt,0⟩ j)
+    (hops : ∀ e ∈ entries, e.1.op = .and ∨ e.1.op = .or)
+    (hbound : ∀ e ∈ entries, ∀ k, e.2 = some k → k < n+prebuilt.length)
+    (hnegative : ∀ x : Fin n → Bool, ¬ EdgeTrue G x → ∀ j e,
+      entries[j]? = some e → ∀ k, e.2 = some k → Related false
+        ((run (entries.map Prod.fst) (List.ofFn x)).getD (n+j) false)
+        ((run prebuilt (List.ofFn x)).getD k false))
+    (i : ℕ) (e : Gate × Option ℕ) (k : ℕ)
+    (entry : entries[i]? = some e) (skipped : e.2 = some k)
+    (bad : i ∈ badSet G ⟨entries.map Prod.fst,output⟩) :
+    (badSet G (restoreCircuit n prebuilt entries output h)).card <
+      (badSet G ⟨entries.map Prod.fst,output⟩).card := by
+  rw [restoreCircuit,appendOr_badSet]
+  exact BatchDirtyTransfer.compiled_bad_count_lt G prebuilt entries output seedSafe hops
+    hbound hnegative i e k entry skipped bad
+
+end BatchRestore
+
+namespace CycleBatchSplice
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open BatchSubstitution BatchRestore C6RegionSeed
+
+def MatchesCycle {n : ℕ} (a b c d e v : Fin n)
+    (entries : List (Gate × Option ℕ)) : Prop :=
+  ∀ j entry, entries[j]? = some entry → ∀ k, entry.2 = some k →
+    ∃ slot : Fin 12, k = slotWire c v slot ∧
+      ∀ x : Fin n → Bool,
+        (run (entries.map Prod.fst) (List.ofFn x)).getD (n+j) false =
+          (oldValues (x a) (x b) (x c) (x d) (x e) (x v)).getD slot.val false
+
+lemma local_value {n : ℕ} (a b c d e v : Fin n) (x : Fin n → Bool) :
+    (run (seed a b c d e v).gates (List.ofFn x)).getD (n+10) false =
+      cycleValue (x a) (x b) (x c) (x d) (x e) (x v) :=
+  seed_eval a b c d e v x
+
+lemma s_zero_outside_edge {n : ℕ} (G : SimpleGraph (Fin n))
+    (a b c d e v : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hev : G.Adj e v) (hva : G.Adj v a) (hae : a ≠ e) (hbd : b ≠ d)
+    (u w : Fin n) (huw : G.Adj u w)
+    (hzero : cycleValue (LiteralGridRepair.pair u w a) (LiteralGridRepair.pair u w b)
+      (LiteralGridRepair.pair u w c) (LiteralGridRepair.pair u w d)
+      (LiteralGridRepair.pair u w e) (LiteralGridRepair.pair u w v) = false) :
+    ((LiteralGridRepair.pair u w b || LiteralGridRepair.pair u w e) &&
+      (LiteralGridRepair.pair u w a || LiteralGridRepair.pair u w d)) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro active
+  obtain ⟨left,right⟩ := Bool.and_eq_true_iff.mp active
+  rcases Bool.or_eq_true_iff.mp left with hb | he <;>
+    rcases Bool.or_eq_true_iff.mp right with ha | hd
+  · have yes : cycleValue (LiteralGridRepair.pair u w a) (LiteralGridRepair.pair u w b)
+        (LiteralGridRepair.pair u w c) (LiteralGridRepair.pair u w d)
+        (LiteralGridRepair.pair u w e) (LiteralGridRepair.pair u w v) = true := by
+      simp [cycleValue,ha,hb]
+    rw [hzero] at yes
+    cases yes
+  · have edge := LiteralGridRepair.adjacent_of_pair G huw hbd hb hd
+    exact triangle b c d hbc hcd edge.symm
+  · have edge := LiteralGridRepair.adjacent_of_pair G huw hae ha he
+    exact triangle e v a hev hva edge
+  · have yes : cycleValue (LiteralGridRepair.pair u w a) (LiteralGridRepair.pair u w b)
+        (LiteralGridRepair.pair u w c) (LiteralGridRepair.pair u w d)
+        (LiteralGridRepair.pair u w e) (LiteralGridRepair.pair u w v) = true := by
+      simp [cycleValue,hd,he]
+    rw [hzero] at yes
+    cases yes
+
+lemma tag_bound {n : ℕ} (a b c d e v : Fin n)
+    (entries : List (Gate × Option ℕ)) (tags : MatchesCycle a b c d e v entries) :
+    ∀ entry ∈ entries, ∀ k, entry.2 = some k →
+      k < n+(seed a b c d e v).gates.length := by
+  intro entry member k selected
+  obtain ⟨j,hj⟩ := List.mem_iff_getElem?.mp member
+  obtain ⟨slot,rfl,_⟩ := tags j entry hj k selected
+  exact slotWire_bound c v slot
+
+lemma tag_negative {n : ℕ} (G : SimpleGraph (Fin n))
+    (a b c d e v : Fin n)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a)
+    (entries : List (Gate × Option ℕ)) (tags : MatchesCycle a b c d e v entries) :
+    ∀ x : Fin n → Bool, ¬ EdgeTrue G x → ∀ j entry,
+      entries[j]? = some entry → ∀ k, entry.2 = some k → Related false
+        ((run (entries.map Prod.fst) (List.ofFn x)).getD (n+j) false)
+        ((run (seed a b c d e v).gates (List.ofFn x)).getD k false) := by
+  intro x negative j entry atGate k selected
+  obtain ⟨slot,rfl,values⟩ := tags j entry atGate k selected
+  rw [values]
+  exact signed_negative G a b c d e v hab hbc hcd hde hev hva x negative slot
+
+lemma tag_positive {n : ℕ} (G : SimpleGraph (Fin n))
+    (a b c d e v : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hev : G.Adj e v) (hva : G.Adj v a) (hae : a ≠ e) (hbd : b ≠ d)
+    (entries : List (Gate × Option ℕ)) (tags : MatchesCycle a b c d e v entries) :
+    ∀ u w, G.Adj u w →
+      (run (seed a b c d e v).gates (List.ofFn (LiteralGridRepair.pair u w))).getD
+        (n+10) false = false → ∀ j entry, entries[j]? = some entry →
+      ∀ k, entry.2 = some k → Related true
+        ((run (entries.map Prod.fst) (List.ofFn (LiteralGridRepair.pair u w))).getD (n+j) false)
+        ((run (seed a b c d e v).gates (List.ofFn (LiteralGridRepair.pair u w))).getD k false) := by
+  intro u w edge zero j entry atGate k selected
+  obtain ⟨slot,rfl,values⟩ := tags j entry atGate k selected
+  rw [values]
+  rw [local_value] at zero
+  exact signed_S_zero a b c d e v (LiteralGridRepair.pair u w) zero
+    (s_zero_outside_edge G a b c d e v triangle hbc hcd hev hva hae hbd u w edge zero) slot
+
+lemma splice_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d e v : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a) (hae : a ≠ e) (hbd : b ≠ d)
+    (entries : List (Gate × Option ℕ)) (output : ℕ)
+    (tags : MatchesCycle a b c d e v entries)
+    (count : entries.countP (fun entry => entry.2.isSome) = 12)
+    (mono : Monotone2 ⟨entries.map Prod.fst,output⟩)
+    (correct : Computes G ⟨entries.map Prod.fst,output⟩) :
+    let repaired := restoreCircuit n (seed a b c d e v).gates entries output (n+10)
+    Monotone2 repaired ∧ repaired.size = (Circuit.mk (entries.map Prod.fst) output).size ∧
+      Computes G repaired := by
+  dsimp only
+  have hseed : Monotone2 ⟨(seed a b c d e v).gates,0⟩ := seed_mono a b c d e v
+  obtain ⟨hm,_,hc⟩ := restore_spec G (seed a b c d e v).gates entries output (n+10)
+    hseed mono correct (by change n+10 < n+11; omega)
+    (by intro x active; rw [local_value] at active
+        exact cycle_safe G a b c d e v hab hbc hcd hde hev hva x active)
+    (tag_bound a b c d e v entries tags)
+    (tag_positive G a b c d e v triangle hbc hcd hev hva hae hbd entries tags)
+    (tag_negative G a b c d e v hab hbc hcd hde hev hva entries tags)
+  refine ⟨hm,?_,hc⟩
+  apply restore_same_size
+  simpa [seed] using count
+
+lemma splice_strict {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b c d e v : Fin n)
+    (triangle : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hde : G.Adj d e) (hev : G.Adj e v) (hva : G.Adj v a) (hae : a ≠ e) (hbd : b ≠ d)
+    (entries : List (Gate × Option ℕ)) (output : ℕ)
+    (tags : MatchesCycle a b c d e v entries)
+    (count : entries.countP (fun entry => entry.2.isSome) = 12)
+    (mono : Monotone2 ⟨entries.map Prod.fst,output⟩)
+    (correct : Computes G ⟨entries.map Prod.fst,output⟩)
+    (i : ℕ) (entry : Gate × Option ℕ) (k : ℕ)
+    (atGate : entries[i]? = some entry) (skipped : entry.2 = some k)
+    (andOp : entry.1.op = .and)
+    (sValue : ∀ x : Fin n → Bool,
+      (run (entries.map Prod.fst) (List.ofFn x)).getD (n+i) false =
+        ((x b || x e) && (x a || x d))) :
+    let repaired := restoreCircuit n (seed a b c d e v).gates entries output (n+10)
+    Monotone2 repaired ∧ repaired.size = (Circuit.mk (entries.map Prod.fst) output).size ∧
+      Computes G repaired ∧
+      (badSet G repaired).card < (badSet G ⟨entries.map Prod.fst,output⟩).card := by
+  obtain ⟨hm,hs,hc⟩ := splice_spec G a b c d e v triangle hab hbc hcd hde hev hva hae hbd
+    entries output tags count mono correct
+  refine ⟨hm,hs,hc,?_⟩
+  have seedSafe : ∀ j, SafeAt G ⟨(seed a b c d e v).gates,0⟩ j := by
+    intro j g atG op x active
+    exact seed_safe G a b c d e v hab hbc hcd hde hev hva j g atG op x active
+  have hops : ∀ entry ∈ entries, entry.1.op = .and ∨ entry.1.op = .or := by
+    intro entry member
+    simpa using (mono entry.1 (List.mem_map.mpr ⟨entry,member,rfl⟩)).1
+  apply restore_bad_count_lt G (seed a b c d e v).gates entries output (n+10)
+    seedSafe hops (tag_bound a b c d e v entries tags)
+    (tag_negative G a b c d e v hab hbc hcd hde hev hva entries tags)
+    i entry k atGate skipped
+  apply (mem_badSet G _ i).mpr
+  have bound : i < entries.length := (List.getElem?_eq_some_iff.mp atGate).1
+  refine ⟨by simpa [Circuit.size] using bound,?_⟩
+  intro safe
+  have negative : ¬ EdgeTrue G (LiteralGridRepair.pair a e) := by
+    intro hit
+    exact triangle e v a hev hva ((LiteralGridRepair.hit_pair_iff G a e).mp hit)
+  apply negative
+  apply safe entry.1 (by simp [List.getElem?_map,atGate]) andOp (LiteralGridRepair.pair a e)
+  change (run (entries.map Prod.fst) (List.ofFn (LiteralGridRepair.pair a e))).getD (n+i) false = true
+  rw [sValue]
+  simp [LiteralGridRepair.pair]
+
+end CycleBatchSplice
+
 end PEqualNP.Outside.L_meta_1904
