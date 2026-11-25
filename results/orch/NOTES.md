@@ -182,3 +182,31 @@ Kernel checking caught that the earlier exploratory rectangularized-62.json used
 Optional uniqueness of the only hot wire is being checked separately; preserve the already compiled snapshot immediately.
 
 - 2026-11-25T07:32:56.817271+00:00 counterexample:20minute broad evolutionary phase completed07:12:28–07:32:28UTC. 181506495 mutations in3populations withRELAXED finalwireinequality, 15140404 inSTRICTpopulation. No computationalwitness. Beststrictcandidate misses2positiveedges andrejectsall236promisednegativecuts. Earlierrelaxedstatusisexplicitinconfigs; independentvalidatorchecks62priorgates,AND/ORbinarybasis,sequentialdefault-falsereads,distinct/in-rangefinaloperands,andall288tests. Canonicalorientationp=l+d independentlyregeneratedandmatchedallrows. Fullsummary,scripts,hashes,RNGseeds,logs,validatedcandidatesunder scratchcounterexample/.
+
+## 2026-11-25 07:39:33 UTC — independent final-audit review
+
+PASS for partial preservation only. The 164-line OperandWitness.unique.checked.lean snapshot independently compiled with the pinned toolchain via lake env lean, exit 0; the complete operand-witness-independent-review.log is empty. SHA256: 03e637580f9ee70686f999eef19a690696899d1befbae28d9f59442997b902df.
+
+The added diagonal_hot_unique finite proof checks every wire below 88 against all 13 diagonal incident inputs. The general hot_unique follows because delta contains zero. Thus wire 87 is the only wire accepting every positive pair. This explicitly rules out using this particular 62-gate circuit as a witness for the target's two distinct operands. Independent Python evaluation exactly matched all 62 gates of the corrected JSON, all 52 incident pairs, the 12 listed nonincident pairs, and empty singleton support; both diagonal-hot and fully hot wire sets are [87]. Data saved in operand-witness-independent-data.json.
+
+Imports, namespace, options, UTF-8, regular/nonexecutable file, and forbidden-source checks pass. Main helper file remains 1444 lines / 63424 bytes, SHA256 f302b961cb0cdde7b28aab9437b45798aa1559890878d2c78797133078a96b9d, and has no theorem PEqualNP.Outside.L_meta_2089. Therefore checker REJECTED (no-theorem) remains the correct final-state verdict; this is not a completed proof or refutation.
+
+## 2026-11-25 07:43:07 UTC — independent private-quota audit
+
+PASS for supporting-artifact preservation. Frozen LinearBound.checked.lean / PrivateQuota.checked.lean: 125 lines, 5469 bytes, SHA256 5ab93e646c7501d75703153252e258df603adbfdc3f6d1e5209e6fe04bc88af7. Independent lake env lean completed exit 0; private-quota-independent-build.log is empty. Independent axiom audit lists only propext, Classical.choice, Quot.sound for private_quota.
+
+The proof does not normalize the full circuit: it changes predecessor certificates only in a query model containing the fixed false input and every singleton input. For a gate with at most one singleton support, the explicit hmono hypothesis ensures its support input is false on the chosen false row. For larger supports, existing gate_false_step supplies strict predecessor certificates and correctly handles forward/missing reads as false. The weighted cut then bounds support size by the number of false OR gates with support size at least two, plus one. No malformed-wire or empty-gate assumption is omitted.
+
+The standalone artifact imports the previously compiled L_meta_2089 helper module. This is appropriate under results/orch/lemmas, but would need to be removed if the helper were merged into the final named PR file. This lemma does not extract thirteen linear outputs from the target's two factors, and does not finish the posted theorem.
+
+## 2026-11-25T07:44:11.443999+00:00 — checked unrestricted multioutput linear bound
+
+The linear_bound agent proved a stronger private false-certificate quota. Restrict the query space to the chosen negative assignment and all singleton inputs. A gate whose accepted-singleton support has cardinal at most one can then be bypassed by its unique input, or by an empty certificate; this is valid on that restricted query space and needs no circuit normalization. The certificate charges only false OR gates with singleton support of cardinal at least two.
+
+For thirteen linear outputs supported on the four lines through each plane point, each output complement is false, so every charged gate has singleton support contained in that point support. Pairwise support intersections have cardinal one, making all charged OR-gate sets disjoint. Each output needs three OR gates, giving39 OR gates even when arbitrary AND gates are allowed. More generally, m supports of cardinal at least4 with pairwise intersections at most1 require3m OR gates. The proof derives wire monotonicity from Monotone2 and handles forward references/default-false semantics.
+
+Frozen LinearOutputs.checked.lean:300lines,SHA256 d50e613fba1ddfb1353ea870c6811268395dc29f8996fdb3e985f51b5265d796. Build6 completed07:43:46UTC,exit0,emptylog. Scratch directory /tmp/oec/pequalnp-pilot-73/linear-bound/. The original L-meta-2089 statement remains unproved: extracting these thirteen outputs from its two joint separator wires with a valid cost accounting is still missing.
+
+Root status refresh: public desk feed updated 2026-11-25T07:40:28.291Z still has L-meta-2089 and its hard core L-meta-5867 open, no proof PRs, and all three permitted reduction slots occupied. Latest upstream main was fetched and related new proofs inspected; no completed core dependency was found.
+
+Primary-source follow-up read 2026-11-25: Alon and Boppana, The Monotone Circuit Complexity of Boolean Functions (1987), Section2 Theorem2.1 gives a legitimate-lattice distance lower bound through accumulated gate-error sets: https://web.math.princeton.edu/~nalon/PDFS/Publications/The%20monotone%20circuit%20complexity%20of%20Boolean%20functions.pdf . No finite lattice giving the needed63 bound was constructed. The full Amano–Maruoka paper remains UNVERIFIED because the DOI redirected to an inaccessible page.
