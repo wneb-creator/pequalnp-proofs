@@ -24,3 +24,5 @@ Full L-meta-2583 theorem remains unproved.
 
 Sub-agents: 6
 TIMING total=18.0 subagents=6
+
+IncidenceStructural.lean: Lean exit0; independent review passed. New plane pencil-cover bound; not the full circuit lower bound.
