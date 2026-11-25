@@ -30,3 +30,5 @@ As of2026-11-25 19:58UTC: generic continuation cuts and restoration checked; una
 
 L-meta-3566 PARTIAL: GraphPeel3566.lean passed Lean exit0. Namedfile now contains these checkedgraphlemmas only; fullpostedtheorem absent, localchecker notrun. Old10760 frozen source moved underresults aswithdrawn artifact.
 Independent red-team review repo_review: PASS for GraphPeel partial preservation;124lines5421bytes, SHA2566e30a166a6f32fa423692bca6ea4e29e490b1a52c3f595055815470017720c8f. No fulltheorem claimed.
+
+L-meta-3566 combinedpartial: GraphPeel + exactAO2 upperconstruction + peel_of_cover_bound. lakebuildPASS exit0(5149jobs, target5.4s), completeoutput combined-3566-build.log. Namedfile467lines19998bytes SHA256fcf3c0db80231d59fb9dc06951bcde328b0d1889ed591fdae6cb7b93eab5cf76. Independent red-teamreview repo_reviewPASS. This proves a conditional lemma, NOT thepostedtheorem; localchecker notrun.
