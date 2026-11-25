@@ -1,4 +1,7 @@
 import PEqualNP.Defs
+import Mathlib.Data.Multiset.Basic
+import Mathlib.Data.Multiset.AddSub
+import Mathlib.Data.BitVec
 
 namespace PEqualNP.Outside.L_meta_2590
 
@@ -766,5 +769,576 @@ lemma singleton_of_two_exits {S : Finset (Fin 10)} {i j : Fin 6} {a b : Bool}
   · exact Finset.one_le_card.mpr hne
 
 end CausalBarrier
+
+namespace CausalBarrier
+
+def UniversalEdge (v : Fin 10) : Finset (Fin 10) :=
+  match v.val with
+  | 0 => {3, 8}
+  | 1 => {4, 9}
+  | 2 => {5, 8}
+  | 3 => {3, 4}
+  | 4 => {3, 4}
+  | 5 => {5, 7}
+  | 6 => {3, 4}
+  | 7 => {5, 7}
+  | 8 => {3, 8}
+  | _ => {4, 9}
+
+def UniversalBarrier (v : Fin 10) : Finset (Fin 10) :=
+  insert v (UniversalEdge v)
+
+lemma universal_edge_valid :
+    ∀ v : Fin 10, UniversalEdge v ∈ DirtyEdges := by
+  decide
+
+lemma all_vertices_separation :
+    ∀ (v : Fin 10), ∀ AB ∈ OtherSides,
+      Separates (UniversalBarrier v) AB.1 AB.2 ∧
+      Separates (UniversalBarrier v) AB.2 AB.1 := by
+  intro v
+  simp [OtherSides, Separates]
+  revert v
+  decide
+
+end CausalBarrier
+
+namespace ResourceExclusion
+
+open CausalBarrier
+
+abbrev Resource := Finset (Fin 10) × (Finset (Fin 10) → Bool)
+
+def CrossPairs : List (Finset (Fin 10)) :=
+  [{3, 4}, {4, 5}, {4, 9}, {3, 7}, {5, 7}, {7, 9}, {3, 8}, {5, 8}, {8, 9}]
+
+def RSafe (E T : Finset (Fin 10)) (w : Resource) : Prop :=
+  w.2 E = true → (w.1 ∩ T).Nonempty
+
+def Ordinary (w : Resource) : Prop := ∀ E ∈ CrossPairs, RSafe E E w
+
+def AllOrdinary (p : Multiset Resource) : Prop := ∀ w ∈ p, Ordinary w
+
+def RJoin (a b : Resource) : Resource :=
+  (a.1 ∪ b.1, fun E => a.2 E || b.2 E)
+
+def RMeet (a b : Resource) : Resource :=
+  (a.1 ∩ b.1, fun E => a.2 E && b.2 E)
+
+def AllowedSides (a b : Resource) : Prop :=
+  (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides
+
+def Keep (w : Resource) : Multiset Resource :=
+  if w.1 = ∅ then 0 else {w}
+
+def Next (a b c : Resource) (rest : Multiset Resource) : Multiset Resource :=
+  c ::ₘ (Keep a + Keep b + rest)
+
+def ResourceStep (p q : Multiset Resource) : Prop :=
+  (∃ a b c rest, p = a ::ₘ b ::ₘ rest ∧ q = Next a b c rest ∧
+    (c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b))) ∨
+  (∃ w rest, w.1 ≠ ∅ ∧ p = w ::ₘ rest ∧ q = w ::ₘ w ::ₘ rest) ∨
+  (∃ w rest, p = w ::ₘ rest ∧ q = rest)
+
+def Blocked (p : Multiset Resource) : Prop :=
+  ∃ E ∈ DirtyEdges, ∃ T : Finset (Fin 10),
+    (∀ AB ∈ OtherSides, Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1) ∧
+    ∀ w ∈ p, RSafe E T w
+
+def Exceptional (p : Multiset Resource) : Prop :=
+  ∃ d rest, p = d ::ₘ rest ∧ d.1 = ∅ ∧
+    (∀ E ∈ CrossPairs, d.2 E = true) ∧ AllOrdinary rest
+
+def Invariant (p : Multiset Resource) : Prop := Blocked p ∨ Exceptional p
+
+def Target (w : Resource) : Prop :=
+  w.1 = ∅ ∧ (∀ E ∈ DirtyEdges, w.2 E = true) ∧ w.2 {4, 5} = false
+
+lemma rsafe_join {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) : RSafe E T (RJoin a b) := by
+  exact safe_join (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb
+
+lemma rsafe_meet {E T : Finset (Fin 10)} {a b : Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hs : Separates T a.1 b.1) :
+    RSafe E T (RMeet a b) := by
+  exact safe_meet (a := (a.1, a.2 E)) (b := (b.1, b.2 E)) ha hb hs
+
+lemma rsafe_zero_false {E T : Finset (Fin 10)} {w : Resource}
+    (h : RSafe E T w) (hz : w.1 = ∅) : w.2 E = false :=
+  safe_zero_false (w := (w.1, w.2 E)) h hz
+
+lemma cross_separation :
+    ∀ E ∈ CrossPairs, ∀ AB ∈ OtherSides,
+      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
+  simp [CrossPairs, OtherSides, Separates]
+
+lemma dirty_mem_cross : ∀ E ∈ DirtyEdges, E ∈ CrossPairs := by
+  simp [DirtyEdges, CrossPairs]
+
+lemma ordinary_join {a b : Resource} (ha : Ordinary a) (hb : Ordinary b) :
+    Ordinary (RJoin a b) := by
+  intro E hE
+  exact rsafe_join (ha E hE) (hb E hE)
+
+lemma ordinary_meet {a b : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hs : AllowedSides a b) : Ordinary (RMeet a b) := by
+  intro E hE
+  apply rsafe_meet (ha E hE) (hb E hE)
+  rcases hs with hs | hs
+  · exact (cross_separation E hE _ hs).1
+  · exact (cross_separation E hE _ hs).2
+
+lemma keep_mem {a w : Resource} (h : w ∈ Keep a) : w = a := by
+  classical
+  by_cases hz : a.1 = ∅
+  · simp [Keep, hz] at h
+  · simpa [Keep, hz] using h
+
+lemma allOrdinary_next {a b c : Resource} {rest : Multiset Resource}
+    (ha : Ordinary a) (hb : Ordinary b) (hc : Ordinary c) (hr : AllOrdinary rest) :
+    AllOrdinary (Next a b c rest) := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma allOrdinary_blocked {p : Multiset Resource} (hp : AllOrdinary p) : Blocked p := by
+  refine ⟨{3, 4}, by simp [DirtyEdges], {3, 4}, ?_, ?_⟩
+  · exact cross_separation _ (by simp [CrossPairs])
+  · intro w hw
+    exact hp w hw _ (by simp [CrossPairs])
+
+lemma blocked_no_target {p : Multiset Resource} (hp : Blocked p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨E, hE, T, _, hs⟩ := hp
+  rintro ⟨hz, ht, _⟩
+  have hf := rsafe_zero_false (hs w hw) hz
+  rw [ht E hE] at hf
+  contradiction
+
+lemma exceptional_no_target {p : Multiset Resource} (hp : Exceptional p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  obtain ⟨d, rest, rfl, hd, hdt, hr⟩ := hp
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · rintro ⟨_, _, hf⟩
+    have ht := hdt {4, 5} (by simp [CrossPairs])
+    rw [hf] at ht
+    contradiction
+  · exact blocked_no_target (allOrdinary_blocked hr) hw
+
+lemma invariant_no_target {p : Multiset Resource} (hp : Invariant p)
+    {w : Resource} (hw : w ∈ p) : ¬ Target w := by
+  rcases hp with hp | hp
+  · exact blocked_no_target hp hw
+  · exact exceptional_no_target hp hw
+
+
+lemma all_safe_next {E T : Finset (Fin 10)} {a b c : Resource}
+    {rest : Multiset Resource}
+    (ha : RSafe E T a) (hb : RSafe E T b) (hc : RSafe E T c)
+    (hr : ∀ w ∈ rest, RSafe E T w) :
+    ∀ w ∈ Next a b c rest, RSafe E T w := by
+  intro w hw
+  simp only [Next, Multiset.mem_cons, Multiset.mem_add] at hw
+  rcases hw with rfl | (hw | hw) | hw
+  · exact hc
+  · exact (keep_mem hw) ▸ ha
+  · exact (keep_mem hw) ▸ hb
+  · exact hr w hw
+
+lemma blocked_step {p q : Multiset Resource} (hp : Blocked p)
+    (hstep : ResourceStep p q) : Blocked q := by
+  obtain ⟨E, hE, T, hT, hs⟩ := hp
+  refine ⟨E, hE, T, hT, ?_⟩
+  rcases hstep with ⟨a, b, c, rest, rfl, rfl, hc⟩ | ⟨w, rest, _, rfl, rfl⟩ | ⟨w, rest, rfl, rfl⟩
+  · have ha := hs a (by simp)
+    have hb := hs b (by simp)
+    have hr : ∀ w ∈ rest, RSafe E T w := fun w hw => hs w (by simp [hw])
+    apply all_safe_next ha hb ?_ hr
+    rcases hc with rfl | ⟨hside, rfl⟩
+    · exact rsafe_join ha hb
+    · apply rsafe_meet ha hb
+      rcases hside with hside | hside
+      · exact (hT _ hside).1
+      · exact (hT _ hside).2
+  · intro a ha
+    simp only [Multiset.mem_cons, or_self_left] at ha
+    exact hs a (Multiset.mem_cons.mpr ha)
+  · intro a ha
+    exact hs a (by simp [ha])
+
+lemma ordinary_carrier_blocked {c : Resource} {rest : Multiset Resource}
+    (hc : c.1.Nonempty) (hr : AllOrdinary rest) : Blocked (c ::ₘ rest) := by
+  obtain ⟨v, hv⟩ := hc
+  refine ⟨UniversalEdge v, universal_edge_valid v, UniversalBarrier v,
+    all_vertices_separation v, ?_⟩
+  intro w hw
+  rcases Multiset.mem_cons.mp hw with rfl | hw
+  · intro _
+    exact ⟨v, Finset.mem_inter.mpr ⟨hv, Finset.mem_insert_self _ _⟩⟩
+  · intro ht
+    obtain ⟨u, hu⟩ := hr w hw _ (dirty_mem_cross _ (universal_edge_valid v)) ht
+    obtain ⟨hus, huE⟩ := Finset.mem_inter.mp hu
+    exact ⟨u, Finset.mem_inter.mpr ⟨hus, Finset.mem_insert_of_mem huE⟩⟩
+
+lemma keep_ordinary {w : Resource} (h : Ordinary w) : AllOrdinary (Keep w) := by
+  intro a ha
+  exact (keep_mem ha) ▸ h
+
+lemma allOrdinary_add {p q : Multiset Resource}
+    (hp : AllOrdinary p) (hq : AllOrdinary q) : AllOrdinary (p + q) := by
+  intro w hw
+  rcases Multiset.mem_add.mp hw with hw | hw
+  · exact hp w hw
+  · exact hq w hw
+
+lemma allOrdinary_cons {w : Resource} {p : Multiset Resource}
+    (hw : Ordinary w) (hp : AllOrdinary p) : AllOrdinary (w ::ₘ p) := by
+  intro a ha
+  rcases Multiset.mem_cons.mp ha with rfl | ha
+  · exact hw
+  · exact hp a ha
+
+lemma zero_side_of_allowed {a b : Resource} (ha : a.1 = ∅) (hs : AllowedSides a b) :
+    b.1 = ∅ := by
+  have hzero : ∀ AB ∈ OtherSides,
+      (AB.1 = ∅ → AB.2 = ∅) ∧ (AB.2 = ∅ → AB.1 = ∅) := by
+    simp [OtherSides]
+  rcases hs with hs | hs
+  · exact (hzero _ hs).1 ha
+  · exact (hzero _ hs).2 ha
+
+lemma exceptional_left_step {d b c : Resource} {rest : Multiset Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (hb : Ordinary b) (hr : AllOrdinary rest)
+    (hc : c = RJoin d b ∨ (AllowedSides d b ∧ c = RMeet d b)) :
+    Invariant (Next d b c rest) := by
+  classical
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · by_cases hbs : b.1 = ∅
+    · right
+      refine ⟨RJoin d b, rest, ?_, ?_, ?_, hr⟩
+      · simp [Next, Keep, hd, hbs]
+      · simp [RJoin, hd, hbs]
+      · intro E hE
+        simp [RJoin, hdt E hE]
+    · left
+      have hbp : (RJoin d b).1.Nonempty := by
+        simpa [RJoin, hd] using Finset.nonempty_iff_ne_empty.mpr hbs
+      have hpool : AllOrdinary (Keep d + Keep b + rest) := by
+        simpa [Keep, hd, hbs] using allOrdinary_cons hb hr
+      exact ordinary_carrier_blocked hbp hpool
+  · left
+    have hbs := zero_side_of_allowed hd hs
+    have hc : Ordinary (RMeet d b) := by
+      intro E hE ht
+      have hbf := rsafe_zero_false (hb E hE) hbs
+      simp [RMeet, hbf] at ht
+    apply allOrdinary_blocked
+    simpa [Next, Keep, hd, hbs] using allOrdinary_cons hc hr
+
+
+lemma next_swap (a b c : Resource) (rest : Multiset Resource) :
+    Next a b c rest = Next b a c rest := by
+  simp only [Next, add_comm (Keep a) (Keep b)]
+
+lemma rjoin_swap (a b : Resource) : RJoin a b = RJoin b a := by
+  apply Prod.ext
+  · exact Finset.union_comm _ _
+  · funext E
+    exact Bool.or_comm _ _
+
+lemma rmeet_swap (a b : Resource) : RMeet a b = RMeet b a := by
+  apply Prod.ext
+  · exact Finset.inter_comm _ _
+  · funext E
+    exact Bool.and_comm _ _
+
+lemma ordinary_result {a b c : Resource} (ha : Ordinary a) (hb : Ordinary b)
+    (hc : c = RJoin a b ∨ (AllowedSides a b ∧ c = RMeet a b)) : Ordinary c := by
+  rcases hc with rfl | ⟨hs, rfl⟩
+  · exact ordinary_join ha hb
+  · exact ordinary_meet ha hb hs
+
+lemma exceptional_step {p q : Multiset Resource} (hp : Exceptional p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  classical
+  obtain ⟨d, r0, hpd, hd, hdt, hr0⟩ := hp
+  rcases hstep with ⟨a, b, c, rest, hpab, rfl, hc⟩ |
+    ⟨w, rest, hws, hpw, rfl⟩ | ⟨w, rest, hpw, hqr⟩
+  · have heq : d ::ₘ r0 = a ::ₘ b ::ₘ rest := hpd.symm.trans hpab
+    by_cases had : a = d
+    · subst a
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact exceptional_left_step hd hdt (hr0 b (by simp))
+        (fun w hw => hr0 w (by simp [hw])) hc
+    · by_cases hbd : b = d
+      · subst b
+        rw [Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        rw [next_swap]
+        apply exceptional_left_step hd hdt (hr0 a (by simp))
+          (fun w hw => hr0 w (by simp [hw]))
+        rcases hc with hc | ⟨hs, hc⟩
+        · left
+          exact hc.trans (rjoin_swap _ _)
+        · right
+          exact ⟨Or.symm hs, hc.trans (rmeet_swap _ _)⟩
+      · have hdm : d ∈ a ::ₘ b ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+        have hdr : d ∈ rest := by
+          simpa [Ne.symm had, Ne.symm hbd] using hdm
+        obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+        rw [Multiset.cons_swap b d, Multiset.cons_swap a d] at heq
+        have hrEq := (Multiset.cons_inj_right d).mp heq
+        rw [hrEq] at hr0
+        have ha : Ordinary a := hr0 a (by simp)
+        have hb : Ordinary b := hr0 b (by simp)
+        have hr : AllOrdinary r := fun w hw => hr0 w (by simp [hw])
+        right
+        refine ⟨d, Next a b c r, ?_, hd, hdt,
+          allOrdinary_next ha hb (ordinary_result ha hb hc) hr⟩
+        simp only [Next, Multiset.add_cons]
+        exact Multiset.cons_swap _ _ _
+  · have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    have hdw : d ≠ w := by
+      intro h
+      subst w
+      exact hws hd
+    have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+    have hdr : d ∈ rest := by simpa [hdw] using hdm
+    obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+    rw [Multiset.cons_swap w d] at heq
+    have hrEq := (Multiset.cons_inj_right d).mp heq
+    rw [hrEq] at hr0
+    right
+    refine ⟨d, w ::ₘ w ::ₘ r, ?_, hd, hdt, ?_⟩
+    · rw [Multiset.cons_swap w d, Multiset.cons_swap w d]
+    · exact allOrdinary_cons (hr0 w (by simp)) hr0
+  · rw [hqr]
+    have heq : d ::ₘ r0 = w ::ₘ rest := hpd.symm.trans hpw
+    by_cases hdw : d = w
+    · subst w
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inl (allOrdinary_blocked hr0)
+    · have hdm : d ∈ w ::ₘ rest := heq ▸ (Multiset.mem_cons_self d r0)
+      have hdr : d ∈ rest := by simpa [hdw] using hdm
+      obtain ⟨r, rfl⟩ := Multiset.exists_cons_of_mem hdr
+      rw [Multiset.cons_swap w d] at heq
+      have hrEq := (Multiset.cons_inj_right d).mp heq
+      rw [hrEq] at hr0
+      exact Or.inr ⟨d, r, rfl, hd, hdt, fun a ha => hr0 a (by simp [ha])⟩
+
+lemma invariant_step {p q : Multiset Resource} (hp : Invariant p)
+    (hstep : ResourceStep p q) : Invariant q := by
+  rcases hp with hp | hp
+  · exact Or.inl (blocked_step hp hstep)
+  · exact exceptional_step hp hstep
+
+def ResourceTrace (p : Multiset Resource) : List (Multiset Resource) → Prop
+  | [] => True
+  | q :: qs => ResourceStep p q ∧ ResourceTrace q qs
+
+lemma invariant_trace {p : Multiset Resource} {qs : List (Multiset Resource)}
+    (hp : Invariant p) (ht : ResourceTrace p qs) : ∀ q ∈ qs, Invariant q := by
+  induction qs generalizing p with
+  | nil => simp
+  | cons q qs ih =>
+      obtain ⟨hs, ht⟩ := ht
+      have hq := invariant_step hp hs
+      intro r hr
+      rcases List.mem_cons.mp hr with rfl | hr
+      · exact hq
+      · exact ih hq ht r hr
+
+lemma canonical_resource_exclusion {d : Resource} {ordinary : Multiset Resource}
+    {qs : List (Multiset Resource)} {q : Multiset Resource} {out : Resource}
+    (hd : d.1 = ∅) (hdt : ∀ E ∈ CrossPairs, d.2 E = true)
+    (ho : AllOrdinary ordinary) (ht : ResourceTrace (d ::ₘ ordinary) qs)
+    (hq : q ∈ qs) (hout : out ∈ q) : ¬ Target out := by
+  have hi : Invariant (d ::ₘ ordinary) := Or.inr ⟨d, ordinary, rfl, hd, hdt, ho⟩
+  exact invariant_no_target (invariant_trace hi ht q hq) hout
+
+end ResourceExclusion
+
+
+namespace SevenRows
+
+def raw : List (BitVec 7) := [49,73,26,44,98,84]
+
+def base : List (BitVec 7) := [0, 26, 44, 49, 59, 61, 62, 63, 73, 84, 91, 93, 94, 95, 98, 107, 109, 110, 111, 115, 117, 118, 119, 121, 122, 123, 124, 125, 126, 127]
+
+def first : List (BitVec 7) := [0, 1, 2, 4, 8, 9, 10, 12, 16, 17, 18, 20, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
+
+def small (x : BitVec 7) : Bool := x == 0 || x == 1 || x == 2 || x == 4
+
+def clean (x : BitVec 7) : Bool := x &&& 120 == 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma raw_cert : (raw.all base.contains) = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma base_closed_cert :
+    (base.all fun a => base.all fun b => base.contains (a ||| b)) = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma first_cert :
+    (base.all fun a => base.all fun b => first.contains (a &&& b)) = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma meet_clean_cert :
+    (first.all fun f => base.all fun b => !(clean (f &&& b)) || small (f &&& b)) = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma base_clean_cert :
+    (base.all fun a => !(clean a) || a == 0) = true := by decide +kernel
+
+lemma raw_mem {a : BitVec 7} (ha : a ∈ raw) : a ∈ base := by
+  exact List.contains_iff_mem.mp (List.all_eq_true.mp raw_cert a ha)
+
+lemma base_or {a b : BitVec 7} (ha : a ∈ base) (hb : b ∈ base) : a ||| b ∈ base := by
+  exact List.contains_iff_mem.mp
+    (List.all_eq_true.mp (List.all_eq_true.mp base_closed_cert a ha) b hb)
+
+lemma pair_mem {a b : BitVec 7} (ha : a ∈ base) (hb : b ∈ base) : a &&& b ∈ first := by
+  exact List.contains_iff_mem.mp
+    (List.all_eq_true.mp (List.all_eq_true.mp first_cert a ha) b hb)
+
+lemma meet_clean_small {f b : BitVec 7} (hf : f ∈ first) (hb : b ∈ base)
+    (hc : clean (f &&& b) = true) : small (f &&& b) = true := by
+  have h := List.all_eq_true.mp (List.all_eq_true.mp meet_clean_cert f hf) b hb
+  simpa only [hc, Bool.not_true, Bool.false_or] using h
+
+lemma base_clean_zero {a : BitVec 7} (ha : a ∈ base) (hc : clean a = true) : a = 0 := by
+  have h := List.all_eq_true.mp base_clean_cert a ha
+  simpa only [hc, Bool.not_true, Bool.false_or, beq_iff_eq] using h
+
+lemma clean_or {a b : BitVec 7} :
+    clean (a ||| b) = true ↔ clean a = true ∧ clean b = true := by
+  simp only [clean, beq_iff_eq, BitVec.and_or_distrib_right]
+  exact BitVec.or_eq_zero_iff
+
+lemma first_clean_small {f : BitVec 7} (hf : f ∈ first)
+    (hc : clean f = true) : small f = true := by
+  have he : f &&& (127 : BitVec 7) = f := by
+    change f &&& BitVec.allOnes 7 = f
+    exact BitVec.and_allOnes
+  have hc' : clean (f &&& (127 : BitVec 7)) = true := by simpa only [he] using hc
+  have h := meet_clean_small hf (by decide : (127 : BitVec 7) ∈ base) hc'
+  simpa only [he] using h
+
+lemma small_or_ne_seven {a b : BitVec 7} (ha : small a = true) (hb : small b = true) :
+    a ||| b ≠ 7 := by
+  simp only [small, Bool.or_eq_true, beq_iff_eq] at ha hb
+  rcases ha with ((rfl | rfl) | rfl) | rfl <;>
+    rcases hb with ((rfl | rfl) | rfl) | rfl <;> decide
+
+lemma union_ne_seven {a b : BitVec 7}
+    (ha : clean a = true → small a = true) (hb : clean b = true → small b = true) :
+    a ||| b ≠ 7 := by
+  intro he
+  have hc : clean (a ||| b) = true := by rw [he]; decide
+  obtain ⟨hca, hcb⟩ := clean_or.mp hc
+  exact small_or_ne_seven (ha hca) (hb hcb) he
+
+lemma first_ne_seven {f : BitVec 7} (hf : f ∈ first) : f ≠ 7 := by
+  intro he
+  have hs := first_clean_small hf (by rw [he]; decide)
+  rw [he] at hs
+  exact (by decide : small (7 : BitVec 7) ≠ true) hs
+
+def side (a f : BitVec 7) (useFirst : Bool) : BitVec 7 :=
+  if useFirst then a ||| f else a
+
+lemma and_both_sides (a b f : BitVec 7) :
+    (a ||| f) &&& (b ||| f) = (a &&& b) ||| f := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  simp only [BitVec.getElem_and, BitVec.getElem_or]
+  cases a[i] <;> cases b[i] <;> cases f[i] <;> rfl
+
+lemma or_first_sides (a b f : BitVec 7) (u v : Bool) :
+    f ||| (side a f u &&& side b f v) = f ||| (a &&& b) := by
+  apply BitVec.eq_of_getElem_eq
+  intro i hi
+  cases u <;> cases v <;>
+    simp only [side, Bool.false_eq_true, ↓reduceIte,
+      BitVec.getElem_and, BitVec.getElem_or] <;>
+    cases a[i] <;> cases b[i] <;> cases f[i] <;> rfl
+
+lemma no_two_ands {f a b : BitVec 7} (hf : f ∈ first) (ha : a ∈ base) (hb : b ∈ base)
+    (useLeft useRight useOutput : Bool) :
+    (if useOutput then f ||| (side a f useLeft &&& side b f useRight)
+      else side a f useLeft &&& side b f useRight) ≠ 7 := by
+  cases useOutput with
+  | true =>
+    change f ||| (side a f useLeft &&& side b f useRight) ≠ 7
+    rw [or_first_sides]
+    exact union_ne_seven (first_clean_small hf) (first_clean_small (pair_mem ha hb))
+  | false =>
+    change side a f useLeft &&& side b f useRight ≠ 7
+    cases useLeft <;> cases useRight
+    · exact first_ne_seven (pair_mem ha hb)
+    · change a &&& (b ||| f) ≠ 7
+      rw [BitVec.and_or_distrib_left, BitVec.and_comm a f]
+      exact union_ne_seven (first_clean_small (pair_mem ha hb)) (meet_clean_small hf ha)
+    · change (a ||| f) &&& b ≠ 7
+      rw [BitVec.and_or_distrib_right]
+      exact union_ne_seven (first_clean_small (pair_mem ha hb)) (meet_clean_small hf hb)
+    · change (a ||| f) &&& (b ||| f) ≠ 7
+      rw [and_both_sides]
+      exact union_ne_seven (first_clean_small (pair_mem ha hb)) (first_clean_small hf)
+
+lemma zero_mem_base : (0 : BitVec 7) ∈ base := by decide +kernel
+
+lemma fold_or_mem_base {xs : List (BitVec 7)} {a : BitVec 7}
+    (ha : a ∈ base) (hxs : ∀ x ∈ xs, x ∈ base) : xs.foldl (· ||| ·) a ∈ base := by
+  induction xs generalizing a with
+  | nil => exact ha
+  | cons x xs ih =>
+    apply ih (base_or ha (hxs x List.mem_cons_self))
+    intro y hy
+    exact hxs y (List.mem_cons_of_mem x hy)
+
+lemma fold_raw_mem_base {xs : List (BitVec 7)}
+    (hxs : ∀ x ∈ xs, x ∈ raw) : xs.foldl (· ||| ·) 0 ∈ base := by
+  exact fold_or_mem_base zero_mem_base (fun x hx => raw_mem (hxs x hx))
+
+lemma no_output_two_ands {f a b c : BitVec 7}
+    (hf : f ∈ first) (ha : a ∈ base) (hb : b ∈ base) (hc : c ∈ base)
+    (useLeft useRight useFirst useSecond : Bool) :
+    c ||| (if useSecond then
+      (if useFirst then f ||| (side a f useLeft &&& side b f useRight)
+        else side a f useLeft &&& side b f useRight)
+      else (if useFirst then f else 0)) ≠ 7 := by
+  intro he
+  have hclean : clean (c ||| (if useSecond then
+      (if useFirst then f ||| (side a f useLeft &&& side b f useRight)
+        else side a f useLeft &&& side b f useRight)
+      else (if useFirst then f else 0))) = true := by rw [he]; decide
+  have hz := base_clean_zero hc (clean_or.mp hclean).1
+  subst c
+  have he' : (if useSecond then
+      (if useFirst then f ||| (side a f useLeft &&& side b f useRight)
+        else side a f useLeft &&& side b f useRight)
+      else (if useFirst then f else 0)) = 7 := by simpa using he
+  cases useSecond with
+  | true => exact no_two_ands hf ha hb useLeft useRight useFirst he'
+  | false =>
+    cases useFirst with
+    | true => exact first_ne_seven hf he'
+    | false => exact (by decide : (0 : BitVec 7) ≠ 7) he'
+
+end SevenRows
 
 end PEqualNP.Outside.L_meta_2590
