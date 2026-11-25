@@ -1,0 +1,10 @@
+CONTROL 0 all 2048 rows; gates 18 bound 18 certificates PASS
+CONTROL 1 all 2048 rows; gates 11 bound 11 certificates PASS
+CONTROL 2 all 2048 rows; gates 13 bound 13 certificates PASS
+CONTROL 3 all 2048 rows; gates 15 bound 15 certificates PASS
+CONTROL 4 all 2048 rows; gates 15 bound 15 certificates PASS
+CONTROL 5 all 2048 rows; gates 16 bound 15 certificates PASS
+CONTROL 6 all 2048 rows; gates 17 bound 15 certificates PASS
+CONTROL 7 all 2048 rows; gates 18 bound 18 certificates PASS
+CONTROL 8 all 2048 rows; gates 19 bound 18 certificates PASS
+CONTROL 9 all 2048 rows; gates 20 bound 18 certificates PASS

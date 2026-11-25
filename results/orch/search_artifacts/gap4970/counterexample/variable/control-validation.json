@@ -1,0 +1,829 @@
+[
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control0.circuit.json",
+    "gates": 18,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 1,
+        "support": [
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 4,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 4,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          5,
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 2,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control1.circuit.json",
+    "gates": 11,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 1,
+        "support": [
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 1,
+        "support": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 0,
+        "support": [
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 2,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 2,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "tau": 3,
+    "posted_bound": 11,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control2.circuit.json",
+    "gates": 13,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 5,
+        "support": [
+          0,
+          1
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 0,
+        "support": [
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 13,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control3.circuit.json",
+    "gates": 15,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 3,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          5,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 1,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          5,
+          7
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 0,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control4.circuit.json",
+    "gates": 15,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          5,
+          7
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 3,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control5.circuit.json",
+    "gates": 16,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 3,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 3,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 1,
+        "support": [
+          5,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 2,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control6.circuit.json",
+    "gates": 17,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 1,
+        "support": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 2,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          5,
+          7
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          5,
+          6,
+          7
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control7.circuit.json",
+    "gates": 18,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          6,
+          9
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control8.circuit.json",
+    "gates": 19,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  },
+  {
+    "graph": "derived_variable_graph",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/variable/control.control9.circuit.json",
+    "gates": 20,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          5,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false,
+    "matching_and_cover_certificates_checked": true
+  }
+]

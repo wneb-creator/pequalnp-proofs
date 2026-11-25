@@ -1,0 +1,21 @@
+seed-0 PASS {'index': 0, 'type': 'seed', 'all_rows': 2048, 'gates': 18, 'edges': 14, 'tau': 5, 'margin': 0}
+control.control0 PASS {'index': 0, 'type': 'control', 'all_rows': 2048, 'gates': 18, 'edges': 14, 'tau': 5, 'margin': 0}
+seed-1 PASS {'index': 1, 'type': 'seed', 'all_rows': 2048, 'gates': 11, 'edges': 9, 'tau': 3, 'margin': 0}
+control.control1 PASS {'index': 1, 'type': 'control', 'all_rows': 2048, 'gates': 11, 'edges': 9, 'tau': 3, 'margin': 0}
+seed-2 PASS {'index': 2, 'type': 'seed', 'all_rows': 2048, 'gates': 13, 'edges': 10, 'tau': 4, 'margin': 0}
+control.control2 PASS {'index': 2, 'type': 'control', 'all_rows': 2048, 'gates': 13, 'edges': 10, 'tau': 4, 'margin': 0}
+seed-3 PASS {'index': 3, 'type': 'seed', 'all_rows': 2048, 'gates': 15, 'edges': 12, 'tau': 4, 'margin': 0}
+control.control3 PASS {'index': 3, 'type': 'control', 'all_rows': 2048, 'gates': 15, 'edges': 12, 'tau': 4, 'margin': 0}
+seed-4 PASS {'index': 4, 'type': 'seed', 'all_rows': 2048, 'gates': 15, 'edges': 12, 'tau': 4, 'margin': 0}
+control.control4 PASS {'index': 4, 'type': 'control', 'all_rows': 2048, 'gates': 15, 'edges': 12, 'tau': 4, 'margin': 0}
+seed-5 PASS {'index': 5, 'type': 'seed', 'all_rows': 2048, 'gates': 16, 'edges': 12, 'tau': 4, 'margin': 1}
+control.control5 PASS {'index': 5, 'type': 'control', 'all_rows': 2048, 'gates': 16, 'edges': 12, 'tau': 4, 'margin': 1}
+seed-6 PASS {'index': 6, 'type': 'seed', 'all_rows': 2048, 'gates': 17, 'edges': 12, 'tau': 4, 'margin': 2}
+control.control6 PASS {'index': 6, 'type': 'control', 'all_rows': 2048, 'gates': 17, 'edges': 12, 'tau': 4, 'margin': 2}
+seed-7 PASS {'index': 7, 'type': 'seed', 'all_rows': 2048, 'gates': 18, 'edges': 14, 'tau': 5, 'margin': 0}
+control.control7 PASS {'index': 7, 'type': 'control', 'all_rows': 2048, 'gates': 18, 'edges': 14, 'tau': 5, 'margin': 0}
+seed-8 PASS {'index': 8, 'type': 'seed', 'all_rows': 2048, 'gates': 19, 'edges': 14, 'tau': 5, 'margin': 1}
+control.control8 PASS {'index': 8, 'type': 'control', 'all_rows': 2048, 'gates': 19, 'edges': 14, 'tau': 5, 'margin': 1}
+seed-9 PASS {'index': 9, 'type': 'seed', 'all_rows': 2048, 'gates': 20, 'edges': 14, 'tau': 5, 'margin': 2}
+control.control9 PASS {'index': 9, 'type': 'control', 'all_rows': 2048, 'gates': 20, 'edges': 14, 'tau': 5, 'margin': 2}
+All54 manifest hashes verified; all10 source seeds and10 saved controls verified exactly. No search rerun.
