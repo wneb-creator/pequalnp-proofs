@@ -1,0 +1,32 @@
+{
+  "null_count": 5,
+  "answers": [
+    {
+      "utc": "2026-11-25T08:17:51Z",
+      "gap": null,
+      "message": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "utc": "2026-11-25T08:21:51Z",
+      "gap": null,
+      "message": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "utc": "2026-11-25T08:25:52Z",
+      "gap": null,
+      "message": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "utc": "2026-11-25T08:29:52Z",
+      "gap": null,
+      "message": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "utc": "2026-11-25T08:33:53Z",
+      "gap": null,
+      "message": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    }
+  ],
+  "assignment_utc": "2026-11-25T08:37:54Z",
+  "assigned_gap": "L-meta-1772"
+}

@@ -48,3 +48,5 @@
 - 2026-11-25T09:58:06.068987+00:00: anchored prefix repair and derived output path, finite literal aliases, and nested truth-weight canonicality compiled and independently reviewed. Preserving all five checkpoints before their final applications.
 
 - 2026-11-25T10:00:44.318140+00:00: preserved copy-all-sources prefix budget, structural literal-operand normalization, and direct ownership-constrained finite synthesis. All artifacts independently reviewed; general theorem still open.
+
+- 2026-11-25T10:02:59.075429+00:00: four-corner support, accepted-pair containment and dirty-rectangle lemmas compiled and reviewed for the full literal family application.

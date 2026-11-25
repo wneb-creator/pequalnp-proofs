@@ -6432,3 +6432,11 @@ Hint: Omit it from the simp argument list.
   [apply] simp [hpx]
 
 Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+2026-11-25T10:02:59.075429+00:00 literal_support_route.lean compiled and passed independent review; local four-corner support/safety/dirty lemmas only. Complete successful output:
+/workspace/pequalnp-proofs/results/orch/lemmas/literal_support_route.lean:284:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [graphFun, pairInput] at hF
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
