@@ -1,0 +1,17 @@
+# Independent mathematical review
+
+Reviewed `lemmas/Public18915.lean`, SHA256 `5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124` (112661 bytes, 2222 lines). Verdict: **PASS** for the mathematical route, concrete certificate coverage, and target interface. This review does not substitute for the separately running Lean build or repository checker.
+
+The proof has three substantive steps.
+
+1. The signed truth-table model permits complements and constants for free and charges one unit for a nontrivial binary AND/OR step. The `gate_rep` / `extractPlan` bridge handles zero, one, or two gate operands, including the library's default-zero reads and first-operand semantics for NOT. Thus its lower bound applies to every circuit allowed by the posted statement, without assuming strict backward indices, liveness, or exactly two operands.
+2. The finite atlas proves that the five-variable target needs at least seven charged steps in this stronger model. `checked` inducts on the remaining budget, `node_sound` covers every unordered distinct operand pair, all four normalized signed binary operations, and all four operand-retention choices. The graph-specific atlas uses no unproved slice hints: its tip function is identically zero. Hash-based links are validated by exact equality of the underlying signal sets; hash collisions cannot establish a false link.
+3. The full eight-variable target restricts to that five-variable target when truth-table coordinates 5, 6, and 7 are fixed to zero. These three distinct initial signals are each essential for the unrestricted target. `lower_slice` forces all three into the initial live set and counts the three constant signals after restriction, giving the full lower bound of ten charged binary steps.
+
+The input permutation is `[5,1,3,6,7,2,4,0]`: original variables 0, 3, and 4 are the three fixed coordinates. This is a coordinate encoding, not a change of the posted graph. The full truth table matches the posted nine edges on every one of its 512 rows. Essentiality witnesses `(1,33)`, `(1,65)`, and `(32,160)` distinguish the target while keeping the other input signals equal. The five base essentiality witnesses also hold.
+
+The concluding circuit argument is valid and slightly stronger than necessary. If there is no syntactic NOT, it returns the original gate list. If any NOT occurs, the number of non-NOT gates is strictly below the total number of gates, so the ten-step lower bound gives total size at least eleven. The explicit eleven-gate monotone witness computes the posted graph. Consequently the at-most-one-NOT hypothesis is legitimately unused.
+
+An independently written Python replay parsed the packed data from this exact reviewed Lean file. It checked all 166 atlas states and 27472 signed transitions: 20068 excluded by live-set size, 7084 by the 152 separating pairs, 98 by constant/duplicate signals, and 222 by exact links to lower-budget states. It also independently checked all 512 full target/restriction rows and all 256 assignments for the explicit eleven-gate monotone witness. Complete diagnostics are `public18915-independent-atlas.stdout` and `.stderr`; the machine-readable result is `public18915-independent-atlas.json`; the replay implementation is `review_public18915.py`.
+
+Attribution is retained to the public PR18915 and its copied signed-search sources. Source-format and exact final-statement identity are separately reviewed by `status_check`. No mathematical or certificate-coverage issue was found.

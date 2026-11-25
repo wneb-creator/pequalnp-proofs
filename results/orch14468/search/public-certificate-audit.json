@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-103/14468-pr18915-source.lean",
+  "sha256": "81cc0c084c6e6374795ee8f2dfa86c517c61cb34434911ba54cf6b2f1bd53c74",
+  "scope": "Independent full scalar replay of all166 atlas nodes and all binary/retention children; numeric truth and slice data; not a substitute for Lean semantic proof",
+  "input_signatures_checked": 9,
+  "full_truth_rows_checked": 512,
+  "separator_pairs_checked": 152,
+  "core_essential_witnesses_checked": 5,
+  "lift_essential_witnesses_checked": 3,
+  "monotone_witness_rows_checked": 256,
+  "counts": {
+    "6": 1,
+    "5": 44,
+    "4": 91,
+    "3": 25,
+    "2": 5
+  },
+  "nodes": 166,
+  "moves": 27472,
+  "length_pruned": 20068,
+  "separation_pruned": 7084,
+  "constant_or_redundant_pruned": 98,
+  "linked": 222
+}

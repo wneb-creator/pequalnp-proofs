@@ -1,0 +1,12 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-103/14468-pr18915-source.lean",
+  "source_sha256": "81cc0c084c6e6374795ee8f2dfa86c517c61cb34434911ba54cf6b2f1bd53c74",
+  "public_gates": 11,
+  "public_AND": 4,
+  "public_OR": 7,
+  "public_output": 18,
+  "full_assignments_checked": 256,
+  "matches_posted_nine_edges": true,
+  "matches_our_baseline_on_all_inputs": true,
+  "scope": "Independent public mono11 construction validation only; lower-bound certificate and final Lean proof reviewed elsewhere."
+}

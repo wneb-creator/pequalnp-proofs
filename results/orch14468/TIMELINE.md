@@ -4,3 +4,6 @@
 
 - 2026-11-25T18:11:53.064097+00:00: started boundedfixed10 andelastic14 monotone searches after independentdiagnostics and freshrootrenewal.
 - 2026-11-25T18:14:23.413585+00:00: full attributed proof and named lake build passed; early preservation commit.
+
+- 2026-11-25T18:14:36.830526+00:00: bothconstructivesearchesstoppedexit0onrootredirect; full256finalvalidationpassed; publicmono11independentlychecked; HarnessreviewPASS; search-stochfrozen.
+- 2026-11-25T18:16:34.557135+00:00: official checker accepted original proof; capped cleanup candidate testing.

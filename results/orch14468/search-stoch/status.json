@@ -1,0 +1,43 @@
+{
+  "updated_utc": "2026-11-25T18:11:53.064097+00:00",
+  "last_root_renewal": "2026-11-25T18:10:49Z",
+  "last_expiry": "2026-11-25T18:30:48Z",
+  "baseline_size": 11,
+  "target_size": 10,
+  "exact10_witness": false,
+  "processes": [
+    {
+      "mode": "fixed10",
+      "session_id": 93793,
+      "command": "/tmp/oec/pequalnp-pilot-103/search14468 1446803 600 0",
+      "cap_seconds": 600,
+      "logs": [
+        "fixed.stdout",
+        "fixed.stderr"
+      ],
+      "exit_code": 0,
+      "stop": "SIGINT",
+      "final_progress": [
+        "done 53025000 best 1"
+      ]
+    },
+    {
+      "mode": "elastic14 minimizinglive",
+      "session_id": 17646,
+      "command": "/tmp/oec/pequalnp-pilot-103/search14468 1446807 600 1",
+      "cap_seconds": 600,
+      "logs": [
+        "elastic.stdout",
+        "elastic.stderr"
+      ],
+      "exit_code": 0,
+      "stop": "SIGINT",
+      "final_progress": [
+        "done 10524000 best 11"
+      ]
+    }
+  ],
+  "stopped_utc": "2026-11-25T18:13:16.649630+00:00",
+  "stop_reason": "Root located exact public proof PR18915; redirect to independent construction validation.",
+  "active_processes": []
+}

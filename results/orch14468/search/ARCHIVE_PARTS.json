@@ -1,0 +1,18 @@
+{
+  "archive": "search-artifacts.tar.gz",
+  "archive_bytes": 92464258,
+  "archive_sha256": "da7fbda7ac17b1c3e718c6a9db741d48b2cc68b5f98c4036e16389083f85c6d0",
+  "reconstruct": "Concatenate part01 followed by part02; the result is the complete gzip tar archive.",
+  "parts": [
+    {
+      "path": "results/orch14468/search/search-artifacts.tar.gz.part01",
+      "bytes": 47185920,
+      "sha256": "827685ce071a23a13f5b0df7eb7b0d00e698805ecde99abdf80a8ac7a79b680a"
+    },
+    {
+      "path": "results/orch14468/search/search-artifacts.tar.gz.part02",
+      "bytes": 45278338,
+      "sha256": "be5d17f958854cb54a2c4abbc41f9f81faa755ccce74777fa4ac1c879e538ebc"
+    }
+  ]
+}

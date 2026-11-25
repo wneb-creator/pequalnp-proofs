@@ -1,0 +1,80 @@
+{
+  "inputs": 8,
+  "gates": [
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      5,
+      1
+    ],
+    [
+      1,
+      7,
+      6
+    ],
+    [
+      1,
+      9,
+      3
+    ],
+    [
+      0,
+      8,
+      10
+    ],
+    [
+      0,
+      5,
+      1
+    ],
+    [
+      0,
+      11,
+      7
+    ],
+    [
+      1,
+      13,
+      12
+    ],
+    [
+      1,
+      0,
+      10
+    ],
+    [
+      1,
+      15,
+      14
+    ]
+  ],
+  "output": 17,
+  "validation": {
+    "score": 1,
+    "trial": 3317,
+    "sample_false_positive": 0,
+    "sample_false_negative": 1,
+    "full_false_positive": 0,
+    "full_false_negative": 12,
+    "live_gates": 9,
+    "false_positive_masks": [],
+    "false_negative_masks": [
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      49,
+      53,
+      57,
+      61
+    ]
+  }
+}

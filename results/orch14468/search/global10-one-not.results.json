@@ -1,0 +1,27 @@
+{
+  "arguments": {
+    "gates": 10,
+    "nots": 1,
+    "seconds": 120,
+    "output": "/tmp/oec/pequalnp-pilot-103/orch14468/global10-one-not",
+    "pin": null,
+    "not_position": null,
+    "first": null,
+    "cegis": false,
+    "allow_unused": false,
+    "encode_only": false
+  },
+  "records": [
+    {
+      "stage": 0,
+      "variables": 7960,
+      "clauses": 110429,
+      "rows": 256,
+      "cnf_sha256": "6c92a1f8d7e4d2ba7cfb4f5a85fd396480c60774748fa97ae4cebf1fdb9fa17b",
+      "started_utc": "2026-11-25T18:11:16.357138+00:00",
+      "exit_code": 0,
+      "verdict": "UNKNOWN"
+    }
+  ],
+  "elapsed_seconds": 119.18644380569458
+}

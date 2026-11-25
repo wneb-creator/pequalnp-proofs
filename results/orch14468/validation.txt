@@ -5,7 +5,7 @@ SHA256: 5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124
 Source: attributed adaptation of Leg0shii public PR18915, removing redundant Mathlib import.
 Lean standalone compile/export: PASS.
 Named lake build: PASS, exit 0.
-Official checker: pending.
+Official checker: PASS, exit 0; ACCEPTED (check), kernel rechecked 2269 constants, only propext/Quot.sound/Classical.choice.
 Cleanup lines: before 2222; after pending.
 Independent source/provenance/interface/format review: PASS (REVIEW-public18915.md).
 Sub-agents: circuit_search, counterexample, fresh_proof, lean_setup, lower_bound, status_check, partial_lean (7 unique across this job).

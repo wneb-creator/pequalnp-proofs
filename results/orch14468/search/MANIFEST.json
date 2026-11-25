@@ -1,0 +1,76 @@
+{
+  "status": "FROZEN; no active owned processes; complete diagnostic archive split into45MiB parts",
+  "files": [
+    {
+      "path": "results/orch14468/search/ARCHIVE_PARTS.json",
+      "bytes": 669,
+      "sha256": "65796c6dc8c59df6a3c90395ef54e4e23f8440b9642a805169a51c19d7cac3aa"
+    },
+    {
+      "path": "results/orch14468/search/STATUS.md",
+      "bytes": 1781,
+      "sha256": "323e8f788a7e9ee5b8ea6ac635f0e0e7f6380dffde1d4e2ac2b6535dd0a8b15c"
+    },
+    {
+      "path": "results/orch14468/search/audit_public_certificate.py",
+      "bytes": 4636,
+      "sha256": "6d92fdac7e25db08c0d7c184773700583851b8e899bbcd2d174a976826335289"
+    },
+    {
+      "path": "results/orch14468/search/baseline11.results.json",
+      "bytes": 1390,
+      "sha256": "548a4e399e0cfe17555026e10679824c0c98e64a18dc45584e3ae85f2d983467"
+    },
+    {
+      "path": "results/orch14468/search/baseline14-active-not.json",
+      "bytes": 604,
+      "sha256": "6b36345f099c333da2dbd15b3fe97c7b0b5882da8d80d9790656a1876fde1369"
+    },
+    {
+      "path": "results/orch14468/search/baseline14-active-not.results.json",
+      "bytes": 1588,
+      "sha256": "7ab561e5ae1660a9d802e785a0a88da515ed13079cf7898bf0ad0f57ed577006"
+    },
+    {
+      "path": "results/orch14468/search/circuit_cnf.py",
+      "bytes": 5812,
+      "sha256": "2ed22f8ed91a444f4053d44c9ee9e81abec355a0c5e03c2b3fece82c3ba55549"
+    },
+    {
+      "path": "results/orch14468/search/global10-one-not.results.json",
+      "bytes": 637,
+      "sha256": "a117d6ae39d85b6546b64690f0220bbc81837be326062d9b954b184cc4f1b81d"
+    },
+    {
+      "path": "results/orch14468/search/public-certificate-audit.json",
+      "bytes": 794,
+      "sha256": "3513374e4fbaef79db057e7c79e290daea0a2cd102d24bc5a85743fd5409476c"
+    },
+    {
+      "path": "results/orch14468/search/search-artifacts.manifest.json",
+      "bytes": 5567,
+      "sha256": "8dfda4b03a977713cae3f139e886f60222eeb3ec12e5f0fdb5e7fc534f6e1dde"
+    },
+    {
+      "path": "results/orch14468/search/search-artifacts.tar.gz.part01",
+      "bytes": 47185920,
+      "sha256": "827685ce071a23a13f5b0df7eb7b0d00e698805ecde99abdf80a8ac7a79b680a"
+    },
+    {
+      "path": "results/orch14468/search/search-artifacts.tar.gz.part02",
+      "bytes": 45278338,
+      "sha256": "be5d17f958854cb54a2c4abbc41f9f81faa755ccce74777fa4ac1c879e538ebc"
+    },
+    {
+      "path": "results/orch14468/search/wrong-baseline11.json",
+      "bytes": 483,
+      "sha256": "54b241c3f002b49d2da0530ded243625a718906c9c29aaec58c8f40d45f90b8b"
+    },
+    {
+      "path": "results/orch14468/search/wrong-baseline11.results.json",
+      "bytes": 678,
+      "sha256": "b3c14fc854be601fa4efd659b9cbe2e24cc9c84741b1b265210dffe4ef0f0ffc"
+    }
+  ],
+  "total_bytes": 92488897
+}

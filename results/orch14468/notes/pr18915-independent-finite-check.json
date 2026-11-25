@@ -1,0 +1,16 @@
+{
+  "source_sha256": "81cc0c084c6e6374795ee8f2dfa86c517c61cb34434911ba54cf6b2f1bd53c74",
+  "source_bytes": 112588,
+  "final_type_matches_posted_whitespace_normalized": true,
+  "fullWord_all512_validated": true,
+  "mono_all256_validated": true,
+  "cofactor_fix_rows_224_validated": true,
+  "mono_gate_count": 11,
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "forbidden_token_matches": [],
+  "double_quotes": 0,
+  "root_qualifiers": 0
+}

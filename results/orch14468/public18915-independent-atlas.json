@@ -1,0 +1,31 @@
+{
+  "source": "results/orch14468/lemmas/Public18915.lean",
+  "sha256": "5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124",
+  "verdict": "PASS independent finite atlas replay and semantic tables",
+  "atlas": {
+    "states": 166,
+    "attempts": 27472,
+    "size_pruned": 20068,
+    "separation_pruned": 7084,
+    "redundant_pruned": 98,
+    "linked": 222
+  },
+  "row_count_by_budget": {
+    "6": 1,
+    "5": 44,
+    "4": 91,
+    "3": 25,
+    "2": 5
+  },
+  "separating_pairs": 152,
+  "full_truth_table_rows": 512,
+  "monotone_witness_rows": 256,
+  "monotone_witness_gates": 11,
+  "lift": {
+    "fixed_coordinate_mask": 224,
+    "base_binary_floor": 7,
+    "essential_roots": 3,
+    "resulting_binary_floor": 10
+  },
+  "scope": "Independent computational audit; Lean compilation and checker are separate validations."
+}

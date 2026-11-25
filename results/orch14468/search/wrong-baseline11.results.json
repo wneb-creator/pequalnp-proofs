@@ -1,0 +1,27 @@
+{
+  "arguments": {
+    "gates": 11,
+    "nots": 0,
+    "seconds": 5,
+    "output": "/tmp/oec/pequalnp-pilot-103/orch14468/wrong-baseline11",
+    "pin": "results/orch14468/search/wrong-baseline11.json",
+    "not_position": null,
+    "first": null,
+    "cegis": false,
+    "allow_unused": false,
+    "encode_only": false
+  },
+  "records": [
+    {
+      "stage": 0,
+      "variables": 8767,
+      "clauses": 127313,
+      "rows": 256,
+      "cnf_sha256": "9f7af0d202b2a589e1f5770c4c6447dffbfdea03ebc7796dce7bf322ca227b7b",
+      "started_utc": "2026-11-25T18:10:49.466797+00:00",
+      "exit_code": 20,
+      "verdict": "UNSAT"
+    }
+  ],
+  "elapsed_seconds": 0.1732778549194336
+}

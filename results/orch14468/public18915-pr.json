@@ -1,0 +1,32 @@
+{
+  "author": {
+    "id": "MDQ6VXNlcjQ2MDkzMzMy",
+    "is_bot": false,
+    "login": "Leg0shii",
+    "name": "Legoshi"
+  },
+  "body": "Proof written by an AI worker.\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)",
+  "files": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_14468.lean",
+      "additions": 2221,
+      "deletions": 0
+    }
+  ],
+  "headRefOid": "c63b1058c3fe975a0c152a1b88930e9c6f41c837",
+  "headRepository": {
+    "id": "R_kgDOV5Id8Q",
+    "name": "pequalnp-proofs-fork"
+  },
+  "headRepositoryOwner": {
+    "id": "MDQ6VXNlcjQ2MDkzMzMy",
+    "name": "Legoshi",
+    "login": "Leg0shii"
+  },
+  "mergeStateStatus": "UNKNOWN",
+  "number": 18915,
+  "state": "OPEN",
+  "statusCheckRollup": [],
+  "title": "L-meta-14468",
+  "url": "https://github.com/open-goat/pequalnp-proofs/pull/18915"
+}

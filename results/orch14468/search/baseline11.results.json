@@ -1,0 +1,85 @@
+{
+  "arguments": {
+    "gates": 11,
+    "nots": 0,
+    "seconds": 5,
+    "output": "/tmp/oec/pequalnp-pilot-103/orch14468/baseline11",
+    "pin": "results/orch14468/search-stoch/baseline11.json",
+    "not_position": null,
+    "first": null,
+    "cegis": false,
+    "allow_unused": false,
+    "encode_only": false
+  },
+  "records": [
+    {
+      "stage": 0,
+      "variables": 8767,
+      "clauses": 127313,
+      "rows": 256,
+      "cnf_sha256": "94400b60de0ebe1650c389777fd7c28b7af1699d283b01c9c9b40a8b380d5f94",
+      "started_utc": "2026-11-25T18:10:36.388670+00:00",
+      "exit_code": 10,
+      "verdict": "VERIFIED_SAT",
+      "gates_model": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          6,
+          7
+        ],
+        [
+          0,
+          8,
+          9
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          5,
+          12
+        ],
+        [
+          0,
+          7,
+          13
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          1,
+          10,
+          11
+        ],
+        [
+          1,
+          14,
+          16
+        ],
+        [
+          1,
+          15,
+          17
+        ]
+      ],
+      "bad_rows": []
+    }
+  ],
+  "elapsed_seconds": 0.20631980895996094
+}
