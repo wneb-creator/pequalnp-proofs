@@ -758,4 +758,146 @@ lemma normalize_or_replace (n K : ℕ) (gs : List Gate) (o : ℕ)
     exact outputPrefix_eval n gs o (List.ofFn x) (by simp)
   · exact Or.inl (outputPrefix_noNot n gs o hgs hn)
 
+def stripSource (q i : ℕ) : ℕ := if i = 0 then q else i - 2
+
+def stripAnd (q : ℕ) : List ℕ → List ℕ
+  | [] => []
+  | i :: is => if i = 1 then stripAnd q is else stripSource q i :: stripAnd q is
+
+def stripGate (q : ℕ) (g : Gate) : Gate :=
+  match g.op with
+  | GateOp.and => ⟨GateOp.and, stripAnd q g.inputs⟩
+  | GateOp.or => if 1 ∈ g.inputs then ⟨GateOp.and, []⟩
+      else ⟨GateOp.or, g.inputs.map (stripSource q)⟩
+  | _ => g
+
+lemma stripSource_value (w : List Bool) (q i : ℕ) (hq : w.length ≤ q) (hi : i ≠ 1) :
+    w.getD (stripSource q i) false = ([false, true] ++ w).getD i false := by
+  cases i with
+  | zero =>
+    simp only [stripSource, ite_true]
+    rw [List.getD_eq_default _ _ hq]
+    rfl
+  | succ i =>
+    cases i with
+    | zero => exact (hi rfl).elim
+    | succ i =>
+      simp only [stripSource, Nat.succ_ne_zero, ite_false]
+      change w.getD i false = (false :: true :: w).getD ((i + 1) + 1) false
+      rw [List.getD_cons_succ, List.getD_cons_succ]
+
+lemma stripAnd_length (q : ℕ) (ins : List ℕ) : (stripAnd q ins).length ≤ ins.length := by
+  induction ins with
+  | nil => rfl
+  | cons i ins ih =>
+    simp only [stripAnd]
+    split_ifs <;> simp only [List.length_cons] <;> omega
+
+lemma stripAnd_value (w : List Bool) (q : ℕ) (ins : List ℕ) (hq : w.length ≤ q) :
+    GateOp.and.eval ((stripAnd q ins).map fun i => w.getD i false) =
+      GateOp.and.eval (ins.map fun i => ([false, true] ++ w).getD i false) := by
+  induction ins with
+  | nil => rfl
+  | cons i ins ih =>
+    simp only [stripAnd]
+    by_cases hi : i = 1
+    · subst i
+      simpa only [ite_true, List.map_cons, GateOp.eval, List.all_cons,
+        show ([false, true] ++ w).getD 1 false = true from rfl, id_eq, Bool.true_and] using ih
+    · simp only [hi, ite_false, List.map_cons, GateOp.eval, List.all_cons, id_eq,
+        stripSource_value w q i hq hi]
+      exact congrArg (fun b : Bool => ([false, true] ++ w).getD i false && b) ih
+
+lemma stripGate_value (w : List Bool) (q : ℕ) (g : Gate) (hq : w.length ≤ q)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) :
+    (stripGate q g).op.eval ((stripGate q g).inputs.map fun i => w.getD i false) =
+      g.op.eval (g.inputs.map fun i => ([false, true] ++ w).getD i false) := by
+  rcases hop with hop | hop
+  · simpa only [stripGate, hop] using stripAnd_value w q g.inputs hq
+  · by_cases h1 : 1 ∈ g.inputs
+    · simp only [stripGate, hop, h1, ite_true, List.map_nil, GateOp.eval, List.all_nil]
+      symm
+      apply List.any_eq_true.mpr
+      exact ⟨true, List.mem_map.mpr ⟨1, h1, rfl⟩, rfl⟩
+    · have he : g.inputs.map (fun i => w.getD (stripSource q i) false) =
+          g.inputs.map (fun i => ([false, true] ++ w).getD i false) := by
+        apply List.map_congr_left
+        intro i hi
+        exact stripSource_value w q i hq (fun he => h1 (he ▸ hi))
+      simpa only [stripGate, hop, h1, ite_false, List.map_map, Function.comp_def] using
+        congrArg GateOp.or.eval he
+
+lemma stripGate_basis (q : ℕ) (g : Gate)
+    (hg : (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
+    ((stripGate q g).op = GateOp.and ∨ (stripGate q g).op = GateOp.or) ∧
+      (stripGate q g).inputs.length ≤ 2 := by
+  rcases hg with ⟨hop | hop, hlen⟩
+  · exact ⟨Or.inl (by simp only [stripGate, hop]),
+      by simpa only [stripGate, hop] using (stripAnd_length q g.inputs).trans hlen⟩
+  · by_cases h1 : 1 ∈ g.inputs
+    · simp [stripGate, hop, h1]
+    · simpa only [stripGate, hop, h1, ite_false, List.length_map] using
+        And.intro (Or.inr rfl : GateOp.or = GateOp.and ∨ GateOp.or = GateOp.or) hlen
+
+lemma stripGates_value (gs : List Gate) (w : List Bool) (q : ℕ)
+    (hq : w.length + gs.length ≤ q) (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    runGates gs ([false, true] ++ w) =
+      [false, true] ++ runGates (gs.map (stripGate q)) w := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    change runGates gs (([false, true] ++ w) ++
+      [g.op.eval (g.inputs.map fun i => ([false, true] ++ w).getD i false)]) =
+      [false, true] ++ runGates (gs.map (stripGate q))
+        (w ++ [(stripGate q g).op.eval ((stripGate q g).inputs.map fun i => w.getD i false)])
+    rw [← stripGate_value w q g (by simp only [List.length_cons] at hq; omega)
+      (hgs g List.mem_cons_self), List.append_assoc]
+    apply ih
+    · simp only [List.length_append, List.length_singleton]
+      simp only [List.length_cons] at hq
+      omega
+    · intro g hg
+      exact hgs g (List.mem_cons_of_mem _ hg)
+
+lemma strip_constants (n : ℕ) (gs : List Gate) (o : ℕ) (ho : o ≠ 1)
+    (hgs : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
+    ∃ (ms : List Gate) (mo : ℕ),
+      (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      ms.length = gs.length ∧ ∀ x : Fin n → Bool,
+        Circuit.eval ⟨ms, mo⟩ (List.ofFn x) =
+          Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x) := by
+  refine ⟨gs.map (stripGate (n + gs.length)), stripSource (n + gs.length) o,
+    ?_, by simp, ?_⟩
+  · intro g hg
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+    exact stripGate_basis _ _ (hgs a ha)
+  · intro x
+    change (runGates (gs.map (stripGate (n + gs.length))) (List.ofFn x)).getD
+      (stripSource (n + gs.length) o) false =
+      (runGates gs ([false, true] ++ List.ofFn x)).getD o false
+    rw [stripGates_value gs (List.ofFn x) (n + gs.length) (by simp)
+      (fun g hg => (hgs g hg).1)]
+    exact stripSource_value _ _ _ (by rw [runGates_length]; simp) ho
+
+lemma initialTrue_value (gs : List Gate) (w : List Bool) :
+    Circuit.eval ⟨gs, 1⟩ ([false, true] ++ w) = true := by
+  change (padRun gs ([false, true] ++ w)).getD 1 false = true
+  rw [padRun_getD gs _ 1 (by simp)]
+  rfl
+
+lemma strip_constants_of_false (n : ℕ) (gs : List Gate) (o : ℕ)
+    (hgs : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (x0 : Fin n → Bool)
+    (h0 : Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x0) = false) :
+    ∃ (ms : List Gate) (mo : ℕ),
+      (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      ms.length = gs.length ∧ ∀ x : Fin n → Bool,
+        Circuit.eval ⟨ms, mo⟩ (List.ofFn x) =
+          Circuit.eval ⟨gs, o⟩ ([false, true] ++ List.ofFn x) := by
+  apply strip_constants n gs o _ hgs
+  intro ho
+  subst o
+  rw [initialTrue_value] at h0
+  cases h0
+
 end PEqualNP.Outside.L_meta_10760
