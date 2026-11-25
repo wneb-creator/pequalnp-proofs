@@ -16,3 +16,6 @@ TIMING total=11.73 subagents=6
 Structural partial extended to120lines; Lean exit0.
 Sub-agents: seven total, including structural/read_once_count.
 TIMING total=14.70 subagents=7
+
+read_once.lean: compile exit0; conditional slot-count lemma reviewed; full logs retained.
+TIMING total=16.53 subagents=7

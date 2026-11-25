@@ -1,0 +1,5 @@
+Independent root review: PASS for conditional supporting partial.
+SHA256: 7c1cc4fba01b986ded6d92c4e26fdf3d2f15e7de95655a58153fa7b54dd80570
+If every original input is read at least twice, at least2n input slots are needed. Liveness requires at leastg-1 internal slots. One unary gate implies at most2g-1 total slots, hence2n<=g, contradicting g<2n. Formal proof partitions the two disjoint index ranges and uses listcount sums.
+Circuit specialization explicitly assumes unary NOT normalization, allinputs read, and every nonfinal gate read. These hypotheses have not been discharged for arbitrary posted circuits; full lower bound is not asserted.
+Lean exit0, two linter warnings, complete logs retained. Allowed imports and plain tokens checked.
