@@ -1,0 +1,9 @@
+{
+  "source": "results/orch2590/lemmas/toolchain_setup/PinBudget.v3.checked.lean",
+  "sha256": "2df8a9802f5ea7d42eadf0f9bd294e2d7039bc07c0ceb030ada84862a426b4d9",
+  "command": "lake -d lean env lean /workspace/pequalnp-proofs/results/orch2590/lemmas/toolchain_setup/PinBudget.lean",
+  "exit_code": 0,
+  "stdout": "PinBudget.v3.checked.stdout",
+  "stderr": "PinBudget.v3.checked.stderr",
+  "note": "Successful compilation has a push_neg deprecation warning in stdout; stderr is empty. The versioned source and logs are frozen."
+}
