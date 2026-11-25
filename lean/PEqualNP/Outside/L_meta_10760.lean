@@ -257,4 +257,30 @@ lemma projected_overlap_of_selfMask
 
 end BitmapCollision
 
+namespace GateCollision
+
+def gate (op : Fin 4) (a b : Bool) : Bool :=
+  match op.val with
+  | 0 => a && b
+  | 1 => a || b
+  | 2 => a && !b
+  | _ => b && !a
+
+lemma same_left : ∀ (op : Fin 4) (a b : Bool),
+    (gate op a b == gate op (!a) b) =
+      (if op.val = 0 ∨ op.val = 3 then !b else b) := by
+  decide +kernel
+
+lemma same_right : ∀ (op : Fin 4) (a b : Bool),
+    (gate op a b == gate op a (!b)) =
+      (if op.val = 0 ∨ op.val = 2 then !a else a) := by
+  decide +kernel
+
+lemma same_both : ∀ (op : Fin 4) (a b : Bool),
+    (gate op a b == gate op (!a) (!b)) =
+      (if op.val < 2 then a != b else a == b) := by
+  decide +kernel
+
+end GateCollision
+
 end PEqualNP.Outside.L_meta_10760
