@@ -2479,3 +2479,85 @@ lemma positive_replacement_of_lowN13
 end RestrictionSixProof
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
+
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
+
+end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760
+open RestrictionSixProof (W)
+
+namespace SixRowWitness
+
+def sep (ws : List Nat) (a p q : Nat) : Bool :=
+  (!(a.testBit p == a.testBit q)) &&
+    ws.all (fun w => w == a || w.testBit p == w.testBit q)
+
+lemma sep_ok {ws a p q} (h : sep ws a p q = true) :
+    a.testBit p ≠ a.testBit q ∧
+      ∀ w ∈ ws, w = a ∨ w.testBit p = w.testBit q := by
+  simpa [sep, Bool.and_eq_true, Bool.or_eq_true, List.all_eq_true] using h
+
+lemma word_bit (w r : Nat) (hr : r < 128) :
+    (W w)[r] = w.testBit r := by
+  simpa [RestrictionSixProof.bit, W, hr] using RestrictionSixProof.bit_W ⟨r, hr⟩ w
+
+lemma sep_sound {ws a p q} (hp : p < 128) (hq : q < 128)
+    (h : sep ws a p q = true) :
+    uniqueSep ((ws.map W).toFinset) (W a) ⟨p, hp⟩ ⟨q, hq⟩ := by
+  obtain ⟨diff, same⟩ := sep_ok h
+  constructor
+  · simpa only [word_bit] using diff
+  · intro w hw hwa
+    obtain ⟨v, hv, rfl⟩ := List.mem_map.mp (List.mem_toFinset.mp hw)
+    have vne : v ≠ a := fun he => hwa (congrArg W he)
+    simpa only [word_bit] using (same v hv).resolve_left vne
+
+def check (T : Nat) (ws : List Nat) (a b p q ra rb sa sb : Nat) : Bool :=
+  decide (p < 128 ∧ q < 128 ∧ ra < 128 ∧ rb < 128 ∧ sa < 128 ∧ sb < 128 ∧
+    a ∈ ws ∧ b ∈ ws ∧ a ≠ b ∧
+    T.testBit p = true ∧ T.testBit q = false ∧
+    T.testBit ra = false ∧ T.testBit rb = false ∧
+    T.testBit sa = true ∧ T.testBit sb = true ∧
+    sep ws a p ra = true ∧ sep ws b p rb = true ∧
+    sep ws a sa q = true ∧ sep ws b sb q = true ∧
+    a.testBit p = a.testBit sa ∧ b.testBit p = b.testBit sb)
+
+lemma sound {T ws a b p q ra rb sa sb}
+    (h : check T ws a b p q ra rb sa sb = true) :
+    criticalPair (W T) ((ws.map W).toFinset) (W a) (W b) := by
+  obtain ⟨hp, hq, hra, hrb, hsa, hsb, ha, hb, hab,
+    tp, tq, tra, trb, tsa, tsb, pa, pb, aq, bq, crossa, crossb⟩ :=
+    of_decide_eq_true h
+  have diff := (sep_ok pa).1
+  have same : b.testBit p = b.testBit ra :=
+    ((sep_ok pa).2 b hb).resolve_left (Ne.symm hab)
+  have wab : W a ≠ W b := by
+    intro he
+    have ep := congrArg (fun w : BitVec 128 => w[p]) he
+    have er := congrArg (fun w : BitVec 128 => w[ra]) he
+    have ep' : a.testBit p = b.testBit p := by simpa only [word_bit] using ep
+    have er' : a.testBit ra = b.testBit ra := by simpa only [word_bit] using er
+    exact diff (ep'.trans (same.trans er'.symm))
+  refine ⟨List.mem_toFinset.mpr (List.mem_map.mpr ⟨a, ha, rfl⟩),
+    List.mem_toFinset.mpr (List.mem_map.mpr ⟨b, hb, rfl⟩), wab,
+    ⟨p, hp⟩, ⟨q, hq⟩, ⟨ra, hra⟩, ⟨rb, hrb⟩, ⟨sa, hsa⟩, ⟨sb, hsb⟩,
+    ?_, ?_, ?_, ?_, ?_, ?_, sep_sound hp hra pa, sep_sound hp hrb pb,
+    sep_sound hsa hq aq, sep_sound hsb hq bq, ?_, ?_⟩
+  all_goals simp only [word_bit]; assumption
+
+end SixRowWitness
+end PEqualNP.Outside.L_meta_10760
