@@ -1,0 +1,7 @@
+{
+  "last_utc": "2026-11-25T15:36:49.086732+00:00",
+  "null_count": 3,
+  "last_note": "That step is not open: it is checked already, withdrawn, or not a step. Do not send its proof.",
+  "attempts_in_poller": 1,
+  "response_file": "desk-2239.json"
+}
