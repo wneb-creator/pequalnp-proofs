@@ -35,3 +35,5 @@ The generic constant-folding pass compiles with a standard Bool-sum-Nat wire sta
 ## First strategy review
 
 Broad source searches found no unrestricted sharp plane bound. Continue exact Fano synthesis with independent encodings and formalize the useful-gate/normal-form route. Do not assume all minimum circuits are read1: a minimum P4 circuit disproves that stronger claim. Reductions remain closed for this lease.
+
+The constant-folding extension now proves AO2 gate-list preservation: emitted gates are binary AND/OR with backward references. Output selection and strict gate deletion remain pending.

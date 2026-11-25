@@ -16,3 +16,4 @@ Supporting partial: results/orch/lemmas/semantic_frontier.lean, lake env lean ex
 Actual checker verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583.
 Supporting partial: results/orch/lemmas/semantic_frontier_dual.lean, lake env lean exit0, independent review PASS.
 Supporting partial: results/orch/lemmas/constant_folding.lean, lake env lean exit0, independent review PASS; generic semantics only.
+Constant-folding extension:327lines, lake env lean exit0, independent review PASS; AO2 gate-list preservation proved.

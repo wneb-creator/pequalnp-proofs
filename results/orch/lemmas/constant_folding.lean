@@ -245,4 +245,83 @@ theorem inv_elim (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) 
       rw [ht, Stat.val_append _ _ _ (by rw [lw']; exact (hi i).1)]
       exact (hi i).2
 
+def GateAO (m : ℕ) (g : Gate) : Prop :=
+  (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 ∧
+    ∀ i ∈ g.inputs, i < m
+
+theorem simplify_AO (op : GateOp) (m : ℕ) (ins : List Stat)
+    (hop : op = GateOp.and ∨ op = GateOp.or)
+    (hv : ∀ s ∈ ins, s.Valid m) :
+    ∀ g ∈ (simplify op m ins).1, GateAO m g := by
+  intro g hg
+  rcases hop with rfl | rfl
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
+      (try cases a) <;> (try cases b) <;>
+      simp_all [simplify, simpAnd, Stat.Valid, GateAO] <;> subst g <;> simp_all [GateAO]
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
+      (try cases a) <;> (try cases b) <;>
+      simp_all [simplify, simpOr, Stat.Valid, GateAO] <;> subst g <;> simp_all [GateAO]
+
+theorem AO_append_gate (n : ℕ) (gs : List Gate) (g : Gate)
+    (h : PEqualNP.TopForm.IsAO2 n ⟨gs, 0⟩)
+    (hg : GateAO (n + gs.length) g) :
+    PEqualNP.TopForm.IsAO2 n ⟨gs ++ [g], 0⟩ := by
+  obtain ⟨hops, hback, hlen⟩ := h
+  obtain ⟨gop, glen, gback⟩ := hg
+  refine ⟨?_, ?_, ?_⟩
+  · intro a ha
+    rcases List.mem_append.mp ha with ha | ha
+    · exact hops a ha
+    · simpa only [List.mem_singleton.mp ha] using gop
+  · intro j hj i hi
+    by_cases hjs : j < gs.length
+    · have he : PEqualNP.MetaComplexity.NestedCover.gateAt ⟨gs ++ [g], 0⟩ j =
+          PEqualNP.MetaComplexity.NestedCover.gateAt ⟨gs, 0⟩ j :=
+        List.getD_append _ _ _ _ hjs
+      rw [he] at hi
+      exact hback j hjs i hi
+    · have hje : j = gs.length := by simp only [List.length_append, List.length_singleton] at hj; omega
+      subst j
+      have hi' : i ∈ g.inputs := by
+        simpa [PEqualNP.MetaComplexity.NestedCover.gateAt] using hi
+      exact gback i hi'
+  · intro a ha
+    rcases List.mem_append.mp ha with ha | ha
+    · exact hlen a ha
+    · simpa only [List.mem_singleton.mp ha] using glen
+
+theorem AO_append_option (n : ℕ) (gs : List Gate) (g : Option Gate)
+    (h : PEqualNP.TopForm.IsAO2 n ⟨gs, 0⟩)
+    (hg : ∀ a ∈ g, GateAO (n + gs.length) a) :
+    PEqualNP.TopForm.IsAO2 n ⟨gs ++ g.toList, 0⟩ := by
+  cases g with
+  | none => simpa using h
+  | some g => exact AO_append_gate n gs g h (hg g rfl)
+
+theorem elim_AO (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
+    ∀ (w : List Bool) (acc : List Stat × List Gate),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) →
+      Inv n y w acc → PEqualNP.TopForm.IsAO2 n ⟨acc.2, 0⟩ →
+      PEqualNP.TopForm.IsAO2 n ⟨(elim n gs acc).2, 0⟩ := by
+  induction gs with
+  | nil => intro w acc _ _ h; exact h
+  | cons g gs ih =>
+    intro w acc hok hinv hao
+    have hg := hok g List.mem_cons_self
+    have hgos : ∀ g' ∈ [g], Ok g' := by
+      intro g' hg'
+      have he : g' = g := List.mem_singleton.mp hg'
+      subst g'
+      exact ⟨hg.1.elim Or.inl (fun h => Or.inr (Or.inl h)), hg.2⟩
+    have hi := inv_elim n y hy [g] w acc hgos hinv
+    have hi' : Inv n y
+        (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (elimStep n acc g) := hi
+    have ha : PEqualNP.TopForm.IsAO2 n ⟨(elimStep n acc g).2, 0⟩ := by
+      apply AO_append_option n acc.2 _ hao
+      apply simplify_AO g.op (n + acc.2.length) _ hg.1
+      intro s hs
+      obtain ⟨a, _, rfl⟩ := List.mem_map.mp hs
+      exact (hinv.2 a).1
+    exact ih _ _ (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg')) hi' ha
+
 end PEqualNP.Outside.L_meta_2583_aux.ConstantFolding

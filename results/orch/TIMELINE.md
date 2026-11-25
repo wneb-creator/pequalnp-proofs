@@ -9,3 +9,4 @@
 - 2026-11-25T14:56:08.032417+00:00: semantic prime-frontier lemmas compile and independently pass review; checker on posted statement returns REJECTED(no-theorem), as expected for helper-only module.
 - 2026-11-25T14:57:02.877172+00:00: dual maximal-false frontier lemmas compile and independently pass review.
 - 2026-11-25T15:00:24.921227+00:00: generic constant-folding semantic invariant compiles and independently passes review; AO2-specific preservation remains separate.
+- 2026-11-25T15:01:51.556722+00:00: constant folding now preserves binary AND/OR shape and backward reads; independently reviewed and compiled.
