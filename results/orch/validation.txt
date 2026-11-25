@@ -6,3 +6,10 @@ Both runs exit 0; stdout and stderr empty.
 Independent source reviewer: preflight_review; valid partials, no forbidden constructs.
 Sub-agents: preflight_review, structural_proof, library_route, counterexample, algebraic_route, semantic_support
 TIMING total=9.4 subagents=6
+
+Additional checked partials (lake env lean, exit 0):
+- library-colour.lean (current source rechecked; empty diagnostics)
+- semantic-support.lean (empty diagnostics; stars and matchings)
+- algebraic-mask.lean (empty diagnostics)
+- algebraic-certificate.lean (empty diagnostics)
+- library-buffer.lean (empty diagnostics; function-preserving full-input buffer construction, size increment n, T=0)
