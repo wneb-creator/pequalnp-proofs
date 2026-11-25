@@ -1,0 +1,17 @@
+{
+  "file": "results/orch/lemmas/local_near.lean",
+  "bytes": 2324,
+  "lines": 56,
+  "gates": 18,
+  "circuit_cases_checked": 1024,
+  "identity_cases_checked": 64,
+  "extra_inputs": [
+    69,
+    104,
+    521,
+    548
+  ],
+  "format": "pass",
+  "verdict": "valid partial component; not the posted theorem and not a counterexample",
+  "compile_fix_reviewed": "FanInTwo uses simp on exact definition and concrete circuit; all semantic content unchanged"
+}

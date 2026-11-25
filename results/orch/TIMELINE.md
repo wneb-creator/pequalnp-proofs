@@ -90,3 +90,6 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 
 2026-11-25T14:07:26.136445+00:00 reduction_design: canonicalbank16andconjunction17 residualtheoremscompiled.
 2026-11-25T14:07:39.560030+00:00 bank16.lean compiled and independently reviewed; preserving component.
+2026-11-25T14:08:10.983519+00:00 local_near.lean compiled successfully; independent exhaustive truth-table and format review passed.
+2026-11-25T14:08:11.460115+00:00 renewed; expiry 2026-11-25T14:28:11.151Z
+2026-11-25T14:08:25.136227+00:00 local_near.lean compiled and independently reviewed; preserving exact near-witness.

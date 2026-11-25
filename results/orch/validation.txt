@@ -23,3 +23,7 @@ TIMING total=23 subagents=6
 
 bank16.lean compiled exit0; empty output.
 Root independent review PASS: CanonicalBank.lower proves16residual binary gates for all8 canonical signed first-gate banks. conjunction_lower proves17residual gates for AND/AND-NOT with retained extra wire. Both use the checked nineFloor and valid constant-mass contraction. This is a partial lemma, not the exact posted theorem. Scratch Outside import will be removed when integrated.
+
+Axiom inspection of sixteen_binary_floor and four_not_exclusion passed: only propext, Classical.choice, Quot.sound.
+local_near.lean compiled exit0 (empty output); independent review by petersen_search passed all1024 inputs and64 K4 identity rows.
+This18gate circuit is an overapproximation with exactly4false positives, NOT a counterexample.
