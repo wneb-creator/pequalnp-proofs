@@ -1,0 +1,1 @@
+{'linear': (v33, 0, 0, -5*v33, v33, v33, -4*v33, v33, 6*v33, v33), 'equations': [56*v33**4, 64*v33**3, -16*v33**2], 'charts': [('v33', 'INCONSISTENT')]}

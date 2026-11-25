@@ -1,0 +1,8 @@
+graph 0/3918 edges=0
+graph 500/3918 edges=459
+graph 1000/3918 edges=790
+graph 1500/3918 edges=1047
+graph 2000/3918 edges=1271
+graph 2500/3918 edges=1510
+graph 3000/3918 edges=1653
+graph 3500/3918 edges=2171

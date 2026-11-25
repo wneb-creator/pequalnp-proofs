@@ -1,0 +1,9 @@
+{
+  "chart": "123",
+  "characteristic": 0,
+  "variant": "batch",
+  "memory_mib": 3072,
+  "budget_seconds": 300,
+  "seconds": 330.06731314899935,
+  "exit": "timeout"
+}

@@ -1,0 +1,11 @@
+REPRESENTATIVE 1
+linear solution (-2*v03 - 9*v33, 0, 0, v03, v33, v33, 0, v33, 2*v33, v33)
+remaining equations [2*v33**2*(v03 - 9*v33)*(v03 + 3*v33), 4*v33*(v03**2 - 6*v03*v33 - 39*v33**2), 2*(v03**2 - 6*v03*v33 - 63*v33**2)]
+parameters [v03, v33]
+chart v03 GB GroebnerBasis([1], v33, domain='ZZ', order='lex')
+chart v33 GB GroebnerBasis([1], v03, domain='ZZ', order='lex')
+REPRESENTATIVE 11
+linear solution (v33, 0, 0, -5*v33, v33, v33, -4*v33, v33, 6*v33, v33)
+remaining equations [56*v33**4, 64*v33**3, -16*v33**2]
+parameters [v33]
+chart v33 GB INCONSISTENT

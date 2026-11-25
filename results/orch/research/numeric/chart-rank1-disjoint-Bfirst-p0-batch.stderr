@@ -1,0 +1,57 @@
+Initial seed for pseudo-random number generator is 1795602066
+
+--------------- INPUT DATA ---------------
+#variables                      11
+#equations                      12
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             512
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+Initial prime is 1179170987
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  3       5      11      35 x 338         8.38%        5 new       0 zero         0.00 | 0.00         
+  4      15      21     244 x 1272        2.71%       13 new       2 zero         0.00 | 0.00         
+  5      60      63    1129 x 3958        1.65%       41 new      19 zero         0.01 | 0.00         
+  6     227     239    4126 x 10593       1.40%      110 new     117 zero         0.06 | 0.06         
+  6      28     773    2584 x 5500        2.08%       19 new       9 zero         0.02 | 0.02         
+  7     512     904    9595 x 18765       1.41%      191 new     321 zero         0.45 | 0.45         
+  7     396    1949   14052 x 27225       1.15%      159 new     237 zero         0.67 | 0.67         
+  8     512    2879   11520 x 19467       2.12%      286 new     226 zero         1.54 | 1.54         
+  8     512    4808   18011 x 30530       1.68%       55 new     457 zero         2.73 | 2.73         
+  8     512    4746   18791 x 31040       1.98%      195 new     317 zero         3.08 | 3.07         
+  8     512    6026   29989 x 50730       1.08%      111 new     401 zero         3.82 | 3.82         
+  8     512    6449   30587 x 48831       1.28%      180 new     332 zero         4.76 | 4.75         
+  8     316    7567   31887 x 53964       1.20%       41 new     275 zero         2.58 | 2.58         
+  9     512    7608   22339 x 31845       1.72%      170 new     342 zero         4.89 | 4.88         
+  9     512    8368   33414 x 48528       1.46%      182 new     330 zero         8.93 | 8.92         
+  9     512    9059   31693 x 46115       1.80%      359 new     153 zero        14.06 | 14.01        
+  9     512   11594   32632 x 46734       2.06%      238 new     274 zero        13.49 | 13.45        
+  9     513   13347   29296 x 43084       2.74%      164 new     349 zero        15.96 | 15.94        
+  9     513   14282   30452 x 44123       2.83%       96 new     417 zero        21.30 | 21.29        
+  9     513   14600   31999 x 45600       2.72%       10 new     503 zero        20.79 | 20.77        
+  9     512   14171   37037 x 50803       2.30%

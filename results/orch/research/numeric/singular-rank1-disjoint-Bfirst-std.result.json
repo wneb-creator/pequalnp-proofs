@@ -1,0 +1,8 @@
+{
+  "chart": "rank1-disjoint-Bfirst",
+  "algorithm": "std",
+  "memory_mib": 3072,
+  "budget_seconds": 120,
+  "seconds": 54.65534217000004,
+  "exit": 0
+}

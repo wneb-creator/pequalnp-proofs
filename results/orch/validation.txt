@@ -28,3 +28,12 @@ Named file: 431 lines. Added star_two_plane_maximal; its duplicate coefficient-e
 Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5159 jobs). Complete logs: maximal-build.stdout and maximal-build.stderr.
 Independent source review and rebuild: PASS (status_review). All newly needed Mathlib optional build artifacts were restored from the pinned official cache before this build; no Mathlib source build was used.
 The posted dimension-three existence theorem remains unproved, and no global refutation is claimed.
+
+RESEARCH PRESERVATION CHECKPOINT — INDEPENDENT REVIEW PASS
+Reviewed by status_review at 2026-11-25T10:34:50.295983+00:00.
+Branch: pnp/pilot-78; HEAD before preservation: 6c66f7e9914f80b6ad50a2bb7435f2289dd3267b. No tracked proof or other source change since that reviewed checkpoint; only NOTES.md and TIMELINE.md were modified before this validation entry.
+Research snapshot: 313 manifest-listed mathematical files plus manifest.json, 314 files total, 2861480 bytes. Every listed size and SHA256 matches; no unlisted files, symlinks, executable files, or disallowed suffixes. Runtime CAS directories and large direction censuses are absent.
+Sensitive-data scan: no credential tokens, private keys, credential-bearing URLs, authorization values, lease identifiers, or private lease data found in research/, NOTES.md, TIMELINE.md, or this validation record. No redactions were needed; no sensitive values were printed.
+Claims review: summaries distinguish compiled partial lemmas, exact finite-field computations, numerical searches, and symbolic restrictions from the still-unproved complex statement. No full checker verdict, complete proof, or global refutation is claimed.
+Research snapshot aggregate SHA256 (sorted repository paths and bytes, NUL-delimited): ed43d6395092d0a40b437081d4c8203c39052dfeeb799ef39130c66ed5331a58.
+This is branch-only preservation, not a proof PR. Research files must be absent from the final PR diff if a complete proof or refutation is later submitted.

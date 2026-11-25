@@ -1,0 +1,13 @@
+MIXED [((3, 1), (-4*sqrt(2) - 4)*(B - C)*(B + C*(3 - 2*sqrt(2)) - 4 + 2*sqrt(2))), ((2, 1), (-4*sqrt(2) - 4)*(B - C)*(B + C*(3 - 2*sqrt(2)) - 4 + 2*sqrt(2)))]
+BRANCH equal B
+COEFF 2 -8*(B**2 + 6*B + 3)
+COEFF 3 -16*B*(B + 1)**2
+COEFF 4 4*(B**4 - 8*B**3 + 4*B + 1)
+GB GroebnerBasis([1], E, B, domain='QQ<sqrt(2)>', order='lex')
+SOLUTIONS []
+BRANCH other -3*B - 2*sqrt(2)*B + 2*sqrt(2) + 4
+COEFF 2 (80*sqrt(2) + 120)*(B**2 + B*(-18/5 + 8*sqrt(2)/5) - 17/5 + 12*sqrt(2)/5)
+COEFF 3 (-400*sqrt(2) - 560)*(B - sqrt(2))*(B**2 + B*(-14/5 + 4*sqrt(2)/5) - 3/5 + 4*sqrt(2)/5)
+COEFF 4 (48*sqrt(2) + 68)*(B**4 + B**3*(16 - 20*sqrt(2)) + B**2*(-72 + 72*sqrt(2)) + B*(-20 - 4*sqrt(2)) - 24*sqrt(2) + 41)
+GB GroebnerBasis([1], E, B, domain='QQ<sqrt(2)>', order='lex')
+SOLUTIONS []

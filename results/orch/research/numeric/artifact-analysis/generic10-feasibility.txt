@@ -1,0 +1,25 @@
+Single bounded generator attempt; no solver was run and no retry was made.
+Resource limits: 512 MiB virtual memory, 45 CPU-second soft limit.
+Exit status: 152 (SIGXCPU).
+Shell diagnostic: CPU time limit exceeded.
+
+The common denominator is D = 4*b*d*Delta. For a coefficient containing
+i A-vectors and j B-vectors, its numerator is cleared by D^(i+j).
+Intermediate polynomial reduction uses q = c*d+b*e-b-c-d-e-1 only;
+q must remain an explicit equation. No division by a new variable occurs.
+Equivalence with the original chart requires b*d*Delta != 0.
+Exceptional branches b=0, d=0 and Delta=0 remain separate and unresolved.
+
+Extension-matrix numerator entries: degree at most 6, up to 201 terms.
+Completed coefficient checks:
+  C^2, B*C and A*C vanish modulo q.
+  B^2 numerator: degree 12, 2343 terms, 31.68 elapsed seconds.
+The next coefficient did not complete before the CPU limit.
+No complete msolve input was generated. The incremental JSONL is partial.
+Full generator stdout/stderr are preserved beside this report.
+
+There are 31 permanent coefficients of total degrees 2 through 4.
+The formulas imply at least eight vanish modulo q, but a final nonzero
+equation count, maximum degree and total term count were not established.
+Generic upper degree bound before additional cancellation: 24.
+This attempt gives no existence, nonexistence or ideal-membership result.

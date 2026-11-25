@@ -1,0 +1,26 @@
+(4, 0) (a*f + b*e + c*d)**2
+(3, 1) 2*f*(a*f + b*c*(-sqrt(2) - 1) + b*e + c*d + d*e*(-1 + sqrt(2)))
+(3, 0) 2*(a**2*f + a*b*d + a*b*e + a*b*f + a*c*d + a*c*e + a*c*f + a*d*f + a*e*f + a*f**2 + b**2*e + b*c*d + b*c*e + b*c*f + b*d*e + b*e**2 + b*e*f + c**2*d + c*d**2 + c*d*e + c*d*f + d*e*f)
+(2, 1) 4*(a*f + b**2*(-sqrt(2)/4 - 1/4) + b*c*(-sqrt(2)/2 - 1/2) + b*d/2 + b*e/2 - sqrt(2)*b*f/2 + c**2*(-sqrt(2)/4 - 1/4) + c*d/2 + c*e/2 - sqrt(2)*c*f/2 + d**2*(-1/4 + sqrt(2)/4) + d*e*(-1/2 + sqrt(2)/2) + sqrt(2)*d*f/2 + e**2*(-1/4 + sqrt(2)/4) + sqrt(2)*e*f/2)
+(2, 0) 2*(a**2 + 2*a*b + 2*a*c + 2*a*d + 2*a*e + 4*a*f + b**2 + 2*b*c + 2*b*d + 4*b*e + 2*b*f + c**2 + 4*c*d + 2*c*e + 2*c*f + d**2 + 2*d*e + 2*d*f + e**2 + 2*e*f + f**2)
+(1, 1) 4*(a - sqrt(2)*b - sqrt(2)*c + sqrt(2)*d + sqrt(2)*e)
+(1, 0) 12*(a + b + c + d + e + f)
+linear constraints [4*(a - sqrt(2)*b - sqrt(2)*c + sqrt(2)*d + sqrt(2)*e), 12*(a + b + c + d + e + f)]
+linear solution (d*(-4 + 2*sqrt(2)) + e*(-4 + 2*sqrt(2)) + f*(-2 + sqrt(2)), -c + d*(3 - 2*sqrt(2)) + e*(3 - 2*sqrt(2)) + f*(1 - sqrt(2)), c, d, e, f)
+residuals 5
+(12 - 8*sqrt(2))*(d + e + f/2)*(d + e + f*(-5/2 - 3*sqrt(2)/2))
+(c*d - c*e + d*e*(3 - 2*sqrt(2)) + d*f*(-4 + 2*sqrt(2)) + e**2*(3 - 2*sqrt(2)) + e*f*(-3 + sqrt(2)) + f**2*(-2 + sqrt(2)))**2
+-2*(c**2*f + c*d**2*(-4 + 2*sqrt(2)) + c*d*f*(-5 + 3*sqrt(2)) + c*e**2*(4 - 2*sqrt(2)) + c*e*f*(-1 + sqrt(2)) + c*f**2*(-1 + sqrt(2)) + d**3*(20 - 14*sqrt(2)) + d**2*e*(40 - 28*sqrt(2)) + d**2*f*(18 - 13*sqrt(2)) + d*e**2*(20 - 14*sqrt(2)) + d*e*f*(17 - 13*sqrt(2)) + d*f**2*(4 - 3*sqrt(2)))
+4*(c*d - c*e + d*e*(3 - 2*sqrt(2)) + d*f*(-4 + 2*sqrt(2)) + e**2*(3 - 2*sqrt(2)) + e*f*(-3 + sqrt(2)) + f**2*(-2 + sqrt(2)))
+f*(2 + 2*sqrt(2))*(c**2 + c*d*(-4 + 3*sqrt(2)) + c*e*(-2 + sqrt(2)) + c*f*(-1 + sqrt(2)) + d*e*(-4 + 3*sqrt(2)) + d*f*(8 - 6*sqrt(2)) + e**2*(-7 + 5*sqrt(2)) + e*f*(5 - 4*sqrt(2)) + f**2*(4 - 3*sqrt(2)))
+free [c, d, e, f]
+Groebner GroebnerBasis([c**2*f + c*e*f*(-6 + 4*sqrt(2)) + c*f**2*(-1 + sqrt(2)) + d*f**2*(-105 + 147*sqrt(2)/2) + e**2*f*(17 - 12*sqrt(2)) + e*f**2*(-98 + 137*sqrt(2)/2) + f**3*(-105/2 + 147*sqrt(2)/4), c*d - c*e + d*e*(3 - 2*sqrt(2)) + d*f*(-4 + 2*sqrt(2)) + e**2*(3 - 2*sqrt(2)) + e*f*(-3 + sqrt(2)) + f**2*(-2 + sqrt(2)), c*e**2 + c*e*f*(-3*sqrt(2)/4 - 1) + c*f**2*(-5/16 - 3*sqrt(2)/16) + d*e**2*(-3/2 + sqrt(2)) + d*f**2*(-111/16 + 47*sqrt(2)/16) + e**3*(-3/2 + sqrt(2)) + e**2*f*(5/4 - sqrt(2)/4) + e*f**2*(-51/8 + 19*sqrt(2)/8) + f**3*(-111/32 + 47*sqrt(2)/32), c*e*f**2 + e**3*f*(1620/167 - 5132*sqrt(2)/835) + e**2*f**2*(-6409/835 + 202*sqrt(2)/167) + e*f**3*(-4812/835 + 1788*sqrt(2)/835), c*f**3 + e**3*f*(-111728/2839 + 354128*sqrt(2)/14195) + e**2*f**2*(453716/14195 - 15444*sqrt(2)/2839) + e*f**3*(352323/14195 - 127142*sqrt(2)/14195), d**2 + 2*d*e + d*f*(-3*sqrt(2)/2 - 2) + e**2 + e*f*(-3*sqrt(2)/2 - 2) + f**2*(-5/4 - 3*sqrt(2)/4), d*e*f + 17*d*f**2/4 + 17*e*f**2/4 + 17*f**3/8, d*f**3 + 16*e**3*f/255 + e**2*f**2*(-20/51 - 8*sqrt(2)/85) + e*f**3*(67/85 - 4*sqrt(2)/85) + f**4/2, e**4*f + e*f**4/8, e**3*f**2 - e*f**4/4, e**2*f**3 + e*f**4/2], c, d, e, f, domain='QQ<sqrt(2)>', order='lex')
+zero dimensional False
+BRANCH f=0 Groebner [c*e]
+BRANCH f=1,S=-1/2 Groebner [c - e, e**2 + e/2]
+BRANCH f=1,S=(5+3sqrt2)/2 Groebner [1]
+COMPLETE PROJECTIVE HOLLOW DIRECTIONS (a,b,c,d,e,f):
+(0, 1, -1, 0, 0, 0)
+(0, 0, 0, 1, -1, 0)
+(0, 1, 0, 1, 0, -2)
+(0, 0, 1, 0, 1, -2)

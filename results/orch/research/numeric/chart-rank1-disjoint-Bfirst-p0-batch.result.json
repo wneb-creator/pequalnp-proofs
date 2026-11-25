@@ -1,0 +1,9 @@
+{
+  "chart": "rank1-disjoint-Bfirst",
+  "characteristic": 0,
+  "variant": "batch",
+  "memory_mib": 3072,
+  "budget_seconds": 120,
+  "seconds": 125.0588160569996,
+  "exit": -24
+}

@@ -1,0 +1,7 @@
+P=7 tested=6725601 good_projective_directions=17088
+compatible_edges=6608
+INDEPENDENT 1 diag_rank=3 basis=[1,0,0,4,0,0,0,0,0,5][0,1,0,6,3,0,0,0,0,4][0,0,1,6,0,0,0,3,0,4]
+INDEPENDENT 2 diag_rank=3 basis=[1,0,0,5,0,0,0,0,0,3][0,0,0,0,1,0,5,0,0,3][0,0,0,0,0,0,0,1,5,3]
+INDEPENDENT 3 diag_rank=3 basis=[1,5,0,0,0,0,2,0,0,6][0,0,0,0,1,0,4,0,0,5][0,0,0,0,0,1,6,3,0,4]
+INDEPENDENT 4 diag_rank=3 basis=[1,0,5,0,0,0,0,0,2,6][0,0,0,0,1,5,0,0,2,6][0,0,0,0,0,0,0,1,4,5]
+triangles=13220 independent_compatible_triples=4 good_3planes=0 elapsed_s=2.55301

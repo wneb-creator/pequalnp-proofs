@@ -1,0 +1,10 @@
+distinct polynomial coefficients:
+-2*(a**2 + 8*a*b + 4*b**2)
+-2*(a**3 + 6*a**2*b + 12*a*b**2 - 8*b**3)
+-a**3 - 6*a**2*b - 12*a*b**2 + 8*b**3
+-a**4 - 8*a**2*b**2 + 16*b**4
+12*b**4
+4*b**4
+8*b**4
+Groebner at b=1: GroebnerBasis([1], a, domain='ZZ', order='lex')
+Groebner at a=1: GroebnerBasis([1], b, domain='ZZ', order='lex')

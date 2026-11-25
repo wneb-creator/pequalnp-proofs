@@ -117,3 +117,69 @@ T=[[-8,b,c,0],[b,1,0,0],[c,0,1,0],[0,0,0,0]].
 Then b+c=3,b²+c²=8,bc=1/2. Direct exact24-term expansion gives per(J+zT)=24 identically. The upper-left3×3 determinant is−16 and the lastrow iszero, so rankT=3. This refutes ONLY the auxiliary structural lead, NOT L-gct-231.
 
 The132smallreal directions in construct_search/directions-real.txt have ranks36ofrank2 and96ofrank4, explaining why that sample missedrank3. Finitefield valid-direction datasets containmanyrank3 directions: F5=828,F7=2240,F11=15984. Rank3 directions also occurinsideenumerated2flats, with incidencecounts228,380,408 respectively. Thosefinitefieldstatistics are not bythemselves characteristic-zero statements.
+
+
+### Finite-field census completed through F13
+
+2026-11-25T10:12:54.467592+00:00 status_review: F13 completed in 800.10s, using sparse four-thread search lowered to nice 10 while Lean builds ran. It checked 883708281 projective tangent directions, found 376998 valid directions, 11284 compatible edges, and 45136 triangles, all collinear. No 3D level space exists over F13. There are 124 2D spaces, with diagonal ranks 0/1/2 counted as 24/0/100. Independent Python polynomial-convolution checks passed.
+
+| Field | Tangent directions | Good directions | 2D spaces | Diagonal rank 0/1/2 | 3D spaces |
+|---|---:|---:|---:|---|---:|
+| F5 | 488281 | 3918 | 156 | 24/72/60 | 0 |
+| F7 | 6725601 | 17088 | 236 | 24/56/156 | 0 |
+| F11 | 235794769 | 172128 | 264 | 24/0/240 | 0 |
+| F13 | 883708281 | 376998 | 124 | 24/0/100 | 0 |
+
+These exhaustive finite-field results do not prove nonexistence over complex numbers. Complete logs and canonical RREF bases are in scratch finitefield/. F13 search source SHA256: 8a08a4e0e5267f844b6908c0525533740ded46ac18b28d5d42a786d0c6ab8937. No further prime-field census is planned: larger fields cost much more and do not directly settle the complex statement.
+
+
+## One-diagonal-zero slice audit
+
+2026-11-25T10:30:33.728309+00:00 status_review: A3D level space always has a2D subspace in T00=0 by rank-nullity. Filtering the complete finite-field plane lists gives:
+
+| Field | T00-zero 2-planes | Diagonal rank 0/1/2 |
+|---|---:|---|
+| F5 | 45 | 24/12/9 |
+| F7 | 65 | 24/26/15 |
+| F11 | 24 | 24/0/0 |
+| F13 | 25 | 24/0/1 |
+
+A proposed24-only characteristic-zero classification is FALSE. Root supplied the real sqrt2 family with A01=1,A02=-1 and B00=-1+sqrt2,B03=1,B33=-1-sqrt2. Exact polynomial expansion also verifies a second family with A03=A13=1,A23=-2 and B00=-1+sqrt2,B01=1,B11=-1-sqrt2; all matrices are symmetric. Each family contributes24 global permutation/conjugate planes and12 planes in the T00-zero slice. Thus the complex slice contains at least48 planes:24 hollow and24 from these two quadratic families. The17 extra F7 slice points are not all explained; finite counts do not prove they are characteristic artifacts or prove completeness of the known complex list.
+
+Exact characteristic-zero tangent dimensions were computed by rank over Q(sqrt2), without new Lean compilation or heavy CAS. Full extension tangent dimension / Fano tangent dimension within T00=0: hollow S4 orbits of sizes4,12,8 give4/5,4/3,3/0; quadratic family1 gives5/5, family2 gives4/4. Extension tangent spaces contain the original2-plane, so the two quadratic nonextension problems have only3 and2 quotient variables. Many slice points are highly singular; tangent dimensions alone do not decide whether the slice is finite or reduced. Detailed finite and exact outputs: finitefield/slice-tangents.txt, f*-slice-tangents.json, charzero-tangents.txt, quadratic-family-check.txt, quadratic-family-orbits.txt.
+
+Smallest sufficient normalized statement: every2D symmetric level space W contained in T00=0 is maximal among symmetric level spaces. Any hypothetical3D L has such a W, so this implies the posted negation. This is essentially equivalent to the original refutation after rank-nullity, and is NOT a genuinely smaller reduction by itself. A genuine split would be an exhaustive classification of this slice into explicit families, followed by nonextension of every family. Exhaustiveness remains the global bottleneck; the48 known planes must not be assumed complete.
+
+
+## Construction search: all star directions excluded from a 3-flat
+
+At 2026-11-25T10:32:21.149511+00:00, a stronger symbolic/linear-algebra obstruction excludes every nonzero star direction from any hypothetical3-flat. This has not yet been formalized inLean. Let A have starweights(1,t,−1−t). For a compatible symmetricV, write its lower3×3 block as B=[[e,f,g],[f,h,i],[g,i,j]]. The mixedquadratic and cubic coefficients impose
+
+(t+1)f−tg+th−(t+1)j+e−i=0,
+t²(h−2i+j)+2t(f−g−i+j)+e−2g+j=0.
+
+These define a4D space E of lowerblocks. On E, the quartic coefficient of a²z² in per(aA+zV) is a quadratic form of rank3 with radical precisely span(J3), provided t≠0,−1. Eliminating e,j in the chart t≠−2,−1 gives fourcoordinates(f,g,h,i); all3×3 Gram minors are ±72t⁴(t+1)²/(t+2)², and its kernel is(1,1,1,1). For t=−2, swap the firsttwoleaves to replace t by−1/2. Exactmatrix/minors are retained in scratch/construct_search/star-line-rank.stdout.
+
+For a3D constant-permanent L containingA, let W be its lowerblock image. Kernel vectors have lowerblock0; the tangent and quadratic conditions force centerentry0 and starweights summing0, so the kernel lies in the standard2D starplane. If dimW≤1, the kernel hasdim≥2, so L contains the fullstarplane, contradicting Lean-checked StarMaximal. Otherwise W hasdim2, because a rank3 form on4D has maximal isotropicdimension2. Such an isotropic2-plane mustcontain the1D radical. Thus some V∈L has lowerblockJ3, impossible: tangent forces V00=−2s−9, where s is the sum of its three starentries, while its quadratic/cubic scalar coefficients force96=0. This is the same elimination already checked in StarMaximal. Cases t=0 or−1, and the omitted firstweight0, are permutations/scalings of the basic two-edge starline; geometry_search's duplicate-row argument excludes those.
+
+This does not exclude a generic hollowdirection, nor a3-flat with no hollowdirection.
+
+Additional rank-one-diagonal clarification: the compatibility curve through the basicstarline is not finite overC. In the duplicate-row slice normalize repeateddiagonal r=1; evaluating per(J+zV)=24 at z=−1 gives (h−1)²(t−1)²=6. Its two components require√6. The r=0 nonhollow directions require√2. This explains why theseplanes are absent overF11/F13, where neither2 nor6 is square; it does not establish absence overC. Exact Gröbner output is scratch/construct_search/duplicate-curve.stdout.
+
+
+## Global chart symmetry certificate preparation
+
+2026-11-25T10:34:06.286320+00:00 geometry_search: exact S3 action on diagonal-pivot chart047 has been independently verified against all31 raw coefficient generators. Free variables are x_(ij,k), edges[01,02,03,12,13,23], parameter k in{0,1,2}. For any permutation sigma of{0,1,2}, fixing3, the variable action is x_(ij,k) -> x_(sorted(sigma(i),sigma(j)),sigma(k)); polynomial generators permute according to parameter exponent triples. All186 exact polynomial identities passed overQ. Maps and scripts: geometry_search/diag047-symmetry.json and diag047_symmetry.py, with full stdout/stderr. artifact_analysis independently obtained the same action and orbit counts:1747 rows/5715 columns throughdegree5,10163/22684 throughdegree6. Raw generators permute without factors; monic-normalized generators require factors1/2,1,2. This supplies a smaller invariant Macaulay certificate search, not yet a nonexistence proof.
+
+
+### Further bounded symmetry checks
+
+2026-11-25T10:35:52.875880+00:00 construct_search: exact small ansatz computations exclude 3-flats invariant under a leaf S3, a 4-cycle C4, or a 3-cycle C3. These are restricted obstructions only.
+
+For S3, the standard2-plane mixes three standardcopies withcoefficients(x,y,z). Its Taylor equations include x²z²=0, 4xy−4xz+y²−4yz=0, and 3x²y+6x²z+6xy²−6xyz+y³+3yz²+2z³=0. Its onlyprojectivepoint is(1,0,0), the knownstarplane. Allthreecharts checked exactly; logs construct_search/s3-invariant.stdout.
+
+For C4, tangent eigenspaces at(1,−1,i,−i) have dimensions(2,3,2,2). The1-space has no validnonzero direction, by q=8(3x²+2xy+y²), c=−16x(x+y)². The−1-space's quadratic is nondegenerate, so a flatintersects it in atmost1dimension. The±i-spaces each have nonzeroquartic, so a flatintersects each inatmost1dimension. Any invariant3-flat would therefore need one line ineachof(−1,i,−i). Validi-lines are edgevector+r*diagvector withr²=0 or4i; valid−i-lines haveu²=0 or−4i. Their mixedquartic is2(r²u²+2ir²−2iu²+8), forcingexactlyoner,u nonzero. Their mixedquadratic is−8[ru+(2+2i)r+(2−2i)u+2], which thenforces the nonzero square to be∓i/2, contradicting±4i. Exacteigenbases and allninepairchecks: construct_search/c4-eigenspaces.stdout, c4-pairs.stdout.
+
+For C3, tangent1-eigenspace is3D; its q,c,p have no nonzeroprojective commonzero (threecharts eachGroebner[1]). Theχ andχ² eigenspaces are3D and onlythecubic survives; it is the above ternarycubic F. Its projectiveplane curve is smooth (allthreegradientcharts Groebner[1]), hence hasno line. Consequently eachχ eigenspace intersects aflat indimension≤1, and an invariantflat hasdimension≤2. Logs construct_search/c3-trivial.stdout andc3-cubic.stdout.
+
+Klein-four invariant3-flats are also excluded analytically in Hadamardcoordinates. Its nontrivialcharacter spaces are(x,f),(y,e),(z,d); an isotropicline has f/x=±√3 (and analogues). Three nontriviallines failthexyz cubic for every signchoice. The other possible3Dtype is a trivialline(a,b,c) plus two nontriviallines. Its conditionsa²+b²+c²=abc=0 together with4a=2α(b+c),4b=2β(a+c), α²=β²=3 forcea=b=c=0. Trivial2planes andnontrivial2planes are ruledoutbyquadraticisotropy.

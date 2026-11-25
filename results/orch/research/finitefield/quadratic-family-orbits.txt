@@ -1,0 +1,2 @@
+family 1 global orbit count 24 T00-zero count 12 tangent distribution {(5, 5): 12}
+family 2 global orbit count 24 T00-zero count 12 tangent distribution {(4, 4): 12}

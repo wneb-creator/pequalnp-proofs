@@ -1,0 +1,2 @@
+{"chart": "incident", "hollow_edge": 1, "solved_hollow_edge": 2, "dependent_diagonal": 9, "polynomials": 12, "terms": 798}
+{"chart": "disjoint", "hollow_edge": 5, "solved_hollow_edge": 1, "dependent_diagonal": 9, "polynomials": 12, "terms": 798}

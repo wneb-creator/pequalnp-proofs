@@ -1,0 +1,9 @@
+{
+  "chart": "rank1-incident",
+  "characteristic": 0,
+  "variant": "batch",
+  "memory_mib": 3072,
+  "budget_seconds": 300,
+  "seconds": 313.15068880299987,
+  "exit": -24
+}

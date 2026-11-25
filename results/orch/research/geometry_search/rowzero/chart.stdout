@@ -1,0 +1,14 @@
+coefficients 10
+r**3/2 + r*s + sqrt(2)*I*r*s/2 - s**2/2 + s/2
+r**2*s - sqrt(2)*I*r**2*s/2 + r**2/2 - r*s**2/2 - r*s + r*t + sqrt(2)*I*r*t/2 - s*t - s + sqrt(2)*I*s/2 + t/2
+-3*r**2*t/2 + r*s**2 - sqrt(2)*I*r*s**2/2 - r + sqrt(2)*I*r/2 - s**3/2 - s**2 - s*t - sqrt(2)*I*s*t/2 - s - 1/2
+r**2*s/2 + r**2*t - sqrt(2)*I*r**2*t/2 - r*s*t - r*s - sqrt(2)*I*r*s/2 - r*t - r/2 - t**2/2 - t + sqrt(2)*I*t/2
+-r**2 - sqrt(2)*I*r**2/2 + r*s**2 - r*s - r*t + r - s**2*t - s**2 - sqrt(2)*I*s**2/2 - s*t - t**2 - sqrt(2)*I*t**2/2 - t + 1 + sqrt(2)*I/2
+-r*s - sqrt(2)*I*r*s/2 + 3*r*t**2/2 + s**3/2 - s**2*t + sqrt(2)*I*s**2*t/2 - s**2 + s + t - sqrt(2)*I*t/2 - 1/2
+r**2*t/2 - r*t**2/2 - r*t - sqrt(2)*I*r*t/2 - 1/2
+-r**2/2 + r*s*t - r*t**2 + sqrt(2)*I*r*t**2/2 - r*t + r - sqrt(2)*I*r/2 - s*t**2/2 - s*t - sqrt(2)*I*s*t/2 + t/2
+-r*s + r*t + sqrt(2)*I*r*t/2 - r/2 + s**2*t/2 - s*t**2 + sqrt(2)*I*s*t**2/2 - s*t + s - sqrt(2)*I*s/2 + t**2/2
+-s**2/2 + s*t + sqrt(2)*I*s*t/2 - s/2 - t**3/2
+Groebner GroebnerBasis([1], r, s, t, domain='QQ<sqrt(2)*I>', order='lex')
+1
+solutions None

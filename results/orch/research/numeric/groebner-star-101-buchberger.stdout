@@ -1,0 +1,1 @@
+{"stage": "generated", "pivots": [1, 2, 3], "domain": "GF(101)", "method": "buchberger", "seconds": 0.1042084069995326, "polynomials": 31, "terms": 3600, "max_terms": 277}

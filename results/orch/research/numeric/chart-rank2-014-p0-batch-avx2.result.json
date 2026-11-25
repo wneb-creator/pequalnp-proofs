@@ -1,0 +1,10 @@
+{
+  "chart": "rank2-014",
+  "characteristic": 0,
+  "variant": "batch",
+  "architecture": "avx2",
+  "memory_mib": 3072,
+  "budget_seconds": 300,
+  "seconds": 319.58232179900006,
+  "exit": -24
+}

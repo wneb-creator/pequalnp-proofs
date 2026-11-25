@@ -13,3 +13,7 @@
 
 - 2026-11-25T10:06:26Z — construct_search: StarMaximal.lean compiled, proving exact maximality of the standard2Dstarflat; all earlier small-alphabet and numerical construction searches found no3Dcandidate.
 - 2026-11-25T10:09:19.501736+00:00: star nonextension obstruction integrated; full named-file lake build passed, with independent review.
+
+2026-11-25T10:32:21.149511+00:00 construct_search: derived exact rank3 lowerblock obstruction excluding every starline from any3-flat, using existing StarMaximal and basicstarline duplicate-row obstruction. Not Lean formalized.
+
+2026-11-25 10:32 UTC: Research snapshot preserved locally for independent review. Exact finite-field censuses remain evidence only. Rank-one diagonal two-flat emptiness abandoned after explicit complex families. Full chart014 rational search timed out without verdict; next route is invariant certificate search.

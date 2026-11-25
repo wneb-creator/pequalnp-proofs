@@ -1,0 +1,3 @@
+P=13 tested=883708281 good_projective_directions=376998
+compatible_edges=11284
+triangles=45136 independent_compatible_triples=0 good_3planes=0 elapsed_s=800.098

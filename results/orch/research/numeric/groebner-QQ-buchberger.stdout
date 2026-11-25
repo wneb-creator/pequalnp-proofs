@@ -1,0 +1,1 @@
+{"stage": "generated", "pivots": [0, 4, 7], "domain": "QQ", "method": "buchberger", "seconds": 0.09485582999968756, "polynomials": 31, "terms": 2650, "max_terms": 235}
