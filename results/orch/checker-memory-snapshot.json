@@ -1,0 +1,38 @@
+[
+  {
+    "pid": 12669,
+    "at": "2026-11-25T05:32:32.641082+00:00",
+    "categories_kib": {
+      "mathlib_files": {
+        "Rss": 5035356,
+        "Pss": 5035356,
+        "Anonymous": 0,
+        "Private_Dirty": 0
+      },
+      "lean_runtime_files": {
+        "Rss": 1475296,
+        "Pss": 1160406,
+        "Anonymous": 3196,
+        "Private_Dirty": 3196
+      },
+      "project_files": {
+        "Rss": 20520,
+        "Pss": 20520,
+        "Anonymous": 0,
+        "Private_Dirty": 0
+      },
+      "anonymous_mappings": {
+        "Rss": 6901836,
+        "Pss": 6901832,
+        "Anonymous": 6901832,
+        "Private_Dirty": 6901832
+      },
+      "other_files": {
+        "Rss": 920,
+        "Pss": 131,
+        "Anonymous": 68,
+        "Private_Dirty": 68
+      }
+    }
+  }
+]

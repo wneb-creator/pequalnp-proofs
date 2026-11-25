@@ -1,0 +1,48 @@
+{
+  "status": "SOURCE-ONLY CANDIDATE; FULL BUILD AND CHECKER UNVALIDATED",
+  "utc": "2026-11-25T05:33:51.369494+00:00",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_670.lean",
+  "source_sha256": "42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6",
+  "candidate": "/workspace/pequalnp-proofs/results/orch/pruning/L_meta_670_pruned.lean",
+  "candidate_sha256": "b9f488380ea90800ecff8fa48f583dd8470236f0e07609041c561855f859b485",
+  "source_bytes": 522901,
+  "candidate_bytes": 513884,
+  "source_lines": 5221,
+  "candidate_lines": 5098,
+  "unused_helpers_removed": [
+    "seed",
+    "seed_table",
+    "seed_nonzero",
+    "exec_extends",
+    "assertSize",
+    "size_of",
+    "lower_forest",
+    "lower_discard",
+    "broadcast",
+    "availableMasked",
+    "available_mask",
+    "QuickPool"
+  ],
+  "final_counts": {
+    "forests": 17,
+    "column_tables": 17,
+    "static_columns": 1072,
+    "known_entries": 379,
+    "known_lists": 54,
+    "closed_calls": 45,
+    "numeric_query_sites": 1100,
+    "distinct_queried_ids": 379,
+    "used_origins": 379,
+    "unused_origins": 0,
+    "candidate_entries": 0,
+    "queried_candidates": 0,
+    "packed_nodes": 5348,
+    "packed_rule_references": 25500
+  },
+  "numeric_census_is_not_kernel_validation": true,
+  "reversible_operations_count": 57,
+  "final_theorem_and_attribution_unchanged": true,
+  "main_source_untouched": true
+}
+Iteration 1 removed entries 52 empty groups {'known17151': 'known2303', 'known2815': 'known17151', 'known6911': 'known2815', 'known1791': 'known6911', 'known58623': 'known1279', 'known58111': 'known58623', 'known1407': 'known2431'}
+Iteration 2 removed entries 1 empty groups {}

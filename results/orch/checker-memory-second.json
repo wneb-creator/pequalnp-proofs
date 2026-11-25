@@ -1,0 +1,14 @@
+[
+  {
+    "pid": 12669,
+    "elapsed": "07:20",
+    "cpu_percent": 97.0,
+    "rss_kib": 12052712,
+    "at": "2026-11-25T05:35:19.605458+00:00",
+    "Rss_kib": 12054760,
+    "Pss_kib": 11752781,
+    "Private_Dirty_kib": 6955400,
+    "Anonymous_kib": 6955400,
+    "Swap_kib": 0
+  }
+]

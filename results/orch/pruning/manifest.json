@@ -1,0 +1,1227 @@
+{
+  "status": "SOURCE-ONLY CANDIDATE; FULL BUILD AND CHECKER UNVALIDATED",
+  "utc": "2026-11-25T05:33:51.369494+00:00",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_670.lean",
+  "source_sha256": "42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6",
+  "candidate": "/workspace/pequalnp-proofs/results/orch/pruning/L_meta_670_pruned.lean",
+  "candidate_sha256": "b9f488380ea90800ecff8fa48f583dd8470236f0e07609041c561855f859b485",
+  "source_bytes": 522901,
+  "candidate_bytes": 513884,
+  "source_lines": 5221,
+  "candidate_lines": 5098,
+  "unused_helpers_removed": [
+    "seed",
+    "seed_table",
+    "seed_nonzero",
+    "exec_extends",
+    "assertSize",
+    "size_of",
+    "lower_forest",
+    "lower_discard",
+    "broadcast",
+    "availableMasked",
+    "available_mask",
+    "QuickPool"
+  ],
+  "iterations": [
+    {
+      "iteration": 1,
+      "before_counts": {
+        "forests": 17,
+        "column_tables": 17,
+        "static_columns": 1072,
+        "known_entries": 432,
+        "known_lists": 61,
+        "closed_calls": 51,
+        "numeric_query_sites": 1106,
+        "distinct_queried_ids": 380,
+        "used_origins": 380,
+        "unused_origins": 52,
+        "candidate_entries": 0,
+        "queried_candidates": 0,
+        "packed_nodes": 5348,
+        "packed_rule_references": 25500
+      },
+      "removed_carry_entries": [
+        {
+          "owner": "known15",
+          "index": 23,
+          "id": 323,
+          "bound": 4,
+          "swaps": [
+            131,
+            115,
+            98,
+            83,
+            66
+          ],
+          "line": 3407
+        },
+        {
+          "owner": "known47",
+          "index": 2,
+          "id": 94,
+          "bound": 5,
+          "swaps": [
+            101,
+            50,
+            33,
+            16,
+            64
+          ],
+          "line": 3461
+        },
+        {
+          "owner": "known47",
+          "index": 3,
+          "id": 181,
+          "bound": 5,
+          "swaps": [
+            114,
+            81,
+            98,
+            50,
+            65
+          ],
+          "line": 3461
+        },
+        {
+          "owner": "known47",
+          "index": 4,
+          "id": 227,
+          "bound": 5,
+          "swaps": [
+            83,
+            82,
+            114,
+            99,
+            66,
+            16
+          ],
+          "line": 3461
+        },
+        {
+          "owner": "known47",
+          "index": 5,
+          "id": 230,
+          "bound": 5,
+          "swaps": [
+            83,
+            114,
+            99,
+            33,
+            16,
+            64
+          ],
+          "line": 3461
+        },
+        {
+          "owner": "known63",
+          "index": 2,
+          "id": 159,
+          "bound": 8,
+          "swaps": [
+            117,
+            101,
+            67,
+            32
+          ],
+          "line": 3475
+        },
+        {
+          "owner": "known63",
+          "index": 4,
+          "id": 377,
+          "bound": 8,
+          "swaps": [
+            128,
+            81,
+            67,
+            112,
+            97,
+            32
+          ],
+          "line": 3475
+        },
+        {
+          "owner": "known63",
+          "index": 5,
+          "id": 462,
+          "bound": 8,
+          "swaps": [
+            83,
+            133,
+            115,
+            67,
+            32,
+            96
+          ],
+          "line": 3475
+        },
+        {
+          "owner": "known63",
+          "index": 6,
+          "id": 483,
+          "bound": 8,
+          "swaps": [
+            83,
+            80,
+            132,
+            115,
+            96,
+            32,
+            16
+          ],
+          "line": 3475
+        },
+        {
+          "owner": "known63",
+          "index": 7,
+          "id": 492,
+          "bound": 8,
+          "swaps": [
+            80,
+            84,
+            132,
+            49,
+            113,
+            96
+          ],
+          "line": 3475
+        },
+        {
+          "owner": "known111",
+          "index": 17,
+          "id": 485,
+          "bound": 7,
+          "swaps": [
+            80,
+            81,
+            129,
+            114,
+            50,
+            65,
+            96
+          ],
+          "line": 3517
+        },
+        {
+          "owner": "known127",
+          "index": 2,
+          "id": 478,
+          "bound": 9,
+          "swaps": [
+            99,
+            132,
+            84,
+            48,
+            33,
+            112
+          ],
+          "line": 3572
+        },
+        {
+          "owner": "known127",
+          "index": 3,
+          "id": 508,
+          "bound": 9,
+          "swaps": [
+            48,
+            84,
+            100,
+            49,
+            129,
+            112
+          ],
+          "line": 3572
+        },
+        {
+          "owner": "known255",
+          "index": 1,
+          "id": 479,
+          "bound": 12,
+          "swaps": [
+            118,
+            133,
+            33,
+            48
+          ],
+          "line": 3647
+        },
+        {
+          "owner": "known255",
+          "index": 2,
+          "id": 503,
+          "bound": 12,
+          "swaps": [
+            115,
+            82,
+            98,
+            131,
+            66,
+            16
+          ],
+          "line": 3647
+        },
+        {
+          "owner": "known255",
+          "index": 3,
+          "id": 507,
+          "bound": 12,
+          "swaps": [
+            99,
+            81,
+            115,
+            130,
+            65
+          ],
+          "line": 3647
+        },
+        {
+          "owner": "known255",
+          "index": 4,
+          "id": 509,
+          "bound": 12,
+          "swaps": [
+            82,
+            129,
+            48
+          ],
+          "line": 3647
+        },
+        {
+          "owner": "known42607",
+          "index": 11,
+          "id": 60253,
+          "bound": 7,
+          "swaps": [
+            128,
+            80,
+            117,
+            32,
+            16,
+            98,
+            65,
+            48
+          ],
+          "line": 3828
+        },
+        {
+          "owner": "known6719",
+          "index": 1,
+          "id": 2425,
+          "bound": 8,
+          "swaps": [
+            128,
+            80,
+            84,
+            66,
+            16,
+            114,
+            97,
+            48
+          ],
+          "line": 3886
+        },
+        {
+          "owner": "known47679",
+          "index": 8,
+          "id": 60366,
+          "bound": 8,
+          "swaps": [
+            82,
+            50,
+            133,
+            115,
+            49,
+            32,
+            65,
+            96
+          ],
+          "line": 3922
+        },
+        {
+          "owner": "known52799",
+          "index": 2,
+          "id": 60239,
+          "bound": 8,
+          "swaps": [
+            131,
+            115,
+            100,
+            50,
+            33,
+            16,
+            80
+          ],
+          "line": 3940
+        },
+        {
+          "owner": "known44221",
+          "index": 5,
+          "id": 60207,
+          "bound": 8,
+          "swaps": [
+            132,
+            65,
+            48,
+            80,
+            113,
+            32
+          ],
+          "line": 4029
+        },
+        {
+          "owner": "known1151",
+          "index": 1,
+          "id": 11742,
+          "bound": 9,
+          "swaps": [
+            82,
+            133,
+            99,
+            49,
+            32,
+            65,
+            112
+          ],
+          "line": 4130
+        },
+        {
+          "owner": "known44159",
+          "index": 4,
+          "id": 48094,
+          "bound": 9,
+          "swaps": [
+            82,
+            133,
+            99,
+            49,
+            32,
+            65,
+            112
+          ],
+          "line": 4148
+        },
+        {
+          "owner": "known17151",
+          "index": 0,
+          "id": 17151,
+          "bound": 12,
+          "swaps": [],
+          "line": 4389
+        },
+        {
+          "owner": "known2815",
+          "index": 0,
+          "id": 18911,
+          "bound": 12,
+          "swaps": [
+            99,
+            132,
+            84,
+            48,
+            33,
+            112
+          ],
+          "line": 4398
+        },
+        {
+          "owner": "known2815",
+          "index": 1,
+          "id": 28151,
+          "bound": 12,
+          "swaps": [
+            67,
+            80,
+            100,
+            131,
+            112,
+            32,
+            16
+          ],
+          "line": 4398
+        },
+        {
+          "owner": "known6911",
+          "index": 0,
+          "id": 17403,
+          "bound": 12,
+          "swaps": [
+            118,
+            130,
+            81
+          ],
+          "line": 4407
+        },
+        {
+          "owner": "known1791",
+          "index": 0,
+          "id": 17405,
+          "bound": 12,
+          "swaps": [
+            82,
+            129,
+            48
+          ],
+          "line": 4416
+        },
+        {
+          "owner": "known58623",
+          "index": 0,
+          "id": 58623,
+          "bound": 12,
+          "swaps": [],
+          "line": 4434
+        },
+        {
+          "owner": "known58623",
+          "index": 1,
+          "id": 46559,
+          "bound": 12,
+          "swaps": [
+            118,
+            133,
+            33,
+            48
+          ],
+          "line": 4434
+        },
+        {
+          "owner": "known58623",
+          "index": 2,
+          "id": 43517,
+          "bound": 12,
+          "swaps": [
+            82,
+            129,
+            48
+          ],
+          "line": 4434
+        },
+        {
+          "owner": "known58111",
+          "index": 0,
+          "id": 68863,
+          "bound": 12,
+          "swaps": [
+            116,
+            83,
+            32
+          ],
+          "line": 4443
+        },
+        {
+          "owner": "known44287",
+          "index": 0,
+          "id": 44799,
+          "bound": 12,
+          "swaps": [
+            84,
+            115
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 1,
+          "id": 42975,
+          "bound": 12,
+          "swaps": [
+            118,
+            101,
+            133,
+            50,
+            33,
+            16,
+            64
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 2,
+          "id": 58335,
+          "bound": 12,
+          "swaps": [
+            118,
+            133,
+            33,
+            48
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 3,
+          "id": 60383,
+          "bound": 12,
+          "swaps": [
+            99,
+            132,
+            84,
+            48,
+            33,
+            112
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 5,
+          "id": 69623,
+          "bound": 12,
+          "swaps": [
+            67,
+            80,
+            100,
+            131,
+            112,
+            32,
+            16
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 6,
+          "id": 45053,
+          "bound": 12,
+          "swaps": [
+            80,
+            48,
+            50,
+            114,
+            129,
+            64
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known44287",
+          "index": 7,
+          "id": 58365,
+          "bound": 12,
+          "swaps": [
+            82,
+            129,
+            48
+          ],
+          "line": 4452
+        },
+        {
+          "owner": "known42751",
+          "index": 0,
+          "id": 42751,
+          "bound": 12,
+          "swaps": [],
+          "line": 4461
+        },
+        {
+          "owner": "known42751",
+          "index": 2,
+          "id": 42999,
+          "bound": 12,
+          "swaps": [
+            115,
+            82,
+            98,
+            131,
+            66,
+            16
+          ],
+          "line": 4461
+        },
+        {
+          "owner": "known42751",
+          "index": 3,
+          "id": 60413,
+          "bound": 12,
+          "swaps": [
+            82,
+            129,
+            48
+          ],
+          "line": 4461
+        },
+        {
+          "owner": "known42751",
+          "index": 4,
+          "id": 69629,
+          "bound": 12,
+          "swaps": [
+            80,
+            48,
+            50,
+            114,
+            129,
+            64
+          ],
+          "line": 4461
+        },
+        {
+          "owner": "known1407",
+          "index": 0,
+          "id": 28143,
+          "bound": 13,
+          "swaps": [
+            33,
+            80,
+            112,
+            97,
+            130,
+            49,
+            64
+          ],
+          "line": 4553
+        },
+        {
+          "owner": "known44415",
+          "index": 0,
+          "id": 44927,
+          "bound": 13,
+          "swaps": [
+            84,
+            131,
+            98
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known44415",
+          "index": 2,
+          "id": 53119,
+          "bound": 13,
+          "swaps": [
+            98,
+            82,
+            16,
+            66,
+            49,
+            128
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known44415",
+          "index": 4,
+          "id": 69503,
+          "bound": 13,
+          "swaps": [
+            84,
+            66,
+            16,
+            98,
+            129,
+            48
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known44415",
+          "index": 6,
+          "id": 60351,
+          "bound": 13,
+          "swaps": [
+            114,
+            67,
+            84,
+            48,
+            33,
+            97,
+            128
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known44415",
+          "index": 7,
+          "id": 69567,
+          "bound": 13,
+          "swaps": [
+            117,
+            80,
+            66,
+            130,
+            96,
+            16
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known44415",
+          "index": 10,
+          "id": 69103,
+          "bound": 13,
+          "swaps": [
+            116,
+            50,
+            129,
+            80
+          ],
+          "line": 4571
+        },
+        {
+          "owner": "known42879",
+          "index": 3,
+          "id": 69615,
+          "bound": 13,
+          "swaps": [
+            33,
+            80,
+            112,
+            97,
+            130,
+            49,
+            64
+          ],
+          "line": 4589
+        }
+      ],
+      "empty_groups": {
+        "known17151": "known2303",
+        "known2815": "known17151",
+        "known6911": "known2815",
+        "known1791": "known6911",
+        "known58623": "known1279",
+        "known58111": "known58623",
+        "known1407": "known2431"
+      },
+      "bypass_mapping": {
+        "known17151": "known2303",
+        "valid17151": "valid2303",
+        "known2815": "known2303",
+        "valid2815": "valid2303",
+        "known6911": "known2303",
+        "valid6911": "valid2303",
+        "known1791": "known2303",
+        "valid1791": "valid2303",
+        "known58623": "known1279",
+        "valid58623": "valid1279",
+        "known58111": "known1279",
+        "valid58111": "valid1279",
+        "known1407": "known2431",
+        "valid1407": "valid2431"
+      },
+      "removed_declarations": [
+        "low17151",
+        "known17151",
+        "valid17151",
+        "low2815",
+        "known2815",
+        "valid2815",
+        "low6911",
+        "known6911",
+        "valid6911",
+        "low1791",
+        "known1791",
+        "valid1791",
+        "low58623",
+        "known58623",
+        "valid58623",
+        "low58111",
+        "known58111",
+        "valid58111",
+        "low1407",
+        "known1407",
+        "valid1407"
+      ]
+    },
+    {
+      "iteration": 2,
+      "before_counts": {
+        "forests": 17,
+        "column_tables": 17,
+        "static_columns": 1072,
+        "known_entries": 380,
+        "known_lists": 54,
+        "closed_calls": 45,
+        "numeric_query_sites": 1100,
+        "distinct_queried_ids": 379,
+        "used_origins": 379,
+        "unused_origins": 1,
+        "candidate_entries": 0,
+        "queried_candidates": 0,
+        "packed_nodes": 5348,
+        "packed_rule_references": 25500
+      },
+      "removed_carry_entries": [
+        {
+          "owner": "known6847",
+          "index": 0,
+          "id": 6847,
+          "bound": 11,
+          "swaps": [],
+          "line": 4237
+        }
+      ],
+      "empty_groups": {},
+      "bypass_mapping": {},
+      "removed_declarations": []
+    }
+  ],
+  "final_counts": {
+    "forests": 17,
+    "column_tables": 17,
+    "static_columns": 1072,
+    "known_entries": 379,
+    "known_lists": 54,
+    "closed_calls": 45,
+    "numeric_query_sites": 1100,
+    "distinct_queried_ids": 379,
+    "used_origins": 379,
+    "unused_origins": 0,
+    "candidate_entries": 0,
+    "queried_candidates": 0,
+    "packed_nodes": 5348,
+    "packed_rule_references": 25500
+  },
+  "numeric_census_is_not_kernel_validation": true,
+  "reversible_operations_count": 57,
+  "final_theorem_and_attribution_unchanged": true,
+  "main_source_untouched": true,
+  "reversible_operations": [
+    {
+      "offset_characters": 126114,
+      "old": "abbrev QuickPool := BoundPool \u00d7 Nat \u00d7 Bool\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: QuickPool"
+    },
+    {
+      "offset_characters": 125162,
+      "old": "theorem available_mask (u) (p : BoundPool) (x : Sig) :\n    availableB u p.domain p.wires x = availableMasked u p (masked p.domain x) := by\n  simp only [availableB,availableMasked,masked_comp]\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: available_mask"
+    },
+    {
+      "offset_characters": 124648,
+      "old": "noncomputable def availableMasked (u : Bool) (p : BoundPool) (m : Sig) :=\n  m==zero || m==p.domain || (p.wires.map (masked p.domain)).any (fun v => v==m) ||\n    (u && (p.wires.map (masked p.domain)).any (fun v => v==(p.domain ^^^ m)))\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: availableMasked"
+    },
+    {
+      "offset_characters": 117577,
+      "old": "theorem broadcast {\u03b1} (a : Bits) (xs : List \u03b1) :\n    units xs.length * a.toNat = combineLanes (fun _ => a) xs := by\n  induction xs with\n  | nil => simp [units,combineLanes]\n  | cons v xs ih => simp only [List.length_cons,units,combineLanes,lanePlace,Nat.add_mul,Nat.mul_assoc,ih,Nat.one_mul]\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: broadcast"
+    },
+    {
+      "offset_characters": 113828,
+      "old": "theorem lower_discard {g prior ci hints} (low : \u2200 q, Lower g.mode (varsX q) (graphGoal q) (prior q))\n    (ok : colCheck g.mask ci prior = true)\n    (hp : properB (targetOf g) = true)\n    (ess : checkEssential (targetOf g) (vars g.mask) (graphPairs g.mask hints) = true)\n    (all : (graphPairs g.mask hints).map Prod.fst = vars g.mask)\n    (nd : (vars g.mask).Nodup)\n    (cut : poolCut g.mode (subcube ci.1 ci.2.1) ci.2.2.2.2 g.cap 0 (varsX (rawMask g.mask ci)) (vars g.mask)=true) :\n    Lower g.mode (vars g.mask) (targetOf g) (g.cap+1) := by\n  apply lower_impossible (proper_of _ hp) (essential_plain ess).1 (essential_plain ess).2 _ (poolCut_sound (col_sound ci prior low ok) [] rfl nd cut)\n  intro a ha\n  apply essential_ok ess a\n  rw [all]\n  exact List.mem_toFinset.mpr ha\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: lower_discard"
+    },
+    {
+      "offset_characters": 113127,
+      "old": "theorem lower_forest {g prior i hints} (low : \u2200 q, Lower g.mode (varsX q) (graphGoal q) (prior q))\n    (geom : graphValid g prior = true) (blocks : checkedTables g g.cap)\n    (idx : indexedRoot g g.cap i (vars g.mask) = true) (hp : properB (targetOf g) = true)\n    (ess : checkEssential (targetOf g) (vars g.mask) (graphPairs g.mask hints) = true)\n    (all : (graphPairs g.mask hints).map Prod.fst = vars g.mask) :\n    Lower g.mode (vars g.mask) (targetOf g) (g.cap+1) := by\n  apply lower_impossible (proper_of _ hp) (essential_plain ess).1 (essential_plain ess).2 _ (root_index low geom blocks (Nat.le_refl _) idx)\n  intro a ha\n  apply essential_ok ess a\n  rw [all]\n  exact List.mem_toFinset.mpr ha\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: lower_forest"
+    },
+    {
+      "offset_characters": 68647,
+      "old": "theorem size_of {u m hints L} (h : assertSize m hints L = true) :\n    Lower u (vars m) (graphGoal m) L := by\n  simp only [assertSize,Bool.and_eq_true,decide_eq_true_eq] at h\n  intro p bank hr ha\n  exact h.2.trans (lower_count (proper_of _ h.1.1) _ h.1.2 p bank hr ha)\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: size_of"
+    },
+    {
+      "offset_characters": 68444,
+      "old": "noncomputable def assertSize (m hints L : Nat) :=\n  let xs := graphPairs m hints\n  properB (graphGoal m) && checkEssential (graphGoal m) (vars m) xs &&\n    decide (L \u2264 (xs.map Prod.fst).toFinset.card-1)\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: assertSize"
+    },
+    {
+      "offset_characters": 37168,
+      "old": "theorem exec_extends (gs : List Gate) (ws : List Sig) : \u2203 l, execute gs ws = ws ++ l := by\n  induction gs generalizing ws with\n  | nil => exact \u27e8[],by simp [execute]\u27e9\n  | cons g gs ih =>\n    obtain \u27e8l,hl\u27e9 := ih (ws++[gv ws g])\n    exact \u27e8gv ws g::l,by simpa [execute,List.append_assoc] using hl\u27e9\n\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: exec_extends"
+    },
+    {
+      "offset_characters": 36621,
+      "old": "theorem seed_nonzero : seed \u2260 zero := by decide +kernel\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: seed_nonzero"
+    },
+    {
+      "offset_characters": 36456,
+      "old": "theorem seed_table : \u2200 r : Row, bit r seed = (sample r 0 || sample r 6) := by decide +kernel\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: seed_table"
+    },
+    {
+      "offset_characters": 35971,
+      "old": "noncomputable def seed : Sig := inputs.getD 0 zero ||| inputs.getD 6 zero\n",
+      "new": "",
+      "reason": "Previously independently audited unused helper: seed"
+    },
+    {
+      "offset_characters": 319169,
+      "old": "noncomputable def known42879 := extendKnown known43903 13 [(42879,[]),(60287,[82,129,48]),(44991,[98,118,81,130,50,65]),(69615,[33,80,112,97,130,49,64])]",
+      "new": "noncomputable def known42879 := extendKnown known43903 13 [(42879,[]),(60287,[82,129,48]),(44991,[98,118,81,130,50,65])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known42879"
+    },
+    {
+      "offset_characters": 317362,
+      "old": "noncomputable def known44415 := extendKnown known54143 13 [(44927,[84,131,98]),(47999,[101,66,16]),(53119,[98,82,16,66,49,128]),(58239,[82,129,48]),(69503,[84,66,16,98,129,48]),(58303,[118,133,33,48]),(60351,[114,67,84,48,33,97,128]),(69567,[117,80,66,130,96,16]),(42991,[83,114,99,33,16,64]),(60399,[80,81,114,66,50,129,96]),(69103,[116,50,129,80])]",
+      "new": "noncomputable def known44415 := extendKnown known54143 13 [(47999,[101,66,16]),(58239,[82,129,48]),(58303,[118,133,33,48]),(42991,[83,114,99,33,16,64]),(60399,[80,81,114,66,50,129,96])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known44415"
+    },
+    {
+      "offset_characters": 284918,
+      "old": "noncomputable def known42751 := extendKnown known44287 12 [(42751,[]),(47871,[117,67,32]),(42999,[115,82,98,131,66,16]),(60413,[82,129,48]),(69629,[80,48,50,114,129,64])]",
+      "new": "noncomputable def known42751 := extendKnown known44287 12 [(47871,[117,67,32])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known42751"
+    },
+    {
+      "offset_characters": 284066,
+      "old": "noncomputable def known44287 := extendKnown known58111 12 [(44799,[84,115]),(42975,[118,101,133,50,33,16,64]),(58335,[118,133,33,48]),(60383,[99,132,84,48,33,112]),(48119,[115,82,98,131,66,16]),(69623,[67,80,100,131,112,32,16]),(45053,[80,48,50,114,129,64]),(58365,[82,129,48])]",
+      "new": "noncomputable def known44287 := extendKnown known58111 12 [(48119,[115,82,98,131,66,16])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known44287"
+    },
+    {
+      "offset_characters": 237217,
+      "old": "noncomputable def known44159 := extendKnown known52863 9 [(44159,[]),(47743,[101,66,16]),(69501,[128,84,66,16,98,113,48]),(74110,[128,100,49,112]),(48094,[82,133,99,49,32,65,112])]",
+      "new": "noncomputable def known44159 := extendKnown known52863 9 [(44159,[]),(47743,[101,66,16]),(69501,[128,84,66,16,98,113,48]),(74110,[128,100,49,112])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known44159"
+    },
+    {
+      "offset_characters": 235848,
+      "old": "noncomputable def known1151 := extendKnown known2175 9 [(18814,[129,98,82,16,66,49,112]),(11742,[82,133,99,49,32,65,112])]",
+      "new": "noncomputable def known1151 := extendKnown known2175 9 [(18814,[129,98,82,16,66,49,112])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known1151"
+    },
+    {
+      "offset_characters": 229065,
+      "old": "noncomputable def known44221 := extendKnown known43197 8 [(44221,[]),(44733,[84,115]),(52925,[117,67,32]),(54973,[116,83,32]),(58045,[82,48]),(60207,[132,65,48,80,113,32]),(42843,[130,50,98,82,115,33,65]),(44379,[130,114,98,33,81]),(58203,[133,117,101,33,48]),(48102,[115,83,82,130,99,66,16]),(55270,[66,114,50,132,99,32,80,16]),(69606,[80,132,99,112,32,16])]",
+      "new": "noncomputable def known44221 := extendKnown known43197 8 [(44221,[]),(44733,[84,115]),(52925,[117,67,32]),(54973,[116,83,32]),(58045,[82,48]),(42843,[130,50,98,82,115,33,65]),(44379,[130,114,98,33,81]),(58203,[133,117,101,33,48]),(48102,[115,83,82,130,99,66,16]),(55270,[66,114,50,132,99,32,80,16]),(69606,[80,132,99,112,32,16])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known44221"
+    },
+    {
+      "offset_characters": 222796,
+      "old": "noncomputable def known52799 := extendKnown known42559 8 [(44719,[116,100,83,32]),(54967,[115,84,99]),(60239,[131,115,100,50,33,16,80]),(50014,[132,116,84,48,33,96])]",
+      "new": "noncomputable def known52799 := extendKnown known42559 8 [(44719,[116,100,83,32]),(54967,[115,84,99]),(50014,[132,116,84,48,33,96])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known52799"
+    },
+    {
+      "offset_characters": 221041,
+      "old": "noncomputable def known47679 := extendKnown known1599 8 [(47679,[]),(44127,[101,66,16]),(52831,[101,50,33,16,64]),(42671,[116,100,83,32]),(68783,[113,97,82,32,65,48]),(47799,[115,84,99]),(68791,[114,81,98,50,65]),(44349,[132,116,65,48,80,97,32]),(60366,[82,50,133,115,49,32,65,96])]",
+      "new": "noncomputable def known47679 := extendKnown known1599 8 [(47679,[]),(44127,[101,66,16]),(52831,[101,50,33,16,64]),(42671,[116,100,83,32]),(68783,[113,97,82,32,65,48]),(47799,[115,84,99]),(68791,[114,81,98,50,65]),(44349,[132,116,65,48,80,97,32])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known47679"
+    },
+    {
+      "offset_characters": 217858,
+      "old": "noncomputable def known6719 := extendKnown known42607 8 [(2143,[101,66,16]),(2425,[128,80,84,66,16,114,97,48])]",
+      "new": "noncomputable def known6719 := extendKnown known42607 8 [(2143,[101,66,16])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known6719"
+    },
+    {
+      "offset_characters": 213920,
+      "old": "noncomputable def known42607 := extendKnown known49775 7 [(44155,[99,83,64,32,16]),(44219,[115,50,32,83,66,96,16]),(44731,[117,80,66,96,16]),(52926,[114,83,48,33,97,64]),(54974,[112,48,50,33,97,64]),(42711,[115,83,67]),(47838,[101,117,50,33,16,64]),(52958,[99,115,83,48,33,64]),(42739,[82,98,115,66,16]),(44787,[83,80,96,115,64,32,16]),(53054,[130,114,98,49,32,81,64]),(60253,[128,80,117,32,16,98,65,48]),(60282,[129,33,97,81,16,114,49,64]),(44981,[134,81,114,50,65]),(48071,[83,133,115,67,32,96]),(53212,[82,50,133,98,49,32,113,64]),(60408,[49,50,83,48,130,113,64]),(69624,[81,80,48,50,130,113,64])]",
+      "new": "noncomputable def known42607 := extendKnown known49775 7 [(44155,[99,83,64,32,16]),(44219,[115,50,32,83,66,96,16]),(44731,[117,80,66,96,16]),(52926,[114,83,48,33,97,64]),(54974,[112,48,50,33,97,64]),(42711,[115,83,67]),(47838,[101,117,50,33,16,64]),(52958,[99,115,83,48,33,64]),(42739,[82,98,115,66,16]),(44787,[83,80,96,115,64,32,16]),(53054,[130,114,98,49,32,81,64]),(60282,[129,33,97,81,16,114,49,64]),(44981,[134,81,114,50,65]),(48071,[83,133,115,67,32,96]),(53212,[82,50,133,98,49,32,113,64]),(60408,[49,50,83,48,130,113,64]),(69624,[81,80,48,50,130,113,64])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known42607"
+    },
+    {
+      "offset_characters": 193918,
+      "old": "noncomputable def known255 := extendKnown known251 12 [(255,[]),(479,[118,133,33,48]),(503,[115,82,98,131,66,16]),(507,[99,81,115,130,65]),(509,[82,129,48])]",
+      "new": "noncomputable def known255 := extendKnown known251 12 [(255,[])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known255"
+    },
+    {
+      "offset_characters": 182387,
+      "old": "noncomputable def known127 := extendKnown known189 9 [(127,[]),(382,[128,100,49,112]),(478,[99,132,84,48,33,112]),(508,[48,84,100,49,129,112])]",
+      "new": "noncomputable def known127 := extendKnown known189 9 [(127,[]),(382,[128,100,49,112])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known127"
+    },
+    {
+      "offset_characters": 178488,
+      "old": "noncomputable def known111 := extendKnown known63 7 [(111,[]),(123,[101,66,16]),(187,[117,80,66,96,16]),(190,[114,83,48,33,97,64]),(215,[115,83,67]),(222,[101,117,50,33,16,64]),(238,[83,114,99,33,16,64]),(243,[82,98,115,66,16]),(311,[131,115,99,67,82,16]),(318,[128,112,96,49,64]),(343,[131,115,83,67,98]),(349,[128,80,117,32,16,98,65,48]),(365,[129,113,82,65,48]),(378,[129,33,97,81,16,114,49,64]),(437,[134,81,114,50,65]),(455,[83,133,115,67,32,96]),(476,[82,50,133,98,49,32,113,64]),(485,[80,81,129,114,50,65,96]),(490,[81,33,80,128,97,114,49,64]),(497,[98,99,81,131,114,65]),(504,[49,50,83,48,130,113,64])]",
+      "new": "noncomputable def known111 := extendKnown known63 7 [(111,[]),(123,[101,66,16]),(187,[117,80,66,96,16]),(190,[114,83,48,33,97,64]),(215,[115,83,67]),(222,[101,117,50,33,16,64]),(238,[83,114,99,33,16,64]),(243,[82,98,115,66,16]),(311,[131,115,99,67,82,16]),(318,[128,112,96,49,64]),(343,[131,115,83,67,98]),(349,[128,80,117,32,16,98,65,48]),(365,[129,113,82,65,48]),(378,[129,33,97,81,16,114,49,64]),(437,[134,81,114,50,65]),(455,[83,133,115,67,32,96]),(476,[82,50,133,98,49,32,113,64]),(490,[81,33,80,128,97,114,49,64]),(497,[98,99,81,131,114,65]),(504,[49,50,83,48,130,113,64])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known111"
+    },
+    {
+      "offset_characters": 176057,
+      "old": "noncomputable def known63 := extendKnown known55 8 [(63,[]),(95,[101,66,16]),(159,[117,101,67,32]),(359,[131,67,116,99,82,16]),(377,[128,81,67,112,97,32]),(462,[83,133,115,67,32,96]),(483,[83,80,132,115,96,32,16]),(492,[80,84,132,49,113,96])]",
+      "new": "noncomputable def known63 := extendKnown known55 8 [(63,[]),(95,[101,66,16]),(359,[131,67,116,99,82,16])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known63"
+    },
+    {
+      "offset_characters": 174884,
+      "old": "noncomputable def known47 := extendKnown known31 5 [(61,[50,65]),(91,[101,66,16]),(94,[101,50,33,16,64]),(181,[114,81,98,50,65]),(227,[83,82,114,99,66,16]),(230,[83,114,99,33,16,64])]",
+      "new": "noncomputable def known47 := extendKnown known31 5 [(61,[50,65]),(91,[101,66,16])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known47"
+    },
+    {
+      "offset_characters": 170911,
+      "old": "noncomputable def known15 := extendKnown [] 4 [(15,[]),(23,[64,48,32,16]),(27,[66,16]),(29,[50,65]),(30,[50,33,16,64]),(39,[80,64,48,32,16]),(57,[32,82,64,16]),(78,[96,80,64]),(83,[99,83,64,32,16]),(99,[48,96,83,64,32,16]),(135,[115,99,83,67]),(156,[112,96,48,50,33,81,64]),(163,[115,50,98,83,66,16]),(165,[114,33,97,82,50,65]),(166,[114,98,83,33,16,64]),(172,[114,50,99,48,33,81,64]),(177,[115,99,82,64,16]),(198,[115,96,83,64]),(281,[131,115,99,50,82,65]),(291,[131,115,50,98,83,66,16]),(300,[130,114,98,49,32,81,64]),(305,[131,115,99,82,64,16]),(312,[130,114,49,98,81,64]),(323,[131,115,98,83,66]),(326,[131,115,98,83,32,64]),(330,[130,114,97,82,16,64]),(332,[130,50,115,98,49,32,81,64]),(344,[130,50,115,49,98,81,64]),(353,[130,33,113,99,82,65]),(354,[130,33,50,113,99,82,16,64]),(396,[48,128,115,96,50,33,81,64]),(424,[129,33,115,48,98,81,64]),(480,[32,50,128,115,98,81,64])]",
+      "new": "noncomputable def known15 := extendKnown [] 4 [(15,[]),(23,[64,48,32,16]),(27,[66,16]),(29,[50,65]),(30,[50,33,16,64]),(39,[80,64,48,32,16]),(57,[32,82,64,16]),(78,[96,80,64]),(83,[99,83,64,32,16]),(99,[48,96,83,64,32,16]),(135,[115,99,83,67]),(156,[112,96,48,50,33,81,64]),(163,[115,50,98,83,66,16]),(165,[114,33,97,82,50,65]),(166,[114,98,83,33,16,64]),(172,[114,50,99,48,33,81,64]),(177,[115,99,82,64,16]),(198,[115,96,83,64]),(281,[131,115,99,50,82,65]),(291,[131,115,50,98,83,66,16]),(300,[130,114,98,49,32,81,64]),(305,[131,115,99,82,64,16]),(312,[130,114,49,98,81,64]),(326,[131,115,98,83,32,64]),(330,[130,114,97,82,16,64]),(332,[130,50,115,98,49,32,81,64]),(344,[130,50,115,49,98,81,64]),(353,[130,33,113,99,82,65]),(354,[130,33,50,113,99,82,16,64]),(396,[48,128,115,96,50,33,81,64]),(424,[129,33,115,48,98,81,64]),(480,[32,50,128,115,98,81,64])]",
+      "reason": "Iteration 1: remove numerically unqueried carry entries from known15"
+    },
+    {
+      "offset_characters": 315193,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid1407 : Known false known1407 := extendKnown_ok (m:=1407) valid2431 low1407 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid1407"
+    },
+    {
+      "offset_characters": 315102,
+      "old": "noncomputable def known1407 := extendKnown known2431 13 [(28143,[33,80,112,97,130,49,64])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known1407"
+    },
+    {
+      "offset_characters": 314733,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low1407 : Lower false (varsX 1407) (graphGoal 1407) 13 :=\n  strong_full (q:=1407) (rs:=[16, 4, 2, 4, 1, 1, 2, 8]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl383\n    (index_root (g:=x383) (i:=1) rfl rfl (before_sound known42751 valid42751) geomx383 tablesx383 (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low1407"
+    },
+    {
+      "offset_characters": 282811,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid58111 : Known false known58111 := extendKnown_ok (m:=58111) valid58623 low58111 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid58111"
+    },
+    {
+      "offset_characters": 282731,
+      "old": "noncomputable def known58111 := extendKnown known58623 12 [(68863,[116,83,32])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known58111"
+    },
+    {
+      "offset_characters": 282332,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low58111 : Lower false (varsX 58111) (graphGoal 58111) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 16, 8, 1, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (57920,0,58047,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low58111"
+    },
+    {
+      "offset_characters": 282158,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid58623 : Known false known58623 := extendKnown_ok (m:=58623) valid1279 low58623 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid58623"
+    },
+    {
+      "offset_characters": 282044,
+      "old": "noncomputable def known58623 := extendKnown known1279 12 [(58623,[]),(46559,[118,133,33,48]),(43517,[82,129,48])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known58623"
+    },
+    {
+      "offset_characters": 281645,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low58623 : Lower false (varsX 58623) (graphGoal 58623) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 36, 1, 9, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (58432,0,58559,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low58623"
+    },
+    {
+      "offset_characters": 280781,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid1791 : Known false known1791 := extendKnown_ok (m:=1791) valid6911 low1791 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid1791"
+    },
+    {
+      "offset_characters": 280703,
+      "old": "noncomputable def known1791 := extendKnown known6911 12 [(17405,[82,129,48])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known1791"
+    },
+    {
+      "offset_characters": 280310,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low1791 : Lower false (varsX 1791) (graphGoal 1791) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 4, 1, 1, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (1600,0,1727,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low1791"
+    },
+    {
+      "offset_characters": 280140,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid6911 : Known false known6911 := extendKnown_ok (m:=6911) valid2815 low6911 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid6911"
+    },
+    {
+      "offset_characters": 280061,
+      "old": "noncomputable def known6911 := extendKnown known2815 12 [(17403,[118,130,81])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known6911"
+    },
+    {
+      "offset_characters": 279668,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low6911 : Lower false (varsX 6911) (graphGoal 6911) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 4, 1, 1, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (6720,0,6847,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low6911"
+    },
+    {
+      "offset_characters": 279497,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid2815 : Known false known2815 := extendKnown_ok (m:=2815) valid17151 low2815 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid2815"
+    },
+    {
+      "offset_characters": 279374,
+      "old": "noncomputable def known2815 := extendKnown known17151 12 [(18911,[99,132,84,48,33,112]),(28151,[67,80,100,131,112,32,16])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known2815"
+    },
+    {
+      "offset_characters": 278981,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low2815 : Lower false (varsX 2815) (graphGoal 2815) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 4, 8, 1, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (2624,0,2751,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low2815"
+    },
+    {
+      "offset_characters": 278807,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem valid17151 : Known false known17151 := extendKnown_ok (m:=17151) valid2303 low17151 (by decide +kernel)\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: valid17151"
+    },
+    {
+      "offset_characters": 278737,
+      "old": "noncomputable def known17151 := extendKnown known2303 12 [(17151,[])]\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: known17151"
+    },
+    {
+      "offset_characters": 278339,
+      "old": "set_option maxRecDepth 16384 in\nset_option maxHeartbeats 0 in\ntheorem low17151 : Lower false (varsX 17151) (graphGoal 17151) 12 :=\n  strong_full (q:=1279) (rs:=[2, 1, 2, 4, 1, 1, 2, 4]) (by decide +kernel) (by decide +kernel) (by decide +kernel) pl255\n    (cut_root (prior:=boundsBefore known44223) (before_sound known44223 valid44223) (16960,0,17087,0,11) (by decide +kernel) (by decide +kernel))\n",
+      "new": "",
+      "reason": "Iteration 1: empty unqueried carry group: low17151"
+    },
+    {
+      "offset_characters": 311407,
+      "old": "valid1407",
+      "new": "valid2431",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 311196,
+      "old": "known1407",
+      "new": "known2431",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 279657,
+      "old": "valid58111",
+      "new": "valid1279",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 279476,
+      "old": "known58111",
+      "new": "known1279",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 278995,
+      "old": "valid1791",
+      "new": "valid2303",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 278751,
+      "old": "known1791",
+      "new": "known2303",
+      "reason": "Iteration 1: bypass removed carry/valid chain node"
+    },
+    {
+      "offset_characters": 263715,
+      "old": "noncomputable def known6847 := extendKnown known42623 11 [(6847,[]),(1887,[133,117,101,33,48]),(14175,[131,67,99,116,50,33,16,80]),(8059,[128,64,116,81,96,49,32]),(17275,[130,114,98,81]),(17390,[66,114,132,49,32,81,96])]",
+      "new": "noncomputable def known6847 := extendKnown known42623 11 [(1887,[133,117,101,33,48]),(14175,[131,67,99,116,50,33,16,80]),(8059,[128,64,116,81,96,49,32]),(17275,[130,114,98,81]),(17390,[66,114,132,49,32,81,96])]",
+      "reason": "Iteration 2: remove numerically unqueried carry entries from known6847"
+    }
+  ]
+}

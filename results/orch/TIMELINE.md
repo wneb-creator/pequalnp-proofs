@@ -21,3 +21,5 @@
 2026-11-25T05:24:27.463795+00:00: exact known-bound usage census and coalesced product fallback independently reviewed and preserved; neither pruning nor fallback full proof has been validated.
 2026-11-25T05:26:01.802592Z: full optimized target lake build PASSED,1366.55s,peak6183016KiB,source42bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6.
 2026-11-25T05:27:09Z: lease renewed; expiry2026-11-25T05:47:09.008Z.
+2026-11-25T05:34:25.001990+00:00: lease renewed; expiry 2026-11-25T05:54:13.217Z.
+2026-11-25T05:36:07.304243+00:00: standard checker still active on frozen primary; independent final source review passed. Pruning strategy produced source-only candidate; retained all expensive forests. Read-only verifier investigation favors smaller PR12203 certificates if primary faults. No additional Lean jobs while verifier runs.

@@ -1,0 +1,6484 @@
+{
+  "status": "SOURCE-ONLY OVERAPPROXIMATION; NOT KERNEL DEPENDENCY GRAPH",
+  "declarations": 1061,
+  "reachable": 1061,
+  "potentially_unused": [],
+  "algorithm": "Each identifier token component retains every matching declaration short name, overapproximating qualified and dot notation references. Not a complete substitute for environment dependency analysis.",
+  "edges": {
+    "Sig": [],
+    "zero": [
+      "Sig"
+    ],
+    "one": [
+      "Sig"
+    ],
+    "neg": [
+      "Sig"
+    ],
+    "bin": [
+      "Sig"
+    ],
+    "proper": [
+      "Sig",
+      "one",
+      "zero"
+    ],
+    "allowed": [],
+    "flipOp": [],
+    "allowed_four": [
+      "allowed"
+    ],
+    "bin_flip": [
+      "Sig",
+      "allowed",
+      "allowed_four",
+      "bin",
+      "flipOp"
+    ],
+    "flip_flip": [
+      "allowed",
+      "allowed_four",
+      "flipOp"
+    ],
+    "Live": [
+      "Sig",
+      "allowed",
+      "bin",
+      "proper"
+    ],
+    "Live.stop": [
+      "Live",
+      "Run.stop",
+      "Sig",
+      "proper"
+    ],
+    "Live.binary": [
+      "Live",
+      "Sig",
+      "allowed",
+      "bin",
+      "proper"
+    ],
+    "Live.ind": [
+      "Live",
+      "Live.binary",
+      "Live.stop",
+      "Reach.ind",
+      "Run.ind",
+      "Run.stop",
+      "Sig",
+      "allowed",
+      "bin",
+      "proper",
+      "zero"
+    ],
+    "live_proper": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Run.ind",
+      "Run.stop",
+      "proper"
+    ],
+    "live_size": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Run.ind",
+      "Run.stop",
+      "bin"
+    ],
+    "bit": [
+      "Sig"
+    ],
+    "bit_zero": [
+      "bit",
+      "zero"
+    ],
+    "bit_one": [
+      "bit",
+      "one"
+    ],
+    "bit_neg": [
+      "Sig",
+      "bit",
+      "neg"
+    ],
+    "bit_bin": [
+      "Sig",
+      "bin",
+      "bit"
+    ],
+    "bit_ext": [
+      "Sig",
+      "bit"
+    ],
+    "nrm": [
+      "Sig",
+      "bit",
+      "neg"
+    ],
+    "nrm_false": [
+      "Sig",
+      "nrm"
+    ],
+    "nrm_bit": [
+      "Sig",
+      "bit",
+      "bit_neg",
+      "nrm"
+    ],
+    "nrm_id": [
+      "Sig",
+      "bit",
+      "nrm"
+    ],
+    "neg_neg'": [
+      "Sig",
+      "neg"
+    ],
+    "nrm_neg": [
+      "Sig",
+      "bit",
+      "bit_neg",
+      "neg",
+      "neg_neg'",
+      "nrm"
+    ],
+    "proper_neg": [
+      "Sig",
+      "neg",
+      "one",
+      "proper",
+      "zero"
+    ],
+    "proper_nrm": [
+      "Sig",
+      "nrm",
+      "proper",
+      "proper_neg"
+    ],
+    "prime": [
+      "Sig"
+    ],
+    "bit_prime": [
+      "Sig",
+      "bit",
+      "prime"
+    ],
+    "nrm_prime": [
+      "Sig",
+      "bin",
+      "bit",
+      "bit_bin",
+      "bit_ext",
+      "bit_neg",
+      "bit_prime",
+      "nrm",
+      "prime"
+    ],
+    "gv": [
+      "Sig",
+      "inputs",
+      "neg",
+      "one",
+      "prime",
+      "zero"
+    ],
+    "execute": [
+      "Sig",
+      "gv"
+    ],
+    "represented": [
+      "Sig",
+      "proper"
+    ],
+    "Repr": [
+      "Sig",
+      "nrm",
+      "represented"
+    ],
+    "bin_laws": [
+      "Sig",
+      "bin",
+      "bit_bin",
+      "bit_ext",
+      "bit_one",
+      "bit_zero",
+      "one",
+      "zero"
+    ],
+    "neg_laws": [
+      "neg",
+      "one",
+      "zero"
+    ],
+    "operand_cases": [
+      "Sig",
+      "one",
+      "proper",
+      "represented",
+      "zero"
+    ],
+    "witness": [
+      "Sig",
+      "allowed",
+      "bin",
+      "proper"
+    ],
+    "bin_rep": [
+      "allowed",
+      "allowed_four",
+      "bin",
+      "bin_laws",
+      "one",
+      "operand_cases",
+      "represented",
+      "witness",
+      "zero"
+    ],
+    "norm_ne_one": [
+      "Sig",
+      "bit_one",
+      "nrm",
+      "nrm_bit",
+      "one"
+    ],
+    "prime_rep": [
+      "Repr",
+      "bin",
+      "bin_rep",
+      "norm_ne_one",
+      "nrm",
+      "nrm_false",
+      "nrm_prime",
+      "prime",
+      "witness"
+    ],
+    "repr_const": [
+      "Repr",
+      "Sig",
+      "one",
+      "proper_nrm",
+      "zero"
+    ],
+    "get_rep": [
+      "Repr",
+      "Sig",
+      "nrm",
+      "repr_const",
+      "zero"
+    ],
+    "repr_neg": [
+      "Repr",
+      "neg",
+      "nrm_neg"
+    ],
+    "isNot": [],
+    "gate_rep": [
+      "Repr",
+      "Sig",
+      "bit_ext",
+      "bit_one",
+      "bit_prime",
+      "bit_zero",
+      "get_rep",
+      "gv",
+      "inputs",
+      "isNot",
+      "neg_laws",
+      "nrm",
+      "one",
+      "prime",
+      "prime_rep",
+      "repr_const",
+      "repr_neg",
+      "witness",
+      "zero"
+    ],
+    "pull_gate": [
+      "Live",
+      "Live.binary",
+      "Sig",
+      "bin",
+      "live_proper",
+      "represented",
+      "witness"
+    ],
+    "extract": [
+      "Live",
+      "Live.stop",
+      "Run.stop",
+      "Sig",
+      "execute",
+      "gate_rep",
+      "gv",
+      "inputs",
+      "isNot",
+      "nrm",
+      "proper",
+      "pull_gate",
+      "represented",
+      "witness"
+    ],
+    "b_read": [
+      "Sig",
+      "bit",
+      "bit_zero",
+      "zero"
+    ],
+    "run_bit": [
+      "Sig",
+      "b_read",
+      "bit",
+      "bit_neg",
+      "bit_one",
+      "bit_prime",
+      "bit_zero",
+      "gv",
+      "inputs",
+      "neg",
+      "prime",
+      "zero"
+    ],
+    "execute_bits": [
+      "Sig",
+      "bit",
+      "execute",
+      "gv",
+      "inputs",
+      "run_bit"
+    ],
+    "Wire": [],
+    "inv": [
+      "Wire"
+    ],
+    "combine": [
+      "Wire"
+    ],
+    "comb": [
+      "Wire",
+      "combine",
+      "inv"
+    ],
+    "Constant": [
+      "Wire"
+    ],
+    "cost": [
+      "Constant",
+      "Wire"
+    ],
+    "mass": [
+      "Wire",
+      "cost"
+    ],
+    "Available": [
+      "Constant",
+      "Wire",
+      "inv"
+    ],
+    "supply": [
+      "Available",
+      "Wire"
+    ],
+    "Reach": [
+      "Available",
+      "Wire",
+      "combine"
+    ],
+    "Reach.start": [
+      "Reach",
+      "Wire"
+    ],
+    "Reach.two": [
+      "Available",
+      "Reach",
+      "Run.two",
+      "Wire",
+      "combine"
+    ],
+    "Reach.ind": [
+      "Available",
+      "Live.ind",
+      "Reach",
+      "Reach.start",
+      "Reach.two",
+      "Run.ind",
+      "Run.two",
+      "Wire",
+      "combine",
+      "zero"
+    ],
+    "kept": [],
+    "Run": [
+      "Wire",
+      "allowed",
+      "comb",
+      "kept"
+    ],
+    "Run.stop": [
+      "Live.stop",
+      "Run",
+      "Wire"
+    ],
+    "Run.perm": [
+      "Run",
+      "Wire",
+      "zero"
+    ],
+    "Run.two": [
+      "Reach.two",
+      "Run",
+      "Wire",
+      "allowed",
+      "comb",
+      "kept"
+    ],
+    "Run.ind": [
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Reach.two",
+      "Run",
+      "Run.perm",
+      "Run.stop",
+      "Run.two",
+      "Wire",
+      "allowed",
+      "comb",
+      "kept",
+      "zero"
+    ],
+    "mass_cons": [
+      "Wire",
+      "cost",
+      "mass"
+    ],
+    "mass_kept": [
+      "Wire",
+      "kept",
+      "mass",
+      "mass_cons"
+    ],
+    "inv_constant": [
+      "Constant",
+      "Wire",
+      "inv"
+    ],
+    "inv_inv'": [
+      "Wire",
+      "inv"
+    ],
+    "cost_inv": [
+      "Constant",
+      "Wire",
+      "cost",
+      "inv",
+      "inv_constant",
+      "inv_inv'"
+    ],
+    "avail_inv": [
+      "Available",
+      "Wire",
+      "inv",
+      "inv_constant",
+      "inv_inv'"
+    ],
+    "both_constant": [
+      "Constant",
+      "Wire",
+      "combine"
+    ],
+    "from_constant": [
+      "Available",
+      "Constant",
+      "Wire",
+      "combine"
+    ],
+    "available_cons": [
+      "Available",
+      "Wire"
+    ],
+    "extend_two": [
+      "Available",
+      "Constant",
+      "Reach",
+      "Reach.two",
+      "Run.two",
+      "Wire",
+      "available_cons",
+      "both_constant",
+      "combine",
+      "cost",
+      "from_constant"
+    ],
+    "comb_prime": [
+      "Available",
+      "Wire",
+      "allowed",
+      "allowed_four",
+      "avail_inv",
+      "comb",
+      "combine",
+      "cost",
+      "cost_inv",
+      "inv"
+    ],
+    "extend_comb": [
+      "Available",
+      "Reach",
+      "Wire",
+      "allowed",
+      "comb",
+      "comb_prime",
+      "cost",
+      "extend_two"
+    ],
+    "mem_kept": [
+      "kept"
+    ],
+    "contraction": [
+      "Available",
+      "Constant",
+      "Live.ind",
+      "Live.stop",
+      "Reach",
+      "Reach.ind",
+      "Reach.two",
+      "Run",
+      "Run.ind",
+      "Run.perm",
+      "Run.stop",
+      "Run.two",
+      "Wire",
+      "comb",
+      "cost",
+      "extend_comb",
+      "kept",
+      "mass",
+      "mass_cons",
+      "mass_kept",
+      "mem_kept",
+      "supply"
+    ],
+    "restrictRows": [
+      "Wire"
+    ],
+    "restrict_kept": [
+      "Wire",
+      "kept",
+      "restrictRows"
+    ],
+    "restrict_comb": [
+      "Wire",
+      "comb",
+      "restrictRows"
+    ],
+    "restrict_run": [
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Reach.two",
+      "Run",
+      "Run.ind",
+      "Run.perm",
+      "Run.stop",
+      "Run.two",
+      "restrictRows",
+      "restrict_comb",
+      "restrict_kept"
+    ],
+    "projected_bound": [
+      "Available",
+      "Constant",
+      "Reach",
+      "Run",
+      "Wire",
+      "contraction",
+      "mass",
+      "restrictRows",
+      "restrict_run",
+      "supply"
+    ],
+    "Row": [],
+    "observe": [
+      "Row",
+      "Sig",
+      "Wire",
+      "bit"
+    ],
+    "table": [
+      "Row",
+      "Sig",
+      "Wire"
+    ],
+    "bit_table": [
+      "Row",
+      "Wire",
+      "bit",
+      "table"
+    ],
+    "table_observe": [
+      "Sig",
+      "bit_table",
+      "observe",
+      "table"
+    ],
+    "observe_table": [
+      "Row",
+      "Wire",
+      "bit_table",
+      "observe",
+      "table"
+    ],
+    "obs_neg": [
+      "Sig",
+      "bit_neg",
+      "inv",
+      "neg",
+      "observe"
+    ],
+    "obs_bin": [
+      "Sig",
+      "bin",
+      "bit_bin",
+      "comb",
+      "observe"
+    ],
+    "map_kept": [
+      "kept"
+    ],
+    "kept_nd": [
+      "kept"
+    ],
+    "kept_fin": [
+      "Sig",
+      "kept"
+    ],
+    "list_run": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Reach.two",
+      "Run",
+      "Run.ind",
+      "Run.perm",
+      "Run.stop",
+      "Run.two",
+      "Sig",
+      "bin",
+      "kept",
+      "kept_fin",
+      "kept_nd",
+      "map_kept",
+      "obs_bin",
+      "observe"
+    ],
+    "table_inv": [
+      "Row",
+      "Wire",
+      "inv",
+      "neg",
+      "obs_neg",
+      "observe_table",
+      "table",
+      "table_observe"
+    ],
+    "table_prime": [
+      "Row",
+      "Wire",
+      "bit_ext",
+      "bit_prime",
+      "bit_table",
+      "combine",
+      "prime",
+      "table"
+    ],
+    "available_rep": [
+      "Available",
+      "Repr",
+      "Row",
+      "Wire",
+      "bit_ext",
+      "bit_one",
+      "bit_table",
+      "bit_zero",
+      "nrm",
+      "nrm_neg",
+      "repr_const",
+      "table",
+      "table_inv"
+    ],
+    "reach_live_sub": [
+      "Live",
+      "Live.ind",
+      "Reach",
+      "Reach.ind",
+      "Reach.start",
+      "Reach.two",
+      "Row",
+      "Run.ind",
+      "Run.two",
+      "Wire",
+      "available_rep",
+      "nrm",
+      "prime_rep",
+      "pull_gate",
+      "table",
+      "table_prime"
+    ],
+    "plainWord": [
+      "Sig",
+      "bit"
+    ],
+    "nrm_map": [
+      "Sig",
+      "nrm",
+      "nrm_id",
+      "plainWord"
+    ],
+    "reach_live": [
+      "Available",
+      "Live",
+      "Live.stop",
+      "Reach",
+      "Repr",
+      "Run.stop",
+      "Sig",
+      "available_rep",
+      "nrm_id",
+      "nrm_map",
+      "observe",
+      "plainWord",
+      "proper",
+      "reach_live_sub",
+      "table",
+      "table_observe"
+    ],
+    "live_row_difference": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Row",
+      "Run.ind",
+      "Run.stop",
+      "bit",
+      "bit_bin"
+    ],
+    "raw_required": [
+      "Live",
+      "Row",
+      "Sig",
+      "bit",
+      "live_row_difference"
+    ],
+    "inputs": [
+      "Sig"
+    ],
+    "graph": [
+      "Sig"
+    ],
+    "sample": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "edge": [],
+    "edge_table": [
+      "Row",
+      "bit",
+      "edge",
+      "graph",
+      "sample"
+    ],
+    "graph_proper": [
+      "graph",
+      "proper"
+    ],
+    "input_list": [
+      "inputs",
+      "zero"
+    ],
+    "sampled": [
+      "Row",
+      "bit",
+      "input_list",
+      "inputs",
+      "sample"
+    ],
+    "table_eval": [
+      "BoundPool.wires",
+      "Row",
+      "b_read",
+      "bit",
+      "execute",
+      "execute_bits",
+      "inputs",
+      "sample",
+      "sampled",
+      "zero"
+    ],
+    "raw_modes": [
+      "Forest.mode",
+      "Live",
+      "Repr",
+      "bit",
+      "bit_ext",
+      "edge",
+      "edge_table",
+      "execute",
+      "extract",
+      "get_rep",
+      "graph",
+      "graph_proper",
+      "inputs",
+      "isNot",
+      "nrm_id",
+      "nrm_map",
+      "plainWord",
+      "sample",
+      "table_eval",
+      "zero"
+    ],
+    "rename": [
+      "Row",
+      "Sig",
+      "bit",
+      "table"
+    ],
+    "bit_rename": [
+      "Row",
+      "Sig",
+      "bit",
+      "bit_table",
+      "rename"
+    ],
+    "observe_rename": [
+      "Row",
+      "Sig",
+      "bit_rename",
+      "observe",
+      "rename",
+      "restrictRows"
+    ],
+    "rename_bin": [
+      "Row",
+      "Sig",
+      "bin",
+      "bit_bin",
+      "bit_ext",
+      "bit_rename",
+      "rename"
+    ],
+    "rename_inj": [
+      "Row",
+      "bit",
+      "bit_rename",
+      "rename"
+    ],
+    "rename_constants": [
+      "Row",
+      "bit_one",
+      "bit_rename",
+      "bit_zero",
+      "one",
+      "rename",
+      "zero"
+    ],
+    "live_rename": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Row",
+      "Run.ind",
+      "Run.stop",
+      "bin",
+      "proper",
+      "rename",
+      "rename_bin",
+      "rename_constants",
+      "rename_inj"
+    ],
+    "mono_row_difference": [
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Row",
+      "Run.ind",
+      "Run.stop",
+      "allowed_four",
+      "bit",
+      "bit_bin"
+    ],
+    "Lower": [
+      "Available",
+      "Reach",
+      "Sig",
+      "observe"
+    ],
+    "reach_up": [
+      "Available",
+      "Live.ind",
+      "Reach",
+      "Reach.ind",
+      "Reach.start",
+      "Reach.two",
+      "Run.ind",
+      "Run.two",
+      "Wire"
+    ],
+    "lower_down": [
+      "Lower",
+      "reach_up"
+    ],
+    "Impossible": [
+      "Forest.cap",
+      "Live",
+      "Sig"
+    ],
+    "Essential": [
+      "Row",
+      "Sig",
+      "bit"
+    ],
+    "lower_impossible": [
+      "Essential",
+      "Impossible",
+      "Lower",
+      "plainWord",
+      "proper",
+      "raw_required",
+      "reach_live"
+    ],
+    "observe_proper": [
+      "Constant",
+      "Repr",
+      "Sig",
+      "bit_ext",
+      "bit_one",
+      "bit_zero",
+      "observe",
+      "proper",
+      "repr_const",
+      "represented"
+    ],
+    "mass_append": [
+      "Wire",
+      "mass"
+    ],
+    "mass_constants": [
+      "Constant",
+      "Wire",
+      "cost",
+      "mass",
+      "mass_cons"
+    ],
+    "lower_slice": [
+      "Available",
+      "BoundPool.bound",
+      "Constant",
+      "Essential",
+      "Lower",
+      "Reach",
+      "Reach.start",
+      "Row",
+      "Sig",
+      "covered",
+      "list_run",
+      "mass",
+      "mass_append",
+      "mass_constants",
+      "observe",
+      "observe_proper",
+      "observe_rename",
+      "plainWord",
+      "projected_bound",
+      "proper",
+      "raw_required",
+      "reach_live",
+      "rename",
+      "restrictRows",
+      "supply"
+    ],
+    "childTwo": [
+      "Sig",
+      "bin",
+      "kept"
+    ],
+    "erase_fin": [
+      "Sig"
+    ],
+    "enum_step": [
+      "Forest.cap",
+      "Impossible",
+      "Live",
+      "Live.binary",
+      "Live.ind",
+      "Live.stop",
+      "Reach.ind",
+      "Run.ind",
+      "Run.stop",
+      "Sig",
+      "allowed",
+      "bin",
+      "childTwo",
+      "erase_fin",
+      "kept",
+      "kept_fin",
+      "kept_nd",
+      "live_proper",
+      "live_size",
+      "proper"
+    ],
+    "Sep": [
+      "Row",
+      "Sig",
+      "bit"
+    ],
+    "column": [],
+    "covered": [
+      "Sig",
+      "column"
+    ],
+    "covered_bit": [
+      "Sig",
+      "column",
+      "covered"
+    ],
+    "cover_sound": [
+      "Live",
+      "Row",
+      "Sep",
+      "Sig",
+      "bit",
+      "column",
+      "covered",
+      "covered_bit",
+      "live_row_difference",
+      "mono_row_difference"
+    ],
+    "cover_required": [
+      "Live",
+      "Row",
+      "Sep",
+      "cover_sound",
+      "covered"
+    ],
+    "Slice": [
+      "Available",
+      "Constant",
+      "Reach",
+      "Row",
+      "Sig",
+      "bit",
+      "observe",
+      "restrictRows"
+    ],
+    "masked": [
+      "Sig"
+    ],
+    "availableB": [
+      "Sig",
+      "masked",
+      "neg",
+      "zero"
+    ],
+    "masked_eq": [
+      "Row",
+      "Sig",
+      "bit",
+      "masked",
+      "observe",
+      "restrictRows"
+    ],
+    "masked_zero": [
+      "Row",
+      "Sig",
+      "bit",
+      "bit_zero",
+      "masked",
+      "observe",
+      "restrictRows",
+      "zero"
+    ],
+    "masked_one": [
+      "Row",
+      "Sig",
+      "bit",
+      "masked",
+      "observe",
+      "restrictRows"
+    ],
+    "poolSupply": [
+      "Available",
+      "Row",
+      "Sig",
+      "Wire",
+      "observe",
+      "restrictRows"
+    ],
+    "availableB_sound": [
+      "Available",
+      "Row",
+      "Sig",
+      "avail_inv",
+      "availableB",
+      "bit",
+      "inv",
+      "masked_eq",
+      "masked_one",
+      "masked_zero",
+      "obs_neg",
+      "observe",
+      "poolSupply",
+      "restrictRows"
+    ],
+    "Choice": [
+      "Sig"
+    ],
+    "choiceVal": [
+      "Choice",
+      "bin"
+    ],
+    "allowedB": [],
+    "allowedB_ok": [
+      "allowed",
+      "allowedB"
+    ],
+    "choiceOK": [
+      "Choice",
+      "Sig",
+      "allowedB",
+      "availableB"
+    ],
+    "pay_choice": [
+      "Choice",
+      "Reach",
+      "Reach.two",
+      "Row",
+      "Run.two",
+      "Sig",
+      "allowedB_ok",
+      "availableB_sound",
+      "available_cons",
+      "bit",
+      "choiceOK",
+      "choiceVal",
+      "comb_prime",
+      "obs_bin",
+      "poolSupply",
+      "restrict_comb"
+    ],
+    "makePool": [
+      "Choice",
+      "Sig",
+      "choiceOK",
+      "choiceVal"
+    ],
+    "makePool_sound": [
+      "Choice",
+      "Reach",
+      "Row",
+      "Sig",
+      "bit",
+      "makePool",
+      "pay_choice",
+      "poolSupply"
+    ],
+    "isMaskedConstant": [
+      "Sig",
+      "masked",
+      "zero"
+    ],
+    "count_constants": [
+      "Constant",
+      "Row",
+      "Sig",
+      "bit",
+      "cost",
+      "isMaskedConstant",
+      "masked",
+      "masked_one",
+      "masked_zero",
+      "mass",
+      "mass_cons",
+      "observe",
+      "restrictRows",
+      "zero"
+    ],
+    "poolCut": [
+      "Sig",
+      "availableB",
+      "isMaskedConstant"
+    ],
+    "poolCut_sound": [
+      "Choice",
+      "Forest.cap",
+      "Impossible",
+      "Reach",
+      "Reach.start",
+      "Slice",
+      "availableB_sound",
+      "count_constants",
+      "list_run",
+      "makePool",
+      "makePool_sound",
+      "observe",
+      "poolCut",
+      "projected_bound",
+      "restrictRows",
+      "supply"
+    ],
+    "Move": [
+      "Row",
+      "Sig"
+    ],
+    "shifted": [
+      "Row"
+    ],
+    "backwards": [
+      "Row"
+    ],
+    "rowMove": [
+      "Move",
+      "Row",
+      "backwards",
+      "bit",
+      "shifted"
+    ],
+    "mux": [
+      "Sig"
+    ],
+    "wordMove": [
+      "Move",
+      "Sig",
+      "backwards",
+      "mux"
+    ],
+    "bit_shift": [
+      "Row",
+      "Sig",
+      "bit",
+      "shifted"
+    ],
+    "bool_mux": [],
+    "bit_mux": [
+      "Row",
+      "Sig",
+      "bit",
+      "bool_mux",
+      "mux"
+    ],
+    "bit_move": [
+      "Move",
+      "Row",
+      "Sig",
+      "bit",
+      "bit_mux",
+      "bit_shift",
+      "rowMove",
+      "wordMove"
+    ],
+    "movedRow": [
+      "Move",
+      "Row",
+      "rowMove"
+    ],
+    "movedWord": [
+      "Move",
+      "Sig",
+      "wordMove"
+    ],
+    "bit_moved": [
+      "Move",
+      "Row",
+      "Sig",
+      "bit",
+      "bit_move",
+      "movedRow",
+      "movedWord"
+    ],
+    "moved_eq_rename": [
+      "Move",
+      "Sig",
+      "bit_moved",
+      "bit_rename",
+      "movedRow",
+      "movedWord",
+      "rename"
+    ],
+    "freeWord": [
+      "Sig",
+      "one",
+      "zero"
+    ],
+    "freeWord_ok": [
+      "Available",
+      "bit_one",
+      "bit_zero",
+      "freeWord",
+      "observe"
+    ],
+    "checkMap": [
+      "Move",
+      "Sig",
+      "freeWord",
+      "movedWord"
+    ],
+    "map_correct": [
+      "Available",
+      "checkMap",
+      "freeWord_ok",
+      "movedRow",
+      "moved_eq_rename",
+      "observe",
+      "rename"
+    ],
+    "lower_map": [
+      "Lower",
+      "checkMap",
+      "lower_slice",
+      "map_correct",
+      "movedRow",
+      "plainWord",
+      "proper"
+    ],
+    "slice_correct": [
+      "Lower",
+      "Slice",
+      "bit_moved",
+      "bit_one",
+      "checkMap",
+      "map_correct",
+      "movedRow",
+      "movedWord",
+      "observe",
+      "observe_proper",
+      "observe_rename",
+      "one",
+      "proper",
+      "restrictRows"
+    ],
+    "witnessB": [
+      "Row",
+      "Sig",
+      "bit"
+    ],
+    "witnessB_sound": [
+      "Essential",
+      "witnessB"
+    ],
+    "checkEssential": [
+      "Row",
+      "Sig",
+      "plainWord",
+      "witnessB"
+    ],
+    "essential_ok": [
+      "Essential",
+      "checkEssential",
+      "witnessB_sound"
+    ],
+    "essential_plain": [
+      "checkEssential",
+      "plainWord"
+    ],
+    "lower_count": [
+      "BoundPool.bound",
+      "Lower",
+      "Row",
+      "Sig",
+      "checkEssential",
+      "essential_ok",
+      "essential_plain",
+      "live_size",
+      "proper",
+      "raw_required",
+      "reach_live"
+    ],
+    "checkLift": [
+      "Move",
+      "Row",
+      "Sig",
+      "checkEssential",
+      "checkMap",
+      "movedWord",
+      "one",
+      "zero"
+    ],
+    "lift_ok": [
+      "Lower",
+      "bit_one",
+      "bit_zero",
+      "checkLift",
+      "essential_ok",
+      "essential_plain",
+      "lower_slice",
+      "map_correct",
+      "moved_eq_rename",
+      "proper"
+    ],
+    "selected": [
+      "Sig",
+      "inputs",
+      "zero"
+    ],
+    "vars": [
+      "selected"
+    ],
+    "typeWord": [
+      "Sig",
+      "bin",
+      "inputs",
+      "zero"
+    ],
+    "varsX": [
+      "Sig",
+      "typeWord",
+      "vars"
+    ],
+    "vertex": [
+      "inputs",
+      "zero"
+    ],
+    "graphGoal": [
+      "Sig",
+      "vertex"
+    ],
+    "cube0": [],
+    "cube3": [],
+    "cube6": [],
+    "subcube": [
+      "Sig",
+      "cube0",
+      "cube3",
+      "cube6",
+      "zero"
+    ],
+    "fixRows": [
+      "Move",
+      "inputs",
+      "zero"
+    ],
+    "swapRows": [
+      "Move",
+      "inputs",
+      "zero"
+    ],
+    "supportPairs": [
+      "Forest.mask",
+      "Row",
+      "Sig",
+      "selected"
+    ],
+    "graphPairs": [
+      "Row",
+      "Sig",
+      "selected"
+    ],
+    "properB": [
+      "Sig",
+      "one",
+      "zero"
+    ],
+    "proper_of": [
+      "Sig",
+      "proper",
+      "properB"
+    ],
+    "ColumnInfo": [],
+    "colFree": [],
+    "chartGoal": [
+      "Sig",
+      "graphGoal"
+    ],
+    "rawMask": [
+      "ColumnInfo"
+    ],
+    "colCheck": [
+      "ColumnInfo",
+      "chartGoal",
+      "checkEssential",
+      "checkLift",
+      "checkMap",
+      "colFree",
+      "fixRows",
+      "graphGoal",
+      "movedWord",
+      "one",
+      "properB",
+      "rawMask",
+      "subcube",
+      "supportPairs",
+      "varsX"
+    ],
+    "col_sound": [
+      "ColumnInfo",
+      "Lower",
+      "Slice",
+      "chartGoal",
+      "checkMap",
+      "colCheck",
+      "colFree",
+      "fixRows",
+      "graphGoal",
+      "lift_ok",
+      "lower_count",
+      "movedWord",
+      "one",
+      "properB",
+      "proper_of",
+      "rawMask",
+      "slice_correct",
+      "subcube",
+      "supportPairs",
+      "varsX"
+    ],
+    "carryOK": [
+      "checkMap",
+      "graphGoal",
+      "plainWord",
+      "properB",
+      "swapRows",
+      "varsX"
+    ],
+    "carry_of": [
+      "Lower",
+      "carryOK",
+      "graphGoal",
+      "lower_map",
+      "proper_of",
+      "varsX"
+    ],
+    "boundsBefore": [],
+    "before_sound": [
+      "Lower",
+      "boundsBefore",
+      "graphGoal",
+      "varsX"
+    ],
+    "BoundPool": [
+      "Sig"
+    ],
+    "BoundPool.domain": [
+      "BoundPool",
+      "Sig"
+    ],
+    "BoundPool.bound": [
+      "BoundPool"
+    ],
+    "BoundPool.paid": [
+      "BoundPool"
+    ],
+    "BoundPool.wires": [
+      "BoundPool",
+      "Sig"
+    ],
+    "ValidPool": [
+      "Available",
+      "BoundPool",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Constant",
+      "Reach",
+      "Row",
+      "Sig",
+      "Wire",
+      "bit",
+      "observe",
+      "poolSupply",
+      "restrictRows"
+    ],
+    "build_valid": [
+      "BoundPool",
+      "BoundPool.paid",
+      "Choice",
+      "Reach",
+      "Reach.start",
+      "Slice",
+      "ValidPool",
+      "makePool",
+      "makePool_sound",
+      "observe"
+    ],
+    "valid_exclude": [
+      "Available",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Choice",
+      "Impossible",
+      "Reach",
+      "Row",
+      "Sig",
+      "ValidPool",
+      "Wire",
+      "availableB",
+      "availableB_sound",
+      "choiceOK",
+      "choiceVal",
+      "count_constants",
+      "covered",
+      "isMaskedConstant",
+      "list_run",
+      "observe",
+      "pay_choice",
+      "poolSupply",
+      "projected_bound",
+      "restrictRows",
+      "supply"
+    ],
+    "scalarPoolCut": [
+      "BoundPool",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Choice",
+      "Sig",
+      "availableB",
+      "choiceOK",
+      "choiceVal",
+      "isMaskedConstant"
+    ],
+    "scalarPoolCut_sound": [
+      "BoundPool.domain",
+      "BoundPool.wires",
+      "Impossible",
+      "ValidPool",
+      "availableB",
+      "choiceVal",
+      "scalarPoolCut",
+      "valid_exclude"
+    ],
+    "materialize": [
+      "BoundPool",
+      "Choice",
+      "Sig",
+      "makePool"
+    ],
+    "materialize_sound": [
+      "Slice",
+      "ValidPool",
+      "build_valid",
+      "makePool",
+      "materialize"
+    ],
+    "Bits": [],
+    "Signals": [
+      "Bits"
+    ],
+    "Decor": [
+      "Sig",
+      "Signals"
+    ],
+    "ofRows": [
+      "Row",
+      "Sig",
+      "bit"
+    ],
+    "ofRows_bit": [
+      "Row",
+      "Sig",
+      "bit",
+      "ofRows"
+    ],
+    "pairSig": [
+      "Row",
+      "Sig",
+      "Signals",
+      "ofRows"
+    ],
+    "properPairs": [
+      "Row",
+      "Sig",
+      "bit"
+    ],
+    "pair_sep": [
+      "Sep",
+      "ofRows_bit",
+      "pairSig",
+      "properPairs"
+    ],
+    "faithful": [
+      "Decor",
+      "Row",
+      "pairSig"
+    ],
+    "bv": [],
+    "dbin": [
+      "Decor",
+      "bin",
+      "bv"
+    ],
+    "ofRows_bin": [
+      "Row",
+      "Sig",
+      "bin",
+      "bit_bin",
+      "bv",
+      "ofRows",
+      "ofRows_bit"
+    ],
+    "faithful_bin": [
+      "dbin",
+      "faithful",
+      "ofRows_bin",
+      "pairSig"
+    ],
+    "defaultDecor": [
+      "Decor",
+      "zero"
+    ],
+    "faithful_default": [
+      "Bits",
+      "bit",
+      "bit_zero",
+      "defaultDecor",
+      "faithful",
+      "ofRows",
+      "ofRows_bit",
+      "zero"
+    ],
+    "faithful_get": [
+      "defaultDecor",
+      "faithful",
+      "faithful_default"
+    ],
+    "decodeBank": [
+      "Decor",
+      "dbin",
+      "defaultDecor"
+    ],
+    "decode_faithful": [
+      "decodeBank",
+      "faithful",
+      "faithful_bin",
+      "faithful_get",
+      "zero"
+    ],
+    "asRow": [
+      "Bits",
+      "Forest.cols",
+      "Row"
+    ],
+    "coordinate0": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate1": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate2": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate3": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate4": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate5": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate6": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate7": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "coordinate8": [
+      "Row",
+      "bit",
+      "inputs",
+      "zero"
+    ],
+    "input_coords": [
+      "Row",
+      "bit",
+      "coordinate0",
+      "coordinate1",
+      "coordinate2",
+      "coordinate3",
+      "coordinate4",
+      "coordinate5",
+      "coordinate6",
+      "coordinate7",
+      "coordinate8",
+      "inputs",
+      "zero"
+    ],
+    "asRow_bit": [
+      "Bits",
+      "Forest.cols",
+      "asRow",
+      "bit",
+      "input_coords",
+      "inputs",
+      "zero"
+    ],
+    "rawDecor": [
+      "Bits",
+      "Decor",
+      "selected"
+    ],
+    "selected_entry": [
+      "inputs",
+      "selected",
+      "zero"
+    ],
+    "raw_faithful": [
+      "Bits",
+      "asRow",
+      "asRow_bit",
+      "faithful",
+      "ofRows_bit",
+      "rawDecor",
+      "selected_entry"
+    ],
+    "liftGoal": [
+      "Bits"
+    ],
+    "bit_vertex": [
+      "Bits",
+      "asRow",
+      "asRow_bit",
+      "bit",
+      "bit_zero",
+      "vertex"
+    ],
+    "bit_liftGoal": [
+      "Bits",
+      "asRow",
+      "bit",
+      "bit_vertex",
+      "graphGoal",
+      "liftGoal",
+      "vertex"
+    ],
+    "Cov": [
+      "Bits"
+    ],
+    "addCov": [
+      "Bits",
+      "Cov"
+    ],
+    "coverage": [
+      "Cov",
+      "Decor",
+      "addCov",
+      "column"
+    ],
+    "takeOne": [
+      "Bits",
+      "Cov"
+    ],
+    "takeTwo": [
+      "Bits",
+      "Cov"
+    ],
+    "cov_one": [
+      "Bits",
+      "Cov",
+      "addCov",
+      "takeOne"
+    ],
+    "cov_two": [
+      "Bits",
+      "Cov",
+      "addCov",
+      "takeTwo"
+    ],
+    "add_swap": [
+      "Bits",
+      "Cov",
+      "addCov"
+    ],
+    "cov_perm": [
+      "Decor",
+      "addCov",
+      "add_swap",
+      "column",
+      "coverage"
+    ],
+    "cov_word": [
+      "Decor",
+      "column",
+      "coverage",
+      "covered",
+      "faithful",
+      "pairSig"
+    ],
+    "delOne": [
+      "Decor"
+    ],
+    "delTwo": [
+      "Decor",
+      "delOne"
+    ],
+    "delOne_perm": [
+      "Decor"
+    ],
+    "cover_one": [
+      "Decor",
+      "column",
+      "cov_one",
+      "cov_perm",
+      "coverage",
+      "delOne",
+      "delOne_perm",
+      "takeOne"
+    ],
+    "delTwo_perm": [
+      "Decor",
+      "delOne_perm"
+    ],
+    "cover_two": [
+      "Decor",
+      "column",
+      "cov_perm",
+      "cov_two",
+      "cover_one",
+      "coverage",
+      "delTwo",
+      "delTwo_perm",
+      "takeOne",
+      "takeTwo"
+    ],
+    "sameWords": [
+      "Sig"
+    ],
+    "sameWords_sound": [
+      "sameWords"
+    ],
+    "keyWord": [
+      "Sig"
+    ],
+    "keySet": [
+      "Sig",
+      "keyWord"
+    ],
+    "closeChild": [
+      "BoundPool",
+      "Choice",
+      "Sig",
+      "choiceVal",
+      "keySet",
+      "sameWords",
+      "scalarPoolCut"
+    ],
+    "closeChild_sound": [
+      "Impossible",
+      "ValidPool",
+      "choiceVal",
+      "closeChild",
+      "sameWords_sound",
+      "scalarPoolCut_sound"
+    ],
+    "CovPair": [
+      "Cov"
+    ],
+    "preCov": [
+      "CovPair",
+      "Decor",
+      "coverage"
+    ],
+    "restCov": [
+      "Bits",
+      "Cov",
+      "takeOne",
+      "takeTwo"
+    ],
+    "delOne_sub": [
+      "Decor",
+      "delOne"
+    ],
+    "keep_sub": [
+      "Decor",
+      "delOne_sub",
+      "delTwo"
+    ],
+    "len_keep": [
+      "Decor",
+      "delOne",
+      "delTwo"
+    ],
+    "movedChoice": [
+      "Choice",
+      "Decor"
+    ],
+    "NodeContext": [
+      "BoundPool",
+      "CovPair",
+      "Decor",
+      "Sig"
+    ],
+    "evalMove": [
+      "Decor",
+      "Forest.cap",
+      "NodeContext",
+      "closeChild",
+      "column",
+      "delTwo",
+      "movedChoice",
+      "properB",
+      "restCov"
+    ],
+    "moveFront": [
+      "Decor",
+      "dbin",
+      "delTwo"
+    ],
+    "evalMove_sound": [
+      "Forest.cap",
+      "Impossible",
+      "ValidPool",
+      "closeChild_sound",
+      "column",
+      "cov_word",
+      "cover_required",
+      "cover_two",
+      "coverage",
+      "covered",
+      "dbin",
+      "delTwo",
+      "evalMove",
+      "faithful",
+      "faithful_bin",
+      "keep_sub",
+      "len_keep",
+      "live_size",
+      "moveFront",
+      "movedChoice",
+      "pairSig",
+      "pair_sep",
+      "preCov",
+      "proper",
+      "properB",
+      "properPairs",
+      "restCov"
+    ],
+    "testPair": [
+      "Decor",
+      "NodeContext",
+      "dbin",
+      "evalMove"
+    ],
+    "opsOf": [],
+    "opsOf_mem": [
+      "allowed",
+      "allowed_four",
+      "opsOf"
+    ],
+    "testRow": [
+      "Decor",
+      "NodeContext",
+      "opsOf",
+      "testPair"
+    ],
+    "testAll": [
+      "Decor",
+      "NodeContext",
+      "testRow"
+    ],
+    "all_binary": [
+      "Decor",
+      "allowed",
+      "opsOf_mem",
+      "testAll",
+      "testPair",
+      "testRow"
+    ],
+    "testPair_at": [
+      "dbin",
+      "evalMove",
+      "testPair"
+    ],
+    "keep_mem": [
+      "Sig",
+      "kept"
+    ],
+    "mem_delone": [
+      "Decor",
+      "delOne"
+    ],
+    "unique_value": [
+      "Decor"
+    ],
+    "kept_value": [
+      "Decor",
+      "Sig",
+      "delOne_sub",
+      "delTwo",
+      "mem_delone",
+      "unique_value"
+    ],
+    "binary_front": [
+      "Decor",
+      "childTwo",
+      "dbin",
+      "keep_mem",
+      "kept_value",
+      "moveFront"
+    ],
+    "childTwo_swap": [
+      "Sig",
+      "allowed",
+      "bin_flip",
+      "childTwo",
+      "flipOp",
+      "keep_mem"
+    ],
+    "node_sound": [
+      "Decor",
+      "Forest.cap",
+      "Impossible",
+      "ValidPool",
+      "all_binary",
+      "bin",
+      "bin_flip",
+      "binary_front",
+      "childTwo",
+      "childTwo_swap",
+      "enum_step",
+      "evalMove_sound",
+      "faithful",
+      "flipOp",
+      "flip_flip",
+      "one",
+      "preCov",
+      "proper",
+      "properPairs",
+      "testAll",
+      "testPair",
+      "testPair_at"
+    ],
+    "agree_inputs": [
+      "Row",
+      "bit",
+      "input_coords",
+      "input_list",
+      "inputs",
+      "zero"
+    ],
+    "composedOK": [
+      "Move",
+      "inputs",
+      "movedWord"
+    ],
+    "composed_id": [
+      "Row",
+      "agree_inputs",
+      "bit_moved",
+      "composedOK",
+      "movedRow"
+    ],
+    "autoOK": [
+      "Move",
+      "Sig",
+      "composedOK",
+      "movedWord"
+    ],
+    "rotate_excluded": [
+      "Impossible",
+      "Move",
+      "Sig",
+      "autoOK",
+      "bit",
+      "bit_moved",
+      "bit_rename",
+      "composed_id",
+      "inv",
+      "live_rename",
+      "movedRow",
+      "movedWord",
+      "moved_eq_rename",
+      "rename"
+    ],
+    "Packing": [],
+    "emptyPacking": [
+      "Packing"
+    ],
+    "packedAt": [],
+    "lookupWord": [
+      "packedAt"
+    ],
+    "Forest": [
+      "Bits",
+      "ColumnInfo",
+      "Packing"
+    ],
+    "Forest.mask": [
+      "Forest"
+    ],
+    "Forest.mode": [
+      "Forest"
+    ],
+    "Forest.cap": [
+      "Forest"
+    ],
+    "Forest.samples": [
+      "Bits",
+      "Forest"
+    ],
+    "Forest.cols": [
+      "ColumnInfo",
+      "Forest"
+    ],
+    "Forest.autos": [
+      "Forest"
+    ],
+    "Forest.levels": [
+      "Forest",
+      "Packing"
+    ],
+    "Forest.index": [
+      "Forest"
+    ],
+    "wiresOf": [
+      "Forest",
+      "Forest.mask",
+      "Forest.samples",
+      "rawDecor"
+    ],
+    "wires_faithful": [
+      "Forest",
+      "Forest.mask",
+      "Forest.samples",
+      "asRow",
+      "faithful",
+      "raw_faithful",
+      "wiresOf"
+    ],
+    "targetOf": [
+      "Forest",
+      "Forest.mask",
+      "chartGoal"
+    ],
+    "chartSamples": [
+      "Bits",
+      "liftGoal"
+    ],
+    "chart_bit": [
+      "Bits",
+      "asRow",
+      "bit",
+      "bit_liftGoal",
+      "chartGoal",
+      "chartSamples"
+    ],
+    "chart_pairs": [
+      "Bits",
+      "asRow",
+      "chartGoal",
+      "chartSamples",
+      "chart_bit",
+      "properPairs"
+    ],
+    "selectLive": [],
+    "selectLive_sub": [
+      "selectLive"
+    ],
+    "storedDepth": [
+      "Forest"
+    ],
+    "readNode": [
+      "Decor",
+      "Forest",
+      "Forest.levels",
+      "decodeBank",
+      "packedAt",
+      "selectLive",
+      "storedDepth",
+      "wiresOf"
+    ],
+    "getFieldV": [],
+    "chosenSteps": [
+      "BoundPool.paid",
+      "Choice",
+      "Decor",
+      "defaultDecor",
+      "getFieldV"
+    ],
+    "buildRule": [
+      "BoundPool",
+      "BoundPool.paid",
+      "Decor",
+      "Forest",
+      "Forest.cols",
+      "Forest.mask",
+      "Forest.mode",
+      "chosenSteps",
+      "materialize",
+      "rawMask",
+      "subcube",
+      "varsX"
+    ],
+    "buildRule_sound": [
+      "BoundPool.paid",
+      "Forest",
+      "Forest.cols",
+      "Forest.mask",
+      "Forest.mode",
+      "Slice",
+      "ValidPool",
+      "buildRule",
+      "materialize_sound",
+      "rawMask",
+      "subcube",
+      "targetOf",
+      "vars",
+      "varsX"
+    ],
+    "getPairs": [
+      "packedAt"
+    ],
+    "stateSet": [
+      "Forest",
+      "readNode"
+    ],
+    "linkedSet": [
+      "Forest",
+      "Forest.autos",
+      "Forest.levels",
+      "Run.perm",
+      "Sig",
+      "movedWord",
+      "stateSet",
+      "swapRows"
+    ],
+    "linkedSet_sound": [
+      "Forest",
+      "Forest.autos",
+      "Forest.levels",
+      "Forest.mode",
+      "Impossible",
+      "Run.perm",
+      "autoOK",
+      "linkedSet",
+      "rotate_excluded",
+      "stateSet",
+      "swapRows",
+      "targetOf"
+    ],
+    "nodeVerified": [
+      "Forest",
+      "Forest.index",
+      "Forest.levels",
+      "Forest.mode",
+      "Reach.start",
+      "buildRule",
+      "getPairs",
+      "linkedSet",
+      "packedAt",
+      "preCov",
+      "readNode",
+      "storedDepth",
+      "targetOf",
+      "testAll",
+      "wiresOf"
+    ],
+    "nodeVerified_sound": [
+      "Forest",
+      "Forest.autos",
+      "Forest.cols",
+      "Forest.index",
+      "Forest.levels",
+      "Forest.mask",
+      "Forest.mode",
+      "Forest.samples",
+      "Impossible",
+      "Slice",
+      "asRow",
+      "autoOK",
+      "buildRule_sound",
+      "decode_faithful",
+      "linkedSet",
+      "linkedSet_sound",
+      "nodeVerified",
+      "node_sound",
+      "properPairs",
+      "rawMask",
+      "selectLive_sub",
+      "stateSet",
+      "subcube",
+      "swapRows",
+      "targetOf",
+      "vars",
+      "varsX",
+      "wires_faithful"
+    ],
+    "block": [
+      "Forest",
+      "Reach.start",
+      "nodeVerified"
+    ],
+    "block_at": [
+      "Reach.start",
+      "block",
+      "nodeVerified",
+      "zero"
+    ],
+    "block_merge": [
+      "Reach.start",
+      "block",
+      "zero"
+    ],
+    "checkedTables": [
+      "Forest",
+      "Forest.levels",
+      "block"
+    ],
+    "graphValid": [
+      "Forest",
+      "Forest.autos",
+      "Forest.cols",
+      "Forest.mask",
+      "Forest.samples",
+      "autoOK",
+      "chartSamples",
+      "colCheck",
+      "swapRows",
+      "targetOf"
+    ],
+    "forest_all": [
+      "Forest",
+      "Forest.levels",
+      "Forest.mode",
+      "Impossible",
+      "Lower",
+      "block_at",
+      "chart_pairs",
+      "checkedTables",
+      "col_sound",
+      "graphGoal",
+      "graphValid",
+      "nodeVerified_sound",
+      "stateSet",
+      "targetOf",
+      "varsX",
+      "zero"
+    ],
+    "indexedRoot": [
+      "Forest",
+      "Forest.levels",
+      "Sig",
+      "sameWords",
+      "stateSet"
+    ],
+    "root_index": [
+      "Forest.mode",
+      "Impossible",
+      "Lower",
+      "checkedTables",
+      "forest_all",
+      "graphGoal",
+      "graphValid",
+      "indexedRoot",
+      "sameWords_sound",
+      "targetOf",
+      "varsX"
+    ],
+    "Known": [
+      "Lower",
+      "graphGoal",
+      "varsX"
+    ],
+    "extendKnown": [],
+    "extendKnown_ok": [
+      "Known",
+      "Lower",
+      "carryOK",
+      "carry_of",
+      "extendKnown",
+      "graphGoal",
+      "varsX"
+    ],
+    "baseKnown": [
+      "Known"
+    ],
+    "known_down": [
+      "Known",
+      "lower_down"
+    ],
+    "lanePlace": [],
+    "combineLanes": [
+      "Bits",
+      "lanePlace"
+    ],
+    "units": [
+      "lanePlace"
+    ],
+    "laneSmall": [
+      "Bits"
+    ],
+    "place_and": [
+      "Bits",
+      "lanePlace",
+      "laneSmall"
+    ],
+    "place_or": [
+      "Bits",
+      "lanePlace",
+      "laneSmall"
+    ],
+    "place_xor": [
+      "Bits",
+      "lanePlace",
+      "laneSmall"
+    ],
+    "lanes_and": [
+      "Bits",
+      "combineLanes",
+      "place_and"
+    ],
+    "lanes_or": [
+      "Bits",
+      "combineLanes",
+      "place_or"
+    ],
+    "lanes_xor": [
+      "Bits",
+      "combineLanes",
+      "place_xor"
+    ],
+    "fullMarks": [],
+    "unit_bit": [
+      "lanePlace",
+      "units",
+      "zero"
+    ],
+    "guardBit": [
+      "Bits"
+    ],
+    "mark_at": [
+      "Bits",
+      "combineLanes",
+      "fullMarks",
+      "guardBit",
+      "lanePlace",
+      "unit_bit",
+      "units",
+      "zero"
+    ],
+    "PackedSig": [],
+    "PackedCov": [],
+    "packedSig": [
+      "PackedSig",
+      "Signals",
+      "combineLanes"
+    ],
+    "packedCov": [
+      "Cov",
+      "PackedCov",
+      "combineLanes"
+    ],
+    "packedColumn": [
+      "PackedSig"
+    ],
+    "xor_meet": [
+      "Bits"
+    ],
+    "packed_column": [
+      "Signals",
+      "column",
+      "combineLanes",
+      "lanes_and",
+      "lanes_xor",
+      "packedColumn",
+      "packedSig",
+      "xor_meet"
+    ],
+    "packedOp": [
+      "PackedSig"
+    ],
+    "packed_op": [
+      "Bits",
+      "Decor",
+      "bv",
+      "dbin",
+      "lanes_and",
+      "lanes_or",
+      "lanes_xor",
+      "packedOp",
+      "packedSig",
+      "xor_meet"
+    ],
+    "takePacked": [
+      "PackedCov"
+    ],
+    "takePacked_ok": [
+      "Bits",
+      "Cov",
+      "combineLanes",
+      "lanes_and",
+      "lanes_or",
+      "lanes_xor",
+      "packedCov",
+      "restCov",
+      "takeOne",
+      "takePacked",
+      "takeTwo",
+      "xor_meet"
+    ],
+    "contextWire": [
+      "NodeContext",
+      "defaultDecor"
+    ],
+    "checkAt": [
+      "NodeContext",
+      "contextWire",
+      "dbin",
+      "evalMove"
+    ],
+    "combField": [
+      "NodeContext",
+      "column",
+      "contextWire",
+      "dbin",
+      "restCov"
+    ],
+    "onMarks": [
+      "Forest.mask"
+    ],
+    "marked_ok": [
+      "Forest.mask",
+      "onMarks",
+      "zero"
+    ],
+    "Batch": [
+      "PackedCov",
+      "PackedSig"
+    ],
+    "makeBatch": [
+      "Batch",
+      "NodeContext",
+      "contextWire",
+      "packedCov",
+      "packedSig",
+      "units"
+    ],
+    "laneWire": [
+      "Batch"
+    ],
+    "laneWire_at": [
+      "contextWire",
+      "laneWire",
+      "makeBatch",
+      "packedSig"
+    ],
+    "masked_comp": [
+      "Sig",
+      "bit",
+      "bit_ext",
+      "masked",
+      "neg"
+    ],
+    "constantLoss": [
+      "Decor"
+    ],
+    "lossBound": [
+      "Decor",
+      "constantLoss",
+      "delOne"
+    ],
+    "keptCount": [
+      "Decor",
+      "constantLoss",
+      "delOne",
+      "delTwo",
+      "lossBound"
+    ],
+    "force": [],
+    "force_eq": [
+      "force"
+    ],
+    "forceMap": [
+      "force"
+    ],
+    "forceMap_eq": [
+      "force",
+      "forceMap",
+      "force_eq"
+    ],
+    "nmask": [
+      "Sig"
+    ],
+    "anyEq": [],
+    "nconst": [],
+    "navail": [
+      "anyEq",
+      "nconst"
+    ],
+    "nmask_eq": [
+      "Sig",
+      "masked",
+      "nmask"
+    ],
+    "beq_toNat": [
+      "Sig"
+    ],
+    "nconst_eq": [
+      "Sig",
+      "beq_toNat",
+      "isMaskedConstant",
+      "masked",
+      "nconst",
+      "nmask",
+      "nmask_eq",
+      "zero"
+    ],
+    "anyEq_eq": [
+      "Sig",
+      "anyEq",
+      "beq_toNat",
+      "masked",
+      "nmask",
+      "nmask_eq"
+    ],
+    "navail_eq": [
+      "Sig",
+      "anyEq_eq",
+      "availableB",
+      "isMaskedConstant",
+      "masked",
+      "masked_comp",
+      "navail",
+      "nconst_eq",
+      "neg",
+      "nmask",
+      "nmask_eq"
+    ],
+    "unav": [
+      "BoundPool",
+      "BoundPool.domain",
+      "BoundPool.wires",
+      "Decor",
+      "availableB"
+    ],
+    "slowCost": [
+      "BoundPool",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Decor",
+      "availableB",
+      "bin",
+      "constantLoss",
+      "isMaskedConstant",
+      "unav"
+    ],
+    "zN": [],
+    "zN_eq": [
+      "Sig",
+      "bin",
+      "bit",
+      "bit_ext",
+      "masked",
+      "nmask",
+      "nmask_eq",
+      "zN"
+    ],
+    "nloss": [
+      "nconst"
+    ],
+    "nloss_eq": [
+      "Decor",
+      "Sig",
+      "constantLoss",
+      "isMaskedConstant",
+      "nconst_eq",
+      "nloss",
+      "nmask"
+    ],
+    "QS": [],
+    "quickSpec": [
+      "BoundPool",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Decor",
+      "QS",
+      "navail",
+      "nconst",
+      "nmask"
+    ],
+    "forceBool": [],
+    "forcePool": [
+      "BoundPool",
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Decor",
+      "QS",
+      "force",
+      "forceBool",
+      "forceMap",
+      "navail",
+      "nconst",
+      "nmask"
+    ],
+    "forcePool_eq": [
+      "QS",
+      "forceBool",
+      "forceMap_eq",
+      "forcePool",
+      "force_eq",
+      "quickSpec"
+    ],
+    "forcePools": [
+      "BoundPool",
+      "Decor",
+      "QS",
+      "forcePool"
+    ],
+    "forcePools_eq": [
+      "QS",
+      "forcePool",
+      "forcePool_eq",
+      "forcePools",
+      "quickSpec"
+    ],
+    "kwN": [],
+    "Lane": [
+      "NodeContext",
+      "QS"
+    ],
+    "laneOf": [
+      "Decor",
+      "Lane",
+      "NodeContext",
+      "kwN",
+      "quickSpec"
+    ],
+    "forceLanes": [
+      "Decor",
+      "Lane",
+      "NodeContext",
+      "force",
+      "forceMap",
+      "forcePools",
+      "kwN"
+    ],
+    "forceLanes_eq": [
+      "Decor",
+      "Lane",
+      "force",
+      "forceLanes",
+      "forceMap",
+      "forceMap_eq",
+      "forcePools",
+      "forcePools_eq",
+      "force_eq",
+      "kwN",
+      "laneOf"
+    ],
+    "fastCost": [
+      "QS",
+      "force",
+      "navail",
+      "nconst",
+      "nloss",
+      "zN"
+    ],
+    "spec_get": [
+      "Decor",
+      "defaultDecor",
+      "nmask",
+      "zero"
+    ],
+    "fast_slow": [
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Decor",
+      "availableB",
+      "bin",
+      "constantLoss",
+      "defaultDecor",
+      "fastCost",
+      "force_eq",
+      "isMaskedConstant",
+      "navail",
+      "navail_eq",
+      "nconst",
+      "nconst_eq",
+      "nloss",
+      "nloss_eq",
+      "nmask",
+      "quickSpec",
+      "slowCost",
+      "spec_get",
+      "unav",
+      "zN",
+      "zN_eq",
+      "zero"
+    ],
+    "anyEq_iff": [
+      "anyEq"
+    ],
+    "linkAt": [
+      "Lane",
+      "anyEq",
+      "force",
+      "forceMap",
+      "kwN",
+      "zN"
+    ],
+    "keySet_sum": [
+      "Sig",
+      "keySet",
+      "keyWord"
+    ],
+    "delTwo_sum": [
+      "Decor",
+      "delOne",
+      "delTwo"
+    ],
+    "fastCost_good": [
+      "BoundPool.bound",
+      "BoundPool.domain",
+      "BoundPool.paid",
+      "BoundPool.wires",
+      "Decor",
+      "allowedB",
+      "availableB",
+      "bin",
+      "choiceOK",
+      "choiceVal",
+      "constantLoss",
+      "delTwo",
+      "delTwo_sum",
+      "isMaskedConstant",
+      "keptCount",
+      "movedChoice",
+      "scalarPoolCut",
+      "slowCost",
+      "unav"
+    ],
+    "zN_full": [
+      "Sig",
+      "bin",
+      "nmask",
+      "nmask_eq",
+      "one",
+      "zN",
+      "zN_eq"
+    ],
+    "getW": [
+      "Decor",
+      "defaultDecor",
+      "zero"
+    ],
+    "wire_ne": [
+      "NodeContext",
+      "contextWire"
+    ],
+    "link_sound": [
+      "Decor",
+      "NodeContext",
+      "Sig",
+      "anyEq_iff",
+      "bin",
+      "choiceVal",
+      "contextWire",
+      "defaultDecor",
+      "delTwo",
+      "delTwo_sum",
+      "forceMap_eq",
+      "force_eq",
+      "getW",
+      "kept_value",
+      "keySet",
+      "keySet_sum",
+      "keyWord",
+      "kwN",
+      "laneOf",
+      "linkAt",
+      "movedChoice",
+      "sameWords",
+      "wire_ne",
+      "zN_full"
+    ],
+    "fallbackAt": [
+      "Lane",
+      "checkAt",
+      "fastCost",
+      "linkAt"
+    ],
+    "fallback_sound": [
+      "NodeContext",
+      "allowedB",
+      "checkAt",
+      "closeChild",
+      "contextWire",
+      "delTwo",
+      "evalMove",
+      "fallbackAt",
+      "fastCost_good",
+      "fast_slow",
+      "laneOf",
+      "link_sound",
+      "movedChoice",
+      "scalarPoolCut",
+      "wire_ne"
+    ],
+    "swapIdx": [],
+    "validSwap": [],
+    "swap_table": [
+      "inputs",
+      "swapIdx",
+      "swapRows",
+      "validSwap",
+      "wordMove",
+      "zero"
+    ],
+    "swap_input": [
+      "inputs",
+      "swapIdx",
+      "swapRows",
+      "swap_table",
+      "validSwap",
+      "wordMove",
+      "zero"
+    ],
+    "idxOf": [
+      "Run.perm",
+      "swapIdx"
+    ],
+    "idx_move": [
+      "Run.perm",
+      "idxOf",
+      "inputs",
+      "movedWord",
+      "swapRows",
+      "swap_input",
+      "validSwap",
+      "zero"
+    ],
+    "decodeN": [
+      "force",
+      "zN"
+    ],
+    "decodeN_eq": [
+      "Decor",
+      "Sig",
+      "bin",
+      "decodeBank",
+      "decodeN",
+      "defaultDecor",
+      "force_eq",
+      "zN",
+      "zero"
+    ],
+    "selectLive_map": [
+      "selectLive"
+    ],
+    "fastState": [
+      "Forest",
+      "Forest.levels",
+      "Forest.mask",
+      "Run.perm",
+      "decodeN",
+      "force",
+      "idxOf",
+      "inputs",
+      "packedAt",
+      "selectLive",
+      "selected",
+      "zero"
+    ],
+    "fastState_eq": [
+      "Forest",
+      "Forest.levels",
+      "Forest.mask",
+      "Run.perm",
+      "Sig",
+      "bin",
+      "decodeN_eq",
+      "fastState",
+      "force_eq",
+      "idxOf",
+      "idx_move",
+      "inputs",
+      "movedWord",
+      "moved_eq_rename",
+      "rawDecor",
+      "readNode",
+      "rename_bin",
+      "rename_constants",
+      "selectLive_map",
+      "selected",
+      "selected_entry",
+      "stateSet",
+      "storedDepth",
+      "swapRows",
+      "validSwap",
+      "wiresOf",
+      "zN",
+      "zN_full",
+      "zero"
+    ],
+    "linkedFast": [
+      "Forest",
+      "Forest.autos",
+      "Forest.levels",
+      "Run.perm",
+      "fastState",
+      "validSwap"
+    ],
+    "flOf": [
+      "Forest",
+      "Forest.index",
+      "linkedFast"
+    ],
+    "batchMove": [
+      "Batch",
+      "Forest.mask",
+      "Lane",
+      "fallbackAt",
+      "fullMarks",
+      "laneWire",
+      "onMarks",
+      "packedColumn",
+      "packedOp",
+      "takePacked"
+    ],
+    "batchMove_at": [
+      "Forest.mode",
+      "NodeContext",
+      "batchMove",
+      "checkAt",
+      "closeChild",
+      "combField",
+      "contextWire",
+      "dbin",
+      "delTwo",
+      "evalMove",
+      "fallback_sound",
+      "fullMarks",
+      "laneOf",
+      "laneWire",
+      "laneWire_at",
+      "lanes_or",
+      "makeBatch",
+      "mark_at",
+      "marked_ok",
+      "movedChoice",
+      "onMarks",
+      "packedColumn",
+      "packedCov",
+      "packedOp",
+      "packed_column",
+      "packed_op",
+      "properB",
+      "takePacked",
+      "takePacked_ok",
+      "units"
+    ],
+    "batchPair": [
+      "Batch",
+      "Lane",
+      "batchMove"
+    ],
+    "batchRow": [
+      "Batch",
+      "Lane",
+      "batchPair",
+      "opsOf"
+    ],
+    "batchRows": [
+      "Batch",
+      "Lane",
+      "batchRow"
+    ],
+    "batchRows_at": [
+      "Forest.mode",
+      "NodeContext",
+      "batchMove_at",
+      "batchPair",
+      "batchRow",
+      "batchRows",
+      "contextWire",
+      "laneOf",
+      "makeBatch",
+      "testAll",
+      "testPair",
+      "testRow"
+    ],
+    "runBatch": [
+      "NodeContext",
+      "batchRows",
+      "laneOf",
+      "makeBatch"
+    ],
+    "runBatch_at": [
+      "NodeContext",
+      "batchRows_at",
+      "contextWire",
+      "runBatch",
+      "testAll"
+    ],
+    "contextOf": [
+      "Forest",
+      "Forest.index",
+      "Forest.levels",
+      "Forest.mode",
+      "NodeContext",
+      "Reach.start",
+      "buildRule",
+      "getPairs",
+      "linkedSet",
+      "packedAt",
+      "preCov",
+      "readNode",
+      "storedDepth",
+      "wiresOf"
+    ],
+    "flOf_ok": [
+      "Forest",
+      "Forest.autos",
+      "Forest.index",
+      "Run.perm",
+      "contextOf",
+      "fastState_eq",
+      "flOf",
+      "linkedFast",
+      "linkedSet",
+      "movedWord",
+      "stateSet",
+      "swapRows",
+      "validSwap"
+    ],
+    "prelim": [
+      "NodeContext",
+      "Sig"
+    ],
+    "from_context": [
+      "Forest",
+      "contextOf",
+      "nodeVerified",
+      "prelim",
+      "targetOf",
+      "testAll"
+    ],
+    "makeBlock": [
+      "Reach.start",
+      "block",
+      "nodeVerified",
+      "zero"
+    ],
+    "contexts": [
+      "Forest",
+      "Reach.start",
+      "contextOf"
+    ],
+    "header": [
+      "Forest",
+      "Reach.start",
+      "contexts",
+      "prelim",
+      "targetOf"
+    ],
+    "rowCut": [
+      "Forest",
+      "Forest.mode",
+      "Reach.start",
+      "batchRow",
+      "contexts",
+      "flOf",
+      "forceLanes",
+      "makeBatch"
+    ],
+    "rowCut_at": [
+      "Forest.mode",
+      "Reach.start",
+      "batchRow",
+      "contexts",
+      "flOf",
+      "forceLanes_eq",
+      "laneOf",
+      "makeBatch",
+      "rowCut"
+    ],
+    "rowCut_merge": [
+      "Reach.start",
+      "forceLanes_eq",
+      "rowCut",
+      "rowCut_at"
+    ],
+    "cutsRun": [
+      "Forest.mode",
+      "Reach.start",
+      "batchRows",
+      "contexts",
+      "flOf",
+      "laneOf",
+      "makeBatch",
+      "rowCut",
+      "rowCut_at",
+      "runBatch",
+      "zero"
+    ],
+    "cutsBlock": [
+      "Forest.mode",
+      "Reach.start",
+      "block",
+      "contextOf",
+      "contexts",
+      "cutsRun",
+      "flOf",
+      "flOf_ok",
+      "from_context",
+      "header",
+      "makeBlock",
+      "one",
+      "prelim",
+      "rowCut",
+      "runBatch_at"
+    ],
+    "boxes": [
+      "Forest",
+      "Reach.start",
+      "rowCut"
+    ],
+    "boxesCut": [
+      "Reach.start",
+      "boxes",
+      "rowCut",
+      "rowCut_merge",
+      "zero"
+    ],
+    "cells": [
+      "Forest",
+      "Reach.start",
+      "boxes",
+      "header"
+    ],
+    "cellsBlock": [
+      "Reach.start",
+      "block",
+      "block_merge",
+      "boxesCut",
+      "cells",
+      "cutsBlock",
+      "zero"
+    ],
+    "listPieces": [],
+    "listPieces_all": [
+      "listPieces",
+      "zero"
+    ],
+    "slice_self": [
+      "Lower",
+      "Sig",
+      "Slice",
+      "bit_one",
+      "observe_proper",
+      "one",
+      "proper"
+    ],
+    "plainA": [
+      "Forest.cap",
+      "Impossible",
+      "Lower",
+      "graphGoal",
+      "one",
+      "poolCut",
+      "poolCut_sound",
+      "properB",
+      "proper_of",
+      "slice_self",
+      "vars",
+      "varsX"
+    ],
+    "cut_root": [
+      "ColumnInfo",
+      "Forest.cap",
+      "Impossible",
+      "Lower",
+      "Sig",
+      "colCheck",
+      "col_sound",
+      "graphGoal",
+      "poolCut",
+      "poolCut_sound",
+      "rawMask",
+      "subcube",
+      "varsX"
+    ],
+    "index_root": [
+      "Forest",
+      "Forest.cap",
+      "Forest.mask",
+      "Forest.mode",
+      "Impossible",
+      "Lower",
+      "Sig",
+      "checkedTables",
+      "graphGoal",
+      "graphValid",
+      "indexedRoot",
+      "root_index",
+      "varsX"
+    ],
+    "essOK": [
+      "checkEssential",
+      "graphGoal",
+      "graphPairs",
+      "properB",
+      "vars"
+    ],
+    "plain_low": [
+      "Forest.cap",
+      "Impossible",
+      "Lower",
+      "essOK",
+      "essential_ok",
+      "essential_plain",
+      "graphGoal",
+      "lower_impossible",
+      "proper_of",
+      "vars"
+    ],
+    "witPairs": [
+      "Row",
+      "Sig",
+      "selected"
+    ],
+    "fullOK": [
+      "checkEssential",
+      "graphGoal",
+      "properB",
+      "typeWord",
+      "vars",
+      "varsX",
+      "witPairs"
+    ],
+    "full_split": [
+      "Live",
+      "Sig",
+      "essential_ok",
+      "fullOK",
+      "graphGoal",
+      "raw_required",
+      "typeWord",
+      "vars",
+      "varsX"
+    ],
+    "strong_full": [
+      "Forest.cap",
+      "Impossible",
+      "Lower",
+      "essential_plain",
+      "fullOK",
+      "full_split",
+      "graphGoal",
+      "proper_of",
+      "reach_live",
+      "vars",
+      "varsX"
+    ],
+    "g15d3": [],
+    "g15l3": [
+      "Packing",
+      "g15d3"
+    ],
+    "g15samples": [
+      "Bits"
+    ],
+    "g15columns": [
+      "ColumnInfo"
+    ],
+    "g15autos": [],
+    "g15levels": [
+      "Packing",
+      "emptyPacking",
+      "g15l3"
+    ],
+    "g15index": [],
+    "g15": [
+      "Forest",
+      "g15autos",
+      "g15columns",
+      "g15index",
+      "g15levels",
+      "g15samples"
+    ],
+    "geomg15": [
+      "boundsBefore",
+      "g15",
+      "graphValid",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "spanChecks": [
+      "Forest",
+      "cells"
+    ],
+    "spansBlock": [
+      "Forest",
+      "block",
+      "block_merge",
+      "boxes",
+      "cells",
+      "cellsBlock",
+      "spanChecks"
+    ],
+    "tablesg15": [
+      "checkedTables",
+      "g15",
+      "spansBlock"
+    ],
+    "low15": [
+      "Lower",
+      "baseKnown",
+      "before_sound",
+      "g15",
+      "geomg15",
+      "graphGoal",
+      "index_root",
+      "plain_low",
+      "tablesg15",
+      "vars"
+    ],
+    "known15": [
+      "extendKnown"
+    ],
+    "valid15": [
+      "Known",
+      "baseKnown",
+      "extendKnown_ok",
+      "known15",
+      "low15"
+    ],
+    "g31d6": [],
+    "g31l6": [
+      "Packing",
+      "g31d6"
+    ],
+    "g31h6": [],
+    "g31d5": [],
+    "g31l5": [
+      "Packing",
+      "g31d5"
+    ],
+    "g31h5": [],
+    "g31d4": [],
+    "g31l4": [
+      "Packing",
+      "g31d4"
+    ],
+    "g31samples": [
+      "Bits"
+    ],
+    "g31columns": [
+      "ColumnInfo"
+    ],
+    "g31autos": [],
+    "g31levels": [
+      "Packing",
+      "emptyPacking",
+      "g31l4",
+      "g31l5",
+      "g31l6"
+    ],
+    "g31index": [
+      "g31h5",
+      "g31h6",
+      "lookupWord"
+    ],
+    "g31": [
+      "Forest",
+      "g31autos",
+      "g31columns",
+      "g31index",
+      "g31levels",
+      "g31samples"
+    ],
+    "geomg31": [
+      "boundsBefore",
+      "g31",
+      "graphValid",
+      "known15",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "tablesg31": [
+      "checkedTables",
+      "g31",
+      "spansBlock"
+    ],
+    "low31": [
+      "Lower",
+      "before_sound",
+      "g31",
+      "geomg31",
+      "graphGoal",
+      "index_root",
+      "known15",
+      "plain_low",
+      "tablesg31",
+      "valid15",
+      "vars"
+    ],
+    "known31": [
+      "extendKnown",
+      "known15"
+    ],
+    "valid31": [
+      "Known",
+      "extendKnown_ok",
+      "known31",
+      "low31",
+      "valid15"
+    ],
+    "low47": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known31",
+      "plain_low",
+      "valid31",
+      "vars"
+    ],
+    "known47": [
+      "extendKnown",
+      "known31"
+    ],
+    "valid47": [
+      "Known",
+      "extendKnown_ok",
+      "known47",
+      "low47",
+      "valid31"
+    ],
+    "low55": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known47",
+      "plain_low",
+      "valid47",
+      "vars"
+    ],
+    "known55": [
+      "extendKnown",
+      "known47"
+    ],
+    "valid55": [
+      "Known",
+      "extendKnown_ok",
+      "known55",
+      "low55",
+      "valid47"
+    ],
+    "low63": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known55",
+      "plain_low",
+      "valid55",
+      "vars"
+    ],
+    "known63": [
+      "extendKnown",
+      "known55"
+    ],
+    "valid63": [
+      "Known",
+      "extendKnown_ok",
+      "known63",
+      "low63",
+      "valid55"
+    ],
+    "g111d6": [],
+    "g111l6": [
+      "Packing",
+      "g111d6"
+    ],
+    "g111h6": [],
+    "g111d5": [],
+    "g111l5": [
+      "Packing",
+      "g111d5"
+    ],
+    "g111samples": [
+      "Bits"
+    ],
+    "g111columns": [
+      "ColumnInfo"
+    ],
+    "g111autos": [],
+    "g111levels": [
+      "Packing",
+      "emptyPacking",
+      "g111l5",
+      "g111l6"
+    ],
+    "g111index": [
+      "g111h6",
+      "lookupWord"
+    ],
+    "g111": [
+      "Forest",
+      "g111autos",
+      "g111columns",
+      "g111index",
+      "g111levels",
+      "g111samples"
+    ],
+    "geomg111": [
+      "boundsBefore",
+      "g111",
+      "graphValid",
+      "known63",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "tablesg111": [
+      "checkedTables",
+      "g111",
+      "spansBlock"
+    ],
+    "low111": [
+      "Lower",
+      "before_sound",
+      "g111",
+      "geomg111",
+      "graphGoal",
+      "index_root",
+      "known63",
+      "plain_low",
+      "tablesg111",
+      "valid63",
+      "vars"
+    ],
+    "known111": [
+      "extendKnown",
+      "known63"
+    ],
+    "valid111": [
+      "Known",
+      "extendKnown_ok",
+      "known111",
+      "low111",
+      "valid63"
+    ],
+    "g189d7": [],
+    "g189l7": [
+      "Packing",
+      "g189d7"
+    ],
+    "g189h7": [],
+    "g189d6": [],
+    "g189l6": [
+      "Packing",
+      "g189d6"
+    ],
+    "g189h6": [],
+    "g189d5": [],
+    "g189l5": [
+      "Packing",
+      "g189d5"
+    ],
+    "g189samples": [
+      "Bits"
+    ],
+    "g189columns": [
+      "ColumnInfo"
+    ],
+    "g189autos": [],
+    "g189levels": [
+      "Packing",
+      "emptyPacking",
+      "g189l5",
+      "g189l6",
+      "g189l7"
+    ],
+    "g189index": [
+      "g189h6",
+      "g189h7",
+      "lookupWord"
+    ],
+    "g189": [
+      "Forest",
+      "g189autos",
+      "g189columns",
+      "g189index",
+      "g189levels",
+      "g189samples"
+    ],
+    "geomg189": [
+      "boundsBefore",
+      "g189",
+      "graphValid",
+      "known111",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "tablesg189": [
+      "checkedTables",
+      "g189",
+      "spansBlock"
+    ],
+    "low189": [
+      "Lower",
+      "before_sound",
+      "g189",
+      "geomg189",
+      "graphGoal",
+      "index_root",
+      "known111",
+      "plain_low",
+      "tablesg189",
+      "valid111",
+      "vars"
+    ],
+    "known189": [
+      "extendKnown",
+      "known111"
+    ],
+    "valid189": [
+      "Known",
+      "extendKnown_ok",
+      "known189",
+      "low189",
+      "valid111"
+    ],
+    "low127": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known189",
+      "plain_low",
+      "valid189",
+      "vars"
+    ],
+    "known127": [
+      "extendKnown",
+      "known189"
+    ],
+    "valid127": [
+      "Known",
+      "extendKnown_ok",
+      "known127",
+      "low127",
+      "valid189"
+    ],
+    "g191d10": [],
+    "g191l10": [
+      "Packing",
+      "g191d10"
+    ],
+    "g191h10": [],
+    "g191d9": [],
+    "g191l9": [
+      "Packing",
+      "g191d9"
+    ],
+    "g191h9": [],
+    "g191d8": [],
+    "g191l8": [
+      "Packing",
+      "g191d8"
+    ],
+    "g191h8": [],
+    "g191d7": [],
+    "g191l7": [
+      "Packing",
+      "g191d7"
+    ],
+    "g191h7": [],
+    "g191d6": [],
+    "g191l6": [
+      "Packing",
+      "g191d6"
+    ],
+    "g191samples": [
+      "Bits"
+    ],
+    "g191columns": [
+      "ColumnInfo"
+    ],
+    "g191autos": [],
+    "g191levels": [
+      "Packing",
+      "emptyPacking",
+      "g191l10",
+      "g191l6",
+      "g191l7",
+      "g191l8",
+      "g191l9"
+    ],
+    "g191index": [
+      "g191h10",
+      "g191h7",
+      "g191h8",
+      "g191h9",
+      "lookupWord"
+    ],
+    "g191": [
+      "Forest",
+      "g191autos",
+      "g191columns",
+      "g191index",
+      "g191levels",
+      "g191samples"
+    ],
+    "geomg191": [
+      "boundsBefore",
+      "g191",
+      "graphValid",
+      "known127",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "tablesg191": [
+      "checkedTables",
+      "g191",
+      "spansBlock"
+    ],
+    "low191": [
+      "Lower",
+      "before_sound",
+      "g191",
+      "geomg191",
+      "graphGoal",
+      "index_root",
+      "known127",
+      "plain_low",
+      "tablesg191",
+      "valid127",
+      "vars"
+    ],
+    "known191": [
+      "extendKnown",
+      "known127"
+    ],
+    "valid191": [
+      "Known",
+      "extendKnown_ok",
+      "known191",
+      "low191",
+      "valid127"
+    ],
+    "low251": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known191",
+      "plain_low",
+      "valid191",
+      "vars"
+    ],
+    "known251": [
+      "extendKnown",
+      "known191"
+    ],
+    "valid251": [
+      "Known",
+      "extendKnown_ok",
+      "known251",
+      "low251",
+      "valid191"
+    ],
+    "low255": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known251",
+      "plain_low",
+      "valid251",
+      "vars"
+    ],
+    "known255": [
+      "extendKnown",
+      "known251"
+    ],
+    "valid255": [
+      "Known",
+      "extendKnown_ok",
+      "known255",
+      "low255",
+      "valid251"
+    ],
+    "g383d12": [],
+    "g383l12": [
+      "Packing",
+      "g383d12"
+    ],
+    "g383h12": [],
+    "g383d11": [],
+    "g383l11": [
+      "Packing",
+      "g383d11"
+    ],
+    "g383h11": [],
+    "g383d10": [],
+    "g383l10": [
+      "Packing",
+      "g383d10"
+    ],
+    "g383h10": [],
+    "g383d9": [],
+    "g383l9": [
+      "Packing",
+      "g383d9"
+    ],
+    "g383h9": [],
+    "g383d8": [],
+    "g383l8": [
+      "Packing",
+      "g383d8"
+    ],
+    "g383h8": [],
+    "g383d7": [],
+    "g383l7": [
+      "Packing",
+      "g383d7"
+    ],
+    "g383samples": [
+      "Bits"
+    ],
+    "g383columns": [
+      "ColumnInfo"
+    ],
+    "g383autos": [],
+    "g383levels": [
+      "Packing",
+      "emptyPacking",
+      "g383l10",
+      "g383l11",
+      "g383l12",
+      "g383l7",
+      "g383l8",
+      "g383l9"
+    ],
+    "g383index": [
+      "g383h10",
+      "g383h11",
+      "g383h12",
+      "g383h8",
+      "g383h9",
+      "lookupWord"
+    ],
+    "g383": [
+      "Forest",
+      "g383autos",
+      "g383columns",
+      "g383index",
+      "g383levels",
+      "g383samples"
+    ],
+    "geomg383": [
+      "boundsBefore",
+      "g383",
+      "graphValid",
+      "known255",
+      "listPieces",
+      "listPieces_all"
+    ],
+    "tablesg383": [
+      "checkedTables",
+      "g383",
+      "spansBlock"
+    ],
+    "low383": [
+      "Lower",
+      "before_sound",
+      "g383",
+      "geomg383",
+      "graphGoal",
+      "index_root",
+      "known255",
+      "plain_low",
+      "tablesg383",
+      "valid255",
+      "vars"
+    ],
+    "known383": [
+      "extendKnown",
+      "known255"
+    ],
+    "valid383": [
+      "Known",
+      "extendKnown_ok",
+      "known383",
+      "low383",
+      "valid255"
+    ],
+    "validF": [
+      "Known",
+      "known383",
+      "known_down",
+      "valid383"
+    ],
+    "x31d6": [],
+    "x31l6": [
+      "Packing",
+      "x31d6"
+    ],
+    "x31h6": [],
+    "x31d5": [],
+    "x31l5": [
+      "Packing",
+      "x31d5"
+    ],
+    "x31samples": [
+      "Bits"
+    ],
+    "x31columns": [
+      "ColumnInfo"
+    ],
+    "x31autos": [],
+    "x31levels": [
+      "Packing",
+      "emptyPacking",
+      "x31l5",
+      "x31l6"
+    ],
+    "x31index": [
+      "lookupWord",
+      "x31h6"
+    ],
+    "x31": [
+      "Forest",
+      "x31autos",
+      "x31columns",
+      "x31index",
+      "x31levels",
+      "x31samples"
+    ],
+    "geomx31": [
+      "boundsBefore",
+      "graphValid",
+      "known383",
+      "listPieces",
+      "listPieces_all",
+      "x31"
+    ],
+    "tablesx31": [
+      "checkedTables",
+      "spansBlock",
+      "x31"
+    ],
+    "pl31": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known383",
+      "plainA",
+      "validF",
+      "vars"
+    ],
+    "low1567": [
+      "Lower",
+      "before_sound",
+      "geomx31",
+      "graphGoal",
+      "index_root",
+      "known383",
+      "pl31",
+      "strong_full",
+      "tablesx31",
+      "validF",
+      "varsX",
+      "x31"
+    ],
+    "known1567": [
+      "extendKnown",
+      "known383"
+    ],
+    "valid1567": [
+      "Known",
+      "extendKnown_ok",
+      "known1567",
+      "low1567",
+      "validF"
+    ],
+    "low42527": [
+      "Lower",
+      "before_sound",
+      "geomx31",
+      "graphGoal",
+      "index_root",
+      "known383",
+      "pl31",
+      "strong_full",
+      "tablesx31",
+      "validF",
+      "varsX",
+      "x31"
+    ],
+    "known42527": [
+      "extendKnown",
+      "known1567"
+    ],
+    "valid42527": [
+      "Known",
+      "extendKnown_ok",
+      "known42527",
+      "low42527",
+      "valid1567"
+    ],
+    "x111d6": [],
+    "x111l6": [
+      "Packing",
+      "x111d6"
+    ],
+    "x111h6": [],
+    "x111d5": [],
+    "x111l5": [
+      "Packing",
+      "x111d5"
+    ],
+    "x111samples": [
+      "Bits"
+    ],
+    "x111columns": [
+      "ColumnInfo"
+    ],
+    "x111autos": [],
+    "x111levels": [
+      "Packing",
+      "emptyPacking",
+      "x111l5",
+      "x111l6"
+    ],
+    "x111index": [
+      "lookupWord",
+      "x111h6"
+    ],
+    "x111": [
+      "Forest",
+      "x111autos",
+      "x111columns",
+      "x111index",
+      "x111levels",
+      "x111samples"
+    ],
+    "geomx111": [
+      "boundsBefore",
+      "graphValid",
+      "known42527",
+      "listPieces",
+      "listPieces_all",
+      "x111"
+    ],
+    "tablesx111": [
+      "checkedTables",
+      "spansBlock",
+      "x111"
+    ],
+    "pl111": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known42527",
+      "plainA",
+      "valid42527",
+      "vars"
+    ],
+    "low49775": [
+      "Lower",
+      "before_sound",
+      "geomx111",
+      "graphGoal",
+      "index_root",
+      "known42527",
+      "pl111",
+      "strong_full",
+      "tablesx111",
+      "valid42527",
+      "varsX",
+      "x111"
+    ],
+    "known49775": [
+      "extendKnown",
+      "known42527"
+    ],
+    "valid49775": [
+      "Known",
+      "extendKnown_ok",
+      "known49775",
+      "low49775",
+      "valid42527"
+    ],
+    "low42607": [
+      "Lower",
+      "before_sound",
+      "geomx111",
+      "graphGoal",
+      "index_root",
+      "known42527",
+      "pl111",
+      "strong_full",
+      "tablesx111",
+      "valid42527",
+      "varsX",
+      "x111"
+    ],
+    "known42607": [
+      "extendKnown",
+      "known49775"
+    ],
+    "valid42607": [
+      "Known",
+      "extendKnown_ok",
+      "known42607",
+      "low42607",
+      "valid49775"
+    ],
+    "x63d7": [],
+    "x63l7": [
+      "Packing",
+      "x63d7"
+    ],
+    "x63h7": [],
+    "x63d6": [],
+    "x63l6": [
+      "Packing",
+      "x63d6"
+    ],
+    "x63h6": [],
+    "x63d5": [],
+    "x63l5": [
+      "Packing",
+      "x63d5"
+    ],
+    "x63h5": [],
+    "x63d4": [],
+    "x63l4": [
+      "Packing",
+      "x63d4"
+    ],
+    "x63samples": [
+      "Bits"
+    ],
+    "x63columns": [
+      "ColumnInfo"
+    ],
+    "x63autos": [],
+    "x63levels": [
+      "Packing",
+      "emptyPacking",
+      "x63l4",
+      "x63l5",
+      "x63l6",
+      "x63l7"
+    ],
+    "x63index": [
+      "lookupWord",
+      "x63h5",
+      "x63h6",
+      "x63h7"
+    ],
+    "x63": [
+      "Forest",
+      "x63autos",
+      "x63columns",
+      "x63index",
+      "x63levels",
+      "x63samples"
+    ],
+    "geomx63": [
+      "boundsBefore",
+      "graphValid",
+      "known42607",
+      "listPieces",
+      "listPieces_all",
+      "x63"
+    ],
+    "tablesx63": [
+      "checkedTables",
+      "spansBlock",
+      "x63"
+    ],
+    "pl63": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known42607",
+      "plainA",
+      "valid42607",
+      "vars"
+    ],
+    "low6719": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "valid42607",
+      "varsX"
+    ],
+    "known6719": [
+      "extendKnown",
+      "known42607"
+    ],
+    "valid6719": [
+      "Known",
+      "extendKnown_ok",
+      "known6719",
+      "low6719",
+      "valid42607"
+    ],
+    "low1087": [
+      "Lower",
+      "before_sound",
+      "geomx63",
+      "graphGoal",
+      "index_root",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "tablesx63",
+      "valid42607",
+      "varsX",
+      "x63"
+    ],
+    "known1087": [
+      "extendKnown",
+      "known6719"
+    ],
+    "valid1087": [
+      "Known",
+      "extendKnown_ok",
+      "known1087",
+      "low1087",
+      "valid6719"
+    ],
+    "low11327": [
+      "Lower",
+      "before_sound",
+      "geomx63",
+      "graphGoal",
+      "index_root",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "tablesx63",
+      "valid42607",
+      "varsX",
+      "x63"
+    ],
+    "known11327": [
+      "extendKnown",
+      "known1087"
+    ],
+    "valid11327": [
+      "Known",
+      "extendKnown_ok",
+      "known11327",
+      "low11327",
+      "valid1087"
+    ],
+    "low1599": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "valid42607",
+      "varsX"
+    ],
+    "known1599": [
+      "extendKnown",
+      "known11327"
+    ],
+    "valid1599": [
+      "Known",
+      "extendKnown_ok",
+      "known1599",
+      "low1599",
+      "valid11327"
+    ],
+    "low47679": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "valid42607",
+      "varsX"
+    ],
+    "known47679": [
+      "extendKnown",
+      "known1599"
+    ],
+    "valid47679": [
+      "Known",
+      "extendKnown_ok",
+      "known47679",
+      "low47679",
+      "valid1599"
+    ],
+    "low42559": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "valid42607",
+      "varsX"
+    ],
+    "known42559": [
+      "extendKnown",
+      "known47679"
+    ],
+    "valid42559": [
+      "Known",
+      "extendKnown_ok",
+      "known42559",
+      "low42559",
+      "valid47679"
+    ],
+    "low52799": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known42607",
+      "pl63",
+      "strong_full",
+      "valid42607",
+      "varsX"
+    ],
+    "known52799": [
+      "extendKnown",
+      "known42559"
+    ],
+    "valid52799": [
+      "Known",
+      "extendKnown_ok",
+      "known52799",
+      "low52799",
+      "valid42559"
+    ],
+    "x189d7": [],
+    "x189l7": [
+      "Packing",
+      "x189d7"
+    ],
+    "x189h7": [],
+    "x189d6": [],
+    "x189l6": [
+      "Packing",
+      "x189d6"
+    ],
+    "x189h6": [],
+    "x189d5": [],
+    "x189l5": [
+      "Packing",
+      "x189d5"
+    ],
+    "x189samples": [
+      "Bits"
+    ],
+    "x189columns": [
+      "ColumnInfo"
+    ],
+    "x189autos": [],
+    "x189levels": [
+      "Packing",
+      "emptyPacking",
+      "x189l5",
+      "x189l6",
+      "x189l7"
+    ],
+    "x189index": [
+      "lookupWord",
+      "x189h6",
+      "x189h7"
+    ],
+    "x189": [
+      "Forest",
+      "x189autos",
+      "x189columns",
+      "x189index",
+      "x189levels",
+      "x189samples"
+    ],
+    "geomx189": [
+      "boundsBefore",
+      "graphValid",
+      "known52799",
+      "listPieces",
+      "listPieces_all",
+      "x189"
+    ],
+    "tablesx189": [
+      "checkedTables",
+      "spansBlock",
+      "x189"
+    ],
+    "pl189": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known52799",
+      "plainA",
+      "valid52799",
+      "vars"
+    ],
+    "low2237": [
+      "Lower",
+      "before_sound",
+      "geomx189",
+      "graphGoal",
+      "index_root",
+      "known52799",
+      "pl189",
+      "strong_full",
+      "tablesx189",
+      "valid52799",
+      "varsX",
+      "x189"
+    ],
+    "known2237": [
+      "extendKnown",
+      "known52799"
+    ],
+    "valid2237": [
+      "Known",
+      "extendKnown_ok",
+      "known2237",
+      "low2237",
+      "valid52799"
+    ],
+    "low1725": [
+      "Lower",
+      "before_sound",
+      "geomx189",
+      "graphGoal",
+      "index_root",
+      "known52799",
+      "pl189",
+      "strong_full",
+      "tablesx189",
+      "valid52799",
+      "varsX",
+      "x189"
+    ],
+    "known1725": [
+      "extendKnown",
+      "known2237"
+    ],
+    "valid1725": [
+      "Known",
+      "extendKnown_ok",
+      "known1725",
+      "low1725",
+      "valid2237"
+    ],
+    "low2749": [
+      "Lower",
+      "before_sound",
+      "geomx189",
+      "graphGoal",
+      "index_root",
+      "known52799",
+      "pl189",
+      "strong_full",
+      "tablesx189",
+      "valid52799",
+      "varsX",
+      "x189"
+    ],
+    "known2749": [
+      "extendKnown",
+      "known1725"
+    ],
+    "valid2749": [
+      "Known",
+      "extendKnown_ok",
+      "known2749",
+      "low2749",
+      "valid1725"
+    ],
+    "low43197": [
+      "Lower",
+      "before_sound",
+      "geomx189",
+      "graphGoal",
+      "index_root",
+      "known52799",
+      "pl189",
+      "strong_full",
+      "tablesx189",
+      "valid52799",
+      "varsX",
+      "x189"
+    ],
+    "known43197": [
+      "extendKnown",
+      "known2749"
+    ],
+    "valid43197": [
+      "Known",
+      "extendKnown_ok",
+      "known43197",
+      "low43197",
+      "valid2749"
+    ],
+    "low44221": [
+      "Lower",
+      "before_sound",
+      "geomx189",
+      "graphGoal",
+      "index_root",
+      "known52799",
+      "pl189",
+      "strong_full",
+      "tablesx189",
+      "valid52799",
+      "varsX",
+      "x189"
+    ],
+    "known44221": [
+      "extendKnown",
+      "known43197"
+    ],
+    "valid44221": [
+      "Known",
+      "extendKnown_ok",
+      "known44221",
+      "low44221",
+      "valid43197"
+    ],
+    "x251d7": [],
+    "x251l7": [
+      "Packing",
+      "x251d7"
+    ],
+    "x251samples": [
+      "Bits"
+    ],
+    "x251columns": [
+      "ColumnInfo"
+    ],
+    "x251autos": [],
+    "x251levels": [
+      "Packing",
+      "emptyPacking",
+      "x251l7"
+    ],
+    "x251index": [],
+    "x251": [
+      "Forest",
+      "x251autos",
+      "x251columns",
+      "x251index",
+      "x251levels",
+      "x251samples"
+    ],
+    "geomx251": [
+      "boundsBefore",
+      "graphValid",
+      "known44221",
+      "listPieces",
+      "listPieces_all",
+      "x251"
+    ],
+    "tablesx251": [
+      "checkedTables",
+      "spansBlock",
+      "x251"
+    ],
+    "pl251": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known44221",
+      "plainA",
+      "valid44221",
+      "vars"
+    ],
+    "low48891": [
+      "Lower",
+      "before_sound",
+      "geomx251",
+      "graphGoal",
+      "index_root",
+      "known44221",
+      "pl251",
+      "strong_full",
+      "tablesx251",
+      "valid44221",
+      "varsX",
+      "x251"
+    ],
+    "known48891": [
+      "extendKnown",
+      "known44221"
+    ],
+    "valid48891": [
+      "Known",
+      "extendKnown_ok",
+      "known48891",
+      "low48891",
+      "valid44221"
+    ],
+    "x127d8": [],
+    "x127l8": [
+      "Packing",
+      "x127d8"
+    ],
+    "x127h8": [],
+    "x127d7": [],
+    "x127l7": [
+      "Packing",
+      "x127d7"
+    ],
+    "x127samples": [
+      "Bits"
+    ],
+    "x127columns": [
+      "ColumnInfo"
+    ],
+    "x127autos": [],
+    "x127levels": [
+      "Packing",
+      "emptyPacking",
+      "x127l7",
+      "x127l8"
+    ],
+    "x127index": [
+      "lookupWord",
+      "x127h8"
+    ],
+    "x127": [
+      "Forest",
+      "x127autos",
+      "x127columns",
+      "x127index",
+      "x127levels",
+      "x127samples"
+    ],
+    "geomx127": [
+      "boundsBefore",
+      "graphValid",
+      "known48891",
+      "listPieces",
+      "listPieces_all",
+      "x127"
+    ],
+    "tablesx127": [
+      "checkedTables",
+      "spansBlock",
+      "x127"
+    ],
+    "pl127": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known48891",
+      "plainA",
+      "valid48891",
+      "vars"
+    ],
+    "low2175": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "valid48891",
+      "varsX"
+    ],
+    "known2175": [
+      "extendKnown",
+      "known48891"
+    ],
+    "valid2175": [
+      "Known",
+      "extendKnown_ok",
+      "known2175",
+      "low2175",
+      "valid48891"
+    ],
+    "low1151": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "valid48891",
+      "varsX"
+    ],
+    "known1151": [
+      "extendKnown",
+      "known2175"
+    ],
+    "valid1151": [
+      "Known",
+      "extendKnown_ok",
+      "known1151",
+      "low1151",
+      "valid2175"
+    ],
+    "low52863": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "valid48891",
+      "varsX"
+    ],
+    "known52863": [
+      "extendKnown",
+      "known1151"
+    ],
+    "valid52863": [
+      "Known",
+      "extendKnown_ok",
+      "known52863",
+      "low52863",
+      "valid1151"
+    ],
+    "low44159": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "valid48891",
+      "varsX"
+    ],
+    "known44159": [
+      "extendKnown",
+      "known52863"
+    ],
+    "valid44159": [
+      "Known",
+      "extendKnown_ok",
+      "known44159",
+      "low44159",
+      "valid52863"
+    ],
+    "low43647": [
+      "Lower",
+      "before_sound",
+      "geomx127",
+      "graphGoal",
+      "index_root",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "tablesx127",
+      "valid48891",
+      "varsX",
+      "x127"
+    ],
+    "known43647": [
+      "extendKnown",
+      "known44159"
+    ],
+    "valid43647": [
+      "Known",
+      "extendKnown_ok",
+      "known43647",
+      "low43647",
+      "valid44159"
+    ],
+    "low42623": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known48891",
+      "pl127",
+      "strong_full",
+      "valid48891",
+      "varsX"
+    ],
+    "known42623": [
+      "extendKnown",
+      "known43647"
+    ],
+    "valid42623": [
+      "Known",
+      "extendKnown_ok",
+      "known42623",
+      "low42623",
+      "valid43647"
+    ],
+    "x191d10": [],
+    "x191l10": [
+      "Packing",
+      "x191d10"
+    ],
+    "x191h10": [],
+    "x191d9": [],
+    "x191l9": [
+      "Packing",
+      "x191d9"
+    ],
+    "x191h9": [],
+    "x191d8": [],
+    "x191l8": [
+      "Packing",
+      "x191d8"
+    ],
+    "x191h8": [],
+    "x191d7": [],
+    "x191l7": [
+      "Packing",
+      "x191d7"
+    ],
+    "x191h7": [],
+    "x191d6": [],
+    "x191l6": [
+      "Packing",
+      "x191d6"
+    ],
+    "x191h6": [],
+    "x191d5": [],
+    "x191l5": [
+      "Packing",
+      "x191d5"
+    ],
+    "x191samples": [
+      "Bits"
+    ],
+    "x191columns": [
+      "ColumnInfo"
+    ],
+    "x191autos": [],
+    "x191levels": [
+      "Packing",
+      "emptyPacking",
+      "x191l10",
+      "x191l5",
+      "x191l6",
+      "x191l7",
+      "x191l8",
+      "x191l9"
+    ],
+    "x191index": [
+      "lookupWord",
+      "x191h10",
+      "x191h6",
+      "x191h7",
+      "x191h8",
+      "x191h9"
+    ],
+    "x191": [
+      "Forest",
+      "x191autos",
+      "x191columns",
+      "x191index",
+      "x191levels",
+      "x191samples"
+    ],
+    "geomx191": [
+      "boundsBefore",
+      "graphValid",
+      "known42623",
+      "listPieces",
+      "listPieces_all",
+      "x191"
+    ],
+    "tablesx191": [
+      "checkedTables",
+      "spansBlock",
+      "x191"
+    ],
+    "pl191": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known42623",
+      "plainA",
+      "valid42623",
+      "vars"
+    ],
+    "low6847": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known6847": [
+      "extendKnown",
+      "known42623"
+    ],
+    "valid6847": [
+      "Known",
+      "extendKnown_ok",
+      "known6847",
+      "low6847",
+      "valid42623"
+    ],
+    "low18111": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known18111": [
+      "extendKnown",
+      "known6847"
+    ],
+    "valid18111": [
+      "Known",
+      "extendKnown_ok",
+      "known18111",
+      "low18111",
+      "valid6847"
+    ],
+    "low17087": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known17087": [
+      "extendKnown",
+      "known18111"
+    ],
+    "valid17087": [
+      "Known",
+      "extendKnown_ok",
+      "known17087",
+      "low17087",
+      "valid18111"
+    ],
+    "low2239": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known2239": [
+      "extendKnown",
+      "known17087"
+    ],
+    "valid2239": [
+      "Known",
+      "extendKnown_ok",
+      "known2239",
+      "low2239",
+      "valid17087"
+    ],
+    "low2751": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known2751": [
+      "extendKnown",
+      "known2239"
+    ],
+    "valid2751": [
+      "Known",
+      "extendKnown_ok",
+      "known2751",
+      "low2751",
+      "valid2239"
+    ],
+    "low1727": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known1727": [
+      "extendKnown",
+      "known2751"
+    ],
+    "valid1727": [
+      "Known",
+      "extendKnown_ok",
+      "known1727",
+      "low1727",
+      "valid2751"
+    ],
+    "low42687": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known42687": [
+      "extendKnown",
+      "known1727"
+    ],
+    "valid42687": [
+      "Known",
+      "extendKnown_ok",
+      "known42687",
+      "low42687",
+      "valid1727"
+    ],
+    "low58559": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known58559": [
+      "extendKnown",
+      "known42687"
+    ],
+    "valid58559": [
+      "Known",
+      "extendKnown_ok",
+      "known58559",
+      "low58559",
+      "valid42687"
+    ],
+    "low58047": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known58047": [
+      "extendKnown",
+      "known58559"
+    ],
+    "valid58047": [
+      "Known",
+      "extendKnown_ok",
+      "known58047",
+      "low58047",
+      "valid58559"
+    ],
+    "low44223": [
+      "Lower",
+      "before_sound",
+      "geomx191",
+      "graphGoal",
+      "index_root",
+      "known42623",
+      "pl191",
+      "strong_full",
+      "tablesx191",
+      "valid42623",
+      "varsX",
+      "x191"
+    ],
+    "known44223": [
+      "extendKnown",
+      "known58047"
+    ],
+    "valid44223": [
+      "Known",
+      "extendKnown_ok",
+      "known44223",
+      "low44223",
+      "valid58047"
+    ],
+    "x255d11": [],
+    "x255l11": [
+      "Packing",
+      "x255d11"
+    ],
+    "x255h11": [],
+    "x255d10": [],
+    "x255l10": [
+      "Packing",
+      "x255d10"
+    ],
+    "x255h10": [],
+    "x255d9": [],
+    "x255l9": [
+      "Packing",
+      "x255d9"
+    ],
+    "x255h9": [],
+    "x255d8": [],
+    "x255l8": [
+      "Packing",
+      "x255d8"
+    ],
+    "x255samples": [
+      "Bits"
+    ],
+    "x255columns": [
+      "ColumnInfo"
+    ],
+    "x255autos": [],
+    "x255levels": [
+      "Packing",
+      "emptyPacking",
+      "x255l10",
+      "x255l11",
+      "x255l8",
+      "x255l9"
+    ],
+    "x255index": [
+      "lookupWord",
+      "x255h10",
+      "x255h11",
+      "x255h9"
+    ],
+    "x255": [
+      "Forest",
+      "x255autos",
+      "x255columns",
+      "x255index",
+      "x255levels",
+      "x255samples"
+    ],
+    "geomx255": [
+      "boundsBefore",
+      "graphValid",
+      "known44223",
+      "listPieces",
+      "listPieces_all",
+      "x255"
+    ],
+    "tablesx255": [
+      "checkedTables",
+      "spansBlock",
+      "x255"
+    ],
+    "pl255": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known44223",
+      "plainA",
+      "valid44223",
+      "vars"
+    ],
+    "low2303": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known44223",
+      "pl255",
+      "strong_full",
+      "valid44223",
+      "varsX"
+    ],
+    "known2303": [
+      "extendKnown",
+      "known44223"
+    ],
+    "valid2303": [
+      "Known",
+      "extendKnown_ok",
+      "known2303",
+      "low2303",
+      "valid44223"
+    ],
+    "low1279": [
+      "Lower",
+      "before_sound",
+      "geomx255",
+      "graphGoal",
+      "index_root",
+      "known44223",
+      "pl255",
+      "strong_full",
+      "tablesx255",
+      "valid44223",
+      "varsX",
+      "x255"
+    ],
+    "known1279": [
+      "extendKnown",
+      "known2303"
+    ],
+    "valid1279": [
+      "Known",
+      "extendKnown_ok",
+      "known1279",
+      "low1279",
+      "valid2303"
+    ],
+    "low44287": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known44223",
+      "pl255",
+      "strong_full",
+      "valid44223",
+      "varsX"
+    ],
+    "known44287": [
+      "extendKnown",
+      "known1279"
+    ],
+    "valid44287": [
+      "Known",
+      "extendKnown_ok",
+      "known44287",
+      "low44287",
+      "valid1279"
+    ],
+    "low42751": [
+      "Lower",
+      "before_sound",
+      "boundsBefore",
+      "cut_root",
+      "graphGoal",
+      "known44223",
+      "pl255",
+      "strong_full",
+      "valid44223",
+      "varsX"
+    ],
+    "known42751": [
+      "extendKnown",
+      "known44287"
+    ],
+    "valid42751": [
+      "Known",
+      "extendKnown_ok",
+      "known42751",
+      "low42751",
+      "valid44287"
+    ],
+    "x383d12": [],
+    "x383l12": [
+      "Packing",
+      "x383d12"
+    ],
+    "x383h12": [],
+    "x383d11": [],
+    "x383l11": [
+      "Packing",
+      "x383d11"
+    ],
+    "x383h11": [],
+    "x383d10": [],
+    "x383l10": [
+      "Packing",
+      "x383d10"
+    ],
+    "x383h10": [],
+    "x383d9": [],
+    "x383l9": [
+      "Packing",
+      "x383d9"
+    ],
+    "x383h9": [],
+    "x383d8": [],
+    "x383l8": [
+      "Packing",
+      "x383d8"
+    ],
+    "x383h8": [],
+    "x383d7": [],
+    "x383l7": [
+      "Packing",
+      "x383d7"
+    ],
+    "x383h7": [],
+    "x383d6": [],
+    "x383l6": [
+      "Packing",
+      "x383d6"
+    ],
+    "x383h6": [],
+    "x383d5": [],
+    "x383l5": [
+      "Packing",
+      "x383d5"
+    ],
+    "x383samples": [
+      "Bits"
+    ],
+    "x383columns": [
+      "ColumnInfo"
+    ],
+    "x383autos": [],
+    "x383levels": [
+      "Packing",
+      "emptyPacking",
+      "x383l10",
+      "x383l11",
+      "x383l12",
+      "x383l5",
+      "x383l6",
+      "x383l7",
+      "x383l8",
+      "x383l9"
+    ],
+    "x383index": [
+      "lookupWord",
+      "x383h10",
+      "x383h11",
+      "x383h12",
+      "x383h6",
+      "x383h7",
+      "x383h8",
+      "x383h9"
+    ],
+    "x383": [
+      "Forest",
+      "x383autos",
+      "x383columns",
+      "x383index",
+      "x383levels",
+      "x383samples"
+    ],
+    "geomx383": [
+      "boundsBefore",
+      "graphValid",
+      "known42751",
+      "listPieces",
+      "listPieces_all",
+      "x383"
+    ],
+    "tablesx383": [
+      "checkedTables",
+      "spansBlock",
+      "x383"
+    ],
+    "pl383": [
+      "Impossible",
+      "before_sound",
+      "boundsBefore",
+      "graphGoal",
+      "known42751",
+      "plainA",
+      "valid42751",
+      "vars"
+    ],
+    "low2431": [
+      "Lower",
+      "before_sound",
+      "geomx383",
+      "graphGoal",
+      "index_root",
+      "known42751",
+      "pl383",
+      "strong_full",
+      "tablesx383",
+      "valid42751",
+      "varsX",
+      "x383"
+    ],
+    "known2431": [
+      "extendKnown",
+      "known42751"
+    ],
+    "valid2431": [
+      "Known",
+      "extendKnown_ok",
+      "known2431",
+      "low2431",
+      "valid42751"
+    ],
+    "low54143": [
+      "Lower",
+      "before_sound",
+      "geomx383",
+      "graphGoal",
+      "index_root",
+      "known42751",
+      "pl383",
+      "strong_full",
+      "tablesx383",
+      "valid42751",
+      "varsX",
+      "x383"
+    ],
+    "known54143": [
+      "extendKnown",
+      "known2431"
+    ],
+    "valid54143": [
+      "Known",
+      "extendKnown_ok",
+      "known54143",
+      "low54143",
+      "valid2431"
+    ],
+    "low44415": [
+      "Lower",
+      "before_sound",
+      "geomx383",
+      "graphGoal",
+      "index_root",
+      "known42751",
+      "pl383",
+      "strong_full",
+      "tablesx383",
+      "valid42751",
+      "varsX",
+      "x383"
+    ],
+    "known44415": [
+      "extendKnown",
+      "known54143"
+    ],
+    "valid44415": [
+      "Known",
+      "extendKnown_ok",
+      "known44415",
+      "low44415",
+      "valid54143"
+    ],
+    "low43903": [
+      "Lower",
+      "before_sound",
+      "geomx383",
+      "graphGoal",
+      "index_root",
+      "known42751",
+      "pl383",
+      "strong_full",
+      "tablesx383",
+      "valid42751",
+      "varsX",
+      "x383"
+    ],
+    "known43903": [
+      "extendKnown",
+      "known44415"
+    ],
+    "valid43903": [
+      "Known",
+      "extendKnown_ok",
+      "known43903",
+      "low43903",
+      "valid44415"
+    ],
+    "low42879": [
+      "Lower",
+      "before_sound",
+      "geomx383",
+      "graphGoal",
+      "index_root",
+      "known42751",
+      "pl383",
+      "strong_full",
+      "tablesx383",
+      "valid42751",
+      "varsX",
+      "x383"
+    ],
+    "known42879": [
+      "extendKnown",
+      "known43903"
+    ],
+    "valid42879": [
+      "Known",
+      "extendKnown_ok",
+      "known42879",
+      "low42879",
+      "valid43903"
+    ],
+    "rootLookup": [
+      "packedAt"
+    ],
+    "rootSSamples": [
+      "Bits"
+    ],
+    "rootSCols": [
+      "ColumnInfo"
+    ],
+    "rootSAutos": [],
+    "rootSD14": [],
+    "rootSH14": [],
+    "rootSD13": [],
+    "rootSH13": [],
+    "rootSD12": [],
+    "rootSH12": [],
+    "rootSD11": [],
+    "rootSH11": [],
+    "rootSD10": [],
+    "rootSH10": [],
+    "rootSD9": [],
+    "rootSH9": [],
+    "rootSD8": [],
+    "rootSLevel": [
+      "Packing",
+      "emptyPacking",
+      "rootSD10",
+      "rootSD11",
+      "rootSD12",
+      "rootSD13",
+      "rootSD14",
+      "rootSD8",
+      "rootSD9"
+    ],
+    "rootSIndex": [
+      "rootLookup",
+      "rootSH10",
+      "rootSH11",
+      "rootSH12",
+      "rootSH13",
+      "rootSH14",
+      "rootSH9"
+    ],
+    "rootS": [
+      "Forest",
+      "rootSAutos",
+      "rootSCols",
+      "rootSIndex",
+      "rootSLevel",
+      "rootSSamples"
+    ],
+    "rootGroups": [
+      "Forest",
+      "header",
+      "rowCut"
+    ],
+    "rootGroupsBlock": [
+      "Forest",
+      "block",
+      "block_merge",
+      "cutsBlock",
+      "rootGroups"
+    ],
+    "rootSb8_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel8": [
+      "block",
+      "rootS",
+      "rootSb8_0"
+    ],
+    "rootSb9_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel9": [
+      "block",
+      "rootS",
+      "rootSb9_0"
+    ],
+    "rootSb10_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb10_83": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb10_179": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb10_274": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb10_370": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel10": [
+      "block",
+      "block_merge",
+      "rootS",
+      "rootSb10_0",
+      "rootSb10_179",
+      "rootSb10_274",
+      "rootSb10_370",
+      "rootSb10_83"
+    ],
+    "rootSb11_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb11_80": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSb11_176": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel11": [
+      "block",
+      "block_merge",
+      "rootS",
+      "rootSb11_0",
+      "rootSb11_176",
+      "rootSb11_80"
+    ],
+    "rootSb12_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel12": [
+      "block",
+      "rootS",
+      "rootSb12_0"
+    ],
+    "rootSb13_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel13": [
+      "block",
+      "rootS",
+      "rootSb13_0"
+    ],
+    "rootSb14_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootS"
+    ],
+    "rootSlevel14": [
+      "block",
+      "rootS",
+      "rootSb14_0"
+    ],
+    "rootSGeom": [
+      "boundsBefore",
+      "graphValid",
+      "known383",
+      "listPieces",
+      "listPieces_all",
+      "rootS"
+    ],
+    "rootSTables": [
+      "checkedTables",
+      "rootS",
+      "rootSlevel10",
+      "rootSlevel11",
+      "rootSlevel12",
+      "rootSlevel13",
+      "rootSlevel14",
+      "rootSlevel8",
+      "rootSlevel9"
+    ],
+    "rootSImpossible": [
+      "Forest.cap",
+      "Impossible",
+      "before_sound",
+      "graph",
+      "graphGoal",
+      "index_root",
+      "inputs",
+      "known383",
+      "rootS",
+      "rootSGeom",
+      "rootSTables",
+      "valid383"
+    ],
+    "rootMSamples": [
+      "Bits"
+    ],
+    "rootMCols": [
+      "ColumnInfo"
+    ],
+    "rootMAutos": [],
+    "rootMD15": [],
+    "rootMH15": [],
+    "rootMD14": [],
+    "rootMH14": [],
+    "rootMD13": [],
+    "rootMH13": [],
+    "rootMD12": [],
+    "rootMH12": [],
+    "rootMD11": [],
+    "rootMH11": [],
+    "rootMD10": [],
+    "rootMH10": [],
+    "rootMD9": [],
+    "rootMH9": [],
+    "rootMD8": [],
+    "rootMH8": [],
+    "rootMD7": [],
+    "rootMLevel": [
+      "Packing",
+      "emptyPacking",
+      "rootMD10",
+      "rootMD11",
+      "rootMD12",
+      "rootMD13",
+      "rootMD14",
+      "rootMD15",
+      "rootMD7",
+      "rootMD8",
+      "rootMD9"
+    ],
+    "rootMIndex": [
+      "rootLookup",
+      "rootMH10",
+      "rootMH11",
+      "rootMH12",
+      "rootMH13",
+      "rootMH14",
+      "rootMH15",
+      "rootMH8",
+      "rootMH9"
+    ],
+    "rootM": [
+      "Forest",
+      "rootMAutos",
+      "rootMCols",
+      "rootMIndex",
+      "rootMLevel",
+      "rootMSamples"
+    ],
+    "rootMb7_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel7": [
+      "block",
+      "rootM",
+      "rootMb7_0"
+    ],
+    "rootMb8_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel8": [
+      "block",
+      "rootM",
+      "rootMb8_0"
+    ],
+    "rootMb9_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel9": [
+      "block",
+      "rootM",
+      "rootMb9_0"
+    ],
+    "rootMb10_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_86": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_182": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_263": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_359": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_455": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb10_551": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel10": [
+      "block",
+      "block_merge",
+      "rootM",
+      "rootMb10_0",
+      "rootMb10_182",
+      "rootMb10_263",
+      "rootMb10_359",
+      "rootMb10_455",
+      "rootMb10_551",
+      "rootMb10_86"
+    ],
+    "rootMb11_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_94": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_186": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_282": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_378": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_474": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_570": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_666": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_762": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_858": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_951": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_1047": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_1143": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_1239": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb11_1335": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel11": [
+      "block",
+      "block_merge",
+      "rootM",
+      "rootMb11_0",
+      "rootMb11_1047",
+      "rootMb11_1143",
+      "rootMb11_1239",
+      "rootMb11_1335",
+      "rootMb11_186",
+      "rootMb11_282",
+      "rootMb11_378",
+      "rootMb11_474",
+      "rootMb11_570",
+      "rootMb11_666",
+      "rootMb11_762",
+      "rootMb11_858",
+      "rootMb11_94",
+      "rootMb11_951"
+    ],
+    "rootMb12_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_96": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_188": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_284": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_380": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_476": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb12_572": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel12": [
+      "block",
+      "block_merge",
+      "rootM",
+      "rootMb12_0",
+      "rootMb12_188",
+      "rootMb12_284",
+      "rootMb12_380",
+      "rootMb12_476",
+      "rootMb12_572",
+      "rootMb12_96"
+    ],
+    "rootMb13_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMb13_77": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel13": [
+      "block",
+      "block_merge",
+      "rootM",
+      "rootMb13_0",
+      "rootMb13_77"
+    ],
+    "rootMb14_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel14": [
+      "block",
+      "rootM",
+      "rootMb14_0"
+    ],
+    "rootMb15_0": [
+      "block",
+      "rootGroups",
+      "rootGroupsBlock",
+      "rootM"
+    ],
+    "rootMlevel15": [
+      "block",
+      "rootM",
+      "rootMb15_0"
+    ],
+    "rootMGeom": [
+      "boundsBefore",
+      "graphValid",
+      "known42879",
+      "listPieces",
+      "listPieces_all",
+      "rootM"
+    ],
+    "rootMTables": [
+      "checkedTables",
+      "rootM",
+      "rootMlevel10",
+      "rootMlevel11",
+      "rootMlevel12",
+      "rootMlevel13",
+      "rootMlevel14",
+      "rootMlevel15",
+      "rootMlevel7",
+      "rootMlevel8",
+      "rootMlevel9"
+    ],
+    "rootMImpossible": [
+      "Forest.cap",
+      "Impossible",
+      "before_sound",
+      "graph",
+      "graphGoal",
+      "index_root",
+      "inputs",
+      "known42879",
+      "rootM",
+      "rootMGeom",
+      "rootMTables",
+      "valid42879"
+    ],
+    "orbitWire": [
+      "Sig",
+      "inputs",
+      "zero"
+    ],
+    "orbitWireMem": [
+      "Sig",
+      "input_list",
+      "inputs",
+      "orbitWire"
+    ],
+    "orbitEssentialRows": [
+      "Row"
+    ],
+    "orbitEssentialChecked": [
+      "graph",
+      "inputs",
+      "orbitEssentialRows",
+      "orbitWire",
+      "witnessB"
+    ],
+    "orbitAllInputs": [
+      "Live",
+      "graph",
+      "inputs",
+      "orbitEssentialChecked",
+      "orbitWire",
+      "orbitWireMem",
+      "raw_required",
+      "witnessB_sound"
+    ],
+    "parentFromModes": [
+      "Impossible",
+      "Live",
+      "PEqualNP.Outside.L_meta_670",
+      "graph",
+      "inputs",
+      "orbitAllInputs"
+    ],
+    "PEqualNP.Outside.L_meta_670": [
+      "parentFromModes",
+      "raw_modes",
+      "rootMImpossible",
+      "rootSImpossible"
+    ]
+  }
+}
