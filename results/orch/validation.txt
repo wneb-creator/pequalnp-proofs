@@ -75,3 +75,5 @@ Finalneutralcircuitsearches: fourcompletedruns,88777735proposals and5613331accep
 
 P4SixWitness.lean: lake env lean passed, exit0;58 lines, empty output. Actual six-gate four-input Circuit has exact path semantics, legal distinct earlier operands, and both central formal derivatives zero. Axiom audit uses only propext; independently reviewed. This is a local upper bound only.
 Pending full/chunked P4 clause bridge and NoFive composition sources are preserved as explicitly UNVERIFIED drafts, with incomplete snapshot logs. Their compilation status is RUNNING/NOT_STARTED, not PASS. Independent review covers archive integrity/scope only.
+
+Broad12-gate repair archive: UNKNOWN after1800-second solver limit, no candidate/no UNSAT. All756 boundary rows and both derivative constraints included;30,583variables/1,224,855clauses. Complete CNF/stdout/stderr compressed losslessly. Independent reviewer regenerated the entire CNF byte-for-byte and verified all source/seed/solver/artifact hashes.

@@ -1,0 +1,79 @@
+{
+  "recorded_at": "2026-11-25T04:30:11.920033+00:00",
+  "status": "UNKNOWN: solver real-time limit; no candidate and no UNSAT verdict",
+  "scope": "12 free gates, other52 gates fixed; not an unrestricted circuit lower bound",
+  "argv": [
+    "--input",
+    "plane-nearmiss64.json",
+    "--free",
+    "0,1,2,28,29,30,31,32,33,61,62,63",
+    "--seconds",
+    "1800",
+    "--rounds",
+    "1",
+    "--full"
+  ],
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "sources": [
+    {
+      "path": "results/orch/search/repair_nearmiss_v3.py",
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e",
+      "bytes": 6488
+    },
+    {
+      "path": "results/orch/search/and_count_search.py",
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1",
+      "bytes": 6697
+    },
+    {
+      "path": "results/orch/search/plane-nearmiss64.json",
+      "sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "bytes": 3060
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "round-0.cnf.gz",
+      "sha256": "58208dea77ceb1c0b0b985915b901de88fbecd002c3d5c56cf298300d2e41b67",
+      "bytes": 3576813,
+      "original_sha256": "22a5305e47df8f56ac8a961b69ebeaf2e8bf9cde3fb47eb96e6e3d0b285decbd",
+      "original_bytes": 19055179
+    },
+    {
+      "path": "round-0.stdout.gz",
+      "sha256": "f859a74d5140e5a0e5b56553d7193cc90a070118786f4cdd9134a1a4c6ffc86f",
+      "bytes": 6463,
+      "original_sha256": "f7362a183415d07b03151c31c03090256e47bf9f756b61f232fbdcde4f4f821f",
+      "original_bytes": 24021
+    },
+    {
+      "path": "round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0
+    },
+    {
+      "path": "driver.stdout.gz",
+      "sha256": "cf395e6142768536ffa180f419b7985ba501b11d9d1453497ee2261d9a599279",
+      "bytes": 196,
+      "original_sha256": "2481dc8dc4d24803004c3c02a29ad62245c9e87e363dee6b0bbf8392592d03a7",
+      "original_bytes": 255
+    },
+    {
+      "path": "driver.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0
+    }
+  ],
+  "summary": {
+    "rows": 756,
+    "variables": 30583,
+    "clauses": 1224855,
+    "solver_exit": 0,
+    "driver_exit": 0,
+    "seconds": 1804.48
+  }
+}
