@@ -1,0 +1,35 @@
+{
+  "initial_rows": [
+    9,
+    50,
+    159,
+    322,
+    26,
+    29,
+    57,
+    216
+  ],
+  "point_cardinalities": [
+    3,
+    3,
+    3,
+    3,
+    4,
+    3,
+    3,
+    4
+  ],
+  "negative_masks": [
+    3735587,
+    12853396,
+    16958272,
+    34475016,
+    23068749,
+    38830162,
+    44056744,
+    16852260
+  ],
+  "minimum_pair_distance": 10,
+  "seed_error_count": 378,
+  "sampled_control_good_row": 0
+}

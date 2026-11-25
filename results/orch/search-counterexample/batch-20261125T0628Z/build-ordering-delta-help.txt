@@ -1,0 +1,13 @@
+usage: build_ordering_delta.py [-h] --base-gzip BASE_GZIP --base-sha256
+                               BASE_SHA256 [--seal]
+                               input_stem output_stem
+
+positional arguments:
+  input_stem
+  output_stem
+
+options:
+  -h, --help            show this help message and exit
+  --base-gzip BASE_GZIP
+  --base-sha256 BASE_SHA256
+  --seal

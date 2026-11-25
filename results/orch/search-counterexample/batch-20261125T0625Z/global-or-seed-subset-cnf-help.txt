@@ -1,0 +1,33 @@
+usage: global_or_seed_subset_cnf.py [-h]
+                                    [--scenario {global,cycle4,cycle5,theta4}]
+                                    [--seconds SECONDS] [--tag TAG]
+                                    [--fixed-baseline] [--cnf-only]
+                                    [--cover-suffix COVER_SUFFIX]
+                                    [--dirty-singletons] [--cover-cyclic-reps]
+                                    [--seeded] [--seed-witness SEED_WITNESS]
+                                    [--negative-indices NEGATIVE_INDICES]
+                                    [--allow-invalid-seed] [--different-seed]
+                                    [--delete-baseline-gate DELETE_BASELINE_GATE]
+                                    [--free-gates FREE_GATES]
+                                    or_count
+
+positional arguments:
+  or_count
+
+options:
+  -h, --help            show this help message and exit
+  --scenario {global,cycle4,cycle5,theta4}
+  --seconds SECONDS
+  --tag TAG
+  --fixed-baseline
+  --cnf-only
+  --cover-suffix COVER_SUFFIX
+  --dirty-singletons
+  --cover-cyclic-reps
+  --seeded
+  --seed-witness SEED_WITNESS
+  --negative-indices NEGATIVE_INDICES
+  --allow-invalid-seed
+  --different-seed
+  --delete-baseline-gate DELETE_BASELINE_GATE
+  --free-gates FREE_GATES

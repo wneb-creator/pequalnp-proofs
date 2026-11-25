@@ -1,0 +1,135 @@
+{
+  "scenario": "cycle4",
+  "input_count": 4,
+  "positive_samples": [
+    3,
+    6,
+    12,
+    9
+  ],
+  "negative_samples": [
+    5,
+    10
+  ],
+  "signature_variables": [
+    [
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      15,
+      16,
+      17,
+      18
+    ],
+    [
+      59,
+      60,
+      61,
+      62
+    ],
+    [
+      84,
+      85,
+      86,
+      87
+    ]
+  ],
+  "first_OR_representatives": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      12
+    ],
+    [
+      9,
+      12
+    ]
+  ],
+  "false_OR_bounds": [
+    1,
+    1
+  ],
+  "cover_prefix": 1,
+  "variables": 214,
+  "clauses": 678,
+  "fixed_baseline": true,
+  "adjacent_independent_order": true,
+  "ordering_delta_base_variables": 206,
+  "ordering_delta_base_clauses": 654,
+  "ordering_delta_clauses": 24,
+  "ordering_delta_base_mapping_sha256": "96050b7b1fc30a8dca3b1c829e4af34856da5f07d45d5d5c406ea4083c64dd58"
+}

@@ -1,0 +1,579 @@
+{
+  "scope": "Completed frozen batches only; no live logs, full proof, refutation or global UNSAT claim",
+  "checks": [
+    "All137 archived hashes and130 original hashes verified",
+    "Two sampled SAT programs independently replayed on all546 original samples:378/396 generic errors, no positive or singleton errors",
+    "Calibrated candidate independently has16 nonedge pair errors",
+    "Reduced31-row cover independently preserves the same261 covered nonedge pairs",
+    "Actual long-run allocation failure and UNKNOWN status agree with full stderr and exit\u22126",
+    "Ordered stream packaging matches independently reviewed sources/data; controls pass with reader exit0",
+    "No credential patterns detected"
+  ],
+  "batches": {
+    "batch-20261125T0625Z": "Completed sampled refinements; invalid SAT candidates and UNKNOWN queries, no full witness; computational-only ordering and row-cover checks",
+    "batch-20261125T0627Z": "Original3600-second request aborted std::bad_alloc/SIGABRT at1819.608seconds: resource-failed UNKNOWN; no exports or checkpoint",
+    "batch-20261125T0628Z": "Reviewed ordered delta composition; C4 SAT/C5 UNSAT packaging controls, exact source hashes and approved optional4GiB ceiling; no full ordered result"
+  },
+  "files": [
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ORIGINAL-FILES.json",
+      "sha256": "73a039018cb747321d3d51667dac745879b255ee64d70fc292209bed71eac751"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/README.md",
+      "sha256": "5565cdfcc40c90a5792f190842d0acd030ab2aca1142636999d8cbb93a16c199"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/SHA256SUMS",
+      "sha256": "1a2c6a9ab259ba32b15c6d22f894dcd79eae7629fc8a993b16d90e3c5f5ef6aa"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/audit_ordered_comparator.py",
+      "sha256": "c1be268780d99b70a8b51d81d9ae9a860805c860074c599c561324874b8275e7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/audit_ordered_normalization.py",
+      "sha256": "ceec383b7b0078e07425d6c524e84f7ee437d6118ee298780e45fc897c529384"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/cegis-seed-repair-help.txt",
+      "sha256": "c2df0e4133006853962dd6108b224a901229b4208b2704dc15944d0c067d5f6e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/cegis-seed-repair-v2-help.txt",
+      "sha256": "e8b0bb948f4b74d9cc65b5b8078c5a6dbc6dd1800c0d326b596adbe72970bf97"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/cegis_seed_repair.py",
+      "sha256": "acfce0fe2f937e105e43a726e6fc37df16e92ce1acc6ef5450b0472ca4b64642"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/cegis_seed_repair_v2.py",
+      "sha256": "7a6ee856c12422902262965d790e6700110185831d02dbdeb403a7b363307c76"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/global-or-seed-subset-cnf-help.txt",
+      "sha256": "334d77d86f7760368cd0ce105e6847fe18e5f98eedaa69d87070e3d54a43038f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/global-ordered-cnf-help.txt",
+      "sha256": "0c7c4329190612de57c901b78218843adb253adf0915245d699b7f3e9ea7a4f2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/global_or_seed_subset_cnf.py",
+      "sha256": "278acd20a20641ee7b2c18c0abd1cd5901f80c42f204bd78c135441086df3952"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/global_ordered_cnf.py",
+      "sha256": "7cf53b04cead3e4f61811a6972752d95d12aef82ec5a289091897c325fea8e4a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal-cegis-initial-selection.json",
+      "sha256": "86542dd7e157842f9dfeef57743a86124e4c7e302763c90ece93ad951a75bd81"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal-good-row-pair-cover.json",
+      "sha256": "09db05bde086ccfa12313e49076bffc4db74729f7a473262ab6ff13862b2b70c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal-good-row-pair-cover.log",
+      "sha256": "8342baffd00d38c133d829eea8949a0d41f760d438de0ef4095e6e82fcbf443e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-quadratic-shadow.json",
+      "sha256": "58bf0be640031e81d4a5e1bc7611bcae2168acf0f62d1adafa3676cf69f41298"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.command.json",
+      "sha256": "95d4be48fd98cefef60bdbf4e60cc8d0484f62d86bea87f66985e698ea52615a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.log",
+      "sha256": "966e01357ceff088aef6b1e8fa8ece63c993303896126cd5d18995473ed65281"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.process.json",
+      "sha256": "b6a53eb011b865f67cb9d3813d6ce3a00e28a7608e0764cc1de0b675921847e2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.sol",
+      "sha256": "6719b978661aaf7b573c8843223bc67c6418a3d83b3a3e70cb9b4cb748ebac9d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.solver.log",
+      "sha256": "0f2465657ee358cbeaf6db5cf368638f762dc34623e51aada23413680d7e354a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.status.json",
+      "sha256": "b170b53948d32a0518a4e62324e3c1f107aa59be2289cbad822cd2473545398a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control-run.witness.json",
+      "sha256": "8de8fe77d72e8abe4329a4cac179cf7b8e4b02dc76d45f4a87c570c65498dcd5"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control.cnf",
+      "sha256": "e160232d0ce8816f12ecdcdc7bb0e939b55fb5ca43414ae6077dfa3989655732"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control.encode.log",
+      "sha256": "577b6737a725067f039a355f73ab515e86f1bee700a2bbf9cf3c861710c187e0"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control.mapping.json",
+      "sha256": "d358ec489994f1b331c7724f7c1626a67308dadf02d91153497362969ca5f657"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal48-sampled-control.rows.json",
+      "sha256": "c14196f132c1e9be0508ae80ab52fcb3e1d3fc05880415f3dc980971df207c9e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.cnf.gz",
+      "sha256": "cba834bac1b689b097be4c846eaff93fb0b29a7b9e97a4d48b2b100be998012d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.command.json",
+      "sha256": "d4e866259c7193bd5e6cd36cd743c4f13adff199230796314bc7ee3c13a92b56"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.encode.log",
+      "sha256": "af9704b456e3c9e5e28aa2f9f6763347a4f78e85929c887d4416cfca5c6cc976"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.iteration.json",
+      "sha256": "abd5842fc720875bd02b02c697b378cf491d0752a63b63d353cdb582c14a1e2e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.mapping.json",
+      "sha256": "fbf08d5a5d83dcc72ee544093dc5a0e6b3ff969b5d7952b3d559cd0cd5b5f288"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.pair-diagnostic.json",
+      "sha256": "82480ec822d6c8f7d9fa185ca128c564b91f781a4159d14b178218a9aa6f7c9a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.process.json",
+      "sha256": "44ea42e7db64187d40cef8924f4723eab8332440a883d38ef8a8ad225d8b6b0c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.recipe.json",
+      "sha256": "ceaf6c9ed2dd6a0fb4edcd1cde9fdb4212de57f49a14f4d112ea4f692978d1e5"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.rows.json",
+      "sha256": "e07be52af6c58bb1aaeaeb2ea3d284bc99925b8613ae59fb4f1a6d482093403e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.run.log",
+      "sha256": "c59148cdbf9e92820b124bcaa59579eb036f2d872526a4ea5afd1b1672e46810"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.sol.gz",
+      "sha256": "e23235501cd33a44c2d1e01f0983edc9ff5201c3b06019dbcadd89f0c75d577d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.solver.log",
+      "sha256": "d1dc17e1d2db9f8b989e6cfaac1fa32d3bece7b8150aafe085600c085ce1908c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.status.json",
+      "sha256": "7b22d59bf772e049c5564d192acfec61deb344567e82cab2036cff24880a0064"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r00.witness.json",
+      "sha256": "dc21659d021d5cac3bd98496a247046a9fa61a9de0e1173f625df18471749123"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.cnf.gz",
+      "sha256": "77a952520669a9a5df568e14e292566b28159e5c903782797e4211ba97d1c19c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.command.json",
+      "sha256": "3fcb46804824aa3ee82a92c7bcfe0c9d3c03790bf9b7a125c93aed7632286576"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.encode.log",
+      "sha256": "8143fc47667d54a6262042f19a99694a604772e24a94340ec021af62c6a940e4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.iteration.json",
+      "sha256": "43dba30f4bd248c421fa385cb1a5c2ca889d694e73efad63056e9066ad7dd456"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.mapping.json",
+      "sha256": "e0bddbd1a6118467457e7f46ad625df823e7cd86b2fb8f049a39150606e095ff"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.process.json",
+      "sha256": "09524d59f9c54aa1c7d728c2a82285cc9ef44260939378c3642881979fae98da"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.recipe.json",
+      "sha256": "b8cd92a02d7b1bf4c3235cfc84c93b7bb4ab4bcdf8337458840d4c4a5c0f9370"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.rows.json",
+      "sha256": "201a992e1dc52d50ad89cd06af5a05cc102ff82bfcfe05087052016b0619b889"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.run.log",
+      "sha256": "2a15b3b744f7fe780096a32bb7ca3a06bf1671534eba373c95effd8a9095da58"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.solver.log",
+      "sha256": "cb3359a4e28f0935dd991121070f8e4430743d25f736a1b330785af4d440d497"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617-r01.status.json",
+      "sha256": "595f77435f74524557df104c5420f665aaf13d0fd9516876d32b8fb80a255139"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617.loop.log",
+      "sha256": "5fd16e281315d739db114487b602bb4056a7861fda47000e945a2928c4ada657"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-calibrated-0617.summary.json",
+      "sha256": "12bf3d70420f546d47e20e3aa5291aca57bb6a775a3139c0e63feae6dbe1f50c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.cnf.gz",
+      "sha256": "7efbb8352ed9ecd5edca65e6a76ad4667a3658e47a504ff6e16cf20b7411f252"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.command.json",
+      "sha256": "25d10b68bfc9c28e4a9c6bcdf5b5400352716f921b9148182b2866f00b50c5d6"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.encode.log",
+      "sha256": "ae9be4468e7ccec2f4d99701a2a42e363112c1e5d7a117aa0759993ab36e56a7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.iteration.json",
+      "sha256": "4f3a1eccb462019e76a068d9ead2f08442e2456253e51cdeb299c03bfc232f8e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.mapping.json",
+      "sha256": "af593c5f22c7830389dd5597792b6fa9eaa054b6df59126daac6acc8f0aec677"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.process.json",
+      "sha256": "0c30981d1417085af04366c25e8ed805a8b0f0ceeb67e855a017c65bbbf16e48"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.recipe.json",
+      "sha256": "6ea7c9a555c8e86bd46242382a10d572122239c901feba4891f1f028217dfd8e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.rows.json",
+      "sha256": "62cf40ba5c294e781db2a7e9c410200baa7c3e3990e91cbf8149ff421a72d335"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.run.log",
+      "sha256": "fe8f40a53fc4e9f0a3c3c98f02e6b1841a368ea24b071b8a28a31723c352f1e8"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.solver.log",
+      "sha256": "cac2053da9ca0ad3755e829bf79f7209de7f313c13b4ba82adb9a192af75a55b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613-r00.status.json",
+      "sha256": "465ba27f49bb2b084e2b1d7dc8abb666d5f5a74d6db904682331919da67fa858"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613.loop.log",
+      "sha256": "f00bf2f62040a1e60156efeb2e59d247061d5942d504724e6d2e3a92fd2b124e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal50-cegis-we-0613.summary.json",
+      "sha256": "d45216c32c522c3be440328aed84ef7b59618b5199d46c1ffd07a0141b6d9b88"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/marginal_good_rows_pair_cover.py",
+      "sha256": "5358c99d72f5a62ebfe41e5565249e20a36d113b4c72ec43451e5b7bedbcc3a4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-baseline51.json",
+      "sha256": "8c7dbd9dba297bf08972c294f287bc1cf69b8b6f459a0a690c12caa33f6ae621"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-comparator-audit.json",
+      "sha256": "969ae8800c2bd6dd9319083dd51c2128facc1e98a25f506e511c592946a7352d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-comparator-audit.log",
+      "sha256": "dbb35b60092c252791601a6ae96498f6f402175a9bd4155bd6bc807965c9d008"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-comparator-control.cnf",
+      "sha256": "74de800efd25f36a9935c46f4a5d58543239e7ed525dfa2e19ee0e1fadc8162d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-marginal48.json",
+      "sha256": "a0a376c572bbaee5b194c211f57d7aee5343a21febb07b4bcbe5e74b70a35fbb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-normalization-audit.json",
+      "sha256": "cdb228e8c33757c255673ea64b82f9b3d6e6dc7e19ecb5fc7cb2c17b47da716a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/ordered-normalization-audit.log",
+      "sha256": "6756e31d016de4e89c5551c61e7a42cbfd64802d3f70a04bcb044f567698419f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/solve-global-cnf-v8-help.txt",
+      "sha256": "757a12fdc4900f9a57200cb455079d6825d22205e2a88a065197d178a2a90808"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0625Z/solve_global_cnf_v8.py",
+      "sha256": "fab9a6582073752dd55c367ace92b47cf26138947257f72f065e32d75c4c3cb5"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/INPUT-REFERENCE.json",
+      "sha256": "3c985a229d8add0e8e85c46a3bc22d355f68e53680f0849c9481ad009d18bbaf"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/ORIGINAL-FILES.json",
+      "sha256": "819d04509410751f73d346c162ad32f7628cc202b744fb0cc0f1c82f1a755ffc"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/README.md",
+      "sha256": "6369181a610eafa4ece652e67656f55cf1ef5daa8af72f83f3b0f301c4041d4f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/SHA256SUMS",
+      "sha256": "0a2f78f241632e065e27e198dd1c8dc3f520713a8668e7be9517a7a94dbc71cd"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.command.json",
+      "sha256": "61152bab635b0d8be3296ce0adf80a404f7ac825077cfe85226ca05f235a1193"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.log",
+      "sha256": "b2338b6f3c7682c1b7878d92a86b8abcc3b42ac634a85ef97da6c4124c2cb638"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.process.json",
+      "sha256": "3be522d41989879385813ce0cbd6703926349c4c62765bc1f2ce382e37670499"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.solver.log",
+      "sha256": "d1713d80acff6040321464585abd765914299eccef351314d56372029e8ea5ec"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0627Z/global-50-dirty-cover36-run3-3600.status.json",
+      "sha256": "df922870fa68ce5c395097b8dc4498f3e1d991121310e484282702b3cb53b82a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ORIGINAL-FILES.json",
+      "sha256": "0438824f8930b1cbf8d0219347888adadffcc443644440a9df5b96cb39f1a826"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/README.md",
+      "sha256": "6e5891bd37a7735a64d99fafd774e4bca562ab4316b44ca8ebbb2a641b871105"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/SHA256SUMS",
+      "sha256": "be02ea97899d7c7d21d86bf88b0daae78451ce7a230a3bf094bdaa0fb9bff8ac"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/build-ordering-delta-help.txt",
+      "sha256": "23d6528375e05f9d11636cd48bf4468447e44f00a157320c22ab0ed7785d0785"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/build_ordering_delta.py",
+      "sha256": "87b70423fdd6bc11de4c5dbcbc8a5fe2beab5f4ecb87f27272829e6832fd8706"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/compose_ordered_cnf.py",
+      "sha256": "168d9c4894f26831c70a2f48939441299f2218ae7c0e56328bda1782aefa8ac9"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global-wrapper-cycle4-smoke.cnf.gz",
+      "sha256": "4568441be0bcee51a2638e4276cac9a6475a6c0d020455c98d3a18170a7b3ef2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global50-order-delta.build.log",
+      "sha256": "c6f81ad4d51e65b67949e684ad4beb5a31addf26dd93ef95e44b1bd7715514d4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global50-order-delta.compose-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global50-order-delta.composition.json",
+      "sha256": "85926b6f73a0da04b5e3a14e3fceb8f5d984331ad6cf8115164f05a25c7becad"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global50-order-delta.delta.cnf.gz",
+      "sha256": "06d1dfd0c0dac892462c61415e4fc6bc4f1920146fa6e9bb5c432af12ae87946"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/global50-order-delta.mapping.json",
+      "sha256": "011b48da4c3976395e5b8f37caeb07705021785e3049f57d7da1b571ed871c07"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-control.build.log",
+      "sha256": "4ea45ba3a123c419aa8247ac7dae6b63be48f026845b6247eeedf09d4f33ac82"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-control.compose-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-control.composition.json",
+      "sha256": "c15c93f565cf5e0274b314598dc8adcde34ba9c1ab34ad8ffc1c424ecf80dff7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-control.delta.cnf",
+      "sha256": "214265161656c60a1370c43e89b4b015b3e0255003e2178bc326f8d62cfc3744"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-control.mapping.json",
+      "sha256": "474066e9f1107718d22ef4ed04db7079bfb17d87e4b9d8e044eb22046e3a0439"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.command.json",
+      "sha256": "670cccf1d8df85fc509e4586ea0b82a4581cf2fe082a6e516b1c1bcf42d935bf"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.input-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.log",
+      "sha256": "33ee7d188c0ed4f42fd6c2b62084d9073396d200f2514ecf67fe8f44a826008b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.process.json",
+      "sha256": "ad086da96a9149edad20b4c0ba6ba406153d9c6290214d443303b2f8ba471705"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.sol",
+      "sha256": "bba4d77e14894e8b0a8fbb21ecdd5a5d1595c5513655410bd09287d9b32dbf85"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.solver.log",
+      "sha256": "c12235ae7c298e31969605e5ad61f2d133f2015f0909643e34c79fe3454be980"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.status.json",
+      "sha256": "bcb0e7d81e70dc09ce07c27bf8cbacced06f7baef133ae6433a9dc2d7a6b61e9"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c4-stream-run.witness.json",
+      "sha256": "b22bece09cc5185bc5adc8f728cfb74a35de5137ff8b05c350c515adeaa64c88"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-base.cnf.gz",
+      "sha256": "377e68676e4232a564d27c594d5d9f6d3d1b1f7a86b67e04b38dd76781f14735"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.build-command.json",
+      "sha256": "5b4d3c7f09750ded4e63aa8d5137939edad0accf054b8c8198010bb23e075d72"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.build.log",
+      "sha256": "3469f2b8873d372243ec3ba28b70bd5d40fcc92056e07403663a6f8dcf71debb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.compose-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.composition.json",
+      "sha256": "1b25017bddf8f99c7c39553a84a2eabb1a7566fd65ac66374405fe0520ea3483"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.delta.cnf",
+      "sha256": "6eab20691d39f7ada18571a4be4b925b19f45e71ba7e0a5a5f7fd4a6e9434ee7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-control.mapping.json",
+      "sha256": "4961881966fcd6e1c816817b6a6f0dc162d08e61e2438de8fd7278648604effb"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.command.json",
+      "sha256": "e62ea73b85172d807b36049f333238495c94bf5937654e00dcd65537f16746ff"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.input-verification.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.log",
+      "sha256": "8e016c6eb842e222f087898c486028ab2ee8386657c2a8b6b8e2a25540486175"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.process.json",
+      "sha256": "84ca48d2427cc9934683c8680a1b253516fe537f4b9c2ef02b01480f7b2da66b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.sol",
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.solver.log",
+      "sha256": "c025f6fde5dcf7cb50f841228a0c9009d201e6f55d9cb930e717599408e8c73a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-c5-stream-run.status.json",
+      "sha256": "af8b6b7767252b2bc679bf85c0b39b4aefde6109e06e0b31d00525b819310989"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/ordered-cnf-packaging-independent-review.json",
+      "sha256": "58d594b014dce8fd616b004342abd306483195039c18c1ecf34aede8aa09036c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/solve-global-cnf-v10-help.txt",
+      "sha256": "d9e24fa99b2a709585fb994a74fbd5f1434decf853a28be37a8b9c452cb3e58b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/solve-global-cnf-v9-help.txt",
+      "sha256": "e735f2ef4e5fb966d7f334be8c7ed20033eb6fc209c6c15e8d9bbdec3017b68b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/solve_global_cnf_v10.py",
+      "sha256": "a4ae71f112bacc80323f57b6d3347ef758e7108eeac0e26a6f1e1dd5d1d016c4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0628Z/solve_global_cnf_v9.py",
+      "sha256": "6d5586fdc5a3848aeeb755b2029368cfe301e7b8d21579c287eb37689db32fd7"
+    }
+  ]
+}

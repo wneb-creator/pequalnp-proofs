@@ -1,0 +1,95 @@
+{
+  "started_utc": "2026-11-25T06:13:43.635277+00:00",
+  "seed": "/tmp/oec/pequalnp-pilot-62/pg3-marginal48-canonical-invalid.json",
+  "seed_sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb",
+  "seed_generic_errors": 378,
+  "generator_sha256": "278acd20a20641ee7b2c18c0abd1cd5901f80c42f204bd78c135441086df3952",
+  "runner_sha256": "fab9a6582073752dd55c367ace92b47cf26138947257f72f065e32d75c4c3cb5",
+  "geometry_sha256": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+  "dependency_sha256": {
+    "/tmp/oec/pequalnp-pilot-62/global-first-or-symmetry.json": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+    "/tmp/oec/pequalnp-pilot-62/multi_output_direct_cnf.py": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+    "/tmp/oec/pequalnp-pilot-62/multi-output-baseline39.json": "bf1b6dee179931cf7de66550d71a14e04d7bf87f3f156fbbbc74c5d7ba518db6"
+  },
+  "controller_sha256": "acfce0fe2f937e105e43a726e6fc37df16e92ce1acc6ef5450b0472ca4b64642",
+  "free_gates": "24,25,26,27,28,29,30,31,32,48,49",
+  "or_count": 50,
+  "iterations": [
+    {
+      "iteration": 0,
+      "started_utc": "2026-11-25T06:13:43.635876+00:00",
+      "selected_generic_rows": [
+        9,
+        26,
+        29,
+        50,
+        57,
+        159,
+        216,
+        322
+      ],
+      "encode_argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-62/global_or_seed_subset_cnf.py",
+        "50",
+        "--seeded",
+        "--seed-witness",
+        "/tmp/oec/pequalnp-pilot-62/pg3-marginal48-canonical-invalid.json",
+        "--allow-invalid-seed",
+        "--free-gates",
+        "24,25,26,27,28,29,30,31,32,48,49",
+        "--dirty-singletons",
+        "--negative-indices",
+        "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-we-0613-r00.rows.json",
+        "--cnf-only",
+        "--tag",
+        "marginal50-cegis-we-0613-r00"
+      ],
+      "solve_argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-62/solve_global_cnf_v8.py",
+        "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-we-0613-r00",
+        "--seconds",
+        "120",
+        "--address-space-gib",
+        "1",
+        "--random-seed",
+        "1"
+      ],
+      "generator_sha256": "278acd20a20641ee7b2c18c0abd1cd5901f80c42f204bd78c135441086df3952",
+      "runner_sha256": "fab9a6582073752dd55c367ace92b47cf26138947257f72f065e32d75c4c3cb5",
+      "seed_sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb",
+      "dependency_sha256": {
+        "/tmp/oec/pequalnp-pilot-62/global-first-or-symmetry.json": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+        "/tmp/oec/pequalnp-pilot-62/multi_output_direct_cnf.py": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+        "/tmp/oec/pequalnp-pilot-62/multi-output-baseline39.json": "bf1b6dee179931cf7de66550d71a14e04d7bf87f3f156fbbbc74c5d7ba518db6"
+      },
+      "controller_sha256": "acfce0fe2f937e105e43a726e6fc37df16e92ce1acc6ef5450b0472ca4b64642",
+      "encoder_exit": 0,
+      "cnf_sha256": "e14a2d1ae58606d1bac2a38f480b8befcfb2220cf9dfd30d052164f9f1579339",
+      "cnf_bytes": 5040028,
+      "runner_exit": 0,
+      "status": {
+        "result": "unknown",
+        "solver_exit": 0,
+        "solver_wall_seconds": 120.26703309300137,
+        "child_user_cpu_seconds": 118.890267,
+        "child_system_cpu_seconds": 0.29262,
+        "child_max_rss_KiB": 78484,
+        "stop_reason": null,
+        "signals": [],
+        "maximum_shared_memory_bytes": 3256463360,
+        "reader_exit": null,
+        "simplified_output_requested": false,
+        "simplified_cnf_exists": false,
+        "extension_stack_exists": false
+      },
+      "result": "unknown",
+      "retained_compressed_cnf": "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-we-0613-r00.cnf.gz",
+      "finished_utc": "2026-11-25T06:15:46.422388+00:00"
+    }
+  ],
+  "scope": "Pinned-signature repair with growing selected negative rows; full verification required",
+  "last_result": "unknown",
+  "finished_utc": "2026-11-25T06:15:46.423512+00:00"
+}

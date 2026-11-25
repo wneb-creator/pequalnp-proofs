@@ -1,0 +1,18 @@
+{
+  "format": "ordered-cnf-composition-v1",
+  "base_gzip": "/tmp/oec/pequalnp-pilot-62/ordered-c5-base.cnf.gz",
+  "base_uncompressed_sha256": "13e91fb93d73f32b17ca1024f78ef2f984e8dc3a2d0b3acf4787afbb00bc4aea",
+  "base_variables": 654,
+  "base_clauses": 2390,
+  "variables": 701,
+  "delta_clauses": 156,
+  "delta_path": "/tmp/oec/pequalnp-pilot-62/ordered-c5-stream-control.delta.cnf",
+  "delta_sha256": "6eab20691d39f7ada18571a4be4b925b19f45e71ba7e0a5a5f7fd4a6e9434ee7",
+  "mapping_path": "/tmp/oec/pequalnp-pilot-62/ordered-c5-stream-control.mapping.json",
+  "mapping_sha256": "4961881966fcd6e1c816817b6a6f0dc162d08e61e2438de8fd7278648604effb",
+  "composer_script": "/tmp/oec/pequalnp-pilot-62/compose_ordered_cnf.py",
+  "composer_sha256": "168d9c4894f26831c70a2f48939441299f2218ae7c0e56328bda1782aefa8ac9",
+  "generator_sha256": "87b70423fdd6bc11de4c5dbcbc8a5fe2beab5f4ecb87f27272829e6832fd8706",
+  "CNF_class_source_sha256": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+  "composed_uncompressed_sha256": "547ccd2a63c9b79339ffadbdf310b01303c378982964203f29f0e4593839737f"
+}

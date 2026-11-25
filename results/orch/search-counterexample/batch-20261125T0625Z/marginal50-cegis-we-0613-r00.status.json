@@ -1,0 +1,15 @@
+{
+  "result": "unknown",
+  "solver_exit": 0,
+  "solver_wall_seconds": 120.26703309300137,
+  "child_user_cpu_seconds": 118.890267,
+  "child_system_cpu_seconds": 0.29262,
+  "child_max_rss_KiB": 78484,
+  "stop_reason": null,
+  "signals": [],
+  "maximum_shared_memory_bytes": 3256463360,
+  "reader_exit": null,
+  "simplified_output_requested": false,
+  "simplified_cnf_exists": false,
+  "extension_stack_exists": false
+}

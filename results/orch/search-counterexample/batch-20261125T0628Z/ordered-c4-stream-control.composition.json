@@ -1,0 +1,18 @@
+{
+  "format": "ordered-cnf-composition-v1",
+  "base_gzip": "/tmp/oec/pequalnp-pilot-62/global-wrapper-cycle4-smoke.cnf.gz",
+  "base_uncompressed_sha256": "ed29a729d48923eb6c54a8f1c33a42bf46608e96ccc01921b69769a57540053b",
+  "base_variables": 206,
+  "base_clauses": 654,
+  "variables": 214,
+  "delta_clauses": 24,
+  "delta_path": "/tmp/oec/pequalnp-pilot-62/ordered-c4-stream-control.delta.cnf",
+  "delta_sha256": "214265161656c60a1370c43e89b4b015b3e0255003e2178bc326f8d62cfc3744",
+  "mapping_path": "/tmp/oec/pequalnp-pilot-62/ordered-c4-stream-control.mapping.json",
+  "mapping_sha256": "474066e9f1107718d22ef4ed04db7079bfb17d87e4b9d8e044eb22046e3a0439",
+  "composer_script": "/tmp/oec/pequalnp-pilot-62/compose_ordered_cnf.py",
+  "composer_sha256": "168d9c4894f26831c70a2f48939441299f2218ae7c0e56328bda1782aefa8ac9",
+  "generator_sha256": "87b70423fdd6bc11de4c5dbcbc8a5fe2beab5f4ecb87f27272829e6832fd8706",
+  "CNF_class_source_sha256": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+  "composed_uncompressed_sha256": "ea09bd2fd9a8fa9ed9fbcb4a9d384125f22c33ba722d0e2f0c216c9b6fcb24d6"
+}

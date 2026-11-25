@@ -1,0 +1,8 @@
+{
+  "tested": 512,
+  "result": "passed",
+  "seconds": 0.08943345700026839,
+  "variables": 32,
+  "clauses": 76,
+  "scope": "Exhaustive3-bit unsigned comparator/dependency clause truth table"
+}

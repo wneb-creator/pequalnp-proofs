@@ -1,0 +1,55 @@
+{
+  "reviewer": "repo_audit",
+  "status": "Independent source and finite-input packaging review PASS; no solver/Lean run",
+  "sources": {
+    "build_ordering_delta.py": "87b70423fdd6bc11de4c5dbcbc8a5fe2beab5f4ecb87f27272829e6832fd8706",
+    "compose_ordered_cnf.py": "168d9c4894f26831c70a2f48939441299f2218ae7c0e56328bda1782aefa8ac9",
+    "solve_global_cnf_v9.py": "6d5586fdc5a3848aeeb755b2029368cfe301e7b8d21579c287eb37689db32fd7"
+  },
+  "packages": [
+    {
+      "stem": "ordered-c4-stream-control",
+      "base_variables": 206,
+      "base_clauses": 654,
+      "new_variables": 8,
+      "delta_clauses": 24,
+      "composed_uncompressed_sha256": "ea09bd2fd9a8fa9ed9fbcb4a9d384125f22c33ba722d0e2f0c216c9b6fcb24d6",
+      "independently_streamed_hash_matches": true,
+      "signature_ids_and_original_mapping_fields_unchanged": true,
+      "fresh_ids_exactly_above_base": true,
+      "base_and_delta_clause_counts_verified": true
+    },
+    {
+      "stem": "ordered-c5-stream-control",
+      "base_variables": 654,
+      "base_clauses": 2390,
+      "new_variables": 47,
+      "delta_clauses": 156,
+      "composed_uncompressed_sha256": "547ccd2a63c9b79339ffadbdf310b01303c378982964203f29f0e4593839737f",
+      "independently_streamed_hash_matches": true,
+      "signature_ids_and_original_mapping_fields_unchanged": true,
+      "fresh_ids_exactly_above_base": true,
+      "base_and_delta_clause_counts_verified": true
+    },
+    {
+      "stem": "global50-order-delta",
+      "base_variables": 2385578,
+      "base_clauses": 9706858,
+      "new_variables": 17672,
+      "delta_clauses": 62760,
+      "composed_uncompressed_sha256": "d6f839f5b3c6b3592ebadf6bfc296cd6c3dc2dc9abab8692e0a78c67083cfc0b",
+      "independently_streamed_hash_matches": true,
+      "signature_ids_and_original_mapping_fields_unchanged": true,
+      "fresh_ids_exactly_above_base": true,
+      "base_and_delta_clause_counts_verified": true
+    }
+  ],
+  "runner_checks": [
+    "Sealed complete composed hash checked before solver launch",
+    "Composer verifies component and mapping hashes and headers",
+    "Composer reader joins owned solver process group",
+    "Reader is reaped with bounded signal escalation",
+    "SAT/UNSAT is not accepted after a nonzero reader exit"
+  ],
+  "scope": "Previously approved ordering cut only; packaging does not claim SAT, UNSAT, or a full proof"
+}

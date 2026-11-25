@@ -1,0 +1,57 @@
+{
+  "iteration": 1,
+  "started_utc": "2026-11-25T06:19:10.526538+00:00",
+  "selected_generic_rows": [
+    0,
+    13,
+    88,
+    118,
+    140,
+    169,
+    172,
+    364,
+    388,
+    438,
+    457
+  ],
+  "encode_argv": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/global_or_seed_subset_cnf.py",
+    "50",
+    "--seeded",
+    "--seed-witness",
+    "/tmp/oec/pequalnp-pilot-62/pg3-marginal48-canonical-invalid.json",
+    "--allow-invalid-seed",
+    "--free-gates",
+    "24,25,26,27,28,29,30,31,32,48,49",
+    "--dirty-singletons",
+    "--negative-indices",
+    "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-calibrated-0617-r01.rows.json",
+    "--cnf-only",
+    "--tag",
+    "marginal50-cegis-calibrated-0617-r01"
+  ],
+  "solve_argv": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/solve_global_cnf_v8.py",
+    "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-calibrated-0617-r01",
+    "--seconds",
+    "120",
+    "--address-space-gib",
+    "1",
+    "--random-seed",
+    "2"
+  ],
+  "generator_sha256": "278acd20a20641ee7b2c18c0abd1cd5901f80c42f204bd78c135441086df3952",
+  "runner_sha256": "fab9a6582073752dd55c367ace92b47cf26138947257f72f065e32d75c4c3cb5",
+  "seed_sha256": "1b2ef9641de6f6874b420224f7bfe3aff85fb02479ed9025eba7c8459cbaabbb",
+  "dependency_sha256": {
+    "/tmp/oec/pequalnp-pilot-62/global-first-or-symmetry.json": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+    "/tmp/oec/pequalnp-pilot-62/multi_output_direct_cnf.py": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+    "/tmp/oec/pequalnp-pilot-62/multi-output-baseline39.json": "bf1b6dee179931cf7de66550d71a14e04d7bf87f3f156fbbbc74c5d7ba518db6"
+  },
+  "controller_sha256": "7a6ee856c12422902262965d790e6700110185831d02dbdeb403a7b363307c76",
+  "encoder_exit": 0,
+  "cnf_sha256": "aaec7bb9b064b11a493b24f3baf9ac3ab1a8cb30a9a088d78cba4fb87d4743cd",
+  "cnf_bytes": 5187311
+}

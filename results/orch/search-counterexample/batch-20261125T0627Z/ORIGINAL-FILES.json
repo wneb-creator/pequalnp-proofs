@@ -1,0 +1,32 @@
+[
+  {
+    "name": "global-50-dirty-cover36-run3-3600.command.json",
+    "sha256": "61152bab635b0d8be3296ce0adf80a404f7ac825077cfe85226ca05f235a1193",
+    "size": 391
+  },
+  {
+    "name": "global-50-dirty-cover36-run3-3600.log",
+    "sha256": "b2338b6f3c7682c1b7878d92a86b8abcc3b42ac634a85ef97da6c4124c2cb638",
+    "size": 495
+  },
+  {
+    "name": "global-50-dirty-cover36-run3-3600.process.json",
+    "sha256": "3be522d41989879385813ce0cbd6703926349c4c62765bc1f2ce382e37670499",
+    "size": 1040
+  },
+  {
+    "name": "global-50-dirty-cover36-run3-3600.reader.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  {
+    "name": "global-50-dirty-cover36-run3-3600.solver.log",
+    "sha256": "d1713d80acff6040321464585abd765914299eccef351314d56372029e8ea5ec",
+    "size": 24153
+  },
+  {
+    "name": "global-50-dirty-cover36-run3-3600.status.json",
+    "sha256": "df922870fa68ce5c395097b8dc4498f3e1d991121310e484282702b3cb53b82a",
+    "size": 419
+  }
+]

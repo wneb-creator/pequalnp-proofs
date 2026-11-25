@@ -1,0 +1,9 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "--seed=2",
+  "-t",
+  "120",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-calibrated-0617-r01.sol",
+  "/tmp/oec/pequalnp-pilot-62/marginal50-cegis-calibrated-0617-r01.cnf"
+]

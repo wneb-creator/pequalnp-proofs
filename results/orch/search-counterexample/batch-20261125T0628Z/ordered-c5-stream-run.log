@@ -1,0 +1,2 @@
+{"or_count": 3, "inputs": 5, "positive_samples": 5, "negative_samples": 5, "solver_seconds": 30}
+{"result": "unsat", "solver_exit": 20, "solver_wall_seconds": 0.2515561029995297, "child_user_cpu_seconds": 0.047198, "child_system_cpu_seconds": 0.025720999999999997, "child_max_rss_KiB": 12416, "stop_reason": null, "signals": [], "maximum_shared_memory_bytes": 534417408, "reader_exit": 0, "simplified_output_requested": false, "simplified_cnf_exists": false, "extension_stack_exists": false}

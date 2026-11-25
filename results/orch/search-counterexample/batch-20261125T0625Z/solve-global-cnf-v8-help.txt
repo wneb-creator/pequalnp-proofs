@@ -1,0 +1,25 @@
+usage: solve_global_cnf_v8.py [-h] [--seconds SECONDS]
+                              [--random-seed RANDOM_SEED] [--save-simplified]
+                              [--conflicts CONFLICTS]
+                              [--address-space-gib ADDRESS_SPACE_GIB]
+                              [--input-stem INPUT_STEM] [--cnf-gzip CNF_GZIP]
+                              [--expected-cnf-sha256 EXPECTED_CNF_SHA256]
+                              [--shared-memory-start-gib SHARED_MEMORY_START_GIB]
+                              [--shared-memory-stop-gib SHARED_MEMORY_STOP_GIB]
+                              stem
+
+positional arguments:
+  stem
+
+options:
+  -h, --help            show this help message and exit
+  --seconds SECONDS
+  --random-seed RANDOM_SEED
+  --save-simplified
+  --conflicts CONFLICTS
+  --address-space-gib ADDRESS_SPACE_GIB
+  --input-stem INPUT_STEM
+  --cnf-gzip CNF_GZIP
+  --expected-cnf-sha256 EXPECTED_CNF_SHA256
+  --shared-memory-start-gib SHARED_MEMORY_START_GIB
+  --shared-memory-stop-gib SHARED_MEMORY_STOP_GIB

@@ -1,0 +1,1 @@
+[{'source': 'repair-fixed51-stream-control.witness.json', 'or_count': 51, 'swaps': 207, 'negative_errors_before': 0, 'negative_errors_after': 0, 'candidate': False}, {'source': 'pg3-marginal48-canonical-invalid.json', 'or_count': 48, 'swaps': 179, 'negative_errors_before': 378, 'negative_errors_after': 378, 'candidate': False}]

@@ -1,0 +1,19 @@
+usage: cegis_seed_repair_v2.py [-h] --seed-witness SEED_WITNESS --free-gates
+                               FREE_GATES --tag TAG --generator-sha256
+                               GENERATOR_SHA256 --runner-sha256 RUNNER_SHA256
+                               [--rounds ROUNDS] [--seconds SECONDS]
+                               [--initial-rows INITIAL_ROWS]
+                               [--initial-seed-good] [--add-rows ADD_ROWS]
+
+options:
+  -h, --help            show this help message and exit
+  --seed-witness SEED_WITNESS
+  --free-gates FREE_GATES
+  --tag TAG
+  --generator-sha256 GENERATOR_SHA256
+  --runner-sha256 RUNNER_SHA256
+  --rounds ROUNDS
+  --seconds SECONDS
+  --initial-rows INITIAL_ROWS
+  --initial-seed-good
+  --add-rows ADD_ROWS

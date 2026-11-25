@@ -1,0 +1,13 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "--seed=0",
+  "-t",
+  "3600",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-run3-3600.sol",
+  "-o",
+  "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-run3-3600.simplified.cnf.gz",
+  "-e",
+  "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-run3-3600.extension.txt.gz",
+  "-"
+]

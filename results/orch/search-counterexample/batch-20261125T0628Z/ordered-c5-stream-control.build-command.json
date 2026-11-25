@@ -1,0 +1,11 @@
+[
+  "python3",
+  "build_ordering_delta.py",
+  "global-encoder-cycle5-control3",
+  "/tmp/oec/pequalnp-pilot-62/ordered-c5-stream-control",
+  "--base-gzip",
+  "/tmp/oec/pequalnp-pilot-62/ordered-c5-base.cnf.gz",
+  "--base-sha256",
+  "13e91fb93d73f32b17ca1024f78ef2f984e8dc3a2d0b3acf4787afbb00bc4aea",
+  "--seal"
+]
