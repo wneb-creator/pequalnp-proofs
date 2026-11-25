@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/FramePairedRoots.lean",
+  "sha256": "68a75817cc28540d3f80f9daeeb152281f67998f7a15cdb69977af512d30dbc3",
+  "source_sha256_after": "68a75817cc28540d3f80f9daeeb152281f67998f7a15cdb69977af512d30dbc3",
+  "started_utc": "2026-11-25T12:14:39.831727+00:00",
+  "finished_utc": "2026-11-25T12:14:43.469569+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1815756800,
+  "seconds": 3.6378667120006867,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}

@@ -1,0 +1,3 @@
+PASS plus three actual-source pivot identities
+PASS minus three actual-source pivot identities
+PASS actual raw factorization and all six pivot combinations exactly over Q. SHA256 55a3255c9fe38d818f44a667d3061a664d82eea819fb9f49bf71d198de121905

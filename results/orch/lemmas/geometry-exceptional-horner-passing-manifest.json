@@ -1,0 +1,60 @@
+{
+  "scope": "Lean-checked raw coefficient reduction to two checked scalar branch certificates; actual permanent bridge unfinished",
+  "files": [
+    {
+      "file": "ExceptionalRawReductionHorner.lean",
+      "bytes": 160970,
+      "sha256": "55a3255c9fe38d818f44a667d3061a664d82eea819fb9f49bf71d198de121905"
+    },
+    {
+      "file": "geometry-exceptional-horner-lean.py",
+      "bytes": 6374,
+      "sha256": "be633abbd778b06deab275eac1ce58ab072d2b7f007ec32422a8592388dfd364"
+    },
+    {
+      "file": "geometry-exceptional-horner-identities.json",
+      "bytes": 144682,
+      "sha256": "c652cd2c90807accc092cd8622d7896e3e666f8eb3e4cfbf4417a52bb8e43bb0"
+    },
+    {
+      "file": "geometry-exceptional-horner-gen.log",
+      "bytes": 760,
+      "sha256": "e6993ef85e91db4c2c0b3d4d862c762417cd9683e8be022563b21d0e29fca922"
+    },
+    {
+      "file": "root-ExceptionalRawReductionHorner-lean-11g-profile.log",
+      "bytes": 12190,
+      "sha256": "b158a6355f429eef34043a05ff0bf83dbb9c9e4d2ed2a2520a252d486a1e2915"
+    },
+    {
+      "file": "root-ExceptionalRawReductionHorner-lean-11g-profile-status.json",
+      "bytes": 524,
+      "sha256": "7b1c94d77c14cd62be442bd8428583c48415dfed829acf61968e97e55754aac7"
+    },
+    {
+      "file": "geometry-exceptional-reduction-status.md",
+      "bytes": 1841,
+      "sha256": "4ccba9636b7f5a16c7f808d0aaee529256251b6a46141af9e53fb196e21be681"
+    },
+    {
+      "file": "fresh_exception_horner_review.py",
+      "bytes": 2607,
+      "sha256": "339594f7c00ecbfee39d9468b05ba5eac87875d0c71071c494f4de0eb948382b"
+    },
+    {
+      "file": "fresh_exception_horner_review.log",
+      "bytes": 325,
+      "sha256": "e2422d8fcbe73b10f2a3f783574ed035ea0de4216761ddcbcbe884d610a4e9ff"
+    },
+    {
+      "file": "fresh_exception_horner_pivot_review.py",
+      "bytes": 1348,
+      "sha256": "4e79f558a2b0603e67b969875f10a0ed1c5cd965fc821fadf319676b9b36ddff"
+    },
+    {
+      "file": "fresh_exception_horner_pivot_review.log",
+      "bytes": 244,
+      "sha256": "1107cafe02231f6a99f9384ad97b286f8a3c4e42d8ba96191f467e2d70ddffcc"
+    }
+  ]
+}

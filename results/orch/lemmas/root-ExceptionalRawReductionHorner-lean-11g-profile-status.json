@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean",
+  "sha256": "55a3255c9fe38d818f44a667d3061a664d82eea819fb9f49bf71d198de121905",
+  "source_sha256_after": "55a3255c9fe38d818f44a667d3061a664d82eea819fb9f49bf71d198de121905",
+  "started_utc": "2026-11-25T12:09:20.684812+00:00",
+  "finished_utc": "2026-11-25T12:14:16.786422+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 9288851456,
+  "seconds": 296.10169837099966,
+  "rss_limit_bytes": 11811160064,
+  "wall_limit_seconds": 300
+}

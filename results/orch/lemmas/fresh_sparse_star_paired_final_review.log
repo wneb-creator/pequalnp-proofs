@@ -1,0 +1,8 @@
+Only change from previously audited SHA is joining simp location list onto one line. Checked source SHA 57e015c60ca2c63e2cc39190e02478d05355f84bdee3a0e4351f5be16ed9f342 build 3.317040089999864 s, peak 1908948992 bytes
+verified hk
+verified hH
+verified hS
+verified hN
+verified hD
+verified hE
+PASS actual pairedPermanent and pairedPlane definitions; all16 sample substitutions and six actual-source linear combinations hold exactly over Q. SHA256 57e015c60ca2c63e2cc39190e02478d05355f84bdee3a0e4351f5be16ed9f342

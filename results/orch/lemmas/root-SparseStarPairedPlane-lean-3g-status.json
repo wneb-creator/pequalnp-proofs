@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/SparseStarPairedPlane.lean",
+  "sha256": "57e015c60ca2c63e2cc39190e02478d05355f84bdee3a0e4351f5be16ed9f342",
+  "source_sha256_after": "57e015c60ca2c63e2cc39190e02478d05355f84bdee3a0e4351f5be16ed9f342",
+  "started_utc": "2026-11-25T12:15:16.689708+00:00",
+  "finished_utc": "2026-11-25T12:15:20.006726+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1908948992,
+  "seconds": 3.317040089999864,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 90
+}

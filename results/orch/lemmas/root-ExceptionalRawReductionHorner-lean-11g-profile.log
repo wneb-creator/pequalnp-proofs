@@ -1,0 +1,250 @@
+import took 940ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:13:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 134ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:16:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:17:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:18:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:19:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:30:31: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:30:34: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:30:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:31:28: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:31:34: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:31:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:32:28: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:32:31: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:32:37: warning: Variable name `b3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:32:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:33:32: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:33:35: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:34:29: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:34:35: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:35:29: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:35:32: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalRawReductionHorner.lean:35:38: warning: Variable name `b3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ring took 2.08s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 128ms
+tactic execution of Lean.Parser.Tactic.exact took 2.36s
+share common exprs took 2.92s
+fix level params took 193ms
+process pre-definitions took 3.39s
+elaboration took 1.42s
+type checking took 5.97s
+linting took 1.93s
+ring took 475ms
+tactic execution of Lean.Parser.Tactic.exact took 415ms
+share common exprs took 594ms
+process pre-definitions took 437ms
+elaboration took 248ms
+type checking took 964ms
+linting took 288ms
+ring took 5.96s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 234ms
+tactic execution of Lean.Parser.Tactic.exact took 6.84s
+share common exprs took 10.4s
+fix level params took 706ms
+process pre-definitions took 15s
+elaboration took 4.65s
+type checking took 16.5s
+linting took 6.99s
+ring took 1.24s
+tactic execution of Lean.Parser.Tactic.exact took 1.47s
+share common exprs took 1.69s
+fix level params took 101ms
+process pre-definitions took 1.31s
+elaboration took 960ms
+type checking took 2.82s
+linting took 1.07s
+ring took 194ms
+tactic execution of Lean.Parser.Tactic.exact took 150ms
+share common exprs took 168ms
+process pre-definitions took 104ms
+elaboration took 126ms
+type checking took 409ms
+linting took 103ms
+ring took 3s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 235ms
+tactic execution of Lean.Parser.Tactic.exact took 3.83s
+share common exprs took 4.85s
+fix level params took 241ms
+process pre-definitions took 5.98s
+elaboration took 2.26s
+type checking took 8.96s
+linting took 3.4s
+ring took 734ms
+tactic execution of Lean.Parser.Tactic.exact took 664ms
+share common exprs took 736ms
+process pre-definitions took 501ms
+elaboration took 413ms
+type checking took 1.4s
+linting took 610ms
+ring took 9.92s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 328ms
+tactic execution of Lean.Parser.Tactic.exact took 13.2s
+share common exprs took 16.7s
+fix level params took 1.52s
+process pre-definitions took 30.4s
+elaboration took 8.65s
+type checking took 29.5s
+linting took 11.2s
+ring took 2.09s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 104ms
+tactic execution of Lean.Parser.Tactic.exact took 2.61s
+share common exprs took 2.92s
+fix level params took 121ms
+process pre-definitions took 2.69s
+elaboration took 1.59s
+type checking took 5.33s
+linting took 2.07s
+ring took 297ms
+tactic execution of Lean.Parser.Tactic.exact took 223ms
+share common exprs took 252ms
+process pre-definitions took 178ms
+elaboration took 156ms
+type checking took 513ms
+linting took 169ms
+tactic execution of Lean.Parser.Tactic.exact took 131ms
+tactic execution of Lean.Parser.Tactic.exact took 200ms
+tactic execution of Lean.Parser.Tactic.exact took 121ms
+tactic execution of Lean.Parser.Tactic.exact took 128ms
+share common exprs took 275ms
+process pre-definitions took 123ms
+elaboration took 161ms
+type checking took 257ms
+linting took 226ms
+cumulative profiling times:
+	attribute application 0.834ms
+	compilation (IR) 0.371ms
+	compilation (LCNF base) 2.81ms
+	compilation (LCNF impure) 0.656ms
+	compilation (LCNF mono) 1.76ms
+	declTypeLinter 40.5ms
+	dsimp 262ms
+	elaboration 21.2s
+	fix level params 2.98s
+	import 940ms
+	initialization 28.3ms
+	instantiate metavars 48.1ms
+	interpretation 4.75s
+	let-to-have transformation 1.49ms
+	linting 28.1s
+	module linting 0.499ms
+	norm_num 458ms
+	parsing 310ms
+	process pre-definitions 60.2s
+	ring 26.4s
+	share common exprs 41.5s
+	tactic execution 32.6s
+	tacticAnalysis 27.5ms
+	type checking 72.7s
+	typeclass inference 2.81s

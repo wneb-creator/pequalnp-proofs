@@ -1,0 +1,11 @@
+plus 0 integer identity terms [1, 184, 147, 112, 135] multiplier 136
+plus 1 integer identity terms [1, 37, 33, 29, 45] multiplier 68
+plus 2 integer identity terms [1, 408, 308, 224, 213] multiplier 1
+plus 3 integer identity terms [1, 100, 84, 69, 78] multiplier 1
+plus 4 integer identity terms [1, 16, 15, 14, 18] multiplier 1
+minus 0 integer identity terms [1, 208, 168, 130, 180] multiplier 136
+minus 1 integer identity terms [1, 40, 36, 32, 60] multiplier 68
+minus 2 integer identity terms [1, 516, 392, 287, 315] multiplier 1
+minus 3 integer identity terms [1, 124, 105, 87, 120] multiplier 1
+minus 4 integer identity terms [1, 19, 18, 17, 30] multiplier 1
+Generated /workspace/pequalnp-proofs/results/orch/lemmas/ExceptionalRawReductionHorner.lean 160970

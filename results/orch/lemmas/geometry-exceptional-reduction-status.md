@@ -1,0 +1,9 @@
+The two scalar branch certificates ExceptionalPlusCertificate.lean and ExceptionalMinusCertificate.lean passed Lean and independent exact-identity review. The actual permanent-to-certificate bridge is not yet checked.
+
+ExceptionalRawReduction.lean exhausted Lean internal memory. The Flat and Split variants were stopped at the measured 4 GiB RSS cap. Their complete logs and immutable source hashes are preserved in the matching status files. The definitions-only diagnostic passed but proves no obstruction. ExceptionalRawReductionDirect.lean, ExceptionalRawReductionHorner.lean and ExceptionalCoefficientBridgeFlat.lean are generated candidates; as of this snapshot no successful Lean verdict is claimed for them.
+
+The direct and Horner JSON files contain ten exact polynomial identities, independently reproducible using integer polynomial arithmetic. They are supporting data, not substitutes for Lean checking. The permanent correction is an exact polynomial quotient by the quartic defining the exceptional direction. The partner tail is appended to the generated coefficient bridge.
+
+The original Lake-runner memory measurements have the limitation documented in geometry-lean-memory-note.md. The Flat and Split attempts used direct pinned Lean and monitored all process-thread child lists.
+
+Update: ExceptionalRawReductionHorner.lean passed direct pinned Lean on 2026-11-25 at 12:14:16 UTC (exit0,296.10s,peak9,288,851,456bytes). Its exact source SHA256 is55a3255c9fe38d818f44a667d3061a664d82eea819fb9f49bf71d198de121905. Independent review parsed and verified all ten direct identities, six pivot identities, and the factorization. This proves the raw-equation reduction conditional on the two scalar branch obstructions, whose separate certificates are already checked. The actual permanent/coefficient bridge remains unfinished.

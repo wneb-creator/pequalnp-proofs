@@ -1,0 +1,35 @@
+{
+  "cases": [
+    {
+      "modulus_bits": 30,
+      "cases": 203,
+      "matches_python_euclid": true,
+      "known_rationals_recovered": 100
+    },
+    {
+      "modulus_bits": 120,
+      "cases": 203,
+      "matches_python_euclid": true,
+      "known_rationals_recovered": 100
+    },
+    {
+      "modulus_bits": 479,
+      "cases": 203,
+      "matches_python_euclid": true,
+      "known_rationals_recovered": 100
+    },
+    {
+      "modulus_bits": 1914,
+      "cases": 203,
+      "matches_python_euclid": true,
+      "known_rationals_recovered": 100
+    },
+    {
+      "modulus_bits": 3827,
+      "cases": 203,
+      "matches_python_euclid": true,
+      "known_rationals_recovered": 100
+    }
+  ],
+  "out_of_range_rejected": true
+}

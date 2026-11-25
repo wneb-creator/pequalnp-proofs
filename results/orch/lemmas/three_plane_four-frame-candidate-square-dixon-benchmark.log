@@ -1,0 +1,2 @@
+{"batch": 1, "status": "finished", "exit": 0, "seconds": 4.42141471099967, "peak_rss_bytes": 765612032, "log": "/tmp/oec/pequalnp-pilot-79/four-frame-power-triangle-d7-n2-square-candidate-dixon-20261125T121353Z-1.log", "iteration": 2, "modulus_bits": 60, "unreconstructed": 6983, "reconstructed_nonzero": 10597, "stable_nonzero": 0, "integer_batch_identity_verified": true}
+{"final": true, "reason": "budget_exhausted", "iteration": 2, "elapsed_seconds": 5.744807197999762, "peak_rss_bytes": 765612032}
