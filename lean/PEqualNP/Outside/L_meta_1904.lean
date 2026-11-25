@@ -804,4 +804,174 @@ lemma reviewEight_bypass_second_wrong :
     (reviewEight ⟨GateOp.or, [12]⟩).eval [false, false, false, false, false, false, true, false] = true := by
   decide +kernel
 
+-- Critical-row semantics for disjoint nontrivial stars.
+abbrev reviewStarVertex {t : ℕ} (d : Fin t → ℕ) :=
+  Σ i : Fin t, Fin (d i + 1)
+
+def reviewStarGraph {t : ℕ} (d : Fin t → ℕ) : SimpleGraph (reviewStarVertex d) where
+  Adj u v := u.1 = v.1 ∧
+    ((u.2.val = 0 ∧ v.2.val ≠ 0) ∨ (u.2.val ≠ 0 ∧ v.2.val = 0))
+  symm := ⟨by
+    intro u v h
+    rcases h with ⟨hc, h | h⟩
+    · exact ⟨hc.symm, Or.inr ⟨h.2, h.1⟩⟩
+    · exact ⟨hc.symm, Or.inl ⟨h.2, h.1⟩⟩⟩
+  loopless := ⟨by
+    intro u h
+    rcases h with ⟨_, h | h⟩
+    · exact h.2 h.1
+    · exact h.1 h.2⟩
+
+def reviewStarNegative {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v : reviewStarVertex d) : Bool :=
+  if v.2.val = 0 then b v.1 else !(b v.1)
+
+def reviewStarPositive {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v : reviewStarVertex d) : reviewStarVertex d → Bool :=
+  Function.update (reviewStarNegative d b) v true
+
+lemma reviewStar_negative_true_iff {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v : reviewStarVertex d) :
+    reviewStarNegative d b v = true ↔ b v.1 = decide (v.2.val = 0) := by
+  by_cases h : v.2.val = 0 <;> cases hb : b v.1 <;>
+    simp [reviewStarNegative, h, hb]
+
+lemma reviewStar_negative_independent {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (u v : reviewStarVertex d) (adj : (reviewStarGraph d).Adj u v) :
+    ¬ (reviewStarNegative d b u = true ∧ reviewStarNegative d b v = true) := by
+  rintro ⟨hu, hv⟩
+  rcases adj with ⟨comp, ⟨hu0, hv0⟩ | ⟨hu0, hv0⟩⟩ <;>
+    cases hb : b v.1 <;> simp [reviewStarNegative, comp, hu0, hv0, hb] at hu hv
+
+lemma reviewStar_update_preserves_true {α : Type*} [DecidableEq α]
+    (x : α → Bool) (v w : α) (h : x w = true) :
+    Function.update x v true w = true := by
+  by_cases hw : w = v
+  · subst w
+    simp
+  · simp [Function.update_of_ne hw, h]
+
+lemma reviewStar_negative_le_positive {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v w : reviewStarVertex d) (h : reviewStarNegative d b w = true) :
+    reviewStarPositive d b v w = true :=
+  reviewStar_update_preserves_true _ _ _ h
+
+lemma reviewStar_excluded_makes_positive {t : ℕ} (d : Fin t → ℕ)
+    (nonempty : ∀ i, 0 < d i) (b : Fin t → Bool) (v : reviewStarVertex d)
+    (excluded : reviewStarNegative d b v = false) :
+    ∃ u w : reviewStarVertex d, (reviewStarGraph d).Adj u w ∧
+      reviewStarPositive d b v u = true ∧ reviewStarPositive d b v w = true := by
+  rcases v with ⟨i, a⟩
+  by_cases ha : a.val = 0
+  · have hb : b i = false := by simpa [reviewStarNegative, ha] using excluded
+    let leaf : reviewStarVertex d := ⟨i, ⟨1, by have := nonempty i; omega⟩⟩
+    refine ⟨⟨i, a⟩, leaf, ?_, by simp [reviewStarPositive], ?_⟩
+    · exact ⟨rfl, Or.inl ⟨ha, by simp [leaf]⟩⟩
+    · apply reviewStar_negative_le_positive
+      simp [reviewStarNegative, leaf, hb]
+  · have hb : b i = true := by simpa [reviewStarNegative, ha] using excluded
+    let center : reviewStarVertex d := ⟨i, 0⟩
+    refine ⟨⟨i, a⟩, center, ?_, by simp [reviewStarPositive], ?_⟩
+    · exact ⟨rfl, Or.inr ⟨ha, rfl⟩⟩
+    · apply reviewStar_negative_le_positive
+      simp [reviewStarNegative, center, hb]
+
+lemma reviewStar_vertex_eq {t : ℕ} (d : Fin t → ℕ)
+    (u v : reviewStarVertex d) (comp : u.1 = v.1) (value : u.2.val = v.2.val) : u = v := by
+  rcases u with ⟨i, a⟩
+  rcases v with ⟨j, b⟩
+  dsimp at comp value
+  subst j
+  have same : a = b := Fin.ext value
+  subst b
+  rfl
+
+def reviewStarPacking {t : ℕ} (d : Fin t → ℕ) (S : Finset (reviewStarVertex d)) : Prop :=
+  ∀ u ∈ S, ∀ v ∈ S, u ≠ v →
+    ¬ (reviewStarGraph d).Adj u v ∧
+      ∀ w, ¬ ((reviewStarGraph d).Adj u w ∧ (reviewStarGraph d).Adj v w)
+
+lemma reviewStar_packing_component_injective {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (packed : reviewStarPacking d S) :
+    ∀ u ∈ S, ∀ v ∈ S, u.1 = v.1 → u = v := by
+  intro u hu v hv comp
+  by_contra different
+  have constraints := packed u hu v hv different
+  by_cases hu0 : u.2.val = 0
+  · have hv0 : v.2.val ≠ 0 := by
+      intro hv0
+      apply different
+      exact reviewStar_vertex_eq d u v comp (hu0.trans hv0.symm)
+    exact constraints.1 ⟨comp, Or.inl ⟨hu0, hv0⟩⟩
+  · by_cases hv0 : v.2.val = 0
+    · exact constraints.1 ⟨comp, Or.inr ⟨hu0, hv0⟩⟩
+    · let w : reviewStarVertex d := ⟨u.1, 0⟩
+      exact constraints.2 w ⟨⟨rfl, Or.inr ⟨hu0, rfl⟩⟩,
+        ⟨comp.symm, Or.inr ⟨hv0, rfl⟩⟩⟩
+
+def reviewStarClause {t : ℕ} (d : Fin t → ℕ) (S : Finset (reviewStarVertex d))
+    (x : reviewStarVertex d → Bool) : Bool :=
+  decide (∃ v ∈ S, x v = true)
+
+lemma reviewStar_clause_false_iff {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (x : reviewStarVertex d → Bool) :
+    reviewStarClause d S x = false ↔ ∀ v ∈ S, x v = false := by
+  constructor
+  · intro h v hv
+    cases e : x v with
+    | false => rfl
+    | true =>
+      have active : reviewStarClause d S x = true := decide_eq_true ⟨v, hv, e⟩
+      rw [h] at active
+      cases active
+  · intro h
+    exact decide_eq_false (by
+      rintro ⟨v, hv, active⟩
+      rw [h v hv] at active
+      cases active)
+
+lemma reviewStar_clause_update_separation {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (x : reviewStarVertex d → Bool)
+    (v : reviewStarVertex d) :
+    (reviewStarClause d S (Function.update x v true) = true ∧ reviewStarClause d S x = false) ↔
+      v ∈ S ∧ ∀ w ∈ S, x w = false := by
+  constructor
+  · rintro ⟨positive, negative⟩
+    have all := (reviewStar_clause_false_iff d S x).mp negative
+    have hit : ∃ w ∈ S, Function.update x v true w = true := of_decide_eq_true positive
+    obtain ⟨w, hw, active⟩ := hit
+    refine ⟨?_, all⟩
+    by_cases same : w = v
+    · simpa [same] using hw
+    · simp [Function.update_of_ne same, all w hw] at active
+  · rintro ⟨mem, all⟩
+    refine ⟨decide_eq_true ⟨v, mem, by simp⟩, ?_⟩
+    exact (reviewStar_clause_false_iff d S x).mpr all
+
+lemma reviewStar_clause_row_separation {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (b : Fin t → Bool) (v : reviewStarVertex d) :
+    (reviewStarClause d S (reviewStarPositive d b v) = true ∧
+      reviewStarClause d S (reviewStarNegative d b) = false) ↔
+      v ∈ S ∧ ∀ w ∈ S, reviewStarNegative d b w = false :=
+  reviewStar_clause_update_separation d S (reviewStarNegative d b) v
+
+lemma reviewStar_negative_false_iff {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool)
+    (v : reviewStarVertex d) :
+    reviewStarNegative d b v = false ↔ b v.1 = !(decide (v.2.val = 0)) := by
+  by_cases h : v.2.val = 0 <;> cases hb : b v.1 <;>
+    simp [reviewStarNegative, h, hb]
+
+lemma reviewStar_packing_subtype_injective {t : ℕ} (d : Fin t → ℕ)
+    (S : Finset (reviewStarVertex d)) (packed : reviewStarPacking d S) :
+    Function.Injective (fun v : {v // v ∈ S} => v.val.1) := by
+  intro u v comp
+  apply Subtype.ext
+  exact reviewStar_packing_component_injective d S packed u.val u.property v.val v.property comp
+
+lemma reviewStar_negative_has_no_edge {t : ℕ} (d : Fin t → ℕ) (b : Fin t → Bool) :
+    ¬ ∃ u v : reviewStarVertex d, (reviewStarGraph d).Adj u v ∧
+      reviewStarNegative d b u = true ∧ reviewStarNegative d b v = true := by
+  rintro ⟨u, v, adj, hu, hv⟩
+  exact reviewStar_negative_independent d b u v adj ⟨hu, hv⟩
+
 end PEqualNP.Outside.L_meta_1904_aux
