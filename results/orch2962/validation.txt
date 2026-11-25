@@ -1,0 +1,6 @@
+2026-11-25T15:44:52.936808+00:00
+Partial results only: no proof or refutation of the complete posted statement.
+SemanticCore.lean: lake env lean exit 0; lines=199; bytes=8114; sha256=835a5879cddf2e8281269246758e72146b597181dab77d9399598e04d539c46d
+CombinatorialCover.lean: lake env lean exit 0; lines=76; bytes=3196; sha256=3f618007e59b11aa8a4518aa000af6e295283fcf30e51f4de0a529519adf7d7f
+Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
+TIMING total=107 subagents=6
