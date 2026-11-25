@@ -1,3 +1,4 @@
+import Mathlib.Order.Preorder.Finite
 import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_2583
@@ -559,5 +560,183 @@ lemma minimum_gate_has_disjoint_edge {n : ℕ} (G : SimpleGraph (Fin n))
     exact False.elim (hnone ⟨u, v, huv, hgate, hpu, hpv⟩)
   obtain ⟨hD, hsize, hDF⟩ := erase_singleton_star G C g p hAO hfun hg hunit hstar
   exact Nat.not_le_of_gt hsize (hmin _ hD hDF)
+
+lemma minimum_gate_has_critical_disjoint_edge {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (g : ℕ) (p : Fin n)
+    (hAO : PEqualNP.TopForm.IsAO2 n C)
+    (hfun : circuitFun n C = graphFun G ∅)
+    (hmin : ∀ D : Circuit, PEqualNP.TopForm.IsAO2 n D →
+      circuitFun n D = graphFun G ∅ → C.size ≤ D.size)
+    (hg : g < C.gates.length)
+    (hunit : PEqualNP.EdgeOwnership.gateVal n C g (PEqualNP.SplitCount.unitInput p) = true) :
+    ∃ u v : Fin n, G.Adj u v ∧ p ≠ u ∧ p ≠ v ∧
+      PEqualNP.EdgeOwnership.gateVal n C g (PEqualNP.EdgeOwnership.pairInput u v) = true ∧
+      circuitFun n (eraseGate n C g p.val) (PEqualNP.EdgeOwnership.pairInput u v) = false := by
+  classical
+  have hp : p.val < n + g := by omega
+  have hD := erase_isAO2 n C g p.val hg hp hAO
+  have hCpair : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n C (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+    intro u v huv
+    rw [hfun]
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨u, v, huv, by simp [PEqualNP.EdgeOwnership.pairInput],
+      by simp [PEqualNP.EdgeOwnership.pairInput]⟩
+  have hsub : ∀ x : Fin n → Bool, x p = true →
+      val C (List.ofFn x) (n + g) = true := by
+    intro x hxp
+    apply mono n C hAO.1 (PEqualNP.SplitCount.unitInput p) x ?_ (n + g) hunit
+    intro i hi
+    have hip : i = p := by simpa [PEqualNP.SplitCount.unitInput] using hi
+    simpa [hip] using hxp
+  have hlost : ∃ u v : Fin n, G.Adj u v ∧
+      circuitFun n (eraseGate n C g p.val) (PEqualNP.EdgeOwnership.pairInput u v) = false := by
+    by_contra hnone
+    have hpair : ∀ u v : Fin n, G.Adj u v →
+        circuitFun n (eraseGate n C g p.val) (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+      intro u v huv
+      cases hval : circuitFun n (eraseGate n C g p.val)
+          (PEqualNP.EdgeOwnership.pairInput u v) with
+      | false => exact False.elim (hnone ⟨u, v, huv, hval⟩)
+      | true => rfl
+    have hDF : circuitFun n (eraseGate n C g p.val) = graphFun G ∅ := by
+      funext x
+      apply Bool.eq_iff_iff.mpr
+      constructor
+      · intro hx
+        rw [← hfun]
+        apply erase_eval_reverse hg hp hAO.1 (by simp) ?_ hx
+        intro hxp
+        apply hsub x
+        rwa [val_ofFn] at hxp
+      · intro hx
+        have hedges : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+          simpa [graphFun] using hx
+        obtain ⟨u, v, huv, hxu, hxv⟩ := hedges
+        apply circuitFun_mono n (eraseGate n C g p.val) hD.1
+          (PEqualNP.EdgeOwnership.pairInput u v) x ?_ (hpair u v huv)
+        intro i hi
+        have hiuv : i = u ∨ i = v := by simpa [PEqualNP.EdgeOwnership.pairInput] using hi
+        rcases hiuv with rfl | rfl
+        · exact hxu
+        · exact hxv
+    have hle := hmin _ hD hDF
+    have hs := erase_size n C g p.val hg
+    omega
+  obtain ⟨u, v, huv, hdrop⟩ := hlost
+  have hgate : PEqualNP.EdgeOwnership.gateVal n C g
+      (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+    by_contra hgate
+    have hkeep : circuitFun n (eraseGate n C g p.val)
+        (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+      apply erase_eval_imp hg hp hAO.1 (by simp) ?_ (hCpair u v huv)
+      intro h
+      exact False.elim (hgate h)
+    rw [hdrop] at hkeep
+    cases hkeep
+  have hdisjoint : ¬ (p = u ∨ p = v) := by
+    intro hin
+    have hpin : val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) p.val = true := by
+      rw [val_ofFn]
+      simpa [PEqualNP.EdgeOwnership.pairInput] using hin
+    have hkeep : circuitFun n (eraseGate n C g p.val)
+        (PEqualNP.EdgeOwnership.pairInput u v) = true :=
+      erase_eval_imp hg hp hAO.1 (by simp) (fun _ => hpin) (hCpair u v huv)
+    rw [hdrop] at hkeep
+    cases hkeep
+  exact ⟨u, v, huv, fun h => hdisjoint (Or.inl h),
+    fun h => hdisjoint (Or.inr h), hgate, hdrop⟩
+
+
+lemma eq_graphFun_of_boundary {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (D : Circuit) (hAO : PEqualNP.TopForm.IsAO2 n D)
+    (hpos : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n D (PEqualNP.EdgeOwnership.pairInput u v) = true)
+    (hneg : ∀ x : Fin n → Bool, Maximal (fun y => graphFun G ∅ y = false) x →
+      circuitFun n D x = false) : circuitFun n D = graphFun G ∅ := by
+  funext x
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hx
+    by_contra hfalse
+    have hFx : graphFun G ∅ x = false := Bool.eq_false_iff.mpr hfalse
+    obtain ⟨y, hxy, hy⟩ := Finite.exists_le_maximal
+      (p := fun y : Fin n → Bool => graphFun G ∅ y = false) (a := x) hFx
+    have hytrue : circuitFun n D y = true := by
+      apply circuitFun_mono n D hAO.1 x y ?_ hx
+      intro i hi
+      have hle := hxy i
+      exact (Bool.le_iff_imp.mp hle) hi
+    rw [hneg y hy] at hytrue
+    contradiction
+  · intro hx
+    obtain ⟨u, v, huv, hxu, hxv⟩ : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+      simpa [graphFun] using hx
+    apply circuitFun_mono n D hAO.1 (PEqualNP.EdgeOwnership.pairInput u v) x ?_ (hpos u v huv)
+    intro i hi
+    have hiuv : i = u ∨ i = v := by simpa [PEqualNP.EdgeOwnership.pairInput] using hi
+    rcases hiuv with rfl | rfl
+    · exact hxu
+    · exact hxv
+
+lemma erase_of_edge_and_maximal_false_conditions {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (g w : ℕ)
+    (hAO : PEqualNP.TopForm.IsAO2 n C)
+    (hfun : circuitFun n C = graphFun G ∅)
+    (hg : g < C.gates.length) (hw : w < n + g)
+    (hpos : ∀ u v : Fin n, G.Adj u v →
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) (n + g) = true →
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) w = true)
+    (hneg : ∀ x : Fin n → Bool, Maximal (fun y => graphFun G ∅ y = false) x →
+      val C (List.ofFn x) w = true → val C (List.ofFn x) (n + g) = true) :
+    PEqualNP.TopForm.IsAO2 n (eraseGate n C g w) ∧
+      (eraseGate n C g w).size < C.size ∧
+      circuitFun n (eraseGate n C g w) = graphFun G ∅ := by
+  have hD := erase_isAO2 n C g w hg hw hAO
+  refine ⟨hD, ?_, eq_graphFun_of_boundary G _ hD ?_ ?_⟩
+  · have hs := erase_size n C g w hg
+    omega
+  · intro u v huv
+    apply erase_eval_imp hg hw hAO.1 (by simp) (hpos u v huv)
+    change circuitFun n C (PEqualNP.EdgeOwnership.pairInput u v) = true
+    rw [hfun]
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨u, v, huv, by simp [PEqualNP.EdgeOwnership.pairInput],
+      by simp [PEqualNP.EdgeOwnership.pairInput]⟩
+  · intro x hx
+    apply Bool.eq_false_iff.mpr
+    intro hDx
+    have hCx : circuitFun n C x = true :=
+      erase_eval_reverse hg hw hAO.1 (by simp) (hneg x hx) hDx
+    rw [hfun, hx.1] at hCx
+    contradiction
+
+lemma minimum_no_earlier_maximal_boundary_dominator {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (g w : ℕ)
+    (hmin : PEqualNP.TopForm.IsLeastAO G C)
+    (hg : g < C.gates.length) (hw : w < n + g) :
+    (∃ u v : Fin n, G.Adj u v ∧
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) (n + g) = true ∧
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) w = false) ∨
+    (∃ x : Fin n → Bool, Maximal (fun y => graphFun G ∅ y = false) x ∧
+      val C (List.ofFn x) w = true ∧ val C (List.ofFn x) (n + g) = false) := by
+  classical
+  by_contra hnone
+  have hpos : ∀ u v : Fin n, G.Adj u v →
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) (n + g) = true →
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) w = true := by
+    intro u v huv hgval
+    by_contra hwval
+    exact hnone (Or.inl ⟨u, v, huv, hgval, Bool.eq_false_iff.mpr hwval⟩)
+  have hneg : ∀ x : Fin n → Bool, Maximal (fun y => graphFun G ∅ y = false) x →
+      val C (List.ofFn x) w = true → val C (List.ofFn x) (n + g) = true := by
+    intro x hFx hwval
+    by_contra hgval
+    exact hnone (Or.inr ⟨x, hFx, hwval, Bool.eq_false_iff.mpr hgval⟩)
+  obtain ⟨hD, hsize, hDF⟩ := erase_of_edge_and_maximal_false_conditions G C g w
+    hmin.1 hmin.2.1 hg hw hpos hneg
+  exact Nat.not_le_of_gt hsize (hmin.2.2 _ hD hDF)
 
 end PEqualNP.Outside.L_meta_2583
