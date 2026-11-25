@@ -1,7 +1,7 @@
 {
-  "verdict": "PASS independent source/composition review; full standalone pending",
+  "verdict": "PASS independent source/composition review and full standalone exit0",
   "reviewer": "constructive_search",
-  "reviewed_utc": "2026-11-25T13:23:23.606017+00:00",
+  "reviewed_utc": "2026-11-25T13:49:35.588197+00:00",
   "source_sha256": "17e795922ea93d4581884e7d404be83f8eeb2e9032a9c2b274c5bc2cfea6da65",
   "lines": 11461,
   "cached_source_sha256": "cec1857bbbd61f497c78181a3378b01c007f6f4c06118beddaf4f2241585df33",
@@ -12,7 +12,25 @@
     "Exact accepted first7507lines preserved modulo namespace rename.",
     "Entire assembly equals previously standalone-checked supported-eight tail, completed independently reviewed finite certificate body, and reviewed M9 semantic/circuit/upper/endgame/symmetry cachebody modulo whitespace, namespace rename and one namespace close/reopen. No other declarations inserted.",
     "Final canonical theorem instantiates the finite premise with completed m9_point_empty; final any-two theorem instantiates the reviewed six-automorphism normalization with that unconditional canonical contradiction.",
-    "The complete unconditional cached source passed exit0 and emitted an olean; this full11461line permitted-import build remains a separate pending requirement.",
+    "Complete unconditional cached source passed exit0 and emitted an olean; the full11461line permitted-import source now also passed standalone exit0 with ten inherited style/deprecation warnings and no errors.",
     "Single permitted PEqualNP.Defs import; trust/format scan clean."
-  ]
+  ],
+  "standalone_exit_code": 0,
+  "standalone_receipt": {
+    "path": "results/orch/lemmas/algebraic-m9-two-missing-build.json",
+    "sha256": "ffae68dd03db926047b2123457a8968d241579c3aabe63f74c217841f189ef36"
+  },
+  "standalone_logs": [
+    {
+      "path": "results/orch/lemmas/algebraic-m9-two-missing-build.stdout",
+      "sha256": "46a0f7dbec87041ca0c9b3f07219b540b0ccdac879b580333ea0e8728e8a8ff0",
+      "bytes": 3027
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-two-missing-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "archive_size_note": "This explicit archive source is550752bytes, above the512KiB PR cap. It is a partial-case archival artifact, not a submission file; any eventual full proof would require a separate size-compliant assembly."
 }

@@ -1,0 +1,12 @@
+PASS — independent preservation audit by lean_setup.
+UTC: 2026-11-25T13:54:19.229055+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1353-files.json
+SHA256: 11c2a5209ee177533dbce439470244dead0ae537d6bca77df81e300cb929e51d
+All 95 exact file hashes and byte counts match (3,509,895 bytes). 83 nested manifest entries, 14 explicit source/receipt-review bindings, and 24 decompressed gzip hashes also match; required archived dependencies exist.
+Metadata scope is accurate: mixed-p9 ANY-two-missing has a permitted-import standalone exit0 and final composition review; one-missing and full L-meta-1479 remain open. The shared-slot and empty-opposite partials have matching standalone exit0 receipts/reviews. The larger M9 and q2 archives are explicitly identified as exceeding the final PR size cap.
+The pending q2 standalone package contains only its frozen source, exact assembly, launch and independent composition review; its mutable stdout/stderr and unfinished build receipt are excluded. No pending result is described as a completed standalone check.
+The paired 100-case benchmark retains complete diagnostics and explicitly reports the proposed variant slower (23.3s versus20.8s, plus2.11s equivalence). It is not presented as a replacement full certificate.
+Local minimal SAT sources, compressed CNFs/metadata, complete controls and independent audits are immutable inputs/control evidence only; no active solver outcome or witness is claimed. The hidden-triple example is explicitly a counterexample to an auxiliary inference, not the posted gap.
+Validation records six subagents and TIMING total=296.2 subagents=6. Historical checkpoint statements remain qualified by their dates and are superseded by the current scope.
+All 11 Lean files passed trust/format scans: no forbidden trust markers, strings or _root_; attributes are simp/local simp only, limits maxRecDepth/maxHeartbeats only. Cached imports are limited to explicitly cached artifacts; standalone files import only PEqualNP.Defs. Credential/private-key/credentialed-URL pattern scans over every text file and decompressed artifact found no matches.
+Complete build and audit logs are retained; M9 has ten inherited style/deprecation warnings and no errors, with empty stderr. No payload file was modified during this review.

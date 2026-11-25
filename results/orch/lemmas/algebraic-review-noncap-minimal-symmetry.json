@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS mathematical/symmetry review",
+  "reviewed_utc": "2026-11-25T13:43:57.736962+00:00",
+  "encoder_sha256": "c428fe71d33b713a32c1899e51dcd40a7aa35a21e516d8cbfb02c60332a3f57c",
+  "symmetry_sha256": "1833f2a316dcb81c4a7fba031001a752ba05e53b0a67e8efa26d82dc2662fc0d",
+  "independent_checks": [
+    "Rebuilt12localedges from accepted Fano incidence and local\u2192accepted input map i\u21a6i+3.",
+    "All6explicitmaps are distinct permutations, preserve all12edges, and form a group.",
+    "All6maps preserve the local function on all2048assignments.",
+    "The4chosen representatives have disjoint size3orbits covering all12edges."
+  ],
+  "mathematics": [
+    "Anylocal\u226414 circuit splices with the3omitted pointstars and3OR joins using exactly12newgates, contradicting the independently compiled ordinary fullFano lower bound27. Thus any15gate witness is ordinary-minimal.",
+    "If one AND operand is contained in the other on all maximal-negative rows, replacing the gate by the smaller operand preserves negative rows and can only increase positive outputs.",
+    "If one OR operand contains the other on all positive-edge rows, replacing the gate by the larger operand preserves positive rows and can only decrease negative outputs.",
+    "A gate true on all maximal-negative rows may be replaced by1: negatives are unchanged and positive outputs cannot decrease. Constant propagation yields a smaller binary circuit because the target is nonconstant.",
+    "Ordinary truth-preserving simplification may change derivatives; that is harmless for a minimality contradiction. No derivative-preserving normalization is claimed.",
+    "Input relabeling preserves both raw derivative recurrences, so marked-edge orbit restriction is sound."
+  ],
+  "scope": "Mathematical admissibility and independent finite symmetry checks only. Exact CNF clause/control audit is separately assigned to constructive_search. Author controls are recorded but are not treated as independent proof of encoding correctness."
+}

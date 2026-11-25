@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-11-25T13:47:52.881866+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2-complete-standalone.lean",
+  "sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
+  "line_count": 11411,
+  "bytes": 624101,
+  "components": [
+    {
+      "source": "pilot-q2-transfer-standalone.lean",
+      "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495",
+      "transformation": "unchanged",
+      "start_line": 1,
+      "line_count": 8984
+    },
+    {
+      "source": "stochastic-q2f-finite.lean",
+      "sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+      "transformation": "remove import lines only",
+      "start_line": 8986,
+      "line_count": 1084
+    },
+    {
+      "source": "formalization-q2f-closure-final-cache.lean",
+      "sha256": "65add20517a458a49c86fcacd7c5e947258f4cec79d5c352d36695ec18d9a4b2",
+      "transformation": "remove import lines only",
+      "start_line": 10071,
+      "line_count": 620
+    },
+    {
+      "source": "formalization-q2f-actual-final-cache.lean",
+      "sha256": "c052cba992b91dbbf916e87cfa07bcd630ccea49991ecd0ee74d6aef8b3390c3",
+      "transformation": "remove import lines only",
+      "start_line": 10692,
+      "line_count": 660
+    },
+    {
+      "source": "pilot-q2-complete-cache.lean",
+      "sha256": "557f72f8e486430809b61019de993a6aa2de0cec309dc100eb7e77cbce47859f",
+      "transformation": "remove import lines only",
+      "start_line": 11353,
+      "line_count": 59
+    }
+  ],
+  "scope": "Unconditional exact q2 subcase qa_q2_exclusion under ineligible set0123, missing points2456, Bplus\u226413,totalSurplus\u226414. Full original finite certificate included once. Not full gap L-meta-1479. Standalone build pending. Archive source exceeds final PR size cap; not a submission candidate."
+}

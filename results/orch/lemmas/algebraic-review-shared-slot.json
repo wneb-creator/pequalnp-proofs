@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T13:45:36.690419+00:00",
+  "source": "results/orch/lemmas/structural-shared-slot.lean",
+  "sha256": "f0fdabff1a42a7ddd27cb56a3aba9d91ec2b5bb3353576206b5c33ef99364246",
+  "tail_sha256": "7a3e192aea767c5df0fe804e74f75417bd6ea48a3977ddafea2e195d66bcd212",
+  "receipt": "structural-shared-slot-build.json",
+  "exit_code": 0,
+  "scope": "Under strict-live Fano correctness and W\u22642, a consumption slot unproductive for a label forces its other exit to cover the full neighborhood. A shared slot carrying distinct same-side labels must have an opposite-support label adjacent to at least one of them.",
+  "checks": [
+    "The first lemma replaces opposite-support emptiness only by explicit absence of every neighbor of the carried label; all edge-witness contradictions still apply.",
+    "The common-neighbor contradiction retains the same shared slot e for both carried labels; no claim for unrelated slots is made.",
+    "The antichain argument forces distinct remaining exits, and the common neighbor exhausts its two slots with their opposites.",
+    "Cover-free separation of alternate neighbors yields the contradiction exactly as in the already reviewed empty-opposite proof.",
+    "The final conclusion is disjunctive productivity for at least one carried label, not both.",
+    "Exact source and unchanged reviewed tail match an exit0 cached receipt with empty full logs."
+  ]
+}

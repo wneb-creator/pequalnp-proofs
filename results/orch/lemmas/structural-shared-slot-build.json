@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-shared-slot.lean",
+  "sha256": "f0fdabff1a42a7ddd27cb56a3aba9d91ec2b5bb3353576206b5c33ef99364246",
+  "lines": 110,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T13:44:58.628341+00:00",
+  "completed_utc": "2026-11-25T13:45:10.427379+00:00"
+}

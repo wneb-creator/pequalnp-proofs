@@ -1,0 +1,51 @@
+{
+  "verdict": "PASS",
+  "encoder_sha256": "c428fe71d33b713a32c1899e51dcd40a7aa35a21e516d8cbfb02c60332a3f57c",
+  "controls": [
+    {
+      "tag": "sat-collinear4-minimal-ordinary15-control",
+      "size": 15,
+      "variables": 2884,
+      "clauses": 40280,
+      "complete_assignments": 4,
+      "local_truth_rows": 2048,
+      "full_splice_size": 27,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 4
+    },
+    {
+      "tag": "sat-collinear4-minimal-quiet16-1-control",
+      "size": 16,
+      "variables": 3090,
+      "clauses": 44611,
+      "complete_assignments": 3,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 3
+    },
+    {
+      "tag": "sat-collinear4-minimal-quiet16-2-control",
+      "size": 16,
+      "variables": 3090,
+      "clauses": 44611,
+      "complete_assignments": 2,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 2
+    },
+    {
+      "tag": "sat-collinear4-minimal-quiet16-3-control",
+      "size": 16,
+      "variables": 3090,
+      "clauses": 44611,
+      "complete_assignments": 3,
+      "local_truth_rows": 2048,
+      "full_splice_size": 28,
+      "full_truth_rows": 16384,
+      "marked_pairs_checked": 3
+    }
+  ],
+  "scope": "Author control validation only. Ordinary15 uses doublequiet disabled; quiet16 uses exactly the target restrictions at one extra gate. All four selected orbit representatives have quiet controls; six explicit arm automorphisms cover all12 edges. No local15 quiet witness or solver result."
+}

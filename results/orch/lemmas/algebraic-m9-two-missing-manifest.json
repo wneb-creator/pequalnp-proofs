@@ -1,0 +1,14 @@
+{
+  "source": "results/orch/lemmas/algebraic-m9-two-missing.lean",
+  "sha256": "17e795922ea93d4581884e7d404be83f8eeb2e9032a9c2b274c5bc2cfea6da65",
+  "namespace": "PEqualNP.Outside.L_meta_1479.MixedNineTwo",
+  "assembly": [
+    "Accepted first7507 lines",
+    "Previously compiled structural-cofactor-supported-eight-standalone.lean after its accepted7401-line prefix, namespace renamed",
+    "Complete PNPMixed9Finite body, imports/namespace wrappers stripped",
+    "AlgebraicM9Complete from def m9_neighbors onward, namespace renamed"
+  ],
+  "scope": "Ordinary impossibility for canonical mixed p9 ineligible set {0,1,2,5,11} and ANY two missing cap-neighborhood masks. One-missing case remains open.",
+  "build_status": "Standalone PASSED exit0",
+  "receipt": "results/orch/lemmas/algebraic-m9-two-missing-build.json"
+}

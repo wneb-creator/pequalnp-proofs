@@ -1,0 +1,103 @@
+{
+  "created_utc": "2026-11-25T13:51:38.213797+00:00",
+  "scope": "Successful independently reviewed permitted-import stronger empty-opposite and shared-slot productivity standalones, complete cached/standalone receipts and logs, plus a finite counterexample only to the abandoned hidden-term implication. No full Fano no-quiet or target result.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-standalone.lean",
+      "bytes": 133271,
+      "sha256": "f9a1d63c731b857ebded213f22264c19c187563374a7c9fc78451923832e8bf8"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-standalone-build.json",
+      "bytes": 308,
+      "sha256": "7f4d3687c3f04aafd615d725b1a6fd73f3fd2dc8242b56f1b4494c19970ed4ea"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-operand-small-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-operand-small-standalone.json",
+      "bytes": 795,
+      "sha256": "69458973bec42d8c25b56222470c449cd94c5115fbc03d58b8e99e289786e842"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-tail.lean",
+      "bytes": 4760,
+      "sha256": "7a3e192aea767c5df0fe804e74f75417bd6ea48a3977ddafea2e195d66bcd212"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot.lean",
+      "bytes": 4784,
+      "sha256": "f0fdabff1a42a7ddd27cb56a3aba9d91ec2b5bb3353576206b5c33ef99364246"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-build.json",
+      "bytes": 288,
+      "sha256": "25cf340911567e973a5171109ac2976eec0e2418c22bd2e2cf4085a9f92be9c8"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-shared-slot.json",
+      "bytes": 1440,
+      "sha256": "90e0b82ed0463bdcd5841c414a239f76b327cc2179bf39f11478b45c9e6160a7"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-standalone.lean",
+      "bytes": 129472,
+      "sha256": "091e54a94c6e85e76e2f3f2b9db6f2d1695475dbf0a4c12dd0689e5e60d3583f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-standalone-build.json",
+      "bytes": 300,
+      "sha256": "610dde80145be129b2b77c3ec570c4092c5941d714f23bf4b5a55b0d83259934"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-shared-slot-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-shared-slot-standalone.json",
+      "bytes": 610,
+      "sha256": "4dbc8bf309ce34413692ea728afff7fd5b6aec0f9b00d8ed55802cb60aa3dbac"
+    },
+    {
+      "path": "results/orch/lemmas/status-hidden-triple-counterexample.py",
+      "bytes": 1438,
+      "sha256": "5f936a4874020bce4b380955d7939283f8ece1fff864adabdfdf4d01381f78b4"
+    },
+    {
+      "path": "results/orch/lemmas/status-hidden-triple-counterexample.json",
+      "bytes": 1137,
+      "sha256": "b7c6904c9a077ea85af29fae7b9d847c01eb95d58418735a9ccb4314bd39e4ec"
+    },
+    {
+      "path": "results/orch/lemmas/status-hidden-triple-counterexample.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_count": 19,
+  "bytes": 278603
+}

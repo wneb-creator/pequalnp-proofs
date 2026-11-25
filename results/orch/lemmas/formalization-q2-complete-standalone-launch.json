@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2-complete-standalone.lean",
+  "sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
+  "started_utc": "2026-11-25T13:49:33.154120+00:00",
+  "command": "Pinned Lean4.36 lake env lean -j1 -M6000 --profile <standalone source>",
+  "scope": "Permitted-import standalone exact q2 subcase only. Full original finite certificate included once; no cache imports. Build running, no success claimed."
+}

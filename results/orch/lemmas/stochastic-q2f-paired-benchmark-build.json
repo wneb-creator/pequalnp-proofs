@@ -1,0 +1,35 @@
+{
+  "exit_code": 0,
+  "started_observed_utc": "2026-11-25T13:46:42+00:00",
+  "completed_observed_utc": "2026-11-25T13:48:32.355140+00:00",
+  "source": {
+    "path": "results/orch/lemmas/stochastic-q2f-paired-benchmark.lean",
+    "sha256": "e43d767a0374f2d72eaf45af5653e8fbe5a356e67687a585e75f13edf6d950bd",
+    "bytes": 9219
+  },
+  "full_stdout": {
+    "path": "results/orch/lemmas/stochastic-q2f-paired-benchmark.stdout",
+    "sha256": "3945c3eb6696cd3efadccbca30286b25b7bd89ea3a55e93de7a51f1eb6c6c7e5",
+    "bytes": 22559
+  },
+  "full_stderr": {
+    "path": "results/orch/lemmas/stochastic-q2f-paired-benchmark.stderr",
+    "sha256": "1a06036614962daf79c0ee7aaaee69c0652e11ac5a1b58b6807a2906de792f45",
+    "bytes": 660
+  },
+  "profile_seconds": {
+    "fast_card_correctness": 2.11,
+    "original_100_cases": 20.8,
+    "fast_100_cases": 23.3
+  },
+  "context": {
+    "s": 11,
+    "a": 5,
+    "b_and_c": "all Fin10"
+  },
+  "ratio_fast_over_original": 1.1201923076923077,
+  "conclusion": "The proposed fast validator is slower in this paired comparison. Do not launch a full replacement based on this implementation.",
+  "qualification": "Cached development benchmark with exact checked equivalence tail. Original sameblock44.1s in heavily concurrent fullrun, showing timing variation/CPUcontention; no wholefile time prediction is proven.",
+  "diagnostics": "Full logs retained; unused simp-argument warnings and profiling, no errors.",
+  "scope": "Only computational equivalence and100-case timing comparison, not a new full certificate."
+}

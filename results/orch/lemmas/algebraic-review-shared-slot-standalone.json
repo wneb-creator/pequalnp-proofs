@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T13:50:12.466778+00:00",
+  "source": "results/orch/lemmas/structural-shared-slot-standalone.lean",
+  "sha256": "091e54a94c6e85e76e2f3f2b9db6f2d1695475dbf0a4c12dd0689e5e60d3583f",
+  "receipt": "structural-shared-slot-standalone-build.json",
+  "exit_code": 0,
+  "composition": "Exact accepted2695-line prefix followed by exact independently reviewed shared-slot tail, with namespace close/reopen and rename only.",
+  "scope": "Same shared-slot/at-least-one-productivity statement as algebraic-review-shared-slot.json; no minimality or quietness conclusion."
+}

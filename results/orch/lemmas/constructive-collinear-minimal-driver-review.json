@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS source-only mechanical driver review",
+  "reviewed_utc": "2026-11-25T13:46:32.915775+00:00",
+  "source_sha256": "7eafc80b36103a15c52c433e79267105e7a96625a128ab29c00ad1b05c3a2777",
+  "base_source_sha256": "b99c9d9003c758bd285852bf8a925c1346a67d70d59f63c8086dfffb82a304c6",
+  "base_review": "results/orch/lemmas/constructive-collinear-driver-review.json",
+  "changes": "Only encoder filename and frozen expected encoder hash. Fresh artifact guards, complete stdout/stderr/receipt capture, exact27 circuit/output checks, all16384 truth rows, all21 derivative pairs and selectedquiet assertion are byte-identical to reviewed driver.",
+  "scope": "No solver outcome or Lean witness claim."
+}

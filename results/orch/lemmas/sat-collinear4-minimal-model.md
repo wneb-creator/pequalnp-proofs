@@ -1,0 +1,11 @@
+# Local minimum and arm-symmetry extension
+
+The frozen local fifteen-gate encoder is extended without changing its dynamic marked-edge semantics. An ordinary local circuit of at most fourteen gates would splice with twelve gates into a full Fano circuit of at most twenty-six gates, contradicting the accepted lower bound. Thus fifteen gates is the ordinary minimum.
+
+Consequently every AND has incomparable operands on the fifteen maximal-negative rows, every OR has incomparable operands on the twelve minimal-positive rows, and every gate is false on some maximal-negative row. Otherwise a one-sided operand replacement, or replacement by true with constant/alias propagation, preserves the whole boundary function while deleting at least one gate. Trace preservation is not needed for this ordinary-minimality contradiction. These restrictions are only justified at size15; the size16 positive controls merely happen to satisfy them.
+
+The six simultaneous permutations of the three arms preserve the local graph. They permute pathpoints0,1,3 together with middlelines9,7,6 and privateleaves4,10,5, while fixing offpoint2 andcommonline8. Four edge representatives are(0,4),(0,8),(0,9),(2,9). Their four disjoint size3 orbits cover all twelve edges. Renaming preserves truth, formal traces and size; topological canonicalization can be repeated afterward. No full-Fano automorphism extension is needed, since the local function itself is preserved before splicing.
+
+At size15 the extension adds810 variables and2513 clauses, giving2884 variables and40282 clauses. Both independent reviews check the exact delta, all six maps/four orbits, full control assignments, local2048-row truth and full16384-row splices. The ordinary15 control disables quiet; three quiet16 controls cover all four representatives. No local15 quiet witness or solver outcome is claimed by this preparation bundle.
+
+Restore the listed files and run `python3 constructive-collinear-minimal-audit.py ARTIFACT_DIRECTORY`. Executing the encoder additionally requires the original local encoder and its primitive dependency from the preceding manifest. The reviewed driver independently validates any resulting full27-gate circuit and all21 derivative pairs.

@@ -1,0 +1,55 @@
+{
+  "status": "PASS: independent exact five-component standalone assembly review; standalone build pending",
+  "utc": "2026-11-25T13:49:19.210327+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2-complete-standalone.lean",
+  "source_sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
+  "lines": 11411,
+  "bytes": 624101,
+  "assembly_manifest": "results/orch/lemmas/formalization-q2-complete-assembly.json",
+  "assembly_sha256": "1c9e00fca892a00abdb27685c3d78fc981ff07d8c7b51311090018eca22c0e79",
+  "components": [
+    {
+      "source": "results/orch/lemmas/pilot-q2-transfer-standalone.lean",
+      "sha256": "cb974210d209030de6096b3c9e7691aeb8ee3def7eb78c06858c5d9f8b409495",
+      "start_line": 1,
+      "line_count": 8984,
+      "exact_match": true
+    },
+    {
+      "source": "results/orch/lemmas/stochastic-q2f-finite.lean",
+      "sha256": "0bf58d79549a49cd264f996e91ba48b4b2d25249596823703b9baab5ccb04958",
+      "start_line": 8986,
+      "line_count": 1084,
+      "exact_match": true
+    },
+    {
+      "source": "results/orch/lemmas/formalization-q2f-closure-final-cache.lean",
+      "sha256": "65add20517a458a49c86fcacd7c5e947258f4cec79d5c352d36695ec18d9a4b2",
+      "start_line": 10071,
+      "line_count": 620,
+      "exact_match": true
+    },
+    {
+      "source": "results/orch/lemmas/formalization-q2f-actual-final-cache.lean",
+      "sha256": "c052cba992b91dbbf916e87cfa07bcd630ccea49991ecd0ee74d6aef8b3390c3",
+      "start_line": 10692,
+      "line_count": 660,
+      "exact_match": true
+    },
+    {
+      "source": "results/orch/lemmas/pilot-q2-complete-cache.lean",
+      "sha256": "557f72f8e486430809b61019de993a6aa2de0cec309dc100eb7e77cbce47859f",
+      "start_line": 11353,
+      "line_count": 59,
+      "exact_match": true
+    }
+  ],
+  "uncovered_lines": "Only the four blank separators",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "format_scan": "Clean; the two local simp attributes are expressly allowed by CONTRIBUTING.md line65",
+  "finite_certificate_occurrences": 1,
+  "scope": "Unconditional exact q2 subcase qa_q2_exclusion under ineligible set0123, missing points2456, Bplus\u226413,totalSurplus\u226414. Full original finite certificate included once. Not full gap L-meta-1479. Standalone build pending. Archive source exceeds final PR size cap; not a submission candidate.",
+  "qualification": "Every component is included verbatim with only the stated import removals. This review confirms composition and scope, not a completed standalone build, checker pass, or the full L-meta-1479 statement. The archive exceeds the final PR size cap explicitly."
+}

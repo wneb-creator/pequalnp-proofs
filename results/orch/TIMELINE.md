@@ -80,3 +80,5 @@
 - 2026-11-25 13:42:28 UTC: checkpoint1335 frozen for independent review. M9 two-missing cached theorem unconditional; q2 backend/family standalones complete; full finite artifact import/axioms validated with original exit unavailable and >30min runtime. Two witness searches active; full target unresolved.
 
 - 2026-11-25T13:47:49.638632+00:00: q2 exact subcase unconditional cached exclusion compiled; source557f72f8; independent review and axiom audit PASS. Preservation checkpoint1348 prepared.
+
+- 2026-11-25T13:53:22.171769+00:00: Full mixed-p9 two-missing standalone success and reviewed shared-slot theorem preserved; full q2 standalone launched13:49:33 and remains active.

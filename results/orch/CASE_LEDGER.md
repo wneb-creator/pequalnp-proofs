@@ -7,7 +7,7 @@ Updated 2026-11-25 13:42 UTC. All sets use the accepted edgeList labeling; point
 | 7 | {0,1,2,3,4,5,6} | Standalone compiled | Unique-reader chains |
 | 8 | {0,1,2,3,4,5} | Standalone compiled | Saturated carrier count and linearity |
 | 9 | {0,1,2,3,4} | Standalone compiled ordinary impossibility | Finite residual masks, protected inputs, and sharp cofactor count |
-| 9 | {0,1,2,5,11} | Open | All two-missing patterns excluded in unconditional cached proof; full standalone recheck running; one-missing case remains open |
+| 9 | {0,1,2,5,11} | Open | All two-missing patterns excluded in full standalone proof; one-missing case remains open |
 | 10 | {0,1,2,3} | Open; three missing-mask subcases excluded standalone | Missing neighborhoods{4,5,6}+q impossible for q in{0,1,3}; q2 missing{2,4,5,6}/Bplus≤13 excluded in unconditional cached composition; full standalone assembly pending. Bplus14/Bzero0 remains; Bplus at least13; Bzero at most1 |
 | 10 | {0,1,2,5} | Standalone compiled ordinary impossibility | Seven-mask family obstruction and sharp support counting |
 | 10 | {0,1,2,11} | Open | Standalone Bplus at least13; Bzero at most1 by analytic cofactor bound |
@@ -37,3 +37,5 @@ Finite-success addendum: the full mixed-p9 finite certificate now passes permitt
 Checkpoint1335: the mixed-p9 two-missing theorem is unconditional in the checked cached composition and covers every two-element missing subset of{0,1,2,5}; its standalone recheck is still pending. The one-missing case remains separate. The q2 analytic backend and actual mask-family transfer now both pass full standalone builds; the complete finite certificate artifact has separate successful import/axiom validation, with original wrapper exit unavailable and runtime above30minutes. The final combined q2 cache is being integrated, so no full canonical row is newly marked closed here. No27-gate quiet witness or full target refutation is claimed.
 
 Checkpoint1348 (2026-11-25T13:47:49.638632+00:00): complete q2 cached subcase theorem now has no finite-certificate premise, exit0, independent review and axiom audit. The new structural off-route and empty-opposite lemmas retain their stated circuit hypotheses. Full target remains open.
+
+Checkpoint1353 (2026-11-25T13:53:22.171769+00:00): all mixed-p9 two-missing cases now have full standalone exit0 and exact composition review. Shared-slot productivity is also standalone checked. One-missing mixed-p9 and the full target remain open. Combined q2 exact-subcase standalone is actively building; no success is claimed.

@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS independent finite counterexample",
+  "scope": "Refutes the standalone inference that maximal-negative branch equality plus hidden-term independence and empty singleton support implies hidden term is contained in Fano function. This is not a 27-gate Fano circuit or a refutation of the posted gap.",
+  "x": 0,
+  "H_points": [
+    2,
+    3,
+    4
+  ],
+  "neighbor_hits": [
+    [
+      3,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "all_inputs_checked": 16384,
+  "maximal_negative_count": 37,
+  "maximal_negative_masks": [
+    127,
+    244,
+    314,
+    432,
+    541,
+    660,
+    792,
+    1102,
+    1220,
+    1290,
+    1548,
+    2087,
+    2212,
+    2338,
+    2565,
+    3078,
+    3716,
+    4179,
+    4304,
+    4370,
+    4625,
+    5008,
+    5186,
+    6147,
+    7426,
+    8297,
+    8416,
+    8488,
+    8713,
+    9288,
+    9992,
+    10273,
+    10656,
+    12353,
+    13504,
+    14849,
+    16256
+  ],
+  "counterexample_mask": 28,
+  "H_true": true,
+  "F_false": true,
+  "branch_equals_x_on_all_maximal_negatives": true,
+  "H_independent_x": true,
+  "H_empty_singleton_support": true
+}

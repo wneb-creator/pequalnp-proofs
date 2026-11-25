@@ -107,3 +107,5 @@ Sub-agents: six (algebraic, constructive, Lean formalization, structural review,
 TIMING total=285.3 subagents=6
 
 - 2026-11-25T13:47:49.638632+00:00: Unconditional q2 cached composition passed at13:45:35, with independent review and exact-source axiom audit. Remaining Bplus14/high cases remain open; combined source assembly is pending. Strong empty-opposite and off-route standalone components passed.
+
+- 2026-11-25T13:53:22.171769+00:00: Mixed-p9 ANY-two-missing full standalone exit0 is preserved with final independent review; one-missing still open. Shared-slot full standalone passed. Full q2 subcase source is frozen and under a long standalone check, not yet claimed successful.
