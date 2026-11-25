@@ -37,7 +37,7 @@ Checkpoint6:
 Independent review passed all frozen sources. One-NOT and two-NOT cases of the posted theorem remain open.
 
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=55.8 subagents=6
+TIMING total=59.9 subagents=6
 
 Checkpoint7:
 - OneNotPetersen/OneUseInput: Lean exit0; sole-reader obstructions, under explicit structural hypotheses.
@@ -72,3 +72,10 @@ All listed sources compiled with exit0 and passed independent review. CompleteSe
 At14:39UTC the desk returned HTTP410 despite the prior renewal reporting expiry14:56:15.946UTC. The identical curl-si diagnostic also returned410. Checked work is being pushed before any new lease request, as instructed.
 The posted theorem remains unproved; full-statement lake build/checker have not run. No PR has been opened.
 - OrRelocation also checked and independently reviewed: composition of OR-mask relocation and copy deletion preserves evaluation, exact size, and exact NOT count under its stated mask hypotheses.
+
+Checkpoint10 final preservation:
+- AliasPruneClean compiled exit0 and independently reviewed; exact compatible companion of prior checked alias-deletion proof.
+- Remaining finite/native/SAT/symbolic sources, complete diagnostics, manifests and native partial forest data are preserved, with all unverified/UNKNOWN scope explicit.
+- PackedBaseline.lean and CompleteSeededMatch.lean are UNCHECKED full artifacts; no successful complete Lean build is claimed for either.
+- Desk410 and both recovery replies led to the explicit shared-handle stop condition. No other pilot lease was worked or released. Null count0. See STOPPED.md and desk-http410.txt.
+Full L-meta-2592 remains unproved. No full-gap build/checker verdict, no PR, no final-proof cleanup pass.

@@ -1,0 +1,8 @@
+{
+  "columns": 215,
+  "samples": 9,
+  "automorphisms": 12,
+  "initial_paid_zero": true,
+  "domains_nonempty_and_nonconstant": true,
+  "all_768_separations_valid": true
+}

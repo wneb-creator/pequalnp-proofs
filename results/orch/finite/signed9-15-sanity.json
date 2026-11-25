@@ -1,0 +1,7 @@
+{
+  "random_seed": 2592,
+  "total_clauses": 498707,
+  "violations": 390,
+  "expected_target_mismatches": 390,
+  "only_output_units": true
+}

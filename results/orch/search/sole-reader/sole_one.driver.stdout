@@ -1,0 +1,2 @@
+START one 2026-11-25T14:37:00.604779+00:00 extra clauses 420
+RESULT {"mode": "one", "returncode": 0, "completed_at": "2026-11-25T14:40:00.652084+00:00", "status": "UNKNOWN", "is_counterexample": false, "scope": "SAT solver result only; UNSAT is not a Lean-checked lower bound."}

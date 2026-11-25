@@ -1,0 +1,32 @@
+{
+  "verdict": "UNKNOWN",
+  "result": null,
+  "cap": 15,
+  "elapsed": 300.1156044290001,
+  "stats": {
+    "entered": 171800,
+    "operations": 13871632,
+    "coverage": 21845077,
+    "expanded": 171799,
+    "restriction": 2026088,
+    "mass": 29690111,
+    "trivial": 1753452,
+    "memo": 97436
+  },
+  "nodes": 74359,
+  "columns": 215,
+  "file_bytes": 14289905,
+  "max_depth": 9,
+  "max_rules": 20,
+  "states_by_remaining": {
+    "9": 30090,
+    "8": 4019,
+    "10": 31882,
+    "11": 7498,
+    "7": 175,
+    "12": 662,
+    "13": 31,
+    "6": 1,
+    "14": 1
+  }
+}

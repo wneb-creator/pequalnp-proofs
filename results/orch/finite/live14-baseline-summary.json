@@ -1,0 +1,31 @@
+{
+  "verdict": "UNSAT",
+  "result": null,
+  "cap": 14,
+  "elapsed": 5.634089471999687,
+  "stats": {
+    "entered": 2978,
+    "operations": 289708,
+    "coverage": 473191,
+    "restriction": 50955,
+    "expanded": 2977,
+    "mass": 587497,
+    "trivial": 44212,
+    "memo": 1448
+  },
+  "nodes": 1530,
+  "columns": 215,
+  "file_bytes": 268408,
+  "max_depth": 7,
+  "max_rules": 18,
+  "states_by_remaining": {
+    "9": 517,
+    "10": 647,
+    "11": 237,
+    "8": 91,
+    "12": 30,
+    "13": 3,
+    "7": 4,
+    "14": 1
+  }
+}

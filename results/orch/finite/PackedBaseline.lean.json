@@ -1,0 +1,58 @@
+{
+  "7": {
+    "nodes": 4,
+    "depth": 7,
+    "links": 18,
+    "bits": 360,
+    "max_rules": 0
+  },
+  "8": {
+    "nodes": 91,
+    "depth": 6,
+    "links": 724,
+    "bits": 8476,
+    "max_rules": 9
+  },
+  "9": {
+    "nodes": 517,
+    "depth": 5,
+    "links": 5083,
+    "bits": 47433,
+    "max_rules": 13
+  },
+  "10": {
+    "nodes": 647,
+    "depth": 4,
+    "links": 6715,
+    "bits": 101094,
+    "max_rules": 16
+  },
+  "11": {
+    "nodes": 237,
+    "depth": 3,
+    "links": 2265,
+    "bits": 46176,
+    "max_rules": 18
+  },
+  "12": {
+    "nodes": 30,
+    "depth": 2,
+    "links": 239,
+    "bits": 4909,
+    "max_rules": 17
+  },
+  "13": {
+    "nodes": 3,
+    "depth": 1,
+    "links": 15,
+    "bits": 360,
+    "max_rules": 10
+  },
+  "14": {
+    "nodes": 1,
+    "depth": 0,
+    "links": 1,
+    "bits": 87,
+    "max_rules": 9
+  }
+}

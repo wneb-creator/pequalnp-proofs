@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-11-25T14:40:19.635883+00:00",
+  "status": "running_before_lease_recovery",
+  "expected_timeout_utc": "2026-11-25T14:41:28Z",
+  "full_semantic_source": "assembled_not_fully_compiled",
+  "abstract_bridge_exit_code": 0
+}

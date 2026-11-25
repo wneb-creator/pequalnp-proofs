@@ -1,0 +1,2 @@
+START two_edge 2026-11-25T14:37:00.636422+00:00 extra clauses 1484
+RESULT {"mode": "two_edge", "returncode": 0, "completed_at": "2026-11-25T14:40:00.810070+00:00", "status": "UNKNOWN", "is_counterexample": false, "scope": "SAT solver result only; UNSAT is not a Lean-checked lower bound."}

@@ -106,3 +106,7 @@ AliasPruneStandalone.lean checked exit0, sole PEqualNP.Defs import, SHA256 1f33d
 ## 2026-11-25 14:40:19 UTC — lease410 checkpoint pause
 
 Parent reported unexpected HTTP410 despite most recent14:56 expiry. No new builds/searches started. Current cap15 native search is allowed to finish its existing300s cap and will serialize all closed state witnesses. Full FastSeededMatch.lean remains checked/frozen. CompleteSeededMatch.lean is assembled but NOT fully compiled; its isolated abstract bridge check succeeded with empty logs. Current native cap15 stdout/stderr snapshots preserved as live15-running.*; final logs/records will be copied upon timeout/completion.
+
+## 2026-11-25 14:41:47 UTC — cap15 search preserved after lease loss
+
+Native signed9 cap15 search ended with UNKNOWN after 300.12s. It stored 74359 closed states with full prefix/live/rule witnesses; no circuit witness found. Complete JSON and stdout/stderr are in results/orch/finite/live15-first.*. This is NOT a global UNSAT certificate and has NOT been Lean-checked. Resume can reconstruct canonical state keys from stored witnesses. No new search or build has started after the lease410.

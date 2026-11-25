@@ -1,11 +1,30 @@
-SeededCaseZero.lean checked: lake env lean -j 1 -M 6500; exit 0, stdout/stderr empty.
-This checks only the case in which the first additional signal is constant false, NOT the full seeded three-gate bound.
-C++ exhaustive searches are unverified computations: no <=4 additional gates for the matching function from all supplied seeds, including intermediate pair ORs and constants.
-Full SeededMatch.lean (114 cases) checking in progress.
+Final finite-certificate status for L-meta-2592
 
-Original full SeededMatch.lean run stopped with SIGTERM after15minutes, no diagnostics; NOT checked.
-FastSeededZero.lean checked with kernel decide: exit0,6.00s wall, empty stdout/stderr.
-SeededRows.lean and SeededSemantics.lean checked: exit0, empty stdout/stderr.
-Full114-case FastSeededMatch.lean assembled; full check in progress; not accepted yet.
+Work stopped after unexpected lease HTTP410 and failed recovery; the returned lease belonged to another pilot. No new builds or searches were started after the410.
 
-FastSeededMatch.lean FULL114-case certificate checked: exit0,231.93s wall, stdout/stderr empty. Restricted three-gate seeded matching bound only.
+Checked Lean components:
+- lemmas/Finite.lean:30-row completeness for monotone functions and Petersen finite counts; exit0, empty logs finite-coverage2-lean.*.
+- lemmas/SeededRows.lean: exact13-row seed and target semantics; exit0, empty logs seeded-rows.*.
+- lemmas/SeededSemantics.lean: gate semantics, bounds, and a conditional semantic bridge; exit0, empty logs seeded-semantics.*.
+- lemmas/FastSeededMatch.lean: all114 first-signal cases and closed choices_noThree; exit0,231.932s, empty logs fast-seeded-full.*. This is a restricted16-seed matching obstruction for at most3 added gates, not the Petersen gap.
+- finite/SeededCaseZero.lean and finite/FastSeededZero.lean: checked firstsignal0 cases; optimized version5.998s.
+- finite/CompleteSeededBridge.lean: checked isolated bridge with the already-established signature theorem as an explicit premise; exit0, empty logs complete-seeded-bridge.*.
+
+Not fully checked:
+- lemmas/SeededMatch.lean: original slow114-case run deliberately terminated, exit143; no full success claim.
+- lemmas/CompleteSeededMatch.lean: assembled closed semantic result; full file was not compiled before lease loss.
+- finite/PackedBaseline.lean: generated native cap14 forest packing; no Lean validation run.
+
+Native computations only:
+- seeded_match.cpp exhausts at most4 added gates, including all4 intermediate OR seeds; not Lean checked.
+- signed9/15 SAT: UNKNOWN at300.14s wall,201.78s CPU; encoder sanity passed; full logs retained.
+- Live cap14 baseline: UNSAT in5.634s,1530states, maxdepth7, max18rules/node; not Lean checked.
+- Live cap15: UNKNOWN after300.116s,74359closedstates, maxdepth9, max20rules/node. Full14,289,905-byte record and stdout/stderr retained as live15-first.*. This is not a global UNSAT certificate.
+
+Resume notes:
+- live_search.py does not yet implement a resume loader. Reconstruct memo keys from each saved prefix and live-wire set, retaining each node witness; then replay from the root to recover the open frontier.
+- Additional all512-row positive/negative collision witnesses could strengthen the sampled separation test. Current768 slots contain274 unique pairs. This enhancement was planned, not implemented.
+- Depth9 may require changing packed source indices from4 to5 bits.
+- Source hashes, sizes, and exact status classifications are recorded in source-manifest.json.
+
+The full posted L-meta-2592 statement remains unproved. No proof PR is supported by these finite artifacts alone.

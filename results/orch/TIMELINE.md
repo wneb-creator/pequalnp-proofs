@@ -40,3 +40,5 @@
 2026-11-25T14:37:33.657182+00:00 Strategy re-plan: unconstrained heuristic searches closed; effort moved to weighted sole-reader normalization and the reconstructed cap15 forest. Full seeded certificate checked, full Petersen theorem still open.
 
 2026-11-25T14:40:18.958221+00:00 Unexpected deskHTTP410 confirmed with curl-si. Paused new builds/searches; preserving all reviewed compiled partials before re-requesting as user instructed. No full proof.
+
+2026-11-25T14:43:28.406270+00:00 Final preservation: recovery and permittedretry both returned existing other-pilot L2583lease withfive-gapcap. Explicitdeskstopcondition reached; no otherlease touched. Finalcompiled/researchartifacts saved; fullgoal incomplete.
