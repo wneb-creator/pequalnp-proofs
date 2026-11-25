@@ -1,3 +1,5 @@
+import Mathlib.Data.List.Basic
+import Mathlib.Data.Nat.Bitwise
 import Mathlib.Data.Fin.Basic
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Fintype.EquivFin
@@ -5551,6 +5553,932 @@ lemma one_center_code_stars_exact {D : Dag} (h : StrictLive 10 D)
 
 end NeighborCover
 
+namespace NeighborCover
+
+open DagTools
+
+lemma assigned_below_target {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    {pos : V → ℕ × Bool} (hp : k4_Pos 10 adj D pos)
+    (he : sem_W 10 D (0 : V) = J.image pos) {i : V} (hiJ : i ∈ J) :
+    ∀ x : V → Bool, val D x (10 + (pos i).1) = true → sem_Edge adj x := by
+  have hgate := (hp.1 i (hi hiJ)).1
+  have hsource := (hp.1 i (hi hiJ)).2.2.2
+  have hmem : i ∈ supp 10 D (src D (sem_bar (pos i))) := by
+    rw [show sem_bar (pos i) = ((pos i).1, !(pos i).2) from rfl, hsource]
+    exact Finset.mem_singleton_self i
+  have hchain := sem_inelig_chain h.1 (hi hiJ) hmem
+  have hreach : Relation.ReflTransGen (sem_step 10 D) i.val (10 + (pos i).1) :=
+    Relation.ReflTransGen.tail (sem_rtg_mono (fun _ _ hp => hp.1) hchain)
+      (sem_step_src hgate (!(pos i).2))
+  have propagate : ∀ w, Relation.ReflTransGen (sem_step 10 D) (10 + (pos i).1) w →
+      ∀ x : V → Bool, val D x (10 + (pos i).1) = true → val D x w = true := by
+    intro w path x hval
+    induction path with
+    | refl => exact hval
+    | @tail w v path step ih =>
+      obtain ⟨g, s, hg, rfl, rfl⟩ := sem_step_iff.mp step
+      have hor : tag D g = false := by
+        by_contra bad
+        have hand : tag D g = true := by
+          rwa [Bool.not_eq_false] at bad
+        have hchi := sem_noempty_unique graph_ok h hc hz (hi hiJ) (hreach.trans path)
+        have hchi' : sem_Chain 10 D i.val (src D (g, !(!s))) := by simpa using hchi
+        have heq := center_chain_assigned h hc hz hi hp he hiJ hg hand hchi'
+        have hgeq : g = (pos i).1 := congrArg Prod.fst heq
+        have hle := sem_rtg_le h.1 (fun _ _ ht => ht) path
+        have hlt := sem_src_lt h.1 hg s
+        omega
+      rw [sem_val_gate_src h.1 x hg s, hor, gop_false, ih]
+      rfl
+  intro x hx
+  exact (hc x).mp (propagate (outW 10 D) (live_reaches_out h _ (by omega)) x hx)
+
+lemma one_center_code_stars_below_target {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1) :
+    ∃ pos : V → ℕ × Bool, k4_Pos 10 adj D pos ∧
+      ∀ i ∈ J, ∀ x : V → Bool, val D x (10 + (pos i).1) = true → sem_Edge adj x := by
+  obtain ⟨pos, hp, he, _, _⟩ := one_center_code_data h hc hi b hb hcode
+  exact ⟨pos, hp, fun i hiJ => assigned_below_target h hc hz hi hp he hiJ⟩
+
+end NeighborCover
+
+namespace NeighborCover
+
+open DagTools
+
+lemma two_stars_omit : ∀ c : V, c ≠ 0 →
+    ∃ i ∈ J, ∃ j ∈ J, i ≠ j ∧ ¬ adj i c ∧ ¬ adj j c := by
+  decide +kernel
+
+lemma sole_center_unit_pure {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1)
+    {u : Σ _ : ℕ, ℕ} (hu : u ∈ residualUnits 10 D b)
+    (hu0 : (0 : V) ∈ supp 10 D u.1) : supp 10 D u.1 = {0} := by
+  classical
+  obtain ⟨_, _, _, _, hcard⟩ := one_center_code_data h hc hi b hb hcode
+  have hum : u ∈ code D b 0 := Finset.mem_filter.mpr ⟨hu, hu0⟩
+  obtain ⟨q, hq⟩ := Finset.card_eq_one.mp hcard
+  have huq : u = q := by rwa [hq, Finset.mem_singleton] at hum
+  have hsingle : code D b 0 = {u} := by rwa [huq]
+  have huunit : u ∈ units 10 D :=
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hu).1).1
+  have hfan := (mem_units.mp huunit).2
+  have h0elig : (0 : V) ∈ eligSet 10 D :=
+    mem_eligSet.mpr ⟨u.1, by omega, hu0⟩
+  obtain ⟨pos, hp, hexact⟩ := one_center_code_stars_exact h hc hz hi b hb hcode
+  refine Finset.Subset.antisymm ?_ (Finset.singleton_subset_iff.mpr hu0)
+  intro c hcu
+  rw [Finset.mem_singleton]
+  by_contra hc0
+  have hres : ∀ v ∈ residualUnits 10 D b, (0 : V) ∈ supp 10 D v.1 → c ∈ supp 10 D v.1 := by
+    intro v hv hv0
+    have hvm : v ∈ code D b 0 := Finset.mem_filter.mpr ⟨hv, hv0⟩
+    rw [hsingle, Finset.mem_singleton] at hvm
+    simpa only [hvm] using hcu
+  obtain ⟨e0, he0⟩ := ri_gen graph_ok h hc b hb (Ne.symm hc0) h0elig hres ⟨hu0, hcu⟩
+  obtain ⟨i, hiJ, j, hjJ, hij, hic, hjc⟩ := two_stars_omit c hc0
+  obtain ⟨hsub, _⟩ := center_three_exits hi hp
+  have he_i : pos i ∈ sem_W 10 D (0 : V) := hsub (Finset.mem_image.mpr ⟨i, hiJ, rfl⟩)
+  have he_j : pos j ∈ sem_W 10 D (0 : V) := hsub (Finset.mem_image.mpr ⟨j, hjJ, rfl⟩)
+  have hne : pos i ≠ pos j := fun he => hij (hp.2 i (hi hiJ) j (hi hjJ) he)
+  by_cases hie : pos i = e0
+  · have hje : pos j ≠ e0 := fun hje => hne (hie.trans hje.symm)
+    exact hjc ((hexact j hjJ c).mp (he0 (pos j) he_j hje))
+  · exact hic ((hexact i hiJ c).mp (he0 (pos i) he_i hie))
+
+lemma center_positive_branch_pure {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) (hcode : (code D b 0).card ≤ 1)
+    {w : ℕ} (hw : 2 ≤ fanout D w) (hw0 : (0 : V) ∈ supp 10 D w) :
+    supp 10 D w = {0} := by
+  classical
+  let u : Σ _ : ℕ, ℕ := ⟨w, 0⟩
+  have hinner : w ∈ inner 10 D := by
+    rw [inner, Finset.mem_range]
+    have hlt := lt_of_fanout_pos h.1 (show 1 ≤ fanout D w by omega)
+    omega
+  have huunit : u ∈ unitsPlus 10 D := Finset.mem_filter.mpr
+    ⟨mem_units.mpr ⟨hinner, by change 0 + 1 < fanout D w; omega⟩, ⟨0, hw0⟩⟩
+  by_cases hres : u ∈ residualUnits 10 D b
+  · exact sole_center_unit_pure h hc hz hi b hb hcode hres hw0
+  · have hreserved : u ∈ reservedUnits 10 D b := by
+      by_contra bad
+      exact hres (Finset.mem_sdiff.mpr ⟨huunit, bad⟩)
+    obtain ⟨v, hv, heq⟩ := Finset.mem_image.mp hreserved
+    have hvw : b v = w := congrArg Sigma.fst heq
+    have hpure := (hb v hv).2
+    rw [hvw] at hpure
+    have h0v : (0 : V) = v := by rwa [hpure, Finset.mem_singleton] at hw0
+    simpa only [← h0v] using hpure
+
+end NeighborCover
+
 end I3Branch
+
+namespace ResidualFour
+
+def initial : List Nat := [57, 131, 86, 164, 200, 189, 222, 236]
+
+def target : Nat := 15
+
+def pairs : List Nat → List Nat
+  | [] => []
+  | a :: rest => rest.flatMap (fun b => [a &&& b, a ||| b]) ++ pairs rest
+
+def fresh (w : List Nat) : List Nat :=
+  ((pairs w).filter (fun v => !(w.contains v))).eraseDups
+
+def search : Nat → List Nat → Bool
+  | 0, w => w.contains target
+  | 1, w => w.contains target || (pairs w).contains target
+  | k + 2, w => w.contains target || (fresh w).any (fun v => search (k + 1) (v :: w))
+
+def combine (op : Bool) (a b : Nat) : Nat := if op then a ||| b else a &&& b
+
+lemma combine_comm (op : Bool) (a b : Nat) : combine op a b = combine op b a := by
+  cases op <;> simp [combine, Nat.land_comm, Nat.lor_comm]
+
+lemma combine_self (op : Bool) (a : Nat) : combine op a a = a := by
+  cases op <;> simp [combine]
+
+lemma pair_or_existing (w : List Nat) (op : Bool) (a b : Nat)
+    (ha : a ∈ w) (hb : b ∈ w) : combine op a b ∈ pairs w ∨ combine op a b ∈ w := by
+  induction w with
+  | nil => simp at ha
+  | cons c rest ih =>
+    rcases List.mem_cons.mp ha with rfl | har
+    · rcases List.mem_cons.mp hb with rfl | hbr
+      · exact Or.inr (by simp [combine_self])
+      · apply Or.inl
+        simp only [pairs, List.mem_append, List.mem_flatMap]
+        apply Or.inl
+        refine ⟨b, hbr, ?_⟩
+        cases op <;> simp [combine]
+    · rcases List.mem_cons.mp hb with rfl | hbr
+      · apply Or.inl
+        rw [combine_comm]
+        simp only [pairs, List.mem_append, List.mem_flatMap]
+        apply Or.inl
+        refine ⟨a, har, ?_⟩
+        cases op <;> simp [combine]
+      · rcases ih har hbr with hp | hw
+        · exact Or.inl (List.mem_append_right _ hp)
+        · exact Or.inr (List.mem_cons_of_mem c hw)
+
+lemma mem_fresh (w : List Nat) (v : Nat) :
+    v ∈ fresh w ↔ v ∈ pairs w ∧ v ∉ w := by
+  simp [fresh]
+
+lemma search_of_mem (k : Nat) (w : List Nat) (h : target ∈ w) : search k w = true := by
+  cases k with
+  | zero => simpa [search] using h
+  | succ k =>
+    cases k with
+    | zero => simp [search, h]
+    | succ k => simp [search, h]
+
+lemma search_mono (k : Nat) (w : List Nat) : search k w = true → search (k + 1) w = true := by
+  induction k using Nat.twoStepInduction generalizing w with
+  | zero =>
+    intro h
+    simp only [search, Bool.or_eq_true] at *
+    exact Or.inl h
+  | one =>
+    intro h
+    simp only [search, Bool.or_eq_true] at h ⊢
+    rcases h with h | h
+    · exact Or.inl h
+    · by_cases hm : target ∈ w
+      · exact Or.inl (by simpa using hm)
+      · apply Or.inr
+        rw [List.any_eq_true]
+        refine ⟨target, (mem_fresh w target).mpr ⟨by simpa using h, hm⟩, ?_⟩
+        exact search_of_mem 1 (target :: w) List.mem_cons_self
+  | more k ih0 ih1 =>
+    intro h
+    simp only [search, Bool.or_eq_true] at h ⊢
+    rcases h with h | h
+    · exact Or.inl h
+    · apply Or.inr
+      rw [List.any_eq_true] at h ⊢
+      obtain ⟨v, hv, hs⟩ := h
+      exact ⟨v, hv, ih1 _ hs⟩
+
+def CanMake : Nat → List Nat → Prop
+  | 0, w => target ∈ w
+  | k + 1, w => target ∈ w ∨
+      ∃ op : Bool, ∃ a ∈ w, ∃ b ∈ w, CanMake k (combine op a b :: w)
+
+lemma canMake_mono_list (k : Nat) (w z : List Nat) (hsub : w ⊆ z) :
+    CanMake k w → CanMake k z := by
+  induction k generalizing w z with
+  | zero =>
+    intro h
+    exact hsub h
+  | succ k ih =>
+    intro h
+    rcases h with h | ⟨op, a, ha, b, hb, h⟩
+    · exact Or.inl (hsub h)
+    · refine Or.inr ⟨op, a, hsub ha, b, hsub hb, ih _ _ ?_ h⟩
+      intro v hv
+      rcases List.mem_cons.mp hv with rfl | hv
+      · simp
+      · exact List.mem_cons_of_mem _ (hsub hv)
+
+lemma search_complete (k : Nat) (w : List Nat) (h : CanMake k w) : search k w = true := by
+  induction k using Nat.twoStepInduction generalizing w with
+  | zero => exact search_of_mem 0 w h
+  | one =>
+    rcases h with h | ⟨op, a, ha, b, hb, h⟩
+    · exact search_of_mem 1 w h
+    · change target ∈ combine op a b :: w at h
+      rcases List.mem_cons.mp h with he | h
+      · rcases pair_or_existing w op a b ha hb with hp | hm
+        · simp only [search, Bool.or_eq_true]
+          exact Or.inr (by simpa using (he.symm ▸ hp : target ∈ pairs w))
+        · exact search_of_mem 1 w (he ▸ hm)
+      · exact search_of_mem 1 w h
+  | more k ih0 ih1 =>
+    rcases h with h | ⟨op, a, ha, b, hb, h⟩
+    · exact search_of_mem _ w h
+    · let v := combine op a b
+      have hc : CanMake (k + 1) (v :: w) := h
+      by_cases hm : v ∈ w
+      · have hs : v :: w ⊆ w := by
+          intro x hx
+          rcases List.mem_cons.mp hx with rfl | hx
+          · exact hm
+          · exact hx
+        exact search_mono _ _ (ih1 _ (canMake_mono_list _ _ _ hs hc))
+      · have hp : v ∈ pairs w := (pair_or_existing w op a b ha hb).resolve_right hm
+        simp only [search, Bool.or_eq_true]
+        apply Or.inr
+        rw [List.any_eq_true]
+        exact ⟨v, (mem_fresh w v).mpr ⟨hp, hm⟩, ih1 _ hc⟩
+
+def pack : List Bool → Nat
+  | [] => 0
+  | b :: bs => Nat.bit b (pack bs)
+
+lemma pack_and (a b : List Bool) (hl : a.length = b.length) :
+    pack (List.zipWith Bool.and a b) = pack a &&& pack b := by
+  induction a generalizing b with
+  | nil =>
+    cases b with
+    | nil => rfl
+    | cons c cs => simp at hl
+  | cons c cs ih =>
+    cases b with
+    | nil => simp at hl
+    | cons d ds =>
+      have ht : cs.length = ds.length := Nat.succ.inj hl
+      simp [List.zipWith, pack, Nat.land_bit, ih ds ht]
+
+lemma pack_or (a b : List Bool) (hl : a.length = b.length) :
+    pack (List.zipWith Bool.or a b) = pack a ||| pack b := by
+  induction a generalizing b with
+  | nil =>
+    cases b with
+    | nil => rfl
+    | cons c cs => simp at hl
+  | cons c cs ih =>
+    cases b with
+    | nil => simp at hl
+    | cons d ds =>
+      have ht : cs.length = ds.length := Nat.succ.inj hl
+      simp [List.zipWith, pack, Nat.lor_bit, ih ds ht]
+
+def sample (r : Fin 8) (v : Fin 5) : Bool :=
+  ([3, 6, 12, 17, 5, 9, 20, 26].getD r.val 0).testBit v.val
+
+abbrev Func := (Fin 5 → Bool) → Bool
+
+def word (f : Func) : Nat := pack (List.ofFn (fun r : Fin 8 => f (sample r)))
+
+lemma word_and (f g : Func) : word (fun x => f x && g x) = word f &&& word g := by
+  have hz : List.ofFn (fun r : Fin 8 => f (sample r) && g (sample r)) =
+      List.zipWith Bool.and (List.ofFn (fun r : Fin 8 => f (sample r)))
+        (List.ofFn (fun r : Fin 8 => g (sample r))) := rfl
+  unfold word
+  rw [hz]
+  exact pack_and _ _ (by simp)
+
+lemma word_or (f g : Func) : word (fun x => f x || g x) = word f ||| word g := by
+  have hz : List.ofFn (fun r : Fin 8 => f (sample r) || g (sample r)) =
+      List.zipWith Bool.or (List.ofFn (fun r : Fin 8 => f (sample r)))
+        (List.ofFn (fun r : Fin 8 => g (sample r))) := rfl
+  unfold word
+  rw [hz]
+  exact pack_or _ _ (by simp)
+
+def fcombine (op : Bool) (f g : Func) : Func :=
+  fun x => if op then f x || g x else f x && g x
+
+lemma word_combine (op : Bool) (f g : Func) :
+    word (fcombine op f g) = combine op (word f) (word g) := by
+  cases op
+  · exact word_and f g
+  · exact word_or f g
+
+def desired : Func := fun x =>
+  (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 0 && x 4)
+
+def inputs : List Func :=
+  [fun x => x 0, fun x => x 1, fun x => x 2, fun x => x 3, fun x => x 4,
+   fun x => x 0 || x 3, fun x => x 2 || x 4, fun x => x 3 || x 4]
+
+lemma word_desired : word desired = target := by decide +kernel
+
+lemma word_inputs : inputs.map word = initial := by decide +kernel
+
+def FnCanMake : Nat → List Func → Prop
+  | 0, w => desired ∈ w
+  | k + 1, w => desired ∈ w ∨
+      ∃ op : Bool, ∃ f ∈ w, ∃ g ∈ w, FnCanMake k (fcombine op f g :: w)
+
+lemma word_simulation (k : Nat) (w : List Func) (h : FnCanMake k w) :
+    CanMake k (w.map word) := by
+  induction k generalizing w with
+  | zero =>
+    change target ∈ w.map word
+    rw [← word_desired]
+    exact List.mem_map.mpr ⟨desired, h, rfl⟩
+  | succ k ih =>
+    rcases h with h | ⟨op, f, hf, g, hg, h⟩
+    · apply Or.inl
+      rw [← word_desired]
+      exact List.mem_map.mpr ⟨desired, h, rfl⟩
+    · refine Or.inr ⟨op, word f, List.mem_map.mpr ⟨f, hf, rfl⟩,
+        word g, List.mem_map.mpr ⟨g, hg, rfl⟩, ?_⟩
+      simpa only [List.map_cons, word_combine] using ih _ h
+
+lemma five_functions_suffice : FnCanMake 5 inputs := by
+  let a : Func := fun x => x 0
+  let b : Func := fun x => x 1
+  let c : Func := fun x => x 2
+  let q : Func := fun x => x 0 || x 3
+  let r : Func := fun x => x 2 || x 4
+  let s : Func := fun x => x 3 || x 4
+  let t1 := fcombine true a c
+  let t2 := fcombine false q r
+  let t3 := fcombine false t2 s
+  let t4 := fcombine true b t3
+  let t5 := fcombine false t1 t4
+  have he : t5 = desired := by
+    funext x
+    cases h0 : x 0 <;> cases h1 : x 1 <;> cases h2 : x 2 <;>
+      cases h3 : x 3 <;> cases h4 : x 4 <;>
+      simp [t5, t4, t3, t2, t1, a, b, c, q, r, s, fcombine, desired, h0, h1, h2, h3, h4]
+  refine Or.inr ⟨true, a, ?_, c, ?_, ?_⟩
+  · simp [a, inputs]
+  · simp [c, inputs]
+  change FnCanMake 4 (t1 :: inputs)
+  refine Or.inr ⟨false, q, ?_, r, ?_, ?_⟩
+  · simp [q, inputs]
+  · simp [r, inputs]
+  change FnCanMake 3 (t2 :: t1 :: inputs)
+  refine Or.inr ⟨false, t2, List.mem_cons_self, s, ?_, ?_⟩
+  · simp [s, inputs]
+  change FnCanMake 2 (t3 :: t2 :: t1 :: inputs)
+  refine Or.inr ⟨true, b, ?_, t3, List.mem_cons_self, ?_⟩
+  · simp [b, inputs]
+  change FnCanMake 1 (t4 :: t3 :: t2 :: t1 :: inputs)
+  refine Or.inr ⟨false, t1, ?_, t4, List.mem_cons_self, ?_⟩
+  · simp
+  change desired ∈ t5 :: t4 :: t3 :: t2 :: t1 :: inputs
+  exact List.mem_cons.mpr (Or.inl he.symm)
+
+def zeroFunc : Func := fun _ => false
+
+def oneFunc : Func := fun _ => true
+
+lemma desired_ne_zero : desired ≠ zeroFunc := by
+  intro h
+  have hc := congrFun h (fun _ => true)
+  simp [desired, zeroFunc] at hc
+
+lemma desired_ne_one : desired ≠ oneFunc := by
+  intro h
+  have hc := congrFun h (fun _ => false)
+  simp [desired, oneFunc] at hc
+
+lemma fn_mono_list (k : Nat) (w z : List Func) (hsub : w ⊆ z) :
+    FnCanMake k w → FnCanMake k z := by
+  induction k generalizing w z with
+  | zero =>
+    intro h
+    exact hsub h
+  | succ k ih =>
+    intro h
+    rcases h with h | ⟨op, f, hf, g, hg, h⟩
+    · exact Or.inl (hsub h)
+    · refine Or.inr ⟨op, f, hsub hf, g, hsub hg, ih _ _ ?_ h⟩
+      intro v hv
+      rcases List.mem_cons.mp hv with rfl | hv
+      · exact List.mem_cons_self
+      · exact List.mem_cons_of_mem _ (hsub hv)
+
+lemma fn_mono_budget (k : Nat) (w : List Func) : FnCanMake k w → FnCanMake (k + 1) w := by
+  induction k generalizing w with
+  | zero => exact Or.inl
+  | succ k ih =>
+    intro h
+    rcases h with h | ⟨op, f, hf, g, hg, h⟩
+    · exact Or.inl h
+    · exact Or.inr ⟨op, f, hf, g, hg, ih _ h⟩
+
+lemma combine_zero_left (op : Bool) (g : Func) :
+    fcombine op zeroFunc g = if op then g else zeroFunc := by
+  cases op <;> funext x <;> simp [fcombine, zeroFunc]
+
+lemma combine_one_left (op : Bool) (g : Func) :
+    fcombine op oneFunc g = if op then oneFunc else g := by
+  cases op <;> funext x <;> simp [fcombine, oneFunc]
+
+lemma combine_zero_right (op : Bool) (f : Func) :
+    fcombine op f zeroFunc = if op then f else zeroFunc := by
+  cases op <;> funext x <;> simp [fcombine, zeroFunc]
+
+lemma combine_one_right (op : Bool) (f : Func) :
+    fcombine op f oneFunc = if op then oneFunc else f := by
+  cases op <;> funext x <;> simp [fcombine, oneFunc]
+
+lemma constant_combination (op : Bool) (f g : Func) (w : List Func)
+    (hf : f ∈ zeroFunc :: oneFunc :: w) (hg : g ∈ zeroFunc :: oneFunc :: w)
+    (hnot : ¬ (f ∈ w ∧ g ∈ w)) : fcombine op f g ∈ zeroFunc :: oneFunc :: w := by
+  rcases List.mem_cons.mp hf with rfl | hf
+  · rw [combine_zero_left]
+    cases op
+    · exact List.mem_cons_self
+    · exact hg
+  · rcases List.mem_cons.mp hf with rfl | hf
+    · rw [combine_one_left]
+      cases op
+      · exact hg
+      · exact List.mem_cons_of_mem _ List.mem_cons_self
+    · have hf' : f ∈ zeroFunc :: oneFunc :: w :=
+        List.mem_cons_of_mem _ (List.mem_cons_of_mem _ hf)
+      rcases List.mem_cons.mp hg with rfl | hg
+      · rw [combine_zero_right]
+        cases op
+        · exact List.mem_cons_self
+        · exact hf'
+      · rcases List.mem_cons.mp hg with rfl | hg
+        · rw [combine_one_right]
+          cases op
+          · exact hf'
+          · exact List.mem_cons_of_mem _ List.mem_cons_self
+        · exact False.elim (hnot ⟨hf, hg⟩)
+
+lemma remove_constants (k : Nat) (w : List Func) :
+    FnCanMake k (zeroFunc :: oneFunc :: w) → FnCanMake k w := by
+  induction k generalizing w with
+  | zero =>
+    intro h
+    change desired ∈ zeroFunc :: oneFunc :: w at h
+    change desired ∈ w
+    simpa [desired_ne_zero, desired_ne_one] using h
+  | succ k ih =>
+    intro h
+    rcases h with h | ⟨op, f, hf, g, hg, h⟩
+    · exact Or.inl (by simpa [desired_ne_zero, desired_ne_one] using h)
+    · by_cases hold : f ∈ w ∧ g ∈ w
+      · refine Or.inr ⟨op, f, hold.1, g, hold.2, ih _ ?_⟩
+        apply fn_mono_list _ _ _ ?_ h
+        intro x hx
+        simpa only [List.mem_cons, or_assoc, or_left_comm, or_comm] using hx
+      · apply fn_mono_budget k w
+        apply ih
+        apply fn_mono_list _ _ _ ?_ h
+        intro x hx
+        rcases List.mem_cons.mp hx with rfl | hx
+        · exact constant_combination op f g w hf hg hold
+        · exact hx
+
+
+def compatible (op : Bool) (a : Nat) : Bool :=
+  if op then a ||| target == target else a &&& target == target
+
+def terminal (w : List Nat) : Bool :=
+  w.contains target ||
+    (pairs (w.filter (compatible false))).contains target ||
+    (pairs (w.filter (compatible true))).contains target
+
+def fastSearch : Nat → List Nat → Bool
+  | 0, w => w.contains target
+  | 1, w => terminal w
+  | k + 2, w => w.contains target || (fresh w).any (fun v => fastSearch (k + 1) (v :: w))
+
+lemma mem_pairs (y : Nat) (w : List Nat) (hy : y ∈ pairs w) :
+    ∃ op : Bool, ∃ a ∈ w, ∃ b ∈ w, y = combine op a b := by
+  induction w with
+  | nil => simp [pairs] at hy
+  | cons a rest ih =>
+    simp only [pairs, List.mem_append, List.mem_flatMap] at hy
+    rcases hy with ⟨b, hb, h⟩ | h
+    · simp only [List.mem_cons, List.not_mem_nil, or_false] at h
+      rcases h with h | h
+      · exact ⟨false, a, List.mem_cons_self, b, List.mem_cons_of_mem _ hb, h⟩
+      · exact ⟨true, a, List.mem_cons_self, b, List.mem_cons_of_mem _ hb, h⟩
+    · obtain ⟨op, a, ha, b, hb, h⟩ := ih h
+      exact ⟨op, a, List.mem_cons_of_mem _ ha, b, List.mem_cons_of_mem _ hb, h⟩
+
+lemma compatible_of_combine (op : Bool) (a b : Nat) (h : combine op a b = target) :
+    compatible op a = true := by
+  cases op
+  · change (a &&& target == target) = true
+    apply beq_iff_eq.mpr
+    change a &&& b = target at h
+    rw [← h, ← Nat.land_assoc]
+    simp
+  · change (a ||| target == target) = true
+    apply beq_iff_eq.mpr
+    change a ||| b = target at h
+    rw [← h, ← Nat.lor_assoc]
+    simp
+
+lemma terminal_complete (w : List Nat) (h : search 1 w = true) : terminal w = true := by
+  simp only [search, Bool.or_eq_true] at h
+  rcases h with h | h
+  · simp only [terminal, Bool.or_eq_true]
+    exact Or.inl (Or.inl h)
+  · have hm : target ∈ pairs w := by simpa using h
+    obtain ⟨op, a, ha, b, hb, he⟩ := mem_pairs target w hm
+    have haa : a ∈ w.filter (compatible op) := List.mem_filter.mpr
+      ⟨ha, compatible_of_combine op a b he.symm⟩
+    have hbb : b ∈ w.filter (compatible op) := List.mem_filter.mpr
+      ⟨hb, compatible_of_combine op b a (by rw [combine_comm]; exact he.symm)⟩
+    rcases pair_or_existing _ op a b haa hbb with hh | hh
+    · rw [← he] at hh
+      cases op
+      · have hh' : (pairs (w.filter (compatible false))).contains target = true := by
+          simpa using hh
+        simp only [terminal, Bool.or_eq_true]
+        exact Or.inl (Or.inr hh')
+      · have hh' : (pairs (w.filter (compatible true))).contains target = true := by
+          simpa using hh
+        simp only [terminal, Bool.or_eq_true]
+        exact Or.inr hh'
+    · rw [← he] at hh
+      have hh' : w.contains target = true := by
+        simpa using (List.mem_filter.mp hh).1
+      simp only [terminal, Bool.or_eq_true]
+      exact Or.inl (Or.inl hh')
+
+lemma search_to_fast (k : Nat) (w : List Nat) :
+    search k w = true → fastSearch k w = true := by
+  induction k using Nat.twoStepInduction generalizing w with
+  | zero => exact id
+  | one => exact terminal_complete w
+  | more k ih0 ih1 =>
+    intro h
+    simp only [search, fastSearch, Bool.or_eq_true] at h ⊢
+    rcases h with h | h
+    · exact Or.inl h
+    · apply Or.inr
+      rw [List.any_eq_true] at h ⊢
+      obtain ⟨v, hv, hh⟩ := h
+      exact ⟨v, hv, ih1 _ hh⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_0 : fastSearch 3 (1 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_1 : fastSearch 3 (187 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_2 : fastSearch 3 (16 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_3 : fastSearch 3 (127 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_4 : fastSearch 3 (32 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_5 : fastSearch 3 (8 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_6 : fastSearch 3 (249 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_7 : fastSearch 3 (24 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_8 : fastSearch 3 (255 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_9 : fastSearch 3 (40 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_10 : fastSearch 3 (253 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_11 : fastSearch 3 (2 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_12 : fastSearch 3 (215 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_13 : fastSearch 3 (128 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_14 : fastSearch 3 (167 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_15 : fastSearch 3 (203 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_16 : fastSearch 3 (129 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_17 : fastSearch 3 (191 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_18 : fastSearch 3 (130 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_19 : fastSearch 3 (223 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_20 : fastSearch 3 (239 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_21 : fastSearch 3 (4 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_22 : fastSearch 3 (246 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_23 : fastSearch 3 (64 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_24 : fastSearch 3 (20 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_25 : fastSearch 3 (68 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_26 : fastSearch 3 (254 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_27 : fastSearch 3 (132 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_28 : fastSearch 3 (136 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_29 : fastSearch 3 (156 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_30 : fastSearch 3 (172 :: initial) = false := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma first_31 : fastSearch 3 (204 :: initial) = false := by
+  decide +kernel
+
+lemma fast_four_false : fastSearch 4 initial = false := by
+  have hinit : initial.contains target = false := by decide +kernel
+  have hfresh : fresh initial = [1, 187, 16, 127, 32, 8, 249, 24, 255, 40, 253, 2, 215, 128, 167, 203, 129, 191, 130, 223, 239, 4, 246, 64, 20, 68, 254, 132, 136, 156, 172, 204] := by decide +kernel
+  rw [fastSearch, hinit, hfresh]
+  simp only [Nat.reduceAdd, List.any_cons, List.any_nil, first_0, first_1, first_2, first_3, first_4, first_5, first_6, first_7, first_8, first_9, first_10, first_11, first_12, first_13, first_14, first_15, first_16, first_17, first_18, first_19, first_20, first_21, first_22, first_23, first_24, first_25, first_26, first_27, first_28, first_29, first_30, first_31, Bool.false_or]
+
+lemma no_four : ¬ CanMake 4 initial := by
+  intro h
+  have hc := search_to_fast 4 initial (search_complete 4 initial h)
+  rw [fast_four_false] at hc
+  exact Bool.false_ne_true hc
+
+lemma no_four_functions : ¬ FnCanMake 4 inputs := by
+  intro h
+  apply no_four
+  simpa only [word_inputs] using word_simulation 4 inputs h
+
+lemma exact_five : ¬ FnCanMake 4 inputs ∧ FnCanMake 5 inputs :=
+  ⟨no_four_functions, five_functions_suffice⟩
+
+lemma no_four_with_constants : ¬ FnCanMake 4 (zeroFunc :: oneFunc :: inputs) := by
+  intro h
+  exact no_four_functions (remove_constants 4 inputs h)
+
+lemma exact_five_with_constants :
+    ¬ FnCanMake 4 (zeroFunc :: oneFunc :: inputs) ∧
+      FnCanMake 5 (zeroFunc :: oneFunc :: inputs) := by
+  refine ⟨no_four_with_constants, fn_mono_list 5 inputs _ ?_ five_functions_suffice⟩
+  intro f hf
+  exact List.mem_cons_of_mem _ (List.mem_cons_of_mem _ hf)
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def gateFunction (w : List Func) (g : Gate) : Func :=
+  fun x => g.op.eval (g.inputs.map fun i => (w.getD i zeroFunc) x)
+
+def wireFunctions (gs : List Gate) (w : List Func) : List Func :=
+  gs.foldl (fun z g => z ++ [gateFunction z g]) w
+
+lemma get_function_mem (w : List Func) (i : Nat) :
+    w.getD i zeroFunc ∈ zeroFunc :: oneFunc :: w := by
+  induction w generalizing i with
+  | nil => simp
+  | cons f fs ih =>
+    cases i with
+    | zero => simp
+    | succ i =>
+      have h := ih i
+      simp only [List.getD_cons_succ, List.mem_cons] at h ⊢
+      rcases h with h | h | h
+      · exact Or.inl h
+      · exact Or.inr (Or.inl h)
+      · exact Or.inr (Or.inr (Or.inr h))
+
+lemma gate_as_pair (w : List Func) (g : Gate)
+    (hop : g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp)) (hsize : g.inputs.length ≤ 2) :
+    ∃ op : Bool, ∃ f ∈ zeroFunc :: oneFunc :: w,
+      ∃ h ∈ zeroFunc :: oneFunc :: w, gateFunction w g = fcombine op f h := by
+  rcases g with ⟨op, ins⟩
+  change op = GateOp.and ∨ op = GateOp.or at hop
+  cases ins with
+  | nil =>
+    rcases hop with rfl | rfl
+    · refine ⟨false, oneFunc, by simp, oneFunc, by simp, ?_⟩
+      rfl
+    · refine ⟨true, zeroFunc, by simp, zeroFunc, by simp, ?_⟩
+      rfl
+  | cons a rest =>
+    cases rest with
+    | nil =>
+      refine ⟨false, w.getD a zeroFunc, get_function_mem w a,
+        w.getD a zeroFunc, get_function_mem w a, ?_⟩
+      funext x
+      rcases hop with rfl | rfl <;> simp [gateFunction, GateOp.eval, fcombine]
+    | cons b rest =>
+      cases rest with
+      | cons c rest => simp at hsize
+      | nil =>
+        rcases hop with rfl | rfl
+        · refine ⟨false, w.getD a zeroFunc, get_function_mem w a,
+            w.getD b zeroFunc, get_function_mem w b, ?_⟩
+          funext x
+          simp [gateFunction, GateOp.eval, fcombine]
+        · refine ⟨true, w.getD a zeroFunc, get_function_mem w a,
+            w.getD b zeroFunc, get_function_mem w b, ?_⟩
+          funext x
+          simp [gateFunction, GateOp.eval, fcombine]
+
+lemma functions_can_make (gs : List Gate) (w : List Func)
+    (hmono : ∀ g ∈ gs, g.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (hm : desired ∈ zeroFunc :: oneFunc :: wireFunctions gs w) :
+    FnCanMake gs.length (zeroFunc :: oneFunc :: w) := by
+  induction gs generalizing w with
+  | nil => exact hm
+  | cons g gs ih =>
+    have hg := hmono g (List.mem_cons_self)
+    obtain ⟨op, f, hf, h, hh, he⟩ := gate_as_pair w g hg.1 hg.2
+    have ht := ih (w ++ [gateFunction w g])
+      (fun g hg => hmono g (List.mem_cons_of_mem _ hg)) hm
+    change FnCanMake (gs.length + 1) (zeroFunc :: oneFunc :: w)
+    refine Or.inr ⟨op, f, hf, h, hh, fn_mono_list _ _ _ ?_ ht⟩
+    intro a ha
+    simp only [List.mem_cons, List.mem_append, List.not_mem_nil, or_false] at ha ⊢
+    rcases ha with rfl | rfl | ha | ha
+    · exact Or.inr (Or.inl rfl)
+    · exact Or.inr (Or.inr (Or.inl rfl))
+    · exact Or.inr (Or.inr (Or.inr ha))
+    · exact Or.inl (ha.trans he)
+
+lemma get_function_eval (w : List Func) (i : Nat) (x : Fin 5 → Bool) :
+    (w.getD i zeroFunc) x = (w.map fun f => f x).getD i false := by
+  induction w generalizing i with
+  | nil => rfl
+  | cons f fs ih =>
+    cases i with
+    | zero => rfl
+    | succ i => exact ih i
+
+lemma wire_functions_eval (gs : List Gate) (w : List Func) (x : Fin 5 → Bool) :
+    (wireFunctions gs w).map (fun f => f x) =
+      gs.foldl (fun z g => z ++ [g.op.eval (g.inputs.map fun i => z.getD i false)])
+        (w.map fun f => f x) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [wireFunctions, List.foldl_cons]
+    rw [← wireFunctions, ih]
+    congr 1
+    simp only [List.map_append, List.map_cons, List.map_nil]
+    congr 2
+    simp only [gateFunction, get_function_eval]
+
+lemma circuit_to_functions (C : Circuit) (hC : Monotone2 C)
+    (hev : ∀ x, C.eval (inputs.map fun f => f x) = desired x) :
+    FnCanMake C.size (zeroFunc :: oneFunc :: inputs) := by
+  apply functions_can_make C.gates inputs hC
+  have he : (wireFunctions C.gates inputs).getD C.output zeroFunc = desired := by
+    funext x
+    rw [get_function_eval, wire_functions_eval]
+    exact hev x
+  rw [← he]
+  exact get_function_mem _ _
+
+lemma circuit_lower_of_no_four
+    (hn : ¬ FnCanMake 4 (zeroFunc :: oneFunc :: inputs))
+    (C : Circuit) (hC : Monotone2 C)
+    (hev : ∀ x, C.eval (inputs.map fun f => f x) = desired x) :
+    5 ≤ C.size := by
+  by_contra hsize
+  have hle : C.size ≤ 4 := by omega
+  have hmake := circuit_to_functions C hC hev
+  have hmore : ∀ d, FnCanMake (C.size + d) (zeroFunc :: oneFunc :: inputs) := by
+    intro d
+    induction d with
+    | zero => exact hmake
+    | succ d ih => exact fn_mono_budget _ _ ih
+  apply hn
+  simpa only [Nat.add_sub_of_le hle] using hmore (4 - C.size)
+
+def fiveCircuit : Circuit :=
+  { gates := [⟨.or, [0, 2]⟩, ⟨.and, [5, 6]⟩, ⟨.and, [7, 9]⟩,
+      ⟨.or, [1, 10]⟩, ⟨.and, [8, 11]⟩], output := 12 }
+
+lemma fiveCircuit_monotone : Monotone2 fiveCircuit := by
+  simp [Monotone2, fiveCircuit]
+
+lemma fiveCircuit_size : fiveCircuit.size = 5 := rfl
+
+lemma fiveCircuit_eval :
+    ∀ x, fiveCircuit.eval (inputs.map fun f => f x) = desired x := by
+  decide +kernel
+
+lemma circuit_lower_bound (C : Circuit) (hC : Monotone2 C)
+    (hev : ∀ x, C.eval (inputs.map fun f => f x) = desired x) :
+    5 ≤ C.size := circuit_lower_of_no_four no_four_with_constants C hC hev
+
+end ResidualFour
 
 end PEqualNP.Outside.L_meta_2590_aux
