@@ -1,6 +1,11 @@
 import Mathlib.Tactic.FinCases
 import Mathlib.Combinatorics.SimpleGraph.DegreeSum
 import PEqualNP.Defs
+import Mathlib.Tactic.Push
+import Mathlib.Tactic
+import Mathlib.Data.Nat.Bitwise
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Data.Finset.Card
 
 namespace PEqualNP.Outside.L_meta_3566
 
@@ -10766,5 +10771,3171 @@ lemma size_below_edge_cover_bound :
   decide
 
 end GF8Representation
+
+
+namespace AndCountHoist
+
+open PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
+
+lemma sideTrue_congr {n k : ℕ} (U B : Finset (Fin n)) (F : Finset (Fin k)) (i : Fin k)
+    (v1 v2 : Fin k → Bool) (h : ∀ j, j < i → v1 j = v2 j) :
+    sideTrue U B F i v1 = sideTrue U B F i v2 := by
+  unfold sideTrue
+  refine decide_eq_decide.mpr ?_
+  constructor
+  · rintro (hv | ⟨j, hjF, hji, hvj⟩)
+    · exact Or.inl hv
+    · exact Or.inr ⟨j, hjF, hji, by rwa [← h j hji]⟩
+  · rintro (hv | ⟨j, hjF, hji, hvj⟩)
+    · exact Or.inl hv
+    · exact Or.inr ⟨j, hjF, hji, by rwa [h j hji]⟩
+
+lemma gateValFuel_indep {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n)) :
+    ∀ (m : ℕ) (i : Fin C.size), i.val < m →
+      ∀ (d1 d2 : ℕ), i.val < d1 → i.val < d2 →
+        C.gateValFuel U d1 i = C.gateValFuel U d2 i := by
+  intro m
+  induction m with
+  | zero =>
+    intro i hi
+    exact absurd hi (Nat.not_lt_zero _)
+  | succ m ih =>
+    intro i hi d1 d2 hd1 hd2
+    rcases Nat.exists_eq_succ_of_ne_zero (by omega : d1 ≠ 0) with ⟨k1, rfl⟩
+    rcases Nat.exists_eq_succ_of_ne_zero (by omega : d2 ≠ 0) with ⟨k2, rfl⟩
+    simp only [gateValFuel]
+    have hlt : ∀ j : Fin C.size, j < i → C.gateValFuel U k1 j = C.gateValFuel U k2 j := by
+      intro j hji
+      exact ih j (by omega) k1 k2 (by omega) (by omega)
+    rw [sideTrue_congr U (C.leftVars i) (C.leftGates i) i _ _ hlt,
+        sideTrue_congr U (C.rightVars i) (C.rightGates i) i _ _ hlt]
+
+lemma gateVal_unfold {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n))
+    (i : Fin C.size) :
+    C.gateVal U i =
+      (sideTrue U (C.leftVars i) (C.leftGates i) i (C.gateVal U) &&
+       sideTrue U (C.rightVars i) (C.rightGates i) i (C.gateVal U)) := by
+  have heq : C.gateVal U i = C.gateValFuel U (i.val + 1) i :=
+    gateValFuel_indep C U C.size i i.isLt C.size (i.val + 1) i.isLt (Nat.lt_succ_self _)
+  rw [heq]
+  simp only [gateValFuel]
+  have hlt : ∀ j : Fin C.size, j < i → C.gateValFuel U i.val j = C.gateVal U j := by
+    intro j hji
+    exact gateValFuel_indep C U C.size j j.isLt i.val C.size hji j.isLt
+  rw [sideTrue_congr U (C.leftVars i) (C.leftGates i) i _ _ hlt,
+      sideTrue_congr U (C.rightVars i) (C.rightGates i) i _ _ hlt]
+
+abbrev rawHoist {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) : AndCountCircuit n where
+  size := C.size
+  leftVars := C.leftVars
+  leftGates j := if j = i then ∅ else C.leftGates j
+  rightVars := C.rightVars
+  rightGates j := if j = i then ∅ else C.rightGates j
+  outVars := C.outVars
+  outGates := C.outGates ∪ (C.leftGates i ∪ C.rightGates i)
+
+lemma rawHoist_left_subset {n : ℕ} (C : AndCountCircuit n) (i j : Fin C.size) :
+    (rawHoist C i).leftGates j ⊆ C.leftGates j := by
+  change (if j = i then ∅ else C.leftGates j) ⊆ _
+  split_ifs <;> simp
+
+lemma rawHoist_right_subset {n : ℕ} (C : AndCountCircuit n) (i j : Fin C.size) :
+    (rawHoist C i).rightGates j ⊆ C.rightGates j := by
+  change (if j = i then ∅ else C.rightGates j) ⊆ _
+  split_ifs <;> simp
+
+lemma rawHoist_wellFormed {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (hC : C.WellFormed) : (rawHoist C i).WellFormed := by
+  intro j
+  exact ⟨fun k hk => (hC j).1 k (rawHoist_left_subset C i j hk),
+    fun k hk => (hC j).2 k (rawHoist_right_subset C i j hk)⟩
+
+lemma sideTrue_mono_refs {n k : ℕ} (U B : Finset (Fin n))
+    (F F' : Finset (Fin k)) (i : Fin k) (v v' : Fin k → Bool)
+    (hF : F ⊆ F') (hv : ∀ j, j < i → v j = true → v' j = true)
+    (h : sideTrue U B F i v = true) : sideTrue U B F' i v' = true := by
+  unfold sideTrue at h ⊢
+  rw [decide_eq_true_eq] at h ⊢
+  rcases h with h | ⟨j, hjF, hji, hj⟩
+  · exact Or.inl h
+  · exact Or.inr ⟨j, hF hjF, hji, hv j hji hj⟩
+
+lemma rawHoist_fuel_le {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (U : Finset (Fin n)) : ∀ d (j : Fin C.size),
+    (rawHoist C i).gateValFuel U d j = true → C.gateValFuel U d j = true := by
+  intro d
+  induction d with
+  | zero => intro j hj; simp [gateValFuel] at hj
+  | succ d ih =>
+    intro j hj
+    simp only [gateValFuel, Bool.and_eq_true] at hj ⊢
+    exact ⟨sideTrue_mono_refs U _ _ _ j _ _ (rawHoist_left_subset C i j)
+      (fun k _ => ih k) hj.1,
+      sideTrue_mono_refs U _ _ _ j _ _ (rawHoist_right_subset C i j)
+      (fun k _ => ih k) hj.2⟩
+
+lemma rawHoist_gate_le {n : ℕ} (C : AndCountCircuit n) (i j : Fin C.size)
+    (U : Finset (Fin n)) (h : (rawHoist C i).gateVal U j = true) :
+    C.gateVal U j = true := rawHoist_fuel_le C i U C.size j h
+
+lemma rawHoist_fuel_prefix {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (U : Finset (Fin n)) : ∀ d (j : Fin C.size), j < i →
+    (rawHoist C i).gateValFuel U d j = C.gateValFuel U d j := by
+  intro d
+  induction d with
+  | zero => intro j hj; rfl
+  | succ d ih =>
+    intro j hj
+    have hne : j ≠ i := ne_of_lt hj
+    simp only [gateValFuel, rawHoist, if_neg hne]
+    have hprev : ∀ k : Fin C.size, k < j →
+        (rawHoist C i).gateValFuel U d k = C.gateValFuel U d k :=
+      fun k hkj => ih k (lt_trans hkj hj)
+    rw [sideTrue_congr U (C.leftVars j) (C.leftGates j) j _ _ hprev,
+      sideTrue_congr U (C.rightVars j) (C.rightGates j) j _ _ hprev]
+
+lemma rawHoist_gate_prefix {n : ℕ} (C : AndCountCircuit n) (i j : Fin C.size)
+    (U : Finset (Fin n)) (hji : j < i) :
+    (rawHoist C i).gateVal U j = C.gateVal U j :=
+  rawHoist_fuel_prefix C i U C.size j hji
+
+lemma sideTrue_no_refs {n k : ℕ} (U B : Finset (Fin n))
+    (F : Finset (Fin k)) (i : Fin k) (v : Fin k → Bool)
+    (h : ∀ j ∈ F, v j ≠ true) : sideTrue U B F i v = sideTrue U B ∅ i v := by
+  unfold sideTrue
+  congr 1
+  apply propext
+  simp only [Finset.notMem_empty, false_and, exists_false, or_false]
+  constructor
+  · rintro (hraw | ⟨j, hj, _, hv⟩)
+    · exact hraw
+    · exact False.elim (h j hj hv)
+  · exact Or.inl
+
+lemma rawHoist_gate_eq_of_inactive {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (U : Finset (Fin n))
+    (hzero : ∀ j ∈ C.leftGates i ∪ C.rightGates i, C.gateVal U j ≠ true) :
+    ∀ j : Fin C.size, (rawHoist C i).gateVal U j = C.gateVal U j := by
+  have aux : ∀ m (j : Fin C.size), j.val < m →
+      (rawHoist C i).gateVal U j = C.gateVal U j := by
+    intro m
+    induction m with
+    | zero => intro j hj; omega
+    | succ m ih =>
+      intro j hj
+      have hprev : ∀ k : Fin C.size, k < j →
+          (rawHoist C i).gateVal U k = C.gateVal U k := by
+        intro k hkj
+        exact ih k (by omega)
+      rw [gateVal_unfold (rawHoist C i) U j, gateVal_unfold C U j]
+      by_cases hji : j = i
+      · subst j
+        simp only [rawHoist, ite_true]
+        rw [sideTrue_congr U (C.leftVars i) ∅ i _ _ hprev,
+          sideTrue_congr U (C.rightVars i) ∅ i _ _ hprev]
+        rw [sideTrue_no_refs U (C.leftVars i) (C.leftGates i) i (C.gateVal U)
+          (fun k hk => hzero k (Finset.mem_union_left _ hk)),
+          sideTrue_no_refs U (C.rightVars i) (C.rightGates i) i (C.gateVal U)
+          (fun k hk => hzero k (Finset.mem_union_right _ hk))]
+      · simp only [rawHoist, if_neg hji]
+        rw [sideTrue_congr U (C.leftVars j) (C.leftGates j) j _ _ hprev,
+          sideTrue_congr U (C.rightVars j) (C.rightGates j) j _ _ hprev]
+  intro j
+  exact aux C.size j j.isLt
+
+lemma rawHoist_eval_eq {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (hWF : C.WellFormed)
+    (href : ∀ j ∈ C.leftGates i ∪ C.rightGates i,
+      ∀ U, C.gateVal U j = true → C.eval U = true)
+    (U : Finset (Fin n)) : (rawHoist C i).eval U = C.eval U := by
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro h
+    unfold eval at h
+    rw [decide_eq_true_eq] at h
+    rcases h with hv | ⟨j, hj, hjv⟩
+    · unfold eval
+      rw [decide_eq_true_eq]
+      exact Or.inl hv
+    · change j ∈ C.outGates ∪ (C.leftGates i ∪ C.rightGates i) at hj
+      rcases Finset.mem_union.mp hj with hj | hj
+      · unfold eval
+        rw [decide_eq_true_eq]
+        exact Or.inr ⟨j, hj, rawHoist_gate_le C i j U hjv⟩
+      · exact href j hj U (rawHoist_gate_le C i j U hjv)
+  · intro h
+    by_cases hact : ∃ j ∈ C.leftGates i ∪ C.rightGates i, C.gateVal U j = true
+    · obtain ⟨j, hj, hjv⟩ := hact
+      have hji : j < i := by
+        rcases Finset.mem_union.mp hj with hj | hj
+        · exact (hWF i).1 j hj
+        · exact (hWF i).2 j hj
+      unfold eval
+      rw [decide_eq_true_eq]
+      refine Or.inr ⟨j, Finset.mem_union_right _ hj, ?_⟩
+      rwa [rawHoist_gate_prefix C i j U hji]
+    · have hz : ∀ j ∈ C.leftGates i ∪ C.rightGates i, C.gateVal U j ≠ true := by
+        intro j hj hjv
+        exact hact ⟨j, hj, hjv⟩
+      have heq := rawHoist_gate_eq_of_inactive C i U hz
+      unfold eval at h ⊢
+      rw [decide_eq_true_eq] at h ⊢
+      rcases h with hv | ⟨j, hj, hjv⟩
+      · exact Or.inl hv
+      · refine Or.inr ⟨j, Finset.mem_union_left _ hj, ?_⟩
+        rwa [heq j]
+
+def EdgeInput {n : ℕ} (G : SimpleGraph (Fin n)) (U : Finset (Fin n)) : Prop :=
+  ∃ a ∈ U, ∃ b ∈ U, G.Adj a b
+
+def GlobalClean {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) : Prop := ∀ U, C.gateVal U i = true → EdgeInput G U
+
+def GlobalJunk {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) : Prop := ∃ U, C.gateVal U i = true ∧ ¬ EdgeInput G U
+
+lemma rawHoist_computes {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (hWF : C.WellFormed) (hC : C.Computes G)
+    (hclean : ∀ j ∈ C.leftGates i ∪ C.rightGates i, GlobalClean C G j) :
+    (rawHoist C i).Computes G := by
+  intro U
+  rw [rawHoist_eval_eq C i hWF (fun j hj V hv => (hC V).mpr (hclean j hj V hv)) U]
+  exact hC U
+
+lemma rawHoist_junk_subset {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (j : Fin C.size)
+    (h : GlobalJunk (rawHoist C i) G j) : GlobalJunk C G j := by
+  obtain ⟨U, hj, hG⟩ := h
+  exact ⟨U, rawHoist_gate_le C i j U hj, hG⟩
+
+lemma rawHoist_keeps_junk {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n))
+    (hclean : ∀ j ∈ C.leftGates i ∪ C.rightGates i, GlobalClean C G j)
+    (hjunk : GlobalJunk C G i) : GlobalJunk (rawHoist C i) G i := by
+  obtain ⟨U, hi, hG⟩ := hjunk
+  have hz : ∀ j ∈ C.leftGates i ∪ C.rightGates i, C.gateVal U j ≠ true := by
+    intro j hj hv
+    exact hG (hclean j hj U hv)
+  refine ⟨U, ?_, hG⟩
+  rwa [rawHoist_gate_eq_of_inactive C i U hz i]
+
+lemma rawHoist_raw_value {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (U : Finset (Fin n)) : (rawHoist C i).gateVal U i = true ↔
+      (∃ u ∈ C.leftVars i, u ∈ U) ∧ (∃ v ∈ C.rightVars i, v ∈ U) := by
+  rw [gateVal_unfold]
+  simp [rawHoist, sideTrue]
+
+lemma rawHoist_nonedge {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n))
+    (hclean : ∀ j ∈ C.leftGates i ∪ C.rightGates i, GlobalClean C G j)
+    (hjunk : GlobalJunk C G i) (hd : Disjoint (C.leftVars i) (C.rightVars i)) :
+    ∃ u ∈ C.leftVars i, ∃ v ∈ C.rightVars i, u ≠ v ∧ ¬ G.Adj u v := by
+  obtain ⟨U, hi, hG⟩ := rawHoist_keeps_junk C i G hclean hjunk
+  obtain ⟨⟨u, hu, huU⟩, ⟨v, hv, hvU⟩⟩ := (rawHoist_raw_value C i U).mp hi
+  refine ⟨u, hu, v, hv, ?_, ?_⟩
+  · intro heq
+    subst v
+    exact Finset.disjoint_left.mp hd hu hv
+  · intro huv
+    exact hG ⟨u, huU, v, hvU, huv⟩
+
+lemma sideTrue_mono_U {n k : ℕ} {U V : Finset (Fin n)} (hUV : U ⊆ V)
+    (B : Finset (Fin n)) (F : Finset (Fin k)) (i : Fin k)
+    (v1 v2 : Fin k → Bool) (hv : ∀ j, j < i → v1 j = true → v2 j = true)
+    (hs : sideTrue U B F i v1 = true) :
+    sideTrue V B F i v2 = true := by
+  unfold sideTrue at hs ⊢
+  rw [decide_eq_true_eq] at hs ⊢
+  rcases hs with ⟨v, hvB, hvU⟩ | ⟨j, hjF, hji, hvj⟩
+  · exact Or.inl ⟨v, hvB, hUV hvU⟩
+  · exact Or.inr ⟨j, hjF, hji, hv j hji hvj⟩
+
+lemma gateValFuel_mono_U {n : ℕ} (C : AndCountCircuit n) {U V : Finset (Fin n)}
+    (hUV : U ⊆ V) :
+    ∀ (d : ℕ) (i : Fin C.size), C.gateValFuel U d i = true → C.gateValFuel V d i = true := by
+  intro d
+  induction d with
+  | zero =>
+    intro i hi
+    simp [gateValFuel] at hi
+  | succ d ih =>
+    intro i hi
+    simp only [gateValFuel, Bool.and_eq_true] at hi ⊢
+    exact ⟨sideTrue_mono_U hUV _ _ _ _ _ (fun j _ hj => ih j hj) hi.1,
+           sideTrue_mono_U hUV _ _ _ _ _ (fun j _ hj => ih j hj) hi.2⟩
+
+lemma gateVal_mono_U {n : ℕ} (C : AndCountCircuit n) {U V : Finset (Fin n)}
+    (hUV : U ⊆ V) (i : Fin C.size) (h : C.gateVal U i = true) : C.gateVal V i = true :=
+  gateValFuel_mono_U C hUV C.size i h
+
+lemma eval_mono_U {n : ℕ} (C : AndCountCircuit n) {U V : Finset (Fin n)}
+    (hUV : U ⊆ V) (h : C.eval U = true) : C.eval V = true := by
+  unfold eval at h ⊢
+  rw [decide_eq_true_eq] at h ⊢
+  rcases h with ⟨v, hv, hvU⟩ | ⟨j, hj, hjU⟩
+  · exact Or.inl ⟨v, hv, hUV hvU⟩
+  · exact Or.inr ⟨j, hj, gateVal_mono_U C hUV j hjU⟩
+
+abbrev rawReplace {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) : AndCountCircuit n where
+  size := C.size
+  leftVars j := if j = i then L else C.leftVars j
+  leftGates j := if j = i then ∅ else C.leftGates j
+  rightVars j := if j = i then R else C.rightVars j
+  rightGates j := if j = i then ∅ else C.rightGates j
+  outVars := C.outVars
+  outGates := C.outGates
+
+lemma rawReplace_wellFormed {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (hC : C.WellFormed) : (rawReplace C i L R).WellFormed := by
+  intro j
+  by_cases hji : j = i
+  · subst j
+    simp [rawReplace]
+  · simpa [rawReplace, hji] using hC j
+
+lemma sideTrue_mono_data {n k : ℕ} (U B B' : Finset (Fin n))
+    (F F' : Finset (Fin k)) (i : Fin k) (v v' : Fin k → Bool)
+    (hB : B ⊆ B') (hF : F ⊆ F') (hv : ∀ j, j < i → v j = true → v' j = true)
+    (h : sideTrue U B F i v = true) : sideTrue U B' F' i v' = true := by
+  unfold sideTrue at h ⊢
+  rw [decide_eq_true_eq] at h ⊢
+  rcases h with ⟨b, hb, hbU⟩ | ⟨j, hjF, hji, hj⟩
+  · exact Or.inl ⟨b, hB hb, hbU⟩
+  · exact Or.inr ⟨j, hF hjF, hji, hv j hji hj⟩
+
+lemma rawReplace_fuel_le {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (U : Finset (Fin n)) : ∀ d (j : Fin C.size),
+    (rawReplace C i L R).gateValFuel U d j = true → C.gateValFuel U d j = true := by
+  intro d
+  induction d with
+  | zero => intro j hj; simp [gateValFuel] at hj
+  | succ d ih =>
+    intro j hj
+    simp only [gateValFuel, Bool.and_eq_true] at hj ⊢
+    have hBL : (rawReplace C i L R).leftVars j ⊆ C.leftVars j := by
+      by_cases hji : j = i
+      · subst j; simpa [rawReplace] using hL
+      · simp [rawReplace, hji]
+    have hBR : (rawReplace C i L R).rightVars j ⊆ C.rightVars j := by
+      by_cases hji : j = i
+      · subst j; simpa [rawReplace] using hR
+      · simp [rawReplace, hji]
+    have hFL : (rawReplace C i L R).leftGates j ⊆ C.leftGates j := by
+      by_cases hji : j = i <;> simp [rawReplace, hji]
+    have hFR : (rawReplace C i L R).rightGates j ⊆ C.rightGates j := by
+      by_cases hji : j = i <;> simp [rawReplace, hji]
+    exact ⟨sideTrue_mono_data U _ _ _ _ j _ _ hBL hFL (fun k _ => ih k) hj.1,
+      sideTrue_mono_data U _ _ _ _ j _ _ hBR hFR (fun k _ => ih k) hj.2⟩
+
+lemma rawReplace_gate_le {n : ℕ} (C : AndCountCircuit n) (i j : Fin C.size)
+    (L R : Finset (Fin n)) (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (U : Finset (Fin n)) (h : (rawReplace C i L R).gateVal U j = true) :
+    C.gateVal U j = true := rawReplace_fuel_le C i L R hL hR U C.size j h
+
+lemma rawReplace_eval_le {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (U : Finset (Fin n)) (h : (rawReplace C i L R).eval U = true) : C.eval U = true := by
+  unfold eval at h ⊢
+  rw [decide_eq_true_eq] at h ⊢
+  rcases h with hv | ⟨j, hj, hjv⟩
+  · exact Or.inl hv
+  · exact Or.inr ⟨j, hj, rawReplace_gate_le C i j L R hL hR U hjv⟩
+
+lemma rawReplace_gate_eq_of_local {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (U : Finset (Fin n))
+    (hlocal : (rawReplace C i L R).gateVal U i = C.gateVal U i) :
+    ∀ j : Fin C.size, (rawReplace C i L R).gateVal U j = C.gateVal U j := by
+  have aux : ∀ m (j : Fin C.size), j.val < m →
+      (rawReplace C i L R).gateVal U j = C.gateVal U j := by
+    intro m
+    induction m with
+    | zero => intro j hj; omega
+    | succ m ih =>
+      intro j hj
+      by_cases hji : j = i
+      · subst j; exact hlocal
+      · have hprev : ∀ k : Fin C.size, k < j →
+            (rawReplace C i L R).gateVal U k = C.gateVal U k := by
+          intro k hkj
+          exact ih k (by omega)
+        rw [gateVal_unfold (rawReplace C i L R) U j, gateVal_unfold C U j]
+        simp only [rawReplace, if_neg hji]
+        rw [sideTrue_congr U (C.leftVars j) (C.leftGates j) j _ _ hprev,
+          sideTrue_congr U (C.rightVars j) (C.rightGates j) j _ _ hprev]
+  intro j
+  exact aux C.size j j.isLt
+
+lemma rawReplace_eval_eq_of_local {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (U : Finset (Fin n))
+    (hlocal : (rawReplace C i L R).gateVal U i = C.gateVal U i) :
+    (rawReplace C i L R).eval U = C.eval U := by
+  have heq := rawReplace_gate_eq_of_local C i L R U hlocal
+  apply Bool.eq_iff_iff.mpr
+  simp only [eval, decide_eq_true_eq]
+  constructor
+  · rintro (hv | ⟨j, hj, hjv⟩)
+    · exact Or.inl hv
+    · exact Or.inr ⟨j, hj, by rwa [← heq j]⟩
+  · rintro (hv | ⟨j, hj, hjv⟩)
+    · exact Or.inl hv
+    · exact Or.inr ⟨j, hj, by rwa [heq j]⟩
+
+lemma rawReplace_computes_of_edge_agreement {n : ℕ} (C : AndCountCircuit n)
+    (i : Fin C.size) (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i) (hC : C.Computes G)
+    (hmatch : ∀ a b, G.Adj a b →
+      (rawReplace C i L R).gateVal {a, b} i = C.gateVal {a, b} i) :
+    (rawReplace C i L R).Computes G := by
+  intro U
+  constructor
+  · intro h
+    exact (hC U).mp (rawReplace_eval_le C i L R hL hR U h)
+  · rintro ⟨a, ha, b, hb, hab⟩
+    have hCpair : C.eval {a, b} = true := (hC {a, b}).mpr
+      ⟨a, by simp, b, by simp, hab⟩
+    have hDpair : (rawReplace C i L R).eval {a, b} = true := by
+      rwa [rawReplace_eval_eq_of_local C i L R {a, b} (hmatch a b hab)]
+    apply eval_mono_U (rawReplace C i L R) _ hDpair
+    intro v hv
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl
+    · exact ha
+    · exact hb
+
+lemma raw_gate_value {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (hL : C.leftGates i = ∅) (hR : C.rightGates i = ∅) (U : Finset (Fin n)) :
+    C.gateVal U i = true ↔
+      (∃ u ∈ C.leftVars i, u ∈ U) ∧ (∃ v ∈ C.rightVars i, v ∈ U) := by
+  rw [gateVal_unfold]
+  simp [sideTrue, hL, hR]
+
+lemma rawReplace_raw_value {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R U : Finset (Fin n)) : (rawReplace C i L R).gateVal U i = true ↔
+      (∃ u ∈ L, u ∈ U) ∧ (∃ v ∈ R, v ∈ U) := by
+  rw [gateVal_unfold]
+  simp [rawReplace, sideTrue]
+
+lemma rawReplace_clean {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hcross : ∀ u ∈ L, ∀ v ∈ R, G.Adj u v) :
+    GlobalClean (rawReplace C i L R) G i := by
+  intro U h
+  obtain ⟨⟨u, hu, huU⟩, ⟨v, hv, hvU⟩⟩ := (rawReplace_raw_value C i L R U).mp h
+  exact ⟨u, huU, v, hvU, hcross u hu v hv⟩
+
+lemma rawReplace_edge_agreement {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (hrL : C.leftGates i = ∅) (hrR : C.rightGates i = ∅)
+    (hd : Disjoint (C.leftVars i) (C.rightVars i))
+    (hprofile : ∀ u ∈ C.leftVars i, ∀ v ∈ C.rightVars i,
+      G.Adj u v → u ∈ L ∧ v ∈ R)
+    (a b : Fin n) (hab : G.Adj a b) :
+    (rawReplace C i L R).gateVal {a, b} i = C.gateVal {a, b} i := by
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · exact rawReplace_gate_le C i i L R hL hR {a, b}
+  · intro h
+    obtain ⟨⟨u, hu, huU⟩, ⟨v, hv, hvU⟩⟩ := (raw_gate_value C i hrL hrR {a, b}).mp h
+    have huv : G.Adj u v := by
+      simp only [Finset.mem_insert, Finset.mem_singleton] at huU hvU
+      rcases huU with rfl | rfl <;> rcases hvU with rfl | rfl
+      · exact False.elim (Finset.disjoint_left.mp hd hu hv)
+      · exact hab
+      · exact G.adj_symm hab
+      · exact False.elim (Finset.disjoint_left.mp hd hu hv)
+    have hm := hprofile u hu v hv huv
+    exact (rawReplace_raw_value C i L R {a, b}).mpr
+      ⟨⟨u, hm.1, huU⟩, ⟨v, hm.2, hvU⟩⟩
+
+def Normalized {n : ℕ} (C : AndCountCircuit n) : Prop :=
+  (∀ i : Fin C.size, ∀ v : Fin n, C.gateVal {v} i = false) ∧
+    ∀ i : Fin C.size, Disjoint (C.leftVars i) (C.rightVars i)
+
+lemma rawHoist_normalized {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (hC : Normalized C) : Normalized (rawHoist C i) := by
+  constructor
+  · intro j v
+    cases h : (rawHoist C i).gateVal {v} j with
+    | false => rfl
+    | true =>
+      have hc := rawHoist_gate_le C i j {v} h
+      rw [hC.1 j v] at hc
+      exact Bool.noConfusion hc
+  · exact hC.2
+
+lemma rawReplace_normalized {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (L R : Finset (Fin n)) (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (hC : Normalized C) : Normalized (rawReplace C i L R) := by
+  constructor
+  · intro j v
+    cases h : (rawReplace C i L R).gateVal {v} j with
+    | false => rfl
+    | true =>
+      have hc := rawReplace_gate_le C i j L R hL hR {v} h
+      rw [hC.1 j v] at hc
+      exact Bool.noConfusion hc
+  · intro j
+    by_cases hji : j = i
+    · subst j
+      have hd : Disjoint L R := Finset.disjoint_left.mpr
+        (fun v hvL hvR => Finset.disjoint_left.mp (hC.2 i) (hL hvL) (hR hvR))
+      simpa [rawReplace] using hd
+    · simpa [rawReplace, hji] using hC.2 j
+
+noncomputable def junkSet {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n)) :
+    Finset (Fin C.size) := by
+  classical
+  exact Finset.univ.filter (GlobalJunk C G)
+
+lemma mem_junkSet {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) : i ∈ junkSet C G ↔ GlobalJunk C G i := by
+  classical
+  simp [junkSet]
+
+lemma rawHoist_junkCard_le {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) : (junkSet (rawHoist C i) G).card ≤ (junkSet C G).card := by
+  apply Finset.card_le_card
+  intro j hj
+  exact (mem_junkSet C G j).mpr
+    (rawHoist_junk_subset C i G j ((mem_junkSet (rawHoist C i) G j).mp hj))
+
+lemma rawReplace_junk_subset {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i) :
+    junkSet (rawReplace C i L R) G ⊆ junkSet C G := by
+  intro j hj
+  obtain ⟨U, hv, hG⟩ := (mem_junkSet (rawReplace C i L R) G j).mp hj
+  exact (mem_junkSet C G j).mpr ⟨U, rawReplace_gate_le C i j L R hL hR U hv, hG⟩
+
+lemma rawReplace_junkCard_lt {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (hjunk : GlobalJunk C G i) (hclean : GlobalClean (rawReplace C i L R) G i) :
+    (junkSet (rawReplace C i L R) G).card < (junkSet C G).card := by
+  have hsub := rawReplace_junk_subset C i G L R hL hR
+  have hi : i ∉ junkSet (rawReplace C i L R) G := by
+    intro h
+    obtain ⟨U, hv, hG⟩ := (mem_junkSet (rawReplace C i L R) G i).mp h
+    exact hG (hclean U hv)
+  apply Finset.card_lt_card
+  apply Finset.ssubset_iff_subset_ne.mpr
+  refine ⟨hsub, ?_⟩
+  intro heq
+  apply hi
+  rw [heq]
+  exact (mem_junkSet C G i).mpr hjunk
+
+lemma rawReplace_complete_profile {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size)
+    (G : SimpleGraph (Fin n)) (L R : Finset (Fin n))
+    (hWF : C.WellFormed) (hC : C.Computes G) (hN : Normalized C)
+    (hrL : C.leftGates i = ∅) (hrR : C.rightGates i = ∅)
+    (hL : L ⊆ C.leftVars i) (hR : R ⊆ C.rightVars i)
+    (hcross : ∀ u ∈ L, ∀ v ∈ R, G.Adj u v)
+    (hprofile : ∀ u ∈ C.leftVars i, ∀ v ∈ C.rightVars i,
+      G.Adj u v → u ∈ L ∧ v ∈ R)
+    (hjunk : GlobalJunk C G i) :
+    (rawReplace C i L R).WellFormed ∧ (rawReplace C i L R).Computes G ∧
+      Normalized (rawReplace C i L R) ∧
+      (junkSet (rawReplace C i L R) G).card < (junkSet C G).card := by
+  refine ⟨rawReplace_wellFormed C i L R hWF, ?_,
+    rawReplace_normalized C i L R hL hR hN, ?_⟩
+  · apply rawReplace_computes_of_edge_agreement C i G L R hL hR hC
+    exact rawReplace_edge_agreement C i G L R hL hR hrL hrR (hN.2 i) hprofile
+  · exact rawReplace_junkCard_lt C i G L R hL hR hjunk
+      (rawReplace_clean C i G L R hcross)
+
+/-- If no two actual cross edges have distinct left and right endpoints,
+  the actual cross-edge profile is a complete rectangle after restricting both sides.
+  Neither bipartiteness nor disjointness of the two supplied sides is needed. -/
+lemma exists_complete_cross_restriction
+    {V : Type*} [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    (L R : Finset V)
+    (hno : ∀ a ∈ L, ∀ b ∈ R, ∀ c ∈ L, ∀ d ∈ R,
+      G.Adj a b → G.Adj c d → a = c ∨ b = d) :
+    ∃ L' R' : Finset V,
+      L' ⊆ L ∧ R' ⊆ R ∧
+      (∀ a ∈ L', ∀ b ∈ R', G.Adj a b) ∧
+      (∀ a ∈ L, ∀ b ∈ R, G.Adj a b → a ∈ L' ∧ b ∈ R') := by
+  by_cases hedge : ∃ a ∈ L, ∃ b ∈ R, G.Adj a b
+  · obtain ⟨a, ha, b, hb, hab⟩ := hedge
+    by_cases hleft : ∀ c ∈ L, ∀ d ∈ R, G.Adj c d → c = a
+    · refine ⟨{a}, R.filter (G.Adj a), ?_, Finset.filter_subset _ _, ?_, ?_⟩
+      · exact Finset.singleton_subset_iff.mpr ha
+      · intro x hx y hy
+        have hxa : x = a := Finset.mem_singleton.mp hx
+        subst x
+        exact (Finset.mem_filter.mp hy).2
+      · intro x hx y hy hxy
+        have hxa := hleft x hx y hy hxy
+        subst x
+        exact ⟨Finset.mem_singleton_self _, Finset.mem_filter.mpr ⟨hy, hxy⟩⟩
+    · push Not at hleft
+      obtain ⟨c, hc, d, hd, hcd, hca⟩ := hleft
+      have hdb : d = b := by
+        rcases hno a ha b hb c hc d hd hab hcd with hac | hbd
+        · exact False.elim (hca hac.symm)
+        · exact hbd.symm
+      subst d
+      have hright : ∀ x ∈ L, ∀ y ∈ R, G.Adj x y → y = b := by
+        intro x hx y hy hxy
+        rcases hno a ha b hb x hx y hy hab hxy with hax | hby
+        · rcases hno c hc b hb x hx y hy hcd hxy with hcx | hby
+          · exact False.elim (hca (hcx.trans hax.symm))
+          · exact hby.symm
+        · exact hby.symm
+      refine ⟨L.filter (fun x => G.Adj x b), {b}, Finset.filter_subset _ _, ?_, ?_, ?_⟩
+      · exact Finset.singleton_subset_iff.mpr hb
+      · intro x hx y hy
+        have hyb : y = b := Finset.mem_singleton.mp hy
+        subst y
+        exact (Finset.mem_filter.mp hx).2
+      · intro x hx y hy hxy
+        have hyb := hright x hx y hy hxy
+        subst y
+        exact ⟨Finset.mem_filter.mpr ⟨hx, hxy⟩, Finset.mem_singleton_self _⟩
+  · refine ⟨∅, ∅, Finset.empty_subset _, Finset.empty_subset _, by simp, ?_⟩
+    intro a ha b hb hab
+    exact False.elim (hedge ⟨a, ha, b, hb, hab⟩)
+
+def JunkMinimal {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n)) : Prop :=
+  ∀ D : AndCountCircuit n, D.size = C.size → D.WellFormed → D.Computes G →
+    Normalized D → (junkSet C G).card ≤ (junkSet D G).card
+
+lemma first_junk_raw_matching {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hWF : C.WellFormed) (hC : C.Computes G) (hN : Normalized C)
+    (hmin : JunkMinimal C G) (i : Fin C.size) (hjunk : GlobalJunk C G i)
+    (hprev : ∀ j : Fin C.size, j < i → GlobalClean C G j) :
+    ∃ a ∈ C.leftVars i, ∃ b ∈ C.rightVars i,
+      ∃ c ∈ C.leftVars i, ∃ d ∈ C.rightVars i,
+        G.Adj a b ∧ G.Adj c d ∧ a ≠ c ∧ b ≠ d := by
+  classical
+  have hclean : ∀ j ∈ C.leftGates i ∪ C.rightGates i, GlobalClean C G j := by
+    intro j hj
+    apply hprev j
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact (hWF i).1 j hj
+    · exact (hWF i).2 j hj
+  let D := rawHoist C i
+  have hDW : D.WellFormed := rawHoist_wellFormed C i hWF
+  have hDC : D.Computes G := rawHoist_computes C i G hWF hC hclean
+  have hDN : Normalized D := rawHoist_normalized C i hN
+  have hDj : GlobalJunk D G i := rawHoist_keeps_junk C i G hclean hjunk
+  by_contra hmatch
+  have hno : ∀ a ∈ C.leftVars i, ∀ b ∈ C.rightVars i,
+      ∀ c ∈ C.leftVars i, ∀ d ∈ C.rightVars i,
+        G.Adj a b → G.Adj c d → a = c ∨ b = d := by
+    intro a ha b hb c hc d hd hab hcd
+    by_cases hac : a = c
+    · exact Or.inl hac
+    · by_cases hbd : b = d
+      · exact Or.inr hbd
+      · exact False.elim (hmatch ⟨a, ha, b, hb, c, hc, d, hd, hab, hcd, hac, hbd⟩)
+  obtain ⟨L, R, hL, hR, hcross, hprofile⟩ :=
+    exists_complete_cross_restriction G (C.leftVars i) (C.rightVars i) hno
+  have hrep := rawReplace_complete_profile D i G L R hDW hDC hDN
+    (by simp [D, rawHoist]) (by simp [D, rawHoist]) hL hR hcross hprofile hDj
+  have hminT := hmin (rawReplace D i L R) rfl hrep.1 hrep.2.1 hrep.2.2.1
+  have hle : (junkSet D G).card ≤ (junkSet C G).card := rawHoist_junkCard_le C i G
+  exact Nat.not_lt_of_ge hminT (lt_of_lt_of_le hrep.2.2.2 hle)
+
+lemma exists_first_junk {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (h : ∃ i : Fin C.size, GlobalJunk C G i) :
+    ∃ i : Fin C.size, GlobalJunk C G i ∧
+      ∀ j : Fin C.size, j < i → GlobalClean C G j := by
+  classical
+  have hne : (junkSet C G).Nonempty := by
+    obtain ⟨i, hi⟩ := h
+    exact ⟨i, (mem_junkSet C G i).mpr hi⟩
+  let i := (junkSet C G).min' hne
+  have hi : i ∈ junkSet C G := Finset.min'_mem _ _
+  refine ⟨i, (mem_junkSet C G i).mp hi, ?_⟩
+  intro j hji U hjU
+  by_contra hG
+  have hj : j ∈ junkSet C G := (mem_junkSet C G j).mpr ⟨U, hjU, hG⟩
+  have hle : i ≤ j := Finset.min'_le _ _ hj
+  exact not_le_of_gt hji hle
+
+lemma exists_raw_junk_matching {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hWF : C.WellFormed) (hC : C.Computes G) (hN : Normalized C)
+    (hmin : JunkMinimal C G) (hJ : ∃ i : Fin C.size, GlobalJunk C G i) :
+    ∃ D : AndCountCircuit n, D.size = C.size ∧ D.WellFormed ∧ D.Computes G ∧
+      Normalized D ∧ ∃ i : Fin D.size,
+        D.leftGates i = ∅ ∧ D.rightGates i = ∅ ∧ GlobalJunk D G i ∧
+          ∃ a ∈ D.leftVars i, ∃ b ∈ D.rightVars i,
+            ∃ c ∈ D.leftVars i, ∃ d ∈ D.rightVars i,
+              G.Adj a b ∧ G.Adj c d ∧ a ≠ c ∧ b ≠ d := by
+  obtain ⟨i, hi, hprev⟩ := exists_first_junk C G hJ
+  have hclean : ∀ j ∈ C.leftGates i ∪ C.rightGates i, GlobalClean C G j := by
+    intro j hj
+    apply hprev j
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact (hWF i).1 j hj
+    · exact (hWF i).2 j hj
+  refine ⟨rawHoist C i, rfl, rawHoist_wellFormed C i hWF,
+    rawHoist_computes C i G hWF hC hclean, rawHoist_normalized C i hN,
+    i, by simp [rawHoist], by simp [rawHoist], rawHoist_keeps_junk C i G hclean hi, ?_⟩
+  exact first_junk_raw_matching C G hWF hC hN hmin i hi hprev
+
+end AndCountHoist
+
+namespace AndCountNormalization
+
+open PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
+
+open PEqualNP.Outside.L_meta_3566.AndCountHoist
+
+private def singSet {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) : Finset (Fin n) :=
+  Finset.univ.filter (fun v => C.gateVal {v} i = true)
+
+private lemma mem_singSet {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) (v : Fin n) :
+    v ∈ singSet C i ↔ C.gateVal {v} i = true := by
+  unfold singSet
+  rw [Finset.mem_filter]
+  exact and_iff_right (Finset.mem_univ v)
+
+private def stripCircuit {n : ℕ} (C : AndCountCircuit n) : AndCountCircuit n where
+  size := C.size
+  leftVars i := (C.leftVars i ∪ ((C.leftGates i).filter (fun j => j < i)).biUnion (singSet C)) \ singSet C i
+  leftGates := C.leftGates
+  rightVars i := (C.rightVars i ∪ ((C.rightGates i).filter (fun j => j < i)).biUnion (singSet C)) \ singSet C i
+  rightGates := C.rightGates
+  outVars := C.outVars ∪ C.outGates.biUnion (singSet C)
+  outGates := C.outGates
+
+private lemma mem_strip_leftVars {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) (v : Fin n) :
+    v ∈ (stripCircuit C).leftVars i ↔
+      (v ∈ C.leftVars i ∨ ∃ j ∈ C.leftGates i, j < i ∧ C.gateVal {v} j = true) ∧
+      C.gateVal {v} i ≠ true := by
+  change v ∈ (C.leftVars i ∪ ((C.leftGates i).filter (fun j => j < i)).biUnion (singSet C)) \ singSet C i ↔ _
+  simp only [Finset.mem_sdiff, Finset.mem_union, Finset.mem_biUnion, Finset.mem_filter,
+    mem_singSet, and_assoc]
+
+private lemma mem_strip_rightVars {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) (v : Fin n) :
+    v ∈ (stripCircuit C).rightVars i ↔
+      (v ∈ C.rightVars i ∨ ∃ j ∈ C.rightGates i, j < i ∧ C.gateVal {v} j = true) ∧
+      C.gateVal {v} i ≠ true := by
+  change v ∈ (C.rightVars i ∪ ((C.rightGates i).filter (fun j => j < i)).biUnion (singSet C)) \ singSet C i ↔ _
+  simp only [Finset.mem_sdiff, Finset.mem_union, Finset.mem_biUnion, Finset.mem_filter,
+    mem_singSet, and_assoc]
+
+private lemma mem_strip_outVars {n : ℕ} (C : AndCountCircuit n) (v : Fin n) :
+    v ∈ (stripCircuit C).outVars ↔
+      v ∈ C.outVars ∨ ∃ j ∈ C.outGates, C.gateVal {v} j = true := by
+  change v ∈ C.outVars ∪ C.outGates.biUnion (singSet C) ↔ _
+  simp only [Finset.mem_union, Finset.mem_biUnion, mem_singSet]
+
+private lemma strip_singleton_false {n : ℕ} (C : AndCountCircuit n) (v : Fin n) :
+    ∀ (m : ℕ) (i : Fin C.size), i.val < m → (stripCircuit C).gateVal {v} i = false := by
+  intro m
+  induction m with
+  | zero =>
+    intro i hi
+    exact absurd hi (Nat.not_lt_zero _)
+  | succ m ih =>
+    intro i hi
+    cases h : (stripCircuit C).gateVal {v} i
+    · rfl
+    · exfalso
+      rw [gateVal_unfold (stripCircuit C) {v} i, Bool.and_eq_true] at h
+      have hL := h.1
+      have hR := h.2
+      unfold sideTrue at hL hR
+      rw [decide_eq_true_eq] at hL hR
+      have hvL : v ∈ (stripCircuit C).leftVars i := by
+        rcases hL with ⟨w, hwB, hwv⟩ | ⟨j, _, hji, hjv⟩
+        · rw [Finset.mem_singleton] at hwv
+          rwa [← hwv]
+        · rw [ih j (by omega)] at hjv
+          exact absurd hjv Bool.false_ne_true
+      have hvR : v ∈ (stripCircuit C).rightVars i := by
+        rcases hR with ⟨w, hwB, hwv⟩ | ⟨j, _, hji, hjv⟩
+        · rw [Finset.mem_singleton] at hwv
+          rwa [← hwv]
+        · rw [ih j (by omega)] at hjv
+          exact absurd hjv Bool.false_ne_true
+      rw [mem_strip_leftVars] at hvL
+      rw [mem_strip_rightVars] at hvR
+      apply hvL.2
+      rw [gateVal_unfold C {v} i, Bool.and_eq_true]
+      constructor
+      · unfold sideTrue
+        rw [decide_eq_true_eq]
+        rcases hvL.1 with hvB | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, hvB, Finset.mem_singleton_self v⟩
+        · exact Or.inr ⟨j, hjF, hji, hjv⟩
+      · unfold sideTrue
+        rw [decide_eq_true_eq]
+        rcases hvR.1 with hvB | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, hvB, Finset.mem_singleton_self v⟩
+        · exact Or.inr ⟨j, hjF, hji, hjv⟩
+
+private lemma strip_disjoint {n : ℕ} (C : AndCountCircuit n) (i : Fin C.size) :
+    Disjoint ((stripCircuit C).leftVars i) ((stripCircuit C).rightVars i) := by
+  rw [Finset.disjoint_left]
+  intro v hvL hvR
+  have hf := strip_singleton_false C v C.size i i.isLt
+  have ht : (stripCircuit C).gateVal {v} i = true := by
+    rw [gateVal_unfold (stripCircuit C) {v} i, Bool.and_eq_true]
+    constructor
+    · unfold sideTrue
+      rw [decide_eq_true_eq]
+      exact Or.inl ⟨v, hvL, Finset.mem_singleton_self v⟩
+    · unfold sideTrue
+      rw [decide_eq_true_eq]
+      exact Or.inl ⟨v, hvR, Finset.mem_singleton_self v⟩
+  rw [hf] at ht
+  exact Bool.false_ne_true ht
+
+private lemma strip_gateVal_le {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n)) :
+    ∀ (m : ℕ) (i : Fin C.size), i.val < m →
+      (stripCircuit C).gateVal U i = true → C.gateVal U i = true := by
+  intro m
+  induction m with
+  | zero =>
+    intro i hi
+    exact absurd hi (Nat.not_lt_zero _)
+  | succ m ih =>
+    intro i hi hval
+    rw [gateVal_unfold (stripCircuit C) U i, Bool.and_eq_true] at hval
+    rw [gateVal_unfold C U i, Bool.and_eq_true]
+    constructor
+    · have hL := hval.1
+      unfold sideTrue at hL ⊢
+      rw [decide_eq_true_eq] at hL ⊢
+      rcases hL with ⟨v, hvB, hvU⟩ | ⟨j, hjF, hji, hjv⟩
+      · rw [mem_strip_leftVars] at hvB
+        rcases hvB.1 with hvC | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, hvC, hvU⟩
+        · exact Or.inr ⟨j, hjF, hji, gateVal_mono_U C (Finset.singleton_subset_iff.mpr hvU) j hjv⟩
+      · exact Or.inr ⟨j, hjF, hji, ih j (by omega) hjv⟩
+    · have hR := hval.2
+      unfold sideTrue at hR ⊢
+      rw [decide_eq_true_eq] at hR ⊢
+      rcases hR with ⟨v, hvB, hvU⟩ | ⟨j, hjF, hji, hjv⟩
+      · rw [mem_strip_rightVars] at hvB
+        rcases hvB.1 with hvC | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, hvC, hvU⟩
+        · exact Or.inr ⟨j, hjF, hji, gateVal_mono_U C (Finset.singleton_subset_iff.mpr hvU) j hjv⟩
+      · exact Or.inr ⟨j, hjF, hji, ih j (by omega) hjv⟩
+
+private lemma strip_gateVal_ge {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n)) :
+    ∀ (m : ℕ) (i : Fin C.size), i.val < m →
+      C.gateVal U i = true →
+        (∃ v ∈ U, C.gateVal {v} i = true) ∨ (stripCircuit C).gateVal U i = true := by
+  intro m
+  induction m with
+  | zero =>
+    intro i hi
+    exact absurd hi (Nat.not_lt_zero _)
+  | succ m ih =>
+    intro i hi hval
+    by_cases hsing : ∃ v ∈ U, C.gateVal {v} i = true
+    · exact Or.inl hsing
+    · right
+      have hno : ∀ v ∈ U, C.gateVal {v} i ≠ true := fun v hvU hv => hsing ⟨v, hvU, hv⟩
+      rw [gateVal_unfold C U i, Bool.and_eq_true] at hval
+      rw [gateVal_unfold (stripCircuit C) U i, Bool.and_eq_true]
+      constructor
+      · have hL := hval.1
+        unfold sideTrue at hL ⊢
+        rw [decide_eq_true_eq] at hL ⊢
+        rcases hL with ⟨v, hvB, hvU⟩ | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, (mem_strip_leftVars C i v).mpr ⟨Or.inl hvB, hno v hvU⟩, hvU⟩
+        · rcases ih j (by omega) hjv with ⟨v, hvU, hvs⟩ | hj'
+          · exact Or.inl ⟨v, (mem_strip_leftVars C i v).mpr ⟨Or.inr ⟨j, hjF, hji, hvs⟩, hno v hvU⟩, hvU⟩
+          · exact Or.inr ⟨j, hjF, hji, hj'⟩
+      · have hR := hval.2
+        unfold sideTrue at hR ⊢
+        rw [decide_eq_true_eq] at hR ⊢
+        rcases hR with ⟨v, hvB, hvU⟩ | ⟨j, hjF, hji, hjv⟩
+        · exact Or.inl ⟨v, (mem_strip_rightVars C i v).mpr ⟨Or.inl hvB, hno v hvU⟩, hvU⟩
+        · rcases ih j (by omega) hjv with ⟨v, hvU, hvs⟩ | hj'
+          · exact Or.inl ⟨v, (mem_strip_rightVars C i v).mpr ⟨Or.inr ⟨j, hjF, hji, hvs⟩, hno v hvU⟩, hvU⟩
+          · exact Or.inr ⟨j, hjF, hji, hj'⟩
+
+private lemma strip_eval_eq {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n)) :
+    (stripCircuit C).eval U = C.eval U := by
+  unfold AndCountCircuit.eval
+  refine decide_eq_decide.mpr ?_
+  constructor
+  · rintro (⟨v, hvO, hvU⟩ | ⟨j, hjO, hjv⟩)
+    · rw [mem_strip_outVars] at hvO
+      rcases hvO with hvC | ⟨j, hjO, hvs⟩
+      · exact Or.inl ⟨v, hvC, hvU⟩
+      · exact Or.inr ⟨j, hjO, gateVal_mono_U C (Finset.singleton_subset_iff.mpr hvU) j hvs⟩
+    · exact Or.inr ⟨j, hjO, strip_gateVal_le C U C.size j j.isLt hjv⟩
+  · rintro (⟨v, hvO, hvU⟩ | ⟨j, hjO, hjv⟩)
+    · exact Or.inl ⟨v, (mem_strip_outVars C v).mpr (Or.inl hvO), hvU⟩
+    · rcases strip_gateVal_ge C U C.size j j.isLt hjv with ⟨v, hvU, hvs⟩ | hj'
+      · exact Or.inl ⟨v, (mem_strip_outVars C v).mpr (Or.inr ⟨j, hjO, hvs⟩), hvU⟩
+      · exact Or.inr ⟨j, hjO, hj'⟩
+
+end AndCountNormalization
+
+lemma AndCountNormalization.normalize : ∀ (n : ℕ) (C : PEqualNP.AndCount.AndCountCircuit n),
+    ∃ C' : PEqualNP.AndCount.AndCountCircuit n,
+      C'.size = C.size ∧ (∀ U : Finset (Fin n), C'.eval U = C.eval U) ∧
+      (∀ (i : Fin C'.size) (v : Fin n), C'.gateVal {v} i = false) ∧
+      (∀ i : Fin C'.size, Disjoint (C'.leftVars i) (C'.rightVars i)) ∧
+      (C.WellFormed → C'.WellFormed) := by
+  intro n C
+  refine ⟨PEqualNP.Outside.L_meta_3566.AndCountNormalization.stripCircuit C, rfl,
+    fun U => PEqualNP.Outside.L_meta_3566.AndCountNormalization.strip_eval_eq C U,
+    fun i v => PEqualNP.Outside.L_meta_3566.AndCountNormalization.strip_singleton_false C v C.size i i.isLt,
+    fun i => PEqualNP.Outside.L_meta_3566.AndCountNormalization.strip_disjoint C i,
+    fun hWF => hWF⟩
+
+namespace AndCountNormalization
+
+lemma exists_minimum {α : Type*} (P : α → Prop) (measure : α → ℕ)
+    (hP : ∃ a, P a) : ∃ a, P a ∧ ∀ b, P b → measure a ≤ measure b := by
+  classical
+  have hex : ∃ k, ∃ a, P a ∧ measure a = k := by
+    obtain ⟨a, ha⟩ := hP
+    exact ⟨measure a, a, ha, rfl⟩
+  obtain ⟨a, ha, hmeasure⟩ := Nat.find_spec hex
+  refine ⟨a, ha, ?_⟩
+  intro b hb
+  rw [hmeasure]
+  exact Nat.find_min' hex ⟨b, hb, rfl⟩
+
+end AndCountNormalization
+
+namespace AndCountPacking
+
+open PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
+
+open PEqualNP.Outside.L_meta_3566.AndCountHoist
+
+abbrev State := Bool × Bool
+
+def Cross (p q : State) : Prop :=
+  (p = (true, false) ∧ q = (false, true)) ∨
+    (p = (false, true) ∧ q = (true, false))
+
+def allowed (p : State) : Finset Bool :=
+  if p.1 = p.2 then Finset.univ else {p.1}
+
+lemma not_cross_of_common (p q : State) (b : Bool)
+    (hp : b ∈ allowed p) (hq : b ∈ allowed q) : ¬ Cross p q := by
+  rcases p with ⟨a, c⟩
+  rcases q with ⟨d, e⟩
+  cases a <;> cases c <;> cases d <;> cases e <;> cases b <;>
+    simp_all [allowed, Cross]
+
+lemma and_join_no_cross (a b c d : Bool) (h : ¬ Cross (a,b) (c,d)) :
+    ((a || c) && (b || d)) = ((a && b) || (c && d)) := by
+  cases a <;> cases b <;> cases c <;> cases d <;> simp_all [Cross]
+
+def stateFn {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n))
+    (i : Fin C.size) : State :=
+  (sideTrue U (C.leftVars i) (C.leftGates i) i (C.gateVal U),
+   sideTrue U (C.rightVars i) (C.rightGates i) i (C.gateVal U))
+
+lemma sideTrue_union {n k : ℕ} (U V B : Finset (Fin n))
+    (F : Finset (Fin k)) (i : Fin k) (vu vv vw : Fin k → Bool)
+    (h : ∀ j, j < i → vw j = (vu j || vv j)) :
+    sideTrue (U ∪ V) B F i vw =
+      (sideTrue U B F i vu || sideTrue V B F i vv) := by
+  unfold sideTrue
+  rw [← Bool.decide_or]
+  apply decide_eq_decide.mpr
+  constructor
+  · rintro (⟨v,hvB,hv⟩ | ⟨j,hjF,hji,hj⟩)
+    · rcases Finset.mem_union.mp hv with hvU | hvV
+      · exact Or.inl (Or.inl ⟨v,hvB,hvU⟩)
+      · exact Or.inr (Or.inl ⟨v,hvB,hvV⟩)
+    · rw [h j hji, Bool.or_eq_true] at hj
+      rcases hj with hjU | hjV
+      · exact Or.inl (Or.inr ⟨j,hjF,hji,hjU⟩)
+      · exact Or.inr (Or.inr ⟨j,hjF,hji,hjV⟩)
+  · rintro ((⟨v,hvB,hvU⟩ | ⟨j,hjF,hji,hjU⟩) |
+      (⟨v,hvB,hvV⟩ | ⟨j,hjF,hji,hjV⟩))
+    · exact Or.inl ⟨v,hvB,Finset.mem_union_left V hvU⟩
+    · refine Or.inr ⟨j,hjF,hji,?_⟩
+      rw [h j hji, hjU]
+      rfl
+    · exact Or.inl ⟨v,hvB,Finset.mem_union_right U hvV⟩
+    · refine Or.inr ⟨j,hjF,hji,?_⟩
+      rw [h j hji, hjV, Bool.or_true]
+
+lemma gateVal_union_no_cross {n : ℕ} (C : AndCountCircuit n)
+    (U V : Finset (Fin n))
+    (hcross : ∀ i, ¬ Cross (stateFn C U i) (stateFn C V i))
+    (i : Fin C.size) :
+    C.gateVal (U ∪ V) i = (C.gateVal U i || C.gateVal V i) := by
+  have hgate : ∀ (k : ℕ) (j : Fin C.size), j.val < k →
+      C.gateVal (U ∪ V) j = (C.gateVal U j || C.gateVal V j) := by
+    intro k
+    induction k with
+    | zero => intro j hj; omega
+    | succ k ih =>
+      intro j hj
+      rw [gateVal_unfold C (U ∪ V) j, gateVal_unfold C U j,
+        gateVal_unfold C V j]
+      have hprev : ∀ a : Fin C.size, a < j →
+          C.gateVal (U ∪ V) a = (C.gateVal U a || C.gateVal V a) := by
+        intro a ha
+        exact ih a (by omega)
+      rw [sideTrue_union U V (C.leftVars j) (C.leftGates j) j _ _ _ hprev,
+        sideTrue_union U V (C.rightVars j) (C.rightGates j) j _ _ _ hprev]
+      exact and_join_no_cross _ _ _ _ (hcross j)
+  exact hgate C.size i i.isLt
+
+lemma no_cross_join {n : ℕ} (C : AndCountCircuit n) (U V : Finset (Fin n))
+    (hcross : ∀ i, ¬ Cross (stateFn C U i) (stateFn C V i)) :
+    C.eval (U ∪ V) = (C.eval U || C.eval V) := by
+  have hgate := gateVal_union_no_cross C U V hcross
+  unfold AndCountCircuit.eval
+  rw [← Bool.decide_or]
+  apply decide_eq_decide.mpr
+  constructor
+  · rintro (⟨v,hvO,hv⟩ | ⟨j,hjO,hj⟩)
+    · rcases Finset.mem_union.mp hv with hvU | hvV
+      · exact Or.inl (Or.inl ⟨v,hvO,hvU⟩)
+      · exact Or.inr (Or.inl ⟨v,hvO,hvV⟩)
+    · rw [hgate j, Bool.or_eq_true] at hj
+      rcases hj with hjU | hjV
+      · exact Or.inl (Or.inr ⟨j,hjO,hjU⟩)
+      · exact Or.inr (Or.inr ⟨j,hjO,hjV⟩)
+  · rintro ((⟨v,hvO,hvU⟩ | ⟨j,hjO,hjU⟩) |
+      (⟨v,hvO,hvV⟩ | ⟨j,hjO,hjV⟩))
+    · exact Or.inl ⟨v,hvO,Finset.mem_union_left V hvU⟩
+    · refine Or.inr ⟨j,hjO,?_⟩
+      rw [hgate j, hjU]
+      rfl
+    · exact Or.inl ⟨v,hvO,Finset.mem_union_right U hvV⟩
+    · refine Or.inr ⟨j,hjO,?_⟩
+      rw [hgate j, hjV, Bool.or_true]
+
+lemma exists_and_cross {n : ℕ} (C : AndCountCircuit n)
+    (U V : Finset (Fin n)) (hU : C.eval U = false) (hV : C.eval V = false)
+    (hunion : C.eval (U ∪ V) = true) :
+    ∃ i : Fin C.size, Cross (stateFn C U i) (stateFn C V i) := by
+  by_contra h
+  push Not at h
+  have heq := no_cross_join C U V h
+  rw [hunion, hU, hV] at heq
+  contradiction
+
+def cube {k : ℕ} (p : Fin k → State) : Finset (Fin k → Bool) :=
+  Fintype.piFinset fun i => allowed (p i)
+
+def wildCount {k : ℕ} (p : Fin k → State) : ℕ :=
+  (Finset.univ.filter fun i => (p i).1 = (p i).2).card
+
+lemma cube_disjoint_of_cross {k : ℕ} (p q : Fin k → State)
+    (hcross : ∃ i, Cross (p i) (q i)) : Disjoint (cube p) (cube q) := by
+  apply Finset.disjoint_left.mpr
+  intro f hp hq
+  obtain ⟨i, hi⟩ := hcross
+  exact not_cross_of_common (p i) (q i) (f i)
+    (Fintype.mem_piFinset.mp hp i) (Fintype.mem_piFinset.mp hq i) hi
+
+lemma cube_card {k : ℕ} (p : Fin k → State) : (cube p).card = 2 ^ wildCount p := by
+  rw [cube, Fintype.card_piFinset]
+  have hc : ∀ i, (allowed (p i)).card = if (p i).1 = (p i).2 then 2 else 1 := by
+    intro i
+    by_cases hi : (p i).1 = (p i).2 <;> simp [allowed, hi]
+  simp_rw [hc]
+  rw [← Finset.prod_filter]
+  simp [wildCount]
+
+lemma false_family_kraft_bound {n : ℕ} (C : AndCountCircuit n)
+    (S : Finset (Finset (Fin n)))
+    (hfalse : ∀ U ∈ S, C.eval U = false)
+    (hjoin : ∀ U ∈ S, ∀ V ∈ S, U ≠ V → C.eval (U ∪ V) = true) :
+    (∑ U ∈ S, 2 ^ wildCount (stateFn C U)) ≤ 2 ^ C.size := by
+  classical
+  have hdis : (S : Set (Finset (Fin n))).PairwiseDisjoint (fun U => cube (stateFn C U)) := by
+    intro U hU V hV hne
+    apply cube_disjoint_of_cross
+    exact exists_and_cross C U V (hfalse U hU) (hfalse V hV) (hjoin U hU V hV hne)
+  calc
+    _ = ∑ U ∈ S, (cube (stateFn C U)).card := by
+      apply Finset.sum_congr rfl
+      intro U hU
+      exact (cube_card _).symm
+    _ = (S.biUnion fun U => cube (stateFn C U)).card := (Finset.card_biUnion hdis).symm
+    _ ≤ Fintype.card (Fin C.size → Bool) := Finset.card_le_univ _
+    _ = _ := by simp
+
+lemma succ_le_two_pow (k : ℕ) : k + 1 ≤ 2 ^ k := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [pow_succ]
+    omega
+
+lemma false_family_linear_bound {n : ℕ} (C : AndCountCircuit n)
+    (S : Finset (Finset (Fin n)))
+    (hfalse : ∀ U ∈ S, C.eval U = false)
+    (hjoin : ∀ U ∈ S, ∀ V ∈ S, U ≠ V → C.eval (U ∪ V) = true) :
+    (∑ U ∈ S, wildCount (stateFn C U)) ≤ 2 ^ C.size - S.card := by
+  have hsum : (∑ U ∈ S, (wildCount (stateFn C U) + 1)) ≤
+      ∑ U ∈ S, 2 ^ wildCount (stateFn C U) := by
+    exact Finset.sum_le_sum fun U hU => succ_le_two_pow _
+  have hk := false_family_kraft_bound C S hfalse hjoin
+  simp only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] at hsum
+  omega
+
+lemma false_family_card_bound {n : ℕ} (C : AndCountCircuit n)
+    (S : Finset (Finset (Fin n)))
+    (hfalse : ∀ U ∈ S, C.eval U = false)
+    (hjoin : ∀ U ∈ S, ∀ V ∈ S, U ≠ V → C.eval (U ∪ V) = true) :
+    S.card ≤ 2 ^ C.size := by
+  have hsum : (∑ _U ∈ S, 1) ≤ ∑ U ∈ S, 2 ^ wildCount (stateFn C U) := by
+    apply Finset.sum_le_sum
+    intro U hU
+    exact Nat.one_le_pow _ _ (by decide)
+  have hk := false_family_kraft_bound C S hfalse hjoin
+  simpa using hsum.trans hk
+
+lemma equal_rows_le_total_wild {n : ℕ} (C : AndCountCircuit n)
+    (S : Finset (Finset (Fin n))) (i : Fin C.size) :
+    (S.filter fun U => (stateFn C U i).1 = (stateFn C U i).2).card ≤
+      ∑ U ∈ S, wildCount (stateFn C U) := by
+  classical
+  let T := S.filter fun U => (stateFn C U i).1 = (stateFn C U i).2
+  have hsub : T ⊆ S := Finset.filter_subset _ _
+  calc
+    T.card = ∑ _U ∈ T, 1 := by simp
+    _ ≤ ∑ U ∈ T, wildCount (stateFn C U) := by
+      apply Finset.sum_le_sum
+      intro U hU
+      apply Finset.card_pos.mpr
+      exact ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ _,(Finset.mem_filter.mp hU).2⟩⟩
+    _ ≤ ∑ U ∈ S, wildCount (stateFn C U) :=
+      Finset.sum_le_sum_of_subset_of_nonneg hsub (by intros; exact Nat.zero_le _)
+
+lemma false_family_gate_equal_bound {n : ℕ} (C : AndCountCircuit n)
+    (S : Finset (Finset (Fin n))) (i : Fin C.size)
+    (hfalse : ∀ U ∈ S, C.eval U = false)
+    (hjoin : ∀ U ∈ S, ∀ V ∈ S, U ≠ V → C.eval (U ∪ V) = true) :
+    (S.filter fun U => (stateFn C U i).1 = (stateFn C U i).2).card ≤
+      2 ^ C.size - S.card :=
+  (equal_rows_le_total_wild C S i).trans (false_family_linear_bound C S hfalse hjoin)
+
+lemma stateFn_raw {n : ℕ} (C : AndCountCircuit n) (U : Finset (Fin n))
+    (i : Fin C.size) (hL : C.leftGates i = ∅) (hR : C.rightGates i = ∅) :
+    stateFn C U i =
+      (decide (∃ v ∈ C.leftVars i, v ∈ U), decide (∃ v ∈ C.rightVars i, v ∈ U)) := by
+  simp [stateFn, sideTrue, hL, hR]
+
+lemma false_family_indexed_kraft_bound {n : ℕ} {α : Type*} [DecidableEq α]
+    (C : AndCountCircuit n) (S : Finset α) (inputs : α → Finset (Fin n))
+    (hfalse : ∀ a ∈ S, C.eval (inputs a) = false)
+    (hjoin : ∀ a ∈ S, ∀ b ∈ S, a ≠ b → C.eval (inputs a ∪ inputs b) = true) :
+    (∑ a ∈ S, 2 ^ wildCount (stateFn C (inputs a))) ≤ 2 ^ C.size := by
+  classical
+  have hdis : (S : Set α).PairwiseDisjoint (fun a => cube (stateFn C (inputs a))) := by
+    intro a ha b hb hne
+    apply cube_disjoint_of_cross
+    exact exists_and_cross C (inputs a) (inputs b)
+      (hfalse a ha) (hfalse b hb) (hjoin a ha b hb hne)
+  calc
+    _ = ∑ a ∈ S, (cube (stateFn C (inputs a))).card := by
+      apply Finset.sum_congr rfl
+      intro a ha
+      exact (cube_card _).symm
+    _ = (S.biUnion fun a => cube (stateFn C (inputs a))).card := (Finset.card_biUnion hdis).symm
+    _ ≤ Fintype.card (Fin C.size → Bool) := Finset.card_le_univ _
+    _ = _ := by simp
+
+lemma false_family_indexed_linear_bound {n : ℕ} {α : Type*} [DecidableEq α]
+    (C : AndCountCircuit n) (S : Finset α) (inputs : α → Finset (Fin n))
+    (hfalse : ∀ a ∈ S, C.eval (inputs a) = false)
+    (hjoin : ∀ a ∈ S, ∀ b ∈ S, a ≠ b → C.eval (inputs a ∪ inputs b) = true) :
+    (∑ a ∈ S, wildCount (stateFn C (inputs a))) ≤ 2 ^ C.size - S.card := by
+  have hsum : (∑ a ∈ S, (wildCount (stateFn C (inputs a)) + 1)) ≤
+      ∑ a ∈ S, 2 ^ wildCount (stateFn C (inputs a)) := by
+    exact Finset.sum_le_sum fun a ha => succ_le_two_pow _
+  have hk := false_family_indexed_kraft_bound C S inputs hfalse hjoin
+  simp only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] at hsum
+  omega
+
+lemma false_family_indexed_gate_equal_bound {n : ℕ} {α : Type*} [DecidableEq α]
+    (C : AndCountCircuit n) (S : Finset α) (inputs : α → Finset (Fin n))
+    (i : Fin C.size)
+    (hfalse : ∀ a ∈ S, C.eval (inputs a) = false)
+    (hjoin : ∀ a ∈ S, ∀ b ∈ S, a ≠ b → C.eval (inputs a ∪ inputs b) = true) :
+    (S.filter fun a => (stateFn C (inputs a) i).1 = (stateFn C (inputs a) i).2).card ≤
+      2 ^ C.size - S.card := by
+  classical
+  let T := S.filter fun a => (stateFn C (inputs a) i).1 = (stateFn C (inputs a) i).2
+  have hsub : T ⊆ S := Finset.filter_subset _ _
+  calc
+    T.card = ∑ _a ∈ T, 1 := by simp
+    _ ≤ ∑ a ∈ T, wildCount (stateFn C (inputs a)) := by
+      apply Finset.sum_le_sum
+      intro a ha
+      apply Finset.card_pos.mpr
+      exact ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ _,(Finset.mem_filter.mp ha).2⟩⟩
+    _ ≤ ∑ a ∈ S, wildCount (stateFn C (inputs a)) :=
+      Finset.sum_le_sum_of_subset_of_nonneg hsub (by intros; exact Nat.zero_le _)
+    _ ≤ _ := false_family_indexed_linear_bound C S inputs hfalse hjoin
+
+lemma countP_eq_card_filter {α : Type*} [DecidableEq α]
+    (l : List α) (p : α → Bool) (hnodup : l.Nodup) :
+    l.countP p = (l.toFinset.filter fun a => p a = true).card := by
+  induction l with
+  | nil => simp
+  | cons a l ih =>
+    obtain ⟨hna,hn⟩ := List.nodup_cons.mp hnodup
+    by_cases hp : p a = true
+    · simp [Finset.filter_insert, hp, hna, ih hn]
+    · simp [Finset.filter_insert, hp, hna, ih hn]
+
+lemma false_family_list_gate_equal_bound {n : ℕ} {α : Type*} [DecidableEq α]
+    (C : AndCountCircuit n) (l : List α) (inputs : α → Finset (Fin n))
+    (i : Fin C.size) (hnodup : l.Nodup)
+    (hfalse : ∀ a ∈ l, C.eval (inputs a) = false)
+    (hjoin : ∀ a ∈ l, ∀ b ∈ l, a ≠ b → C.eval (inputs a ∪ inputs b) = true) :
+    l.countP (fun a => (stateFn C (inputs a) i).1 == (stateFn C (inputs a) i).2) ≤
+      2 ^ C.size - l.length := by
+  have hbound := false_family_indexed_gate_equal_bound C l.toFinset inputs i
+    (fun a ha => hfalse a (List.mem_toFinset.mp ha))
+    (fun a ha b hb hne => hjoin a (List.mem_toFinset.mp ha) b (List.mem_toFinset.mp hb) hne)
+  rw [countP_eq_card_filter _ _ hnodup]
+  simpa [List.toFinset_card_of_nodup hnodup] using hbound
+
+end AndCountPacking
+
+namespace AndCountMaskFamily
+
+open PEqualNP.AndCount
+
+def inputOfMask (n s : ℕ) : Finset (Fin n) :=
+  Finset.univ.filter fun v => s.testBit v.val = true
+
+lemma mem_inputOfMask {n s : ℕ} (v : Fin n) :
+    v ∈ inputOfMask n s ↔ s.testBit v.val = true := by
+  simp [inputOfMask]
+
+def ValidMask {n : ℕ} (G : SimpleGraph (Fin n)) (s : ℕ) : Prop :=
+  s < 2 ^ n ∧
+    (∀ u v : Fin n, s.testBit u.val = true → s.testBit v.val = true → ¬ G.Adj u v) ∧
+    (∀ u : Fin n, s.testBit u.val = false →
+      ∃ v : Fin n, s.testBit v.val = true ∧ G.Adj u v)
+
+lemma mask_eq_of_bits_eq {n s t : ℕ} (hs : s < 2 ^ n) (ht : t < 2 ^ n)
+    (hbits : ∀ v : Fin n, s.testBit v.val = t.testBit v.val) : s = t := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < n
+  · exact hbits ⟨i,hi⟩
+  · have hni : n ≤ i := by omega
+    have hpow : 2 ^ n ≤ 2 ^ i := Nat.pow_le_pow_right (by decide : 1 ≤ 2) hni
+    rw [Nat.testBit_eq_false_of_lt (hs.trans_le hpow),
+      Nat.testBit_eq_false_of_lt (ht.trans_le hpow)]
+
+lemma distinct_valid_masks_union_edge {n : ℕ} (G : SimpleGraph (Fin n))
+    {s t : ℕ} (hs : ValidMask G s) (ht : ValidMask G t) (hne : s ≠ t) :
+    ∃ a ∈ inputOfMask n s ∪ inputOfMask n t,
+      ∃ b ∈ inputOfMask n s ∪ inputOfMask n t, G.Adj a b := by
+  classical
+  have hd : ∃ v : Fin n, s.testBit v.val ≠ t.testBit v.val := by
+    by_contra h
+    apply hne
+    apply mask_eq_of_bits_eq hs.1 ht.1
+    intro v
+    by_contra hv
+    exact h ⟨v,hv⟩
+  obtain ⟨v,hv⟩ := hd
+  cases hsbit : s.testBit v.val <;> cases htbit : t.testBit v.val
+  · exact (hv (hsbit.trans htbit.symm)).elim
+  · obtain ⟨w,hw,hvw⟩ := hs.2.2 v hsbit
+    exact ⟨v,Finset.mem_union_right _ ((mem_inputOfMask v).mpr htbit),
+      w,Finset.mem_union_left _ ((mem_inputOfMask w).mpr hw),hvw⟩
+  · obtain ⟨w,hw,hvw⟩ := ht.2.2 v htbit
+    exact ⟨v,Finset.mem_union_left _ ((mem_inputOfMask v).mpr hsbit),
+      w,Finset.mem_union_right _ ((mem_inputOfMask w).mpr hw),hvw⟩
+  · exact (hv (hsbit.trans htbit.symm)).elim
+
+lemma valid_mask_false {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) (hcomp : C.Computes G)
+    {s : ℕ} (hs : ValidMask G s) : C.eval (inputOfMask n s) = false := by
+  cases heval : C.eval (inputOfMask n s) with
+  | false => rfl
+  | true =>
+    obtain ⟨a,ha,b,hb,hab⟩ := (hcomp _).mp heval
+    exact (hs.2.1 a b ((mem_inputOfMask a).mp ha) ((mem_inputOfMask b).mp hb) hab).elim
+
+lemma distinct_valid_masks_union_true {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) (hcomp : C.Computes G)
+    {s t : ℕ} (hs : ValidMask G s) (ht : ValidMask G t) (hne : s ≠ t) :
+    C.eval (inputOfMask n s ∪ inputOfMask n t) = true :=
+  (hcomp _).mpr (distinct_valid_masks_union_edge G hs ht hne)
+
+end AndCountMaskFamily
+
+namespace AndCountRawGateBound
+
+open PEqualNP.AndCount
+open PEqualNP.Outside.L_meta_3566.AndCountPacking
+open PEqualNP.Outside.L_meta_3566.AndCountMaskFamily
+
+lemma raw_mask_count_bound {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) (hcomp : C.Computes G)
+    (l : List ℕ) (hnodup : l.Nodup) (hvalid : ∀ s ∈ l, ValidMask G s)
+    (i : Fin C.size) (hL : C.leftGates i = ∅) (hR : C.rightGates i = ∅) :
+    l.countP (fun s =>
+      (decide (∃ v ∈ C.leftVars i, s.testBit v.val = true)) ==
+      (decide (∃ v ∈ C.rightVars i, s.testBit v.val = true))) ≤
+        2 ^ C.size - l.length := by
+  have hbound := false_family_list_gate_equal_bound C l (inputOfMask n) i hnodup
+    (fun s hs => valid_mask_false C G hcomp (hvalid s hs))
+    (fun s hs t ht hne => distinct_valid_masks_union_true C G hcomp
+      (hvalid s hs) (hvalid t ht) hne)
+  simpa [stateFn, AndCountCircuit.sideTrue, hL, hR, inputOfMask] using hbound
+
+lemma false_of_raw_twenty_size_le_seven {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) (hcomp : C.Computes G)
+    (l : List ℕ) (hnodup : l.Nodup) (hvalid : ∀ s ∈ l, ValidMask G s)
+    (hlen : l.length = 110) (i : Fin C.size)
+    (hL : C.leftGates i = ∅) (hR : C.rightGates i = ∅)
+    (hrows : 20 ≤ l.countP (fun s =>
+      (decide (∃ v ∈ C.leftVars i, s.testBit v.val = true)) ==
+      (decide (∃ v ∈ C.rightVars i, s.testBit v.val = true))))
+    (hsize : C.size ≤ 7) : False := by
+  have hb := raw_mask_count_bound C G hcomp l hnodup hvalid i hL hR
+  have hp : 2 ^ C.size ≤ 128 := by
+    calc
+      2 ^ C.size ≤ 2 ^ 7 := Nat.pow_le_pow_right (by decide : 1 ≤ 2) hsize
+      _ = 128 := by decide
+  rw [hlen] at hb
+  omega
+
+end AndCountRawGateBound
+
+namespace AndCountCleanMatching
+
+open PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
+
+open PEqualNP.Outside.L_meta_3566.AndCountHoist
+
+def EdgeInput {n : ℕ} (G : SimpleGraph (Fin n)) (U : Finset (Fin n)) : Prop :=
+  ∃ a ∈ U, ∃ b ∈ U, G.Adj a b
+
+def GlobalClean {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) : Prop :=
+  ∀ U, C.gateVal U i = true → EdgeInput G U
+
+lemma computes_outVars_empty {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) (hcomp : C.Computes G) : C.outVars = ∅ := by
+  ext v
+  constructor
+  · intro hv
+    exfalso
+    have heval : C.eval {v} = true := by
+      unfold AndCountCircuit.eval
+      apply decide_eq_true_eq.mpr
+      exact Or.inl ⟨v,hv,Finset.mem_singleton_self _⟩
+    obtain ⟨a,ha,b,hb,hab⟩ := (hcomp {v}).mp heval
+    have ha' : a = v := Finset.mem_singleton.mp ha
+    have hb' : b = v := Finset.mem_singleton.mp hb
+    subst a
+    subst b
+    exact G.loopless.irrefl v hab
+  · intro hv
+    simp at hv
+
+lemma exists_first_true_gate {n : ℕ} (C : AndCountCircuit n)
+    (U : Finset (Fin n)) (hout : C.outVars = ∅) (hU : C.eval U = true) :
+    ∃ i : Fin C.size, C.gateVal U i = true ∧
+      ∀ j : Fin C.size, j < i → C.gateVal U j = false := by
+  classical
+  have hex : ∃ i : Fin C.size, C.gateVal U i = true := by
+    unfold AndCountCircuit.eval at hU
+    rw [decide_eq_true_eq] at hU
+    rcases hU with ⟨v,hv,_⟩ | ⟨i,_,hi⟩
+    · simp [hout] at hv
+    · exact ⟨i,hi⟩
+  let T := Finset.univ.filter fun i : Fin C.size => C.gateVal U i = true
+  have hT : T.Nonempty := by
+    obtain ⟨i,hi⟩ := hex
+    exact ⟨i,Finset.mem_filter.mpr ⟨Finset.mem_univ _,hi⟩⟩
+  let i := T.min' hT
+  have hi : i ∈ T := Finset.min'_mem T hT
+  refine ⟨i,(Finset.mem_filter.mp hi).2,?_⟩
+  intro j hji
+  cases hv : C.gateVal U j with
+  | false => rfl
+  | true =>
+    have hj : j ∈ T := Finset.mem_filter.mpr ⟨Finset.mem_univ _,hv⟩
+    have hle : i ≤ j := Finset.min'_le T j hj
+    exact (not_le_of_gt hji hle).elim
+
+lemma sideTrue_raw_of_previous_false {n k : ℕ} (U B : Finset (Fin n))
+    (F : Finset (Fin k)) (i : Fin k) (val : Fin k → Bool)
+    (hprev : ∀ j, j < i → val j = false)
+    (hside : sideTrue U B F i val = true) : ∃ v ∈ B, v ∈ U := by
+  unfold sideTrue at hside
+  rw [decide_eq_true_eq] at hside
+  rcases hside with hraw | ⟨j,hj,hji,hval⟩
+  · exact hraw
+  · rw [hprev j hji] at hval
+    contradiction
+
+lemma first_true_raw_pair {n : ℕ} (C : AndCountCircuit n)
+    (a b : Fin n) (hout : C.outVars = ∅)
+    (hdis : ∀ i, Disjoint (C.leftVars i) (C.rightVars i))
+    (hU : C.eval {a,b} = true) :
+    ∃ i : Fin C.size,
+      (a ∈ C.leftVars i ∧ b ∈ C.rightVars i) ∨
+      (b ∈ C.leftVars i ∧ a ∈ C.rightVars i) := by
+  obtain ⟨i,hi,hprev⟩ := exists_first_true_gate C {a,b} hout hU
+  rw [gateVal_unfold, Bool.and_eq_true] at hi
+  obtain ⟨x,hxL,hxU⟩ := sideTrue_raw_of_previous_false {a,b}
+    (C.leftVars i) (C.leftGates i) i (C.gateVal {a,b}) hprev hi.1
+  obtain ⟨y,hyR,hyU⟩ := sideTrue_raw_of_previous_false {a,b}
+    (C.rightVars i) (C.rightGates i) i (C.gateVal {a,b}) hprev hi.2
+  have hx : x = a ∨ x = b := by simpa using hxU
+  have hy : y = a ∨ y = b := by simpa using hyU
+  refine ⟨i,?_⟩
+  rcases hx with rfl | rfl <;> rcases hy with rfl | rfl
+  · exact (Finset.disjoint_left.mp (hdis i) hxL hyR).elim
+  · exact Or.inl ⟨hxL,hyR⟩
+  · exact Or.inr ⟨hxL,hyR⟩
+  · exact (Finset.disjoint_left.mp (hdis i) hxL hyR).elim
+
+lemma raw_cross_adj {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) (hclean : GlobalClean C G i)
+    (a b : Fin n) (ha : a ∈ C.leftVars i) (hb : b ∈ C.rightVars i) :
+    G.Adj a b := by
+  have hgate : C.gateVal {a,b} i = true := by
+    rw [gateVal_unfold, Bool.and_eq_true]
+    constructor
+    · unfold sideTrue
+      apply decide_eq_true_eq.mpr
+      exact Or.inl ⟨a,ha,by simp⟩
+    · unfold sideTrue
+      apply decide_eq_true_eq.mpr
+      exact Or.inl ⟨b,hb,by simp⟩
+  obtain ⟨x,hx,y,hy,hxy⟩ := hclean {a,b} hgate
+  have hx' : x = a ∨ x = b := by simpa using hx
+  have hy' : y = a ∨ y = b := by simpa using hy
+  rcases hx' with rfl | rfl <;> rcases hy' with rfl | rfl
+  · exact (G.loopless.irrefl _ hxy).elim
+  · exact hxy
+  · exact G.adj_symm hxy
+  · exact (G.loopless.irrefl _ hxy).elim
+
+lemma clean_raw_disjoint {n : ℕ} (C : AndCountCircuit n) (G : SimpleGraph (Fin n))
+    (i : Fin C.size) (hclean : GlobalClean C G i) :
+    Disjoint (C.leftVars i) (C.rightVars i) := by
+  apply Finset.disjoint_left.mpr
+  intro a ha hb
+  exact G.loopless.irrefl a (raw_cross_adj C G i hclean a a ha hb)
+
+lemma clean_rectangle_shares_endpoint {n : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (i : Fin C.size) (hclean : GlobalClean C G i)
+    (a b c d : Fin n) (ha : a ∈ C.leftVars i) (hb : b ∈ C.rightVars i)
+    (hc : c ∈ C.leftVars i) (hd : d ∈ C.rightVars i) : a = c ∨ b = d := by
+  by_cases hac : a = c
+  · exact Or.inl hac
+  · apply Or.inr
+    have hcard := hfour a c hac
+    apply Finset.card_le_one.mp hcard
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+        raw_cross_adj C G i hclean a b ha hb,
+        raw_cross_adj C G i hclean c b hc hb⟩
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+        raw_cross_adj C G i hclean a d ha hd,
+        raw_cross_adj C G i hclean c d hc hd⟩
+
+lemma matching_le_size_of_all_clean {n k : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcomp : C.Computes G) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hclean : ∀ i, GlobalClean C G i)
+    (ends : Fin k × Bool → Fin n) (hinj : Function.Injective ends)
+    (hedge : ∀ j, G.Adj (ends (j,false)) (ends (j,true))) : k ≤ C.size := by
+  classical
+  have hout := computes_outVars_empty C G hcomp
+  have hdis : ∀ i, Disjoint (C.leftVars i) (C.rightVars i) :=
+    fun i => clean_raw_disjoint C G i (hclean i)
+  have hex : ∀ j : Fin k, ∃ i : Fin C.size, ∃ b : Bool,
+      ends (j,b) ∈ C.leftVars i ∧ ends (j,!b) ∈ C.rightVars i := by
+    intro j
+    have heval : C.eval {ends (j,false),ends (j,true)} = true := by
+      apply (hcomp _).mpr
+      exact ⟨ends (j,false),by simp,ends (j,true),by simp,hedge j⟩
+    obtain ⟨i,h | h⟩ := first_true_raw_pair C (ends (j,false))
+      (ends (j,true)) hout hdis heval
+    · exact ⟨i,false,h⟩
+    · exact ⟨i,true,h⟩
+  choose gate orient hgate using hex
+  have hgate_inj : Function.Injective gate := by
+    intro s t hst
+    have hLs : ends (s,orient s) ∈ C.leftVars (gate s) := (hgate s).1
+    have hRs : ends (s,!(orient s)) ∈ C.rightVars (gate s) := (hgate s).2
+    have hLt : ends (t,orient t) ∈ C.leftVars (gate s) := by rw [hst]; exact (hgate t).1
+    have hRt : ends (t,!(orient t)) ∈ C.rightVars (gate s) := by rw [hst]; exact (hgate t).2
+    rcases clean_rectangle_shares_endpoint C G hfour (gate s) (hclean _)
+      _ _ _ _ hLs hRs hLt hRt with h | h
+    · exact congrArg Prod.fst (hinj h)
+    · exact congrArg Prod.fst (hinj h)
+  simpa using Fintype.card_le_of_injective gate hgate_inj
+
+lemma exists_global_junk_of_lt_matching {n k : ℕ} (C : AndCountCircuit n)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcomp : C.Computes G) (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (ends : Fin k × Bool → Fin n) (hinj : Function.Injective ends)
+    (hedge : ∀ j, G.Adj (ends (j,false)) (ends (j,true)))
+    (hsize : C.size < k) :
+    ∃ i : Fin C.size, ∃ U : Finset (Fin n),
+      C.gateVal U i = true ∧ ¬ EdgeInput G U := by
+  classical
+  by_contra h
+  have hclean : ∀ i, GlobalClean C G i := by
+    intro i U hval
+    by_contra hno
+    exact h ⟨i,U,hval,hno⟩
+  have hle := matching_le_size_of_all_clean C G hcomp hfour hclean ends hinj hedge
+  omega
+
+end AndCountCleanMatching
+
+namespace Affine3Rectangles
+
+def samples : List ℕ := [
+  261632, 224257, 186882, 149507, 112132, 74757, 37382, 179208, 142345, 169994, 46092, 125456, 92177, 51730, 107028, 43032, 218656, 214049, 152098, 71204, 136232, 82480, 121920, 85057, 55362, 103492, 40008, 3145, 38986, 37964, 36942, 116816, 84049, 51282, 18515, 98388, 34906, 87136, 83041, 20578, 70756, 66661, 5228, 82033, 211584, 206977, 137858, 78468, 145544, 141449, 137354, 133259, 12428, 76432, 75921, 2706, 74388, 73877, 10393, 201376, 196769, 135842, 70308, 4774, 135338, 66228, 71872, 6346, 67793, 2267, 69860, 4334, 65781, 190208, 156929, 180994, 42756, 173320, 140553, 164106, 42252, 9485, 58128, 24849, 49938, 41748, 33558, 41244, 149280, 148769, 148258, 147747, 1828, 132393, 17202, 50496, 34124, 49490, 33118, 17761, 1389, 16755, 140160, 139657, 9108, 8605, 132002, 131499, 950, 511]
+
+def hit (s : ℕ) (A : Finset (Fin 18)) : Bool :=
+  decide (∃ v ∈ A, s.testBit v.val = true)
+
+def bothCount (A B : Finset (Fin 18)) : ℕ :=
+  samples.countP (fun s => hit s A && hit s B)
+
+def wildCount (A B : Finset (Fin 18)) : ℕ :=
+  samples.countP (fun s => hit s A == hit s B)
+
+def newLeftCount (A B : Finset (Fin 18)) (v : Fin 18) : ℕ :=
+  samples.countP (fun s => (!hit s A && hit s B) && s.testBit v.val)
+
+lemma hit_true_iff (s : ℕ) (A : Finset (Fin 18)) :
+    hit s A = true ↔ ∃ v ∈ A, s.testBit v.val = true := by
+  simp [hit]
+
+lemma hit_mono (s : ℕ) {A B : Finset (Fin 18)} (hAB : A ⊆ B)
+    (hA : hit s A = true) : hit s B = true := by
+  rcases (hit_true_iff s A).mp hA with ⟨v, hv, hs⟩
+  exact (hit_true_iff s B).mpr ⟨v, hAB hv, hs⟩
+
+lemma countP_mono (l : List ℕ) (p q : ℕ → Bool)
+    (h : ∀ s, p s = true → q s = true) : l.countP p ≤ l.countP q := by
+  induction l with
+  | nil => simp
+  | cons s l ih =>
+    have hs := h s
+    cases hp : p s <;> cases hq : q s <;>
+      simp_all [List.countP_cons] <;> omega
+
+lemma countP_add_le (l : List ℕ) (p q r : ℕ → Bool)
+    (hp : ∀ s, p s = true → r s = true)
+    (hq : ∀ s, q s = true → r s = true)
+    (hd : ∀ s, p s = true → q s = true → False) :
+    l.countP p + l.countP q ≤ l.countP r := by
+  induction l with
+  | nil => simp
+  | cons s l ih =>
+    have hps := hp s
+    have hqs := hq s
+    have hds := hd s
+    cases hpv : p s <;> cases hqv : q s <;> cases hrv : r s <;>
+      simp_all [List.countP_cons] <;> omega
+
+lemma and_true_iff (a b : Bool) : (a && b) = true ↔ a = true ∧ b = true := by
+  cases a <;> cases b <;> decide
+
+lemma bothCount_mono {A₀ B₀ A B : Finset (Fin 18)} (hA : A₀ ⊆ A) (hB : B₀ ⊆ B) :
+    bothCount A₀ B₀ ≤ bothCount A B := by
+  apply countP_mono
+  intro s hs
+  have h := (and_true_iff _ _).mp hs
+  exact (and_true_iff _ _).mpr ⟨hit_mono s hA h.1, hit_mono s hB h.2⟩
+
+lemma bothCount_le_wildCount (A B : Finset (Fin 18)) : bothCount A B ≤ wildCount A B := by
+  apply countP_mono
+  intro s hs
+  have h := (and_true_iff _ _).mp hs
+  simp [h.1, h.2]
+
+lemma bothCount_comm (A B : Finset (Fin 18)) : bothCount A B = bothCount B A := by
+  simp only [bothCount, Bool.and_comm]
+
+lemma wildCount_comm (A B : Finset (Fin 18)) : wildCount A B = wildCount B A := by
+  unfold wildCount
+  congr 1
+  funext s
+  cases hit s A <;> cases hit s B <;> rfl
+
+lemma bothCount_add_newLeft_le {A₀ B₀ A B : Finset (Fin 18)}
+    (hA : A₀ ⊆ A) (hB : B₀ ⊆ B) {v : Fin 18} (hv : v ∈ A) :
+    bothCount A₀ B₀ + newLeftCount A₀ B₀ v ≤ bothCount A B := by
+  apply countP_add_le
+  · intro s hs
+    have h := (and_true_iff _ _).mp hs
+    exact (and_true_iff _ _).mpr ⟨hit_mono s hA h.1, hit_mono s hB h.2⟩
+  · intro s hs
+    have h := (and_true_iff _ _).mp hs
+    have hB₀ := ((and_true_iff _ _).mp h.1).2
+    exact (and_true_iff _ _).mpr
+      ⟨(hit_true_iff s A).mpr ⟨v, hv, h.2⟩, hit_mono s hB hB₀⟩
+  · intro s hp hq
+    have hpA := ((and_true_iff _ _).mp hp).1
+    have hqA := ((and_true_iff _ _).mp ((and_true_iff _ _).mp hq).1).1
+    simp [hpA] at hqA
+
+def BaseGood (A B : Finset (Fin 18)) : Prop :=
+  20 ≤ wildCount A B ∧
+    (20 ≤ bothCount A B ∨
+      (12 ≤ bothCount A B ∧ ∀ v : Fin 18, v ∉ A ∪ B →
+        8 ≤ newLeftCount A B v ∧ 8 ≤ newLeftCount B A v))
+
+lemma extension_wild_ge_twenty {A₀ B₀ A B : Finset (Fin 18)}
+    (hgood : BaseGood A₀ B₀) (hA : A₀ ⊆ A) (hB : B₀ ⊆ B)
+    (hd : Disjoint A B) : 20 ≤ wildCount A B := by
+  rcases hgood with ⟨hwild, hlarge | ⟨hsmall, hextra⟩⟩
+  · exact hlarge.trans ((bothCount_mono hA hB).trans (bothCount_le_wildCount A B))
+  · by_cases hAA : A = A₀
+    · by_cases hBB : B = B₀
+      · simpa [hAA, hBB] using hwild
+      · have hn : ¬ B ⊆ B₀ := fun h => hBB (Finset.Subset.antisymm h hB)
+        obtain ⟨v, hv, hv₀⟩ := Finset.not_subset.mp hn
+        have hvA₀ : v ∉ A₀ := fun h => Finset.disjoint_left.mp hd (hA h) hv
+        have hnew := (hextra v (by simp [hv₀, hvA₀])).2
+        have hsum := bothCount_add_newLeft_le hB hA hv
+        rw [bothCount_comm B₀ A₀, bothCount_comm B A] at hsum
+        have hbw := bothCount_le_wildCount A B
+        omega
+    · have hn : ¬ A ⊆ A₀ := fun h => hAA (Finset.Subset.antisymm h hA)
+      obtain ⟨v, hv, hv₀⟩ := Finset.not_subset.mp hn
+      have hvB₀ : v ∉ B₀ := fun h => Finset.disjoint_left.mp hd hv (hB h)
+      have hnew := (hextra v (by simp [hv₀, hvB₀])).1
+      have hsum := bothCount_add_newLeft_le hA hB hv
+      have hbw := bothCount_le_wildCount A B
+      omega
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+def baseCheck (r : Finset (Fin 18) × Finset (Fin 18)) : Bool :=
+  @decide (BaseGood r.1 r.2) (by unfold BaseGood; infer_instance)
+
+lemma hit_pair (s : ℕ) (u v : Fin 18) :
+    hit s {u, v} = (s.testBit u.val || s.testBit v.val) := by
+  apply Bool.eq_iff_iff.mpr
+  simp [hit]
+
+def fastBaseCheck (a b c d : Fin 18) : Bool :=
+  let p := fun s : ℕ => s.testBit a.val || s.testBit b.val
+  let q := fun s : ℕ => s.testBit c.val || s.testBit d.val
+  decide (20 ≤ samples.countP (fun s => p s == q s) ∧
+    (20 ≤ samples.countP (fun s => p s && q s) ∨
+      (12 ≤ samples.countP (fun s => p s && q s) ∧
+        ∀ v : Fin 18, v ∉ ({a, b} : Finset (Fin 18)) ∪ {c, d} →
+          8 ≤ samples.countP (fun s => (!p s && q s) && s.testBit v.val) ∧
+          8 ≤ samples.countP (fun s => (!q s && p s) && s.testBit v.val))))
+
+lemma baseCheck_pair (a b c d : Fin 18) :
+    baseCheck ({a, b}, {c, d}) = fastBaseCheck a b c d := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [baseCheck, fastBaseCheck, decide_eq_true_eq, BaseGood,
+    wildCount, bothCount, newLeftCount, hit_pair]
+
+lemma check_cons (a b c d : Fin 18) (rs : List (Finset (Fin 18) × Finset (Fin 18))) :
+    (({a, b}, {c, d}) :: rs).all baseCheck = (fastBaseCheck a b c d && rs.all baseCheck) := by
+  rw [List.all_cons, baseCheck_pair]
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+abbrev affineIncidence (u v : Fin 18) : Prop :=
+  u.val < 9 ∧ 9 ≤ v.val ∧
+    u.val % 3 = (((v.val - 9) / 3) * (u.val / 3) + (v.val - 9) % 3) % 3
+
+abbrev affineAdj (u v : Fin 18) : Prop := affineIncidence u v ∨ affineIncidence v u
+
+abbrev SampleValid (s : ℕ) : Prop :=
+  s < 262144 ∧
+    (∀ u v : Fin 18, s.testBit u.val = true → s.testBit v.val = true → ¬ affineAdj u v) ∧
+    (∀ u : Fin 18, s.testBit u.val = false →
+      ∃ v : Fin 18, s.testBit v.val = true ∧ affineAdj u v)
+
+
+def sampleChunk0 : List ℕ := [261632, 224257, 186882, 149507, 112132, 74757, 37382, 179208, 142345, 169994]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk0_valid : sampleChunk0.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk1 : List ℕ := [46092, 125456, 92177, 51730, 107028, 43032, 218656, 214049, 152098, 71204]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk1_valid : sampleChunk1.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk2 : List ℕ := [136232, 82480, 121920, 85057, 55362, 103492, 40008, 3145, 38986, 37964]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk2_valid : sampleChunk2.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk3 : List ℕ := [36942, 116816, 84049, 51282, 18515, 98388, 34906, 87136, 83041, 20578]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk3_valid : sampleChunk3.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk4 : List ℕ := [70756, 66661, 5228, 82033, 211584, 206977, 137858, 78468, 145544, 141449]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk4_valid : sampleChunk4.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk5 : List ℕ := [137354, 133259, 12428, 76432, 75921, 2706, 74388, 73877, 10393, 201376]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk5_valid : sampleChunk5.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk6 : List ℕ := [196769, 135842, 70308, 4774, 135338, 66228, 71872, 6346, 67793, 2267]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk6_valid : sampleChunk6.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk7 : List ℕ := [69860, 4334, 65781, 190208, 156929, 180994, 42756, 173320, 140553, 164106]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk7_valid : sampleChunk7.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk8 : List ℕ := [42252, 9485, 58128, 24849, 49938, 41748, 33558, 41244, 149280, 148769]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk8_valid : sampleChunk8.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk9 : List ℕ := [148258, 147747, 1828, 132393, 17202, 50496, 34124, 49490, 33118, 17761]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk9_valid : sampleChunk9.all (fun s => decide (SampleValid s)) = true := by decide
+
+def sampleChunk10 : List ℕ := [1389, 16755, 140160, 139657, 9108, 8605, 132002, 131499, 950, 511]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 8000000 in
+lemma sampleChunk10_valid : sampleChunk10.all (fun s => decide (SampleValid s)) = true := by decide
+
+set_option maxRecDepth 20000 in
+lemma samples_valid : samples.all (fun s => decide (SampleValid s)) = true := by
+  change (sampleChunk0 ++ sampleChunk1 ++ sampleChunk2 ++ sampleChunk3 ++ sampleChunk4 ++ sampleChunk5 ++ sampleChunk6 ++ sampleChunk7 ++ sampleChunk8 ++ sampleChunk9 ++ sampleChunk10).all (fun s => decide (SampleValid s)) = true
+  simp only [List.all_append, sampleChunk0_valid, sampleChunk1_valid, sampleChunk2_valid, sampleChunk3_valid, sampleChunk4_valid, sampleChunk5_valid, sampleChunk6_valid, sampleChunk7_valid, sampleChunk8_valid, sampleChunk9_valid, sampleChunk10_valid, Bool.and_true]
+
+set_option maxRecDepth 20000 in
+lemma samples_nodup : samples.Nodup := by decide
+
+lemma samples_length : samples.length = 110 := by decide
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+def chunk_0 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 1}, {9, 10}),
+  ({0, 10}, {9, 1}),
+  ({0, 1}, {9, 13}),
+  ({0, 13}, {9, 1}),
+  ({0, 1}, {9, 16}),
+  ({0, 16}, {9, 1}),
+  ({0, 2}, {9, 11}),
+  ({0, 11}, {9, 2}),
+  ({0, 2}, {9, 14}),
+  ({0, 14}, {9, 2})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_0_valid : chunk_0.all baseCheck = true := by
+  simp only [chunk_0, check_cons, List.all_nil]
+  decide
+
+def chunk_1 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 2}, {9, 17}),
+  ({0, 17}, {9, 2}),
+  ({0, 3}, {9, 14}),
+  ({0, 14}, {9, 3}),
+  ({0, 3}, {9, 16}),
+  ({0, 16}, {9, 3}),
+  ({0, 4}, {9, 10}),
+  ({0, 10}, {9, 4}),
+  ({0, 4}, {9, 12}),
+  ({0, 12}, {9, 4})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_1_valid : chunk_1.all baseCheck = true := by
+  simp only [chunk_1, check_cons, List.all_nil]
+  decide
+
+def chunk_2 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 4}, {9, 17}),
+  ({0, 17}, {9, 4}),
+  ({0, 5}, {9, 11}),
+  ({0, 11}, {9, 5}),
+  ({0, 5}, {9, 13}),
+  ({0, 13}, {9, 5}),
+  ({0, 5}, {9, 15}),
+  ({0, 15}, {9, 5}),
+  ({0, 6}, {9, 13}),
+  ({0, 13}, {9, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_2_valid : chunk_2.all baseCheck = true := by
+  simp only [chunk_2, check_cons, List.all_nil]
+  decide
+
+def chunk_3 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 6}, {9, 17}),
+  ({0, 17}, {9, 6}),
+  ({0, 7}, {9, 10}),
+  ({0, 10}, {9, 7}),
+  ({0, 7}, {9, 14}),
+  ({0, 14}, {9, 7}),
+  ({0, 7}, {9, 15}),
+  ({0, 15}, {9, 7}),
+  ({0, 8}, {9, 11}),
+  ({0, 11}, {9, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_3_valid : chunk_3.all baseCheck = true := by
+  simp only [chunk_3, check_cons, List.all_nil]
+  decide
+
+def chunk_4 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 8}, {9, 12}),
+  ({0, 12}, {9, 8}),
+  ({0, 8}, {9, 16}),
+  ({0, 16}, {9, 8}),
+  ({0, 1}, {12, 10}),
+  ({0, 10}, {12, 1}),
+  ({0, 1}, {12, 13}),
+  ({0, 13}, {12, 1}),
+  ({0, 1}, {12, 16}),
+  ({0, 16}, {12, 1})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_4_valid : chunk_4.all baseCheck = true := by
+  simp only [chunk_4, check_cons, List.all_nil]
+  decide
+
+def chunk_5 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 2}, {12, 11}),
+  ({0, 11}, {12, 2}),
+  ({0, 2}, {12, 14}),
+  ({0, 14}, {12, 2}),
+  ({0, 2}, {12, 17}),
+  ({0, 17}, {12, 2}),
+  ({0, 3}, {12, 9}),
+  ({0, 9}, {12, 3}),
+  ({0, 3}, {12, 14}),
+  ({0, 14}, {12, 3})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_5_valid : chunk_5.all baseCheck = true := by
+  simp only [chunk_5, check_cons, List.all_nil]
+  decide
+
+def chunk_6 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 3}, {12, 16}),
+  ({0, 16}, {12, 3}),
+  ({0, 4}, {12, 10}),
+  ({0, 10}, {12, 4}),
+  ({0, 4}, {12, 17}),
+  ({0, 17}, {12, 4}),
+  ({0, 5}, {12, 11}),
+  ({0, 11}, {12, 5}),
+  ({0, 5}, {12, 13}),
+  ({0, 13}, {12, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_6_valid : chunk_6.all baseCheck = true := by
+  simp only [chunk_6, check_cons, List.all_nil]
+  decide
+
+def chunk_7 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 5}, {12, 15}),
+  ({0, 15}, {12, 5}),
+  ({0, 6}, {12, 9}),
+  ({0, 9}, {12, 6}),
+  ({0, 6}, {12, 13}),
+  ({0, 13}, {12, 6}),
+  ({0, 6}, {12, 17}),
+  ({0, 17}, {12, 6}),
+  ({0, 7}, {12, 10}),
+  ({0, 10}, {12, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_7_valid : chunk_7.all baseCheck = true := by
+  simp only [chunk_7, check_cons, List.all_nil]
+  decide
+
+def chunk_8 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 7}, {12, 14}),
+  ({0, 14}, {12, 7}),
+  ({0, 7}, {12, 15}),
+  ({0, 15}, {12, 7}),
+  ({0, 8}, {12, 11}),
+  ({0, 11}, {12, 8}),
+  ({0, 8}, {12, 16}),
+  ({0, 16}, {12, 8}),
+  ({0, 1}, {15, 10}),
+  ({0, 10}, {15, 1})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_8_valid : chunk_8.all baseCheck = true := by
+  simp only [chunk_8, check_cons, List.all_nil]
+  decide
+
+def chunk_9 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 1}, {15, 13}),
+  ({0, 13}, {15, 1}),
+  ({0, 1}, {15, 16}),
+  ({0, 16}, {15, 1}),
+  ({0, 2}, {15, 11}),
+  ({0, 11}, {15, 2}),
+  ({0, 2}, {15, 14}),
+  ({0, 14}, {15, 2}),
+  ({0, 2}, {15, 17}),
+  ({0, 17}, {15, 2})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_9_valid : chunk_9.all baseCheck = true := by
+  simp only [chunk_9, check_cons, List.all_nil]
+  decide
+
+def chunk_10 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 3}, {15, 9}),
+  ({0, 9}, {15, 3}),
+  ({0, 3}, {15, 14}),
+  ({0, 14}, {15, 3}),
+  ({0, 3}, {15, 16}),
+  ({0, 16}, {15, 3}),
+  ({0, 4}, {15, 10}),
+  ({0, 10}, {15, 4}),
+  ({0, 4}, {15, 12}),
+  ({0, 12}, {15, 4})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_10_valid : chunk_10.all baseCheck = true := by
+  simp only [chunk_10, check_cons, List.all_nil]
+  decide
+
+def chunk_11 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 4}, {15, 17}),
+  ({0, 17}, {15, 4}),
+  ({0, 5}, {15, 11}),
+  ({0, 11}, {15, 5}),
+  ({0, 5}, {15, 13}),
+  ({0, 13}, {15, 5}),
+  ({0, 6}, {15, 9}),
+  ({0, 9}, {15, 6}),
+  ({0, 6}, {15, 13}),
+  ({0, 13}, {15, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_11_valid : chunk_11.all baseCheck = true := by
+  simp only [chunk_11, check_cons, List.all_nil]
+  decide
+
+def chunk_12 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 6}, {15, 17}),
+  ({0, 17}, {15, 6}),
+  ({0, 7}, {15, 10}),
+  ({0, 10}, {15, 7}),
+  ({0, 7}, {15, 14}),
+  ({0, 14}, {15, 7}),
+  ({0, 8}, {15, 11}),
+  ({0, 11}, {15, 8}),
+  ({0, 8}, {15, 12}),
+  ({0, 12}, {15, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_12_valid : chunk_12.all baseCheck = true := by
+  simp only [chunk_12, check_cons, List.all_nil]
+  decide
+
+def chunk_13 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({0, 8}, {15, 16}),
+  ({0, 16}, {15, 8}),
+  ({1, 2}, {10, 11}),
+  ({1, 11}, {10, 2}),
+  ({1, 2}, {10, 14}),
+  ({1, 14}, {10, 2}),
+  ({1, 2}, {10, 17}),
+  ({1, 17}, {10, 2}),
+  ({1, 3}, {10, 9}),
+  ({1, 9}, {10, 3})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_13_valid : chunk_13.all baseCheck = true := by
+  simp only [chunk_13, check_cons, List.all_nil]
+  decide
+
+def chunk_14 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 3}, {10, 14}),
+  ({1, 14}, {10, 3}),
+  ({1, 3}, {10, 16}),
+  ({1, 16}, {10, 3}),
+  ({1, 4}, {10, 12}),
+  ({1, 12}, {10, 4}),
+  ({1, 4}, {10, 17}),
+  ({1, 17}, {10, 4}),
+  ({1, 5}, {10, 11}),
+  ({1, 11}, {10, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_14_valid : chunk_14.all baseCheck = true := by
+  simp only [chunk_14, check_cons, List.all_nil]
+  decide
+
+def chunk_15 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 5}, {10, 13}),
+  ({1, 13}, {10, 5}),
+  ({1, 5}, {10, 15}),
+  ({1, 15}, {10, 5}),
+  ({1, 6}, {10, 9}),
+  ({1, 9}, {10, 6}),
+  ({1, 6}, {10, 13}),
+  ({1, 13}, {10, 6}),
+  ({1, 6}, {10, 17}),
+  ({1, 17}, {10, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_15_valid : chunk_15.all baseCheck = true := by
+  simp only [chunk_15, check_cons, List.all_nil]
+  decide
+
+def chunk_16 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 7}, {10, 14}),
+  ({1, 14}, {10, 7}),
+  ({1, 7}, {10, 15}),
+  ({1, 15}, {10, 7}),
+  ({1, 8}, {10, 11}),
+  ({1, 11}, {10, 8}),
+  ({1, 8}, {10, 12}),
+  ({1, 12}, {10, 8}),
+  ({1, 8}, {10, 16}),
+  ({1, 16}, {10, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_16_valid : chunk_16.all baseCheck = true := by
+  simp only [chunk_16, check_cons, List.all_nil]
+  decide
+
+def chunk_17 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 2}, {13, 11}),
+  ({1, 11}, {13, 2}),
+  ({1, 2}, {13, 14}),
+  ({1, 14}, {13, 2}),
+  ({1, 2}, {13, 17}),
+  ({1, 17}, {13, 2}),
+  ({1, 3}, {13, 9}),
+  ({1, 9}, {13, 3}),
+  ({1, 3}, {13, 14}),
+  ({1, 14}, {13, 3})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_17_valid : chunk_17.all baseCheck = true := by
+  simp only [chunk_17, check_cons, List.all_nil]
+  decide
+
+def chunk_18 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 3}, {13, 16}),
+  ({1, 16}, {13, 3}),
+  ({1, 4}, {13, 10}),
+  ({1, 10}, {13, 4}),
+  ({1, 4}, {13, 12}),
+  ({1, 12}, {13, 4}),
+  ({1, 4}, {13, 17}),
+  ({1, 17}, {13, 4}),
+  ({1, 5}, {13, 11}),
+  ({1, 11}, {13, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_18_valid : chunk_18.all baseCheck = true := by
+  simp only [chunk_18, check_cons, List.all_nil]
+  decide
+
+def chunk_19 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 5}, {13, 15}),
+  ({1, 15}, {13, 5}),
+  ({1, 6}, {13, 9}),
+  ({1, 9}, {13, 6}),
+  ({1, 6}, {13, 17}),
+  ({1, 17}, {13, 6}),
+  ({1, 7}, {13, 10}),
+  ({1, 10}, {13, 7}),
+  ({1, 7}, {13, 14}),
+  ({1, 14}, {13, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_19_valid : chunk_19.all baseCheck = true := by
+  simp only [chunk_19, check_cons, List.all_nil]
+  decide
+
+def chunk_20 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 7}, {13, 15}),
+  ({1, 15}, {13, 7}),
+  ({1, 8}, {13, 11}),
+  ({1, 11}, {13, 8}),
+  ({1, 8}, {13, 12}),
+  ({1, 12}, {13, 8}),
+  ({1, 8}, {13, 16}),
+  ({1, 16}, {13, 8}),
+  ({1, 2}, {16, 11}),
+  ({1, 11}, {16, 2})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_20_valid : chunk_20.all baseCheck = true := by
+  simp only [chunk_20, check_cons, List.all_nil]
+  decide
+
+def chunk_21 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 2}, {16, 14}),
+  ({1, 14}, {16, 2}),
+  ({1, 2}, {16, 17}),
+  ({1, 17}, {16, 2}),
+  ({1, 3}, {16, 9}),
+  ({1, 9}, {16, 3}),
+  ({1, 3}, {16, 14}),
+  ({1, 14}, {16, 3}),
+  ({1, 4}, {16, 10}),
+  ({1, 10}, {16, 4})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_21_valid : chunk_21.all baseCheck = true := by
+  simp only [chunk_21, check_cons, List.all_nil]
+  decide
+
+def chunk_22 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 4}, {16, 12}),
+  ({1, 12}, {16, 4}),
+  ({1, 4}, {16, 17}),
+  ({1, 17}, {16, 4}),
+  ({1, 5}, {16, 11}),
+  ({1, 11}, {16, 5}),
+  ({1, 5}, {16, 13}),
+  ({1, 13}, {16, 5}),
+  ({1, 5}, {16, 15}),
+  ({1, 15}, {16, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_22_valid : chunk_22.all baseCheck = true := by
+  simp only [chunk_22, check_cons, List.all_nil]
+  decide
+
+def chunk_23 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 6}, {16, 9}),
+  ({1, 9}, {16, 6}),
+  ({1, 6}, {16, 13}),
+  ({1, 13}, {16, 6}),
+  ({1, 6}, {16, 17}),
+  ({1, 17}, {16, 6}),
+  ({1, 7}, {16, 10}),
+  ({1, 10}, {16, 7}),
+  ({1, 7}, {16, 14}),
+  ({1, 14}, {16, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_23_valid : chunk_23.all baseCheck = true := by
+  simp only [chunk_23, check_cons, List.all_nil]
+  decide
+
+def chunk_24 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({1, 7}, {16, 15}),
+  ({1, 15}, {16, 7}),
+  ({1, 8}, {16, 11}),
+  ({1, 11}, {16, 8}),
+  ({1, 8}, {16, 12}),
+  ({1, 12}, {16, 8}),
+  ({2, 3}, {11, 9}),
+  ({2, 9}, {11, 3}),
+  ({2, 3}, {11, 14}),
+  ({2, 14}, {11, 3})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_24_valid : chunk_24.all baseCheck = true := by
+  simp only [chunk_24, check_cons, List.all_nil]
+  decide
+
+def chunk_25 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 3}, {11, 16}),
+  ({2, 16}, {11, 3}),
+  ({2, 4}, {11, 10}),
+  ({2, 10}, {11, 4}),
+  ({2, 4}, {11, 12}),
+  ({2, 12}, {11, 4}),
+  ({2, 4}, {11, 17}),
+  ({2, 17}, {11, 4}),
+  ({2, 5}, {11, 13}),
+  ({2, 13}, {11, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_25_valid : chunk_25.all baseCheck = true := by
+  simp only [chunk_25, check_cons, List.all_nil]
+  decide
+
+def chunk_26 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 5}, {11, 15}),
+  ({2, 15}, {11, 5}),
+  ({2, 6}, {11, 9}),
+  ({2, 9}, {11, 6}),
+  ({2, 6}, {11, 13}),
+  ({2, 13}, {11, 6}),
+  ({2, 6}, {11, 17}),
+  ({2, 17}, {11, 6}),
+  ({2, 7}, {11, 10}),
+  ({2, 10}, {11, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_26_valid : chunk_26.all baseCheck = true := by
+  simp only [chunk_26, check_cons, List.all_nil]
+  decide
+
+def chunk_27 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 7}, {11, 14}),
+  ({2, 14}, {11, 7}),
+  ({2, 7}, {11, 15}),
+  ({2, 15}, {11, 7}),
+  ({2, 8}, {11, 12}),
+  ({2, 12}, {11, 8}),
+  ({2, 8}, {11, 16}),
+  ({2, 16}, {11, 8}),
+  ({2, 3}, {14, 9}),
+  ({2, 9}, {14, 3})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_27_valid : chunk_27.all baseCheck = true := by
+  simp only [chunk_27, check_cons, List.all_nil]
+  decide
+
+def chunk_28 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 3}, {14, 16}),
+  ({2, 16}, {14, 3}),
+  ({2, 4}, {14, 10}),
+  ({2, 10}, {14, 4}),
+  ({2, 4}, {14, 12}),
+  ({2, 12}, {14, 4}),
+  ({2, 4}, {14, 17}),
+  ({2, 17}, {14, 4}),
+  ({2, 5}, {14, 11}),
+  ({2, 11}, {14, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_28_valid : chunk_28.all baseCheck = true := by
+  simp only [chunk_28, check_cons, List.all_nil]
+  decide
+
+def chunk_29 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 5}, {14, 13}),
+  ({2, 13}, {14, 5}),
+  ({2, 5}, {14, 15}),
+  ({2, 15}, {14, 5}),
+  ({2, 6}, {14, 9}),
+  ({2, 9}, {14, 6}),
+  ({2, 6}, {14, 13}),
+  ({2, 13}, {14, 6}),
+  ({2, 6}, {14, 17}),
+  ({2, 17}, {14, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_29_valid : chunk_29.all baseCheck = true := by
+  simp only [chunk_29, check_cons, List.all_nil]
+  decide
+
+def chunk_30 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 7}, {14, 10}),
+  ({2, 10}, {14, 7}),
+  ({2, 7}, {14, 15}),
+  ({2, 15}, {14, 7}),
+  ({2, 8}, {14, 11}),
+  ({2, 11}, {14, 8}),
+  ({2, 8}, {14, 12}),
+  ({2, 12}, {14, 8}),
+  ({2, 8}, {14, 16}),
+  ({2, 16}, {14, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_30_valid : chunk_30.all baseCheck = true := by
+  simp only [chunk_30, check_cons, List.all_nil]
+  decide
+
+def chunk_31 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 3}, {17, 9}),
+  ({2, 9}, {17, 3}),
+  ({2, 3}, {17, 14}),
+  ({2, 14}, {17, 3}),
+  ({2, 3}, {17, 16}),
+  ({2, 16}, {17, 3}),
+  ({2, 4}, {17, 10}),
+  ({2, 10}, {17, 4}),
+  ({2, 4}, {17, 12}),
+  ({2, 12}, {17, 4})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_31_valid : chunk_31.all baseCheck = true := by
+  simp only [chunk_31, check_cons, List.all_nil]
+  decide
+
+def chunk_32 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 5}, {17, 11}),
+  ({2, 11}, {17, 5}),
+  ({2, 5}, {17, 13}),
+  ({2, 13}, {17, 5}),
+  ({2, 5}, {17, 15}),
+  ({2, 15}, {17, 5}),
+  ({2, 6}, {17, 9}),
+  ({2, 9}, {17, 6}),
+  ({2, 6}, {17, 13}),
+  ({2, 13}, {17, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_32_valid : chunk_32.all baseCheck = true := by
+  simp only [chunk_32, check_cons, List.all_nil]
+  decide
+
+def chunk_33 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 7}, {17, 10}),
+  ({2, 10}, {17, 7}),
+  ({2, 7}, {17, 14}),
+  ({2, 14}, {17, 7}),
+  ({2, 7}, {17, 15}),
+  ({2, 15}, {17, 7}),
+  ({2, 8}, {17, 11}),
+  ({2, 11}, {17, 8}),
+  ({2, 8}, {17, 12}),
+  ({2, 12}, {17, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_33_valid : chunk_33.all baseCheck = true := by
+  simp only [chunk_33, check_cons, List.all_nil]
+  decide
+
+def chunk_34 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({2, 8}, {17, 16}),
+  ({2, 16}, {17, 8}),
+  ({3, 4}, {9, 10}),
+  ({3, 10}, {9, 4}),
+  ({3, 4}, {9, 12}),
+  ({3, 12}, {9, 4}),
+  ({3, 4}, {9, 17}),
+  ({3, 17}, {9, 4}),
+  ({3, 5}, {9, 11}),
+  ({3, 11}, {9, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_34_valid : chunk_34.all baseCheck = true := by
+  simp only [chunk_34, check_cons, List.all_nil]
+  decide
+
+def chunk_35 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 5}, {9, 13}),
+  ({3, 13}, {9, 5}),
+  ({3, 5}, {9, 15}),
+  ({3, 15}, {9, 5}),
+  ({3, 6}, {9, 13}),
+  ({3, 13}, {9, 6}),
+  ({3, 6}, {9, 17}),
+  ({3, 17}, {9, 6}),
+  ({3, 7}, {9, 10}),
+  ({3, 10}, {9, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_35_valid : chunk_35.all baseCheck = true := by
+  simp only [chunk_35, check_cons, List.all_nil]
+  decide
+
+def chunk_36 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 7}, {9, 14}),
+  ({3, 14}, {9, 7}),
+  ({3, 7}, {9, 15}),
+  ({3, 15}, {9, 7}),
+  ({3, 8}, {9, 11}),
+  ({3, 11}, {9, 8}),
+  ({3, 8}, {9, 12}),
+  ({3, 12}, {9, 8}),
+  ({3, 8}, {9, 16}),
+  ({3, 16}, {9, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_36_valid : chunk_36.all baseCheck = true := by
+  simp only [chunk_36, check_cons, List.all_nil]
+  decide
+
+def chunk_37 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 4}, {14, 10}),
+  ({3, 10}, {14, 4}),
+  ({3, 4}, {14, 12}),
+  ({3, 12}, {14, 4}),
+  ({3, 4}, {14, 17}),
+  ({3, 17}, {14, 4}),
+  ({3, 5}, {14, 11}),
+  ({3, 11}, {14, 5}),
+  ({3, 5}, {14, 13}),
+  ({3, 13}, {14, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_37_valid : chunk_37.all baseCheck = true := by
+  simp only [chunk_37, check_cons, List.all_nil]
+  decide
+
+def chunk_38 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 5}, {14, 15}),
+  ({3, 15}, {14, 5}),
+  ({3, 6}, {14, 9}),
+  ({3, 9}, {14, 6}),
+  ({3, 6}, {14, 13}),
+  ({3, 13}, {14, 6}),
+  ({3, 6}, {14, 17}),
+  ({3, 17}, {14, 6}),
+  ({3, 7}, {14, 10}),
+  ({3, 10}, {14, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_38_valid : chunk_38.all baseCheck = true := by
+  simp only [chunk_38, check_cons, List.all_nil]
+  decide
+
+def chunk_39 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 7}, {14, 15}),
+  ({3, 15}, {14, 7}),
+  ({3, 8}, {14, 11}),
+  ({3, 11}, {14, 8}),
+  ({3, 8}, {14, 12}),
+  ({3, 12}, {14, 8}),
+  ({3, 8}, {14, 16}),
+  ({3, 16}, {14, 8}),
+  ({3, 4}, {16, 10}),
+  ({3, 10}, {16, 4})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_39_valid : chunk_39.all baseCheck = true := by
+  simp only [chunk_39, check_cons, List.all_nil]
+  decide
+
+def chunk_40 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 4}, {16, 12}),
+  ({3, 12}, {16, 4}),
+  ({3, 4}, {16, 17}),
+  ({3, 17}, {16, 4}),
+  ({3, 5}, {16, 11}),
+  ({3, 11}, {16, 5}),
+  ({3, 5}, {16, 13}),
+  ({3, 13}, {16, 5}),
+  ({3, 5}, {16, 15}),
+  ({3, 15}, {16, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_40_valid : chunk_40.all baseCheck = true := by
+  simp only [chunk_40, check_cons, List.all_nil]
+  decide
+
+def chunk_41 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 6}, {16, 9}),
+  ({3, 9}, {16, 6}),
+  ({3, 6}, {16, 13}),
+  ({3, 13}, {16, 6}),
+  ({3, 6}, {16, 17}),
+  ({3, 17}, {16, 6}),
+  ({3, 7}, {16, 10}),
+  ({3, 10}, {16, 7}),
+  ({3, 7}, {16, 14}),
+  ({3, 14}, {16, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_41_valid : chunk_41.all baseCheck = true := by
+  simp only [chunk_41, check_cons, List.all_nil]
+  decide
+
+def chunk_42 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({3, 7}, {16, 15}),
+  ({3, 15}, {16, 7}),
+  ({3, 8}, {16, 11}),
+  ({3, 11}, {16, 8}),
+  ({3, 8}, {16, 12}),
+  ({3, 12}, {16, 8}),
+  ({4, 5}, {10, 11}),
+  ({4, 11}, {10, 5}),
+  ({4, 5}, {10, 13}),
+  ({4, 13}, {10, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_42_valid : chunk_42.all baseCheck = true := by
+  simp only [chunk_42, check_cons, List.all_nil]
+  decide
+
+def chunk_43 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 5}, {10, 15}),
+  ({4, 15}, {10, 5}),
+  ({4, 6}, {10, 9}),
+  ({4, 9}, {10, 6}),
+  ({4, 6}, {10, 13}),
+  ({4, 13}, {10, 6}),
+  ({4, 6}, {10, 17}),
+  ({4, 17}, {10, 6}),
+  ({4, 7}, {10, 14}),
+  ({4, 14}, {10, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_43_valid : chunk_43.all baseCheck = true := by
+  simp only [chunk_43, check_cons, List.all_nil]
+  decide
+
+def chunk_44 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 7}, {10, 15}),
+  ({4, 15}, {10, 7}),
+  ({4, 8}, {10, 11}),
+  ({4, 11}, {10, 8}),
+  ({4, 8}, {10, 12}),
+  ({4, 12}, {10, 8}),
+  ({4, 8}, {10, 16}),
+  ({4, 16}, {10, 8}),
+  ({4, 5}, {12, 11}),
+  ({4, 11}, {12, 5})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_44_valid : chunk_44.all baseCheck = true := by
+  simp only [chunk_44, check_cons, List.all_nil]
+  decide
+
+def chunk_45 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 5}, {12, 13}),
+  ({4, 13}, {12, 5}),
+  ({4, 5}, {12, 15}),
+  ({4, 15}, {12, 5}),
+  ({4, 6}, {12, 9}),
+  ({4, 9}, {12, 6}),
+  ({4, 6}, {12, 13}),
+  ({4, 13}, {12, 6}),
+  ({4, 6}, {12, 17}),
+  ({4, 17}, {12, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_45_valid : chunk_45.all baseCheck = true := by
+  simp only [chunk_45, check_cons, List.all_nil]
+  decide
+
+def chunk_46 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 7}, {12, 10}),
+  ({4, 10}, {12, 7}),
+  ({4, 7}, {12, 14}),
+  ({4, 14}, {12, 7}),
+  ({4, 7}, {12, 15}),
+  ({4, 15}, {12, 7}),
+  ({4, 8}, {12, 11}),
+  ({4, 11}, {12, 8}),
+  ({4, 8}, {12, 16}),
+  ({4, 16}, {12, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_46_valid : chunk_46.all baseCheck = true := by
+  simp only [chunk_46, check_cons, List.all_nil]
+  decide
+
+def chunk_47 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 5}, {17, 11}),
+  ({4, 11}, {17, 5}),
+  ({4, 5}, {17, 13}),
+  ({4, 13}, {17, 5}),
+  ({4, 5}, {17, 15}),
+  ({4, 15}, {17, 5}),
+  ({4, 6}, {17, 9}),
+  ({4, 9}, {17, 6}),
+  ({4, 6}, {17, 13}),
+  ({4, 13}, {17, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_47_valid : chunk_47.all baseCheck = true := by
+  simp only [chunk_47, check_cons, List.all_nil]
+  decide
+
+def chunk_48 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 7}, {17, 10}),
+  ({4, 10}, {17, 7}),
+  ({4, 7}, {17, 14}),
+  ({4, 14}, {17, 7}),
+  ({4, 7}, {17, 15}),
+  ({4, 15}, {17, 7}),
+  ({4, 8}, {17, 11}),
+  ({4, 11}, {17, 8}),
+  ({4, 8}, {17, 12}),
+  ({4, 12}, {17, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_48_valid : chunk_48.all baseCheck = true := by
+  simp only [chunk_48, check_cons, List.all_nil]
+  decide
+
+def chunk_49 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({4, 8}, {17, 16}),
+  ({4, 16}, {17, 8}),
+  ({5, 6}, {11, 9}),
+  ({5, 9}, {11, 6}),
+  ({5, 6}, {11, 13}),
+  ({5, 13}, {11, 6}),
+  ({5, 6}, {11, 17}),
+  ({5, 17}, {11, 6}),
+  ({5, 7}, {11, 10}),
+  ({5, 10}, {11, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_49_valid : chunk_49.all baseCheck = true := by
+  simp only [chunk_49, check_cons, List.all_nil]
+  decide
+
+def chunk_50 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({5, 7}, {11, 14}),
+  ({5, 14}, {11, 7}),
+  ({5, 7}, {11, 15}),
+  ({5, 15}, {11, 7}),
+  ({5, 8}, {11, 12}),
+  ({5, 12}, {11, 8}),
+  ({5, 8}, {11, 16}),
+  ({5, 16}, {11, 8}),
+  ({5, 6}, {13, 9}),
+  ({5, 9}, {13, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_50_valid : chunk_50.all baseCheck = true := by
+  simp only [chunk_50, check_cons, List.all_nil]
+  decide
+
+def chunk_51 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({5, 6}, {13, 17}),
+  ({5, 17}, {13, 6}),
+  ({5, 7}, {13, 10}),
+  ({5, 10}, {13, 7}),
+  ({5, 7}, {13, 14}),
+  ({5, 14}, {13, 7}),
+  ({5, 7}, {13, 15}),
+  ({5, 15}, {13, 7}),
+  ({5, 8}, {13, 11}),
+  ({5, 11}, {13, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_51_valid : chunk_51.all baseCheck = true := by
+  simp only [chunk_51, check_cons, List.all_nil]
+  decide
+
+def chunk_52 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({5, 8}, {13, 12}),
+  ({5, 12}, {13, 8}),
+  ({5, 8}, {13, 16}),
+  ({5, 16}, {13, 8}),
+  ({5, 6}, {15, 9}),
+  ({5, 9}, {15, 6}),
+  ({5, 6}, {15, 13}),
+  ({5, 13}, {15, 6}),
+  ({5, 6}, {15, 17}),
+  ({5, 17}, {15, 6})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_52_valid : chunk_52.all baseCheck = true := by
+  simp only [chunk_52, check_cons, List.all_nil]
+  decide
+
+def chunk_53 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({5, 7}, {15, 10}),
+  ({5, 10}, {15, 7}),
+  ({5, 7}, {15, 14}),
+  ({5, 14}, {15, 7}),
+  ({5, 8}, {15, 11}),
+  ({5, 11}, {15, 8}),
+  ({5, 8}, {15, 12}),
+  ({5, 12}, {15, 8}),
+  ({5, 8}, {15, 16}),
+  ({5, 16}, {15, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_53_valid : chunk_53.all baseCheck = true := by
+  simp only [chunk_53, check_cons, List.all_nil]
+  decide
+
+def chunk_54 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({6, 7}, {9, 10}),
+  ({6, 10}, {9, 7}),
+  ({6, 7}, {9, 14}),
+  ({6, 14}, {9, 7}),
+  ({6, 7}, {9, 15}),
+  ({6, 15}, {9, 7}),
+  ({6, 8}, {9, 11}),
+  ({6, 11}, {9, 8}),
+  ({6, 8}, {9, 12}),
+  ({6, 12}, {9, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_54_valid : chunk_54.all baseCheck = true := by
+  simp only [chunk_54, check_cons, List.all_nil]
+  decide
+
+def chunk_55 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({6, 8}, {9, 16}),
+  ({6, 16}, {9, 8}),
+  ({6, 7}, {13, 10}),
+  ({6, 10}, {13, 7}),
+  ({6, 7}, {13, 14}),
+  ({6, 14}, {13, 7}),
+  ({6, 7}, {13, 15}),
+  ({6, 15}, {13, 7}),
+  ({6, 8}, {13, 11}),
+  ({6, 11}, {13, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_55_valid : chunk_55.all baseCheck = true := by
+  simp only [chunk_55, check_cons, List.all_nil]
+  decide
+
+def chunk_56 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({6, 8}, {13, 12}),
+  ({6, 12}, {13, 8}),
+  ({6, 8}, {13, 16}),
+  ({6, 16}, {13, 8}),
+  ({6, 7}, {17, 10}),
+  ({6, 10}, {17, 7}),
+  ({6, 7}, {17, 14}),
+  ({6, 14}, {17, 7}),
+  ({6, 7}, {17, 15}),
+  ({6, 15}, {17, 7})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_56_valid : chunk_56.all baseCheck = true := by
+  simp only [chunk_56, check_cons, List.all_nil]
+  decide
+
+def chunk_57 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({6, 8}, {17, 11}),
+  ({6, 11}, {17, 8}),
+  ({6, 8}, {17, 12}),
+  ({6, 12}, {17, 8}),
+  ({6, 8}, {17, 16}),
+  ({6, 16}, {17, 8}),
+  ({7, 8}, {10, 11}),
+  ({7, 11}, {10, 8}),
+  ({7, 8}, {10, 12}),
+  ({7, 12}, {10, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_57_valid : chunk_57.all baseCheck = true := by
+  simp only [chunk_57, check_cons, List.all_nil]
+  decide
+
+def chunk_58 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({7, 8}, {10, 16}),
+  ({7, 16}, {10, 8}),
+  ({7, 8}, {14, 11}),
+  ({7, 11}, {14, 8}),
+  ({7, 8}, {14, 12}),
+  ({7, 12}, {14, 8}),
+  ({7, 8}, {14, 16}),
+  ({7, 16}, {14, 8}),
+  ({7, 8}, {15, 11}),
+  ({7, 11}, {15, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_58_valid : chunk_58.all baseCheck = true := by
+  simp only [chunk_58, check_cons, List.all_nil]
+  decide
+
+def chunk_59 : List (Finset (Fin 18) × Finset (Fin 18)) := [
+  ({7, 8}, {15, 12}),
+  ({7, 12}, {15, 8}),
+  ({7, 8}, {15, 16}),
+  ({7, 16}, {15, 8})]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma chunk_59_valid : chunk_59.all baseCheck = true := by
+  simp only [chunk_59, check_cons, List.all_nil]
+  decide
+
+def bases : List (Finset (Fin 18) × Finset (Fin 18)) :=
+  chunk_0 ++ chunk_1 ++ chunk_2 ++ chunk_3 ++ chunk_4 ++ chunk_5 ++ chunk_6 ++ chunk_7 ++ chunk_8 ++ chunk_9 ++ chunk_10 ++ chunk_11 ++ chunk_12 ++ chunk_13 ++ chunk_14 ++ chunk_15 ++ chunk_16 ++ chunk_17 ++ chunk_18 ++ chunk_19 ++ chunk_20 ++ chunk_21 ++ chunk_22 ++ chunk_23 ++ chunk_24 ++ chunk_25 ++ chunk_26 ++ chunk_27 ++ chunk_28 ++ chunk_29 ++ chunk_30 ++ chunk_31 ++ chunk_32 ++ chunk_33 ++ chunk_34 ++ chunk_35 ++ chunk_36 ++ chunk_37 ++ chunk_38 ++ chunk_39 ++ chunk_40 ++ chunk_41 ++ chunk_42 ++ chunk_43 ++ chunk_44 ++ chunk_45 ++ chunk_46 ++ chunk_47 ++ chunk_48 ++ chunk_49 ++ chunk_50 ++ chunk_51 ++ chunk_52 ++ chunk_53 ++ chunk_54 ++ chunk_55 ++ chunk_56 ++ chunk_57 ++ chunk_58 ++ chunk_59
+
+set_option maxRecDepth 20000 in
+lemma all_bases_valid : bases.all baseCheck = true := by
+  simp only [bases, List.all_append, chunk_0_valid, chunk_1_valid, chunk_2_valid, chunk_3_valid, chunk_4_valid, chunk_5_valid, chunk_6_valid, chunk_7_valid, chunk_8_valid, chunk_9_valid, chunk_10_valid, chunk_11_valid, chunk_12_valid, chunk_13_valid, chunk_14_valid, chunk_15_valid, chunk_16_valid, chunk_17_valid, chunk_18_valid, chunk_19_valid, chunk_20_valid, chunk_21_valid, chunk_22_valid, chunk_23_valid, chunk_24_valid, chunk_25_valid, chunk_26_valid, chunk_27_valid, chunk_28_valid, chunk_29_valid, chunk_30_valid, chunk_31_valid, chunk_32_valid, chunk_33_valid, chunk_34_valid, chunk_35_valid, chunk_36_valid, chunk_37_valid, chunk_38_valid, chunk_39_valid, chunk_40_valid, chunk_41_valid, chunk_42_valid, chunk_43_valid, chunk_44_valid, chunk_45_valid, chunk_46_valid, chunk_47_valid, chunk_48_valid, chunk_49_valid, chunk_50_valid, chunk_51_valid, chunk_52_valid, chunk_53_valid, chunk_54_valid, chunk_55_valid, chunk_56_valid, chunk_57_valid, chunk_58_valid, chunk_59_valid, Bool.true_and]
+
+lemma listed_base_good {A B : Finset (Fin 18)} (h : (A, B) ∈ bases) : BaseGood A B := by
+  exact @of_decide_eq_true (BaseGood A B) (by unfold BaseGood; infer_instance)
+    (List.all_eq_true.mp all_bases_valid (A, B) h)
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+abbrev CutCoverage (edges : List (Fin 18 × Fin 18))
+    (bs : List (Finset (Fin 18) × Finset (Fin 18))) : Prop :=
+  ∀ e ∈ edges, ∀ f ∈ edges, e.1 ≠ f.1 → e.2 ≠ f.2 →
+    ((({e.1, f.1}, {e.2, f.2}) ∈ bs ∨ ({e.2, f.2}, {e.1, f.1}) ∈ bs) ∧
+      (({e.1, f.2}, {e.2, f.1}) ∈ bs ∨ ({e.2, f.1}, {e.1, f.2}) ∈ bs))
+
+lemma listed_cut_of_two_edges (edges : List (Fin 18 × Fin 18))
+    (bs : List (Finset (Fin 18) × Finset (Fin 18))) (hcuts : CutCoverage edges bs)
+    {u v x y : Fin 18}
+    (he : (u, v) ∈ edges ∨ (v, u) ∈ edges)
+    (hf : (x, y) ∈ edges ∨ (y, x) ∈ edges)
+    (hux : u ≠ x) (hvy : v ≠ y) (huy : u ≠ y) (hvx : v ≠ x) :
+    ({u, x}, {v, y}) ∈ bs ∨ ({v, y}, {u, x}) ∈ bs := by
+  rcases he with he | he <;> rcases hf with hf | hf
+  · exact (hcuts (u, v) he (x, y) hf hux hvy).1
+  · exact (hcuts (u, v) he (y, x) hf huy hvx).2
+  · exact (hcuts (v, u) he (x, y) hf hvx huy).2.symm
+  · exact (hcuts (v, u) he (y, x) hf hvy hux).1.symm
+
+lemma rectangle_wild_from_cuts (edges : List (Fin 18 × Fin 18))
+    (bs : List (Finset (Fin 18) × Finset (Fin 18))) (hcuts : CutCoverage edges bs)
+    (hgood : ∀ A₀ B₀, (A₀, B₀) ∈ bs → BaseGood A₀ B₀)
+    {A B : Finset (Fin 18)} (hd : Disjoint A B)
+    {u v x y : Fin 18} (hu : u ∈ A) (hv : v ∈ B) (hx : x ∈ A) (hy : y ∈ B)
+    (he : (u, v) ∈ edges ∨ (v, u) ∈ edges)
+    (hf : (x, y) ∈ edges ∨ (y, x) ∈ edges)
+    (hux : u ≠ x) (hvy : v ≠ y) : 20 ≤ wildCount A B := by
+  have huy : u ≠ y := by
+    rintro rfl
+    exact Finset.disjoint_left.mp hd hu hy
+  have hvx : v ≠ x := by
+    rintro rfl
+    exact Finset.disjoint_left.mp hd hx hv
+  have hleft : ({u, x} : Finset (Fin 18)) ⊆ A := by
+    intro z hz
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hz
+    rcases hz with rfl | rfl <;> assumption
+  have hright : ({v, y} : Finset (Fin 18)) ⊆ B := by
+    intro z hz
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hz
+    rcases hz with rfl | rfl <;> assumption
+  rcases listed_cut_of_two_edges edges bs hcuts he hf hux hvy huy hvx with h | h
+  · exact extension_wild_ge_twenty (hgood _ _ h) hleft hright hd
+  · have hh := extension_wild_ge_twenty (hgood _ _ h) hright hleft hd.symm
+    simpa only [wildCount_comm B A] using hh
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+def edgePairs : List (Fin 18 × Fin 18) → List ((Fin 18 × Fin 18) × (Fin 18 × Fin 18))
+  | [] => []
+  | e :: es => es.map (fun f => (e, f)) ++ edgePairs es
+
+lemma edgePairs_covers (es : List (Fin 18 × Fin 18)) {e f : Fin 18 × Fin 18}
+    (he : e ∈ es) (hf : f ∈ es) (hne : e ≠ f) :
+    (e, f) ∈ edgePairs es ∨ (f, e) ∈ edgePairs es := by
+  induction es with
+  | nil => simp at he
+  | cons a es ih =>
+    rcases List.mem_cons.mp he with heHead | heTail
+    · subst e
+      rcases List.mem_cons.mp hf with hfHead | hfTail
+      · exact False.elim (hne hfHead.symm)
+      · left
+        simp only [edgePairs, List.mem_append]
+        exact Or.inl (List.mem_map.mpr ⟨f, hfTail, rfl⟩)
+    · rcases List.mem_cons.mp hf with hfHead | hfTail
+      · subst f
+        right
+        simp only [edgePairs, List.mem_append]
+        exact Or.inl (List.mem_map.mpr ⟨e, heTail, rfl⟩)
+      · rcases ih heTail hfTail with h | h
+        · left
+          simp only [edgePairs, List.mem_append]
+          exact Or.inr h
+        · right
+          simp only [edgePairs, List.mem_append]
+          exact Or.inr h
+
+def cuts (e f : Fin 18 × Fin 18) : List (Finset (Fin 18) × Finset (Fin 18)) :=
+  if e.1 = f.1 ∨ e.2 = f.2 then [] else
+    [({e.1, f.1}, {e.2, f.2}), ({e.1, f.2}, {e.2, f.1})]
+
+def generatedBases (es : List (Fin 18 × Fin 18)) : List (Finset (Fin 18) × Finset (Fin 18)) :=
+  (edgePairs es).flatMap (fun p => cuts p.1 p.2)
+
+lemma first_cut_mem_generated (es : List (Fin 18 × Fin 18)) {e f : Fin 18 × Fin 18}
+    (hpair : (e, f) ∈ edgePairs es) (hp : e.1 ≠ f.1) (hq : e.2 ≠ f.2) :
+    ({e.1, f.1}, {e.2, f.2}) ∈ generatedBases es := by
+  apply List.mem_flatMap.mpr
+  refine ⟨(e, f), hpair, ?_⟩
+  simp [cuts, hp, hq]
+
+lemma second_cut_mem_generated (es : List (Fin 18 × Fin 18)) {e f : Fin 18 × Fin 18}
+    (hpair : (e, f) ∈ edgePairs es) (hp : e.1 ≠ f.1) (hq : e.2 ≠ f.2) :
+    ({e.1, f.2}, {e.2, f.1}) ∈ generatedBases es := by
+  apply List.mem_flatMap.mpr
+  refine ⟨(e, f), hpair, ?_⟩
+  simp [cuts, hp, hq]
+
+lemma vertex_pair_comm (u v : Fin 18) : ({u, v} : Finset (Fin 18)) = {v, u} := by
+  apply Finset.ext
+  intro w
+  simp [or_comm]
+
+lemma generatedBases_coverage (es : List (Fin 18 × Fin 18)) :
+    CutCoverage es (generatedBases es) := by
+  intro e he f hf hp hq
+  have hne : e ≠ f := by intro h; exact hp (congrArg Prod.fst h)
+  rcases edgePairs_covers es he hf hne with hpair | hpair
+  · exact ⟨Or.inl (first_cut_mem_generated es hpair hp hq),
+      Or.inl (second_cut_mem_generated es hpair hp hq)⟩
+  · have hfirst := first_cut_mem_generated es hpair hp.symm hq.symm
+    have hsecond := second_cut_mem_generated es hpair hp.symm hq.symm
+    constructor
+    · left
+      simpa only [vertex_pair_comm f.1 e.1, vertex_pair_comm f.2 e.2] using hfirst
+    · right
+      simpa only [vertex_pair_comm f.1 e.2, vertex_pair_comm f.2 e.1] using hsecond
+
+end Affine3Rectangles
+namespace Affine3Rectangles
+
+def edges : List (Fin 18 × Fin 18) := [
+  (0, 9), (0, 12), (0, 15), (1, 10), (1, 13), (1, 16), (2, 11), (2, 14), (2, 17), (3, 9), (3, 14), (3, 16), (4, 10), (4, 12), (4, 17), (5, 11), (5, 13), (5, 15), (6, 9), (6, 13), (6, 17), (7, 10), (7, 14), (7, 15), (8, 11), (8, 12), (8, 16)]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma affineAdj_iff_edge_list : ∀ u v : Fin 18,
+    affineAdj u v ↔ (u, v) ∈ edges ∨ (v, u) ∈ edges := by decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 16000000 in
+lemma bases_eq_generated : bases = generatedBases edges := by decide
+
+lemma edge_cuts_covered : CutCoverage edges bases := by
+  rw [bases_eq_generated]
+  exact generatedBases_coverage edges
+
+lemma raw_rectangle_wild_ge_twenty {A B : Finset (Fin 18)} (hd : Disjoint A B)
+    {u v x y : Fin 18} (hu : u ∈ A) (hv : v ∈ B) (hx : x ∈ A) (hy : y ∈ B)
+    (hux : u ≠ x) (hvy : v ≠ y) (huv : affineAdj u v) (hxy : affineAdj x y) :
+    20 ≤ wildCount A B := by
+  exact rectangle_wild_from_cuts edges bases edge_cuts_covered
+    (fun _ _ h => listed_base_good h) hd hu hv hx hy
+    ((affineAdj_iff_edge_list u v).mp huv) ((affineAdj_iff_edge_list x y).mp hxy) hux hvy
+
+lemma matching_rectangle_wild_ge_twenty {A B : Finset (Fin 18)} (hd : Disjoint A B)
+    (hmatching : ∃ u ∈ A, ∃ v ∈ B, ∃ x ∈ A, ∃ y ∈ B,
+      u ≠ x ∧ v ≠ y ∧ affineAdj u v ∧ affineAdj x y) : 20 ≤ wildCount A B := by
+  rcases hmatching with ⟨u, hu, v, hv, x, hx, y, hy, hux, hvy, huv, hxy⟩
+  exact raw_rectangle_wild_ge_twenty hd hu hv hx hy hux hvy huv hxy
+
+end Affine3Rectangles
+
+namespace Affine3Rectangles
+
+def affineGraph : SimpleGraph (Fin 18) where
+  Adj := affineAdj
+  symm := ⟨fun _ _ h => h.symm⟩
+  loopless := ⟨by
+    intro v h
+    rcases h with h | h <;> have hp := h.1 <;> have hl := h.2.1 <;> omega⟩
+
+abbrev affineGraphAdjDecidable : DecidableRel affineGraph.Adj := by
+  intro u v
+  change Decidable (affineAdj u v)
+  infer_instance
+
+lemma affineGraph_bipartite :
+    ∃ c : Fin 18 → Bool, ∀ u v, affineGraph.Adj u v → c u ≠ c v := by
+  refine ⟨fun v => decide (9 ≤ v.val), ?_⟩
+  intro u v h
+  change affineAdj u v at h
+  rcases h with h | h
+  · have hu : ¬ 9 ≤ u.val := by omega
+    have hv : 9 ≤ v.val := h.2.1
+    simp [hu,hv]
+  · have hu : 9 ≤ u.val := h.2.1
+    have hv : ¬ 9 ≤ v.val := by omega
+    simp [hu,hv]
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 2000000 in
+lemma affineGraph_noFourCycle :
+    @PEqualNP.TopForm.NoFourCycle 18 affineGraph affineGraphAdjDecidable := by
+  decide
+
+def matchingEnds (p : Fin 9 × Bool) : Fin 18 :=
+  if p.2 then (![9,10,11,14,12,13,17,15,16] : Fin 9 → Fin 18) p.1
+  else ⟨p.1.val,by omega⟩
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 1000000 in
+lemma matchingEnds_injective : Function.Injective matchingEnds := by decide
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 1000000 in
+lemma matchingEnds_adjacent :
+    ∀ j : Fin 9, affineGraph.Adj (matchingEnds (j,false)) (matchingEnds (j,true)) := by
+  change ∀ j : Fin 9, affineAdj (matchingEnds (j,false)) (matchingEnds (j,true))
+  decide
+
+end Affine3Rectangles
+
+namespace AndCountEight
+
+open PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
+open AndCountHoist AndCountMaskFamily
+
+/-- A conditional AND-count lower bound; the finite rectangle facts are explicit hypotheses. -/
+lemma ge_eight_of_rectangle_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (ends : Fin 9 × Bool → Fin n) (hinj : Function.Injective ends)
+    (hedge : ∀ j, G.Adj (ends (j, false)) (ends (j, true)))
+    (l : List ℕ) (hnodup : l.Nodup) (hvalid : ∀ s ∈ l, ValidMask G s)
+    (hlen : l.length = 110)
+    (hrectangle : ∀ L R : Finset (Fin n), Disjoint L R →
+      (∃ a ∈ L, ∃ b ∈ R, ∃ c ∈ L, ∃ d ∈ R,
+        G.Adj a b ∧ G.Adj c d ∧ a ≠ c ∧ b ≠ d) →
+      20 ≤ l.countP (fun s =>
+        (decide (∃ v ∈ L, s.testBit v.val = true)) ==
+        (decide (∃ v ∈ R, s.testBit v.val = true))))
+    (C : AndCountCircuit n) (hWF : C.WellFormed) (hC : C.Computes G) :
+    8 ≤ C.size := by
+  classical
+  by_contra hge
+  have hsmall : C.size ≤ 7 := by omega
+  obtain ⟨N, hNC, hNeval, hNsingle, hNdisjoint, hNWF⟩ :=
+    AndCountNormalization.normalize n C
+  have hNcomp : N.Computes G := by
+    intro U
+    rw [hNeval U]
+    exact hC U
+  let P : AndCountCircuit n → Prop := fun D =>
+    D.size = C.size ∧ D.WellFormed ∧ D.Computes G ∧ Normalized D
+  have hP : ∃ D, P D := ⟨N, hNC, hNWF hWF, hNcomp, hNsingle, hNdisjoint⟩
+  obtain ⟨M, hM, hmin⟩ := AndCountNormalization.exists_minimum P
+    (fun D => (junkSet D G).card) hP
+  have hMC : M.size = C.size := hM.1
+  have hMW : M.WellFormed := hM.2.1
+  have hMcomp : M.Computes G := hM.2.2.1
+  have hMN : Normalized M := hM.2.2.2
+  have hMmin : JunkMinimal M G := by
+    intro D hDM hDW hDC hDN
+    exact hmin D ⟨hDM.trans hMC, hDW, hDC, hDN⟩
+  have hJ : ∃ i : Fin M.size, GlobalJunk M G i := by
+    exact AndCountCleanMatching.exists_global_junk_of_lt_matching M G hMcomp
+      hfour ends hinj hedge (by omega)
+  obtain ⟨D, hDM, hDW, hDC, hDN, i, hL, hR, _hj,
+      a, ha, b, hb, c, hc, d, hd, hab, hcd, hac, hbd⟩ :=
+    exists_raw_junk_matching M G hMW hMcomp hMN hMmin hJ
+  have hrows := hrectangle (D.leftVars i) (D.rightVars i) (hDN.2 i)
+    ⟨a, ha, b, hb, c, hc, d, hd, hab, hcd, hac, hbd⟩
+  exact AndCountRawGateBound.false_of_raw_twenty_size_le_seven D G hDC
+    l hnodup hvalid hlen i hL hR hrows (by omega)
+
+end AndCountEight
+
+namespace Affine3Rectangles
+
+open PEqualNP.AndCount
+
+lemma and_count_ge_eight_of_data
+    (hnodup : samples.Nodup)
+    (hvalid : samples.all (fun s => decide (SampleValid s)) = true)
+    (hlen : samples.length = 110)
+    (hfour : @PEqualNP.TopForm.NoFourCycle 18 affineGraph affineGraphAdjDecidable)
+    (hinj : Function.Injective matchingEnds)
+    (hedge : ∀ j : Fin 9, affineGraph.Adj (matchingEnds (j, false)) (matchingEnds (j, true)))
+    (hrectangle : ∀ {A B : Finset (Fin 18)}, Disjoint A B →
+      (∃ u ∈ A, ∃ v ∈ B, ∃ x ∈ A, ∃ y ∈ B,
+        u ≠ x ∧ v ≠ y ∧ affineAdj u v ∧ affineAdj x y) → 20 ≤ wildCount A B)
+    (C : AndCountCircuit 18) (hWF : C.WellFormed) (hC : C.Computes affineGraph) :
+    8 ≤ C.size := by
+  letI : DecidableRel affineGraph.Adj := affineGraphAdjDecidable
+  refine AndCountEight.ge_eight_of_rectangle_bound affineGraph hfour
+    matchingEnds hinj hedge
+    samples hnodup ?_ hlen ?_ C hWF hC
+  · intro s hs
+    have hv : SampleValid s := of_decide_eq_true ((List.all_eq_true.mp hvalid) s hs)
+    exact hv
+  · intro A B hd hm
+    obtain ⟨u, hu, v, hv, x, hx, y, hy, huv, hxy, hux, hvy⟩ := hm
+    exact hrectangle hd ⟨u, hu, v, hv, x, hx, y, hy, hux, hvy, huv, hxy⟩
+
+end Affine3Rectangles
+
+namespace Affine3Rectangles
+
+open PEqualNP.AndCount
+
+lemma and_count_ge_eight (C : AndCountCircuit 18)
+    (hWF : C.WellFormed) (hC : C.Computes affineGraph) : 8 ≤ C.size :=
+  and_count_ge_eight_of_data samples_nodup samples_valid samples_length
+    affineGraph_noFourCycle matchingEnds_injective matchingEnds_adjacent
+    (fun {A B} hd hm => matching_rectangle_wild_ge_twenty hd hm) C hWF hC
+
+end Affine3Rectangles
 
 end PEqualNP.Outside.L_meta_3566
