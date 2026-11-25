@@ -72,4 +72,10 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:47:18 UTC: Pushed reviewed mixed-shell/pruning checkpoint 6d810eb9eab001b710b58a352bf7d93ba5ca51a8; remote SHA verified; bus 3981 marked PARTIAL.
 - 2026-11-25 22:55:20 UTC: Arbitrary-position insert/prune projection, pure/singleton-clean wrapper and SIZE/WIRE/JUNK selector passed independent source/axiom reviews and combined named build. Existing four part wires and private OR outputs remain substantive hypotheses. No final theorem.
 
-TIMING total=114.0 subagents=10
+TIMING total=136.2 subagents=10
+
+- 2026-11-25 22:58:30 UTC: Published reviewed arbitrary-position projection checkpoint 9be14cc8047c933ef5b791137733a77b871f7760 to the authorized orchestrator branch; remote SHA verified; bus 4207 marked PARTIAL.
+- 2026-11-25 23:03:54 UTC: Sixth full-route re-plan posted (bus 4333), concentrating last-dirty privacy, two-monochrome normalization, raw-product availability and complete counterexample searches.
+- 2026-11-25 23:11 UTC: Independently rebuilt new upstream L_meta_8571 from e1951899d; Close.final_proof has only standard axioms and excludes exactly one dirty AND in any least bipartite C4-free circuit. Independent source review confirmed singleton ownership is essential; no general-junk inference.
+- 2026-11-25 23:13 UTC: Official checker, using the unchanged supported Lake shim, rebuilt the partial file and reported REJECTED (no-theorem): PEqualNP.Outside.L_meta_3566 is absent.
+- 2026-11-25 23:17:31 UTC: Same-circuit pointwise wire-count projection and monochromatic-mass wrapper passed independent source/axiom reviews and integrated named build. Four available pure part wires, private OR outputs, singleton rejection and explicit maximal-left positivity remain substantive hypotheses. No final theorem.

@@ -6037,3 +6037,291 @@ lemma no_private_pure_shell {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.
       hD (ZeroWires.wire_false C hAO d) u hu hAu
 
 end PEqualNP.Outside.L_meta_3566.PrivateProjection
+
+
+namespace PEqualNP.Outside.L_meta_3566.ShellCount
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ShellInsert
+
+lemma count_le_of_embedding {n : ℕ} (C D : Circuit) (f : Fin D.size → Fin C.size)
+    (hf : Function.Injective f) (x : Fin n → Bool)
+    (hval : ∀ r, gateVal n D r.val x = true → gateVal n C (f r).val x = true) :
+    (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true := by
+  let e : ℕ → ℕ := fun r => if hr : r < D.size then (f ⟨r,hr⟩).val else 0
+  have he (r : ℕ) (hr : r < D.size) : e r = (f ⟨r,hr⟩).val := by simp [e,hr]
+  apply WireProfile.wire_count_le C D e
+  · intro r hr
+    rw [he r hr]
+    exact (f ⟨r,hr⟩).isLt
+  · intro r hr s hs hrs
+    have hr' : r < D.size := Finset.mem_range.mp hr
+    have hs' : s < D.size := Finset.mem_range.mp hs
+    rw [he r hr',he s hs'] at hrs
+    exact congrArg Fin.val (hf (Fin.ext hrs))
+  · intro r hr hv
+    rw [he r hr]
+    exact hval ⟨r,hr⟩ hv
+
+lemma count_lt_of_embedding {n : ℕ} (C D : Circuit) (f : Fin D.size → Fin C.size)
+    (hf : Function.Injective f) (x : Fin n → Bool)
+    (hval : ∀ r, gateVal n D r.val x = true → gateVal n C (f r).val x = true)
+    (hstrict : ∃ i : Fin C.size, gateVal n C i.val x = true ∧
+      ∀ r, f r = i → gateVal n D r.val x = false) :
+    (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true := by
+  let e : ℕ → ℕ := fun r => if hr : r < D.size then (f ⟨r,hr⟩).val else 0
+  have he (r : ℕ) (hr : r < D.size) : e r = (f ⟨r,hr⟩).val := by simp [e,hr]
+  apply WireProfile.wire_count_lt C D e
+  · intro r hr
+    rw [he r hr]
+    exact (f ⟨r,hr⟩).isLt
+  · intro r hr s hs hrs
+    have hr' : r < D.size := Finset.mem_range.mp hr
+    have hs' : s < D.size := Finset.mem_range.mp hs
+    rw [he r hr',he s hs'] at hrs
+    exact congrArg Fin.val (hf (Fin.ext hrs))
+  · intro r hr hv
+    rw [he r hr]
+    exact hval ⟨r,hr⟩ hv
+  · obtain ⟨i,hi,hmiss⟩ := hstrict
+    refine ⟨i.val,i.isLt,hi,?_⟩
+    intro r hr her
+    rw [he r hr] at her
+    exact hmiss ⟨r,hr⟩ (Fin.ext her)
+
+lemma pruned_counts {n : ℕ} (C D : Circuit) (h i j a b c d : ℕ)
+    (hC : IsAO2 n C) (hh : h < C.gates.length) (hi : i < h) (hj : j < h) (hij : i ≠ j)
+    (hgi : gateAt C i = ⟨.or,[a,b]⟩) (hgj : gateAt C j = ⟨.or,[c,d]⟩)
+    (hgh : gateAt C h = ⟨.and,[n+i,n+j]⟩)
+    (ha : a < n+h) (hb : b < n+h) (hc : c < n+h) (hd : d < n+h)
+    (f : Fin D.size → Fin (stars n C h ∅ a d c b).size) (hf : Function.Injective f)
+    (havoid : ∀ r, (f r).val ≠ i ∧ (f r).val ≠ j)
+    (hval : ∀ r x, gateVal n D r.val x = gateVal n (stars n C h ∅ a d c b) (f r).val x) :
+    (∀ x : Fin n → Bool, (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true) ∧
+    ∀ x : Fin n → Bool, value C x a = true → value C x d = false →
+      (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true := by
+  have hbound (r : Fin D.size) : charge h i j (f r).val < C.size := by
+    apply charge_lt C h i j _ hh hi hj
+    simpa only [stars,Circuit.size,length] using (f r).isLt
+  let e : Fin D.size → Fin C.size := fun r => ⟨charge h i j (f r).val,hbound r⟩
+  have heinj : Function.Injective e := by
+    intro r s heq
+    have hch : charge h i j (f r).val = charge h i j (f s).val := congrArg Fin.val heq
+    exact hf (Fin.ext (charge_inj h i j _ _ hi hj hij (havoid r).1 (havoid r).2
+      (havoid s).1 (havoid s).2 hch))
+  have heval (x : Fin n → Bool) (r : Fin D.size) :
+      gateVal n D r.val x = true → gateVal n C (e r).val x = true := by
+    intro hv
+    exact charge_dom C h i j a b c d _ hC hh hi hj hgi hgj hgh ha hb hc hd x
+      ((hval r x).symm.trans hv)
+  constructor
+  · intro x
+    exact count_le_of_embedding C D e heinj x (heval x)
+  · intro x hA hD
+    apply count_lt_of_embedding C D e heinj x (heval x)
+    refine ⟨⟨i,by change i < C.gates.length; omega⟩,?_,?_⟩
+    · change value C x (n+i) = true
+      rw [(old_values C h i j a b c d hC hh hi hj hgi hgj hgh x).1,hA]
+      rfl
+    · intro r her
+      have hch : charge h i j (f r).val = i := congrArg Fin.val her
+      have hfr := charge_eq_i h i j _ hi hj hij (havoid r).1 (havoid r).2 hch
+      rw [hval r x,hfr]
+      change value (stars n C h ∅ a d c b) x (n+h) = false
+      rw [(stars_operands C h a d c b hC hh ha hd hc hb x).1,hD]
+      simp
+
+lemma exists_projection {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h i j a b c d : ℕ)
+    (hC : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (hh : h < C.gates.length) (hi : i < h) (hj : j < h) (hij : i ≠ j)
+    (hgi : gateAt C i = ⟨.or,[a,b]⟩) (hgj : gateAt C j = ⟨.or,[c,d]⟩)
+    (hgh : gateAt C h = ⟨.and,[n+i,n+j]⟩)
+    (ha : a < n+h) (hb : b < n+h) (hc : c < n+h) (hd : d < n+h)
+    (hprivate : ∀ k < C.gates.length, k ≠ h →
+      n+i ∉ (gateAt C k).inputs ∧ n+j ∉ (gateAt C k).inputs)
+    (hout : C.output < n+C.size) (hoi : C.output ≠ n+i) (hoj : C.output ≠ n+j)
+    (hedge : ∀ u v : Fin n, G.Adj u v →
+      ((value C (pairInput u v) a && value C (pairInput u v) d)||
+        (value C (pairInput u v) c && value C (pairInput u v) b)) = value C (pairInput u v) (n+h)) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      (∀ x : Fin n → Bool,
+        (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true) ∧
+      ∀ x : Fin n → Bool, value C x a = true → value C x d = false →
+        (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true := by
+  obtain ⟨D,hD,hs,hF,f,hf,havoid,hval⟩ :=
+    prune_projection C h i j a b c d hC hh hi hj hij hgi hgj ha hb hc hd hprivate hout hoi hoj
+  refine ⟨D,hD,hF.trans ?_,hs,?_⟩
+  · exact projection_graph_correct G C h i j a b c d hC hfun hh hi hj hgi hgj hgh ha hb hc hd hedge
+  · exact pruned_counts C D h i j a b c d hC hh hi hj hij hgi hgj hgh ha hb hc hd f hf havoid hval
+
+def twoRowWeight {n : ℕ} (C : Circuit) (x0 x1 : Fin n → Bool) (w0 w1 : ℕ) : ℕ :=
+  w0 * (C.wires (List.ofFn x0)).count true + w1 * (C.wires (List.ofFn x1)).count true
+
+lemma twoRowWeight_le {n : ℕ} (C D : Circuit) (x0 x1 : Fin n → Bool) (w0 w1 : ℕ)
+    (hle : ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true) :
+    twoRowWeight D x0 x1 w0 w1 ≤ twoRowWeight C x0 x1 w0 w1 := by
+  exact Nat.add_le_add (Nat.mul_le_mul_left w0 (hle x0)) (Nat.mul_le_mul_left w1 (hle x1))
+
+lemma twoRowWeight_lt {n : ℕ} (C D : Circuit) (x0 x1 : Fin n → Bool) (w0 w1 : ℕ)
+    (hle : ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true)
+    (hlt : (0 < w0 ∧ (D.wires (List.ofFn x0)).count true < (C.wires (List.ofFn x0)).count true) ∨
+      (0 < w1 ∧ (D.wires (List.ofFn x1)).count true < (C.wires (List.ofFn x1)).count true)) :
+    twoRowWeight D x0 x1 w0 w1 < twoRowWeight C x0 x1 w0 w1 := by
+  rcases hlt with ⟨hw,hx⟩ | ⟨hw,hx⟩
+  · exact Nat.add_lt_add_of_lt_of_le (Nat.mul_lt_mul_of_pos_left hx hw) (Nat.mul_le_mul_left w1 (hle x1))
+  · exact Nat.add_lt_add_of_le_of_lt (Nat.mul_le_mul_left w0 (hle x0)) (Nat.mul_lt_mul_of_pos_left hx hw)
+
+lemma twoRowWeight_lt_of_shell {n : ℕ} (C D : Circuit) (a d : ℕ)
+    (hle : ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true)
+    (hstrict : ∀ x : Fin n → Bool, value C x a = true → value C x d = false →
+      (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true)
+    (x0 x1 : Fin n → Bool) (w0 w1 : ℕ)
+    (hrow : (0 < w0 ∧ value C x0 a = true ∧ value C x0 d = false) ∨
+      (0 < w1 ∧ value C x1 a = true ∧ value C x1 d = false)) :
+    twoRowWeight D x0 x1 w0 w1 < twoRowWeight C x0 x1 w0 w1 := by
+  apply twoRowWeight_lt C D x0 x1 w0 w1 hle
+  rcases hrow with ⟨hw,hA,hD⟩ | ⟨hw,hA,hD⟩
+  · exact Or.inl ⟨hw,hstrict x0 hA hD⟩
+  · exact Or.inr ⟨hw,hstrict x1 hA hD⟩
+
+lemma twoRowMass_lt_of_shell {n : ℕ} (C D : Circuit) (a d : ℕ)
+    (hle : ∀ x : Fin n → Bool,
+      (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true)
+    (hstrict : ∀ x : Fin n → Bool, value C x a = true → value C x d = false →
+      (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true)
+    (x0 x1 : Fin n → Bool)
+    (hrow : (value C x0 a = true ∧ value C x0 d = false) ∨
+      (value C x1 a = true ∧ value C x1 d = false)) :
+    (D.wires (List.ofFn x0)).count true + (D.wires (List.ofFn x1)).count true <
+      (C.wires (List.ofFn x0)).count true + (C.wires (List.ofFn x1)).count true := by
+  have h := twoRowWeight_lt_of_shell C D a d hle hstrict x0 x1 1 1
+    (hrow.elim (fun hx => Or.inl ⟨by decide,hx⟩) (fun hx => Or.inr ⟨by decide,hx⟩))
+  simpa only [twoRowWeight,one_mul] using h
+
+end PEqualNP.Outside.L_meta_3566.ShellCount
+
+namespace PEqualNP.Outside.L_meta_3566.MonoSemantics
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm ShellSemantics
+
+def input {n : ℕ} (color : Fin n → Bool) (side : Bool) : Fin n → Bool :=
+  mask color side (fun _ => true)
+
+def mass {n : ℕ} (color : Fin n → Bool) (C : Circuit) : ℕ :=
+  (C.wires (List.ofFn (input color false))).count true +
+    (C.wires (List.ofFn (input color true))).count true
+
+lemma input_true {n : ℕ} (color : Fin n → Bool) (side : Bool) (u : Fin n) :
+    input color side u = true ↔ color u = side := by
+  simp [input,mask]
+
+lemma input_negative {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (side : Bool) : graphFun G ∅ (input color side) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro h
+  have h' : ∃ u v, G.Adj u v ∧ input color side u = true ∧ input color side v = true := by
+    simpa [graphFun] using h
+  obtain ⟨u,v,huv,hu,hv⟩ := h'
+  exact hbip u v huv ((input_true color side u).mp hu |>.trans ((input_true color side v).mp hv).symm)
+
+lemma pure_opposite_false {n : ℕ} (color : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Pure color true f)
+    (hfzero : f (fun _ => false) = false) : f (input color false) = false := by
+  have hm : mask color true (input color false) = (fun _ => false) := by
+    funext w
+    cases hc : color w <;> simp [mask,input,hc]
+  rw [hf,hm,hfzero]
+
+lemma positive_single_to_input {n : ℕ} (color : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f)
+    (u : Fin n) (hu : color u = false) (hfu : f (single u) = true) :
+    f (input color false) = true := by
+  have hle : single u ≤ input color false := by
+    intro w
+    by_cases hw : w = u
+    · subst w
+      simp [single,input,mask,hu]
+    · simp [single,hw]
+  have h := hf hle
+  rw [hfu] at h
+  apply le_antisymm
+  · cases f (input color false) <;> decide
+  · exact h
+
+lemma mass_lt_of_pointwise {n : ℕ} (color : Fin n → Bool) (C D : Circuit)
+    (hle : ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).count true ≤
+      (C.wires (List.ofFn x)).count true)
+    (hlt : (D.wires (List.ofFn (input color false))).count true <
+      (C.wires (List.ofFn (input color false))).count true) : mass color D < mass color C := by
+  have hright := hle (input color true)
+  unfold mass
+  omega
+
+end PEqualNP.Outside.L_meta_3566.MonoSemantics
+
+namespace PEqualNP.Outside.L_meta_3566.MonoProjection
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ShellInsert ShellSemantics
+
+lemma exists_pure_projection {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (h i j a b c d : ℕ)
+    (hh : h < C.gates.length) (hi : i < h) (hj : j < h) (hij : i ≠ j)
+    (hgi : gateAt C i = ⟨.or,[a,b]⟩) (hgj : gateAt C j = ⟨.or,[c,d]⟩)
+    (hgh : gateAt C h = ⟨.and,[n+i,n+j]⟩)
+    (hprivate : ∀ k < C.gates.length, k ≠ h →
+      n+i ∉ (gateAt C k).inputs ∧ n+j ∉ (gateAt C k).inputs)
+    (hout : C.output < n+C.size) (hoi : C.output ≠ n+i) (hoj : C.output ≠ n+j)
+    (hA : Pure color false (fun x => value C x a))
+    (hB : Pure color true (fun x => value C x b))
+    (hC : Pure color false (fun x => value C x c))
+    (hD : Pure color true (fun x => value C x d))
+    (hzero : ∀ w, gateVal n C h (single w) = false)
+    (hAmax : value C (MonoSemantics.input color false) a = true) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      MonoSemantics.mass color D < MonoSemantics.mass color C := by
+  have ha : a < n+h := by
+    have ht := hAO.2.1 i (by omega) a (by simp [hgi])
+    omega
+  have hb : b < n+h := by
+    have ht := hAO.2.1 i (by omega) b (by simp [hgi])
+    omega
+  have hc : c < n+h := by
+    have ht := hAO.2.1 j (by omega) c (by simp [hgj])
+    omega
+  have hd : d < n+h := by
+    have ht := hAO.2.1 j (by omega) d (by simp [hgj])
+    omega
+  have hzero' : ∀ w : Fin n, oldFun (fun x => value C x a) (fun x => value C x b)
+      (fun x => value C x c) (fun x => value C x d) (single w) = false := by
+    intro w
+    have he := (old_values C h i j a b c d hAO hh hi hj hgi hgj hgh (single w)).2.2
+    exact he.symm.trans (hzero w)
+  have hedge : ∀ u v : Fin n, G.Adj u v →
+      ((value C (pairInput u v) a && value C (pairInput u v) d)||
+        (value C (pairInput u v) c && value C (pairInput u v) b)) = value C (pairInput u v) (n+h) := by
+    intro u v huv
+    have hp := projection_pair color (fun x => value C x a) (fun x => value C x b)
+      (fun x => value C x c) (fun x => value C x d) hA hB hC hD hzero' u v (hbip u v huv)
+    exact hp.trans (old_values C h i j a b c d hAO hh hi hj hgi hgj hgh (pairInput u v)).2.2.symm
+  obtain ⟨D,hDao,hDF,hsize,hle,hstrict⟩ := ShellCount.exists_projection G C h i j a b c d
+    hAO hfun hh hi hj hij hgi hgj hgh ha hb hc hd hprivate hout hoi hoj hedge
+  refine ⟨D,hDao,hDF,hsize,MonoSemantics.mass_lt_of_pointwise color C D hle ?_⟩
+  apply hstrict (MonoSemantics.input color false) hAmax
+  exact MonoSemantics.pure_opposite_false color (fun x => value C x d) hD (ZeroWires.wire_false C hAO d)
+
+lemma no_strict_competitor {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit)
+    (hmin : ∀ D : Circuit, IsAO2 n D → circuitFun n D = graphFun G ∅ → D.size ≤ C.size →
+      MonoSemantics.mass color C ≤ MonoSemantics.mass color D)
+    (hex : ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      MonoSemantics.mass color D < MonoSemantics.mass color C) : False := by
+  obtain ⟨D,hD,hF,hs,hm⟩ := hex
+  exact Nat.not_lt_of_ge (hmin D hD hF hs) hm
+
+end PEqualNP.Outside.L_meta_3566.MonoProjection
