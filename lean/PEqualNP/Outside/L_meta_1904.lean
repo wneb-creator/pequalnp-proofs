@@ -2423,4 +2423,280 @@ lemma newBlock_all_ands_safe {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m �
 
 end PathRepair
 
+
+
+namespace OverlapAndCover
+
+/-- Oppositely ignored vertices cannot both have two distinct neighbors. -/
+lemma ignored_vertices_one_neighborhood_small {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a b : V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ x, L (Function.update x b true) = L x)
+    (ignoresRight : ∀ x, R (Function.update x a true) = R x)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    (∀ c d, G.Adj a c → G.Adj a d → c = d) ∨
+      (∀ c d, G.Adj b c → G.Adj b d → c = d) := by
+  classical
+  by_cases small : ∀ c d, G.Adj a c → G.Adj a d → c = d
+  · exact Or.inl small
+  · push Not at small
+    obtain ⟨c,d,hac,had,hcd⟩ := small
+    refine Or.inr ?_
+    intro u v hbu hbv
+    have rectangle {c d : V} (hac : G.Adj a c) (hbd : G.Adj b d) : G.Adj c d :=
+      ignored_vertices_neighborhood_rectangle G L R a b
+        correct ignoresLeft ignoresRight hac hbd
+    rcases noSquare c u d v (rectangle hac hbu) (rectangle had hbu).symm
+      (rectangle had hbv) (rectangle hac hbv).symm with same | same
+    · exact False.elim (hcd same)
+    · exact same
+
+lemma ignored_vertices_one_isolated_of_no_leaves {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a b : V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ x, L (Function.update x b true) = L x)
+    (ignoresRight : ∀ x, R (Function.update x a true) = R x)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    (∀ c, ¬G.Adj a c) ∨ (∀ d, ¬G.Adj b d) := by
+  rcases ignored_vertices_one_neighborhood_small G L R a b correct
+    ignoresLeft ignoresRight noSquare with small | small
+  · refine Or.inl ?_
+    intro c hac
+    obtain ⟨d,had,hdc⟩ := noLeaves _ _ hac
+    exact hdc (small d c had hac)
+  · refine Or.inr ?_
+    intro c hbc
+    obtain ⟨d,hbd,hdc⟩ := noLeaves _ _ hbc
+    exact hdc (small d c hbd hbc)
+
+
+/-- For two families ignored by opposite factors, one entire family has
+    at most one neighbor in total. -/
+lemma ignored_families_one_neighborhood_small {V A B : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a : A → V) (b : B → V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ j x, L (Function.update x (b j) true) = L x)
+    (ignoresRight : ∀ i x, R (Function.update x (a i) true) = R x)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    (∀ i j c d, G.Adj (a i) c → G.Adj (a j) d → c = d) ∨
+      (∀ i j c d, G.Adj (b i) c → G.Adj (b j) d → c = d) := by
+  classical
+  by_cases small : ∀ i j c d, G.Adj (a i) c → G.Adj (a j) d → c = d
+  · exact Or.inl small
+  · push Not at small
+    obtain ⟨i,j,c,d,hic,hjd,hcd⟩ := small
+    refine Or.inr ?_
+    intro k l u v hku hlv
+    have rectangle (i : A) (j : B) {c d : V}
+        (hic : G.Adj (a i) c) (hjd : G.Adj (b j) d) : G.Adj c d :=
+      ignored_vertices_neighborhood_rectangle G L R (a i) (b j)
+        correct (ignoresLeft j) (ignoresRight i) hic hjd
+    rcases noSquare c u d v (rectangle i k hic hku) (rectangle j k hjd hku).symm
+      (rectangle j l hjd hlv) (rectangle i l hic hlv).symm with same | same
+    · exact False.elim (hcd same)
+    · exact same
+
+lemma ignored_families_one_isolated_of_no_leaves {V A B : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a : A → V) (b : B → V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ j x, L (Function.update x (b j) true) = L x)
+    (ignoresRight : ∀ i x, R (Function.update x (a i) true) = R x)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    (∀ i c, ¬G.Adj (a i) c) ∨ (∀ j d, ¬G.Adj (b j) d) := by
+  rcases ignored_families_one_neighborhood_small G L R a b correct
+    ignoresLeft ignoresRight noSquare with small | small
+  · refine Or.inl ?_
+    intro i c hic
+    obtain ⟨d,hid,hdc⟩ := noLeaves _ _ hic
+    exact hdc (small i i d c hid hic)
+  · refine Or.inr ?_
+    intro i c hic
+    obtain ⟨d,hid,hdc⟩ := noLeaves _ _ hic
+    exact hdc (small i i d c hid hic)
+
+lemma private_neighborhoods_one_small {I X Y : Type*}
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    (∀ a b : X, ∀ c d, G.Adj (Sum.inr (Sum.inl a)) c →
+      G.Adj (Sum.inr (Sum.inl b)) d → c = d) ∨
+    (∀ a b : Y, ∀ c d, G.Adj (Sum.inr (Sum.inr a)) c →
+      G.Adj (Sum.inr (Sum.inr b)) d → c = d) := by
+  classical
+  apply ignored_families_one_neighborhood_small G
+    (fun x => L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))))
+    (fun x => R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b))))
+    (fun a => Sum.inr (Sum.inl a)) (fun b => Sum.inr (Sum.inr b)) correct ?_ ?_ noSquare
+  · intro j x
+    simp [Function.update]
+  · intro i x
+    simp [Function.update]
+
+lemma private_side_isolated_of_no_leaves {I X Y : Type*}
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    (∀ a : X, ∀ c, ¬G.Adj (Sum.inr (Sum.inl a)) c) ∨
+      (∀ b : Y, ∀ d, ¬G.Adj (Sum.inr (Sum.inr b)) d) := by
+  rcases private_neighborhoods_one_small G L R correct noSquare with small | small
+  · refine Or.inl ?_
+    intro a c hac
+    obtain ⟨d,had,hdc⟩ := noLeaves _ _ hac
+    exact hdc (small a a d c had hac)
+  · refine Or.inr ?_
+    intro b c hbc
+    obtain ⟨d,hbd,hdc⟩ := noLeaves _ _ hbc
+    exact hdc (small b b d c hbd hbc)
+
+end OverlapAndCover
+
+namespace OverlapAndCover
+
+/-- In a C4-free graph without leaves, one AND factor genuinely depends on
+    every nonisolated vertex. Dependence is witnessed by a change on insertion. -/
+lemma and_factor_one_depends_on_all_nonisolated {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    (∀ v, (∃ u, G.Adj v u) → ∃ x, L (Function.update x v true) ≠ L x) ∨
+      (∀ v, (∃ u, G.Adj v u) → ∃ x, R (Function.update x v true) ≠ R x) := by
+  classical
+  by_cases allLeft : ∀ v, (∃ u, G.Adj v u) → ∃ x, L (Function.update x v true) ≠ L x
+  · exact Or.inl allLeft
+  · push Not at allLeft
+    obtain ⟨b,activeB,ignoresLeft⟩ := allLeft
+    refine Or.inr ?_
+    intro a activeA
+    by_contra noDependence
+    push Not at noDependence
+    rcases ignored_vertices_one_isolated_of_no_leaves G L R a b correct
+      ignoresLeft noDependence noSquare noLeaves with isolatedA | isolatedB
+    · obtain ⟨c,hac⟩ := activeA
+      exact isolatedA c hac
+    · obtain ⟨d,hbd⟩ := activeB
+      exact isolatedB d hbd
+
+end OverlapAndCover
+
+namespace BlockSubstitution
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def AgreeOutside (B : Finset ℕ) (v w : List Bool) : Prop :=
+  ∀ i, i ∉ B → v.getD i false = w.getD i false
+
+lemma append_agree_outside (B : Finset ℕ) (v w : List Bool) (a b : Bool)
+    (hlen : v.length = w.length) (hab : a = b) (h : AgreeOutside B v w) :
+    AgreeOutside B (v ++ [a]) (w ++ [b]) := by
+  intro i hi
+  by_cases hil : i < v.length
+  · rw [List.getD_append _ _ _ _ hil, List.getD_append _ _ _ _ (by omega)]
+    exact h i hi
+  · by_cases hie : i = v.length
+    · have hiew : i = w.length := hie.trans hlen
+      rw [hie, List.getD_append_right _ _ _ _ (by omega), Nat.sub_self]
+      rw [← hie, hiew, List.getD_append_right _ _ _ _ (by omega), Nat.sub_self]
+      simpa using hab
+    · rw [List.getD_eq_default _ _ (by simp; omega),
+        List.getD_eq_default _ _ (by simp; omega)]
+
+lemma run_agree_outside (B : Finset ℕ) (gs : List Gate)
+    (v w : List Bool) (hlen : v.length = w.length)
+    (havoid : ∀ g ∈ gs, ∀ i ∈ g.inputs, i ∉ B)
+    (h : AgreeOutside B v w) : AgreeOutside B (run gs v) (run gs w) := by
+  induction gs generalizing v w with
+  | nil => exact h
+  | cons g gs ih =>
+    have hmap : g.inputs.map (fun i => v.getD i false) =
+        g.inputs.map (fun i => w.getD i false) := by
+      apply List.map_congr_left
+      intro i hi
+      exact h i (havoid g List.mem_cons_self i hi)
+    have hstep : AgreeOutside B (step v g) (step w g) := by
+      apply append_agree_outside B v w _ _ hlen (congrArg g.op.eval hmap) h
+    exact ih (step v g) (step w g) (by simp [step, hlen])
+      (fun q hq => havoid q (List.mem_cons_of_mem _ hq)) hstep
+
+def internalWires (m : ℕ) : Finset ℕ := {m, m + 1, m + 2, m + 3}
+
+lemma five_block_agree_outside (m : ℕ) (C D : Circuit)
+    (hC : C.size = 5) (hD : D.size = 5)
+    (x : List Bool) (hx : x.length = m)
+    (hlast : (C.wires x).getD (m + 4) false = (D.wires x).getD (m + 4) false) :
+    AgreeOutside (internalWires m) (C.wires x) (D.wires x) := by
+  have hclen : (C.wires x).length = m + 5 := by
+    change (run C.gates x).length = _
+    rw [run_length, hx]
+    exact congrArg (m + ·) hC
+  have hdlen : (D.wires x).length = m + 5 := by
+    change (run D.gates x).length = _
+    rw [run_length, hx]
+    exact congrArg (m + ·) hD
+  intro i hi
+  by_cases him : i < m
+  · change (run C.gates x).getD i false = (run D.gates x).getD i false
+    rw [run_old_read _ _ _ (by omega), run_old_read _ _ _ (by omega)]
+  · by_cases hiend : i < m + 5
+    · have hnot : i ≠ m ∧ i ≠ m + 1 ∧ i ≠ m + 2 ∧ i ≠ m + 3 := by
+        simpa [internalWires] using hi
+      have hieq : i = m + 4 := by omega
+      simpa only [hieq] using hlast
+    · rw [List.getD_eq_default _ _ (by omega), List.getD_eq_default _ _ (by omega)]
+
+lemma append_suffix_eval_eq (B : Finset ℕ) (C D : Circuit)
+    (post : List Gate) (out : ℕ) (x : List Bool)
+    (hlen : (C.wires x).length = (D.wires x).length)
+    (hagree : AgreeOutside B (C.wires x) (D.wires x))
+    (hpost : ∀ g ∈ post, ∀ i ∈ g.inputs, i ∉ B)
+    (hout : out ∉ B) :
+    (⟨C.gates ++ post, out⟩ : Circuit).eval x =
+      (⟨D.gates ++ post, out⟩ : Circuit).eval x := by
+  have h := run_agree_outside B post (C.wires x) (D.wires x) hlen hpost hagree out hout
+  change (run (C.gates ++ post) x).getD out false =
+    (run (D.gates ++ post) x).getD out false
+  change (run post (run C.gates x)).getD out false =
+    (run post (run D.gates x)).getD out false at h
+  simpa only [run, List.foldl_append] using h
+
+lemma path_blocks_suffix_eq {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m → Bool)
+    (hae : x ae = (x a || x e)) (heb : x eb = (x e || x b))
+    (had : x ad = (x a || x d)) (post : List Gate) (out : ℕ)
+    (hpost : ∀ g ∈ post, ∀ i ∈ g.inputs, i ∉ internalWires m)
+    (hout : out ∉ internalWires m) :
+    (⟨(PathRepair.oldBlock b c d ae eb ad).gates ++ post, out⟩ : Circuit).eval
+        (List.ofFn x) =
+      (⟨(PathRepair.newBlock a b c d e).gates ++ post, out⟩ : Circuit).eval
+        (List.ofFn x) := by
+  have hlast : ((PathRepair.oldBlock b c d ae eb ad).wires (List.ofFn x)).getD (m + 4) false =
+      ((PathRepair.newBlock a b c d e).wires (List.ofFn x)).getD (m + 4) false :=
+    PathRepair.blocks_agree a b c d e ae eb ad x hae heb had
+  apply append_suffix_eval_eq (internalWires m)
+    (PathRepair.oldBlock b c d ae eb ad) (PathRepair.newBlock a b c d e) post out
+    (List.ofFn x) _ _ hpost hout
+  · change (run _ _).length = (run _ _).length
+    simp [run_length, PathRepair.oldBlock, PathRepair.newBlock]
+  · exact five_block_agree_outside m _ _ (PathRepair.oldBlock_size ..)
+      (PathRepair.newBlock_size ..) _ List.length_ofFn hlast
+
+end BlockSubstitution
+
 end PEqualNP.Outside.L_meta_1904_aux
