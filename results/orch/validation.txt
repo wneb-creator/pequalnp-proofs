@@ -1,7 +1,10 @@
 L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
-Lean4.36.0: named file builds successfully (exit0),1227lines.
-New checked result: OneJunk.Close.one_junk_cover_cost eliminates bipartiteness from a non-strict cover-cost bound for leastAO2 circuits with exactlyone unsound AND. All checked partials are preserved under lemmas/.
-Independent OneJunk review: PASS; axioms propext, Classical.choice, Quot.sound only. Other component reviews pass for their stated partial scopes.
-Local checker on posted statement: running; final theorem absent. No full-proof PR opened.
-Sub-agents:6 (construction, structure/review, counterexample search, exchanges, one-junk normalization, direct ownership)
-TIMING total=16.5 subagents=6
+Named file: 9,386 lines, 477,463 bytes; byte-identical to independently reviewed OneJunk.lean.
+Lean 4.36.0: lake build PEqualNP.Outside.L_meta_1031 passed (exit 0).
+Strongest partial: triangle/C4-free least AO2 circuits with exactly one unsound AND admit a vertex cover with |E|+|T| ≤ C.size+1.
+Independent review: PASS for partial scope; standard axioms only.
+Latest checker run on prior helper-only target: REJECTED (no-theorem); posted theorem remains absent in current target.
+Other checked partials and full outputs are under results/orch/.
+No full-proof PR opened. Cleanup rule requiring a full checker pass has not been triggered.
+Sub-agents: 7 (construction, structure/review, counterexample search, exchanges, one-junk normalization, direct ownership, OR-count potential)
+TIMING total=21.6 subagents=7

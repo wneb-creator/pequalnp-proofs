@@ -793,4 +793,96 @@ lemma cover_data {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     intro o ho v hv
     exact (hgraph o.1 v).mpr ⟨o, ho, Or.inl ⟨rfl, hv⟩⟩
 
+def N {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Finset (Fin n)) (c : Fin n) :
+    Finset (Fin n) :=
+  Finset.univ.filter (fun w => G.Adj c w ∧ ¬ (w ∈ C ∧ w < c))
+
+theorem edge_N {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Finset (Fin n)}
+    (hC : ∀ u v, G.Adj u v → u ∈ C ∨ v ∈ C) {u v : Fin n} (h : G.Adj u v) :
+    ∃ c ∈ C, ∃ w ∈ N G C c, (c = u ∧ w = v) ∨ (c = v ∧ w = u) := by
+  simp only [N, Finset.mem_filter, Finset.mem_univ, true_and]
+  rcases hC u v h with hu | hv
+  · by_cases hv' : v ∈ C ∧ v < u
+    · refine ⟨v, hv'.1, u, ⟨h.symm, fun hh => lt_asymm hh.2 hv'.2⟩, Or.inr ⟨rfl, rfl⟩⟩
+    · exact ⟨u, hu, v, ⟨h, hv'⟩, Or.inl ⟨rfl, rfl⟩⟩
+  · by_cases hu' : u ∈ C ∧ u < v
+    · exact ⟨u, hu'.1, v, ⟨h, fun hh => lt_asymm hh.2 hu'.2⟩, Or.inl ⟨rfl, rfl⟩⟩
+    · exact ⟨v, hv, u, ⟨h.symm, hu'⟩, Or.inr ⟨rfl, rfl⟩⟩
+theorem sumN_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Finset (Fin n)) :
+    ∑ c ∈ C, (N G C c).card ≤ G.edgeSet.ncard := by
+  rw [← Finset.card_sigma]
+  have : G.edgeSet.ncard = G.edgeFinset.card := by
+    rw [← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset]
+  rw [this]
+  apply Finset.card_le_card_of_injOn (fun p => s(p.1, p.2))
+  · intro p hp
+    simp only [Finset.mem_coe, Finset.mem_sigma, N, Finset.mem_filter, Finset.mem_univ,
+      true_and] at hp
+    simp only [Finset.mem_coe, SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet]
+    exact hp.2.1
+  · rintro ⟨c, w⟩ hp ⟨c', w'⟩ hq hpq
+    simp only [Finset.mem_coe, Finset.mem_sigma, N, Finset.mem_filter, Finset.mem_univ,
+      true_and] at hp hq
+    rcases Sym2.eq_iff.1 hpq with ⟨h1, h2⟩ | ⟨h1, h2⟩
+    · subst h1; subst h2; rfl
+    · exfalso
+      subst h1; subst h2
+      have e1 : ¬ w < c := fun hl => hp.2.2 ⟨hq.1, hl⟩
+      have e2 : ¬ c < w := fun hl => hq.2.2 ⟨hp.1, hl⟩
+      have : c = w := le_antisymm (not_lt.1 e1) (not_lt.1 e2)
+      subst this
+      exact G.irrefl hp.2.1
+lemma vertex_cover_upper {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G T) :
+    ∃ C : Circuit,
+      (∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      (∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+        decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ∧
+      C.size ≤ G.edgeSet.ncard + T.card - 1 ∧
+      ∀ (t : ℕ) (g : Gate), C.gates[t]? = some g → g.op = GateOp.and → ∃ c : Fin n,
+        (∃ u v : Fin n, G.Adj u v ∧ OwnsDirect n C t u v) ∧
+        ∀ u v : Fin n, OwnsDirect n C t u v → u = c ∨ v = c := by
+  classical
+  let A := T.filter (fun c => (N G T c).Nonempty)
+  let own := A.toList.map (fun c => (c, (N G T c).toList))
+  have hne : ∀ o ∈ own, o.2 ≠ [] := by
+    intro o ho
+    obtain ⟨c, hc, rfl⟩ := List.mem_map.mp ho
+    have hn : (N G T c).Nonempty := (Finset.mem_filter.mp (Finset.mem_toList.mp hc)).2
+    obtain ⟨v, hv⟩ := hn
+    intro he
+    have hv' : v ∈ (N G T c).toList := Finset.mem_toList.mpr hv
+    change (N G T c).toList = [] at he
+    rw [he] at hv'
+    cases hv'
+  have hgraph : ∀ u v : Fin n, G.Adj u v ↔
+      ∃ o ∈ own, (o.1 = u ∧ v ∈ o.2) ∨ (o.1 = v ∧ u ∈ o.2) := by
+    intro u v
+    constructor
+    · intro huv
+      obtain ⟨c, hc, w, hw, hcase⟩ := edge_N hT huv
+      refine ⟨(c, (N G T c).toList), List.mem_map.mpr ⟨c, ?_, rfl⟩, ?_⟩
+      · exact Finset.mem_toList.mpr (Finset.mem_filter.mpr ⟨hc, ⟨w, hw⟩⟩)
+      · rcases hcase with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+        · exact Or.inl ⟨rfl, Finset.mem_toList.mpr hw⟩
+        · exact Or.inr ⟨rfl, Finset.mem_toList.mpr hw⟩
+    · rintro ⟨o, ho, hcase⟩
+      obtain ⟨c, hc, rfl⟩ := List.mem_map.mp ho
+      rcases hcase with ⟨rfl, hv⟩ | ⟨rfl, hu⟩
+      · exact (Finset.mem_filter.mp (Finset.mem_toList.mp hv)).2.1
+      · exact ((Finset.mem_filter.mp (Finset.mem_toList.mp hu)).2.1).symm
+  obtain ⟨hsize, hmono, hcomp, hown⟩ := cover_data G own hne hgraph
+  refine ⟨coverCircuitB n (encodeOwners own), hmono, hcomp, ?_, hown⟩
+  have hsum : (own.map (fun o => o.2.length)).sum = ∑ c ∈ A, (N G T c).card := by
+    simp only [own, List.map_map, Function.comp_def, Finset.length_toList]
+    exact Finset.sum_map_toList _ _
+  have hsumle : ∑ c ∈ A, (N G T c).card ≤ ∑ c ∈ T, (N G T c).card :=
+    Finset.sum_le_sum_of_subset_of_nonneg (Finset.filter_subset _ _)
+      (fun _ _ _ => Nat.zero_le _)
+  have hcardle : A.card ≤ T.card := Finset.card_le_card (Finset.filter_subset _ _)
+  have hlen : own.length = A.card := by simp [own]
+  have hbound := sumN_le G T
+  rw [hsize, hsum, hlen]
+  omega
+
 end PEqualNP.Outside.L_meta_1031.StarCover
