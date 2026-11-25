@@ -1,0 +1,1 @@
+{"seconds": 0.14074547299969709, "moment_entries": 1225, "H0det": [9803356117276277820358656, 1], "commutator_zero": false, "modular_crosscheck": {"prime": 461, "H0det": 74, "moment35_det": 312, "all_gradient_kernel_hessian_and_moment_entries_match": true}, "finite_input_sha256": "afaa8883725c1500939c6eb8a99a1ec8c4d1091c6ba19651c459763b25ae170a"}

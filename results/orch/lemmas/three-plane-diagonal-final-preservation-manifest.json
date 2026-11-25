@@ -1,0 +1,120 @@
+{
+  "classification": "Unfinished old-gap diagonal-anchor work: exact CAS net and determinants; no DiagonalAnchorMoment Lean variant has compiled. Preserved after root moved to L-meta-3773.",
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_anchor_exact.py",
+      "sha256": "0fa6c990c3ac3d91280df5c28dcd9ea7292e76a86495cfe763fd77555fe284ca",
+      "bytes": 5367
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-exact.json",
+      "sha256": "b45e62fda30c56d08e632c7f471a32cdd9026170a775279ace276ef00d16e2f0",
+      "bytes": 15979
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-exact.log",
+      "sha256": "d07476de89405f7f51f80add16f46e6bde33427087bda4ecaabc6ca3007117fd",
+      "bytes": 349
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_anchor_integer.py",
+      "sha256": "55cd901fbd6a32a470c6dea67c4f45336ef6042363f23829de32cfe7562cd323",
+      "bytes": 1436
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-integer-moment.json",
+      "sha256": "02a6dd8c8f145a03564a0cd2d46c929e2147e7c58af678c2f90e913e0018b23f",
+      "bytes": 7820
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-determinant.log",
+      "sha256": "aaeb6e91f74275ebf9e47929d68dd4984759b1d8c0e337997a9df7524977886b",
+      "bytes": 268
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-modular-inverse.json",
+      "sha256": "484856b780735536b879b90d39774737fba476573ff1675aaeaec4d2b1aa3665",
+      "bytes": 12147
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three-plane-diagonal-anchor-modular-inverse-5.json",
+      "sha256": "a5386e7a594ecc050128828d9c2dec9a9672a7592982f621486eeb42104cd36e",
+      "bytes": 12409
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_inverse_small.py",
+      "sha256": "281beed2193c403c2913dde29b9d5681b52d926e85ebed9eafcb11c5ca485072",
+      "bytes": 1643
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_rows_generate.py",
+      "sha256": "20fd8a4be98638c039ff26b4b7743cd431c2a8d635583e20ac51d7a2203b056a",
+      "bytes": 2832
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_obstruction_generate.py",
+      "sha256": "3b416ebe4e4e3dc73d6608c6eb0a4abe417a6b4e66d07c34e81d68a55f03e278",
+      "bytes": 4853
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/three_plane_diagonal_hessian_generate.py",
+      "sha256": "56ebf61c5018c2383ef2658068e81ba382a3d2300f8044f5ecfd7a98c1c0ce1a",
+      "bytes": 3504
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/DiagonalAnchorMomentRows.lean",
+      "sha256": "1f700864e5f96815e37e3e438199f6973ed96a1405d7451dc1784a764d4adb76",
+      "bytes": 28178
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/DiagonalAnchorMomentReducedFive.lean",
+      "sha256": "f4f1894b917abecfb031c279151805b92573679f74b6ed95d13da4cba3369ade",
+      "bytes": 39150
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/DiagonalAnchorObstructionBody.lean",
+      "sha256": "7d490b7980259aaf76a8c12f1cd3b94e7bc827217aa8413c46b509a8d5c304af",
+      "bytes": 15044
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMoment-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMoment-lean-status.json",
+      "sha256": "9fe84e1ed86c63fe838f3e866cb9f7cfb6560a152e08a44f74cb84c175fab246",
+      "bytes": 521
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMomentRows-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMomentRows-lean-status.json",
+      "sha256": "329b6a66e22f7787e4331d8330a893d7bb1b319eb6bdcc5b3a4a1b6bf1e84988",
+      "bytes": 527
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMomentReducedFive-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorMomentReducedFive-lean-status.json",
+      "sha256": "ddbb3437e7b583b0ffaa46f06eef21320a5d14be47ba544b8855ff5608202af5",
+      "bytes": 534
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorObstructionBody-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/root-DiagonalAnchorObstructionBody-lean-status.json",
+      "sha256": "b1a9a54046f5baeab9e8aa3d2065eb369b3b4e2265b05b197389f7a15ac4d4af",
+      "bytes": 532
+    }
+  ]
+}

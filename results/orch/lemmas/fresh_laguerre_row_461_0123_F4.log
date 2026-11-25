@@ -1,0 +1,108 @@
+{"stage": "parsed", "variables": 17, "generators": 42, "terms": 3264, "prime": 461}
+
+--------------- INPUT DATA ---------------
+#variables                      17
+#equations                      42
+#invalid equations               0
+field characteristic           461
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection              64
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  2       1      53       3 x 23         73.91%        1 new       0 zero         0.00 | 0.00         
+  3      22      54     129 x 1038        2.82%       22 new       0 zero         0.00 | 0.00         
+  4      64     184     636 x 2550        1.98%       47 new      17 zero         0.01 | 0.01         
+  4      64     583     994 x 4712        1.52%       44 new      20 zero         0.02 | 0.02         
+  3      19     850     183 x 1094        4.76%       19 new       0 zero         0.00 | 0.00         
+  4      64     864    1119 x 4026        3.14%       51 new      13 zero         0.03 | 0.03         
+  4      65    1377    1420 x 4370        4.07%       48 new      17 zero         0.03 | 0.03         
+  4      55    1849    1695 x 5513        4.39%       29 new      26 zero         0.03 | 0.04         
+  5      64    2064    2324 x 7079        3.61%       56 new       8 zero         0.05 | 0.05         
+  5      64    2677    2423 x 7147        4.56%       47 new      17 zero         0.06 | 0.06         
+  5      64    3202    2786 x 7501        5.06%       59 new       5 zero         0.09 | 0.09         
+  5      66    3971    2704 x 7358        6.60%       52 new      14 zero         0.11 | 0.11         
+  5      65    4532    3659 x 10035       4.86%       31 new      34 zero         0.13 | 0.13         
+  5      64    4860    4242 x 10781       4.49%       44 new      20 zero         0.15 | 0.15         
+  5      65    5374    4079 x 10577       5.36%       50 new      15 zero         0.18 | 0.18         
+  5      64    6006    4331 x 10803       5.79%       23 new      41 zero         0.18 | 0.18         
+  5      64    6273    4151 x 10709       6.05%       28 new      36 zero         0.15 | 0.15         
+  5      64    6575    4881 x 11649       5.32%       20 new      44 zero         0.18 | 0.18         
+  5      65    6769    4783 x 11539       5.50%       21 new      44 zero         0.17 | 0.17         
+  5      64    6999    4625 x 11389       6.16%       63 new       1 zero         0.25 | 0.25         
+  5      64    7828    4763 x 11463       6.75%       57 new       7 zero         0.33 | 0.32         
+  5      64    8511    5160 x 11887       7.00%       46 new      18 zero         0.37 | 0.37         
+  5      65    9113    5560 x 12240       6.73%       37 new      28 zero         0.29 | 0.29         
+  5      65    9540    5057 x 11639       7.61%       27 new      38 zero         0.32 | 0.32         
+  5      64    9790    5208 x 11823       8.06%       10 new      54 zero         0.33 | 0.34         
+  5      64    9852    5523 x 12130       7.63%       14 new      50 zero         0.40 | 0.40         
+  5      64    9974    6256 x 12849       6.53%        5 new      59 zero         0.39 | 0.38         
+  5      64    9967    7240 x 16315       4.78%       19 new      45 zero         0.40 | 0.40         
+  5      64   10146    6895 x 16172       5.25%       50 new      14 zero         0.48 | 0.48         
+  5      64   10691    7530 x 16918       5.07%       32 new      32 zero         0.58 | 0.58         
+  5      64   11019    8017 x 17440       4.90%       35 new      29 zero         0.62 | 0.61         
+  5      64   11387    8722 x 18410       4.52%       24 new      40 zero         0.64 | 0.64         
+  5      64   11639    8431 x 17841       4.74%       44 new      20 zero         0.59 | 0.59         
+  5      64   12191    8384 x 17916       5.22%       44 new      20 zero         0.69 | 0.69         
+  5      64   12714    8794 x 18448       5.19%       26 new      38 zero         0.70 | 0.70         
+  5      64   13003    8864 x 18463       5.22%       21 new      43 zero         0.72 | 0.72         
+  5      64   13223    9428 x 19037       5.01%       23 new      41 zero         0.80 | 0.79         
+  5      64   13487    9826 x 20512       4.68%       29 new      35 zero         0.80 | 0.80         
+  5      64   13776    9660 x 20809       4.82%       30 new      34 zero         0.81 | 0.81         
+  5      42   14052   10266 x 21544       4.64%       11 new      31 zero         0.75 | 0.74         
+  6      64   14134    8569 x 18301       5.92%       56 new       8 zero         0.46 | 0.46         
+  6      65   14937    9522 x 19581       5.32%       48 new      17 zero         0.60 | 0.60         
+  6      64   15549    9740 x 19800       5.41%       49 new      15 zero         0.87 | 0.87         
+  6      64   16128    9425 x 19443       5.97%       45 new      19 zero         0.99 | 0.99         
+  6      64   16661    9884 x 19871       5.87%       46 new      18 zero         1.07 | 1.07         
+  6      64   17176    9996 x 19941       6.03%       34 new      30 zero         0.98 | 0.98         
+  6      65   17619    9594 x 19502       6.61%       65 new       0 zero         1.16 | 1.16         
+  6      64   18545   10170 x 20044       6.44%       58 new       6 zero         1.28 | 1.28         
+  6      64   19180    9715 x 19504       7.20%       55 new       9 zero         1.29 | 1.30         
+  6      64   19878   10217 x 20817       6.74%       18 new      46 zero         1.13 | 1.13         
+  6      64   20108    9838 x 20430       7.24%       50 new      14 zero         1.39 | 1.39         
+  6      65   20692   10438 x 20992       6.91%       41 new      24 zero         1.43 | 1.42         
+  6      64   21213   10221 x 20998       7.25%       29 new      35 zero         1.44 | 1.42         
+  6      64   21601   10572 x 21318       7.04%        0 new      64 zero         1.34 | 1.33         
+  6      64   21537   11338 x 22695       6.52%       17 new      47 zero         1.71 | 1.70         
+  6      64   21684   14634 x 28223       4.69%       58 new       6 zero         1.74 | 1.73         
+  6      64   22411   11043 x 22339       7.03%       41 new      23 zero         1.54 | 1.54         
+  6      64   22911   11419 x 22680       6.86%        8 new      56 zero         1.33 | 1.33         
+  6      65   22957   11065 x 22317       7.25%        1 new      64 zero         1.58 | 1.57         
+  6      64   22907   12403 x 25900       5.85%        3 new      61 zero         1.62 | 1.62         
+  6      66   22886   14180 x 27692       5.32%       66 new       0 zero         1.94 | 1.94         
+  6      64   23835   14304 x 27755       5.52%       64 new       0 zero         2.13 | 2.13         
+  6      64   24687   14406 x 27793       5.70%       64 new       0 zero         2.33 | 2.33         
+  6      65   25576   14588 x 27934       5.87%       65 new       0 zero         2.32 | 2.32         
+  6      65   26332   14710 x 27999       6.05%       65 new       0 zero         2.32 | 2.32         
+  6      64   27094   14891 x 28120       6.18%       64 new       0 zero         2.38 | 2.38         
+  6      64   27995   15008 x 28178       6.34%       64 new       0 zero         2.68 | 2.68         
+  6      64   28847   15683 x 28788       6.07%        4 new      60 zero         2.17 | 2.16         
+  6      65   28840   15657 x 28750       6.10%       51 new      14 zero         2.53 | 2.53         
+  6      64   29528   15144 x 28220       6.65%       64 new       0 zeroEnlarging exponent vector for hash table failed
+for esz = 2097152, segmentation fault will follow.
+Enlarging hash table failed for hsz = 4194304,
+segmentation fault will follow.

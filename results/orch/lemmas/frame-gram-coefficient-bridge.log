@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/frame_gram_coefficient_bridge.py", line 17, in <module>
+    inds=[i for i,e in enumerate(eqs) if s.Poly(e,*vv).total_degree()==degree];cs=s.symbols('cc:'+str(len(inds)));poly=s.Poly(s.expand(q-sum(c*eqs[i] for c,i in zip(cs,inds))),*vv);sol=s.solve(poly.coeffs(),cs,dict=True);assert len(sol)==1;out[name]={'indices_scales':[[i,str(sol[0][c])] for c,i in zip(cs,inds) if sol[0][c]]}
+                                                                                                                                                                                                                                    ^^^^^^^^^^^
+AssertionError

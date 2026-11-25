@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/DiagonalAnchorMomentReducedFive.lean",
+  "sha256": "f4f1894b917abecfb031c279151805b92573679f74b6ed95d13da4cba3369ade",
+  "source_sha256_after": "f4f1894b917abecfb031c279151805b92573679f74b6ed95d13da4cba3369ade",
+  "started_utc": "2026-11-25T13:07:01.497054+00:00",
+  "finished_utc": "2026-11-25T13:09:01.683858+00:00",
+  "exit_code": -9,
+  "reason": "wall_limit",
+  "peak_rss_bytes": 2572029952,
+  "seconds": 120.18683809899812,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 120
+}

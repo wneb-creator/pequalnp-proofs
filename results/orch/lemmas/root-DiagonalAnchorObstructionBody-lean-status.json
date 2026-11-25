@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/DiagonalAnchorObstructionBody.lean",
+  "sha256": "fce285fbead2c0e968b50bcd1cf864f83d1c61e70cf2c818b60ccf67fc40f6e2",
+  "source_sha256_after": "fce285fbead2c0e968b50bcd1cf864f83d1c61e70cf2c818b60ccf67fc40f6e2",
+  "started_utc": "2026-11-25T13:04:52.304426+00:00",
+  "finished_utc": "2026-11-25T13:06:52.437521+00:00",
+  "exit_code": -9,
+  "reason": "wall_limit",
+  "peak_rss_bytes": 3039105024,
+  "seconds": 120.13313895700048,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 120
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "source": "frame-tiny-full-cross-d7-norm-full19-dixon-state.json (final361-digit snapshot, gzip)",
+    "archive": "results/orch/lemmas/three_plane_ordered_norm_state-361.json.gz",
+    "bytes": 26239449,
+    "sha256": "f6524ca80aa35442c3fa12d4353fd427580f1acd18256d7a698d27264efca953"
+  },
+  {
+    "source": "frame-tiny-full-cross-d7-norm-full19-dixon-step.json (final361-digit snapshot, gzip)",
+    "archive": "results/orch/lemmas/three_plane_ordered_norm_step-361.json.gz",
+    "bytes": 1680944,
+    "sha256": "ce616f9b2654cfd5b4978577e97482aa980703e41a9b6b033458f97e0d793894"
+  },
+  {
+    "source": "frame-tiny-full-cross-d7-norm-full19-dixon-run.json (final361-digit snapshot, gzip)",
+    "archive": "results/orch/lemmas/three_plane_ordered_norm_run-361.json.gz",
+    "bytes": 1277,
+    "sha256": "30bb2dbe8498d5d5385970699660c66b99885d611eb1716c55752c24782726b8"
+  },
+  {
+    "source": "three-plane-full19-norm-lift-1.log",
+    "archive": "results/orch/lemmas/three_plane_ordered_three-plane-full19-norm-lift-1.log",
+    "bytes": 6387,
+    "sha256": "b406d99e896a2c48d445658aa21fe4f01ca2b4932de3f29e6d710286ce3f51a6"
+  },
+  {
+    "source": "three-plane-ordered-norm-final-status.json",
+    "archive": "results/orch/lemmas/three_plane_ordered_three-plane-ordered-norm-final-status.json",
+    "bytes": 463,
+    "sha256": "9611369c92d23ce1df634a6f5ab6815d1951290b1cb9011201375ada0c2f7eca"
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "scope": "finite-field rank-deficient anchor diagnostics; incomplete geometric obstruction",
+  "files": [
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4.py",
+      "bytes": 3943,
+      "sha256": "1871eee3984df9ca42189fed2a52d3129d83ef793c144d3d941a7f4a48e3f74a"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-gen.log",
+      "bytes": 1297,
+      "sha256": "bdff25fdfa50be8fe8764800f68f3aa9d880190e41dc07942e1ce4ded75b69c8"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat.msolve",
+      "bytes": 1922163,
+      "sha256": "2c02053c6aa41be6b94348b71350cbf0c749533466b178b978cf3e0d108f843e"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-F4.log",
+      "bytes": 5558,
+      "sha256": "b89f0aad306d97afd0def2931880d4113a5756a4b19f3e66352788a95d1d8086"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-GB.json",
+      "bytes": 1530628,
+      "sha256": "f3df8ac46631b2b27600fcb1c53938dd2ecee89f44f63a3c978c90b917d3e5ea"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3.msolve",
+      "bytes": 58433,
+      "sha256": "d6d87bd5ca0a4a08f8213df4cf05b55afba2777e7ebb5baac484ebf48804ca9c"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3-F4.log",
+      "bytes": 4007,
+      "sha256": "dfaa5dc2de79c3acdb561d2fbf28adb3b601b1650654191bede5809a33b7a22f"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3-GB.json",
+      "bytes": 171,
+      "sha256": "a88ab22db68f943e45bb6ce2a47596166948bf786dc7ac4f19faa2fbafb8e647"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-elim4-F4.log",
+      "bytes": 18737,
+      "sha256": "c89b1cc48842b1b1589775fe270125ae80caf76ad64d78bfd2a89c9264071f39"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-elim4-GB.json",
+      "bytes": 51424,
+      "sha256": "e435aa075639bacc95d1926c1ecb5d5ed9024845afd34c7416b0b733d9bc9aaa"
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-scope.md",
+      "bytes": 869,
+      "sha256": "a061799ef927ec52de388e2fc6b8bc21d848898df56c55bb417706117a6b1fd8"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "classification": "Exact p-adic carry state only; no rational reconstruction or Lean proof",
+  "digits": 361,
+  "modulus_bits": 10793,
+  "actual_elapsed_seconds": 318.0708465280004,
+  "requested_window_seconds": 300,
+  "overrun_reason": "last rational reconstruction and exact verification completed after child execution budget",
+  "peak_rss_bytes": 300761088,
+  "stable_nonzero": 0,
+  "unreconstructed": 6685,
+  "further_fixed_basis_lifting_paused": true
+}

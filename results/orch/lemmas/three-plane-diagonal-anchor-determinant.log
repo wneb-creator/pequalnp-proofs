@@ -1,0 +1,1 @@
+{"classification": "Exact nonzero integer determinant after row-denominator clearing; not Lean checked", "exact_input_sha256": "b45e62fda30c56d08e632c7f471a32cdd9026170a775279ace276ef00d16e2f0", "determinant_bits": 623, "mod461": 312, "seconds": 0.024361298001167597}

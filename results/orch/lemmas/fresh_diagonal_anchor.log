@@ -1,0 +1,3 @@
+prime 461 roots [21, 39, 61, 356]
+['pencil', [[0, 0, 1], [0, 1, 0], [1, 0, 0]], 'commutator_rank', 2, 'moment', (35, 35)]
+['H0det', 74, 'momentdet', 312]

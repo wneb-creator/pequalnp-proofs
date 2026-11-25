@@ -1,0 +1,155 @@
+{
+  "classification": "Conditional CAS diagnostics, not Lean certificates or a completed frame obstruction. Six Gram entries require N nonzero and four Gram pairings zero. Path localized ideal is unit over Q; triangle localized ideal is unit only checked modulo 1000000007. Rational triangle reached CPU limit. Coefficient-index bridge script failed an assertion and yields no verified indices.",
+  "artifacts": [
+    {
+      "file": "frame_gram_localized_generate.py",
+      "sha256": "0e946da618a4fa38ac32e45cde7d17391bf94a48d005faa9a2d92734e68b6ba6",
+      "bytes": 3087
+    },
+    {
+      "file": "frame_gram_localized_run.py",
+      "sha256": "e238a2791a39020698442e624fa4bdb9440bc4b09706b6538b3576abde429b20",
+      "bytes": 1753
+    },
+    {
+      "file": "frame_gram_coefficient_bridge.py",
+      "sha256": "feb040209d6c597e6803cb3a39c78318e5c0807de4282a52e365f517054c7b85",
+      "bytes": 2706
+    },
+    {
+      "file": "frame-gram-coefficient-bridge.log",
+      "sha256": "ea79bba6d98ffc16f30f311c95d1bf0f7c091b88bd17f2a9479dd78d727b49b6",
+      "bytes": 708
+    },
+    {
+      "file": "frame-gram-localized-base-gb.json",
+      "sha256": "cc3dd66932703cc31b881cfe9b8c374d186cc565478ce75cf1bffb1e31d0dbe1",
+      "bytes": 823354
+    },
+    {
+      "file": "frame-gram-localized-base-run.log",
+      "sha256": "e023aa5c5f6c4461f0730a734856c7e9de2414f2af0b97549b15f283e978c773",
+      "bytes": 199
+    },
+    {
+      "file": "frame-gram-localized-base-status.json",
+      "sha256": "e6c68071904899676a199394a4654ff4a3323eca758a8821b043220b3ab13886",
+      "bytes": 213
+    },
+    {
+      "file": "frame-gram-localized-base.log",
+      "sha256": "290b00483303e85debcb541fc579ea0e3da6700be784b72c42be43e945895352",
+      "bytes": 4533
+    },
+    {
+      "file": "frame-gram-localized-base.msolve",
+      "sha256": "108c02f1679dc32aaf33bf3e131dde8d5405b3024c6c335e29975473b8badcf3",
+      "bytes": 16978
+    },
+    {
+      "file": "frame-gram-localized-generate.log",
+      "sha256": "b1b4909abbf44b7eefef2126bb777723381cdd102400e4156cb19b6e0a8f0e29",
+      "bytes": 168
+    },
+    {
+      "file": "frame-gram-localized-model.json",
+      "sha256": "2dc527d5d3ebbbb3d25c80ce9337f9dcd6b5bbafc63ac24d8f56845e63d276e9",
+      "bytes": 20542
+    },
+    {
+      "file": "frame-gram-localized-path-gb.json",
+      "sha256": "9bd6b5d4b950f2e268554d1f9d3174d6110a2ff545af287385081520fda09058",
+      "bytes": 208
+    },
+    {
+      "file": "frame-gram-localized-path-qq-gb.json",
+      "sha256": "c3d57527febe42fcebf9fcd0071cabc05f06541133b395c348d0692237afb505",
+      "bytes": 198
+    },
+    {
+      "file": "frame-gram-localized-path-qq-run.log",
+      "sha256": "5760db8590db7ea35af9717bc17db3ed6501ea514ee5b813f793be7e14913194",
+      "bytes": 197
+    },
+    {
+      "file": "frame-gram-localized-path-qq-status.json",
+      "sha256": "c8f591dce602638360052f0d866b141bcba5f36d75ecc0b59386d5fdb4a73f36",
+      "bytes": 211
+    },
+    {
+      "file": "frame-gram-localized-path-qq.log",
+      "sha256": "1d721e27a952d81abe91294c6b7c467c9e74496505785e35c5c126b8bf55e35c",
+      "bytes": 4395
+    },
+    {
+      "file": "frame-gram-localized-path-qq.msolve",
+      "sha256": "ee3b03f2b4bf0326a0091f0fb0ce9eed48b9338f478e195be715738cf92568e7",
+      "bytes": 6402
+    },
+    {
+      "file": "frame-gram-localized-path-run.log",
+      "sha256": "0c87ccdb8bef68054d19a86d356109c388b189849268899fd93e34570b36cd6b",
+      "bytes": 197
+    },
+    {
+      "file": "frame-gram-localized-path-status.json",
+      "sha256": "adab4059da5ac1be7a6a5193150c96455800b896d7cd166d6b3dc5c3b07b4756",
+      "bytes": 211
+    },
+    {
+      "file": "frame-gram-localized-path.log",
+      "sha256": "801ec642564093b71a0384d0bd14251cd386279b746ef6467839983969c65469",
+      "bytes": 4423
+    },
+    {
+      "file": "frame-gram-localized-path.msolve",
+      "sha256": "d008aeb53deaae1ee2e077741ff4c47f54e3db102f430f46e435815e2c653fa4",
+      "bytes": 6411
+    },
+    {
+      "file": "frame-gram-localized-triangle-gb.json",
+      "sha256": "6823441eb4d3ed5d775a055e21915554f7541f12cef9f25b9b48a2a156a4de21",
+      "bytes": 226
+    },
+    {
+      "file": "frame-gram-localized-triangle-qq-run.log",
+      "sha256": "736b20a18a246130a6b79d2ec56e29fa0412a52bed23d6536094e4e8a5997609",
+      "bytes": 160
+    },
+    {
+      "file": "frame-gram-localized-triangle-qq-status.json",
+      "sha256": "9c3fc4fc0cf4a49e75c3145b263c642a988bb93949f9d1af85741bfc8b137eba",
+      "bytes": 170
+    },
+    {
+      "file": "frame-gram-localized-triangle-qq.log",
+      "sha256": "9c7985277fc1be9cc61b19d93fce42c91111a15b8a728348daf7d8e799a62180",
+      "bytes": 1818
+    },
+    {
+      "file": "frame-gram-localized-triangle-qq.msolve",
+      "sha256": "5f484eb2831c8b8fe9a01e45243fb98684b18f7340bab9f75db06a9c424fbc64",
+      "bytes": 17021
+    },
+    {
+      "file": "frame-gram-localized-triangle-run.log",
+      "sha256": "a27dd7baa291ad45590836abfc927b8ebc748dd1b86a3bf3d74c58b8a9b4c603",
+      "bytes": 196
+    },
+    {
+      "file": "frame-gram-localized-triangle-status.json",
+      "sha256": "9aa5968cae8728f7483d32b52dc70e8b4140e5a4a66f18970d7bf4d2a7e3c4c1",
+      "bytes": 210
+    },
+    {
+      "file": "frame-gram-localized-triangle.log",
+      "sha256": "98b74e146e113cca5a190d9609fe5dcd6ae5bb48cdc0acb3e1fb57f6c71a20e3",
+      "bytes": 4836
+    },
+    {
+      "file": "frame-gram-localized-triangle.msolve",
+      "sha256": "09d86b4872f4a4f1ee31b8551eba5e6d6bf6712fd5fd9d1d5bc7627968bf2d7d",
+      "bytes": 17030
+    }
+  ]
+}

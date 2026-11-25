@@ -1,0 +1,551 @@
+{
+  "scope": "Preservation only after L-gct-231 was withdrawn. Generic full-row Laguerre diagnostics, rank-four finite slice, conditional localized frame Gram data, 361-digit Dixon state and unfinished diagonal-anchor certificate. No proof of L-gct-231. Individual build failures retained as failures.",
+  "total_bytes": 33603736,
+  "files": [
+    {
+      "path": "results/orch/lemmas/DiagonalAnchorMomentReducedFive.lean",
+      "sha256": "f4f1894b917abecfb031c279151805b92573679f74b6ed95d13da4cba3369ade",
+      "bytes": 39150
+    },
+    {
+      "path": "results/orch/lemmas/DiagonalAnchorMomentRows.lean",
+      "sha256": "1f700864e5f96815e37e3e438199f6973ed96a1405d7451dc1784a764d4adb76",
+      "bytes": 28178
+    },
+    {
+      "path": "results/orch/lemmas/DiagonalAnchorObstructionBody.lean",
+      "sha256": "7d490b7980259aaf76a8c12f1cd3b94e7bc827217aa8413c46b509a8d5c304af",
+      "bytes": 15044
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-coefficient-bridge.log",
+      "sha256": "ea79bba6d98ffc16f30f311c95d1bf0f7c091b88bd17f2a9479dd78d727b49b6",
+      "bytes": 708
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-base-gb.json",
+      "sha256": "cc3dd66932703cc31b881cfe9b8c374d186cc565478ce75cf1bffb1e31d0dbe1",
+      "bytes": 823354
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-base-run.log",
+      "sha256": "e023aa5c5f6c4461f0730a734856c7e9de2414f2af0b97549b15f283e978c773",
+      "bytes": 199
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-base-status.json",
+      "sha256": "e6c68071904899676a199394a4654ff4a3323eca758a8821b043220b3ab13886",
+      "bytes": 213
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-base.log",
+      "sha256": "290b00483303e85debcb541fc579ea0e3da6700be784b72c42be43e945895352",
+      "bytes": 4533
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-base.msolve",
+      "sha256": "108c02f1679dc32aaf33bf3e131dde8d5405b3024c6c335e29975473b8badcf3",
+      "bytes": 16978
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-diagnostic-manifest.json",
+      "sha256": "e80ee613cfd3a4169155963356864eefa9b868638d9883a8253e35816bdb41d0",
+      "bytes": 5498
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-generate.log",
+      "sha256": "b1b4909abbf44b7eefef2126bb777723381cdd102400e4156cb19b6e0a8f0e29",
+      "bytes": 168
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-model.json",
+      "sha256": "2dc527d5d3ebbbb3d25c80ce9337f9dcd6b5bbafc63ac24d8f56845e63d276e9",
+      "bytes": 20542
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-gb.json",
+      "sha256": "9bd6b5d4b950f2e268554d1f9d3174d6110a2ff545af287385081520fda09058",
+      "bytes": 208
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-qq-gb.json",
+      "sha256": "c3d57527febe42fcebf9fcd0071cabc05f06541133b395c348d0692237afb505",
+      "bytes": 198
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-qq-run.log",
+      "sha256": "5760db8590db7ea35af9717bc17db3ed6501ea514ee5b813f793be7e14913194",
+      "bytes": 197
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-qq-status.json",
+      "sha256": "c8f591dce602638360052f0d866b141bcba5f36d75ecc0b59386d5fdb4a73f36",
+      "bytes": 211
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-qq.log",
+      "sha256": "1d721e27a952d81abe91294c6b7c467c9e74496505785e35c5c126b8bf55e35c",
+      "bytes": 4395
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-qq.msolve",
+      "sha256": "ee3b03f2b4bf0326a0091f0fb0ce9eed48b9338f478e195be715738cf92568e7",
+      "bytes": 6402
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-run.log",
+      "sha256": "0c87ccdb8bef68054d19a86d356109c388b189849268899fd93e34570b36cd6b",
+      "bytes": 197
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path-status.json",
+      "sha256": "adab4059da5ac1be7a6a5193150c96455800b896d7cd166d6b3dc5c3b07b4756",
+      "bytes": 211
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path.log",
+      "sha256": "801ec642564093b71a0384d0bd14251cd386279b746ef6467839983969c65469",
+      "bytes": 4423
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-path.msolve",
+      "sha256": "d008aeb53deaae1ee2e077741ff4c47f54e3db102f430f46e435815e2c653fa4",
+      "bytes": 6411
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-gb.json",
+      "sha256": "6823441eb4d3ed5d775a055e21915554f7541f12cef9f25b9b48a2a156a4de21",
+      "bytes": 226
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-qq-run.log",
+      "sha256": "736b20a18a246130a6b79d2ec56e29fa0412a52bed23d6536094e4e8a5997609",
+      "bytes": 160
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-qq-status.json",
+      "sha256": "9c3fc4fc0cf4a49e75c3145b263c642a988bb93949f9d1af85741bfc8b137eba",
+      "bytes": 170
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-qq.log",
+      "sha256": "9c7985277fc1be9cc61b19d93fce42c91111a15b8a728348daf7d8e799a62180",
+      "bytes": 1818
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-qq.msolve",
+      "sha256": "5f484eb2831c8b8fe9a01e45243fb98684b18f7340bab9f75db06a9c424fbc64",
+      "bytes": 17021
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-run.log",
+      "sha256": "a27dd7baa291ad45590836abfc927b8ebc748dd1b86a3bf3d74c58b8a9b4c603",
+      "bytes": 196
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle-status.json",
+      "sha256": "9aa5968cae8728f7483d32b52dc70e8b4140e5a4a66f18970d7bf4d2a7e3c4c1",
+      "bytes": 210
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle.log",
+      "sha256": "98b74e146e113cca5a190d9609fe5dcd6ae5bb48cdc0acb3e1fb57f6c71a20e3",
+      "bytes": 4836
+    },
+    {
+      "path": "results/orch/lemmas/frame-gram-localized-triangle.msolve",
+      "sha256": "09d86b4872f4a4f1ee31b8551eba5e6d6bf6712fd5fd9d1d5bc7627968bf2d7d",
+      "bytes": 17030
+    },
+    {
+      "path": "results/orch/lemmas/frame_gram_coefficient_bridge.py",
+      "sha256": "feb040209d6c597e6803cb3a39c78318e5c0807de4282a52e365f517054c7b85",
+      "bytes": 2706
+    },
+    {
+      "path": "results/orch/lemmas/frame_gram_localized_generate.py",
+      "sha256": "0e946da618a4fa38ac32e45cde7d17391bf94a48d005faa9a2d92734e68b6ba6",
+      "bytes": 3087
+    },
+    {
+      "path": "results/orch/lemmas/frame_gram_localized_run.py",
+      "sha256": "e238a2791a39020698442e624fa4bdb9440bc4b09706b6538b3576abde429b20",
+      "bytes": 1753
+    },
+    {
+      "path": "results/orch/lemmas/fresh_L_gct_231_FINAL_STATUS.md",
+      "sha256": "3e9cc5f2f5d281310363aea6f029d07746156590aa940cd749bf0ff08d5fcd65",
+      "bytes": 3661
+    },
+    {
+      "path": "results/orch/lemmas/fresh_dense_star_matrix_review.log",
+      "sha256": "d723995acfed02641e5ca307ad82f4f7072ef88d0c2c0461a6239cf9ac53840b",
+      "bytes": 318
+    },
+    {
+      "path": "results/orch/lemmas/fresh_dense_star_matrix_review.py",
+      "sha256": "a76a594b6f0c02a78c35bace0220a6c17d45462b05aafd76c515c0e09db81de0",
+      "bytes": 1877
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.json",
+      "sha256": "afaa8883725c1500939c6eb8a99a1ec8c4d1091c6ba19651c459763b25ae170a",
+      "bytes": 4205
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.log",
+      "sha256": "1703c6dec483494f96f8507350227b4640c17097511c4b228dc6f02cb08bb24b",
+      "bytes": 154
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.md",
+      "sha256": "8fbab6b59053118bd307541bec0012ad31672d1992c12ed2d2c2249458267226",
+      "bytes": 4642
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.py",
+      "sha256": "328e528fe0aabd0af5e58065af485afd0846d2e9dda7e8131f72e77ba782c683",
+      "bytes": 2170
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_preservation_review.log",
+      "sha256": "3b3218f71a3bf1c54555460424722f8f0805a5beb54b21fa9bf70f4078c85277",
+      "bytes": 558
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_preservation_review.py",
+      "sha256": "b376a517bdc8aadfaead2e891f9003087107c0abe5fb5901c0bcd7b031b72541",
+      "bytes": 1247
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_diagnostics_manifest.json",
+      "sha256": "7f2dfd727205ca86cc8d6d76a341d3bc76abf0529973f64768f86d9971c4364b",
+      "bytes": 6398
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_frame.py",
+      "sha256": "68401dfcf33d8090c6a9990f9b050b9a3d79285b6049ea8c43b70eaee2c0f2fa",
+      "bytes": 3733
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_21_all.msolve",
+      "sha256": "65845191e6a98aff2afbbc4e0e3a8df4ad7be091cd0d7abf50b83e39925293fa",
+      "bytes": 16528
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_F4.log",
+      "sha256": "f88e9f63fe66e83268513532023742e94ac64dc51d7c3e536ddb3ca066cc83c6",
+      "bytes": 4527
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_GB.json",
+      "sha256": "8cfbdb9e4bf8f052bab515c2768077b9dfb1d77bc569af7b6d4eb0ead30a5319",
+      "bytes": 782026
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_dimension.log",
+      "sha256": "ca5cde2e2271179d31256e18b04025661a369cfda6846437ec816949bb883130",
+      "bytes": 130
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_gen.log",
+      "sha256": "945c65c196790f79b0f3491a06bf66e4fff22df19e4c14e2a7c725a7605c34f1",
+      "bytes": 71
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jacobian.py",
+      "sha256": "09534884494ef2a036adad1f76d297ded6ea8d4777448de1590aab11b7a51d01",
+      "bytes": 1515
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker.py",
+      "sha256": "db81f903b9e7c818582f11dd7b4668a018dbb416b3a1b613124385e858733386",
+      "bytes": 4340
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_40961.json",
+      "sha256": "b1859b0560640e3230547d05021d69a8617898b1180a281a1dcb3cbc203d135a",
+      "bytes": 63330
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_40961_gen.log",
+      "sha256": "14cf25eb3ecfb298b01978c70d3b7d140ee03c3e179ac8e5952d87b74660cf8a",
+      "bytes": 49
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_check.log",
+      "sha256": "a68838476535d2c2dac0fa33ef817c3276379558f692cbac298ff6684800c339",
+      "bytes": 166
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_check.py",
+      "sha256": "ebccaacef8e90860119da099054bf0d1df8d60bcae562f071d0f2bb5fbcefdea",
+      "bytes": 1145
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant.py",
+      "sha256": "65a1f193b7ae3ceef287f0a80e8a2969209d727519dbb682c2bdf1e68465bfa9",
+      "bytes": 5030
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_461.json",
+      "sha256": "c1e66b5a1070f7f1603459e0ebad2c0c4fdc7bf0cce89bac1b8598e908f404e3",
+      "bytes": 802
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_461.log",
+      "sha256": "16456e35681f3c91739bc456304310a9ff9abc2aeab340cf66ce3bdb85c8543b",
+      "bytes": 803
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census.py",
+      "sha256": "c62a6044fc112c78cee40cba9b0bfaba7527b897176d2a86f410847e0500c515",
+      "bytes": 888
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census11_10.log",
+      "sha256": "0030e3114203f8ef383c8cedfdfaffb88b32c4cdd178d2a0c0dc3a5173249ab6",
+      "bytes": 355
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census11_3.log",
+      "sha256": "1d64b63fe85abb2ee16e53dae0b653d9d73cc6eaa34d44070c92c3e768d71fbd",
+      "bytes": 358
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census19_18.log",
+      "sha256": "bfa70baec7c5245d54071bef8e8889b411afd3df2aa960f4442612f7af9cc6f6",
+      "bytes": 1360
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row.md",
+      "sha256": "f0a13730ced4dc8af05987a31180ab1a93c2369ef7b0086edf9371fb3ecc7b3f",
+      "bytes": 6464
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row.py",
+      "sha256": "ad11537cdc0e02e4dfb68ac181afacce2fddbefb256d73eb01817bde242761e8",
+      "bytes": 3974
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_F4.log",
+      "sha256": "d0f19ab24b90ef0324117fdf59323da2a6ca7e995aa290296439b7d41cfb5a67",
+      "bytes": 8828
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_full_all.msolve",
+      "sha256": "8cfb18b2a626110cab08899798ce08072314d2a973a18d41e5c3a92909eacb62",
+      "bytes": 36880
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_gen.log",
+      "sha256": "42a9b0b156e0b20c7c78fe23a0dccd8f8e1bc5f4caa55ee98986e989ce3d164f",
+      "bytes": 1498
+    },
+    {
+      "path": "results/orch/lemmas/fresh_rank4_archive_review.log",
+      "sha256": "a338fa586518634c7a26f99ad7602a96963993157202dd8cf84445b861d13a9b",
+      "bytes": 319
+    },
+    {
+      "path": "results/orch/lemmas/fresh_rank4_archive_review.py",
+      "sha256": "3b22e66d4a26d8b80863d74a9dc3e55179f81f25e7a42b1bb3c2a50e1909f64f",
+      "bytes": 1269
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-F4.log",
+      "sha256": "b89f0aad306d97afd0def2931880d4113a5756a4b19f3e66352788a95d1d8086",
+      "bytes": 5558
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-GB.json",
+      "sha256": "f3df8ac46631b2b27600fcb1c53938dd2ecee89f44f63a3c978c90b917d3e5ea",
+      "bytes": 1530628
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-elim4-F4.log",
+      "sha256": "c89b1cc48842b1b1589775fe270125ae80caf76ad64d78bfd2a89c9264071f39",
+      "bytes": 18737
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat-elim4-GB.json",
+      "sha256": "e435aa075639bacc95d1926c1ecb5d5ed9024845afd34c7416b0b733d9bc9aaa",
+      "bytes": 51424
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-compat.msolve",
+      "sha256": "2c02053c6aa41be6b94348b71350cbf0c749533466b178b978cf3e0d108f843e",
+      "bytes": 1922163
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3-F4.log",
+      "sha256": "dfaa5dc2de79c3acdb561d2fbf28adb3b601b1650654191bede5809a33b7a22f",
+      "bytes": 4007
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3-GB.json",
+      "sha256": "a88ab22db68f943e45bb6ce2a47596166948bf786dc7ac4f19faa2fbafb8e647",
+      "bytes": 171
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-461-21-rank3.msolve",
+      "sha256": "d6d87bd5ca0a4a08f8213df4cf05b55afba2777e7ebb5baac484ebf48804ca9c",
+      "bytes": 58433
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-gen.log",
+      "sha256": "bdff25fdfa50be8fe8764800f68f3aa9d880190e41dc07942e1ce4ded75b69c8",
+      "bytes": 1297
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-manifest.json",
+      "sha256": "c1cc0f6d227786d2dabcd8ad18f313f413fd21d14d873822a9c788173ae62bb2",
+      "bytes": 2280
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4-scope.md",
+      "sha256": "a061799ef927ec52de388e2fc6b8bc21d848898df56c55bb417706117a6b1fd8",
+      "bytes": 869
+    },
+    {
+      "path": "results/orch/lemmas/geometry-laguerre-rank4.py",
+      "sha256": "1871eee3984df9ca42189fed2a52d3129d83ef793c144d3d941a7f4a48e3f74a",
+      "bytes": 3943
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMoment-lean-status.json",
+      "sha256": "9fe84e1ed86c63fe838f3e866cb9f7cfb6560a152e08a44f74cb84c175fab246",
+      "bytes": 521
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMoment-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMomentReducedFive-lean-status.json",
+      "sha256": "ddbb3437e7b583b0ffaa46f06eef21320a5d14be47ba544b8855ff5608202af5",
+      "bytes": 534
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMomentReducedFive-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMomentRows-lean-status.json",
+      "sha256": "329b6a66e22f7787e4331d8330a893d7bb1b319eb6bdcc5b3a4a1b6bf1e84988",
+      "bytes": 527
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorMomentRows-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorObstructionBody-lean-status.json",
+      "sha256": "b1a9a54046f5baeab9e8aa3d2065eb369b3b4e2265b05b197389f7a15ac4d4af",
+      "bytes": 532
+    },
+    {
+      "path": "results/orch/lemmas/root-DiagonalAnchorObstructionBody-lean.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-determinant.log",
+      "sha256": "aaeb6e91f74275ebf9e47929d68dd4984759b1d8c0e337997a9df7524977886b",
+      "bytes": 268
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-exact.json",
+      "sha256": "b45e62fda30c56d08e632c7f471a32cdd9026170a775279ace276ef00d16e2f0",
+      "bytes": 15979
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-exact.log",
+      "sha256": "d07476de89405f7f51f80add16f46e6bde33427087bda4ecaabc6ca3007117fd",
+      "bytes": 349
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-integer-moment.json",
+      "sha256": "02a6dd8c8f145a03564a0cd2d46c929e2147e7c58af678c2f90e913e0018b23f",
+      "bytes": 7820
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-modular-inverse-5.json",
+      "sha256": "a5386e7a594ecc050128828d9c2dec9a9672a7592982f621486eeb42104cd36e",
+      "bytes": 12409
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-anchor-modular-inverse.json",
+      "sha256": "484856b780735536b879b90d39774737fba476573ff1675aaeaec4d2b1aa3665",
+      "bytes": 12147
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-diagonal-final-preservation-manifest.json",
+      "sha256": "adc892ef56c9aa049b6bf107cfaa1b3d51d8468702aa2ecca46c80dbc41f38cd",
+      "bytes": 5330
+    },
+    {
+      "path": "results/orch/lemmas/three-plane-ordered-norm-final-archive-manifest.json",
+      "sha256": "da9250f792ccfccc7d5bef24240f12c33a9a5e6643cf6243f75afd352348c1f1",
+      "bytes": 1406
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_anchor_exact.py",
+      "sha256": "0fa6c990c3ac3d91280df5c28dcd9ea7292e76a86495cfe763fd77555fe284ca",
+      "bytes": 5367
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_anchor_integer.py",
+      "sha256": "55cd901fbd6a32a470c6dea67c4f45336ef6042363f23829de32cfe7562cd323",
+      "bytes": 1436
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_hessian_generate.py",
+      "sha256": "56ebf61c5018c2383ef2658068e81ba382a3d2300f8044f5ecfd7a98c1c0ce1a",
+      "bytes": 3504
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_inverse_small.py",
+      "sha256": "281beed2193c403c2913dde29b9d5681b52d926e85ebed9eafcb11c5ca485072",
+      "bytes": 1643
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_obstruction_generate.py",
+      "sha256": "3b416ebe4e4e3dc73d6608c6eb0a4abe417a6b4e66d07c34e81d68a55f03e278",
+      "bytes": 4853
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_diagonal_rows_generate.py",
+      "sha256": "20fd8a4be98638c039ff26b4b7743cd431c2a8d635583e20ac51d7a2203b056a",
+      "bytes": 2832
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_ordered_norm_run-361.json.gz",
+      "sha256": "30bb2dbe8498d5d5385970699660c66b99885d611eb1716c55752c24782726b8",
+      "bytes": 1277
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_ordered_norm_state-361.json.gz",
+      "sha256": "f6524ca80aa35442c3fa12d4353fd427580f1acd18256d7a698d27264efca953",
+      "bytes": 26239449
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_ordered_norm_step-361.json.gz",
+      "sha256": "ce616f9b2654cfd5b4978577e97482aa980703e41a9b6b033458f97e0d793894",
+      "bytes": 1680944
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_ordered_three-plane-full19-norm-lift-1.log",
+      "sha256": "b406d99e896a2c48d445658aa21fe4f01ca2b4932de3f29e6d710286ce3f51a6",
+      "bytes": 6387
+    },
+    {
+      "path": "results/orch/lemmas/three_plane_ordered_three-plane-ordered-norm-final-status.json",
+      "sha256": "9611369c92d23ce1df634a6f5ab6815d1951290b1cb9011201375ada0c2f7eca",
+      "bytes": 463
+    }
+  ]
+}

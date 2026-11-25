@@ -1,0 +1,93 @@
+{"stage": "parsed", "variables": 5, "generators": 47, "terms": 4267, "prime": 461}
+
+--------------- INPUT DATA ---------------
+#variables                       5
+#equations                      47
+#invalid equations               0
+field characteristic           461
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  3       9      46      17 x 56         63.13%        9 new       0 zero         0.00 | 0.00         
+  4      54      59     117 x 126        38.52%       39 new      15 zero         0.00 | 0.00         
+  3       5      96      31 x 50         50.00%        5 new       0 zero         0.00 | 0.00         
+  3      15      94      51 x 55         36.97%       15 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+reduce final basis        1 x 1         100.00%        1 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.00 sec
+overall(cpu)            0.00 sec
+select                  0.00 sec  10.2%
+symbolic prep.          0.00 sec   4.4%
+update                  0.00 sec  62.8%
+convert                 0.00 sec   3.4%
+linear algebra          0.00 sec  12.3%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                   83
+#GM criterion                  6394
+#redundant elements             114
+#rows reduced                   167
+#zero reductions                 15
+max. matrix data                117 x 126 (38.516%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.00 sec
+overall(cpu)            0.00 sec
+select                  0.00 sec   0.0%
+symbolic prep.          0.00 sec   0.0%
+update                  0.00 sec   0.0%
+convert                 0.00 sec   0.0%
+linear algebra          0.00 sec   0.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                    0
+#GM criterion                     0
+#redundant elements               0
+#rows reduced                     0
+#zero reductions                  0
+max. matrix data                  0 x 0 (0.000%)
+max. symbolic hash table size  2^-2147483648
+max. basis hash table size     2^16
+-----------------------------------------
+
+{"stage": "finished", "basis_size": 1, "terms": 1, "unit_ideal": true, "seconds": 0.0019719600677490234}

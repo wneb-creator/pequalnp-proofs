@@ -289,3 +289,7 @@ TIMING total=270.1 subagents=7
 2026-11-25T13:07:57.289973+00:00 SparseStarKernel.lean passed pinned Lean exit0/2.62s/2.256GiB, sourceSHA562d96eb646c15a4534fdad312d10ed21a6d10f596606c70a1b903044acb3010. Independently reviewed ternary rank bound, kernel injection, rank-nullity, surjectivity and sparse-star membership. Preserved exact source/full logs and status before re-request after unexpected desk410 at13:07; previous successful renewal reported expiry13:20:57. Full target unresolved; no target checker verdict.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=272.2 subagents=7
+
+2026-11-25T13:15:04.575064+00:00 Preservation only after L-gct-231 was withdrawn. Generic full-row Laguerre diagnostics, rank-four finite slice, conditional localized frame Gram data, 361-digit Dixon state and unfinished diagonal-anchor certificate. No proof of L-gct-231. Individual build failures retained as failures.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=279.4 subagents=7

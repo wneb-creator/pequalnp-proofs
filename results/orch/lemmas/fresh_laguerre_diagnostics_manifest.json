@@ -1,0 +1,165 @@
+{
+  "scope": "Unfinished L-gct-231 diagnostics. Isolated-row Laguerre identity has a separate checked Lean proof; derivative and resultant computations are exact diagnostics, without a global Fano-scheme or target proof. The 17-variable run reached its address-space limit. The diagonal-anchor calculation was independently cross-checked against a rational tensor, but its matrix certification and complete bridge have not passed Lean.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row.md",
+      "bytes": 6464,
+      "sha256": "f0a13730ced4dc8af05987a31180ab1a93c2369ef7b0086edf9371fb3ecc7b3f"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row.py",
+      "bytes": 3974,
+      "sha256": "ad11537cdc0e02e4dfb68ac181afacce2fddbefb256d73eb01817bde242761e8"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_frame.py",
+      "bytes": 3733,
+      "sha256": "68401dfcf33d8090c6a9990f9b050b9a3d79285b6049ea8c43b70eaee2c0f2fa"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant.py",
+      "bytes": 5030,
+      "sha256": "65a1f193b7ae3ceef287f0a80e8a2969209d727519dbb682c2bdf1e68465bfa9"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census.py",
+      "bytes": 888,
+      "sha256": "c62a6044fc112c78cee40cba9b0bfaba7527b897176d2a86f410847e0500c515"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker.py",
+      "bytes": 4340,
+      "sha256": "db81f903b9e7c818582f11dd7b4668a018dbb416b3a1b613124385e858733386"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_40961.json",
+      "bytes": 63330,
+      "sha256": "b1859b0560640e3230547d05021d69a8617898b1180a281a1dcb3cbc203d135a"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_40961_gen.log",
+      "bytes": 49,
+      "sha256": "14cf25eb3ecfb298b01978c70d3b7d140ee03c3e179ac8e5952d87b74660cf8a"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_check.py",
+      "bytes": 1145,
+      "sha256": "ebccaacef8e90860119da099054bf0d1df8d60bcae562f071d0f2bb5fbcefdea"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_plucker_check.log",
+      "bytes": 166,
+      "sha256": "a68838476535d2c2dac0fa33ef817c3276379558f692cbac298ff6684800c339"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_461.log",
+      "bytes": 803,
+      "sha256": "16456e35681f3c91739bc456304310a9ff9abc2aeab340cf66ce3bdb85c8543b"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_461.json",
+      "bytes": 802,
+      "sha256": "c1e66b5a1070f7f1603459e0ebad2c0c4fdc7bf0cce89bac1b8598e908f404e3"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census11_3.log",
+      "bytes": 358,
+      "sha256": "1d64b63fe85abb2ee16e53dae0b653d9d73cc6eaa34d44070c92c3e768d71fbd"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census11_10.log",
+      "bytes": 355,
+      "sha256": "0030e3114203f8ef383c8cedfdfaffb88b32c4cdd178d2a0c0dc3a5173249ab6"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_resultant_census19_18.log",
+      "bytes": 1360,
+      "sha256": "bfa70baec7c5245d54071bef8e8889b411afd3df2aa960f4442612f7af9cc6f6"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_gen.log",
+      "bytes": 1498,
+      "sha256": "42a9b0b156e0b20c7c78fe23a0dccd8f8e1bc5f4caa55ee98986e989ce3d164f"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_full_all.msolve",
+      "bytes": 36880,
+      "sha256": "8cfb18b2a626110cab08899798ce08072314d2a973a18d41e5c3a92909eacb62"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_row_461_0123_F4.log",
+      "bytes": 8828,
+      "sha256": "d0f19ab24b90ef0324117fdf59323da2a6ca7e995aa290296439b7d41cfb5a67"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jacobian.py",
+      "bytes": 1515,
+      "sha256": "09534884494ef2a036adad1f76d297ded6ea8d4777448de1590aab11b7a51d01"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_21_all.msolve",
+      "bytes": 16528,
+      "sha256": "65845191e6a98aff2afbbc4e0e3a8df4ad7be091cd0d7abf50b83e39925293fa"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_gen.log",
+      "bytes": 71,
+      "sha256": "945c65c196790f79b0f3491a06bf66e4fff22df19e4c14e2a7c725a7605c34f1"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_F4.log",
+      "bytes": 4527,
+      "sha256": "f88e9f63fe66e83268513532023742e94ac64dc51d7c3e536ddb3ca066cc83c6"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_GB.json",
+      "bytes": 782026,
+      "sha256": "8cfbdb9e4bf8f052bab515c2768077b9dfb1d77bc569af7b6d4eb0ead30a5319"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_laguerre_jac_461_dimension.log",
+      "bytes": 130,
+      "sha256": "ca5cde2e2271179d31256e18b04025661a369cfda6846437ec816949bb883130"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.md",
+      "bytes": 4642,
+      "sha256": "8fbab6b59053118bd307541bec0012ad31672d1992c12ed2d2c2249458267226"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.py",
+      "bytes": 2170,
+      "sha256": "328e528fe0aabd0af5e58065af485afd0846d2e9dda7e8131f72e77ba782c683"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.json",
+      "bytes": 4205,
+      "sha256": "afaa8883725c1500939c6eb8a99a1ec8c4d1091c6ba19651c459763b25ae170a"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_diagonal_anchor.log",
+      "bytes": 154,
+      "sha256": "1703c6dec483494f96f8507350227b4640c17097511c4b228dc6f02cb08bb24b"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_rank4_archive_review.py",
+      "bytes": 1269,
+      "sha256": "3b22e66d4a26d8b80863d74a9dc3e55179f81f25e7a42b1bb3c2a50e1909f64f"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_rank4_archive_review.log",
+      "bytes": 319,
+      "sha256": "a338fa586518634c7a26f99ad7602a96963993157202dd8cf84445b861d13a9b"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_dense_star_matrix_review.py",
+      "bytes": 1877,
+      "sha256": "a76a594b6f0c02a78c35bace0220a6c17d45462b05aafd76c515c0e09db81de0"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_dense_star_matrix_review.log",
+      "bytes": 318,
+      "sha256": "d723995acfed02641e5ca307ad82f4f7072ef88d0c2c0461a6239cf9ac53840b"
+    }
+  ]
+}
