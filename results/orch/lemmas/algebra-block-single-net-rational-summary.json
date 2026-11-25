@@ -1,0 +1,209 @@
+[
+  {
+    "chart": [
+      5,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0008890628814697266
+  },
+  {
+    "chart": [
+      4,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.00036978721618652344
+  },
+  {
+    "chart": [
+      4,
+      5
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.001531839370727539
+  },
+  {
+    "chart": [
+      3,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0003345012664794922
+  },
+  {
+    "chart": [
+      3,
+      5
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0005514621734619141
+  },
+  {
+    "chart": [
+      3,
+      4
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0005474090576171875
+  },
+  {
+    "chart": [
+      2,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0003483295440673828
+  },
+  {
+    "chart": [
+      2,
+      5
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0008490085601806641
+  },
+  {
+    "chart": [
+      2,
+      4
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.000461578369140625
+  },
+  {
+    "chart": [
+      2,
+      3
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.018700122833251953
+  },
+  {
+    "chart": [
+      1,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0003943443298339844
+  },
+  {
+    "chart": [
+      1,
+      5
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.001992940902709961
+  },
+  {
+    "chart": [
+      1,
+      4
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0009281635284423828
+  },
+  {
+    "chart": [
+      1,
+      3
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.021416187286376953
+  },
+  {
+    "chart": [
+      1,
+      2
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 2.113316535949707
+  },
+  {
+    "chart": [
+      0,
+      6
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.000591278076171875
+  },
+  {
+    "chart": [
+      0,
+      5
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.007876873016357422
+  },
+  {
+    "chart": [
+      0,
+      4
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.0009045600891113281
+  },
+  {
+    "chart": [
+      0,
+      3
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.10249590873718262
+  },
+  {
+    "chart": [
+      0,
+      2
+    ],
+    "returncode": 0,
+    "unit": true,
+    "basis_size": 1,
+    "seconds": 0.3608400821685791
+  },
+  {
+    "chart": [
+      0,
+      1
+    ],
+    "returncode": -9
+  }
+]

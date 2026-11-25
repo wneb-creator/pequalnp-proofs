@@ -1,0 +1,2000 @@
+{
+  "files": [
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-1-mod97.json",
+      "bytes": 210,
+      "scratch_exact": true,
+      "sha256": "b7a179cde9312fffcd1f4250c3458aa4ac35a29e979a19d9e248ca868e2a0e70",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-1-mod97.log",
+      "bytes": 5241,
+      "scratch_exact": true,
+      "sha256": "0ab2f6969bebe6dfd9f9a31050db8d89afa3440df551c7fcd65948df3cc32786"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-1-mod97.msolve",
+      "bytes": 17958,
+      "scratch_exact": true,
+      "sha256": "9cb9fb27573180f401d6410a579ad6b18fef8cf862b2aa1b04ac0eaa3abfd982"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-1-rational.log",
+      "bytes": 2222,
+      "scratch_exact": true,
+      "sha256": "9f4b0d99962d83229ff0ed4fae204a2a04efabf7c730065aca3f68279c18fbcb"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-1-rational.msolve",
+      "bytes": 32394,
+      "scratch_exact": true,
+      "sha256": "240e10ebebfbd1e1e6e4310cac6a0dfdf4be98f228b891f452b990c3aee532ec"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-mod97.json",
+      "bytes": 203,
+      "scratch_exact": true,
+      "sha256": "70e19e4100731e3f9008b54b83182ce5504ecfe38b07863f66b5276c9f7f7d77",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-mod97.log",
+      "bytes": 4623,
+      "scratch_exact": true,
+      "sha256": "5993ecf0d65c26a7de308eba34d39d3891efcc99ed05f15bebdaaa1d34b6b161"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-mod97.msolve",
+      "bytes": 14037,
+      "scratch_exact": true,
+      "sha256": "0db5964f4c94d213acee905168bda37cfe4454e9dc79a25cd0b4e32883502e2f"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-rational.json",
+      "bytes": 208,
+      "scratch_exact": true,
+      "sha256": "2dab1bd1450659fb832b46b0b2ac918fb239d25517990ef260502164d9fd55d2",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-rational.log",
+      "bytes": 5306,
+      "scratch_exact": true,
+      "sha256": "bdc3839a23abe6138662ba29d97621e403b437197f9634a705347767c0a2f395"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-2-rational.msolve",
+      "bytes": 23008,
+      "scratch_exact": true,
+      "sha256": "d78bc87fa33841fcda7a12253aab1b327a0b81ecf141701f2fc75ff0d6ca665e"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-mod97.json",
+      "bytes": 193,
+      "scratch_exact": true,
+      "sha256": "65a05fe89ad25c9453a3d1a64e5abc947a4ce5e4c7b5ca98994020f3a6dca527",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-mod97.log",
+      "bytes": 4621,
+      "scratch_exact": true,
+      "sha256": "44c9dbe51f163cf969fec7e2e5c674fade9a7c2b140f12f183ccea5e230b4b3a"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-mod97.msolve",
+      "bytes": 9550,
+      "scratch_exact": true,
+      "sha256": "c225f214e790d1a0e20eb1cb58a2ebc20bb84e0f4aebf9d2a59c854e69046ab5"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-rational.json",
+      "bytes": 200,
+      "scratch_exact": true,
+      "sha256": "69f6914df5a0b367dc48a6d3047bab1d96eca5b10af13cb3692f4753c3f89160",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-rational.log",
+      "bytes": 4901,
+      "scratch_exact": true,
+      "sha256": "73a9cc6e58dd6c125eb41878756b98d6a6377fa6418f1317bf3ff37a7c7bec60"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-3-rational.msolve",
+      "bytes": 15820,
+      "scratch_exact": true,
+      "sha256": "539ea2f5259d130ad66ef1be2af91ae3d9000c66afdd83813dd4e4901a50d3ae"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-mod97.json",
+      "bytes": 184,
+      "scratch_exact": true,
+      "sha256": "a7156289ec3e48515cf663d529a9081a9b2ede9fbc9b3e408072b85b75b69ea0",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-mod97.log",
+      "bytes": 3693,
+      "scratch_exact": true,
+      "sha256": "740622f8386536a79736db4ecafa4c6493cf63346484e6e4c40eda8b4341a66c"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-mod97.msolve",
+      "bytes": 6733,
+      "scratch_exact": true,
+      "sha256": "52496e7375300f0ecc87d3e3d083b0f639aa78c62327c7feb7858da15bd291fe"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-rational.json",
+      "bytes": 193,
+      "scratch_exact": true,
+      "sha256": "c5ce5598e12bd18eb9117011dad33529b16c289154d76d55a900cd657eddbc4f",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-rational.log",
+      "bytes": 3891,
+      "scratch_exact": true,
+      "sha256": "6fbd5a6f82769e2e7f1971eb3f36595a4fa519da916430f0a49491b46ec35f13"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-4-rational.msolve",
+      "bytes": 11182,
+      "scratch_exact": true,
+      "sha256": "acd76b9b32d89210856159eca121a8c254f58ed6bdb3f8c55f0e2fbe9ed1e4ee"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-mod97.json",
+      "bytes": 176,
+      "scratch_exact": true,
+      "sha256": "d3c55cfccceb8d0322eb648e0fe472513069209b4d73e7f8c1eb656317465fa6",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-mod97.log",
+      "bytes": 4518,
+      "scratch_exact": true,
+      "sha256": "14018c5df93d8922d2eb071322d67ffc78ec9f16da61074a3c1fa7522386f8b3"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-mod97.msolve",
+      "bytes": 4543,
+      "scratch_exact": true,
+      "sha256": "1659cbcf3a6bb35d878e6e080fa383b6be64774c2290e39fbe123c4c3cf85905"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-rational.json",
+      "bytes": 183,
+      "scratch_exact": true,
+      "sha256": "fb6470ccb4d7e43a177309b51f41eb6d497d4f0aa2aad4d86494787de6a5e53c",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-rational.log",
+      "bytes": 4497,
+      "scratch_exact": true,
+      "sha256": "be9aef590d88fe2a3fd69314e2cf34b338e8dd12e45686300cfbf6c0b820f58b"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-5-rational.msolve",
+      "bytes": 7561,
+      "scratch_exact": true,
+      "sha256": "61d55e0602e7cda2f94776edb36282a43427251f706a40e309bb24c5489310fc"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-mod97.json",
+      "bytes": 167,
+      "scratch_exact": true,
+      "sha256": "934d758d3846611146b01dcc1f186ca179d2e168650c4390ada3bc7d5404fe90",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-mod97.log",
+      "bytes": 3591,
+      "scratch_exact": true,
+      "sha256": "2cae4f5b8fd5643a1091aa136ac5a742a288b968f62a5d453810634db245bc00"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-mod97.msolve",
+      "bytes": 3148,
+      "scratch_exact": true,
+      "sha256": "c9b1eb969c53bba7a58942ec9ab848f57c057f1c099235710c4bd8af3e41773e"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-rational.json",
+      "bytes": 174,
+      "scratch_exact": true,
+      "sha256": "16ff6bff4e1295c9c918d7e34d2ad4727075612049625edf8d808aadf13cd095",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-rational.log",
+      "bytes": 3587,
+      "scratch_exact": true,
+      "sha256": "3c35829831f070a824dea42e32f4f19b0efa387d2b0664acf9fde1cdc9e0cca4"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-0-6-rational.msolve",
+      "bytes": 5705,
+      "scratch_exact": true,
+      "sha256": "bd9bb65f13497af7146ebc9bb7d8c776c38d3c40e96539ac51d1bf085809a2f1"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-mod97.json",
+      "bytes": 194,
+      "scratch_exact": true,
+      "sha256": "b64c97edc1924ffc3f4d09fcbc1d32d7b4cf044c3f56bc6dda0c1cb130d36c1e",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-mod97.log",
+      "bytes": 4518,
+      "scratch_exact": true,
+      "sha256": "3f76da7510846967848cb361999b760b5655614896c61cd12e19c27260695798"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-mod97.msolve",
+      "bytes": 9265,
+      "scratch_exact": true,
+      "sha256": "bf3622c6625473bab70ff78e77aa29a9ccc2d4e98e94c924e0423eeaa148976b"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-rational.json",
+      "bytes": 198,
+      "scratch_exact": true,
+      "sha256": "7fc04f9ed88571b130e3faf7b29334d42a87448964ab83a72306356a535b0cb9",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-rational.log",
+      "bytes": 4798,
+      "scratch_exact": true,
+      "sha256": "533b882fb18558c02723ee926f2d70b2daf382c5cc89fa888fa98f053052c768"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-2-rational.msolve",
+      "bytes": 15284,
+      "scratch_exact": true,
+      "sha256": "ded63bf864c2593d31407139e217a65670ddc6c506317886112aae2784f2da5c"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-mod97.json",
+      "bytes": 185,
+      "scratch_exact": true,
+      "sha256": "3162b5a1f83aef6ef216f241773f004b364782037de13e802785e57dc1d30c7f",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-mod97.log",
+      "bytes": 4106,
+      "scratch_exact": true,
+      "sha256": "52ccefea22f3c0246e8af8b2595244c5b7d5e5f768968ccd57a0468a7fc73f46"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-mod97.msolve",
+      "bytes": 6067,
+      "scratch_exact": true,
+      "sha256": "45dcb396b984282e2fa29f209ba646c8da93c20c82c55a30c956e55daf6f00c2"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-rational.json",
+      "bytes": 192,
+      "scratch_exact": true,
+      "sha256": "5465085fc9544899299b6fdf76634dfd8a907305740c9a8957f27bec0925e132",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-rational.log",
+      "bytes": 4294,
+      "scratch_exact": true,
+      "sha256": "ad235ed8d856876edcf919a461254032e8e4d13d24c141f47e8104370aa9240d"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-3-rational.msolve",
+      "bytes": 10068,
+      "scratch_exact": true,
+      "sha256": "3365b082f112e6af1e5f7e26659e7be5bb27cd9455552919af50479a5185446f"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-mod97.json",
+      "bytes": 176,
+      "scratch_exact": true,
+      "sha256": "152e8854fa510233fc7100d17304539a2f419d7a697101e8d989f8205ccf63b3",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-mod97.log",
+      "bytes": 3694,
+      "scratch_exact": true,
+      "sha256": "4a3a5b016d4861d69c0e8270e82050da4186799738788f43571b978a6b495ac3"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-mod97.msolve",
+      "bytes": 3993,
+      "scratch_exact": true,
+      "sha256": "ff58749897ae07ace0836b91f4bb349cd7eb386ed6d7531a5d4e4aa65930b736"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-rational.json",
+      "bytes": 184,
+      "scratch_exact": true,
+      "sha256": "c56f2fcefb2f081b3bf33268297f9d99938e8a0947e4eda0eb7549dff5e4122b",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-rational.log",
+      "bytes": 3891,
+      "scratch_exact": true,
+      "sha256": "e30c7828ca666091bdca1eb945ffe4db17d15c5b33c007deb454c6cfd0704201"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-4-rational.msolve",
+      "bytes": 6683,
+      "scratch_exact": true,
+      "sha256": "2a41ab0019154779f1b046f894125da0b9da61c43011c534009618270a0f9b8d"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-mod97.json",
+      "bytes": 168,
+      "scratch_exact": true,
+      "sha256": "7f2131fe713364f64c85ae4723a0d031091db01fd870f39fd17eefd958da4d52",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-mod97.log",
+      "bytes": 4210,
+      "scratch_exact": true,
+      "sha256": "ce466135be88522ca190f0e235a20760965d6ec116a1ccb641d2b6fe6d400bbc"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-mod97.msolve",
+      "bytes": 2580,
+      "scratch_exact": true,
+      "sha256": "ce018170d9ccba97a5aff5a73150bd3758e8679ee5d7102aeb3f03206ede2729"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-rational.json",
+      "bytes": 174,
+      "scratch_exact": true,
+      "sha256": "f8c548a9dc558d98ab6b8547b6e42bd1e9779e9c6f5aafe6cba11bc52c85ee6d",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-rational.log",
+      "bytes": 4294,
+      "scratch_exact": true,
+      "sha256": "df941d25276742a69930c3fa28b80c74f4ddd54f34c17bd101c4f38dc0cc1593"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-5-rational.msolve",
+      "bytes": 4330,
+      "scratch_exact": true,
+      "sha256": "a34d9498e40487ff212d3403b30991ded3784e33dbbc9efdb116cfbfb9371609"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-mod97.json",
+      "bytes": 158,
+      "scratch_exact": true,
+      "sha256": "499b2d6a9e0610de27decbbdc83abeb40790f86d2bf834195270f52bd028ecda",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-mod97.log",
+      "bytes": 3591,
+      "scratch_exact": true,
+      "sha256": "c739d9b18fc520594a32655f9cb633ba5f8615b43bdc9a84e53b0ae7e608d51d"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-mod97.msolve",
+      "bytes": 1738,
+      "scratch_exact": true,
+      "sha256": "eb73d06e5e64fe2329342cf800a363fc3923d210b1b8f7a0bb7abf46078f3aa7"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-rational.json",
+      "bytes": 166,
+      "scratch_exact": true,
+      "sha256": "64b8e785445cae5c0a351b4d20f6154e187c37e287746f504d0236a595a06d25",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-rational.log",
+      "bytes": 3588,
+      "scratch_exact": true,
+      "sha256": "d11774b362ddeb93064b48488655f4389327d404b883c3f510bc0b64e8917135"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-1-6-rational.msolve",
+      "bytes": 3170,
+      "scratch_exact": true,
+      "sha256": "c5ef60051c36288c3a09246542c7692121516aec11b4c1f64a47c1e2f4e9d294"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-mod97.json",
+      "bytes": 176,
+      "scratch_exact": true,
+      "sha256": "bd680a185d0e4dee74d6c2638ab041214af80474d65dd90008e307785d71649c",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-mod97.log",
+      "bytes": 3900,
+      "scratch_exact": true,
+      "sha256": "90ecc529f2442898da14ddf0240a1cf78adfe46217abdb02395bb1ebff74a6a8"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-mod97.msolve",
+      "bytes": 3954,
+      "scratch_exact": true,
+      "sha256": "10488544fb88ec0027ee59b4bc3ba2d9dc469385f84e59f689ca6c7f58b9b224"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-rational.json",
+      "bytes": 183,
+      "scratch_exact": true,
+      "sha256": "dcda3dd150567b22a562d6028f1a260818a1b6cabaef829f525ea62b3953ea5c",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-rational.log",
+      "bytes": 3992,
+      "scratch_exact": true,
+      "sha256": "4fb44b453c4d9fc9713c4ab90b431283d8c119aa3dcd1ff2ed719f0e1da33917"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-3-rational.msolve",
+      "bytes": 6476,
+      "scratch_exact": true,
+      "sha256": "91b5cbd09e8bd6c8c7c99762fcebb49bceb83885e15c4f64d9d3d5bb20e0aa76"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-mod97.json",
+      "bytes": 168,
+      "scratch_exact": true,
+      "sha256": "6dda9bc619c96385fb3f7ba55e7ccb76c6999d4b29121e21c9ce2b845bbde19e",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-mod97.log",
+      "bytes": 3695,
+      "scratch_exact": true,
+      "sha256": "87e34e20799b0f846558885179aa3aac5a23e3f5dc6b6b8002b678b6822bbcdd"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-mod97.msolve",
+      "bytes": 2302,
+      "scratch_exact": true,
+      "sha256": "812b9c95543f685f9f8b3d3563809c6c2de373a31bc07da295f4bd5b0432b7c2"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-rational.json",
+      "bytes": 174,
+      "scratch_exact": true,
+      "sha256": "6e87f393c2954b5cca1a7585a820aea96c1d0a9db55a82266a8fb3e7599f077c",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-rational.log",
+      "bytes": 3890,
+      "scratch_exact": true,
+      "sha256": "ba022940b06fb5e5c8fdb49628192f326a82de90e55e3a06b054e451cc81f67d"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-4-rational.msolve",
+      "bytes": 3824,
+      "scratch_exact": true,
+      "sha256": "54451597c774865eff82a4175980c601faadc05f373d89067993dccbf234d41e"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-mod97.json",
+      "bytes": 159,
+      "scratch_exact": true,
+      "sha256": "8d485b18e112aed998b3f5a561e215d30fbda70040e7a8ff362aadcd8f29546b",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-mod97.log",
+      "bytes": 4004,
+      "scratch_exact": true,
+      "sha256": "f21df8b272e8306cb06239b7d2599463e220981afc7beeda15a492684ccdf168"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-mod97.msolve",
+      "bytes": 1516,
+      "scratch_exact": true,
+      "sha256": "8e7cd6930f689585bbc2bbda8249846ebd15927c90f7efd9247f54c1a16dcaf5"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-rational.json",
+      "bytes": 166,
+      "scratch_exact": true,
+      "sha256": "66da35fe8ab685db8ea90706771070fcc0626b006239d666a3ec80876e1656b0",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-rational.log",
+      "bytes": 4093,
+      "scratch_exact": true,
+      "sha256": "8cceab8777e7c9c7fbddf6e8e92b852cd84d1aa7e96c4feabb61c35565747db4"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-5-rational.msolve",
+      "bytes": 2524,
+      "scratch_exact": true,
+      "sha256": "921ada24b8f35b3037fdc233730d8031d3678f04bf014b47c229b261597b9e37"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-mod97.json",
+      "bytes": 149,
+      "scratch_exact": true,
+      "sha256": "ed3904a3882420e276957f7f1ad26c28901be180b490cd49e85c5b2fb6ab3dd7",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-mod97.log",
+      "bytes": 3590,
+      "scratch_exact": true,
+      "sha256": "a7f1fba3568ed66c4543858569f46eb62c890b691e2b78f65e96ebd2bf479d10"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-mod97.msolve",
+      "bytes": 991,
+      "scratch_exact": true,
+      "sha256": "e113f815aa0be98bf505b784c0b4401f43098211980548e23854f751653b26a1"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-rational.json",
+      "bytes": 157,
+      "scratch_exact": true,
+      "sha256": "a0268820eb12d1de0496b29d4d1e7d818f10da1f2b083f99391a0635d134a8a3",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-rational.log",
+      "bytes": 3588,
+      "scratch_exact": true,
+      "sha256": "62fcfdf16bba7883ef84b11763f2b528d416ba0653a10f53e898b88fd72ed234"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-2-6-rational.msolve",
+      "bytes": 1802,
+      "scratch_exact": true,
+      "sha256": "8b94523d9d9aba54f5ac7afa427b8ad38e2f7b062132651ae37c14a3e9ac80d6"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-mod97.json",
+      "bytes": 158,
+      "scratch_exact": true,
+      "sha256": "6cf054f088ceaad8012f4883841587f8bee34f7592a30d97ea1e2dfc9b70ee8b",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-mod97.log",
+      "bytes": 3693,
+      "scratch_exact": true,
+      "sha256": "f504e304a362761d425634786b538b63640702e64f6b537a346ba66dadb12ee5"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-mod97.msolve",
+      "bytes": 1223,
+      "scratch_exact": true,
+      "sha256": "c2571be22b0fb5ba3c47020570fcd3f2d5a681a16b6a7fa9369cc429410c6c66"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-rational.json",
+      "bytes": 166,
+      "scratch_exact": true,
+      "sha256": "d5273db6ff1a526528e7c00833e897a378be0dce6cc85894764ff2afc7c3547c",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-rational.log",
+      "bytes": 3689,
+      "scratch_exact": true,
+      "sha256": "050b9de22d5a87d1708dd9160ae05c7df37ab393f56a2e3e2eef52a5c4da7dfa"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-4-rational.msolve",
+      "bytes": 1594,
+      "scratch_exact": true,
+      "sha256": "00a75e2e1732523b6a2a4320a5410b71e7190f31dfb000b2abc64802d0200c93"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-mod97.json",
+      "bytes": 149,
+      "scratch_exact": true,
+      "sha256": "5a910f32cf10a99b78779c6c154c3c9f3e8b9cf402dfb90b62cba260dd802ca4",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-mod97.log",
+      "bytes": 3796,
+      "scratch_exact": true,
+      "sha256": "4ca5f1f366e34db448e6ebc28046e8dd5a9c5b6e29e8a913d35b3d4d7445ed70"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-mod97.msolve",
+      "bytes": 843,
+      "scratch_exact": true,
+      "sha256": "4c01ed06e2b62c7a2695915ec6c098f30431ac7e8e095b86c549129ce5203139"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-rational.json",
+      "bytes": 157,
+      "scratch_exact": true,
+      "sha256": "cdb488b7c5f59600c05c1a26ae6700506fd7e86d244469761d3aba49b9e95cbd",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-rational.log",
+      "bytes": 3891,
+      "scratch_exact": true,
+      "sha256": "f5e270169618b0d9fef041d8b14d276ebafc5cddee7e32955f53890b8c94c55e"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-5-rational.msolve",
+      "bytes": 1100,
+      "scratch_exact": true,
+      "sha256": "12efd4545d39e23e37528edab3c7368af2e104fa5f381fde2311ac2920e35b3b"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-mod97.json",
+      "bytes": 140,
+      "scratch_exact": true,
+      "sha256": "59f121b25744e93d2da9733ffbba458e787cd886383a4ae73c71f53c4430c44d",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-mod97.log",
+      "bytes": 3590,
+      "scratch_exact": true,
+      "sha256": "8b60caa99a1b6cdfb1420dd31236d8bf0c7e5491a7d9c38ef535a5dca007a36c"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-mod97.msolve",
+      "bytes": 508,
+      "scratch_exact": true,
+      "sha256": "55c7a8dbaf7274a4aaf5e92790d693c529e6ebea35184efef29d822445b74cd9"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-rational.json",
+      "bytes": 148,
+      "scratch_exact": true,
+      "sha256": "ed9e73a037def32226660029d30137eb677395b2082e57ef341b8d4040a3dc76",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-rational.log",
+      "bytes": 3587,
+      "scratch_exact": true,
+      "sha256": "1f7e2889c06d291583470307684b17817571c798bad42f49ccd0a99a4d0d1327"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-3-6-rational.msolve",
+      "bytes": 779,
+      "scratch_exact": true,
+      "sha256": "c51155f064bd3569716a77220b900bcfb355f4e37567c34f5198963f81243fd8"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-mod97.json",
+      "bytes": 141,
+      "scratch_exact": true,
+      "sha256": "7f3436de15033be18baadabdb49239a239590f76cc97ec2903502322e099519a",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-mod97.log",
+      "bytes": 3693,
+      "scratch_exact": true,
+      "sha256": "0bb61f48cf92f7b4beccfd58a302a2945e5f6d01e235b7be8ac9d633f3ee0059"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-mod97.msolve",
+      "bytes": 280,
+      "scratch_exact": true,
+      "sha256": "2fd944a741a56fcb05541415cbffde97808e1fc41b863b53cbe67c22cb739d22"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-rational.json",
+      "bytes": 147,
+      "scratch_exact": true,
+      "sha256": "36c9a9a59694869c55c6bdd1f35fa349b3a2afb1af6525d2949f8761c8f28061",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-rational.log",
+      "bytes": 3788,
+      "scratch_exact": true,
+      "sha256": "3b577ca655d0e5bd553d163e5b3586bd8f795d3e1738ddfeb7e18f81c7d7e879"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-5-rational.msolve",
+      "bytes": 326,
+      "scratch_exact": true,
+      "sha256": "ce427855880c08828869ef4470d6a32ee4a822dafe5ac1a50c834ca84061f3b2"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-mod97.json",
+      "bytes": 131,
+      "scratch_exact": true,
+      "sha256": "df3556803b9e8eb891c528731bdd7c6ced498046c18068e0129709be6ff22828",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 97
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-mod97.log",
+      "bytes": 3590,
+      "scratch_exact": true,
+      "sha256": "3850f045e19905fa0901589a4bd4db6c472696838691fb56701f86fcd97e81f3"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-mod97.msolve",
+      "bytes": 153,
+      "scratch_exact": true,
+      "sha256": "e26f5bc24a37f1b3f131221116da26ddffed90430310dbd322ccbe9b62c6dd7b"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-rational.json",
+      "bytes": 140,
+      "scratch_exact": true,
+      "sha256": "3bfb3b0cd3a328a72a83cfde6dfd96cb439699f93c527f9902b56a5cf90582a7",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-rational.log",
+      "bytes": 3588,
+      "scratch_exact": true,
+      "sha256": "7b0ea0d04462653affce929b12ae4466712cd452ce8be84af30650c84cba8d44"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-4-6-rational.msolve",
+      "bytes": 208,
+      "scratch_exact": true,
+      "sha256": "c60aad3b38d140f6acd8556391b7c03ef7fc3fd9c11fd4a6a087e97dc5b1ab24"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-5-6-rational.json",
+      "bytes": 130,
+      "scratch_exact": true,
+      "sha256": "cc9e050854ac3bb9bb9516b6ab855aad892c6c93c5d2ac76cdcb537d96e08f3f",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-5-6-rational.log",
+      "bytes": 3585,
+      "scratch_exact": true,
+      "sha256": "4aa13a18158fed01ca1d0646bde9b455d1f2e27c8d2212b958281e790602b23f"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-5-6-rational.msolve",
+      "bytes": 25,
+      "scratch_exact": true,
+      "sha256": "22136bd8b7c84e3037f67e1c97df932ff53c5b3df1569611200af546af8b99bb"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-charts.log",
+      "bytes": 2783,
+      "scratch_exact": true,
+      "sha256": "5a269ad3bff66112370ec587b96464d6082b250eecb9f81ad1063ab94448c458"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-charts.py",
+      "bytes": 2409,
+      "scratch_exact": true,
+      "sha256": "11627acdf8f09b287b3a1e0d3c2620500946f78bac3efc04d2f9fc6da9de94dd",
+      "imports": [
+        "pathlib",
+        "sympy",
+        "json",
+        "itertools",
+        "time",
+        "subprocess",
+        "resource"
+      ],
+      "calls_for_review": [
+        [
+          27,
+          "(job / f'{name}.log').open"
+        ],
+        [
+          28,
+          "subprocess.run"
+        ]
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-mod97-summary.json",
+      "bytes": 2987,
+      "scratch_exact": true,
+      "sha256": "d7ab859408efa12694961836616d61f3e14fe3bc3218fa8b47ad2b25bb2dd220",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-rational-summary.json",
+      "bytes": 2956,
+      "scratch_exact": true,
+      "sha256": "b02a8fae7d7403ec69b2f02fa596f7e8d36c3547ded8d39ac4dda6c743e7ec4b",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-rational.log",
+      "bytes": 2757,
+      "scratch_exact": true,
+      "sha256": "63240b7b3753be5219cb9bcf98484e0bab78cf3c333af4e19b304ed8cc690683"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-net-rational.py",
+      "bytes": 2212,
+      "scratch_exact": true,
+      "sha256": "5d6f886d0e43a041518fe3b57ca1ace19e5884ed310f6e2350dc085ddd6cc156",
+      "imports": [
+        "pathlib",
+        "sympy",
+        "json",
+        "itertools",
+        "time",
+        "subprocess",
+        "resource"
+      ],
+      "calls_for_review": [
+        [
+          20,
+          "(job / f'{name}.log').open"
+        ],
+        [
+          21,
+          "subprocess.run"
+        ]
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-quadric-pencil.log",
+      "bytes": 183,
+      "scratch_exact": true,
+      "sha256": "f92e1227a51989935818303cca084902ef289fbfb7bbfd9c4768f578f221d730"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-block-single-quadric-pencil.py",
+      "bytes": 516,
+      "scratch_exact": true,
+      "sha256": "cdecd883bdbe7a363f143c63be2f3ff30d32a85726103e4586623f5f1f51cec2",
+      "imports": [
+        "sympy",
+        "json",
+        "time",
+        "pathlib"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-classify-rank2-directions.log",
+      "bytes": 851,
+      "scratch_exact": true,
+      "sha256": "f122d6529c6c608332b285759dd3be8ea154deaac495c6c83c4ec7ee9045f249"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-classify-rank2-directions.py",
+      "bytes": 1765,
+      "scratch_exact": true,
+      "sha256": "3424ba14e9fbd39af05fa98bccac05c3ed075b6972d5df4d1e979f1130a79706",
+      "imports": [
+        "pathlib",
+        "json",
+        "numpy",
+        "itertools",
+        "collections",
+        "time"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-extend-rank2-block-single.log",
+      "bytes": 8751,
+      "scratch_exact": true,
+      "sha256": "e0d2f923bfcb96c3fc97b70f387cb76ef766443bed1d86bdf6e329d7e5cc9cff"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-extend-rank2-block-single.py",
+      "bytes": 1691,
+      "scratch_exact": true,
+      "sha256": "c970c984d0a02165b7d48319537ca51b74d688e4263cc2380f1fea91b02710b2",
+      "imports": [
+        "sympy",
+        "itertools",
+        "json",
+        "time",
+        "pathlib"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-extend-rank2-three.log",
+      "bytes": 160027,
+      "scratch_exact": true,
+      "sha256": "bffcbd1a6b8bf8f3995bca9367cc27a0f0d00608513422a6e7925d382330ef12"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-extend-rank2-three.py",
+      "bytes": 1571,
+      "scratch_exact": true,
+      "sha256": "a60968e66c31fade46577276246659fb912f97c02248240753ab665909945749",
+      "imports": [
+        "sympy",
+        "itertools",
+        "json",
+        "pathlib"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-11.json",
+      "bytes": 639,
+      "scratch_exact": true,
+      "sha256": "631675580aaba6b8705eb6a06f4de5de3fbc6d75a81d53a3e43785993923e785",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-5.json",
+      "bytes": 32740,
+      "scratch_exact": true,
+      "sha256": "da77fedd0224957f95ededb80be212bb54d48c3c7d60fafe0d533a8d7d2083dc",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-7.json",
+      "bytes": 49424,
+      "scratch_exact": true,
+      "sha256": "a1dc701e2de1c8c8553d432ccb56a5cffc56fc3d69e2234f33178ad2bb60e5fc",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-extension-11.json",
+      "bytes": 738,
+      "scratch_exact": true,
+      "sha256": "913f2fb7f04ca7af6c30a6829143266d4f88f4570d4e8c64a7256c31b4bb6d5e",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-extension-5.json",
+      "bytes": 37888,
+      "scratch_exact": true,
+      "sha256": "0ac09c94e36c865ee4ed7dbb113037e35519a35ab5c34595eea96c1e100ee46a",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-extension-7.json",
+      "bytes": 57212,
+      "scratch_exact": true,
+      "sha256": "e6c8757e1b80f11c7553bb666b1d19a29a1d12964cb9f54b23c55899343b2af6",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-extension.log",
+      "bytes": 4074,
+      "scratch_exact": true,
+      "sha256": "c165234232625c94c47bc4eefef5e0c70b82ebed3de6a8f638ccda03e0ccfec9"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian-extension.py",
+      "bytes": 3308,
+      "scratch_exact": true,
+      "sha256": "c23e49ce2fb2cb8d938030344453064cb179e865678c3609ef15e20c473d1445",
+      "imports": [
+        "sympy",
+        "numpy",
+        "itertools",
+        "json",
+        "time",
+        "collections",
+        "pathlib"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian.log",
+      "bytes": 3366,
+      "scratch_exact": true,
+      "sha256": "4b6eac53e4a33651033e4cdd84dfae3050aecdfb47adc9f3dc8378405d0530e5"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-jacobian.py",
+      "bytes": 3059,
+      "scratch_exact": true,
+      "sha256": "b8ecb8a5e7563346ed3895ded85c6fed0b47a91ea38d3594f0a9ccd1510b3c4d",
+      "imports": [
+        "sympy",
+        "numpy",
+        "itertools",
+        "json",
+        "time",
+        "collections",
+        "pathlib"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-nonstar-exceptional-5.json",
+      "bytes": 3884,
+      "scratch_exact": true,
+      "sha256": "6b3f18c9b4e4efa5010a19e4d1edf8dd051a2ed851812393d94292f7b6484438",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-nonstar-exceptional-7.json",
+      "bytes": 17424,
+      "scratch_exact": true,
+      "sha256": "e6cd23c7fffaea96ed182f2cc2ce3d5d6f847ccebded2afdb5ec3ffe0d7e1baa",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rank2-incidence-11.json",
+      "bytes": 1023,
+      "scratch_exact": true,
+      "sha256": "1bd44edb64f4b39c4651c46dd824cea9980017dbe391110ca6b0d877d1eeddb1",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rank2-incidence-5.json",
+      "bytes": 52604,
+      "scratch_exact": true,
+      "sha256": "80a9f0e8012f8dee8243b1ffd66db0a54cf80372450eceef99968e8b13dbf685",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rank2-incidence-7.json",
+      "bytes": 79776,
+      "scratch_exact": true,
+      "sha256": "51b8d2a64858aca45b4be59164ef4ed8c6ddab5cdf986cdf99893fe31dc74578",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rank2-incidence.log",
+      "bytes": 511,
+      "scratch_exact": true,
+      "sha256": "a5a5046e9b718719b5c93f02d99539e20d5178400b1c3c760b321e2c2c7b68c3"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rank2-incidence.py",
+      "bytes": 1980,
+      "scratch_exact": true,
+      "sha256": "765f4638070b4408efba97bcfe0c3a75dbf2981074ecc712fe332242144ccc94",
+      "imports": [
+        "pathlib",
+        "json",
+        "numpy",
+        "sympy",
+        "itertools",
+        "collections"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rational-stars.log",
+      "bytes": 2609,
+      "scratch_exact": true,
+      "sha256": "78ba2e1e5db64388e2f519912e82397bb02d49714ffd24678b978fca8df4456a"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-rational-stars.py",
+      "bytes": 922,
+      "scratch_exact": true,
+      "sha256": "876ff3ea57506a0a909831d584c821f65edb333e145d58c1958c2c01b10ca78e",
+      "imports": [
+        "sympy",
+        "itertools"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-singular-rank2-incidence-11.json",
+      "bytes": 1389,
+      "scratch_exact": true,
+      "sha256": "30ec46ba96dc818da590aff13db2de4ea9aafd2848066a27db61738d024ce0fd",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-singular-rank2-incidence-5.json",
+      "bytes": 71532,
+      "scratch_exact": true,
+      "sha256": "8cca42fff507c605cbf6d1fb03983fb8e87584e30c9c86d0d47a8e9694ed6b15",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-singular-rank2-incidence-7.json",
+      "bytes": 108712,
+      "scratch_exact": true,
+      "sha256": "6cf7a1d63e7ad35f5a0f410b8d608db8f20d32ce2e39fc00fb37a3bec7caed31",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-singular-rank2-incidence.log",
+      "bytes": 538,
+      "scratch_exact": true,
+      "sha256": "abe0c74fa634300c467ca5a462f4eb01ae2821f3d1e41edccae4c2d839c5da2c"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-fano2-singular-rank2-incidence.py",
+      "bytes": 1974,
+      "scratch_exact": true,
+      "sha256": "d035688a26ae818c385e4deff3b00256ff5ef315fae841a0650971588548281e",
+      "imports": [
+        "pathlib",
+        "json",
+        "numpy",
+        "sympy",
+        "itertools",
+        "collections"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-quartic-invariant-identity.log",
+      "bytes": 118,
+      "scratch_exact": true,
+      "sha256": "14287c9784aeb0a4ecd2bbaccb9f68f82900ee0f45e67ef6b7482179e77de52e"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-quartic-invariant-identity.py",
+      "bytes": 1327,
+      "scratch_exact": true,
+      "sha256": "729dbb920255fac388d6ddfb346491dda10d1e8d846410ca9d257edbb2156615",
+      "imports": [
+        "sympy",
+        "itertools",
+        "time"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-block-single-extension.json",
+      "bytes": 8620,
+      "scratch_exact": true,
+      "sha256": "b7f553ce51dfbba045e02dd0432e644738e3d0705f79a38977c3ee6f00bbfa40",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "basis",
+        "polynomials"
+      ],
+      "basis_size": 7,
+      "prime": null
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-directions-5.json",
+      "bytes": 6972,
+      "scratch_exact": true,
+      "sha256": "bf432f8e8357b5259fa9e57d36699b523080fbd181ad1816c990fb6cc6e625cd",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-directions-7.json",
+      "bytes": 7424,
+      "scratch_exact": true,
+      "sha256": "2b47b2f8c40b2745a5c7f8a82d92e19834ed09a554e09376f0e257a77425757d",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-gradient.log",
+      "bytes": 756,
+      "scratch_exact": true,
+      "sha256": "2a0dd9a9c8fd3a340cdf73d48dca0476fe603308671703cf28b249a5e9d1ec2f"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-gradient.py",
+      "bytes": 887,
+      "scratch_exact": true,
+      "sha256": "2d13fb4d42887820e6b7eadc7c875cd9eaffe2e2fe37e7b02f9e72c62462cf1c",
+      "imports": [
+        "pathlib",
+        "json",
+        "itertools",
+        "collections"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-three-extension.json",
+      "bytes": 3280,
+      "scratch_exact": true,
+      "sha256": "028cda5a27fc45a98d71301e3c84ca71c4c5208e358ac9398deb62d8424fe602",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "basis",
+        "polynomials"
+      ],
+      "basis_size": 6,
+      "prime": null
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-three-gb-dimension.log",
+      "bytes": 1173,
+      "scratch_exact": true,
+      "sha256": "10c0c697da4a2f41c90b01494e84e5beac91f14efcc550da79cefac2dd5e9886"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-three-gb-dimension.py",
+      "bytes": 716,
+      "scratch_exact": true,
+      "sha256": "4880e4eef36906bf4162f90621d8d29243c00d9eaaf3e8a0215fae294b010295",
+      "imports": [
+        "pathlib",
+        "sympy",
+        "itertools",
+        "time"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-three-hyperplane.log",
+      "bytes": 8691,
+      "scratch_exact": true,
+      "sha256": "56051eae8a199f0ee0062aa2a8bf9ea7c404552feb106bc1ac9d90bfa76d8ed7"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-rank2-three-hyperplane.py",
+      "bytes": 455,
+      "scratch_exact": true,
+      "sha256": "0dd2940694a0a11ab5ade886019bf2259a168619c2371f402e26b37913d29fad",
+      "imports": [
+        "pathlib",
+        "sympy",
+        "json",
+        "time"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/algebra-star-incidence-classification.log",
+      "bytes": 389,
+      "scratch_exact": true,
+      "sha256": "8ac0e3da78706adf606ca16254c85a96e997992f673a32420ec3bc42f4551fcf"
+    },
+    {
+      "file": "results/orch/lemmas/algebra-star-incidence-classification.py",
+      "bytes": 1323,
+      "scratch_exact": true,
+      "sha256": "e306282cf307129ffbd127ca500a95937f3fa1e32cafce9dfa4cf5ba482cb238",
+      "imports": [
+        "pathlib",
+        "json",
+        "numpy",
+        "collections"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary-extension-diagnostic.json",
+      "bytes": 596,
+      "scratch_exact": true,
+      "sha256": "c34241e3694cfffb5a5c83c32c7e7112fc9141a401653fa6ce6461733dba2cc5",
+      "json_type": "dict",
+      "json_keys": [
+        "extension_singular_values",
+        "boundary_jacobian_singular_values"
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary-sampled-roots.json",
+      "bytes": 392944,
+      "scratch_exact": true,
+      "sha256": "97bff76b65f95ef69bc9f2915faffbdccf11a7a5bba58091f8aa8ef89fac65ff",
+      "json_type": "dict",
+      "json_keys": [
+        "roots",
+        "potential_extensions",
+        "runs",
+        "seconds"
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_numeric.log",
+      "bytes": 893,
+      "scratch_exact": true,
+      "sha256": "c9876ab95a9d7a7845673c460c778ace6dad0ec734e05aac642c24471cd8d800"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_numeric.py",
+      "bytes": 2382,
+      "scratch_exact": true,
+      "sha256": "300c01a0355d162db6c1576e7039f260181d222d8eebbb05b222879f7dd42d29",
+      "imports": [
+        "pathlib",
+        "datetime",
+        "sympy",
+        "numpy",
+        "scipy.optimize",
+        "itertools",
+        "json",
+        "time"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_numeric_best.json",
+      "bytes": 991,
+      "scratch_exact": true,
+      "sha256": "aaa94d453c5bc23ef2c44f2ee243bbda4356e9a0ef3489bf9a0aa1a778d4776f",
+      "json_type": "dict",
+      "json_keys": [
+        "run",
+        "error",
+        "Areal",
+        "Aimag",
+        "Breal",
+        "Bimag",
+        "nfev",
+        "seconds"
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_refine.log",
+      "bytes": 3407,
+      "scratch_exact": true,
+      "sha256": "0f5347a2df787d8c5ad553ff2c2b3a6eda8bfe99d7a2818d4f520fffb335d29f"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_refine.py",
+      "bytes": 1519,
+      "scratch_exact": true,
+      "sha256": "61796cedb28161d5858be5018269da412ca2b5f0710e7f666026b95e4ff0b9cf",
+      "imports": [
+        "pathlib",
+        "json",
+        "mpmath",
+        "itertools"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_refined.json",
+      "bytes": 3301,
+      "scratch_exact": true,
+      "sha256": "8e6e6347b4f0e3f3ff34b8007e8a5c4c858e5fa0a15fdb009f131efb7474a8da",
+      "json_type": "dict",
+      "json_keys": [
+        "precision",
+        "residual",
+        "Areal",
+        "Aimag",
+        "Breal",
+        "Bimag"
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_sample.log",
+      "bytes": 29180,
+      "scratch_exact": true,
+      "sha256": "d2c7aaf28c806ac933f1766abbdc850531f055617c7804e6b2d1222e07047553"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_boundary_sample.py",
+      "bytes": 1428,
+      "scratch_exact": true,
+      "sha256": "aa7bee87e3ca05754d8a73b8486c93323226adffd96f8f51ac7d1088de590b5f",
+      "imports": [
+        "pathlib",
+        "json",
+        "time",
+        "numpy"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_c3_boundary.log",
+      "bytes": 237,
+      "scratch_exact": true,
+      "sha256": "3dd933d20339d386fd080dc51e948b1e4d4ea97c3314947269c6075fbbc01605"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_c3_boundary.py",
+      "bytes": 594,
+      "scratch_exact": true,
+      "sha256": "4843cd798a7fe7259c60ef4fb055153218093f6ad704fd26b7df09b6e68cb201",
+      "imports": [
+        "sympy",
+        "itertools"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-chart-0-result.json",
+      "bytes": 171,
+      "scratch_exact": true,
+      "sha256": "386efccc81047d979a9ef414b87595c715ddfc49c39be4966cf79f255424b763",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-chart-0.log",
+      "bytes": 4797,
+      "scratch_exact": true,
+      "sha256": "107a90b335a0f87009ab88c1568a7e75737ebbc0f44cea834eb88077ed85e3b1"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-chart-0.msolve",
+      "bytes": 3576,
+      "scratch_exact": true,
+      "sha256": "0da60b2376774d5e5799b61df984d53ebb5fe98471b8a2b43d2c4f967084b168"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-equations.json",
+      "bytes": 4314,
+      "scratch_exact": true,
+      "sha256": "43dd88f0782c8916a9e3afb67b18bbd0efd83851bacb295731971ccf0e991a30",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "equations",
+        "basis"
+      ],
+      "basis_size": 150,
+      "prime": null
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-strata-summary.json",
+      "bytes": 592,
+      "scratch_exact": true,
+      "sha256": "55fbe358d3fd5f72d8d125795da1ec4348d2855ded3472b2124ad295ad38aca0",
+      "json_type": "list"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-1-result.json",
+      "bytes": 165,
+      "scratch_exact": true,
+      "sha256": "07654216daa7375eeaaceecf352fd289ff2081f8e6ab5a39690ab4314e5d9055",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-1.log",
+      "bytes": 4395,
+      "scratch_exact": true,
+      "sha256": "2533a12773612684a2d949db9e50b10cb2a241e950acfd40c4726969d9349a3a"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-1.msolve",
+      "bytes": 2409,
+      "scratch_exact": true,
+      "sha256": "60fe2185881734109b1b4273d7f9f6a7ca3efdb762332a4b0df54e2ce2fba9c4"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-2-result.json",
+      "bytes": 157,
+      "scratch_exact": true,
+      "sha256": "b91ab79289395918368871fcb243e81421886b09d2919e7b16f143c907bc0cab",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-2.log",
+      "bytes": 4092,
+      "scratch_exact": true,
+      "sha256": "ad4077dbbc9c63d3ac7d7f16e865c55eab66e6736ca6f013be80b258005023c9"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-2.msolve",
+      "bytes": 1357,
+      "scratch_exact": true,
+      "sha256": "2dc0efbe860371a8ea1a94f76cf607cbe371ad7f25ac4ad20b4087e8518ad709"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-3-result.json",
+      "bytes": 148,
+      "scratch_exact": true,
+      "sha256": "2f28b2e15935ca8d1087fbea1cea5c6ee1070f07205dbe9a7f668e574594dde2",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-3.log",
+      "bytes": 3889,
+      "scratch_exact": true,
+      "sha256": "fedcd0494603a75b8d917db4379ecbb399c28cce65425d22f95729ad5253640e"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-3.msolve",
+      "bytes": 522,
+      "scratch_exact": true,
+      "sha256": "013f2d7b5221ff60549602b8f3b34dea6d2c1f8de68479fc9abdf0ff15857f26"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-4-result.json",
+      "bytes": 139,
+      "scratch_exact": true,
+      "sha256": "e0f83e6ab514eb480a794a64fee5c24185322f55caac315da1ec6deb7e879144",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-4.log",
+      "bytes": 3787,
+      "scratch_exact": true,
+      "sha256": "38dabc77c98a2282a5f34dfabecc3061c78df422b371fc93fcf45d0b884f6cba"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-4.msolve",
+      "bytes": 141,
+      "scratch_exact": true,
+      "sha256": "21ae236d07292fec89b17e2b7736acbfcc5abf7cf5d9b8be7ff30dcb480f96fe"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-5-result.json",
+      "bytes": 131,
+      "scratch_exact": true,
+      "sha256": "dd74518dd9daa3fd28d0d2b6160ce744dfc282f94dd284dcf1d7701ed15070f8",
+      "json_type": "dict",
+      "json_keys": [
+        "variables",
+        "prime",
+        "basis",
+        "terms",
+        "seconds"
+      ],
+      "basis_size": 1,
+      "prime": 0
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-5.log",
+      "bytes": 3586,
+      "scratch_exact": true,
+      "sha256": "2748218acd85be51c54443d184d024389f977eb9555d3cec2761aa7b9cb43456"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense-boundary-stratum-5.msolve",
+      "bytes": 31,
+      "scratch_exact": true,
+      "sha256": "cef2658b859d4d66453d70e4a727451ee7c9009f66b905ec5cca9e7f2e3cf246"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense_boundary_input.log",
+      "bytes": 78,
+      "scratch_exact": true,
+      "sha256": "c1811fe1f1088b049449eaaacb58203bce54813383d69ecf5ac42d9e8c6ee8ee"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense_boundary_input.py",
+      "bytes": 1373,
+      "scratch_exact": true,
+      "sha256": "446aea65fa6d4714df3a4eb18310385dc3ecaa6b7af6b5873f2c6f6d69506288",
+      "imports": [
+        "pathlib",
+        "sympy",
+        "itertools",
+        "json"
+      ],
+      "calls_for_review": []
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense_boundary_strata_run.log",
+      "bytes": 455,
+      "scratch_exact": true,
+      "sha256": "b343de3e160f400572ea2859adf8a8ac3e918bbfd09901f47b501f24b06327e2"
+    },
+    {
+      "file": "results/orch/lemmas/three_plane_dense_boundary_strata_run.py",
+      "bytes": 1216,
+      "scratch_exact": true,
+      "sha256": "c7186ae9c373f23bf00e034782bac9a369bf88a76d94adae0f0ad6b3c4d2f53a",
+      "imports": [
+        "pathlib",
+        "subprocess",
+        "resource",
+        "json",
+        "time"
+      ],
+      "calls_for_review": [
+        [
+          10,
+          "log.open"
+        ],
+        [
+          11,
+          "subprocess.run"
+        ]
+      ]
+    }
+  ],
+  "issues": []
+}

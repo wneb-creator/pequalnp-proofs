@@ -1,0 +1,17 @@
+z0,z1,z2,rr
+0
+2*rr*z0^2 + 8*rr*z0 + 6*rr - 5*z0^2 + 2*z0*z1 - 14*z0 + z1^2 - 2*z1 - 9,
+rr*z0 + rr + z0*z2 + z1*z2 - z1 - z2 - 2,
+z2^2 - 2*z2 - 1,
+2*rr*z0^3 - rr*z0^2*z1 + 8*rr*z0^2 - rr*z0*z1^2 + 11*rr*z0 - rr*z1^2 + rr*z1 + 5*rr - 2*z0^3 - 10*z0^2 + z0*z1 - 15*z0 - z1 - 7,
+-2*rr*z0^2*z2 + 2*rr*z0^2 - 4*rr*z0*z1*z2 + 4*rr*z0*z1 + 8*rr*z0 - 4*rr*z1*z2 + 4*rr*z1 + 2*rr*z2 + 6*rr - 7*z0^2 + 2*z0*z2 - 16*z0 - 2*z2 - 9,
+-rr*z0*z2^2 + 2*rr*z0*z2 + rr*z0 - rr*z2^2 + 2*rr*z2 + rr,
+5*rr*z0^2 + 2*rr*z0*z1 + 6*rr*z0 - 2*rr*z1 + rr - 9*z0^2 - 10*z0 - 1,
+rr*z0*z2 + rr*z0 - rr*z2 - rr,
+z0^2*z1^2 + 2*z0*z1^2 + z1^2,
+rr*z0^3 + 3*rr*z0^2 + 3*rr*z0 + rr - z0^3 + z0^2*z1*z2 - z0^2*z1 - 3*z0^2 + 2*z0*z1*z2 - 2*z0*z1 - 3*z0 + z1*z2 - z1 - 1,
+z0^2*z2^2 - 2*z0^2*z2 - z0^2 + 2*z0*z2^2 - 4*z0*z2 - 2*z0 + z2^2 - 2*z2 - 1,
+-rr*z0*z1^2 + rr*z0*z1 - 2*rr*z0 - rr*z1^2 - rr*z1 - 2*rr - z0*z1 + 3*z0 + z1 + 3,
+5*rr*z0^2 - 4*rr*z0*z1*z2 + 4*rr*z0*z1 + 2*rr*z0*z2 + 8*rr*z0 - 4*rr*z1*z2 + 4*rr*z1 - 2*rr*z2 + 3*rr - 9*z0^2 - 2*z0*z2 - 16*z0 + 2*z2 - 7,
+-rr*z0*z2^2 + 2*rr*z0*z2 + rr*z0 - rr*z2^2 + 2*rr*z2 + rr,
+rr^2 - 2

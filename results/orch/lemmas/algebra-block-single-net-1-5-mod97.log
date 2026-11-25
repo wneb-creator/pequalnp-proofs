@@ -1,0 +1,95 @@
+{"stage": "parsed", "variables": 5, "generators": 14, "terms": 239, "prime": 97}
+
+--------------- INPUT DATA ---------------
+#variables                       5
+#equations                      14
+#invalid equations               0
+field characteristic            97
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size      32768 (2^15)
+max pair selection             128
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  2       1      12       2 x 9          83.33%        1 new       0 zero         0.00 | 0.00         
+  3      10      13      33 x 52         19.81%        8 new       2 zero         0.00 | 0.00         
+  2       3      21      12 x 16         36.98%        1 new       2 zero         0.00 | 0.00         
+  2       3      18      16 x 20         26.88%        3 new       0 zero         0.00 | 0.00         
+  2       2      19      10 x 11         37.27%        1 new       1 zero         0.00 | 0.00         
+  2       2      17      10 x 10         37.00%        2 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+reduce final basis        1 x 1         100.00%        1 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.00 sec
+overall(cpu)            0.00 sec
+select                  0.00 sec  12.3%
+symbolic prep.          0.00 sec   5.3%
+update                  0.00 sec  35.4%
+convert                 0.00 sec   9.8%
+linear algebra          0.00 sec   9.3%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                   21
+#GM criterion                   404
+#redundant elements              29
+#rows reduced                    43
+#zero reductions                  5
+max. matrix data                 33 x 52 (19.814%)
+max. symbolic hash table size  2^9
+max. basis hash table size     2^14
+-----------------------------------------
+
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.00 sec
+overall(cpu)            0.00 sec
+select                  0.00 sec   0.0%
+symbolic prep.          0.00 sec   0.0%
+update                  0.00 sec   0.0%
+convert                 0.00 sec   0.0%
+linear algebra          0.00 sec   0.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                    0
+#GM criterion                     0
+#redundant elements               0
+#rows reduced                     0
+#zero reductions                  0
+max. matrix data                  0 x 0 (0.000%)
+max. symbolic hash table size  2^-2147483648
+max. basis hash table size     2^14
+-----------------------------------------
+
+{"stage": "finished", "basis_size": 1, "terms": 1, "unit_ideal": true, "seconds": 0.00046443939208984375}

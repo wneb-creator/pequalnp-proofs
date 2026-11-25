@@ -1,0 +1,2 @@
+field 5 table {(7, 4, True): 4, (9, 3, False): 4, (9, 4, True): 12, (10, 3, True): 72, (11, 2, False): 20, (11, 3, False): 12, (12, 2, False): 24, (12, 3, False): 8} combined_nonstar 16
+field 7 table {(5, 6, False): 24, (7, 4, True): 4, (7, 5, True): 24, (8, 4, True): 24, (9, 3, False): 48, (9, 4, True): 12, (11, 2, False): 60, (12, 2, False): 32, (12, 3, False): 8} combined_nonstar 72

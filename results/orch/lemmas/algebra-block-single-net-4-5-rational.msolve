@@ -1,0 +1,17 @@
+z0,z1,rr
+0
+2*rr + z0^2 + 2*z0 - 5,
+rr + z0*z1 - z0 + z1,
+z1^2 - 2*z1 - 1,
+-rr*z0^2 - rr*z0 + 2*rr - 2,
+-4*rr*z0*z1 + 4*rr*z0 - 2*rr*z1 + 2*rr - 7,
+-rr*z1^2 + 2*rr*z1 + rr,
+2*rr*z0 + 5*rr - 9,
+rr*z1 + rr,
+z0^2,
+rr + z0*z1 - z0 - 1,
+z1^2 - 2*z1 - 1,
+-rr*z0^2,
+-4*rr*z0*z1 + 4*rr*z0 + 5*rr - 9,
+-rr*z1^2 + 2*rr*z1 + rr,
+rr^2 - 2

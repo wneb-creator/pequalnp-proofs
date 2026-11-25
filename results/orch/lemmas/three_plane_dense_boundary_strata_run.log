@@ -1,0 +1,5 @@
+{'stratum': 1, 'exit': 0, 'basis_size': 1, 'unit': True, 'seconds': 0.062451839447021484}
+{'stratum': 2, 'exit': 0, 'basis_size': 1, 'unit': True, 'seconds': 0.0015461444854736328}
+{'stratum': 3, 'exit': 0, 'basis_size': 1, 'unit': True, 'seconds': 0.0011768341064453125}
+{'stratum': 4, 'exit': 0, 'basis_size': 1, 'unit': True, 'seconds': 0.0004391670227050781}
+{'stratum': 5, 'exit': 0, 'basis_size': 1, 'unit': True, 'seconds': 0.00037097930908203125}
