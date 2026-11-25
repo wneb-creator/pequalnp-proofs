@@ -1,0 +1,5 @@
+⚠ [18250/18251] Built PEqualNP.Outside.L_meta_2089 (4.4s)
+warning: PEqualNP/Outside/L_meta_2089.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [18251/18251] Ran PEqualNP.Outside.L_meta_2089:irArts
+warning: PEqualNP/Outside/L_meta_2089.lean: imports `Mathlib` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (18251 jobs).
