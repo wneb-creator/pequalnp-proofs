@@ -1,0 +1,668 @@
+{
+  "utc": "2026-11-25T18:32:48.798110+00:00",
+  "status": "Partial helpers only; exact gap unproved. Compile-witness entries are distinguished from observed standalone runs.",
+  "sources": [
+    {
+      "file": "results/orch/lemmas/algebraic-mask.lean",
+      "lines": 24,
+      "bytes": 687,
+      "sha256": "46fb80c657f77904f00d9c582c00415b1ac2417a4ab83021336ff1b17d104084",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-mask.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-mask.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-mask.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-mask.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-certificate.lean",
+      "lines": 57,
+      "bytes": 2209,
+      "sha256": "a44d84c54baac77782692259d9451f932bfdd37ca007aece50a30fb8f0cf34e7",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-certificate.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-certificate.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-certificate.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-certificate.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-private.lean",
+      "lines": 48,
+      "bytes": 1902,
+      "sha256": "03362470cd0f5f4f75a5132b12c37de24efe345f03d779cccd60e10a9a3f9719",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-private.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-private.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-private.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-private.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-bridge.lean",
+      "lines": 1078,
+      "bytes": 52027,
+      "sha256": "5fd222633bdd43deedc7c3b22a275685975e5c3dad193f362a3b826ec3c27dee",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bridge-2.stdout",
+          "bytes": 1119,
+          "sha256": "c31063c0f3fe7cfe549481938e50c4142427e3d45b7621a7135226ce0477b329",
+          "repository_path": "results/orch/archived-logs/algebraic-bridge-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bridge-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-bridge-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-residual.lean",
+      "lines": 1425,
+      "bytes": 65157,
+      "sha256": "9f516c23f765a2813051d02486a6ac309b21558d8dad7648b2e1625ab8f7fda8",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-1.stdout",
+          "bytes": 1899,
+          "sha256": "db38afc3332520c139fb1ad215e0252f71200e651e607964c478340bce2e0411",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-tree.lean",
+      "lines": 2079,
+      "bytes": 92620,
+      "sha256": "462131f5e680cdc40901ae62ec25875d2ebfa82e6f548d740e3b38d9a4f9bd27",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-tree-6.stdout",
+          "bytes": 1696,
+          "sha256": "c02cbc0367d5297172a18cb9e8406c205a48fe1763ea3e4213c2806028c1127e",
+          "repository_path": "results/orch/archived-logs/algebraic-tree-6.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-tree-6.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-tree-6.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-residual-complete.lean",
+      "lines": 1463,
+      "bytes": 67042,
+      "sha256": "a62df2ff17a6f024e307a7f905f3935029943f957bcf9d92819aa91615300e14",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-complete-1.stdout",
+          "bytes": 1980,
+          "sha256": "196e15bb090408d485d7933137d1384c0ff0a1d5141967bfedb08f0e6f4ab5c2",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-complete-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-complete-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-complete-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-residual-closed.lean",
+      "lines": 5042,
+      "bytes": 227564,
+      "sha256": "eed9e862229644a0b1140d10bff97a9174d448bd0b5dacbed22ab2067a35dccd",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-closed-1.stdout",
+          "bytes": 3724,
+          "sha256": "1f66f894410f76fa01ccbf23d774e8a0ed96d087a0eafdce78955d1e3a9ee03f",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-closed-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-closed-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-closed-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-bipartite-reduction.lean",
+      "lines": 5218,
+      "bytes": 236160,
+      "sha256": "b20ca88ab11ac6e17f187a4bd4f9ae8949468f68ca3896e8313926404c7e561e",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bipartite-reduction-2.stdout",
+          "bytes": 4587,
+          "sha256": "6b35c3afe08f66b172cc93b637c27dd238cf0e5adb354d9743f0fa6578209322",
+          "repository_path": "results/orch/archived-logs/algebraic-bipartite-reduction-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bipartite-reduction-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-bipartite-reduction-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-residual-large.lean",
+      "lines": 1589,
+      "bytes": 73372,
+      "sha256": "4f8e829b998507f89f93f2a454af9ed6f99d760324713bba914a59c4c07e7b69",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-large-1.stdout",
+          "bytes": 1953,
+          "sha256": "42bda49b99832f8227cec76c33a2ce47a4b214ec14504c8ec1ccb4cadf6ef676",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-large-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-large-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-large-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-bipartite-large.lean",
+      "lines": 5459,
+      "bytes": 248640,
+      "sha256": "17e544064b4ee62c82b0a95af8fcfa04a97937d7119688b3be5da75e607b19ea",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bipartite-large-1.stdout",
+          "bytes": 4895,
+          "sha256": "493c76cfcef515f6ed0a35b1c39650bd2c76bb163cbf51ff8fd357ecd91fbed1",
+          "repository_path": "results/orch/archived-logs/algebraic-bipartite-large-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bipartite-large-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-bipartite-large-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-bank.lean",
+      "lines": 73,
+      "bytes": 2948,
+      "sha256": "d94c14e796880777d41a6de553972fad2f5a1fc6de0f9f7483cb7c7f34abd365",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bank-2.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-bank-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-bank-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-bank-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-centres.lean",
+      "lines": 82,
+      "bytes": 3431,
+      "sha256": "a9d0c47a18b64fe2adb203c0cc2a8e75dea0d9e706b4e8f0c56be966ee204fcc",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-centres-2.stdout",
+          "bytes": 216,
+          "sha256": "6c8039bcb69f801967d15b4b7c0abaf349be71a01de0f406d648097f53a68bb2",
+          "repository_path": "results/orch/archived-logs/algebraic-centres-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-centres-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-centres-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-centres-trace.lean",
+      "lines": 1066,
+      "bytes": 51481,
+      "sha256": "121a6804f2d3a9013b05b26b4941f1634cae270a746c6d64ba7696a155b5127c",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-centres-trace-3.stdout",
+          "bytes": 583,
+          "sha256": "c9574b24f6cfd93116a3b9b5efb3566e567c04123411a73ecaeb0b5dd936da1d",
+          "repository_path": "results/orch/archived-logs/algebraic-centres-trace-3.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-centres-trace-3.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-centres-trace-3.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-and-trace.lean",
+      "lines": 2912,
+      "bytes": 132437,
+      "sha256": "61c4a0f3307d64155d74c5a3249456adce37ab44767a136e465b6e14fec983ac",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-and-trace-4.stdout",
+          "bytes": 3965,
+          "sha256": "a9cd94b18f3838dc1d923b94e08c33166c01d990569b50b22a2ec8bc6519ff04",
+          "repository_path": "results/orch/archived-logs/algebraic-and-trace-4.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-and-trace-4.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-and-trace-4.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-and-cone.lean",
+      "lines": 3012,
+      "bytes": 136825,
+      "sha256": "c383489ea8e30593b3c2e034914a38b8be85d9a45683c73bd842667a0e204066",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-and-cone-3.stdout",
+          "bytes": 5646,
+          "sha256": "a736d0848db070daa61045e405100d47620a21b7fd81668be66900c940465df3",
+          "repository_path": "results/orch/archived-logs/algebraic-and-cone-3.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-and-cone-3.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-and-cone-3.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-reader-charge.lean",
+      "lines": 3142,
+      "bytes": 142588,
+      "sha256": "1e43f511f78c2627eb827fac2e8dd0ca066f5ff1b70039da27cbcf2b39a1e331",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-reader-charge-2.stdout",
+          "bytes": 5995,
+          "sha256": "1ccec472170440e219d175dc21d0723c29f59b763dfe21a1b993fd89300cc941",
+          "repository_path": "results/orch/archived-logs/algebraic-reader-charge-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-reader-charge-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-reader-charge-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-cluster-charge.lean",
+      "lines": 3360,
+      "bytes": 152856,
+      "sha256": "ce18dc8cdfb07caf99d8e48eb5daeda4394e13822b02647dfef1c1ff9fddb4b2",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-cluster-charge-1.stdout",
+          "bytes": 7983,
+          "sha256": "ac895741615d2cc99eef048e35be5c150a8e1f41ff7b61ca0e5fbf128be84c45",
+          "repository_path": "results/orch/archived-logs/algebraic-cluster-charge-1.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-cluster-charge-1.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-cluster-charge-1.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-residual-cover-union.lean",
+      "lines": 1749,
+      "bytes": 80951,
+      "sha256": "31eda668b75c403536a5488a522b3734fbac97328e872b79ed41ee4fe78c2e79",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-cover-union-3.stdout",
+          "bytes": 2457,
+          "sha256": "4bf7eef53bd87d9d63ab1ee53b1b5b5fc67f8520884657c7e0123c49566dbcec",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-cover-union-3.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-cover-union-3.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-residual-cover-union-3.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-outside-payload.lean",
+      "lines": 3159,
+      "bytes": 143641,
+      "sha256": "d1c635198051ce29cf0028b87f41e3c6ec9aa6d19b8cac8258044c9529e0befe",
+      "compile_exit": 0,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-outside-payload-2.stdout",
+          "bytes": 6701,
+          "sha256": "00f11506318c31e53a70a17c0ba8585c0e771f0f4497e433dfd04170505a9933",
+          "repository_path": "results/orch/archived-logs/algebraic-outside-payload-2.stdout"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-163/algebraic-outside-payload-2.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "repository_path": "results/orch/archived-logs/algebraic-outside-payload-2.stderr"
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/algebraic-and-many.lean",
+      "lines": 3121,
+      "bytes": 141794,
+      "sha256": "e65af336e19faa731fe29bd863bc96608a05ddedd91059c70349999949c787a0",
+      "compile_witness": "algebraic-cluster-charge.lean contains this file verbatim as prefix and compiled exit0; standalone -1 logs have no errors but original session exit record was unavailable after compaction",
+      "logs": []
+    },
+    {
+      "file": "results/orch/lemmas/semantic-masked-witness.lean",
+      "sha256": "137fe456df3149fed203fb2e85fd053f786e9058a3ab4b5f563d721281fa0c0d",
+      "lines": 1721,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-masked-witness.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-masked-witness.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-rawcut-complete.lean",
+      "sha256": "95c12d844643168893c5344048fa47e003ac46d20875e02ae612377bdc4a7dba",
+      "lines": 398,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-rawcut-complete.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-rawcut-complete.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-bank-obstruction-scoped.lean",
+      "sha256": "9a3b5640f9284913526fa0baa99340b10ff8338e212e7ea9e8b892af84eb9d48",
+      "lines": 109,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-obstruction-scoped.stdout",
+          "sha256": "f99cb7c72158099cb312d6b17cc3a7c94528ab0edaf665d4359c85db1d95131b",
+          "bytes": 381
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-obstruction-scoped.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-bank-factor-impossible.lean",
+      "sha256": "442084bd3c808da9522301929d5058e1d309e8d1ed6e71faaa05457b29ab7264",
+      "lines": 41,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-factor-impossible.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-factor-impossible.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-cluster-charge.lean",
+      "sha256": "ba0d99a1ef00aa3278c776f3313b6635022fbbd3f1bd715090a062304945259f",
+      "lines": 206,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-cluster-charge.stdout",
+          "sha256": "7ba3af22cdf5e16690769422782acbff7a1756dbc74a24ad85da6fe4bd04660f",
+          "bytes": 223
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-cluster-charge.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-cluster-disagreement.lean",
+      "sha256": "ff63e428a7b7909965781e2927d9dc4c6725a59864ecdeb9b5b6d542872fc9d8",
+      "lines": 301,
+      "compile_status": "author-observed successful standalone compile",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-cluster-disagreement.stdout",
+          "sha256": "bbc61f9f00e4933ca4f42f48ea888e07e0723cd04ed6335e8ce7a12db8b562e0",
+          "bytes": 229
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-cluster-disagreement.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-delete-gate.lean",
+      "sha256": "0054491aec1812fee240d8afda158df7cd4281cae4efc5c61013def832198f3c",
+      "lines": 1036,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-delete-gate.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-delete-gate.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-pairinactive.lean",
+      "sha256": "90b077f9ec2853c8a349210c5b96e56788297e50bdcd2980ddc0131eef4a7a45",
+      "lines": 1136,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-pairinactive.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-pairinactive.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-pivotal.lean",
+      "sha256": "2bf57ddb4e8481211af4a579ebf6e577c87c788168f2b9eb23cd129ef3d0b77f",
+      "lines": 1348,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-pivotal.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-pivotal.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-rawcut.lean",
+      "sha256": "dde354f37754edef70afd943987f6d8b23115eed563165a73f6ba442b297e536",
+      "lines": 318,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-rawcut.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-rawcut.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/semantic-bank-obstruction.lean",
+      "sha256": "d6a56c226b0c9c1fb1370523e44d69b5486225206c1ebb1c4004a50e4dc9da1f",
+      "lines": 82,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-obstruction-lean.stdout",
+          "sha256": "f85c30dff0d12953c758167af29d98a7f72cdd34ddfd87bf1e0f0e3eb3b4fafb",
+          "bytes": 374
+        },
+        {
+          "repository_path": "results/orch/archived-logs/semantic-bank-obstruction-lean.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/structural-bank-essential.lean",
+      "sha256": "f4f098c8bf618c99280e055dc8f9ba245cf283f85777ac6a90bb192b139b98d0",
+      "lines": 210,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/structural-bank-essential.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/structural-bank-essential.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "results/orch/lemmas/structural-buffer-boundary.lean",
+      "sha256": "cffe43b3eef425321e79a320ac474887edb01220e419800832516a1765d5f699",
+      "lines": 1075,
+      "compile_status": "Author confirmed original standalone exit0; frozen superseded helper, preserved without rerunning",
+      "logs": [
+        {
+          "repository_path": "results/orch/archived-logs/structural-buffer-boundary.stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        },
+        {
+          "repository_path": "results/orch/archived-logs/structural-buffer-boundary.stderr",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      ]
+    }
+  ]
+}

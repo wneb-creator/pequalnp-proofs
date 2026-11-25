@@ -1,0 +1,5 @@
+Fano inputs14 OR gates 20 AND gates unbounded; exact58-case monotone semantics; pinned True
+sat
+
+Elapsed seconds 0.030668163999962417
+Independent full16384-row replay passed: [[[7], [8]], [[9], [14]], [[7], [10]], [[11], [16]], [[7], [12]], [[13], [18]], [[8], [10]], [[12], [20]], [[8], [11]], [[13], [22]], [[9], [10]], [[13], [24]], [[9], [11]], [[12], [26]], [[0, 15], [1, 17]], [[2, 19], [28]], [[3, 21], [29]], [[4, 23], [30]], [[5, 25], [31]], [[6, 27], [32]]] output conjunction [33]

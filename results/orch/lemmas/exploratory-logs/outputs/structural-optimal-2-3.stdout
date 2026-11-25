@@ -1,0 +1,13 @@
+p=2 l=3 maxdepth=5 targets=53
+depth 0 visited 1
+depth 1 visited 19
+depth 2 visited 173
+depth 3 visited 1645
+depth 4 visited 18084
+depth 5 visited 831505
+depth 0 symmetry classes 1
+depth 1 symmetry classes 7
+depth 2 symmetry classes 53
+depth 3 symmetry classes 476
+NO OPTIMAL DIRTY CIRCUIT
+Separate bounds violated: OR=0 AND=0

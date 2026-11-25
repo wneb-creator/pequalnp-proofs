@@ -117,3 +117,8 @@ results/orch/lemmas/structural-intersection-profile.lean SHA256 730daee6357f21f2
 results/orch/lemmas/structural-earliest-pin.lean SHA256 4441d306a3fa79cddcd202e9905a107ce10ea50be19302417e31a2d29b52cf47, compiled exit0; full structural-earliest-pin.stdout/.stderr.
 results/orch/lemmas/algebraic-residual-cover-union.lean SHA256 31eda668b75c403536a5488a522b3734fbac97328e872b79ed41ee4fe78c2e79, compiled exit0; full algebraic-residual-cover-union-3.stdout/.stderr.
 Eight-input manifest 1406a97215adf5b06f05314def18acf1735dc5b1ff61b0ac043769e3432bc9f9 all25 hashes verified; three one-below-bound searches UNKNOWN, three SATcontrols replayed. No lower bound/refutation follows. Main aggregate unchanged9363lines; checker002 current.
+
+Snapshot17 2026-11-25T18:33:35.845368+00:00
+Portable preservation inventory now records34 sources with full archived logs and explicit standalone/compile-witness status. New outside-payload extraction is checked; no final cost bound. Exploratory manifest e9e7680f0e1bde5a11bf07459532deb8ca13fa97b55e8a0326a6c4d7b6893dca has23 experiments79 files; every hash verified. No new tests were run for archive-only copies. Main remains9363 lines; cleanup not eligible because exactchecker rejects missingtheorem.
+
+Lease diagnostic: HTTP410 no-such-live-lease at18:29:20; prior success expiry18:44:20.261. Full response in desk-error-410.txt, with only opaque telemetry URL redacted. No other pilot lease released.

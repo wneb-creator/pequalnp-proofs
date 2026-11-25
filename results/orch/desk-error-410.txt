@@ -1,0 +1,26 @@
+2026-11-25T18:29:20.894735+00:00
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 18:29:20 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 18:29:21 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"[opaque Cloudflare reporting URL redacted]"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a602b7e8adf26cc0-SEA
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 178
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}

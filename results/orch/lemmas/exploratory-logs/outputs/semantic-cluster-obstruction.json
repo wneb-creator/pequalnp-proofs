@@ -1,0 +1,142 @@
+{
+  "inputs": 19,
+  "edges": [
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      0,
+      16
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      12
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      6,
+      14
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      17,
+      5
+    ],
+    [
+      17,
+      6
+    ],
+    [
+      17,
+      7
+    ],
+    [
+      17,
+      8
+    ],
+    [
+      18,
+      1
+    ],
+    [
+      18,
+      2
+    ],
+    [
+      18,
+      3
+    ],
+    [
+      18,
+      4
+    ]
+  ],
+  "four_cycle_free": true,
+  "common_raw": 0,
+  "centres": [
+    [
+      9,
+      10,
+      11,
+      12
+    ],
+    [
+      13,
+      14,
+      15,
+      16
+    ]
+  ],
+  "witness_supports": [
+    [
+      1,
+      2,
+      3,
+      4,
+      17
+    ],
+    [
+      5,
+      6,
+      7,
+      8,
+      18
+    ]
+  ],
+  "each_witness_independent": true,
+  "witness_union_independent": false,
+  "shared_AND_ancestors": 5,
+  "payload_roots": 2,
+  "centre_union": 8,
+  "OR_disagreements": 4,
+  "claimed_no_disagreement_bound_fails": true,
+  "payloads_edge_active": false,
+  "scope": "Counterexample to abstract aggregate centre charge without common independent witness; excluded by minimal-circuit edge activity. Not a gap refutation."
+}

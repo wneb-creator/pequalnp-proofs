@@ -21,3 +21,5 @@
 - 2026-11-25T18:24:26.427273+00:00: Snapshot14 authentication failure recovered with safe read and expected-old-SHA fenced push. Current exact checker rejects absent target. New multi-root and buffer-boundary results checked; incompatible OR-choice payment remains unresolved.
 
 - 2026-11-25T18:30:04.603698+00:00: Global input-buffer charge, lex/pin normal form, earliest singleton profile bridge and K-aware cover certificate all compile. All eight-input searches ended UNKNOWN. General residual edge-cost and incompatible-payload charge unresolved.
+
+- 2026-11-25T18:29:20Z: Automatic lease renewal returned no-such-live-lease despite the prior18:44:20 expiry. Same curl diagnostic returned HTTP410; heartbeat stopped. Root observed the termination at18:34 and is preserving pending results before one normal reacquisition request under the user410 rule.

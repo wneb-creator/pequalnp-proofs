@@ -1,0 +1,4 @@
+C6 inputs6 OR gates 4 AND gates unbounded; full64-row semantics; pinned False
+unsat
+
+Elapsed seconds 0.2490654870000526

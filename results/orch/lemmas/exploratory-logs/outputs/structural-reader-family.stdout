@@ -1,0 +1,4 @@
+{"all_gates_edge_pivotal": true, "edges": 4, "full_truth_table_verified": true, "gates": 12, "inputs": 5, "last_dirty_and": 9, "only_clean_and": 11, "r": 2, "residual_edges": 4, "t_count": 0, "top_form": true, "vertex_cover": 2}
+{"all_gates_edge_pivotal": true, "edges": 6, "full_truth_table_verified": true, "gates": 26, "inputs": 7, "last_dirty_and": 22, "only_clean_and": 25, "r": 3, "residual_edges": 6, "t_count": 0, "top_form": true, "vertex_cover": 3}
+{"all_gates_edge_pivotal": true, "edges": 8, "full_truth_table_verified": true, "gates": 52, "inputs": 9, "last_dirty_and": 47, "only_clean_and": 51, "r": 4, "residual_edges": 8, "t_count": 0, "top_form": true, "vertex_cover": 4}
+{"all_gates_edge_pivotal": true, "edges": 10, "full_truth_table_verified": true, "gates": 102, "inputs": 11, "last_dirty_and": 96, "only_clean_and": 101, "r": 5, "residual_edges": 10, "t_count": 0, "top_form": true, "vertex_cover": 5}

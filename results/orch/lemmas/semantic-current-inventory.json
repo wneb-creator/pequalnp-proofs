@@ -1,0 +1,42 @@
+[
+  {
+    "file": "results/orch/lemmas/semantic-masked-witness.lean",
+    "sha256": "137fe456df3149fed203fb2e85fd053f786e9058a3ab4b5f563d721281fa0c0d",
+    "lines": 1721
+  },
+  {
+    "file": "results/orch/lemmas/semantic-rawcut-complete.lean",
+    "sha256": "95c12d844643168893c5344048fa47e003ac46d20875e02ae612377bdc4a7dba",
+    "lines": 398
+  },
+  {
+    "file": "results/orch/lemmas/semantic-bank-obstruction-scoped.lean",
+    "sha256": "9a3b5640f9284913526fa0baa99340b10ff8338e212e7ea9e8b892af84eb9d48",
+    "lines": 109
+  },
+  {
+    "file": "results/orch/lemmas/semantic-bank-factor-impossible.lean",
+    "sha256": "442084bd3c808da9522301929d5058e1d309e8d1ed6e71faaa05457b29ab7264",
+    "lines": 41
+  },
+  {
+    "file": "results/orch/lemmas/semantic-cluster-charge.lean",
+    "sha256": "ba0d99a1ef00aa3278c776f3313b6635022fbbd3f1bd715090a062304945259f",
+    "lines": 206
+  },
+  {
+    "file": "results/orch/lemmas/semantic-cluster-disagreement.lean",
+    "sha256": "ff63e428a7b7909965781e2927d9dc4c6725a59864ecdeb9b5b6d542872fc9d8",
+    "lines": 301
+  },
+  {
+    "file": "results/orch/lemmas/semantic-cluster-obstruction.py",
+    "sha256": "39cd3036d3c86ed10659acde787299d5b60111be0c9a8e474a501074a9e1e091",
+    "lines": 50
+  },
+  {
+    "file": "results/orch/lemmas/semantic-cluster-lambda-obstruction.py",
+    "sha256": "402e582578283e78c589a30cedadf9498b45472886248d9cfe54a5c303d14ac7",
+    "lines": 52
+  }
+]

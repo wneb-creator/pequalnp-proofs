@@ -15,11 +15,11 @@ Work branch: `pnp/pilot-163` on `wneb-creator/pequalnp-proofs`. Upstream base: `
 - Cofactoring an input to false inside a region whose entire outside boundary is OR-masked by that same input preserves semantics and T0. A direct internal read then yields strict size reduction.
 - Bank-support, matching, anchored-box, centre-hit and raw OR-DAG cut-count tools, with their respective hypotheses explicit.
 
-`assemble.py` reproducibly assembles the named file from frozen standalone sources in `lemmas/`. It removes duplicated prefixes. A seven-lemma axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
+`assemble.py` reproducibly assembles the named 9363-line checkpoint from frozen standalone sources in `lemmas/`. Later checked helpers are preserved separately as standalone files; they are not all included in that aggregate. It removes duplicated prefixes. A seven-lemma axiom audit reports only `propext`, `Classical.choice`, and `Quot.sound`.
 
 ## Remaining mathematical obstacle
 
-Let U be Ustar, c the centreless clean AND count, j the junk AND count, and o the OR count outside largeLam. The conditional route needs a cover S of U with |U|+|S| <= 2c+j+o. Normalization and the accounting around this certificate are checked. The certificate is not proved. A successful argument must charge shared dirty computations globally; local gate necessity and boundary counts alone are insufficient.
+Let U be Ustar, c the centreless clean AND count, j the junk AND count, and o the OR count outside largeLam. The conditional route needs a cover S of U with |U|+|S| <= 2c+j+o. Normalization and the accounting around this certificate are checked. The certificate is not proved. A later K-aware version (`Residual.complete_with_existing_cover`) keeps the actual cover union, raw surplus, and repeated-centre slack, charging additional cover vertices only outside the selected cover K. Its refined residual cost hypothesis is also unproved. A successful argument must charge shared dirty computations globally; local gate necessity and boundary counts alone are insufficient.
 
 Do not use these false shortcuts:
 

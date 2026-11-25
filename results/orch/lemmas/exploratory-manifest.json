@@ -1,0 +1,1231 @@
+{
+  "gap": "L-meta-4675",
+  "frozen_utc": "2026-11-25T18:32:44.480145+00:00",
+  "purpose": "Preserve completed exploratory computations from other routes; no experiments rerun.",
+  "author_confirmations": {
+    "semantic_support": "All listed semantic runs complete and immutable; no active sessions.",
+    "structural_proof": "All listed computational sources/results frozen; no active searches; inherited separate-bound footer explicitly inert.",
+    "algebraic_route": "Both Python evaluators and JSON/stderr complete and frozen; active algebraic-outside-payload Lean compilation excluded."
+  },
+  "interpretation": [
+    "No generic proof, full-gap proof, or full-gap refutation is claimed.",
+    "Solver UNSAT is computational evidence for only the exact encoded scope; no Lean solver certificates.",
+    "UNKNOWN timeouts are inconclusive. Pinned SAT controls validate only their specified models.",
+    "Concrete obstructions deliberately omit minimum or edge-activity conditions and must not be promoted to target refutations.",
+    "Original sources, complete output streams, and exact generated SMT/model inputs are copied and hashed.",
+    "No new computation was executed for this archive; only existing files were read/copied/hashed."
+  ],
+  "exclusions": [
+    "Executables and other binary files",
+    "__pycache__ files",
+    "Process listings and unrelated operational diagnostics",
+    "Active/mutable Lean compilations and author notes",
+    "Credentials and environment data"
+  ],
+  "prior_manifest_hashes": [
+    {
+      "path": "results/orch/lemmas/counterexample-manifest.json",
+      "sha256": "52af8cd77906d3181a840442313a0a8f1900b3af1ae05923a929fec8a9510d21"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-manifest.json",
+      "sha256": "02602bb1a1190b6529e032ab094d1f8f01f680eaee6207edc61b3db47492a11c"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-manifest.json",
+      "sha256": "1406a97215adf5b06f05314def18acf1735dc5b1ff61b0ac043769e3432bc9f9"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "orfree-c6-four",
+      "owner": "semantic_support",
+      "source": "semantic-orfree.py",
+      "logs": [
+        "orfree-c6-four.stdout",
+        "orfree-c6-four.stderr"
+      ],
+      "status": "UNSAT",
+      "scope": "C6 on six inputs; full64-row semantics; at most4 OR gates and unbounded AND gates",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-c6-four.smt2"
+      ],
+      "args": [
+        "4",
+        "300000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-c6-four.smt2"
+      ],
+      "elapsed_seconds": 0.2490654870000526,
+      "timeout_ms": 300000,
+      "completeness": "COMPLETE_WITHIN_EXACT_OR_COUNT_MODEL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.smt2"
+      ]
+    },
+    {
+      "id": "orfree-c6-validation",
+      "owner": "semantic_support",
+      "source": "semantic-orfree.py",
+      "logs": [
+        "orfree-c6-validation.stdout",
+        "orfree-c6-validation.stderr"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known5-OR C6 circuit; replay on all64 rows",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-c6-validation.smt2",
+        "orfree-c6-validation.model"
+      ],
+      "args": [
+        "5",
+        "60000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-c6-validation.smt2",
+        "pin"
+      ],
+      "elapsed_seconds": 0.01159612600008586,
+      "timeout_ms": 60000,
+      "completeness": "PINNED_CONTROL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.smt2",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.model"
+      ]
+    },
+    {
+      "id": "orfree-fano-nineteen",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-fano.py",
+      "logs": [
+        "orfree-fano-nineteen.stdout",
+        "orfree-fano-nineteen.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Fano incidence graph; at most19 OR gates and unbounded AND gates; exact21 positive-edge and37 maximal-independent negative assignments",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-fano-nineteen.smt2"
+      ],
+      "args": [
+        "19",
+        "300000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-fano-nineteen.smt2"
+      ],
+      "elapsed_seconds": 300.20044119700015,
+      "timeout_ms": 300000,
+      "completeness": "INCONCLUSIVE",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-fano.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.smt2"
+      ]
+    },
+    {
+      "id": "orfree-fano-validation",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-fano.py",
+      "logs": [
+        "orfree-fano-validation.stdout",
+        "orfree-fano-validation.stderr"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known20-OR Fano circuit; exact58-case encoding and independent16384-row replay",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-fano-validation.smt2",
+        "orfree-fano-validation.model"
+      ],
+      "args": [
+        "20",
+        "60000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-fano-validation.smt2",
+        "pin"
+      ],
+      "elapsed_seconds": 0.030668163999962417,
+      "timeout_ms": 60000,
+      "completeness": "PINNED_CONTROL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-fano.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.smt2",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.model"
+      ]
+    },
+    {
+      "id": "orfree-pendant-five",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-small.py",
+      "logs": [
+        "orfree-pendant-five.stdout",
+        "orfree-pendant-five.stderr"
+      ],
+      "status": "UNSAT",
+      "scope": "C6 plus pendant edge; at most5 OR gates and unbounded AND gates; exact positive-edge/maximal-independent semantic tests",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-pendant-five.smt2"
+      ],
+      "args": [
+        "c6_pendant",
+        "5",
+        "30000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-pendant-five.smt2"
+      ],
+      "elapsed_seconds": 3.8313271309998527,
+      "timeout_ms": 30000,
+      "completeness": "COMPLETE_WITHIN_EXACT_OR_COUNT_MODEL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-small.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.smt2"
+      ]
+    },
+    {
+      "id": "orfree-pendant-validation",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-small.py",
+      "logs": [
+        "orfree-pendant-validation.stdout",
+        "orfree-pendant-validation.stderr"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known6-OR C6+pendant circuit; independent128-row replay",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-pendant-validation.smt2",
+        "orfree-pendant-validation.model"
+      ],
+      "args": [
+        "c6_pendant",
+        "6",
+        "30000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-pendant-validation.smt2",
+        "pin"
+      ],
+      "elapsed_seconds": 0.004891373999726056,
+      "timeout_ms": 30000,
+      "completeness": "PINNED_CONTROL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-small.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.smt2",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.model"
+      ]
+    },
+    {
+      "id": "orfree-c8-six",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-small.py",
+      "logs": [
+        "orfree-c8-six.stdout",
+        "orfree-c8-six.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "C8; at most6 OR gates and unbounded AND gates; exact positive-edge/maximal-independent semantic tests",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-c8-six.smt2"
+      ],
+      "args": [
+        "c8",
+        "6",
+        "30000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-c8-six.smt2"
+      ],
+      "elapsed_seconds": 30.02567056199996,
+      "timeout_ms": 30000,
+      "completeness": "INCONCLUSIVE",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-small.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.smt2"
+      ]
+    },
+    {
+      "id": "orfree-c8-validation",
+      "owner": "semantic_support",
+      "source": "semantic-orfree-small.py",
+      "logs": [
+        "orfree-c8-validation.stdout",
+        "orfree-c8-validation.stderr"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known7-OR C8 circuit; independent256-row replay",
+      "limitations": "No Lean solver certificate. UNKNOWN is inconclusive. Pinned SAT validates only the fixed model. These queries impose no T0 constraint and have no AND-count cap.",
+      "inputs": [
+        "orfree-c8-validation.smt2",
+        "orfree-c8-validation.model"
+      ],
+      "args": [
+        "c8",
+        "7",
+        "30000",
+        "/tmp/oec/pequalnp-pilot-163/orfree-c8-validation.smt2",
+        "pin"
+      ],
+      "elapsed_seconds": 0.008863935000135825,
+      "timeout_ms": 30000,
+      "completeness": "PINNED_CONTROL",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-small.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.smt2",
+        "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.model"
+      ]
+    },
+    {
+      "id": "structural-optimal-2-2",
+      "owner": "structural_proof",
+      "source": "structural-optimal.cpp",
+      "logs": [
+        "structural-optimal-2-2.stdout",
+        "structural-optimal-2-2.stderr"
+      ],
+      "status": "NO_PAIR_DIRTY_AT_REFERENCE_SIZE",
+      "scope": "Nonempty C4-free targets on2+2 inputs, through4 gates (14 targets); tests circuits of size exactly |E|+tau(E)-1 for an AND true on a target-negative assignment of support<=2.",
+      "limitations": "Historical OPTIMAL wording means the cover-reference size; minimum interpretation relies on separate earlier finite lower-bound checks. State memoization preserves truth functions, gate op and OR-reach colours, NOT wiring or lambda structure. The printed Separate bounds violated footer is inert: its flags are never updated, so it is not evidence for separate OR/AND bounds. The3+3 depth7 run does not cover C6 reference size8.",
+      "inputs": [],
+      "args": [
+        "2",
+        "2",
+        "4"
+      ],
+      "completeness": "FINITE_ENUMERATION_WITH_PROPERTY_PRESERVING_SYMMETRY_AND_MINIMUM_PRESERVING_DOMINATION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-2.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-2.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "structural-optimal-2-3",
+      "owner": "structural_proof",
+      "source": "structural-optimal.cpp",
+      "logs": [
+        "structural-optimal-2-3.stdout",
+        "structural-optimal-2-3.stderr"
+      ],
+      "status": "NO_PAIR_DIRTY_AT_REFERENCE_SIZE",
+      "scope": "Nonempty C4-free targets on2+3 inputs, through5 gates (53 targets); tests circuits of size exactly |E|+tau(E)-1 for an AND true on a target-negative assignment of support<=2.",
+      "limitations": "Historical OPTIMAL wording means the cover-reference size; minimum interpretation relies on separate earlier finite lower-bound checks. State memoization preserves truth functions, gate op and OR-reach colours, NOT wiring or lambda structure. The printed Separate bounds violated footer is inert: its flags are never updated, so it is not evidence for separate OR/AND bounds. The3+3 depth7 run does not cover C6 reference size8.",
+      "inputs": [],
+      "args": [
+        "2",
+        "3",
+        "5"
+      ],
+      "completeness": "FINITE_ENUMERATION_WITH_PROPERTY_PRESERVING_SYMMETRY_AND_MINIMUM_PRESERVING_DOMINATION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-3.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-3.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "structural-optimal-2-4",
+      "owner": "structural_proof",
+      "source": "structural-optimal.cpp",
+      "logs": [
+        "structural-optimal-2-4.stdout",
+        "structural-optimal-2-4.stderr"
+      ],
+      "status": "NO_PAIR_DIRTY_AT_REFERENCE_SIZE",
+      "scope": "Nonempty C4-free targets on2+4 inputs, through6 gates (188 targets); tests circuits of size exactly |E|+tau(E)-1 for an AND true on a target-negative assignment of support<=2.",
+      "limitations": "Historical OPTIMAL wording means the cover-reference size; minimum interpretation relies on separate earlier finite lower-bound checks. State memoization preserves truth functions, gate op and OR-reach colours, NOT wiring or lambda structure. The printed Separate bounds violated footer is inert: its flags are never updated, so it is not evidence for separate OR/AND bounds. The3+3 depth7 run does not cover C6 reference size8.",
+      "inputs": [],
+      "args": [
+        "2",
+        "4",
+        "6"
+      ],
+      "completeness": "FINITE_ENUMERATION_WITH_PROPERTY_PRESERVING_SYMMETRY_AND_MINIMUM_PRESERVING_DOMINATION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-4.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-4.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "structural-optimal-3-3",
+      "owner": "structural_proof",
+      "source": "structural-optimal.cpp",
+      "logs": [
+        "structural-optimal-3-3.stdout",
+        "structural-optimal-3-3.stderr"
+      ],
+      "status": "NO_PAIR_DIRTY_AT_REFERENCE_SIZE",
+      "scope": "Nonempty C4-free targets on3+3 inputs, through7 gates (333 targets); tests circuits of size exactly |E|+tau(E)-1 for an AND true on a target-negative assignment of support<=2.",
+      "limitations": "Historical OPTIMAL wording means the cover-reference size; minimum interpretation relies on separate earlier finite lower-bound checks. State memoization preserves truth functions, gate op and OR-reach colours, NOT wiring or lambda structure. The printed Separate bounds violated footer is inert: its flags are never updated, so it is not evidence for separate OR/AND bounds. The3+3 depth7 run does not cover C6 reference size8.",
+      "inputs": [],
+      "args": [
+        "3",
+        "3",
+        "7"
+      ],
+      "completeness": "FINITE_ENUMERATION_WITH_PROPERTY_PRESERVING_SYMMETRY_AND_MINIMUM_PRESERVING_DOMINATION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-3-3.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-3-3.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "structural-optimal-1-5",
+      "owner": "structural_proof",
+      "source": "structural-optimal.cpp",
+      "logs": [
+        "structural-optimal-1-5.stdout",
+        "structural-optimal-1-5.stderr"
+      ],
+      "status": "NO_PAIR_DIRTY_AT_REFERENCE_SIZE",
+      "scope": "Nonempty C4-free targets on1+5 inputs, through5 gates (31 targets); tests circuits of size exactly |E|+tau(E)-1 for an AND true on a target-negative assignment of support<=2.",
+      "limitations": "Historical OPTIMAL wording means the cover-reference size; minimum interpretation relies on separate earlier finite lower-bound checks. State memoization preserves truth functions, gate op and OR-reach colours, NOT wiring or lambda structure. The printed Separate bounds violated footer is inert: its flags are never updated, so it is not evidence for separate OR/AND bounds. The3+3 depth7 run does not cover C6 reference size8.",
+      "inputs": [],
+      "args": [
+        "1",
+        "5",
+        "5"
+      ],
+      "completeness": "FINITE_ENUMERATION_WITH_PROPERTY_PRESERVING_SYMMETRY_AND_MINIMUM_PRESERVING_DOMINATION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-1-5.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-1-5.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "structural-cycle-smt",
+      "owner": "structural_proof",
+      "source": "structural-cycle-smt.py",
+      "logs": [
+        "structural-cycle-smt.stdout",
+        "structural-cycle-smt.stderr"
+      ],
+      "status": "UNSAT",
+      "scope": "C6; full64 rows; T0; at least one pair-dirty AND; every nonoutput gate used; no repeated-input OR",
+      "limitations": "Only the stated finite restricted query is covered; no generic normalization theorem or Lean UNSAT certificate. Minimum-based restrictions need a minimum-circuit premise for broader interpretation. All runs printed OR cap None; or_cap is an unused interface parameter and no OR cap was imposed.",
+      "inputs": [
+        "structural-cycle.smt2"
+      ],
+      "args": [
+        "8",
+        "300000"
+      ],
+      "elapsed_seconds": 182.46290420200012,
+      "timeout_ms": 300000,
+      "completeness": "COMPLETE_FOR_ENCODED_FINITE_QUERY",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-cycle-smt.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-cycle-smt.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-cycle-smt.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-cycle.smt2"
+      ]
+    },
+    {
+      "id": "structural-pendant-smt",
+      "owner": "structural_proof",
+      "source": "structural-pendant-smt.py",
+      "logs": [
+        "structural-pendant-smt.stdout",
+        "structural-pendant-smt.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "C6+pendant; full128 rows; T0; at least one pair-dirty AND; every nonoutput gate used; no repeated-input OR",
+      "limitations": "Only the stated finite restricted query is covered; no generic normalization theorem or Lean UNSAT certificate. Minimum-based restrictions need a minimum-circuit premise for broader interpretation. All runs printed OR cap None; or_cap is an unused interface parameter and no OR cap was imposed.",
+      "inputs": [
+        "structural-pendant.smt2"
+      ],
+      "args": [
+        "9",
+        "300000"
+      ],
+      "elapsed_seconds": 300.0980331139999,
+      "timeout_ms": 300000,
+      "completeness": "INCONCLUSIVE",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-smt.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-smt.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-smt.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant.smt2"
+      ]
+    },
+    {
+      "id": "structural-pendant-normal-smt",
+      "owner": "structural_proof",
+      "source": "structural-pendant-normal-smt.py",
+      "logs": [
+        "structural-pendant-normal-smt.stdout",
+        "structural-pendant-normal-smt.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Same9-gate pendant query, additionally TopForm, every gate true on some positive edge pair, and no later same-function signal dominated by an earlier signal with subset OR-reach colour",
+      "limitations": "Only the stated finite restricted query is covered; no generic normalization theorem or Lean UNSAT certificate. Minimum-based restrictions need a minimum-circuit premise for broader interpretation. All runs printed OR cap None; or_cap is an unused interface parameter and no OR cap was imposed.",
+      "inputs": [
+        "structural-pendant-normal.smt2"
+      ],
+      "args": [
+        "9",
+        "300000"
+      ],
+      "elapsed_seconds": 300.06405612900016,
+      "timeout_ms": 300000,
+      "completeness": "INCONCLUSIVE",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-normal-smt.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal-smt.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal-smt.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal.smt2"
+      ]
+    },
+    {
+      "id": "structural-pendant-pivotal-smt",
+      "owner": "structural_proof",
+      "source": "structural-pendant-pivotal-smt.py",
+      "logs": [
+        "structural-pendant-pivotal-smt.stdout",
+        "structural-pendant-pivotal-smt.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Same strengthened9-gate pendant query, additionally every gate contextually pivotal on a positive edge pair and depth/lex topological gate ordering",
+      "limitations": "Only the stated finite restricted query is covered; no generic normalization theorem or Lean UNSAT certificate. Minimum-based restrictions need a minimum-circuit premise for broader interpretation. All runs printed OR cap None; or_cap is an unused interface parameter and no OR cap was imposed.",
+      "inputs": [
+        "structural-pendant-pivotal.smt2"
+      ],
+      "args": [
+        "9",
+        "300000"
+      ],
+      "elapsed_seconds": 300.0704471849999,
+      "timeout_ms": 300000,
+      "completeness": "INCONCLUSIVE",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-pivotal-smt.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal-smt.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal-smt.stderr"
+      ],
+      "archived_inputs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal.smt2"
+      ]
+    },
+    {
+      "id": "structural-reader-family",
+      "owner": "structural_proof",
+      "source": "structural-reader-family.py",
+      "logs": [
+        "structural-reader-family.stdout",
+        "structural-reader-family.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Constructed examples r=2,3,4,5 on5,7,9,11 inputs with12,26,52,102 gates. Full truth tables, T0, TopForm, and contextual positive-edge pivotality of every gate are checked. One clean output AND exposes2r residual edges; the graph has cover r via a matching and the line-side cover.",
+      "limitations": "These circuits are deliberately nonminimum. They obstruct a constant last-dirty-reader bound that ignores upstream cost/minimum; they are not gap refutations. The finite script does not prove the family for every r.",
+      "inputs": [],
+      "args": [],
+      "completeness": "FOUR_EXPLICIT_CONSTRUCTIONS",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/structural-reader-family.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/structural-reader-family.stdout",
+        "results/orch/lemmas/exploratory-logs/outputs/structural-reader-family.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "semantic-bank-obstruction",
+      "owner": "semantic_support",
+      "source": "semantic-bank-obstruction.py",
+      "logs": [
+        "semantic-bank-obstruction.json",
+        "semantic-bank-obstruction.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Explicit13-gate circuit on7 inputs, full128 rows; C4-free target forest, T0, TopForm, every gate contextually edge-pivotal, and every OR branch contextually essential. Shared payload enters two distinct raw-bank centres.",
+      "limitations": "Nonminimum: a7-gate equivalent exists. Obstructs unconditional per-centre factoring, not the posted statement. JSON is complete stdout, not a separate input file.",
+      "inputs": [],
+      "args": [],
+      "completeness": "ONE_EXPLICIT_NONMINIMUM_CONSTRUCTION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-bank-obstruction.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-bank-obstruction.json",
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-bank-obstruction.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "semantic-cluster-obstruction",
+      "owner": "semantic_support",
+      "source": "semantic-cluster-obstruction.py",
+      "logs": [
+        "semantic-cluster-obstruction.json",
+        "semantic-cluster-obstruction.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Abstract payload construction on19 inputs, using full truth-table bitvectors. C4-free graph; separate negative witnesses; reader-centre union8 versus shared AND ancestors5 plus payload roots2; four OR disagreements. ",
+      "limitations": "Both payloads are edge-INACTIVE. The examples are excluded by constrained-minimum edge activity and are not full candidate circuits/refutations of L-meta-4675. They refute only an aggregate centre charge omitting common-witness/disagreement conditions. JSON is complete stdout.",
+      "inputs": [],
+      "args": [],
+      "completeness": "ONE_EXPLICIT_ABSTRACT_PAYLOAD_CONSTRUCTION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-cluster-obstruction.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-obstruction.json",
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-obstruction.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "semantic-cluster-lambda-obstruction",
+      "owner": "semantic_support",
+      "source": "semantic-cluster-lambda-obstruction.py",
+      "logs": [
+        "semantic-cluster-lambda-obstruction.json",
+        "semantic-cluster-lambda-obstruction.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Abstract payload construction on23 inputs, using full truth-table bitvectors. C4-free graph; separate negative witnesses; reader-centre union8 versus shared AND ancestors5 plus payload roots2; four OR disagreements. Each raw bank also has a unique owner centre.",
+      "limitations": "Both payloads are edge-INACTIVE. The examples are excluded by constrained-minimum edge activity and are not full candidate circuits/refutations of L-meta-4675. They refute only an aggregate centre charge omitting common-witness/disagreement conditions. JSON is complete stdout.",
+      "inputs": [],
+      "args": [],
+      "completeness": "ONE_EXPLICIT_ABSTRACT_PAYLOAD_CONSTRUCTION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/semantic-cluster-lambda-obstruction.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-lambda-obstruction.json",
+        "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-lambda-obstruction.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "algebraic-residual-eval",
+      "owner": "algebraic_route",
+      "source": "algebraic-residual-eval.py",
+      "logs": [
+        "algebraic-residual-eval.json",
+        "algebraic-residual-eval.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Independent full64-row evaluation of8-gate double-star: T0, TopForm, all gates active on some positive edge pair; exact c=0,j=1,o=4,|U|=3,tau(U)=2. Residual SUM is5=5; separate tau(U)<=c+j fails2<=1.",
+      "limitations": "Nonminimum, not a gap refutation. Earlier o=2/SUM-failure claim was a corrected counting error and is not retained as evidence. Positive-edge activity here is weaker than contextual pivotality. JSON is complete stdout.",
+      "inputs": [],
+      "args": [],
+      "completeness": "ONE_EXPLICIT_NONMINIMUM_CONSTRUCTION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/algebraic-residual-eval.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/algebraic-residual-eval.json",
+        "results/orch/lemmas/exploratory-logs/outputs/algebraic-residual-eval.stderr"
+      ],
+      "archived_inputs": []
+    },
+    {
+      "id": "algebraic-bank-obstruction-eval",
+      "owner": "algebraic_route",
+      "source": "algebraic-bank-obstruction-eval.py",
+      "logs": [
+        "algebraic-bank-obstruction-eval.json",
+        "algebraic-bank-obstruction-eval.stderr"
+      ],
+      "status": "FINITE_ASSERTIONS_COMPLETED",
+      "scope": "Independent full128-row evaluation of semantic13-gate obstruction: c=0,j=4,o=4,|U|=2,tau(U)=2; lambda=largeLam={8,9}, four covered edges, two noncentreless tops, raw slack0. Residual SUM4<=8.",
+      "limitations": "Nonminimum, not a gap refutation. Shows raw slack/per-centre forest choice alone does not solve shared-payload cost. JSON is complete stdout.",
+      "inputs": [],
+      "args": [],
+      "completeness": "ONE_EXPLICIT_NONMINIMUM_CONSTRUCTION",
+      "source_snapshot": "results/orch/lemmas/exploratory-logs/sources/algebraic-bank-obstruction-eval.py",
+      "archived_logs": [
+        "results/orch/lemmas/exploratory-logs/outputs/algebraic-bank-obstruction-eval.json",
+        "results/orch/lemmas/exploratory-logs/outputs/algebraic-bank-obstruction-eval.stderr"
+      ],
+      "archived_inputs": []
+    }
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree.py",
+      "origin_path": "results/orch/lemmas/semantic-orfree.py",
+      "bytes": 5215,
+      "sha256": "9847f107d028bdf6de240d958c8664e705c9a53ff8a749707ab24a57a27b5eac",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-four.stdout",
+      "bytes": 120,
+      "sha256": "07e6286d74e8f4225932465bb924e2e92bda76703f974d647f0c96abc4b8c928",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-four.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-four.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-four.smt2",
+      "bytes": 7976,
+      "sha256": "3e3ece71ea93512a65b3ab508b14c5e6ddcab556fcd22f27f249a6e1274d1e9b",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-validation.stdout",
+      "bytes": 250,
+      "sha256": "ea8f4cf066c4ce68fa294dda64b11e5d326cb187e93ba6b2c1af5b9a8fb447a4",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-validation.smt2",
+      "bytes": 12191,
+      "sha256": "de61b241ba9807ffe9bd14222ac71b5fcbcb1c3390be14a0705569f69fbdf173",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c6-validation.model",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c6-validation.model",
+      "bytes": 1433,
+      "sha256": "77ed4648514dec35d8f85e81d122adb1802841ca0b011aad261a1491d5f88453",
+      "kind": "complete_solver_model"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-fano.py",
+      "origin_path": "results/orch/lemmas/semantic-orfree-fano.py",
+      "bytes": 7006,
+      "sha256": "e8a6d8aa5f0efe3c5f2ef1abe8f1d563870e7fccdc6b075cadb2725c5363f8d0",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-nineteen.stdout",
+      "bytes": 137,
+      "sha256": "c7733b147b3d7d7fd9d5864d341dd659802ff79b0f95a59bdf8ebe55483c70df",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-nineteen.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-nineteen.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-nineteen.smt2",
+      "bytes": 103654,
+      "sha256": "3e9e1922ae2c2f9741d08280543f37e225c89087e559e8d7d9c011b9bce5d198",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-validation.stdout",
+      "bytes": 492,
+      "sha256": "84294f4441e4b8e5e43010fedfb6e1e3550b605639cd7ff3301f3621116e34c5",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-validation.smt2",
+      "bytes": 133663,
+      "sha256": "1acc7391dfc05f626fbdfcd84ae5545fc021d9a6309d1e6e6798c6da7f9cd39b",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-fano-validation.model",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-fano-validation.model",
+      "bytes": 16637,
+      "sha256": "258406bb590c3e45328c22d4780cf50f1e93121240efe6877542619374b3f1f6",
+      "kind": "complete_solver_model"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-orfree-small.py",
+      "origin_path": "results/orch/lemmas/semantic-orfree-small.py",
+      "bytes": 6761,
+      "sha256": "4d3080048b67ab9865086bbe7a70992a13654e810104b00b305496054e9cffdf",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-five.stdout",
+      "bytes": 98,
+      "sha256": "9d463c816ca9be7d79d68d49bf47514695c11a02d34b8509d2b54d9953468518",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-five.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-five.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-five.smt2",
+      "bytes": 11506,
+      "sha256": "0bf0119d122809196c7faed7f8dd6e20c6f21418e07251c3a3df5852bf5ca621",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-validation.stdout",
+      "bytes": 261,
+      "sha256": "e2a8ab81017b2164b582ee9f63323998715320166bfb730592cfa672f6486349",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-validation.smt2",
+      "bytes": 16936,
+      "sha256": "9dbce18864d377fd0dfa5437641e15d546893cb37706196dd1b5c3bb8e9288d1",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-pendant-validation.model",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-pendant-validation.model",
+      "bytes": 2009,
+      "sha256": "28331e8814de666f487224d10c43f652c536e6ddbf37007f08b4f1535bba1f6f",
+      "kind": "complete_solver_model"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-six.stdout",
+      "bytes": 91,
+      "sha256": "f684246fb5114f72d35efc0a2af72c8a771f3c154218c8bc3c1ac6128ffa7adb",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-six.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-six.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-six.smt2",
+      "bytes": 15725,
+      "sha256": "86665af5c2eb89d10a286481fde463d46abf7490fda31604b4a687c051fdcaaa",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-validation.stdout",
+      "bytes": 270,
+      "sha256": "9cdbeb9df6a2fbf7dbec0376dc7d5dfde6bc8016fc2911b3ef6d395ec4126e86",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-validation.smt2",
+      "bytes": 22527,
+      "sha256": "1fef1c35c4fe7fa2769c2400504130f807178cc194605a0dabb93648e4865301",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/orfree-c8-validation.model",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/orfree-c8-validation.model",
+      "bytes": 2692,
+      "sha256": "23da9e71a7ac0b94fb1d9eb22ec3923962d3af0dce575873e5126e1a9473b7fb",
+      "kind": "complete_solver_model"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-optimal.cpp",
+      "origin_path": "results/orch/lemmas/structural-optimal.cpp",
+      "bytes": 5338,
+      "sha256": "a31bfe6927c5e8c3358290e2a28e7c50c5cc81ad1bada74788133a7b1c6e7377",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-2.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-2.stdout",
+      "bytes": 300,
+      "sha256": "55da4c7bff6ee3df48ab132866020073a17d5c16dc3c8c9f1de6a3808b80e65c",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-2.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-3.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-3.stdout",
+      "bytes": 326,
+      "sha256": "b61a95d4be1ba02c264a3686332fadf3321137aa61d2c4d6942d8f1445833176",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-3.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-4.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-4.stdout",
+      "bytes": 354,
+      "sha256": "750b283e09062b89a5248d4834833f53bada7aea37b8470c613cc89bda501e6e",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-2-4.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-2-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-3-3.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-3-3.stdout",
+      "bytes": 380,
+      "sha256": "c012d1abd0baa9eed4de5cdc60daefde0d2331566e02390dd30971717828c440",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-3-3.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-3-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-1-5.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-1-5.stdout",
+      "bytes": 327,
+      "sha256": "c856936b9bf77f074b055661aa036907670cd373b57c558d37b8f6b24b57040a",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal-1-5.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal-1-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-cycle-smt.py",
+      "origin_path": "results/orch/lemmas/structural-cycle-smt.py",
+      "bytes": 4218,
+      "sha256": "db35c3e3a0ac260be0926354f10bccd3bbe937e93a2adf3d863527472d8679c4",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-cycle-smt.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-cycle-smt.stdout",
+      "bytes": 90,
+      "sha256": "b02b5af3772e8bd687c304806d18e50c2bda032d613e3d9a0a0e5135fa366f79",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-cycle-smt.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-cycle-smt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-cycle.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-cycle.smt2",
+      "bytes": 14045,
+      "sha256": "a3da04d54ad167f42632908d285c8e0d90ef00f0de127d565c88e95a191b1173",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-smt.py",
+      "origin_path": "results/orch/lemmas/structural-pendant-smt.py",
+      "bytes": 4232,
+      "sha256": "45d9aa49c15aa1ffd19a52735741e70feeff86898341ab29071717bd8a6b04f3",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-smt.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-smt.stdout",
+      "bytes": 91,
+      "sha256": "9dd7c5447418fdc67ec28499e5b05ecfc23cf13f5ed6f8c7dbdd8381a3a512ab",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-smt.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-smt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant.smt2",
+      "bytes": 17788,
+      "sha256": "e81a6c4be80940adb6eb5d992886eef062bd04157ee69e33e707ea8304de71cf",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-normal-smt.py",
+      "origin_path": "results/orch/lemmas/structural-pendant-normal-smt.py",
+      "bytes": 5127,
+      "sha256": "bf291c0721a634a46a10604fce1748421bc7d5d3d67c81042e19960c1aec1bc2",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal-smt.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-normal-smt.stdout",
+      "bytes": 92,
+      "sha256": "877e878315a6e581f3fde5abf130619bcce0b9f6c38c88a06cb37df4b1acdcee",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal-smt.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-normal-smt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-normal.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-normal.smt2",
+      "bytes": 35562,
+      "sha256": "fd3b85c7de2f5b291671085fdce2285a17aeae1911bdd69c207d808d76aae49f",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-pendant-pivotal-smt.py",
+      "origin_path": "results/orch/lemmas/structural-pendant-pivotal-smt.py",
+      "bytes": 6540,
+      "sha256": "33bb8170f72795684f0f46ffc42ab217643e80e11c205ae36b87603cb95f3e5e",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal-smt.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-pivotal-smt.stdout",
+      "bytes": 92,
+      "sha256": "35f623fd0f6e605188d49d6cc39c1cc1127522cd0346593ba2e43c85126cca35",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal-smt.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-pivotal-smt.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-pendant-pivotal.smt2",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-pendant-pivotal.smt2",
+      "bytes": 133895,
+      "sha256": "80145826d2769df858aa42f10d96cef61a052703d32a3ba35b85bb1413374f0b",
+      "kind": "exact_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/structural-reader-family.py",
+      "origin_path": "results/orch/lemmas/structural-reader-family.py",
+      "bytes": 3051,
+      "sha256": "e73a0008782f1a16a84acc54073f9e0cae40ed5eeed88df29b63533d216e486f",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-reader-family.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-reader-family.stdout",
+      "bytes": 924,
+      "sha256": "246dda638bcf9f1dfe967cdcee577be848ec62e5fcfdf66928d70f952f0683ab",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-reader-family.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-reader-family.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-bank-obstruction.py",
+      "origin_path": "results/orch/lemmas/semantic-bank-obstruction.py",
+      "bytes": 3526,
+      "sha256": "2cbe3acb1163c475f88c2132d7402fa3c26dfb7f134dccbca711776ab9bd08e2",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-bank-obstruction.json",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-bank-obstruction.json",
+      "bytes": 4238,
+      "sha256": "b51b1332e46a6d3bc3b20022af3134e26221e13c7c3c759c7a87bf7f264d2635",
+      "kind": "complete_original_stdout_json"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-bank-obstruction.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-bank-obstruction.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-cluster-obstruction.py",
+      "origin_path": "results/orch/lemmas/semantic-cluster-obstruction.py",
+      "bytes": 1887,
+      "sha256": "39cd3036d3c86ed10659acde787299d5b60111be0c9a8e474a501074a9e1e091",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-obstruction.json",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-cluster-obstruction.json",
+      "bytes": 1507,
+      "sha256": "5dc72457c8a39c61e3b5bf3f0431079d141618f11656999135fde596ab2a90ef",
+      "kind": "complete_original_stdout_json"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-obstruction.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-cluster-obstruction.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/semantic-cluster-lambda-obstruction.py",
+      "origin_path": "results/orch/lemmas/semantic-cluster-lambda-obstruction.py",
+      "bytes": 2165,
+      "sha256": "402e582578283e78c589a30cedadf9498b45472886248d9cfe54a5c303d14ac7",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-lambda-obstruction.json",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-cluster-lambda-obstruction.json",
+      "bytes": 2014,
+      "sha256": "54860e78d1303ac2ee6ce19953977740b5b1b71fa8b743494e21f4e01593891d",
+      "kind": "complete_original_stdout_json"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/semantic-cluster-lambda-obstruction.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/semantic-cluster-lambda-obstruction.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/algebraic-residual-eval.py",
+      "origin_path": "results/orch/lemmas/algebraic-residual-eval.py",
+      "bytes": 2508,
+      "sha256": "a605991b9713f3bbdab9d6b3fbd480c8dd4c6c962c08f06d734b86b24da77ea0",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/algebraic-residual-eval.json",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-eval.json",
+      "bytes": 902,
+      "sha256": "8f1ab94fe984c89a18a495ecf1ea50b357f5919cac4b5d11d65370fdcc75b1e9",
+      "kind": "complete_original_stdout_json"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/algebraic-residual-eval.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/algebraic-residual-eval.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/sources/algebraic-bank-obstruction-eval.py",
+      "origin_path": "results/orch/lemmas/algebraic-bank-obstruction-eval.py",
+      "bytes": 2993,
+      "sha256": "d65114fb332cfb66b65e2f0a918fe78cd3bad6d717435f31ee7167ec53df0137",
+      "kind": "complete_source_snapshot"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/algebraic-bank-obstruction-eval.json",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/algebraic-bank-obstruction-eval.json",
+      "bytes": 1472,
+      "sha256": "b50be1c0d877e37d1e650deb2362e3593dc6bf488bbba24836a6e59d689e9939",
+      "kind": "complete_original_stdout_json"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/algebraic-bank-obstruction-eval.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/algebraic-bank-obstruction-eval.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal.compile.stdout",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal.compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_compiler_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-logs/outputs/structural-optimal.compile.stderr",
+      "origin_path": "/tmp/oec/pequalnp-pilot-163/structural-optimal.compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_compiler_log"
+    },
+    {
+      "path": "results/orch/lemmas/exploratory-manifest.md",
+      "origin_path": null,
+      "bytes": 2931,
+      "sha256": "a791a92d59a13675d5464f1d02481dfa7795fd93a963b86ac715e0bd6897ce96",
+      "kind": "human_readable_manifest"
+    }
+  ]
+}
