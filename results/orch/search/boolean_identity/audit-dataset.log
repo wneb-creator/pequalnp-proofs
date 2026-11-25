@@ -1,0 +1,11 @@
+finished-log totals PASS 131399 2259
+control metadata PASS direct65-control.json gates 65 nonread [[6, 23]]
+control metadata PASS best-76131.json gates 64 nonread []
+q3 boundary and 65-gate seed replay PASS 52 704
+control metadata PASS two-pencil-best-48.json gates 48 nonread [[2, 18], [3, 18], [16, 18]]
+control metadata PASS two-pencil-best-49.json gates 49 nonread [[0, 18], [0, 22], [4, 22], [8, 22], [12, 22], [17, 22]]
+q4 two-pencil boundary and embedding PASS 40 228 +78 canonical 47 -> 125
+control metadata PASS affine-best-45.json gates 45 nonread [[2, 15]]
+control metadata PASS affine-best-eligible.json gates 46 nonread []
+q3 affine boundary and embedding PASS 36 197 +20 canonical 44 -> 64
+DATASET AUDIT PASS; sampled search outcomes are not lower bounds

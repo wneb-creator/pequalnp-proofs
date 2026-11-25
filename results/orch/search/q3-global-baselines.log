@@ -1,0 +1,1 @@
+{"candidates": 16, "violating": 0, "best": {"trial": 1, "round": 0, "false_boundaries": 523, "missing_rows": [0, 2, 5, 9, 10], "missing_columns": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "row_pencil": false, "column_line": false, "violates_proposed_necessary_filter": false}}

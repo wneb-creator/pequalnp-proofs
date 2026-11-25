@@ -1,0 +1,1 @@
+PASS independent scalar audit: module45 all36 edges and512 canonical negatives; embedded65 all52 edges and8192 canonical negatives; every gate is binary backward AO.

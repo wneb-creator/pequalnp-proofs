@@ -1,0 +1,40 @@
+{
+  "runs": [
+    {
+      "log": "run.log",
+      "set": "q3 single-wire",
+      "cuts": 74593,
+      "starts": 933,
+      "best": 64,
+      "best_nonread": null
+    },
+    {
+      "log": "joint.log",
+      "set": "q3 joint",
+      "cuts": 18268,
+      "starts": 522,
+      "best": 64,
+      "best_nonread": 65
+    },
+    {
+      "log": "two-pencil.log",
+      "set": "q4 two-pencil",
+      "cuts": 16768,
+      "starts": 350,
+      "best": 47,
+      "best_nonread": 48
+    },
+    {
+      "log": "affine.log",
+      "set": "q3 affine",
+      "cuts": 21770,
+      "starts": 454,
+      "best": 44,
+      "best_nonread": 45
+    }
+  ],
+  "total_cuts": 131399,
+  "total_starts": 2259,
+  "affine_best_present_threshold": 46,
+  "counterexample_found": false
+}

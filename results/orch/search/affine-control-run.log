@@ -1,0 +1,2 @@
+{"query": 0, "status": 10, "seconds": 1.2145637600006012, "log_span": [0, 30487], "variables": 41941, "clauses": 2203140, "seed_details": {"pivot": 5, "hidden_edge": [0, 12], "center_order": [5, 8, 4, 3, 0, 2, 1, 6, 7], "removed": [], "sides": {}}, "positive": 36, "maximal_negative": 197, "singletons": 21, "target_gates": 45, "forced_nonread1_edge": [0, 12], "full_boundary_errors": 0}
+AFFINE POSITIVE CONTROL PASSED

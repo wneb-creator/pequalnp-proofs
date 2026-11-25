@@ -1,0 +1,7 @@
+Census exact reproduction q3k6o1 64
+Census exact reproduction q3k6o2 3
+Residual status automorphisms verified
+Affine line masks [(0, 1), (1, 12), (2, 66), (3, 220), (4, 495), (5, 792), (6, 252)]
+Affine point masks [(0, 1), (1, 9), (2, 36), (3, 84), (4, 126), (5, 126)]
+All bounded checks passed; elapsed seconds 0.406
+Complete archived carrier census reproduced: 13 entries; seconds 5.101

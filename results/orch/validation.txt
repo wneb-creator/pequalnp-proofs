@@ -169,3 +169,21 @@ Initial checkpoint13 push failed GitHub authentication; the installed
 shared helper recovered on its safe read retry and the identical immutable
 commit was then pushed successfully. Existing credentials were unchanged.
 TIMING total=159 subagents=10
+
+Checkpoint 15: independently reviewed mathematical carrier/dominator
+arguments and complete finite diagnostic archives are preserved. They are
+not Lean proofs. Exact rewrite controls and boundaries were independently
+replayed; all four heuristic searches found no saving and establish no
+lower bound. Finished global SAT and its affine positive-control records
+are retained. Root independently verified the affine45/embedded65 control
+on every canonical negative and every positive pair.
+Named proof file remains7090 lines; full statement still unproved.
+Current environment correction: the agent-owned full-cache keeper is now
+a zombie, so its remaining memfd symlinks cannot serve the official checker.
+The ordinary narrow proof cache survives. Earlier checker logs remain valid
+records of their memory failures; no later verdict or current full-cache
+availability is claimed. Resource recovery is being investigated.
+TIMING total=170 subagents=10
+Raw solver logs retain their original trailing whitespace; the staged
+source diff has no whitespace findings. Full diff-check output retained
+in scratch checkpoint15-diff-check.stdout/stderr.
