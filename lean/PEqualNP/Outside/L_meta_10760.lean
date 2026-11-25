@@ -6801,4 +6801,754 @@ lemma runFromGuardFirst_reject (threshold : Nat) (admissible : Nat → State →
 
 end PNMemo
 
+
+namespace PNMasks
+
+def lowMasks : List Nat := [
+  59923104495410530257643506359634157787265899298076885757810027052577558601833654377569492440802512007040037959957131119219596589604805540830949143546491374792589297808288495092100739867082031373151027650695001922946050227447487627157971036846942412387783503561528766079982415312826572101611785443208074712405,
+  35953862697246318154586103815780494672359539578846131454686016231546535161100192626541695464481507204224022775974278671531757953762883324498569486127894824875553578684973097055260443920249218823890616590417001153767630136468492576294782622108165447432670102136917259647989449187695943260967071265924844827443,
+  10574665499190093574878265828170733727164570464366509251378240068101922106205939007806381018965149177712947875286552550450517045224377448381932201802322007316339287848521499133900130564779182007026651938357941515814008863667203698910230182972989837480197088863799194014114543878734100959107962137036719066895,
+  699491492164325255925799685131916238761858746670158199507510043415302240488330595847114697752558505918755306925569623959761827894219519931878783776807292312753960674804924067222965835024303868169078143782431929061627045456585458682777872025450689638767900819784382483423919244896808234649164810621105930495,
+  2743020179230535281946541939345750848555742525508196244463891865018732560317087494586393599377565894397365059124943060525486210366883083181910179450378780297812958991483673120165741788626975511839923752263378027203536180819116878732226270817108308850929253867045887029310881577406346282326553799069597695,
+  41855804958468253215416862131907979778454107725009450118155365586182407620204276291770907358880301160328046586258184810029483623519757063820280685745923183539846145986816692000600865017772938381340388341514537443249396336985068988168808660090905282896115730467361995897392102061092763730264872452095,
+  9745314011399999079825087856739523064552525976596965881551925397018201298194122315297074087275581256833590487601395744005744951780045343217449061696331431509203394542567385587901876228620663761300800549174547043425925390537456083938846363324592488964804017437595582105683670264434074320895,
+  528294531135665246352339784916516606517294807943820813192811729538211400001472535897918181471736777028254044331895631613250787768007518677792952317086889741124906620767309129894662251090542585738100845990744019557890744873615362666431441255911497635040213580733791338495,
+  1552518092300708935148979488462502555256886017116696611139052038026050952686363478522948466231546903925489524851003593840350987650737090830000565511011107708019742339038878425693560262461319812044393910951468561638530421117939613695,
+  13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095]
+
+def lowMask (i : Nat) : Nat := lowMasks[i]?.getD 0
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma lowMask_bits : ∀ (i : Fin 10) (x : Fin 1024),
+    (lowMask i.val).testBit x.val = !(x.val.testBit i.val) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+lemma lowMask_bound : ∀ i : Fin 10, lowMask i.val < 2^1024 := by
+  decide
+
+end PNMasks
+
+namespace PNPlanes
+
+def allPatterns : Nat := 2^1024 - 1
+
+def highMask (i : Nat) : Nat := PNMasks.lowMask i <<< (1 <<< i)
+
+set_option maxRecDepth 10000 in
+lemma highMask_eq : ∀ i : Fin 10,
+    highMask i.val = allPatterns ^^^ PNMasks.lowMask i.val := by
+  decide +kernel
+
+lemma highMask_bits (i : Fin 10) (x : Fin 1024) :
+    (highMask i.val).testBit x.val = x.val.testBit i.val := by
+  rw [highMask_eq i]
+  simp [Nat.testBit_xor, allPatterns, x.isLt, PNMasks.lowMask_bits]
+
+end PNPlanes
+
+namespace PNGraphEdges
+
+def phaseMask (i : Nat) (b : Bool) : Nat :=
+  if b then PNPlanes.highMask i else PNMasks.lowMask i
+
+lemma phaseMask_bits (i : Fin 10) (x : Fin 1024) (b : Bool) :
+    (phaseMask i.val b).testBit x.val = (x.val.testBit i.val == b) := by
+  cases b <;> simp [phaseMask, PNPlanes.highMask_bits, PNMasks.lowMask_bits]
+
+lemma bit_bound {S x : Nat} (hS : S < 2^1024) (hbit : S.testBit x = true) :
+    x < 1024 := by
+  by_contra h
+  have hp : 2^1024 ≤ 2^x := Nat.pow_le_pow_right (by decide) (by omega)
+  have hf := Nat.testBit_lt_two_pow (show S < 2^x by omega)
+  simp only [hbit] at hf
+  exact Bool.noConfusion hf
+
+def maskWitness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Nat) : Prop :=
+  ∃ p q,
+    (P &&& flip i N).testBit p = true ∧ (P &&& flip j N).testBit p = true ∧
+    (N &&& flip i P).testBit q = true ∧ (N &&& flip j P).testBit q = true ∧
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j
+
+lemma quadrant_witness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Fin 10)
+    (hP : P < 2^1024) (hN : N < 2^1024) (a b : Bool)
+    (hp : ((P &&& flip i.val N) &&& (P &&& flip j.val N)) &&&
+      phaseMask i.val a &&& phaseMask j.val b ≠ 0)
+    (hq : ((N &&& flip i.val P) &&& (N &&& flip j.val P)) &&&
+      phaseMask i.val (!a) &&& phaseMask j.val (!b) ≠ 0) :
+    maskWitness P N flip i.val j.val := by
+  obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hp
+  obtain ⟨q, hq⟩ := Nat.exists_testBit_of_ne_zero hq
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hp hq
+  have pb := bit_bound hP hp.1.1.1.1
+  have qb := bit_bound hN hq.1.1.1.1
+  have pa := hp.1.2
+  have pbb := hp.2
+  have qa := hq.1.2
+  have qbb := hq.2
+  rw [phaseMask_bits i ⟨p,pb⟩ a] at pa
+  rw [phaseMask_bits j ⟨p,pb⟩ b] at pbb
+  rw [phaseMask_bits i ⟨q,qb⟩ (!a)] at qa
+  rw [phaseMask_bits j ⟨q,qb⟩ (!b)] at qbb
+  simp only [beq_iff_eq] at pa pbb qa qbb
+  refine ⟨p,q,?_,?_,?_,?_,?_,?_⟩
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hp.1.1.1
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hp.1.1.2
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hq.1.1.1
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hq.1.1.2
+  · rw [pa, qa]; cases a <;> decide
+  · rw [pbb, qbb]; cases b <;> decide
+
+def vertex (P N : Nat) (flip : Nat → Nat → Nat) (i : Nat) :
+    Nat × Nat × Nat × Nat × Nat :=
+  (i,PNMasks.lowMask i,PNPlanes.highMask i,P &&& flip i N,N &&& flip i P)
+
+def edgeBoolFast (vi vj : Nat × Nat × Nat × Nat × Nat) : Bool :=
+  let (_,li,hi,pi,ni) := vi
+  let (_,lj,hj,pj,nj) := vj
+  let cp := pi &&& pj
+  let cn := ni &&& nj
+  (!(cp &&& li &&& lj == 0) && !(cn &&& hi &&& hj == 0)) ||
+  (!(cp &&& hi &&& lj == 0) && !(cn &&& li &&& hj == 0)) ||
+  (!(cp &&& li &&& hj == 0) && !(cn &&& hi &&& lj == 0)) ||
+  (!(cp &&& hi &&& hj == 0) && !(cn &&& li &&& lj == 0))
+
+lemma edgeBoolFast_witness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Fin 10)
+    (hP : P < 2^1024) (hN : N < 2^1024)
+    (h : edgeBoolFast (vertex P N flip i.val) (vertex P N flip j.val) = true) :
+    maskWitness P N flip i.val j.val := by
+  simp only [edgeBoolFast, vertex, Bool.or_eq_true, Bool.and_eq_true,
+    Bool.not_eq_true', beq_eq_false_iff_ne] at h
+  rcases h with ((⟨hp,hq⟩ | ⟨hp,hq⟩) | ⟨hp,hq⟩) | ⟨hp,hq⟩
+  · exact quadrant_witness P N flip i j hP hN false false hp hq
+  · exact quadrant_witness P N flip i j hP hN true false hp hq
+  · exact quadrant_witness P N flip i j hP hN false true hp hq
+  · exact quadrant_witness P N flip i j hP hN true true hp hq
+
+end PNGraphEdges
+
+namespace PnProjection
+
+lemma lowMask_getBang : ∀ i : Fin 10,
+    PNMasks.lowMask i.val = PNMasks.lowMasks[i.val]! := by
+  decide
+
+end PnProjection
+
+namespace NatFlip
+
+lemma xor_pow_of_testBit_false {r i : Nat} (hr : r.testBit i = false) :
+    r ^^^ 2 ^ i = r + 2 ^ i := by
+  have hpow : 0 < 2 ^ i := Nat.two_pow_pos i
+  have hbit : (r / 2 ^ i).testBit 0 = false := by
+    simpa only [Nat.testBit_div_two_pow, Nat.zero_add] using hr
+  have heven : Even (r / 2 ^ i) :=
+    Nat.even_iff.mpr (Nat.mod_two_eq_zero_iff_testBit_zero.mpr hbit)
+  have hdiv : (r ^^^ 2 ^ i) / 2 ^ i = r / 2 ^ i + 1 := by
+    rw [Nat.xor_div_two_pow, Nat.div_self hpow, Nat.xor_one_of_even heven]
+  have hmod : (r ^^^ 2 ^ i) % 2 ^ i = r % 2 ^ i := by
+    rw [Nat.xor_mod_two_pow, Nat.mod_self, Nat.xor_zero]
+  calc
+    r ^^^ 2 ^ i = (r ^^^ 2 ^ i) % 2 ^ i + 2 ^ i * ((r ^^^ 2 ^ i) / 2 ^ i) :=
+      (Nat.mod_add_div _ _).symm
+    _ = r % 2 ^ i + 2 ^ i * (r / 2 ^ i + 1) := by rw [hmod, hdiv]
+    _ = r + 2 ^ i := by
+      rw [Nat.mul_add, Nat.mul_one, ← Nat.add_assoc, Nat.mod_add_div]
+
+lemma xor_pow_of_testBit_true {r i : Nat} (hr : r.testBit i = true) :
+    r ^^^ 2 ^ i = r - 2 ^ i := by
+  have hbit : (r ^^^ 2 ^ i).testBit i = false := by
+    simp [Nat.testBit_xor, hr]
+  have h := xor_pow_of_testBit_false hbit
+  rw [Nat.xor_xor_cancel_right] at h
+  omega
+
+lemma testBit_sub_pow {r i : Nat} (h : 2 ^ i ≤ r) :
+    (r - 2 ^ i).testBit i = !r.testBit i := by
+  have hflip := Nat.testBit_two_pow_add_eq (r - 2 ^ i) i
+  rw [Nat.add_sub_of_le h] at hflip
+  simpa using (congrArg Bool.not hflip).symm
+
+def flipCoordinate (B mask i : Nat) : Nat :=
+  ((B &&& mask) <<< (2 ^ i)) ||| ((B >>> (2 ^ i)) &&& mask)
+
+lemma flipCoordinate_testBit (B mask i N r : Nat)
+    (hmask : ∀ t < N, mask.testBit t = !t.testBit i)
+    (hr : r < N) :
+    (flipCoordinate B mask i).testBit r = B.testBit (r ^^^ 2 ^ i) := by
+  simp only [flipCoordinate, Nat.testBit_or, Nat.testBit_shiftLeft,
+    Nat.testBit_shiftRight, Nat.testBit_and]
+  have hm := hmask r hr
+  cases hbit : r.testBit i with
+  | false =>
+    rw [xor_pow_of_testBit_false hbit]
+    by_cases hle : 2 ^ i ≤ r
+    · have hs : r - 2 ^ i < N := (Nat.sub_le r _).trans_lt hr
+      have hms := hmask (r - 2 ^ i) hs
+      have hsub := testBit_sub_pow hle
+      simp [hle, hm, hms, hsub, hbit, Nat.add_comm]
+    · simp [hle, hm, hbit, Nat.add_comm]
+  | true =>
+    rw [xor_pow_of_testBit_true hbit]
+    have hle : 2 ^ i ≤ r := Nat.ge_two_pow_of_testBit hbit
+    have hs : r - 2 ^ i < N := (Nat.sub_le r _).trans_lt hr
+    have hms := hmask (r - 2 ^ i) hs
+    have hsub := testBit_sub_pow hle
+    simp [hle, hm, hms, hsub, hbit]
+
+lemma flipCoordinate_testBit_of_mask (B mask m i r : Nat)
+    (hmask : ∀ t, mask.testBit t = decide (t < 2 ^ m ∧ t.testBit i = false))
+    (hr : r < 2 ^ m) :
+    (flipCoordinate B mask i).testBit r = B.testBit (r ^^^ 2 ^ i) := by
+  apply flipCoordinate_testBit B mask i (2 ^ m) r ?_ hr
+  intro t ht
+  simp [hmask, ht]
+
+end NatFlip
+
+namespace PNFlip
+
+def flipPatternBits (i B : Nat) : Nat :=
+  let mask := PNMasks.lowMasks[i]!
+  let shift := 1 <<< i
+  ((B &&& mask) <<< shift) ||| ((B >>> shift) &&& mask)
+
+lemma flipPatternBits_testBit (i : Fin 10) (r : Fin 1024) (B : Nat) :
+    (flipPatternBits i.val B).testBit r.val = B.testBit (r.val ^^^ 2^i.val) := by
+  unfold flipPatternBits
+  rw [← PnProjection.lowMask_getBang i, Nat.one_shiftLeft]
+  apply NatFlip.flipCoordinate_testBit B (PNMasks.lowMask i.val) i.val 1024 r.val ?_ r.isLt
+  intro t ht
+  exact PNMasks.lowMask_bits i ⟨t,ht⟩
+
+lemma flipPatternBits_testBit_bounded {m i r : Nat} (hm : m ≤ 10) (hi : i < m)
+    (hr : r < 2^m) (B : Nat) :
+    (flipPatternBits i B).testBit r = B.testBit (r ^^^ 2^i) := by
+  have hi10 : i < 10 := by omega
+  have hr1024 : r < 1024 := lt_of_lt_of_le hr
+    (by exact Nat.pow_le_pow_right (by decide) hm)
+  exact flipPatternBits_testBit ⟨i,hi10⟩ ⟨r,hr1024⟩ B
+
+end PNFlip
+
+namespace RootPN1439
+
+def singles {α : Type} : List α → List (α × List α)
+  | [] => []
+  | a :: rest => (a, rest) :: (singles rest).map (fun (b, bs) => (b, a :: bs))
+
+def pairs {α : Type} : List α → List (α × α × List α)
+  | [] => []
+  | a :: rest => (singles rest).map (fun (b, bs) => (a, b, bs)) ++
+      (pairs rest).map (fun (b, c, bs) => (b, c, a :: bs))
+
+lemma singles_perm {α : Type} {ws : List α} {a : α} {rest : List α}
+    (h : (a,rest) ∈ singles ws) : ws.Perm (a :: rest) := by
+  induction ws generalizing a rest with
+  | nil => simp [singles] at h
+  | cons x xs ih =>
+    simp only [singles, List.mem_cons, List.mem_map] at h
+    rcases h with h | ⟨⟨b,bs⟩,hb,h⟩
+    · cases h
+      exact .refl _
+    · cases h
+      exact (ih hb).cons x |>.trans (.swap _ _ _)
+
+lemma pairs_perm {α : Type} {ws : List α} {a b : α} {rest : List α}
+    (h : (a,b,rest) ∈ pairs ws) : ws.Perm (a :: b :: rest) := by
+  induction ws generalizing a b rest with
+  | nil => simp [pairs] at h
+  | cons x xs ih =>
+    simp only [pairs, List.mem_append, List.mem_map] at h
+    rcases h with ⟨⟨y,ys⟩,hy,h⟩ | ⟨⟨y,z,zs⟩,hz,h⟩
+    · cases h
+      exact (singles_perm hy).cons x
+    · cases h
+      exact (ih hz).cons x |>.trans ((List.Perm.swap _ _ _).trans ((List.Perm.swap _ _ _).cons _))
+
+lemma pairs_members {α : Type} {ws : List α} {a b : α} {rest : List α}
+    (h : (a,b,rest) ∈ pairs ws) : a ∈ ws ∧ b ∈ ws := by
+  have hp := pairs_perm h
+  exact ⟨hp.mem_iff.mpr (by simp), hp.mem_iff.mpr (by simp)⟩
+
+lemma pairs_key_ne {α β : Type} {ws : List α} (key : α → β)
+    (hn : (ws.map key).Nodup) {a b : α} {rest : List α}
+    (h : (a,b,rest) ∈ pairs ws) : key a ≠ key b := by
+  have hp := (pairs_perm h).map key
+  have hn' : (key a :: key b :: rest.map key).Nodup := hp.nodup_iff.mp hn
+  exact fun he => (List.nodup_cons.mp hn').1 (by simp [he])
+
+def adjacencyMask (es : List (Nat × Nat)) (i : Nat) : Nat :=
+  es.foldl (fun mask (a,b) =>
+    if a == i then mask ||| (1 <<< b)
+    else if b == i then mask ||| (1 <<< a) else mask) 0
+
+lemma adjacency_step_bit (mask a b i j : Nat) :
+    (if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask).testBit j =
+    (mask.testBit j || decide ((a = i ∧ b = j) ∨ (b = i ∧ a = j))) := by
+  by_cases ha : a = i <;> by_cases hb : b = i <;>
+    simp [ha, hb, Nat.testBit_or, Nat.one_shiftLeft, Nat.testBit_two_pow]
+
+lemma adjacency_fold_bit (es : List (Nat × Nat)) (i j mask : Nat) :
+    (es.foldl (fun acc (a,b) =>
+      if a == i then acc ||| (1 <<< b)
+      else if b == i then acc ||| (1 <<< a) else acc) mask).testBit j =
+    (mask.testBit j || es.any (fun (a,b) => decide ((a = i ∧ b = j) ∨ (b = i ∧ a = j)))) := by
+  induction es generalizing mask with
+  | nil => simp
+  | cons e es ih =>
+    rcases e with ⟨a,b⟩
+    rw [List.foldl_cons, ih, adjacency_step_bit]
+    simp only [List.any_cons, Bool.or_assoc]
+
+lemma adjacencyMask_bit (es : List (Nat × Nat)) (i j : Nat) :
+    (adjacencyMask es i).testBit j = true ↔
+    ∃ a b, (a,b) ∈ es ∧ ((a = i ∧ b = j) ∨ (b = i ∧ a = j)) := by
+  rw [adjacencyMask, adjacency_fold_bit]
+  simp [List.any_eq_true]
+
+
+def edgeList {α : Type} (vertices : List α) (key : α → Nat)
+    (edge : α → α → Bool) : List (Nat × Nat) :=
+  (pairs vertices).filterMap fun (a,b,_) =>
+    if edge a b then some (key a,key b) else none
+
+def graphFrom {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) : List (Nat × Nat) :=
+  let es := edgeList ((List.range n).map vertex) key edge
+  (List.range n).map fun i => (i, adjacencyMask es i)
+
+def hasEdgeFrom {α : Type} (n : Nat) (vertex : Nat → α)
+    (edge : α → α → Bool) : Bool :=
+  (pairs ((List.range n).map vertex)).any fun (a,b,_) => edge a b
+
+lemma vertex_mem {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (hk : ∀ i, i < n → key (vertex i) = i) {v : α}
+    (hv : v ∈ (List.range n).map vertex) : key v < n ∧ v = vertex (key v) := by
+  obtain ⟨i,hi,rfl⟩ := List.mem_map.mp hv
+  have hi' := List.mem_range.mp hi
+  rw [hk i hi']
+  exact ⟨hi',rfl⟩
+
+lemma vertices_keys {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (hk : ∀ i, i < n → key (vertex i) = i) :
+    (((List.range n).map vertex).map key) = List.range n := by
+  rw [List.map_map]
+  calc
+    (List.range n).map (key ∘ vertex) = (List.range n).map id := by
+      apply List.map_congr_left
+      intro i hi
+      exact hk i (List.mem_range.mp hi)
+    _ = _ := List.map_id _
+
+lemma pair_vertices {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (hk : ∀ i, i < n → key (vertex i) = i) {a b : α} {rest : List α}
+    (h : (a,b,rest) ∈ pairs ((List.range n).map vertex)) :
+    key a < n ∧ key b < n ∧ key a ≠ key b ∧
+      a = vertex (key a) ∧ b = vertex (key b) := by
+  have hm := pairs_members h
+  have ha := vertex_mem n vertex key hk hm.1
+  have hb := vertex_mem n vertex key hk hm.2
+  have hn : (((List.range n).map vertex).map key).Nodup := by
+    rw [vertices_keys n vertex key hk]
+    exact List.nodup_range
+  exact ⟨ha.1,hb.1,pairs_key_ne key hn h,ha.2,hb.2⟩
+
+lemma edgeList_mem {α : Type} (vertices : List α) (key : α → Nat)
+    (edge : α → α → Bool) {i j : Nat} (h : (i,j) ∈ edgeList vertices key edge) :
+    ∃ a b rest, (a,b,rest) ∈ pairs vertices ∧ edge a b = true ∧ key a = i ∧ key b = j := by
+  obtain ⟨⟨a,b,rest⟩,hp,he⟩ := List.mem_filterMap.mp h
+  dsimp only at he
+  split at he
+  · next hedge =>
+    have heq := Option.some.inj he
+    exact ⟨a,b,rest,hp,hedge,congrArg Prod.fst heq,congrArg Prod.snd heq⟩
+  · contradiction
+
+lemma edgeList_sound {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) (hk : ∀ i, i < n → key (vertex i) = i)
+    {i j : Nat} (h : (i,j) ∈ edgeList ((List.range n).map vertex) key edge) :
+    i < n ∧ j < n ∧ i ≠ j ∧ edge (vertex i) (vertex j) = true := by
+  obtain ⟨a,b,rest,hp,he,ha,hb⟩ := edgeList_mem _ key edge h
+  obtain ⟨hia,hib,hne,hva,hvb⟩ := pair_vertices n vertex key hk hp
+  refine ⟨ha ▸ hia,hb ▸ hib,?_,?_⟩
+  · simpa only [ha,hb] using hne
+  · rw [ha] at hva
+    rw [hb] at hvb
+    simpa only [hva,hvb] using he
+
+lemma graphFrom_length {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) : (graphFrom n vertex key edge).length = n := by
+  simp only [graphFrom,List.length_map,List.length_range]
+
+lemma graphFrom_mem {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) {i adj : Nat} (h : (i,adj) ∈ graphFrom n vertex key edge) :
+    i < n ∧ adj = adjacencyMask (edgeList ((List.range n).map vertex) key edge) i := by
+  obtain ⟨a,ha,he⟩ := List.mem_map.mp h
+  have hai : a = i := congrArg Prod.fst he
+  have hadj := congrArg Prod.snd he
+  subst a
+  exact ⟨List.mem_range.mp ha,hadj.symm⟩
+
+lemma graphFrom_edge {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) (hk : ∀ i, i < n → key (vertex i) = i)
+    {i adj j : Nat} (hm : (i,adj) ∈ graphFrom n vertex key edge)
+    (he : adj.testBit j = true) :
+    i < n ∧ j < n ∧ i ≠ j ∧
+      (edge (vertex i) (vertex j) = true ∨ edge (vertex j) (vertex i) = true) := by
+  obtain ⟨_,hadj⟩ := graphFrom_mem n vertex key edge hm
+  rw [hadj,adjacencyMask_bit] at he
+  obtain ⟨a,b,hab,(⟨ha,hb⟩ | ⟨hb,ha⟩)⟩ := he
+  · obtain ⟨hia,hib,hne,hedge⟩ := edgeList_sound n vertex key edge hk hab
+    subst a; subst b
+    exact ⟨hia,hib,hne,Or.inl hedge⟩
+  · obtain ⟨hia,hib,hne,hedge⟩ := edgeList_sound n vertex key edge hk hab
+    subst a; subst b
+    exact ⟨hib,hia,hne.symm,Or.inr hedge⟩
+
+lemma hasEdgeFrom_witness {α : Type} (n : Nat) (vertex : Nat → α) (key : α → Nat)
+    (edge : α → α → Bool) (hk : ∀ i, i < n → key (vertex i) = i)
+    (h : hasEdgeFrom n vertex edge = true) :
+    ∃ i j, i < n ∧ j < n ∧ i ≠ j ∧ edge (vertex i) (vertex j) = true := by
+  obtain ⟨⟨a,b,rest⟩,hp,he⟩ := List.any_eq_true.mp h
+  obtain ⟨hia,hib,hne,hva,hvb⟩ := pair_vertices n vertex key hk hp
+  refine ⟨key a,key b,hia,hib,hne,?_⟩
+  rw [← hva,← hvb]
+  exact he
+
+def fastVertices (n P N : Nat) (flip : Nat → Nat → Nat) :
+    List (Nat × Nat × Nat × Nat × Nat) :=
+  (List.range n).map (PNGraphEdges.vertex P N flip)
+
+def graphPN (n P N : Nat) (flip : Nat → Nat → Nat) : List (Nat × Nat) :=
+  let es := (pairs (fastVertices n P N flip)).filterMap fun (vi,vj,_) =>
+    if PNGraphEdges.edgeBoolFast vi vj then some (vi.1,vj.1) else none
+  (List.range n).map fun i =>
+    (i, es.foldl (fun mask (a,b) =>
+      if a == i then mask ||| (1 <<< b)
+      else if b == i then mask ||| (1 <<< a) else mask) 0)
+
+def hasEdgePN (n P N : Nat) (flip : Nat → Nat → Nat) : Bool :=
+  (pairs (fastVertices n P N flip)).any fun (vi,vj,_) => PNGraphEdges.edgeBoolFast vi vj
+
+lemma graphPN_eq_graphFrom (n P N : Nat) (flip : Nat → Nat → Nat) :
+    graphPN n P N flip =
+      graphFrom n (PNGraphEdges.vertex P N flip) Prod.fst PNGraphEdges.edgeBoolFast := rfl
+
+lemma hasEdgePN_eq_hasEdgeFrom (n P N : Nat) (flip : Nat → Nat → Nat) :
+    hasEdgePN n P N flip =
+      hasEdgeFrom n (PNGraphEdges.vertex P N flip) PNGraphEdges.edgeBoolFast := rfl
+
+lemma graphPN_length (n P N : Nat) (flip : Nat → Nat → Nat) :
+    (graphPN n P N flip).length = n := by
+  rw [graphPN_eq_graphFrom,graphFrom_length]
+
+lemma graphPN_fst (n P N : Nat) (flip : Nat → Nat → Nat) :
+    (graphPN n P N flip).map Prod.fst = List.range n := by
+  simp [graphPN_eq_graphFrom,graphFrom,Function.comp_def]
+
+lemma graphPN_edge (n P N : Nat) (flip : Nat → Nat → Nat)
+    {i adj j : Nat} (hm : (i,adj) ∈ graphPN n P N flip) (he : adj.testBit j = true) :
+    i < n ∧ j < n ∧ i ≠ j ∧
+      (PNGraphEdges.edgeBoolFast (PNGraphEdges.vertex P N flip i) (PNGraphEdges.vertex P N flip j) = true ∨
+       PNGraphEdges.edgeBoolFast (PNGraphEdges.vertex P N flip j) (PNGraphEdges.vertex P N flip i) = true) := by
+  rw [graphPN_eq_graphFrom] at hm
+  exact graphFrom_edge n (PNGraphEdges.vertex P N flip) Prod.fst PNGraphEdges.edgeBoolFast
+    (fun _ _ => rfl) hm he
+
+lemma graphPN_row_bound (n P N : Nat) (flip : Nat → Nat → Nat)
+    {i adj : Nat} (hm : (i,adj) ∈ graphPN n P N flip) : i < n := by
+  rw [graphPN_eq_graphFrom] at hm
+  exact (graphFrom_mem n (PNGraphEdges.vertex P N flip) Prod.fst PNGraphEdges.edgeBoolFast hm).1
+
+lemma hasEdgePN_witness (n P N : Nat) (flip : Nat → Nat → Nat)
+    (h : hasEdgePN n P N flip = true) :
+    ∃ i j, i < n ∧ j < n ∧ i ≠ j ∧
+      PNGraphEdges.edgeBoolFast (PNGraphEdges.vertex P N flip i) (PNGraphEdges.vertex P N flip j) = true := by
+  rw [hasEdgePN_eq_hasEdgeFrom] at h
+  exact hasEdgeFrom_witness n (PNGraphEdges.vertex P N flip) Prod.fst PNGraphEdges.edgeBoolFast
+    (fun _ _ => rfl) h
+
+end RootPN1439
+
+namespace RootPN1439
+
+
+def tryColors (v adjacent : Nat) (next : List Nat → Bool) : List Nat → Bool
+  | [] => false
+  | c :: cs =>
+    ((adjacent &&& c == 0) && next ((c ||| (1 <<< v)) :: cs)) ||
+      tryColors v adjacent (fun tail => next (c :: tail)) cs
+
+def colorGraph : List (Nat × Nat) → List Nat → Bool
+  | [], _ => true
+  | (v, adjacent) :: rest, classes =>
+    if adjacent == 0 then colorGraph rest classes
+    else tryColors v adjacent (colorGraph rest) classes
+
+def putColor (v : Nat) : Nat → List Nat → List Nat
+  | 0, c :: cs => (c ||| (1 <<< v)) :: cs
+  | i+1, c :: cs => c :: putColor v i cs
+  | _, [] => []
+
+lemma putColor_length (v i : Nat) (classes : List Nat) :
+    (putColor v i classes).length = classes.length := by
+  induction classes generalizing i with
+  | nil => cases i <;> rfl
+  | cons c cs ih => cases i <;> simp [putColor, ih]
+
+lemma putColor_getD (v i j : Nat) (classes : List Nat) :
+    (putColor v i classes).getD j 0 =
+      if i = j ∧ i < classes.length then classes.getD j 0 ||| (1 <<< v)
+      else classes.getD j 0 := by
+  induction classes generalizing i j with
+  | nil => cases i <;> simp [putColor]
+  | cons c cs ih =>
+    cases i with
+    | zero => cases j <;> simp [putColor]
+    | succ i =>
+      cases j with
+      | zero => simp [putColor]
+      | succ j =>
+        simpa only [putColor, List.getD_cons_succ, List.length_cons,
+          Nat.succ.injEq, Nat.succ_lt_succ_iff] using ih i j
+
+lemma oneShift_bit (v u : Nat) : (1 <<< v).testBit u = true ↔ u = v := by
+  simp [Nat.one_shiftLeft, Nat.testBit_two_pow, eq_comm]
+
+lemma tryColors_complete (v adjacent : Nat) (next : List Nat → Bool)
+    (classes : List Nat) (i : Nat) (hi : i < classes.length)
+    (fit : adjacent &&& classes.getD i 0 = 0)
+    (accept : next (putColor v i classes) = true) :
+    tryColors v adjacent next classes = true := by
+  induction classes generalizing i next with
+  | nil => simp at hi
+  | cons c cs ih =>
+    cases i with
+    | zero =>
+      simp only [tryColors, Bool.or_eq_true, Bool.and_eq_true, beq_iff_eq]
+      exact Or.inl ⟨by simpa using fit, by simpa [putColor] using accept⟩
+    | succ i =>
+      rw [tryColors, Bool.or_eq_true]
+      right
+      apply ih (next := fun tail => next (c :: tail)) (i := i)
+      · simpa using hi
+      · simpa using fit
+      · simpa [putColor] using accept
+
+def ColorInv (n : Nat) (f : Nat → Nat) (classes : List Nat) : Prop :=
+  ∀ i, i < classes.length → ∀ u, (classes.getD i 0).testBit u = true → u < n ∧ f u = i
+
+lemma putColor_inv {n v i : Nat} {f : Nat → Nat} {classes : List Nat}
+    (hc : ColorInv n f classes) (hv : v < n) (hf : f v = i) :
+    ColorInv n f (putColor v i classes) := by
+  intro j hj u hu
+  have hj' : j < classes.length := by simpa only [putColor_length] using hj
+  rw [putColor_getD] at hu
+  split_ifs at hu with he
+  · rw [Nat.testBit_or, Bool.or_eq_true] at hu
+    rcases hu with hold | hnew
+    · exact hc j hj' u hold
+    · have huv := (oneShift_bit v u).mp hnew
+      subst u
+      exact ⟨hv, hf.trans he.1⟩
+  · exact hc j hj' u hu
+
+lemma color_fits {n v adjacent : Nat} {f : Nat → Nat} {classes : List Nat}
+    (hc : ColorInv n f classes) (hf : f v < classes.length)
+    (proper : ∀ u, u < n → adjacent.testBit u = true → f v ≠ f u) :
+    adjacent &&& classes.getD (f v) 0 = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro u
+  simp only [Nat.testBit_and, Nat.zero_testBit]
+  cases hclass : (classes.getD (f v) 0).testBit u with
+  | false => simp
+  | true =>
+    obtain ⟨hu, he⟩ := hc (f v) hf u hclass
+    have hzero : adjacent.testBit u = false := by
+      apply Bool.eq_false_iff.mpr
+      intro hadj
+      exact proper u hu hadj he.symm
+    simp [hzero]
+
+lemma colorGraph_complete_aux (n : Nat) (f : Nat → Nat) (rows : List (Nat × Nat))
+    (classes : List Nat) (hc : ColorInv n f classes)
+    (hrows : ∀ v adjacent, (v, adjacent) ∈ rows →
+      v < n ∧ f v < classes.length ∧
+        ∀ u, u < n → adjacent.testBit u = true → f v ≠ f u) :
+    colorGraph rows classes = true := by
+  induction rows generalizing classes with
+  | nil => rfl
+  | cons row rows ih =>
+    rcases row with ⟨v, adjacent⟩
+    have hh := hrows v adjacent (by simp)
+    simp only [colorGraph]
+    split_ifs with hz
+    · apply ih classes hc
+      intro u a hmem
+      exact hrows u a (by simp [hmem])
+    · apply tryColors_complete v adjacent (colorGraph rows) classes (f v) hh.2.1
+      · exact color_fits hc hh.2.1 hh.2.2
+      · apply ih (putColor v (f v) classes) (putColor_inv hc hh.1 rfl)
+        intro u a hmem
+        have h := hrows u a (by simp [hmem])
+        simpa only [putColor_length] using h
+
+lemma colorGraph_complete (n colors : Nat) (f : Nat → Nat) (rows : List (Nat × Nat))
+    (hrows : ∀ v adjacent, (v, adjacent) ∈ rows →
+      v < n ∧ f v < colors ∧
+        ∀ u, u < n → adjacent.testBit u = true → f v ≠ f u) :
+    colorGraph rows (List.replicate colors 0) = true := by
+  apply colorGraph_complete_aux n f rows
+  · intro i hi u hu
+    have hi' : i < colors := by simpa using hi
+    rw [List.getD_replicate 0 hi'] at hu
+    simp at hu
+  · simpa only [List.length_replicate] using hrows
+
+
+lemma colorGraph_complete_of_graphColorable (rows : List (Nat × Nat)) (colors : Nat)
+    (hc : graphColorable (rows.map Prod.snd) colors)
+    (indexed : ∀ i (hi : i < rows.length), (rows[i]).1 = i) :
+    colorGraph rows (List.replicate colors 0) = true := by
+  obtain ⟨f,hbound,hproper⟩ := hc
+  apply colorGraph_complete rows.length colors f rows
+  intro v adjacent hrow
+  obtain ⟨i,hi,he⟩ := List.mem_iff_getElem.mp hrow
+  have hvi : v = i := by simpa only [he] using indexed i hi
+  subst v
+  have hi' : i < (rows.map Prod.snd).length := by simpa only [List.length_map] using hi
+  refine ⟨hi, hbound i hi', ?_⟩
+  intro u hu hed
+  apply hproper i hi' u (by simpa only [List.length_map] using hu)
+  have hget : (rows.map Prod.snd).getD i 0 = adjacent := by
+    rw [List.getD_eq_getElem _ _ hi']
+    simp only [List.getElem_map, he]
+  simpa only [hget] using hed
+
+end RootPN1439
+
+namespace PNGraphBridge
+
+lemma maskWitness_symm (P N : Nat) (flip : Nat → Nat → Nat) (i j : Nat) :
+    maskWitness P N flip i j ↔ maskWitness P N flip j i := by
+  constructor <;> rintro ⟨p,q,a,b,c,d,e,f⟩ <;> exact ⟨p,q,b,a,d,c,f,e⟩
+
+lemma bitmap_bound_of_rows {width : Nat} (ws : List (BitVec width)) (S : Nat)
+    (hm : ws.length ≤ 10)
+    (hrows : ∀ x, S.testBit x = true → ∃ r : Fin width, pat ws r = x) :
+    S < 2^1024 := by
+  have hp : 2^ws.length ≤ 1024 := by
+    calc
+      2^ws.length ≤ 2^10 := Nat.pow_le_pow_right (by decide) hm
+      _ = 1024 := by decide
+  apply Nat.lt_pow_two_of_testBit
+  intro x hx
+  cases hb : S.testBit x with
+  | false => rfl
+  | true =>
+      obtain ⟨r,hr⟩ := hrows x hb
+      have hlt := pat_lt ws r
+      omega
+
+lemma criticalPair_of_edgeBoolFast {width : Nat} (goal : BitVec width)
+    (ws : List (BitVec width)) (hn : ws.Nodup) (hm : ws.length ≤ 10)
+    (i j : Nat) (hi : i < ws.length) (hj : j < ws.length) (hij : i ≠ j)
+    (P N : Nat) (flip : Nat → Nat → Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ pat ws r = x)
+    (hflip : ∀ a, a < ws.length → ∀ B x, x < 2^ws.length →
+      (flip a B).testBit x = B.testBit (x ^^^ 2^a))
+    (he : PNGraphEdges.edgeBoolFast (PNGraphEdges.vertex P N flip i)
+      (PNGraphEdges.vertex P N flip j) = true) :
+    criticalPair goal ws.toFinset (ws.getD i 0) (ws.getD j 0) := by
+  have hp := bitmap_bound_of_rows ws P hm (fun x hx =>
+    let ⟨r,_,hr⟩ := hP x hx; ⟨r,hr⟩)
+  have hq := bitmap_bound_of_rows ws N hm (fun x hx =>
+    let ⟨r,_,hr⟩ := hN x hx; ⟨r,hr⟩)
+  have hw := PNGraphEdges.edgeBoolFast_witness P N flip
+    ⟨i, Nat.lt_of_lt_of_le hi hm⟩ ⟨j, Nat.lt_of_lt_of_le hj hm⟩ hp hq he
+  exact maskWitness_criticalPair goal ws hn i j hi hj hij P N flip hP hN hflip hw
+
+end PNGraphBridge
+
+namespace RootPN1439
+
+def colorablePN (n P N colors : Nat) (flip : Nat → Nat → Nat) : Bool :=
+  if n <= colors || 10 < n then true
+  else if colors == 1 then !(hasEdgePN n P N flip)
+  else colorGraph (graphPN n P N flip) (List.replicate colors 0)
+
+lemma colorablePN_complete (n P N colors : Nat) (flip : Nat → Nat → Nat)
+    (f : Nat → Nat) (hbound : ∀ i, i < n → f i < colors)
+    (hproper : ∀ i, i < n → ∀ j, j < n →
+      PNGraphEdges.edgeBoolFast (PNGraphEdges.vertex P N flip i)
+        (PNGraphEdges.vertex P N flip j) = true → i ≠ j → f i ≠ f j) :
+    colorablePN n P N colors flip = true := by
+  unfold colorablePN
+  split
+  · rfl
+  · split
+    · rename_i hcolor
+      have hc : colors = 1 := by simpa using hcolor
+      have he : hasEdgePN n P N flip = false := by
+        cases hb : hasEdgePN n P N flip with
+        | false => rfl
+        | true =>
+            obtain ⟨i,j,hi,hj,hij,hedge⟩ := hasEdgePN_witness n P N flip hb
+            have hne := hproper i hi j hj hedge hij
+            have hbi := hbound i hi
+            have hbj := hbound j hj
+            omega
+      simp only [he, Bool.not_false]
+    · apply colorGraph_complete n colors f
+      intro v adj hrow
+      have hv := graphPN_row_bound n P N flip hrow
+      refine ⟨hv, hbound v hv, ?_⟩
+      intro u hu hedge
+      obtain ⟨_,_,hvu,hve | hev⟩ := graphPN_edge n P N flip hrow hedge
+      · exact hproper v hv u hu hve hvu
+      · exact (hproper u hu v hv hev hvu.symm).symm
+
+lemma colorablePN_of_live {width : Nat} {goal g : BitVec width} {k : Nat}
+    {ws : List (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (hn : ws.Nodup)
+    (hm : ws.length ≤ 10) (hl : live basicOps g k ws.toFinset)
+    (P N : Nat) (flip : Nat → Nat → Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ PNGraphBridge.pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ PNGraphBridge.pat ws r = x)
+    (hflip : ∀ a, a < ws.length → ∀ B x, x < 2^ws.length →
+      (flip a B).testBit x = B.testBit (x ^^^ 2^a)) :
+    colorablePN ws.length P N (k + 2 - ws.length) flip = true := by
+  obtain ⟨color,hbound,hproper⟩ := live_criticalPair_coloring hl hg
+  have mem (a : Nat) (ha : a < ws.length) : ws.getD a 0 ∈ ws.toFinset := by
+    apply List.mem_toFinset.mpr
+    rw [List.getD_eq_getElem _ _ ha]
+    exact List.getElem_mem ha
+  apply colorablePN_complete ws.length P N (k + 2 - ws.length) flip
+    (fun i => color (ws.getD i 0))
+  · intro i hi
+    simpa only [List.toFinset_card_of_nodup hn] using hbound _ (mem i hi)
+  · intro i hi j hj hedge hij
+    exact hproper _ _ (PNGraphBridge.criticalPair_of_edgeBoolFast goal ws hn hm
+      i j hi hj hij P N flip hP hN hflip hedge)
+
+lemma colorablePN_of_live_concrete {width : Nat} {goal g : BitVec width} {k : Nat}
+    {ws : List (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (hn : ws.Nodup)
+    (hm : ws.length ≤ 10) (hl : live basicOps g k ws.toFinset) (P N : Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ PNGraphBridge.pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ PNGraphBridge.pat ws r = x) :
+    colorablePN ws.length P N (k + 2 - ws.length) PNFlip.flipPatternBits = true := by
+  exact colorablePN_of_live hg hn hm hl P N PNFlip.flipPatternBits hP hN
+    (fun _ hi B _ hr => PNFlip.flipPatternBits_testBit_bounded hm hi hr B)
+
+end RootPN1439
+
 end PEqualNP.Outside.L_meta_10760
