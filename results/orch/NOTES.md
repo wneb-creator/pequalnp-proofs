@@ -66,3 +66,12 @@ Canonical-bank strategy 2026-11-25T14:04:19.477369+00:00
 
 2026-11-25T14:05:56.439495+00:00 [audit16 build passed]
 lake build PEqualNP.Outside.L_meta_2592 exited0. New kernel-checked16+notCount<=size and>=4NOTexclusion proven. Full stdout/stderr in scratchpartial-build.*. Root notified immediately forpush. NoLeanerrors or edits needed.
+
+2026-11-25T14:06:28.330671+00:00 [K4 template symmetry]
+The81 choices of binary OR pairings for four triple sums reduce to15 orbits under the K4 automorphism subgroup fixing the fourth center (S3). Canonical 11gate prefixes are in scratch local-prefix-orbits.json; SAT agent has them. Added a tiny uncompiled six-Boolean k4_cover_identity lemma to local_near.lean: product of four K4 vertex-star ORs equals three matching terms OR four star terms.
+
+2026-11-25T14:07:26.136445+00:00 canonical-bank component COMPILED
+- results/orch/lemmas/bank16.lean passes pinnedLean with emptylog bank16-build.txt.
+- CanonicalBank.lower: foranyd:Fin4,j:Fin2, a Livecomputation using pinsplus bin(d,pin0,pin(j+1)) needs16binarygates.
+- CanonicalBank.conjunction_lower: ifd=0or2 andextra isused, residualneeds17binarygates, becausebothpin0andextra projecttoconstants whilethenine-inputtargetneeds15.
+- Readyintegrationafterarbitrary-paircanonicalization andfirstbinaryextraction; rawordinarytargetnotyetproved.

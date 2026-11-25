@@ -20,3 +20,6 @@ Proved partial lemmas: sixteen_binary_floor (16+NOTcount <= size), four_not_excl
 Exact posted theorem remains absent; cases1,2,3NOT remain. No full checker acceptance is claimed.
 Sub-agents:6 (audit/integration, SAT search, structural proof, reduction/review, setup/one-NOT analysis, local search).
 TIMING total=23 subagents=6
+
+bank16.lean compiled exit0; empty output.
+Root independent review PASS: CanonicalBank.lower proves16residual binary gates for all8 canonical signed first-gate banks. conjunction_lower proves17residual gates for AND/AND-NOT with retained extra wire. Both use the checked nineFloor and valid constant-mass contraction. This is a partial lemma, not the exact posted theorem. Scratch Outside import will be removed when integrated.

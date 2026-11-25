@@ -69,3 +69,24 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:03:35.157057+00:00 bankfinite.lean compiled and independently reviewed; preparing early push.
 2026-11-25T14:04:19.477369+00:00 reduction_design: canonical-bank finite certificate compiled; generalizedbank lower andLive-map drafted pendingmainolean.
 2026-11-25T14:06:21.829802+00:00 named partial build PASSED (16 binary gates plus NOT count lower bound); preparing early push.
+2026-11-25T14:06:35.436797+00:00 beat4 before cached proof extensions
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:26:34.659Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:07:26.136445+00:00 reduction_design: canonicalbank16andconjunction17 residualtheoremscompiled.
+2026-11-25T14:07:39.560030+00:00 bank16.lean compiled and independently reviewed; preserving component.
