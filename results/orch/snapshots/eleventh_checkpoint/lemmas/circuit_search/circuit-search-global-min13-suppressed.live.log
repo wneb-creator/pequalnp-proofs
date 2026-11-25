@@ -1,0 +1,91 @@
+ALLPOS initial false 234
+POLISH seconds 0.0369557 sweeps 1 evaluations 229110 best 234 current 234 archive 1
+SUPPRESSED BEST false 467 sweep 100
+SUPPRESSED BEST false 464 sweep 115
+SUPPRESSED BEST false 447 sweep 118
+SUPPRESSED BEST false 443 sweep 159
+SUPPRESSED BEST false 435 sweep 197
+SUPPRESSED BEST false 422 sweep 198
+POLISH seconds 10.0287 sweeps 876 evaluations 184910952 best 234 current 422 archive 18
+POLISH seconds 20.0237 sweeps 1740 evaluations 367018568 best 234 current 559 archive 44
+POLISH seconds 30.0014 sweeps 2644 evaluations 556845636 best 234 current 422 archive 64
+SUPPRESSED BEST false 416 sweep 2819
+POLISH seconds 40.0231 sweeps 3534 evaluations 744432538 best 234 current 416 archive 85
+POLISH seconds 50.0317 sweeps 4425 evaluations 932615422 best 234 current 483 archive 105
+POLISH seconds 60.0261 sweeps 5345 evaluations 1126699808 best 234 current 234 archive 122
+SUPPRESSED BEST false 403 sweep 5753
+POLISH seconds 70.0295 sweeps 6266 evaluations 1320758108 best 234 current 524 archive 153
+POLISH seconds 80.0221 sweeps 7182 evaluations 1513336994 best 234 current 403 archive 158
+POLISH seconds 90.0254 sweeps 8057 evaluations 1697777694 best 234 current 403 archive 181
+POLISH seconds 100.002 sweeps 8987 evaluations 1893653326 best 234 current 403 archive 198
+POLISH seconds 110.025 sweeps 9893 evaluations 2084569036 best 234 current 234 archive 231
+POLISH seconds 120.022 sweeps 10783 evaluations 2272348582 best 234 current 435 archive 261
+POLISH seconds 130.025 sweeps 11669 evaluations 2459459082 best 234 current 234 archive 313
+POLISH seconds 140.028 sweeps 12571 evaluations 2648887890 best 234 current 475 archive 333
+POLISH seconds 150.029 sweeps 13479 evaluations 2840122376 best 234 current 234 archive 350
+POLISH seconds 160.024 sweeps 14414 evaluations 3037137376 best 234 current 556 archive 373
+SUPPRESSED BEST false 378 sweep 15297
+POLISH seconds 170.021 sweeps 15357 evaluations 3236161194 best 234 current 234 archive 404
+SUPPRESSED BEST false 262 sweep 15600
+POLISH seconds 180.022 sweeps 16283 evaluations 3431510706 best 234 current 497 archive 429
+POLISH seconds 190.021 sweeps 17113 evaluations 3606197520 best 234 current 262 archive 460
+POLISH seconds 200.023 sweeps 17801 evaluations 3751210660 best 234 current 234 archive 474
+POLISH seconds 210.023 sweeps 18611 evaluations 3922744766 best 234 current 262 archive 486
+POLISH seconds 220.026 sweeps 19542 evaluations 4118884648 best 234 current 516 archive 512
+POLISH seconds 230.025 sweeps 20418 evaluations 4303633472 best 234 current 561 archive 512
+POLISH seconds 240.026 sweeps 21301 evaluations 4489554804 best 234 current 234 archive 512
+POLISH seconds 250.028 sweeps 22151 evaluations 4668527626 best 234 current 234 archive 512
+POLISH seconds 260.028 sweeps 23058 evaluations 4859654238 best 234 current 262 archive 512
+POLISH seconds 270.024 sweeps 23635 evaluations 4981228780 best 234 current 234 archive 512
+POLISH seconds 280.021 sweeps 24558 evaluations 5175262580 best 234 current 234 archive 512
+POLISH seconds 290.026 sweeps 25497 evaluations 5373035770 best 234 current 262 archive 512
+POLISH seconds 300.001 sweeps 26296 evaluations 5541336346 best 234 current 524 archive 512
+POLISH seconds 310 sweeps 27070 evaluations 5704379278 best 234 current 569 archive 512
+POLISH seconds 320.024 sweeps 27979 evaluations 5896493386 best 234 current 234 archive 512
+POLISH seconds 330.032 sweeps 28787 evaluations 6066355920 best 234 current 309 archive 512
+POLISH seconds 340.03 sweeps 29245 evaluations 6163150374 best 234 current 234 archive 512
+POLISH seconds 350.033 sweeps 29709 evaluations 6260912450 best 234 current 262 archive 512
+POLISH seconds 360.03 sweeps 30177 evaluations 6359335528 best 234 current 262 archive 512
+POLISH seconds 370.022 sweeps 30648 evaluations 6458805920 best 234 current 503 archive 512
+POLISH seconds 380 sweeps 31106 evaluations 6555244484 best 234 current 262 archive 512
+POLISH seconds 390.028 sweeps 31833 evaluations 6708191820 best 234 current 262 archive 512
+POLISH seconds 400.033 sweeps 32690 evaluations 6888546286 best 234 current 262 archive 512
+POLISH seconds 410.028 sweeps 33409 evaluations 7040351496 best 234 current 234 archive 512
+POLISH seconds 420.026 sweeps 34282 evaluations 7224931858 best 234 current 577 archive 512
+POLISH seconds 430.022 sweeps 35168 evaluations 7411403548 best 234 current 562 archive 512
+POLISH seconds 440.028 sweeps 36065 evaluations 7600345302 best 234 current 262 archive 512
+POLISH seconds 450.023 sweeps 36965 evaluations 7789667750 best 234 current 513 archive 512
+POLISH seconds 460.004 sweeps 37853 evaluations 7976951456 best 234 current 234 archive 512
+POLISH seconds 470.003 sweeps 38907 evaluations 8199535884 best 234 current 234 archive 512
+POLISH seconds 480.003 sweeps 39827 evaluations 8393607426 best 234 current 577 archive 512
+POLISH seconds 490.002 sweeps 40942 evaluations 8628835086 best 234 current 234 archive 512
+POLISH seconds 500.002 sweeps 42059 evaluations 8864720992 best 234 current 234 archive 512
+POLISH seconds 510.029 sweeps 43041 evaluations 9071627656 best 234 current 484 archive 512
+POLISH seconds 520.001 sweeps 43863 evaluations 9244826030 best 234 current 234 archive 512
+POLISH seconds 530.005 sweeps 44865 evaluations 9455738606 best 234 current 234 archive 512
+POLISH seconds 540.005 sweeps 45989 evaluations 9692215236 best 234 current 262 archive 512
+POLISH seconds 550.028 sweeps 46866 evaluations 9877009890 best 234 current 262 archive 512
+POLISH BEST false 215 sweep 46982 evaluations 9901500302
+POLISH seconds 560.026 sweeps 47758 evaluations 10064567262 best 215 current 562 archive 512
+POLISH seconds 570.027 sweeps 48590 evaluations 10239889402 best 215 current 564 archive 512
+POLISH seconds 580.022 sweeps 49517 evaluations 10435381158 best 215 current 215 archive 512
+POLISH seconds 590.001 sweeps 50438 evaluations 10629504160 best 215 current 215 archive 512
+POLISH seconds 600.003 sweeps 51309 evaluations 10813313848 best 215 current 215 archive 512
+POLISH seconds 610.002 sweeps 52460 evaluations 11056337206 best 215 current 234 archive 512
+POLISH seconds 620.008 sweeps 53638 evaluations 11304077144 best 215 current 262 archive 512
+POLISH seconds 630.03 sweeps 54674 evaluations 11522193196 best 215 current 435 archive 512
+POLISH seconds 640.027 sweeps 55541 evaluations 11705256714 best 215 current 215 archive 512
+POLISH seconds 650.021 sweeps 56417 evaluations 11889544586 best 215 current 262 archive 512
+POLISH seconds 660.001 sweeps 57336 evaluations 12082522016 best 215 current 215 archive 512
+POLISH seconds 670.029 sweeps 58114 evaluations 12246828524 best 215 current 512 archive 512
+POLISH seconds 680.023 sweeps 59032 evaluations 12439601990 best 215 current 215 archive 512
+POLISH seconds 690.022 sweeps 59905 evaluations 12623456616 best 215 current 443 archive 512
+POLISH seconds 700.024 sweeps 60847 evaluations 12821783522 best 215 current 524 archive 512
+POLISH seconds 710.032 sweeps 61770 evaluations 13016438820 best 215 current 215 archive 512
+POLISH seconds 720 sweeps 62670 evaluations 13206653426 best 215 current 435 archive 512
+POLISH seconds 730.001 sweeps 63582 evaluations 13399036562 best 215 current 435 archive 512
+POLISH seconds 740 sweeps 64473 evaluations 13587081008 best 215 current 573 archive 512
+POLISH seconds 750.029 sweeps 65383 evaluations 13779144496 best 215 current 262 archive 512
+POLISH seconds 760.025 sweeps 66313 evaluations 13974904056 best 215 current 262 archive 512
+POLISH seconds 770.001 sweeps 67208 evaluations 14163244270 best 215 current 573 archive 512
+POLISH seconds 780.001 sweeps 68083 evaluations 14347639196 best 215 current 476 archive 512

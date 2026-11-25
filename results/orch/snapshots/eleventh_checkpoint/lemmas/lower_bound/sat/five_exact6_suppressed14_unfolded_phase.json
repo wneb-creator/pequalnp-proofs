@@ -1,0 +1,157 @@
+{
+  "gates": [
+    [
+      1,
+      10,
+      11
+    ],
+    [
+      1,
+      13,
+      52
+    ],
+    [
+      1,
+      7,
+      53
+    ],
+    [
+      0,
+      4,
+      54
+    ],
+    [
+      0,
+      1,
+      7
+    ],
+    [
+      0,
+      3,
+      9
+    ],
+    [
+      1,
+      56,
+      57
+    ],
+    [
+      1,
+      20,
+      58
+    ],
+    [
+      1,
+      26,
+      59
+    ],
+    [
+      1,
+      11,
+      60
+    ],
+    [
+      1,
+      14,
+      61
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      62,
+      63
+    ],
+    [
+      1,
+      55,
+      64
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      7,
+      15
+    ],
+    [
+      1,
+      0,
+      67
+    ],
+    [
+      1,
+      12,
+      68
+    ],
+    [
+      1,
+      8,
+      60
+    ],
+    [
+      0,
+      69,
+      70
+    ],
+    [
+      1,
+      5,
+      71
+    ],
+    [
+      0,
+      66,
+      72
+    ],
+    [
+      1,
+      65,
+      73
+    ]
+  ],
+  "truth": {
+    "raw_assignments": 65536,
+    "false_positives": 383,
+    "false_negatives": 0
+  },
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      20,
+      26
+    ]
+  },
+  "boundary_errors": 14,
+  "missing_raw": [
+    6
+  ],
+  "full_equivalence_assignments": 65536,
+  "suppressed_witness": {
+    "raw_mask": 4096,
+    "active_and_gates": [
+      19
+    ]
+  },
+  "label": "APPROXIMATE-SUPPRESSED-DIRTY-PHASE",
+  "derivation": "3 AND(9 OR15) becomes3AND9 because15 alreadyinwire59; wire70 OR(8 OR12) becomeswire60 OR8 because12 alreadyinwire60",
+  "and_count": 6,
+  "and_depth": 3,
+  "and_equals_earlier": [],
+  "and_operand_bypass_redundant": [],
+  "and_opcode_redundant": [],
+  "and_false_deletion_redundant": [],
+  "essentiality_test_assignments": 65536,
+  "operand_bypass_essential": true,
+  "phase_quality_note": "Six ANDs pass operand-bypass, false-deletion and opcode-change tests on all65536 inputs. Direct raw6 is still absent."
+}

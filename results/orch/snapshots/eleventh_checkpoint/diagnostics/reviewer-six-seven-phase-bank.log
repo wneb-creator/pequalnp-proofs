@@ -1,0 +1,5 @@
+PASS all72 phases exact24-edge DNF; skeleton extraction exact;31g/7AND/39occ; dirty witnesses valid; exact original-label mapping
+28g core +7 remaining stars *5 =63; occurrences≤36 suffices for separate nonempty OR-tree construction.7AND minimality cuts are profile restrictions, since known core minimum is6.
+generate_six_double_star_phases.py 3e52a5c0ee03d8e226d2c4d8741c466a5b12bacd531a6d950085bb6ecb6f1b1e
+six_double_star_exact31_phases.json 4946651b8b5ae1ee5c96e34811ed0b064b4cc036cb31bfd9cb7412a47edf18c9
+and_skeleton_six_exact_dirty7_phase.json 5f8827fa84e0e21a22bc8098828f9617d14c45b4becf286c96444ab72e697f17

@@ -1,0 +1,14 @@
+{
+  "and_depth": 2,
+  "redundant_ands": [
+    3
+  ],
+  "false_redundant_ands": [],
+  "positive_inactive_ands": [],
+  "raw_assignments": 65536,
+  "guards_pass": true,
+  "suppressed_dirty_witness": {
+    "raw_mask": 16384,
+    "and_gate": 3
+  }
+}

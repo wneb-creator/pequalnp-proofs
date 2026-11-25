@@ -1,0 +1,9 @@
+{
+  "verdict": "APPROVED",
+  "source_sha256": "f228a64b7945dceaaefbb8c66d0077ff8ba4fb17f8b979ac2f3f4fb7d3b1af47",
+  "seeds_checked": 443,
+  "negative_masks_per_seed": 117,
+  "suppressed_seeds": 382,
+  "comparison": "Independent scalar active-noncopy-AND semantics, exact first witness equals packed C++ fixture",
+  "code_review": "Mask generation, feature OR columns, padded bits, 512 archive kinds, separate champion and restart changes checked; no new acceptance restriction."
+}

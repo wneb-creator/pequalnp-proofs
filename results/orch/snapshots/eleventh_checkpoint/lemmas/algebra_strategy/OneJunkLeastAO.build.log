@@ -1,0 +1,172 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:851:44: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:917:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:919:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:980:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:981:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:983:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:994:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:995:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:997:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:2287:17: error(lean.unknownIdentifier): Unknown constant `Finset.sum_card_bipartiteAbove_eq_sum_card_bipartiteBelow`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:2240:30: error: unsolved goals
+n : ℕ
+C : Circuit
+hL : Least n C
+hT : ∃ x, C.eval (List.ofFn x) = true
+hV : ∀ (u : Fin n), ∃ x, x u = true ∧ C.eval (List.ofFn x) = false
+Cone : ℕ → ℕ → Prop
+c1 : ∀ (i k : ℕ), k < C.gates.length → n + i ∈ (gateAt C k).inputs → Cone i k
+c2 : ∀ (t i k : ℕ), k < C.gates.length → Cone t i → n + i ∈ (gateAt C k).inputs → Cone t k
+hTop :
+  ∀ (t s : ℕ),
+    t < C.gates.length →
+      s < C.gates.length → (gateAt C t).op = GateOp.and → Bel n C t → (gateAt C s).op = GateOp.and → ¬Cone t s
+hout : n ≤ C.output ∧ C.output + 1 = n + C.gates.length
+part1 :
+  ∀ j < C.gates.length,
+    Bel n C j →
+      n + j ≠ C.output →
+        ∃ r < C.gates.length,
+          n + j ∈ (gateAt C r).inputs ∧
+            (∀ k < C.gates.length, n + j ∈ (gateAt C k).inputs → k = r) ∧ (gateAt C r).op = GateOp.or ∧ Bel n C r
+O A : Finset ℕ
+hO : ∀ (k : ℕ), k ∈ O ↔ k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧ Bel n C k
+hA : ∀ (k : ℕ), k ∈ A ↔ k < C.gates.length ∧ (gateAt C k).op = GateOp.and ∧ Bel n C k
+hBo : Bel n C (C.gates.length - 1)
+hoB : C.gates.length - 1 ∈ O ∪ A
+hdisj : Disjoint O A
+B : Finset ℕ
+hBdef : B = (O ∪ A).erase (C.gates.length - 1)
+hBmem : ∀ (j : ℕ), j ∈ B ↔ j < C.gates.length ∧ Bel n C j ∧ n + j ≠ C.output
+⊢ O.card + 1 = A.card
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:2690:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:3365:79: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:4690:48: warning: Variable name `hw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5063:6: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5102:5: warning: Variable name `h4` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h4
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5102:26: warning: Variable name `hE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5229:26: warning: Variable name `hE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5297:5: warning: Variable name `hE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5399:34: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5399:52: warning: Unused tactic linter: `contradiction` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5399:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5399:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5434:34: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5434:52: warning: Unused tactic linter: `contradiction` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5434:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5434:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5546:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5546:48: warning: Unused tactic linter: `contradiction` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5546:48: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5546:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5579:69: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5579:87: warning: Unused tactic linter: `contradiction` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5579:87: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:5579:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/OneJunkLeastAO.lean:6194:44: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

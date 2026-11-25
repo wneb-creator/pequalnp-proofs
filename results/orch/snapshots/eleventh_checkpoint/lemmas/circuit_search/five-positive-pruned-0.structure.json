@@ -1,0 +1,9 @@
+{
+  "and_depth": 2,
+  "redundant_ands": [],
+  "false_redundant_ands": [],
+  "positive_inactive_ands": [],
+  "raw_assignments": 65536,
+  "guards_pass": true,
+  "suppressed_dirty_witness": null
+}

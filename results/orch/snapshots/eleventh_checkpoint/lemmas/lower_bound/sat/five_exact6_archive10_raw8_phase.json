@@ -1,0 +1,142 @@
+{
+  "gates": [
+    [
+      1,
+      13,
+      14
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      8
+    ],
+    [
+      1,
+      20,
+      54
+    ],
+    [
+      1,
+      12,
+      52
+    ],
+    [
+      1,
+      6,
+      55
+    ],
+    [
+      1,
+      7,
+      13
+    ],
+    [
+      1,
+      5,
+      57
+    ],
+    [
+      1,
+      52,
+      57
+    ],
+    [
+      1,
+      11,
+      60
+    ],
+    [
+      1,
+      11,
+      58
+    ],
+    [
+      1,
+      9,
+      56
+    ],
+    [
+      0,
+      59,
+      53
+    ],
+    [
+      1,
+      12,
+      58
+    ],
+    [
+      1,
+      10,
+      62
+    ],
+    [
+      0,
+      4,
+      66
+    ],
+    [
+      0,
+      2,
+      61
+    ],
+    [
+      0,
+      1,
+      65
+    ],
+    [
+      1,
+      69,
+      64
+    ],
+    [
+      0,
+      3,
+      63
+    ],
+    [
+      1,
+      67,
+      71
+    ],
+    [
+      1,
+      68,
+      72
+    ],
+    [
+      1,
+      73,
+      70
+    ]
+  ],
+  "truth": {
+    "raw_assignments": 65536,
+    "false_positives": 267,
+    "false_negatives": 0
+  },
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      20
+    ]
+  },
+  "boundary_errors": 10,
+  "missing_raw": [
+    15
+  ],
+  "all_later_wire_equivalence_assignments": 65536,
+  "suppressed_dirty_witness": null,
+  "label": "APPROXIMATE-PHASE",
+  "derivation": "raw0 AND feature36 replaced byraw0 ANDraw8; contributionraw0ANDraw15 absorbed byfeature20 atnextgate55"
+}

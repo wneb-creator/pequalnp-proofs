@@ -1,0 +1,73 @@
+{
+  "case": "five_owner_0_1_2_5_7_joint",
+  "raw_assignments": 65536,
+  "gates": 21,
+  "active_gates": 21,
+  "active_ands": 8,
+  "omitted_raw_inputs": [
+    5,
+    8,
+    9,
+    10,
+    11,
+    13,
+    15
+  ],
+  "false_positives": 589,
+  "false_negatives": 0,
+  "boundary_false": 17,
+  "boundary_misses": 0,
+  "one_owner_boundary_errors": 5,
+  "maximum_extra_degree": 2,
+  "minimum_extra_point_count": 1,
+  "extra_monomials": [
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      3,
+      15
+    ],
+    [
+      4,
+      15
+    ]
+  ]
+}

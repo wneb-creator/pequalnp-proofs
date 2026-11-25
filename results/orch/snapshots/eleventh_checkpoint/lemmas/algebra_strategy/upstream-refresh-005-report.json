@@ -1,0 +1,31 @@
+{
+  "old": "343363ea3f4ee0bf646666b5d9f3f1fdff48fe39",
+  "new": "d4b3433bdf0f53b899c2806479d6f27a565d2e37",
+  "utc": "2026-11-25T07:05:17.123316+00:00",
+  "proofs": 101,
+  "reductions": 5,
+  "full_target_result_found": false,
+  "direct_OR51_or_AND14_found": false,
+  "higher_penalty_exclusion_found": false,
+  "reusable_results": [
+    {
+      "id": "L_meta_8305",
+      "result": "A junk gate whose false replacement loses at most one positive edge input can be removed/cleaned without increasing circuit size and with strictly fewer junk gates.",
+      "remaining_premise": "Need a secondary junk-minimal representative and the at-most-one-lost-edge condition; not an unconditional cleanup."
+    },
+    {
+      "id": "L_meta_6238",
+      "result": "Centreful tops supply a cover of the edges outside Ustar of size at most the number of centreful tops."
+    },
+    {
+      "id": "L_meta_7077",
+      "result": "Star-edge cover, zero-junk empty residual, and a conditional two-vertex residual cover for one junk."
+    },
+    {
+      "id": "L_meta_8097 (refresh004)",
+      "result": "Every minimal vertex cover is a union of selected raw wings in an AndCount representation.",
+      "limitation": "No direct residual-top subcircuit or full-function equality bridge follows."
+    }
+  ],
+  "reduction_review": "status_review inspected all5. R_meta_6140_1 independently proves the same degree/matching count52\u22644|K|+|U|, but its hard h_core assumes the remaining64 bound. R_meta_1990_613 assumes AND13 and OR50 separately; the other3 are case splits/minterm classification plus search."
+}

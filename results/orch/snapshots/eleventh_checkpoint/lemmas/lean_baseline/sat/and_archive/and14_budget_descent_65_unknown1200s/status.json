@@ -1,0 +1,9 @@
+{
+  "completed_utc": "2026-11-25T07:02:46Z",
+  "result": "UNKNOWN",
+  "attempted_budget": 65,
+  "completed_intervals": 4,
+  "seconds_per_interval": 300,
+  "budgets_64_63_attempted": false,
+  "scope": "Restricted separate-OR-tree construction only; no impossibility claim"
+}

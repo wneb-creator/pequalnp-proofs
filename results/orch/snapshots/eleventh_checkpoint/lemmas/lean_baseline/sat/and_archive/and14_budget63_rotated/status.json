@@ -1,0 +1,15 @@
+{
+  "termination": "intentional SIGTERM for root-requested strategy rotation after third completed checkpoint",
+  "process_exit": 143,
+  "completed_solver_seconds": 900,
+  "completed_interval_results": [
+    "UNKNOWN",
+    "UNKNOWN",
+    "UNKNOWN"
+  ],
+  "partial_next_interval_interrupted": true,
+  "no_fourth_solver_result": true,
+  "last_completed_checkpoint": "2026-11-25T06:47:43+00:00",
+  "restricted_construction_only": true,
+  "model_cnf_sha256": "50cc03e0af8fabb4d618b2134d439e2300d37848875fad645cc224463c101c2b"
+}

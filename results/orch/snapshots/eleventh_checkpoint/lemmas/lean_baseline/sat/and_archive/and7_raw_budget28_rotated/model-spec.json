@@ -1,0 +1,14 @@
+{
+  "construction": "every AND side and final output has a separate binary OR tree",
+  "all_OR_cones_explicitly_nonempty": true,
+  "declared_AND_nodes": 7,
+  "maximum_total_gates": 28,
+  "maximum_selector_occurrences": 36,
+  "cost_identity": "selector occurrences minus AND nodes minus one",
+  "OR_sharing": "not modeled; this is a sufficient restricted construction profile",
+  "positive_live_profile": true,
+  "negative_child_incomparability_profile": true,
+  "dirty_required": true,
+  "fixed_phase_calibration": false,
+  "UNSAT_scope": "only the stated separate-OR-tree construction profile and explicit restrictions"
+}

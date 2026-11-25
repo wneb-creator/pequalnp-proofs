@@ -1,0 +1,130 @@
+{
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/independent-lean-lrat-check.log": {
+    "sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae",
+    "bytes": 256
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/model-spec.json": {
+    "sha256": "3e7811b831e32a984e2f8d307b89ec12888703fa4bc01eed607a267c8fae50d4",
+    "bytes": 1253
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/model.cnf": {
+    "sha256": "dbf04a651301be7ae7af38aa693ad8f829331dc25f51fe78201db5691fad4763",
+    "bytes": 219253
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/phase.json": {
+    "sha256": "192fde9eb88403b9a0777d36d88cb9d352858078a811c884b6da287723b7140d",
+    "bytes": 284
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/proof.drat.gz": {
+    "sha256": "d64de057390512746d28dbd28695e144c7fe49123b9afb0625a8c69c7261c975",
+    "bytes": 503599
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/proof.lrat.gz": {
+    "sha256": "79f0d1a986e69f31766909f315f3d37e79804b5bae25fd99cdaace76f0539342",
+    "bytes": 1051295
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/solver.log": {
+    "sha256": "32e795ae7b91a1409896d8b3f1cef2632d2564857ee9e2766c26b102a7780bc7",
+    "bytes": 380
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/standalone-cadical.log": {
+    "sha256": "0f7f6fcfeb72e009c82e8fc311b18d00e65e8eedd03c944a3208be1d33e4d387",
+    "bytes": 7296
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/standalone-lrat.log": {
+    "sha256": "0fb644d673f5d9c71a36bce6a5836a116e05d8053dd7e924177ba0885a16dbfb",
+    "bytes": 7364
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_strengthened_unsat/status.json": {
+    "sha256": "01b3828d1235864d00a8c13e9576f03914ac7f0e523c70c8cc5cdcecf7963600",
+    "bytes": 940
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/independent-lean-lrat-check.log": {
+    "sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4",
+    "bytes": 258
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/model-spec.json": {
+    "sha256": "f77d64a9d1e9fa3f92c84f934dd7efe4a601b499e4dc88ce69b94dcf165f402d",
+    "bytes": 434
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/model.cnf": {
+    "sha256": "22ca7bc804ae788ea657175af3c8b9beac024da7e9b1ec0965b782f8a944b7f6",
+    "bytes": 147560
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/phase.json": {
+    "sha256": "192fde9eb88403b9a0777d36d88cb9d352858078a811c884b6da287723b7140d",
+    "bytes": 284
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/proof.lrat.gz": {
+    "sha256": "5fa8f035c34a25f4cf4abf2bf2fb55d80f34997ad75c3e153e53d1155b2f7346",
+    "bytes": 84063369
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/solver.log": {
+    "sha256": "0ca85bfd091d7d2aa2e140911630badf9b4cae7a9a5d3f98ee4fa351d7b719a6",
+    "bytes": 373
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/standalone-lrat.log": {
+    "sha256": "2d702f82bb806b126abb20e26ca3bc62e72d6edcd29e124390abb33869feed6d",
+    "bytes": 22195
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/dirty5_uncut_unsat/status.json": {
+    "sha256": "c9f15c79d4d622e18df88982c02274f4e174a95d9ae15267b3c7ac52183d382c",
+    "bytes": 1053
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/lrat_runtime_checker/RuntimeLRATCheck.lean": {
+    "sha256": "6458e358f4739ac8ede381485ee32f651553b8421d0188549f4e2a8c9bf9a0b5",
+    "bytes": 2475
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/lrat_runtime_checker/SCOPE.md": {
+    "sha256": "4031ef3cbacb37ea2c0bd5cfbeb8d7872c66c7e858f49cb72334c4614868c87a",
+    "bytes": 405
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/lrat_runtime_checker/reviewer-lrat-tiny-sat.log": {
+    "sha256": "a2bda522003dd6ba18b1f7df06a8d1a02731281dbf0ae1d222e6e5dfc3e7da81",
+    "bytes": 246
+  },
+  "results/orch/lemmas/lean_baseline/sat/and_archive/lrat_runtime_checker/reviewer-lrat-tiny-unsat.log": {
+    "sha256": "43e09a93572f5d3f25ce7e27f702d002cb67de6400e341645059c720a07767ea",
+    "bytes": 245
+  },
+  "results/orch/lemmas/verification/runtime_lrat/README.md": {
+    "sha256": "0deffd4558f39b00a1729452aafd0009556ba1672d4f7b38896d3fcd3fb82638",
+    "bytes": 1041
+  },
+  "results/orch/lemmas/verification/runtime_lrat/RuntimeLRATCheck.lean": {
+    "sha256": "6458e358f4739ac8ede381485ee32f651553b8421d0188549f4e2a8c9bf9a0b5",
+    "bytes": 2475
+  },
+  "results/orch/lemmas/verification/runtime_lrat/receipt.json": {
+    "sha256": "f8fc54265ce838983b74755d6872d4486fa520c8c8cc80ea444b2bb9ce74b980",
+    "bytes": 4331
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-a5-strengthened-lrat-runtime-002.log": {
+    "sha256": "4f35ef57738e19714cb028de2bf2f47c9c4305c7622d1fe355ebb8d683de24ae",
+    "bytes": 256
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-a5-uncut-lrat-runtime.log": {
+    "sha256": "8f2968e1b05a330d7d44535ff74b8e530dbfee9efc676aec2c311e5b60fd5bc4",
+    "bytes": 258
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-lrat-tiny-sat.cnf": {
+    "sha256": "139098746dcb0c2fbf2ca679aa3685151ae36a54f2e527a67cb0cbac1606bed4",
+    "bytes": 18
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-lrat-tiny-sat.log": {
+    "sha256": "a2bda522003dd6ba18b1f7df06a8d1a02731281dbf0ae1d222e6e5dfc3e7da81",
+    "bytes": 246
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-lrat-tiny-unsat.cnf": {
+    "sha256": "ac42a371b5a124286c410ed5dfa2e3be7ee7d5b1feac6f08e7e1715f0c3669a8",
+    "bytes": 19
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-lrat-tiny-unsat.log": {
+    "sha256": "43e09a93572f5d3f25ce7e27f702d002cb67de6400e341645059c720a07767ea",
+    "bytes": 245
+  },
+  "results/orch/lemmas/verification/runtime_lrat/reviewer-lrat-tiny.proof": {
+    "sha256": "2e9bf73f333fd3624376d1eb676ce8d6240ba39924936c22bc1a522bfb01b8cc",
+    "bytes": 10
+  }
+}

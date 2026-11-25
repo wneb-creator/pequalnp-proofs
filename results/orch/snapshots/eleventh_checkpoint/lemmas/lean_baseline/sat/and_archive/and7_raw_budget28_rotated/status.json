@@ -1,0 +1,13 @@
+{
+  "termination": "intentional SIGTERM for reviewed correlated-prefix rotation after second completed checkpoint",
+  "process_exit": 143,
+  "completed_solver_seconds": 600,
+  "completed_interval_results": [
+    "UNKNOWN",
+    "UNKNOWN"
+  ],
+  "partial_next_interval_interrupted": true,
+  "last_completed_checkpoint": "2026-11-25T06:58:16+00:00",
+  "restricted_construction_only": true,
+  "model_cnf_sha256": "24e905182bc3280bf787393961c314d7cfe1fb3deff9fbd50922c3cca7dc658b"
+}

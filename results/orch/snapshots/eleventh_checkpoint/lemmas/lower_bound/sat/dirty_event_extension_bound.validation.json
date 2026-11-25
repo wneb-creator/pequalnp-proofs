@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "fixed_signed_cases": 320,
+  "negative_masks": 117,
+  "bound_census": {
+    "0": 0,
+    "1": 9,
+    "2": 38,
+    "3": 55,
+    "4": 14,
+    "5": 1,
+    "6": 0
+  },
+  "sha256": "c6a0c2f67fe9941ae48cc5feeccb9c5a0b85c655180c646ec13c4b356429e043"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "RUNNING",
+  "updated_utc": "2026-11-25T06:57:06.642901+00:00",
+  "configuration": "../five_exact6_symbolic_config.json",
+  "symbolic_dirty_pair": true,
+  "five_only_cuts": false,
+  "learned_clauses": "resident only; API cannot export"
+}

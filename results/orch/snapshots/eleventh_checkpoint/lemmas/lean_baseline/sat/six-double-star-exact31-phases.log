@@ -1,0 +1,2 @@
+PASS all72 exact31/7AND six-owner double-star phases; each output DNF is exactly24 target edges
+Selected phase also checked on all2^17 inputs; all ANDs positive-live and negative-child-incomparable

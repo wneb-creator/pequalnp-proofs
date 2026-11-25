@@ -1,0 +1,16 @@
+[
+  {
+    "case": "five",
+    "models": 512,
+    "positive_inactive_models": 28,
+    "improved": 28,
+    "best_errors": 17
+  },
+  {
+    "case": "global",
+    "models": 512,
+    "positive_inactive_models": 42,
+    "improved": 42,
+    "best_errors": 378
+  }
+]

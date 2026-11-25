@@ -1,0 +1,8 @@
+{
+  "verdict": "APPROVED",
+  "source_sha256": "f228a64b7945dceaaefbb8c66d0077ff8ba4fb17f8b979ac2f3f4fb7d3b1af47",
+  "seeds_checked": 35,
+  "negative_masks_per_seed": 300,
+  "suppressed_seeds": 29,
+  "comparison": "Independent scalar active-noncopy-AND semantics, exact first witness equals packed C++ fixture,26raw/63gates"
+}

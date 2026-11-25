@@ -1,0 +1,3 @@
+PASS 1716 plane two-edge cases across26centers; independent witness contains selected H-neighbor endpoint and no avoiding singleton/common-H-neighbor cover exists
+For arbitrary larger U, H=G\U is a subgraph of G minus these two edges, so cover impossibility persists.
+This computational finite check supports the mathematical |U|≤1 consequence of L5869; no Lean theorem claimed.

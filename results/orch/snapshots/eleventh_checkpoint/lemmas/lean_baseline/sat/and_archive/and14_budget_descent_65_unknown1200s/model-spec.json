@@ -1,0 +1,13 @@
+{
+  "construction": "separate nonempty binary OR trees for all AND sides and final output",
+  "AND_nodes": 14,
+  "upper_gate_budget": 66,
+  "first_gate_budget": 65,
+  "target_gate_budget": 63,
+  "dirty_required": true,
+  "positive_live_profile": true,
+  "negative_child_incomparability_profile": true,
+  "bound_assumptions_reapplied_each_solve": true,
+  "same_solver_retained_across_budgets": true,
+  "UNSAT_scope": "only the current gate budget in the stated restricted construction profile"
+}

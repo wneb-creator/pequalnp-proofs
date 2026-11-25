@@ -1,0 +1,3 @@
+PASS: all 8192 point-subset closures checked; mixed independent maximum 10.
+PASS: exactly 26 independent 12-sets; each leaves precisely one four-edge star.
+Scope: finite geometry only; no circuit exclusion or Lean theorem claimed.

@@ -1,0 +1,29 @@
+{
+  "file": "results/orch/lemmas/circuit_search/joint-five-archive-best-10.full.json",
+  "sha256": "504ec38cdd6c86cff37c27a10dbf01f92747185f05d99141a879459cbd023c33",
+  "gates": 63,
+  "AND": 14,
+  "AND_depth": 2,
+  "target_terms": 52,
+  "extra_pairs": [
+    [
+      1,
+      14
+    ],
+    [
+      1,
+      22
+    ],
+    [
+      2,
+      22
+    ],
+    [
+      0,
+      25
+    ]
+  ],
+  "max_negative_failures": 234,
+  "all_ANDs_positive_live_and_operand_false_replacement_essential": true,
+  "status": "APPROVED APPROXIMATE PHASE ONLY"
+}

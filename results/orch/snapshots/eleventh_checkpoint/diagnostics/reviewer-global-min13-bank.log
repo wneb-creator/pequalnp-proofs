@@ -1,0 +1,5 @@
+PASS19 new bases /1482 exact78-automorphism variants; all target coverage, exactDNF, suppressed≤2 witnesses,13 positive-live operand-essential ANDs and stated boundary errors verified
+Best 262 all approximate; oldbank/archive not re-audited here
+global-min13-suppressed-bases.json a164a94c895b0ca9f5b44e0a74460d073dd427f70caf27f5d35376ad629fbd70
+global-min13-suppressed-added.json b594bfff39aa9c2454d8141f14aaf85f9bba1e77fede998a5e9fbabe35fec3c6
+prepare_global_min13_suppressed.py 8a4e77e1ca45f7c80d1a1aa5d6b24f595dde9201be8a3fe6a0943b7bd4dd3848

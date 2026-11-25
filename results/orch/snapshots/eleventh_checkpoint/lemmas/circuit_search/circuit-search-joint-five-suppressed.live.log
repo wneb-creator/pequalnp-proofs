@@ -1,0 +1,129 @@
+ALLPOS initial false 9
+POLISH seconds 0.000640076 sweeps 1 evaluations 93748 best 9 current 9 archive 1
+SUPPRESSED BEST false 25 sweep 200
+SUPPRESSED BEST false 24 sweep 226
+SUPPRESSED BEST false 21 sweep 250
+SUPPRESSED BEST false 20 sweep 600
+SUPPRESSED BEST false 19 sweep 731
+SUPPRESSED BEST false 18 sweep 1585
+SUPPRESSED BEST false 17 sweep 8701
+POLISH seconds 10.0002 sweeps 8806 evaluations 942565462 best 9 current 24 archive 143
+SUPPRESSED BEST false 16 sweep 11138
+SUPPRESSED BEST false 15 sweep 13926
+POLISH seconds 20 sweeps 18090 evaluations 1936745488 best 9 current 9 archive 291
+SUPPRESSED BEST false 14 sweep 18265
+POLISH seconds 30.0008 sweeps 28189 evaluations 3017497252 best 9 current 23 archive 467
+POLISH seconds 40.0004 sweeps 37539 evaluations 4018420856 best 9 current 25 archive 512
+POLISH seconds 50 sweeps 47186 evaluations 5051455654 best 9 current 9 archive 512
+POLISH seconds 60.0004 sweeps 57331 evaluations 6137395846 best 9 current 14 archive 512
+POLISH seconds 70.0005 sweeps 67100 evaluations 7183340016 best 9 current 9 archive 512
+POLISH seconds 80.0007 sweeps 77556 evaluations 8302726216 best 9 current 9 archive 512
+POLISH seconds 90.0007 sweeps 86339 evaluations 9243141906 best 9 current 19 archive 512
+POLISH seconds 100 sweeps 91477 evaluations 9793411278 best 9 current 9 archive 512
+POLISH seconds 110 sweeps 97450 evaluations 10433095526 best 9 current 9 archive 512
+POLISH seconds 120.001 sweeps 107769 evaluations 11538389658 best 9 current 17 archive 512
+POLISH seconds 130.001 sweeps 112736 evaluations 12070142824 best 9 current 9 archive 512
+POLISH seconds 140 sweeps 123022 evaluations 13171162902 best 9 current 14 archive 512
+POLISH seconds 150.001 sweeps 132060 evaluations 14138890800 best 9 current 14 archive 512
+POLISH seconds 160 sweeps 142072 evaluations 15210833090 best 9 current 21 archive 512
+SUPPRESSED BEST false 13 sweep 151777
+SUPPRESSED BEST false 10 sweep 151798
+POLISH seconds 170.001 sweeps 152644 evaluations 16343160904 best 9 current 21 archive 512
+SUPPRESSED BEST false 9 sweep 161357
+POLISH seconds 180 sweeps 162983 evaluations 17450043466 best 9 current 19 archive 512
+POLISH seconds 190 sweeps 173522 evaluations 18578925244 best 9 current 9 archive 512
+POLISH seconds 200 sweeps 184054 evaluations 19707120196 best 9 current 9 archive 512
+POLISH seconds 210 sweeps 194797 evaluations 20858301110 best 9 current 9 archive 512
+POLISH seconds 220 sweeps 204912 evaluations 21941405336 best 9 current 9 archive 512
+POLISH seconds 230 sweeps 216628 evaluations 23196523178 best 9 current 23 archive 512
+POLISH seconds 240.001 sweeps 229192 evaluations 24542737286 best 9 current 17 archive 512
+POLISH seconds 250 sweeps 241849 evaluations 25899149556 best 9 current 9 archive 512
+POLISH seconds 260 sweeps 252015 evaluations 26987926350 best 9 current 15 archive 512
+POLISH seconds 270.001 sweeps 262608 evaluations 28122397890 best 9 current 9 archive 512
+POLISH seconds 280.001 sweeps 275237 evaluations 29475864276 best 9 current 20 archive 512
+POLISH seconds 290 sweeps 286434 evaluations 30674868680 best 9 current 16 archive 512
+POLISH seconds 300.001 sweeps 298201 evaluations 31935491518 best 9 current 17 archive 512
+POLISH seconds 310 sweeps 309617 evaluations 33157679438 best 9 current 17 archive 512
+POLISH seconds 320.001 sweeps 320673 evaluations 34342167470 best 9 current 22 archive 512
+POLISH seconds 330 sweeps 332328 evaluations 35591005606 best 9 current 9 archive 512
+POLISH seconds 340.001 sweeps 345092 evaluations 36958071192 best 9 current 9 archive 512
+POLISH seconds 350.001 sweeps 356768 evaluations 38209319074 best 9 current 18 archive 512
+POLISH seconds 360.003 sweeps 368911 evaluations 39509670412 best 9 current 19 archive 512
+POLISH seconds 370.001 sweeps 377495 evaluations 40429967908 best 9 current 21 archive 512
+POLISH seconds 380.004 sweeps 382695 evaluations 40986907054 best 9 current 9 archive 512
+POLISH seconds 390.001 sweeps 389769 evaluations 41744407386 best 9 current 24 archive 512
+POLISH seconds 400 sweeps 399395 evaluations 42775012980 best 9 current 9 archive 512
+POLISH seconds 410 sweeps 409591 evaluations 43867461638 best 9 current 24 archive 512
+POLISH seconds 420 sweeps 419726 evaluations 44953667394 best 9 current 21 archive 512
+POLISH seconds 430.001 sweeps 429836 evaluations 46036353086 best 9 current 9 archive 512
+POLISH seconds 440 sweeps 438617 evaluations 46977319332 best 9 current 19 archive 512
+POLISH seconds 450.001 sweeps 448436 evaluations 48029248016 best 9 current 15 archive 512
+POLISH seconds 460 sweeps 458233 evaluations 49078315692 best 9 current 19 archive 512
+POLISH seconds 470.001 sweeps 468488 evaluations 50177140782 best 9 current 19 archive 512
+POLISH seconds 480 sweeps 478010 evaluations 51197182592 best 9 current 17 archive 512
+POLISH seconds 490 sweeps 488045 evaluations 52271698818 best 9 current 9 archive 512
+POLISH seconds 500 sweeps 498000 evaluations 53338574840 best 9 current 9 archive 512
+POLISH seconds 510 sweeps 508025 evaluations 54412314528 best 9 current 22 archive 512
+POLISH seconds 520 sweeps 518338 evaluations 55516463422 best 9 current 9 archive 512
+POLISH seconds 530 sweeps 529019 evaluations 56660470396 best 9 current 17 archive 512
+POLISH seconds 540.001 sweeps 539588 evaluations 57793011086 best 9 current 9 archive 512
+POLISH seconds 550 sweeps 550104 evaluations 58919706762 best 9 current 21 archive 512
+POLISH seconds 560.002 sweeps 559519 evaluations 59928228374 best 9 current 9 archive 512
+POLISH seconds 570 sweeps 567905 evaluations 60825943856 best 9 current 9 archive 512
+POLISH seconds 580 sweeps 578366 evaluations 61946294802 best 9 current 9 archive 512
+POLISH seconds 590 sweeps 588762 evaluations 63059298604 best 9 current 14 archive 512
+POLISH seconds 600.002 sweeps 598821 evaluations 64136018436 best 9 current 25 archive 512
+POLISH seconds 610 sweeps 608857 evaluations 65210722352 best 9 current 25 archive 512
+POLISH seconds 620.001 sweeps 619360 evaluations 66335570700 best 9 current 9 archive 512
+POLISH seconds 630 sweeps 628706 evaluations 67336279016 best 9 current 9 archive 512
+POLISH seconds 640.001 sweeps 639197 evaluations 68460158690 best 9 current 20 archive 512
+POLISH seconds 650 sweeps 650236 evaluations 69642343934 best 9 current 9 archive 512
+POLISH seconds 660.003 sweeps 660159 evaluations 70704564038 best 9 current 24 archive 512
+POLISH seconds 670 sweeps 665640 evaluations 71291211634 best 9 current 16 archive 512
+POLISH seconds 680.001 sweeps 670681 evaluations 71831348052 best 9 current 20 archive 512
+POLISH seconds 690.001 sweeps 677133 evaluations 72522411936 best 9 current 25 archive 512
+POLISH seconds 700.001 sweeps 687599 evaluations 73643554720 best 9 current 26 archive 512
+POLISH seconds 710 sweeps 694793 evaluations 74414122822 best 9 current 9 archive 512
+POLISH seconds 720 sweeps 699729 evaluations 74942806354 best 9 current 9 archive 512
+POLISH seconds 730 sweeps 704996 evaluations 75506645668 best 9 current 25 archive 512
+POLISH seconds 740 sweeps 710272 evaluations 76072254700 best 9 current 23 archive 512
+POLISH seconds 750.003 sweeps 715566 evaluations 76638896720 best 9 current 9 archive 512
+POLISH seconds 760 sweeps 723391 evaluations 77477633186 best 9 current 21 archive 512
+POLISH seconds 770 sweeps 733688 evaluations 78580316654 best 9 current 22 archive 512
+POLISH seconds 780.001 sweeps 743352 evaluations 79615112030 best 9 current 9 archive 512
+POLISH seconds 790.001 sweeps 753626 evaluations 80715580554 best 9 current 26 archive 512
+POLISH seconds 800 sweeps 763616 evaluations 81785964452 best 9 current 9 archive 512
+POLISH seconds 810 sweeps 773533 evaluations 82847845662 best 9 current 9 archive 512
+POLISH seconds 820 sweeps 783443 evaluations 83909084866 best 9 current 24 archive 512
+POLISH seconds 830 sweeps 796281 evaluations 85283606538 best 9 current 9 archive 512
+POLISH seconds 840 sweeps 805809 evaluations 86304147734 best 9 current 16 archive 512
+POLISH seconds 850 sweeps 818234 evaluations 87635045926 best 9 current 24 archive 512
+POLISH seconds 860 sweeps 829789 evaluations 88872477716 best 9 current 9 archive 512
+POLISH seconds 870 sweeps 840254 evaluations 89993453546 best 9 current 15 archive 512
+POLISH seconds 880 sweeps 850502 evaluations 91091347548 best 9 current 9 archive 512
+POLISH seconds 890.001 sweeps 861811 evaluations 92302979542 best 9 current 19 archive 512
+POLISH seconds 900 sweeps 874209 evaluations 93630469640 best 9 current 9 archive 512
+POLISH seconds 910.001 sweeps 884514 evaluations 94734307550 best 9 current 9 archive 512
+POLISH seconds 920.001 sweeps 895208 evaluations 95880452174 best 9 current 9 archive 512
+POLISH seconds 930.001 sweeps 905615 evaluations 96995138964 best 9 current 9 archive 512
+POLISH seconds 940 sweeps 915713 evaluations 98077039444 best 9 current 20 archive 512
+POLISH seconds 950 sweeps 926543 evaluations 99237244014 best 9 current 26 archive 512
+POLISH seconds 960 sweeps 937065 evaluations 100364483882 best 9 current 9 archive 512
+POLISH seconds 970 sweeps 950197 evaluations 101770894114 best 9 current 9 archive 512
+POLISH seconds 980 sweeps 963096 evaluations 103152359778 best 9 current 24 archive 512
+POLISH seconds 990 sweeps 974366 evaluations 104358849128 best 9 current 9 archive 512
+POLISH seconds 1000 sweeps 984439 evaluations 105437756126 best 9 current 20 archive 512
+POLISH seconds 1010 sweeps 994772 evaluations 106544898076 best 9 current 9 archive 512
+POLISH seconds 1020 sweeps 1005340 evaluations 107677516642 best 9 current 9 archive 512
+POLISH seconds 1030 sweeps 1015661 evaluations 108782929532 best 9 current 18 archive 512
+POLISH seconds 1040 sweeps 1025890 evaluations 109878789844 best 9 current 9 archive 512
+POLISH seconds 1050 sweeps 1036145 evaluations 110977577334 best 9 current 18 archive 512
+POLISH seconds 1060 sweeps 1046503 evaluations 112087317836 best 9 current 25 archive 512
+POLISH seconds 1070 sweeps 1056483 evaluations 113156800630 best 9 current 9 archive 512
+POLISH seconds 1080 sweeps 1066564 evaluations 114236253474 best 9 current 9 archive 512
+POLISH seconds 1090 sweeps 1076756 evaluations 115327987160 best 9 current 9 archive 512
+POLISH seconds 1100 sweeps 1087174 evaluations 116443643650 best 9 current 9 archive 512
+POLISH seconds 1110 sweeps 1096205 evaluations 117411125136 best 9 current 21 archive 512
+POLISH seconds 1120 sweeps 1102992 evaluations 118137864234 best 9 current 9 archive 512
+POLISH seconds 1130 sweeps 1112605 evaluations 119167479638 best 9 current 26 archive 512
+POLISH seconds 1140 sweeps 1122636 evaluations 120242014272 best 9 current 25 archive 512

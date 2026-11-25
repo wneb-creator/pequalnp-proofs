@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "exact_overbudget_calibrations": [
+    {
+      "circuit": "output_copy",
+      "gates": 25,
+      "and_count": 6,
+      "full_raw_assignments": 65536,
+      "packing_sum": 60,
+      "symbolic_mask_cnf_cases": 117,
+      "masks_with_true_and_events": 0
+    },
+    {
+      "circuit": "unused_input_copy",
+      "gates": 25,
+      "and_count": 6,
+      "full_raw_assignments": 65536,
+      "packing_sum": 60,
+      "symbolic_mask_cnf_cases": 117,
+      "masks_with_true_and_events": 12
+    }
+  ],
+  "note": "Extension-count cut alone; dirty-existence unit intentionally omitted for the sound-star output-copy calibration. Unused input-copy calibration exercises true events and counts binary AND copies."
+}

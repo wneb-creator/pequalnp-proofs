@@ -1,0 +1,659 @@
+{
+  "status": "Computational geometry certificate, not a Lean theorem",
+  "utc": "2026-11-25T07:08:30.131543+00:00",
+  "point_subsets_checked": 8192,
+  "mixed_independent_maximum": 10,
+  "large_independent_closures": [
+    [
+      0,
+      8191,
+      13
+    ],
+    [
+      4095,
+      0,
+      12
+    ],
+    [
+      6143,
+      0,
+      12
+    ],
+    [
+      7167,
+      0,
+      12
+    ],
+    [
+      7679,
+      0,
+      12
+    ],
+    [
+      7935,
+      0,
+      12
+    ],
+    [
+      8063,
+      0,
+      12
+    ],
+    [
+      8127,
+      0,
+      12
+    ],
+    [
+      8159,
+      0,
+      12
+    ],
+    [
+      8175,
+      0,
+      12
+    ],
+    [
+      8183,
+      0,
+      12
+    ],
+    [
+      8187,
+      0,
+      12
+    ],
+    [
+      8189,
+      0,
+      12
+    ],
+    [
+      8190,
+      0,
+      12
+    ],
+    [
+      8191,
+      0,
+      13
+    ]
+  ],
+  "independent_12sets": [
+    {
+      "cover_mask": 8190,
+      "deleted_star_center": 0,
+      "residual_edges": [
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          16
+        ],
+        [
+          0,
+          22
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8189,
+      "deleted_star_center": 1,
+      "residual_edges": [
+        [
+          1,
+          13
+        ],
+        [
+          1,
+          15
+        ],
+        [
+          1,
+          21
+        ],
+        [
+          1,
+          25
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8187,
+      "deleted_star_center": 2,
+      "residual_edges": [
+        [
+          2,
+          14
+        ],
+        [
+          2,
+          20
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          25
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8183,
+      "deleted_star_center": 3,
+      "residual_edges": [
+        [
+          3,
+          13
+        ],
+        [
+          3,
+          19
+        ],
+        [
+          3,
+          23
+        ],
+        [
+          3,
+          24
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8175,
+      "deleted_star_center": 4,
+      "residual_edges": [
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          22
+        ],
+        [
+          4,
+          23
+        ],
+        [
+          4,
+          25
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8159,
+      "deleted_star_center": 5,
+      "residual_edges": [
+        [
+          5,
+          17
+        ],
+        [
+          5,
+          21
+        ],
+        [
+          5,
+          22
+        ],
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8127,
+      "deleted_star_center": 6,
+      "residual_edges": [
+        [
+          6,
+          16
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          6,
+          21
+        ],
+        [
+          6,
+          23
+        ]
+      ]
+    },
+    {
+      "cover_mask": 8063,
+      "deleted_star_center": 7,
+      "residual_edges": [
+        [
+          7,
+          15
+        ],
+        [
+          7,
+          19
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          7,
+          22
+        ]
+      ]
+    },
+    {
+      "cover_mask": 7935,
+      "deleted_star_center": 8,
+      "residual_edges": [
+        [
+          8,
+          14
+        ],
+        [
+          8,
+          18
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          8,
+          21
+        ]
+      ]
+    },
+    {
+      "cover_mask": 7679,
+      "deleted_star_center": 9,
+      "residual_edges": [
+        [
+          9,
+          13
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          9,
+          20
+        ]
+      ]
+    },
+    {
+      "cover_mask": 7167,
+      "deleted_star_center": 10,
+      "residual_edges": [
+        [
+          10,
+          16
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          10,
+          19
+        ],
+        [
+          10,
+          25
+        ]
+      ]
+    },
+    {
+      "cover_mask": 6143,
+      "deleted_star_center": 11,
+      "residual_edges": [
+        [
+          11,
+          15
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          11,
+          18
+        ],
+        [
+          11,
+          24
+        ]
+      ]
+    },
+    {
+      "cover_mask": 4095,
+      "deleted_star_center": 12,
+      "residual_edges": [
+        [
+          12,
+          14
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          12,
+          23
+        ]
+      ]
+    },
+    {
+      "cover_mask": 67092480,
+      "deleted_star_center": 13,
+      "residual_edges": [
+        [
+          0,
+          13
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "cover_mask": 67084288,
+      "deleted_star_center": 14,
+      "residual_edges": [
+        [
+          0,
+          14
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          8,
+          14
+        ],
+        [
+          12,
+          14
+        ]
+      ]
+    },
+    {
+      "cover_mask": 67067904,
+      "deleted_star_center": 15,
+      "residual_edges": [
+        [
+          1,
+          15
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          11,
+          15
+        ],
+        [
+          12,
+          15
+        ]
+      ]
+    },
+    {
+      "cover_mask": 67035136,
+      "deleted_star_center": 16,
+      "residual_edges": [
+        [
+          0,
+          16
+        ],
+        [
+          6,
+          16
+        ],
+        [
+          10,
+          16
+        ],
+        [
+          11,
+          16
+        ]
+      ]
+    },
+    {
+      "cover_mask": 66969600,
+      "deleted_star_center": 17,
+      "residual_edges": [
+        [
+          5,
+          17
+        ],
+        [
+          9,
+          17
+        ],
+        [
+          10,
+          17
+        ],
+        [
+          12,
+          17
+        ]
+      ]
+    },
+    {
+      "cover_mask": 66838528,
+      "deleted_star_center": 18,
+      "residual_edges": [
+        [
+          4,
+          18
+        ],
+        [
+          8,
+          18
+        ],
+        [
+          9,
+          18
+        ],
+        [
+          11,
+          18
+        ]
+      ]
+    },
+    {
+      "cover_mask": 66576384,
+      "deleted_star_center": 19,
+      "residual_edges": [
+        [
+          3,
+          19
+        ],
+        [
+          7,
+          19
+        ],
+        [
+          8,
+          19
+        ],
+        [
+          10,
+          19
+        ]
+      ]
+    },
+    {
+      "cover_mask": 66052096,
+      "deleted_star_center": 20,
+      "residual_edges": [
+        [
+          2,
+          20
+        ],
+        [
+          6,
+          20
+        ],
+        [
+          7,
+          20
+        ],
+        [
+          9,
+          20
+        ]
+      ]
+    },
+    {
+      "cover_mask": 65003520,
+      "deleted_star_center": 21,
+      "residual_edges": [
+        [
+          1,
+          21
+        ],
+        [
+          5,
+          21
+        ],
+        [
+          6,
+          21
+        ],
+        [
+          8,
+          21
+        ]
+      ]
+    },
+    {
+      "cover_mask": 62906368,
+      "deleted_star_center": 22,
+      "residual_edges": [
+        [
+          0,
+          22
+        ],
+        [
+          4,
+          22
+        ],
+        [
+          5,
+          22
+        ],
+        [
+          7,
+          22
+        ]
+      ]
+    },
+    {
+      "cover_mask": 58712064,
+      "deleted_star_center": 23,
+      "residual_edges": [
+        [
+          3,
+          23
+        ],
+        [
+          4,
+          23
+        ],
+        [
+          6,
+          23
+        ],
+        [
+          12,
+          23
+        ]
+      ]
+    },
+    {
+      "cover_mask": 50323456,
+      "deleted_star_center": 24,
+      "residual_edges": [
+        [
+          2,
+          24
+        ],
+        [
+          3,
+          24
+        ],
+        [
+          5,
+          24
+        ],
+        [
+          11,
+          24
+        ]
+      ]
+    },
+    {
+      "cover_mask": 33546240,
+      "deleted_star_center": 25,
+      "residual_edges": [
+        [
+          1,
+          25
+        ],
+        [
+          2,
+          25
+        ],
+        [
+          4,
+          25
+        ],
+        [
+          10,
+          25
+        ]
+      ]
+    }
+  ],
+  "deduction": "Any cover K of G minus four edges with |K|=12 covers at least48 original edges; 4-regularity bounds covered edges by48 minus the number internal toK. HenceK is independent. The8192 closure census then makesK12 vertices of one pure part, and the four deleted edges are exactly the remaining vertex star.",
+  "limitation": "This classifies the equality geometry; it does not rule out a circuit with this Ustar."
+}

@@ -1,0 +1,11 @@
+2026-11-25T06:54:00.842478+00:00 JOINT FIVE-OWNER BASIS VERIFIED 16 raw inputs 36 features [3, 1, 3, 3, 3, 15, 3, 3]
+2026-11-25T06:54:00.842515+00:00 INTERNAL AND SAMPLES 0 false 0 true 0 guarded_by_AND_count_at_most_5
+2026-11-25T06:54:00.842522+00:00 REQUIRED DIRTY PAIR FAMILY 0 target_only
+2026-11-25T06:54:04.014085+00:00 FEATURE GADGET five_owner_0_1_2_5_7_joint 25 gates variables 95066 clauses 576868 raw 16 features 36 excess 10 minimum_ands 6 join_crossings True
+2026-11-25T06:54:04.014984+00:00 SOLVE CHECKPOINT five_owner_0_1_2_5_7_joint {'round': 1, 'result': 10, 'seconds': 0.0, 'total_seconds': 0.0}
+2026-11-25T06:54:04.015052+00:00 RESULT five_owner_0_1_2_5_7_joint 25 10 seconds 0.0
+2026-11-25T06:54:04.017349+00:00 VERIFIED ALL RAW INPUTS five_owner_0_1_2_5_7_joint 65536
+2026-11-25T06:54:06.244975+00:00 FEATURE GADGET five_owner_0_1_2_5_7_joint 23 gates variables 85704 clauses 524751 raw 16 features 36 excess 8 minimum_ands 6 join_crossings True
+2026-11-25T06:59:06.250114+00:00 SOLVE CHECKPOINT five_owner_0_1_2_5_7_joint {'round': 1, 'result': 0, 'seconds': 300.0, 'total_seconds': 300.0}
+2026-11-25T07:04:06.462890+00:00 SOLVE CHECKPOINT five_owner_0_1_2_5_7_joint {'round': 2, 'result': 0, 'seconds': 300.2, 'total_seconds': 600.21}
+2026-11-25T07:09:06.467968+00:00 SOLVE CHECKPOINT five_owner_0_1_2_5_7_joint {'round': 3, 'result': 0, 'seconds': 300.0, 'total_seconds': 900.22}

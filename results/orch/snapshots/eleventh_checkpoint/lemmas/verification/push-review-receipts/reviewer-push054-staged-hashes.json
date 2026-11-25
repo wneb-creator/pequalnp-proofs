@@ -1,0 +1,67 @@
+[
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/independent-lean-lrat-check.log",
+    "bytes": 258,
+    "sha256": "090538d82bacf7068dc0e3c46bade384ed8e6205a18562c1f409f6a9ca13a820"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/model-spec.json",
+    "bytes": 785,
+    "sha256": "993eeab7e4da19c0bf5c06265803f330122e95dee2dc8709ad180c0aba20a22c"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/model.cnf",
+    "bytes": 750782,
+    "sha256": "5ea7d7ac22f537ce088f64064d1399b5c110ded72fabeca11fa39c4c61ed0efb"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/phase.json",
+    "bytes": 329,
+    "sha256": "2d64d2d16e208b3d8606dd1bb25e521000f4a6737a0535fc5115ea63fcb577a9"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/proof.lrat.gz",
+    "bytes": 94079074,
+    "sha256": "15b6ce8781444eb716ae2ab2788b9f3a6ea01a8cd0b668fff7a208edd946d4b9"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/solver.log",
+    "bytes": 383,
+    "sha256": "325563d050f91c1271da2c6607f2cd372809dfed7eff27c75fe494218b174c1e"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/standalone-lrat.log",
+    "bytes": 21014,
+    "sha256": "05e9ca6ca19b9d8fcfcf6676d69e1b20df91af0f34b9fedbdc1fd5401e8380c6"
+  },
+  {
+    "path": "results/orch/lemmas/lean_baseline/sat/and_archive/dirty6_strengthened_unsat/status.json",
+    "bytes": 722,
+    "sha256": "b9da4dd5bac724ba8adf84510eba032239bffa54a3ba283211a566fbf63862b6"
+  },
+  {
+    "path": "results/orch/lemmas/reduction_analysis/FiveOwnerCoverageFull.build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/lemmas/reduction_analysis/FiveOwnerCoverageFull.lean",
+    "bytes": 2498,
+    "sha256": "c34b234497c99f022cc652c2a0b4b490fba826bb5e771a7c639fde47db868190"
+  },
+  {
+    "path": "results/orch/lemmas/reduction_analysis/FiveOwnerCoverageFull.validation.txt",
+    "bytes": 602,
+    "sha256": "56c2f90ec6a17115b1eef809404b8eee6c0f6c79e90f832d3a21c1653d345a35"
+  },
+  {
+    "path": "results/orch/lemmas/verification/runtime_lrat/a6-strengthened-receipt.json",
+    "bytes": 1486,
+    "sha256": "40272ef87ebeb71803761034e0f0609b51ecd35c751dc4160b5904856aad2efd"
+  },
+  {
+    "path": "results/orch/lemmas/verification/runtime_lrat/reviewer-a6-strengthened-lrat-runtime.log",
+    "bytes": 258,
+    "sha256": "090538d82bacf7068dc0e3c46bade384ed8e6205a18562c1f409f6a9ca13a820"
+  }
+]

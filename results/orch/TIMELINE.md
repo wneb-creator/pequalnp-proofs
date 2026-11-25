@@ -135,3 +135,19 @@
 2026-11-25T06:45:51.023117+00:00 Tenth research checkpoint: 171 artifacts/12416870 original bytes/7271862 stored bytes. FiveOwnerClean is a complete standalone Defs-only theorem for the exact raw16 five-owner AndCountCircuit with at most5ANDs: all AND gates reject every independent input. Lean exited0 with empty diagnostics; independent review passed; pushed91ddaa71. Ordinary-Circuit transfer and paid23-gate exclusion remain separate. Strengthened six-owner SAT CNF/LRAT certificate independently accepted by Lean runtime checking and pushed1f05cd0b; no kernel instance/encoding/full-target claim. Global14AND selector-budget and genuinely nested local search profiles continue; no exact63 witness or target checker acceptance.
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
 TIMING total=284.7 subagents=6
+
+- 2026-11-25T06:47:43Z: direct full14/63 completed its third UNKNOWN interval (900s); intentionally terminated during the following interval for rotation.
+- 2026-11-25T06:48Z: raw17/seven-AND/28-gate sufficient construction profile launched; full14 selector-cost descent continues separately.
+2026-11-25T06:48:55.942653+00:00 Renewed lease; expiry 2026-11-25T07:08:56.286Z.
+
+2026-11-25T06:50:35.347210+00:00 circuit_search: Saved and intentionally rotated local five-owner archive search before its1200s limit. Last progress: POLISH seconds 1070 sweeps 1129843 evaluations 120953172206 best 9 current 22 archive 512. Full available log,512-state archive and champion preserved. Warm starts independently checked on every65536 raw assignment and exact prefix budgets; ordinary best10 is a qualified absorption phase. The replacement adds suppressed-dirtiness classes and a separate champion without a hard acceptance filter.
+
+2026-11-25T06:56:35.139819+00:00 circuit_search: Global MIN14 profile completed normally with111645 sweeps,23546954514 replacements,best234; complete log/archive preserved. The independently approved MIN_AND13 suppressed-feature continuation is now running from4724 starts, retaining all14AND phases/archive and adding19 suppressed13AND bases×78 automorphisms. Best new13AND start has262 boundary errors. This broadens search rather than assuming a14AND theorem; no suppressed-dirty acceptance restriction is imposed. Local five-owner suppressed-feature search remains the other process.
+2026-11-25T06:58:56.431896+00:00 Renewed lease; expiry 2026-11-25T07:18:56.643Z.
+2026-11-25T07:08:56.819551+00:00 Renewed lease; expiry 2026-11-25T07:28:57.044Z.
+
+- 2026-11-25T07:11:21.923187+00:00: lean_baseline received independent approval of one-paid-shared-OR correlated model and its complete calibration. Awaiting next lane rotation; no new long process yet.
+
+2026-11-25T07:11:52.055210+00:00 Eleventh research checkpoint: 218 artifacts/19066536 original bytes/11152862 stored bytes. Complete local FiveOwnerClean, ordinary and correlated-feature transfers, tight generic conversion, OR substitution, and fixed40-gate raw-core completion are Lean-checked and independently reviewed. Raw≤23 cores need≥6AND; the shared-feature paid-budget adapter remains separate. NormalizedPenaltyFour proves a necessary condition on a no-larger leastTopForm representative of any qualifying full circuit; larger penalties remain open. Full14 budget descent ended UNKNOWN at65 and did not reach64/63; bounded-radius UNSAT is local only. New mixed outside decomposition is a focused subclass of the earlier four-owner model, not a broader class. Exact posted target still unproved/unrefuted; no target checker acceptance or PR.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=310.7 subagents=6

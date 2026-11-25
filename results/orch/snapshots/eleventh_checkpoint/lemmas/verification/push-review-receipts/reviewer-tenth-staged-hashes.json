@@ -1,0 +1,887 @@
+[
+  {
+    "path": "results/orch/NOTES.md",
+    "bytes": 217806,
+    "sha256": "7bef359720334f7aeade90904778b303597c93f6abce886d531a4b184919b8b1"
+  },
+  {
+    "path": "results/orch/RESULTS.md",
+    "bytes": 13606,
+    "sha256": "be6a55909c12bb688b57b6c41a897a96cc454e316e3d995348b465c66f0c2427"
+  },
+  {
+    "path": "results/orch/TIMELINE.md",
+    "bytes": 14495,
+    "sha256": "56504df04021f40d2bcbf05aa7ef4239fe277a98b36b1c2767e42d548b64f3f5"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/MANIFEST.json",
+    "bytes": 64171,
+    "sha256": "17a3751c28a956cd79ee52e6bf9bf6b17cdbff080625266a0ff4e0ef50cd1222"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/STATUS.md",
+    "bytes": 2489,
+    "sha256": "e5970353c8301910e970ece8b7c7779bc5dd9a4b49835e3db59383bba66aaeb0"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/and-skeleton-budget-calibration.log",
+    "bytes": 2353,
+    "sha256": "69ec0dfc98dcd956608bd58c17d8dd0396af63eb69bbc686cc3ac76345d170dc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/and13-dirty-orbit-minimal.log",
+    "bytes": 516,
+    "sha256": "ace505db1e70cc7942cf1f160831efec499a4ee0ee0a57e83e842fbc04ba8ab6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/and14-budget-descent.log",
+    "bytes": 121,
+    "sha256": "715c8b357438357c28e5595e8d5955a4fb0ab822e36f58fa4747f6acac97a2a2"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/and14-budget63-profile.log",
+    "bytes": 309,
+    "sha256": "eaf9af2176cdd99584e92671fb6893b04adaac1ab3e55e1cf82007c44fa1ee57"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/and6-dirty-uncut-prototype.log",
+    "bytes": 485,
+    "sha256": "6af80978c4c9846ffdabdda3990ed6710c006ef4871199148f0d1c91f5240f2a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/circuit-search-joint-five-archive.log",
+    "bytes": 7572,
+    "sha256": "a02456a86d5d50605ae54e5297e8bd19e0936fe3208836d5952917a32a4c226a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/circuit-search-joint-five-six-and.log",
+    "bytes": 9706,
+    "sha256": "5e55fcd35493723d64af1b7d465a480819d8e4c69a3aab8bca6b3ea864435dbc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/circuit-search-joint-four-multiguard-priority.log",
+    "bytes": 9586,
+    "sha256": "ada1e7df20038a4e19d2f4ff42121773aa57ec796c08166dc8c30c4a11f03dad"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/joint-five-exact6-nested.log",
+    "bytes": 1262,
+    "sha256": "c964def7dc8160a9f60a92ee44c237e42f44d1061bb870786e5d9477ae96b82e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-a6-strengthened-lrat-runtime.log",
+    "bytes": 258,
+    "sha256": "090538d82bacf7068dc0e3c46bade384ed8e6205a18562c1f409f6a9ca13a820"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-budget-assembly.log",
+    "bytes": 176,
+    "sha256": "dde4eb71fd76c390c2f13be68005b0a8d20b7fb61168ce4c9eb82281e753ecfd"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-global-fourteen-bank.log",
+    "bytes": 351,
+    "sha256": "8d631aff47f4a13d30ce55ef8244d4882c293f279bbd80a074266a7f1ed0c90b"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-global17-additions.log",
+    "bytes": 384,
+    "sha256": "0b653a68c989f0c858beb9d215d2a1c5646669a08a669709a7a8fff64ed72422"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-ninth-manifest-002.log",
+    "bytes": 2609,
+    "sha256": "90ba19cd06ba7e30d0ea268e2c23c76757077c10a2211f249e033d9a731bc636"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/diagnostics/reviewer-ninth-manifest.log",
+    "bytes": 89,
+    "sha256": "d8be94676158da5a77c6c57dfd3bc1368758ffea8a6d5a1dc5f4e5ba0c11fe0d"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerBridgeTail.lean.txt",
+    "bytes": 2152,
+    "sha256": "99a26e7eefed6f1267f1f2a67af0a7231297898b3e7c6c715cfb408d4c1ad1f6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangleMaxFour.attempt1.log",
+    "bytes": 319,
+    "sha256": "6d52775f77d3befe1174c9a07f409b63fc30b0184c9e3106038a8f352ccde3fe"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangleMaxFour.build.log",
+    "bytes": 319,
+    "sha256": "6d52775f77d3befe1174c9a07f409b63fc30b0184c9e3106038a8f352ccde3fe"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangleMaxFour.lean",
+    "bytes": 4958,
+    "sha256": "1d370bc79ac68916cf7de8e019bda7164e6f8940f85758c96271e541490db6d0"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangleSmallTable.lean",
+    "bytes": 2925,
+    "sha256": "dc6459626c36eae5befc77b3bc8a5b4ad85fc817f8e95698bf20993cc7c5aeaa"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangles.attempt1.log",
+    "bytes": 2286,
+    "sha256": "2f5de8ed65f16d21c152909079b9b87a03a00bf49530783df4df7ccb173dca43"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangles.attempt2.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangles.build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/FiveOwnerRectangles.lean",
+    "bytes": 10706,
+    "sha256": "6c85d03974cf7ccf90777d965ed7bf852ad213da92c4e244da65d9d08af47808"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/OneJunkLeastAO.build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/OneJunkLeastAO.lean",
+    "bytes": 307741,
+    "sha256": "745751527c6825b1b966bc6eccf2d29fb08ab9bb0131947d594546b79aced666"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/OneJunkLeastAOTail.lean.txt",
+    "bytes": 2706,
+    "sha256": "4062830eb9c92b6f05c599a4a860518faa1c84c492b80807e1b4ba9260d20cfa"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/check_five_rectangle_classification.py",
+    "bytes": 1719,
+    "sha256": "de95698691409af6bbf888383e292809c19e22a37e198d3b585abfd0f8afaec8"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/five-rectangle-classification-independent.json",
+    "bytes": 1543,
+    "sha256": "e6ea086029afd45cf52873a4ec2beea4bb6c24b136c1696af1a2efe71150beef"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/five-rectangle-classification-independent.log",
+    "bytes": 1543,
+    "sha256": "e6ea086029afd45cf52873a4ec2beea4bb6c24b136c1696af1a2efe71150beef"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/upstream-refresh-004-commits.log",
+    "bytes": 33365,
+    "sha256": "ede822b964ed0c2c2fab322a46dec6af7c425444572b7dca64a11af593909bbd"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/upstream-refresh-004-fetch.log",
+    "bytes": 101,
+    "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/upstream-refresh-004-manifest.json",
+    "bytes": 71032,
+    "sha256": "29b499d9e5c9e3507bef7c08cba79e42c04db7ea379aa551cb83b260a2595123"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/algebra_strategy/upstream-refresh-004-report.json",
+    "bytes": 2884,
+    "sha256": "7e7a7a2bb0f3e5c33296c79d124b285d5fe24a92fdb1c34cedceb59fbc979210"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/active-profiles.json",
+    "bytes": 1543,
+    "sha256": "bd65ebac811c0f6c16ba4aadc6cef56f475a89f6c81700d7bb15b8c44614e93f"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/circuit-search-joint-five-six-and.log",
+    "bytes": 9706,
+    "sha256": "5e55fcd35493723d64af1b7d465a480819d8e4c69a3aab8bca6b3ea864435dbc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/circuit-search-joint-four-multiguard-priority.log",
+    "bytes": 9586,
+    "sha256": "ada1e7df20038a4e19d2f4ff42121773aa57ec796c08166dc8c30c4a11f03dad"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/extend_five_archive_near17.py",
+    "bytes": 2759,
+    "sha256": "23211fc245ca14a41b221fe57c4b404c6521addb303d6f105447f07fa4790173"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/extend_global_archive17.py",
+    "bytes": 2488,
+    "sha256": "33e279f3672fa5a78a6c38db70c30e81128af311f5fc763b28ef4de1957d1ebf"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-archive17-base-validation.json",
+    "bytes": 1448,
+    "sha256": "52c2e55161d6a8c1891bcbf4133404c29b9154536857b9c787b06aaa535a2edc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-active-bank.json",
+    "bytes": 238,
+    "sha256": "43d294d2f8d85686476d575a518f04b868ea6ec23aa07e86739c447cab5bffb4"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-automorphisms.json",
+    "bytes": 7488,
+    "sha256": "ea6c7198ce3ad9470cc6a9013354605a6cbd0f98d1402aa70e059afc36e66a15"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-base-seeds.json",
+    "bytes": 32837,
+    "sha256": "342e75a3972ae075dab32b09ea0aeae122482e5425fb42fe9a7acff9aa66cead"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-extra17-seeds.json",
+    "bytes": 144892,
+    "sha256": "51db7191eff1dfafc3052dc5c49a55e2db2b2b6a4c71a6a9c067c8da07ddb018"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-extra17.log",
+    "bytes": 227,
+    "sha256": "6213c7afec9e065cff21f4a1fd4a97bfaed137253a3335cb0742e5f1f363bd2c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-initial.json",
+    "bytes": 807,
+    "sha256": "48e295210376152a4057c4bdeacec686aed4381c4a8132ccbf14c5f1e455b44a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-preparation.json",
+    "bytes": 395,
+    "sha256": "6ff817f17970c49980adcf21411cde4dc481c21749d98f307d60cdad5a51c2f4"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-preparation.log",
+    "bytes": 356,
+    "sha256": "0a375bac0d7f44a9003fc0917e0b97389fe3ae3d58c303f7afa77cb6e12f1841"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-seeds.json.gz",
+    "bytes": 216361,
+    "sha256": "b14e8cf56573c3d66f5380900f45488b7d8850762bea95da2c963e21d46c0e46"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-seeds.txt.gz",
+    "bytes": 197129,
+    "sha256": "4055810b19d06e1b4078714d9ea9ac6d02b16e128d7a932f30cdd5217a3b570c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-smoke-all-positive.json",
+    "bytes": 684,
+    "sha256": "5de1e067b2c65b31ca8759b2498c19b943ce9e1e4adc09594d7160803e1c8485"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-smoke-pool.json",
+    "bytes": 685,
+    "sha256": "9d918e68823838acd0b4e3457723472e334f76b903fdc134f0573cd3bef0567f"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-smoke.log",
+    "bytes": 160,
+    "sha256": "d2ddbbe5ad5d0524009450a22ed0f3a1d051fc372a621ce0b7e0219b1fe5706d"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global-fourteen-smoke.validation.json",
+    "bytes": 140,
+    "sha256": "55a56c8b3cb00df8c513fa8366a14b62d6e6c51242a821a1f036b5f34fb5b5d6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global14archive-all-positive.json",
+    "bytes": 684,
+    "sha256": "5de1e067b2c65b31ca8759b2498c19b943ce9e1e4adc09594d7160803e1c8485"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/global14archive-pool.json",
+    "bytes": 345936,
+    "sha256": "818d5c9a8b7bde30d8f1cc98b4ec231988df5788cd82c671c20ac44b181d94b7"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/inspect_feature_structure.py",
+    "bytes": 1788,
+    "sha256": "f4cecc3aba0007efc5b71f1c44e71c8c28e643453d2c4a7ddb56f3864caecf2f"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.assembly.json",
+    "bytes": 144,
+    "sha256": "09362a9516c786b6a57b7adec91e8cf85d1727fa1cb37a297ea6cf43367dad27"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.full.json",
+    "bytes": 806,
+    "sha256": "9e8f3ca4970da4cd05052a3cfde4fc27395526264c670b92924c7f1f9fbdacaa"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.json",
+    "bytes": 284,
+    "sha256": "68c810db41a30c2358aaf90365547b39b91ff4b09af473cc987ba0c41bffb861"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.structure.json",
+    "bytes": 127,
+    "sha256": "0a148f463f3236f2796f099657705419291e3bcad7a08659a5acb74a57a43142"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.structure.log",
+    "bytes": 116,
+    "sha256": "f87c3d9a4760936d8d5f4442068e0f8e046b487605f0c93c691572dabaa86830"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.validation.json",
+    "bytes": 717,
+    "sha256": "ca20181ecbb9296610a9413556cffa20e9ada197703e0b645d0f5beea81ab965"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-allraw23-error17.validation.log",
+    "bytes": 441,
+    "sha256": "1c85bc4214432986864432b94a6eac5871380d58a9760557724a491aa99d8f2c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.assembly.json",
+    "bytes": 152,
+    "sha256": "cc1bcafb60e84636ae413ad5fd376785ad8c3eab6c5719fc9dd533050222ed39"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.full.json",
+    "bytes": 807,
+    "sha256": "504ec38cdd6c86cff37c27a10dbf01f92747185f05d99141a879459cbd023c33"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.json",
+    "bytes": 288,
+    "sha256": "c5520e2efe1d960e2308eb4f95f37df69357eca1e8896101a5388da14f8bb585"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.structure.json",
+    "bytes": 127,
+    "sha256": "0a148f463f3236f2796f099657705419291e3bcad7a08659a5acb74a57a43142"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.structure.log",
+    "bytes": 116,
+    "sha256": "f87c3d9a4760936d8d5f4442068e0f8e046b487605f0c93c691572dabaa86830"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.validation.json",
+    "bytes": 518,
+    "sha256": "4a41ace16701ec36b1e397e47e3e0a44141392b5e1c5c428c47fe302137e5fdd"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-10.validation.log",
+    "bytes": 384,
+    "sha256": "30c7d6b3d743917106a44c112ec7743dc09ef6f6f14a1f9d3224053ff6633ba3"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15-full.json",
+    "bytes": 805,
+    "sha256": "a62746c505bd8a0a33b4a80e4385def301477a1eaebc76e641d48cfc06303092"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15.assembly.json",
+    "bytes": 168,
+    "sha256": "4b0c3968a9ef9b4312fc0dd124b3275a98cf0d8dc02788cf59e7f5d045db8efb"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15.json",
+    "bytes": 287,
+    "sha256": "0a13f55a11fde29662063585285f3783c4b0ea6ad497f9b59b002eb2a0d5c276"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15.structure.json",
+    "bytes": 76,
+    "sha256": "582507c85492d4a932287bc4e78a0b1fbe6c4781878b840929467d19ad1664a1"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15.validation.json",
+    "bytes": 663,
+    "sha256": "9d4553b3fb4f5198288b287147ecd2febb347a5294010fd250d29ec74f1d4189"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-best-15.validation.log",
+    "bytes": 429,
+    "sha256": "4ae9ab862a0c3eba0e39e3533226eb57dfbabea04b4f37c421b099155c8ed282"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-initial.json",
+    "bytes": 643,
+    "sha256": "6ef73bc7a1f2740309a41dcdf8317d8b56d91e58b4659cba3bda3a9244125560"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-near17-seeds.json",
+    "bytes": 29602,
+    "sha256": "3983ea1f3c7a1716a4a1cac4fbe2f191a15bccf17d336f50650de0fc584a5557"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-near17.log",
+    "bytes": 60,
+    "sha256": "24e8185b9190c3692599df6b00aca4a3083da05f2d8c74fa301e55c8212c3276"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-archive-seeds.txt",
+    "bytes": 74251,
+    "sha256": "30466c2c7e46eaaaed5020b4e965b8f5b5ce5a243d3794c3658eb91eb1e3e8e4"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.assembly.json",
+    "bytes": 168,
+    "sha256": "894f7f76900a55f55193117332766232586675caddfba4ce48fe651d38f56ff8"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.json",
+    "bytes": 275,
+    "sha256": "9f409b0dbbc405bef1ee050b1b6a9f8d4e041a4ab573cfe2b5a9ba8e09fa90d6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.structure.json",
+    "bytes": 127,
+    "sha256": "47577a91223d12498293556f3f1a578767ab42927439f9b0c1454db77a79e9da"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.structure.log",
+    "bytes": 116,
+    "sha256": "d0562b942f4c3ec24498406a16310daea7425511bba142024130a0fd4960933a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.validation.json",
+    "bytes": 756,
+    "sha256": "aa6c430570636c6f1c7b8d8b54d89b1785c9c7cf2cca7143778528d458d48af5"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-0.validation.log",
+    "bytes": 456,
+    "sha256": "8a1c6b5fcefbd0eb3bd7f7254d94c738cb05f72702105d45b736c094389f3e9a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.assembly.json",
+    "bytes": 168,
+    "sha256": "894f7f76900a55f55193117332766232586675caddfba4ce48fe651d38f56ff8"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.json",
+    "bytes": 275,
+    "sha256": "5daaf16749083eafe6496867511fdce1bb22d36a75eb8c9b681342996564d3f1"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.structure.json",
+    "bytes": 127,
+    "sha256": "47577a91223d12498293556f3f1a578767ab42927439f9b0c1454db77a79e9da"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.structure.log",
+    "bytes": 116,
+    "sha256": "d0562b942f4c3ec24498406a16310daea7425511bba142024130a0fd4960933a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.validation.json",
+    "bytes": 753,
+    "sha256": "d3d5346cfe7d8654ed2dac6f0fc253bbddf0be2a8f51d653b49cfac1c5dd6550"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-drop17-1.validation.log",
+    "bytes": 453,
+    "sha256": "efbe47b30a9ba4486258282f6aed6a54958b50c1152e973493008e72f9bc9a28"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-min6-flat-best-12.json",
+    "bytes": 242,
+    "sha256": "6828b59fc8f91ddcbad02007abde39f70074ef43d32056e98336cdd21f61693b"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.assembly.json",
+    "bytes": 160,
+    "sha256": "76fdb20cde5a8ede2d42ecbc8d75021af17efecc49adc4e6265188213c5baafa"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.full.json",
+    "bytes": 780,
+    "sha256": "a67999190fe6740bb1312f91b3b61dddfba80b5e23c9aaace3fd0f4bf2e44b67"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.json",
+    "bytes": 261,
+    "sha256": "45c7ba96fac98b5420436da65a2d79b4c77782885f5bdceb63902672d33cdd08"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.structure.json",
+    "bytes": 127,
+    "sha256": "0a148f463f3236f2796f099657705419291e3bcad7a08659a5acb74a57a43142"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.structure.log",
+    "bytes": 116,
+    "sha256": "f87c3d9a4760936d8d5f4442068e0f8e046b487605f0c93c691572dabaa86830"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.validation.json",
+    "bytes": 741,
+    "sha256": "f4b540c6e2b9e16497ee605105f6e6b6ca191c94b54b5ac78a39bb75bed712a2"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-simplified21-error17.validation.log",
+    "bytes": 449,
+    "sha256": "c7476d6d357b87d39e1d160d02b63df56db45a4666c6c57e649c8026c9227f2d"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.assembly.json",
+    "bytes": 160,
+    "sha256": "8c3233d80fcb97611e093233f9eb873d864bcb6cd9df30fb61472f466d257b8d"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.json",
+    "bytes": 287,
+    "sha256": "f0360743f8b37c09fbd54e9579147c9c7eba2348c5cb5e7bc7b501a73cc2e3ad"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.structure.json",
+    "bytes": 127,
+    "sha256": "47577a91223d12498293556f3f1a578767ab42927439f9b0c1454db77a79e9da"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.structure.log",
+    "bytes": 116,
+    "sha256": "d0562b942f4c3ec24498406a16310daea7425511bba142024130a0fd4960933a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.validation.json",
+    "bytes": 741,
+    "sha256": "dcd072d2fa05dbe83b405bbd8def2d356ac8a9948d594b8d1040160a0a00f92f"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-five-unfolded17.validation.log",
+    "bytes": 449,
+    "sha256": "2736bb68bbb052287d868be949872b173111e51f1c8d4506048a7a2ee50acdbc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint-four-multiguard-final.json",
+    "bytes": 188,
+    "sha256": "345d47383fcd668678c4fff0c60f2112464292c2d36714c6bc0e5aab73c84db5"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint5archive-all-positive.json",
+    "bytes": 245,
+    "sha256": "4de46a64f8329696e2e392f006f2f950ec21f4ca402f60975c7ff11f12822c5f"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/joint5archive-pool.json",
+    "bytes": 144623,
+    "sha256": "a40651c2e02ab059b74a7b377a6bb9843f1c58d7b905b6a7b6d7251b2e981778"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/circuit_search/prepare_global_fourteen_archive.py",
+    "bytes": 8034,
+    "sha256": "8ca1e810520c30b6cefab4e080ce6129f1cd59174569509d28ea1cb40b7b2b2d"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and-budget-descent-calibration.log",
+    "bytes": 740,
+    "sha256": "3058265ab8c0b981ef325ce179e909e8abd92e7d4d467e441a4723d4c5501410"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and-skeleton-budget-calibration.log",
+    "bytes": 2353,
+    "sha256": "69ec0dfc98dcd956608bd58c17d8dd0396af63eb69bbc686cc3ac76345d170dc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and6-equality-slack-calibration.log",
+    "bytes": 469,
+    "sha256": "51798be009646f560f077251dbac17640e87f40ce97a56794b5f987cb4406730"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty13_orbit_minimal_1200s/model-spec.json",
+    "bytes": 1204,
+    "sha256": "493a85084c8939ef99096710eef73ac30914b893e681712c8e10a5e540df2d76"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty13_orbit_minimal_1200s/orbit-clauses.json",
+    "bytes": 278,
+    "sha256": "3fce40b3cba12f2df3ce6c6d751a95e9554de11c6167202713684c53fe321caf"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty13_orbit_minimal_1200s/phase.json",
+    "bytes": 665,
+    "sha256": "f2e1175010643fd590c146a596c89e6030d8346c64b59f1941a17cd7f8a4ed6e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty13_orbit_minimal_1200s/solver.log",
+    "bytes": 516,
+    "sha256": "ace505db1e70cc7942cf1f160831efec499a4ee0ee0a57e83e842fbc04ba8ab6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty13_orbit_minimal_1200s/status.json",
+    "bytes": 589,
+    "sha256": "91c5ed6c660f0a96600279017cf3ef488e691b9fca990af32d531366a897e9d2"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty6_uncut_1200s/model-spec.json",
+    "bytes": 434,
+    "sha256": "0f5c77090bc9fdd2a0102c93a01be2c8a75c50efe65e5782a13efef4a17db026"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty6_uncut_1200s/model.cnf",
+    "bytes": 289781,
+    "sha256": "a8bf01b0239aba15d375b67295c6eb1b6a013577ff335c6df763fe7815d17f68"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty6_uncut_1200s/phase.json",
+    "bytes": 329,
+    "sha256": "2d64d2d16e208b3d8606dd1bb25e521000f4a6737a0535fc5115ea63fcb577a9"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty6_uncut_1200s/solver.log",
+    "bytes": 485,
+    "sha256": "6af80978c4c9846ffdabdda3990ed6710c006ef4871199148f0d1c91f5240f2a"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_archive/dirty6_uncut_1200s/status.json",
+    "bytes": 197,
+    "sha256": "47d2e9388e2692f54939ad0c2c18a8bf0efd253432e5bb658334d9d3d1f1f805"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_skeleton_budget_calibration.py",
+    "bytes": 2884,
+    "sha256": "c28c02d00fdb8f81922bd4346f1ce0ebf63a0223f9cec583ac60a40755987a3e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_skeleton_budget_descent.py",
+    "bytes": 5435,
+    "sha256": "fe7fcf13799b2e4fb0bc35d4b35be3b2acfb1dd8e75e4f08021b23f8092c7265"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_skeleton_budget_run.py",
+    "bytes": 7890,
+    "sha256": "aba55d342ac6c13b1ad63013bf17b626f4627cdb98ffbc46b31363c6fabc79a6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/and_skeleton_six_exact_dirty7_phase.json",
+    "bytes": 776,
+    "sha256": "5f8827fa84e0e21a22bc8098828f9617d14c45b4becf286c96444ab72e697f17"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/double-star-exact66-phases.log",
+    "bytes": 175,
+    "sha256": "849a3151b23113bd9c01a79c037cfacb830243046d68f041cea229ca002e4cae"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/generate_six_double_star_phases.py",
+    "bytes": 3573,
+    "sha256": "3e52a5c0ee03d8e226d2c4d8741c466a5b12bacd531a6d950085bb6ecb6f1b1e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lean_baseline/sat/six_double_star_exact31_phases.json",
+    "bytes": 71496,
+    "sha256": "4946651b8b5ae1ee5c96e34811ed0b064b4cc036cb31bfd9cb7412a47edf18c9"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_archive15_six_and_drops.json",
+    "bytes": 23715,
+    "sha256": "bc4cb64a4e46f07b901c08108e2a4607d46132be08763122fd8272c32ec1a41c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_archive17_simplified21.json",
+    "bytes": 261,
+    "sha256": "45c7ba96fac98b5420436da65a2d79b4c77782885f5bdceb63902672d33cdd08"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_archive17_two_gate_repairs.json",
+    "bytes": 265,
+    "sha256": "6c55d88fd5b555ae2154e94a107c4fd19a12f5d864592856ccc457fc9998ee49"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_exact6_archive17_allraw_phase.json",
+    "bytes": 1633,
+    "sha256": "52d29e19801c0c6ad518a0887d81d20acd16814ca88e41e1c2fc9c3d3f5086b6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_exact6_archive17_phase.json",
+    "bytes": 1529,
+    "sha256": "ee6df0bf163a799a2e61000c8e71c1706650a2277ecb001fe1a74ad6c6ed4647"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_exact6_nested_config.json",
+    "bytes": 2741,
+    "sha256": "dff1a06f4785826d5564d2f52422366fbe403a438e6f2d3e9b275785c4cc441e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_exact6_nested_phase.json",
+    "bytes": 2342,
+    "sha256": "3a8c4266c589c0dfc7bae5930d84cf64a6db21759a5883930aa07e59ff21e648"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_multiguard_normalization_census.json",
+    "bytes": 32268,
+    "sha256": "6f1296ebe203552739fe25ae1e778416a5e16613f5468d605eee18cb6d4d2ee3"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_multiguard_partial_unfold_plans.json",
+    "bytes": 60056,
+    "sha256": "3aa8121c1daf76b9eef804d7f527a87b0a73db7a43a60f01e4c68e29be256240"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_multiguard_suppressed_dirty_census.json",
+    "bytes": 78644,
+    "sha256": "6c893d2983da1feb488eb0cba3abfe9fbeaeaef7e60406af4ccc06edde11efd3"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/five_six_and_nested_ready_phases.json",
+    "bytes": 39375,
+    "sha256": "0d1045d29783520400363cfee25ce75579c82d7e2bf6f0abb2ac724b0b65e247"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/joint_five_exact6_progress.log",
+    "bytes": 970,
+    "sha256": "19514cf06a0fbe67a00480916b08711ce8fecc69be091fe6a25105341ef91743"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/joint_five_owner_sat.py",
+    "bytes": 6655,
+    "sha256": "0b7de35662db7dacda6f4a6cca69278350b40033e3602ee926a96eeea0a611a9"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/nested_and_constraint.py",
+    "bytes": 2137,
+    "sha256": "06a5db3ba04a3f82cec79ddf856a832d60bb5f570ffc91f191968450d5fd3383"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/nested_and_constraint.validation.json",
+    "bytes": 226,
+    "sha256": "fc4c17e46880a4a727b49c5e5cae3f2bd9da0fb87182679affdfffeba89b5108"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/baseline-assembly.json",
+    "bytes": 121,
+    "sha256": "24ccd57650168664a02d5d8d4ce6c4fc86ff3c6f5fb5b3fada7c967ab0bdd185"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/baseline/checkpoints.json",
+    "bytes": 68,
+    "sha256": "2e8f1ebe2843d53f42d7b8a0f9c3a2c3a92cf50203678d1f6013d86bb5405682"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/baseline/problem.cnf.gz",
+    "bytes": 1680521,
+    "sha256": "aa4bccc6399bedcbf919a8d7fea4a60d19ca23f31d6ced4c0d958ddf6941c2d3"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/baseline/result.json",
+    "bytes": 777,
+    "sha256": "0f750443dd2b6db970d1e48ab46fe5bb2b42b693a646de6233cee4f4b38d62aa"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/baseline/support-clauses.cnfpart.gz",
+    "bytes": 344195,
+    "sha256": "d7edbe28853298f84e0eb4bdfb1d32b9d369cd8bb00de48f383bf1d36bb9824c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/complete.log",
+    "bytes": 1262,
+    "sha256": "c964def7dc8160a9f60a92ee44c237e42f44d1061bb870786e5d9477ae96b82e"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/direct-essential-witnesses.json",
+    "bytes": 284,
+    "sha256": "e7bd3b655c98e3a21769bf28552a719afad88b0cb391ebe77ddfc89170e8cccc"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/internal-and-samples.json",
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/problem.json",
+    "bytes": 12639,
+    "sha256": "36d318cfcc5166f5e3c33b011d1e4e909fc69644795c53d39c2af360713fc110"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/required-dirty-pairs.json",
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/search/checkpoints.json",
+    "bytes": 140,
+    "sha256": "b6723178627c59c759b1c086c714babc9687c09dd2267f28334d1d9df66827b6"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/search/problem.cnf.gz",
+    "bytes": 1581992,
+    "sha256": "b4e573075862bf5e8aa06291bf0433956b8e5ea8e444fe2adae40f2c306ecd9c"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/search/support-clauses.cnfpart.gz",
+    "bytes": 254407,
+    "sha256": "82680b1c519a6acfe78143d0a52fa06fab4bb13b9dcdd3335e816dc459bf08cf"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/physical_five_exact6/status.json",
+    "bytes": 338,
+    "sha256": "376e469f320b64d4c0157d7ca41d72d40f7f6cd1a2075792e142f9e123095e66"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/symbolic_dirty_pair.py",
+    "bytes": 2877,
+    "sha256": "aeb1240d0ae78f2beef3ae9b914353d1a3d92deeeecf86a13b3729f5394a1f46"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/lower_bound/sat/symbolic_dirty_pair.validation.json",
+    "bytes": 199,
+    "sha256": "a51560f7c17e9605afde91ef57167ba727b97b7f0ba0c9e872ae44e274b40718"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/reduction_analysis/FiveOwnerNegatives.interrupted.build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/fetch.log",
+    "bytes": 101,
+    "sha256": "e6616a9b141870aa84a50204b515ca0634b8bf13d8cd19162afb5eee876413b1"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/final-selected-complete.json",
+    "bytes": 170909,
+    "sha256": "82e5c3c0750f7818afcdd32393541ddcf2167952572344fabb54fd595b0e95eb"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/final-statements-complete.json",
+    "bytes": 356910,
+    "sha256": "292a986748efdf0e4a1903e02b7a44840e07c1881d3f180cc83bd71a91c06ad9"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/final-structural-statements.json",
+    "bytes": 14449,
+    "sha256": "c79ee4f6f8ca6d5b20c0009edd4ad7cfc088c79849ccd2328798df06c1e24aa0"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/manifest.json",
+    "bytes": 71032,
+    "sha256": "29b499d9e5c9e3507bef7c08cba79e42c04db7ea379aa551cb83b260a2595123"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/proof-statements.json.gz",
+    "bytes": 391327,
+    "sha256": "0fd3a0b1ab923bb315337da50c0af21c2f978ac38b7a053239a9e765acbc90cb"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/scan-report.json",
+    "bytes": 2884,
+    "sha256": "7e7a7a2bb0f3e5c33296c79d124b285d5fe24a92fdb1c34cedceb59fbc979210"
+  },
+  {
+    "path": "results/orch/snapshots/tenth_checkpoint/lemmas/verification/upstream-refresh-004-review/structural-proof-paths.txt",
+    "bytes": 7280,
+    "sha256": "0f723ab07498dd5dbd7dc6ac7d3f0c5baddee4d6063f33282af5e80158644e3e"
+  },
+  {
+    "path": "results/orch/validation.txt",
+    "bytes": 11721,
+    "sha256": "3cc47d1c90ef87ef0780ae4d60b756cce00f1fc28710963b7a180c4e21c9a2f4"
+  }
+]

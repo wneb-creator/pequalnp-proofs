@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETED_UNKNOWN",
+  "exit_code": 0,
+  "updated_utc": "2026-11-25T06:54:00.514251+00:00",
+  "seconds": 1200.04,
+  "checkpoints": [
+    {
+      "round": 1,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 300.0
+    },
+    {
+      "round": 2,
+      "result": 0,
+      "seconds": 300.01,
+      "total_seconds": 600.02
+    },
+    {
+      "round": 3,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 900.03
+    },
+    {
+      "round": 4,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 1200.03
+    }
+  ],
+  "note": "No exact model or UNSAT proof; four UNKNOWN intervals retained one solver instance. Learned state closed only after authorized cap."
+}

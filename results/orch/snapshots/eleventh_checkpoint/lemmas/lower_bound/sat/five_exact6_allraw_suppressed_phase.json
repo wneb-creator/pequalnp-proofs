@@ -1,0 +1,176 @@
+{
+  "gates": [
+    [
+      1,
+      5,
+      10
+    ],
+    [
+      1,
+      14,
+      52
+    ],
+    [
+      1,
+      11,
+      12
+    ],
+    [
+      1,
+      6,
+      7
+    ],
+    [
+      1,
+      9,
+      55
+    ],
+    [
+      1,
+      53,
+      56
+    ],
+    [
+      1,
+      20,
+      57
+    ],
+    [
+      1,
+      54,
+      58
+    ],
+    [
+      1,
+      0,
+      59
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      24,
+      57
+    ],
+    [
+      1,
+      13,
+      62
+    ],
+    [
+      1,
+      15,
+      63
+    ],
+    [
+      1,
+      8,
+      59
+    ],
+    [
+      0,
+      4,
+      60
+    ],
+    [
+      0,
+      3,
+      65
+    ],
+    [
+      0,
+      0,
+      65
+    ],
+    [
+      0,
+      61,
+      65
+    ],
+    [
+      1,
+      68,
+      69
+    ],
+    [
+      1,
+      67,
+      70
+    ],
+    [
+      1,
+      66,
+      71
+    ],
+    [
+      0,
+      60,
+      72
+    ],
+    [
+      0,
+      64,
+      73
+    ]
+  ],
+  "start_index": 0,
+  "changed": [
+    14,
+    2,
+    60
+  ],
+  "boundary_errors": 27,
+  "truth": {
+    "raw_assignments": 65536,
+    "false_positives": 801,
+    "false_negatives": 0
+  },
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      20,
+      24
+    ]
+  },
+  "all_raw_direct": true,
+  "suppressed_raw_mask": 264,
+  "label": "APPROXIMATE-SUPPRESSED-DIRTY-PHASE",
+  "and_equals_earlier": [],
+  "and_opcode_redundant": [],
+  "decoded_suppressed_witness": {
+    "raw_mask": 17,
+    "active_and_gates": [
+      14,
+      21
+    ]
+  },
+  "and_depth": 3,
+  "ands": 6,
+  "and_operand_bypass_redundant": [
+    [
+      14,
+      4
+    ],
+    [
+      15,
+      3
+    ],
+    [
+      16,
+      0
+    ],
+    [
+      17,
+      61
+    ]
+  ],
+  "phase_quality_note": "The AND-to-OR opcode tests pass, but four ANDs can be bypassed by one operand without changing the final function. This is not an operand-bypass-essential phase.",
+  "operand_bypass_essential": false
+}
