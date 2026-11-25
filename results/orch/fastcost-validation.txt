@@ -1,0 +1,5 @@
+Command: lake env lean ../results/orch/lemmas/FastCostGuard.lean
+Exit code: 0
+Diagnostic file: results/orch/fastcost-build.txt (empty)
+Completed UTC: 2026-11-25T04:46:17.334063+00:00
+Speedup: not yet benchmarked

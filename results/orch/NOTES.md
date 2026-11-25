@@ -30,3 +30,10 @@ Structural.lean passed lake env lean (exit0, about5seconds, empty diagnostic log
 2026-11-25T04:44:35.120031+00:00 case_decomposition: Cases.lean PASSED Lean4.36.0 via lake env lean, exit0,14.261s. Complete output results/orch/Cases-validation.txt. The normal-form component renames vertices by12 automorphisms and removes first constants/copies until first gate matches one of14 representative pair/NOT cases.
 
 2026-11-25T04:44:43.235532+00:00 counterexample_search: LookupForcing.lean compiles in0.146s with Lean4.36.0; proves eagerNat lookupFast equals old lookupBase for all parameters. Source and complete empty output preserved in results/orch for immediatepush.
+
+2026-11-25T04:45:51.320290+00:00 counterexample_search:3000-call checked lookup microbenchmark: original3.707s vs forced3.632s, same checksum10491. Difference only2%, no convincing major speedup. Both standalone Lean benchmark files and complete emptylogs preserved forpush. maxrss_kib field is cumulative child peak and should not be read as per-variant measurement.
+
+## FastCost guard checked, 2026-11-25T04:46:17.334063+00:00
+FastCostGuard.lean passed lake env lean (exit0). The optimization is an early test that total unavailable wire count is at most2, before fetching operands or scanning available wires. Initial fastCost equality compares this count to sum of two0/1 values, so count>2 must fail. guardedFastCost_eq proves exact equivalence for all QS values. Main source unchanged; optimizer owns integration and benchmarking.
+
+2026-11-25T04:46:17.530397+00:00 case_decomposition: forceBatch optimization rejected by measurement. Definitions-only kernel benchmark for rootM depth12,start476,batch16,arity12: row0 original2.45s vs forced2.57s; all12rows original4.71s vs forced6.04s. Both versions check. Logs retained /tmp/oec/pequalnp-pilot-67/bench-force-defs.log and bench-force-rows.log. Next test lazy lanes avoids computing all bound pools before bitmask rejection.
