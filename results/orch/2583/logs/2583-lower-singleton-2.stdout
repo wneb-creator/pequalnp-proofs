@@ -1,0 +1,59 @@
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:13:23: error(lean.unknownIdentifier): Unknown constant `Finset.not_mem_empty`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:16:11: error: Tactic `cases` failed with a nested error:
+Dependent elimination failed: Failed to solve equation
+  true =
+    Bool.rec (decide (∃ u_1 v_1, G.Adj u_1 v_1 ∧ (u_1 = u ∨ u_1 = v) ∧ (v_1 = u ∨ v_1 = v))) true
+      (decide (∃ a ∈ ∅, a = u ∨ a = v))
+at case `Eq.refl`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:25:10: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 5 were provided
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:13:45: warning: This simp argument is unused:
+  false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphFun, Finset.not_mem_empty, exists_false, decide_false, Bool.false_or, decide_eq_true_eq,
+    pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:13:56: warning: This simp argument is unused:
+  exists_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphFun, Finset.not_mem_empty, false_and, decide_false, Bool.false_or, decide_eq_true_eq,
+    pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:13:70: warning: This simp argument is unused:
+  decide_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphFun, Finset.not_mem_empty, false_and, exists_false, Bool.false_or, decide_eq_true_eq,
+    pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:14:4: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [graphFun, Finset.not_mem_empty, false_and, exists_false, decide_false, decide_eq_true_eq,
+    pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:46:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  true ≤ a (pairInput u v)
+but is expected to have type
+  a (pairInput u v) = true
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:49:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  true ≤ b (pairInput u v)
+but is expected to have type
+  b (pairInput u v) = true
+/workspace/pequalnp-proofs/results/orch/2583/lemmas/lower_singleton_star.lean:72:8: error: Function expected at
+  G.loopless
+but this term has type
+  Std.Irrefl G.Adj
+
+Note: Expected a function because this term is being applied to the argument
+  u

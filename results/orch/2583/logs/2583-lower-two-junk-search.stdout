@@ -1,0 +1,4 @@
+{'extra': 0, 'negative_assignments': 27, 'factor_bad_masks': 280, 'witness': None}
+{'extra': 98, 'negative_assignments': 18, 'factor_bad_masks': 229, 'witness': None}
+{'extra': 140, 'negative_assignments': 18, 'factor_bad_masks': 229, 'witness': None}
+elapsed 0.6910711000000447

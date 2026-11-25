@@ -1,0 +1,20 @@
+[
+  {
+    "extra": 0,
+    "negative_assignments": 27,
+    "factor_bad_masks": 280,
+    "witness": null
+  },
+  {
+    "extra": 98,
+    "negative_assignments": 18,
+    "factor_bad_masks": 229,
+    "witness": null
+  },
+  {
+    "extra": 140,
+    "negative_assignments": 18,
+    "factor_bad_masks": 229,
+    "witness": null
+  }
+]

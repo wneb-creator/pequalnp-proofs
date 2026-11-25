@@ -1,0 +1,502 @@
+Generated 2026-11-25T15:08:55.568231+00:00
+The searches evaluate only restrictions/identifications of the selected circuits, simplified by exact Boolean-function equality of existing wires and dead-gate removal. No claim of exhaustive unrestricted circuit synthesis is made. Empty stderr sections are intentional.
+
+L1006: all zero/one/free restrictions
+
+stdout
+{
+  "stats": {
+    "restrictions": 177147,
+    "quadratic": 4723,
+    "bipartite_squarefree": 3250,
+    "improvements": 0
+  },
+  "best": {
+    "delta": 0,
+    "states": [
+      2,
+      0,
+      2,
+      2,
+      2,
+      2,
+      0,
+      2,
+      2,
+      0,
+      2
+    ],
+    "edges": [
+      36,
+      136,
+      272,
+      288,
+      1025,
+      1028
+    ],
+    "n": 8,
+    "cover": 4,
+    "budget": 9,
+    "size": 9,
+    "output": 21,
+    "gates": [
+      [
+        "or",
+        7,
+        10
+      ],
+      [
+        "or",
+        5,
+        10
+      ],
+      [
+        "and",
+        2,
+        12
+      ],
+      [
+        "and",
+        0,
+        10
+      ],
+      [
+        "or",
+        4,
+        5
+      ],
+      [
+        "and",
+        8,
+        15
+      ],
+      [
+        "or",
+        4,
+        8
+      ],
+      [
+        "and",
+        3,
+        7
+      ],
+      [
+        "or",
+        13,
+        14
+      ],
+      [
+        "or",
+        16,
+        19
+      ],
+      [
+        "or",
+        18,
+        20
+      ]
+    ]
+  },
+  "base_size": 20,
+  "base_minterms": [
+    18,
+    36,
+    72,
+    136,
+    258,
+    272,
+    288,
+    513,
+    1025,
+    1028,
+    196,
+    208,
+    224,
+    448,
+    644,
+    656,
+    672,
+    896,
+    1104,
+    1120,
+    1344,
+    1552,
+    1568,
+    1792
+  ],
+  "seconds": 1.13882546800005
+}
+
+stderr
+
+L1006: all zero restrictions and variable identifications with nonempty residual
+
+stdout
+{
+  "stats": {
+    "quotients": 4212553,
+    "quadratic": 700837,
+    "bipartite_squarefree": 81578,
+    "improvements": 0
+  },
+  "best": {
+    "delta": 0,
+    "keep": 1469,
+    "mapping": [
+      0,
+      0,
+      1,
+      2,
+      3,
+      4,
+      0,
+      5,
+      6,
+      0,
+      7
+    ],
+    "edges": [
+      18,
+      36,
+      72,
+      80,
+      129,
+      130
+    ],
+    "n": 8,
+    "cover": 4,
+    "size": 9,
+    "budget": 9,
+    "output": 21,
+    "gates": [
+      [
+        "or",
+        5,
+        7
+      ],
+      [
+        "or",
+        4,
+        7
+      ],
+      [
+        "and",
+        1,
+        12
+      ],
+      [
+        "and",
+        0,
+        7
+      ],
+      [
+        "or",
+        3,
+        4
+      ],
+      [
+        "and",
+        6,
+        15
+      ],
+      [
+        "or",
+        3,
+        6
+      ],
+      [
+        "and",
+        2,
+        5
+      ],
+      [
+        "or",
+        13,
+        14
+      ],
+      [
+        "or",
+        16,
+        19
+      ],
+      [
+        "or",
+        18,
+        20
+      ]
+    ]
+  },
+  "seconds": 49.243433243000254
+}
+
+stderr
+
+L4849: all zero/one/free restrictions and identifications with nonconstant residual
+
+stdout
+{
+  "stats": {
+    "quotients": 75262,
+    "quadratic": 7307,
+    "bipartite_squarefree": 4327,
+    "improvements": 0
+  },
+  "best": {
+    "delta": 0,
+    "states": [
+      0,
+      2,
+      0,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "mapping": [
+      0,
+      0,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edges": [
+      9,
+      17,
+      33,
+      34,
+      36
+    ],
+    "n": 6,
+    "cover": 2,
+    "budget": 6,
+    "size": 6,
+    "output": 17,
+    "gates": [
+      [
+        "or",
+        1,
+        2
+      ],
+      [
+        "or",
+        2,
+        4
+      ],
+      [
+        "and",
+        5,
+        11
+      ],
+      [
+        "or",
+        0,
+        13
+      ],
+      [
+        "or",
+        4,
+        5
+      ],
+      [
+        "or",
+        3,
+        15
+      ],
+      [
+        "and",
+        14,
+        16
+      ]
+    ]
+  },
+  "base_minterms": [
+    17,
+    34,
+    65,
+    66,
+    68,
+    130,
+    136,
+    144
+  ],
+  "seconds": 0.47886666399972455
+}
+
+stderr
+
+Fano28 non-READ1 seed and all single-gate erasure attempts
+
+stdout
+{
+  "status": "verified28-gate non-READ1 search seed; not a counterexample",
+  "input_count": 14,
+  "gates": [
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      0,
+      7,
+      14
+    ],
+    [
+      1,
+      0,
+      15
+    ],
+    [
+      1,
+      7,
+      11
+    ],
+    [
+      1,
+      17,
+      13
+    ],
+    [
+      0,
+      16,
+      18
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      20,
+      4
+    ],
+    [
+      0,
+      8,
+      21
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      23,
+      5
+    ],
+    [
+      0,
+      9,
+      24
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      1,
+      26,
+      6
+    ],
+    [
+      0,
+      10,
+      27
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      0,
+      11,
+      29
+    ],
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      1,
+      31,
+      1
+    ],
+    [
+      0,
+      12,
+      32
+    ],
+    [
+      1,
+      6,
+      2
+    ],
+    [
+      0,
+      13,
+      34
+    ],
+    [
+      1,
+      19,
+      22
+    ],
+    [
+      1,
+      36,
+      25
+    ],
+    [
+      1,
+      37,
+      28
+    ],
+    [
+      1,
+      38,
+      30
+    ],
+    [
+      1,
+      39,
+      33
+    ],
+    [
+      1,
+      40,
+      35
+    ]
+  ],
+  "output_wire": 41,
+  "gate_count": 28,
+  "missing_read1_edges": [
+    [
+      1,
+      7
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "verified_truth_table_rows": 16384,
+  "verified_joint_read1_edges": 19,
+  "single_gate_erasure_improvements": []
+}
+
+stderr
+
+Lean audit of L1006 binary expansion
+
+stdout
+
+stderr
