@@ -1,0 +1,33 @@
+Independent combined checkpoint review
+Reviewer: status_review
+Verdict: PASS FOR PARTIAL CHECKPOINT PUSH; NOT A FULL PROOF OF L-meta-2583.
+
+Source: lean/PEqualNP/Outside/L_meta_2583.lean
+Lines: 2430; bytes: 113687
+SHA256: aec883be75dcf4ec3cee1bd491d989a8f61573781b1050eb151d1ba345d5bcfa
+
+Assembly checked: exact reviewed LowerBound and Structural bodies are present unchanged.
+Exact reviewed NoJunk body is present with relative namespace opens/ends.
+Integration.lean is present unchanged after Finset.notMem_empty correction.
+Namespace scope is explicit and balanced: all helper declarations belong to this gap.
+The prior fully qualified namespace form also compiled successfully per root, so the
+relative form is only a clarity normalization, not a demonstrated soundness repair.
+
+The integration lemma converts incidence semantics to graphFun using hAdj, supplies
+the proven plane matching, applies the no-junk top-form numeric lower bound and then
+the read-1 star construction. Its conclusion matches the desired normalization
+conclusion, but it ASSUMES TopForm and junk=empty in addition to the posted hypotheses.
+The arbitrary-circuit case remains unresolved. There is no exact assigned theorem.
+
+Static rules checked: regular UTF-8 nonexecutable file below512KiB; seven contiguous
+permitted imports; no later import word; no _root_, strings, sorry, added axioms,
+native_decide, executable commands, custom types/instances, attributes or options.
+No helper changes the meanings of posted project definitions.
+
+Component compiles succeeded. Root combined002 build is pending at review time.
+Push only after that build succeeds and retain its complete output. This review
+does not authorize describing the gap checker as ACCEPTED or opening a proof PR.
+Only a future exact-statement proof plus checker pass would justify that.
+
+Only root holds lease and pushes origin/pnp/pilot-138. Results artifacts in this
+checkpoint are explicitly partial-preservation artifacts, not a one-file proof PR.
