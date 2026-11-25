@@ -6,3 +6,4 @@ WithInduced.lean: generic induced-restriction lower-bound transfer compiled, exi
 Independent lean_setup review: PASS for accurately scoped partial components.
 Independent Python check: all 1089 cases of baseline76 match exact graph.
 No final theorem for the posted statement. No PR opened.
+Bridge67.lean: compiled restriction/sampling bridge only; no finite no<=10 proof and no 67-gate claim. Independent review PASS.
