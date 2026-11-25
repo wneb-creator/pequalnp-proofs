@@ -40,3 +40,8 @@
 2026-11-25T03:18:54.536380+00:00 manual renewal before verifier calibration; expires_at=2026-11-25T03:38:21.315Z
 
 - 2026-11-25T03:20:20.043819+00:00: reduction_analysis compiled SingletonDirtySemantic.lean; structural lower-bound route remains conditional on reducing dirty AND count.
+2026-11-25T03:24:48.879839+00:00 Renewed lease; expiry 2026-11-25T03:44:49.202Z.
+
+- 2026-11-25T03:25:30.131662+00:00: reduction_analysis completed checked >=14 lower bound for the six-leaf C6 subproblem and exact rows0,2,4 embedding; root/reviewer notified.
+
+- 2026-11-25T03:25:36.936694+00:00: lean_baseline switched sole SAT lane to29-gate exact core with conditional outside-row tap;30-gate calibration passed.
