@@ -1,0 +1,4 @@
+Independent review: LambdaColor.lean
+SHA2563073c10369a44ee62aff578d03b8c0b1d4547131c65c763fb2428a99d6e52a0d;1072lines45712bytes.
+Exact73-line extensionofreviewedDirtyPureInputs. Primarysupport inclusion underORreach follows pathtransitivity. Atrueprimary in ORsupport activates thatwire. For clean top, oneprimary fromeachoperand makes bothoperands true; BelowF and pairInput graph semantics imply adjacency (loops excluded). Lambda definition supplies an opposite operand with supportcard1; choosingits vertexz makes every primarysupport vertex adjacenttoz. Supplied bipartition then forces all toopposite Boolcolor.
+Actual lamdefinition and TopFormside checked. No C4/degree assumption needed, no circuit normalization or fullgapclaim. Local letI GateOpDecEq resolves definitions withoutdeclaring attributes. Allowednamespace, no forbiddenforms; guardonlymissingfinaltheorem. Savedlogwarningsonly; authorreportscompileexit0. Reviewpassed.

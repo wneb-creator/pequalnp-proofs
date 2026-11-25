@@ -1,0 +1,5 @@
+Independent review: Blocking.lean
+SHA25650820b34499358c554921cbaf8fa50cadde281c8b3e2e9723ff0b24ee26f2c07;236lines10114bytes.
+Generic wireevaluation carefully treats future/outofrange references asfalse. transparent_agreement uses stronginduction: gates notdirectlyreadingp inherit allsameoperands; gates directlyreadingp are blocked by fixedq=false inAND orq=true inOR. This applies toarbitraryothergateoperations, includingNOT, and doesnot needAO2 orReadsBack.
+Targetedge listmatchesposted19edges. Independently checkedall364 distinct(p,q),Boolb cases: witnesskexists withqfixedb andtargetchangeswhenpchanges. Lean uses kerneldecide withalloweddeclaration-scoped maxHeartbeats0. no_transparent_target explicitlyrequires output!=p. Final sole_reader_not_primary_binary excludesAND/OR for sole reader also readingdistinctprimaryq; keepscorrectfunction/outputconditionexplicit. No fanin2premise isneeded (the resultisstronger), despitehelpername. Doesnot byitself establish gatecount lowerbound.
+No forbiddenforms/newaxioms/namespaceescape; guardonlyexpectedabsentfinaltheorem. Savedlog12warnings/noerrors; authorreportscompileexit0. Reviewpassed.
