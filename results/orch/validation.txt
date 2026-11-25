@@ -1,16 +1,18 @@
 pequalnp-pilot-94 — checked partial checkpoints
 
 Current held step: L-meta-2583. Earlier L-meta-1904 lease returned HTTP410; its partials remain archived.
-Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (894 lines).
+Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (989 lines).
 Build: lake build PEqualNP.Outside.L_meta_2583
 Result: Build completed successfully (6669 jobs).
 Checked components: incidence prime implicants; point regularity; no four-cycle; line intersections; incidence nonemptiness.
 Auxiliary plane_upper.lean (648 lines): explicit AO2 READ1 circuit of size+1=N*(q+2), and conditional replacement from an unrestricted lower bound.
 Independent source/axiom audits pass, with only propext, Classical.choice, Quot.sound.
 The posted theorem is not proved. Guard refuses the absent final theorem, as expected. No full checker acceptance claimed; no proof PR opened.
-Cleanup line counts:894/894 for named file; full-proof cleanup not started.
+Cleanup line counts:989/989 for named file; full-proof cleanup not started.
 Prior L-meta-1904 named partial:315 lines, build and axiom audits passed.
 Sub-agents: 5 (status/setup/review, structure, counterexample search, lemmas, research)
-TIMING total=34 subagents=5
+TIMING total=41 subagents=5
 
 Full local checker limitation: CheckLemma imports all Mathlib; smoke test fails at missing Batteries.olean. Thousands of further pinned Mathlib modules are not cached, with only about426MiB disk free. Named-file builds and direct axiom audits succeed. No full checker acceptance claimed.
+
+ThreeLines checkpoint: avoid_two_points, accepts_superset and singleton_point_orientation compiled and independently audited. All use only standard logical axioms.

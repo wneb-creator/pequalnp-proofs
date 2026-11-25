@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2583.ThreeLines.avoid_two_points' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583.ThreeLines.accepts_superset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583.ThreeLines.singleton_point_orientation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
