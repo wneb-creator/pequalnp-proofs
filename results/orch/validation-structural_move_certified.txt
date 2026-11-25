@@ -1,0 +1,12 @@
+L-meta-1884 checked partial
+UTC: 2026-11-25T17:04:50.313895+00:00
+Source SHA256: 64ea6924cb12d6911042ba2d6b567217b781028f2b718a0366ab65927d1d9aa3
+Command: lake env lean ../results/orch/lemmas/structural_move_certified.lean
+Exit status: 0
+Complete stdout:
+
+Complete stderr:
+
+Independent review: combinatorial and status_review agents. Full gap remains unproved.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=28 subagents=6
