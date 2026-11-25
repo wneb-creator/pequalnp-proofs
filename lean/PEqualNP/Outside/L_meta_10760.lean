@@ -1142,4 +1142,989 @@ lemma no_build {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
 
 end SearchKernel
 
+namespace PNMasks
+
+def lowMasks : List Nat := [
+  59923104495410530257643506359634157787265899298076885757810027052577558601833654377569492440802512007040037959957131119219596589604805540830949143546491374792589297808288495092100739867082031373151027650695001922946050227447487627157971036846942412387783503561528766079982415312826572101611785443208074712405,
+  35953862697246318154586103815780494672359539578846131454686016231546535161100192626541695464481507204224022775974278671531757953762883324498569486127894824875553578684973097055260443920249218823890616590417001153767630136468492576294782622108165447432670102136917259647989449187695943260967071265924844827443,
+  10574665499190093574878265828170733727164570464366509251378240068101922106205939007806381018965149177712947875286552550450517045224377448381932201802322007316339287848521499133900130564779182007026651938357941515814008863667203698910230182972989837480197088863799194014114543878734100959107962137036719066895,
+  699491492164325255925799685131916238761858746670158199507510043415302240488330595847114697752558505918755306925569623959761827894219519931878783776807292312753960674804924067222965835024303868169078143782431929061627045456585458682777872025450689638767900819784382483423919244896808234649164810621105930495,
+  2743020179230535281946541939345750848555742525508196244463891865018732560317087494586393599377565894397365059124943060525486210366883083181910179450378780297812958991483673120165741788626975511839923752263378027203536180819116878732226270817108308850929253867045887029310881577406346282326553799069597695,
+  41855804958468253215416862131907979778454107725009450118155365586182407620204276291770907358880301160328046586258184810029483623519757063820280685745923183539846145986816692000600865017772938381340388341514537443249396336985068988168808660090905282896115730467361995897392102061092763730264872452095,
+  9745314011399999079825087856739523064552525976596965881551925397018201298194122315297074087275581256833590487601395744005744951780045343217449061696331431509203394542567385587901876228620663761300800549174547043425925390537456083938846363324592488964804017437595582105683670264434074320895,
+  528294531135665246352339784916516606517294807943820813192811729538211400001472535897918181471736777028254044331895631613250787768007518677792952317086889741124906620767309129894662251090542585738100845990744019557890744873615362666431441255911497635040213580733791338495,
+  1552518092300708935148979488462502555256886017116696611139052038026050952686363478522948466231546903925489524851003593840350987650737090830000565511011107708019742339038878425693560262461319812044393910951468561638530421117939613695,
+  13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084095]
+
+def lowMask (i : Nat) : Nat := lowMasks[i]?.getD 0
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma lowMask_bits : ∀ (i : Fin 10) (x : Fin 1024),
+    (lowMask i.val).testBit x.val = !(x.val.testBit i.val) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+lemma lowMask_bound : ∀ i : Fin 10, lowMask i.val < 2^1024 := by
+  decide
+
+end PNMasks
+
+namespace PnProjection
+
+def delBit (i x : Nat) : Nat :=
+  x % 2^i + (x / 2^(i+1)) * 2^i
+
+def insBit (i : Nat) (b : Bool) (y : Nat) : Nat :=
+  y % 2^i + (if b then 2^i else 0) + (y / 2^i) * 2^(i+1)
+
+lemma testBit_delBit (i x j : Nat) :
+    (delBit i x).testBit j = x.testBit (if j < i then j else j+1) := by
+  have form : delBit i x = 2^i * (x / 2^(i+1)) + x % 2^i := by
+    simp [delBit, Nat.add_comm, Nat.mul_comm]
+  rw [form, Nat.testBit_two_pow_mul_add _ (Nat.mod_lt _ (Nat.two_pow_pos _))]
+  by_cases h : j < i
+  · simp [h]
+  · simp only [h, ite_false, Nat.testBit_div_two_pow]
+    congr 1
+    omega
+
+lemma testBit_cons (b : Bool) (x j : Nat) :
+    (2*x + b.toNat).testBit j = if j = 0 then b else x.testBit (j-1) := by
+  have hb : b.toNat < 2^1 := by cases b <;> decide
+  change (2^1*x + b.toNat).testBit j = _
+  rw [Nat.testBit_two_pow_mul_add _ hb]
+  by_cases h : j = 0
+  · subst j
+    cases b <;> simp
+  · have hj : ¬ j < 1 := by omega
+    simp [h, hj]
+
+lemma insBit_form (i : Nat) (b : Bool) (y : Nat) :
+    insBit i b y = 2^i * (2*(y / 2^i) + b.toNat) + y % 2^i := by
+  cases b <;> simp [insBit, Nat.pow_succ] <;> ring
+
+lemma testBit_insBit (i : Nat) (b : Bool) (y j : Nat) :
+    (insBit i b y).testBit j =
+      if j < i then y.testBit j else if j = i then b else y.testBit (j-1) := by
+  rw [insBit_form, Nat.testBit_two_pow_mul_add _ (Nat.mod_lt _ (Nat.two_pow_pos _))]
+  by_cases h : j < i
+  · simp [h]
+  · simp only [h, ite_false, testBit_cons, Nat.testBit_div_two_pow]
+    by_cases e : j = i
+    · subst j
+      simp
+    · have he : j-i ≠ 0 := by omega
+      simp only [e, he, ite_false]
+      congr 1
+      omega
+
+lemma delBit_insBit (i : Nat) (b : Bool) (y : Nat) :
+    delBit i (insBit i b y) = y := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [testBit_delBit]
+  by_cases h : j < i
+  · simp [h, testBit_insBit]
+  · have hlt : ¬ j+1 < i := by omega
+    have hne : j+1 ≠ i := by omega
+    simp [h, testBit_insBit, hlt, hne]
+
+lemma insBit_delBit (i x : Nat) :
+    insBit i (x.testBit i) (delBit i x) = x := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [testBit_insBit]
+  by_cases h : j < i
+  · simp [h, testBit_delBit]
+  · by_cases e : j = i
+    · simp [h, e]
+    · have hlt : ¬ j-1 < i := by omega
+      have back : j-1+1 = j := by omega
+      simp [h, e, testBit_delBit, hlt, back]
+
+lemma delBit_eq_iff (i x y : Nat) :
+    delBit i x = y ↔ x = insBit i false y ∨ x = insBit i true y := by
+  constructor
+  · intro h
+    have inverse := insBit_delBit i x
+    rw [h] at inverse
+    cases bit : x.testBit i
+    · exact Or.inl (by simpa [bit] using inverse.symm)
+    · exact Or.inr (by simpa [bit] using inverse.symm)
+  · rintro (rfl | rfl) <;> exact delBit_insBit ..
+
+lemma insBit_false_ne_true (i y : Nat) : insBit i false y ≠ insBit i true y := by
+  intro h
+  have bit := congrArg (fun x : Nat => x.testBit i) h
+  simpa [testBit_insBit] using bit
+
+lemma delBit_lt {i x m : Nat} (hi : i < m) (hx : x < 2^m) :
+    delBit i x < 2^(m-1) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro j hj
+  rw [testBit_delBit, if_neg (by omega : ¬ (j < i))]
+  apply Nat.testBit_lt_two_pow
+  exact lt_of_lt_of_le hx (Nat.pow_le_pow_right (by decide) (by omega))
+
+lemma insBit_lt {i y m : Nat} (hi : i ≤ m) (hy : y < 2^m) (b : Bool) :
+    insBit i b y < 2^(m+1) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro j hj
+  rw [testBit_insBit, if_neg (by omega : ¬ (j < i)), if_neg (by omega : j ≠ i)]
+  apply Nat.testBit_lt_two_pow
+  exact lt_of_lt_of_le hy (Nat.pow_le_pow_right (by decide) (by omega))
+
+end PnProjection
+
+namespace PnProjection
+
+lemma insBit_adjacent (i : Nat) (b c : Bool) (y : Nat) :
+    insBit (i+1) c (insBit i b y) = insBit i b (insBit i c y) := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  by_cases h : j < i
+  · have h' : j < i+1 := by omega
+    simp [testBit_insBit, h, h']
+  · by_cases e : j = i
+    · subst j
+      simp [testBit_insBit]
+    · by_cases e' : j = i+1
+      · subst j
+        simp [testBit_insBit]
+      · have h' : ¬ (j < i+1) := by omega
+        have hs : ¬ (j-1 < i) := by omega
+        have hse : j-1 ≠ i := by omega
+        simp [testBit_insBit, h, h', e, e', hs, hse]
+
+lemma insBit_true_add_false (i y : Nat) :
+    insBit i true y = insBit i false y + 2^i := by
+  simp [insBit]
+  omega
+
+lemma hole_swap_insert (i : Nat) (b : Bool) (y : Nat) :
+    insBit i false (insBit i b y) =
+      insBit (i+1) false (insBit i b y) + (if b then 2^i else 0) := by
+  cases b
+  · simpa using (insBit_adjacent i false false y).symm
+  · simp only [Bool.true_eq, ite_true]
+    calc
+      insBit i false (insBit i true y) = insBit (i+1) true (insBit i false y) :=
+        (insBit_adjacent i false true y).symm
+      _ = insBit (i+1) false (insBit i false y) + 2^(i+1) := insBit_true_add_false ..
+      _ = insBit i false (insBit i false y) + 2^(i+1) := by rw [insBit_adjacent]
+      _ = (insBit i false (insBit i false y) + 2^i) + 2^i := by rw [Nat.pow_succ]; omega
+      _ = insBit i true (insBit i false y) + 2^i := by rw [insBit_true_add_false]
+      _ = insBit (i+1) false (insBit i true y) + 2^i := by rw [insBit_adjacent]
+
+lemma hole_swap (i y : Nat) :
+    insBit i false y = insBit (i+1) false y + (if y.testBit i then 2^i else 0) := by
+  have h := hole_swap_insert i (y.testBit i) (delBit i y)
+  simpa only [insBit_delBit] using h
+
+lemma hole_move {i x : Nat} (hole : x.testBit (i+1) = false) :
+    insBit i false (delBit (i+1) x) = x + (if x.testBit i then 2^i else 0) := by
+  have back : insBit (i+1) false (delBit (i+1) x) = x := by
+    simpa [hole] using insBit_delBit (i+1) x
+  have bit : (delBit (i+1) x).testBit i = x.testBit i := by simp [testBit_delBit]
+  rw [hole_swap, back, bit]
+
+lemma hole_move_false {i x : Nat} (hole : x.testBit (i+1) = false)
+    (bit : x.testBit i = false) : delBit i x = delBit (i+1) x := by
+  have move := hole_move hole
+  simp only [bit, Bool.false_eq_true, ite_false, Nat.add_zero] at move
+  calc
+    delBit i x = delBit i (insBit i false (delBit (i+1) x)) := congrArg (delBit i) move.symm
+    _ = delBit (i+1) x := delBit_insBit ..
+
+lemma hole_move_true {i x : Nat} (hole : x.testBit (i+1) = false)
+    (bit : x.testBit i = true) : delBit i (x+2^i) = delBit (i+1) x := by
+  have move := hole_move hole
+  simp only [bit, ite_true] at move
+  rw [← move, delBit_insBit]
+
+lemma add_pow_bit_false {i x : Nat} (bit : x.testBit i = false) :
+    (x+2^i).testBit i = true := by
+  rw [Nat.add_comm, Nat.testBit_two_pow_add_eq, bit]
+  rfl
+
+lemma add_pow_bit_true {i x : Nat} (bit : x.testBit i = true) :
+    (x+2^i).testBit i = false := by
+  rw [Nat.add_comm, Nat.testBit_two_pow_add_eq, bit]
+  rfl
+
+lemma hole_move_add {i x : Nat} (hole : x.testBit (i+1) = false) :
+    x+2^i = insBit i (!(x.testBit i)) (delBit (i+1) x) := by
+  have move := hole_move hole
+  cases bit : x.testBit i
+  · simp only [bit, Bool.false_eq_true, ite_false, Nat.add_zero] at move
+    simp only [Bool.not_false]
+    rw [insBit_true_add_false, move]
+  · simp only [bit, ite_true] at move
+    exact move.symm
+
+lemma hole_add_lt {i x m : Nat} (hi : i+1 < m) (hx : x < 2^m)
+    (hole : x.testBit (i+1) = false) : x+2^i < 2^m := by
+  rw [hole_move_add hole]
+  have bound := insBit_lt (by omega : i ≤ m-1) (delBit_lt hi hx) (!(x.testBit i))
+  simpa only [show m-1+1 = m by omega] using bound
+
+lemma hole_move_1024 (j : Nat) (hj : j < 9) (x : Nat) (hx : x < 1024)
+    (hole : x.testBit (j+1) = false) :
+    x+2^j < 1024 ∧
+    (x+2^j).testBit j = !(x.testBit j) ∧
+    (if x.testBit j then delBit j (x+2^j) else delBit j x) = delBit (j+1) x := by
+  refine ⟨hole_add_lt (m := 10) (by omega) hx hole, ?_, ?_⟩
+  · simpa only [Nat.add_comm] using Nat.testBit_two_pow_add_eq x j
+  · cases bit : x.testBit j
+    · simpa only [Bool.false_eq_true, ite_false] using hole_move_false hole bit
+    · simpa only [ite_true] using hole_move_true hole bit
+
+end PnProjection
+
+namespace PnProjection
+
+def bitmapStage (mask shift S : Nat) : Nat :=
+  (S ||| (S >>> shift)) &&& mask
+
+lemma testBit_bitmapStage (mask shift S y : Nat) :
+    (bitmapStage mask shift S).testBit y =
+      ((S.testBit y || S.testBit (y + shift)) && mask.testBit y) := by
+  simp [bitmapStage, Nat.testBit_shiftRight, Nat.add_comm]
+
+def packBits : Nat → (Nat → Bool) → Nat
+  | 0, _ => 0
+  | n + 1, f => 2 * packBits n (fun y => f (y + 1)) + (f 0).toNat
+
+lemma testBit_packBits (n : Nat) (f : Nat → Bool) (y : Nat) :
+    (packBits n f).testBit y = if y < n then f y else false := by
+  induction n generalizing f y with
+  | zero => simp [packBits]
+  | succ n ih =>
+    rw [packBits]
+    have hb : (f 0).toNat < 2^1 := by cases f 0 <;> decide
+    change (2^1 * packBits n (fun y => f (y+1)) + (f 0).toNat).testBit y = _
+    rw [Nat.testBit_two_pow_mul_add _ hb]
+    cases y with
+    | zero => cases h : f 0 <;> simp [h]
+    | succ y => simpa [ih]
+
+lemma packBits_lt (n : Nat) (f : Nat → Bool) : packBits n f < 2^n := by
+  apply Nat.lt_pow_two_of_testBit
+  intro j hj
+  simp [testBit_packBits, Nat.not_lt.mpr hj]
+
+def dropBitmapSimple (m i S : Nat) : Nat :=
+  packBits (2^(m-1)) (fun y =>
+    S.testBit (insBit i false y) || S.testBit (insBit i true y))
+
+lemma testBit_dropBitmapSimple (m i S y : Nat) :
+    (dropBitmapSimple m i S).testBit y =
+      if y < 2^(m-1) then
+        S.testBit (insBit i false y) || S.testBit (insBit i true y)
+      else false := by
+  exact testBit_packBits ..
+
+lemma dropBitmapSimple_lt (m i S : Nat) : dropBitmapSimple m i S < 2^(2^(m-1)) :=
+  packBits_lt ..
+
+lemma testBit_dropBitmapSimple_iff (m i S y : Nat) :
+    (dropBitmapSimple m i S).testBit y = true ↔
+      y < 2^(m-1) ∧ ∃ x, S.testBit x = true ∧ delBit i x = y := by
+  rw [testBit_dropBitmapSimple]
+  by_cases hy : y < 2^(m-1)
+  · simp only [hy, if_pos, true_and, Bool.or_eq_true]
+    constructor
+    · rintro (hf | ht)
+      · exact ⟨insBit i false y, hf, delBit_insBit ..⟩
+      · exact ⟨insBit i true y, ht, delBit_insBit ..⟩
+    · rintro ⟨x, hx, hxy⟩
+      rcases (delBit_eq_iff i x y).mp hxy with rfl | rfl
+      · exact Or.inl hx
+      · exact Or.inr hx
+  · simp [hy]
+
+lemma testBit_dropBitmapSimple_image {m i S : Nat} (hi : i < m)
+    (hS : S < 2^(2^m)) (y : Nat) :
+    (dropBitmapSimple m i S).testBit y = true ↔
+      ∃ x, S.testBit x = true ∧ delBit i x = y := by
+  rw [testBit_dropBitmapSimple_iff]
+  constructor
+  · exact And.right
+  · rintro ⟨x, hx, rfl⟩
+    refine ⟨delBit_lt hi ?_, x, hx, rfl⟩
+    by_contra hn
+    have hz : S.testBit x = false := Nat.testBit_lt_two_pow
+      (lt_of_lt_of_le hS (Nat.pow_le_pow_right (by decide) (by omega)))
+    simp [hx] at hz
+
+def deletePattern (i S y : Nat) : Bool :=
+  S.testBit (insBit i false y) || S.testBit (insBit i true y)
+
+def MaskSpec (j mask : Nat) : Prop :=
+  ∀ x, mask.testBit x = if x < 1024 then !(x.testBit j) else false
+
+def HoleSpec (j T : Nat) (f : Nat → Bool) : Prop :=
+  ∀ x, T.testBit x =
+    if x < 1024 then if x.testBit j then false else f (delBit j x) else false
+
+lemma lowMask_spec {j : Nat} (hj : j < 10) :
+    MaskSpec j (PNMasks.lowMask j) := by
+  intro x
+  by_cases hx : x < 1024
+  · exact (PNMasks.lowMask_bits ⟨j, hj⟩ ⟨x, hx⟩).trans (by simp [hx])
+  · simp only [hx, if_false]
+    exact Nat.testBit_lt_two_pow (lt_of_lt_of_le
+      (PNMasks.lowMask_bound ⟨j, hj⟩)
+      (Nat.pow_le_pow_right (by decide) (by omega)))
+
+lemma insBit_true_eq_false_add (i y : Nat) :
+    insBit i true y = insBit i false y + 2^i := by
+  simp only [insBit, Bool.false_eq_true, if_false, if_true]
+  omega
+
+lemma bitmapStage_first (i S mask : Nat) (hm : MaskSpec i mask) :
+    HoleSpec i (bitmapStage mask (2^i) S) (deletePattern i S) := by
+  intro x
+  rw [testBit_bitmapStage, hm]
+  by_cases hx : x < 1024
+  · simp only [hx, if_pos]
+    cases hb : x.testBit i with
+    | true => simp [hb]
+    | false =>
+      have he : insBit i false (delBit i x) = x := by
+        simpa [hb] using insBit_delBit i x
+      simp [hb, deletePattern, insBit_true_eq_false_add, he]
+  · simp [hx]
+
+lemma bitmapStage_move_aux (j T mask : Nat) (f : Nat → Bool)
+    (hm : MaskSpec (j+1) mask) (hT : HoleSpec j T f)
+    (move : ∀ x, x < 1024 → x.testBit (j+1) = false →
+      x + 2^j < 1024 ∧
+      (x + 2^j).testBit j = !(x.testBit j) ∧
+      (if x.testBit j then delBit j (x + 2^j) else delBit j x) = delBit (j+1) x) :
+    HoleSpec (j+1) (bitmapStage mask (2^j) T) f := by
+  intro x
+  rw [testBit_bitmapStage, hm]
+  by_cases hx : x < 1024
+  · simp only [hx, if_pos]
+    cases hh : x.testBit (j+1) with
+    | true => simp [hh]
+    | false =>
+      rcases move x hx hh with ⟨hxshift, hflip, hdel⟩
+      rw [hT x, hT (x + 2^j)]
+      cases hb : x.testBit j <;> simp_all
+  · simp [hx]
+
+def compressHoles (mask : Nat → Nat) : Nat → Nat → Nat → Nat
+  | 0, _, T => T
+  | n+1, j, T => compressHoles mask n (j+1) (bitmapStage (mask (j+1)) (2^j) T)
+
+lemma compressHoles_spec_aux (mask : Nat → Nat) (f : Nat → Bool)
+    (step : ∀ j T, j < 9 → HoleSpec j T f →
+      HoleSpec (j+1) (bitmapStage (mask (j+1)) (2^j) T) f)
+    (n j T : Nat) (hj : j + n ≤ 9) (hT : HoleSpec j T f) :
+    HoleSpec (j+n) (compressHoles mask n j T) f := by
+  induction n generalizing j T with
+  | zero => simpa [compressHoles] using hT
+  | succ n ih =>
+    have hnext := step j T (by omega) hT
+    have hrest := ih (j+1) _ (by omega) hnext
+    simpa [compressHoles, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hrest
+
+lemma holeSpec_final {T : Nat} {f : Nat → Bool} (h : HoleSpec 9 T f) :
+    T = packBits 512 f := by
+  apply Nat.eq_of_testBit_eq
+  intro x
+  rw [h, testBit_packBits]
+  by_cases hx : x < 512
+  · have hbit : x.testBit 9 = false := Nat.testBit_lt_two_pow (by omega)
+    have hdel : delBit 9 x = x := by
+      simp [delBit, Nat.mod_eq_of_lt hx, Nat.div_eq_of_lt (show x < 1024 by omega)]
+    simp [hx, show x < 1024 by omega, hbit, hdel]
+  · by_cases hxx : x < 1024
+    · have hbit : x.testBit 9 = true :=
+        Nat.testBit_of_two_pow_le_and_two_pow_add_one_gt (by omega) (by omega)
+      simp [hx, hxx, hbit]
+    · simp [hx, hxx]
+
+def dropBitmap (i S : Nat) : Nat :=
+  compressHoles PNMasks.lowMask (9-i) i
+    (bitmapStage (PNMasks.lowMask i) (2^i) S)
+
+lemma dropBitmap_eq_simple_aux {i : Nat} (hi : i < 10) (S : Nat)
+    (move : ∀ j x, j < 9 → x < 1024 → x.testBit (j+1) = false →
+      x + 2^j < 1024 ∧
+      (x + 2^j).testBit j = !(x.testBit j) ∧
+      (if x.testBit j then delBit j (x + 2^j) else delBit j x) = delBit (j+1) x) :
+    dropBitmap i S = dropBitmapSimple 10 i S := by
+  have hfirst := bitmapStage_first i S (PNMasks.lowMask i) (lowMask_spec hi)
+  have hfull := compressHoles_spec_aux PNMasks.lowMask (deletePattern i S)
+    (fun j T hj hT => bitmapStage_move_aux j T _ _ (lowMask_spec (by omega)) hT
+      (fun x hx hh => move j x hj hx hh))
+    (9-i) i _ (by omega) hfirst
+  have hi9 : i + (9-i) = 9 := by omega
+  rw [hi9] at hfull
+  exact holeSpec_final hfull
+
+lemma dropBitmap_eq_simple {i : Nat} (hi : i < 10) (S : Nat) :
+    dropBitmap i S = dropBitmapSimple 10 i S := by
+  exact dropBitmap_eq_simple_aux hi S (fun j x hj hx hh => hole_move_1024 j hj x hx hh)
+
+lemma testBit_dropBitmap {i : Nat} (hi : i < 10) (S y : Nat) :
+    (dropBitmap i S).testBit y =
+      if y < 512 then
+        S.testBit (insBit i false y) || S.testBit (insBit i true y)
+      else false := by
+  rw [dropBitmap_eq_simple hi S]
+  exact testBit_dropBitmapSimple 10 i S y
+
+lemma testBit_dropBitmap_image {i S : Nat} (hi : i < 10) (hS : S < 2^1024) (y : Nat) :
+    (dropBitmap i S).testBit y = true ↔
+      ∃ x, S.testBit x = true ∧ delBit i x = y := by
+  rw [dropBitmap_eq_simple hi S]
+  exact testBit_dropBitmapSimple_image hi hS y
+
+lemma dropBitmap_lt {m i S : Nat} (hi : i < m) (hm : m ≤ 10) (hS : S < 2^(2^m)) :
+    dropBitmap i S < 2^(2^(m-1)) := by
+  have hi10 : i < 10 := by omega
+  have hS1024 : S < 2^1024 := lt_of_lt_of_le hS
+    (Nat.pow_le_pow_right (by decide) (by exact Nat.pow_le_pow_right (by decide) hm))
+  apply Nat.lt_pow_two_of_testBit
+  intro y hy
+  cases hb : (dropBitmap i S).testBit y with
+  | false => rfl
+  | true =>
+    rcases (testBit_dropBitmap_image hi10 hS1024 y).mp hb with ⟨x, hx, hxy⟩
+    have hxb : x < 2^m := by
+      by_contra hn
+      have hz : S.testBit x = false := Nat.testBit_lt_two_pow
+        (lt_of_lt_of_le hS (Nat.pow_le_pow_right (by decide) (by omega)))
+      simp [hx] at hz
+    have hlt := delBit_lt hi hxb
+    omega
+
+end PnProjection
+
+namespace PnProjection
+
+lemma compressHoles_eq_foldl (mask : Nat → Nat) (n j S : Nat) :
+    compressHoles mask n j S =
+      (List.range n).foldl (fun T offset =>
+        bitmapStage (mask (j + offset + 1)) (2^(j + offset)) T) S := by
+  induction n generalizing j S with
+  | zero => rfl
+  | succ n ih =>
+    rw [compressHoles, ih, List.range_succ_eq_map, List.foldl_cons, List.foldl_map]
+    simp only [Nat.add_zero, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
+
+def projectPatternBits (i S : Nat) : Nat :=
+  let d := 1 <<< i
+  let T := (S &&& PNMasks.lowMask i) ||| ((S >>> d) &&& PNMasks.lowMask i)
+  (List.range (9-i)).foldl (fun T offset =>
+    let j := i + 1 + offset
+    (T ||| (T >>> (1 <<< (j-1)))) &&& PNMasks.lowMask j) T
+
+lemma mask_distribute (S d mask : Nat) :
+    (S &&& mask) ||| ((S >>> d) &&& mask) = bitmapStage mask d S := by
+  apply Nat.eq_of_testBit_eq
+  intro x
+  simp only [bitmapStage, Nat.testBit_or, Nat.testBit_and]
+  cases S.testBit x <;> cases (S >>> d).testBit x <;> cases mask.testBit x <;> rfl
+
+lemma projectPatternBits_eq_dropBitmap (i S : Nat) :
+    projectPatternBits i S = dropBitmap i S := by
+  unfold projectPatternBits dropBitmap
+  rw [compressHoles_eq_foldl]
+  simp only [Nat.one_shiftLeft, mask_distribute]
+  congr 1
+  funext T offset
+  dsimp only [bitmapStage]
+  rw [show i + 1 + offset - 1 = i + offset by omega,
+    show i + 1 + offset = i + offset + 1 by omega]
+
+lemma lowMask_getBang : ∀ i : Fin 10,
+    PNMasks.lowMask i.val = PNMasks.lowMasks[i.val]! := by
+  decide
+
+end PnProjection
+
+namespace PNPlanes
+
+def allPatterns : Nat := 2^1024 - 1
+
+def highMask (i : Nat) : Nat := PNMasks.lowMask i <<< (1 <<< i)
+
+set_option maxRecDepth 10000 in
+lemma highMask_eq : ∀ i : Fin 10,
+    highMask i.val = allPatterns ^^^ PNMasks.lowMask i.val := by
+  decide +kernel
+
+lemma highMask_bits (i : Fin 10) (x : Fin 1024) :
+    (highMask i.val).testBit x.val = x.val.testBit i.val := by
+  rw [highMask_eq i]
+  simp [Nat.testBit_xor, allPatterns, x.isLt, PNMasks.lowMask_bits]
+
+def gateMask (i j : Nat) (d : Fin 4) : Nat :=
+  match d.val with
+  | 0 => highMask i &&& highMask j
+  | 1 => highMask i ||| highMask j
+  | 2 => highMask i &&& PNMasks.lowMask j
+  | _ => highMask j &&& PNMasks.lowMask i
+
+lemma gateMask_bits (i j : Fin 10) (d : Fin 4) (x : Fin 1024) :
+    (gateMask i.val j.val d).testBit x.val =
+      ChromGate.eval d (x.val.testBit i.val) (x.val.testBit j.val) := by
+  fin_cases d <;> simp [gateMask, ChromGate.eval, Nat.testBit_and, Nat.testBit_or,
+    highMask_bits, PNMasks.lowMask_bits]
+
+def planeOne (s gate : Nat) : Nat := s &&& gate
+def planeZero (s gate : Nat) : Nat := s &&& (allPatterns ^^^ gate)
+
+lemma planeOne_le (s gate : Nat) : planeOne s gate ≤ s := Nat.and_le_left
+lemma planeZero_le (s gate : Nat) : planeZero s gate ≤ s := Nat.and_le_left
+
+lemma testBit_planeOne (s gate x : Nat) :
+    (planeOne s gate).testBit x = (s.testBit x && gate.testBit x) := by
+  simp [planeOne, Nat.testBit_and]
+
+lemma testBit_planeZero {s : Nat} (hs : s < 2^1024) (gate x : Nat) :
+    (planeZero s gate).testBit x = (s.testBit x && !(gate.testBit x)) := by
+  by_cases hx : x < 1024
+  · simp [planeZero, allPatterns, Nat.testBit_and, Nat.testBit_xor, hx]
+  · have powle : 2^1024 ≤ 2^x := Nat.pow_le_pow_of_le (by decide) (by omega)
+    have no : s.testBit x = false := Nat.testBit_lt_two_pow (hs.trans_le powle)
+    simp [planeZero, Nat.testBit_and, no]
+
+lemma planeZero_eq_xor {s : Nat} (hs : s < 2^1024) (gate : Nat) :
+    planeZero s gate = s ^^^ (s &&& gate) := by
+  apply Nat.eq_of_testBit_eq
+  intro x
+  rw [testBit_planeZero hs, Nat.testBit_xor, Nat.testBit_and]
+  cases s.testBit x <;> cases gate.testBit x <;> rfl
+
+end PNPlanes
+
+namespace PnProjection
+
+def joinPlanes (q a b : Nat) : Nat := a ||| (b <<< q)
+
+def appendPlanes (n a b : Nat) : Nat := joinPlanes (2^n) a b
+
+lemma bitIndex_lt {x q y : Nat} (bound : x < 2^q) (bit : x.testBit y = true) : y < q := by
+  by_contra! h
+  have zero := Nat.testBit_lt_two_pow (lt_of_lt_of_le bound (Nat.pow_le_pow_right (by decide) h))
+  rw [zero] at bit
+  contradiction
+
+lemma testBit_joinPlanes (q a b x : Nat) :
+    (joinPlanes q a b).testBit x = (a.testBit x || (decide (q ≤ x) && b.testBit (x-q))) := by
+  simp [joinPlanes, Nat.testBit_shiftLeft]
+
+lemma joinPlanes_image {q a b x : Nat} (ha : a < 2^q) (hb : b < 2^q) :
+    (joinPlanes q a b).testBit x = true ↔
+      (∃ y < q, a.testBit y = true ∧ x = y) ∨
+      (∃ y < q, b.testBit y = true ∧ x = y+q) := by
+  rw [testBit_joinPlanes, Bool.or_eq_true]
+  constructor
+  · rintro (h | h)
+    · exact Or.inl ⟨x, bitIndex_lt ha h, h, rfl⟩
+    · have h' : q ≤ x ∧ b.testBit (x-q) = true := by
+        simpa only [Bool.and_eq_true, decide_eq_true_eq] using h
+      obtain ⟨hle', hbit⟩ := h'
+      exact Or.inr ⟨x-q, bitIndex_lt hb hbit, hbit, by omega⟩
+  · rintro (⟨y, hy, hbit, rfl⟩ | ⟨y, hy, hbit, rfl⟩)
+    · exact Or.inl hbit
+    · exact Or.inr (by simp [hbit])
+
+lemma joinPlanes_lt {q a b : Nat} (ha : a < 2^q) (hb : b < 2^q) :
+    joinPlanes q a b < 2^(2*q) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro x hx
+  rw [testBit_joinPlanes]
+  have za : a.testBit x = false :=
+    Nat.testBit_lt_two_pow (lt_of_lt_of_le ha (Nat.pow_le_pow_right (by decide) (by omega)))
+  have zb : b.testBit (x-q) = false :=
+    Nat.testBit_lt_two_pow (lt_of_lt_of_le hb (Nat.pow_le_pow_right (by decide) (by omega)))
+  simp [za, zb]
+
+lemma insBit_top (n : Nat) (flag : Bool) {y : Nat} (hy : y < 2^n) :
+    insBit n flag y = y + (if flag then 2^n else 0) := by
+  simp [insBit, Nat.mod_eq_of_lt hy, Nat.div_eq_of_lt hy]
+
+lemma appendPlanes_image {n a b x : Nat} (ha : a < 2^(2^n)) (hb : b < 2^(2^n)) :
+    (appendPlanes n a b).testBit x = true ↔
+      ∃ (flag : Bool) (y : Nat), y < 2^n ∧
+        (if flag then b else a).testBit y = true ∧ x = insBit n flag y := by
+  rw [appendPlanes, joinPlanes_image ha hb]
+  constructor
+  · rintro (⟨y, hy, hbit, eq⟩ | ⟨y, hy, hbit, eq⟩)
+    · exact ⟨false, y, hy, hbit, by simpa [insBit_top n false hy] using eq⟩
+    · exact ⟨true, y, hy, hbit, by simpa [insBit_top n true hy] using eq⟩
+  · rintro ⟨flag, y, hy, hbit, eq⟩
+    cases flag
+    · exact Or.inl ⟨y, hy, hbit, by simpa [insBit_top n false hy] using eq⟩
+    · exact Or.inr ⟨y, hy, hbit, by simpa [insBit_top n true hy] using eq⟩
+
+lemma appendPlanes_image_unbounded {n a b x : Nat}
+    (ha : a < 2^(2^n)) (hb : b < 2^(2^n)) :
+    (appendPlanes n a b).testBit x = true ↔
+      ∃ (flag : Bool) (y : Nat),
+        (if flag then b else a).testBit y = true ∧ x = insBit n flag y := by
+  rw [appendPlanes_image ha hb]
+  constructor
+  · rintro ⟨flag, y, hy, hbit, eq⟩
+    exact ⟨flag, y, hbit, eq⟩
+  · rintro ⟨flag, y, hbit, eq⟩
+    refine ⟨flag, y, ?_, hbit, eq⟩
+    cases flag
+    · exact bitIndex_lt ha hbit
+    · exact bitIndex_lt hb hbit
+
+lemma appendPlanes_image_sum {n a b x : Nat}
+    (ha : a < 2^(2^n)) (hb : b < 2^(2^n)) :
+    (appendPlanes n a b).testBit x = true ↔
+      ∃ (flag : Bool) (y : Nat), y < 2^n ∧
+        (if flag then b else a).testBit y = true ∧ x = y + (if flag then 2^n else 0) := by
+  rw [appendPlanes_image ha hb]
+  constructor
+  · rintro ⟨flag, y, hy, hbit, eq⟩
+    exact ⟨flag, y, hy, hbit, by simpa only [insBit_top n flag hy] using eq⟩
+  · rintro ⟨flag, y, hy, hbit, eq⟩
+    exact ⟨flag, y, hy, hbit, by simpa only [insBit_top n flag hy] using eq⟩
+
+lemma appendPlanes_lt {n a b : Nat} (ha : a < 2^(2^n)) (hb : b < 2^(2^n)) :
+    appendPlanes n a b < 2^(2^(n+1)) := by
+  simpa only [appendPlanes, Nat.pow_succ, Nat.mul_comm (2^n) 2] using joinPlanes_lt ha hb
+
+end PnProjection
+
+namespace PnTransition
+
+open PnProjection
+open PNPlanes
+
+def keepSize (keep : Fin 4) : Nat :=
+  if keep.val == 0 then 0 else if keep.val == 3 then 2 else 1
+
+def dropPattern (i j : Nat) (keep : Fin 4) (x : Nat) : Nat :=
+  let x := if keep.val &&& 2 == 0 then delBit j x else x
+  if keep.val &&& 1 == 0 then delBit i x else x
+
+def projectDropped (i j : Nat) (keep : Fin 4) (S : Nat) : Nat :=
+  let S := if keep.val &&& 2 == 0 then dropBitmap j S else S
+  if keep.val &&& 1 == 0 then dropBitmap i S else S
+
+lemma bound_1024 {m S : Nat} (hm : m ≤ 10) (hS : S < 2^(2^m)) : S < 2^1024 :=
+  lt_of_lt_of_le hS (Nat.pow_le_pow_right (by decide)
+    (by exact Nat.pow_le_pow_right (by decide) hm))
+
+lemma projectDropped_image {m i j S : Nat} (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hS : S < 2^(2^m)) (keep : Fin 4) (y : Nat) :
+    (projectDropped i j keep S).testBit y = true ↔
+      ∃ x, S.testBit x = true ∧ dropPattern i j keep x = y := by
+  have hS1024 := bound_1024 hm hS
+  have hi10 : i < 10 := by omega
+  have hj10 : j < 10 := by omega
+  have hdrop := dropBitmap_lt hj hm hS
+  have hdrop1024 := bound_1024 (by omega : m-1 ≤ 10) hdrop
+  fin_cases keep
+  · simp only [projectDropped, dropPattern, Fin.val_zero, Nat.zero_and, beq_self_eq_true, ite_true]
+    rw [testBit_dropBitmap_image hi10 hdrop1024]
+    simp only [testBit_dropBitmap_image hj10 hS1024]
+    constructor
+    · rintro ⟨u, ⟨x, hx, hxu⟩, huy⟩
+      exact ⟨x, hx, by simpa [hxu] using huy⟩
+    · rintro ⟨x, hx, hxy⟩
+      exact ⟨delBit j x, ⟨x, hx, rfl⟩, hxy⟩
+  · simpa [projectDropped, dropPattern] using testBit_dropBitmap_image hj10 hS1024 y
+  · simpa [projectDropped, dropPattern] using testBit_dropBitmap_image hi10 hS1024 y
+  · simp [projectDropped, dropPattern]
+
+lemma projectDropped_lt {m i j S : Nat} (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hS : S < 2^(2^m)) (keep : Fin 4) :
+    projectDropped i j keep S < 2^(2^(m-2+keepSize keep)) := by
+  have htwo : 2 ≤ m := by omega
+  have hm1 : m-2+1 = m-1 := by omega
+  have hm2 : m-2+2 = m := by omega
+  fin_cases keep
+  · simpa [projectDropped, keepSize, Nat.sub_sub] using
+      dropBitmap_lt (by omega : i < m-1) (by omega : m-1 ≤ 10) (dropBitmap_lt hj hm hS)
+  · simpa [projectDropped, keepSize, hm1] using dropBitmap_lt hj hm hS
+  · simpa [projectDropped, keepSize, hm1] using dropBitmap_lt (by omega : i < m) hm hS
+  · simpa [projectDropped, keepSize, hm2] using hS
+
+lemma dropPattern_lt {m i j x : Nat} (hij : i < j) (hj : j < m)
+    (hx : x < 2^m) (keep : Fin 4) :
+    dropPattern i j keep x < 2^(m-2+keepSize keep) := by
+  have htwo : 2 ≤ m := by omega
+  have hm1 : m-2+1 = m-1 := by omega
+  have hm2 : m-2+2 = m := by omega
+  fin_cases keep
+  · simpa [dropPattern, keepSize, Nat.sub_sub] using
+      delBit_lt (by omega : i < m-1) (delBit_lt hj hx)
+  · simpa [dropPattern, keepSize, hm1] using delBit_lt hj hx
+  · simpa [dropPattern, keepSize, hm1] using delBit_lt (by omega : i < m) hx
+  · simpa [dropPattern, keepSize, hm2] using hx
+
+def transitionSet (m i j : Nat) (keep : Fin 4) (gate S : Nat) : Nat :=
+  let zero := projectDropped i j keep (planeZero S gate)
+  let one := projectDropped i j keep (planeOne S gate)
+  zero ||| (one <<< (1 <<< (m-2+keepSize keep)))
+
+lemma transitionSet_eq_appendPlanes (m i j : Nat) (keep : Fin 4) (gate S : Nat) :
+    transitionSet m i j keep gate S =
+      appendPlanes (m-2+keepSize keep)
+        (projectDropped i j keep (planeZero S gate))
+        (projectDropped i j keep (planeOne S gate)) := by
+  simp [transitionSet, appendPlanes, joinPlanes, Nat.shiftLeft_eq]
+
+lemma transitionSet_image {m i j S : Nat} (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hS : S < 2^(2^m)) (keep : Fin 4) (gate y : Nat) :
+    (transitionSet m i j keep gate S).testBit y = true ↔
+      ∃ x, S.testBit x = true ∧
+        y = dropPattern i j keep x + (if gate.testBit x then 2^(m-2+keepSize keep) else 0) := by
+  have hS1024 := bound_1024 hm hS
+  have hzero : planeZero S gate < 2^(2^m) := lt_of_le_of_lt (planeZero_le S gate) hS
+  have hone : planeOne S gate < 2^(2^m) := lt_of_le_of_lt (planeOne_le S gate) hS
+  rw [transitionSet_eq_appendPlanes, appendPlanes,
+    joinPlanes_image (projectDropped_lt hij hj hm hzero keep) (projectDropped_lt hij hj hm hone keep)]
+  constructor
+  · rintro (⟨u, hu, hbit, hy⟩ | ⟨u, hu, hbit, hy⟩)
+    · rcases (projectDropped_image hij hj hm hzero keep u).mp hbit with ⟨x, hx, hxu⟩
+      rw [testBit_planeZero hS1024] at hx
+      have hpair : S.testBit x = true ∧ gate.testBit x = false := by
+        simpa using hx
+      obtain ⟨hxS, hg⟩ := hpair
+      exact ⟨x, hxS, by simpa [hg, hxu] using hy⟩
+    · rcases (projectDropped_image hij hj hm hone keep u).mp hbit with ⟨x, hx, hxu⟩
+      rw [testBit_planeOne] at hx
+      have hpair : S.testBit x = true ∧ gate.testBit x = true := by
+        simpa only [Bool.and_eq_true] using hx
+      obtain ⟨hxS, hxgate⟩ := hpair
+      exact ⟨x, hxS, by simpa [hxgate, hxu] using hy⟩
+  · rintro ⟨x, hxS, hy⟩
+    have hxb := bitIndex_lt hS hxS
+    have hdrop := dropPattern_lt hij hj hxb keep
+    cases hg : gate.testBit x with
+    | false =>
+      have hbit : (planeZero S gate).testBit x = true := by
+        simp [testBit_planeZero hS1024, hxS, hg]
+      exact Or.inl ⟨dropPattern i j keep x, hdrop,
+        (projectDropped_image hij hj hm hzero keep _).mpr ⟨x, hbit, rfl⟩,
+        by simpa [hg] using hy⟩
+    | true =>
+      have hbit : (planeOne S gate).testBit x = true := by
+        simp [testBit_planeOne, hxS, hg]
+      exact Or.inr ⟨dropPattern i j keep x, hdrop,
+        (projectDropped_image hij hj hm hone keep _).mpr ⟨x, hbit, rfl⟩,
+        by simpa [hg] using hy⟩
+
+lemma transitionSet_lt {m i j S : Nat} (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hS : S < 2^(2^m)) (keep : Fin 4) (gate : Nat) :
+    transitionSet m i j keep gate S < 2^(2^(m-1+keepSize keep)) := by
+  have hzero : planeZero S gate < 2^(2^m) := lt_of_le_of_lt (planeZero_le S gate) hS
+  have hone : planeOne S gate < 2^(2^m) := lt_of_le_of_lt (planeOne_le S gate) hS
+  rw [transitionSet_eq_appendPlanes]
+  have h := appendPlanes_lt (projectDropped_lt hij hj hm hzero keep)
+    (projectDropped_lt hij hj hm hone keep)
+  have he : m-2+keepSize keep+1 = m-1+keepSize keep := by omega
+  simpa [he] using h
+
+lemma transitionSet_gate_image {m i j S : Nat} (hij : i < j) (hj : j < m) (hm : m ≤ 10)
+    (hS : S < 2^(2^m)) (keep d : Fin 4) (y : Nat) :
+    (transitionSet m i j keep (gateMask i j d) S).testBit y = true ↔
+      ∃ x, S.testBit x = true ∧ y = dropPattern i j keep x +
+        (if ChromGate.eval d (x.testBit i) (x.testBit j) then 2^(m-2+keepSize keep) else 0) := by
+  rw [transitionSet_image hij hj hm hS]
+  have hS1024 := bound_1024 hm hS
+  constructor <;> rintro ⟨x, hx, hy⟩
+  · have hg := gateMask_bits ⟨i, by omega⟩ ⟨j, by omega⟩ d ⟨x, bitIndex_lt hS1024 hx⟩
+    exact ⟨x, hx, by simpa only [hg] using hy⟩
+  · have hg := gateMask_bits ⟨i, by omega⟩ ⟨j, by omega⟩ d ⟨x, bitIndex_lt hS1024 hx⟩
+    exact ⟨x, hx, by simpa only [hg] using hy⟩
+
+end PnTransition
+
+namespace PNQuotient
+
+variable {Q : Type} {width : Nat}
+
+def liveState (rep : Nat → Q → List (BitVec width) → Prop) (goal : BitVec width)
+    (k : Nat) (s : Q) : Prop :=
+  ∃ ws, ws.Nodup ∧ rep k s ws ∧ live basicOps goal k ws.toFinset
+
+def search (done : Q → Bool) (admissible : Nat → Q → Bool)
+    (children : Nat → Q → List Q) : Nat → Q → Bool
+  | 0, s => done s
+  | k + 1, s => done s ||
+      (admissible (k + 1) s && (children (k + 1) s).any (search done admissible children k))
+
+lemma kept_front {a b : BitVec width} {r kept : List (BitVec width)}
+    (hk : kept ∈ SearchKernel.keepChoices a b r) :
+    ∃ front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))),
+      kept = front ++ r := by
+  simp only [SearchKernel.keepChoices, List.mem_cons, List.not_mem_nil, or_false] at hk
+  rcases hk with rfl | rfl | rfl | rfl
+  · exact ⟨[], by simp, rfl⟩
+  · exact ⟨[a], by simp, rfl⟩
+  · exact ⟨[b], by simp, rfl⟩
+  · exact ⟨[a,b], by simp, rfl⟩
+
+lemma liveState_step {rep : Nat → Q → List (BitVec width) → Prop} {goal : BitVec width}
+    {done : Q → Bool} {children : Nat → Q → List Q}
+    (finish : ∀ k s, rep k s [goal] → done s = true)
+    (cover : ∀ (k : Nat) (s : Q) (ws : List (BitVec width))
+      (a b z : BitVec width) (r front : List (BitVec width)),
+      ws.Nodup → rep (k + 1) s ws → (a, b, r) ∈ SearchKernel.pairs ws →
+      front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))) →
+      z ∈ basicOps a b → z ∉ ws.toFinset →
+      live basicOps goal k (z :: (front ++ r)).toFinset →
+      ∃ t ∈ children (k + 1) s, ∃ ys, rep k t ys ∧ ys.Perm (z :: (front ++ r)))
+    {k : Nat} {s : Q} (hs : liveState rep goal (k + 1) s) :
+    done s = true ∨ ∃ t ∈ children (k + 1) s, liveState rep goal k t := by
+  obtain ⟨ws, hn, hrep, hrun⟩ := hs
+  rcases first_live hrun with hstop | ⟨a, ha, b, hb, hab, z, hz, hnew, U, hset, tail⟩
+  · left
+    exact finish (k + 1) s ((SearchKernel.singleton_list hn hstop) ▸ hrep)
+  · right
+    obtain ⟨r, hm, hp⟩ := SearchKernel.pick_two
+      (List.mem_toFinset.mp ha) (List.mem_toFinset.mp hb) hab
+    have go {a b : BitVec width} (hpair : (a, b, r) ∈ SearchKernel.pairs ws)
+        (perm : ws.Perm (a :: b :: r))
+        (hset : ws.toFinset = insert a (insert b U)) (hop : z ∈ basicOps a b) :
+        ∃ t ∈ children (k + 1) s, liveState rep goal k t := by
+      obtain ⟨kept, hk, hnk, hfin⟩ := SearchKernel.recover_kept perm hn hset
+      have hzkept : z ∉ kept := by
+        intro hzmem
+        apply hnew
+        rw [hset]
+        exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem
+          (hfin ▸ List.mem_toFinset.mpr hzmem))
+      have hnd : (z :: kept).Nodup := List.nodup_cons.mpr ⟨hzkept, hnk⟩
+      have hl : live basicOps goal k (z :: kept).toFinset := by
+        simpa only [List.toFinset_cons, hfin] using tail
+      obtain ⟨front, hfront, rfl⟩ := kept_front hk
+      obtain ⟨t, ht, ys, htrep, hperm⟩ := cover k s ws a b z r front hn hrep hpair hfront hop hnew hl
+      have heq : ys.toFinset = (z :: (front ++ r)).toFinset := by
+        ext w
+        simp only [List.mem_toFinset]
+        exact hperm.mem_iff
+      exact ⟨t, ht, ys, hperm.nodup_iff.mpr hnd, htrep, heq.symm ▸ hl⟩
+    rcases hm with direct | swap
+    · exact go direct hp hset hz
+    · exact go swap (hp.trans (.swap _ _ _)) (by rw [hset, Finset.insert_comm])
+        (SearchKernel.ops_swap a b ▸ hz)
+
+lemma search_complete {rep : Nat → Q → List (BitVec width) → Prop} {goal : BitVec width}
+    {done : Q → Bool} {admissible : Nat → Q → Bool} {children : Nat → Q → List Q}
+    (finish : ∀ k s, rep k s [goal] → done s = true)
+    (step : ∀ k s, liveState rep goal (k + 1) s →
+      done s = true ∨ ∃ t ∈ children (k + 1) s, liveState rep goal k t)
+    (allowed : ∀ k s, liveState rep goal (k + 1) s → admissible (k + 1) s = true)
+    {k : Nat} {s : Q} (hs : liveState rep goal k s) :
+    search done admissible children k s = true := by
+  induction k generalizing s with
+  | zero =>
+    obtain ⟨ws, hn, hrep, hrun⟩ := hs
+    exact finish 0 s ((SearchKernel.singleton_list hn hrun) ▸ hrep)
+  | succ k ih =>
+    rcases step k s hs with hdone | ⟨t, ht, htail⟩
+    · simp only [search, hdone, Bool.true_or]
+    · simp only [search, Bool.or_eq_true, Bool.and_eq_true, List.any_eq_true]
+      exact Or.inr ⟨allowed k s hs, t, ht, ih htail⟩
+
+lemma rejected_no_liveState {rep : Nat → Q → List (BitVec width) → Prop} {goal : BitVec width}
+    {done : Q → Bool} {admissible : Nat → Q → Bool} {children : Nat → Q → List Q}
+    (finish : ∀ k s, rep k s [goal] → done s = true)
+    (step : ∀ k s, liveState rep goal (k + 1) s →
+      done s = true ∨ ∃ t ∈ children (k + 1) s, liveState rep goal k t)
+    (allowed : ∀ k s, liveState rep goal (k + 1) s → admissible (k + 1) s = true)
+    {k : Nat} {s : Q} (rejected : search done admissible children k s = false) :
+    ¬ liveState rep goal k s := by
+  intro hs
+  have found := search_complete finish step allowed hs
+  rw [rejected] at found
+  contradiction
+
+lemma build_represented_sublist {rep : Nat → Q → List (BitVec width) → Prop}
+    {goal : BitVec width} {k : Nat} {inputs : List (BitVec width)}
+    (hn : inputs.Nodup)
+    (represented : ∀ ws, ws.Sublist inputs → ∃ s, rep k s ws)
+    (run : build basicOps goal k inputs.toFinset) :
+    ∃ s, liveState rep goal k s := by
+  classical
+  obtain ⟨S, hS, hlive⟩ := compress run
+  let ws := inputs.filter (· ∈ S)
+  have hfin : ws.toFinset = S := by
+    ext w
+    simp only [ws, List.mem_toFinset, List.mem_filter, decide_eq_true_eq,
+      and_iff_right_iff_imp]
+    exact fun hw => List.mem_toFinset.mp (hS hw)
+  obtain ⟨s, hs⟩ := represented ws (List.filter_sublist ..)
+  exact ⟨s, ws, hn.filter _, hs, hfin.symm ▸ hlive⟩
+
+lemma live_length_cap {goal : BitVec width} {k cap : Nat} {ws : List (BitVec width)}
+    (hn : ws.Nodup) (run : live basicOps goal k ws.toFinset)
+    (room : ws.length + k < 2 * cap) : ws.length ≤ cap := by
+  have hc := live_card run
+  rw [List.toFinset_card_of_nodup hn] at hc
+  omega
+
+lemma child_length_budget {a b z : BitVec width} {ws r front : List (BitVec width)}
+    {k bound : Nat} (hp : ws.Perm (a :: b :: r))
+    (hf : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (room : ws.length + (k + 1) ≤ bound) :
+    (z :: (front ++ r)).length + k ≤ bound := by
+  have plen := hp.length_eq
+  have flen : front.length ≤ 2 := by
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
+    rcases hf with rfl | rfl | rfl | rfl <;> simp
+  simp only [List.length_cons, List.length_append] at plen ⊢
+  omega
+
+lemma build_represented_roots {rep : Nat → Q → List (BitVec width) → Prop}
+    {goal : BitVec width} {k : Nat} {inputs : List (BitVec width)} {roots : List Q}
+    (hn : inputs.Nodup)
+    (represented : ∀ ws, ws.Sublist inputs → ws.Nodup →
+      live basicOps goal k ws.toFinset →
+      ∃ s ∈ roots, ∃ ys, rep k s ys ∧ ys.Perm ws)
+    (run : build basicOps goal k inputs.toFinset) :
+    ∃ s ∈ roots, liveState rep goal k s := by
+  classical
+  obtain ⟨S, hS, hlive⟩ := compress run
+  let ws := inputs.filter (· ∈ S)
+  have hfin : ws.toFinset = S := by
+    ext w
+    simp only [ws, List.mem_toFinset, List.mem_filter, decide_eq_true_eq,
+      and_iff_right_iff_imp]
+    exact fun hw => List.mem_toFinset.mp (hS hw)
+  have hnd : ws.Nodup := hn.filter _
+  have hrun : live basicOps goal k ws.toFinset := hfin.symm ▸ hlive
+  obtain ⟨s, hs, ys, hrep, hp⟩ := represented ws (List.filter_sublist ..) hnd hrun
+  have heq : ys.toFinset = ws.toFinset := by
+    ext w
+    simp only [List.mem_toFinset]
+    exact hp.mem_iff
+  exact ⟨s, hs, ys, hp.nodup_iff.mpr hnd, hrep, heq.symm ▸ hrun⟩
+
+lemma rejected_roots_no_build {rep : Nat → Q → List (BitVec width) → Prop}
+    {goal : BitVec width} {k : Nat} {inputs : List (BitVec width)} {roots : List Q}
+    {done : Q → Bool} {admissible : Nat → Q → Bool} {children : Nat → Q → List Q}
+    (hn : inputs.Nodup)
+    (finish : ∀ k s, rep k s [goal] → done s = true)
+    (step : ∀ k s, liveState rep goal (k + 1) s →
+      done s = true ∨ ∃ t ∈ children (k + 1) s, liveState rep goal k t)
+    (allowed : ∀ k s, liveState rep goal (k + 1) s → admissible (k + 1) s = true)
+    (represented : ∀ ws, ws.Sublist inputs → ws.Nodup →
+      live basicOps goal k ws.toFinset →
+      ∃ s ∈ roots, ∃ ys, rep k s ys ∧ ys.Perm ws)
+    (rejected : ∀ s ∈ roots, search done admissible children k s = false) :
+    ¬ build basicOps goal k inputs.toFinset := by
+  intro run
+  obtain ⟨s, hs, hlive⟩ := build_represented_roots hn represented run
+  exact rejected_no_liveState finish step allowed (rejected s hs) hlive
+
+end PNQuotient
+
 end PEqualNP.Outside.L_meta_10760
