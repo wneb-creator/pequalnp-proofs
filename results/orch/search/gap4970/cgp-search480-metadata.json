@@ -1,0 +1,16 @@
+{
+  "status": "RUNNING",
+  "started_utc": "2026-11-25T15:48:19+00:00",
+  "duration_seconds": 480,
+  "seed": 497094,
+  "capacity": 28,
+  "virtual_memory_cap_mib": 256,
+  "truth_rows_per_candidate": 1024,
+  "reviewer": "pilot94_research",
+  "sources": {
+    "results/orch/search/gap4970/circuit_cgp.cpp": "208fde648b5730552d722a6daaf0ebc14e8be5b890fa3b95a1d6d5a1de49c93d",
+    "results/orch/search/gap4970/verify_cgp.py": "bd774e5166b95ea4d32efa17e64dee143a4ca5d0282c710f92143d5a06b5074e"
+  },
+  "search_kind": "heuristic_exact_hypothesis_CGP",
+  "lower_bound_claim": false
+}

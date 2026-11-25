@@ -1,0 +1,84 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "wrapper_sha256": "bec5de97249b6e928b652da8daa6e2348aca8095aa9baee0d57dc7fdc31c429b",
+  "commands": [
+    {
+      "name": "path4_5_and2",
+      "argv": [
+        "python3",
+        "results/orch/search/gap4970/operator_count_sat.py",
+        "--graph",
+        "path4",
+        "--gates",
+        "5",
+        "--operator",
+        "AND",
+        "--maximum",
+        "2",
+        "--seconds",
+        "10",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2"
+      ]
+    },
+    {
+      "name": "path4_5_or3",
+      "argv": [
+        "python3",
+        "results/orch/search/gap4970/operator_count_sat.py",
+        "--graph",
+        "path4",
+        "--gates",
+        "5",
+        "--operator",
+        "OR",
+        "--maximum",
+        "3",
+        "--seconds",
+        "10",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3"
+      ]
+    },
+    {
+      "name": "cycle6_12_or4",
+      "argv": [
+        "python3",
+        "results/orch/search/gap4970/operator_count_sat.py",
+        "--graph",
+        "cycle6",
+        "--gates",
+        "12",
+        "--operator",
+        "OR",
+        "--maximum",
+        "4",
+        "--seconds",
+        "30",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4"
+      ]
+    },
+    {
+      "name": "cycle6_12_and2",
+      "argv": [
+        "python3",
+        "results/orch/search/gap4970/operator_count_sat.py",
+        "--graph",
+        "cycle6",
+        "--gates",
+        "12",
+        "--operator",
+        "AND",
+        "--maximum",
+        "2",
+        "--seconds",
+        "10",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2"
+      ]
+    }
+  ],
+  "complete": true,
+  "interpretation": "Two positive controls SAT; both C6 count tests UNKNOWN, no new bound established."
+}

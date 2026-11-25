@@ -1,0 +1,14 @@
+Independent CGP counterexample-search review: APPROVED for bounded exploratory runs.
+
+circuit_cgp.cpp sha256 208fde648b5730552d722a6daaf0ebc14e8be5b890fa3b95a1d6d5a1de49c93d
+verify_cgp.py sha256 bd774e5166b95ea4d32efa17e64dee143a4ca5d0282c710f92143d5a06b5074e
+
+Reviewed complete C++ and Python sources. The graph is the4-by-6 incidence graph of K4, with12 edges and minimum vertex cover4; the counterexample threshold is14 gates. All1024 input assignments are evaluated exactly. AND/OR gates have two earlier operands and duplicates are allowed. OR reach is the union at OR and empty at AND, matching tCount rather than semantic singleton support.
+
+Each semantic star witness must be an OR gate whose complete truth table equals OR of a neighbor subset of size at least2. Witnesses with a mixed-OR ancestor are excluded. Candidate keep sets include the full output cone and every selected witness cone, including unused and post-output witnesses. Mixed gates outside the keep set can be discarded safely. Compaction preserves ancestor closure and the output index, and emitted compact circuits are re-evaluated. Greedy witness cover is an upper bound on the size of a realizable retained circuit; it may miss better selections but cannot turn an invalid or oversized circuit into a false positive. Word widths/index bounds are safe for60 gates and10 inputs.
+
+The independent Python verifier checks every printed gate, full target truth table, all mixed OR gates, independently discovers semantic star witnesses, verifies claimed witness coverage and counts, and independently computes cover number. It does not trust the search pruning or witness list for existence.
+
+Independently replayed each emitted control and smoke record using a separate integer-bitset implementation and an explicit edge list, without invoking verify_cgp.py: canonical15-gate control;31-gate output-before-witness control with8 unused witness gates;31-gate duplicate-AND masking control with6 duplicate operands; final15-gate smoke result. All1024 rows, syntactic T0, semantic witness coverage, and reported AND counts passed. Compile/control/verifier stderr files were empty. Smoke diagnostics:2611616 mutations,1225948 accepted,11 restarts; best15. The internal negative controls correctly reject missing witnesses, wrong target, and genuinely mixed OR cones.
+
+No counterexample was found by these controls or the short smoke run. A long run with no improvement is heuristic negative evidence only, not a lower-bound proof. Any future candidate with at most14 retained gates must still pass the independent Python verifier and be formalized in Lean before claiming a refutation.
