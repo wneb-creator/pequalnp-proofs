@@ -1,4 +1,4 @@
-# L-meta-10760 orchestrator notes
+# Pilot 178 orchestrator notes
 
 Assigned 2026-11-25 18:58:02 UTC. Root renews every5minutes and before long runs; current expiry is recorded in scratch renew-status.json. Reductions closed.
 
@@ -43,3 +43,11 @@ Routes: finite_search SAT small C4-free bipartite graphs; certificate_search Boo
 Checkedandpushed: GraphPeel, exactAO2star-coverupper, conditionalpeel, Converse (postedpeel impliesfullm+cover−1), onegatezeroRestriction, Heawoodgraph/covercertificate. Named619linepartialbuildpasses; axiom auditonlypropext/Classical.choice/Quot.sound. No fullpostedprooforrefutation. FullforestboundalreadyrecordedL_meta_3525; gate_elim_two/fix_many cannotreachcyclepotential. L8933 conditionalrepairdoesnotremoveglobalsharingdifficulty.
 
 Prioritizecounterexample: finite_search runsoneSATqueue with2GBcap and300s pergraph, startingnonplanar5×6n11m14tau5target17; certificate_search structuredshared-gateMILP onboundarytruthrows; gate_elimination preparingreversegraph/circuitmutation; lean_setup buildinggenericJSON-to-Leankernelverificationpipeline. proof_route completedsmallgraphcensuses; theseareexplicitfixedmatching/minDegree2profilecensuses whereapplicable, notallgraphs. repo_review independentlyauditsmodels/representatives. TwoCPUheavyworkersmax; coordinateRAMwithoneLeanprocess. Anycircuitbeatingm+tau−1 refutespostedstatementviacheckedConverse, so nocutlowerboundcertificateisneeded.
+
+## 21:48 UTC re-plan:3566
+
+The named 619-line partial still builds, but neither the posted theorem nor its negation is proved. The checked converse and conditional forward implication identify the remaining task with the unrestricted AO2 bound m + minimumCover - 1 for bipartite C4-free graphs. Graph-side certificates are checked for Heawood (14 vertices,21 edges,cover7), Graph11 (11,14,5), and a C8 extension (10,11,5). A Defs-only witness generator checks known upper circuits in seconds; no improving circuit is known. Sources, exact JSONs and complete logs are pushed under witness3566/.
+
+Searches remain scoped evidence only. Timed SAT queries are UNKNOWN. The C8 formula/shared-helper sweep finished 137233 cost4-7 constructions without a candidate; this is not an unrestricted circuit lower bound. Reverse circuit searches, including a 260997-candidate amplification run, have found no positive gain. Safe OR helpers can be amplified by private-leaf stars; eligible AND gates can receive pendant edges. Both constructions and their compatibility/charging conditions have independent mathematical review, and saved finite controls pass full truth checks.
+
+Current attempts: finite_search runs a C10 query with compatible safe OR-pair helpers; certificate_search probes structured sharing and the subdivision/incidence graph of K3,3 with eight compatible safe OR-triples; gate_elimination combines helper amplification with pendant cover rise. lean_setup prepares symbolic extension checking so a large amplified circuit does not require enumerating every new input assignment. proof_route revisits the missing general normalization; repo_review audits search scope and transformations. Root holds the sole3566 lease and renews every5minutes. Reassess after the current bounded trials around22:10UTC.

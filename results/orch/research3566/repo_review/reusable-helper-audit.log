@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS: independent bounded controls",
+  "source_sha256": "093cf1a173360aa38b62957c200e7243a06b2476dcea94bd3f12496dbc9bbe9a",
+  "input_masks_checked_through_n": 8,
+  "shared_cones_charged_once": true,
+  "old_output_cone_gates": 11,
+  "helper_union_gates": 12,
+  "extension_inputs": 10,
+  "extension_edges": 11,
+  "extension_gates": 15,
+  "extension_cover": 5,
+  "exhaustive_extension_assignments": 1024,
+  "joint_coloring_negative_control": true
+}

@@ -1,0 +1,1105 @@
+{
+  "results": [
+    {
+      "index": 0,
+      "helper": [
+        "and",
+        0,
+        1
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 1,
+      "helper": [
+        "and",
+        0,
+        2
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 2,
+      "helper": [
+        "and",
+        0,
+        3
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 3,
+      "helper": [
+        "and",
+        0,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 4,
+      "helper": [
+        "and",
+        0,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 5,
+      "helper": [
+        "and",
+        0,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 6,
+      "helper": [
+        "and",
+        0,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 7,
+      "helper": [
+        "and",
+        0,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 8,
+      "helper": [
+        "and",
+        0,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 9,
+      "helper": [
+        "and",
+        0,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 10,
+      "helper": [
+        "and",
+        1,
+        2
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 11,
+      "helper": [
+        "and",
+        1,
+        3
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 12,
+      "helper": [
+        "and",
+        1,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 13,
+      "helper": [
+        "and",
+        1,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 14,
+      "helper": [
+        "and",
+        1,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 15,
+      "helper": [
+        "and",
+        1,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 16,
+      "helper": [
+        "and",
+        1,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 17,
+      "helper": [
+        "and",
+        1,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 18,
+      "helper": [
+        "and",
+        1,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 19,
+      "helper": [
+        "and",
+        2,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 20,
+      "helper": [
+        "and",
+        2,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 21,
+      "helper": [
+        "and",
+        2,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 22,
+      "helper": [
+        "and",
+        2,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 23,
+      "helper": [
+        "and",
+        2,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 24,
+      "helper": [
+        "and",
+        2,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 25,
+      "helper": [
+        "and",
+        2,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 26,
+      "helper": [
+        "and",
+        3,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 27,
+      "helper": [
+        "and",
+        3,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 28,
+      "helper": [
+        "and",
+        3,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 29,
+      "helper": [
+        "and",
+        3,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 30,
+      "helper": [
+        "and",
+        3,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 31,
+      "helper": [
+        "and",
+        3,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 32,
+      "helper": [
+        "and",
+        3,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 33,
+      "helper": [
+        "and",
+        4,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 34,
+      "helper": [
+        "and",
+        4,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 35,
+      "helper": [
+        "and",
+        4,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 36,
+      "helper": [
+        "and",
+        4,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 37,
+      "helper": [
+        "and",
+        4,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 38,
+      "helper": [
+        "and",
+        4,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 39,
+      "helper": [
+        "and",
+        5,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 40,
+      "helper": [
+        "and",
+        5,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 41,
+      "helper": [
+        "and",
+        5,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 42,
+      "helper": [
+        "and",
+        5,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 43,
+      "helper": [
+        "and",
+        6,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 44,
+      "helper": [
+        "and",
+        6,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 45,
+      "helper": [
+        "and",
+        6,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 46,
+      "helper": [
+        "and",
+        6,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 47,
+      "helper": [
+        "and",
+        7,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 48,
+      "helper": [
+        "and",
+        7,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 49,
+      "helper": [
+        "and",
+        7,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 50,
+      "helper": [
+        "and",
+        8,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 51,
+      "helper": [
+        "and",
+        8,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 52,
+      "helper": [
+        "and",
+        8,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 53,
+      "helper": [
+        "and",
+        9,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 54,
+      "helper": [
+        "and",
+        9,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 55,
+      "helper": [
+        "and",
+        10,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 56,
+      "helper": [
+        "or",
+        0,
+        2
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 57,
+      "helper": [
+        "or",
+        0,
+        3
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 58,
+      "helper": [
+        "or",
+        0,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 59,
+      "helper": [
+        "or",
+        0,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 60,
+      "helper": [
+        "or",
+        0,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 61,
+      "helper": [
+        "or",
+        0,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 62,
+      "helper": [
+        "or",
+        0,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 63,
+      "helper": [
+        "or",
+        0,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 64,
+      "helper": [
+        "or",
+        0,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 65,
+      "helper": [
+        "or",
+        1,
+        2
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 66,
+      "helper": [
+        "or",
+        1,
+        3
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 67,
+      "helper": [
+        "or",
+        1,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 68,
+      "helper": [
+        "or",
+        1,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 69,
+      "helper": [
+        "or",
+        1,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 70,
+      "helper": [
+        "or",
+        1,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 71,
+      "helper": [
+        "or",
+        1,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 72,
+      "helper": [
+        "or",
+        1,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 73,
+      "helper": [
+        "or",
+        1,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 74,
+      "helper": [
+        "or",
+        2,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 75,
+      "helper": [
+        "or",
+        2,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 76,
+      "helper": [
+        "or",
+        2,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 77,
+      "helper": [
+        "or",
+        2,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 78,
+      "helper": [
+        "or",
+        2,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 79,
+      "helper": [
+        "or",
+        2,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 80,
+      "helper": [
+        "or",
+        2,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 81,
+      "helper": [
+        "or",
+        3,
+        4
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 82,
+      "helper": [
+        "or",
+        3,
+        5
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 83,
+      "helper": [
+        "or",
+        3,
+        6
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 84,
+      "helper": [
+        "or",
+        3,
+        7
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 85,
+      "helper": [
+        "or",
+        3,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 86,
+      "helper": [
+        "or",
+        3,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 87,
+      "helper": [
+        "or",
+        3,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 88,
+      "helper": [
+        "or",
+        4,
+        5
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 89,
+      "helper": [
+        "or",
+        4,
+        6
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 90,
+      "helper": [
+        "or",
+        4,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 91,
+      "helper": [
+        "or",
+        4,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 92,
+      "helper": [
+        "or",
+        4,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 93,
+      "helper": [
+        "or",
+        5,
+        7
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 94,
+      "helper": [
+        "or",
+        5,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 95,
+      "helper": [
+        "or",
+        5,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 96,
+      "helper": [
+        "or",
+        5,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 97,
+      "helper": [
+        "or",
+        6,
+        7
+      ],
+      "size_with_helper": 11,
+      "formula": 10
+    },
+    {
+      "index": 98,
+      "helper": [
+        "or",
+        6,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 99,
+      "helper": [
+        "or",
+        6,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 100,
+      "helper": [
+        "or",
+        6,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 101,
+      "helper": [
+        "or",
+        7,
+        8
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 102,
+      "helper": [
+        "or",
+        7,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 103,
+      "helper": [
+        "or",
+        7,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 104,
+      "helper": [
+        "or",
+        8,
+        9
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 105,
+      "helper": [
+        "or",
+        8,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 106,
+      "helper": [
+        "or",
+        8,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 107,
+      "helper": [
+        "or",
+        9,
+        10
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 108,
+      "helper": [
+        "or",
+        9,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    },
+    {
+      "index": 109,
+      "helper": [
+        "or",
+        10,
+        11
+      ],
+      "size_with_helper": 12,
+      "formula": 11
+    }
+  ],
+  "seconds": 106.67510441599916
+}

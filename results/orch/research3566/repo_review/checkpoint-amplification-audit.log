@@ -1,0 +1,84 @@
+{
+  "pendant-positive-control.json": {
+    "inputs": 10,
+    "edges": 10,
+    "cover": 5,
+    "gates": 14,
+    "profit": 0,
+    "assignments": 1024
+  },
+  "pendant-generalized-control.json": {
+    "inputs": 9,
+    "edges": 9,
+    "cover": 4,
+    "gates": 15,
+    "profit": -3,
+    "assignments": 512
+  },
+  "amplification_trial": {
+    "seconds": 180.00025513000037,
+    "valid_graphs": 43792,
+    "counters": {
+      "evaluated": 260997,
+      "valid": 114088,
+      "safe_helper_cases": 79272,
+      "full_audits": 16183,
+      "incomplete_audits": 0
+    }
+  },
+  "amplification_best": {
+    "inputs": 14,
+    "edges": 21,
+    "cover": 7,
+    "gates": 27,
+    "profit": 0,
+    "assignments": 16384
+  },
+  "combined_seed_recheck": {
+    "count": 22,
+    "triples": {
+      "(0, 0, 0)": 5,
+      "(-1, 0, -1)": 1,
+      "(-2, 0, -1)": 8,
+      "(-2, 2, 0)": 4,
+      "(-1, 1, 0)": 4
+    }
+  },
+  "pendant-audit-results.json": {
+    "seconds": 0.9374608390007779,
+    "cases": 2269,
+    "valid": 2269,
+    "with_generalized_operands": 118,
+    "with_cover_rise": 393,
+    "counterexamples": 0,
+    "errors": []
+  },
+  "combined-extension-audit-results.json": {
+    "seconds": 0.3557179429990356,
+    "cases": 393,
+    "valid": 393,
+    "counterexamples": 0,
+    "max_combined_profit": 0,
+    "errors": []
+  },
+  "large_helper_sweep": {
+    "total_cases": 137233,
+    "skip": 0,
+    "next_index": 137233,
+    "found": false,
+    "seconds": 419.036,
+    "completed_by_cost": [
+      10872,
+      26140,
+      43996,
+      56225
+    ]
+  },
+  "source_hashes": {
+    "evolve_amplification.py": "c3bafed15a4208dc52112b23f2975b56bb8081dcec97172ff4d2e32b065a6c05",
+    "evolve_combined.py": "ec018274a4d75eee72dca86a8260fa255f5a8c33fc6daa65908abe1f1512a93c",
+    "pendant_helpers.py": "db0afe34bc43e2eb1fca196bf64e4ce1f18ded69ba49b23ab90413487297e325",
+    "reusable_helpers.py": "093cf1a173360aa38b62957c200e7243a06b2476dcea94bd3f12496dbc9bbe9a",
+    "audit_combined_extensions.py": "efd7fe3dabb9ba8100005bdb62efbf6a782ab7b1f24033b8a06be8cb00de06a7"
+  }
+}

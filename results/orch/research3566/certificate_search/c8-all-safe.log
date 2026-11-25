@@ -1,0 +1,13 @@
+cost=1 new=110 pairs=66 seconds=5.9705e-05
+cost=2 new=744 pairs=1386 seconds=0.000161571
+cost=3 new=2943 pairs=16309 seconds=0.000358545
+cost=4 new=10872 pairs=133465 seconds=0.0013467
+cost=5 new=26140 pairs=864055 seconds=0.00445251
+cost=6 new=43996 pairs=4563247 seconds=0.0211515
+cost=7 new=56225 pairs=20384520 seconds=0.0758088
+cost=8 new=52660 pairs=77343236 seconds=0.241572
+cost=9 new=38500 pairs=252917706 seconds=0.746936
+cost=10 new=19808 pairs=714678014 seconds=1.94918
+cost=11 new=6643 pairs=721778168 seconds=1.97547
+ROOT_MITM dag=11 formula=11
+FOUND formula=11 dag=11 seconds=1.98147

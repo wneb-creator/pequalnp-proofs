@@ -68,3 +68,5 @@
 - 2026-11-25T21:11:13.066412+00:00: Graph11 certificate compiled and passed independent preservation review.
 - 2026-11-25T21:15:07.491760+00:00: Graph10 extension certificate compiled and independently reviewed.
 - 2026-11-25T21:18:55.141853+00:00: Generic kernel-only witness pipeline and both graph sizes independently checked; preserving all successful artifacts.
+
+- 2026-11-25T21:52:59.564882+00:00: Preserved reviewed helper/pendant amplification sources, full run logs, frozen circuit inputs and replay wrappers. Completed native C8 helper sweep:137233 cases, no candidate. Helper-objective mutation:260997 evaluations, no candidate. Current3566 target remains a checked619-line partial; neither posted theorem nor negation is proved.

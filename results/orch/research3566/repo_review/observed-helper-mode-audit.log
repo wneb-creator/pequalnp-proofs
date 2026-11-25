@@ -1,0 +1,3 @@
+P5 independent amplification {"inputs": 7, "edges": 7, "cover": 3, "gates": 9, "profit": 0, "assignments": 128}
+subdivided K3,3 geometry {"n": 15, "edges": 18, "tau": 6, "groups": 8, "overhead": 16, "max_improving_raw": 38, "max_improving_paid": 22}
+gadget_sat.py sha256 f2b461c3b147b6776653b9b4af10835c2a7b7fad4290e34b62a2897587c6ccce

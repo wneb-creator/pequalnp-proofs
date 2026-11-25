@@ -1,0 +1,3 @@
+{"variables": 792, "clauses": 1837, "budget": 7, "generation_seconds": 0.0025799690010899212}
+{"exit": 10, "seconds": 0.011198942000191892, "library_sha256": "b50489f5897b91d3ee422237ec7edb716f30ac8551c28f3602c24324c0f6ebf9", "variables": 792, "clauses": 1837, "budget": 7, "paid_limit": 6, "helper_overhead": 1, "observed_helper_supports": [[0, 4]], "scope": "only the supplied finite recipe library"}
+FULLY_VERIFIED_SIZE 6 PAID 5

@@ -1,0 +1,204 @@
+{
+  "graph": {
+    "name": "bip5x6_14",
+    "n": 11,
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "cover": 5,
+    "star_cover_upper": 18,
+    "max_independent_sets": 17,
+    "suppressed_core": "K3,3",
+    "suppressed_path_lengths": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "best": {
+    "size": 18,
+    "gates": [
+      [
+        "or",
+        8,
+        10
+      ],
+      [
+        "or",
+        6,
+        11
+      ],
+      [
+        "and",
+        4,
+        12
+      ],
+      [
+        "or",
+        9,
+        10
+      ],
+      [
+        "or",
+        5,
+        14
+      ],
+      [
+        "and",
+        2,
+        15
+      ],
+      [
+        "or",
+        5,
+        6
+      ],
+      [
+        "and",
+        0,
+        17
+      ],
+      [
+        "or",
+        7,
+        9
+      ],
+      [
+        "or",
+        6,
+        19
+      ],
+      [
+        "and",
+        3,
+        20
+      ],
+      [
+        "or",
+        7,
+        8
+      ],
+      [
+        "or",
+        5,
+        22
+      ],
+      [
+        "and",
+        1,
+        23
+      ],
+      [
+        "or",
+        13,
+        16
+      ],
+      [
+        "or",
+        25,
+        18
+      ],
+      [
+        "or",
+        26,
+        21
+      ],
+      [
+        "or",
+        27,
+        24
+      ]
+    ],
+    "output": 28,
+    "terms": [
+      122,
+      102,
+      80,
+      112,
+      92
+    ],
+    "profit": 0,
+    "helper_audit": {
+      "n": 11,
+      "edges": 14,
+      "cover": 5,
+      "raw_gates": 18,
+      "normalized_output_gates": 18,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 9,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    "attempt": 1,
+    "seconds": 0.1030512949982949
+  }
+}

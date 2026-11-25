@@ -1,0 +1,86 @@
+{
+  "graph": {
+    "name": "bip5x6_14",
+    "n": 11,
+    "edges": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "cover": 5,
+    "star_cover_upper": 18,
+    "max_independent_sets": 17,
+    "suppressed_core": "K3,3",
+    "suppressed_path_lengths": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "exit": 0,
+  "seconds": 121.14353097500134,
+  "library_sha256": "9fab5653779bdf908eb23debbe5e772b539683ae491e89805c60cb48ce4bce1e",
+  "variables": 132122,
+  "clauses": 294473,
+  "budget": 18,
+  "scope": "only the supplied finite recipe library"
+}

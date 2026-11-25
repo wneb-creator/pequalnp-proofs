@@ -1,0 +1,89 @@
+{
+  "graph": {
+    "n": 5,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "cover": 2,
+    "star_cover_upper": 5
+  },
+  "exit": 10,
+  "seconds": 0.011198942000191892,
+  "library_sha256": "b50489f5897b91d3ee422237ec7edb716f30ac8551c28f3602c24324c0f6ebf9",
+  "variables": 792,
+  "clauses": 1837,
+  "budget": 7,
+  "paid_limit": 6,
+  "helper_overhead": 1,
+  "observed_helper_supports": [
+    [
+      0,
+      4
+    ]
+  ],
+  "scope": "only the supplied finite recipe library",
+  "witness": {
+    "size": 6,
+    "paid_size": 5,
+    "free_program": null,
+    "referenced_free_nodes": [],
+    "observed_helpers": [
+      {
+        "support": [
+          0,
+          4
+        ],
+        "wire": 5
+      }
+    ],
+    "gates": [
+      [
+        "or",
+        0,
+        4
+      ],
+      [
+        "or",
+        0,
+        2
+      ],
+      [
+        "and",
+        1,
+        6
+      ],
+      [
+        "or",
+        2,
+        4
+      ],
+      [
+        "and",
+        3,
+        8
+      ],
+      [
+        "or",
+        7,
+        9
+      ]
+    ],
+    "output": 10,
+    "wrong_rows": []
+  }
+}

@@ -1,0 +1,6722 @@
+{
+  "summary": {
+    "seconds": 0.09786472799896728,
+    "cases": 110,
+    "valid": 110,
+    "counterexamples": 0,
+    "max_profit": 0,
+    "errors": []
+  },
+  "cases": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-0.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-1.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-2.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-3.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-4.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-5.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-6.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-7.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-8.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-9.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-10.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-11.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-12.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-13.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-14.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-15.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-16.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-17.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-18.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-19.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-20.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-21.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-22.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-23.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-24.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-25.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-26.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-27.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-28.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-29.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 12,
+      "deficit": 1,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": -1
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": -1
+        }
+      ],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-30.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-31.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-32.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-33.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-34.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-35.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-36.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-37.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-38.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-39.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-40.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-41.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-42.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-43.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-44.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-45.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-46.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-47.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-48.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-49.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-50.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-51.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-52.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-53.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-54.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-55.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 8,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-56.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-57.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-58.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-59.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-60.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-61.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-62.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-63.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-64.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-65.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-66.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-67.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-68.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-69.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-70.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-71.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-72.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-73.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-74.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-75.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-76.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-77.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-78.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-79.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-80.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-81.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-82.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-83.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-84.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-85.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-86.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-87.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-88.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-89.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-90.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-91.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-92.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-93.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-94.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-95.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-96.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-97.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-98.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-99.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-100.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-101.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-102.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-103.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-104.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-105.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-106.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-107.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-108.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 1,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-109.json",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 16,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 9,
+          "support": [
+            2,
+            3
+          ],
+          "cone": 2,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 10,
+          "support": [
+            4,
+            7
+          ],
+          "cone": 4,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 11,
+          "support": [
+            5,
+            6
+          ],
+          "cone": 8,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 31,
+      "subset_complete": true
+    }
+  ]
+}

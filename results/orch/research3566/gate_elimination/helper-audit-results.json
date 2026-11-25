@@ -1,0 +1,663 @@
+{
+  "summary": {
+    "circuits": 29,
+    "valid": 29,
+    "with_safe_helpers": 3,
+    "counterexamples": 0,
+    "errors": []
+  },
+  "cases": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-smoke.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 7,
+      "cover": 3,
+      "raw_gates": 19,
+      "normalized_output_gates": 9,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 14,
+          "support": [
+            0,
+            13
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        },
+        {
+          "wire": 20,
+          "support": [
+            4,
+            10
+          ],
+          "cone": 64,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 7,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-fano-best-dirty.json",
+      "record": "witness/raw",
+      "n": 14,
+      "edges": 18,
+      "cover": 7,
+      "raw_gates": 27,
+      "normalized_output_gates": 24,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 16,
+        "color_conflict": 0,
+        "common_neighbor": 11,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-fano-best-dirty.json",
+      "record": "witness/normalized",
+      "n": 14,
+      "edges": 18,
+      "cover": 7,
+      "raw_gates": 25,
+      "normalized_output_gates": 24,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 14,
+        "color_conflict": 0,
+        "common_neighbor": 11,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-best.json",
+      "record": "witness/raw",
+      "n": 14,
+      "edges": 19,
+      "cover": 7,
+      "raw_gates": 26,
+      "normalized_output_gates": 26,
+      "deficit": 1,
+      "helpers": [],
+      "rejected": {
+        "small_support": 12,
+        "color_conflict": 1,
+        "common_neighbor": 13,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-best.json",
+      "record": "witness/normalized",
+      "n": 14,
+      "edges": 19,
+      "cover": 7,
+      "raw_gates": 26,
+      "normalized_output_gates": 26,
+      "deficit": 1,
+      "helpers": [],
+      "rejected": {
+        "small_support": 12,
+        "color_conflict": 1,
+        "common_neighbor": 13,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-seed-check.json",
+      "record": "witness/raw",
+      "n": 14,
+      "edges": 19,
+      "cover": 7,
+      "raw_gates": 26,
+      "normalized_output_gates": 26,
+      "deficit": 1,
+      "helpers": [],
+      "rejected": {
+        "small_support": 12,
+        "color_conflict": 1,
+        "common_neighbor": 13,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-seed-check.json",
+      "record": "witness/normalized",
+      "n": 14,
+      "edges": 19,
+      "cover": 7,
+      "raw_gates": 26,
+      "normalized_output_gates": 26,
+      "deficit": 1,
+      "helpers": [],
+      "rejected": {
+        "small_support": 12,
+        "color_conflict": 1,
+        "common_neighbor": 13,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": -1,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-v2-3566.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 16,
+      "cover": 6,
+      "raw_gates": 21,
+      "normalized_output_gates": 21,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 0,
+        "common_neighbor": 10,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-fano-10760.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 21,
+      "cover": 7,
+      "raw_gates": 27,
+      "normalized_output_gates": 27,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 13,
+        "color_conflict": 0,
+        "common_neighbor": 14,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-smoke.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 17,
+      "cover": 6,
+      "raw_gates": 26,
+      "normalized_output_gates": 22,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 1,
+        "common_neighbor": 11,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-smoke.json",
+      "record": "best_valid/normalized",
+      "n": 14,
+      "edges": 17,
+      "cover": 6,
+      "raw_gates": 22,
+      "normalized_output_gates": 22,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 0,
+        "common_neighbor": 11,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-178.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 15,
+      "cover": 5,
+      "raw_gates": 19,
+      "normalized_output_gates": 19,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 10,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-3566179.json",
+      "record": "best_valid/raw",
+      "n": 14,
+      "edges": 18,
+      "cover": 6,
+      "raw_gates": 26,
+      "normalized_output_gates": 23,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 18,
+          "support": [
+            1,
+            4
+          ],
+          "cone": 16,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 1,
+        "common_neighbor": 12,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 3,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/evolution-dirty-3566179.json",
+      "record": "best_valid/normalized",
+      "n": 14,
+      "edges": 18,
+      "cover": 6,
+      "raw_gates": 23,
+      "normalized_output_gates": 23,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 0,
+        "common_neighbor": 12,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/subk4-upper.witness.json",
+      "record": "top/raw",
+      "n": 10,
+      "edges": 12,
+      "cover": 4,
+      "raw_gates": 15,
+      "normalized_output_gates": 15,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 8,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/c8-12-with-helper.witness.json",
+      "record": "top/raw",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 12,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 8,
+          "support": [
+            0,
+            1
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 3,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/c8_reuse-upper.witness.json",
+      "record": "top/raw",
+      "n": 8,
+      "edges": 8,
+      "cover": 4,
+      "raw_gates": 11,
+      "normalized_output_gates": 11,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 4,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta3x5-upper.witness.json",
+      "record": "top/raw",
+      "n": 12,
+      "edges": 15,
+      "cover": 6,
+      "raw_gates": 20,
+      "normalized_output_gates": 20,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 11,
+        "color_conflict": 0,
+        "common_neighbor": 9,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/heawood-upper.witness.json",
+      "record": "top/raw",
+      "n": 14,
+      "edges": 21,
+      "cover": 7,
+      "raw_gates": 27,
+      "normalized_output_gates": 27,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 13,
+        "color_conflict": 0,
+        "common_neighbor": 14,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta3x6-upper.witness.json",
+      "record": "top/raw",
+      "n": 14,
+      "edges": 18,
+      "cover": 7,
+      "raw_gates": 24,
+      "normalized_output_gates": 24,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 13,
+        "color_conflict": 0,
+        "common_neighbor": 11,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta155-upper.witness.json",
+      "record": "top/raw",
+      "n": 10,
+      "edges": 11,
+      "cover": 5,
+      "raw_gates": 15,
+      "normalized_output_gates": 15,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 6,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/bip5x6_14-upper.witness.json",
+      "record": "top/raw",
+      "n": 11,
+      "edges": 14,
+      "cover": 5,
+      "raw_gates": 18,
+      "normalized_output_gates": 18,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 9,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta333-upper.witness.json",
+      "record": "top/raw",
+      "n": 8,
+      "edges": 9,
+      "cover": 4,
+      "raw_gates": 12,
+      "normalized_output_gates": 12,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 5,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta3x4-upper.witness.json",
+      "record": "top/raw",
+      "n": 10,
+      "edges": 12,
+      "cover": 5,
+      "raw_gates": 16,
+      "normalized_output_gates": 16,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 7,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/subk5-upper.witness.json",
+      "record": "top/raw",
+      "n": 15,
+      "edges": 20,
+      "cover": 5,
+      "raw_gates": 24,
+      "normalized_output_gates": 24,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 15,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/theta244-upper.witness.json",
+      "record": "top/raw",
+      "n": 9,
+      "edges": 10,
+      "cover": 4,
+      "raw_gates": 13,
+      "normalized_output_gates": 13,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 7,
+        "color_conflict": 0,
+        "common_neighbor": 6,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/finite_search/c8-extension-15.witness.json",
+      "record": "top/raw",
+      "n": 10,
+      "edges": 11,
+      "cover": 5,
+      "raw_gates": 15,
+      "normalized_output_gates": 15,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 6,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/bip5x6-mixed-greedy.json",
+      "record": "best/raw",
+      "n": 11,
+      "edges": 14,
+      "cover": 5,
+      "raw_gates": 18,
+      "normalized_output_gates": 18,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 9,
+        "color_conflict": 0,
+        "common_neighbor": 9,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c6-baseline-sat.json",
+      "record": "witness/raw",
+      "n": 6,
+      "edges": 6,
+      "cover": 3,
+      "raw_gates": 8,
+      "normalized_output_gates": 8,
+      "deficit": 0,
+      "helpers": [],
+      "rejected": {
+        "small_support": 5,
+        "color_conflict": 0,
+        "common_neighbor": 3,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 1,
+      "subset_complete": true
+    }
+  ]
+}

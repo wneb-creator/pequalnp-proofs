@@ -1,0 +1,3 @@
+{"stage": "products", "rows": 68, "linear": 143, "dirty": 3261, "clean": 51, "nodes": 3443, "seconds": 0.043312747999152634}
+{"stage": "guards", "dirty": 3261, "clean": 231, "nodes": 3623, "recipes": 9816, "seconds": 0.5503653359992313}
+{"stage": "pruned", "positive_count": 18, "linear_count": 143, "dirty_count": 3261, "clean_count": 231, "active_nodes": 1489, "recipe_count": 3645, "generation_seconds": 0.5934811439983605}

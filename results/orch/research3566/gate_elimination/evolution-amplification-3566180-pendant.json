@@ -1,0 +1,58 @@
+{
+  "n": 14,
+  "edges": 21,
+  "cover": 7,
+  "raw_gates": 27,
+  "normalized_gates": 27,
+  "deficit": 0,
+  "literal_choices": 7,
+  "generalized_choices": 0,
+  "eligible": {
+    "5": [
+      [
+        17,
+        0
+      ]
+    ],
+    "4": [
+      [
+        16,
+        0
+      ]
+    ],
+    "0": [
+      [
+        12,
+        0
+      ]
+    ],
+    "6": [
+      [
+        14,
+        0
+      ]
+    ],
+    "2": [
+      [
+        23,
+        0
+      ]
+    ],
+    "3": [
+      [
+        20,
+        0
+      ]
+    ],
+    "1": [
+      [
+        4,
+        0
+      ]
+    ]
+  },
+  "checked_subsets": 98,
+  "max_cover_rise": 0,
+  "best_choices": [],
+  "best_profit": 0
+}
