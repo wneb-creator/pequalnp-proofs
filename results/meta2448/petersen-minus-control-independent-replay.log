@@ -1,0 +1,111 @@
+{
+  "verdict": "PASS independent finite replay",
+  "source_sha256": "cd6296137cb02d8cde598d80cdaf1bdcb5d7ca067c7118e50ead31aaeca6a1a6",
+  "all_assignments_checked": 256,
+  "first_exact_output_gate": 12,
+  "AND_count": 4,
+  "OR_count": 9,
+  "strict_cones": [
+    [],
+    [
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [],
+    [
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [],
+    [
+      6
+    ],
+    [],
+    [
+      8
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      10
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  ],
+  "owned_edge_indices": [
+    [],
+    [],
+    [
+      0,
+      2,
+      3
+    ],
+    [],
+    [],
+    [
+      1,
+      5,
+      9
+    ],
+    [],
+    [
+      6,
+      7
+    ],
+    [],
+    [
+      4,
+      8
+    ],
+    [],
+    [],
+    []
+  ],
+  "nonempty_owner_centers": {
+    "2": [
+      1
+    ],
+    "5": [
+      5
+    ],
+    "7": [
+      6
+    ],
+    "9": [
+      7
+    ]
+  },
+  "scope": "13-gate star control only; no smaller-circuit impossibility or Lean result."
+}

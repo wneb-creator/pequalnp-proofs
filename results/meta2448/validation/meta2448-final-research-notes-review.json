@@ -1,0 +1,70 @@
+{
+  "review": "PASS exact statement, historical notes and finite diagnostic review preservation only",
+  "files": [
+    {
+      "path": "results/meta2448/minimal-signed-domination.md",
+      "sha256": "79f0c597f5d59e5006657f55f1e526667f77824fc075b290b000246d9fe314af",
+      "bytes": 2077
+    },
+    {
+      "path": "results/meta2448/routes.md",
+      "sha256": "a84b8632e2663cc62f9f0fc9c3ea1645b3017ac4d0d0857d139d01ae236730d2",
+      "bytes": 3178
+    },
+    {
+      "path": "results/meta2448/edge-context-independent-review.md",
+      "sha256": "41abeb0ecd0d15bc1adde1b31198e5e89f06c1b2c011c6bae02cff81f18fc377",
+      "bytes": 1171
+    },
+    {
+      "path": "results/meta2448/posted-statement.txt",
+      "sha256": "bf9f1e05bfb492e3e7f8d25d2415671d88015e6b3cbaf7db7fcd39539edc2ac2",
+      "bytes": 722
+    },
+    {
+      "path": "results/meta2448/setup/DEFINITIONS.md",
+      "sha256": "730edef25ad38dc49dbb5f8f0145d4522d3c0fff5a3733312a3030219cd67c13",
+      "bytes": 1731
+    },
+    {
+      "path": "results/meta2448/setup/statement.txt",
+      "sha256": "bf9f1e05bfb492e3e7f8d25d2415671d88015e6b3cbaf7db7fcd39539edc2ac2",
+      "bytes": 722
+    },
+    {
+      "path": "results/meta2448/L584-raw-two-edit-source-independent-review.json",
+      "sha256": "25590da2453ea03de7186faf15ab1f6c8fdff6886a527fc032265d7bbc7ccb35",
+      "bytes": 1456
+    },
+    {
+      "path": "results/meta2448/L584-two-edit-outcome-independent-review.json",
+      "sha256": "9c59b3b6e715ff255e5996ea373eca42e0c226b45e1db2c7fc1b01f03d4a5e02",
+      "bytes": 540
+    },
+    {
+      "path": "results/meta2448/L584-raw-two-edit-outcome-independent-review.json",
+      "sha256": "f4c1b1b4630ebc881ae3fd44f3b7840bfcb41d80df966a75dc485b5985f9f1f2",
+      "bytes": 506
+    },
+    {
+      "path": "results/meta2448/petersen-minus-control-replay.py",
+      "sha256": "5b64d5c0dd2dd83b33d6e4143f4e05b6cb745bafd0334817774069f4acbd4552",
+      "bytes": 2354
+    },
+    {
+      "path": "results/meta2448/petersen-minus-control-independent-replay.json",
+      "sha256": "c233dbe15ae6c00df1da9c5cd00c1503eb39c2037aee140d5529621b144713cd",
+      "bytes": 1189
+    },
+    {
+      "path": "results/meta2448/petersen-minus-control-independent-replay.log",
+      "sha256": "c233dbe15ae6c00df1da9c5cd00c1503eb39c2037aee140d5529621b144713cd",
+      "bytes": 1189
+    },
+    {
+      "path": "results/meta2448/validation/final-research-notes-independent-review.json",
+      "sha256": "d6a6dd6f4979c353dd5c6cdb09ba246cf4ce8a236ad182860bd40df75c757b66",
+      "bytes": 2672
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS independent raw-search count/scope check",
+  "result": "/tmp/oec/pequalnp-pilot-62/meta2448/L584-raw-two-edit-replay.json",
+  "result_sha256": "ae5fa02ea3b43e6ef33c7e769cb4f17f6069b37186d682658c5a4ef9be4d0d51",
+  "deletion_cases": 430,
+  "rewire_checks": 3193710,
+  "stop_reason": "exhausted",
+  "witness": null,
+  "scope": "Every recorded per-deletion count equals2*sum over h!=deleted of choose(10+h,2); totals equal3193710. No whole-census rerun and no global lower-bound claim."
+}

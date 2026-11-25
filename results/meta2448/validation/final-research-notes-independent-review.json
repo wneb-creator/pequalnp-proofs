@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS preservation of historical research notes, exact statement and independent computational reviews",
+  "reviewer": "repo_audit",
+  "utc": "2026-11-25",
+  "scope": [
+    "The posted statement and setup statement are byte-identical and their stripped text equals the sanitized statement-environment statement. No lease identifier or authentication data is included.",
+    "DEFINITIONS accurately distinguishes total gate size, invalid false reads, strict backward ownership and global least existence from the missing star-profile normalization.",
+    "minimal-signed-domination is a mathematical necessary constraint for globally minimum exact circuits, explicitly not for minima restricted to a nonstar class. It is not Lean certified here.",
+    "routes.md is an early historical research snapshot. Its then-pending pair-soundness result was subsequently proved in the checked partial; its bounded literature/repository search is not a present universal absence claim.",
+    "edge-context-independent-review.md is a historical source review. Its42-line description refers to that draft; the preserved compiled component has41lines. Semantic conclusions remain conditional and do not imply a circuit-size exchange.",
+    "The Petersen-minus replay script reconstructs all256 inputs and strict cones; the report and complete log are identical and reference the previously independently audited13-gate star control. This is a finite control, not a new minimality or Lean result.",
+    "The normalized and raw two-edit outcome reports only certify the stated finite loop cardinalities and recorded no-witness outcomes. The raw source report audits primitives, not an independent rerun of the whole census. All source/result references still match their recorded hashes.",
+    "Duplicate working Lean files and root review copies already present in the082011 archive are deliberately excluded. No live solver output is included."
+  ],
+  "reviewed_paths": [
+    "results/meta2448/minimal-signed-domination.md",
+    "results/meta2448/routes.md",
+    "results/meta2448/edge-context-independent-review.md",
+    "results/meta2448/posted-statement.txt",
+    "results/meta2448/setup/DEFINITIONS.md",
+    "results/meta2448/setup/statement.txt",
+    "results/meta2448/L584-raw-two-edit-source-independent-review.json",
+    "results/meta2448/L584-two-edit-outcome-independent-review.json",
+    "results/meta2448/L584-raw-two-edit-outcome-independent-review.json",
+    "results/meta2448/petersen-minus-control-replay.py",
+    "results/meta2448/petersen-minus-control-independent-replay.json",
+    "results/meta2448/petersen-minus-control-independent-replay.log"
+  ]
+}
