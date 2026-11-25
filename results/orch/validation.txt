@@ -15,3 +15,9 @@ SHA256: e37b8799a6f11e4a5a9975d79b85ca8ede8057bf32e506fa06c4c0fd1f207bbf
 
 Packed-panel application identity also independently reviewed and compiled with exit0; stdout/stderr empty.
 Updated BenchWords SHA256: c712b1090b7f08201a9635cabd9244acf085b3f86ff840b6ce38e671f3ec64ab
+
+Full candidate checkpoint: lean/PEqualNP/Outside/L_meta_670.lean
+SHA256: 64b91888f855131b53d41286dc51ce666d3fb24a66c474d305c38f226010eb72
+Source red-team review PASSED. Build is RUNNING; full proof not yet locally validated.
+Original complete proof/certificates adapted from benoitrazet PR12184; modifications share packed data and prune unused entries.
+No proof PR opened.

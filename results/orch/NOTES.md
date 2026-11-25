@@ -62,3 +62,20 @@ Prepared SatSoundness.lean from Checker+LinkN+LinkN2 and only used Shannon wire 
 - Prototype direct search search_root.py reached10 surviving root orbit/keep cases,171 depth2 states,2358 depth3 states using all true/false separation and cube/clipped pool bounds. This was search evidence only, not a certificate. Structural agent added search_rect.py.
 - Root found existing full candidate PR12184 by benoitrazet (516536bytes), already using a stronger free-complement binary bound>14 and monotone bound>15. Switched effort to runtime optimization rather than duplicating the search.
 - Optimized12184.lean adds explicit forcing of packed batch wire signatures and coverage values before rowCut loops. This preserves semantics via forcePackedList_eq and forceBatch_eq. BenchForce.lean (core Lean only) compiled successfully with Lean4.36; full candidate variant awaits build/profile.
+
+## Counterexample lane, switched to candidate audit
+
+- Stopped exact-library 70-row and full-row external SAT runs on parent request after full proof candidates surfaced. Both stopped with UNKNOWN, not UNSAT; complete logs copied into results/orch/lemmas.
+- Candidate12184 independent plain/import guard passes; exact statement and forbidden-token scans pass; high-level mode split reviewed. See candidate12184-audit.json.
+- Conservative Known dependency pruning removes 53 of 432 carry entries and seven unused cheap lower-bound declarations, saving 4,633 bytes. No expensive forest is removable. Pruned scratch candidate passes guard but has not compiled.
+- Decoded all root packed rule references: all 215 signed-root columns and all 486 monotone-root columns are used; no unused-column pruning available.
+
+### Structural lane — candidate12203 optimization
+
+Prepared `results/orch/lemmas/Optimized12203ForceBatch.lean` (523829 bytes,6878 lines), preserving original author credits. It ports first_gate’s separately checked forceBatch helper, reduces cellsBlock split depths by two, and deletes only unused lower_forest (703 bytes). Full candidate compilation is pending parent scheduling; original `/tmp/oec/pequalnp-pilot-68/candidate12203.lean` stays unchanged. A conservative declaration reachability scan found no other obvious unused helpers. CheckLemma replays all project declarations, so deleting unused helpers would matter if more are found.
+
+### Assembly evaluation optimizations 2026-11-25T05:05:22.397600+00:00
+- Independent source review confirms forceBatch correctness: it only forces packed numeric fields; equality follows from force_eq and forcePackedList_eq.
+- Additional proposed hotspot: batchMove passes a lazy fullMarks/takePacked mask to onMarks, which revisits that expression in zero/bit/shift tests per lane. OptimizedMask12184.lean forces the mask once and rewrites force_eq in batchMove_at. 513002 bytes; not yet compiled.
+- Additional proposed hotspot: fallbackAt scans all projected pools and then decodes a hash-linked state before finally discarding constant or existing outputs. OptimizedTrivial12184.lean adds a normalized-Nat trivialAt shortcut and soundness proof. OptimizedTrivialMask12184.lean combines both. 514359 bytes; not yet compiled.
+- Earlier PR12184 and PR12203 both completed lake build before combined 20-minute CI timeout occurred during CheckLemma kernel replay. Full diagnostic logs saved in job scratch. Dead-declaration pruning alone only removes about 3.4 KB.

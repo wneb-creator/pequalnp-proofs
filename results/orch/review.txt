@@ -1,0 +1,9 @@
+Independent source review: PASSED, pending full compilation and local checker.
+Reviewer: review_rules sub-agent.
+File: lean/PEqualNP/Outside/L_meta_670.lean
+SHA256: 64b91888f855131b53d41286dc51ce666d3fb24a66c474d305c38f226010eb72
+Size: 513133 bytes; lines: 5216.
+Exact desk statement; permitted imports; own namespace; no forbidden constructs; attribution retained.
+Reviewed batch sharing and mask sharing identity proofs; conservatively pruned unused certificate entries.
+The optional early-rejection shortcut was excluded from the selected benchmark.
+PR must contain only the named Lean file; checkpoint artifacts remain accessible in branch history.
