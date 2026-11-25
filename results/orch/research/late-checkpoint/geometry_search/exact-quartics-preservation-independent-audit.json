@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "505cebc2fa64514ad50be5c52e69a5c4e3ef319666476f30abf6d1671de2bb16",
+  "files": 85,
+  "total_bytes": 1487586,
+  "compressed_files_scanned_after_decompression": 0,
+  "extensions": {
+    ".txt": 3,
+    ".cpp": 1,
+    ".py": 5,
+    ".stdout": 23,
+    ".stderr": 23,
+    ".json": 22,
+    ".jsonl": 7,
+    ".sing": 1
+  },
+  "scope": "Hashes, path boundaries, declared dependency/scope, and credential scan independently checked. This is an artifact-preservation audit; it does not upgrade rational identities to a global proof.",
+  "mathematical_scope_review": "The manifest explicitly limits claims to exact necessary quartic identities, representation multiplicities and bounded closure, with no full theorem/refutation or Lean/checker claim."
+}

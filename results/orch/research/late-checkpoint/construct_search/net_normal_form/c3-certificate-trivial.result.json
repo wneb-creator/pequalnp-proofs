@@ -1,0 +1,9 @@
+{
+  "tag": "certificate-trivial",
+  "exit": 0,
+  "wall_seconds": 1.169883488000778,
+  "cpu_seconds": 0.699577,
+  "max_rss_kib": 47300,
+  "stdout_bytes": 1136683,
+  "stderr_bytes": 0
+}

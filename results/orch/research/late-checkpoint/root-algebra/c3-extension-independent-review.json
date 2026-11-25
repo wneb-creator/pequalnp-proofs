@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "method": "Independent differentiated sixteen-subset Ryser formula",
+  "block_entries_checked": 34,
+  "all_other_character_coefficients_zero": true,
+  "full_symmetric_space_basis_determinant": "-162*w - 81",
+  "scope": "Exact unrestricted first-variation blocks; rank nonvanishing requires separate certificates."
+}

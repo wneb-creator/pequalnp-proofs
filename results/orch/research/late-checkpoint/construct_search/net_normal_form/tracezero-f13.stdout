@@ -1,0 +1,5 @@
+P=13 isotropic_projective_directions=5231240 valid_tracezero_directions=28530 enumeration_seconds=0.874872
+quotient_dimension_counts=4:28388 5:142 
+pair_candidates=5596352 good_pair_candidates=37670 compatible_incidence_count=392
+tracezero_2planes=28 diagonal_rank_counts=24,0,4 elapsed_seconds=1.37394
+INCIDENCE_AUDIT_PASS

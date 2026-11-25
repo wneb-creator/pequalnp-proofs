@@ -1,0 +1,14 @@
+ring R=0,(a,B,c,D),dp;
+short=0;
+option(redSB);
+ideal I=2*B*c + 2*B + 2*D*a + 2*D - a*c - 2*a - 2*c,2*B^3 + 3*B^2*a - 6*B*a + 6*B + a^3 + 6*a^2 + 3*a,2*D^3 + 3*D^2*c - 6*D*c + 6*D + c^3 + 6*c^2 + 3*c,3*B^2 + 6*B*D + 2*B*a - 2*B*c + 3*D^2 - 2*D*a + 2*D*c + a^2 - 2*a*c + c^2;
+
+poly Defect=-6*B*D + 5*B*c + 8*B - 6*D^2 - 2*D*a + 3*D*c + 4*D + 3*a*c + 4*a - 3*c^2 - 4*c;
+ideal J=I+ideal(Defect);
+
+ideal G=std(J);
+int n;poly target;int found=0;for(n=1;n<=12;n++){target=(a*c)^n;if(reduce(target,G)==0){found=1;break;}}
+print("POWER_FOUND");found;
+print("POWER");n;
+if(found){matrix Cert=lift(J,ideal(target));matrix Check=matrix(J)*Cert;print("EXACT_IDENTITY");int(Check[1,1]==target);int i;int terms=0;for(i=1;i<=nrows(Cert);i++){terms=terms+size(Cert[i,1]);}print("TOTAL_CERTIFICATE_TERMS");terms;if(terms<20000){for(i=1;i<=size(J);i++){print("GENERATOR");print(string(J[i]));print("COEFFICIENT");print(string(Cert[i,1]));}}}
+print("DONE");quit;

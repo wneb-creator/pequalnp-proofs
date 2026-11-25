@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "source_sha256": "e251db21a98f37c225b595aa9368663344fcfaa27ce48769e21d385898483cd7",
+  "lines": 173,
+  "previous_review_sha256": "b71d7029c068861dcd8c0bbeda1468fe959e0ca5abf4aa8cdcacea370f2404bb",
+  "previous_review_matches_source": true,
+  "format_checks": {
+    "no_sorry": true,
+    "no_axiom": true,
+    "no_native_decide": true,
+    "no_root_text": true,
+    "no_string_literals": true,
+    "no_attributes": true,
+    "option_allowlist": true
+  },
+  "logs": {
+    "triangle-bridge-build-2.stdout": {
+      "sha256": "864bb89bce4d9b8adb8cc88bef3b9dd3488fde18816056e4fe655606d5c7808a",
+      "bytes": 635,
+      "contains_error": false
+    },
+    "triangle-bridge-build-2.stderr": {
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "bytes": 105,
+      "contains_error": false
+    }
+  },
+  "manual_review": "Four bridge additions checked: nonzero minor from independence, isotropic cover application, explicit two-coordinate inverse normalized by nonzero determinant, and even-chart coordinate recovery. Algebraic signs and submodule membership are correct.",
+  "validation_limit": "No new Lean compilation; reviewed current source plus previous successful build logs. Logs contain only unused-tactic and expected archived-Mathlib-source warnings."
+}

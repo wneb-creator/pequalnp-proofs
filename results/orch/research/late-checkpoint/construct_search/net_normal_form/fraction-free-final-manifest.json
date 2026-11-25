@@ -1,0 +1,146 @@
+{
+  "created_utc": "2026-11-25T11:36:47.408276+00:00",
+  "old_manifest_verified": true,
+  "files": [
+    {
+      "path": "net_normal_form/fraction-free-01.result.json",
+      "bytes": 165,
+      "sha256": "254c2af180f0ef5f18a92aea2a1fa1fbbe6657f4542d45e80949885b20f17b22"
+    },
+    {
+      "path": "net_normal_form/fraction-free-01.sing",
+      "bytes": 4173,
+      "sha256": "8f4f968417e6e47dd3036a8906a5bdb6bacdf3280be40369c366bd9e721d59d2"
+    },
+    {
+      "path": "net_normal_form/fraction-free-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-01.stdout",
+      "bytes": 108267,
+      "sha256": "e5c4ae56afd2873265e0ebdd3bfb41e8c9525de7ad3433451a7eb0967944806f"
+    },
+    {
+      "path": "net_normal_form/fraction-free-10.result.json",
+      "bytes": 164,
+      "sha256": "9e15a98089df025c2a0894504061558ca3d1eb7f07e22d744c2ab01d00d0534d"
+    },
+    {
+      "path": "net_normal_form/fraction-free-10.sing",
+      "bytes": 4173,
+      "sha256": "a43a72fee77d33389b1b9e130aeeab605be2abe57c5f759becba474af2722723"
+    },
+    {
+      "path": "net_normal_form/fraction-free-10.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-10.stdout",
+      "bytes": 99529,
+      "sha256": "9cc1e10402d24e2b9cae069cb5a1f77028537f486667967d661a0df57eab00be"
+    },
+    {
+      "path": "net_normal_form/fraction-free-11.result.json",
+      "bytes": 167,
+      "sha256": "b0cd4809d8c94a2aa90ffe847506539a05f155d994dc404ecd201f2d3ee4a2bb"
+    },
+    {
+      "path": "net_normal_form/fraction-free-11.sing",
+      "bytes": 4173,
+      "sha256": "008e8dc638942153de097cc09ced9b8f4b657026d622eab5cf7f8acd6208baa9"
+    },
+    {
+      "path": "net_normal_form/fraction-free-11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-11.stdout",
+      "bytes": 111089,
+      "sha256": "4dadcaf2f9dbbd5ad7a319ec03c0822e745dffc1b9ae63074e85a818a43b94a1"
+    },
+    {
+      "path": "net_normal_form/fraction-free-audit.py",
+      "bytes": 2291,
+      "sha256": "029477f248d7df8f8afa7479d05bbd73af1b26bfcf72ca8c5ca8f751af6f3c3f"
+    },
+    {
+      "path": "net_normal_form/fraction-free-audit.result.json",
+      "bytes": 321,
+      "sha256": "ed0753e4829315ffd5a0aad3e426ea1df9f22c2cc574849a8f230c0ddab63996"
+    },
+    {
+      "path": "net_normal_form/fraction-free-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-audit.stdout",
+      "bytes": 673,
+      "sha256": "6facb7c176749fa38ffc851f5dbb05f5f32a5555654679114c7d950527115731"
+    },
+    {
+      "path": "net_normal_form/fraction-free-final-probe.result.json",
+      "bytes": 183,
+      "sha256": "8b32deff9499cae131e50a657ac51d7a28e759b1363085015c0b65c1af1845bc"
+    },
+    {
+      "path": "net_normal_form/fraction-free-final-probe.sing",
+      "bytes": 323553,
+      "sha256": "3fe65dec53affeaee41913ce607cd40c37402a6cc27624733a84a0f00789218b"
+    },
+    {
+      "path": "net_normal_form/fraction-free-final-probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-final-probe.stdout",
+      "bytes": 211,
+      "sha256": "ae2987a27254a4982940f3427ff209bebf9efd0bbe314cca93d168a6d2b21d2f"
+    },
+    {
+      "path": "net_normal_form/fraction-free-fixed-check.py",
+      "bytes": 2367,
+      "sha256": "2094409ba1aac775bc751b5405074a61a3f533e39ca155471ec9b808c755af2a"
+    },
+    {
+      "path": "net_normal_form/fraction-free-fixed-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/fraction-free-fixed-check.stdout",
+      "bytes": 95,
+      "sha256": "ee740110f4bdabbd21fc11f94a5e517a6bae89c12bf7af0ba7d9422f05e711e8"
+    },
+    {
+      "path": "net_normal_form/fraction-free-frozen-manifest.json",
+      "bytes": 7034,
+      "sha256": "cb0189403f3e8d3afc03f460d01bd050fe0383a3a071c5d0b050ec7f6e6e3034"
+    },
+    {
+      "path": "net_normal_form/fraction-free-input-files.txt",
+      "bytes": 3483,
+      "sha256": "f50be134589a7050f187d0aa546c2ff211b4da4b32ed04c71029ba5c9fffd8e8"
+    },
+    {
+      "path": "net_normal_form/fraction-free-system.json",
+      "bytes": 324539,
+      "sha256": "f6f82b5ca895677cca3205d52259a84bf10772f924b443250bcab110313c75d9"
+    },
+    {
+      "path": "net_normal_form/make_fraction_free.py",
+      "bytes": 4133,
+      "sha256": "9588b351133170b6ee1016ac76904eb0c1e4a859e81897164a8b100b81fbc816"
+    },
+    {
+      "path": "net_normal_form/run_fraction_free.py",
+      "bytes": 1443,
+      "sha256": "810f958ab86d930e081b186a72abfabbf2184f93bffc8c017b783c75c59c7dc5"
+    }
+  ]
+}

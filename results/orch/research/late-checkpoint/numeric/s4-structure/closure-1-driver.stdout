@@ -1,0 +1,7 @@
+{"round": 1, "exit": 0, "wall_seconds": 0.361006991000977, "certificates_verified": 0, "degree_counts": {}}
+RANK 10242 TARGETS 0 CPU 0.199419 RSS_KIB 22556 STORED_NNZ 575009 REDUCTIONS 50703
+PIVOT degree=2 count=6
+PIVOT degree=3 count=118
+PIVOT degree=4 count=1230
+PIVOT degree=5 count=8888
+

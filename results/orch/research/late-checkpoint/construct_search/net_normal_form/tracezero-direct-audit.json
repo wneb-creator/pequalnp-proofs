@@ -1,0 +1,47 @@
+{
+  "verdict": "PASS",
+  "primes": [
+    {
+      "prime": 5,
+      "planes": 36,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 7,
+      "planes": 32,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 11,
+      "planes": 24,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 13,
+      "planes": 28,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 17,
+      "planes": 24,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 19,
+      "planes": 56,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    },
+    {
+      "prime": 23,
+      "planes": 48,
+      "known_hollow_planes": 24,
+      "full_permanent_polynomials": "PASS"
+    }
+  ]
+}

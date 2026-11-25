@@ -1,0 +1,198 @@
+{
+  "utc": "2026-11-25T11:44:08.371290+00:00",
+  "status": "Frozen completed outputs; no global complex proof or refutation",
+  "files": [
+    {
+      "path": "audit_s4_large.py",
+      "bytes": 4445,
+      "sha256": "a871683f8b6229f1c4f652cf86b1fbeb50a3c8b47acf2ec36e506cbecb945b19"
+    },
+    {
+      "path": "audit-s4-matrix-D8.stdout",
+      "bytes": 319,
+      "sha256": "af04f0d7f0eb53971c49293c3d038f8126b4d58f0f3d6db56912c7f2a7dab415"
+    },
+    {
+      "path": "audit-s4-matrix-D8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit_extra_quartic.py",
+      "bytes": 2167,
+      "sha256": "1fe26a1b5069fa1aa0833aa6270ea167cd908b631460b8c502d466c2d992ba0a"
+    },
+    {
+      "path": "audit-extra-quartic.stdout",
+      "bytes": 245,
+      "sha256": "d46bfde39d902cdcbf0f5dc7479e26cf960578c71dec89296e7faea5daee8005"
+    },
+    {
+      "path": "audit-extra-quartic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "extra-quartic-independent.json",
+      "bytes": 23760,
+      "sha256": "f528534001c776dc8c74c3663d874151903d764ee56d50527dae19b461a91494"
+    },
+    {
+      "path": "factor_extra_quartic.py",
+      "bytes": 954,
+      "sha256": "463529673c5f90263d2e02618c62e33bb95e39cfd5138ecb5681eb8db6782c5b"
+    },
+    {
+      "path": "factor-extra-quartic.stdout",
+      "bytes": 11,
+      "sha256": "555bcf472224e2cc2d32060470f466b41143cd7b560d159cbf11041a18628582"
+    },
+    {
+      "path": "factor-extra-quartic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero_hadamard.py",
+      "bytes": 3014,
+      "sha256": "e38fdf5a003fe3758495de9a6a1be9fb0f074fc8c3c1ef7f78c779a6461fdfff"
+    },
+    {
+      "path": "tracezero-hadamard.json",
+      "bytes": 9011,
+      "sha256": "2d141e1724e004e63b73565618afa1569c3d263970c801063beb677599ae6040"
+    },
+    {
+      "path": "tracezero-hadamard.stdout",
+      "bytes": 166,
+      "sha256": "7575770910b38b4193fe52e956fdc641a57e24e52fe61c90ef66127d2dc617e0"
+    },
+    {
+      "path": "tracezero-hadamard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero-hadamard-0.sing",
+      "bytes": 8073,
+      "sha256": "6b1dabb4fac875883aa39cc825636fcfc3beba342a04114f65818749949d4f74"
+    },
+    {
+      "path": "tracezero-hadamard-101.sing",
+      "bytes": 8075,
+      "sha256": "3b5b8098bace626947e032c97be6e7b304b4432f134f971e595e6b23a4d5e7ab"
+    },
+    {
+      "path": "run_tracezero_hadamard.py",
+      "bytes": 1314,
+      "sha256": "99867b2925bed059c22c464ddbee17bf29e5e425d8e66371cda76df2e3e0d9c5"
+    },
+    {
+      "path": "tracezero-hadamard-101.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero-hadamard-101.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero-hadamard-101.result.json",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "tracezero-hadamard-101-run.stdout",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "tracezero-hadamard-101-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero_cubic_symmetry.py",
+      "bytes": 1377,
+      "sha256": "5ccde616f5c2943630839f2c92decdd7c2d9dc85169b1fc58d34db919b58ff07"
+    },
+    {
+      "path": "tracezero-cubic-symmetry.json",
+      "bytes": 99,
+      "sha256": "eefed2137eb1990c7adf20160ad137fb68a10dcce1f0b39a944d275c367d6fff"
+    },
+    {
+      "path": "tracezero-cubic-symmetry.stdout",
+      "bytes": 54,
+      "sha256": "e2133fe48ed04dd8f8e5f210f1ab8206f9d909220fab8f409d5b876bb4aa5474"
+    },
+    {
+      "path": "tracezero-cubic-symmetry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_locus_modp.py",
+      "bytes": 6721,
+      "sha256": "5b08d2974dd0ce5a5b93fee753daa6bbc657de7afed89879647501dd7799f7c3"
+    },
+    {
+      "path": "net-locus-f11.stdout",
+      "bytes": 147,
+      "sha256": "e7a2a2bee1de579d4ecbc849dd946d7dfc84987c065d356a326874e84bbb9e47"
+    },
+    {
+      "path": "net-locus-f11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net-locus-f11.json",
+      "bytes": 157,
+      "sha256": "c99d1bc40172ac0a5e8164300ab2d28607d02809d525a9396939ec598dea1b92"
+    },
+    {
+      "path": "net-locus-f13-aug.stdout",
+      "bytes": 1824,
+      "sha256": "4b918b2333314850033f51aff297098309e65887e22fabfb22974e10441a7236"
+    },
+    {
+      "path": "net-locus-f13-aug.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net-locus-f13.json",
+      "bytes": 5060,
+      "sha256": "500f81f49d81a41673a247069f0fb39a00c624b405966029a302b4eeb8f6ee62"
+    },
+    {
+      "path": "net-locus-f17-aug.stdout",
+      "bytes": 3565,
+      "sha256": "8f32a3fea78a35c09e9ef84a94695357ba25e6756e8130b0630dd9071501b9bc"
+    },
+    {
+      "path": "net-locus-f17-aug.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net-locus-f17.json",
+      "bytes": 10020,
+      "sha256": "34a7cd6e5dcf62e4d5617696659c0c776b85614ffae329d98d3ee2db7fa73a24"
+    }
+  ],
+  "total_bytes": 90818,
+  "scope": [
+    "D8 invariant matrix coverage and full dual residual audited; a dual is not a complex feasibility verdict",
+    "New averaged quartic is independently certified exact generator consequence",
+    "Tracezero rank2 Hadamard chart has12variables636terms and48direct permanent checks; F101 bounded GB inconclusive",
+    "Tracezero cubic has zero infinitesimal linear stabilizer",
+    "Finite net-locus samples are evidence only"
+  ],
+  "child_manifests": [
+    "net_normal_form/fraction-free-final-manifest.json",
+    "net_normal_form/tracezero-manifest.json"
+  ]
+}

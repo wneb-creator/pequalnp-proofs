@@ -1,0 +1,9 @@
+{
+  "tag": "tracezero",
+  "exit": 0,
+  "wall_seconds": 0.12557789099992078,
+  "cpu_seconds": 0.19277199999999997,
+  "max_rss_kib": 13668,
+  "stdout_bytes": 8030,
+  "stderr_bytes": 0
+}

@@ -1,0 +1,3216 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-11-25T12:01:31.441661+00:00",
+  "task": "L-gct-231",
+  "scope": "Frozen partial research; no global Lean proof/refutation or checker verdict.",
+  "source_manifests": [
+    {
+      "path": "construct_search/late-research-manifest.json",
+      "sha256": "7ef76d612e061d3e9fe057617c2267e97941f93f420ba1e94f19b8554347ce10",
+      "bytes": 6462,
+      "scope": "exact-and-bounded-computation",
+      "entries": 36
+    },
+    {
+      "path": "construct_search/numerical-final-manifest.json",
+      "sha256": "3bb021ca0eb88940cfb48c4eebb90da0081663de1d623b7e7fd69d7f2fa6c02f",
+      "bytes": 4088,
+      "scope": "numerical-and-finite-evidence",
+      "entries": 22
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-valid-evidence-manifest.json",
+      "sha256": "3e0294172cb0503012400bfb6e4bb90e1c45431ad917e3d0f34b8e934d3c798a",
+      "bytes": 8801,
+      "scope": "exact-c3-certificates-not-lean",
+      "entries": 44
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-frozen-manifest.json",
+      "sha256": "cb0189403f3e8d3afc03f460d01bd050fe0383a3a071c5d0b050ec7f6e6e3034",
+      "bytes": 7034,
+      "scope": "bounded-inconclusive-elimination",
+      "entries": 39
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-manifest.json",
+      "sha256": "8213d05839d43c35549ed4a36f5473914c3e8f5d172e3949d76f6d17b05a6d6c",
+      "bytes": 5058,
+      "scope": "bounded-inconclusive-elimination",
+      "entries": 28
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-manifest.json",
+      "sha256": "b4c334281c48112444ce9279292df8094a95d8a217f384be0d27db915d23164e",
+      "bytes": 6473,
+      "scope": "finite-field-census",
+      "entries": 37
+    },
+    {
+      "path": "numeric/s4-exact-quartics-preservation-manifest.json",
+      "sha256": "505cebc2fa64514ad50be5c52e69a5c4e3ef319666476f30abf6d1671de2bb16",
+      "bytes": 24789,
+      "scope": "exact-rational-identities-not-lean",
+      "entries": 85
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-orbits-supplement-manifest.json",
+      "sha256": "de6c086e472a57d76172c008ce7bb34fef0c5fdd0989961a959e960ed9983089",
+      "bytes": 1907,
+      "scope": "finite-field-orbit-classification",
+      "entries": 8
+    }
+  ],
+  "snapshots": [
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/NOTES.md",
+      "path": "snapshots/NOTES.md",
+      "captured_utc": "2026-11-25T12:01:32.752559+00:00",
+      "sha256": "eed2886ef5229eac146734658903d34b023f7b83512d71197011fd9728729f30",
+      "bytes": 62955,
+      "redactions": 0,
+      "preserved": "Original UTC events, including ordinary lease-renewal prose; no private identifiers or authorization values detected."
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/TIMELINE.md",
+      "path": "snapshots/TIMELINE.md",
+      "captured_utc": "2026-11-25T12:01:32.768240+00:00",
+      "sha256": "779babff0ba5a801e2c17a97dff9eb3fa95a805ed82b8b485ffae8986157998d",
+      "bytes": 5324,
+      "redactions": 0,
+      "preserved": "Original UTC events, including ordinary lease-renewal prose; no private identifiers or authorization values detected."
+    }
+  ],
+  "excluded_invalid_or_incomplete_c3": [
+    "c3-parametrize.stdout",
+    "c3-power-certificate-trivial.stdout",
+    "c3-rational-parametrization.json",
+    "c3_parametrize.py"
+  ],
+  "files": [
+    {
+      "path": "AUDIT.json",
+      "bytes": 925,
+      "sha256": "9428f1ca2afb8eab799d00776270be7b094798355a2f954e7ddc1a1a4ded89f5",
+      "evidence_class": [
+        "independent-packaging-audit"
+      ],
+      "source": "generated audit report",
+      "source_sha256": "9428f1ca2afb8eab799d00776270be7b094798355a2f954e7ddc1a1a4ded89f5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3350,
+      "sha256": "6d5beeafcc51530296eb6db52835c0ee6c5ef3c48cc2c67b1e10682904b953e6",
+      "evidence_class": [
+        "checkpoint-scope"
+      ],
+      "source": "generated checkpoint description",
+      "source_sha256": "6d5beeafcc51530296eb6db52835c0ee6c5ef3c48cc2c67b1e10682904b953e6"
+    },
+    {
+      "path": "construct_search/audit-extra-quartic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-extra-quartic.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/audit-extra-quartic.stdout",
+      "bytes": 245,
+      "sha256": "d46bfde39d902cdcbf0f5dc7479e26cf960578c71dec89296e7faea5daee8005",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-extra-quartic.stdout",
+      "source_sha256": "d46bfde39d902cdcbf0f5dc7479e26cf960578c71dec89296e7faea5daee8005"
+    },
+    {
+      "path": "construct_search/audit-s4-matrix-D8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D8.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/audit-s4-matrix-D8.stdout",
+      "bytes": 319,
+      "sha256": "af04f0d7f0eb53971c49293c3d038f8126b4d58f0f3d6db56912c7f2a7dab415",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit-s4-matrix-D8.stdout",
+      "source_sha256": "af04f0d7f0eb53971c49293c3d038f8126b4d58f0f3d6db56912c7f2a7dab415"
+    },
+    {
+      "path": "construct_search/audit_extra_quartic.py",
+      "bytes": 2167,
+      "sha256": "1fe26a1b5069fa1aa0833aa6270ea167cd908b631460b8c502d466c2d992ba0a",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_extra_quartic.py",
+      "source_sha256": "1fe26a1b5069fa1aa0833aa6270ea167cd908b631460b8c502d466c2d992ba0a"
+    },
+    {
+      "path": "construct_search/audit_s4_large.py",
+      "bytes": 4445,
+      "sha256": "a871683f8b6229f1c4f652cf86b1fbeb50a3c8b47acf2ec36e506cbecb945b19",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_s4_large.py",
+      "source_sha256": "a871683f8b6229f1c4f652cf86b1fbeb50a3c8b47acf2ec36e506cbecb945b19"
+    },
+    {
+      "path": "construct_search/audit_tracezero_numeric.py",
+      "bytes": 1484,
+      "sha256": "9edff578de6db8847948781e7691a7255b9e2e5c3fdfb25ee15dedca79b91e81",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_tracezero_numeric.py",
+      "source_sha256": "9edff578de6db8847948781e7691a7255b9e2e5c3fdfb25ee15dedca79b91e81"
+    },
+    {
+      "path": "construct_search/audit_unaveraged_quartics.py",
+      "bytes": 1467,
+      "sha256": "6d00a910f5e3fbf6c9e8fec9bc6e64163ab9bfa5d820c83b21f44b8ae39b6552",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_unaveraged_quartics.py",
+      "source_sha256": "6d00a910f5e3fbf6c9e8fec9bc6e64163ab9bfa5d820c83b21f44b8ae39b6552"
+    },
+    {
+      "path": "construct_search/basic-star-rows-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/basic-star-rows-build.stderr",
+      "source_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "construct_search/basic-star-rows-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/basic-star-rows-build.stdout",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/extra-quartic-independent.json",
+      "bytes": 23760,
+      "sha256": "f528534001c776dc8c74c3663d874151903d764ee56d50527dae19b461a91494",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/extra-quartic-independent.json",
+      "source_sha256": "f528534001c776dc8c74c3663d874151903d764ee56d50527dae19b461a91494"
+    },
+    {
+      "path": "construct_search/factor-extra-quartic.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/factor-extra-quartic.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/factor-extra-quartic.stdout",
+      "bytes": 11,
+      "sha256": "555bcf472224e2cc2d32060470f466b41143cd7b560d159cbf11041a18628582",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/factor-extra-quartic.stdout",
+      "source_sha256": "555bcf472224e2cc2d32060470f466b41143cd7b560d159cbf11041a18628582"
+    },
+    {
+      "path": "construct_search/factor_extra_quartic.py",
+      "bytes": 954,
+      "sha256": "463529673c5f90263d2e02618c62e33bb95e39cfd5138ecb5681eb8db6782c5b",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/factor_extra_quartic.py",
+      "source_sha256": "463529673c5f90263d2e02618c62e33bb95e39cfd5138ecb5681eb8db6782c5b"
+    },
+    {
+      "path": "construct_search/late-research-manifest.json",
+      "bytes": 6462,
+      "sha256": "7ef76d612e061d3e9fe057617c2267e97941f93f420ba1e94f19b8554347ce10",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/late-research-manifest.json",
+      "source_sha256": "7ef76d612e061d3e9fe057617c2267e97941f93f420ba1e94f19b8554347ce10"
+    },
+    {
+      "path": "construct_search/net-locus-f11.json",
+      "bytes": 157,
+      "sha256": "c99d1bc40172ac0a5e8164300ab2d28607d02809d525a9396939ec598dea1b92",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f11.json",
+      "source_sha256": "c99d1bc40172ac0a5e8164300ab2d28607d02809d525a9396939ec598dea1b92"
+    },
+    {
+      "path": "construct_search/net-locus-f11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f11.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net-locus-f11.stdout",
+      "bytes": 147,
+      "sha256": "e7a2a2bee1de579d4ecbc849dd946d7dfc84987c065d356a326874e84bbb9e47",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f11.stdout",
+      "source_sha256": "e7a2a2bee1de579d4ecbc849dd946d7dfc84987c065d356a326874e84bbb9e47"
+    },
+    {
+      "path": "construct_search/net-locus-f13-aug.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f13-aug.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net-locus-f13-aug.stdout",
+      "bytes": 1824,
+      "sha256": "4b918b2333314850033f51aff297098309e65887e22fabfb22974e10441a7236",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f13-aug.stdout",
+      "source_sha256": "4b918b2333314850033f51aff297098309e65887e22fabfb22974e10441a7236"
+    },
+    {
+      "path": "construct_search/net-locus-f13.json",
+      "bytes": 5060,
+      "sha256": "500f81f49d81a41673a247069f0fb39a00c624b405966029a302b4eeb8f6ee62",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f13.json",
+      "source_sha256": "500f81f49d81a41673a247069f0fb39a00c624b405966029a302b4eeb8f6ee62"
+    },
+    {
+      "path": "construct_search/net-locus-f17-aug.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f17-aug.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net-locus-f17-aug.stdout",
+      "bytes": 3565,
+      "sha256": "8f32a3fea78a35c09e9ef84a94695357ba25e6756e8130b0630dd9071501b9bc",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f17-aug.stdout",
+      "source_sha256": "8f32a3fea78a35c09e9ef84a94695357ba25e6756e8130b0630dd9071501b9bc"
+    },
+    {
+      "path": "construct_search/net-locus-f17.json",
+      "bytes": 10020,
+      "sha256": "34a7cd6e5dcf62e4d5617696659c0c776b85614ffae329d98d3ee2db7fa73a24",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net-locus-f17.json",
+      "source_sha256": "34a7cd6e5dcf62e4d5617696659c0c776b85614ffae329d98d3ee2db7fa73a24"
+    },
+    {
+      "path": "construct_search/net_locus_modp.py",
+      "bytes": 6721,
+      "sha256": "5b08d2974dd0ce5a5b93fee753daa6bbc657de7afed89879647501dd7799f7c3",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_locus_modp.py",
+      "source_sha256": "5b08d2974dd0ce5a5b93fee753daa6bbc657de7afed89879647501dd7799f7c3"
+    },
+    {
+      "path": "construct_search/net_normal_form/C3-NONEXTENSION.md",
+      "bytes": 5346,
+      "sha256": "a94699e36ab9cd4c139764ef8c26b80deb0822ae115128076bbb89702de45bbd",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/C3-NONEXTENSION.md",
+      "source_sha256": "a94699e36ab9cd4c139764ef8c26b80deb0822ae115128076bbb89702de45bbd"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_c3_boundaries.py",
+      "bytes": 1214,
+      "sha256": "4500c48a8b5e842f34f8e1c5cc9bbe77e07e54b982baccbd91ca964f36195b0a",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/audit_c3_boundaries.py",
+      "source_sha256": "4500c48a8b5e842f34f8e1c5cc9bbe77e07e54b982baccbd91ca964f36195b0a"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_c3_certificates.py",
+      "bytes": 3680,
+      "sha256": "99a59bad801b53e64c6cb14d263cf8dbb6e654904188665d6d55d0ac4b46b8cf",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/audit_c3_certificates.py",
+      "source_sha256": "99a59bad801b53e64c6cb14d263cf8dbb6e654904188665d6d55d0ac4b46b8cf"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_tracezero.py",
+      "bytes": 2307,
+      "sha256": "3dab1f9f41f8e6cf3881cb6068348895acf6b2b28feb6ed216ec7b04aa2b6e1b",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/audit_tracezero.py",
+      "source_sha256": "3dab1f9f41f8e6cf3881cb6068348895acf6b2b28feb6ed216ec7b04aa2b6e1b"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.json",
+      "bytes": 130,
+      "sha256": "b6d66353e94531c96137157c981da48506ce5c3bf29fb8adf467127d6bce10a5",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-boundaries-independent-audit.json",
+      "source_sha256": "b6d66353e94531c96137157c981da48506ce5c3bf29fb8adf467127d6bce10a5"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-boundaries-independent-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.stdout",
+      "bytes": 120,
+      "sha256": "2c5d01d579bacdd396d49e3bb582ecccc7b3b7e904d7392e7060245d93964a2c",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-boundaries-independent-audit.stdout",
+      "source_sha256": "2c5d01d579bacdd396d49e3bb582ecccc7b3b7e904d7392e7060245d93964a2c"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundary-certificates.json",
+      "bytes": 712,
+      "sha256": "508674436c2d4b673362520fd98b726160d9faa3015a2ef8bd0457953c2c6b9e",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-boundary-certificates.json",
+      "source_sha256": "508674436c2d4b673362520fd98b726160d9faa3015a2ef8bd0457953c2c6b9e"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.result.json",
+      "bytes": 183,
+      "sha256": "084847a07ef7826b3d7b1a8e395990fd337ed1c09459775859e7c30d8fdc17a9",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificate-trivial.result.json",
+      "source_sha256": "084847a07ef7826b3d7b1a8e395990fd337ed1c09459775859e7c30d8fdc17a9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.sing",
+      "bytes": 1148,
+      "sha256": "aed5ffd1c86ccdbea61605e8cd73b3ccdfab89623568c5db775652578c1eabf0",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificate-trivial.sing",
+      "source_sha256": "aed5ffd1c86ccdbea61605e8cd73b3ccdfab89623568c5db775652578c1eabf0"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificate-trivial.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.stdout",
+      "bytes": 1136683,
+      "sha256": "6441405ac3ee7300d38859389122ade31a9d292f35fa5b9a023ed54a5bdc0b0a",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificate-trivial.stdout",
+      "source_sha256": "6441405ac3ee7300d38859389122ade31a9d292f35fa5b9a023ed54a5bdc0b0a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.json",
+      "bytes": 834,
+      "sha256": "ef1d2159868dcaa52e5f661095ee3829af31eba99be5961ab00bebdf98730ec6",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificates-independent-audit.json",
+      "source_sha256": "ef1d2159868dcaa52e5f661095ee3829af31eba99be5961ab00bebdf98730ec6"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificates-independent-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.stdout",
+      "bytes": 1110,
+      "sha256": "ac5d71a1140df0a9c201ce13259047e17330d547360390f6c6cdc977969433fd",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-certificates-independent-audit.stdout",
+      "source_sha256": "ac5d71a1140df0a9c201ce13259047e17330d547360390f6c6cdc977969433fd"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.json",
+      "bytes": 1427,
+      "sha256": "c4c7f01ef5ebead052f89c489583f7673cf156277f8ec4945250dd808cac4b1b",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-blocks.json",
+      "source_sha256": "c4c7f01ef5ebead052f89c489583f7673cf156277f8ec4945250dd808cac4b1b"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-blocks.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.stdout",
+      "bytes": 4619,
+      "sha256": "54252edca6745a5b12bdee81985d08e20a430136a514b375d60d6310f806112a",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-blocks.stdout",
+      "source_sha256": "54252edca6745a5b12bdee81985d08e20a430136a514b375d60d6310f806112a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.result.json",
+      "bytes": 187,
+      "sha256": "3c3e9c292f7184f915bc532595db4144c866d2068c0f8ad391292d793c68f2d9",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-ranks.result.json",
+      "source_sha256": "3c3e9c292f7184f915bc532595db4144c866d2068c0f8ad391292d793c68f2d9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.sing",
+      "bytes": 6511,
+      "sha256": "e7c5ea60ccc6c9b008d2a2936859a4c27afa9141e8d492b0494e8efa615ef6dd",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-ranks.sing",
+      "source_sha256": "e7c5ea60ccc6c9b008d2a2936859a4c27afa9141e8d492b0494e8efa615ef6dd"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-ranks.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.stdout",
+      "bytes": 229,
+      "sha256": "d896c3def13abe95a92fb8678057a27d0d378dfe3c5f4a5444b56615c0a80cbb",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-extension-ranks.stdout",
+      "source_sha256": "d896c3def13abe95a92fb8678057a27d0d378dfe3c5f4a5444b56615c0a80cbb"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.result.json",
+      "bytes": 187,
+      "sha256": "09fdd58f5980de9353664abf5c8bc26251f2cebb84f8d7c468265d69c6cb1f13",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-power-certificate-plus.result.json",
+      "source_sha256": "09fdd58f5980de9353664abf5c8bc26251f2cebb84f8d7c468265d69c6cb1f13"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.sing",
+      "bytes": 943,
+      "sha256": "b2a7bd831c72c67c37abc696bfdb2e7dc650d8e7c863c852da81a9c06d59701d",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-power-certificate-plus.sing",
+      "source_sha256": "b2a7bd831c72c67c37abc696bfdb2e7dc650d8e7c863c852da81a9c06d59701d"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-power-certificate-plus.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.stdout",
+      "bytes": 146595,
+      "sha256": "1bc215a59582f4e9d9199923a626fcf341c8bc7091d67c83aad03158073e2fef",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-power-certificate-plus.stdout",
+      "source_sha256": "1bc215a59582f4e9d9199923a626fcf341c8bc7091d67c83aad03158073e2fef"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-reduced-trivial-block.json",
+      "bytes": 983,
+      "sha256": "de0a0f8e927b992f8450e137950423628c08d1c036b87f3b397ff8c57499d9c0",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-reduced-trivial-block.json",
+      "source_sha256": "de0a0f8e927b992f8450e137950423628c08d1c036b87f3b397ff8c57499d9c0"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero-builder.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-builder.stdout",
+      "bytes": 415,
+      "sha256": "e8185333aa0dc24e6abbacd3807b6cfb6b638db1b246cd662e53b68c45251922",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero-builder.stdout",
+      "source_sha256": "e8185333aa0dc24e6abbacd3807b6cfb6b638db1b246cd662e53b68c45251922"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-system.json",
+      "bytes": 1010,
+      "sha256": "f17e2ca6a522bc5d6e12c12406287e04d8a8c7376595abe5cdfbb19a2f8ab527",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero-system.json",
+      "source_sha256": "f17e2ca6a522bc5d6e12c12406287e04d8a8c7376595abe5cdfbb19a2f8ab527"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.result.json",
+      "bytes": 183,
+      "sha256": "36320a58cea0d44bb78a6ba7230545e5d789448afd3ff6edfe8069d0cf6d4e77",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero.result.json",
+      "source_sha256": "36320a58cea0d44bb78a6ba7230545e5d789448afd3ff6edfe8069d0cf6d4e77"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.sing",
+      "bytes": 633,
+      "sha256": "10a8db50c0f92b21ff5bd447b4e435620e958c8d0b6a8d6ee38caccf005f6354",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero.sing",
+      "source_sha256": "10a8db50c0f92b21ff5bd447b4e435620e958c8d0b6a8d6ee38caccf005f6354"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.stdout",
+      "bytes": 8030,
+      "sha256": "268084864dec8eea144b508bf473796cf2671ce1e90634da277d758ae761aa33",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-tracezero.stdout",
+      "source_sha256": "268084864dec8eea144b508bf473796cf2671ce1e90634da277d758ae761aa33"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-valid-evidence-manifest.json",
+      "bytes": 8801,
+      "sha256": "3e0294172cb0503012400bfb6e4bb90e1c45431ad917e3d0f34b8e934d3c798a",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3-valid-evidence-manifest.json",
+      "source_sha256": "3e0294172cb0503012400bfb6e4bb90e1c45431ad917e3d0f34b8e934d3c798a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3_extension_blocks.py",
+      "bytes": 1985,
+      "sha256": "6ec434a5e52a6b486ddd791933674e7cda927db5332f0b8781e81686ebb4c3f9",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3_extension_blocks.py",
+      "source_sha256": "6ec434a5e52a6b486ddd791933674e7cda927db5332f0b8781e81686ebb4c3f9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3_tracezero.py",
+      "bytes": 1799,
+      "sha256": "a05520c6e31b3a35a28c0a8a5dc9a729272749cc22a163a6788f6f3bc0e5d9b2",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/c3_tracezero.py",
+      "source_sha256": "a05520c6e31b3a35a28c0a8a5dc9a729272749cc22a163a6788f6f3bc0e5d9b2"
+    },
+    {
+      "path": "construct_search/net_normal_form/classify_tracezero_extras.py",
+      "bytes": 3265,
+      "sha256": "832f18de169487eb81d104731a46673d00bfd2a2f3c5ee107eb088f4d0dc1ef7",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/classify_tracezero_extras.py",
+      "source_sha256": "832f18de169487eb81d104731a46673d00bfd2a2f3c5ee107eb088f4d0dc1ef7"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-01.result.json",
+      "bytes": 165,
+      "sha256": "254c2af180f0ef5f18a92aea2a1fa1fbbe6657f4542d45e80949885b20f17b22",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-01.result.json",
+      "source_sha256": "254c2af180f0ef5f18a92aea2a1fa1fbbe6657f4542d45e80949885b20f17b22"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-01.sing",
+      "bytes": 4173,
+      "sha256": "8f4f968417e6e47dd3036a8906a5bdb6bacdf3280be40369c366bd9e721d59d2",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-01.sing",
+      "source_sha256": "8f4f968417e6e47dd3036a8906a5bdb6bacdf3280be40369c366bd9e721d59d2"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-01.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-01.stdout",
+      "bytes": 108267,
+      "sha256": "e5c4ae56afd2873265e0ebdd3bfb41e8c9525de7ad3433451a7eb0967944806f",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-01.stdout",
+      "source_sha256": "e5c4ae56afd2873265e0ebdd3bfb41e8c9525de7ad3433451a7eb0967944806f"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-10.result.json",
+      "bytes": 164,
+      "sha256": "9e15a98089df025c2a0894504061558ca3d1eb7f07e22d744c2ab01d00d0534d",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-10.result.json",
+      "source_sha256": "9e15a98089df025c2a0894504061558ca3d1eb7f07e22d744c2ab01d00d0534d"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-10.sing",
+      "bytes": 4173,
+      "sha256": "a43a72fee77d33389b1b9e130aeeab605be2abe57c5f759becba474af2722723",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-10.sing",
+      "source_sha256": "a43a72fee77d33389b1b9e130aeeab605be2abe57c5f759becba474af2722723"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-10.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-10.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-10.stdout",
+      "bytes": 99529,
+      "sha256": "9cc1e10402d24e2b9cae069cb5a1f77028537f486667967d661a0df57eab00be",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-10.stdout",
+      "source_sha256": "9cc1e10402d24e2b9cae069cb5a1f77028537f486667967d661a0df57eab00be"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-11.result.json",
+      "bytes": 167,
+      "sha256": "b0cd4809d8c94a2aa90ffe847506539a05f155d994dc404ecd201f2d3ee4a2bb",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-11.result.json",
+      "source_sha256": "b0cd4809d8c94a2aa90ffe847506539a05f155d994dc404ecd201f2d3ee4a2bb"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-11.sing",
+      "bytes": 4173,
+      "sha256": "008e8dc638942153de097cc09ced9b8f4b657026d622eab5cf7f8acd6208baa9",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-11.sing",
+      "source_sha256": "008e8dc638942153de097cc09ced9b8f4b657026d622eab5cf7f8acd6208baa9"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-11.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-11.stdout",
+      "bytes": 111089,
+      "sha256": "4dadcaf2f9dbbd5ad7a319ec03c0822e745dffc1b9ae63074e85a818a43b94a1",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-11.stdout",
+      "source_sha256": "4dadcaf2f9dbbd5ad7a319ec03c0822e745dffc1b9ae63074e85a818a43b94a1"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-audit.py",
+      "bytes": 2291,
+      "sha256": "029477f248d7df8f8afa7479d05bbd73af1b26bfcf72ca8c5ca8f751af6f3c3f",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-audit.py",
+      "source_sha256": "029477f248d7df8f8afa7479d05bbd73af1b26bfcf72ca8c5ca8f751af6f3c3f"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-audit.result.json",
+      "bytes": 321,
+      "sha256": "ed0753e4829315ffd5a0aad3e426ea1df9f22c2cc574849a8f230c0ddab63996",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-audit.result.json",
+      "source_sha256": "ed0753e4829315ffd5a0aad3e426ea1df9f22c2cc574849a8f230c0ddab63996"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-audit.stdout",
+      "bytes": 673,
+      "sha256": "6facb7c176749fa38ffc851f5dbb05f5f32a5555654679114c7d950527115731",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-audit.stdout",
+      "source_sha256": "6facb7c176749fa38ffc851f5dbb05f5f32a5555654679114c7d950527115731"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-manifest.json",
+      "bytes": 5058,
+      "sha256": "8213d05839d43c35549ed4a36f5473914c3e8f5d172e3949d76f6d17b05a6d6c",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-final-manifest.json",
+      "source_sha256": "8213d05839d43c35549ed4a36f5473914c3e8f5d172e3949d76f6d17b05a6d6c"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-probe.result.json",
+      "bytes": 183,
+      "sha256": "8b32deff9499cae131e50a657ac51d7a28e759b1363085015c0b65c1af1845bc",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-final-probe.result.json",
+      "source_sha256": "8b32deff9499cae131e50a657ac51d7a28e759b1363085015c0b65c1af1845bc"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-probe.sing",
+      "bytes": 323553,
+      "sha256": "3fe65dec53affeaee41913ce607cd40c37402a6cc27624733a84a0f00789218b",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-final-probe.sing",
+      "source_sha256": "3fe65dec53affeaee41913ce607cd40c37402a6cc27624733a84a0f00789218b"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-final-probe.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-final-probe.stdout",
+      "bytes": 211,
+      "sha256": "ae2987a27254a4982940f3427ff209bebf9efd0bbe314cca93d168a6d2b21d2f",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-final-probe.stdout",
+      "source_sha256": "ae2987a27254a4982940f3427ff209bebf9efd0bbe314cca93d168a6d2b21d2f"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-fixed-check.py",
+      "bytes": 2367,
+      "sha256": "2094409ba1aac775bc751b5405074a61a3f533e39ca155471ec9b808c755af2a",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-fixed-check.py",
+      "source_sha256": "2094409ba1aac775bc751b5405074a61a3f533e39ca155471ec9b808c755af2a"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-fixed-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-fixed-check.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-fixed-check.stdout",
+      "bytes": 95,
+      "sha256": "ee740110f4bdabbd21fc11f94a5e517a6bae89c12bf7af0ba7d9422f05e711e8",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-fixed-check.stdout",
+      "source_sha256": "ee740110f4bdabbd21fc11f94a5e517a6bae89c12bf7af0ba7d9422f05e711e8"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-frozen-manifest.json",
+      "bytes": 7034,
+      "sha256": "cb0189403f3e8d3afc03f460d01bd050fe0383a3a071c5d0b050ec7f6e6e3034",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-frozen-manifest.json",
+      "source_sha256": "cb0189403f3e8d3afc03f460d01bd050fe0383a3a071c5d0b050ec7f6e6e3034"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-input-files.txt",
+      "bytes": 3483,
+      "sha256": "f50be134589a7050f187d0aa546c2ff211b4da4b32ed04c71029ba5c9fffd8e8",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-input-files.txt",
+      "source_sha256": "f50be134589a7050f187d0aa546c2ff211b4da4b32ed04c71029ba5c9fffd8e8"
+    },
+    {
+      "path": "construct_search/net_normal_form/fraction-free-system.json",
+      "bytes": 324539,
+      "sha256": "f6f82b5ca895677cca3205d52259a84bf10772f924b443250bcab110313c75d9",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/fraction-free-system.json",
+      "source_sha256": "f6f82b5ca895677cca3205d52259a84bf10772f924b443250bcab110313c75d9"
+    },
+    {
+      "path": "construct_search/net_normal_form/make_fraction_free.py",
+      "bytes": 4133,
+      "sha256": "9588b351133170b6ee1016ac76904eb0c1e4a859e81897164a8b100b81fbc816",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/make_fraction_free.py",
+      "source_sha256": "9588b351133170b6ee1016ac76904eb0c1e4a859e81897164a8b100b81fbc816"
+    },
+    {
+      "path": "construct_search/net_normal_form/run_c3.py",
+      "bytes": 1432,
+      "sha256": "051b8ad87042d216ebfcbc909048edd43cba87de193495410270de505142842c",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/run_c3.py",
+      "source_sha256": "051b8ad87042d216ebfcbc909048edd43cba87de193495410270de505142842c"
+    },
+    {
+      "path": "construct_search/net_normal_form/run_fraction_free.py",
+      "bytes": 1443,
+      "sha256": "810f958ab86d930e081b186a72abfabbf2184f93bffc8c017b783c75c59c7dc5",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/run_fraction_free.py",
+      "source_sha256": "810f958ab86d930e081b186a72abfabbf2184f93bffc8c017b783c75c59c7dc5"
+    },
+    {
+      "path": "construct_search/net_normal_form/run_tracezero.py",
+      "bytes": 1291,
+      "sha256": "1ba01fb54f1ef935556154a53fef92cd9d741567a1149a6896b4d0cd12c179db",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/run_tracezero.py",
+      "source_sha256": "1ba01fb54f1ef935556154a53fef92cd9d741567a1149a6896b4d0cd12c179db"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-compile.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-compile.stdout",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.json",
+      "bytes": 936,
+      "sha256": "c2ebdec396dfb138045f8731794537e5ae299044503eba9d0fa7ccdcc63248de",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-direct-audit.json",
+      "source_sha256": "c2ebdec396dfb138045f8731794537e5ae299044503eba9d0fa7ccdcc63248de"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-direct-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.stdout",
+      "bytes": 649,
+      "sha256": "53dbf907e98dd2598b6495a8316e42ea19b116cc57004919c1d810cbece261e6",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-direct-audit.stdout",
+      "source_sha256": "53dbf907e98dd2598b6495a8316e42ea19b116cc57004919c1d810cbece261e6"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.json",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-extra-orbits.json",
+      "source_sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-extra-orbits.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stdout",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-extra-orbits.stdout",
+      "source_sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11-2planes.json",
+      "bytes": 1167,
+      "sha256": "292b8c847d1187a5b1eca5a1cc3dd29f080db716c5be69d5592aef970227fcc3",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f11-2planes.json",
+      "source_sha256": "292b8c847d1187a5b1eca5a1cc3dd29f080db716c5be69d5592aef970227fcc3"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.result.json",
+      "bytes": 174,
+      "sha256": "dd30a109365324abf0e994f2843377ddc3377d752ceb0c4e6d836dbe6ea252ad",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f11.result.json",
+      "source_sha256": "dd30a109365324abf0e994f2843377ddc3377d752ceb0c4e6d836dbe6ea252ad"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.stderr",
+      "bytes": 116,
+      "sha256": "b12df9249e13f4213178585fdc599db90a06f837bc8ff84a39f1b9b8c0241310",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f11.stderr",
+      "source_sha256": "b12df9249e13f4213178585fdc599db90a06f837bc8ff84a39f1b9b8c0241310"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.stdout",
+      "bytes": 325,
+      "sha256": "ee8325fc1f535734149cc80fdcd0c4b67fbe3ec45888efee170cac7403db731d",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f11.stdout",
+      "source_sha256": "ee8325fc1f535734149cc80fdcd0c4b67fbe3ec45888efee170cac7403db731d"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13-2planes.json",
+      "bytes": 1389,
+      "sha256": "d69946d2ce119c4506f9b5267e72296b9b3abeeb54f4ef282e7875ec34dbeb55",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f13-2planes.json",
+      "source_sha256": "d69946d2ce119c4506f9b5267e72296b9b3abeeb54f4ef282e7875ec34dbeb55"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.result.json",
+      "bytes": 174,
+      "sha256": "ae2fcb10d888cfc9e9ca830ac8debf90d3ff29b3c61dd52c4d7a00233bfe6f00",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f13.result.json",
+      "source_sha256": "ae2fcb10d888cfc9e9ca830ac8debf90d3ff29b3c61dd52c4d7a00233bfe6f00"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.stderr",
+      "bytes": 175,
+      "sha256": "50b3b6064c021a7ed91f237441e0600dc47cfb3850cd87eb0196582c8260fa8a",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f13.stderr",
+      "source_sha256": "50b3b6064c021a7ed91f237441e0600dc47cfb3850cd87eb0196582c8260fa8a"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.stdout",
+      "bytes": 324,
+      "sha256": "f48f0675c00d2502bf5172f72445e9746f1c5c7cc7ff3b72f8b62e6379b302f9",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f13.stdout",
+      "source_sha256": "f48f0675c00d2502bf5172f72445e9746f1c5c7cc7ff3b72f8b62e6379b302f9"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17-2planes.json",
+      "bytes": 1195,
+      "sha256": "6993ad0bf4e16b76eefb6db2308b7524a1d3639a31bb6ceac05e667eff91b59c",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f17-2planes.json",
+      "source_sha256": "6993ad0bf4e16b76eefb6db2308b7524a1d3639a31bb6ceac05e667eff91b59c"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.result.json",
+      "bytes": 172,
+      "sha256": "ac0029a4d5a2b833524acd351e81efd24dae65464c8d8b9974cdd38d558b84bf",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f17.result.json",
+      "source_sha256": "ac0029a4d5a2b833524acd351e81efd24dae65464c8d8b9974cdd38d558b84bf"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.stderr",
+      "bytes": 536,
+      "sha256": "bbee39b3536f3c3c811e7d74efb84dc1c6bc695651da9ce23a3d929ea91df9ed",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f17.stderr",
+      "source_sha256": "bbee39b3536f3c3c811e7d74efb84dc1c6bc695651da9ce23a3d929ea91df9ed"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.stdout",
+      "bytes": 325,
+      "sha256": "665e3d0550a0d81cfff26aea9ca091f7fc6bce4c5285b6cde1944d78fcf51ab2",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f17.stdout",
+      "source_sha256": "665e3d0550a0d81cfff26aea9ca091f7fc6bce4c5285b6cde1944d78fcf51ab2"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19-2planes.json",
+      "bytes": 2838,
+      "sha256": "cc538304ae6544f66d2dfe48bc5d1301e9bb078289c94de9741e141e1356a24d",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f19-2planes.json",
+      "source_sha256": "cc538304ae6544f66d2dfe48bc5d1301e9bb078289c94de9741e141e1356a24d"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.result.json",
+      "bytes": 166,
+      "sha256": "e2ef33a969dea896653f6d9de598b408be0ab841b1c7f701e193e3d163ff0232",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f19.result.json",
+      "source_sha256": "e2ef33a969dea896653f6d9de598b408be0ab841b1c7f701e193e3d163ff0232"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.stderr",
+      "bytes": 864,
+      "sha256": "122df1114b7621692d326ab342e6a4d3b271f6a72d3f8c38d1b5d43a13af5913",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f19.stderr",
+      "source_sha256": "122df1114b7621692d326ab342e6a4d3b271f6a72d3f8c38d1b5d43a13af5913"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.stdout",
+      "bytes": 330,
+      "sha256": "1ed5bc34f472addd050e819ff0c05bac8c97ecdb13b14bb5c57a5db276a80dea",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f19.stdout",
+      "source_sha256": "1ed5bc34f472addd050e819ff0c05bac8c97ecdb13b14bb5c57a5db276a80dea"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23-2planes.json",
+      "bytes": 2469,
+      "sha256": "b2677ee7a5e4658f6eb2d15f97161ef167474f1626cd4f0f58bd49eb719a1653",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f23-2planes.json",
+      "source_sha256": "b2677ee7a5e4658f6eb2d15f97161ef167474f1626cd4f0f58bd49eb719a1653"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.result.json",
+      "bytes": 176,
+      "sha256": "a836d4d7dd5d594d9d1fabdab944d7060aaaef928d36a84371cd315bd7de2c2e",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f23.result.json",
+      "source_sha256": "a836d4d7dd5d594d9d1fabdab944d7060aaaef928d36a84371cd315bd7de2c2e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.stderr",
+      "bytes": 1947,
+      "sha256": "aa79a2875368b5a76809a6ae3088fc72da324f5d481ba282f8c19cd5fb24e5d8",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f23.stderr",
+      "source_sha256": "aa79a2875368b5a76809a6ae3088fc72da324f5d481ba282f8c19cd5fb24e5d8"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.stdout",
+      "bytes": 332,
+      "sha256": "501028a597480807b4fe49ef67b494243d61af319ff02c9f01dcd12e41bef89c",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f23.stdout",
+      "source_sha256": "501028a597480807b4fe49ef67b494243d61af319ff02c9f01dcd12e41bef89c"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5-2planes.json",
+      "bytes": 1695,
+      "sha256": "8cbf943c092b920505a0206db40b72c65961bcc1f3693f52231fb10ac9fd38b9",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f5-2planes.json",
+      "source_sha256": "8cbf943c092b920505a0206db40b72c65961bcc1f3693f52231fb10ac9fd38b9"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.result.json",
+      "bytes": 176,
+      "sha256": "f1a626d914441a172dd8f3c55eeaa797e34f7a0d042b5757040e6c311980b4ce",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f5.result.json",
+      "source_sha256": "f1a626d914441a172dd8f3c55eeaa797e34f7a0d042b5757040e6c311980b4ce"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.stderr",
+      "bytes": 24,
+      "sha256": "aad06231593f4428c07df827da6403e113edc2ba0c5052eb534c5812cb980b48",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f5.stderr",
+      "source_sha256": "aad06231593f4428c07df827da6403e113edc2ba0c5052eb534c5812cb980b48"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.stdout",
+      "bytes": 319,
+      "sha256": "ad4855f06e3c1a50e69fe81c7ed6817521d6a7b244485ed84809a42d6d4ca3ed",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f5.stdout",
+      "source_sha256": "ad4855f06e3c1a50e69fe81c7ed6817521d6a7b244485ed84809a42d6d4ca3ed"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7-2planes.json",
+      "bytes": 1507,
+      "sha256": "1a0a2c397c7693652452bdd387d425c9386a0713c9ae47679bd919084bc4c34b",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f7-2planes.json",
+      "source_sha256": "1a0a2c397c7693652452bdd387d425c9386a0713c9ae47679bd919084bc4c34b"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.result.json",
+      "bytes": 163,
+      "sha256": "7c86538cfa32506640d253326288c16c79bc3089490a38f3c6f34e4ad403c83e",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f7.result.json",
+      "source_sha256": "7c86538cfa32506640d253326288c16c79bc3089490a38f3c6f34e4ad403c83e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.stderr",
+      "bytes": 25,
+      "sha256": "7d6c77d3936a5416eda3dcc78d594923780f57767a5a43f26823bca0ed4fd09f",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f7.stderr",
+      "source_sha256": "7d6c77d3936a5416eda3dcc78d594923780f57767a5a43f26823bca0ed4fd09f"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.stdout",
+      "bytes": 319,
+      "sha256": "1a128eb542bdfe7d14bd67cd432b3af078ed76caacc44a490e1df88e1d1d4fe0",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-f7.stdout",
+      "source_sha256": "1a128eb542bdfe7d14bd67cd432b3af078ed76caacc44a490e1df88e1d1d4fe0"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-manifest.json",
+      "bytes": 6473,
+      "sha256": "b4c334281c48112444ce9279292df8094a95d8a217f384be0d27db915d23164e",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-manifest.json",
+      "source_sha256": "b4c334281c48112444ce9279292df8094a95d8a217f384be0d27db915d23164e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-orbits-supplement-manifest.json",
+      "bytes": 1907,
+      "sha256": "de6c086e472a57d76172c008ce7bb34fef0c5fdd0989961a959e960ed9983089",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-orbits-supplement-manifest.json",
+      "source_sha256": "de6c086e472a57d76172c008ce7bb34fef0c5fdd0989961a959e960ed9983089"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-saved-validation.json",
+      "bytes": 122,
+      "sha256": "093f86a4261ab50eba98aabb56582c0bbd4a0eb9db2b4db3cdf5018c7c4ac95f",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero-saved-validation.json",
+      "source_sha256": "093f86a4261ab50eba98aabb56582c0bbd4a0eb9db2b4db3cdf5018c7c4ac95f"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero_census.cpp",
+      "bytes": 8078,
+      "sha256": "037e3b2f93ffe9a363203da7b786c1cfcae94d45ff4b6268c0d2f094d03eeaae",
+      "evidence_class": [
+        "finite-field-census"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/tracezero_census.cpp",
+      "source_sha256": "037e3b2f93ffe9a363203da7b786c1cfcae94d45ff4b6268c0d2f094d03eeaae"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-builder-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-builder-run.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-builder-run.stdout",
+      "bytes": 42,
+      "sha256": "b63c9a0b5e5bb7bd2f5e453de8e842f4d8ae3f5f45ea62bcbcddb2eb215d7f9a",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-builder-run.stdout",
+      "source_sha256": "b63c9a0b5e5bb7bd2f5e453de8e842f4d8ae3f5f45ea62bcbcddb2eb215d7f9a"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-builder.sing",
+      "bytes": 2751,
+      "sha256": "174f8c7f4b2bad81ecdfb9e5668e6cfaac199afc33266b66845d625dcb16dfd6",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-builder.sing",
+      "source_sha256": "174f8c7f4b2bad81ecdfb9e5668e6cfaac199afc33266b66845d625dcb16dfd6"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-builder.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-builder.stdout",
+      "bytes": 452,
+      "sha256": "8c46116771fb9c92b7aa553ca02601fefaf3ece566ce4ece693cf345f495edd8",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-builder.stdout",
+      "source_sha256": "8c46116771fb9c92b7aa553ca02601fefaf3ece566ce4ece693cf345f495edd8"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-01.result.json",
+      "bytes": 62,
+      "sha256": "94d7c565287f3357c304f3b3286282f36f1da2370c7b56cfe549b82f0f79a425",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-01.result.json",
+      "source_sha256": "94d7c565287f3357c304f3b3286282f36f1da2370c7b56cfe549b82f0f79a425"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-01.sing",
+      "bytes": 3402,
+      "sha256": "bcec0d6363edd8d8fe1ad0e7314a8169d99d6be60c31c438a9834b1de81c8486",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-01.sing",
+      "source_sha256": "bcec0d6363edd8d8fe1ad0e7314a8169d99d6be60c31c438a9834b1de81c8486"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-01.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-01.stdout",
+      "bytes": 618406,
+      "sha256": "2e2a606cec59349ac1ea32ffd3445e25453fc783caa0c20c02f71d96b1d969f2",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-01.stdout",
+      "source_sha256": "2e2a606cec59349ac1ea32ffd3445e25453fc783caa0c20c02f71d96b1d969f2"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-10-first.stdout",
+      "bytes": 222215,
+      "sha256": "9ff785f3048f090141b65e81dfb6134419c24b4767a9b37f346cfc42771945da",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-10-first.stdout",
+      "source_sha256": "9ff785f3048f090141b65e81dfb6134419c24b4767a9b37f346cfc42771945da"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-10.result.json",
+      "bytes": 63,
+      "sha256": "ee1a3e6b77f0d6af133aa6db85bb7d197421abd4be4175fa5e43fb8aef6c9527",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-10.result.json",
+      "source_sha256": "ee1a3e6b77f0d6af133aa6db85bb7d197421abd4be4175fa5e43fb8aef6c9527"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-10.sing",
+      "bytes": 3402,
+      "sha256": "0bb45db9bfab139f783818c8f242802dedbb532f6215ef2aa852fdf072d58fef",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-10.sing",
+      "source_sha256": "0bb45db9bfab139f783818c8f242802dedbb532f6215ef2aa852fdf072d58fef"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-10.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-10.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-10.stdout",
+      "bytes": 529040,
+      "sha256": "5025f835d6a38e9181ca0d26ed319a5c82ae16c961a6f834d05cac4cf7897b7f",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-10.stdout",
+      "source_sha256": "5025f835d6a38e9181ca0d26ed319a5c82ae16c961a6f834d05cac4cf7897b7f"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-11.result.json",
+      "bytes": 63,
+      "sha256": "dd1e209439a261e8477cf96848f458db728eb291543b9af339aeae3564e38e41",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-11.result.json",
+      "source_sha256": "dd1e209439a261e8477cf96848f458db728eb291543b9af339aeae3564e38e41"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-11.sing",
+      "bytes": 3402,
+      "sha256": "a3196dd3e2b9bd29bc1045fea7bcc7e6bdf1bad106e172b4e5a2fbc62fb8617f",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-11.sing",
+      "source_sha256": "a3196dd3e2b9bd29bc1045fea7bcc7e6bdf1bad106e172b4e5a2fbc62fb8617f"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-11.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-direction-11.stdout",
+      "bytes": 670199,
+      "sha256": "680b3d0c4aa97704acfb6aa8e5cff86bad37e81a55933482beea6fc408ff38cc",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-direction-11.stdout",
+      "source_sha256": "680b3d0c4aa97704acfb6aa8e5cff86bad37e81a55933482beea6fc408ff38cc"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-field.result.json",
+      "bytes": 226,
+      "sha256": "1d6193d3052426440957cecd9eff2b8e3652fce65e03d8a81c11653af865ff93",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-field.result.json",
+      "source_sha256": "1d6193d3052426440957cecd9eff2b8e3652fce65e03d8a81c11653af865ff93"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-field.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-field.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-field.stdout",
+      "bytes": 6,
+      "sha256": "c89d6966e9327382a8a6cbafabc0c5c74e288f4fbf09baf4cd5362160d442f71",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-field.stdout",
+      "source_sha256": "c89d6966e9327382a8a6cbafabc0c5c74e288f4fbf09baf4cd5362160d442f71"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-polynomial.result.json",
+      "bytes": 224,
+      "sha256": "11f8fabcac3290669cdad80fda3fa6f83edc3c5428923bb1977daae92f98e334",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-polynomial.result.json",
+      "source_sha256": "11f8fabcac3290669cdad80fda3fa6f83edc3c5428923bb1977daae92f98e334"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-polynomial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-polynomial.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-elimination-polynomial.stdout",
+      "bytes": 166,
+      "sha256": "c88c4e77859ffd2ee831a31b15504ad360d36089e111841bc468bdc9f3f9f1a9",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-elimination-polynomial.stdout",
+      "source_sha256": "c88c4e77859ffd2ee831a31b15504ad360d36089e111841bc468bdc9f3f9f1a9"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-extra-denominators.json",
+      "bytes": 2958,
+      "sha256": "7d60c04e70897c905d018995f706551f6501726fd0caed8d0ead795d5a493708",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-extra-denominators.json",
+      "source_sha256": "7d60c04e70897c905d018995f706551f6501726fd0caed8d0ead795d5a493708"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-extra-guard-factors.json",
+      "bytes": 407,
+      "sha256": "60d462f62d5da464cbd5176806c65883c2ec7da116ad30ede723b206339b92bb",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-extra-guard-factors.json",
+      "source_sha256": "60d462f62d5da464cbd5176806c65883c2ec7da116ad30ede723b206339b92bb"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-field-system.sing",
+      "bytes": 1029421,
+      "sha256": "0e9393e100f8be60f3fd8a075cd9b3d6c0da1d957c5b1f0574a5ad087b5dbdef",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-field-system.sing",
+      "source_sha256": "0e9393e100f8be60f3fd8a075cd9b3d6c0da1d957c5b1f0574a5ad087b5dbdef"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-macaulay.result.json",
+      "bytes": 204,
+      "sha256": "87a8423db4d20a330d3e0a3e8d532011046c521472cee169ea07ba894a5121ab",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-macaulay.result.json",
+      "source_sha256": "87a8423db4d20a330d3e0a3e8d532011046c521472cee169ea07ba894a5121ab"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-macaulay.sing",
+      "bytes": 1030361,
+      "sha256": "2a29e7c6ab401dc6acfd2f73d2187af44589e7055f5cfe93949cc40517ae6c39",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-macaulay.sing",
+      "source_sha256": "2a29e7c6ab401dc6acfd2f73d2187af44589e7055f5cfe93949cc40517ae6c39"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-macaulay.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-macaulay.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-macaulay.stdout",
+      "bytes": 229,
+      "sha256": "9044a19861d4fb5660b47134a515305363b8246cdc0cea3941c9bdf20cee1c68",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-macaulay.stdout",
+      "source_sha256": "9044a19861d4fb5660b47134a515305363b8246cdc0cea3941c9bdf20cee1c68"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-reduced-builder-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-reduced-builder-run.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-reduced-builder-run.stdout",
+      "bytes": 50,
+      "sha256": "279476138a1895fa5741327eff41cb4c1f5e3b7a8adf693bfa49cbde228a408e",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-reduced-builder-run.stdout",
+      "source_sha256": "279476138a1895fa5741327eff41cb4c1f5e3b7a8adf693bfa49cbde228a408e"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-reduced-builder.sing",
+      "bytes": 3669,
+      "sha256": "00131562e51e6126e20dbcc832c108d70495120e024bad702c1f81437e100232",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-reduced-builder.sing",
+      "source_sha256": "00131562e51e6126e20dbcc832c108d70495120e024bad702c1f81437e100232"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-reduced-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-reduced-builder.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-reduced-builder.stdout",
+      "bytes": 3217,
+      "sha256": "d4842d1958bb89823999f364e70bd81463545f6699215dc324c638a6ed7e04a7",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-reduced-builder.stdout",
+      "source_sha256": "d4842d1958bb89823999f364e70bd81463545f6699215dc324c638a6ed7e04a7"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-system.json",
+      "bytes": 1030758,
+      "sha256": "f5fbeec04e442cd4ab0a82ba4d5e00ea7c8ee92a994b87eea0f724a912081d80",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-system.json",
+      "source_sha256": "f5fbeec04e442cd4ab0a82ba4d5e00ea7c8ee92a994b87eea0f724a912081d80"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-system.metadata.json",
+      "bytes": 264,
+      "sha256": "c17d0810d4e5adbd32251423212a497dae56d8c187b53c6ca33bea8a70e996ca",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-system.metadata.json",
+      "source_sha256": "c17d0810d4e5adbd32251423212a497dae56d8c187b53c6ca33bea8a70e996ca"
+    },
+    {
+      "path": "construct_search/net_normal_form/uniform-system.sing",
+      "bytes": 1030390,
+      "sha256": "3f73c3dd6065fe143c1db1ecf15573a4df2e551d98a9bb4784a2cff0c9536674",
+      "evidence_class": [
+        "bounded-inconclusive-elimination"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/uniform-system.sing",
+      "source_sha256": "3f73c3dd6065fe143c1db1ecf15573a4df2e551d98a9bb4784a2cff0c9536674"
+    },
+    {
+      "path": "construct_search/normalized-independent-review.json",
+      "bytes": 1076,
+      "sha256": "c17ed73770a24b144e434621684a99134c9fb0ad7d0aa06c40f8df786de87afd",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/normalized-independent-review.json",
+      "source_sha256": "c17ed73770a24b144e434621684a99134c9fb0ad7d0aa06c40f8df786de87afd"
+    },
+    {
+      "path": "construct_search/numerical-final-manifest.json",
+      "bytes": 4088,
+      "sha256": "3bb021ca0eb88940cfb48c4eebb90da0081663de1d623b7e7fd69d7f2fa6c02f",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/numerical-final-manifest.json",
+      "source_sha256": "3bb021ca0eb88940cfb48c4eebb90da0081663de1d623b7e7fd69d7f2fa6c02f"
+    },
+    {
+      "path": "construct_search/run_tracezero_hadamard.py",
+      "bytes": 1314,
+      "sha256": "99867b2925bed059c22c464ddbee17bf29e5e425d8e66371cda76df2e3e0d9c5",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/run_tracezero_hadamard.py",
+      "source_sha256": "99867b2925bed059c22c464ddbee17bf29e5e425d8e66371cda76df2e3e0d9c5"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.json",
+      "bytes": 99,
+      "sha256": "eefed2137eb1990c7adf20160ad137fb68a10dcce1f0b39a944d275c367d6fff",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-cubic-symmetry.json",
+      "source_sha256": "eefed2137eb1990c7adf20160ad137fb68a10dcce1f0b39a944d275c367d6fff"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-cubic-symmetry.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.stdout",
+      "bytes": 54,
+      "sha256": "e2133fe48ed04dd8f8e5f210f1ab8206f9d909220fab8f409d5b876bb4aa5474",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-cubic-symmetry.stdout",
+      "source_sha256": "e2133fe48ed04dd8f8e5f210f1ab8206f9d909220fab8f409d5b876bb4aa5474"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-0.sing",
+      "bytes": 8073,
+      "sha256": "6b1dabb4fac875883aa39cc825636fcfc3beba342a04114f65818749949d4f74",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-0.sing",
+      "source_sha256": "6b1dabb4fac875883aa39cc825636fcfc3beba342a04114f65818749949d4f74"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101-run.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101-run.stdout",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101-run.stdout",
+      "source_sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.result.json",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101.result.json",
+      "source_sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.sing",
+      "bytes": 8075,
+      "sha256": "3b5b8098bace626947e032c97be6e7b304b4432f134f971e595e6b23a4d5e7ab",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101.sing",
+      "source_sha256": "3b5b8098bace626947e032c97be6e7b304b4432f134f971e595e6b23a4d5e7ab"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard-101.stdout",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.json",
+      "bytes": 9011,
+      "sha256": "2d141e1724e004e63b73565618afa1569c3d263970c801063beb677599ae6040",
+      "evidence_class": [
+        "exact-and-bounded-computation",
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard.json",
+      "source_sha256": "2d141e1724e004e63b73565618afa1569c3d263970c801063beb677599ae6040"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.stdout",
+      "bytes": 166,
+      "sha256": "7575770910b38b4193fe52e956fdc641a57e24e52fe61c90ef66127d2dc617e0",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-hadamard.stdout",
+      "source_sha256": "7575770910b38b4193fe52e956fdc641a57e24e52fe61c90ef66127d2dc617e0"
+    },
+    {
+      "path": "construct_search/tracezero-jacobians.json",
+      "bytes": 23645,
+      "sha256": "fcfdf302771c6bb399c5f9d0d19bff7c67acb643dc33bbf03323a786222997a1",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-jacobians.json",
+      "source_sha256": "fcfdf302771c6bb399c5f9d0d19bff7c67acb643dc33bbf03323a786222997a1"
+    },
+    {
+      "path": "construct_search/tracezero-jacobians.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-jacobians.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-jacobians.stdout",
+      "bytes": 1795,
+      "sha256": "e0905c9064f003fb00e25fd652cf9f09898fe6dae336b0eaba4967ffe4c3f00b",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-jacobians.stdout",
+      "source_sha256": "e0905c9064f003fb00e25fd652cf9f09898fe6dae336b0eaba4967ffe4c3f00b"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-audit.json",
+      "bytes": 35665,
+      "sha256": "32bede505120610d08b897dc05e8609f2bd85a59723393266109d93a6251ec14",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-audit.json",
+      "source_sha256": "32bede505120610d08b897dc05e8609f2bd85a59723393266109d93a6251ec14"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-audit.stdout",
+      "bytes": 291,
+      "sha256": "6d26b37d58fe0e6cec290374599c2338c985e6f443b28aa99591947f49f9735a",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-audit.stdout",
+      "source_sha256": "6d26b37d58fe0e6cec290374599c2338c985e6f443b28aa99591947f49f9735a"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-best.json",
+      "bytes": 851,
+      "sha256": "b4f552918da46f4efafab1408eb0652487529cc86fd7c6cb9e48e0c5dcf2779c",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-best.json",
+      "source_sha256": "b4f552918da46f4efafab1408eb0652487529cc86fd7c6cb9e48e0c5dcf2779c"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-candidates.json",
+      "bytes": 369069,
+      "sha256": "8bbe9580a95a57e09f1cd3b68a6d6717d562dde839f6b91ca6e40c2038f688b1",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-candidates.json",
+      "source_sha256": "8bbe9580a95a57e09f1cd3b68a6d6717d562dde839f6b91ca6e40c2038f688b1"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-extensions.json",
+      "bytes": 111246,
+      "sha256": "d2708583c735ad33683680ce153118a274ced2315540aaf6370dd5246cadae15",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-extensions.json",
+      "source_sha256": "d2708583c735ad33683680ce153118a274ced2315540aaf6370dd5246cadae15"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-extensions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-extensions.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-extensions.stdout",
+      "bytes": 239,
+      "sha256": "71045493f4c2318c36b7babd4658d874ba0cda582a620e3692042b68bb5fd345",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-extensions.stdout",
+      "source_sha256": "71045493f4c2318c36b7babd4658d874ba0cda582a620e3692042b68bb5fd345"
+    },
+    {
+      "path": "construct_search/tracezero-numeric-summary.json",
+      "bytes": 312,
+      "sha256": "3da9bf4ed5afdf8522447cc06403239e9c276a2fcc04c67c804e7786b634b9fc",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric-summary.json",
+      "source_sha256": "3da9bf4ed5afdf8522447cc06403239e9c276a2fcc04c67c804e7786b634b9fc"
+    },
+    {
+      "path": "construct_search/tracezero-numeric.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-numeric.stdout",
+      "bytes": 51970,
+      "sha256": "b217c5aae7d3d61718eec8cc28a269c8cc10e9f04008e1ba1a097d324fcaf9be",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero-numeric.stdout",
+      "source_sha256": "b217c5aae7d3d61718eec8cc28a269c8cc10e9f04008e1ba1a097d324fcaf9be"
+    },
+    {
+      "path": "construct_search/tracezero_cubic_symmetry.py",
+      "bytes": 1377,
+      "sha256": "5ccde616f5c2943630839f2c92decdd7c2d9dc85169b1fc58d34db919b58ff07",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero_cubic_symmetry.py",
+      "source_sha256": "5ccde616f5c2943630839f2c92decdd7c2d9dc85169b1fc58d34db919b58ff07"
+    },
+    {
+      "path": "construct_search/tracezero_hadamard.py",
+      "bytes": 3014,
+      "sha256": "e38fdf5a003fe3758495de9a6a1be9fb0f074fc8c3c1ef7f78c779a6461fdfff",
+      "evidence_class": [
+        "exact-and-bounded-computation"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero_hadamard.py",
+      "source_sha256": "e38fdf5a003fe3758495de9a6a1be9fb0f074fc8c3c1ef7f78c779a6461fdfff"
+    },
+    {
+      "path": "construct_search/tracezero_jacobians.py",
+      "bytes": 2440,
+      "sha256": "e64e925875366e1b1145f0640b4e88eeac73e17dc616064e2c1ec4e47e5a5d30",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero_jacobians.py",
+      "source_sha256": "e64e925875366e1b1145f0640b4e88eeac73e17dc616064e2c1ec4e47e5a5d30"
+    },
+    {
+      "path": "construct_search/tracezero_numeric.py",
+      "bytes": 4899,
+      "sha256": "78d60ef8cd3257a89230b7cfb25fca9bf6c13c993dc35ce5602efcf978607e38",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero_numeric.py",
+      "source_sha256": "78d60ef8cd3257a89230b7cfb25fca9bf6c13c993dc35ce5602efcf978607e38"
+    },
+    {
+      "path": "construct_search/tracezero_numeric_extensions.py",
+      "bytes": 1761,
+      "sha256": "8cd5bde322f82c08e85f738a2bd1c4e976be734c7247943a94e79b4e30e91afe",
+      "evidence_class": [
+        "numerical-and-finite-evidence"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/tracezero_numeric_extensions.py",
+      "source_sha256": "8cd5bde322f82c08e85f738a2bd1c4e976be734c7247943a94e79b4e30e91afe"
+    },
+    {
+      "path": "construct_search/unaveraged-quartics-audit.json",
+      "bytes": 2754,
+      "sha256": "57ca72a2c7cf5c5b865e243e327380877bf3334125b14b2756101ce1985fbc81",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/unaveraged-quartics-audit.json",
+      "source_sha256": "57ca72a2c7cf5c5b865e243e327380877bf3334125b14b2756101ce1985fbc81"
+    },
+    {
+      "path": "construct_search/unaveraged-quartics-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/unaveraged-quartics-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/unaveraged-quartics-audit.stdout",
+      "bytes": 199,
+      "sha256": "aa52f3b8c5f441934666009963fec136e47214d977a4baf9f0c127143990950d",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/construct_search/unaveraged-quartics-audit.stdout",
+      "source_sha256": "aa52f3b8c5f441934666009963fec136e47214d977a4baf9f0c127143990950d"
+    },
+    {
+      "path": "dependencies/s4-preservation-manifest.json",
+      "bytes": 14529,
+      "sha256": "19d0bdadd5ef5885b02cc0a38bc2413bcfa7042e56eb63d0c2c52ac9c10cb1c6",
+      "evidence_class": [
+        "historical-dependency-manifest"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-preservation-manifest.json",
+      "source_sha256": "19d0bdadd5ef5885b02cc0a38bc2413bcfa7042e56eb63d0c2c52ac9c10cb1c6"
+    },
+    {
+      "path": "geometry_search/exact-quartics-preservation-independent-audit.json",
+      "bytes": 785,
+      "sha256": "4465273cce606e3b2b9c1e660e6367ac3f75d21346f41629ca16036c8f6e95eb",
+      "evidence_class": [
+        "independent-preservation-review"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/exact-quartics-preservation-independent-audit.json",
+      "source_sha256": "4465273cce606e3b2b9c1e660e6367ac3f75d21346f41629ca16036c8f6e95eb"
+    },
+    {
+      "path": "geometry_search/rowzero/audit_finite_extra_orbits.py",
+      "bytes": 3543,
+      "sha256": "91d7f40d3f14ee13f0e5390e7e514ce77d95c30d978efbbf50a6e7ab98e3ef66",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/audit_finite_extra_orbits.py",
+      "source_sha256": "91d7f40d3f14ee13f0e5390e7e514ce77d95c30d978efbbf50a6e7ab98e3ef66"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.json",
+      "bytes": 651,
+      "sha256": "5c011bae238554aefef5f031574166f6a3ab32c66efea83ec5835ab6f102bb4b",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/finite-extra-orbits-independent-audit.json",
+      "source_sha256": "5c011bae238554aefef5f031574166f6a3ab32c66efea83ec5835ab6f102bb4b"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/finite-extra-orbits-independent-audit.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.stdout",
+      "bytes": 599,
+      "sha256": "88a2fb4bf04969c6b663f0de00e5cc42f9495a48c2b9fbef949e53918ffe474a",
+      "evidence_class": [
+        "finite-field-orbit-classification"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/finite-extra-orbits-independent-audit.stdout",
+      "source_sha256": "88a2fb4bf04969c6b663f0de00e5cc42f9495a48c2b9fbef949e53918ffe474a"
+    },
+    {
+      "path": "numeric/s4-exact-quartics-preservation-manifest.json",
+      "bytes": 24789,
+      "sha256": "505cebc2fa64514ad50be5c52e69a5c4e3ef319666476f30abf6d1671de2bb16",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-exact-quartics-preservation-manifest.json",
+      "source_sha256": "505cebc2fa64514ad50be5c52e69a5c4e3ef319666476f30abf6d1671de2bb16"
+    },
+    {
+      "path": "numeric/s4-hadamard/chart.json",
+      "bytes": 51196,
+      "sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5",
+      "evidence_class": [
+        "exact-chart-dependency"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-hadamard/chart.json",
+      "source_sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5"
+    },
+    {
+      "path": "numeric/s4-structure/EXACT-QUARTICS.txt",
+      "bytes": 2457,
+      "sha256": "ab4be59d8d5dc134577e01553e0d5aecc65e7735f7f2f6e769bf19b99d32bb39",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/EXACT-QUARTICS.txt",
+      "source_sha256": "ab4be59d8d5dc134577e01553e0d5aecc65e7735f7f2f6e769bf19b99d32bb39"
+    },
+    {
+      "path": "numeric/s4-structure/block-d8-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-d8-generation.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/block-d8-generation.stdout",
+      "bytes": 970,
+      "sha256": "109a4abe34d32a69ca507cce4530f0a7f3f177230549ea3173c48aeac1ea206e",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-d8-generation.stdout",
+      "source_sha256": "109a4abe34d32a69ca507cce4530f0a7f3f177230549ea3173c48aeac1ea206e"
+    },
+    {
+      "path": "numeric/s4-structure/block-d8/invariant-D5-validation.json",
+      "bytes": 716,
+      "sha256": "a3e47f0547ee04bc1889d9064274240fb4c23c98a8a53b45e865ac07edf88bd4",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-d8/invariant-D5-validation.json",
+      "source_sha256": "a3e47f0547ee04bc1889d9064274240fb4c23c98a8a53b45e865ac07edf88bd4"
+    },
+    {
+      "path": "numeric/s4-structure/block-id-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-id-generation.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/block-id-generation.stdout",
+      "bytes": 978,
+      "sha256": "3b033951dd0ad35e93886043ecd62b9d62ff0fcc1c6c8a858e3c5352006fe120",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-id-generation.stdout",
+      "source_sha256": "3b033951dd0ad35e93886043ecd62b9d62ff0fcc1c6c8a858e3c5352006fe120"
+    },
+    {
+      "path": "numeric/s4-structure/block-id/invariant-D5-validation.json",
+      "bytes": 729,
+      "sha256": "193d1b7b37d630abd70b01389783eef758dd05a8264e9f8571428cb83f9aa288",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-id/invariant-D5-validation.json",
+      "source_sha256": "193d1b7b37d630abd70b01389783eef758dd05a8264e9f8571428cb83f9aa288"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3-generation.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3-generation.stdout",
+      "bytes": 964,
+      "sha256": "874f461fc02a4d61e85c3142da03ac696fab85922092a41e88ac7dabf37a36e2",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3-generation.stdout",
+      "source_sha256": "874f461fc02a4d61e85c3142da03ac696fab85922092a41e88ac7dabf37a36e2"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3/invariant-D5-validation.json",
+      "bytes": 718,
+      "sha256": "c2fa6c60b91244fe9981aca271637ec4e930df337afe216a944ac0552ad1b1e2",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3/invariant-D5-validation.json",
+      "source_sha256": "c2fa6c60b91244fe9981aca271637ec4e930df337afe216a944ac0552ad1b1e2"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3sign-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3sign-generation.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3sign-generation.stdout",
+      "bytes": 971,
+      "sha256": "0fd5a11edf50d0756c9ea82a7c70272fec375c8b1faa9542adde12f9a3da169f",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3sign-generation.stdout",
+      "source_sha256": "0fd5a11edf50d0756c9ea82a7c70272fec375c8b1faa9542adde12f9a3da169f"
+    },
+    {
+      "path": "numeric/s4-structure/block-s3sign/invariant-D5-validation.json",
+      "bytes": 720,
+      "sha256": "12ef8c47b6f815e144719df01675486218537d5075f944c5ee746ade211007e1",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-s3sign/invariant-D5-validation.json",
+      "source_sha256": "12ef8c47b6f815e144719df01675486218537d5075f944c5ee746ade211007e1"
+    },
+    {
+      "path": "numeric/s4-structure/block-sign-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-sign-generation.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/block-sign-generation.stdout",
+      "bytes": 954,
+      "sha256": "6017c9b945a5468036c13bf47a8d0d739d082999818a65be828c1566ee393699",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-sign-generation.stdout",
+      "source_sha256": "6017c9b945a5468036c13bf47a8d0d739d082999818a65be828c1566ee393699"
+    },
+    {
+      "path": "numeric/s4-structure/block-sign/invariant-D5-validation.json",
+      "bytes": 708,
+      "sha256": "62d66d79ffdbed716807f6bd3b9d2fe98f4b51cfecb5de2237385666e83f2e65",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/block-sign/invariant-D5-validation.json",
+      "source_sha256": "62d66d79ffdbed716807f6bd3b9d2fe98f4b51cfecb5de2237385666e83f2e65"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-certificates.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-certificates.jsonl",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-driver.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-driver.stdout",
+      "bytes": 292,
+      "sha256": "7faedbb0d966c5b7c460663eb7e292ad88559851912e744302e12b37df0479da",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-driver.stdout",
+      "source_sha256": "7faedbb0d966c5b7c460663eb7e292ad88559851912e744302e12b37df0479da"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-generators.json",
+      "bytes": 156841,
+      "sha256": "1bf9cb534f2f7e4dce1bf3b48dac57b3d1891e423db7a48de4132f5e6d500db7",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-generators.json",
+      "source_sha256": "1bf9cb534f2f7e4dce1bf3b48dac57b3d1891e423db7a48de4132f5e6d500db7"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-input.json",
+      "bytes": 194,
+      "sha256": "af4ba18e700d4a917b3f2300eaf3747660db8f56c00bf2d7a88d93fd69918ba0",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-input.json",
+      "source_sha256": "af4ba18e700d4a917b3f2300eaf3747660db8f56c00bf2d7a88d93fd69918ba0"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-prepare.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-prepare.stdout",
+      "bytes": 179,
+      "sha256": "5d7da51e2d32f49ddb6949a6a09510f1c2a378c668f97abb875c3d38857de127",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-prepare.stdout",
+      "source_sha256": "5d7da51e2d32f49ddb6949a6a09510f1c2a378c668f97abb875c3d38857de127"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-result.json",
+      "bytes": 119,
+      "sha256": "70979b62da802cd8bc3749a11b0ce30100aa796b66bdbbf5479eb09e8ac2fac8",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-result.json",
+      "source_sha256": "70979b62da802cd8bc3749a11b0ce30100aa796b66bdbbf5479eb09e8ac2fac8"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1-rowmap.json",
+      "bytes": 131619,
+      "sha256": "89f6303a307957aca2712b24c44978f8582cb823a85a8675e0b47394baee94c0",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1-rowmap.json",
+      "source_sha256": "89f6303a307957aca2712b24c44978f8582cb823a85a8675e0b47394baee94c0"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1.stderr",
+      "bytes": 1095,
+      "sha256": "c09e318844a7514c3837fee9d889c71a89c2dc1f86455dcb32db49ef1db3ec17",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1.stderr",
+      "source_sha256": "c09e318844a7514c3837fee9d889c71a89c2dc1f86455dcb32db49ef1db3ec17"
+    },
+    {
+      "path": "numeric/s4-structure/closure-1.stdout",
+      "bytes": 183,
+      "sha256": "a3dfd267b101f68e1d39d401fe12d680dfd28553bcdff29e1dd795feafca1c03",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure-1.stdout",
+      "source_sha256": "a3dfd267b101f68e1d39d401fe12d680dfd28553bcdff29e1dd795feafca1c03"
+    },
+    {
+      "path": "numeric/s4-structure/closure_prepare.py",
+      "bytes": 2827,
+      "sha256": "e00b4e214c99ae8bde43b4b5261d19c9b0f1fba04121c63c4b2d823474d4099b",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure_prepare.py",
+      "source_sha256": "e00b4e214c99ae8bde43b4b5261d19c9b0f1fba04121c63c4b2d823474d4099b"
+    },
+    {
+      "path": "numeric/s4-structure/closure_run.py",
+      "bytes": 2122,
+      "sha256": "548587c0995ea9317fc7ba2a9f48ca65ff69aa0f2c26958b5723907bf08cb6e0",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/closure_run.py",
+      "source_sha256": "548587c0995ea9317fc7ba2a9f48ca65ff69aa0f2c26958b5723907bf08cb6e0"
+    },
+    {
+      "path": "numeric/s4-structure/factor-quartic3.result.json",
+      "bytes": 42,
+      "sha256": "29b56dcd62d183d2ba3640b51a2c4295266acc9852155dba65c5c024cca0bfb9",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/factor-quartic3.result.json",
+      "source_sha256": "29b56dcd62d183d2ba3640b51a2c4295266acc9852155dba65c5c024cca0bfb9"
+    },
+    {
+      "path": "numeric/s4-structure/factor-quartic3.sing",
+      "bytes": 2168,
+      "sha256": "2ceccc740e3a2596a29cece233da0154899c5c23dcee35b23fd107e6377562bc",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/factor-quartic3.sing",
+      "source_sha256": "2ceccc740e3a2596a29cece233da0154899c5c23dcee35b23fd107e6377562bc"
+    },
+    {
+      "path": "numeric/s4-structure/factor-quartic3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/factor-quartic3.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/factor-quartic3.stdout",
+      "bytes": 1514,
+      "sha256": "861cc4da4d6d084c4368df2c3fc4d3671065f31b534b01dff6631a84d29d53e2",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/factor-quartic3.stdout",
+      "source_sha256": "861cc4da4d6d084c4368df2c3fc4d3671065f31b534b01dff6631a84d29d53e2"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-compile.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-compile.stdout",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-d8-certificates.jsonl",
+      "bytes": 13129,
+      "sha256": "84153a32657ea5cc700793bf25ef3a016aeb4417690ec2a98ccd51486dd32f37",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-d8-certificates.jsonl",
+      "source_sha256": "84153a32657ea5cc700793bf25ef3a016aeb4417690ec2a98ccd51486dd32f37"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-d8.stderr",
+      "bytes": 262,
+      "sha256": "aabbdacb3d63542e0aa3e1f93a077d200f37d40ba2bd4d2770f4c2683a319a94",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-d8.stderr",
+      "source_sha256": "aabbdacb3d63542e0aa3e1f93a077d200f37d40ba2bd4d2770f4c2683a319a94"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-d8.stdout",
+      "bytes": 177,
+      "sha256": "d3846c5e691bdfcb3a01c50f5cc49dc51ba65e94097bdb8dc8d174d8d7823f34",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-d8.stdout",
+      "source_sha256": "d3846c5e691bdfcb3a01c50f5cc49dc51ba65e94097bdb8dc8d174d8d7823f34"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-id-certificates.jsonl",
+      "bytes": 130813,
+      "sha256": "8cdb477b430fe653f12e74eb680afbdd436d017eec1c9c89c3f71e390e3e0cba",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-id-certificates.jsonl",
+      "source_sha256": "8cdb477b430fe653f12e74eb680afbdd436d017eec1c9c89c3f71e390e3e0cba"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-id.result.json",
+      "bytes": 100,
+      "sha256": "027d20387b8d9c893837126f0a80a52c1d87e7e820f8e67398fbe5af8aee9bf5",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-id.result.json",
+      "source_sha256": "027d20387b8d9c893837126f0a80a52c1d87e7e820f8e67398fbe5af8aee9bf5"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-id.stderr",
+      "bytes": 2371,
+      "sha256": "cb029e5e2666bbe54c670c495daba6fdb6f09d2e0adac098369ae8bac44a98d6",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-id.stderr",
+      "source_sha256": "cb029e5e2666bbe54c670c495daba6fdb6f09d2e0adac098369ae8bac44a98d6"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-id.stdout",
+      "bytes": 183,
+      "sha256": "850c606aded85e10302a1b260ad164fb3591d738c534a1619247ef8c05b3c054",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-id.stdout",
+      "source_sha256": "850c606aded85e10302a1b260ad164fb3591d738c534a1619247ef8c05b3c054"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3-certificates.jsonl",
+      "bytes": 13721,
+      "sha256": "34f4e2f4aa6d3ca381ef93e89810cd8809deb594f2d6d69cdf59750bffbae8d2",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3-certificates.jsonl",
+      "source_sha256": "34f4e2f4aa6d3ca381ef93e89810cd8809deb594f2d6d69cdf59750bffbae8d2"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3.stderr",
+      "bytes": 367,
+      "sha256": "a03d57031232b4d7c09903ec5999356cfeb01f7ff6924ace4ecb36cf7faec644",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3.stderr",
+      "source_sha256": "a03d57031232b4d7c09903ec5999356cfeb01f7ff6924ace4ecb36cf7faec644"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3.stdout",
+      "bytes": 177,
+      "sha256": "7acba4badacfc37529503ed27255f1f7ceb26b3c1570cdd6fcad592f76eb90ad",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3.stdout",
+      "source_sha256": "7acba4badacfc37529503ed27255f1f7ceb26b3c1570cdd6fcad592f76eb90ad"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3sign-certificates.jsonl",
+      "bytes": 11023,
+      "sha256": "46b3408361295587385a0e91c7fecd6affbbd0f42aef9b25c8723f0b2a1fe9c8",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3sign-certificates.jsonl",
+      "source_sha256": "46b3408361295587385a0e91c7fecd6affbbd0f42aef9b25c8723f0b2a1fe9c8"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3sign.stderr",
+      "bytes": 366,
+      "sha256": "5e7bddda77ad0ffec3c372cfabaf9084ae16e1a7e3e4cc80e67e7ffc78521bde",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3sign.stderr",
+      "source_sha256": "5e7bddda77ad0ffec3c372cfabaf9084ae16e1a7e3e4cc80e67e7ffc78521bde"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-s3sign.stdout",
+      "bytes": 154,
+      "sha256": "827b5ad54fe8fdd2e66e356fafca0bfc0ec785828489ef569270906571d075bc",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-s3sign.stdout",
+      "source_sha256": "827b5ad54fe8fdd2e66e356fafca0bfc0ec785828489ef569270906571d075bc"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-sign-certificates.jsonl",
+      "bytes": 1612,
+      "sha256": "8e5951edf2834acf5cf0ff08e055cc3c81b3811377b2b86ca9223f16f5f0eaaf",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-sign-certificates.jsonl",
+      "source_sha256": "8e5951edf2834acf5cf0ff08e055cc3c81b3811377b2b86ca9223f16f5f0eaaf"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-sign.stderr",
+      "bytes": 52,
+      "sha256": "cc5297ef2e7b413f3f33cadc0ebeccbf62d8bf07bef9a7bacd4fec37ffcc0a81",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-sign.stderr",
+      "source_sha256": "cc5297ef2e7b413f3f33cadc0ebeccbf62d8bf07bef9a7bacd4fec37ffcc0a81"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-sign.stdout",
+      "bytes": 149,
+      "sha256": "d8c33bd08bf5c5d6b118558086e90f76597f0a6f8514651e287192773db340b5",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-sign.stdout",
+      "source_sha256": "d8c33bd08bf5c5d6b118558086e90f76597f0a6f8514651e287192773db340b5"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-triv-certificates.jsonl",
+      "bytes": 2966,
+      "sha256": "e83e0feb385350ef1324414aea9f8249cec1109332cea215c1881bea1f85e539",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-triv-certificates.jsonl",
+      "source_sha256": "e83e0feb385350ef1324414aea9f8249cec1109332cea215c1881bea1f85e539"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-triv.stderr",
+      "bytes": 53,
+      "sha256": "e8479af0da273d53eaf77c418b81ec462c4fd651db5d1e762391b4ac564821de",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-triv.stderr",
+      "source_sha256": "e8479af0da273d53eaf77c418b81ec462c4fd651db5d1e762391b4ac564821de"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational-triv.stdout",
+      "bytes": 172,
+      "sha256": "59d80e412d119422a4caf7c784a1f53e443a23efec51cc3e6d87aa01c2f72ac1",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational-triv.stdout",
+      "source_sha256": "59d80e412d119422a4caf7c784a1f53e443a23efec51cc3e6d87aa01c2f72ac1"
+    },
+    {
+      "path": "numeric/s4-structure/graded-rational.cpp",
+      "bytes": 4905,
+      "sha256": "86709e6ec610d4ae4e6bd6c45b46578a29aaf444d24cfd6f2381deb0acabc8ee",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/graded-rational.cpp",
+      "source_sha256": "86709e6ec610d4ae4e6bd6c45b46578a29aaf444d24cfd6f2381deb0acabc8ee"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-d8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-d8.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-d8.stdout",
+      "bytes": 149,
+      "sha256": "b726b137e54a2f249f071b7a55d173bd1db37abc6778825fba307086f172d2d0",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-d8.stdout",
+      "source_sha256": "b726b137e54a2f249f071b7a55d173bd1db37abc6778825fba307086f172d2d0"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-id.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-id.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-id.stdout",
+      "bytes": 152,
+      "sha256": "49b3dbfb41b99fa2e18ce7a714e4ec44720b6fe85920e92eb7e548e8f84bab04",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-id.stdout",
+      "source_sha256": "49b3dbfb41b99fa2e18ce7a714e4ec44720b6fe85920e92eb7e548e8f84bab04"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-s3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-s3.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-s3.stdout",
+      "bytes": 149,
+      "sha256": "529fd0826f0f50f024ac8a974285202a1957a11c854cde7a5bd7805df411b098",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-s3.stdout",
+      "source_sha256": "529fd0826f0f50f024ac8a974285202a1957a11c854cde7a5bd7805df411b098"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-s3sign.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-s3sign.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-s3sign.stdout",
+      "bytes": 153,
+      "sha256": "0155ae9d2f64ea3c02dc10407e6ebae4f3b127cdd4bd950ad394201c4622e5e4",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-s3sign.stdout",
+      "source_sha256": "0155ae9d2f64ea3c02dc10407e6ebae4f3b127cdd4bd950ad394201c4622e5e4"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-sign.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-sign.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-sign.stdout",
+      "bytes": 149,
+      "sha256": "fa78b3f80cc84255864c90911592d00db85ba4f79816fc96162e276a8c4e7a70",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-sign.stdout",
+      "source_sha256": "fa78b3f80cc84255864c90911592d00db85ba4f79816fc96162e276a8c4e7a70"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-triv.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-triv.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/prepare-rational-triv.stdout",
+      "bytes": 149,
+      "sha256": "e509125e6d4b338af8f62ea704b545df4598dcf75837ff9b7af31a7fcb30b029",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare-rational-triv.stdout",
+      "source_sha256": "e509125e6d4b338af8f62ea704b545df4598dcf75837ff9b7af31a7fcb30b029"
+    },
+    {
+      "path": "numeric/s4-structure/prepare_rational.py",
+      "bytes": 1622,
+      "sha256": "cdfebbba712a51cc6aade69874b730f77a5315bb8ac65a1381e90734c373972d",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/prepare_rational.py",
+      "source_sha256": "cdfebbba712a51cc6aade69874b730f77a5315bb8ac65a1381e90734c373972d"
+    },
+    {
+      "path": "numeric/s4-structure/projected_matrix.py",
+      "bytes": 6832,
+      "sha256": "13a47a5435eb8b41a83b33f7eba2c43f6dfaeb969e25a8b21236208f35a03a22",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/projected_matrix.py",
+      "source_sha256": "13a47a5435eb8b41a83b33f7eba2c43f6dfaeb969e25a8b21236208f35a03a22"
+    },
+    {
+      "path": "numeric/s4-structure/quartic-orbit-ranks.json",
+      "bytes": 617,
+      "sha256": "ea983f409cb5f39c669a81bdd8c7b35377c1394e7f3cfa8bf5df3a97d781873f",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/quartic-orbit-ranks.json",
+      "source_sha256": "ea983f409cb5f39c669a81bdd8c7b35377c1394e7f3cfa8bf5df3a97d781873f"
+    },
+    {
+      "path": "numeric/s4-structure/quartic3-column-sums.txt",
+      "bytes": 953,
+      "sha256": "f9867fc93c1e8a1eb219070825c97b580401cd7a1d58f5ee2d03aee80799f028",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/quartic3-column-sums.txt",
+      "source_sha256": "f9867fc93c1e8a1eb219070825c97b580401cd7a1d58f5ee2d03aee80799f028"
+    },
+    {
+      "path": "numeric/s4-structure/quartic3-tracezero.txt",
+      "bytes": 353,
+      "sha256": "ea3f547ae5543d7f1fc6fbf848b8a64c16b12d0e6819c9444be064d45ea2562c",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/quartic3-tracezero.txt",
+      "source_sha256": "ea3f547ae5543d7f1fc6fbf848b8a64c16b12d0e6819c9444be064d45ea2562c"
+    },
+    {
+      "path": "numeric/s4-structure/rational-d8-rowmap.json",
+      "bytes": 78677,
+      "sha256": "7e643baa48c28814db9cf02b417a032865e464cb66cdca89c66345cc30ea3ae6",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-d8-rowmap.json",
+      "source_sha256": "7e643baa48c28814db9cf02b417a032865e464cb66cdca89c66345cc30ea3ae6"
+    },
+    {
+      "path": "numeric/s4-structure/rational-id-rowmap.json",
+      "bytes": 634177,
+      "sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-id-rowmap.json",
+      "source_sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433"
+    },
+    {
+      "path": "numeric/s4-structure/rational-s3-rowmap.json",
+      "bytes": 106385,
+      "sha256": "5e681070a4e8be87c97b98b8aef43ace7beb76f24647adb9e87c9c67617ec529",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-s3-rowmap.json",
+      "source_sha256": "5e681070a4e8be87c97b98b8aef43ace7beb76f24647adb9e87c9c67617ec529"
+    },
+    {
+      "path": "numeric/s4-structure/rational-s3sign-rowmap.json",
+      "bytes": 102147,
+      "sha256": "dc2b1785945e1afd7dee97422bfe3bee4eada470e98e5b66fc2339ac49d5d879",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-s3sign-rowmap.json",
+      "source_sha256": "dc2b1785945e1afd7dee97422bfe3bee4eada470e98e5b66fc2339ac49d5d879"
+    },
+    {
+      "path": "numeric/s4-structure/rational-sign-rowmap.json",
+      "bytes": 24575,
+      "sha256": "a5e06b105299fe89953c99eaf9a998f013a4981bcc2eab5d1ccf9a0f9cbc763c",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-sign-rowmap.json",
+      "source_sha256": "a5e06b105299fe89953c99eaf9a998f013a4981bcc2eab5d1ccf9a0f9cbc763c"
+    },
+    {
+      "path": "numeric/s4-structure/rational-triv-rowmap.json",
+      "bytes": 26675,
+      "sha256": "ca13b527924a8539984adc4a98a7cb1ce8de7d9b3b2237c3b806ca4f7ec49672",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/rational-triv-rowmap.json",
+      "source_sha256": "ca13b527924a8539984adc4a98a7cb1ce8de7d9b3b2237c3b806ca4f7ec49672"
+    },
+    {
+      "path": "numeric/s4-structure/representation-multiplicities-exact.json",
+      "bytes": 1290,
+      "sha256": "9f69a8da292250a791baac9a0cfc4b64ec32d121786c3a28c01a38f77b06c0b5",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/representation-multiplicities-exact.json",
+      "source_sha256": "9f69a8da292250a791baac9a0cfc4b64ec32d121786c3a28c01a38f77b06c0b5"
+    },
+    {
+      "path": "numeric/s4-structure/triangle-bridge-secondary-review.json",
+      "bytes": 1317,
+      "sha256": "18630a51e4f8b92f1ec8fbd5f15fa517131a73d72be58508bc8278b4e58b99e0",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/triangle-bridge-secondary-review.json",
+      "source_sha256": "18630a51e4f8b92f1ec8fbd5f15fa517131a73d72be58508bc8278b4e58b99e0"
+    },
+    {
+      "path": "numeric/s4-structure/unaveraged-quartics-verification.json",
+      "bytes": 3813,
+      "sha256": "da0e1bcb91ecf2d025e05c382cdacbc63f9fb27b35befd77af6666a684064d3f",
+      "evidence_class": [
+        "exact-rational-identities-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/numeric/s4-structure/unaveraged-quartics-verification.json",
+      "source_sha256": "da0e1bcb91ecf2d025e05c382cdacbc63f9fb27b35befd77af6666a684064d3f"
+    },
+    {
+      "path": "root-algebra/audit-c3-extension.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit-c3-extension.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "root-algebra/audit-c3-extension.stdout",
+      "bytes": 326,
+      "sha256": "2d8bcf9d365583b0eabd4d27a65860351ae9db5d647f4936e0cd6dfc09be6348",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit-c3-extension.stdout",
+      "source_sha256": "2d8bcf9d365583b0eabd4d27a65860351ae9db5d647f4936e0cd6dfc09be6348"
+    },
+    {
+      "path": "root-algebra/audit-c3-tracezero.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit-c3-tracezero.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "root-algebra/audit-c3-tracezero.stdout",
+      "bytes": 339,
+      "sha256": "8ae89d1c083914b35f0a96f886974c5ac6c44fb58883980bc667fb92f779b171",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit-c3-tracezero.stdout",
+      "source_sha256": "8ae89d1c083914b35f0a96f886974c5ac6c44fb58883980bc667fb92f779b171"
+    },
+    {
+      "path": "root-algebra/audit_c3_extension.py",
+      "bytes": 2648,
+      "sha256": "1205cb4f862ec7db7f4e4ed39f3bb9efc31cf4220589217ea4cb6bbb8a955547",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit_c3_extension.py",
+      "source_sha256": "1205cb4f862ec7db7f4e4ed39f3bb9efc31cf4220589217ea4cb6bbb8a955547"
+    },
+    {
+      "path": "root-algebra/audit_c3_tracezero.py",
+      "bytes": 2172,
+      "sha256": "00c0db775161bf229c94b21bb9ad365f3e95f7d285de2b7bb128478e5e29c4e1",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/audit_c3_tracezero.py",
+      "source_sha256": "00c0db775161bf229c94b21bb9ad365f3e95f7d285de2b7bb128478e5e29c4e1"
+    },
+    {
+      "path": "root-algebra/c3-extension-independent-review.json",
+      "bytes": 340,
+      "sha256": "957b9d1642fc38ff0c1bbe714e0fac06b84ce06c9d8505e2acb9621278b0c8a9",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/c3-extension-independent-review.json",
+      "source_sha256": "957b9d1642fc38ff0c1bbe714e0fac06b84ce06c9d8505e2acb9621278b0c8a9"
+    },
+    {
+      "path": "root-algebra/c3-tracezero-independent-review.json",
+      "bytes": 375,
+      "sha256": "aae2416ed8310419359b414e96363f425e75efc9ecb05ac80b74e380bccd2483",
+      "evidence_class": [
+        "exact-c3-certificates-not-lean"
+      ],
+      "source": "/tmp/oec/pequalnp-pilot-78/root-algebra/c3-tracezero-independent-review.json",
+      "source_sha256": "aae2416ed8310419359b414e96363f425e75efc9ecb05ac80b74e380bccd2483"
+    },
+    {
+      "path": "snapshots/NOTES.md",
+      "bytes": 62955,
+      "sha256": "eed2886ef5229eac146734658903d34b023f7b83512d71197011fd9728729f30",
+      "evidence_class": [
+        "historical-research-notes"
+      ],
+      "source": "/workspace/pequalnp-proofs/results/orch/NOTES.md",
+      "source_sha256": "eed2886ef5229eac146734658903d34b023f7b83512d71197011fd9728729f30"
+    },
+    {
+      "path": "snapshots/TIMELINE.md",
+      "bytes": 5324,
+      "sha256": "779babff0ba5a801e2c17a97dff9eb3fa95a805ed82b8b485ffae8986157998d",
+      "evidence_class": [
+        "historical-research-notes"
+      ],
+      "source": "/workspace/pequalnp-proofs/results/orch/TIMELINE.md",
+      "source_sha256": "779babff0ba5a801e2c17a97dff9eb3fa95a805ed82b8b485ffae8986157998d"
+    }
+  ],
+  "payload_file_count": 312,
+  "payload_total_bytes": 10968990,
+  "manifest_self_excluded": true
+}

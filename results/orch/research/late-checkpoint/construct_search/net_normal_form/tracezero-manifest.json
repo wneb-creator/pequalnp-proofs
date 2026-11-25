@@ -1,0 +1,190 @@
+{
+  "created_utc": "2026-11-25T11:42:07.943685+00:00",
+  "files": [
+    {
+      "path": "net_normal_form/tracezero-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/tracezero-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/tracezero-direct-audit.json",
+      "bytes": 936,
+      "sha256": "c2ebdec396dfb138045f8731794537e5ae299044503eba9d0fa7ccdcc63248de"
+    },
+    {
+      "path": "net_normal_form/tracezero-direct-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/tracezero-direct-audit.stdout",
+      "bytes": 649,
+      "sha256": "53dbf907e98dd2598b6495a8316e42ea19b116cc57004919c1d810cbece261e6"
+    },
+    {
+      "path": "net_normal_form/tracezero-f11-2planes.json",
+      "bytes": 1167,
+      "sha256": "292b8c847d1187a5b1eca5a1cc3dd29f080db716c5be69d5592aef970227fcc3"
+    },
+    {
+      "path": "net_normal_form/tracezero-f11.result.json",
+      "bytes": 174,
+      "sha256": "dd30a109365324abf0e994f2843377ddc3377d752ceb0c4e6d836dbe6ea252ad"
+    },
+    {
+      "path": "net_normal_form/tracezero-f11.stderr",
+      "bytes": 116,
+      "sha256": "b12df9249e13f4213178585fdc599db90a06f837bc8ff84a39f1b9b8c0241310"
+    },
+    {
+      "path": "net_normal_form/tracezero-f11.stdout",
+      "bytes": 325,
+      "sha256": "ee8325fc1f535734149cc80fdcd0c4b67fbe3ec45888efee170cac7403db731d"
+    },
+    {
+      "path": "net_normal_form/tracezero-f13-2planes.json",
+      "bytes": 1389,
+      "sha256": "d69946d2ce119c4506f9b5267e72296b9b3abeeb54f4ef282e7875ec34dbeb55"
+    },
+    {
+      "path": "net_normal_form/tracezero-f13.result.json",
+      "bytes": 174,
+      "sha256": "ae2fcb10d888cfc9e9ca830ac8debf90d3ff29b3c61dd52c4d7a00233bfe6f00"
+    },
+    {
+      "path": "net_normal_form/tracezero-f13.stderr",
+      "bytes": 175,
+      "sha256": "50b3b6064c021a7ed91f237441e0600dc47cfb3850cd87eb0196582c8260fa8a"
+    },
+    {
+      "path": "net_normal_form/tracezero-f13.stdout",
+      "bytes": 324,
+      "sha256": "f48f0675c00d2502bf5172f72445e9746f1c5c7cc7ff3b72f8b62e6379b302f9"
+    },
+    {
+      "path": "net_normal_form/tracezero-f17-2planes.json",
+      "bytes": 1195,
+      "sha256": "6993ad0bf4e16b76eefb6db2308b7524a1d3639a31bb6ceac05e667eff91b59c"
+    },
+    {
+      "path": "net_normal_form/tracezero-f17.result.json",
+      "bytes": 172,
+      "sha256": "ac0029a4d5a2b833524acd351e81efd24dae65464c8d8b9974cdd38d558b84bf"
+    },
+    {
+      "path": "net_normal_form/tracezero-f17.stderr",
+      "bytes": 536,
+      "sha256": "bbee39b3536f3c3c811e7d74efb84dc1c6bc695651da9ce23a3d929ea91df9ed"
+    },
+    {
+      "path": "net_normal_form/tracezero-f17.stdout",
+      "bytes": 325,
+      "sha256": "665e3d0550a0d81cfff26aea9ca091f7fc6bce4c5285b6cde1944d78fcf51ab2"
+    },
+    {
+      "path": "net_normal_form/tracezero-f19-2planes.json",
+      "bytes": 2838,
+      "sha256": "cc538304ae6544f66d2dfe48bc5d1301e9bb078289c94de9741e141e1356a24d"
+    },
+    {
+      "path": "net_normal_form/tracezero-f19.result.json",
+      "bytes": 166,
+      "sha256": "e2ef33a969dea896653f6d9de598b408be0ab841b1c7f701e193e3d163ff0232"
+    },
+    {
+      "path": "net_normal_form/tracezero-f19.stderr",
+      "bytes": 864,
+      "sha256": "122df1114b7621692d326ab342e6a4d3b271f6a72d3f8c38d1b5d43a13af5913"
+    },
+    {
+      "path": "net_normal_form/tracezero-f19.stdout",
+      "bytes": 330,
+      "sha256": "1ed5bc34f472addd050e819ff0c05bac8c97ecdb13b14bb5c57a5db276a80dea"
+    },
+    {
+      "path": "net_normal_form/tracezero-f23-2planes.json",
+      "bytes": 2469,
+      "sha256": "b2677ee7a5e4658f6eb2d15f97161ef167474f1626cd4f0f58bd49eb719a1653"
+    },
+    {
+      "path": "net_normal_form/tracezero-f23.result.json",
+      "bytes": 176,
+      "sha256": "a836d4d7dd5d594d9d1fabdab944d7060aaaef928d36a84371cd315bd7de2c2e"
+    },
+    {
+      "path": "net_normal_form/tracezero-f23.stderr",
+      "bytes": 1947,
+      "sha256": "aa79a2875368b5a76809a6ae3088fc72da324f5d481ba282f8c19cd5fb24e5d8"
+    },
+    {
+      "path": "net_normal_form/tracezero-f23.stdout",
+      "bytes": 332,
+      "sha256": "501028a597480807b4fe49ef67b494243d61af319ff02c9f01dcd12e41bef89c"
+    },
+    {
+      "path": "net_normal_form/tracezero-f5-2planes.json",
+      "bytes": 1695,
+      "sha256": "8cbf943c092b920505a0206db40b72c65961bcc1f3693f52231fb10ac9fd38b9"
+    },
+    {
+      "path": "net_normal_form/tracezero-f5.result.json",
+      "bytes": 176,
+      "sha256": "f1a626d914441a172dd8f3c55eeaa797e34f7a0d042b5757040e6c311980b4ce"
+    },
+    {
+      "path": "net_normal_form/tracezero-f5.stderr",
+      "bytes": 24,
+      "sha256": "aad06231593f4428c07df827da6403e113edc2ba0c5052eb534c5812cb980b48"
+    },
+    {
+      "path": "net_normal_form/tracezero-f5.stdout",
+      "bytes": 319,
+      "sha256": "ad4855f06e3c1a50e69fe81c7ed6817521d6a7b244485ed84809a42d6d4ca3ed"
+    },
+    {
+      "path": "net_normal_form/tracezero-f7-2planes.json",
+      "bytes": 1507,
+      "sha256": "1a0a2c397c7693652452bdd387d425c9386a0713c9ae47679bd919084bc4c34b"
+    },
+    {
+      "path": "net_normal_form/tracezero-f7.result.json",
+      "bytes": 163,
+      "sha256": "7c86538cfa32506640d253326288c16c79bc3089490a38f3c6f34e4ad403c83e"
+    },
+    {
+      "path": "net_normal_form/tracezero-f7.stderr",
+      "bytes": 25,
+      "sha256": "7d6c77d3936a5416eda3dcc78d594923780f57767a5a43f26823bca0ed4fd09f"
+    },
+    {
+      "path": "net_normal_form/tracezero-f7.stdout",
+      "bytes": 319,
+      "sha256": "1a128eb542bdfe7d14bd67cd432b3af078ed76caacc44a490e1df88e1d1d4fe0"
+    },
+    {
+      "path": "net_normal_form/tracezero-saved-validation.json",
+      "bytes": 122,
+      "sha256": "093f86a4261ab50eba98aabb56582c0bbd4a0eb9db2b4db3cdf5018c7c4ac95f"
+    },
+    {
+      "path": "net_normal_form/tracezero_census.cpp",
+      "bytes": 8078,
+      "sha256": "037e3b2f93ffe9a363203da7b786c1cfcae94d45ff4b6268c0d2f094d03eeaae"
+    },
+    {
+      "path": "net_normal_form/run_tracezero.py",
+      "bytes": 1291,
+      "sha256": "1ba01fb54f1ef935556154a53fef92cd9d741567a1149a6896b4d0cd12c179db"
+    },
+    {
+      "path": "net_normal_form/audit_tracezero.py",
+      "bytes": 2307,
+      "sha256": "3dab1f9f41f8e6cf3881cb6068348895acf6b2b28feb6ed216ec7b04aa2b6e1b"
+    }
+  ]
+}

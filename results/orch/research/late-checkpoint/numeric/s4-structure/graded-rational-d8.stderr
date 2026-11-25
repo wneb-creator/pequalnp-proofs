@@ -1,0 +1,5 @@
+input_row=500 rank=498 stored_nnz=4997 cpu=0.000
+input_row=1000 rank=973 stored_nnz=10587 cpu=0.000
+NEW_LOW_DEGREE input=1262 target=1 degree=4 terms=245
+NEW_LOW_DEGREE input=1267 target=2 degree=4 terms=377
+NEW_LOW_DEGREE input=1278 target=3 degree=4 terms=205

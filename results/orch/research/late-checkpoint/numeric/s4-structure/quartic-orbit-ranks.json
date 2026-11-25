@@ -1,0 +1,56 @@
+[
+  {
+    "targets": [
+      3
+    ],
+    "polynomials": 12,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      0
+    ],
+    "polynomials": 12,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      3,
+      0
+    ],
+    "polynomials": 24,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      3,
+      5
+    ],
+    "polynomials": 24,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      3,
+      10
+    ],
+    "polynomials": 24,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      3,
+      22
+    ],
+    "polynomials": 24,
+    "rank": 1336
+  },
+  {
+    "targets": [
+      3,
+      23
+    ],
+    "polynomials": 24,
+    "rank": 1336
+  }
+]

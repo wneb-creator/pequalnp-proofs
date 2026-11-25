@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "condition_checks": 72,
+  "direct_permanent_expansions": 36,
+  "seconds": 1.9201915840003494,
+  "scalars": {
+    "10_EQUATION_Q": "-64/9",
+    "10_EQUATION_C": "-128/9",
+    "01_EQUATION_Q": "-64/9",
+    "01_EQUATION_C": "-128/9",
+    "11_EQUATION_Q": "-64/9",
+    "11_EQUATION_C": "-128/9"
+  }
+}

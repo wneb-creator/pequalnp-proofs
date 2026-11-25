@@ -1,0 +1,1211 @@
+{
+  "count": 239,
+  "stabilizer_sizes": {
+    "1": 239
+  },
+  "jacobian_ranks_at_1e_7": {
+    "12": 239
+  },
+  "common_kernel_dimensions_at_1e_7": {
+    "0": 239
+  },
+  "max_direct_permanent_residual": 1.3694771134835707e-08,
+  "details": [
+    {
+      "candidate": 0,
+      "direct_permanent_residual": 7.724731234997021e-15,
+      "jacobian_min_singular": 0.004203845678608671
+    },
+    {
+      "candidate": 1,
+      "direct_permanent_residual": 2.9994086257911354e-15,
+      "jacobian_min_singular": 0.000701024717916085
+    },
+    {
+      "candidate": 2,
+      "direct_permanent_residual": 6.165378067837887e-15,
+      "jacobian_min_singular": 6.927034389284528e-05
+    },
+    {
+      "candidate": 3,
+      "direct_permanent_residual": 6.7931771319251766e-15,
+      "jacobian_min_singular": 0.019829821624251353
+    },
+    {
+      "candidate": 4,
+      "direct_permanent_residual": 7.973299380856358e-15,
+      "jacobian_min_singular": 0.0007484870668262841
+    },
+    {
+      "candidate": 5,
+      "direct_permanent_residual": 2.5545521006603536e-15,
+      "jacobian_min_singular": 0.000149506832768277
+    },
+    {
+      "candidate": 6,
+      "direct_permanent_residual": 1.18675236257401e-14,
+      "jacobian_min_singular": 0.0007888080330339035
+    },
+    {
+      "candidate": 7,
+      "direct_permanent_residual": 3.5457747848965937e-15,
+      "jacobian_min_singular": 0.003825683458330113
+    },
+    {
+      "candidate": 8,
+      "direct_permanent_residual": 1.88703219716759e-14,
+      "jacobian_min_singular": 0.0027082823296262016
+    },
+    {
+      "candidate": 9,
+      "direct_permanent_residual": 3.678844234973531e-15,
+      "jacobian_min_singular": 0.004203845678608837
+    },
+    {
+      "candidate": 10,
+      "direct_permanent_residual": 3.497202527569243e-15,
+      "jacobian_min_singular": 0.001158148247632
+    },
+    {
+      "candidate": 11,
+      "direct_permanent_residual": 2.2247786310271853e-15,
+      "jacobian_min_singular": 0.0008621986776562804
+    },
+    {
+      "candidate": 12,
+      "direct_permanent_residual": 3.053145614945433e-13,
+      "jacobian_min_singular": 3.844940365054792e-05
+    },
+    {
+      "candidate": 13,
+      "direct_permanent_residual": 1.5543122344752192e-15,
+      "jacobian_min_singular": 6.531734146448537e-06
+    },
+    {
+      "candidate": 14,
+      "direct_permanent_residual": 1.384513659610701e-15,
+      "jacobian_min_singular": 3.150185931298573e-05
+    },
+    {
+      "candidate": 15,
+      "direct_permanent_residual": 3.795574965437254e-15,
+      "jacobian_min_singular": 0.0022658171536666886
+    },
+    {
+      "candidate": 16,
+      "direct_permanent_residual": 7.771561172376096e-15,
+      "jacobian_min_singular": 0.0006558965913820845
+    },
+    {
+      "candidate": 17,
+      "direct_permanent_residual": 1.7520782679314592e-14,
+      "jacobian_min_singular": 0.0005210043764462461
+    },
+    {
+      "candidate": 18,
+      "direct_permanent_residual": 7.78717071593061e-15,
+      "jacobian_min_singular": 0.00430333078944087
+    },
+    {
+      "candidate": 19,
+      "direct_permanent_residual": 4.648678620197193e-15,
+      "jacobian_min_singular": 2.8957106230892505e-05
+    },
+    {
+      "candidate": 20,
+      "direct_permanent_residual": 7.0684819857071054e-15,
+      "jacobian_min_singular": 0.0020899262981510813
+    },
+    {
+      "candidate": 21,
+      "direct_permanent_residual": 2.512492901227393e-14,
+      "jacobian_min_singular": 0.00014157565464267876
+    },
+    {
+      "candidate": 22,
+      "direct_permanent_residual": 9.891393260019754e-15,
+      "jacobian_min_singular": 0.0027082823296260337
+    },
+    {
+      "candidate": 23,
+      "direct_permanent_residual": 5.219660751910556e-14,
+      "jacobian_min_singular": 0.0003868300765208626
+    },
+    {
+      "candidate": 24,
+      "direct_permanent_residual": 3.582229179597297e-15,
+      "jacobian_min_singular": 2.8076893402883604e-05
+    },
+    {
+      "candidate": 25,
+      "direct_permanent_residual": 1.5215018216070125e-15,
+      "jacobian_min_singular": 0.0003086831335690724
+    },
+    {
+      "candidate": 26,
+      "direct_permanent_residual": 1.2332770283680945e-13,
+      "jacobian_min_singular": 0.0009314287562423778
+    },
+    {
+      "candidate": 27,
+      "direct_permanent_residual": 3.886541807415055e-14,
+      "jacobian_min_singular": 0.002154115534838846
+    },
+    {
+      "candidate": 28,
+      "direct_permanent_residual": 3.01855443273651e-15,
+      "jacobian_min_singular": 4.865834495547143e-05
+    },
+    {
+      "candidate": 29,
+      "direct_permanent_residual": 2.1556631856153973e-15,
+      "jacobian_min_singular": 0.0006236874152213517
+    },
+    {
+      "candidate": 30,
+      "direct_permanent_residual": 8.518410101828069e-15,
+      "jacobian_min_singular": 0.00843732810198185
+    },
+    {
+      "candidate": 31,
+      "direct_permanent_residual": 9.43689570931383e-16,
+      "jacobian_min_singular": 6.531734146717236e-06
+    },
+    {
+      "candidate": 32,
+      "direct_permanent_residual": 2.710415281159301e-13,
+      "jacobian_min_singular": 0.028967075729991767
+    },
+    {
+      "candidate": 33,
+      "direct_permanent_residual": 3.3487334905433035e-15,
+      "jacobian_min_singular": 7.26293395580118e-05
+    },
+    {
+      "candidate": 34,
+      "direct_permanent_residual": 4.028295357552336e-15,
+      "jacobian_min_singular": 0.0001464581543615136
+    },
+    {
+      "candidate": 35,
+      "direct_permanent_residual": 4.6351811278100286e-15,
+      "jacobian_min_singular": 0.029048427553085836
+    },
+    {
+      "candidate": 36,
+      "direct_permanent_residual": 1.807312143953211e-15,
+      "jacobian_min_singular": 0.00015471703961207742
+    },
+    {
+      "candidate": 37,
+      "direct_permanent_residual": 3.139967493625489e-15,
+      "jacobian_min_singular": 9.752895799103302e-05
+    },
+    {
+      "candidate": 38,
+      "direct_permanent_residual": 2.039235144112388e-15,
+      "jacobian_min_singular": 0.0002067960236326138
+    },
+    {
+      "candidate": 39,
+      "direct_permanent_residual": 2.67841304690819e-15,
+      "jacobian_min_singular": 0.002265817153666671
+    },
+    {
+      "candidate": 40,
+      "direct_permanent_residual": 3.721835371427752e-15,
+      "jacobian_min_singular": 0.0007153128871906992
+    },
+    {
+      "candidate": 41,
+      "direct_permanent_residual": 5.836397668115853e-15,
+      "jacobian_min_singular": 0.0008059783127330554
+    },
+    {
+      "candidate": 42,
+      "direct_permanent_residual": 5.026911368903699e-15,
+      "jacobian_min_singular": 4.865834495545525e-05
+    },
+    {
+      "candidate": 43,
+      "direct_permanent_residual": 4.374246190837013e-15,
+      "jacobian_min_singular": 0.00014950683276600949
+    },
+    {
+      "candidate": 44,
+      "direct_permanent_residual": 1.9241021048210822e-14,
+      "jacobian_min_singular": 8.582412922643315e-05
+    },
+    {
+      "candidate": 45,
+      "direct_permanent_residual": 1.0805156823142814e-14,
+      "jacobian_min_singular": 0.0002786711729518235
+    },
+    {
+      "candidate": 46,
+      "direct_permanent_residual": 7.07151934311331e-15,
+      "jacobian_min_singular": 0.001646006812117206
+    },
+    {
+      "candidate": 47,
+      "direct_permanent_residual": 3.6846245340562095e-15,
+      "jacobian_min_singular": 0.0002523484938028023
+    },
+    {
+      "candidate": 48,
+      "direct_permanent_residual": 5.745420913024032e-15,
+      "jacobian_min_singular": 0.0001746323672427073
+    },
+    {
+      "candidate": 49,
+      "direct_permanent_residual": 4.446439748506845e-15,
+      "jacobian_min_singular": 0.001127744152070561
+    },
+    {
+      "candidate": 50,
+      "direct_permanent_residual": 2.4650951625709315e-15,
+      "jacobian_min_singular": 0.0003654292160861804
+    },
+    {
+      "candidate": 51,
+      "direct_permanent_residual": 1.0169642905566434e-13,
+      "jacobian_min_singular": 0.00020936136000045043
+    },
+    {
+      "candidate": 52,
+      "direct_permanent_residual": 1.862430663968466e-15,
+      "jacobian_min_singular": 0.0001269564745050243
+    },
+    {
+      "candidate": 53,
+      "direct_permanent_residual": 5.687116766346677e-15,
+      "jacobian_min_singular": 0.0019639200458913646
+    },
+    {
+      "candidate": 54,
+      "direct_permanent_residual": 7.159270828510847e-15,
+      "jacobian_min_singular": 0.0006667932472645617
+    },
+    {
+      "candidate": 55,
+      "direct_permanent_residual": 7.806699718474328e-15,
+      "jacobian_min_singular": 0.001103652700787904
+    },
+    {
+      "candidate": 56,
+      "direct_permanent_residual": 1.4408407262066505e-14,
+      "jacobian_min_singular": 0.00012426970531544468
+    },
+    {
+      "candidate": 57,
+      "direct_permanent_residual": 1.3305871857537612e-15,
+      "jacobian_min_singular": 0.00020679602363258716
+    },
+    {
+      "candidate": 58,
+      "direct_permanent_residual": 2.7833528704240242e-15,
+      "jacobian_min_singular": 0.00014950683276714568
+    },
+    {
+      "candidate": 59,
+      "direct_permanent_residual": 9.22047972178296e-15,
+      "jacobian_min_singular": 0.00032167050676795467
+    },
+    {
+      "candidate": 60,
+      "direct_permanent_residual": 8.259902179837409e-15,
+      "jacobian_min_singular": 7.478214103993534e-05
+    },
+    {
+      "candidate": 61,
+      "direct_permanent_residual": 1.6834122715067583e-14,
+      "jacobian_min_singular": 0.004303330789441426
+    },
+    {
+      "candidate": 62,
+      "direct_permanent_residual": 2.747549650946414e-14,
+      "jacobian_min_singular": 0.005299486122521636
+    },
+    {
+      "candidate": 63,
+      "direct_permanent_residual": 3.6322508237020876e-15,
+      "jacobian_min_singular": 3.232446467232513e-05
+    },
+    {
+      "candidate": 64,
+      "direct_permanent_residual": 5.787175054499808e-15,
+      "jacobian_min_singular": 0.0010624673616781636
+    },
+    {
+      "candidate": 65,
+      "direct_permanent_residual": 4.078098399042117e-15,
+      "jacobian_min_singular": 0.00012695647450535608
+    },
+    {
+      "candidate": 66,
+      "direct_permanent_residual": 7.328523234674242e-15,
+      "jacobian_min_singular": 0.004070770479938225
+    },
+    {
+      "candidate": 67,
+      "direct_permanent_residual": 1.2363699271901388e-15,
+      "jacobian_min_singular": 4.86583449554495e-05
+    },
+    {
+      "candidate": 68,
+      "direct_permanent_residual": 3.2057689836051395e-15,
+      "jacobian_min_singular": 0.002265817153666275
+    },
+    {
+      "candidate": 69,
+      "direct_permanent_residual": 6.5528009992234936e-15,
+      "jacobian_min_singular": 2.8957106228246645e-05
+    },
+    {
+      "candidate": 70,
+      "direct_permanent_residual": 1.4325749365178209e-15,
+      "jacobian_min_singular": 0.010288793376464572
+    },
+    {
+      "candidate": 71,
+      "direct_permanent_residual": 3.884194229483362e-15,
+      "jacobian_min_singular": 0.0009289022299083954
+    },
+    {
+      "candidate": 72,
+      "direct_permanent_residual": 4.093947403305265e-15,
+      "jacobian_min_singular": 0.002265817153667008
+    },
+    {
+      "candidate": 73,
+      "direct_permanent_residual": 3.599970447911802e-15,
+      "jacobian_min_singular": 0.00014950683276667725
+    },
+    {
+      "candidate": 74,
+      "direct_permanent_residual": 1.3867491114648805e-14,
+      "jacobian_min_singular": 0.0011588951545242097
+    },
+    {
+      "candidate": 75,
+      "direct_permanent_residual": 9.516513203184892e-15,
+      "jacobian_min_singular": 2.887110436880039e-05
+    },
+    {
+      "candidate": 76,
+      "direct_permanent_residual": 1.2212453270876722e-14,
+      "jacobian_min_singular": 0.0007752985351304503
+    },
+    {
+      "candidate": 77,
+      "direct_permanent_residual": 4.274358644806853e-15,
+      "jacobian_min_singular": 0.0029457211744013897
+    },
+    {
+      "candidate": 78,
+      "direct_permanent_residual": 3.5064559118097196e-15,
+      "jacobian_min_singular": 4.8658344955446675e-05
+    },
+    {
+      "candidate": 79,
+      "direct_permanent_residual": 3.061931901476103e-15,
+      "jacobian_min_singular": 0.0020094393977232172
+    },
+    {
+      "candidate": 80,
+      "direct_permanent_residual": 1.5619066391420388e-14,
+      "jacobian_min_singular": 0.0033636275368827237
+    },
+    {
+      "candidate": 81,
+      "direct_permanent_residual": 4.973799150320701e-14,
+      "jacobian_min_singular": 0.0007749587843136332
+    },
+    {
+      "candidate": 82,
+      "direct_permanent_residual": 1.5959455978986625e-14,
+      "jacobian_min_singular": 0.010875210779793898
+    },
+    {
+      "candidate": 83,
+      "direct_permanent_residual": 8.15428391362359e-15,
+      "jacobian_min_singular": 0.0018371481349623692
+    },
+    {
+      "candidate": 84,
+      "direct_permanent_residual": 6.247162907517536e-15,
+      "jacobian_min_singular": 0.006155764315021222
+    },
+    {
+      "candidate": 85,
+      "direct_permanent_residual": 6.106563960842345e-15,
+      "jacobian_min_singular": 0.000817340627989527
+    },
+    {
+      "candidate": 86,
+      "direct_permanent_residual": 2.61766495942325e-13,
+      "jacobian_min_singular": 0.00028841285187392344
+    },
+    {
+      "candidate": 87,
+      "direct_permanent_residual": 4.144418385643733e-13,
+      "jacobian_min_singular": 0.00020680007180911498
+    },
+    {
+      "candidate": 88,
+      "direct_permanent_residual": 1.5106345774618504e-13,
+      "jacobian_min_singular": 0.00043454481677464545
+    },
+    {
+      "candidate": 89,
+      "direct_permanent_residual": 1.3253287356462806e-15,
+      "jacobian_min_singular": 6.531734146921184e-06
+    },
+    {
+      "candidate": 90,
+      "direct_permanent_residual": 1.797829783146302e-15,
+      "jacobian_min_singular": 0.013984387368633984
+    },
+    {
+      "candidate": 91,
+      "direct_permanent_residual": 1.0843872863719266e-14,
+      "jacobian_min_singular": 0.0009836151186610903
+    },
+    {
+      "candidate": 92,
+      "direct_permanent_residual": 8.583656468051246e-15,
+      "jacobian_min_singular": 0.002018265048261093
+    },
+    {
+      "candidate": 93,
+      "direct_permanent_residual": 3.511699070317e-15,
+      "jacobian_min_singular": 0.0010808008261523072
+    },
+    {
+      "candidate": 94,
+      "direct_permanent_residual": 6.576607356309998e-15,
+      "jacobian_min_singular": 0.00025098105636552754
+    },
+    {
+      "candidate": 95,
+      "direct_permanent_residual": 2.1159872246096965e-15,
+      "jacobian_min_singular": 0.0011311462036224973
+    },
+    {
+      "candidate": 96,
+      "direct_permanent_residual": 9.016760895373711e-15,
+      "jacobian_min_singular": 0.005929459173333229
+    },
+    {
+      "candidate": 97,
+      "direct_permanent_residual": 5.6450535385260645e-15,
+      "jacobian_min_singular": 0.005751108762697171
+    },
+    {
+      "candidate": 98,
+      "direct_permanent_residual": 1.7361107000897219e-15,
+      "jacobian_min_singular": 0.004733868977108902
+    },
+    {
+      "candidate": 99,
+      "direct_permanent_residual": 1.0257076742045511e-14,
+      "jacobian_min_singular": 0.002375030865379246
+    },
+    {
+      "candidate": 100,
+      "direct_permanent_residual": 4.136977623555962e-15,
+      "jacobian_min_singular": 0.0008366913581594549
+    },
+    {
+      "candidate": 101,
+      "direct_permanent_residual": 2.1094237467877974e-15,
+      "jacobian_min_singular": 5.270031310736015e-05
+    },
+    {
+      "candidate": 102,
+      "direct_permanent_residual": 4.3035325952379484e-09,
+      "jacobian_min_singular": 4.988910327886863e-06
+    },
+    {
+      "candidate": 103,
+      "direct_permanent_residual": 9.131584377541913e-15,
+      "jacobian_min_singular": 6.449669460663905e-05
+    },
+    {
+      "candidate": 104,
+      "direct_permanent_residual": 6.2063353831181824e-15,
+      "jacobian_min_singular": 0.0011363583843529155
+    },
+    {
+      "candidate": 105,
+      "direct_permanent_residual": 2.3314683517128287e-15,
+      "jacobian_min_singular": 0.003825683458330139
+    },
+    {
+      "candidate": 106,
+      "direct_permanent_residual": 4.2883739732088085e-15,
+      "jacobian_min_singular": 7.2629339557922e-05
+    },
+    {
+      "candidate": 107,
+      "direct_permanent_residual": 1.1322097734007353e-15,
+      "jacobian_min_singular": 0.0007003182631826614
+    },
+    {
+      "candidate": 108,
+      "direct_permanent_residual": 3.927996617168399e-15,
+      "jacobian_min_singular": 0.0008027107061948446
+    },
+    {
+      "candidate": 109,
+      "direct_permanent_residual": 5.709267256288867e-14,
+      "jacobian_min_singular": 0.00022065275829418612
+    },
+    {
+      "candidate": 110,
+      "direct_permanent_residual": 1.8189894035458565e-12,
+      "jacobian_min_singular": 0.00010873579869181093
+    },
+    {
+      "candidate": 111,
+      "direct_permanent_residual": 3.899757147035416e-15,
+      "jacobian_min_singular": 3.232446468347998e-05
+    },
+    {
+      "candidate": 112,
+      "direct_permanent_residual": 1.826058922628739e-14,
+      "jacobian_min_singular": 0.0022802480157015042
+    },
+    {
+      "candidate": 113,
+      "direct_permanent_residual": 8.005932084973442e-15,
+      "jacobian_min_singular": 0.0029378084043721678
+    },
+    {
+      "candidate": 114,
+      "direct_permanent_residual": 1.9638616839783264e-14,
+      "jacobian_min_singular": 8.279268880835751e-05
+    },
+    {
+      "candidate": 115,
+      "direct_permanent_residual": 2.0637931631491033e-15,
+      "jacobian_min_singular": 0.00020679602363257192
+    },
+    {
+      "candidate": 116,
+      "direct_permanent_residual": 3.685362764920413e-15,
+      "jacobian_min_singular": 0.0001464581543616629
+    },
+    {
+      "candidate": 117,
+      "direct_permanent_residual": 3.6567315161988466e-14,
+      "jacobian_min_singular": 0.0005337117410171549
+    },
+    {
+      "candidate": 118,
+      "direct_permanent_residual": 5.1002478032820254e-15,
+      "jacobian_min_singular": 0.0015067492336986125
+    },
+    {
+      "candidate": 119,
+      "direct_permanent_residual": 8.549167855266256e-15,
+      "jacobian_min_singular": 0.007836535652922383
+    },
+    {
+      "candidate": 120,
+      "direct_permanent_residual": 5.214694184905947e-15,
+      "jacobian_min_singular": 0.001080800826152219
+    },
+    {
+      "candidate": 121,
+      "direct_permanent_residual": 4.463041323674983e-15,
+      "jacobian_min_singular": 0.0007003955835679022
+    },
+    {
+      "candidate": 122,
+      "direct_permanent_residual": 3.722145839155691e-15,
+      "jacobian_min_singular": 0.004058357870640694
+    },
+    {
+      "candidate": 123,
+      "direct_permanent_residual": 2.842170943040401e-14,
+      "jacobian_min_singular": 0.000238841609009543
+    },
+    {
+      "candidate": 124,
+      "direct_permanent_residual": 3.372366685704518e-15,
+      "jacobian_min_singular": 3.150185931237457e-05
+    },
+    {
+      "candidate": 125,
+      "direct_permanent_residual": 6.085789721702663e-15,
+      "jacobian_min_singular": 0.0001406277117790988
+    },
+    {
+      "candidate": 126,
+      "direct_permanent_residual": 4.3063426293677856e-15,
+      "jacobian_min_singular": 0.004806946175466689
+    },
+    {
+      "candidate": 127,
+      "direct_permanent_residual": 1.3322676295501878e-15,
+      "jacobian_min_singular": 5.2700313107364573e-05
+    },
+    {
+      "candidate": 128,
+      "direct_permanent_residual": 2.886769731618538e-15,
+      "jacobian_min_singular": 0.0028312720026899725
+    },
+    {
+      "candidate": 129,
+      "direct_permanent_residual": 3.4486372510134027e-15,
+      "jacobian_min_singular": 0.0012518018425780163
+    },
+    {
+      "candidate": 130,
+      "direct_permanent_residual": 1.9569505706268373e-14,
+      "jacobian_min_singular": 8.279268880884251e-05
+    },
+    {
+      "candidate": 131,
+      "direct_permanent_residual": 4.9956088492527584e-14,
+      "jacobian_min_singular": 0.0057135518541643554
+    },
+    {
+      "candidate": 132,
+      "direct_permanent_residual": 7.566255240219841e-14,
+      "jacobian_min_singular": 0.0011083100642303952
+    },
+    {
+      "candidate": 133,
+      "direct_permanent_residual": 3.0653265752080063e-15,
+      "jacobian_min_singular": 9.752895799101007e-05
+    },
+    {
+      "candidate": 134,
+      "direct_permanent_residual": 2.293976181351632e-15,
+      "jacobian_min_singular": 0.0002067960236325437
+    },
+    {
+      "candidate": 135,
+      "direct_permanent_residual": 4.2746867089784005e-15,
+      "jacobian_min_singular": 0.000540892645277787
+    },
+    {
+      "candidate": 136,
+      "direct_permanent_residual": 2.1052463404988664e-13,
+      "jacobian_min_singular": 0.0012262333292456424
+    },
+    {
+      "candidate": 137,
+      "direct_permanent_residual": 6.422582622970748e-15,
+      "jacobian_min_singular": 0.002347118705064292
+    },
+    {
+      "candidate": 138,
+      "direct_permanent_residual": 6.927444176635966e-14,
+      "jacobian_min_singular": 0.00018475434010347384
+    },
+    {
+      "candidate": 139,
+      "direct_permanent_residual": 6.1201044232461754e-15,
+      "jacobian_min_singular": 0.0022658171536666144
+    },
+    {
+      "candidate": 140,
+      "direct_permanent_residual": 6.028856680619312e-15,
+      "jacobian_min_singular": 0.002198815867956622
+    },
+    {
+      "candidate": 141,
+      "direct_permanent_residual": 4.8449096898452674e-15,
+      "jacobian_min_singular": 0.00014950683276758977
+    },
+    {
+      "candidate": 142,
+      "direct_permanent_residual": 1.042546121749453e-14,
+      "jacobian_min_singular": 0.011371073444015539
+    },
+    {
+      "candidate": 143,
+      "direct_permanent_residual": 7.443670742855504e-15,
+      "jacobian_min_singular": 0.008042160564979115
+    },
+    {
+      "candidate": 144,
+      "direct_permanent_residual": 2.6870301087958545e-15,
+      "jacobian_min_singular": 1.193359529108468e-06
+    },
+    {
+      "candidate": 145,
+      "direct_permanent_residual": 3.61490119596957e-15,
+      "jacobian_min_singular": 1.9766600973807584e-05
+    },
+    {
+      "candidate": 146,
+      "direct_permanent_residual": 3.3606030997258145e-15,
+      "jacobian_min_singular": 0.00530130767943464
+    },
+    {
+      "candidate": 147,
+      "direct_permanent_residual": 4.456093699740826e-15,
+      "jacobian_min_singular": 0.00025234849380213666
+    },
+    {
+      "candidate": 148,
+      "direct_permanent_residual": 5.5488942328095985e-15,
+      "jacobian_min_singular": 0.00021713315407051047
+    },
+    {
+      "candidate": 149,
+      "direct_permanent_residual": 1.1874229710957654e-15,
+      "jacobian_min_singular": 4.989383646607867e-06
+    },
+    {
+      "candidate": 150,
+      "direct_permanent_residual": 6.556795801577481e-15,
+      "jacobian_min_singular": 0.0006066383453472232
+    },
+    {
+      "candidate": 151,
+      "direct_permanent_residual": 2.4868995751603507e-14,
+      "jacobian_min_singular": 0.0005324597268364634
+    },
+    {
+      "candidate": 152,
+      "direct_permanent_residual": 4.779120044158455e-15,
+      "jacobian_min_singular": 0.0009289022299081868
+    },
+    {
+      "candidate": 153,
+      "direct_permanent_residual": 1.4858912072383192e-15,
+      "jacobian_min_singular": 6.531734146801059e-06
+    },
+    {
+      "candidate": 154,
+      "direct_permanent_residual": 1.4432899320127035e-15,
+      "jacobian_min_singular": 1.0059463357673094e-05
+    },
+    {
+      "candidate": 155,
+      "direct_permanent_residual": 5.551115123125783e-15,
+      "jacobian_min_singular": 0.0011881680648342873
+    },
+    {
+      "candidate": 156,
+      "direct_permanent_residual": 1.441145287910925e-14,
+      "jacobian_min_singular": 0.0010892491027963151
+    },
+    {
+      "candidate": 157,
+      "direct_permanent_residual": 5.5537035944147895e-15,
+      "jacobian_min_singular": 4.865834495547306e-05
+    },
+    {
+      "candidate": 158,
+      "direct_permanent_residual": 3.5081877752541504e-15,
+      "jacobian_min_singular": 2.8076893403956914e-05
+    },
+    {
+      "candidate": 159,
+      "direct_permanent_residual": 1.2753686995381486e-14,
+      "jacobian_min_singular": 0.004759700389108758
+    },
+    {
+      "candidate": 160,
+      "direct_permanent_residual": 1.5796712395624297e-14,
+      "jacobian_min_singular": 0.0011484412864737443
+    },
+    {
+      "candidate": 161,
+      "direct_permanent_residual": 8.669224120904196e-15,
+      "jacobian_min_singular": 0.000535335038196471
+    },
+    {
+      "candidate": 162,
+      "direct_permanent_residual": 1.0658141036401503e-13,
+      "jacobian_min_singular": 0.005873250392214349
+    },
+    {
+      "candidate": 163,
+      "direct_permanent_residual": 1.3029736911352715e-08,
+      "jacobian_min_singular": 9.737831108943838e-07
+    },
+    {
+      "candidate": 164,
+      "direct_permanent_residual": 1.7763568394002505e-15,
+      "jacobian_min_singular": 5.270031310744284e-05
+    },
+    {
+      "candidate": 165,
+      "direct_permanent_residual": 3.219646771412954e-15,
+      "jacobian_min_singular": 0.003950773161364543
+    },
+    {
+      "candidate": 166,
+      "direct_permanent_residual": 1.1882628394880825e-14,
+      "jacobian_min_singular": 0.0005654578254939217
+    },
+    {
+      "candidate": 167,
+      "direct_permanent_residual": 2.3762922730979778e-14,
+      "jacobian_min_singular": 0.0010512540095195763
+    },
+    {
+      "candidate": 168,
+      "direct_permanent_residual": 8.384874702257355e-13,
+      "jacobian_min_singular": 0.0002323502283800448
+    },
+    {
+      "candidate": 169,
+      "direct_permanent_residual": 5.1765869265823916e-15,
+      "jacobian_min_singular": 0.0004521001249978088
+    },
+    {
+      "candidate": 170,
+      "direct_permanent_residual": 1.3080965305416661e-15,
+      "jacobian_min_singular": 0.00320076922436163
+    },
+    {
+      "candidate": 171,
+      "direct_permanent_residual": 1.6644553783151265e-14,
+      "jacobian_min_singular": 0.0012889743608810005
+    },
+    {
+      "candidate": 172,
+      "direct_permanent_residual": 1.3694771134835707e-08,
+      "jacobian_min_singular": 6.60809881888902e-07
+    },
+    {
+      "candidate": 173,
+      "direct_permanent_residual": 2.3869795029440866e-15,
+      "jacobian_min_singular": 0.0020707158078966943
+    },
+    {
+      "candidate": 174,
+      "direct_permanent_residual": 2.656835333140213e-15,
+      "jacobian_min_singular": 0.0004521001249971199
+    },
+    {
+      "candidate": 175,
+      "direct_permanent_residual": 5.103468314250538e-15,
+      "jacobian_min_singular": 2.895710622877836e-05
+    },
+    {
+      "candidate": 176,
+      "direct_permanent_residual": 8.139783472816274e-14,
+      "jacobian_min_singular": 1.1043116012252048e-05
+    },
+    {
+      "candidate": 177,
+      "direct_permanent_residual": 3.451895728607398e-15,
+      "jacobian_min_singular": 0.0007484870668261784
+    },
+    {
+      "candidate": 178,
+      "direct_permanent_residual": 1.1858862013084188e-15,
+      "jacobian_min_singular": 1.0059463358235927e-05
+    },
+    {
+      "candidate": 179,
+      "direct_permanent_residual": 7.528556989534705e-15,
+      "jacobian_min_singular": 2.895710622941491e-05
+    },
+    {
+      "candidate": 180,
+      "direct_permanent_residual": 1.3528330643921842e-14,
+      "jacobian_min_singular": 0.00015566671197397467
+    },
+    {
+      "candidate": 181,
+      "direct_permanent_residual": 6.050715484207103e-15,
+      "jacobian_min_singular": 1.328965863908932e-05
+    },
+    {
+      "candidate": 182,
+      "direct_permanent_residual": 9.892828516353741e-15,
+      "jacobian_min_singular": 0.0036599699075177505
+    },
+    {
+      "candidate": 183,
+      "direct_permanent_residual": 1.4217791915866692e-14,
+      "jacobian_min_singular": 0.0008578053097068089
+    },
+    {
+      "candidate": 184,
+      "direct_permanent_residual": 6.3576183580742435e-15,
+      "jacobian_min_singular": 2.8957106228159377e-05
+    },
+    {
+      "candidate": 185,
+      "direct_permanent_residual": 2.266234012811408e-15,
+      "jacobian_min_singular": 0.0013953536848885758
+    },
+    {
+      "candidate": 186,
+      "direct_permanent_residual": 5.032536551282245e-15,
+      "jacobian_min_singular": 5.0695863960984394e-05
+    },
+    {
+      "candidate": 187,
+      "direct_permanent_residual": 8.827603991106956e-15,
+      "jacobian_min_singular": 0.0013007376262308753
+    },
+    {
+      "candidate": 188,
+      "direct_permanent_residual": 1.2581547112818427e-14,
+      "jacobian_min_singular": 0.005904919387413756
+    },
+    {
+      "candidate": 189,
+      "direct_permanent_residual": 1.592476150946709e-15,
+      "jacobian_min_singular": 0.00020679602363266497
+    },
+    {
+      "candidate": 190,
+      "direct_permanent_residual": 3.3055090970309336e-15,
+      "jacobian_min_singular": 0.0008027107061964061
+    },
+    {
+      "candidate": 191,
+      "direct_permanent_residual": 7.339290092141062e-15,
+      "jacobian_min_singular": 0.00022042553632944627
+    },
+    {
+      "candidate": 192,
+      "direct_permanent_residual": 2.7114910356960118e-14,
+      "jacobian_min_singular": 0.0008738640336806713
+    },
+    {
+      "candidate": 193,
+      "direct_permanent_residual": 3.398685888401024e-15,
+      "jacobian_min_singular": 0.0003654292160858758
+    },
+    {
+      "candidate": 194,
+      "direct_permanent_residual": 1.2605946535173893e-14,
+      "jacobian_min_singular": 0.002878885505355197
+    },
+    {
+      "candidate": 195,
+      "direct_permanent_residual": 7.82654327658254e-15,
+      "jacobian_min_singular": 0.003323050116795423
+    },
+    {
+      "candidate": 196,
+      "direct_permanent_residual": 1.6818321507460517e-14,
+      "jacobian_min_singular": 5.446435072966029e-05
+    },
+    {
+      "candidate": 197,
+      "direct_permanent_residual": 2.367561988557227e-14,
+      "jacobian_min_singular": 0.0010450049523110416
+    },
+    {
+      "candidate": 198,
+      "direct_permanent_residual": 1.186692873213599e-15,
+      "jacobian_min_singular": 0.00020679602363258182
+    },
+    {
+      "candidate": 199,
+      "direct_permanent_residual": 2.5445312800768667e-15,
+      "jacobian_min_singular": 0.002009439397723127
+    },
+    {
+      "candidate": 200,
+      "direct_permanent_residual": 3.580361673049448e-15,
+      "jacobian_min_singular": 0.000460783495336317
+    },
+    {
+      "candidate": 201,
+      "direct_permanent_residual": 1.1368683772161603e-13,
+      "jacobian_min_singular": 0.00016206104883837173
+    },
+    {
+      "candidate": 202,
+      "direct_permanent_residual": 6.218240129447692e-15,
+      "jacobian_min_singular": 0.0009289022299085184
+    },
+    {
+      "candidate": 203,
+      "direct_permanent_residual": 4.136200680166926e-15,
+      "jacobian_min_singular": 2.895710622821284e-05
+    },
+    {
+      "candidate": 204,
+      "direct_permanent_residual": 4.289875405020266e-15,
+      "jacobian_min_singular": 0.00035963129492642363
+    },
+    {
+      "candidate": 205,
+      "direct_permanent_residual": 1.1574555577959534e-12,
+      "jacobian_min_singular": 0.00016484534881915647
+    },
+    {
+      "candidate": 206,
+      "direct_permanent_residual": 3.56593160315529e-15,
+      "jacobian_min_singular": 7.262933955809938e-05
+    },
+    {
+      "candidate": 207,
+      "direct_permanent_residual": 2.332449735347365e-15,
+      "jacobian_min_singular": 0.0016644037527409684
+    },
+    {
+      "candidate": 208,
+      "direct_permanent_residual": 4.3116247641810925e-15,
+      "jacobian_min_singular": 0.0018180019721038623
+    },
+    {
+      "candidate": 209,
+      "direct_permanent_residual": 4.3959057775998234e-14,
+      "jacobian_min_singular": 0.0001504188264558387
+    },
+    {
+      "candidate": 210,
+      "direct_permanent_residual": 1.8187555222222118e-14,
+      "jacobian_min_singular": 2.936187885820233e-05
+    },
+    {
+      "candidate": 211,
+      "direct_permanent_residual": 5.432029729580048e-15,
+      "jacobian_min_singular": 2.8957106228374236e-05
+    },
+    {
+      "candidate": 212,
+      "direct_permanent_residual": 4.774281734231005e-15,
+      "jacobian_min_singular": 0.006364417455573281
+    },
+    {
+      "candidate": 213,
+      "direct_permanent_residual": 7.414064454045768e-15,
+      "jacobian_min_singular": 0.0055135213650096505
+    },
+    {
+      "candidate": 214,
+      "direct_permanent_residual": 1.3557455178480059e-14,
+      "jacobian_min_singular": 0.01364364865406588
+    },
+    {
+      "candidate": 215,
+      "direct_permanent_residual": 6.6489667549504866e-15,
+      "jacobian_min_singular": 0.002857643875512914
+    },
+    {
+      "candidate": 216,
+      "direct_permanent_residual": 1.444357059649813e-15,
+      "jacobian_min_singular": 1.005946335786599e-05
+    },
+    {
+      "candidate": 217,
+      "direct_permanent_residual": 2.121892714392774e-15,
+      "jacobian_min_singular": 0.0007174357088636
+    },
+    {
+      "candidate": 218,
+      "direct_permanent_residual": 3.532902350339031e-15,
+      "jacobian_min_singular": 0.0008027107061959834
+    },
+    {
+      "candidate": 219,
+      "direct_permanent_residual": 1.2843331288210474e-13,
+      "jacobian_min_singular": 0.00023413349835473907
+    },
+    {
+      "candidate": 220,
+      "direct_permanent_residual": 2.6229021847438467e-15,
+      "jacobian_min_singular": 0.0022658171536660645
+    },
+    {
+      "candidate": 221,
+      "direct_permanent_residual": 3.792207092881983e-15,
+      "jacobian_min_singular": 0.0009312376086929843
+    },
+    {
+      "candidate": 222,
+      "direct_permanent_residual": 5.063396036227354e-15,
+      "jacobian_min_singular": 0.00016989373231119886
+    },
+    {
+      "candidate": 223,
+      "direct_permanent_residual": 1.9353044692953972e-14,
+      "jacobian_min_singular": 0.00019000996293359586
+    },
+    {
+      "candidate": 224,
+      "direct_permanent_residual": 2.1002004180157243e-14,
+      "jacobian_min_singular": 0.003259476643975486
+    },
+    {
+      "candidate": 225,
+      "direct_permanent_residual": 5.12257703624612e-15,
+      "jacobian_min_singular": 0.0031749954742887943
+    },
+    {
+      "candidate": 226,
+      "direct_permanent_residual": 5.596879304796911e-15,
+      "jacobian_min_singular": 0.0018777665083021386
+    },
+    {
+      "candidate": 227,
+      "direct_permanent_residual": 7.105427357601002e-15,
+      "jacobian_min_singular": 0.004386114457119916
+    },
+    {
+      "candidate": 228,
+      "direct_permanent_residual": 3.853229700818533e-15,
+      "jacobian_min_singular": 0.0026549233354136274
+    },
+    {
+      "candidate": 229,
+      "direct_permanent_residual": 2.4548547478792787e-14,
+      "jacobian_min_singular": 0.003742750682962901
+    },
+    {
+      "candidate": 230,
+      "direct_permanent_residual": 1.4433941784568224e-15,
+      "jacobian_min_singular": 0.001425113114751915
+    },
+    {
+      "candidate": 231,
+      "direct_permanent_residual": 3.552713678800501e-15,
+      "jacobian_min_singular": 0.00016656040596684424
+    },
+    {
+      "candidate": 232,
+      "direct_permanent_residual": 4.0942825734432e-15,
+      "jacobian_min_singular": 0.00024118420436414683
+    },
+    {
+      "candidate": 233,
+      "direct_permanent_residual": 2.473943359199149e-14,
+      "jacobian_min_singular": 6.467288079403566e-05
+    },
+    {
+      "candidate": 234,
+      "direct_permanent_residual": 5.022148798243163e-15,
+      "jacobian_min_singular": 4.8658344955472004e-05
+    },
+    {
+      "candidate": 235,
+      "direct_permanent_residual": 7.463199949449623e-15,
+      "jacobian_min_singular": 2.8957106229593628e-05
+    },
+    {
+      "candidate": 236,
+      "direct_permanent_residual": 5.943842099167798e-15,
+      "jacobian_min_singular": 0.004019067920936984
+    },
+    {
+      "candidate": 237,
+      "direct_permanent_residual": 4.318090527410549e-14,
+      "jacobian_min_singular": 0.0001038622541491464
+    },
+    {
+      "candidate": 238,
+      "direct_permanent_residual": 4.627167680254086e-15,
+      "jacobian_min_singular": 0.0016644037527412446
+    }
+  ],
+  "scope": "Independent direct permanent expansion of numerical candidates; not exact certification"
+}

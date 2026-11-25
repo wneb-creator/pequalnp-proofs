@@ -1,0 +1,1 @@
+{"count": 239, "stabilizer_sizes": {"1": 239}, "jacobian_ranks_at_1e_7": {"12": 239}, "common_kernel_dimensions_at_1e_7": {"0": 239}, "max_direct_permanent_residual": 1.3694771134835707e-08, "scope": "Independent direct permanent expansion of numerical candidates; not exact certification"}

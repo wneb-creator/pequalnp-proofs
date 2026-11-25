@@ -1,0 +1,119 @@
+{
+  "utc": "2026-11-25T11:51:39.172109+00:00",
+  "files": [
+    {
+      "path": "tracezero_numeric.py",
+      "bytes": 4899,
+      "sha256": "78d60ef8cd3257a89230b7cfb25fca9bf6c13c993dc35ce5602efcf978607e38"
+    },
+    {
+      "path": "tracezero-numeric.stdout",
+      "bytes": 51970,
+      "sha256": "b217c5aae7d3d61718eec8cc28a269c8cc10e9f04008e1ba1a097d324fcaf9be"
+    },
+    {
+      "path": "tracezero-numeric.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero-numeric-candidates.json",
+      "bytes": 369069,
+      "sha256": "8bbe9580a95a57e09f1cd3b68a6d6717d562dde839f6b91ca6e40c2038f688b1"
+    },
+    {
+      "path": "tracezero-numeric-best.json",
+      "bytes": 851,
+      "sha256": "b4f552918da46f4efafab1408eb0652487529cc86fd7c6cb9e48e0c5dcf2779c"
+    },
+    {
+      "path": "tracezero-numeric-summary.json",
+      "bytes": 312,
+      "sha256": "3da9bf4ed5afdf8522447cc06403239e9c276a2fcc04c67c804e7786b634b9fc"
+    },
+    {
+      "path": "audit_tracezero_numeric.py",
+      "bytes": 1484,
+      "sha256": "9edff578de6db8847948781e7691a7255b9e2e5c3fdfb25ee15dedca79b91e81"
+    },
+    {
+      "path": "tracezero-numeric-audit.json",
+      "bytes": 35665,
+      "sha256": "32bede505120610d08b897dc05e8609f2bd85a59723393266109d93a6251ec14"
+    },
+    {
+      "path": "tracezero-numeric-audit.stdout",
+      "bytes": 291,
+      "sha256": "6d26b37d58fe0e6cec290374599c2338c985e6f443b28aa99591947f49f9735a"
+    },
+    {
+      "path": "tracezero-numeric-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero_numeric_extensions.py",
+      "bytes": 1761,
+      "sha256": "8cd5bde322f82c08e85f738a2bd1c4e976be734c7247943a94e79b4e30e91afe"
+    },
+    {
+      "path": "tracezero-numeric-extensions.json",
+      "bytes": 111246,
+      "sha256": "d2708583c735ad33683680ce153118a274ced2315540aaf6370dd5246cadae15"
+    },
+    {
+      "path": "tracezero-numeric-extensions.stdout",
+      "bytes": 239,
+      "sha256": "71045493f4c2318c36b7babd4658d874ba0cda582a620e3692042b68bb5fd345"
+    },
+    {
+      "path": "tracezero-numeric-extensions.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero_jacobians.py",
+      "bytes": 2440,
+      "sha256": "e64e925875366e1b1145f0640b4e88eeac73e17dc616064e2c1ec4e47e5a5d30"
+    },
+    {
+      "path": "tracezero-jacobians.json",
+      "bytes": 23645,
+      "sha256": "fcfdf302771c6bb399c5f9d0d19bff7c67acb643dc33bbf03323a786222997a1"
+    },
+    {
+      "path": "tracezero-jacobians.stdout",
+      "bytes": 1795,
+      "sha256": "e0905c9064f003fb00e25fd652cf9f09898fe6dae336b0eaba4967ffe4c3f00b"
+    },
+    {
+      "path": "tracezero-jacobians.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tracezero-hadamard.json",
+      "bytes": 9011,
+      "sha256": "2d141e1724e004e63b73565618afa1569c3d263970c801063beb677599ae6040"
+    },
+    {
+      "path": "basic-star-rows-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "basic-star-rows-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "normalized-independent-review.json",
+      "bytes": 1076,
+      "sha256": "c17ed73770a24b144e434621684a99134c9fb0ad7d0aa06c40f8df786de87afd"
+    }
+  ],
+  "total_bytes": 615859,
+  "status": "Frozen",
+  "numerical_scope": "300starts produced239 distinct approximate rank2tracezero planes; all numerical Jacobiansrank12, firstvariationrank8, trivialS4stabilizer, no commonmatrixkernel. These are numerical diagnostics, not exact results or complete classification.",
+  "finite_scope": "Exact fullGr(2,8)chart Jacobian ranks at finite-field census points; does not infer complex ranks at unknown lifts."
+}

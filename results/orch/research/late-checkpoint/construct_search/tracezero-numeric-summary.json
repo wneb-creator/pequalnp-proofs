@@ -1,0 +1,9 @@
+{
+  "runs": 300,
+  "best_residual": 5.551115123125783e-17,
+  "distinct_candidates": 239,
+  "cpu_seconds": 9.841141007000001,
+  "peak_rss_kib": 100264,
+  "jacobian_error": 1.0256684406443046e-10,
+  "scope": "Numerical candidate census only; convergence does not prove exact solutions or complete classification"
+}

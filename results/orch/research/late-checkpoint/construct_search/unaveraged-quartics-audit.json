@@ -1,0 +1,152 @@
+{
+  "verdict": "PASS exact rational independent raw-generator expansion",
+  "count": 24,
+  "source_sha256": "8cdb477b430fe653f12e74eb680afbdd436d017eec1c9c89c3f71e390e3e0cba",
+  "seconds": 0.149993771001391,
+  "targets": [
+    {
+      "target": 0,
+      "certificate_rows": 69,
+      "terms": 140,
+      "max_degree": 4
+    },
+    {
+      "target": 1,
+      "certificate_rows": 113,
+      "terms": 243,
+      "max_degree": 4
+    },
+    {
+      "target": 2,
+      "certificate_rows": 113,
+      "terms": 226,
+      "max_degree": 4
+    },
+    {
+      "target": 3,
+      "certificate_rows": 74,
+      "terms": 123,
+      "max_degree": 4
+    },
+    {
+      "target": 4,
+      "certificate_rows": 87,
+      "terms": 257,
+      "max_degree": 4
+    },
+    {
+      "target": 5,
+      "certificate_rows": 69,
+      "terms": 140,
+      "max_degree": 4
+    },
+    {
+      "target": 6,
+      "certificate_rows": 175,
+      "terms": 549,
+      "max_degree": 4
+    },
+    {
+      "target": 7,
+      "certificate_rows": 138,
+      "terms": 419,
+      "max_degree": 4
+    },
+    {
+      "target": 8,
+      "certificate_rows": 143,
+      "terms": 406,
+      "max_degree": 4
+    },
+    {
+      "target": 9,
+      "certificate_rows": 159,
+      "terms": 491,
+      "max_degree": 4
+    },
+    {
+      "target": 10,
+      "certificate_rows": 69,
+      "terms": 140,
+      "max_degree": 4
+    },
+    {
+      "target": 11,
+      "certificate_rows": 95,
+      "terms": 298,
+      "max_degree": 4
+    },
+    {
+      "target": 12,
+      "certificate_rows": 192,
+      "terms": 510,
+      "max_degree": 4
+    },
+    {
+      "target": 13,
+      "certificate_rows": 113,
+      "terms": 254,
+      "max_degree": 4
+    },
+    {
+      "target": 14,
+      "certificate_rows": 172,
+      "terms": 472,
+      "max_degree": 4
+    },
+    {
+      "target": 15,
+      "certificate_rows": 211,
+      "terms": 563,
+      "max_degree": 4
+    },
+    {
+      "target": 16,
+      "certificate_rows": 114,
+      "terms": 235,
+      "max_degree": 4
+    },
+    {
+      "target": 17,
+      "certificate_rows": 191,
+      "terms": 484,
+      "max_degree": 4
+    },
+    {
+      "target": 18,
+      "certificate_rows": 156,
+      "terms": 369,
+      "max_degree": 4
+    },
+    {
+      "target": 19,
+      "certificate_rows": 113,
+      "terms": 227,
+      "max_degree": 4
+    },
+    {
+      "target": 20,
+      "certificate_rows": 116,
+      "terms": 213,
+      "max_degree": 4
+    },
+    {
+      "target": 21,
+      "certificate_rows": 159,
+      "terms": 346,
+      "max_degree": 4
+    },
+    {
+      "target": 22,
+      "certificate_rows": 74,
+      "terms": 123,
+      "max_degree": 4
+    },
+    {
+      "target": 23,
+      "certificate_rows": 74,
+      "terms": 123,
+      "max_degree": 4
+    }
+  ]
+}

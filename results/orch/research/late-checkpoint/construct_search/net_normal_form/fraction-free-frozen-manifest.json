@@ -1,0 +1,200 @@
+{
+  "created_utc": "2026-11-25T11:28:47.288311+00:00",
+  "files": [
+    {
+      "path": "net_normal_form/uniform-builder-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-builder-run.stdout",
+      "bytes": 42,
+      "sha256": "b63c9a0b5e5bb7bd2f5e453de8e842f4d8ae3f5f45ea62bcbcddb2eb215d7f9a"
+    },
+    {
+      "path": "net_normal_form/uniform-builder.sing",
+      "bytes": 2751,
+      "sha256": "174f8c7f4b2bad81ecdfb9e5668e6cfaac199afc33266b66845d625dcb16dfd6"
+    },
+    {
+      "path": "net_normal_form/uniform-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-builder.stdout",
+      "bytes": 452,
+      "sha256": "8c46116771fb9c92b7aa553ca02601fefaf3ece566ce4ece693cf345f495edd8"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-01.result.json",
+      "bytes": 62,
+      "sha256": "94d7c565287f3357c304f3b3286282f36f1da2370c7b56cfe549b82f0f79a425"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-01.sing",
+      "bytes": 3402,
+      "sha256": "bcec0d6363edd8d8fe1ad0e7314a8169d99d6be60c31c438a9834b1de81c8486"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-01.stdout",
+      "bytes": 618406,
+      "sha256": "2e2a606cec59349ac1ea32ffd3445e25453fc783caa0c20c02f71d96b1d969f2"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-10-first.stdout",
+      "bytes": 222215,
+      "sha256": "9ff785f3048f090141b65e81dfb6134419c24b4767a9b37f346cfc42771945da"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-10.result.json",
+      "bytes": 63,
+      "sha256": "ee1a3e6b77f0d6af133aa6db85bb7d197421abd4be4175fa5e43fb8aef6c9527"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-10.sing",
+      "bytes": 3402,
+      "sha256": "0bb45db9bfab139f783818c8f242802dedbb532f6215ef2aa852fdf072d58fef"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-10.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-10.stdout",
+      "bytes": 529040,
+      "sha256": "5025f835d6a38e9181ca0d26ed319a5c82ae16c961a6f834d05cac4cf7897b7f"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-11.result.json",
+      "bytes": 63,
+      "sha256": "dd1e209439a261e8477cf96848f458db728eb291543b9af339aeae3564e38e41"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-11.sing",
+      "bytes": 3402,
+      "sha256": "a3196dd3e2b9bd29bc1045fea7bcc7e6bdf1bad106e172b4e5a2fbc62fb8617f"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-11.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-direction-11.stdout",
+      "bytes": 670199,
+      "sha256": "680b3d0c4aa97704acfb6aa8e5cff86bad37e81a55933482beea6fc408ff38cc"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-field.result.json",
+      "bytes": 226,
+      "sha256": "1d6193d3052426440957cecd9eff2b8e3652fce65e03d8a81c11653af865ff93"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-field.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-field.stdout",
+      "bytes": 6,
+      "sha256": "c89d6966e9327382a8a6cbafabc0c5c74e288f4fbf09baf4cd5362160d442f71"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-polynomial.result.json",
+      "bytes": 224,
+      "sha256": "11f8fabcac3290669cdad80fda3fa6f83edc3c5428923bb1977daae92f98e334"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-polynomial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-elimination-polynomial.stdout",
+      "bytes": 166,
+      "sha256": "c88c4e77859ffd2ee831a31b15504ad360d36089e111841bc468bdc9f3f9f1a9"
+    },
+    {
+      "path": "net_normal_form/uniform-extra-denominators.json",
+      "bytes": 2958,
+      "sha256": "7d60c04e70897c905d018995f706551f6501726fd0caed8d0ead795d5a493708"
+    },
+    {
+      "path": "net_normal_form/uniform-extra-guard-factors.json",
+      "bytes": 407,
+      "sha256": "60d462f62d5da464cbd5176806c65883c2ec7da116ad30ede723b206339b92bb"
+    },
+    {
+      "path": "net_normal_form/uniform-field-system.sing",
+      "bytes": 1029421,
+      "sha256": "0e9393e100f8be60f3fd8a075cd9b3d6c0da1d957c5b1f0574a5ad087b5dbdef"
+    },
+    {
+      "path": "net_normal_form/uniform-macaulay.result.json",
+      "bytes": 204,
+      "sha256": "87a8423db4d20a330d3e0a3e8d532011046c521472cee169ea07ba894a5121ab"
+    },
+    {
+      "path": "net_normal_form/uniform-macaulay.sing",
+      "bytes": 1030361,
+      "sha256": "2a29e7c6ab401dc6acfd2f73d2187af44589e7055f5cfe93949cc40517ae6c39"
+    },
+    {
+      "path": "net_normal_form/uniform-macaulay.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-macaulay.stdout",
+      "bytes": 229,
+      "sha256": "9044a19861d4fb5660b47134a515305363b8246cdc0cea3941c9bdf20cee1c68"
+    },
+    {
+      "path": "net_normal_form/uniform-reduced-builder-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-reduced-builder-run.stdout",
+      "bytes": 50,
+      "sha256": "279476138a1895fa5741327eff41cb4c1f5e3b7a8adf693bfa49cbde228a408e"
+    },
+    {
+      "path": "net_normal_form/uniform-reduced-builder.sing",
+      "bytes": 3669,
+      "sha256": "00131562e51e6126e20dbcc832c108d70495120e024bad702c1f81437e100232"
+    },
+    {
+      "path": "net_normal_form/uniform-reduced-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "net_normal_form/uniform-reduced-builder.stdout",
+      "bytes": 3217,
+      "sha256": "d4842d1958bb89823999f364e70bd81463545f6699215dc324c638a6ed7e04a7"
+    },
+    {
+      "path": "net_normal_form/uniform-system.json",
+      "bytes": 1030758,
+      "sha256": "f5fbeec04e442cd4ab0a82ba4d5e00ea7c8ee92a994b87eea0f724a912081d80"
+    },
+    {
+      "path": "net_normal_form/uniform-system.metadata.json",
+      "bytes": 264,
+      "sha256": "c17d0810d4e5adbd32251423212a497dae56d8c187b53c6ca33bea8a70e996ca"
+    },
+    {
+      "path": "net_normal_form/uniform-system.sing",
+      "bytes": 1030390,
+      "sha256": "3f73c3dd6065fe143c1db1ecf15573a4df2e551d98a9bb4784a2cff0c9536674"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-11-25T12:00:26.346822+00:00",
+  "scope": "Exact finite-field S4 orbit/stabilizer/eigenvector classification of F19/F23 trace-zero nonhollow planes; no characteristic-zero classification claim. Push-forward action convention is inverse to Lean entryPermute.",
+  "independent_review": "PASS",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/classify_tracezero_extras.py",
+      "bytes": 3265,
+      "sha256": "832f18de169487eb81d104731a46673d00bfd2a2f3c5ee107eb088f4d0dc1ef7"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.json",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stdout",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/audit_finite_extra_orbits.py",
+      "bytes": 3543,
+      "sha256": "91d7f40d3f14ee13f0e5390e7e514ce77d95c30d978efbbf50a6e7ab98e3ef66"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.json",
+      "bytes": 651,
+      "sha256": "5c011bae238554aefef5f031574166f6a3ab32c66efea83ec5835ab6f102bb4b"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.stdout",
+      "bytes": 599,
+      "sha256": "88a2fb4bf04969c6b663f0de00e5cc42f9495a48c2b9fbef949e53918ffe474a"
+    },
+    {
+      "path": "geometry_search/rowzero/finite-extra-orbits-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

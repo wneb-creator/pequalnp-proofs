@@ -1,0 +1,1191 @@
+{
+  "scope": "Exact finite-field Jacobian ranks in full Gr(2,8) affine charts; no complex completeness claim",
+  "records": [
+    {
+      "prime": 5,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 9,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11,
+          "count": 8
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 11
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 9
+        }
+      ]
+    },
+    {
+      "prime": 7,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12,
+          "count": 8
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 12
+        }
+      ]
+    },
+    {
+      "prime": 11,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        }
+      ]
+    },
+    {
+      "prime": 13,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 7,
+          "count": 4
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 7
+        }
+      ]
+    },
+    {
+      "prime": 17,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        }
+      ]
+    },
+    {
+      "prime": 19,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12,
+          "count": 8
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 2,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        }
+      ]
+    },
+    {
+      "prime": 23,
+      "counts": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7,
+          "count": 4
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9,
+          "count": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12,
+          "count": 8
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10,
+          "count": 24
+        }
+      ],
+      "planes": [
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 7
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 12
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 0,
+          "jacobian_rank": 9
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        },
+        {
+          "diagonal_rank": 1,
+          "jacobian_rank": 10
+        }
+      ]
+    }
+  ]
+}

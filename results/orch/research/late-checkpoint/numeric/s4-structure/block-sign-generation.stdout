@@ -1,0 +1,4 @@
+{"phase": "columns", "degree": 5, "columns": 1344, "negative_orbits": 4371, "all_monomials": 33649, "seconds": 0.3969007399991824}
+{"phase": "rows", "degree": 5, "rows": 392, "negative_orbits": 1355, "seconds": 0.5098201709988643}
+{"phase": "counted", "nnz": 5639, "maximum": 104, "raw_bytes": 90240, "seconds": 0.519788970999798}
+{"pass": true, "degree": 5, "rows": 392, "columns": 1344, "nnz": 5639, "constant_column": -1, "maximum_abs_coefficient": 104, "binary_uncompressed_sha256": "a46573cbe48d59ca2f5395c58660bc9dd6426baddac545f71b25c443f47dc1e8", "binary_compressed_sha256": "6b3582a0b8010cae080481cd850b931c7397bbb7f4c81c56aad86fa9c372d930", "raw_bytes": 90240, "compressed_bytes": 19548, "averaging_rows_checked": [344, 189, 253, 374, 180, 40, 195, 362, 78, 385, 299, 154], "seconds": 0.5615014929990139, "peak_rss_kib": 16948, "disk_free": 76705792, "scope": "exact signed-orbit coinvariant matrix with Reynolds-average validation; no solve"}

@@ -1,0 +1,234 @@
+{
+  "created_utc": "2026-11-25T11:55:34.578670+00:00",
+  "scope": "C3-stable trace-zero 2-planes of diagonal rank2 have no arbitrary3D extension; exact algebraic certificates, not Lean-formalized.",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/C3-NONEXTENSION.md",
+      "bytes": 5346,
+      "sha256": "a94699e36ab9cd4c139764ef8c26b80deb0822ae115128076bbb89702de45bbd"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3_tracezero.py",
+      "bytes": 1799,
+      "sha256": "a05520c6e31b3a35a28c0a8a5dc9a729272749cc22a163a6788f6f3bc0e5d9b2"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-system.json",
+      "bytes": 1010,
+      "sha256": "f17e2ca6a522bc5d6e12c12406287e04d8a8c7376595abe5cdfbb19a2f8ab527"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-builder.stdout",
+      "bytes": 415,
+      "sha256": "e8185333aa0dc24e6abbacd3807b6cfb6b638db1b246cd662e53b68c45251922"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero-builder.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.sing",
+      "bytes": 633,
+      "sha256": "10a8db50c0f92b21ff5bd447b4e435620e958c8d0b6a8d6ee38caccf005f6354"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.stdout",
+      "bytes": 8030,
+      "sha256": "268084864dec8eea144b508bf473796cf2671ce1e90634da277d758ae761aa33"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-tracezero.result.json",
+      "bytes": 183,
+      "sha256": "36320a58cea0d44bb78a6ba7230545e5d789448afd3ff6edfe8069d0cf6d4e77"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3_extension_blocks.py",
+      "bytes": 1985,
+      "sha256": "6ec434a5e52a6b486ddd791933674e7cda927db5332f0b8781e81686ebb4c3f9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.json",
+      "bytes": 1427,
+      "sha256": "c4c7f01ef5ebead052f89c489583f7673cf156277f8ec4945250dd808cac4b1b"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.stdout",
+      "bytes": 4619,
+      "sha256": "54252edca6745a5b12bdee81985d08e20a430136a514b375d60d6310f806112a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-blocks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.sing",
+      "bytes": 6511,
+      "sha256": "e7c5ea60ccc6c9b008d2a2936859a4c27afa9141e8d492b0494e8efa615ef6dd"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.stdout",
+      "bytes": 229,
+      "sha256": "d896c3def13abe95a92fb8678057a27d0d378dfe3c5f4a5444b56615c0a80cbb"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-extension-ranks.result.json",
+      "bytes": 187,
+      "sha256": "3c3e9c292f7184f915bc532595db4144c866d2068c0f8ad391292d793c68f2d9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-reduced-trivial-block.json",
+      "bytes": 983,
+      "sha256": "de0a0f8e927b992f8450e137950423628c08d1c036b87f3b397ff8c57499d9c0"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.sing",
+      "bytes": 1148,
+      "sha256": "aed5ffd1c86ccdbea61605e8cd73b3ccdfab89623568c5db775652578c1eabf0"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.stdout",
+      "bytes": 1136683,
+      "sha256": "6441405ac3ee7300d38859389122ade31a9d292f35fa5b9a023ed54a5bdc0b0a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificate-trivial.result.json",
+      "bytes": 183,
+      "sha256": "084847a07ef7826b3d7b1a8e395990fd337ed1c09459775859e7c30d8fdc17a9"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.sing",
+      "bytes": 943,
+      "sha256": "b2a7bd831c72c67c37abc696bfdb2e7dc650d8e7c863c852da81a9c06d59701d"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.stdout",
+      "bytes": 146595,
+      "sha256": "1bc215a59582f4e9d9199923a626fcf341c8bc7091d67c83aad03158073e2fef"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-power-certificate-plus.result.json",
+      "bytes": 187,
+      "sha256": "09fdd58f5980de9353664abf5c8bc26251f2cebb84f8d7c468265d69c6cb1f13"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_c3_certificates.py",
+      "bytes": 3680,
+      "sha256": "99a59bad801b53e64c6cb14d263cf8dbb6e654904188665d6d55d0ac4b46b8cf"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.json",
+      "bytes": 834,
+      "sha256": "ef1d2159868dcaa52e5f661095ee3829af31eba99be5961ab00bebdf98730ec6"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.stdout",
+      "bytes": 1110,
+      "sha256": "ac5d71a1140df0a9c201ce13259047e17330d547360390f6c6cdc977969433fd"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-certificates-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundary-certificates.json",
+      "bytes": 712,
+      "sha256": "508674436c2d4b673362520fd98b726160d9faa3015a2ef8bd0457953c2c6b9e"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_c3_boundaries.py",
+      "bytes": 1214,
+      "sha256": "4500c48a8b5e842f34f8e1c5cc9bbe77e07e54b982baccbd91ca964f36195b0a"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.json",
+      "bytes": 130,
+      "sha256": "b6d66353e94531c96137157c981da48506ce5c3bf29fb8adf467127d6bce10a5"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.stdout",
+      "bytes": 120,
+      "sha256": "2c5d01d579bacdd396d49e3bb582ecccc7b3b7e904d7392e7060245d93964a2c"
+    },
+    {
+      "path": "construct_search/net_normal_form/c3-boundaries-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/run_c3.py",
+      "bytes": 1432,
+      "sha256": "051b8ad87042d216ebfcbc909048edd43cba87de193495410270de505142842c"
+    },
+    {
+      "path": "root-algebra/audit_c3_tracezero.py",
+      "bytes": 2172,
+      "sha256": "00c0db775161bf229c94b21bb9ad365f3e95f7d285de2b7bb128478e5e29c4e1"
+    },
+    {
+      "path": "root-algebra/audit_c3_extension.py",
+      "bytes": 2648,
+      "sha256": "1205cb4f862ec7db7f4e4ed39f3bb9efc31cf4220589217ea4cb6bbb8a955547"
+    },
+    {
+      "path": "root-algebra/c3-tracezero-independent-review.json",
+      "bytes": 375,
+      "sha256": "aae2416ed8310419359b414e96363f425e75efc9ecb05ac80b74e380bccd2483"
+    },
+    {
+      "path": "root-algebra/c3-extension-independent-review.json",
+      "bytes": 340,
+      "sha256": "957b9d1642fc38ff0c1bbe714e0fac06b84ce06c9d8505e2acb9621278b0c8a9"
+    },
+    {
+      "path": "root-algebra/audit-c3-tracezero.stdout",
+      "bytes": 339,
+      "sha256": "8ae89d1c083914b35f0a96f886974c5ac6c44fb58883980bc667fb92f779b171"
+    },
+    {
+      "path": "root-algebra/audit-c3-tracezero.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "root-algebra/audit-c3-extension.stdout",
+      "bytes": 326,
+      "sha256": "2d8bcf9d365583b0eabd4d27a65860351ae9db5d647f4936e0cd6dfc09be6348"
+    },
+    {
+      "path": "root-algebra/audit-c3-extension.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "excluded_invalid": [
+    "c3_parametrize.py",
+    "c3-rational-parametrization.json",
+    "c3-parametrize.stdout"
+  ],
+  "excluded_incomplete": [
+    "c3-power-certificate-trivial.stdout"
+  ]
+}

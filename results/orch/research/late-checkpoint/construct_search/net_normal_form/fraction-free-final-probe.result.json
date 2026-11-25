@@ -1,0 +1,9 @@
+{
+  "tag": "final-probe",
+  "exit": 14,
+  "wall_seconds": 0.8172834169999987,
+  "cpu_seconds": 0.8456289999999999,
+  "max_rss_kib": 55840,
+  "stdout_bytes": 211,
+  "stderr_bytes": 0
+}

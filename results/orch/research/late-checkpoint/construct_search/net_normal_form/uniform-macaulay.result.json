@@ -1,0 +1,10 @@
+{
+  "exit": -24,
+  "wall_seconds": 188.60179412599973,
+  "cpu_seconds": 187.267562,
+  "max_rss_kib": 191640,
+  "memory_cap_mib": 512,
+  "cpu_cap_seconds": 180,
+  "stdout_bytes": 229,
+  "stderr_bytes": 0
+}

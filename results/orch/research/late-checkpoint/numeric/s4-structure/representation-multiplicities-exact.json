@@ -1,0 +1,32 @@
+{
+  "blocks": {
+    "sign": {
+      "new_quartics": 1,
+      "exact_certificate_recheck": "PASS",
+      "stdout": "RANK 378 TARGETS 1 CPU 0.004812 RSS_KIB 6424 STORED_NNZ 7032 REDUCTIONS 1148\nPIVOT degree=3 count=3\nPIVOT degree=4 count=47\nPIVOT degree=5 count=328\n"
+    },
+    "s3": {
+      "new_quartics": 4,
+      "exact_certificate_recheck": "PASS",
+      "stdout": "RANK 1689 TARGETS 4 CPU 0.016042 RSS_KIB 7500 STORED_NNZ 40452 REDUCTIONS 6311\nPIVOT degree=2 count=2\nPIVOT degree=3 count=23\nPIVOT degree=4 count=220\nPIVOT degree=5 count=1444\n"
+    },
+    "s3sign": {
+      "new_quartics": 4,
+      "exact_certificate_recheck": "PASS",
+      "stdout": "RANK 1585 TARGETS 4 CPU 0.013753 RSS_KIB 9260 STORED_NNZ 35535 REDUCTIONS 5614\nPIVOT degree=3 count=17\nPIVOT degree=4 count=190\nPIVOT degree=5 count=1378\n"
+    },
+    "d8": {
+      "new_quartics": 3,
+      "exact_certificate_recheck": "PASS",
+      "stdout": "RANK 1239 TARGETS 3 CPU 0.011122 RSS_KIB 9612 STORED_NNZ 29549 REDUCTIONS 4609\nPIVOT degree=2 count=2\nPIVOT degree=3 count=14\nPIVOT degree=4 count=173\nPIVOT degree=5 count=1050\n"
+    }
+  },
+  "new_quartic_multiplicities": {
+    "trivial": 1,
+    "sign": 1,
+    "dimension2": 2,
+    "standard3": 3,
+    "twisted_standard3": 3
+  },
+  "total_dimension": 24
+}

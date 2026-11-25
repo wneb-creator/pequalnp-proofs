@@ -1,0 +1,9 @@
+{
+  "tag": "11",
+  "exit": 0,
+  "wall_seconds": 19.905369172000064,
+  "cpu_seconds": 11.687429,
+  "max_rss_kib": 43332,
+  "stdout_bytes": 111089,
+  "stderr_bytes": 0
+}

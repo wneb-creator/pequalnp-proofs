@@ -1,0 +1,14 @@
+{
+  "equation_characters": [
+    164242,
+    215646,
+    214423,
+    130509,
+    131250,
+    172976
+  ],
+  "cubic_characters": 145,
+  "guard_characters": 961,
+  "json_bytes": 1030758,
+  "sha256": "f5fbeec04e442cd4ab0a82ba4d5e00ea7c8ee92a994b87eea0f724a912081d80"
+}

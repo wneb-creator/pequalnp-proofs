@@ -1,0 +1,175 @@
+{
+  "status": "PASS",
+  "certificates": 24,
+  "method": "Independent Python Fraction expansion of every original matrix row certificate",
+  "reports": [
+    {
+      "target": 0,
+      "polynomial_terms": 140,
+      "certificate_rows": 69,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    },
+    {
+      "target": 1,
+      "polynomial_terms": 243,
+      "certificate_rows": 113,
+      "max_abs_numerator": 43,
+      "max_denominator": 16
+    },
+    {
+      "target": 2,
+      "polynomial_terms": 226,
+      "certificate_rows": 113,
+      "max_abs_numerator": 87,
+      "max_denominator": 4
+    },
+    {
+      "target": 3,
+      "polynomial_terms": 123,
+      "certificate_rows": 74,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    },
+    {
+      "target": 4,
+      "polynomial_terms": 257,
+      "certificate_rows": 87,
+      "max_abs_numerator": 19,
+      "max_denominator": 2
+    },
+    {
+      "target": 5,
+      "polynomial_terms": 140,
+      "certificate_rows": 69,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    },
+    {
+      "target": 6,
+      "polynomial_terms": 549,
+      "certificate_rows": 175,
+      "max_abs_numerator": 23,
+      "max_denominator": 4
+    },
+    {
+      "target": 7,
+      "polynomial_terms": 419,
+      "certificate_rows": 138,
+      "max_abs_numerator": 45,
+      "max_denominator": 4
+    },
+    {
+      "target": 8,
+      "polynomial_terms": 406,
+      "certificate_rows": 143,
+      "max_abs_numerator": 83,
+      "max_denominator": 4
+    },
+    {
+      "target": 9,
+      "polynomial_terms": 491,
+      "certificate_rows": 159,
+      "max_abs_numerator": 19,
+      "max_denominator": 4
+    },
+    {
+      "target": 10,
+      "polynomial_terms": 140,
+      "certificate_rows": 69,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    },
+    {
+      "target": 11,
+      "polynomial_terms": 298,
+      "certificate_rows": 95,
+      "max_abs_numerator": 23,
+      "max_denominator": 4
+    },
+    {
+      "target": 12,
+      "polynomial_terms": 510,
+      "certificate_rows": 192,
+      "max_abs_numerator": 27,
+      "max_denominator": 8
+    },
+    {
+      "target": 13,
+      "polynomial_terms": 254,
+      "certificate_rows": 113,
+      "max_abs_numerator": 43,
+      "max_denominator": 16
+    },
+    {
+      "target": 14,
+      "polynomial_terms": 472,
+      "certificate_rows": 172,
+      "max_abs_numerator": 23,
+      "max_denominator": 8
+    },
+    {
+      "target": 15,
+      "polynomial_terms": 563,
+      "certificate_rows": 211,
+      "max_abs_numerator": 33,
+      "max_denominator": 8
+    },
+    {
+      "target": 16,
+      "polynomial_terms": 235,
+      "certificate_rows": 114,
+      "max_abs_numerator": 59,
+      "max_denominator": 8
+    },
+    {
+      "target": 17,
+      "polynomial_terms": 484,
+      "certificate_rows": 191,
+      "max_abs_numerator": 25,
+      "max_denominator": 4
+    },
+    {
+      "target": 18,
+      "polynomial_terms": 369,
+      "certificate_rows": 156,
+      "max_abs_numerator": 83,
+      "max_denominator": 8
+    },
+    {
+      "target": 19,
+      "polynomial_terms": 227,
+      "certificate_rows": 113,
+      "max_abs_numerator": 87,
+      "max_denominator": 4
+    },
+    {
+      "target": 20,
+      "polynomial_terms": 213,
+      "certificate_rows": 116,
+      "max_abs_numerator": 87,
+      "max_denominator": 4
+    },
+    {
+      "target": 21,
+      "polynomial_terms": 346,
+      "certificate_rows": 159,
+      "max_abs_numerator": 41,
+      "max_denominator": 4
+    },
+    {
+      "target": 22,
+      "polynomial_terms": 123,
+      "certificate_rows": 74,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    },
+    {
+      "target": 23,
+      "polynomial_terms": 123,
+      "certificate_rows": 74,
+      "max_abs_numerator": 49,
+      "max_denominator": 4
+    }
+  ]
+}

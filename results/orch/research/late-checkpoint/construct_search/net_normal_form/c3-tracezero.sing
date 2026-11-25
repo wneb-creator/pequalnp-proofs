@@ -1,0 +1,16 @@
+ring R=(0,w),(a,b,c,d),dp;
+minpoly=w^2+w+1;
+short=0;
+option(redSB);
+poly F1=6*(-a*c + 2*a*d*w - 2*a - 2*b*c*w - 2*b*c - 2*b*w - 2*b - 2*c + 2*d*w);
+poly F2=a^3 + 6*a^2 + 3*a*b^2*w + 6*a*b*w + 6*a*b + 3*a + 2*b^3 - 6*b*w - 6*b;
+poly F3=c^3 + 6*c^2 - 3*c*d^2*w - 3*c*d^2 - 6*c*d*w + 3*c + 2*d^3 + 6*d*w;
+poly F4=-3*(-a^2 + 2*a*b*w + 2*a*b + 2*a*c + 2*a*d*w - 3*b^2*w - 2*b*c*w - 2*b*c - 6*b*d - c^2 - 2*c*d*w + 3*d^2*w + 3*d^2);
+ideal I=F1,F2,F3,F4;
+print("START_C3_CLASSIFICATION");
+ideal G=std(I);
+print("BASIS_SIZE");size(G);
+print("DIMENSION");dim(G);
+print("UNIT_IDEAL");int(reduce(1,G)==0);
+print("BASIS");G;
+print("DONE");quit;

@@ -1,0 +1,8 @@
+START_FINAL_POLYNOMIAL_PROBE
+INPUT_GENERATOR_COUNT
+9
+
+Singular error: no more memory
+System 42452k:43808k Appl 43074k/721k Malloc 63k/0k Valloc 43732k/721k Pages 10932/0 Regions 201:201 Internal: 12712
+
+halt 14

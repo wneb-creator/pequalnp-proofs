@@ -1,0 +1,6 @@
+{
+  "verdict": "PASS",
+  "boundary_bezout_identities": 3,
+  "minus_equals_swapped_plus": true,
+  "seconds": 0.07844881900018663
+}

@@ -1,0 +1,9 @@
+{
+  "prime": 19,
+  "exit": 0,
+  "wall_seconds": 14.674313713001538,
+  "cpu_seconds": 16.372797,
+  "max_rss_kib": 16200,
+  "stdout_bytes": 330,
+  "stderr_bytes": 864
+}

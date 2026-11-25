@@ -1,0 +1,44 @@
+input_row=500 rank=499 stored_nnz=3738 cpu=0.000
+input_row=1000 rank=990 stored_nnz=7968 cpu=0.000
+input_row=1500 rank=1485 stored_nnz=19833 cpu=0.004
+input_row=2000 rank=1985 stored_nnz=23333 cpu=0.004
+input_row=2500 rank=2485 stored_nnz=26823 cpu=0.006
+input_row=3000 rank=2982 stored_nnz=30874 cpu=0.006
+input_row=3500 rank=3476 stored_nnz=34425 cpu=0.007
+input_row=4000 rank=3963 stored_nnz=39176 cpu=0.008
+input_row=4500 rank=4453 stored_nnz=44058 cpu=0.008
+input_row=5000 rank=4928 stored_nnz=48973 cpu=0.008
+input_row=5500 rank=5416 stored_nnz=54250 cpu=0.008
+input_row=6000 rank=5877 stored_nnz=59205 cpu=0.012
+input_row=6500 rank=6361 stored_nnz=66347 cpu=0.012
+input_row=7000 rank=6829 stored_nnz=71941 cpu=0.012
+input_row=7500 rank=7295 stored_nnz=80256 cpu=0.016
+input_row=8000 rank=7765 stored_nnz=86581 cpu=0.016
+input_row=8500 rank=8209 stored_nnz=104905 cpu=0.022
+input_row=9000 rank=8691 stored_nnz=136519 cpu=0.033
+input_row=9500 rank=9173 stored_nnz=187606 cpu=0.053
+NEW_LOW_DEGREE input=9930 target=1 degree=4 terms=140
+NEW_LOW_DEGREE input=9948 target=2 degree=4 terms=243
+NEW_LOW_DEGREE input=9966 target=3 degree=4 terms=226
+NEW_LOW_DEGREE input=9984 target=4 degree=4 terms=123
+input_row=10000 rank=9655 stored_nnz=228858 cpu=0.077
+NEW_LOW_DEGREE input=10001 target=5 degree=4 terms=257
+NEW_LOW_DEGREE input=10002 target=6 degree=4 terms=140
+NEW_LOW_DEGREE input=10019 target=7 degree=4 terms=549
+NEW_LOW_DEGREE input=10020 target=8 degree=4 terms=419
+NEW_LOW_DEGREE input=10037 target=9 degree=4 terms=406
+NEW_LOW_DEGREE input=10038 target=10 degree=4 terms=491
+NEW_LOW_DEGREE input=10055 target=11 degree=4 terms=140
+NEW_LOW_DEGREE input=10056 target=12 degree=4 terms=298
+NEW_LOW_DEGREE input=10073 target=13 degree=4 terms=510
+NEW_LOW_DEGREE input=10074 target=14 degree=4 terms=254
+NEW_LOW_DEGREE input=10091 target=15 degree=4 terms=472
+NEW_LOW_DEGREE input=10092 target=16 degree=4 terms=563
+NEW_LOW_DEGREE input=10109 target=17 degree=4 terms=235
+NEW_LOW_DEGREE input=10110 target=18 degree=4 terms=484
+NEW_LOW_DEGREE input=10127 target=19 degree=4 terms=369
+NEW_LOW_DEGREE input=10128 target=20 degree=4 terms=227
+NEW_LOW_DEGREE input=10145 target=21 degree=4 terms=213
+NEW_LOW_DEGREE input=10146 target=22 degree=4 terms=346
+NEW_LOW_DEGREE input=10163 target=23 degree=4 terms=123
+NEW_LOW_DEGREE input=10164 target=24 degree=4 terms=123

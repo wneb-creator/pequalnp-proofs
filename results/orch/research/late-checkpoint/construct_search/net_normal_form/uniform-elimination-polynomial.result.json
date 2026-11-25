@@ -1,0 +1,11 @@
+{
+  "kind": "polynomial",
+  "exit": 14,
+  "wall_seconds": 52.75580445599917,
+  "cpu_seconds": 39.120303,
+  "max_rss_kib": 111976,
+  "memory_cap_mib": 512,
+  "cpu_cap_seconds": 60,
+  "stdout_bytes": 166,
+  "stderr_bytes": 0
+}

@@ -1,0 +1,9 @@
+{
+  "round": 1,
+  "generators": 55,
+  "rows": 10621,
+  "columns": 33649,
+  "nnz": 306299,
+  "raw_bytes": 4900800,
+  "sha256": "7154486f8e3b35b8b2ac8ac46491ca4ef399e5f53892159da06c234277c7c9d0"
+}

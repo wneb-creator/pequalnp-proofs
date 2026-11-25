@@ -1,0 +1,11 @@
+{
+  "kind": "field",
+  "exit": "timeout",
+  "wall_seconds": 140.01074864100156,
+  "cpu_seconds": 97.875399,
+  "max_rss_kib": 170096,
+  "memory_cap_mib": 512,
+  "cpu_cap_seconds": 120,
+  "stdout_bytes": 6,
+  "stderr_bytes": 0
+}

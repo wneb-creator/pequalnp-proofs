@@ -1,0 +1,12 @@
+FLINT exception (General error):
+    Unable to allocate memory (6422528).
+Singular : signal 6 (v: 44105):
+current line:>>poly Ro=aa*(lx^2-mx^2)+bb*(ly^2-my^2)+cc*(lz^2-mz^2);<<
+Segment fault/Bus error occurred at 351d because of 246 (r:1795604400)
+please inform the authors
+trying to restart...
+
+Singular error: no more memory
+System 42444k:42444k Appl 25752k/436k Malloc 37k/0k Valloc 26152k/436k Pages 6537/0 Regions 405:405 Internal: 24144
+
+halt 14

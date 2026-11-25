@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T11:51:03.779132+00:00",
+  "reviewer": "construct_search",
+  "file": "/tmp/oec/pequalnp-pilot-78/basic_star/Normalized.lean",
+  "sha256": "7b71d0d3613dc24e136e596c6437da00025b2c9fa806b65b3733e6c0e85b4279",
+  "lines": 140,
+  "verdict": "PASS independent source/math/format review",
+  "scope": "Scalar normalized duplicate-row pair contradiction only; does not by itself prove the full subspace bound",
+  "checks": [
+    "Duplicate-row matrix polynomial matches the symmetric4 permanent formula",
+    "Quartic interpolation extracts all scalar coefficients without additional hypotheses",
+    "Linear constraints solve D,F using only r^2=2",
+    "Mixed coefficient splits into two exhaustive factors over complex numbers",
+    "Each branch derives its quadratic/cubic pair; independent exact Bezout identities yield6 or318",
+    "No forbidden proof tokens, attributes, string literals or options; only allowed maxHeartbeats"
+  ],
+  "build": "Status_review reports completed successful Lean compilation; this review did not rebuild during concurrent CAS"
+}

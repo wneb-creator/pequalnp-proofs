@@ -1,0 +1,9 @@
+{
+  "tag": "extension-ranks",
+  "exit": 0,
+  "wall_seconds": 0.2841800329988473,
+  "cpu_seconds": 0.18961700000000017,
+  "max_rss_kib": 49688,
+  "stdout_bytes": 229,
+  "stderr_bytes": 0
+}

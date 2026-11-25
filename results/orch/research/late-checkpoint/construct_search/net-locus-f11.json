@@ -1,0 +1,9 @@
+{
+  "prime": 11,
+  "total": 96,
+  "counts": {
+    "('rank', 20, 'knownline', False)": 48,
+    "('rank', 20, 'knownline', True)": 48
+  },
+  "exceptions": []
+}

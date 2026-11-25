@@ -1,0 +1,9 @@
+{
+  "tag": "power-certificate-plus",
+  "exit": 0,
+  "wall_seconds": 0.13715316699926916,
+  "cpu_seconds": 0.209999,
+  "max_rss_kib": 13016,
+  "stdout_bytes": 146595,
+  "stderr_bytes": 0
+}
