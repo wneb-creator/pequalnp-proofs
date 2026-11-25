@@ -1,0 +1,7 @@
+Gap: L-meta-2592
+Status: PARTIAL ONLY; no full posted theorem and no PR.
+ReplaceLast.lean: lake env lean exit 0, compiler output empty.
+Independent red-team review: PASS for partial checkpoint, pending full theorem.
+Full checker: not run; main theorem absent, full Mathlib cache absent.
+Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route
+TIMING total=11.48 subagents=5
