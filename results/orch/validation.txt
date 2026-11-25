@@ -16,3 +16,8 @@ Build completed successfully (18423 jobs).
 Canonical partial line count: 56. No cleanup performed; no full theorem yet.
 Full build output: results/orch/canonical-build.log
 Independent review: PASS geometry + allowed scoped instance-size option.
+
+Merged partial: lake build PEqualNP.Outside.L_meta_2602 exit0.
+Build completed successfully (18423 jobs).
+Canonical partial line count: 179. Independent merged-diff review: PASS.
+Exact posted theorem remains unproved; checker not run on this partial.

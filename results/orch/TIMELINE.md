@@ -15,3 +15,5 @@
 2026-11-25T03:16:15.022632+00:00 First checked component: derivative trace/reachability equivalence and uniqueness (127 lines).
 
 2026-11-25T03:17:04.503810+00:00 Geometry partial lake build passed; saving immediate second checkpoint.
+
+2026-11-25T03:20:35.623422+00:00 Merged geometry and trace lemmas passed lake build; immediate checkpoint.

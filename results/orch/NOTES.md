@@ -64,3 +64,18 @@ Toolchain 2026-11-25T03:15:07.559017+00:00: first canonical build completed all 
 PASS: results/orch/lemmas/lemma_route.lean SHA256 a9ea2268115c54cc1a127cb591a580cf54718aa5468edbd4c76c90819ee00a97. Reviewed all 127 lines. The active-edge relation matches the derivative recurrence in both input orders; forward propagation is valid without a well-foundedness assumption, and the converse correctly uses earlier-wire validity plus the one-hot initial trace. The iff and uniqueness corollaries follow. Imports, namespace and all banned-pattern/format checks pass. Root reports lake env lean exited 0; its complete log lemma-route-build-2.log is empty, consistent with successful compilation. This is a checked partial, not the full gap theorem.
 
 Canonical geometry file option-only update also passes: scoped synthInstance.maxSize 4096 is allowed. lean/PEqualNP/Outside/L_meta_2602.lean SHA256 bea078e0f8fafaf789b1264ed456464c6ac117f1558a91d2b53413bc9615a236. Geometry build remains pending.
+
+## 2026-11-25T03:18:32.137518+00:00 Independent review: merged canonical checkpoint
+
+PASS: canonical L_meta_2602.lean SHA256 778eb662e5a5dfa6248e12c68921258714858699d68715463d6afeec400e3419, 179 lines. Geometry remains as previously reviewed; trace body is verbatim the separately compiled and reviewed lemma_route body. One auxiliary namespace, allowed top imports and scoped limits, no banned patterns. This is only a merged partial checkpoint; main gap theorem remains absent. Build004 was pending at review time.
+
+2026-11-25T03:19:31.886171+00:00
+## Finite-search correction and sharp upper construction
+
+C6 DOES have a 9-gate double-reread circuit (ordinary star circuit8), so +2 overhead is false even for bipartite C4-free graphs. Let F=y5(x0∨x4)∨y1(x0∨x2). The circuit (F∨x2∨x4)∧(F∨y3)=F∨y3(x2∨x4) repeats the edge x0-y1 in both final factors. All64 Boolean rows and both derivative traces checked directly. Full data: finite-search/cycle9-witness.json. A stochastic search found it after8,863,274 mutations; the MILP search timed out at240s without finding it. Double-star on5 inputs and4 edges, budget6, was reported infeasible by HiGHS after137.55s (not a Lean certificate).
+
+Analogous plane circuit has65 gates, proving that any attempted bound≥66 is false. Compute F as the OR of12 line-stars excludingline1, using59 gates; then compute (F∨x1∨x2∨x4∨x10)∧(F∨y1), costing6more. Both factors vanish at singletonpoint0 and singletonline0; hence the required derivatives vanish. Exact verification used all52 edge-positive rows and all704 maximal independent negative rows (sufficient for monotone circuits), withzero mismatches. Data: finite-search/plane65-witness.json; outputwire90. The lemma_route agent is formalizing this as an upperbound partial.
+
+Ordinary zero propagation plus dead-gate deletion at inputs0and13 leaves57gates fromthis65-gate circuit: only8 erased. Thus any unconditional claim that double-reread forces9 syntactically erased gates is false. A9-gate reduction would need Boolean restructuring, or a hypothesis size≤64.
+
+All3770 one-gate deletions fromthe65-gate seed, replacingthatwirewithanearlierwire, were checked against all756 critical rows andthetwo derivatives. Nonegave a64-gate witness. Best candidatesmiss exactlyone positiveedge, retainingbothzeroderivatives. Data: finite-search/drop-one-results.json. status_review agent now explores multiwire mutations fromthisseed; finite_search analyzes fixedouterfactor options.
