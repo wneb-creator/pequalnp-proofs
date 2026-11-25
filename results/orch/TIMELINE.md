@@ -17,3 +17,5 @@
 2026-11-25T14:40:48Z — Lease renewal returned HTTP 410 before the previously advertised expiry. All work paused; independently reviewed ≥17 components preserved before desk recovery.
 
 2026-11-25T14:41Z — Recovery assigned L-meta-2583 with new lease. Old L-meta-2592 work stopped. Final reviewed extraction and normalization helpers archived.
+
+2026-11-25T14:47Z — L-meta-2583 lift and block decomposition compiled and independently reviewed; copied into named target as an explicitly incomplete checkpoint.
