@@ -1,0 +1,21 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/synthesize_blocking.py",
+  "--gates",
+  "25",
+  "--capacity",
+  "--seconds",
+  "15",
+  "--total-seconds",
+  "25",
+  "--rounds",
+  "1",
+  "--hint",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/baseline25-ordered.json",
+  "--solver",
+  "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase",
+  "--profile",
+  "sat",
+  "--out",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/capacity-smoke25"
+]

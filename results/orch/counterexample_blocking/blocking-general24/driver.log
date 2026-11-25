@@ -1,0 +1,3 @@
+{"round": 0, "samples": 571, "variables": 42792, "base_variables": 42456, "clauses": 2049029, "cuts": {"added_clauses": 853080, "frozen_readers": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "reader_disjunction_flags": 336, "pattern_clauses": 837288, "original_positive_literal_occurrences": 38515248}, "not_count_restriction": null, "scope": "Custom synthesis plus checked reader cuts; not official LRAT formula"}
+solver exit 0 elapsed 299.42
+UNKNOWN

@@ -1,0 +1,21 @@
+{
+  "started_utc": "2026-11-25T13:15:18.669362+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/synthesize_blocking.py",
+    "--gates",
+    "24",
+    "--seconds",
+    "300",
+    "--total-seconds",
+    "300",
+    "--hint",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/best24-masked-ordered.json",
+    "--solver",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase",
+    "--profile",
+    "sat",
+    "--out",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/blocking-general24"
+  ]
+}

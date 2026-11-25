@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-11-25T13:22:10.525245+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/synthesize_blocking.py",
+    "--gates",
+    "24",
+    "--capacity",
+    "--seconds",
+    "240",
+    "--total-seconds",
+    "240",
+    "--hint",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/best-pair-ordered.json",
+    "--solver",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase",
+    "--profile",
+    "sat",
+    "--out",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/capacity-general24"
+  ]
+}

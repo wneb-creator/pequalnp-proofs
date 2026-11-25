@@ -68,3 +68,4 @@
 - 2026-11-25T13:23:45.220461+00:00: linear_network froze final bounded-search artifacts (10,631 ABC maps;41/42 local pair families excluded;26-graph single-NOT census complete) and supplied reviewed blocking/capacity helpers for parent global searches.
 2026-11-25T13:25:47.963520+00:00 complete frozen search archives independently audited: official240s/1200s UNKNOWN;41/42 frozen-prefix pair families excluded;26 small graph cases covered;10631 ABC mappings best25. Final targeted retries run separately.
 2026-11-25T13:28:22.335903+00:00 preserved independently reviewed LRAT phase-wrapper and exact25-gate controls, including losslessly compressed full control stdout. No target certificate claimed.
+2026-11-25T13:31:05.089449+00:00 independently reviewed full reader-cut and capacity-cut searches preserved: both24-gate targets UNKNOWN; both25-gate controls exact.
