@@ -23,3 +23,6 @@ Read primary author manuscript: Stasys Jukna, Disproving the Single Level Conjec
 2026-11-25T04:42:33.532365+00:00 case_decomposition: BatchForce.lean compiled with Lean4.36.0 (exit0,0.057s), no imports needed. This proves CPS forcePacked/forcePackedList/forceBatch preserve values, candidate to force makeBatch packed Nat values once before rowCut checks. Not yet benchmarked against main certificate.
 
 2026-11-25T04:42:37.621367+00:00 counterexample_search: Z3 full512-row synthesis of15-gate normalized AND/OR/NOT circuits with first gate NOT x0 timed out at120s (unknown), so no counterexample or lower bound obtained. Script and entire diagnostics in scratch/counterexample. Pivoting to evaluator-cost analysis of complete existing PR12184.
+
+## Structural partial checked, 2026-11-25T04:43:52.013365+00:00
+Structural.lean passed lake env lean (exit0, about5seconds, empty diagnostic log). It proves the graph facts and a partial lower bound8 using the general support lemma adapted from Helpers/Support.lean inside the permitted auxiliary namespace. This does not establish the target lower bound16.

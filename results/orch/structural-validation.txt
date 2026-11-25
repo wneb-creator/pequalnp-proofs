@@ -1,0 +1,8 @@
+Structural partial validation
+Command: lake env lean ../results/orch/lemmas/Structural.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Exit code: 0
+Stdout and stderr: results/orch/structural-build.txt (empty)
+Source lines: 237
+Result: checked finite graph properties and circuit lower bound 8; full gap lower bound16 NOT proved.
+Completed UTC: 2026-11-25T04:43:52.012954+00:00
