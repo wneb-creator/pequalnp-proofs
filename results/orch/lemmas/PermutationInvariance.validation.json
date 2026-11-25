@@ -1,0 +1,9 @@
+{
+  "status": "LEAN_COMPILE_PASS",
+  "exit": 0,
+  "sha256": "3537d1849e0c833eb3a3716dd6ad8cb84f8bf6347458a105ec22c6c0edddfaac",
+  "lines": 114,
+  "independent_review": "PASS by /root/status_review",
+  "scope": "helper component only; no posted theorem or local checker claim",
+  "utc": "2026-11-25T11:30:59.476055+00:00"
+}
