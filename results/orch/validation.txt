@@ -1,0 +1,12 @@
+Job: pequalnp-pilot-166
+Gap: L-meta-13150
+Status: independently reviewed refutation; Lean build and kernel checker pending toolchain/cache setup.
+The target theorem negates the exact assigned statement.
+The existing V_meta_9933__k9 lower bound and nine-gate monotone witness establish the positive statement.
+Independent witness evaluation: all 64 inputs match.
+Outside format guard: PASS (refute).
+Desk-kind guard: REJECTED for refute because this row is posted as check. No PR submitted.
+Source lines before cleanup: 2579
+Source lines after cleanup: pending
+Sub-agents: 4 (status/library review, independent circuit validation, Lean/submission review, toolchain setup)
+TIMING total=4.41 subagents=4
