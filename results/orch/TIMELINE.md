@@ -25,3 +25,7 @@
 
 2026-11-25T00:56:33.413645+00:00 finite four-input kernel certificate and general enumeration soundness completed.
 2026-11-25T00:56:57.522195+00:00 named-file build passed: boundary/finite certificates/local cleanup,1789lines
+2026-11-25T01:00:07.041596+00:00 renewed; expiry 2026-11-25T01:20:06.881Z
+
+2026-11-25T01:02:01.399393+00:00 direct bv_decide route rejected by source audit (new axiom + unavailable allowed import).
+2026-11-25T01:02:29.730981+00:00 fullN2 normalization named-file build passed,2061lines
