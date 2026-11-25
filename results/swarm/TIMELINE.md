@@ -48,3 +48,8 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local se
 - 2026-11-25T22:32:57Z: Fourth re-plan reinforced the two-ineligible case after helper-4's prolonged silence, assigned helper-6 to the one-ineligible remainder after its four-ineligible closure, and retained the full-proof priority.
 - 2026-11-25T22:37:07Z: Helper-6 published the full four-ineligible exclusion at 923587456. Root is fetching and independently rebuilding it; no full desk theorem follows yet.
 - 2026-11-25T22:37:45Z: Unified FoundationI3, six first-birth gates, and generic first-birth/zero-row disjointness passed independent full-source and standard-axiom audits. FoundationI3 is 223153 bytes and contains the actual-circuit wrapper plus the closed extendable-i3 case. The two birth lemmas remain conditional on their explicit structural/row hypotheses.
+
+- 2026-11-25T22:41:00Z (approximately): A third local agent began the dead-gate pruning potential proof; the root now directly coordinates 12 agents (nine external and three local).
+- 2026-11-25T22:45:58Z: Pooled helper-1 classifier kernel build passed, with three standard-axiom audits. Exact literal reconstruction saves 102042 bytes (300592 to 198550) without changing the decoder.
+- 2026-11-25T22:49:00Z (approximately): Generic dead-gate pruning and its indexed C6 bridge passed kernel and standard-axiom audits. The current exported indexed theorem still takes the live C6 lower bound as an explicit premise.
+- 2026-11-25T22:54:06Z: The merged i3/i4 foundation, abstract six-birth counting lemma, and projected first-birth/zero-row disjointness all completed kernel builds and standard-axiom audits. Independent source reviews passed; the full desk statement remains open.

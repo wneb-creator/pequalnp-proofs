@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T22:37:45Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T22:54:06Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -14,7 +14,17 @@ explicit structural and row-coverage hypotheses. No checker acceptance is claime
 Latest independently rebuilt helper snapshots:
 helper-1 72b88053; helper-9 5eb83c6b; helper-6 0f38695c;
 helper-5 f703ef1f; helper-7 47a045bb; helper-3 7a1cf165.
-The newer full four-ineligible case 923587456 is being rebuilt independently.
+The full four-ineligible case 923587456 independently rebuilt successfully.
+FoundationI3I4 merges that case with the prior normalization/i3 reduction;
+its actual-circuit remaining-cases endpoint and four other endpoints use only
+the standard three axioms. FiniteSlotsPooled reconstructs the original h1
+certificate exactly and passed a full kernel build (198550 bytes).
+PairPruning proves the dead-gate potential and indexed strict-to-live bridge;
+the live C6 lower bound is still an explicit premise in this artifact.
+SixBirthCounting is an abstract set-counting lemma with explicit birth-shape
+hypotheses. ProjectedBirths extends row-boundary disjointness to projected
+singleton supports. These artifacts passed kernel and standard-axiom audits
+and independent source review.
 
 Two exact-19-gate searches (6 or 7 AND gates) each finished UNKNOWN after their
 2100-second limits at 2026-11-25T22:20:36Z. They provide no SAT or UNSAT result.
@@ -24,5 +34,5 @@ independent Std LRAT checking passed. Certificates remain too large for the
 single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
-Sub-agents: nine external helper jobs (helper-1 through helper-9), plus two local setup/review and assembly-review agents; 11 directly coordinated agents.
-TIMING total=90 subagents=11
+Sub-agents: nine external helper jobs (helper-1 through helper-9), plus three local setup/review, assembly-review, and dead-gate pruning agents; 12 directly coordinated agents.
+TIMING total=106 subagents=12
