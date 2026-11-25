@@ -16,3 +16,7 @@ Read each strategy-specific note for current details. No proof exists yet.
 - Remaining gaps L-meta-8297, L-meta-4727, L-meta-7391 remain conjectural.
 - New route: clean live size19 circuits containing a NOT have a read-once input. CaseBounds formalizes this counting; LeanRoute excludes NOT-only use of an essential positive input; structural examines sharing obstruction for AND/OR use.
 - SAT searches produce no witness so far; heuristic candidates are not counterexamples. Restricted SAT UNSAT is not the full theorem.
+
+## Stopped at desk ownership boundary
+
+Renewal returned410 while prior expiry was stillfuture. After pushing the checkpoint, reacquisition and one permitted retry both returned the same L-meta-2583 lease, issued before this job. No work or renewal/release was performed on2583. No full proof, refutation, orPR exists.

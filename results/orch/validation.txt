@@ -12,5 +12,13 @@ No counterexample found; SAT searches are restricted and incomplete.
 
 Lease renewal returned HTTP 410 at 2026-11-25T14:38:51Z despite previous expiry14:53:54Z. Work paused; checkpoint pushed before reacquisition as instructed.
 Null desk responses: 0.
+
+Reacquisition returned L-meta-2583 twice with the same lease id; issued_at 2026-11-25T13:59:02.364Z predates this job. No work, heartbeat, or release performed on that lease.
+Exact desk note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Stopped under the explicit existing-lease retry/stop rule. No proof PR opened.
+Initial returned2592 terms also predated job; no release call was ever made on any lease.
+Full desk requests/responses with UTC times: logs/desk-log.txt.
+Null responses:0.
+
 Sub-agents: 6 (checker_review, structural_proof, counterexample, lean_route, case_bounds, status_research)
-TIMING total=12.7 subagents=6
+TIMING total=14.5 subagents=6
