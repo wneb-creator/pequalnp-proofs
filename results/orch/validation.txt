@@ -197,3 +197,16 @@ Complete compiler stderr: results/orch/logs/binary-floor-002.stderr
 Full-gap checker: prior diagnostic FAULT (missing Batteries.olean), no verdict. Posted final theorem remains unproved.
 Sub-agents: 6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
 TIMING total=31.6 subagents=6
+
+Checkpoint 7: 2026-11-25T14:21:51.329011+00:00
+Artifact: results/orch/lemmas/CanonicalNotBound.lean
+SHA256: cfe50b466623e37b8ab08101a98ba426a79c11378be51eeec62dd83396a66057
+Lines: 4052
+Build: lake env lean ../results/orch/lemmas/CanonicalNotBound.lean (workdir lean/), exit 0.
+Independent review: status_1035 final composition and plain-file review PASS; frozen source blocks and exact hash verified.
+Scope: normalized19gate circuit with some NOT and NOTcount≤4; no assertion that such a circuit is impossible.
+Complete compiler stdout: results/orch/logs/canonical-not-bound-001.stdout
+Complete compiler stderr: results/orch/logs/canonical-not-bound-001.stderr
+Full-gap checker: previous diagnostic FAULT/no verdict; posted exclusion theorem remains unproved.
+Sub-agents: 6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=36.9 subagents=6
