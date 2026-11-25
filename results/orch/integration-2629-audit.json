@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "main_lines": 2629,
+  "main_sha256": "25c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367",
+  "component_lines": 588,
+  "component_sha256": "7cf6b19ebccddcec74a5e78a831c0d453267cf7709404ec35dc9c89eefb5b1ba",
+  "head_lines": 2046,
+  "head_sha256": "34d899e7a47f1f2c4b9fce91d62d002c1831865035659d54d17eaf7bde3cbcb1",
+  "exact_body_count": 1,
+  "removing_component_restores_head_byte_for_byte": true,
+  "plain_file_restrictions": "PASS",
+  "scope": "Integration audit only; component source and compilation checked separately. Main target remains a partial result without unrestricted gap theorem."
+}
