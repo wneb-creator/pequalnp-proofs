@@ -1,0 +1,6 @@
+Independent review: ChainClauses.lean
+SHA256b6ae72278ac6ed288145400431626114c4d05ffb9bf96e70fc4372171eed916a;1244lines54517bytes.
+Exact113-line extensionofPureColor. AND evaluation/orientation identities retainAO2 exactlytwo/backward premises. extra_after_T derives anactualORreader ofmaximaldirtyT from itsoutputcone/topentry andnoncentreless tops; itsmembershipinextraOR followsreviewedbad_or_reader lemma. Doesnot requirecard<=1 for existence.
+dirty_chain_clauses combines reviewedsole-reader chain, purefirstinputs, andmonochromaticpurewiresbeforeT. If bothTinputs areg, itsvalue equalsg and twoORclauses suffice. Otherwise theoppositeTinput ispure/nonempty/monochromatic underexplicitinequality, givingthirdclause. No distinct-input or irreducibility assumption is silently introduced. ParenthesizedBoolean RHS preserveintendedANDtype.
+Result is exactly a conjunctionofatmost3nonempty monochromatic ORclauses forgateT underAO2,TopForm,correctgraphFun,alloutputcone,twoorderedjunkgates,centrelessempty,extraORcard<=1,bipartition. Doesnot claim theseconditions forarbitrary24gatecircuit or preserveotheredges underreplacement.
+Officialguard onlyexpectedabsentfinaltheorem; savedlogwarningsonly andauthorreportscompiledexit0. Reviewpassed.

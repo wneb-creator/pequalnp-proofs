@@ -1,0 +1,4 @@
+Independent review: BlockingDegreeThree.lean
+SHA2569a18cf111b02c72e50b181a8a36240b8a3174f4bbcb743139234d18adf866831;387lines17685bytes.
+Reviewed BlockingDeeper prefix is unchanged modulo namespace and whitespace. Added finite witness was independently checked for all1960(p,a,b) cases: a degree3 p has a neighbor outside any chosen pair a,b. OR of exactly a,b is false on the selected singleton witness both before and after toggling p, since sole-reader and t<r imply a,b differ fromp. Its AND parent therefore stays false, contradicting the existing sole-reader semantic dependence lemma.
+Explicit degree3 exception set {0,1,7,9}, exact two-primary child inputs, earlier child, correct target function, output!=p, and sole-reader premises retained. Arbitrary NOT elsewhere is allowed; no full gatecount bound follows. Official guard only expected missing final theorem. Author reports compiled exit0; saved log warning-only. Review passed.

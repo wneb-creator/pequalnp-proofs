@@ -44,3 +44,8 @@
 2026-11-25T12:52:15.450360+00:00 dirty-chain operands proved pure OR under explicit TopForm hypotheses; abstract subcubic rectangle off-center bound≤2 compiled and independently reviewed.
 2026-11-25T12:54:48.449538+00:00 checked and independently reviewed: λ-support monochromaticity; monochromatic-clause rectangle representation; arbitrary-NOT sole-reader obstruction for target.
 2026-11-25T12:57:39.718741+00:00 preserved reviewed before-T support colors, colored rectangle wrapper, and deeper arbitrary-NOT blocking constraints.
+
+- 2026-11-25T12:58:10.094174+00:00 lower_bound: actual two-dirty chain and monochromatic-clause/pair-rectangle bridges compiled; all snapshots immutable and sent independent review.
+
+- 2026-11-25T12:58:40.728963+00:00 lemma_search: three arbitrary-NOT single-reader blocking components Lean-checked; first two independently approved; SAT agent notified. Global bound remains20.
+2026-11-25T12:58:57.244761+00:00 dirty-chain gate pair rectangle derived from actual circuit hypotheses; degree-three arbitrary-NOT blocking refinement checked. All independent reviews passed.

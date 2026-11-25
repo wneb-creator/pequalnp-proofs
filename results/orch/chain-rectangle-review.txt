@@ -1,0 +1,4 @@
+Independent review: ChainRectangle.lean
+SHA2565dd2ff927abdfa529f20377b47367a70197074c96441ae805bddecf267118513;1348lines.
+Complete reviewed ChainClauses prefix is byte-identical. Current reviewed MonochromeRectangle colored-wrapper block is included unchanged. The26line integration converts each clause Boolean color witness into the monochromatic disjunction, applies colored rectangle equivalence, and simplifies pairInput membership. Thus actual gateT on opposite-color pair inputs is precisely a rectangle I timesJ, with I/J color containment.
+All original conditional topology hypotheses are retained. Rectangle behavior is derived for gateT, rather than assumed, but no replacement preserves other edges by this result alone. Not a claim about arbitrary24gatecircuits or full inputs beyond pair assignments. Official guard only expected absent final theorem; author reports compileexit0. Review passed.
