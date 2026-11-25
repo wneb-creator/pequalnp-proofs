@@ -10921,3 +10921,65 @@ lemma partner_not_reaches {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Ad
   cases hrt
 
 end PEqualNP.Outside.L_meta_3566.LastDirtyAndFrontier
+
+namespace PEqualNP.Outside.L_meta_3566.LastDirtyAndDependency
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma cone_lt {n : ℕ} (C : Circuit) {q k : ℕ} (hk : k < C.gates.length)
+    (hc : InCone n C q k) : q < k := by
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    obtain ⟨w,_,hn,hw,hq | hq⟩ := (JunkPurity.inCone_iff n C q k hk).mp hc
+    · omega
+    · have := ih (w-n) (by omega) (by omega) hq
+      omega
+
+lemma cone_to_or_path {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTF : TopForm G C) {q j : ℕ}
+    (hlast : ∀ k, q < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hj : j < C.gates.length) (hja : (gateAt C j).op = .and)
+    {k : ℕ} (hk : k < C.gates.length) (hkj : InCone n C k j)
+    (hqk : q = k ∨ InCone n C q k) :
+    Relation.ReflTransGen (MixedColor.OrStep n C) (n+k) (n+q) := by
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    rcases hqk with rfl | hqk
+    · rfl
+    have hqkl := cone_lt C hk hqk
+    rcases hAO.1 _ (MixedColor.gateAt_mem hk) with ha | ho
+    · exact (hTF k hk j hj ha (hlast k hqkl hk ha) hja hkj).elim
+    · obtain ⟨w,hw,hn,hwk,hqw⟩ := (JunkPurity.inCone_iff n C q k hk).mp hqk
+      have hwc : InCone n C (w-n) k :=
+        (JunkPurity.inCone_iff n C (w-n) k hk).mpr ⟨w,hw,hn,hwk,Or.inl rfl⟩
+      have hwj := JunkPurity.cone_trans C hj hwc hkj
+      have hp := ih (w-n) (by omega) (by omega) hwj hqw
+      apply Relation.ReflTransGen.head ⟨k,hk,rfl,ho,hw,hwk⟩
+      have heq : n+(w-n) = w := by omega
+      simpa only [heq] using hp
+
+lemma partner_no_dependency {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTF : TopForm G C) {q j w r : ℕ}
+    (hdirty : ¬ BelowF G C q)
+    (hlast : ∀ k, q < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hj : j < C.gates.length) (hja : (gateAt C j).op = .and) (hjc : BelowF G C j)
+    (hinputs : (gateAt C j).inputs = [w,r] ∨ (gateAt C j).inputs = [r,w])
+    (hp : Relation.ReflTransGen (MixedColor.OrStep n C) w (n+q)) :
+    r ≠ n+q ∧ (n ≤ r → ¬ InCone n C q (r-n)) := by
+  have hnot := LastDirtyAndFrontier.partner_not_reaches G C hAO hdirty hj hja hjc hinputs hp
+  constructor
+  · intro heq
+    rw [heq] at hnot
+    exact hnot .refl
+  · intro hn hc
+    have hrmem : r ∈ (gateAt C j).inputs := by
+      rcases hinputs with hs | hs <;> simp [hs]
+    have hrj := hAO.2.1 j hj r hrmem
+    have hrcone : InCone n C (r-n) j :=
+      (JunkPurity.inCone_iff n C (r-n) j hj).mpr ⟨r,hrmem,hn,hrj,Or.inl rfl⟩
+    have hpath := cone_to_or_path G C hAO hTF hlast hj hja (by omega) hrcone (Or.inr hc)
+    have heq : n+(r-n) = r := by omega
+    exact hnot (by simpa only [heq] using hpath)
+
+end PEqualNP.Outside.L_meta_3566.LastDirtyAndDependency
