@@ -1,0 +1,6 @@
+UTC 2026-11-25T05:40:50.974307+00:00
+Lean build exit 0. Complete stdout/stderr empty.
+Defs-only generic research partial. At most r+1 binary AND gates, a pairwise-join-positive false family of more than2^r inputs bounded by upper, implies every selected binary AND computes true at upper.
+No concrete209-instance Lean enumeration is claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/ForcedActiveAnd.lean
+SHA256 def6a4332fbd73d98293a12dcd55f789f0aefbef4f76b4e3e58eee624e06f895
