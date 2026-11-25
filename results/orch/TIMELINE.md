@@ -11,3 +11,15 @@
 - 2026-11-25T03:18:41.722046+00:00: preserved second compiled milestone: pair/triple geometry, OR signature cardinality, unrestricted sensitivity bound.
 - 2026-11-25T03:25:20.073082+00:00: lease renewed; expires 2026-11-25T03:45:20.320Z.
 - 2026-11-25T03:25:20.486278+00:00: concrete18-OR lower bound compiled and independently approved; preparing third partial checkpoint.
+- 2026-11-25T03:26:42.713482+00:00: first20-minute strategy replan; dropped uniform merge accounting and universal quadratic-shadow lower-bound route.
+- 2026-11-25T03:28:00.003494+00:00: lease renewed; expires 2026-11-25T03:48:00.240Z.
+- 2026-11-25T03:29:51.611715+00:00: lease renewed; expires 2026-11-25T03:49:51.824Z.
+- 2026-11-25T03:34:04.726885+00:00: lease renewed; expires 2026-11-25T03:54:04.888Z.
+- 2026-11-25T03:37:52.728711+00:00: lease renewed; expires 2026-11-25T03:57:52.874Z.
+- 2026-11-25T03:39:20.114412+00:00: lease renewed; expires 2026-11-25T03:59:20.347Z.
+- 2026-11-25T03:49:20.480532+00:00: lease renewed; expires 2026-11-25T04:09:20.715Z.
+- 2026-11-25T03:49:43.688354+00:00: lease renewed; expires 2026-11-25T04:09:43.769Z.
+- 2026-11-25T03:54:42.027804+00:00: lease renewed; expires 2026-11-25T04:14:42.182Z.
+- 2026-11-25T03:58:40.737798+00:00: lease renewed; expires 2026-11-25T04:18:40.879Z.
+- 2026-11-25T04:00:57.868956+00:00: lease renewed; expires 2026-11-25T04:20:58.028Z.
+- 2026-11-25T04:02:45.938262+00:00: lease renewed; expires 2026-11-25T04:22:46.042Z.

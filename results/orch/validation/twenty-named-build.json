@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T04:03:47.815365+00:00",
+  "file": "lean/PEqualNP/Outside/L_meta_1896.lean",
+  "sha256": "ec1f2f40f2cec0e24fb274911856e0a6dee7641f01b111e4dc171e954e657eed",
+  "lines": 2232,
+  "lake_build_exit": 0,
+  "checker_exit": 3,
+  "claim": "Exact posted hypotheses imply at least 20 OR gates; posted target is 51, unproved."
+}
