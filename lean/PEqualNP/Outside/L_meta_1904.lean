@@ -1945,4 +1945,482 @@ lemma two_singleton_circuit_repair {n : ℕ} (G : SimpleGraph (Fin n))
 
 end TwoSingletonRepair
 
+
+
+namespace OverlapAndCover
+
+lemma rectangular_relation_star {X Y : Type*} (R : X → Y → Prop)
+    (rectangle : ∀ a b c d, R a b → R c d → R a d)
+    (noSquare : ∀ a c b d, R a b → R c b → R c d → R a d → a = c ∨ b = d) :
+    (∀ a b, ¬R a b) ∨
+      (∃ a₀, ∀ a b, R a b → a = a₀) ∨ (∃ b₀, ∀ a b, R a b → b = b₀) := by
+  classical
+  by_cases nonempty : ∃ a b, R a b
+  · obtain ⟨a₀,b₀,base⟩ := nonempty
+    by_cases sameLeft : ∀ a, R a b₀ → a = a₀
+    · exact Or.inr (Or.inl ⟨a₀,fun a b hab => sameLeft a (rectangle a b a₀ b₀ hab base)⟩)
+    · push Not at sameLeft
+      obtain ⟨a₁,other,different⟩ := sameLeft
+      refine Or.inr (Or.inr ⟨b₀,?_⟩)
+      intro a b hab
+      rcases noSquare a₀ a₁ b₀ b base other
+          (rectangle a₁ b₀ a b other hab) (rectangle a₀ b₀ a b base hab) with ha | hb
+      · exact False.elim (different ha.symm)
+      · exact hb.symm
+  · exact Or.inl (fun a b hab => nonempty ⟨a,b,hab⟩)
+
+lemma cover_of_rectangular_cross {I X Y : Type*} [Fintype I]
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (noLeft : ∀ a b : X, ¬G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inl b)))
+    (noRight : ∀ a b : Y, ¬G.Adj (Sum.inr (Sum.inr a)) (Sum.inr (Sum.inr b)))
+    (rectangle : ∀ a b c d, G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)) →
+      G.Adj (Sum.inr (Sum.inl c)) (Sum.inr (Sum.inr d)) →
+      G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr d)))
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    ∃ T : Finset (I ⊕ (X ⊕ Y)), T.card ≤ Fintype.card I + 1 ∧
+      ∀ a b, G.Adj a b → a ∈ T ∨ b ∈ T := by
+  classical
+  let R (a : X) (b : Y) := G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b))
+  have noSquareR : ∀ a c b d, R a b → R c b → R c d → R a d → a = c ∨ b = d := by
+    intro a c b d hab hcb hcd had
+    have result := noSquare (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b))
+      (Sum.inr (Sum.inl c)) (Sum.inr (Sum.inr d)) hab hcb.symm hcd had.symm
+    simpa only [Sum.inr.injEq,Sum.inl.injEq] using result
+  have crosses : ∃ W : Finset (I ⊕ (X ⊕ Y)), W.card ≤ 1 ∧
+      ∀ a b, R a b → Sum.inr (Sum.inl a) ∈ W ∨ Sum.inr (Sum.inr b) ∈ W := by
+    rcases rectangular_relation_star R rectangle noSquareR with empty | ⟨a₀,left⟩ | ⟨b₀,right⟩
+    · exact ⟨∅,by simp,fun a b hab => False.elim (empty a b hab)⟩
+    · refine ⟨{Sum.inr (Sum.inl a₀)},by simp,?_⟩
+      intro a b hab
+      exact Or.inl (by simp [left a b hab])
+    · refine ⟨{Sum.inr (Sum.inr b₀)},by simp,?_⟩
+      intro a b hab
+      exact Or.inr (by simp [right a b hab])
+  obtain ⟨W,small,crosses⟩ := crosses
+  let shared : Finset (I ⊕ (X ⊕ Y)) := Finset.univ.image Sum.inl
+  have sharedBound : shared.card ≤ Fintype.card I := by
+    exact (Finset.card_image_le).trans_eq Finset.card_univ
+  refine ⟨shared ∪ W,?_,?_⟩
+  · have bound := Finset.card_union_le shared W
+    omega
+  · intro a b hab
+    cases a with
+    | inl i => exact Or.inl (Finset.mem_union_left _ (Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩))
+    | inr a =>
+      cases b with
+      | inl i => exact Or.inr (Finset.mem_union_left _ (Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩))
+      | inr b =>
+        cases a with
+        | inl a =>
+          cases b with
+          | inl b => exact False.elim (noLeft a b hab)
+          | inr b =>
+            rcases crosses a b hab with ha | hb
+            · exact Or.inl (Finset.mem_union_right _ ha)
+            · exact Or.inr (Finset.mem_union_right _ hb)
+        | inr a =>
+          cases b with
+          | inl b =>
+            rcases crosses b a hab.symm with hb | ha
+            · exact Or.inr (Finset.mem_union_right _ hb)
+            · exact Or.inl (Finset.mem_union_right _ ha)
+          | inr b => exact False.elim (noRight a b hab)
+
+def pairInput {V : Type*} [DecidableEq V] (a b : V) (v : V) : Bool := decide (v = a ∨ v = b)
+
+def unitInput {V : Type*} [DecidableEq V] (a : V) (v : V) : Bool := decide (v = a)
+
+lemma pair_edge_iff {V : Type*} [DecidableEq V] (G : SimpleGraph V) (a b : V) :
+    (∃ u v, G.Adj u v ∧ pairInput a b u = true ∧ pairInput a b v = true) ↔ G.Adj a b := by
+  constructor
+  · rintro ⟨u,v,huv,hu,hv⟩
+    have hu' : u = a ∨ u = b := of_decide_eq_true hu
+    have hv' : v = a ∨ v = b := of_decide_eq_true hv
+    rcases hu' with rfl | rfl <;> rcases hv' with rfl | rfl
+    · exact False.elim (G.irrefl huv)
+    · exact huv
+    · exact huv.symm
+    · exact False.elim (G.irrefl huv)
+  · intro hab
+    exact ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+
+lemma and_factor_cover {I X Y : Type*} [Fintype I]
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (leftZero : L (fun _ => false) (fun _ => false) = false)
+    (rightZero : R (fun _ => false) (fun _ => false) = false)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    ∃ T : Finset (I ⊕ (X ⊕ Y)), T.card ≤ Fintype.card I + 1 ∧
+      ∀ a b, G.Adj a b → a ∈ T ∨ b ∈ T := by
+  classical
+  have noLeft (a b : X) : ¬G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inl b)) := by
+    intro hab
+    have yes := (correct (pairInput (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inl b)))).mpr
+      ((pair_edge_iff G _ _).mpr hab)
+    simp [pairInput,rightZero] at yes
+  have noRight (a b : Y) : ¬G.Adj (Sum.inr (Sum.inr a)) (Sum.inr (Sum.inr b)) := by
+    intro hab
+    have yes := (correct (pairInput (Sum.inr (Sum.inr a)) (Sum.inr (Sum.inr b)))).mpr
+      ((pair_edge_iff G _ _).mpr hab)
+    simp [pairInput,leftZero] at yes
+  have cross (a : X) (b : Y) :
+      G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)) ↔
+        L (fun _ => false) (unitInput a) = true ∧ R (fun _ => false) (unitInput b) = true := by
+    have h := correct (pairInput (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)))
+    rw [pair_edge_iff] at h
+    change G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)) ↔
+      L (fun _ => false) (fun a' => decide (a' = a)) = true ∧
+      R (fun _ => false) (fun b' => decide (b' = b)) = true
+    simpa [pairInput] using h.symm
+  apply cover_of_rectangular_cross G noLeft noRight ?_ noSquare
+  intro a b c d hab hcd
+  exact (cross a d).mpr ⟨((cross a b).mp hab).1,((cross c d).mp hcd).2⟩
+
+lemma one_shared_vertex_cover {X Y : Type*}
+    (G : SimpleGraph (Unit ⊕ (X ⊕ Y)))
+    (L : (Unit → Bool) → (X → Bool) → Bool)
+    (R : (Unit → Bool) → (Y → Bool) → Bool)
+    (leftZero : L (fun _ => false) (fun _ => false) = false)
+    (rightZero : R (fun _ => false) (fun _ => false) = false)
+    (correct : ∀ x : Unit ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) :
+    ∃ T : Finset (Unit ⊕ (X ⊕ Y)), T.card ≤ 2 ∧
+      ∀ a b, G.Adj a b → a ∈ T ∨ b ∈ T := by
+  simpa using and_factor_cover G L R leftZero rightZero correct noSquare
+
+end OverlapAndCover
+
+namespace OverlapAndCover
+
+/-- If the left factor ignores `b` and the right factor ignores `a`,
+    every neighbor of `a` is adjacent to every neighbor of `b`. -/
+lemma ignored_vertices_neighborhood_rectangle {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a b : V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ x, L (Function.update x b true) = L x)
+    (ignoresRight : ∀ x, R (Function.update x a true) = R x)
+    {c d : V} (hac : G.Adj a c) (hbd : G.Adj b d) : G.Adj c d := by
+  have leftPositive : L (pairInput c d) = true := by
+    have positive := (correct (Function.update (pairInput c d) b true)).mpr
+      ⟨b,d,hbd,by simp,by
+        by_cases h : d = b
+        · subst d; simp
+        · simp [Function.update_of_ne h,pairInput]⟩
+    have value : L (Function.update (pairInput c d) b true) = true ∧
+        R (Function.update (pairInput c d) b true) = true := by simpa using positive
+    simpa only [ignoresLeft] using value.1
+  have rightPositive : R (pairInput c d) = true := by
+    have positive := (correct (Function.update (pairInput c d) a true)).mpr
+      ⟨a,c,hac,by simp,by
+        by_cases h : c = a
+        · subst c; simp
+        · simp [Function.update_of_ne h,pairInput]⟩
+    have value : L (Function.update (pairInput c d) a true) = true ∧
+        R (Function.update (pairInput c d) a true) = true := by simpa using positive
+    simpa only [ignoresRight] using value.2
+  exact (pair_edge_iff G c d).mp ((correct (pairInput c d)).mp
+    (by simp [leftPositive,rightPositive]))
+
+/-- An edge between variables invisible to the opposite AND factors
+    has a leaf endpoint whenever the graph has no four-cycle. -/
+lemma ignored_edge_has_leaf {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a b : V)
+    (correct : ∀ x, (L x && R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ x, L (Function.update x b true) = L x)
+    (ignoresRight : ∀ x, R (Function.update x a true) = R x)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (hab : G.Adj a b) :
+    (∀ c, G.Adj a c → c = b) ∨ (∀ d, G.Adj b d → d = a) := by
+  classical
+  by_cases leftLeaf : ∀ c, G.Adj a c → c = b
+  · exact Or.inl leftLeaf
+  · push Not at leftLeaf
+    obtain ⟨c,hac,hcb⟩ := leftLeaf
+    refine Or.inr ?_
+    intro d hbd
+    have hcd := ignored_vertices_neighborhood_rectangle G L R a b
+      correct ignoresLeft ignoresRight hac hbd
+    rcases noSquare a b d c hab hbd hcd.symm hac.symm with had | hbc
+    · exact had.symm
+    · exact False.elim (hcb hbc.symm)
+
+/-- No finiteness, monotonicity, or zero-preservation hypotheses are needed:
+    exact AND factorization alone makes a private cross-edge incident to a leaf. -/
+lemma private_cross_edge_has_leaf {I X Y : Type*}
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (a : X) (b : Y) (hab : G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b))) :
+    (∀ c, G.Adj (Sum.inr (Sum.inl a)) c → c = Sum.inr (Sum.inr b)) ∨
+    (∀ d, G.Adj (Sum.inr (Sum.inr b)) d → d = Sum.inr (Sum.inl a)) := by
+  classical
+  apply ignored_edge_has_leaf G
+    (fun x => L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))))
+    (fun x => R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b))))
+    (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)) correct ?_ ?_ noSquare hab
+  · intro x
+    simp [Function.update]
+  · intro x
+    simp [Function.update]
+
+
+/-- In a graph without leaf vertices, every edge of a zero-preserving
+    factorization touches the shared block. Isolated vertices are allowed. -/
+lemma shared_block_covers_of_no_leaves {I X Y : Type*}
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (leftZero : L (fun _ => false) (fun _ => false) = false)
+    (rightZero : R (fun _ => false) (fun _ => false) = false)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    ∀ a b, G.Adj a b → (∃ i, a = Sum.inl i) ∨ (∃ i, b = Sum.inl i) := by
+  classical
+  have noCross (a : X) (b : Y) : ¬G.Adj (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inr b)) := by
+    intro hab
+    rcases private_cross_edge_has_leaf G L R correct noSquare a b hab with left | right
+    · obtain ⟨c,hac,hcb⟩ := noLeaves _ _ hab
+      exact hcb (left c hac)
+    · obtain ⟨d,hbd,hda⟩ := noLeaves _ _ hab.symm
+      exact hda (right d hbd)
+  intro a b hab
+  cases a with
+  | inl i => exact Or.inl ⟨i,rfl⟩
+  | inr a =>
+    cases b with
+    | inl i => exact Or.inr ⟨i,rfl⟩
+    | inr b =>
+      cases a with
+      | inl a =>
+        cases b with
+        | inl b =>
+          have yes := (correct (pairInput (Sum.inr (Sum.inl a)) (Sum.inr (Sum.inl b)))).mpr
+            ((pair_edge_iff G _ _).mpr hab)
+          simp [pairInput,rightZero] at yes
+        | inr b => exact False.elim (noCross a b hab)
+      | inr a =>
+        cases b with
+        | inl b => exact False.elim (noCross b a hab.symm)
+        | inr b =>
+          have yes := (correct (pairInput (Sum.inr (Sum.inr a)) (Sum.inr (Sum.inr b)))).mpr
+            ((pair_edge_iff G _ _).mpr hab)
+          simp [pairInput,leftZero] at yes
+
+lemma and_factor_cover_of_no_leaves {I X Y : Type*} [Fintype I]
+    (G : SimpleGraph (I ⊕ (X ⊕ Y)))
+    (L : (I → Bool) → (X → Bool) → Bool)
+    (R : (I → Bool) → (Y → Bool) → Bool)
+    (leftZero : L (fun _ => false) (fun _ => false) = false)
+    (rightZero : R (fun _ => false) (fun _ => false) = false)
+    (correct : ∀ x : I ⊕ (X ⊕ Y) → Bool,
+      (L (fun i => x (Sum.inl i)) (fun a => x (Sum.inr (Sum.inl a))) &&
+        R (fun i => x (Sum.inl i)) (fun b => x (Sum.inr (Sum.inr b)))) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b) :
+    ∃ T : Finset (I ⊕ (X ⊕ Y)), T.card ≤ Fintype.card I ∧
+      ∀ a b, G.Adj a b → a ∈ T ∨ b ∈ T := by
+  classical
+  refine ⟨Finset.univ.image Sum.inl,?_,?_⟩
+  · exact Finset.card_image_le.trans_eq Finset.card_univ
+  · intro a b hab
+    rcases shared_block_covers_of_no_leaves G L R leftZero rightZero correct noSquare noLeaves
+      a b hab with ⟨i,rfl⟩ | ⟨i,rfl⟩
+    · exact Or.inl (Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩)
+    · exact Or.inr (Finset.mem_image.mpr ⟨i,Finset.mem_univ _,rfl⟩)
+
+
+/-- Private variables on opposite sides of an OR factorization cannot be adjacent. -/
+lemma ignored_vertices_or_not_adjacent {V : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (L R : (V → Bool) → Bool) (a b : V)
+    (correct : ∀ x, (L x || R x) = true ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (ignoresLeft : ∀ x, L (Function.update x b true) = L x)
+    (ignoresRight : ∀ x, R (Function.update x a true) = R x) : ¬G.Adj a b := by
+  have singletonFalse (v : V) : L (pairInput v v) = false ∧ R (pairInput v v) = false := by
+    have bad : ¬(L (pairInput v v) || R (pairInput v v)) = true := by
+      intro yes
+      exact G.irrefl ((pair_edge_iff G v v).mp ((correct (pairInput v v)).mp yes))
+    cases hL : L (pairInput v v) <;> cases hR : R (pairInput v v) <;> simp_all
+  have updateLeft : Function.update (pairInput a a) b true = pairInput a b := by
+    funext v
+    by_cases h : v = b <;> simp [Function.update,pairInput,h]
+  have updateRight : Function.update (pairInput b b) a true = pairInput a b := by
+    funext v
+    by_cases h : v = a <;> simp [Function.update,pairInput,h]
+  have leftFalse : L (pairInput a b) = false := by
+    rw [←updateLeft,ignoresLeft]
+    exact (singletonFalse a).1
+  have rightFalse : R (pairInput a b) = false := by
+    rw [←updateRight,ignoresRight]
+    exact (singletonFalse b).2
+  intro hab
+  have yes := (correct (pairInput a b)).mpr ((pair_edge_iff G a b).mpr hab)
+  simp [leftFalse,rightFalse] at yes
+
+end OverlapAndCover
+
+namespace PathRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def oldValue (a b c d e : Bool) : Bool :=
+  (b || d) && (c || (((a || e) && (e || b)) && (a || d)))
+
+def newValue (a b c d e : Bool) : Bool :=
+  (b && (a || c)) || (d && (c || e))
+
+lemma five_gate_identity (a b c d e : Bool) : oldValue a b c d e = newValue a b c d e := by
+  cases a <;> cases b <;> cases c <;> cases d <;> cases e <;> rfl
+
+lemma new_ands_safe {X : Type*} (a b c d e : X → Bool) (P : X → Prop)
+    (hsafe : ∀ x, oldValue (a x) (b x) (c x) (d x) (e x) = true → P x) :
+    (∀ x, (b x && (a x || c x)) = true → P x) ∧
+    (∀ x, (d x && (c x || e x)) = true → P x) := by
+  constructor
+  · intro x hx
+    apply hsafe x
+    rw [five_gate_identity]
+    simp only [newValue, Bool.or_eq_true]
+    exact Or.inl hx
+  · intro x hx
+    apply hsafe x
+    rw [five_gate_identity]
+    simp only [newValue, Bool.or_eq_true]
+    exact Or.inr hx
+
+end PathRepair
+
+namespace PathRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def oldBlock {m : ℕ} (b c d ae eb ad : Fin m) : Circuit :=
+  ⟨[⟨.or, [b.val, d.val]⟩,
+    ⟨.and, [ae.val, eb.val]⟩,
+    ⟨.and, [m + 1, ad.val]⟩,
+    ⟨.or, [c.val, m + 2]⟩,
+    ⟨.and, [m, m + 3]⟩], m + 4⟩
+
+def newBlock {m : ℕ} (a b c d e : Fin m) : Circuit :=
+  ⟨[⟨.or, [a.val, c.val]⟩,
+    ⟨.and, [b.val, m]⟩,
+    ⟨.or, [c.val, e.val]⟩,
+    ⟨.and, [d.val, m + 2]⟩,
+    ⟨.or, [m + 1, m + 3]⟩], m + 4⟩
+
+lemma oldBlock_eval {m : ℕ} (b c d ae eb ad : Fin m) (x : Fin m → Bool) :
+    (oldBlock b c d ae eb ad).eval (List.ofFn x) =
+      ((x b || x d) && (x c || ((x ae && x eb) && x ad))) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen, oldBlock, Circuit.eval, Circuit.wires, GateOp.eval,
+    List.getD_eq_getElem?_getD, List.getElem?_append_left, List.getElem?_append_right]
+  rfl
+
+lemma newBlock_eval {m : ℕ} (a b c d e : Fin m) (x : Fin m → Bool) :
+    (newBlock a b c d e).eval (List.ofFn x) =
+      newValue (x a) (x b) (x c) (x d) (x e) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen, newBlock, Circuit.eval, Circuit.wires, GateOp.eval, newValue,
+    List.getD_eq_getElem?_getD, List.getElem?_append_left, List.getElem?_append_right]
+  rfl
+
+lemma blocks_agree {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m → Bool)
+    (hae : x ae = (x a || x e)) (heb : x eb = (x e || x b))
+    (had : x ad = (x a || x d)) :
+    (oldBlock b c d ae eb ad).eval (List.ofFn x) =
+      (newBlock a b c d e).eval (List.ofFn x) := by
+  rw [oldBlock_eval, newBlock_eval, hae, heb, had]
+  exact five_gate_identity (x a) (x b) (x c) (x d) (x e)
+
+lemma oldBlock_size {m : ℕ} (b c d ae eb ad : Fin m) :
+    (oldBlock b c d ae eb ad).size = 5 := rfl
+
+lemma newBlock_size {m : ℕ} (a b c d e : Fin m) :
+    (newBlock a b c d e).size = 5 := rfl
+
+lemma oldBlock_monotone {m : ℕ} (b c d ae eb ad : Fin m) :
+    Monotone2 (oldBlock b c d ae eb ad) := by
+  simp [Monotone2, oldBlock]
+
+lemma newBlock_monotone {m : ℕ} (a b c d e : Fin m) :
+    Monotone2 (newBlock a b c d e) := by
+  simp [Monotone2, newBlock]
+
+lemma newBlock_and_left {m : ℕ} (a b c d e : Fin m) (x : Fin m → Bool) :
+    ((newBlock a b c d e).wires (List.ofFn x)).getD (m + 1) false =
+      (x b && (x a || x c)) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen, newBlock, Circuit.wires, GateOp.eval,
+    List.getD_eq_getElem?_getD, List.getElem?_append_left, List.getElem?_append_right]
+  rfl
+
+lemma newBlock_and_right {m : ℕ} (a b c d e : Fin m) (x : Fin m → Bool) :
+    ((newBlock a b c d e).wires (List.ofFn x)).getD (m + 3) false =
+      (x d && (x c || x e)) := by
+  have hlen : (List.ofFn x).length = m := List.length_ofFn
+  simp (disch := omega) [hlen, newBlock, Circuit.wires, GateOp.eval,
+    List.getD_eq_getElem?_getD, List.getElem?_append_left, List.getElem?_append_right]
+  rfl
+
+lemma newBlock_and_safety {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m → Bool)
+    (hae : x ae = (x a || x e)) (heb : x eb = (x e || x b))
+    (had : x ad = (x a || x d)) (P : Prop)
+    (hsafe : (oldBlock b c d ae eb ad).eval (List.ofFn x) = true → P) :
+    (((newBlock a b c d e).wires (List.ofFn x)).getD (m + 1) false = true → P) ∧
+    (((newBlock a b c d e).wires (List.ofFn x)).getD (m + 3) false = true → P) := by
+  have hnew : (newBlock a b c d e).eval (List.ofFn x) = true → P :=
+    fun hx => hsafe ((blocks_agree a b c d e ae eb ad x hae heb had).trans hx)
+  constructor
+  · intro hx
+    apply hnew
+    rw [newBlock_eval]
+    simp only [newValue, Bool.or_eq_true]
+    exact Or.inl (by simpa only [newBlock_and_left] using hx)
+  · intro hx
+    apply hnew
+    rw [newBlock_eval]
+    simp only [newValue, Bool.or_eq_true]
+    exact Or.inr (by simpa only [newBlock_and_right] using hx)
+
+lemma newBlock_and_indices {m : ℕ} (a b c d e : Fin m) (j : ℕ) (g : Gate)
+    (hj : (newBlock a b c d e).gates[j]? = some g) (hop : g.op = GateOp.and) :
+    j = 1 ∨ j = 3 := by
+  have hjlt : j < 5 := by
+    have h := (List.getElem?_eq_some_iff.mp hj).choose
+    simpa [newBlock] using h
+  interval_cases j <;> simp [newBlock] at hj <;> subst g <;> simp_all
+
+lemma newBlock_all_ands_safe {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m → Bool)
+    (hae : x ae = (x a || x e)) (heb : x eb = (x e || x b))
+    (had : x ad = (x a || x d)) (P : Prop)
+    (hsafe : (oldBlock b c d ae eb ad).eval (List.ofFn x) = true → P) :
+    ∀ j g, (newBlock a b c d e).gates[j]? = some g → g.op = GateOp.and →
+      ((newBlock a b c d e).wires (List.ofFn x)).getD (m + j) false = true → P := by
+  intro j g hj hop
+  rcases newBlock_and_indices a b c d e j g hj hop with rfl | rfl
+  · exact (newBlock_and_safety a b c d e ae eb ad x hae heb had P hsafe).1
+  · exact (newBlock_and_safety a b c d e ae eb ad x hae heb had P hsafe).2
+
+end PathRepair
+
 end PEqualNP.Outside.L_meta_1904_aux
