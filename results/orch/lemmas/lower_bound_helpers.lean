@@ -69,4 +69,40 @@ lemma petersen_moveZero : ∀ (v : Fin 10) (x : Fin 10 → Bool),
     petersen (fun i => x (moveZero v i)) = petersen x := by
   decide +kernel
 
+
+lemma decreasing_endpoints_select_not {α : Type*} [PartialOrder α] [OrderBot α] [OrderTop α]
+    (f h : α → Bool) (G : α → Bool → Bool)
+    (correct : ∀ x, G x (!h x) = f x)
+    (mono : Monotone (fun t : α × Bool => G t.1 t.2))
+    (low : f ⊥ = true) (high : f ⊤ = false) :
+    (∀ x z, G x z = z) ∧ ∀ x, f x = !h x := by
+  have lowG : G ⊥ true = true := by
+    have hm := mono (show (⊥, !h ⊥) ≤ (⊥, true) from ⟨le_rfl, Bool.le_true _⟩)
+    dsimp only at hm
+    rw [correct,low] at hm
+    cases hg : G ⊥ true <;> simp_all
+    exact (by decide : ¬ ((true : Bool) ≤ false)) hm
+  have highG : G ⊤ false = false := by
+    have hm := mono (show (⊤, false) ≤ (⊤, !h ⊤) from ⟨le_rfl, Bool.false_le _⟩)
+    dsimp only at hm
+    rw [correct,high] at hm
+    cases hg : G ⊤ false <;> simp_all
+    exact (by decide : ¬ ((true : Bool) ≤ false)) hm
+  have selects : ∀ x z, G x z = z := by
+    intro x z
+    cases z with
+    | false =>
+      have hm := mono (show (x,false) ≤ (⊤,false) from ⟨le_top,le_rfl⟩)
+      dsimp only at hm
+      rw [highG] at hm
+      cases hg : G x false <;> simp_all
+      exact (by decide : ¬ ((true : Bool) ≤ false)) hm
+    | true =>
+      have hm := mono (show (⊥,true) ≤ (x,true) from ⟨bot_le,le_rfl⟩)
+      dsimp only at hm
+      rw [lowG] at hm
+      cases hg : G x true <;> simp_all
+      exact (by decide : ¬ ((true : Bool) ≤ false)) hm
+  exact ⟨selects,fun x => (correct x).symm.trans (selects x (!h x))⟩
+
 end PEqualNP.Outside.L_meta_2592_aux
