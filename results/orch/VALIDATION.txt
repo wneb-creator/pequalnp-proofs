@@ -23,3 +23,6 @@ Consolidated named partial: 1937 lines; lake build PEqualNP.Outside.L_meta_2448 
 Added pivotal-star gate restriction, graph-rewrite, cover construction and checked C5 witness to the named file. Full posted theorem STILL ABSENT.
 Independent counterexample-agent review PASS for partial checkpoint. Axiom audit of11 key lemmas: only propext, Classical.choice, Quot.sound. Complete build, format and audit outputs preserved. Format guard refuses expected missing final theorem; this is not PR-ready.
 Cleanup not performed because full checker could not run. Line counts before/after cleanup:1937/1937.
+
+PivotalStarLimitation.lean compiled exit0 with empty stdout/stderr. Root independently reviewed41-line finite proof: a computingC5 circuit has starprofile yet gate5 pivotaledges have no commoncenter. This refutes an OVERSTRONG ROUTE assumption, not the posted statement; no minimumclaim.
+Sub-agents used so far:7 total (six direct agents plus preflight_review/critical_structure).
