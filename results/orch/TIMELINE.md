@@ -19,3 +19,6 @@ Completion timestamps from the original complete-log modification times (UTC):
 - 2026-11-24T23:51:05Z: second verifier attempt ended in an out-of-memory fault; no proof verdict.
 - 2026-11-25T00:03:49Z: third checker log confirmed verifier exit 137; no verdict.
 - 2026-11-25T00:08:38Z: fourth verifier hit memory limit; no verdict.
+- 2026-11-25T00:11:22Z: own lease renewed through 00:31:22Z before fifth checker.
+- 2026-11-25T00:14:48Z: fifth unmodified checker hit the container memory limit; no verdict.
+- 2026-11-25T00:15:29.224928+00:00: selected authorized single-PR fallback for authoritative validation; cleanup skipped, 68 lines retained.
