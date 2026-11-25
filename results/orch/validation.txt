@@ -96,3 +96,8 @@ PivotalNormalForm gives a minimum circuit with at least two pivotal edges per un
 Search3:104 files,8,600,292 bytes; manifest SHA256 5e7ee6bdcbaf492552c93892966c7ccafc50ca2b14b0f31af552525e2db08a7a. Independent review validated hashes, six complete witness truth tables, ownership, pivotal profiles and joint-class enumeration. Petersen600s and stress1200s searches UNKNOWN; interrupted attempts labeled. Restricted SAT UNSAT results are not full Lean lower bounds.
 Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
 TIMING total=69.9 subagents=6
+
+2026-11-25T04:38:48.971203+00:00 reviewed partial batch
+FactoryBoundaryBudget.lean: standalone Lean exit0; independent review PASS; SHA256 8a012affef7e6f8e91a3c0c6013c0bb6774418981c3c9acaa9c0f61c09e2dc7b; full log factory-boundary-budget-build.log.
+PivotalDirty.lean: standalone Lean exit0; independent review PASS; SHA256 d20dd8eb54190d16d82f8f5dca29f651bc7f5428b1f4a84226197816eb39bce4; full log pivotal-dirty-build.log.
+FactoryBoundaryBudget proves explicit combinatorial/arithmetic bounds only; wiring and arbitrary-reader extraction remain obligations. PivotalDirty proves singleton-pivotal repairs preserve both dirty and unowned counts, with the appropriate strict decreases. Full statement remains unproved; repository checker not run on partial artifacts.

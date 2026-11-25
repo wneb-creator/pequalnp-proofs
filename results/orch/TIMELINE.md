@@ -28,3 +28,5 @@
 - 2026-11-25T04:33:13.054324+00:00: preserved checked common-factory graph restriction. Joint-pivotal repair is the new main proof route; full result still unresolved.
 
 - 2026-11-25T04:35:28.041527+00:00: reviewed and preserved pivotal-edge normalization, conditional joint-pivotal replacement, explicit P4 comparison, and search3 archive. Global combinatorial repair remains unresolved.
+
+- 2026-11-25T04:38:48.971203+00:00: preserved checked factory-boundary arithmetic and simultaneous dirty/unowned control for singleton-pivotal repair.
