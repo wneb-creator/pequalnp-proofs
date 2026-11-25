@@ -13,7 +13,7 @@ SHA256: bc9fc6ca6a0cbf394a18eac12cc4a0eee5d65370660dfbfeb030a3dab5d9c161
 Line count: 86
 
 Sub-agents: 6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain setup, few-NOT cases)
-TIMING total=41.88 subagents=6
+TIMING total=49.30 subagents=6
 
 Artifact: results/orch/lemmas/EmbedExtra.lean
 Scope: Extra input embedding preserves evaluation, fan-in, size, and NOT count.
@@ -124,3 +124,18 @@ Independent source review: status_review PASS at exact final hash.
 SHA256: 15b60a43cd2acaf95c1a2b90783b4ee0c69e07e0c4300de918dd120758526321
 Line count:6870; bytes:396474.
 Full posted goal remains unproved; this is a checked partial, not a submitted proof PR.
+
+Preservation after desk HTTP 410 (2026-11-25T14:43:22Z).
+Prior successful renewal at14:36:25 reported expiry14:56:24.697Z.
+Required curl-si diagnostic at14:44:03 confirmedHTTP410; complete headers/body and stderr saved in beat-014-diagnostic files.
+No proof/search work continued after the error. All sources below compiled before pause.
+
+ConcreteFirstCases.lean: actual BinarySeventeen instantiation, Lean exit0; stdout/stderr empty.
+BinarySeventeenCasesSuffix proves two NOT gates force total19 and signed binary17, with signed minimality. Partial only.
+OverlapTest.lean: actual BinarySeventeen harness, Lean exit0; stdout/stderr empty.
+OverlapSuffix.lean: equivalent rewiring excludes a consumer reading both the first gate and a first source, conditional on ZeroFloor and signed minimum<=17. Independent review PASS.
+NotBudgetCore.lean and NotBudgetStep.lean: Lean exit0; four complete logs empty. Independent review PASS.
+The NOT budget result proves one-step marked-source growth only. Whole-circuit fold induction is not implemented.
+No complete proof, refutation, full-target checker acceptance, or proof PR exists.
+No full-goal cleanup pass attempted; strongest partial stays6870lines before/after preservation.
+Desk null replies:0. Recovery request pending after preservation push.

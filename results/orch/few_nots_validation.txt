@@ -59,3 +59,8 @@ lines 2285
 build: exit 0
 stdout: (empty)
 stderr: (empty)
+
+NotBudgetCore.lean: Lean exit 0; logs notbudget.stdout/stderr empty.
+NotBudgetStep.lean: Lean exit 0; logs notbudget-step2.stdout/stderr empty.
+SHA256 NotBudgetCore.lean 27393c156e470a8a13f91f7c8d0f5ce86d6d7b366544ec2c8393aaebef3b75f1
+SHA256 NotBudgetStep.lean c86d929578313b89095a564ec4bb4a9db71d499a9ead78bd3729d901151ef0c2

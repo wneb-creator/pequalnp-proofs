@@ -15,3 +15,5 @@
 - 2026-11-25T14:32:46.676065+00:00: false-cofactor transport and conditional reader-budget components compiled and reviewed; preserved.
 - 2026-11-25T14:40:42.651090+00:00: generalized reader budget, minimality promotion, duplicate exclusion, mixed cuts, and one-NOT endpoint components compiled and independently reviewed; preserving partials.
 - 2026-11-25T14:40:26Z: BinarySeventeen full compilation passed, same independently audited hash; preserving immediately.
+- 2026-11-25T14:43:22Z: renewal unexpectedly failed despite prior expiry14:56:24.697Z; paused all proof and search work.
+- 2026-11-25T14:44:03Z: required curl-si diagnostic confirmed HTTP410; preparing full preservation before one recovery request under the later explicit410 rule.
