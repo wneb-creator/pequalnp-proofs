@@ -22,3 +22,5 @@
 - 2026-11-25T04:19:03.305376+00:00: reviewed and preserved unconditional multi-edge normalization and conditional global clean-class replacement; full theorem unresolved.
 
 - 2026-11-25T04:19:35.205691+00:00: preserved reviewed class-deletion prerequisites and local residual-star simplification.
+
+- 2026-11-25T04:23:44.336128+00:00: concrete literal-filter double-star repair compiled, independently reviewed and preserved. Global shape extraction remains unresolved.

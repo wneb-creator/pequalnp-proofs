@@ -80,3 +80,6 @@ ClassCover.lean: Lean exit 0; independent review PASS; SHA256 fc58322d96a6da8edf
 ClassPrefix.lean: Lean exit 0; independent review PASS; SHA256 8e608e9cf8f10b0cbee37aa966180b35b6fa26eb0f5e4ca4240561fcbf70abb3; full log class-prefix-build-002.log.
 ResidualStar.lean: Lean exit 0; independent review PASS; SHA256 74f3dd4329b0ddbc910d3c4adb9290814f4de8ccfe16592a85eca91c2aeae9e7; full log residual-star-build.log.
 ClassIteration/ClassCover/ClassPrefix are prerequisites subsumed by CleanClassReplacement. ResidualStar proves a local residual-star simplification. None proves the posted statement; repository checker not run on partial artifacts.
+
+2026-11-25T04:23:44.336128+00:00 DoubleStarRepair.lean:1584 lines; Lean exit0; independent reviewer PASS; SHA256 5fc8b746c4cef079d8a4fab43e8b74b21bb0096201dd87bf6828e8f593bccf53; full log double-star-repair-build.log.
+Concrete two-edit repair under explicit literal-filter shape, existing AND-free OR factor, neighborhood and OR-output-path hypotheses. Preserves size, minimality, function and unaffected ownership; repairs the two selected gates. Full statement remains unproved; repository checker not run on partial artifacts.
