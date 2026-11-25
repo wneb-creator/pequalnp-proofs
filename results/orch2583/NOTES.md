@@ -7,3 +7,5 @@ The statement asks for an AO2 read-1 replacement for a projective-plane incidenc
 Prior open PR13723 contains partial results only; it does not prove the target. Its source is available in scratch for comparison. No prior result is assumed without Lean verification.
 
 Replan 2026-11-25T15:01:09.460249+00:00: geometry partials are now compiled and preserved. General proof routes remain blocked at quantitative minimality/shared-cone accounting. A one-hot-only relaxation has a pen-and-paper small-circuit obstruction, so it cannot prove the desired sharp bound. A new computational strategy searches subfunctions made of3 or4 point stars: a one-gate saving in any such block extends to a26-gate full Fano circuit. status_check owns this distinct search; counterexample continues full-function SAT and circuit_search stochastic optimization.
+
+STOP at15:07UTC: desk returnedHTTP410. Current conclusion: exacttargetunproved; no26gateFano witness. All agents stopped, rootheartbeatstopped. Geometric helpers and nine-gate P5 local-irreducibility example compiled in the named file; these are partial results only.

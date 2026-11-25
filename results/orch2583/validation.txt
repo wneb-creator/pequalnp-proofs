@@ -14,3 +14,12 @@ Lines 175; SHA256 b4da287a7c6d6bc73b40c913bb4a77672caefb87e7647c9884b2597ec6fe2c
 
 2026-11-25T14:57:53.488505+00:00: named build with point regularity, duality, mixed independent-set bound, mixed vertex-cover bound and minimum-cover classification PASS(exit0),5149jobs. Full build-mixed.stdout/.stderr saved. Exact circuit target still absent.
 Lines 399; SHA256 eba26c08cfd4bc65b81c609fcc820eff7bd9df7264daaa0ff00aa4ac9306969f
+
+2026-11-25T15:07:53.989993+00:00: STOP after desk HTTP410; last successful timer renewal15:04:05 had expiry15:24:05.282Z. Complete diagnostic retry response saved desk-410-response.txt. Root stopped heartbeat and all agents stopped research/search jobs.
+Final assembled named file including TwoJunkIrreducible: lake build PASS(exit0),5149jobs. The last assembly build was already launched in the renewal call before its error was inspected, completed successfully, and was not repeated after stop. Full output saved build-irreducible.stdout/.stderr.
+The P5 example is a checked counterexample to intermediate local-normalization ideas, NOT a refutation of the posted plane theorem. It proves9gates,5gateequivalent,all81earlier-wirebypasseschangefunction,andall9trueoverrideschangefunction.
+Exact posted theorem remains absent. Local checker not run for this incomplete target; no acceptance claimed. Cleanup not started because target unproved. Final line counts before/after cleanup: 519/519.
+SHA256 390d65ae6bd3efe27b1a04ead0bfc540c17617ccab33a4666ae8513a602e1a41
+Sub-agents: status_check, counterexample, circuit_search, lower_bound, partial_lean, lean_setup, fresh_proof
+TIMING total=69.3 subagents=7
+Desk null count so far:0. Desk error message: no such live lease: it expired or was released. Ask /desk/next again.
