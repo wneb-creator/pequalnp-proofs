@@ -103,3 +103,38 @@ Reviewed Enumerative.lean (522 lines) and all28 chunk assembly in EnumerativeFul
 - EnumMemoChecked.lean SHA256e8b9dd8ad87d07d7b26da1994f6b6f04be0bf24c733c9bc092dd559ef86afb93 matches source snapshot exactly through table data. Versus reviewed genericMemo, only sorting changes mergeSort to insertionSort with matching Mathlib permutation proofs; semantic certificate argument unchanged.
 - Parsed actual Lean literal tree independently:298trace constants,4270unique states, valid lexicographic tree ordering, exact sorted9gate input state present. Recomputed every table node check independently: all true. Only48states are asserted kernelchecked in this artifact, in16-state batches at offsets0,2000,4200; it makes no full lower-bound claim.
 - Complete enum-memo-profile compile metrics reportexit0,24.26seconds,4139896KiBmaxRSS. Guard finds only intentionally missing qualified final theorem. Verdict: READY FOR PARTIAL CHECKPOINT PUSH. Full-table data consistency is independent computational evidence, not a complete Lean proof yet.
+
+## 2026-11-25T05:53:23.391962+00:00 — compact memo closure certificate
+
+The4270 canonical states have298 distinctW128 trace values and15625 feasible successor edges; independent Python closure found zero missing successors. Generic EnumMemo.lean certificate_sound proved by induction onremaininggates, using sorted-finset preservation and existing live/dispatch completeness. Direct16-state batches with global entries/drop passed butcostgrewlinearlywithoffset. Replaced by175namedsubtrees of≤32nodes and174stem assemblies, withnoncomputabledata defs toavoidunneededIRcompilation. Three subtree batches covering 64 states kernelchecked in1.44s, fullcompile14.18s,peak3.31GB. Completecandidate EnumMemoComplete.lean is327480bytes/2906lines,sha256cc336f61b9be618c9a627106ce7134bc32a7884ed573b2f78be2fa81ae3e4bc8; full-M4096 compile underway, independentstatus_reviewaudit underway.
+
+## 2026-11-25 05:53:47 UTC — status_review complete memo subtree assembly audit
+
+- EnumMemoComplete.lean immutableSHA256cc336f61b9be618c9a627106ce7134bc32a7884ed573b2f78be2fa81ae3e4bc8 (327480bytes2906lines). Certificate genericprefix and298paletteconstants unchanged. Independently parsed every named subtree; expanded table is exactly the previously audited4270-state tree.
+- All175blockproofs are closed decide+kernel checks, cover4096entries, eachblock≤32nodes. All174stemproofs use all_entry_node with exactmatching children and pivot, coverthe174remaining entries, reference only earlier stems. No missing states or omitted pivots. Final lower uses ok_stem_173 for full table and exact9gate root membership.
+- New lower_of_certificate bridge follows compression, essential_inputs, sortingpermutation and certificate_sound. all_entry_node explicitly combines leftlist,pivot,rightlist. No semanticdefect. Format guard only absentqualifiedfinaltargettheorem. Verdict READY FOR INTEGRATION conditionalonfullcompile; fullchecker stillrequired.
+
+## 2026-11-25 06:00:31 UTC — status_review subtree checkpoint audit
+
+- EnumMemoTreeTest.lean SHA25655e1abbb82acb5f3f9aff16400da0da7cb3c6e9a2311db66fd21d7de89826ed5 prefix and entire decomposed table exactly match reviewed CompleteMemo. Closed checks are blocks0,60,127. Actual sizes are16+32+16=64checkedstates, correcting earlier72estimate.
+- Full subtree assembly/data has already been independently verified; this artifact asserts only those64closed nodechecks and no complete target. Guard only absentfinalqualifiedtheorem. Verdict: READY FOR PARTIAL CHECKPOINT PUSH; checkpointmetrics should say64states.
+
+## 2026-11-25 06:01:56 UTC — status_review fresh-output pruning audit
+
+- EnumerativeFreshPrefix.lean SHA2567ca107654f3e820883b7bfe77c7ac508f4e8fa71c9351dfaf191760272161979 (575lines) differs from reviewed ChunkAssembly only by EnumFresh namespace and rejecting a generated trace already in current a::b::r. Completeness supplies hnew directly from live-step requirement z∉s and permutation membership. Both Boolean dispatch and childlist add identical guards, with updated childChoices_eq proof. No legitimate live step is excluded.
+- Full compile output has only two if_neg deprecation warnings, no errors; builder reportedexit0. Format guard only expected absentfinalqualifiedtheorem. Verdict READY FOR PARTIAL CHECKPOINT PUSH. This is a generic engine and conditional lower bound, no complete target claim.
+
+2026-11-25T06:02:13.948304+00:00 finite_search: fresh-output-only pruned search returns false; 72,404 recursive calls, 28,301 unique ordered states. Threshold 1000 gives 883 selected states (25 internal, 858 leaves), 71,719 leaf calls, 104 shared truth tables; threshold 500 gives 1,554 selected states (58 internal, 1,496 leaves). Data: ordered-pruned-dag-500.json and ordered-pruned-dag-1000.json under scratch. Sole search change is skip output z already in current ws before considering retention modes. Original order, mask, samples, and all other pruning are unchanged. Child references, decreasing depth, capacity invariant, freshness, absence of target, and leaf thresholds all independently validated.
+
+## 2026-11-25T06:02:16.870391+00:00 — complete lower bound checked
+
+EnumMemoComplete.lean (SHA256 cc336f61b9be618c9a627106ce7134bc32a7884ed573b2f78be2fa81ae3e4bc8) compiled with exit 0 under -M5120 in 239.18 seconds. Peak Lean RSS 5,133,704 KiB; aggregate 5,969,864 KiB (~5.69 GiB). All 4,270 cached states and 15,625 successor edges are covered by 175 checked subtree blocks plus 174 checked pivots. This proves the unconditional lower half for mask 5805 at bound 9. Root notified immediately for checkpoint and integration. Complete logs and resource samples: enum-memo-complete5120.* in scratch. The earlier -M4096 run reached its explicit memory cap, a resource failure only.
+
+- 2026-11-25T06:02:32.737350+00:00 Enumerative raw28chunk run stopped at15.7GB RSS. Selective-import single1030-callchunk passed under4096MiB in7.43s kernel. Fresh-output-pruned883-node proof DAG generated (193230bytes) using119 shared128-bit traces; testing worst982-call leaf and one-step assembly before full build.
+
+- 2026-11-25T06:03:16.705351+00:00 Enumerative fallback work stopped on root instruction after canonical Memo route compiled in239s. Fresh-output prefix and worst954-call leaf both compile under4096MiB (leaf kernel9.77s); no full fresh-DAG build was started. Original ordered-DAG named build was stopped as superseded, without a verdict. Generic compression/completeness remains the foundation of the selected memo proof.
+
+## 2026-11-25 06:03:42 UTC — status_review compiled memo integration and wrapper audit
+
+- Named target SHA256850f99a46ae6297423188e19802af7f10561d88ba353e7d987ca87e3e30fc2d5 exactly combines reviewedUpper and compiled auditedCompleteMemo. Final target statement byte-identical to assignment, theorem uses only their conjunction. Independent imports/plainfile/ownnamespace guard PASSED. Ready for finalvalidation/push once namedbuild andchecker pass; no source edits needed.
+- EnumMemoNamedGeneric.lean SHA2560fd7aeed5f8485e9fb7a2f354833f0ef8a191e3e2527c73ebed11d5c389591da (691lines30484bytes) genericprefix exactly matches compiledFullMemo, then all_entry_node_named merely rewrites explicit equality whole=.node x l r and applies existing all_entry_node. Sound wrapper, no new proof assumptions omitted. Compilelogs empty; builderexit0. Guard only missingfinalqualifiedtheorem. READY FOR PARTIAL CHECKPOINT PUSH; fullwrapper-basedcandidate untested and not selected forsubmission.

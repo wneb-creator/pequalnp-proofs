@@ -1,0 +1,14 @@
+typeclass inference of Nonempty took 126ms
+simp took 142ms
+simp took 133ms
+grind took 118ms
+simp took 246ms
+type checking took 377ms
+elaboration took 117ms
+elaboration took 170ms
+elaboration took 145ms
+elaboration took 112ms
+elaboration took 104ms
+type checking took 104ms
+type checking took 663ms
+type checking took 671ms

@@ -16,3 +16,11 @@
 - 2026-11-25T05:46:27.234514+00:00: split-DAG complete statement integrated for first named-file full build.
 - 2026-11-25T05:47:58.160579+00:00: generic closed-state certificate soundness compiled and independently reviewed; checkpointed while namedDAGbuild continues.
 - 2026-11-25T05:51:51.794488+00:00: memo table with48kernelcheckednodes compiled and independently reviewed; checkpointed.
+
+- 2026-11-25T05:53:23.391962+00:00: Memo closure strategy produced compiled generic soundness and64 checked states; full4270-statekernelcertificate build started under-M4096.
+
+- 2026-11-25T06:02:16.870391+00:00: Memo closure full lower bound compiled, exit 0; 239.18 seconds, aggregate peak ~5.69 GiB. Root notified for push.
+- 2026-11-25T06:03:08.678927+00:00: completeMemo lowerbound compiled; supersededDAGrunstopped; Memo+upper+exacttarget integrated.
+
+- 2026-11-25T06:03:16.705351+00:00 toolchain_setup: ordered-DAG and fresh-output search attempts superseded by compiled canonical Memo route; all bounded tests complete, no agent-owned Lean process remains.
+- 2026-11-25T06:04:20.733212+00:00: complete4,270-stateMemo lowerbound compiledexit0, independentlyreviewed, preserved before finalnamedbuild finishes.
