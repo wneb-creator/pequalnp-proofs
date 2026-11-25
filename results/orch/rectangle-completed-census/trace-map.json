@@ -1,0 +1,32 @@
+[
+  {
+    "archive_relative_path": "../search/mono19-or-edge-complete/checkpoint-smoke-replay-cuts.jsonl.gz",
+    "original_file": "checkpoint-smoke-replay-cuts.jsonl",
+    "uncompressed_sha256": "a05b466222971ea995f70d7b19f56d4e8e73937d2f7f6477af0bd6d4b200a8b9",
+    "compressed_sha256": "2ed6bc79881008e2cfc11210a07835a7ae453dac0a7fe4b5d98a3a2d2072e870"
+  },
+  {
+    "archive_relative_path": "../search/mono19-or-edge-checkpoints/copy-first-checkpoint-oredge-cuts.jsonl.gz",
+    "original_file": "copy-first-checkpoint-oredge-cuts.jsonl",
+    "uncompressed_sha256": "8e657095e3ebe757545b8b3b20da35202343495310b3b294c2eff1b58b91b5e9",
+    "compressed_sha256": "79b09e0c2657aa905484ad09020dd048496101548fbca9ad6e8d39f60fcef5ed"
+  },
+  {
+    "archive_relative_path": "../search/mono19-or-edge-complete/copy-first-hysteresis-oredge-cuts.jsonl.gz",
+    "original_file": "copy-first-hysteresis-oredge-cuts.jsonl",
+    "uncompressed_sha256": "c82635f33bdd623dc0c4c19e795246096e2947b1c8849e14cb46d3ccf4dae775",
+    "compressed_sha256": "4cbc102a81fda3c444180aa8fbf51e1994e44db9344480e153c69bd01b07f44e"
+  },
+  {
+    "archive_relative_path": "../search/mono19-or-edge-complete/copy-first-hysteresis-diagnostic-cuts.jsonl.gz",
+    "original_file": "copy-first-hysteresis-diagnostic-cuts.jsonl",
+    "uncompressed_sha256": "4b40dc175d4d667b542c02655e357b432de50d4d184247e61e7071f2b483c079",
+    "compressed_sha256": "e2dfe2e9fb1ca72bfad5b8ca11a6abded021b1c3ecc5b4b62b36a40d34c06f7a"
+  },
+  {
+    "archive_relative_path": "../search/mono19-or-edge-complete/copy-first-dynamic-oredge-cuts.jsonl.gz",
+    "original_file": "copy-first-dynamic-oredge-cuts.jsonl",
+    "uncompressed_sha256": "7800e0eb2cfdaf8206cfbe10f0715f47592d2dd108f38181a209781c89b85998",
+    "compressed_sha256": "f8a630ed8f7a5614b29090345f8091b2edd25045947d2965f5827ee3b791a676"
+  }
+]

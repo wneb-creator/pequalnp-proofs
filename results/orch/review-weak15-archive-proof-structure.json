@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS",
+  "manifest_entries": 19,
+  "checks": {
+    "rectangles.jsonl": "PASS",
+    "banks.jsonl": "PASS",
+    "completed-weak15.memo": "PASS",
+    "stdout.txt": "PASS",
+    "stderr.txt": "PASS",
+    "runner-output.txt": "PASS",
+    "postprocess-output.txt": "PASS",
+    "run-metadata.json": "PASS",
+    "output-audit.json": "PASS",
+    "output-audit.stderr.txt": "PASS",
+    "profile-bound-audit.json": "PASS",
+    "guard-change.json": "PASS",
+    "compile.txt": "PASS",
+    "compiler-help.txt": "PASS",
+    "run_bounded.py": "PASS",
+    "audit_outputs.py": "PASS",
+    "copy_search_weak15.cpp": "PASS",
+    "rectangles-v2.txt": "PASS",
+    "copy_search_first_dynamic.reviewed.cpp": "PASS"
+  },
+  "profile_count": 1145,
+  "runtime_bounds_equal_signed": true,
+  "memo_header": "PNP_COPY_MEMO_V1 0 19 oredge 1",
+  "memo_states": 26439,
+  "root_orbit_absent": true,
+  "exit_code": 0,
+  "max_rss_kib": 771372,
+  "trace_replayed": false
+}

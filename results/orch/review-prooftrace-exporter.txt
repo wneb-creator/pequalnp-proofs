@@ -1,0 +1,17 @@
+PASS: independent exporter source-delta and smoke-data review
+Reviewed 2026-11-25 16:05 UTC by lean_setup.
+Baseline source SHA256: 2709cc91618d78399c15fd67bb2f8371722e7193b0c69b19e5a01470ef97742b
+Exporter source SHA256: b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021
+Smoke proof stream SHA256: 94efc929587f833df1658e5a6659280c090eb57f958e10653292aa4b3168791d
+
+Read the entire 20,348-byte source diff and surrounding prune/copyclosure/dfs/main logic. Changes add canonical automorphism witnesses, selected cofactor-history positions, node/closure/copy provenance, completed memo references, resource accounting, and a fresh-memo requirement for proof export. No branch, cut predicate, gate operation, cofactor bound, closure iteration, or memo key was changed. proof_memory can reach the resource limit earlier; interrupted frames are explicitly marked open. The canonical winner is recorded without changing canonical state selection. Memo references point only to completed same-key states. Proof export rejects memo import and requires the parallel rectangle stream.
+
+Independently checked smoke commands and their recorded exit0 status. Baseline/export completed memo files and rectangle streams are byte-identical; stdout is identical after normalizing only time/memory values. Both use fresh strong-bound mono19 first-OR-edge mode and fixed V3 matrices. This smoke is not the weak15 continuation.
+
+Independent audit reproduced all 3,000 node histories, 3,188 count-vector entries, 26,701 cofactor replay witnesses (234 node leaves plus 26,467 omitted subtrees), and every realized copy edge. It reconstructs selected cofactor gates from the exact history, checks projected operand availability and final coverage, constant multiplicity, declared profile bound, and strict arithmetic inequality. It verifies all 93 canonical actions on full 1024-bit signatures and target preservation; all 19 memo dependencies refer to earlier completed states at identical remaining budgets. All 2,449 rectangle records link to the actual node state/budget and satisfy their recorded cost sum inequality. Every closed expand has one completed child for every entry. Maximum replayed history length in this smoke is 8.
+
+Expected interrupted-trace detail: node2283, which is open, emits a copy-child reference to unstarted node3001 before the node limit triggers. Consumers must reject missing children for closed nodes; this audit allows the one dangling edge only because its parent is open. Seven nodes including the root remain open. No complete first-gate exclusion or Lean result is claimed from this smoke.
+
+Limitations: this review does not reprove the pre-existing cofactor lower-bound table, rectangle profile maxima, first-copy recurrence, or exhaustive closure soundness in Lean. The independent Python audit checks exported witnesses and dependencies, not those mathematical foundations. It does not claim a proof from an incomplete trace. Full proof replay must validate all terminal obligations and a closed root, and source budgeting remains separate. Buffered stream write errors/truncation must be detected by the downstream complete-trace validator. No source modifications or search reruns were made by this reviewer.
+
+Audit source, full stdout, and structured results are preserved in results/orch/verification/audit-prooftrace-smoke.{py,json} and audit-prooftrace-smoke-output.txt. The audit is independent verification code and is not part of the Lean trust base.

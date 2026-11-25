@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "34cfc13596d82daa75a467c7d33a4a8e13fee3e995a02ec1b96ffe5fed830a4c",
+  "manifest_entries": 23,
+  "weight_arrays": 19,
+  "profiles_exactly_recomputed": 62349,
+  "subset_options": 1608828,
+  "nontrivial_profiles": 61210,
+  "dominating_profiles": 30974,
+  "seconds": 3.3709986570011097,
+  "scope": "Independent Python integer maximum computation and containment verification; no Lean or whole-search claim."
+}

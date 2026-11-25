@@ -1,0 +1,7 @@
+PASS: independent completed rectangle-profile audit and archive review.
+
+All23 manifest entries match sizes and SHA256, including bundled replay dependencies and the archive-relative compressed trace map. Root read the census and compression scripts and README. A separate implementation using Python unbounded integers, transposed smaller-side subset enumeration and independent vector sums recomputed every one of62349 profiles across19 weight arrays. All1608828 subset options agree with the recorded exact maxima. Every61210 nontrivial profile is contained in one of30974 retained profiles of the same array and cost. No shared NumPy oracle was used in this independent recomputation. Full source and stdout are preserved beside this report.
+
+The author also reran the self-contained census from archived paths after adding previously missing matrix/oracle dependencies. Existing independent whole-trace integrity review covers the five pinned traces. Packed profile literals and Rice/dictionary digit counts remain uncompiled data/size estimates; no Lean decoder, whole-search certificate or posted theorem is claimed.
+
+Frozen manifest SHA256: 34cfc13596d82daa75a467c7d33a4a8e13fee3e995a02ec1b96ffe5fed830a4c

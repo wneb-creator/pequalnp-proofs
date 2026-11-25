@@ -145,3 +145,11 @@
 - 2026-11-25T16:08:31.493944+00:00 counterexample: OneForcedCircuit compiled/reviewed PASS andstandardaxiomaudit complete; movingtoactualprovenancebridge.
 
 - 2026-11-25T16:08:52.441619+00:00: independentreviews passedforrestrictedtwoNOTordinarychain, oneforcedordinarydichotomy andcountcore/adapters; compiledartifactscheckpointed. Freshwholecaseexportcontinues.
+
+- 2026-11-25T15:59:49.821096Z: lean_setup started authorized600s weak15 V3 continuation from26439 weak-only completed memo states, unchanged800MB-guard source, hard1GB/oneCPU.
+- 2026-11-25T16:09:58.648363Z: continuation finished ordinary limit EXIT0;876417 new nodes,61991 completed weak states, no completed root. Full outputs archived and targeted slow-bank snapshots sent for new cuts.
+- 2026-11-25T16:12:00Z: independent exporter/helper reviews complete; count-table consumer review pending its compilation.
+
+- 2026-11-25T16:14:16.482762+00:00 counterexample: provenance binarybridge andbothcutextensions compiled; standardaxiomaudit passed.
+
+- 2026-11-25T16:18:33.309355+00:00: reviewed count/provenance adapters, actual leaf1099 and conditional finite parent table preserved; V3 weak continuation and exporter smoke archived; exact independent profile audit passed.

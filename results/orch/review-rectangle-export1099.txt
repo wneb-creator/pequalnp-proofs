@@ -1,0 +1,10 @@
+Independent source/data review: PASS
+UTC: 2026-11-25T16:17:24.584844+00:00
+Reviewer: /root/counterexample
+Source: results/orch/lemmas/RectangleExport1099.lean
+SHA256: 4a039f0e1a384f2d0bbb3aba77694072f328584daa71b44686edb009ff835b7f
+Size:4007bytes/93lines. Frozen compilelog empty; producer reported EXIT0 recorded in immutable metadata. No Lean rerun during review.
+
+Parsed actual Lean rows/weights/vectors and independently recomputed all12 exact rectangle bounds with signed integer exhaustive enumeration in both orientations. Every class has maximum4; the new OR(x6,OR(x1,x2)) signature equals the actual exported1514 truth table on all1024rows, with exact positive support[0,1,2,6,7,12,13] and negative-false support[8,10]. Its small-side enumeration has4 subsets. Every producer sourceID/tag/count agrees with child1099, and its actual three-gate history replays correctly from the teninputs. Seventeen root occurrences are retained, including repeatedinputs and two copies of1514; exact totalcost68 is less than matrix total79.
+
+The Lean argument first forces tightness from Run length and the depth0 cap, then applies uniform rectangle bounds to every indexed occurrence. CountVector transport preserves occurrence counts and does not assume raw-value injectivity. Scope is exactly child1099 (17roots/16remaining) and arbitrary-label realizations with the same class counts; no parent1098 or whole-search exclusion follows from this leaf alone. Source uses no trust/format exceptions. Independent audit source/full output/results are preserved in rectangle-export1099/independent-audit/.

@@ -1,0 +1,64 @@
+{
+  "copy_search_first_dynamic.cpp": {
+    "bytes": 85933,
+    "sha256": "2709cc91618d78399c15fd67bb2f8371722e7193b0c69b19e5a01470ef97742b"
+  },
+  "copy_search_first_prooftrace.cpp": {
+    "bytes": 91153,
+    "sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+  },
+  "compile-copy-first-prooftrace-2.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "proof-smoke-status.json": {
+    "bytes": 1303,
+    "sha256": "41e2f2524d87bf276f42d81987b664d3ac1bcfcfe65c1f20c62f002966bd8f28"
+  },
+  "proof-smoke-census.json": {
+    "bytes": 1010,
+    "sha256": "0ace27bd859d4062e9d608c1697d3136dbcb67b832b3b477e84ead462b2205a8"
+  },
+  "proof-smoke-baseline.log": {
+    "bytes": 3221,
+    "sha256": "e756276f39f4e2ad9027da98d9b21d3292271ad49ae403e902f36fb7bc09955b"
+  },
+  "proof-smoke-export.log": {
+    "bytes": 3218,
+    "sha256": "f7e020a77445e90341ec2dd0e88bb11caf3e4e530a04bc8f2fbc15b3115e02c5"
+  },
+  "proof-smoke.jsonl": {
+    "original_bytes": 8093326,
+    "original_sha256": "94efc929587f833df1658e5a6659280c090eb57f958e10653292aa4b3168791d",
+    "gzip_bytes": 492478,
+    "gzip_sha256": "632518b23d853771ac9440232af2511a2c28796dac4ddf80b19e8da27a06f67b"
+  },
+  "proof-smoke-baseline-rectangles.jsonl": {
+    "original_bytes": 631533,
+    "original_sha256": "20f71b2a3e11932df6142de9306f171eedc7f2d416ba501ac2d0b25c7e319dd0",
+    "gzip_bytes": 40366,
+    "gzip_sha256": "006aa2547b672656caf3ee5b7b0ead10d8dfc9ec291efdd1a92e43567c92d6de"
+  },
+  "proof-smoke-export-rectangles.jsonl": {
+    "original_bytes": 631533,
+    "original_sha256": "20f71b2a3e11932df6142de9306f171eedc7f2d416ba501ac2d0b25c7e319dd0",
+    "gzip_bytes": 40366,
+    "gzip_sha256": "006aa2547b672656caf3ee5b7b0ead10d8dfc9ec291efdd1a92e43567c92d6de"
+  },
+  "proof-smoke-baseline.memo": {
+    "original_bytes": 295568,
+    "original_sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f",
+    "gzip_bytes": 2508,
+    "gzip_sha256": "dca1ff6e298b52011afb26dffec74b9acf2107c6af599b70d5888d3fbd029a27"
+  },
+  "proof-smoke-export.memo": {
+    "original_bytes": 295568,
+    "original_sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f",
+    "gzip_bytes": 2508,
+    "gzip_sha256": "dca1ff6e298b52011afb26dffec74b9acf2107c6af599b70d5888d3fbd029a27"
+  },
+  "README.md": {
+    "bytes": 2049,
+    "sha256": "bb3537a8c0875b008936530c07f0781dac904a949e79e88a93b19a21a453386b"
+  }
+}

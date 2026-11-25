@@ -1,0 +1,21 @@
+{
+  "profiles": 30974,
+  "groups": 922,
+  "raw_hex_digits": 232783,
+  "direct_rice_hex_digits": 184549,
+  "dictionary_entries": {
+    "(15, 15)": [
+      5925,
+      5323
+    ],
+    "(21, 17)": [
+      206,
+      150
+    ]
+  },
+  "dictionary_data_hex_digits": 12839,
+  "dictionary_index_raw_hex_digits": 200734,
+  "dictionary_index_rice_hex_digits": 147785,
+  "dictionary_total_rice_hex_digits": 160623,
+  "scope": "Literal digit estimates exclude per-group proof declarations, metadata, decoder and semantic adapters."
+}

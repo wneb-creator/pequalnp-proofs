@@ -1,0 +1,18 @@
+{"trace": "/tmp/oec/pequalnp-pilot-87/library_route/checkpoint-smoke-replay-cuts.jsonl", "bytes": 612508, "sha256": "a05b466222971ea995f70d7b19f56d4e8e73937d2f7f6477af0bd6d4b200a8b9", "events": {"header": 1, "rectangle": 2449, "signal": 513}, "matrix_signal_obligations": 720, "signals": 513, "loaded_matrices": 13}
+{"trace": "/tmp/oec/pequalnp-pilot-87/library_route/copy-first-checkpoint-oredge-cuts.jsonl", "bytes": 141148025, "sha256": "8e657095e3ebe757545b8b3b20da35202343495310b3b294c2eff1b58b91b5e9", "events": {"header": 1, "rectangle": 678304, "signal": 42821}, "matrix_signal_obligations": 52539, "signals": 42821, "loaded_matrices": 13}
+{"trace": "/tmp/oec/pequalnp-pilot-87/library_route/copy-first-hysteresis-oredge-cuts.jsonl", "bytes": 16627900, "sha256": "c82635f33bdd623dc0c4c19e795246096e2947b1c8849e14cb46d3ccf4dae775", "events": {"header": 1, "rectangle": 62213, "signal": 17367}, "matrix_signal_obligations": 19658, "signals": 17367, "loaded_matrices": 13}
+{"trace": "/tmp/oec/pequalnp-pilot-87/library_route/copy-first-hysteresis-diagnostic-cuts.jsonl", "bytes": 13662183, "sha256": "4b40dc175d4d667b542c02655e357b432de50d4d184247e61e7071f2b483c079", "events": {"header": 1, "rectangle": 53093, "signal": 12694}, "matrix_signal_obligations": 15067, "signals": 12694, "loaded_matrices": 13}
+{"trace": "/tmp/oec/pequalnp-pilot-87/library_route/copy-first-dynamic-oredge-cuts.jsonl", "bytes": 131511276, "sha256": "7800e0eb2cfdaf8206cfbe10f0715f47592d2dd108f38181a209781c89b85998", "events": {"header": 1, "matrix_loaded": 26, "rectangle": 615095, "signal": 46937}, "matrix_signal_obligations": 67766, "signals": 46937, "loaded_matrices": 39}
+{
+  "traces": 5,
+  "trace_bytes": 303561892,
+  "rectangle_events": 1411154,
+  "matrix_instances": 39,
+  "weight_arrays": 19,
+  "cost_profiles": 62349,
+  "nontrivial_profiles": 61210,
+  "smaller_side_subsets": 1608828,
+  "maximum_smaller_side": 11,
+  "seconds": 14.353515030999915,
+  "scope": "Rectangle-data consistency and census only; full search correctness and Lean replay remain separate."
+}

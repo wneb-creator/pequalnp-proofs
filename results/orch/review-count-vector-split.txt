@@ -1,0 +1,10 @@
+Independent source/mathematical review: PASS
+UTC: 2026-11-25T16:17:47.373743+00:00
+Reviewer: /root/counterexample
+Source: results/orch/lemmas/CountVectorSplit.lean
+SHA256: 20a0948fe503f3cb688448bb4e3e3df63c991502da1c0013088af0b27922959b
+Bytes: 3644; lines: 96. Frozen compiler output has no diagnostics; producer reports EXIT0. No Lean rerun.
+
+Read all four declarations. count_insert uses label freshness, not class distinctness. exists_subcounts inducts on actual finite labels, allocating one occurrence precisely when its class still has positive demand; the residual demand and bound are valid over arbitrary class types, including infinite ones. count_split chooses that actual subset and its complement, proves disjointness/union explicitly, and uses exact natural subtraction to recover the right vector. unit_support correctly uses finite class sum to derive cardinality1 and then recovers the actual label/class. No raw-value injectivity, canonical-mask overlap assumption, or duplicate collapse is present. These facts directly supply disjoint supports for count-vector provenance induction.
+
+No new trust assumptions or forbidden proof-file constructs. This reviews the generic splitting bridge, not a concrete whole-node or whole-search certificate.

@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "b39a2212e77c87793e0dce2647409c073fdca8563748bf8f044465be8d65e0fc",
+  "manifest_entries": 19,
+  "checks": {
+    "rectangles.jsonl": "PASS",
+    "banks.jsonl": "PASS",
+    "completed-weak15.memo": "PASS",
+    "input-weak15.memo": "PASS",
+    "stdout.txt": "PASS",
+    "stderr.txt": "PASS",
+    "runner-output.txt": "PASS",
+    "run-metadata.json": "PASS",
+    "lineage.json": "PASS",
+    "output-audit.json": "PASS",
+    "output-audit.stderr.txt": "PASS",
+    "run_bounded.py": "PASS",
+    "audit_outputs.py": "PASS",
+    "archive_results.py": "PASS",
+    "copy_search_weak15.cpp": "PASS",
+    "rectangles-v3.txt": "PASS",
+    "summary.json": "PASS",
+    "README.md": "PASS",
+    "archive-output.txt": "PASS"
+  },
+  "source_identical": true,
+  "weak_lineage_exact": true,
+  "effective_profiles_equal_signed": 1145,
+  "memo_counts": {
+    "input-weak15.memo": 26439,
+    "completed-weak15.memo": 61991
+  },
+  "root_orbit_absent": true,
+  "new_nodes": 876417,
+  "new_completed_states": 35552,
+  "exit_code": 0,
+  "max_rss_kib": 775196,
+  "full_trace_math_replayed": false
+}

@@ -1,0 +1,52 @@
+{
+  "runs": [
+    {
+      "label": "baseline",
+      "command": [
+        "./copy_search_first_dynamic",
+        "--cap",
+        "19",
+        "--first",
+        "oredge",
+        "--seconds",
+        "30",
+        "--nodes",
+        "3000",
+        "--extra-rectangles",
+        "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-loader/rectangles-v3.txt",
+        "--memo-out",
+        "proof-smoke-baseline.memo",
+        "--rect-trace",
+        "proof-smoke-baseline-rectangles.jsonl"
+      ],
+      "exit_code": 0
+    },
+    {
+      "label": "export",
+      "command": [
+        "./copy_search_first_prooftrace",
+        "--cap",
+        "19",
+        "--first",
+        "oredge",
+        "--seconds",
+        "30",
+        "--nodes",
+        "3000",
+        "--extra-rectangles",
+        "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-loader/rectangles-v3.txt",
+        "--memo-out",
+        "proof-smoke-export.memo",
+        "--rect-trace",
+        "proof-smoke-export-rectangles.jsonl",
+        "--proof-trace",
+        "proof-smoke.jsonl"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "equal_logs_except_time_memory": true,
+  "memo_byte_identical": true,
+  "rectangle_trace_byte_identical": true,
+  "source_sha256": "b66739a56db722c470d02767c15b3e812f727546268d706df4a14c4442e8c021"
+}

@@ -1,0 +1,15 @@
+{
+  "traces": 5,
+  "trace_bytes": 303561892,
+  "rectangle_events": 1411154,
+  "root_cost_occurrences": 21837973,
+  "direct_subset_tests_without_sharing": 305558342,
+  "matrix_instances": 39,
+  "weight_arrays": 19,
+  "cost_profiles": 62349,
+  "nontrivial_profiles": 61210,
+  "smaller_side_subsets": 1608828,
+  "maximum_smaller_side": 11,
+  "seconds": 19.043390451999585,
+  "scope": "Rectangle-data consistency and census only; full search correctness and Lean replay remain separate."
+}

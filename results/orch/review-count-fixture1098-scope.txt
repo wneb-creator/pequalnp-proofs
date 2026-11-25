@@ -1,0 +1,11 @@
+PASS: independent Lean scope/bridge review of CountFixture1098.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+Frozen SHA256 cc018281d898af864d7b5f81137ca299dac39f2375d1506e55f160f9fc3c1091; 10256 bytes, 102 lines. Entire Lean source and the complete empty compiler log read. Author reports EXIT0. No additional build launched. Separate source-to-exporter data mapping review is assigned to library_route.
+
+The file defines 25 concrete 1024-bit signals, 12 signal classes with total multiplicities summing to16, 13 retained count/signature entries, 13 explicit cut entries, and17 row-pair witnesses. The total vector [2,1,1,3,1,1,1,1,1,1,1,2] matches the multiplicities in the explicit Fin16-to-Fin12 basisTag; basis_counts kernel-checks this pointwise. Identical root signatures remain distinct occurrences through these counts.
+
+checked_gates proves the concrete finite gate checker succeeds by decide +kernel. checked_leaves proves every positive-count class has a one-hot entry. missing proves the full total vector paired with the actual existing Live1024.graph is absent from retained entries. closed applies the independently reviewed countGateCheck_sound directly, so its conclusion is exactly CountClosed with the concrete entries and cuts, positive operations, and pairColumn of the actual graph. The proof does not replace graph or pairColumn by a weaker local predicate.
+
+Scope is precise: this is a real finite table closure/leaf/missing/count-census certificate. Membership in cuts is a disjunct in CountClosed, not a proof that those cuts are impossible. No cutSound, child-budget recurrence, full PrunedNode, actual node exclusion, first-gate case, or posted gap theorem is established here. Those additional proofs must use the same raw class mapping and multiplicities. This report does not independently rederive every literal from the exporter; library_route handles that separate immutable data audit.
+
+Only permitted local recursion/heartbeat limits occur. Finite checks use ordinary decide +kernel. No sorry/new axiom/native_decide/bv_decide, forbidden _root_ text, strings, new datatype/instance or attributes. The CountTableChecker cached import is appropriate for modular archived work and would need allowed-import assembly for a final proof PR. PASS is limited to the frozen Lean declarations and their documented successful compilation.

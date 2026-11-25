@@ -1,0 +1,37 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+loaded extra rectangle index=13 id=1001
+loaded extra rectangle index=14 id=1002
+loaded extra rectangle index=15 id=1003
+loaded extra rectangle index=16 id=1004
+loaded extra rectangle index=17 id=1005
+loaded extra rectangle index=18 id=1006
+loaded extra rectangle index=19 id=1007
+loaded extra rectangle index=20 id=1008
+loaded extra rectangle index=21 id=1009
+loaded extra rectangle index=22 id=1010
+loaded extra rectangle index=23 id=1011
+loaded extra rectangle index=24 id=1012
+loaded extra rectangle index=25 id=1013
+loaded extra rectangle index=26 id=1014
+loaded extra rectangle index=27 id=1015
+loaded extra rectangle index=28 id=1016
+loaded extra rectangle index=29 id=1017
+loaded extra rectangle index=30 id=1018
+loaded extra rectangle index=31 id=1019
+loaded extra rectangle index=32 id=1020
+loaded extra rectangle index=33 id=1021
+loaded extra rectangle index=34 id=1022
+loaded extra rectangle index=35 id=1023
+loaded extra rectangle index=36 id=1024
+loaded extra rectangle index=37 id=1025
+loaded extra rectangle index=38 id=1026
+copy start deficit=8 entry=0 of=11 remaining=18 roots=12 visits=1
+copy start deficit=7 entry=0 of=11 remaining=18 roots=13 visits=2
+copy excluded deficit=7 entry=0 visits=3
+copy start deficit=7 entry=1 of=11 remaining=18 roots=13 visits=3
+limit reached
+memo checkpoint states=67 seconds=0.00219237
+nodes=3000 steps=0 card=0 cover=0 cof=234 formula=0 share1=0 fullcover=0 clips=93578 signals=8853 seconds=1.03625 levels=0:2673,1:282,2:29,3:5,4:4,5:3,6:2,7:1,8:1,
+copyclosures=74 entries=3188 subchecks=28804 subcuts=26467 memory_estimate=39852192 lazy_clip_tables=8845 projected_cache=15254 move_cache=1407 constant_profiles=8845 memo_states=67 prefix_formula_cuts=224 projection_resets=0 projection_reset_seconds=0 memo_save_seconds=0.00219237 rectangle_signals=513 rectangle_hits=1099,28,5,37,0,890,268,64,43,9,0,4,2,
+cofactor_profile_hits kind=0 0:13 1:12 3:7 10:11 20:9 65:12 66:6 74:1 76:1 90:6 101:1 111:5 112:5 185:41 187:7 188:6 189:5 200:3 221:21 306:12 314:2 318:2 323:1 385:3 495:16 935:26
+cofactor_profile_hits kind=1 0:2804 1:2650 2:2899 3:2865 4:1017 5:1148 6:514 7:822 8:827 9:666 10:728 11:364 13:36 20:880 21:282 22:493 23:247 24:289 25:68 26:132 27:140 28:110 29:415 30:378 31:128 32:144 33:100 34:101 35:103 36:81 37:419 38:100 39:110 40:34 41:99 42:56 43:53 44:220 45:174 46:68 47:88 48:132 49:77 50:66 51:14 52:25 53:25 54:30 55:20 56:44 57:43 58:24 59:6 60:11 61:11 62:6 63:11 64:6 65:194 66:138 73:13 74:45 75:16 76:43 89:12 90:69 100:3 101:13 111:13 112:30 131:3 141:6 142:10 185:398 186:101 187:169 188:171 189:60 190:23 191:23 192:23 193:13 200:88 201:9 204:6 206:100 208:1 209:1 210:15 212:14 213:14 214:1 221:148 224:36 225:19 226:1 227:1 228:3 230:5 232:6 249:48 250:8 251:1 252:27 253:35 254:2 257:2 259:2 261:8 262:2 270:4 271:2 272:2 273:9 274:8 276:2 277:8 286:1 287:1 288:1 306:101 314:62 318:46 323:17 385:28 417:30 446:4 450:3 495:103 508:11 661:7 666:4 797:1 815:1 935:57 936:97 937:83 938:9 939:15 940:4 941:4 942:40 943:28 944:11 948:14 949:12 950:5 951:5 952:12 953:1 954:2 955:2 956:1 984:4 988:2 1021:2 1022:3 1023:3

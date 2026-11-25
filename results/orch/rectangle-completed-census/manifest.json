@@ -1,0 +1,117 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 2762,
+    "sha256": "79776d47d230ca89de744fa39aff58ab70b1256bfde8a48e47c0ba700c41b432"
+  },
+  {
+    "file": "census.log",
+    "bytes": 2059,
+    "sha256": "bd7885dc4de438a9247cf4ba6377ac4700a9963b27d4fc64baa3452cf75b6aa7"
+  },
+  {
+    "file": "census_rectangle_traces.py",
+    "bytes": 6809,
+    "sha256": "c4c06f1977ae9a3d5b780879e4bd93b3042c6d755c62c0aaef0dc985e1df5597"
+  },
+  {
+    "file": "compress_rectangle_profiles.py",
+    "bytes": 2911,
+    "sha256": "f1f3f38c53a9f6524e5801de56e627c28219bdb2a6c71c8f1dfbe656e570f34d"
+  },
+  {
+    "file": "compression-summary.json",
+    "bytes": 555,
+    "sha256": "459ca1c13059c6762ec825fb71a807b78d7ba0b1f5e22c9755d75405cc8ab1e9"
+  },
+  {
+    "file": "compression.log",
+    "bytes": 905,
+    "sha256": "6e7e3c27970ddbe7cf8c5de7ef866eb27b3ca34b0bace89dd4dda97233dc7432"
+  },
+  {
+    "file": "dynamic-loader/matrices-v3.json",
+    "bytes": 132273,
+    "sha256": "c6d1b16105c80794b29a461a6a890facc1374e4e2c7c111fc07d8b02a5bc8c58"
+  },
+  {
+    "file": "encoding-estimate.json",
+    "bytes": 522,
+    "sha256": "8cccb99ea697c71a76d1847fdf33654a0815e0efc0b21bbf61f874000001fcc1"
+  },
+  {
+    "file": "encoding-estimate.log",
+    "bytes": 522,
+    "sha256": "8cccb99ea697c71a76d1847fdf33654a0815e0efc0b21bbf61f874000001fcc1"
+  },
+  {
+    "file": "encoding-groups.json.gz",
+    "bytes": 9035,
+    "sha256": "f5ce2fc3a077f46d220c5c7fd07670477c7744bc28eedb22a7c76585c05168b3"
+  },
+  {
+    "file": "estimate_profile_encodings.py",
+    "bytes": 3888,
+    "sha256": "23bfcce1befb3ba200618e613084ce96326b3e1ec738d8cdd213cbe88456fedd"
+  },
+  {
+    "file": "matrices.json",
+    "bytes": 16486,
+    "sha256": "9fe2cfa3cbebedac88d88f112879b9adde544bdf2389f98dc442359f1618f129"
+  },
+  {
+    "file": "maximal-profiles.json.gz",
+    "bytes": 220346,
+    "sha256": "2edc78764fce88d7cc69ed0726714e5406325c4141b59b6fb3aca51719d07005"
+  },
+  {
+    "file": "occurrence-census.log",
+    "bytes": 2315,
+    "sha256": "d56aea820c5bd0173aff874eecfb964fdf3266031bf231225972f5c9f7cfd813"
+  },
+  {
+    "file": "occurrence-summary.json",
+    "bytes": 486,
+    "sha256": "6d3b180a49d31a74d701a2579add523e0be4d80d45c1ad01e4ef76e128bd8861"
+  },
+  {
+    "file": "profile-literals.txt",
+    "bytes": 247328,
+    "sha256": "c932d5545f7184475bc89dc62cc1b0cae6cc7957b5dae11856cf6196ec234f4b"
+  },
+  {
+    "file": "profiles.json.gz",
+    "bytes": 376291,
+    "sha256": "7612713ccc38b561486e239510efb959eab262421a403974378d0071923298a0"
+  },
+  {
+    "file": "rectangle-all-certificates.json",
+    "bytes": 13259,
+    "sha256": "916de15737158512f9a5bbf8aad90419081775516bd0681e1ac4db30566fe0b0"
+  },
+  {
+    "file": "summary.json",
+    "bytes": 397,
+    "sha256": "99c53c117c51d2902358f572a71d376175b2778f447f8807303031e79e4bbd1f"
+  },
+  {
+    "file": "tailor_bank_rectangles.py",
+    "bytes": 8833,
+    "sha256": "de75033e8068cfd134d5af6225fa6adad368b4060f5ed7a4a6d178971a8c862e"
+  },
+  {
+    "file": "trace-map.json",
+    "bytes": 1843,
+    "sha256": "ff980dce61237856b04873c6914e6cb11960288f2bafa8deb35130af5c71c695"
+  },
+  {
+    "file": "traces.json",
+    "bytes": 3636,
+    "sha256": "bd1900467faf5892f083a97bd0157fd1948b1a951c329b170d0b83c8fbbfdb9d"
+  },
+  {
+    "file": "weights.json",
+    "bytes": 55600,
+    "sha256": "bde4f9f758aedb660f0980c65d20f6189f456e5454ed53ed28e3727b462b4e4d"
+  }
+]

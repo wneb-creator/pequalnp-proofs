@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "ordinary_limit": true,
+  "finished_verdicts": [],
+  "reported_nodes": 876417,
+  "reported_search_seconds": 605.013,
+  "wall_seconds": 608.8269216070003,
+  "max_rss_kib": 775196,
+  "copyclosures": 35560,
+  "entries": 934274,
+  "subchecks": 3641414,
+  "subcuts": 3124707,
+  "final_memory_estimate": 322432198,
+  "projection_resets": 7,
+  "completed_weak_states": 61991,
+  "new_completed_weak_states": 35552,
+  "root_in_completed_memo": false
+}
+manifest 735d0de04654679a2cb93f0fbb35bafcee0198acabb0fdee9061e17b0511b6e5 entries 18

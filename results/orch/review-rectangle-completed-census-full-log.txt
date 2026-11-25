@@ -1,0 +1,8 @@
+{"checked_profiles": 1, "seconds": 0.12981090700122877}
+{"checked_profiles": 10001, "seconds": 0.2703254059997562}
+{"checked_profiles": 20001, "seconds": 0.5078490720006812}
+{"checked_profiles": 30001, "seconds": 0.8074636920009652}
+{"checked_profiles": 40001, "seconds": 1.0840014580007846}
+{"checked_profiles": 50001, "seconds": 1.5787729880012193}
+{"checked_profiles": 60001, "seconds": 2.0157554779998463}
+{"verdict": "PASS", "manifest_sha256": "34cfc13596d82daa75a467c7d33a4a8e13fee3e995a02ec1b96ffe5fed830a4c", "manifest_entries": 23, "weight_arrays": 19, "profiles_exactly_recomputed": 62349, "subset_options": 1608828, "nontrivial_profiles": 61210, "dominating_profiles": 30974, "seconds": 3.3709986570011097, "scope": "Independent Python integer maximum computation and containment verification; no Lean or whole-search claim."}
