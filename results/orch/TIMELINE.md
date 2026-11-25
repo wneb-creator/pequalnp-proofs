@@ -15,3 +15,5 @@
 
 2026-11-25T03:15:26.284307+00:00 Combinedraw all-Mathlib check interruptedexit130 at2min/RSS8.3GB, noerrors, farfromdone. Narrow Normalize+Seed probe then passedexit0 with emptydiagnostics; restarting fullraw with9specificMathlibmodules+Defs and-j1. Previous rootcontainment and wrong-workdir preflights exited1 before proofchecking; all logs preserved.
 - 2026-11-25T03:20:16.705376+00:00: first strategy review: all case mathematics identified; counterexample search stopped; focus on shared state interfaces, batched proof checks, and parent-based certificate data. Independent review passed FiniteBatchProbe.
+- 2026-11-25T03:20:41.232768+00:00: first finite forest proof passed after cells-proof batching; grouped scoped-open behavior checked.
+- 2026-11-25T03:23:48.135170+00:00: root independently reviewed kernel-checked parent opcode/rule decoder and unchanged certificate soundness chain; preserving ParentSmallProbe.

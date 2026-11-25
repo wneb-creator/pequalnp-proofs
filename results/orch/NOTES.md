@@ -94,3 +94,14 @@ Baseline common verifier plus g15 certificate compiled in55.22s, peak RSS4519676
 - Actualhexbytes original→encoded: L5120 115872→72108; L4336 62600→44818; L1674 106528→68718; L1676 91027→58809; L1677 68558→46142; L1678 43094→26904. Outputs /tmp/oec/pequalnp-pilot-61/L_meta_<id>-parent-rules.json. About170KBsource savings including exceptions, before blockedoffsets.
 - Cumulativeparent rulelists average~18.5candidates/node, max73, vsoriginal~3.4; significantly belowallcolumns×paidmasks. Column-only paidmaskenumeration averages~37candidates/node.
 - Canonicalpaidmask trial L5120: greedyall exactlymatches10140/16090 storedrules; recursive-live cone10590/16090. Includingzero covers13867/16090(86.2%), leaving2223exceptions. Not yet compelling versuslosslessparent/rule codec. paidmask_analysis.py and JSONretain details.
+
+### Finite batching and shared names 2026-11-25T03:20:41.232768+00:00
+
+- Updated eight-case FullRaw baseline 3,329,775 bytes. batch_lean.py replaces 989 cellsBlock/block_merge declarations across 77 forests by lists of (count,arity,row-split,depth) plus generic proofChunks soundness; FullBatch 3,114,623 bytes.
+- First rewritten C2444 g15 forest plus entire generic core compiled in FiniteBatchProbe.lean; same original leaf kernel checks, no algorithm changes. Full batch still needs full check.
+- Dependency-aware definition aliasing plus batching gave 2,617,892 bytes before newest header change. open_aliases.py removes 1614 simple same-name aliases via 16 grouped scoped opens, saving 91,281 bytes. Private and noncomputable scoped opening tested in scratch.
+- Root/normalization is standardizing three Live definitions and doing theorem-type dedup. Root/structural handles certificate data regeneration. These transformations are complementary.
+
+## L4338 PackingT 2026-11-25T03:22:52.164419+00:00
+- MainT table is only5layers/199nodes/7736hexchars. Slots42,39,36,33,30 are k14..10 withtmax0; parentopcode is atslot+3. Every196nonroot opcodeprefix matches,3depth1 roots needexception/basecase.
+- Added packingT_analysis.py and encode_packingT.py. Exactopcode/live roundtrip and originalrule inclusion verified. Output L_meta_4338-packingT-parent-rules.json uses the same9field Packing layout, 5bitnr (maxnewrules15), and records actualslot plusparentSlotDelta3. Numericdatasize7736→5513chars, savings2223chars. SeparateLean decoder not worthwhile unlessnear512KiBthreshold.

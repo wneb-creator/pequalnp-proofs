@@ -20,3 +20,5 @@ CompressionProbe.lean: exit 0, 59.16 s, peak RSS 4.523 GB; all rule pairs regene
 Root independent review: imports, forbidden text, mathematical claims, and 29-line compression diff passed for partial preservation.
 
 Expanded Finite.lean and FiniteBatchProbe.lean: exit 0. Independent semantic review confirmed contiguous chunk coverage, exact total sizes, and unchanged kernel-checked leaves. Full log logs/finite-batch-probe.log.
+
+ParentSmallProbe.lean: Lean -j1 exit 0; 56.46 s, peak RSS 4.512 GB. Parent opcode decoding and inherited rule reconstruction checked on g15. Full diagnostics logs/parent-small.log. Root independent review found no new axioms, forbidden execution, or changed target.
