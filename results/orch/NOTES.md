@@ -43,3 +43,19 @@ Timestamp: 2026-11-25T14:07:17.621387+00:00
 - `semantics_normalize.lean` (106 lines) compiled with exit 0 and empty stdout/stderr.
 - `semantics_finite.lean` (226 lines) compiled with exit 0 and empty stdout/stderr. It contains normalization plus finite gate/circuit codes built from Fin, products and a sigma type; no new datatype or instance. Decoder soundness and completeness imply `finite_lower_bound`, an equivalence from the generic infinite-Circuit lower-bound statement to finite codes. This does not establish the Petersen bound: the finite nonexistence statement remains open.
 - Complete compile logs are `/tmp/oec/pequalnp-pilot-107/semantics-normalize.stdout`, `.stderr`, and `semantics-finite.stdout`, `.stderr`.
+
+- 2026-11-25T14:15:10.833556+00:00 [counterexample_search]: first600s CGP completed2,862,067,242 evaluations without a witness. Second run found18-active-gate monotone superfunction with exactly4 false positives69,104,521,548; full truth-table validated identity f=M OR(D AND h), M=three matching edges(0,5),(2,3),(6,9), D=OR of1,4,7,8. Exact data in search_best_approximation.json. Full SMT cases timed out; restricted fixed-gate repair templates yield UNSAT or timeout only. The finite primary-pair AND/OR distinguishing table in search_witnesses.lean compiled successfully. ThirdCGP requires an active NOT and penalizes candidates without one.
+
+## First essential binary gate bridge (2026-11-25T14:15:41.399652+00:00)
+
+- `semantics_bridge_slim.lean` compiled (exit 0; 512 lines). It contains the self-contained Extended signed circuit semantics used by the9-input certificate and new reusable lemmas. Only8 inherited unused-simp warnings. Complete logs: semantics-bridge-slim-1.stdout/.stderr under scratch.
+- `semantics_first_binary_fragment.lean`: first_binary_split takes an actual circuit computing Petersen and obtains its first essential signed binary gate, with distinct original input signals a,b, op d<4, a live suffix, and k+1 bounded by raw non-NOT count. It excludes a zero-length live derivation using target not an original input. binary_floor17_of_suffix turns a suffix lower bound16 for all such input pairs into17+notCount<=size.
+- `semantics_live_map_fragment.lean`: map_live transports the signed Live relation through any injective signal map preserving zero, one and bin. Sent to lower_bound for automorphism transport.
+- existing_results owns canonical suffix16 proofs; lower_bound owns input-pair automorphisms. No proof of their required suffix premise claimed here.
+
+## 2026-11-25T14:18:35.943239+00:00 checked lower-bound components
+
+- `lower_bound_helpers.lean` compiled: last-NOT replacement under pointwise implication, plus vertex-transitive Petersen permutations.
+- `lower_bound_pair_symmetry.lean` compiled: explicit automorphism for each distinct vertex pair, reducing it to canonical edge (0,1) or nonedge (0,2), with adjacency and edge-function preservation.
+- `lower_bound_row_encoding.lean` compiled: assignment/row bijection, permutation action on 1024-bit truth tables, injectivity and preservation of both constants and AND/OR/NOT.
+- All three compilations returned exit 0 with empty stdout/stderr. Combined transport of arbitrary first signed binary gates to eight canonical suffix cases is being checked. The intended consequence is at least 17 binary gates, hence at most two NOT gates in any size-19 candidate. This consequence is not yet checked.

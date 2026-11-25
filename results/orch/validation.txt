@@ -1,21 +1,12 @@
 L-meta-2592 PARTIAL CHECKPOINT
 The exact posted theorem is not yet proved. No proof PR is ready.
 
-Compiled helper: finite normalization preserves fan-in, size, NOT occurrence, and evaluation.
-lake env lean results/orch/lemmas/semantics_normalize.lean: exit 0; stdout/stderr empty.
+Current named Lean file proves 16 + notCount C <= C.size for every fan-in-two circuit computing the Petersen edge function, hence size<=19 implies notCount<=3.
+Complete source compiled with lake env lean: exit 0; inherited linter warnings only; stderr empty.
 Full-gap checker: not run; the posted theorem is absent.
-Independent semantic/format review: status_1035 agent passed the helper, checkpoint diff review PASSED.
-Lean 4.36.0 installed; pinned Mathlib cache get passed (9117 files); PEqualNP.Defs build passed.
-Desk null responses: 0.
-Sub-agents: 5 (status/checker review, semantics, counterexample search, lower bound, existing results)
-TIMING total=8.6 subagents=5
-
-lake build PEqualNP.Outside.L_meta_2592: exit 0.
-Build completed successfully (6655 jobs).
-Warnings: existing module-system advisory warnings only; no errors.
-Independent staged six-file checkpoint review: PASS (status_1035 agent).
-
-Second checkpoint: finite-code equivalence compiled (lake env lean, exit 0, empty output).
-Independent source review PASS (226 lines, SHA-256 98470941f67a8b9361bbcc13f69caf79e5e096d1d8efc3550bcdc2c1ed2dabc0).
-Full posted theorem still unproved; finite nonexistence remains.
-Complete normalization build and finite compile logs are in results/orch/logs/.
+Earlier normalization and finite-code equivalence compiled; named normalization lake build passed (6655 jobs).
+Independent review: prior four checkpoints passed; binary16 source pending final review.
+All searches remain nonproof evidence; the saved approximation has 4 false positives and is explicitly not a counterexample.
+Desk null responses: 0. Lease renews every 5 minutes on a root-owned timer.
+Sub-agents: 6 (checker review, semantics, counterexample search, lower bound, existing results, one-NOT strategy)
+TIMING total=18.8 subagents=6
