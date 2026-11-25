@@ -4905,4 +4905,919 @@ lemma boundary_or_count (h : StrictLive n D) (K : Finset Nat)
 
 end ZeroFlow
 
+
+namespace ZeroForest
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+noncomputable def zeroCone {α : Type} (n : Nat) (D : Dag) (I : Finset (Fin n))
+    (rows : α → Fin n → Bool) : Finset Nat := by
+  classical
+  exact (Finset.range (n + D.length)).filter (fun w =>
+    (∃ i ∈ I, Relation.ReflTransGen (sem_step n D) i.val w) ∧
+      ∀ r, val D (rows r) w = false)
+
+lemma mem_zeroCone {α : Type} {n : Nat} {D : Dag} {I : Finset (Fin n)}
+    {rows : α → Fin n → Bool} {w : Nat} :
+    w ∈ zeroCone n D I rows ↔ w < n + D.length ∧
+      (∃ i ∈ I, Relation.ReflTransGen (sem_step n D) i.val w) ∧
+        ∀ r, val D (rows r) w = false := by
+  classical
+  simp [zeroCone]
+
+section Facts
+variable {α : Type} {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+  {I : Finset (Fin n)} {rows : α → Fin n → Bool}
+
+lemma zeroCone_inner (positive : ∃ r, val D (rows r) (outW n D) = true) :
+    zeroCone n D I rows ⊆ inner n D := by
+  intro w hw
+  obtain ⟨hlt, _, hz⟩ := mem_zeroCone.mp hw
+  have hne : w ≠ outW n D := by
+    intro he
+    obtain ⟨r, hr⟩ := positive
+    rw [← he, hz r] at hr
+    exact Bool.false_ne_true hr
+  apply sb_mem_inner.mpr
+  unfold outW at hne
+  omega
+
+lemma zeroCone_sources (inputs : ∀ r i, i ∈ I → rows r i = false) :
+    sources n (zeroCone n D I rows) = I.image Fin.val := by
+  classical
+  ext w
+  constructor
+  · intro hw
+    obtain ⟨hk, hwlt⟩ := Finset.mem_filter.mp hw
+    obtain ⟨_, ⟨i, hi, hp⟩, _⟩ := mem_zeroCone.mp hk
+    rcases Relation.ReflTransGen.cases_tail hp with he | ⟨a, _, hs⟩
+    · exact Finset.mem_image.mpr ⟨i, hi, he.symm⟩
+    · have hn := hs.2.1
+      omega
+  · intro hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    apply Finset.mem_filter.mpr
+    refine ⟨mem_zeroCone.mpr ⟨by have := i.isLt; omega,
+      ⟨i, hi, Relation.ReflTransGen.refl⟩, ?_⟩, i.isLt⟩
+    intro r
+    rw [val_input D (rows r) i.val i.isLt]
+    exact inputs r i hi
+
+lemma zeroCone_sources_card (inputs : ∀ r i, i ∈ I → rows r i = false) :
+    (sources n (zeroCone n D I rows)).card = I.card := by
+  rw [zeroCone_sources inputs, Finset.card_image_of_injective _ Fin.val_injective]
+
+lemma zeroCone_surplus (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (hi : I ⊆ ineligSet n D) :
+    surplusOn D (zeroCone n D I rows) = 0 := by
+  unfold surplusOn
+  apply Finset.sum_eq_zero
+  intro w hw
+  obtain ⟨_, ⟨i, hiI, hp⟩, _⟩ := mem_zeroCone.mp hw
+  have hf := sem_ineligible_reachable_fanout_le_one hG h hc hz (hi hiI) hp
+  omega
+
+lemma zeroCone_pred (hS : Strict n D)
+    (copy : ∀ i ∈ I, ∀ j, j < D.length → ∀ s : Bool, tag D j = true →
+      Relation.ReflTransGen (sem_step n D) i.val (src D (j, s)) →
+        ∀ r, val D (rows r) (n + j) = val D (rows r) (src D (j, s))) :
+    ∀ j, j < D.length → n + j ∈ zeroCone n D I rows →
+      opA D j ∈ zeroCone n D I rows ∨ opB D j ∈ zeroCone n D I rows := by
+  intro j hj hmem
+  obtain ⟨_, ⟨i, hi, hp⟩, hz⟩ := mem_zeroCone.mp hmem
+  rcases Relation.ReflTransGen.cases_tail hp with he | ⟨a, hpa, hs⟩
+  · have := i.isLt
+    omega
+  · obtain ⟨j', s, hj', he, hsrc⟩ := sem_step_iff.mp hs
+    have heq : j' = j := by omega
+    subst j'
+    rw [← hsrc] at hpa
+    have hzsrc : ∀ r, val D (rows r) (src D (j,s)) = false := by
+      intro r
+      cases ht : tag D j
+      · have hout := hz r
+        rw [sem_val_gate_src hS _ hj s, ht, gop_false, Bool.or_eq_false_iff] at hout
+        exact hout.1
+      · rw [← copy i hi j hj s ht hpa r]
+        exact hz r
+    have hsMem : src D (j,s) ∈ zeroCone n D I rows :=
+      mem_zeroCone.mpr ⟨lt_of_lt_of_le (sem_src_lt hS hj s) (Nat.add_le_add_left hj.le n),
+        ⟨i, hi, hpa⟩, hzsrc⟩
+    cases s
+    · exact Or.inl (by simpa [src] using hsMem)
+    · exact Or.inr (by simpa [src] using hsMem)
+
+lemma zeroCone_or_closed (hS : Strict n D) {j : Nat} (hj : j < D.length)
+    (ht : tag D j = false) (ha : opA D j ∈ zeroCone n D I rows)
+    (hb : opB D j ∈ zeroCone n D I rows) : n + j ∈ zeroCone n D I rows := by
+  obtain ⟨_, ⟨i, hi, hpa⟩, hza⟩ := mem_zeroCone.mp ha
+  have hzb := (mem_zeroCone.mp hb).2.2
+  refine mem_zeroCone.mpr ⟨Nat.add_lt_add_left hj n, ⟨i, hi, ?_⟩, ?_⟩
+  · apply Relation.ReflTransGen.tail hpa
+    simpa [src] using (sem_step_src (n := n) hj false)
+  · intro r
+    rw [val_gate hS _ j hj, ht, gop_false, hza r, hzb r]
+    rfl
+
+lemma zeroCone_exit_or (_hS : Strict n D)
+    (copy : ∀ i ∈ I, ∀ j, j < D.length → ∀ s : Bool, tag D j = true →
+      Relation.ReflTransGen (sem_step n D) i.val (src D (j, s)) →
+        ∀ r, val D (rows r) (n + j) = val D (rows r) (src D (j, s)))
+    {e : Nat × Bool} (he : e ∈ exitArcs n D (zeroCone n D I rows)) : tag D e.1 = false := by
+  obtain ⟨ha, hsrc, hout⟩ := Finset.mem_filter.mp he
+  have hj := Finset.mem_range.mp (Finset.mem_product.mp ha).1
+  obtain ⟨_, ⟨i, hi, hp⟩, hzsrc⟩ := mem_zeroCone.mp hsrc
+  cases ht : tag D e.1
+  · rfl
+  · exfalso
+    apply hout
+    refine mem_zeroCone.mpr ⟨Nat.add_lt_add_left hj n, ⟨i, hi, ?_⟩, ?_⟩
+    · exact Relation.ReflTransGen.tail hp (sem_step_src hj e.2)
+    · intro r
+      rw [copy i hi e.1 hj e.2 ht hp r]
+      exact hzsrc r
+
+lemma zeroCone_merge_or (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (hi : I ⊆ ineligSet n D)
+    {j : Nat} (hj : j ∈ merges n D (zeroCone n D I rows)) : tag D j = false := by
+  obtain ⟨hjlt, _, ha, hb⟩ := Finset.mem_filter.mp hj
+  have hjlt := Finset.mem_range.mp hjlt
+  obtain ⟨_, ⟨i, hiI, hpi⟩, _⟩ := mem_zeroCone.mp ha
+  obtain ⟨_, ⟨k, hkI, hpk⟩, _⟩ := mem_zeroCone.mp hb
+  exact sem_ineligible_join_or hG h hc hz (hi hiI) (hi hkI) hjlt false
+    (by simpa [src] using hpi) (by simpa [src] using hpk)
+
+
+lemma redundant_or_gates (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) (hi : I ⊆ ineligSet n D)
+    (inputs : ∀ r i, i ∈ I → rows r i = false)
+    (positive : ∃ r, val D (rows r) (outW n D) = true)
+    (copy : ∀ i ∈ I, ∀ j, j < D.length → ∀ s : Bool, tag D j = true →
+      Relation.ReflTransGen (sem_step n D) i.val (src D (j, s)) →
+        ∀ r, val D (rows r) (n + j) = val D (rows r) (src D (j, s))) :
+    ∃ T : Finset Nat, T.card = I.card ∧ ∀ j ∈ T,
+      j < D.length ∧ tag D j = false ∧
+        ∃ p, p < n + j ∧ ∀ r, val D (rows r) (n + j) = val D (rows r) p := by
+  let K := zeroCone n D I rows
+  have hK : K ⊆ inner n D := zeroCone_inner positive
+  have hpred := zeroCone_pred h.1 copy
+  have hsur := zeroCone_surplus hG h hc hz hi (rows := rows)
+  have hexit : ∀ e ∈ exitArcs n D K, tag D e.1 = false :=
+    fun e he => zeroCone_exit_or h.1 copy he
+  have hmerge : ∀ j ∈ merges n D K, tag D j = false :=
+    fun j hj => zeroCone_merge_or hG h hc hz hi hj
+  have hclosed : ∀ j, j < D.length → tag D j = false →
+      opA D j ∈ K → opB D j ∈ K → n + j ∈ K :=
+    fun j hj ht ha hb => zeroCone_or_closed h.1 hj ht ha hb
+  obtain ⟨hcard, hvalid⟩ := ZeroFlow.boundary_or_count h K hK hpred hsur hexit hmerge hclosed
+  refine ⟨ZeroFlow.boundaryOrGates n D K, hcard.trans (zeroCone_sources_card inputs), ?_⟩
+  intro j hj
+  obtain ⟨hjlt, ht, ha | hb⟩ := hvalid j hj
+  · refine ⟨hjlt, ht, opB D j, (h.1 j hjlt).2.1, ?_⟩
+    intro r
+    have hzA := (mem_zeroCone.mp ha).2.2 r
+    rw [val_gate h.1 _ j hjlt, ht, gop_false, hzA]
+    rfl
+  · refine ⟨hjlt, ht, opA D j, (h.1 j hjlt).1, ?_⟩
+    intro r
+    have hzB := (mem_zeroCone.mp hb).2.2 r
+    rw [val_gate h.1 _ j hjlt, ht, gop_false, hzB, Bool.or_false]
+
+end Facts
+end ZeroForest
+
+
+namespace Neutral
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma and_neutral_single {n : Nat} {D : Dag} (hS : Strict n D)
+    {i a : Fin n} {g : Nat} (hg : g < D.length) (ht : tag D g = true)
+    (s : Bool) (pure : supp n D (src D (g,s)) ⊆ {i}) (ha : a ≠ i) :
+    val D (single a) (n+g) = val D (single a) (src D (g,s)) := by
+  have hz : val D (single a) (src D (g,s)) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro hv
+    have hai := pure (mem_supp.mpr hv)
+    exact ha (Finset.mem_singleton.mp hai)
+  rw [sem_val_gate_src hS _ hg s, ht, gop_true, hz, Bool.false_and]
+
+lemma neutral_ineligible_extended {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (I : Finset (Fin n)) (hin : I ⊆ ineligSet n D)
+    {α : Type} (rows : α → Fin n → Bool)
+    (good : ∀ i ∈ I, ∀ r, (∃ a, G i a ∧ rows r a = true) ∨
+      ∃ a, a ≠ i ∧ rows r = single a) :
+    ∃ T : Finset Nat, T.card = I.card ∧ ∀ g ∈ T,
+      g < D.length ∧ tag D g = true ∧ ∃ p, p < n+g ∧
+        ∀ r, val D (rows r) (n+g) = val D (rows r) p := by
+  classical
+  have hex : ∀ i : Fin n, ∃ e : Nat × Bool, i ∈ I →
+      e.1 < D.length ∧ tag D e.1 = true ∧ supp n D (src D e) = {i} ∧
+        ∀ a, G i a → a ∈ supp n D (src D (e.1,!e.2)) := by
+    intro i
+    by_cases hi : i ∈ I
+    · obtain ⟨e, he, ht, hs, _, hn, _, _⟩ := sem_inelig_consumer hG h hc (hin hi)
+      exact ⟨e, fun _ => ⟨he,ht,hs,hn⟩⟩
+    · exact ⟨(0,false), fun hh => False.elim (hi hh)⟩
+  choose e he using hex
+  refine ⟨I.image (fun i => (e i).1), ?_, ?_⟩
+  · apply Finset.card_image_of_injOn
+    intro i hi j hj eq
+    by_contra ne
+    exact exit_gate_injective hG ne (he i hi).2.2.1 (he j hj).2.2.1 (he i hi).2.2.2 eq
+  · intro g hg
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hg
+    obtain ⟨hlt, ht, hpure, hn⟩ := he i hi
+    refine ⟨hlt, ht, src D (e i), sem_src_lt h.1 hlt (e i).2, ?_⟩
+    intro r
+    rcases good i hi r with ⟨a, hia, hxa⟩ | ⟨a, hai, hx⟩
+    · have htval : val D (rows r) (src D ((e i).1,!(e i).2)) = true :=
+        sem_val_of_supp h.1 (hn a hia) hxa
+      rw [sem_val_gate_src h.1 _ hlt (e i).2, ht, gop_true, htval, Bool.and_true]
+    · rw [hx]
+      exact and_neutral_single h.1 hlt ht (e i).2 (hpure ▸ Finset.Subset.refl _) hai
+
+lemma chain_and_neutral_extended {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (hz : Bzero n D = 0) {i : Fin n} (hi : i ∈ ineligSet n D)
+    {j : Nat} (hj : j < D.length) (s : Bool) (ht : tag D j = true)
+    (path : Relation.ReflTransGen (sem_step n D) i.val (src D (j,s)))
+    (x : Fin n → Bool) (good : (∃ a, G i a ∧ x a = true) ∨
+      ∃ a, a ≠ i ∧ x = single a) :
+    val D x (n+j) = val D x (src D (j,s)) := by
+  have ch := sem_noempty_unique hG h hc hz hi path
+  rcases good with hit | ⟨a, hai, rfl⟩
+  · have hf : fanout D (src D (j,s)) = 1 := by
+      have hlo := sem_step_fanout (sem_step_src (n := n) hj s)
+      have hhi := sem_ineligible_reachable_fanout_le_one hG h hc hz hi path
+      omega
+    exact chain_and_neutral hG h.1 hc hj ht s ch hf x hit
+  · exact and_neutral_single h.1 hj ht s
+      (sem_dom_pure hG h.1 hc i _ (sem_chain_dom h.1 ch)) hai
+
+end Neutral
+
+namespace Thirteen
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.Neutral
+
+def masks (v : Fin 10) : Nat :=
+  ([177,329,0,538,0,0,0,1068,2146,4180] : List Nat).getD v.val 0
+
+def row (r : Fin 13) (v : Fin 10) : Bool := (masks v).testBit r.val
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma geometry :
+    I.card = 4 ∧ (∀ r i, i ∈ I → row r i = false) ∧
+    (sem_Edge Adj (row 0)) ∧
+    (∀ i ∈ I, ∀ r, (∃ a, Adj i a ∧ row r a = true) ∨
+      ∃ a, a ≠ i ∧ row r = single a) := by
+  unfold row masks I sem_Edge Adj single
+  decide +kernel
+
+lemma eight_copies {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hz : Bzero 10 D = 0) (hin : I ⊆ ineligSet 10 D) :
+    ∃ A O : Finset Nat, A.card = 4 ∧ O.card = 4 ∧ Disjoint A O ∧
+      (∀ j ∈ A, tag D j = true) ∧ (∀ j ∈ O, tag D j = false) ∧
+      ∀ j ∈ A ∪ O, j < D.length ∧ ∃ p, p < 10+j ∧
+        ∀ r : Fin 13, val D (row r) (10+j) = val D (row r) p := by
+  classical
+  obtain ⟨A, ha, hA⟩ := neutral_ineligible_extended graph_ok h hc I hin row geometry.2.2.2
+  obtain ⟨O, ho, hO⟩ := ZeroForest.redundant_or_gates graph_ok h hc hz hin
+    geometry.2.1 ⟨0,(hc _).mpr geometry.2.2.1⟩
+    (fun i hi j hj s ht hp r => chain_and_neutral_extended graph_ok h hc hz
+      (hin hi) hj s ht hp (row r) (geometry.2.2.2 i hi r))
+  refine ⟨A,O,ha.trans geometry.1,ho.trans geometry.1,?_,
+    fun j hj => (hA j hj).2.1,fun j hj => (hO j hj).2.1,?_⟩
+  · apply Finset.disjoint_left.mpr
+    intro j hjA hjO
+    exact Bool.noConfusion ((hA j hjA).2.1.symm.trans (hO j hjO).2.1)
+  · intro j hj
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact ⟨(hA j hj).1,(hA j hj).2.2⟩
+    · exact ⟨(hO j hj).1,(hO j hj).2.2⟩
+
+
+open PEqualNP.Outside.L_meta_2590_aux.SevenGeneral
+
+def liftMask (x : Nat) : Nat :=
+  x + if x = 49 then 128 else if x = 73 then 256 else if x = 26 then 512
+    else if x = 44 then 1024 else if x = 98 then 2048 else if x = 84 then 4096 else 0
+
+def caseRow (k : Fin 5) (r : Fin 13) (v : Fin 10) : Bool :=
+  (liftMask (casesMasks k v)).testBit r.val
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma cases_geometry13 : ∀ k : Fin 5,
+    (casesI k).card = 4 ∧ (∀ r i, i ∈ casesI k → caseRow k r i = false) ∧
+    (sem_Edge Adj (caseRow k 0)) ∧
+    (∀ i ∈ casesI k, ∀ r, (∃ a, Adj i a ∧ caseRow k r a = true) ∨
+      ∃ a, a ≠ i ∧ caseRow k r = single a) := by
+  unfold caseRow liftMask casesMasks casesI sem_Edge Adj single
+  decide +kernel
+
+lemma eight_copies_general {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hz : Bzero 10 D = 0) (four : (ineligSet 10 D).card = 4) :
+    ∃ k : Fin 5, casesI k = ineligSet 10 D ∧ ∃ A O : Finset Nat,
+      A.card = 4 ∧ O.card = 4 ∧ Disjoint A O ∧
+      (∀ j ∈ A, tag D j = true) ∧ (∀ j ∈ O, tag D j = false) ∧
+      ∀ j ∈ A ∪ O, j < D.length ∧ ∃ p, p < 10+j ∧
+        ∀ r : Fin 13, val D (caseRow k r) (10+j) = val D (caseRow k r) p := by
+  classical
+  have hind : ∀ a ∈ ineligSet 10 D, ∀ b ∈ ineligSet 10 D, ¬ Adj a b := by
+    intro a ha b hb hab
+    rcases sem_elig_cover graph_ok h hc hab with ea | eb
+    · exact (sem_mem_inelig.mp ha) ea
+    · exact (sem_mem_inelig.mp hb) eb
+  obtain ⟨k, hk⟩ := classify_four (ineligSet 10 D) four hind
+  have hin : casesI k ⊆ ineligSet 10 D := hk ▸ Finset.Subset.refl _
+  have geo := cases_geometry13 k
+  obtain ⟨A, ha, hA⟩ := neutral_ineligible_extended graph_ok h hc (casesI k) hin
+    (caseRow k) geo.2.2.2
+  obtain ⟨O, ho, hO⟩ := ZeroForest.redundant_or_gates graph_ok h hc hz hin
+    geo.2.1 ⟨0,(hc _).mpr geo.2.2.1⟩
+    (fun i hi j hj s ht hp r => chain_and_neutral_extended graph_ok h hc hz
+      (hin hi) hj s ht hp (caseRow k r) (geo.2.2.2 i hi r))
+  refine ⟨k,hk,A,O,ha.trans geo.1,ho.trans geo.1,?_,
+    fun j hj => (hA j hj).2.1,fun j hj => (hO j hj).2.1,?_⟩
+  · apply Finset.disjoint_left.mpr
+    intro j hjA hjO
+    exact Bool.noConfusion ((hA j hjA).2.1.symm.trans (hO j hjO).2.1)
+  · intro j hj
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact ⟨(hA j hj).1,(hA j hj).2.2⟩
+    · exact ⟨(hO j hj).1,(hO j hj).2.2⟩
+
+end Thirteen
+
+namespace GeneralFlow
+
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+variable {n : ℕ} {D : Dag}
+
+lemma sources_add_surplus_le_exits_add_merges (h : StrictLive n D)
+    (K : Finset ℕ) (hK : K ⊆ inner n D) :
+    (sources n K).card + surplusOn D K ≤
+      (exitArcs n D K).card + (merges n D K).card := by
+  obtain ⟨hS, hL, -⟩ := h
+  have hKlt : ∀ w ∈ K, w + 1 < n + D.length :=
+    fun w hw => sb_mem_inner.mp (hK hw)
+  have h1 : surplusOn D K + K.card =
+      ((arcs D).filter (fun e => src D e ∈ K)).card := by
+    rw [← sb_sum_fanout_eq hS,
+      sb_surplus_add_card (fun w hw => hL w (hKlt w hw))]
+  have h2 := Finset.card_filter_add_card_filter_not
+    (s := (arcs D).filter (fun e => src D e ∈ K))
+    (fun e : ℕ × Bool => n + e.1 ∈ K)
+  rw [Finset.filter_filter, Finset.filter_filter] at h2
+  have h3 : ((arcs D).filter (fun e => src D e ∈ K ∧ n + e.1 ∈ K)).card ≤
+      ((Finset.range D.length).filter (fun j => n + j ∈ K)).card +
+        (merges n D K).card := by
+    rw [sb_card_arcs_filter, merges, Finset.card_filter, Finset.card_filter,
+      ← Finset.sum_add_distrib]
+    refine Finset.sum_le_sum (fun j hj => ?_)
+    rw [sb_src_false, sb_src_true]
+    by_cases hj2 : n + j ∈ K <;>
+      by_cases ha : opA D j ∈ K <;>
+        by_cases hb : opB D j ∈ K <;> simp_all
+  have h4 : K.card = (sources n K).card +
+      ((Finset.range D.length).filter (fun j => n + j ∈ K)).card := by
+    rw [← Finset.card_filter_add_card_filter_not (s := K) (fun w => w < n), sources]
+    congr 1
+    have himg : K.filter (fun w => ¬ w < n) =
+        ((Finset.range D.length).filter (fun j => n + j ∈ K)).image
+          (fun j => n + j) := by
+      ext w
+      simp only [Finset.mem_filter, Finset.mem_image, Finset.mem_range]
+      constructor
+      · rintro ⟨hw, hn⟩
+        have := hKlt w hw
+        exact ⟨w - n, ⟨by omega, by rwa [Nat.add_sub_cancel' (by omega)]⟩, by omega⟩
+      · rintro ⟨j, ⟨-, hj⟩, rfl⟩
+        exact ⟨hj, by omega⟩
+    rw [himg, Finset.card_image_of_injective _ (add_right_injective n)]
+  unfold exitArcs
+  omega
+
+lemma sources_le_exits_add_merges (h : StrictLive n D)
+    (K : Finset ℕ) (hK : K ⊆ inner n D) :
+    (sources n K).card ≤ (exitArcs n D K).card + (merges n D K).card := by
+  have := sources_add_surplus_le_exits_add_merges h K hK
+  omega
+
+end GeneralFlow
+
+namespace GeneralZero
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+noncomputable def zeroWires {α : Type} (n : Nat) (D : Dag)
+    (rows : α → Fin n → Bool) : Finset Nat := by
+  classical
+  exact (Finset.range (n + D.length)).filter (fun w => ∀ r, val D (rows r) w = false)
+
+lemma mem_zeroWires {α : Type} {n : Nat} {D : Dag} {rows : α → Fin n → Bool} {w : Nat} :
+    w ∈ zeroWires n D rows ↔ w < n + D.length ∧ ∀ r, val D (rows r) w = false := by
+  classical
+  simp [zeroWires]
+
+section Facts
+variable {α : Type} {n : Nat} {D : Dag} {rows : α → Fin n → Bool}
+
+lemma zeroWires_inner (positive : ∃ r, val D (rows r) (outW n D) = true) :
+    zeroWires n D rows ⊆ inner n D := by
+  intro w hw
+  obtain ⟨hlt, hz⟩ := mem_zeroWires.mp hw
+  have hne : w ≠ outW n D := by
+    intro he
+    obtain ⟨r, hr⟩ := positive
+    rw [← he, hz r] at hr
+    exact Bool.false_ne_true hr
+  apply sb_mem_inner.mpr
+  unfold outW at hne
+  omega
+
+lemma zeroWires_sources_ge (I : Finset (Fin n))
+    (inputs : ∀ r i, i ∈ I → rows r i = false) :
+    I.card ≤ (sources n (zeroWires n D rows)).card := by
+  have hsub : I.image Fin.val ⊆ sources n (zeroWires n D rows) := by
+    intro w hw
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hw
+    apply Finset.mem_filter.mpr
+    refine ⟨mem_zeroWires.mpr ⟨by have := i.isLt; omega, ?_⟩, i.isLt⟩
+    intro r
+    rw [val_input D (rows r) i.val i.isLt]
+    exact inputs r i hi
+  have hc := Finset.card_le_card hsub
+  rwa [Finset.card_image_of_injective _ Fin.val_injective] at hc
+
+lemma zeroWires_closed (hS : Strict n D) {j : Nat} (hj : j < D.length)
+    (ha : opA D j ∈ zeroWires n D rows) (hb : opB D j ∈ zeroWires n D rows) :
+    n + j ∈ zeroWires n D rows := by
+  refine mem_zeroWires.mpr ⟨Nat.add_lt_add_left hj n, ?_⟩
+  intro r
+  rw [val_gate hS _ j hj, (mem_zeroWires.mp ha).2 r, (mem_zeroWires.mp hb).2 r]
+  cases tag D j <;> rfl
+
+lemma zeroWires_exit_or (hS : Strict n D) {e : Nat × Bool}
+    (he : e ∈ exitArcs n D (zeroWires n D rows)) : tag D e.1 = false := by
+  obtain ⟨ha, hsrc, hout⟩ := Finset.mem_filter.mp he
+  have hj := Finset.mem_range.mp (Finset.mem_product.mp ha).1
+  have hzsrc := (mem_zeroWires.mp hsrc).2
+  cases ht : tag D e.1
+  · rfl
+  · exfalso
+    apply hout
+    refine mem_zeroWires.mpr ⟨Nat.add_lt_add_left hj n, ?_⟩
+    intro r
+    rw [sem_val_gate_src hS _ hj e.2, ht, gop_true, hzsrc r]
+    rfl
+
+lemma zeroWires_boundary_card (hS : Strict n D) :
+    (ZeroFlow.boundaryOrGates n D (zeroWires n D rows)).card =
+      (exitArcs n D (zeroWires n D rows)).card + (merges n D (zeroWires n D rows)).card := by
+  rw [ZeroFlow.boundaryOrGates,
+    Finset.card_union_of_disjoint (ZeroFlow.boundary_disjoint _),
+    Finset.card_image_of_injOn]
+  exact ZeroFlow.exit_fst_injective _ (fun e he => zeroWires_exit_or hS he)
+    (fun j hj _ ha hb => zeroWires_closed hS hj ha hb)
+
+lemma zeroWires_boundary_copy (hS : Strict n D) {j : Nat}
+    (hj : j ∈ ZeroFlow.boundaryOrGates n D (zeroWires n D rows)) :
+    j < D.length ∧
+      (tag D j = true → ∀ r, val D (rows r) (opA D j) = false ∧
+        val D (rows r) (opB D j) = false) ∧
+      ∃ p, p < n + j ∧ ∀ r, val D (rows r) (n + j) = val D (rows r) p := by
+  rcases Finset.mem_union.mp hj with hexit | hmerge
+  · obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hexit
+    have ht := zeroWires_exit_or hS he
+    obtain ⟨ha, hsrc, _⟩ := Finset.mem_filter.mp he
+    have hjlt := Finset.mem_range.mp (Finset.mem_product.mp ha).1
+    refine ⟨hjlt, ?_, src D (e.1, !e.2), sem_src_lt hS hjlt (!e.2), ?_⟩
+    · intro htrue
+      rw [ht] at htrue
+      exact False.elim (Bool.false_ne_true htrue)
+    · intro r
+      rw [sem_val_gate_src hS _ hjlt e.2, ht, gop_false, (mem_zeroWires.mp hsrc).2 r]
+      rfl
+  · obtain ⟨hjl, hout, ha, hb⟩ := Finset.mem_filter.mp hmerge
+    have hjlt := Finset.mem_range.mp hjl
+    refine ⟨hjlt, fun _ r => ⟨(mem_zeroWires.mp ha).2 r, (mem_zeroWires.mp hb).2 r⟩,
+      opA D j, (hS j hjlt).1, ?_⟩
+    intro r
+    rw [(mem_zeroWires.mp hout).2 r, (mem_zeroWires.mp ha).2 r]
+
+
+lemma zero_rows_copy_gates (h : StrictLive n D) (I : Finset (Fin n))
+    (inputs : ∀ r i, i ∈ I → rows r i = false)
+    (positive : ∃ r, val D (rows r) (outW n D) = true) :
+    ∃ T : Finset Nat, I.card + surplusOn D (zeroWires n D rows) ≤ T.card ∧
+      ∀ j ∈ T, j < D.length ∧
+        (tag D j = true → ∀ r, val D (rows r) (opA D j) = false ∧
+          val D (rows r) (opB D j) = false) ∧
+        ∃ p, p < n + j ∧ ∀ r, val D (rows r) (n + j) = val D (rows r) p := by
+  refine ⟨ZeroFlow.boundaryOrGates n D (zeroWires n D rows), ?_, ?_⟩
+  · rw [zeroWires_boundary_card h.1]
+    exact (Nat.add_le_add_right (zeroWires_sources_ge I inputs) _).trans
+      (GeneralFlow.sources_add_surplus_le_exits_add_merges h _ (zeroWires_inner positive))
+  · intro j hj
+    exact zeroWires_boundary_copy h.1 hj
+
+
+lemma zero_rows_exact_copy_gates (h : StrictLive n D) (I : Finset (Fin n))
+    (inputs : ∀ r i, i ∈ I → rows r i = false)
+    (positive : ∃ r, val D (rows r) (outW n D) = true) :
+    ∃ T : Finset Nat, T.card = I.card ∧
+      ∀ j ∈ T, j < D.length ∧
+        (tag D j = true → ∀ r, val D (rows r) (opA D j) = false ∧
+          val D (rows r) (opB D j) = false) ∧
+        ∃ p, p < n + j ∧ ∀ r, val D (rows r) (n + j) = val D (rows r) p := by
+  obtain ⟨T, hcard, ht⟩ := zero_rows_copy_gates h I inputs positive
+  have hbound : I.card ≤ T.card := by omega
+  obtain ⟨U, hu, huc⟩ := Finset.exists_subset_card_eq hbound
+  exact ⟨U, huc, fun j hj => ht j (hu hj)⟩
+
+lemma zero_boundary_disjoint_active_ands (hS : Strict n D) (A : Finset Nat)
+    (ha : ∀ j ∈ A, tag D j = true ∧
+      ∃ r, val D (rows r) (opA D j) = true ∨ val D (rows r) (opB D j) = true) :
+    Disjoint A (ZeroFlow.boundaryOrGates n D (zeroWires n D rows)) := by
+  rw [Finset.disjoint_left]
+  intro j hjA hjB
+  obtain ⟨htag, r, hr⟩ := ha j hjA
+  have hz := (zeroWires_boundary_copy hS hjB).2.1 htag r
+  rcases hr with hleft | hright
+  · exact Bool.false_ne_true (hz.1.symm.trans hleft)
+  · exact Bool.false_ne_true (hz.2.symm.trans hright)
+
+end Facts
+end GeneralZero
+
+namespace EightGeneral
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Neutral
+
+lemma neutral_ineligible_active {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (I : Finset (Fin n)) (hin : I ⊆ ineligSet n D)
+    {α : Type} (rows : α → Fin n → Bool)
+    (good : ∀ i ∈ I, ∀ r, (∃ a, G i a ∧ rows r a = true) ∨
+      ∃ a, a ≠ i ∧ rows r = single a)
+    (active : ∀ i ∈ I, ∃ r a, G i a ∧ rows r a = true) :
+    ∃ T : Finset Nat, T.card = I.card ∧ ∀ g ∈ T,
+      g < D.length ∧ tag D g = true ∧
+        (∃ r, val D (rows r) (opA D g) = true ∨ val D (rows r) (opB D g) = true) ∧
+        ∃ p, p < n + g ∧ ∀ r, val D (rows r) (n + g) = val D (rows r) p := by
+  classical
+  have hex : ∀ i : Fin n, ∃ e : Nat × Bool, i ∈ I →
+      e.1 < D.length ∧ tag D e.1 = true ∧ supp n D (src D e) = {i} ∧
+        ∀ a, G i a → a ∈ supp n D (src D (e.1, !e.2)) := by
+    intro i
+    by_cases hi : i ∈ I
+    · obtain ⟨e, he, ht, hs, _, hn, _, _⟩ := sem_inelig_consumer hG h hc (hin hi)
+      exact ⟨e, fun _ => ⟨he, ht, hs, hn⟩⟩
+    · exact ⟨(0, false), fun hh => False.elim (hi hh)⟩
+  choose e he using hex
+  refine ⟨I.image (fun i => (e i).1), ?_, ?_⟩
+  · apply Finset.card_image_of_injOn
+    intro i hi j hj eq
+    by_contra ne
+    exact exit_gate_injective hG ne (he i hi).2.2.1 (he j hj).2.2.1 (he i hi).2.2.2 eq
+  · intro g hg
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hg
+    obtain ⟨hlt, ht, hpure, hn⟩ := he i hi
+    refine ⟨hlt, ht, ?_, src D (e i), sem_src_lt h.1 hlt (e i).2, ?_⟩
+    · obtain ⟨r, a, hia, hxa⟩ := active i hi
+      have hval : val D (rows r) (src D ((e i).1, !(e i).2)) = true :=
+        sem_val_of_supp h.1 (hn a hia) hxa
+      refine ⟨r, ?_⟩
+      cases hs : (e i).2
+      · right
+        simpa [src, hs] using hval
+      · left
+        simpa [src, hs] using hval
+    · intro r
+      rcases good i hi r with ⟨a, hia, hxa⟩ | ⟨a, hai, hx⟩
+      · have htval : val D (rows r) (src D ((e i).1, !(e i).2)) = true :=
+          sem_val_of_supp h.1 (hn a hia) hxa
+        rw [sem_val_gate_src h.1 _ hlt (e i).2, ht, gop_true, htval, Bool.and_true]
+      · rw [hx]
+        exact and_neutral_single h.1 hlt ht (e i).2 (hpure ▸ Finset.Subset.refl _) hai
+
+lemma twice_ineligible_copy_gates {n : Nat} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (I : Finset (Fin n)) (hin : I ⊆ ineligSet n D)
+    {α : Type} (rows : α → Fin n → Bool)
+    (good : ∀ i ∈ I, ∀ r, (∃ a, G i a ∧ rows r a = true) ∨
+      ∃ a, a ≠ i ∧ rows r = single a)
+    (active : ∀ i ∈ I, ∃ r a, G i a ∧ rows r a = true)
+    (inputs : ∀ r i, i ∈ I → rows r i = false)
+    (positive : ∃ r, val D (rows r) (outW n D) = true) :
+    ∃ T : Finset Nat, T.card = 2 * I.card ∧ ∀ j ∈ T,
+      j < D.length ∧ ∃ p, p < n + j ∧ ∀ r, val D (rows r) (n + j) = val D (rows r) p := by
+  obtain ⟨A, ha, hA⟩ := neutral_ineligible_active hG h hc I hin rows good active
+  obtain ⟨Z, hz, hZ⟩ := GeneralZero.zero_rows_exact_copy_gates h I inputs positive
+  have hd : Disjoint A Z := by
+    rw [Finset.disjoint_left]
+    intro j hjA hjZ
+    obtain ⟨_, ht, ⟨r, hleft | hright⟩, _⟩ := hA j hjA
+    · have hz := (hZ j hjZ).2.1 ht r
+      exact Bool.false_ne_true (hz.1.symm.trans hleft)
+    · have hz := (hZ j hjZ).2.1 ht r
+      exact Bool.false_ne_true (hz.2.symm.trans hright)
+  refine ⟨A ∪ Z, ?_, ?_⟩
+  · rw [Finset.card_union_of_disjoint hd, ha, hz]
+    omega
+  · intro j hj
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact ⟨(hA j hj).1, (hA j hj).2.2.2⟩
+    · exact ⟨(hZ j hj).1, (hZ j hj).2.2⟩
+
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.SevenGeneral
+open PEqualNP.Outside.L_meta_2590_aux.Thirteen
+
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma cases_hits_zero : ∀ k : Fin 5, ∀ i ∈ casesI k,
+    ∃ a, Adj i a ∧ caseRow k 0 a = true := by
+  unfold Adj caseRow liftMask casesMasks casesI
+  decide +kernel
+
+lemma eight_copies_without_bzero {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (four : (ineligSet 10 D).card = 4) :
+    ∃ k : Fin 5, casesI k = ineligSet 10 D ∧ ∃ T : Finset Nat,
+      T.card = 8 ∧ ∀ j ∈ T, j < D.length ∧ ∃ p, p < 10 + j ∧
+        ∀ r : Fin 13, val D (caseRow k r) (10 + j) = val D (caseRow k r) p := by
+  have hind : ∀ a ∈ ineligSet 10 D, ∀ b ∈ ineligSet 10 D, ¬ Adj a b := by
+    intro a ha b hb hab
+    rcases sem_elig_cover graph_ok h hc hab with ea | eb
+    · exact (sem_mem_inelig.mp ha) ea
+    · exact (sem_mem_inelig.mp hb) eb
+  obtain ⟨k, hk⟩ := classify_four (ineligSet 10 D) four hind
+  have hin : casesI k ⊆ ineligSet 10 D := hk ▸ Finset.Subset.refl _
+  have geo := cases_geometry13 k
+  obtain ⟨T, ht, hT⟩ := twice_ineligible_copy_gates graph_ok h hc (casesI k) hin
+    (caseRow k) geo.2.2.2 (fun i hi => ⟨0, cases_hits_zero k i hi⟩)
+    geo.2.1 ⟨0, (hc _).mpr geo.2.2.1⟩
+  exact ⟨k, hk, T, by simpa [geo.1] using ht, hT⟩
+
+end EightGeneral
+
+
+namespace Compression
+
+variable {α : Type}
+
+def meet (a b : α → Bool) : α → Bool := fun x => a x && b x
+
+def join (a b : α → Bool) : α → Bool := fun x => a x || b x
+
+def Step (p : List (α → Bool)) (w : α → Bool) : Prop :=
+  ∃ a ∈ p, ∃ b ∈ p, w = meet a b ∨ w = join a b
+
+def Trace (p gs : List (α → Bool)) : Prop :=
+  List.rec (motive := fun _ => List (α → Bool) → Prop) (fun _ => True)
+    (fun w _ rec q => Step q w ∧ rec (q ++ [w])) gs p
+
+lemma step_mono {p q : List (α → Bool)} {w : α → Bool}
+    (hpq : p ⊆ q) (hw : Step p w) : Step q w := by
+  obtain ⟨a, ha, b, hb, hab⟩ := hw
+  exact ⟨a, hpq ha, b, hpq hb, hab⟩
+
+lemma compress_indexed {p q gs : List (α → Bool)}
+    (ht : Trace p gs) (hpq : p ⊆ q) (mark : Fin gs.length → Bool)
+    (hd : ∀ j : Fin gs.length, mark j = true → gs.get j ∈ q ++ gs.take j.val) :
+    ∃ hs, Trace q hs ∧ p ++ gs ⊆ q ++ hs ∧
+      hs.length + (∑ j : Fin gs.length, if mark j then 1 else 0) = gs.length := by
+  induction gs generalizing p q with
+  | nil =>
+      refine ⟨[], trivial, ?_, ?_⟩
+      · simpa using hpq
+      · simp
+  | cons w gs ih =>
+      let tailMark : Fin gs.length → Bool := fun j => mark j.succ
+      have hsum : (∑ j : Fin (w :: gs).length, if mark j then 1 else 0) =
+          (if mark 0 then 1 else 0) + ∑ j : Fin gs.length, if tailMark j then 1 else 0 := by
+        exact Fin.sum_univ_succ _
+      by_cases hm : mark 0 = true
+      · have hwq : w ∈ q := by simpa using hd 0 hm
+        have hbase : p ++ [w] ⊆ q := by
+          intro a ha
+          rcases List.mem_append.mp ha with ha | ha
+          · exact hpq ha
+          · simpa only [List.mem_singleton.mp ha] using hwq
+        have hdelete : ∀ j : Fin gs.length, tailMark j = true →
+            gs.get j ∈ q ++ gs.take j.val := by
+          intro j hj
+          have hjmem : gs.get j ∈ q ++ w :: gs.take j.val := by
+            simpa using hd j.succ hj
+          rcases List.mem_append.mp hjmem with hq | hg
+          · exact List.mem_append_left _ hq
+          · rcases List.mem_cons.mp hg with heq | htail
+            · exact List.mem_append_left _ (heq ▸ hwq)
+            · exact List.mem_append_right _ htail
+        obtain ⟨hs, htrace, hcover, hlen⟩ := ih ht.2 hbase tailMark hdelete
+        refine ⟨hs, htrace, ?_, ?_⟩
+        · simpa [List.append_assoc] using hcover
+        · rw [hsum, hm]
+          simp only [↓reduceIte, List.length_cons]
+          omega
+      · have hmfalse : mark 0 = false := Bool.eq_false_iff.mpr hm
+        have hbase : p ++ [w] ⊆ q ++ [w] := by
+          intro a ha
+          rcases List.mem_append.mp ha with ha | ha
+          · exact List.mem_append_left _ (hpq ha)
+          · exact List.mem_append_right _ ha
+        have hdelete : ∀ j : Fin gs.length, tailMark j = true →
+            gs.get j ∈ (q ++ [w]) ++ gs.take j.val := by
+          intro j hj
+          simpa [List.append_assoc] using hd j.succ hj
+        obtain ⟨hs, htrace, hcover, hlen⟩ := ih ht.2 hbase tailMark hdelete
+        refine ⟨w :: hs, ⟨step_mono hpq ht.1, htrace⟩, ?_, ?_⟩
+        · simpa [List.append_assoc] using hcover
+        · rw [hsum, hmfalse]
+          simp only [Bool.false_eq_true, ↓reduceIte, zero_add, List.length_cons]
+          omega
+
+lemma compress_marked {p q gs : List (α → Bool)}
+    (ht : Trace p gs) (hpq : p ⊆ q) (marked : Finset (Fin gs.length))
+    (hd : ∀ j ∈ marked, gs.get j ∈ q ++ gs.take j.val) :
+    ∃ hs, Trace q hs ∧ p ++ gs ⊆ q ++ hs ∧
+      hs.length + marked.card = gs.length := by
+  classical
+  obtain ⟨hs, htrace, hcover, hlen⟩ :=
+    compress_indexed ht hpq (fun j => decide (j ∈ marked))
+      (fun j hj => hd j (of_decide_eq_true hj))
+  refine ⟨hs, htrace, hcover, ?_⟩
+  simpa using hlen
+
+lemma compress_free {p freeBase gs : List (α → Bool)}
+    (ht : Trace p gs) (marked : Finset (Fin gs.length))
+    (hd : ∀ j ∈ marked, gs.get j ∈ (p ++ freeBase) ++ gs.take j.val) :
+    ∃ hs, Trace (p ++ freeBase) hs ∧ p ++ gs ⊆ (p ++ freeBase) ++ hs ∧
+      hs.length + marked.card = gs.length := by
+  exact compress_marked ht (fun _ h => List.mem_append_left _ h) marked hd
+
+lemma compress_free_output {p freeBase gs : List (α → Bool)}
+    (ht : Trace p gs) (marked : Finset (Fin gs.length))
+    (hd : ∀ j ∈ marked, gs.get j ∈ (p ++ freeBase) ++ gs.take j.val)
+    (f : α → Bool) (hf : f ∈ p ++ gs) :
+    ∃ hs, Trace (p ++ freeBase) hs ∧ f ∈ (p ++ freeBase) ++ hs ∧
+      hs.length + marked.card = gs.length := by
+  obtain ⟨hs, htrace, hcover, hlen⟩ := compress_free ht marked hd
+  exact ⟨hs, htrace, hcover hf, hlen⟩
+
+lemma compress_two_families {p freeBase gs : List (α → Bool)}
+    (ht : Trace p gs) (freeMarks bypassMarks : Finset (Fin gs.length))
+    (hdisjoint : Disjoint freeMarks bypassMarks)
+    (hfree : ∀ j ∈ freeMarks, gs.get j ∈ p ++ freeBase)
+    (hbypass : ∀ j ∈ bypassMarks, gs.get j ∈ p ++ gs.take j.val) :
+    ∃ hs, Trace (p ++ freeBase) hs ∧ p ++ gs ⊆ (p ++ freeBase) ++ hs ∧
+      hs.length + freeMarks.card + bypassMarks.card = gs.length := by
+  classical
+  have hd : ∀ j ∈ freeMarks ∪ bypassMarks,
+      gs.get j ∈ (p ++ freeBase) ++ gs.take j.val := by
+    intro j hj
+    rcases Finset.mem_union.mp hj with hj | hj
+    · exact List.mem_append_left _ (hfree j hj)
+    · rcases List.mem_append.mp (hbypass j hj) with hp | hg
+      · exact List.mem_append_left _ (List.mem_append_left _ hp)
+      · exact List.mem_append_right _ hg
+  obtain ⟨hs, htrace, hcover, hlen⟩ := compress_free ht (freeMarks ∪ bypassMarks) hd
+  refine ⟨hs, htrace, hcover, ?_⟩
+  simpa [Finset.card_union_of_disjoint hdisjoint, Nat.add_assoc] using hlen
+
+lemma lower_bound_after_compression {p freeBase gs : List (α → Bool)}
+    (ht : Trace p gs) (marked : Finset (Fin gs.length))
+    (hd : ∀ j ∈ marked, gs.get j ∈ (p ++ freeBase) ++ gs.take j.val)
+    (f : α → Bool) (hf : f ∈ p ++ gs) (lower : ℕ)
+    (hlower : ∀ hs, Trace (p ++ freeBase) hs → f ∈ (p ++ freeBase) ++ hs →
+      lower ≤ hs.length) :
+    lower + marked.card ≤ gs.length := by
+  obtain ⟨hs, htrace, hout, hlen⟩ := compress_free_output ht marked hd f hf
+  have := hlower hs htrace hout
+  omega
+
+end Compression
+
+
+namespace Compression
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+
+lemma trace_of_steps {α : Type} {p gs : List (α → Bool)}
+    (steps : ∀ j : Fin gs.length, Step (p ++ gs.take j.val) (gs.get j)) : Trace p gs := by
+  induction gs generalizing p with
+  | nil => trivial
+  | cons w gs ih =>
+    refine ⟨?_,ih ?_⟩
+    · simpa using steps 0
+    · intro j
+      simpa [List.append_assoc] using steps j.succ
+
+variable {α : Type}
+def wireValue (D : Dag) (rows : α → Fin n → Bool) (w : Nat) : α → Bool :=
+  fun r => val D (rows r) w
+
+def inputValues (n : Nat) (D : Dag) (rows : α → Fin n → Bool) : List (α → Bool) :=
+  (List.range n).map (wireValue D rows)
+
+def gateValues (n : Nat) (D : Dag) (rows : α → Fin n → Bool) : List (α → Bool) :=
+  (List.range D.length).map (fun j => wireValue D rows (n+j))
+
+lemma wire_mem_prefix (n : Nat) (D : Dag) (rows : α → Fin n → Bool)
+    {k w : Nat} (hk : k ≤ D.length) (hw : w < n+k) :
+    wireValue D rows w ∈ inputValues n D rows ++ (gateValues n D rows).take k := by
+  by_cases hinput : w < n
+  · apply List.mem_append_left
+    exact List.mem_map.mpr ⟨w,List.mem_range.mpr hinput,rfl⟩
+  · apply List.mem_append_right
+    simp only [gateValues,← List.map_take,List.take_range]
+    apply List.mem_map.mpr
+    refine ⟨w-n,List.mem_range.mpr ?_,?_⟩
+    · omega
+    · congr 1
+      omega
+
+lemma dag_trace (n : Nat) {D : Dag} (h : Strict n D) (rows : α → Fin n → Bool) :
+    Trace (inputValues n D rows) (gateValues n D rows) := by
+  apply trace_of_steps
+  intro j
+  have hj : j.val < D.length := by simpa [gateValues] using j.isLt
+  have ha := wire_mem_prefix n D rows (Nat.le_of_lt hj) (h j.val hj).1
+  have hb := wire_mem_prefix n D rows (Nat.le_of_lt hj) (h j.val hj).2.1
+  refine ⟨wireValue D rows (opA D j.val),ha,wireValue D rows (opB D j.val),hb,?_⟩
+  have he : (gateValues n D rows).get j = wireValue D rows (n+j.val) := by
+    change ((List.range D.length).map (fun t => wireValue D rows (n+t)))[j.val] = _
+    simp only [List.getElem_map,List.getElem_range]
+  rw [he]
+  cases ht : tag D j.val
+  · right
+    funext r
+    exact (val_gate h (rows r) j.val hj).trans (by simp [ht,gop_false,join,wireValue])
+  · left
+    funext r
+    exact (val_gate h (rows r) j.val hj).trans (by simp [ht,gop_true,meet,wireValue])
+
+lemma compress_dag_copies (n : Nat) {D : Dag} (h : Strict n D) (rows : α → Fin n → Bool)
+    (T : Finset Nat) (valid : ∀ j ∈ T, j < D.length)
+    (copy : ∀ j ∈ T, ∃ p, p < n+j ∧
+      ∀ r, val D (rows r) (n+j) = val D (rows r) p) :
+    ∃ gs, Trace (inputValues n D rows) gs ∧
+      (∀ w, w < n+D.length → wireValue D rows w ∈ inputValues n D rows ++ gs) ∧
+      gs.length + T.card = D.length := by
+  classical
+  let M : Finset (Fin (gateValues n D rows).length) :=
+    T.attach.image (fun j => ⟨j.val,by simpa [gateValues] using valid j.val j.property⟩)
+  have hM : M.card = T.card := by
+    rw [Finset.card_image_of_injective]
+    · exact Finset.card_attach
+    · intro a b hab
+      exact Subtype.ext (congrArg Fin.val hab)
+  have hcopy : ∀ j ∈ M, (gateValues n D rows).get j ∈
+      inputValues n D rows ++ (gateValues n D rows).take j.val := by
+    intro j hj
+    obtain ⟨a,_,rfl⟩ := Finset.mem_image.mp hj
+    obtain ⟨p,hp,he⟩ := copy a.val a.property
+    have hv : wireValue D rows (n+a.val) = wireValue D rows p := funext he
+    simp only [gateValues,List.get_eq_getElem,List.getElem_map,List.getElem_range]
+    rw [hv]
+    exact wire_mem_prefix n D rows (Nat.le_of_lt (valid a.val a.property)) hp
+  obtain ⟨gs,htr,hcov,hlen⟩ := compress_marked (dag_trace n h rows)
+    (fun _ hh => hh) M hcopy
+  refine ⟨gs,htr,?_,?_⟩
+  · intro w hw
+    apply hcov
+    have ht : (gateValues n D rows).take D.length = gateValues n D rows :=
+      List.take_of_length_le (by simp [gateValues])
+    simpa only [ht] using wire_mem_prefix n D rows (Nat.le_refl _) hw
+  · rw [hM] at hlen
+    simpa only [gateValues,List.length_map,List.length_range] using hlen
+
+end Compression
+
+
+namespace Thirteen
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.SevenGeneral
+open PEqualNP.Outside.L_meta_2590_aux.Compression
+
+lemma compressed_eleven {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (four : (ineligSet 10 D).card = 4) (size : D.length ≤ 19) :
+    ∃ k : Fin 5, casesI k = ineligSet 10 D ∧ ∃ gs,
+      Trace (inputValues 10 D (caseRow k)) gs ∧
+      (∀ w, w < 10+D.length → wireValue D (caseRow k) w ∈
+        inputValues 10 D (caseRow k) ++ gs) ∧ gs.length ≤ 11 := by
+  obtain ⟨k,hk,T,hcard,hT⟩ := EightGeneral.eight_copies_without_bzero h hc four
+  obtain ⟨gs,htr,hcover,hlen⟩ := compress_dag_copies 10 h.1 (caseRow k) T
+    (fun j hj => (hT j hj).1) (fun j hj => (hT j hj).2)
+  exact ⟨k,hk,gs,htr,hcover,by omega⟩
+
+end Thirteen
+
 end PEqualNP.Outside.L_meta_2590_aux
