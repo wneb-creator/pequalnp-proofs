@@ -777,4 +777,579 @@ lemma clause_count_of_induced_matching {n k : ℕ} {I : Type*} [Fintype I]
 
 end FreeClauses
 
+
+
+
+
+namespace StarCoverMatching
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma min_cover_outside_neighbor {n : ℕ} (G : SimpleGraph (Fin n))
+    (T : Finset (Fin n)) (hT : IsMinCover G T) {a : Fin n} (ha : a ∈ T) :
+    ∃ b, G.Adj a b ∧ b ∉ T := by
+  classical
+  by_contra hn
+  push Not at hn
+  have hcover : G.IsVertexCover (T.erase a : Set (Fin n)) := by
+    intro u v huv
+    change u ∈ T.erase a ∨ v ∈ T.erase a
+    by_cases hua : u = a
+    · subst u
+      right
+      exact Finset.mem_erase.mpr ⟨G.ne_of_adj huv.symm, hn v huv⟩
+    · by_cases hva : v = a
+      · subst v
+        left
+        exact Finset.mem_erase.mpr ⟨G.ne_of_adj huv, hn u huv.symm⟩
+      · rcases hT.1 huv with hu | hv
+        · exact Or.inl (Finset.mem_erase.mpr ⟨hua, hu⟩)
+        · exact Or.inr (Finset.mem_erase.mpr ⟨hva, hv⟩)
+  have hle := hT.2 (T.erase a) hcover
+  have hlt := Finset.card_erase_lt_of_mem ha
+  omega
+
+lemma min_cover_independent {n : ℕ} (G : SimpleGraph (Fin n))
+    (hstar : ∀ a b, G.Adj a b →
+      (∀ c, G.Adj a c → c = b) ∨ (∀ c, G.Adj b c → c = a))
+    (T : Finset (Fin n)) (hT : IsMinCover G T) :
+    ∀ a ∈ T, ∀ b ∈ T, ¬G.Adj a b := by
+  intro a ha b hb hab
+  rcases hstar a b hab with hleaf | hleaf
+  · obtain ⟨c, hac, hc⟩ := min_cover_outside_neighbor G T hT ha
+    exact hc ((hleaf c hac) ▸ hb)
+  · obtain ⟨c, hbc, hc⟩ := min_cover_outside_neighbor G T hT hb
+    exact hc ((hleaf c hbc) ▸ ha)
+
+lemma min_cover_not_two_leaves {n : ℕ} (G : SimpleGraph (Fin n))
+    (T : Finset (Fin n)) (hT : IsMinCover G T)
+    {a c b : Fin n} (ha : a ∈ T) (hc : c ∈ T) (hac : a ≠ c)
+    (hb : b ∉ T) (haleaf : ∀ d, G.Adj a d → d = b)
+    (hcleaf : ∀ d, G.Adj c d → d = b) : False := by
+  classical
+  let U := insert b ((T.erase a).erase c)
+  have hcover : G.IsVertexCover (U : Set (Fin n)) := by
+    intro u v huv
+    change u ∈ U ∨ v ∈ U
+    rcases hT.1 huv with hu | hv
+    · by_cases hua : u = a
+      · subst u
+        right
+        simp [U, haleaf v huv]
+      · by_cases huc : u = c
+        · subst u
+          right
+          simp [U, hcleaf v huv]
+        · left
+          exact Finset.mem_insert_of_mem (Finset.mem_erase.mpr
+            ⟨huc, Finset.mem_erase.mpr ⟨hua, hu⟩⟩)
+    · by_cases hva : v = a
+      · subst v
+        left
+        simp [U, haleaf u huv.symm]
+      · by_cases hvc : v = c
+        · subst v
+          left
+          simp [U, hcleaf u huv.symm]
+        · right
+          exact Finset.mem_insert_of_mem (Finset.mem_erase.mpr
+            ⟨hvc, Finset.mem_erase.mpr ⟨hva, hv⟩⟩)
+  have hca : c ∈ T.erase a := Finset.mem_erase.mpr ⟨hac.symm, hc⟩
+  have hcpos : 0 < (T.erase a).card := Finset.card_pos.mpr ⟨c, hca⟩
+  have hcarda := Finset.card_erase_of_mem ha
+  have hcardc := Finset.card_erase_of_mem hca
+  have hb' : b ∉ (T.erase a).erase c := by simp [Finset.mem_erase, hb]
+  have hcardU : U.card = ((T.erase a).erase c).card + 1 :=
+    Finset.card_insert_of_notMem hb'
+  have hle := hT.2 U hcover
+  omega
+
+lemma min_cover_leaf_neighbor {n : ℕ} (G : SimpleGraph (Fin n))
+    (hstar : ∀ a b, G.Adj a b →
+      (∀ c, G.Adj a c → c = b) ∨ (∀ c, G.Adj b c → c = a))
+    (T : Finset (Fin n)) (hT : IsMinCover G T) {a : Fin n} (ha : a ∈ T) :
+    ∃ b, G.Adj a b ∧ b ∉ T ∧ ∀ c, G.Adj b c → c = a := by
+  classical
+  obtain ⟨b, hab, hb⟩ := min_cover_outside_neighbor G T hT ha
+  refine ⟨b, hab, hb, ?_⟩
+  by_contra hnb
+  push Not at hnb
+  obtain ⟨c, hbc, hca⟩ := hnb
+  have hc : c ∈ T := (hT.1 hbc).resolve_left hb
+  have haleaf : ∀ d, G.Adj a d → d = b := by
+    rcases hstar a b hab with h | h
+    · exact h
+    · exact False.elim (hca (h c hbc))
+  have hcleaf : ∀ d, G.Adj c d → d = b := by
+    rcases hstar b c hbc with h | h
+    · exact False.elim (hca (h a hab.symm).symm)
+    · exact h
+  exact min_cover_not_two_leaves G T hT ha hc hca.symm hb haleaf hcleaf
+
+lemma induced_matching_of_min_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    (hstar : ∀ a b, G.Adj a b →
+      (∀ c, G.Adj a c → c = b) ∨ (∀ c, G.Adj b c → c = a))
+    (T : Finset (Fin n)) (hT : IsMinCover G T) :
+    ∃ a b : Fin T.card → Fin n,
+      (∀ j, G.Adj (a j) (b j)) ∧
+      ∀ i j (s t : Bool),
+        G.Adj (if s then a i else b i) (if t then a j else b j) →
+          i = j ∧ s ≠ t := by
+  classical
+  let a : Fin T.card → Fin n := T.orderEmbOfFin rfl
+  have ha : ∀ i, a i ∈ T := fun i => T.orderEmbOfFin_mem rfl i
+  have hinj : Function.Injective a := (T.orderEmbOfFin rfl).injective
+  have hex : ∀ i : Fin T.card, ∃ b,
+      G.Adj (a i) b ∧ b ∉ T ∧ ∀ c, G.Adj b c → c = a i :=
+    fun i => min_cover_leaf_neighbor G hstar T hT (ha i)
+  let b : Fin T.card → Fin n := fun i => Classical.choose (hex i)
+  have hspec : ∀ i, G.Adj (a i) (b i) ∧ b i ∉ T ∧
+      ∀ c, G.Adj (b i) c → c = a i := fun i => Classical.choose_spec (hex i)
+  refine ⟨a, b, fun i => (hspec i).1, ?_⟩
+  intro i j s t hij
+  cases s <;> cases t
+  · change G.Adj (b i) (b j) at hij
+    have hmem : b j ∈ T := by rw [(hspec i).2.2 (b j) hij]; exact ha i
+    exact False.elim ((hspec j).2.1 hmem)
+  · change G.Adj (b i) (a j) at hij
+    exact ⟨hinj ((hspec i).2.2 (a j) hij).symm, by decide⟩
+  · change G.Adj (a i) (b j) at hij
+    exact ⟨hinj ((hspec j).2.2 (a i) hij.symm), by decide⟩
+  · change G.Adj (a i) (a j) at hij
+    exact False.elim (min_cover_independent G hstar T hT _ (ha i) _ (ha j) hij)
+
+end StarCoverMatching
+
+namespace FreeClauses
+
+lemma clause_count_of_min_cover {n : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 ^ T.card ≤ Fintype.card I := by
+  obtain ⟨a, b, hedge, hmatching⟩ := StarCoverMatching.induced_matching_of_min_cover G
+    (fun _ _ hab => every_edge_has_leaf_endpoint G S hrep hind hc4 hab) T hT
+  exact clause_count_of_induced_matching G S hrep a b hedge hmatching
+
+lemma twice_cover_sub_one_le_clauses_sub_one {n : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 * T.card - 1 ≤ Fintype.card I - 1 := by
+  have hpow := Nat.mul_le_pow (by decide : 2 ≠ 1) T.card
+  have hcount := clause_count_of_min_cover G S hrep hind hc4 T hT
+  omega
+
+end FreeClauses
+
+namespace AndClauses
+
+open PEqualNP.CircuitLowerBounds
+
+variable {n : ℕ}
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+/-- The support of a gate: the union of the supports of the wires it reads. -/
+def gateSupp (L : List (Finset (Fin n))) (g : Gate) : Finset (Fin n) :=
+  (g.inputs.map fun a => L.getD a ∅).foldr (· ∪ ·) ∅
+
+lemma mem_foldr_union (l : List ℕ) (F : ℕ → Finset (Fin n)) (i : Fin n) :
+    i ∈ (l.map F).foldr (· ∪ ·) ∅ ↔ ∃ a ∈ l, i ∈ F a := by
+  induction l with
+  | nil => simp
+  | cons b l ih => simp [ih]
+
+lemma mem_gateSupp (L : List (Finset (Fin n))) (g : Gate) (i : Fin n) :
+    i ∈ gateSupp L g ↔ ∃ a ∈ g.inputs, i ∈ L.getD a ∅ :=
+  mem_foldr_union _ _ _
+
+/-- The supports of all wires, starting from the supports `L` of the wires present. -/
+def suppsFrom (gs : List Gate) (L : List (Finset (Fin n))) : List (Finset (Fin n)) :=
+  gs.foldl (fun L g => L ++ [gateSupp L g]) L
+
+/-- The supports of the input wires: input `i` has support `{i}`. -/
+def inputSupps (n : ℕ) : List (Finset (Fin n)) := List.ofFn fun i : Fin n => {i}
+
+def Cnt (t : ℕ) (L : List (Finset (Fin n))) : Prop :=
+  ∀ W : Finset ℕ, (W.biUnion fun j => L.getD j ∅).card ≤ t + W.card
+
+lemma cnt_inputs : Cnt 0 (inputSupps n) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  by_cases hjn : j < n
+  · simp [inputSupps, hjn]
+  · rw [List.getD_eq_default _ _ (by simp [inputSupps]; omega)]; simp
+
+lemma cnt_step (t : ℕ) (L : List (Finset (Fin n))) (g : Gate) (hg : g.inputs.length ≤ 2)
+    (h : Cnt t L) : Cnt (t + 1) (L ++ [gateSupp L g]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        ⊆ ((W.erase L.length ∪ g.inputs.toFinset).biUnion fun j => L.getD j ∅) := by
+      intro i hi
+      rw [Finset.mem_biUnion] at hi ⊢
+      obtain ⟨j, hjW, hij⟩ := hi
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hij
+        obtain ⟨a, ha, hia⟩ := (mem_gateSupp L g i).1 hij
+        exact ⟨a, Finset.mem_union_right _ (List.mem_toFinset.2 ha), hia⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hij
+        exact ⟨j, Finset.mem_union_left _ (Finset.mem_erase.2 ⟨hjl, hjW⟩), hij⟩
+    have hc1 : (W.erase L.length ∪ g.inputs.toFinset).card ≤ (W.card - 1) + 2 := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left (le_trans (List.toFinset_card_le _) hg) _
+    have hWpos : 1 ≤ W.card := Finset.card_pos.2 ⟨_, hW⟩
+    have := h (W.erase L.length ∪ g.inputs.toFinset)
+    have := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j => (L ++ [gateSupp L g]).getD j ∅)
+        = (W.biUnion fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    have := h W
+    omega
+
+lemma cnt_suppsFrom (gs : List Gate) : ∀ (t : ℕ) (L : List (Finset (Fin n))),
+    (∀ g ∈ gs, g.inputs.length ≤ 2) → Cnt t L → Cnt (t + gs.length) (suppsFrom gs L) := by
+  induction gs with
+  | nil => intro t L _ h; exact h
+  | cons g gs ih =>
+    intro t L hok h
+    have := ih (t + 1) (L ++ [gateSupp L g]) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+      (cnt_step t L g (hok g List.mem_cons_self) h)
+    rw [List.length_cons, show t + (gs.length + 1) = t + 1 + gs.length by omega]
+    exact this
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+def AndSemantics (x : Fin n → Bool) (L : List (Finset (Fin n)))
+    (w wy : List Bool) : Prop :=
+  L.length = w.length ∧ w.length = wy.length ∧
+    ∀ j : ℕ, wy.getD j false = true →
+      (w.getD j false = true ↔ ∀ i ∈ L.getD j ∅, x i = true)
+
+lemma andSemantics_inputs (x y : Fin n → Bool) :
+    AndSemantics x (inputSupps n) (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp [inputSupps],by simp,?_⟩
+  intro j hj
+  by_cases hjn : j < n
+  · simp [inputSupps,hjn]
+  · simp [List.getD_eq_getElem?_getD,hjn] at hj
+
+lemma andSemantics_run (x : Fin n → Bool) (gs : List Gate)
+    (hand : ∀ g ∈ gs, g.op = GateOp.and) :
+    ∀ (L : List (Finset (Fin n))) (w wy : List Bool), AndSemantics x L w wy →
+      AndSemantics x (suppsFrom gs L) (wiresFrom gs w) (wiresFrom gs wy) := by
+  induction gs with
+  | nil => intro L w wy h; exact h
+  | cons g gs ih =>
+    intro L w wy h
+    obtain ⟨h1,h2,h3⟩ := h
+    apply ih (fun g' hg' => hand g' (List.mem_cons_of_mem _ hg'))
+      (L ++ [gateSupp L g])
+      (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (wy ++ [g.op.eval (g.inputs.map fun i => wy.getD i false)])
+    refine ⟨by simp [h1],by simp [h2],?_⟩
+    intro j hj
+    by_cases hjl : j = L.length
+    · subst j
+      rw [h1,h2,getD_snoc_eq] at hj
+      rw [getD_snoc_eq,h1,getD_snoc_eq]
+      have hop := hand g List.mem_cons_self
+      have all_y : ∀ a ∈ g.inputs, wy.getD a false = true := by
+        simpa [hop,GateOp.eval] using hj
+      have all_x : g.op.eval (g.inputs.map fun i => w.getD i false) = true ↔
+          ∀ a ∈ g.inputs, w.getD a false = true := by simp [hop,GateOp.eval]
+      rw [all_x]
+      constructor
+      · intro hx i hi
+        obtain ⟨a,ha,hia⟩ := (mem_gateSupp L g i).mp hi
+        exact (h3 a (all_y a ha)).mp (hx a ha) i hia
+      · intro hx a ha
+        apply (h3 a (all_y a ha)).mpr
+        intro i hi
+        exact hx i ((mem_gateSupp L g i).mpr ⟨a,ha,hi⟩)
+    · rw [getD_snoc_ne _ _ _ _ (by omega)] at hj
+      rw [getD_snoc_ne _ _ _ _ (by omega),getD_snoc_ne _ _ _ _ hjl]
+      exact h3 j hj
+
+lemma and_output_support (m : ℕ) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (nonzero : ∃ y : Fin m → Bool, C.eval (List.ofFn y) = true) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      ∀ x : Fin m → Bool, C.eval (List.ofFn x) = true ↔ ∀ i ∈ R, x i = true := by
+  obtain ⟨y,hy⟩ := nonzero
+  let R := (suppsFrom C.gates (inputSupps m)).getD C.output ∅
+  refine ⟨R,?_,?_⟩
+  · have bound := cnt_suppsFrom C.gates 0 (inputSupps m) hfan cnt_inputs {C.output}
+    simpa only [Finset.singleton_biUnion,Finset.card_singleton,zero_add,Circuit.size] using bound
+  · intro x
+    exact (andSemantics_run x C.gates hand _ _ _ (andSemantics_inputs x y)).2.2 C.output hy
+
+def clauseInput {n m : ℕ} (S : Fin m → Finset (Fin n)) (x : Fin n → Bool) : Fin m → Bool :=
+  fun i => decide (∃ v ∈ S i, x v = true)
+
+lemma selected_clauses_represent {n m : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      FreeClauses.Represents G (fun i : {i : Fin m // i ∈ R} => S i.val) := by
+  obtain ⟨a,b,hab⟩ := nonempty
+  have nonzero : ∃ y : Fin m → Bool, C.eval (List.ofFn y) = true := by
+    refine ⟨clauseInput S (PEqualNP.EdgeOwnership.pairInput a b),(correct _).mpr ?_⟩
+    exact ⟨a,b,hab,by simp [PEqualNP.EdgeOwnership.pairInput],by simp [PEqualNP.EdgeOwnership.pairInput]⟩
+  obtain ⟨R,bound,repr⟩ := and_output_support m C hand hfan nonzero
+  refine ⟨R,bound,?_⟩
+  intro x
+  constructor
+  · intro clauses
+    apply (correct x).mp
+    apply (repr _).mpr
+    intro i hi
+    exact decide_eq_true (clauses ⟨i,hi⟩)
+  · intro edge
+    have all := (repr _).mp ((correct x).mpr edge)
+    intro i
+    exact of_decide_eq_true (all i.val i.property)
+
+lemma and_gate_bound_of_induced_matching {n m k : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (a b : Fin k → Fin n) (hedge : ∀ j, G.Adj (a j) (b j))
+    (hmatching : ∀ i j (s t : Bool),
+      G.Adj (if s then a i else b i) (if t then a j else b j) → i = j ∧ s ≠ t) :
+    2 ^ k ≤ C.size + 1 := by
+  obtain ⟨R,bound,repr⟩ := selected_clauses_represent G S C hand hfan correct nonempty
+  have lower := FreeClauses.clause_count_of_induced_matching G
+    (fun i : {i : Fin m // i ∈ R} => S i.val) repr a b hedge hmatching
+  have lower' : 2 ^ k ≤ R.card := by simpa using lower
+  exact lower'.trans bound
+
+lemma and_gate_bound_sub_one {n m k : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (a b : Fin k → Fin n) (hedge : ∀ j, G.Adj (a j) (b j))
+    (hmatching : ∀ i j (s t : Bool),
+      G.Adj (if s then a i else b i) (if t then a j else b j) → i = j ∧ s ≠ t) :
+    2 ^ k - 1 ≤ C.size := by
+  have := and_gate_bound_of_induced_matching G S C hand hfan correct nonempty a b hedge hmatching
+  omega
+
+end AndClauses
+
+namespace AndClauses
+
+lemma and_gate_bound_of_min_cover {n m : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 ^ T.card - 1 ≤ C.size := by
+  obtain ⟨R, bound, repr⟩ := selected_clauses_represent G S C hand hfan correct nonempty
+  have lower := FreeClauses.clause_count_of_min_cover G
+    (fun i : {i : Fin m // i ∈ R} => S i.val) repr
+    (fun i u hu v hv => hind i.val u hu v hv) hc4 T hT
+  have lower' : 2 ^ T.card ≤ R.card := by simpa using lower
+  omega
+
+lemma twice_cover_sub_one_le_and_gates {n m : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 * T.card - 1 ≤ C.size := by
+  have lower := and_gate_bound_of_min_cover G S C hand hfan correct nonempty hind hc4 T hT
+  exact (Nat.sub_le_sub_right (Nat.mul_le_pow (by decide : 2 ≠ 1) T.card) 1).trans lower
+
+end AndClauses
+
+
+namespace PackingClauses
+
+open PEqualNP.Outside.L_meta_1904_aux.FreeClauses
+
+lemma missing_singleton_clause {n : ℕ} {I : Type*}
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (c : Fin n) : ∃ i, c ∉ S i := by
+  classical
+  have hn : ¬ ∀ i, c ∈ S i := by
+    intro h
+    exact G.irrefl (pair_edge_of_represents G S hrep (fun i => Or.inl (h i)))
+  exact not_forall.mp hn
+
+lemma every_vertex_has_at_most_one_neighbor {n : ℕ} {I : Type*}
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v) :
+    ∀ c u v, G.Adj c u → G.Adj c v → u = v := by
+  intro c u v hcu hcv
+  obtain ⟨i, hci⟩ := missing_singleton_clause G S hrep c
+  have hui : u ∈ S i := (clause_covers_edge G S hrep i hcu).resolve_left hci
+  have hvi : v ∈ S i := (clause_covers_edge G S hrep i hcv).resolve_left hci
+  exact hpacking i c u v hui hvi hcu hcv
+
+lemma clause_count_of_min_cover {n : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 ^ T.card ≤ Fintype.card I := by
+  have hdegree := every_vertex_has_at_most_one_neighbor G S hrep hpacking
+  obtain ⟨a, b, hedge, hmatching⟩ := StarCoverMatching.induced_matching_of_min_cover G
+    (fun a b hab => Or.inl (fun c hac => hdegree a c b hac hab)) T hT
+  exact clause_count_of_induced_matching G S hrep a b hedge hmatching
+
+lemma twice_cover_sub_one_le_clauses_sub_one {n : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    2 * T.card - 1 ≤ Fintype.card I - 1 := by
+  have hpow := Nat.mul_le_pow (by decide : 2 ≠ 1) T.card
+  have hcount := clause_count_of_min_cover G S hrep hpacking T hT
+  omega
+
+end PackingClauses
+
+namespace AndClauses
+
+lemma packing_and_circuit_degree {n m : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v) :
+    ∀ c u v, G.Adj c u → G.Adj c v → u = v := by
+  obtain ⟨R, _, repr⟩ := selected_clauses_represent G S C hand hfan correct nonempty
+  exact PackingClauses.every_vertex_has_at_most_one_neighbor G
+    (fun i : {i : Fin m // i ∈ R} => S i.val) repr
+    (fun i c u v hu hv hcu hcv => hpacking i.val c u v hu hv hcu hcv)
+
+lemma packing_circuit_has_or {n m : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin m → Finset (Fin n)) (C : Circuit) (hC : Monotone2 C)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v)
+    (c u v : Fin n) (hcu : G.Adj c u) (hcv : G.Adj c v) (huv : u ≠ v) :
+    ∃ g ∈ C.gates, g.op = GateOp.or := by
+  classical
+  by_contra hnone
+  have hand : ∀ g ∈ C.gates, g.op = GateOp.and := by
+    intro g hg
+    exact ((hC g hg).1 : g.op = GateOp.and ∨ g.op = GateOp.or).resolve_right
+      (fun hop => hnone ⟨g, hg, hop⟩)
+  exact huv (packing_and_circuit_degree G S C hand (fun g hg => (hC g hg).2)
+    correct ⟨c, u, hcu⟩ hpacking c u v hcu hcv)
+
+end AndClauses
+
+
+namespace StarCoverMatching
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma edge_count_eq_min_cover {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hdegree : ∀ c u v, G.Adj c u → G.Adj c v → u = v)
+    (T : Finset (Fin n)) (hT : IsMinCover G T) : G.edgeFinset.card = T.card := by
+  classical
+  have hex : ∀ a : T, ∃ b, G.Adj a.val b ∧ b ∉ T :=
+    fun a => min_cover_outside_neighbor G T hT a.property
+  let b : T → Fin n := fun a => Classical.choose (hex a)
+  have hb : ∀ a : T, G.Adj a.val (b a) ∧ b a ∉ T :=
+    fun a => Classical.choose_spec (hex a)
+  symm
+  refine Finset.card_bij (fun a ha => s(a, b ⟨a, ha⟩)) ?_ ?_ ?_
+  · intro a ha
+    simpa using (hb ⟨a, ha⟩).1
+  · intro a ha c hc heq
+    rcases Sym2.eq_iff.mp heq with ⟨hac, _⟩ | ⟨hac, _⟩
+    · exact hac
+    · exact False.elim ((hb ⟨c, hc⟩).2 (hac ▸ ha))
+  · intro e he
+    obtain ⟨⟨u, v⟩, rfl⟩ := Sym2.mk_surjective e
+    have huv : G.Adj u v := by simpa using he
+    rcases hT.1 huv with hu | hv
+    · have hbv : b ⟨u, hu⟩ = v := hdegree u _ v (hb ⟨u, hu⟩).1 huv
+      exact ⟨u, hu, by rw [hbv]; rfl⟩
+    · have hbu : b ⟨v, hv⟩ = u := hdegree v _ u (hb ⟨v, hv⟩).1 huv.symm
+      exact ⟨v, hv, by rw [hbu]; exact Sym2.eq_swap⟩
+
+end StarCoverMatching
+
+namespace AndClauses
+
+lemma packing_and_circuit_star_budget {n m : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (S : Fin m → Finset (Fin n)) (C : Circuit)
+    (hand : ∀ g ∈ C.gates, g.op = GateOp.and)
+    (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (correct : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput S x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (nonempty : ∃ u v, G.Adj u v)
+    (hpacking : ∀ i c u v, u ∈ S i → v ∈ S i → G.Adj c u → G.Adj c v → u = v)
+    (T : Finset (Fin n)) (hT : PEqualNP.MetaComplexity.NestedCover.IsMinCover G T) :
+    G.edgeFinset.card + T.card - 1 ≤ C.size := by
+  obtain ⟨R, bound, repr⟩ := selected_clauses_represent G S C hand hfan correct nonempty
+  have lower := PackingClauses.clause_count_of_min_cover G
+    (fun i : {i : Fin m // i ∈ R} => S i.val) repr
+    (fun i c u v hu hv hcu hcv => hpacking i.val c u v hu hv hcu hcv) T hT
+  have lower' : 2 ^ T.card ≤ R.card := by simpa using lower
+  have hdeg := packing_and_circuit_degree G S C hand hfan correct nonempty hpacking
+  have hcard := StarCoverMatching.edge_count_eq_min_cover G hdeg T hT
+  have hpow := Nat.mul_le_pow (by decide : 2 ≠ 1) T.card
+  omega
+
+end AndClauses
+
 end PEqualNP.Outside.L_meta_1904_aux
