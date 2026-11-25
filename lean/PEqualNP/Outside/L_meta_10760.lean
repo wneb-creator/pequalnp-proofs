@@ -911,4 +911,197 @@ lemma live_of_phasedKeys {k m n budget : ℕ}
     sourceZero targetZero targetGoalZero
     (labeledPatterns_eq_of_keys_eq _ _ _ _ positive negative) run
 
+
+lemma rowsMatch_cancel_phases {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs signs' : Fin k → Bool) (flip flip' : Bool)
+    (same : rowsMatch (phasedFront front signs) (if flip then ~~~goal else goal)
+      (phasedFront front' signs') (if flip' then ~~~goal' else goal')) :
+    rowsMatch front goal (phasedFront front' (fun q => Bool.xor (signs q) (signs' q)))
+      (if Bool.xor flip flip' then ~~~goal' else goal') := by
+  intro i
+  obtain ⟨j, hg, hf⟩ := same i
+  refine ⟨j, ?_, ?_⟩
+  · cases flip <;> cases flip' <;> simpa using hg
+  · intro q
+    have h := hf q
+    cases hs : signs q <;> cases ht : signs' q <;>
+      simpa [phasedFront, hs, ht] using h
+
+lemma labeledPatterns_cancel_phases {k m n : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs signs' : Fin k → Bool) (flip flip' : Bool)
+    (same : labeledPatterns (phasedFront front signs) (if flip then ~~~goal else goal) =
+      labeledPatterns (phasedFront front' signs') (if flip' then ~~~goal' else goal')) :
+    labeledPatterns front goal =
+      labeledPatterns (phasedFront front' (fun q => Bool.xor (signs q) (signs' q)))
+        (if Bool.xor flip flip' then ~~~goal' else goal') := by
+  apply labeledPatterns_eq_of_rowsMatch
+  · exact rowsMatch_cancel_phases front goal front' goal' signs signs' flip flip'
+      (rowsMatch_of_patterns_eq _ _ _ _ same)
+  · intro j
+    obtain ⟨i, hg, hf⟩ := (rowsMatch_of_patterns_eq _ _ _ _ same.symm) j
+    refine ⟨i, ?_, ?_⟩
+    · cases flip <;> cases flip' <;> simpa using hg
+    · intro q
+      have h := hf q
+      cases hs : signs q <;> cases ht : signs' q <;>
+        simpa [phasedFront, hs, ht] using h
+
+lemma live_of_commonPhasedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs signs' : Fin k → Bool) (flip flip' : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive : positivePatterns (phasedFront front signs) (if flip then ~~~goal else goal) =
+      positivePatterns (phasedFront front' signs') (if flip' then ~~~goal' else goal'))
+    (negative : negativePatterns (phasedFront front signs) (if flip then ~~~goal else goal) =
+      negativePatterns (phasedFront front' signs') (if flip' then ~~~goal' else goal'))
+    (run : live basicOps goal budget (frontierRoots front)) :
+    live basicOps goal' budget (frontierRoots front') :=
+  live_of_phasedPatterns front goal front' goal'
+    (fun q => Bool.xor (signs q) (signs' q)) (Bool.xor flip flip') src dst
+    sourceZero targetZero targetGoalZero
+    (labeledPatterns_cancel_phases front goal front' goal' signs signs' flip flip'
+      (labeledPatterns_eq_of_keys_eq _ _ _ _ positive negative)) run
+
+
+lemma live_iff_commonPhasedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (signs signs' : Fin k → Bool) (flip flip' : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (sourceGoalZero : goal[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive : positivePatterns (phasedFront front signs) (if flip then ~~~goal else goal) =
+      positivePatterns (phasedFront front' signs') (if flip' then ~~~goal' else goal'))
+    (negative : negativePatterns (phasedFront front signs) (if flip then ~~~goal else goal) =
+      negativePatterns (phasedFront front' signs') (if flip' then ~~~goal' else goal')) :
+    live basicOps goal budget (frontierRoots front) ↔
+      live basicOps goal' budget (frontierRoots front') :=
+  ⟨live_of_commonPhasedKeys front goal front' goal' signs signs' flip flip' src dst
+      sourceZero targetZero targetGoalZero positive negative,
+    live_of_commonPhasedKeys front' goal' front goal signs' signs flip' flip dst src
+      targetZero sourceZero sourceGoalZero positive.symm negative.symm⟩
+
+lemma live_iff_commonPermutedKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (perm perm' : Fin k ≃ Fin k) (signs signs' : Fin k → Bool)
+    (flip flip' : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (sourceGoalZero : goal[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive : positivePatterns (phasedFront (front ∘ perm) signs)
+        (if flip then ~~~goal else goal) =
+      positivePatterns (phasedFront (front' ∘ perm') signs')
+        (if flip' then ~~~goal' else goal'))
+    (negative : negativePatterns (phasedFront (front ∘ perm) signs)
+        (if flip then ~~~goal else goal) =
+      negativePatterns (phasedFront (front' ∘ perm') signs')
+        (if flip' then ~~~goal' else goal')) :
+    live basicOps goal budget (frontierRoots front) ↔
+      live basicOps goal' budget (frontierRoots front') := by
+  simpa only [frontierRoots_reindex] using
+    live_iff_commonPhasedKeys (front ∘ perm) goal (front' ∘ perm') goal'
+      signs signs' flip flip' src dst
+      (fun q => sourceZero (perm q)) sourceGoalZero
+      (fun q => targetZero (perm' q)) targetGoalZero positive negative
+
+def transformPattern {k : ℕ} (perm : Fin k ≃ Fin k) (signs : Fin k → Bool)
+    (p : BitVec k) : BitVec k :=
+  (BitVec.ofBoolListLE (List.ofFn (fun q : Fin k =>
+    if signs q then !(p[(perm q).val]) else p[(perm q).val]))).cast (by simp)
+
+lemma transformPattern_bit {k : ℕ} (perm : Fin k ≃ Fin k) (signs : Fin k → Bool)
+    (p : BitVec k) (q : Fin k) :
+    (transformPattern perm signs p)[q.val] =
+      if signs q then !(p[(perm q).val]) else p[(perm q).val] := by
+  simp [transformPattern, ← BitVec.getLsbD_eq_getElem]
+
+lemma rowPattern_transform {k m : ℕ} (front : Fin k → BitVec m)
+    (perm : Fin k ≃ Fin k) (signs : Fin k → Bool) (i : Fin m) :
+    rowPattern (phasedFront (front ∘ perm) signs) i =
+      transformPattern perm signs (rowPattern front i) := by
+  apply BitVec.eq_of_getElem_eq
+  intro q hq
+  rw [rowPattern_bit _ i ⟨q, hq⟩, transformPattern_bit perm signs _ ⟨q, hq⟩]
+  cases hs : signs ⟨q, hq⟩ <;>
+    simp [phasedFront, hs, Function.comp_apply, rowPattern_bit]
+
+lemma patternKey_transform {k m : ℕ} (front : Fin k → BitVec m)
+    (perm : Fin k ≃ Fin k) (signs : Fin k → Bool) (goal : BitVec m)
+    (value : Bool) :
+    patternKey (phasedFront (front ∘ perm) signs) goal value =
+      (patternKey front goal value).image (transformPattern perm signs) := by
+  unfold patternKey
+  rw [Finset.image_image]
+  congr 1
+  funext i
+  exact rowPattern_transform front perm signs i
+
+lemma patternKey_transform_flip {k m : ℕ} (front : Fin k → BitVec m)
+    (perm : Fin k ≃ Fin k) (signs : Fin k → Bool) (goal : BitVec m)
+    (goalFlip value : Bool) :
+    patternKey (phasedFront (front ∘ perm) signs)
+        (if goalFlip then ~~~goal else goal) value =
+      (patternKey front goal (if goalFlip then !value else value)).image
+        (transformPattern perm signs) := by
+  cases goalFlip <;>
+    simp only [Bool.false_eq_true, ite_false, ite_true, patternKey_not, patternKey_transform]
+
+lemma positivePatterns_transform {k m : ℕ} (front : Fin k → BitVec m)
+    (perm : Fin k ≃ Fin k) (signs : Fin k → Bool) (goal : BitVec m)
+    (goalFlip : Bool) :
+    positivePatterns (phasedFront (front ∘ perm) signs)
+        (if goalFlip then ~~~goal else goal) =
+      (if goalFlip then negativePatterns front goal else positivePatterns front goal).image
+        (transformPattern perm signs) := by
+  cases goalFlip <;>
+    simp only [positivePatterns, negativePatterns, Bool.false_eq_true, ite_false, ite_true,
+      patternKey_not, Bool.not_true, patternKey_transform]
+
+lemma negativePatterns_transform {k m : ℕ} (front : Fin k → BitVec m)
+    (perm : Fin k ≃ Fin k) (signs : Fin k → Bool) (goal : BitVec m)
+    (goalFlip : Bool) :
+    negativePatterns (phasedFront (front ∘ perm) signs)
+        (if goalFlip then ~~~goal else goal) =
+      (if goalFlip then positivePatterns front goal else negativePatterns front goal).image
+        (transformPattern perm signs) := by
+  cases goalFlip <;>
+    simp only [positivePatterns, negativePatterns, Bool.false_eq_true, ite_false, ite_true,
+      patternKey_not, Bool.not_false, patternKey_transform]
+
+lemma live_iff_transformedPatternKeys {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (perm perm' : Fin k ≃ Fin k) (signs signs' : Fin k → Bool)
+    (flip flip' : Bool) (src : Fin m) (dst : Fin n)
+    (sourceZero : ∀ q : Fin k, (front q)[src.val] = false)
+    (sourceGoalZero : goal[src.val] = false)
+    (targetZero : ∀ q : Fin k, (front' q)[dst.val] = false)
+    (targetGoalZero : goal'[dst.val] = false)
+    (positive :
+      (if flip then negativePatterns front goal else positivePatterns front goal).image
+        (transformPattern perm signs) =
+      (if flip' then negativePatterns front' goal' else positivePatterns front' goal').image
+        (transformPattern perm' signs'))
+    (negative :
+      (if flip then positivePatterns front goal else negativePatterns front goal).image
+        (transformPattern perm signs) =
+      (if flip' then positivePatterns front' goal' else negativePatterns front' goal').image
+        (transformPattern perm' signs')) :
+    live basicOps goal budget (frontierRoots front) ↔
+      live basicOps goal' budget (frontierRoots front') := by
+  apply live_iff_commonPermutedKeys front goal front' goal' perm perm' signs signs'
+    flip flip' src dst sourceZero sourceGoalZero targetZero targetGoalZero
+  · simpa only [positivePatterns_transform] using positive
+  · simpa only [negativePatterns_transform] using negative
+
 end PEqualNP.Outside.L_meta_10760
