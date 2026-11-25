@@ -10,3 +10,9 @@ Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean 
 Result: exit 0; stdout/stderr empty.
 Checker: not run for exact gap; main theorem absent.
 Cleanup: not yet applicable; full proof pending.
+
+Canonical geometry partial: lake build PEqualNP.Outside.L_meta_2602 exit0.
+Build completed successfully (18423 jobs).
+Canonical partial line count: 56. No cleanup performed; no full theorem yet.
+Full build output: results/orch/canonical-build.log
+Independent review: PASS geometry + allowed scoped instance-size option.
