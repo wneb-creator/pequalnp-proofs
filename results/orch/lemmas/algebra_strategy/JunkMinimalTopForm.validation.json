@@ -1,0 +1,26 @@
+{
+  "status": "COMPILED and independently APPROVED",
+  "exit_code": 0,
+  "sha256": "765d654003b040325b1075f2cf650477c30e227e39c0bda0c77888be898d1998",
+  "lines": 2700,
+  "log": "JunkMinimalTopForm.build.log",
+  "log_bytes": 9238,
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "scope": "Every exactMonotone2 circuit for any nonempty finitegraph admits a no-larger leastAO TopForm representative minimizing junk among all leastAO circuits; forcing each junk gate false loses at least two distinct positive edge inputs. Does not prove any particular graph circuit lowerbound.",
+  "copied_prefixes": [
+    "BinaryJunkRepair",
+    "acceptedL_meta_5779(imports removed)",
+    "acceptedL_meta_4181(imports removed)"
+  ],
+  "format_scan": {
+    "sorry": false,
+    "native_decide": false,
+    "_root_": false,
+    "\"": false,
+    "axiom ": false
+  },
+  "completed_utc": "2026-11-25T07:19:41.957959+00:00",
+  "review": "APPROVED by status_review at unchanged SHA256"
+}

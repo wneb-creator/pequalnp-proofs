@@ -1,0 +1,14 @@
+{
+  "status": "COMPILED and independently APPROVED",
+  "exit_code": 0,
+  "sha256": "5d6f524d7beb708dbd118c25eda634a1774a7b9dba0e68c749f3d70f41107f48",
+  "lines": 299,
+  "log": "BinaryJunkRepair.build.log",
+  "scope": "Uniform zero/one lost-edge repair preserves IsAO2, exact size and graph function while strictly lowering junk. No full-target conclusion.",
+  "review": "APPROVED by status_review",
+  "reviewed_sha256": "5d6f524d7beb708dbd118c25eda634a1774a7b9dba0e68c749f3d70f41107f48",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "successful_log_bytes": 0
+}
