@@ -1,0 +1,1 @@
+64-gate seeded search returned score0. Independent Python gateevaluation passed52minimaltrue+704maximalfalse rows. Exhaustive8192pointsubset closure test confirms everyfalsecompletion liesbelow listedmaxfalse row. This verifies the computationaltestset, not aLeanproof.

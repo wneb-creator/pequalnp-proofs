@@ -1,0 +1,46 @@
+../results/orch/lemmas/IncidenceAO2Ledger.lean:235:12: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:242:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, fv] at ea eb ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:254:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ea, eb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:289:56: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:288:43: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:474:14: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [he, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/IncidenceAO2Ledger.lean:979:39: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/IncidenceAO2Ledger.lean:986:27: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

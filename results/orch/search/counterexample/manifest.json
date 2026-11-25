@@ -1,0 +1,684 @@
+{
+  "captured_at": "2026-11-25T15:07:57.475876+00:00",
+  "status": "interrupted due uncertain lease ownership; no negative conclusion",
+  "files": [
+    {
+      "name": "circuit_search.cpp",
+      "bytes": 3246,
+      "sha256": "b37a3c8dd849b101adb44f9573171c56542ec1d1a3f88ed976a313631b375806",
+      "archived": true
+    },
+    {
+      "name": "circuit_search_not.cpp",
+      "bytes": 3305,
+      "sha256": "249079ecc6cd920bda05255d37a00f082ff9e6303352e9c2a0aaf7726170d931",
+      "archived": true
+    },
+    {
+      "name": "counterexample-search-manifest.json",
+      "bytes": 4630,
+      "sha256": "828dc12e2b87d6ecf15bd30b69aa4879798e1ae9f574f3719c7c35c1b2ddfefb",
+      "archived": true
+    },
+    {
+      "name": "fano-files.txt",
+      "bytes": 3695,
+      "sha256": "4bfbdd2a8289f7040ed3eb7df885bb645b31e620bf9bc920ceaa9ed7f0e32717",
+      "archived": true
+    },
+    {
+      "name": "fano-sat-26-mono-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "fano-sat-26-mono-0.out",
+      "bytes": 18682,
+      "sha256": "68711e64c5ceaa41196a04fe44aef0410faa310da104ecd01fcaf7cd847c82d8",
+      "archived": true
+    },
+    {
+      "name": "fano-sat-26-mono.cnf",
+      "bytes": 2593059,
+      "sha256": "c3f185b24cb0dedea472aa4b3a94aed5a52a387c3663681d95f96d2c3f443170",
+      "archived": false
+    },
+    {
+      "name": "fano-sat-26.log",
+      "bytes": 60,
+      "sha256": "a3aa73cf2fe07adce00b7eda8a7f9a9ba0d8fe5cb9c9039c978fd5e391ffb25e",
+      "archived": true
+    },
+    {
+      "name": "fano-sat-26.stderr",
+      "bytes": 1331,
+      "sha256": "37a25b9ad7165c130a3dc7b06cbc28403d5906abb603c05d22c09c9718b0c940",
+      "archived": true
+    },
+    {
+      "name": "fano-search-best.txt",
+      "bytes": 211,
+      "sha256": "2e8933db691fbc164779878d8f522b32e220880da610635c5deb5727b9eb2624",
+      "archived": true
+    },
+    {
+      "name": "fano-search-data.json",
+      "bytes": 1281,
+      "sha256": "0372d5737f7f71f74ef7a7ac6b0e014f016125c6434994aa60ff8a70d7f71a1d",
+      "archived": true
+    },
+    {
+      "name": "fano-search.log",
+      "bytes": 47,
+      "sha256": "7e7d3e23e6f2b3481e19c47509825bb686d41b9920f0dc57c9d18fe58b7f9282",
+      "archived": true
+    },
+    {
+      "name": "fano-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "fano_search.cpp",
+      "bytes": 3624,
+      "sha256": "4cd1ee027746a89a021b2af960e83c4a66b74d9325f81dd781ecc5791a96f3ab",
+      "archived": true
+    },
+    {
+      "name": "fano_synth.py",
+      "bytes": 3802,
+      "sha256": "38a401df780939d4b79e9800271899b1967a303b9ea3673fc072ff48e61e749c",
+      "archived": true
+    },
+    {
+      "name": "incidence-block-0-1-2-3-9-10-s28-data.json",
+      "bytes": 2183,
+      "sha256": "9f46208cfdf287c398d8b0f003d1a5cca79ae6ed1b8a18459cc43806ca91f9f2",
+      "archived": true
+    },
+    {
+      "name": "incidence-block-0-1-2-3-9-s23-data.json",
+      "bytes": 2216,
+      "sha256": "62505114f91854d4a2d5f1f3eeb27b395ddb7f9957b8b1cad59dbbf689a80720",
+      "archived": true
+    },
+    {
+      "name": "plane3-block5-best.txt",
+      "bytes": 193,
+      "sha256": "17ae1ad6282e293d5fbbd73709648fd070dbc72e5bb9bfce49fea5049e8e644c",
+      "archived": true
+    },
+    {
+      "name": "plane3-block5.log",
+      "bytes": 74,
+      "sha256": "d62422ad878cec6e0630cc9315ad0f6f08e3c00a529d766ea650872ce2a25ce3",
+      "archived": true
+    },
+    {
+      "name": "plane3-block5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-block6-best.txt",
+      "bytes": 224,
+      "sha256": "b63bc95a8cb3109c491e4b8b341176842a28b34aa1e3b67ad0634ea27f348839",
+      "archived": true
+    },
+    {
+      "name": "plane3-block6.log",
+      "bytes": 21,
+      "sha256": "ce00b1e9584cefcb8a4032ac49c8ab73f847c9126c2eef82fd24f1747d3719dd",
+      "archived": true
+    },
+    {
+      "name": "plane3-block6.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-five-line-orbits.json",
+      "bytes": 1240,
+      "sha256": "bf8a3bd1a3a8958dd2deb6a2dbf1a3d09226df7bb443e2bf7f924404a6c66ce3",
+      "archived": true
+    },
+    {
+      "name": "plane3-five-line-orbits.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-five-line-orbits.stdout",
+      "bytes": 563,
+      "sha256": "0c8e119885a4f37a09e27f33d0a36a4d7915f42aa8e611d6985c3676a0b5a044",
+      "archived": true
+    },
+    {
+      "name": "plane3-junk-25833-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-junk-25833-0.out",
+      "bytes": 20530,
+      "sha256": "1abc01a232c20f926eb3fdf7e15b1cb6cd6e2254cdad1aec2210c6501c4c1ee9",
+      "archived": true
+    },
+    {
+      "name": "plane3-junk-25833-seed.json",
+      "bytes": 944,
+      "sha256": "2966007d7a8899677a989eff02e73d32d866b02c55551e26a3b55c5b47bed188",
+      "archived": true
+    },
+    {
+      "name": "plane3-junk-25833.cnf",
+      "bytes": 5020225,
+      "sha256": "c4f1ff3facf580d2e384a72984f1f14661a80695a0e77d41e96df4e1158144e6",
+      "archived": false
+    },
+    {
+      "name": "plane3-junk-25833.log",
+      "bytes": 61,
+      "sha256": "7cdaa490851220612e95992dedf790acc9c238b0c3fc537c7bf0d47e7f0632fa",
+      "archived": true
+    },
+    {
+      "name": "plane3-junk-25833.stderr",
+      "bytes": 1349,
+      "sha256": "85713121e20fdc5092dbe804855e30e5f6eb38fdd00116345d88ea12eaa6faf4",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25831-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25831-0.out",
+      "bytes": 22929,
+      "sha256": "958d6fe6cd2d0a42aa14b6d59bacb63587872d7498e3c685785ff14b2ec164cf",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25831-seed.json",
+      "bytes": 944,
+      "sha256": "b8cbf2b47b647f6be391e256281e55705236ea9f97da13462776328a9af7cf2b",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25831.cnf",
+      "bytes": 4789905,
+      "sha256": "1aaaff2d5ea3dd8166c928b7d34a17e239a5de20e1c0a8048f80ed714b99eec4",
+      "archived": false
+    },
+    {
+      "name": "plane3-near-25831.log",
+      "bytes": 61,
+      "sha256": "24d7b375a0f6f984c5c004f0eb2288e470820ca24f9e5d41fab2d085ef707158",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25831.stderr",
+      "bytes": 1189,
+      "sha256": "d0c69a376e34782d0a0bfe42d9076066550946d52d18bc8228a0c24286d0b35c",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25832-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25832-0.out",
+      "bytes": 23231,
+      "sha256": "5d178e7d9a6c6c4c87f0c735c7afdc680787045b141eda2813bb9cb2de53ac26",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25832-seed.json",
+      "bytes": 944,
+      "sha256": "0c4127e9bd03ad97effc447e75bd8c34b536b565b6d1d638e6c30c9452ed7359",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25832.cnf",
+      "bytes": 4795329,
+      "sha256": "47dde8f0170d55af41399de0632398d3da6ebf4ec64b193373411611f2532c54",
+      "archived": false
+    },
+    {
+      "name": "plane3-near-25832.log",
+      "bytes": 61,
+      "sha256": "4a8c60c78e43e68f5d12063cf824f4be4d6efcee4148aa10412866e4dfb0d130",
+      "archived": true
+    },
+    {
+      "name": "plane3-near-25832.stderr",
+      "bytes": 1348,
+      "sha256": "72cb1a64ae7cc636e8ea7056ec997cbda64066ff2d515eff61ead157769bdeec",
+      "archived": true
+    },
+    {
+      "name": "plane3-pruned-best.json",
+      "bytes": 1270,
+      "sha256": "ceea2722c32ce53d565547e754696a0412dea1e2ae60425c1f71354775cb221c",
+      "archived": true
+    },
+    {
+      "name": "plane3-pruned-best.txt",
+      "bytes": 495,
+      "sha256": "53f77c19f2c463afdfec5a95c1a720cc7e328e96d486cf160fdf3f3b3c32223a",
+      "archived": true
+    },
+    {
+      "name": "plane3-pruned.log",
+      "bytes": 83,
+      "sha256": "e7246277d100bfe7300f51abeffbf8f90d289c4aafba3ae7d005f117438a0fa2",
+      "archived": true
+    },
+    {
+      "name": "plane3-pruned.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-reread-best.txt",
+      "bytes": 494,
+      "sha256": "38c62aaec743b5cc7f84dbd4f2c431a07dc7591c1f5d6e2bd51b935d227a3ae5",
+      "archived": true
+    },
+    {
+      "name": "plane3-reread-best.txt.json",
+      "bytes": 1206,
+      "sha256": "3fde1e5cb0d8dadda20a3f9c784e95dd115ead17b4aedcf67fa7c76d9e030b20",
+      "archived": true
+    },
+    {
+      "name": "plane3-reread.log",
+      "bytes": 213,
+      "sha256": "bd100d911c6fd2c9669a5091b475340ef025f1811d9ba89ac6c9bf263d3a5335",
+      "archived": true
+    },
+    {
+      "name": "plane3-reread.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-sanity-best.txt",
+      "bytes": 493,
+      "sha256": "cb5e8cfe6bb4be6f83e76d330d6a70801bc10c82378574880a7ff457967c508a",
+      "archived": true
+    },
+    {
+      "name": "plane3-sanity-validation.txt",
+      "bytes": 270,
+      "sha256": "b70d6b48ba53f8d9f778042660203d75a06a260014722cc8faff1cdbc914a4b4",
+      "archived": true
+    },
+    {
+      "name": "plane3-sanity.log",
+      "bytes": 21,
+      "sha256": "4507d09bfd0c040a02c98a109e3a3606469e22110a154f935aa311c536000300",
+      "archived": true
+    },
+    {
+      "name": "plane3-sanity.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-search-best.txt",
+      "bytes": 520,
+      "sha256": "7f4a7528a6ad2cb0bd8546c717a3c4e788a80acc5fae7039de1856d684ad2a15",
+      "archived": true
+    },
+    {
+      "name": "plane3-search-best.txt.json",
+      "bytes": 1227,
+      "sha256": "c1b5509e7325526dd181c5df15133c2c3f307fe75bcdf468659982d9fb13bdc8",
+      "archived": true
+    },
+    {
+      "name": "plane3-search-data.json",
+      "bytes": 11786,
+      "sha256": "2252d121a0613de9b9c15ef6fe94849bba3431df221758246b0a2fea68330153",
+      "archived": true
+    },
+    {
+      "name": "plane3-search.log",
+      "bytes": 47,
+      "sha256": "7e7d3e23e6f2b3481e19c47509825bb686d41b9920f0dc57c9d18fe58b7f9282",
+      "archived": true
+    },
+    {
+      "name": "plane3-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "plane3-six-line-orbits.json",
+      "bytes": 1707,
+      "sha256": "b3a6c58f4d5e9237e82fb49431acfc0363fc21f2c6be3216518c07c30d7403f5",
+      "archived": true
+    },
+    {
+      "name": "plane3_block5_search.cpp",
+      "bytes": 3589,
+      "sha256": "5d08b617e1433a8d33e8001643c9cddcedb8342986913601f78255eb16f47353",
+      "archived": true
+    },
+    {
+      "name": "plane3_block6_search.cpp",
+      "bytes": 4063,
+      "sha256": "520f63c8dafc0b55a57ce86b38f2517db41018268f9a1e7d8c5005bb40638241",
+      "archived": true
+    },
+    {
+      "name": "plane3_junk_sat.py",
+      "bytes": 4971,
+      "sha256": "0093fe8fb394e0d5d21e51d3feee2ada56f0efdbd614581d9baebe2e8467566b",
+      "archived": true
+    },
+    {
+      "name": "plane3_near_sat.py",
+      "bytes": 4385,
+      "sha256": "e92417ca6a5ec8f9354699640526d52904a5c53058944679e1396787b062b89e",
+      "archived": true
+    },
+    {
+      "name": "plane3_near_sat_initial.py",
+      "bytes": 4151,
+      "sha256": "e519a73c9f6c6792e10b03ec2212fcf80450d4f4220179cfceabaf73c6021434",
+      "archived": true
+    },
+    {
+      "name": "plane3_sanity.cpp",
+      "bytes": 10584,
+      "sha256": "390ec7cdbca494e0037f2704da32be9fdb5346b4cb1542d7e70c0cec674372a6",
+      "archived": true
+    },
+    {
+      "name": "plane3_search.cpp",
+      "bytes": 10577,
+      "sha256": "ef53b5b59e93267aa79e780d7d9a8585893605dbbccf70a3710e26f87064ff3e",
+      "archived": true
+    },
+    {
+      "name": "plane3_search_pruned.cpp",
+      "bytes": 10873,
+      "sha256": "7b8e2165591f6d0e44e2ea90f44e929d84757a415380da6a4a94be57e8a3487f",
+      "archived": true
+    },
+    {
+      "name": "sat-19-any-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-19-any-0.out",
+      "bytes": 19612,
+      "sha256": "44404abbe1f4c130c4b893c9cf19fe1a66a48fc7835f8a539c5d6eea30129d74",
+      "archived": true
+    },
+    {
+      "name": "sat-19-any.cnf",
+      "bytes": 1979859,
+      "sha256": "0d478bbbd18fb20156c098561a834b1bebebde3df322b25af34663e6bbde8f5e",
+      "archived": false
+    },
+    {
+      "name": "sat-19-any.log",
+      "bytes": 60,
+      "sha256": "fddc0c3d2a8e2637002400c4a08dd0a5ccded1ef94e62d2ddd026c44e662b76d",
+      "archived": true
+    },
+    {
+      "name": "sat-19-any.stderr",
+      "bytes": 1231,
+      "sha256": "58a494b08e65d47c4be3240c0a8a4c6d15ab2ef1c59581d54afe74975a1da7e4",
+      "archived": true
+    },
+    {
+      "name": "sat-19-four-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-19-four-0.out",
+      "bytes": 11136,
+      "sha256": "cf166795e2dd6cf57918b3e87c4b55113c72ee229e72221bad55a00910263da5",
+      "archived": true
+    },
+    {
+      "name": "sat-19-four.cnf",
+      "bytes": 2338316,
+      "sha256": "92fd31e33c4b1d129274882a115b06eaf72eae2fa6d46cc86992250adaca784d",
+      "archived": false
+    },
+    {
+      "name": "sat-19-four.log",
+      "bytes": 60,
+      "sha256": "0c12994227c1deb18b038b8c5b5c3d7be2bdfd5dfdcca7bed879f2120d2a467e",
+      "archived": true
+    },
+    {
+      "name": "sat-19-four.stderr",
+      "bytes": 1326,
+      "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a",
+      "archived": true
+    },
+    {
+      "name": "sat-19-one-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-19-one-0.out",
+      "bytes": 26615,
+      "sha256": "fd0a395389e7484c6539fd9fdc41be52ea96988093c8d4cd6633a74e65127abc",
+      "archived": true
+    },
+    {
+      "name": "sat-19-one.cnf",
+      "bytes": 1981828,
+      "sha256": "6f6006ff323686eebc4472c1ad64251a128776324f137b795c5452ebb4a58bf9",
+      "archived": false
+    },
+    {
+      "name": "sat-19-one.log",
+      "bytes": 59,
+      "sha256": "5edc6a1941427c7384538f08679287ca25e8b61e9484b5df3bc4a366eae79236",
+      "archived": true
+    },
+    {
+      "name": "sat-19-one.stderr",
+      "bytes": 1231,
+      "sha256": "58a494b08e65d47c4be3240c0a8a4c6d15ab2ef1c59581d54afe74975a1da7e4",
+      "archived": true
+    },
+    {
+      "name": "sat-19-three-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-19-three-0.out",
+      "bytes": 11248,
+      "sha256": "dd92be24b2e4569909fa4396ca2611bc93a2e1e2d274cf22f887fba891b69952",
+      "archived": true
+    },
+    {
+      "name": "sat-19-three.cnf",
+      "bytes": 2072183,
+      "sha256": "84db525b2502d5976525557d843ac07bd41223492f14cf6371b4d5c463ea18e9",
+      "archived": false
+    },
+    {
+      "name": "sat-19-three.log",
+      "bytes": 60,
+      "sha256": "af83f5a099231463f12bb347af8200349f93c704d7a83e100f99a8db97af8896",
+      "archived": true
+    },
+    {
+      "name": "sat-19-three.stderr",
+      "bytes": 1326,
+      "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a",
+      "archived": true
+    },
+    {
+      "name": "sat-19-two-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-19-two-0.out",
+      "bytes": 12550,
+      "sha256": "485e5f0fb7112f5b8f72e89ea095d53d5af79f9a9ef495b84764a69c859fa3fa",
+      "archived": true
+    },
+    {
+      "name": "sat-19-two.cnf",
+      "bytes": 1996810,
+      "sha256": "751a0c73ed3d869eeb4201e89c89e6ba4ad44592cc91b525a6ba3fb4cb247777",
+      "archived": false
+    },
+    {
+      "name": "sat-19-two.log",
+      "bytes": 60,
+      "sha256": "8ac0b283efb525e18342a8ad7406827d1befbe3e82d4d953267be65e3b21d960",
+      "archived": true
+    },
+    {
+      "name": "sat-19-two.stderr",
+      "bytes": 1326,
+      "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a",
+      "archived": true
+    },
+    {
+      "name": "sat-20-mono-0.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "sat-20-mono-0.out",
+      "bytes": 39532,
+      "sha256": "3cb779c3cf8d04d4be2af3181bf7e1a4db79923def635002a7fe80f82694cdf2",
+      "archived": true
+    },
+    {
+      "name": "sat-20-mono-candidate.json",
+      "bytes": 694,
+      "sha256": "5ed53a05566269c1209c58ac9707f6de3d69a7c78599e0104af5688218a5a922",
+      "archived": true
+    },
+    {
+      "name": "sat-20-mono.cnf",
+      "bytes": 2163044,
+      "sha256": "60fcba340dc9af804d9e5a6dfb10109b4e8bc7830f073d29cb9525c1dfe587a6",
+      "archived": false
+    },
+    {
+      "name": "sat-sanity.log",
+      "bytes": 344,
+      "sha256": "b35ca8f2a68f10c754eef04c8c276710333c1283922403a4abc22def7164402a",
+      "archived": true
+    },
+    {
+      "name": "sat-sanity.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "search-1.json",
+      "bytes": 92549,
+      "sha256": "399718c4ac712fad29fb480d93f999f4a220449b8f3ed8acca41549eb5f659ca",
+      "archived": true
+    },
+    {
+      "name": "search-19.log",
+      "bytes": 108,
+      "sha256": "bd9de2f26e76f135bc3ccc9aa969e1c9e6e80db68863d148a32648cf5b97113e",
+      "archived": true
+    },
+    {
+      "name": "search-19.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "search-best.txt",
+      "bytes": 163,
+      "sha256": "60be7c803e935d5c9cfa87007c8f4c1469fffa38c9149c28864ab1c94644dd8f",
+      "archived": true
+    },
+    {
+      "name": "search-current.json",
+      "bytes": 1519,
+      "sha256": "e5b518c8bbcab4ab85ff6f6a1cfe1675f8dd2dde12b94d85afe08a45123de987",
+      "archived": true
+    },
+    {
+      "name": "search-index.json",
+      "bytes": 8806,
+      "sha256": "0f89bae95e0a381f602a51d269764cd2d6d56456a4f2208350c9f076d5c1a7b8",
+      "archived": true
+    },
+    {
+      "name": "search-not-19.log",
+      "bytes": 183,
+      "sha256": "7136c29e745c11356a321d2ad23430ab5d4f553380adfcfb516699fd4e49f1ae",
+      "archived": true
+    },
+    {
+      "name": "search-not-19.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived": true
+    },
+    {
+      "name": "search-not-best.txt",
+      "bytes": 164,
+      "sha256": "3b0a724c64e080f3090dd7f3fe32b8d31a6f415b51f0e2cc59eadb1b5ad45e3a",
+      "archived": true
+    },
+    {
+      "name": "synth-sanity.py",
+      "bytes": 3741,
+      "sha256": "dc67a383c360ddfcbfe636244595d2a7bef59fdc2eb30da0611917b9bb0835ab",
+      "archived": true
+    },
+    {
+      "name": "synth.py",
+      "bytes": 3848,
+      "sha256": "0f5043ae32b2e527c03ade498cf5b62738cd5d422d2781884ec104c41c49d42e",
+      "archived": true
+    },
+    {
+      "name": "upper-gates.json",
+      "bytes": 239,
+      "sha256": "cf11dafe6608b9173d44e805e45754c8628a4d465401426910678fc9169053ac",
+      "archived": true
+    }
+  ]
+}

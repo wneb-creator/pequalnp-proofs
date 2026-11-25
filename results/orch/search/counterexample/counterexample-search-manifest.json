@@ -1,0 +1,146 @@
+{
+  "circuit_search.cpp": {
+    "bytes": 3246,
+    "sha256": "b37a3c8dd849b101adb44f9573171c56542ec1d1a3f88ed976a313631b375806"
+  },
+  "circuit_search_not.cpp": {
+    "bytes": 3305,
+    "sha256": "249079ecc6cd920bda05255d37a00f082ff9e6303352e9c2a0aaf7726170d931"
+  },
+  "synth.py": {
+    "bytes": 3848,
+    "sha256": "0f5043ae32b2e527c03ade498cf5b62738cd5d422d2781884ec104c41c49d42e"
+  },
+  "synth-sanity.py": {
+    "bytes": 3741,
+    "sha256": "dc67a383c360ddfcbfe636244595d2a7bef59fdc2eb30da0611917b9bb0835ab"
+  },
+  "upper-gates.json": {
+    "bytes": 239,
+    "sha256": "cf11dafe6608b9173d44e805e45754c8628a4d465401426910678fc9169053ac"
+  },
+  "search-19.log": {
+    "bytes": 108,
+    "sha256": "bd9de2f26e76f135bc3ccc9aa969e1c9e6e80db68863d148a32648cf5b97113e"
+  },
+  "search-19.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "search-best.txt": {
+    "bytes": 163,
+    "sha256": "60be7c803e935d5c9cfa87007c8f4c1469fffa38c9149c28864ab1c94644dd8f"
+  },
+  "search-not-19.log": {
+    "bytes": 183,
+    "sha256": "7136c29e745c11356a321d2ad23430ab5d4f553380adfcfb516699fd4e49f1ae"
+  },
+  "search-not-19.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "search-not-best.txt": {
+    "bytes": 164,
+    "sha256": "3b0a724c64e080f3090dd7f3fe32b8d31a6f415b51f0e2cc59eadb1b5ad45e3a"
+  },
+  "sat-19-one.log": {
+    "bytes": 59,
+    "sha256": "5edc6a1941427c7384538f08679287ca25e8b61e9484b5df3bc4a366eae79236"
+  },
+  "sat-19-one.stderr": {
+    "bytes": 1231,
+    "sha256": "58a494b08e65d47c4be3240c0a8a4c6d15ab2ef1c59581d54afe74975a1da7e4"
+  },
+  "sat-19-one-0.out": {
+    "bytes": 26615,
+    "sha256": "fd0a395389e7484c6539fd9fdc41be52ea96988093c8d4cd6633a74e65127abc"
+  },
+  "sat-19-one-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-19-any.log": {
+    "bytes": 60,
+    "sha256": "fddc0c3d2a8e2637002400c4a08dd0a5ccded1ef94e62d2ddd026c44e662b76d"
+  },
+  "sat-19-any.stderr": {
+    "bytes": 1231,
+    "sha256": "58a494b08e65d47c4be3240c0a8a4c6d15ab2ef1c59581d54afe74975a1da7e4"
+  },
+  "sat-19-any-0.out": {
+    "bytes": 19612,
+    "sha256": "44404abbe1f4c130c4b893c9cf19fe1a66a48fc7835f8a539c5d6eea30129d74"
+  },
+  "sat-19-any-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-19-two.log": {
+    "bytes": 60,
+    "sha256": "8ac0b283efb525e18342a8ad7406827d1befbe3e82d4d953267be65e3b21d960"
+  },
+  "sat-19-two.stderr": {
+    "bytes": 1326,
+    "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a"
+  },
+  "sat-19-two-0.out": {
+    "bytes": 12550,
+    "sha256": "485e5f0fb7112f5b8f72e89ea095d53d5af79f9a9ef495b84764a69c859fa3fa"
+  },
+  "sat-19-two-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-19-three.log": {
+    "bytes": 60,
+    "sha256": "af83f5a099231463f12bb347af8200349f93c704d7a83e100f99a8db97af8896"
+  },
+  "sat-19-three.stderr": {
+    "bytes": 1326,
+    "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a"
+  },
+  "sat-19-three-0.out": {
+    "bytes": 11248,
+    "sha256": "dd92be24b2e4569909fa4396ca2611bc93a2e1e2d274cf22f887fba891b69952"
+  },
+  "sat-19-three-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-19-four.log": {
+    "bytes": 60,
+    "sha256": "0c12994227c1deb18b038b8c5b5c3d7be2bdfd5dfdcca7bed879f2120d2a467e"
+  },
+  "sat-19-four.stderr": {
+    "bytes": 1326,
+    "sha256": "9ee183f566175752b61b484f77e8ee1fc930a9e19fad5d60c9fdfa9ac054b74a"
+  },
+  "sat-19-four-0.out": {
+    "bytes": 11136,
+    "sha256": "cf166795e2dd6cf57918b3e87c4b55113c72ee229e72221bad55a00910263da5"
+  },
+  "sat-19-four-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-sanity.log": {
+    "bytes": 344,
+    "sha256": "b35ca8f2a68f10c754eef04c8c276710333c1283922403a4abc22def7164402a"
+  },
+  "sat-sanity.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-20-mono-0.out": {
+    "bytes": 39532,
+    "sha256": "3cb779c3cf8d04d4be2af3181bf7e1a4db79923def635002a7fe80f82694cdf2"
+  },
+  "sat-20-mono-0.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sat-20-mono-candidate.json": {
+    "bytes": 694,
+    "sha256": "5ed53a05566269c1209c58ac9707f6de3d69a7c78599e0104af5688218a5a922"
+  }
+}

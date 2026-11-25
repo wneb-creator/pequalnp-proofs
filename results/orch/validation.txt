@@ -34,3 +34,12 @@ IncidenceOrSplice.lean: Lean exit0; independent review passed; single-use OR inp
 
 IncidenceClosedRows, IncidenceMaximalRows, IncidenceSoleOr, IncidenceDirtyFilters, IncidenceAndEquality, IncidenceAndLedger: all compiled with exit0 and passed independent source review. Each is a standalone checked partial; overlapping helper snapshots must not be combined verbatim.
 The AND-count ledger still needs the individual-gate-value-preserving AO2 compression bridge for direct circuit application. Full2583 remains unproved; reduction submission disabled by desk.
+
+IncidenceBlockCounts, IncidenceAO2Rows, IncidenceRowCounts, IncidenceSmallRows, IncidenceAndBridgeState, IncidenceAndBridge, IncidenceAO2Ledger: Lean exit0, independently reviewed. The complete AO2 ledger preserves original AND count and each gate value.
+IncidenceBonferroni.lean.incomplete: compile failed at an unavailable Finset lemma; NOT checked. Full q3 count attempts were stopped or failed; 704 remains Python-verified only.
+All theorem-size claims remain partial; no full L-meta-2583 proof or refutation, no local checker acceptance, no PR.
+Lease ownership audit: UNVERIFIED. Returned records show terms issued before this pilot and holding=5; no release call is authorized on that evidence. Proof work and renewals paused pending one prescribed desk retry.
+Sub-agents: 6 (structural proof, counterexample search, library route, restriction route, certificate search, independent review)
+TIMING total=40.9 subagents=6
+
+Second lease also returnedHTTP410 at15:06:36UTC despiteprior15:21:34expiry; timer made exactlyonecurl-si diagnostic thenstopped. No releasecalls made. Allproofsearchesstopped; preservation auditpassed.

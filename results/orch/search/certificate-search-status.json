@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-11-25T15:07:34.114635+00:00",
+  "active_processes": [],
+  "lean_incidence_block_counts": "PASS exit0, reviewed; finite counts only",
+  "unrestricted_sat": {
+    "3line_13gates": "UNKNOWN after600s, solver_exit0",
+    "4line_18gates": "UNKNOWN after600s, solver_exit0",
+    "5line_23gates": "UNKNOWN after900s, solver_exit0"
+  },
+  "weighted_ledger_sat": "Stopped with SIGTERM at parent lease-uncertainty instruction; no result",
+  "dirty_capacity": "C++ exhaustive finite computation only; not a Lean-checked bound",
+  "oldgap2592_certificate": "Previously exit137; not Lean checked; frozen since old410"
+}

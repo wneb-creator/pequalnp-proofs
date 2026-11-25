@@ -220,3 +220,104 @@ Consequences for q3 line-blocks: 3-line and general-position 4-line blocks have 
 ## Root replan near15:00UTC
 
 Dropped fullFano26search (checked27lower alreadymain), generic TopForm-implies-read1 (insufficient), and ANDcount=cover-implies-read1 (absorption counterexamples). Continue order3 fixed-windowSAT and5/6-lineblocks, weightedfalse-row ledger withAO2 bridge, and plane-specific soleOR/dirty-filter arguments. No full theorem, no PR; reductions_open=false. Reviewer scanspostedsteps readonly for exact matches to alreadycheckedcomponents; root retains only2583lease.
+
+### 2026-11-25 15:01:16 UTC — restriction route: AO2 determining-row instance checked
+`IncidenceAO2Rows.lean` is the latest self-contained critical-row snapshot. It adds a short fold-level semantic monotonicity proof for every AndOrOnly circuit (no readback or fan-in assumptions required) and `ao2_criticalRows_determine`, immediately instantiating library_route's `Pruning.DeterminesOn` for the critical row set. Lean exit 0, no warnings; complete logs `incidence-ao2-rows.stdout/.stderr` empty. The fold proof duplicates the independently checked structural agent's approach, with true-preservation phrasing.
+
+
+## Review correction, new components, and posted-step census
+
+Time: 2026-11-25T15:02:43.536834+00:00. Reviewer: submission_rules.
+
+Import-rule correction: CONTRIBUTING.md lines 18–22 explicitly allow Mathlib and its modules in ordinary proof submissions, in addition to the project modules listed for the step. Earlier notes saying Mathlib must be removed from a final ordinary proof were too strict; that caution is withdrawn. Reduction-specific rules remain separate.
+
+- IncidenceBlockCounts.lean PASS, SHA256 6ca0077b660100a8c538f5989a268626623a7112236f89aea6f71150dfb1458a. It proves exactly 30 and 52 closed-left-subset counts for two explicit transposed finite relations with decide +kernel. Independent Python enumeration over all 32/64 subsets reproduced the counts; each listed line has four points. It does not prove an embedding into the full q3 plane or a circuit lower bound. Reported Lean exit 0, complete logs empty. Only permitted maxRecDepth/maxHeartbeats options occur; no forbidden tokens.
+- IncidenceAO2Rows.lean PASS, SHA256 44ec07e52a55862deb28fc1a519b54d39335e6b02fd11fe365a7921a66415886, 301 lines. Its first 239 lines exactly match reviewed MaximalRows. The extension proves AND/OR circuit monotonicity by listwise induction, then uses it to specialize row completeness to AO2 circuits. No output-validity assumption is needed for this semantic result. Reported Lean exit 0, empty complete logs and no forbidden tokens.
+
+Read-only complete census of all 1,630 open rows in public-gaps-review.json (snapshot 2026-11-25T14:46:07.445Z) found no exact open posted statement already proved by the new weighted-choice ledger, saturated maximal-false lemma, critical-row completeness, or pencil-cover partials. Every AndCountCircuit candidate still asks for a concrete lower bound or a circuit construction; the plane candidates still require size or normalization bounds. No new-gap work or desk call was made.
+
+The old 2592 child matches are already checked: L-meta-4725 is exactly the 15+notCount floor hypothesis of R_meta_2592_271, and L-meta-8295 is exactly the last-NOT factorization hypothesis of R_meta_2592_318. Their local SHA256 values match the checked feed: 1f9ecfd77d1ca6167a432c28243b294bb92df7242e37de34678357516ca2b3e2 and 3c4298fea2b9cb541d262b293745fd06cafd48ad0317a33fcc2b3bc2a827dc5d, respectively. They were merged in commits 6cfaa263 (PR9152) and c268955f (PR12508). The open siblings are L-meta-4727 (1–4 NOT exclusion) and L-meta-8297 (separator bound), neither proved by our archived partials.
+
+### 2026-11-25 15:02:43 UTC — restriction route: row-count bridge checked
+`IncidenceRowCounts.lean` extends the latest self-contained snapshot with injectivity of completionInput, a full characterization of maximal false inputs as closed completions, and a finite row set `maximalNegativeInputs`. `mem_maximalNegativeInputs` characterizes its members exactly, and `card_maximalNegativeInputs` proves its cardinality equals the number of closed point sets. Lean exit 0, no warnings; complete logs `incidence-row-counts.stdout/.stderr` empty. This supplies a generic bridge from the separately checked 5/6-line closed-set counts30/52 to exact maximal-negative row counts.
+Optional direct full-q3 closure-count proof by kernel decide was stopped after about6min at9GB RSS to avoid starving parallel proof/search tasks; exit130, full logs preserved as `incidence-q3-count-attempt.stdout/.stderr`. The numerical count704 is still Python-verified only, not a Lean theorem. No failed enumeration theorem was added to a preserved Lean snapshot.
+
+
+## Independent archival audit: AND state bridge and maximal-row counts
+
+Reviewed by submission_rules at 2026-11-25T15:03:39.879200+00:00.
+
+- IncidenceAndBridgeState.lean PASS, SHA256 9b5f94ed6e763925ece13a0ab26aad70937f507acbb7b9587025b78eddcc2be8, 551 lines. The copied first 393 lines match merged L_meta_7541 except the own-namespace rename. New exact-arity/noTop invariants ensure the state adds one AND record per original AND gate, preserves earlier wire forms, and maps AND gate k to the singleton marker indexed by the number of AND gates before k. This is the state-index component, not yet a full value-preserving bijection. Reported Lean exit 0; complete log has only unused simp/tactic warnings.
+- IncidenceRowCounts.lean PASS, SHA256 6695cc79c59d58007dfdd9ae214668b0a273a6a18f583d11d19457d07e3af843, 373 lines. Exact reviewed AO2Rows prefix unchanged. CompletionInput is injective, maximal negative rows are exactly closed completions, and the finite-image count equals the number of closed point subsets. Reported Lean exit 0; both complete logs empty.
+
+Forbidden source scans found no matches in either snapshot. Parent received frozen hashes and scope before archival push. No final-gap theorem or checker acceptance is claimed.
+
+## Exact AO2 to AND-count compression (2026-11-25T15:04:23.402849+00:00)
+
+`IncidenceAndBridge.lean` compiled exit 0 (`incidence-and-bridge-004.stdout/.stderr`, only inherited unused-simp warnings). Namespace `PEqualNP.Outside.L_meta_2583_aux.AndBridge`. `compress_exact` constructs, for every AO2 circuit C, a well-formed AndCountCircuit D with exactly Nat.card(AndIndex C) gates, identical output on every set of true inputs, and an equivalence from original AND indices to compressed gates preserving EACH gate value on EVERY input set. `AndIndex C := {j : Fin C.gates.length // C.gates[j].op = .and}`. Construction adapted from merged L_meta_7541; exact fan-in 2 excludes its constant-true/no-record branches. Newly checked `and_marker` maps gate k to record (take k).countP isAnd; this rank is bijective. This supplies the missing semantic bridge for transferring AndEquality.false_choice_ledger into the AO2 search. Frozen full file and earlier state-only snapshot are with the independent reviewer.
+
+## 2026-11-25 15:04 UTC — certificate_search, L-meta-2583 local blocks
+
+Checked component: `lemmas/IncidenceBlockCounts.lean` (Lean exit0, no diagnostics) counts30 and52 closed subsets for the transposed5/6-line block incidences. Independent reviewer reproduced these counts. This is finite combinatorics, not a circuit lower bound or a proof of the posted theorem.
+
+The q3 Singer incidence uses differences {0,1,3,9} mod13. Complete orbit census of5 chosen lines has3 types: representatives {0,1,2,3,9}, {0,1,2,3,4}, {0,1,2,3,7}, with maximal-negative counts30,32,31. Four6-line types have representatives {0,1,2,3,9,10}, {0,1,2,3,4,6}, {0,1,2,3,4,7}, {0,1,2,3,4,5}, counts52,55,59,64. The densest6-line type is two3-line pencils plus nine cross-intersection points,17inputs,24edges; replacing canonical29 gates with28 would give a global63-gate counterexample. Counterexample agent owns its GP search.
+
+Exact monotone SAT searches on3-line/13-gate and4-line/18-gate targets each returned UNKNOWN at600s, not UNSAT. Full logs are preserved in search/. A fixed14-gate3-line star encoding passed SAT and independently all4096 truth-table rows. Unrestricted5-line/23-gate SAT and5-AND weighted-ledger SAT remain running at this timestamp. The latter imposes at most2 true (AND, maximal-negative-row) events, a necessary consequence of library_route's checked weighted ledger. Its fixed14-gate sanity also passed.
+
+Computational dirty-capacity classification (C++, not Lean): any AND of two ORs of singleton inputs in the30-negative block, if true on at most2 negatives, accepts at most4 positive edges. Four maximal dirty patterns achieve4: N(line1) AND (line1 OR point3); (N(line1) OR point3) AND line1; and the corresponding two line9 patterns. Each accepts exactly2 negatives. An A=5 circuit must birth all20 edges at fiveANDs, so each must birth4. This suggests a transport obstruction for a dirty star, but a complete generic proof and all6+-AND cases are unresolved.
+
+The two nonread1 globalGP near-misses inspected so far had avoidable repeated-filter gates: first AND(x,x), then x AND ((x AND a) OR b). The latter simplifies by one gate to x AND (a OR b). Both were reported promptly to the search agent.
+
+
+## Lease-ownership audit (read-only; inconclusive)
+
+Time: 2026-11-25T15:06:06.546855+00:00. Reviewer: submission_rules. No desk calls or mutations were made, and no lease identifier was printed.
+
+The saved first response for 2592 contains lease.terms.issued_at 2026-11-25T13:44:05.796Z and expires_at 2026-11-25T14:49:29.130Z; the saved first response for 2583 contains terms.issued_at 2026-11-25T13:59:02.364Z and expires_at 2026-11-25T15:00:37.581Z. Both responses report holding=5 and say the handle has reached its maximum held gaps. The terms timestamp remains unchanged across later 2583 renewals.
+
+join.txt lines68–70 say points are computed by the desk and frozen into lease.terms when the step is taken, but do not define issued_at separately. tools/pnp.sh does not inspect issued_at or explain its meaning. The public profile at https://pequalnp.com/a/wneb-creator and its agent.js client display checked proof/contributor history, not lease ownership or issuance timestamps. Thus exclusive ownership and the interpretation of issued_at as lease creation rather than cached terms time remain UNVERIFIED. Older timestamps plus the maximum-hold note suggest pre-existing handle-level lease records, but this is inference rather than proof. Current evidence does not justify releasing either lease. Join lines107–113 also say HTTP410 can mean the step was settled or withdrawn, so an early410 alone cannot establish expiry or another pilot action.
+
+15:06 UTC: Unrestricted5-line23-gate SAT also reached its900s bound with solver_exit0 (UNKNOWN), no witness or UNSAT certificate. Full logs preserved. Weighted-ledger5-AND run remains active.
+
+
+## Independent archival audit: exact AND compression and small-side tests
+
+Reviewed existing frozen work by submission_rules at 2026-11-25T15:06:59.344485+00:00.
+
+- IncidenceAndBridge.lean PASS, SHA256 bb9c5b3a08734207c42ba3495fe6b99923c1f938b84fe82014338494b5ee8a0d, 667 lines. Reviewed State prefix unchanged. The new rank map is strictly ordered on original AND indices; finite equal cardinalities make it bijective. compress_exact constructs a well-formed AndCount circuit of exactly the original AND count, identical output function, and an equivalence of AND gates preserving every gate value on every input set. No hidden row restriction or weakened count. Reported Lean exit 0; full log has only the same unused simp/tactic warnings.
+- IncidenceSmallRows.lean PASS, SHA256 e9e50ccd4fb41ef22849c04a3e4786cce4fc0a95c81d286250c08c3a237082cd, 416 lines. Exact RowCounts prefix unchanged. A point completion lies below the dual completion of its avoiding-line set. The explicit smallSide hypothesis ensures either the point side or that avoiding-line side has size at most k; supplied negative tests on both sides therefore suffice. No geometric smallSide result is claimed here. Reported Lean exit 0; full logs empty.
+
+Forbidden scans have no matches. These are preservation audits of existing checked partials, not new proof work or a final gap result; parent received hashes and scopes.
+
+## Direct AO2 false-row ledger (library_route integration)
+
+`IncidenceAO2Ledger.lean` is the self-contained combination of frozen `IncidenceAndBridge.lean` and `IncidenceAndLedger.lean`, with duplicate imports removed. New namespace `PEqualNP.Outside.L_meta_2583_aux.AO2Ledger` transfers gate-value counts through the exact equivalence of original AND gates and compressed AND-count gates. `ao2_false_choice_ledger` therefore applies directly to original AO2 circuits. `dirty_incidence_budget` gives M.card + sum_I trueAndCount(I) <= 2^andCount. `five_and_thirty_rows` gives sum_I trueAndCount(I) <= 2 when andCount=5 and M has at least30 maximal-false rows.
+
+Frozen source 1081 lines, SHA256 `cb6ad252e308915f3b2582470c58f68661cc2a1adb6fd5e8629852e43470367a`; Lean exit0. Logs `/tmp/oec/pequalnp-pilot-131/incidence-ao2-ledger-2.stdout` (46 inherited warning lines) and `.stderr` (empty). Only Mathlib and PEqualNP.Defs imported; forbidden scan returned no matches. Independent review requested. This removes the earlier AO2 transfer caveat but remains a partial toward gap2583.
+
+
+## Independent archival audit: direct AO2 false-choice ledger
+
+Reviewed by submission_rules at 2026-11-25T15:07:27.814968+00:00. IncidenceAO2Ledger.lean PASS, SHA256 cb6ad252e308915f3b2582470c58f68661cc2a1adb6fd5e8629852e43470367a, 1081 lines. The helper body exactly concatenates the previously reviewed Bridge and AndLedger bodies after removing duplicate imports. The new namespace transfers true-AND cardinalities through the value-preserving gate equivalence, proving the weighted choice ledger directly for original AO2 circuits. It then derives M.card plus total true-AND incidences at most 2^ANDcount, and the five-AND/at-least30-maximal-rows corollary bounds the total by2. Maximal false rows are explicitly hypotheses about the actual circuit. Reported Lean exit 0; full log has only inherited warnings; forbidden scan has no matches. Parent received the frozen hash before preservation; no full gap theorem or checker acceptance is claimed.
+
+15:07 UTC: Parent paused all work because lease ownership is uncertain. The remaining weighted-ledger SAT process was stopped with SIGTERM after505s; solver_exit−15, no result. Full outputs and source preserved, certificate-search-status.json records no active child processes. No new proofwork or desk calls made.
+
+### 2026-11-25 15:07:44 UTC — restriction route frozen for lease pause
+Latest fully compiled, independently reviewed snapshot is `IncidenceSmallRows.lean`,416 lines,SHA256 e9e50ccd4fb41ef22849c04a3e4786cce4fc0a95c81d286250c08c3a237082cd; full build logs `incidence-small-rows.stdout/.stderr` empty. It includes all prior row lemmas and proves small_rows_suffice from the explicit hypothesis |X|>k ⇒ |avoidingLines X|≤k.
+At the parent pause, one already-launched compilation finished with exit1: `IncidenceBonferroni.lean.incomplete` (source preserved without fixes) contains a generic four-set Bonferroni bound and the intended13-line small-side theorem. Only errors reported are unknown constant Finset.eq_empty_iff_forall_not_mem.mpr at line462 and resulting no-goals error at463. The source is NOT a compiled result; complete logs are `incidence-bonferroni.stdout/.stderr`. No fixes or new builds were made after the pause.
+A superseded715-case finite four-point check was stopped before the pause in favor of the algebraic Bonferroni route; exit130 and complete logs preserved as `incidence-q3-small-attempt.stdout/.stderr`. No finite q3 count or four-point certificate was certified.
+
+## Counterexample searches paused — 2026-11-25T15:07:57.475876+00:00
+
+Root reported uncertain lease ownership. Every active search was stopped; the five remaining processes exited 130. No fresh desk request or release was made by this agent. Full sources, data, stdout, stderr, and a SHA256 manifest are now archived in `results/orch/search/counterexample/`. No target counterexample was found. SAT cases remain unknown, not proved impossible. The archive README records the exact limitations and the redundant structure found in approximate candidates.
+
+
+## Final pre-retry preservation audit
+
+At 2026-11-25T15:09:54.653209+00:00, submission_rules completed independent read-only archival review. PASS for the authorized archival push, with the following scope.
+
+The counterexample manifest contains113 entries:103 archived source/data/log artifacts and10 intentionally omitted CNF inputs. All103 archived sizes and SHA256 hashes match. The only additional files are README.md and manifest.json. Both older36-artifact manifests also match. Reviewed access behavior of22 distinct Python/C++ sources: finite computation, task-local reads/writes, and argv-based calls to the local cadical solver; no environment/credential access, network client, shell execution, or unexpected deletion was found. A scan of all276 then-present results/orch files found no credential-shaped GitHub tokens, private keys, authorization values, or lease URL parameters. No symlinks were present. No environment variables or credential values were read or printed by the audit.
+
+IncidenceBonferroni.lean.incomplete is explicitly UNVALIDATED, SHA256 b633327768bdaa8acdc3ef1f1b3c0200f3a5e8338779d8392c56f10dfa28134c. Its complete logs preserve exit1 errors at lines462/463; NOTES already states it is not compiled. It has no forbidden proof escape or code-execution tokens. It is safe to preserve as an incomplete artifact, never as a checked result. Search README/status files accurately distinguish UNKNOWN/interrupted solver runs, computational checks, checked finite counts, and the old certificate exit137. They assert no unsupported UNSAT result or target counterexample.
+
+Manifest SHA256:06214a358590a70c1e6965d59a3b42f06a910d86b635e2cb7b3843a78cbd41ef. Certificate-search status SHA256:621cd26e28f8ab9387781e569d6769f0caa9665ec9c6a1eb2c919548b88ea8fe. All checked frozen components named in the parent request had already passed independent review. No lease was released or acquired by this reviewer.

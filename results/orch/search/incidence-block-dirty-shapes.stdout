@@ -1,0 +1,9 @@
+witness S=1440 T=32776 negative_mask=5 positive_mask=608256
+witness S=278 T=4104 negative_mask=32769 positive_mask=33036
+witness S=286 T=4096 negative_mask=131076 positive_mask=33036
+witness S=1448 T=32768 negative_mask=163840 positive_mask=608256
+shape negative_mask=5 positive_mask=608256
+shape negative_mask=32769 positive_mask=33036
+shape negative_mask=131076 positive_mask=33036
+shape negative_mask=163840 positive_mask=608256
+max_dirty_crossing_edges=4 S=1440 T=32776 negative_bound_mask=5 actual_negative_mask=5

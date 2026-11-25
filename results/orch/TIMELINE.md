@@ -27,3 +27,13 @@
 - 2026-11-25 14:57:58 UTC: restriction route checked maximal-negative-input characterization and exact generator condition in Lean.
 
 2026-11-25T15:00:35.572730+00:00 Replanned after about20minutes on2583: stopped impossibleFano26search and bareAND-count equality route; focused exactSAT on5/6-lineblocks, checked weightedfalse-row ledger, and plane-specific OR/dirty-filter structure. Sixmorecomponents compiled/reviewed.
+
+- 2026-11-25 15:01:16 UTC: restriction route checked output-level AO2 monotonicity and closed critical-row determination.
+
+- 2026-11-25 15:02:43 UTC: restriction route checked finite maximal-negative row set and cardinality bridge; stopped optional full-q3 kernel count at9GB RSS without a certified count.
+
+- 2026-11-25 15:07:44 UTC: parent ordered lease-ownership pause. Restriction route froze reviewed SmallRows; already-launched Bonferroni compilation finished exit1 and was preserved without fixes. No new work started.
+
+2026-11-25T15:09:10.190067+00:00 All proof/search processes paused, renewals stopped, no lease releases. Preserve completed work before single ownership-safe retry.
+
+2026-11-25T15:10:16.141829+00:00 Collected second410 diagnostic and fully preserved stopped searches before next permitted desk request.
