@@ -45,3 +45,5 @@ Cleanup: not started; full checker cannot run in available storage.
 2026-11-25T14:59:34.311175+00:00 checkpoint: namedL_meta_2583 file326lines lake buildPASS; full logplane-partial-build-02.txt. Absorption and weighted-cover supporting lemmas checked; dirtyP4 obstruction checked. No fullproof or refutation.
 
 2026-11-25T15:02:54.004574+00:00 checkpoint: PlaneReadOneLower2262lines compiled; exact plane READ1 lower bound via upstreamL4897 plus checked geometry. FanoFiniteData and PlanePrivacy compiled; independent reviewPASS. These do not prove the posted unrestricted statement.
+
+Second lease invalidated at15:06:10UTC. PlaneBundle2522lines compiled as a standalone source and independently reviewed; exact copy is now namedL_meta_2583.lean. Latest namedlakebuild was326line version;2522line namedbuild not yet run. No postedtheorem, formatguard REFUSED (missingtheorem); fullchecker remainsblocked by fullMathlibcache. FanoSAT andannealer interrupted byleaseerror, noSAT/UNSAT certificate and no witness. StructuralAdjacentOr.lean is preserved UNVALIDATED (canceled143), unlike checkedcomponents.

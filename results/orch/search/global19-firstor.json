@@ -1,0 +1,21 @@
+{
+  "gap": "L-meta-2592",
+  "result": "UNKNOWN",
+  "exit_code": 0,
+  "rows": 1024,
+  "gates": 19,
+  "first_gate": "OR(0,2)",
+  "not_count": "1..3",
+  "encoding": "notes/data/lrat-link/gennot.py default lex-normalized FanInTwo CNF plus four first-gate/NOT-existence clauses and all 4-NOT exclusion clauses",
+  "proof_dump": false,
+  "paused_at": "2026-11-25T14:19:19Z",
+  "resumed_at": "2026-11-25T14:24:37Z",
+  "pause_reason": "root requested CPU priority for kernel compilation",
+  "metrics": [
+    "c total process time since initialization:       597.77    seconds",
+    "c total real time since initialization:         1243.34    seconds",
+    "c maximum resident set size of process:          322.04    MB",
+    "c exit 0"
+  ],
+  "limitation": "Restricted witness search only; UNKNOWN proves no lower bound."
+}

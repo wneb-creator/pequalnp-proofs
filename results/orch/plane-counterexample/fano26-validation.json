@@ -1,0 +1,23 @@
+{
+  "variables": 26730,
+  "clauses": 503709,
+  "row_count": 58,
+  "seed_failed_clauses": [
+    [
+      131880,
+      [
+        -16078,
+        10511
+      ]
+    ]
+  ],
+  "perfect_matching": [
+    1,
+    0,
+    3,
+    2,
+    4,
+    6,
+    5
+  ]
+}

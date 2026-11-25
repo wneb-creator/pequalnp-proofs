@@ -1,0 +1,1 @@
+{'source': 'p4-control', 'inputs': 4, 'output': 7, 'or_count': 2, 'actual_size': 4, 'verified_rows': 16, 'errors': [], 'or_bound_counterexample': False, 'plane_normalization_candidate_refutation': False}

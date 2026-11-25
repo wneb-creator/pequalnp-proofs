@@ -1,0 +1,151 @@
+{
+  "source": "lean/PEqualNP/Outside/L_meta_587.lean",
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        7,
+        3
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        1,
+        5
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        1,
+        9
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        6
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        1,
+        10
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        5,
+        9
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        13,
+        5
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        11,
+        0
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        9,
+        0
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        18,
+        3
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        12,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        2,
+        14
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        15,
+        7
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        8,
+        16
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        22,
+        20
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        4,
+        19
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        23,
+        17
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        21,
+        26
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        25,
+        27
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        24,
+        28
+      ]
+    }
+  ],
+  "output": 29,
+  "gate_count": 20,
+  "not_count": 0,
+  "verified_rows": 1024,
+  "errors": [],
+  "held_gap_counterexample": false
+}

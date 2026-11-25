@@ -1,0 +1,23 @@
+{
+  "distinguished_edge": [
+    0,
+    8
+  ],
+  "added_variables": 328,
+  "added_clauses": 9260,
+  "total_variables": 27058,
+  "total_clauses": 512969,
+  "seed_failed_clauses": [
+    [
+      131494,
+      [
+        -16078,
+        10500
+      ]
+    ]
+  ],
+  "random_circuits_checked": 2000,
+  "random_gate_flag_checks": 52000,
+  "padding": "constant pads have false flags and cannot be read by nonpads",
+  "status": "prepared only; not launched"
+}

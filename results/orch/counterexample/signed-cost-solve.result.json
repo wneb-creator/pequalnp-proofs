@@ -1,0 +1,6 @@
+{
+  "started": "2026-11-25T14:33:36.133050+00:00",
+  "finished": "2026-11-25T14:51:05.106122+00:00",
+  "returncode": -2,
+  "status": "interrupted after lease loss; no SAT or UNSAT result"
+}

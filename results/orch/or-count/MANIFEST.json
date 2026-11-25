@@ -1,0 +1,146 @@
+{
+  "friendship2-gen.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fano19-gen.out": {
+    "bytes": 68,
+    "sha256": "97b85e6cb2e167ecfd261d7437f8e10021fccf26018a67b9dfcb40198bc3de0a"
+  },
+  "p4-control-gen.out": {
+    "bytes": 61,
+    "sha256": "ff63f940aca5d3cb8e0b64efc1333203e514e1312d250bf6403e3a7afe9922ef"
+  },
+  "c5-gen.err": {
+    "bytes": 148,
+    "sha256": "1f39cc6c5cdf9314692d4063c6cbea7f4bff321d9d65c4030544eb502d3416f7"
+  },
+  "p4-control.cnf.gz": {
+    "bytes": 2193,
+    "sha256": "bb07f8c9318103d4c5a71e6732e285a0f98f5c6e9879cbab6b767141ab475da9"
+  },
+  "c5.cnf.gz": {
+    "bytes": 51131,
+    "sha256": "37e9f8fd340646ebed0dc1422785ab0c07092b7108dbec909cbc186c4ca68913"
+  },
+  "c5-gen.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "c6-gen.err": {
+    "bytes": 276,
+    "sha256": "4175eeb39e14c6e820f6b1c4c09820f2ba1a6102909a9e6a7c60ffc5f45acf7b"
+  },
+  "c6-solve.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fano19.cnf.gz": {
+    "bytes": 461114,
+    "sha256": "ca82447eaf2031dacddc20028ed9c2d747afa3ec64068b250f3932ee2f5d0b26"
+  },
+  "c5-solve.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results.json": {
+    "bytes": 1083,
+    "sha256": "40f59925f595ec5e3d55f9200f5f509094229ce349e8e228c69f26c2add69d01"
+  },
+  "friendship2-solve.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "friendship2.cnf.gz": {
+    "bytes": 76494,
+    "sha256": "b4bbfccded0397010c4d6925a61a44fda7cdde08d5c5027578608facfe803bd7"
+  },
+  "p4-control-solve.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "p4-control-layout.json": {
+    "bytes": 850,
+    "sha256": "77889bcc39cda10337f5326b24174e9602ea836abab19f59abeedce3003eb35b"
+  },
+  "search.out": {
+    "bytes": 433,
+    "sha256": "445ce1f67a4ca9b9f889b6510799343a34622f2d9cbb82f7297668cf667e32ff"
+  },
+  "fano19-gen.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fano.json": {
+    "bytes": 205,
+    "sha256": "29b4393aa1efb7949ed1f32fde269f142d285d6d992ae758acdea25dde502a3d"
+  },
+  "search.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "p4-control-decode.out": {
+    "bytes": 204,
+    "sha256": "e39773904bdf12f1e513d744bc414ae3a9fee9b11f9ff7978ee643625eb49c4c"
+  },
+  "p4-control-decode.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "c5-solve.out": {
+    "bytes": 19175,
+    "sha256": "4635935328b0cc672fb086ef9d5988e3dff53160d2c9e8aab1de178554bce56e"
+  },
+  "c6-solve.out": {
+    "bytes": 50136,
+    "sha256": "2509b61f9f7ff89fddca73ae3f1b1758d4668961b8eed28d39a6ec846d6bbecf"
+  },
+  "friendship2-solve.out": {
+    "bytes": 51336,
+    "sha256": "82e008cba7d755bc1aeab248ee33bf2d98d187b61c1fd1ce70146004b04407d7"
+  },
+  "fano19-layout.json": {
+    "bytes": 13932,
+    "sha256": "0f4f2147d228bc6618b91b0afe0b1e0df6b17b371f0467c0dbab53019364e5dd"
+  },
+  "p4-control-gen.err": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "free-and.py": {
+    "bytes": 4224,
+    "sha256": "918ebe0168c2acce86b1d83d00e6e7ed240b53dd8afe25b510627431b782cf4c"
+  },
+  "c6-gen.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "p4-control-decoded.json": {
+    "bytes": 874,
+    "sha256": "66bd5ee437c37b96a9dfe74e80ed6b93e6b48e210a00e05586d58a3fe7c7ecc8"
+  },
+  "c6.cnf.gz": {
+    "bytes": 135807,
+    "sha256": "2b36faf133fd410dff3e5706d1a5fccc613df16cd6bdd29968f2287459dbc23d"
+  },
+  "friendship2-gen.err": {
+    "bytes": 148,
+    "sha256": "4a24d26e543f4a189136c951e595a5d3ebcce0a8126929fe952cb81291638a9b"
+  },
+  "p4-control-solve.out": {
+    "bytes": 5135,
+    "sha256": "43547d9e3ce5fc0177eb8f2ace02ffa3c6c76d9a99fbdf0c5a944b5af9ddb13c"
+  },
+  "search.py": {
+    "bytes": 3356,
+    "sha256": "9cf77837449421780fbd9ecca6c9d2159075f0949e4ae3b595e46e5de9ca4af2"
+  },
+  "STATUS.json": {
+    "bytes": 865,
+    "sha256": "112ed587f993ec219ddd86a0b59ca76e0852dff4b3de805e606dd395834a85fe"
+  },
+  "p4-control.json": {
+    "bytes": 48,
+    "sha256": "c95fcd66ee81dc6439e28d2e441ebd414c4ee7bb206e84fc884494c82a654a44"
+  }
+}

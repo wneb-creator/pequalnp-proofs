@@ -54,3 +54,34 @@ constraints would still require a separate completeness theorem.
 
 Allowed-host web searches for existing projective-plane monotone-circuit
 bounds did not locate a useful primary source. No external bound was adopted.
+
+## OR-count route and lease interruption
+
+The proposed unrestricted bound OR-count >= |E|-1 for arbitrary C4-free graphs
+is false. Existing checked `Outside/L_meta_584.lean` gives the Petersen graph's
+15-edge function with 13 OR and 7 AND gates. Both counterexample_search and
+lemma_routes independently checked its full 1,024-row truth table and the
+no-four-cycle condition. Petersen is not bipartite, so this does not settle a
+plane-specific OR bound.
+
+Before that obstruction was found, a bounded census tested C5 (at most 3 OR,
+8 total gates; solver UNSAT in 4 seconds), two triangles sharing a vertex
+(4 OR, 10 total; UNKNOWN after 90 seconds), and C6 (4 OR, 10 total; UNKNOWN
+after 90 seconds). These are solver outcomes, not unrestricted Lean theorems.
+
+The new `or-count/free-and.py` removes the total-AND restriction: contract each
+AND-only region to a nonempty conjunction of primary inputs and earlier OR
+nodes. Each OR has two such operands; the final output is another such
+conjunction. Selectors and all semantic values are encoded exactly. A control
+instance for P4 with two OR nodes was SAT and reconstructed the correct
+four-gate circuit, verified on all sixteen inputs.
+
+The Fano instance with nineteen OR nodes and unrestricted AND gates has 25,209
+variables and 112,895 clauses over the complete 58-row monotone boundary.
+counterexample_search independently reviewed the encoder and decoder PASS.
+It was NOT LAUNCHED: the root's renewal returned HTTP 410 at 15:07:34 UTC.
+There were no remaining auxiliary solver processes. Sources, full outputs,
+inputs, compressed CNFs and checksummed manifest are preserved in
+`results/orch/or-count/`. A future SAT witness must be fully decoded and
+verified; fewer than twenty OR gates alone would not refute L-meta-2583 unless
+the total reconstructed circuit size is at most twenty-six.

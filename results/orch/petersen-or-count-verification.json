@@ -1,0 +1,25 @@
+{
+  "source": "lean/PEqualNP/Outside/L_meta_584.lean",
+  "source_sha256": "8d2c28988ba3c4238d046ef61ec833063a0ef0f6089209f7ffb29aedad33749b",
+  "vertices": 10,
+  "edges": 15,
+  "gates": 20,
+  "gate_counts": {
+    "or": 13,
+    "and": 7
+  },
+  "valid_binary_earlier_inputs": true,
+  "truth_assignments_verified": 1024,
+  "maximum_common_neighbors_of_distinct_vertices": 1,
+  "minimum_vertex_cover_exhaustive": 6,
+  "odd_cycle": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    0
+  ],
+  "violated_generic_or_bound": "13 < 15-1 = 14",
+  "limitation": "Graph is not bipartite; this does not refute the plane-specific claim."
+}

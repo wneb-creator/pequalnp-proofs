@@ -1,0 +1,78 @@
+[
+  {
+    "name": "c5",
+    "n": 5,
+    "slots": 8,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "or_cap": 3,
+    "start": "2026-11-25T15:02:30.551783+00:00",
+    "finish": "2026-11-25T15:02:34.553970+00:00",
+    "returncode": 20
+  },
+  {
+    "name": "friendship2",
+    "n": 5,
+    "slots": 10,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "or_cap": 4,
+    "start": "2026-11-25T15:02:34.556000+00:00",
+    "finish": "2026-11-25T15:04:04.775797+00:00",
+    "returncode": 0
+  },
+  {
+    "name": "c6",
+    "n": 6,
+    "slots": 10,
+    "or_cap": 4,
+    "verdict": [
+      "UNKNOWN"
+    ],
+    "note": "Queue paused to yield auxiliary solver slot; full solver outputs retained. No further case launched."
+  }
+]

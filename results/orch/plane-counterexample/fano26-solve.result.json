@@ -1,0 +1,6 @@
+{
+  "started": "2026-11-25T14:55:17.071720+00:00",
+  "finished": "2026-11-25T15:08:19.199455+00:00",
+  "returncode": -2,
+  "status": "interrupted due to unexpected lease HTTP410; no witness or UNSAT result"
+}

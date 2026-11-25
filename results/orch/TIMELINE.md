@@ -13,3 +13,5 @@
 2026-11-25 14:49:30 UTC: Recovery request assigned L-meta-2583 (Read1 projectiveplane incidence normalization). OldL-meta-2592 partials all pushed. Newleaseexpires15:09:30, renewal14:50:14extends15:10:14. Allsixagentsretasked.
 
 2026-11-25T15:02:54.044846+00:00 all plane geometry/Read1-cost supporting strategies completed and independently reviewed. Full normalization not established. Fano26SAT started14:55:17 (45min); boundary annealer started15:01:32 (30min). New OR/AND-count route and bounded counterexample census in progress.
+
+2026-11-25 15:06:10 UTC: Second lease invalidated HTTP410 despite15:02renewal expiry15:22:18. Discovered15:07:34 and fullcurl-si diagnostic repeated15:08:15. Searches stopped15:08:19; no witness. Allcheckedcomponents frozen and preservation checkpoint prepared.

@@ -1,0 +1,13 @@
+{
+  "gap": "L-meta-2583",
+  "status": "lease HTTP410 before Fano19OR launch; no active auxiliary solver",
+  "normalization_model": "OR nodes with arbitrary nonempty AND-conjunction operands and final output; unlimited AND gates",
+  "fano19_variables": 25209,
+  "fano19_clauses": 112895,
+  "fano19_result": "NOT RUN",
+  "independent_review": "counterexample_search PASS for encoder and fulltruth decoder",
+  "control_result": "P4 cap2OR SAT; reconstructed4gates; all16rows correct",
+  "bounded_results": "C5 cap3OR/8gates UNSAT in4sec; friendship cap4OR/10gates UNKNOWN90sec; C6 cap4OR/10gates UNKNOWN90sec; no unrestricted lower bound proved",
+  "generic_OR_bound": "FALSE: existing L_meta_584 has Petersen15edges, no4cycle,13OR+7AND=20total; nonbipartite",
+  "scope": "Positive Fano ORcount witness may exceed26totalgates and would not automatically refute2583."
+}

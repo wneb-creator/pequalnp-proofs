@@ -1,0 +1,78 @@
+{
+  "source": "p4-control",
+  "inputs": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      2,
+      1
+    ]
+  ],
+  "selected_operands": [
+    [
+      [
+        1,
+        2
+      ],
+      [
+        0
+      ]
+    ],
+    [
+      [
+        3
+      ],
+      [
+        1
+      ]
+    ]
+  ],
+  "selected_output": [
+    4,
+    5
+  ],
+  "gates": [
+    {
+      "op": "and",
+      "inputs": [
+        1,
+        2
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        4,
+        0
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        1
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        5,
+        6
+      ]
+    }
+  ],
+  "output": 7,
+  "or_count": 2,
+  "actual_size": 4,
+  "verified_rows": 16,
+  "errors": [],
+  "or_bound_counterexample": false,
+  "plane_normalization_candidate_refutation": false
+}
