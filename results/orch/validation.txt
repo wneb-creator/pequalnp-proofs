@@ -72,3 +72,6 @@ Small-graph cost and unknown4x4 C4free archives: computationalUNSAT/SATcontrols 
 H1/H2 routes: conditionalalgebra andsmallcontrols independently reviewed. No qualifyingplane H1 exists in these artifacts; one-sided≤50 target would already implyan ordinary≤63 circuit.
 
 Finalneutralcircuitsearches: fourcompletedruns,88777735proposals and5613331acceptedvalidmoves, no≤64gatewitness. Interruptedprefixes additionallyrecord5681362proposals. Distinctcache counts are not globally unique circuits. Independent finalscalarchecks pass52positive+704negativebasis, distinct-earlierlegality,andbothderivativetraces forallsaved65/66states. Completearchive independentlyreviewedPASS; computationalheuristics only.
+
+P4SixWitness.lean: lake env lean passed, exit0;58 lines, empty output. Actual six-gate four-input Circuit has exact path semantics, legal distinct earlier operands, and both central formal derivatives zero. Axiom audit uses only propext; independently reviewed. This is a local upper bound only.
+Pending full/chunked P4 clause bridge and NoFive composition sources are preserved as explicitly UNVERIFIED drafts, with incomplete snapshot logs. Their compilation status is RUNNING/NOT_STARTED, not PASS. Independent review covers archive integrity/scope only.

@@ -1,0 +1,121 @@
+{
+  "scope": "UNVERIFIED build-in-progress drafts. No theorem result claimed.",
+  "snapshot_utc": "2026-11-25T04:28:10.221458+00:00",
+  "builds": {
+    "ReductionsBridge.lean": {
+      "status": "RUNNING",
+      "pid": 21073,
+      "log_complete": false
+    },
+    "ReductionsBridgeChunks.lean": {
+      "status": "RUNNING",
+      "pid": 22670,
+      "log_complete": false
+    },
+    "ReductionsNoFive.lean": {
+      "status": "NOT_STARTED",
+      "log_complete": false
+    }
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1620,
+      "sha256": "f691bd9f3b4091c8c7e2ce2fb921b66c4a2e6e82a1ffa359f5fb071411212254"
+    },
+    {
+      "file": "ReductionsBridge.lean",
+      "bytes": 625569,
+      "sha256": "d07d1cbe2e9585e68df485daef49385e2cd03b552f15ba2046200aa5cbfaad67"
+    },
+    {
+      "file": "ReductionsBridgeChunks.lean",
+      "bytes": 674436,
+      "sha256": "71c1698e6e32688bf52b601631c2a3aef5c773bcf1318a1684f580196a973c9f"
+    },
+    {
+      "file": "ReductionsNoFive.lean",
+      "bytes": 1126,
+      "sha256": "07301e1d575b7d39e557e970cd0cbbbd5df0a5d29e9d47c45f066b6833ebbf19"
+    },
+    {
+      "file": "p4-bridge-chunks-build.log.snapshot.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4-bridge-chunks-generation-2.log.snapshot.gz",
+      "bytes": 61,
+      "sha256": "3f752fa6341b2956405adaed6cd353a4f5988232de3850867e8a54689c021a4a",
+      "encoding": "gzip",
+      "original_bytes": 49,
+      "original_sha256": "5d257da3407d53d7d9bb1ab14a2530d16997dbe69678bd986f39f90dca63e065"
+    },
+    {
+      "file": "p4-bridge-full-build.log.snapshot.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4-bridge-full-generation.log.snapshot.gz",
+      "bytes": 61,
+      "sha256": "5abff72fcae876a1469cf2cf3659e195ca6473fc3850a61b1ce4dc0c25b8d7b1",
+      "encoding": "gzip",
+      "original_bytes": 47,
+      "original_sha256": "c544b364c373e73856909967a73f94a0d1706006b8ee46030977d04b544a80cc"
+    },
+    {
+      "file": "p4-bridge-trace.json",
+      "bytes": 386734,
+      "sha256": "c4d3ef0dee85e29d88141bafe159caa18a5151285ee0aca0bc0021a29ca82c4d"
+    },
+    {
+      "file": "p4_bridge_chunks_generate.py",
+      "bytes": 2066,
+      "sha256": "f4e7f8f0ab704093fe633ba135b6e4029f2150ee463eeb8012d1ae9b853e9998"
+    },
+    {
+      "file": "p4_bridge_generate.py",
+      "bytes": 3599,
+      "sha256": "c27d941c9855cf69fb9aa780b0ea66633a2d7b9b190280e9e69b8c20ab783832"
+    },
+    {
+      "file": "p4_bridge_lean.py",
+      "bytes": 5840,
+      "sha256": "6f2af64183dfe9ff8f4d8d7b41fde0577505555e0d9e1588780efb21f8393e2b"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsIR.lean",
+      "bytes": 79691,
+      "sha256": "c6017c154255c2e20a078365e9e47ff6448457134eba1e4fd3ac48777798a152"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsSemantics.lean",
+      "bytes": 15161,
+      "sha256": "af76f3f045ce5c533bdfbb8b93dbb1d5c67ab800b8ca41843f6c686fb954433f"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsNormalizeFast.lean",
+      "bytes": 4462,
+      "sha256": "432a9b1ed8e0373334b7b265598a379e9e765c2cfb5f478f41db38e528175e7b"
+    },
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "Explicit kernel-checked six-gate P4 witness with both central formal derivatives zero; not a lower bound or full-gap result.",
+  "axioms": [
+    "propext"
+  ],
+  "files": [
+    {
+      "file": "P4SixWitnessAxioms.lean",
+      "bytes": 410,
+      "sha256": "6e09e29f2647348261031ce9f3f42c2c08bc10b97117ff27c0d3ede469ff6997"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1248,
+      "sha256": "11cfee621b7c3243452a54b9cbf06930568fb39128859923ceeed2f16f11ce9a"
+    },
+    {
+      "file": "p4-six-witness-axioms.log.gz",
+      "bytes": 173,
+      "sha256": "cd3f21248ad1474fe16a6e9e0e3e66c8bbf25d6f2eb59291e5cc40ea6e75b4fa",
+      "encoding": "gzip",
+      "original_bytes": 494,
+      "original_sha256": "5ef1a265c6a68140c6092d93e44dffd38b4e120a1938301534ac3459520567df"
+    },
+    {
+      "file": "p4-six-witness-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/P4SixWitness.lean",
+      "bytes": 1944,
+      "sha256": "6c688acd0613a915f3fcbddaa82e03ca18be45eb36f422c30ef68380714237c9"
+    }
+  ]
+}
