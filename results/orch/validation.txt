@@ -21,3 +21,8 @@ SHA256: 64b91888f855131b53d41286dc51ce666d3fb24a66c474d305c38f226010eb72
 Source red-team review PASSED. Build is RUNNING; full proof not yet locally validated.
 Original complete proof/certificates adapted from benoitrazet PR12184; modifications share packed data and prune unused entries.
 No proof PR opened.
+
+Prefix12184.lean: Lean compilation PASSED (exit0); complete output in prefix12184-check.log.
+This checks the full generic certificate framework and optimization proofs, excluding finite certificate data and final theorem.
+Independently verified to be an exact prefix of the reviewed full candidate with a closing namespace.
+SHA256: 736f5e882e7ceb01c63b24d5062c4aee3ba920d33fddf8db6b2411544c9e7449

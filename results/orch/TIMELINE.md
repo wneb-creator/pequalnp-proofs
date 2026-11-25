@@ -9,3 +9,5 @@
 - 2026-11-25T05:07:03.227474+00:00: packed-word normalization identities independently compiled and reviewed.
 - 2026-11-25T05:10:48.777169+00:00: replan: fresh root search and SAT lanes stopped after public full candidates located; focus on runtime reductions, source review, complete build and replay.
 - 2026-11-25T05:12:47.391322+00:00: checkpointing full optimized candidate while compilation runs; not yet a validated full proof.
+- 2026-11-25T05:15:15.581475+00:00: selected optimization prefix passed actual project Lean compilation; no concurrent large build remains.
+- 2026-11-25T05:15:28.241245+00:00: complete generic certificate framework and optimization proofs compile; full finite certificate still running.
