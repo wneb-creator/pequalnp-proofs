@@ -1,0 +1,4 @@
+{"start": true, "seed": 640065, "seconds": 1800, "positive_basis": 52, "negative_basis": 704, "method": "valid65 neutral walk; signatures include boundary values and both derivatives"}
+{"progress": true, "seconds": 30.000002694999694, "attempts": 1428346, "accepted": 89306, "distinct": 87683, "duplicates": 1623, "by_kind": {"rotation": [398819, 89306], "edge": [143306, 0], "random": [886221, 0]}}
+{"progress": true, "seconds": 60.000005141999736, "attempts": 2861394, "accepted": 179229, "distinct": 175960, "duplicates": 3269, "by_kind": {"rotation": [800472, 179229], "edge": [286617, 0], "random": [1774305, 0]}}
+{"progress": true, "seconds": 90.00001078699961, "attempts": 4336122, "accepted": 271549, "distinct": 266543, "duplicates": 5006, "by_kind": {"rotation": [1213128, 271549], "edge": [434007, 0], "random": [2688987, 0]}}

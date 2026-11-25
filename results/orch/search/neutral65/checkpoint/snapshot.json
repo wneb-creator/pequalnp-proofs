@@ -1,0 +1,110 @@
+{
+  "utc": "2026-11-25T04:15:59.479552+00:00",
+  "complete": false,
+  "runs": {
+    "neutral65-best-resumed.json": {
+      "progress": true,
+      "seconds": 1230.1116657239995,
+      "attempts": 26740775,
+      "accepted": 1677095,
+      "duplicates": 30727,
+      "by_kind": {
+        "rotation": [
+          7487052,
+          1677079
+        ],
+        "edge": [
+          2671677,
+          0
+        ],
+        "random": [
+          16582046,
+          16
+        ]
+      },
+      "seed": 640165,
+      "gate_count": 65
+    },
+    "neutral65-best-v2-resumed.json": {
+      "progress": true,
+      "seconds": 1230.1482192179997,
+      "attempts": 25995127,
+      "accepted": 1604066,
+      "duplicates": 30206,
+      "by_kind": {
+        "rotation": [
+          7274867,
+          1593127
+        ],
+        "edge": [
+          2596368,
+          131
+        ],
+        "random": [
+          16110895,
+          496
+        ],
+        "relocation": [
+          12997,
+          10312
+        ]
+      },
+      "seed": 640166,
+      "gate_count": 65
+    },
+    "neutral66-best.json": {
+      "progress": true,
+      "seconds": 810.1677865069996,
+      "attempts": 9759027,
+      "accepted": 662453,
+      "duplicates": 9903,
+      "by_kind": {
+        "rotation": [
+          2732900,
+          591373
+        ],
+        "edge": [
+          976654,
+          13985
+        ],
+        "random": [
+          6044594,
+          53229
+        ],
+        "relocation": [
+          4879,
+          3866
+        ]
+      },
+      "seed": 640167,
+      "gate_count": 66
+    },
+    "neutral66-alternative-best.json": {
+      "progress": true,
+      "seconds": 480.09963771400044,
+      "attempts": 5804321,
+      "accepted": 363781,
+      "duplicates": 6612,
+      "by_kind": {
+        "rotation": [
+          1623638,
+          363514
+        ],
+        "edge": [
+          582262,
+          62
+        ],
+        "random": [
+          3598421,
+          205
+        ],
+        "relocation": [
+          0,
+          0
+        ]
+      },
+      "seed": 640168,
+      "gate_count": 66
+    }
+  }
+}

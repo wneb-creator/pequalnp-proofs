@@ -1,0 +1,437 @@
+{
+  "description": "Alternative 66-gate exact incidence circuit; not a counterexample to posted64",
+  "chosen_point": 4,
+  "lines_in": [
+    1,
+    3,
+    4,
+    8
+  ],
+  "lines_out": [
+    0,
+    2,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12
+  ],
+  "inputs": 26,
+  "output": 91,
+  "gates": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      3,
+      9
+    ],
+    [
+      0,
+      26,
+      27
+    ],
+    [
+      1,
+      13,
+      28
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      0,
+      30,
+      31
+    ],
+    [
+      1,
+      15,
+      32
+    ],
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      6,
+      8
+    ],
+    [
+      0,
+      34,
+      35
+    ],
+    [
+      1,
+      18,
+      36
+    ],
+    [
+      0,
+      2,
+      6
+    ],
+    [
+      0,
+      7,
+      9
+    ],
+    [
+      0,
+      38,
+      39
+    ],
+    [
+      1,
+      19,
+      40
+    ],
+    [
+      0,
+      3,
+      7
+    ],
+    [
+      0,
+      8,
+      10
+    ],
+    [
+      0,
+      42,
+      43
+    ],
+    [
+      1,
+      20,
+      44
+    ],
+    [
+      0,
+      5,
+      9
+    ],
+    [
+      0,
+      10,
+      12
+    ],
+    [
+      0,
+      46,
+      47
+    ],
+    [
+      1,
+      22,
+      48
+    ],
+    [
+      0,
+      0,
+      6
+    ],
+    [
+      0,
+      10,
+      11
+    ],
+    [
+      0,
+      50,
+      51
+    ],
+    [
+      1,
+      23,
+      52
+    ],
+    [
+      0,
+      1,
+      7
+    ],
+    [
+      0,
+      11,
+      12
+    ],
+    [
+      0,
+      54,
+      55
+    ],
+    [
+      1,
+      24,
+      56
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      8,
+      12
+    ],
+    [
+      0,
+      58,
+      59
+    ],
+    [
+      1,
+      25,
+      60
+    ],
+    [
+      0,
+      29,
+      33
+    ],
+    [
+      0,
+      37,
+      41
+    ],
+    [
+      0,
+      45,
+      49
+    ],
+    [
+      0,
+      53,
+      57
+    ],
+    [
+      0,
+      61,
+      62
+    ],
+    [
+      0,
+      63,
+      64
+    ],
+    [
+      0,
+      65,
+      66
+    ],
+    [
+      0,
+      67,
+      68
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      10,
+      70
+    ],
+    [
+      1,
+      14,
+      71
+    ],
+    [
+      0,
+      3,
+      6
+    ],
+    [
+      0,
+      12,
+      73
+    ],
+    [
+      1,
+      16,
+      74
+    ],
+    [
+      0,
+      0,
+      5
+    ],
+    [
+      0,
+      7,
+      76
+    ],
+    [
+      1,
+      17,
+      77
+    ],
+    [
+      0,
+      8,
+      9
+    ],
+    [
+      0,
+      11,
+      79
+    ],
+    [
+      1,
+      21,
+      80
+    ],
+    [
+      0,
+      72,
+      75
+    ],
+    [
+      0,
+      78,
+      81
+    ],
+    [
+      0,
+      82,
+      83
+    ],
+    [
+      0,
+      14,
+      16
+    ],
+    [
+      0,
+      17,
+      21
+    ],
+    [
+      0,
+      85,
+      86
+    ],
+    [
+      0,
+      4,
+      69
+    ],
+    [
+      0,
+      84,
+      88
+    ],
+    [
+      0,
+      69,
+      87
+    ],
+    [
+      1,
+      89,
+      90
+    ]
+  ],
+  "gate_labels": [
+    "outer leaf sum line 0",
+    "outer leaf sum line 0",
+    "outer leaf sum line 0",
+    "outer star line 0",
+    "outer leaf sum line 2",
+    "outer leaf sum line 2",
+    "outer leaf sum line 2",
+    "outer star line 2",
+    "outer leaf sum line 5",
+    "outer leaf sum line 5",
+    "outer leaf sum line 5",
+    "outer star line 5",
+    "outer leaf sum line 6",
+    "outer leaf sum line 6",
+    "outer leaf sum line 6",
+    "outer star line 6",
+    "outer leaf sum line 7",
+    "outer leaf sum line 7",
+    "outer leaf sum line 7",
+    "outer star line 7",
+    "outer leaf sum line 9",
+    "outer leaf sum line 9",
+    "outer leaf sum line 9",
+    "outer star line 9",
+    "outer leaf sum line 10",
+    "outer leaf sum line 10",
+    "outer leaf sum line 10",
+    "outer star line 10",
+    "outer leaf sum line 11",
+    "outer leaf sum line 11",
+    "outer leaf sum line 11",
+    "outer star line 11",
+    "outer leaf sum line 12",
+    "outer leaf sum line 12",
+    "outer leaf sum line 12",
+    "outer star line 12",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "outer star aggregation",
+    "inner leaf sum line 1",
+    "inner leaf sum line 1",
+    "inner star line 1",
+    "inner leaf sum line 3",
+    "inner leaf sum line 3",
+    "inner star line 3",
+    "inner leaf sum line 4",
+    "inner leaf sum line 4",
+    "inner star line 4",
+    "inner leaf sum line 8",
+    "inner leaf sum line 8",
+    "inner star line 8",
+    "inner star aggregation",
+    "inner star aggregation",
+    "inner star aggregation",
+    "incident line sum",
+    "incident line sum",
+    "incident line sum",
+    "point OR outer part",
+    "first factor",
+    "second factor",
+    "distributed final AND"
+  ],
+  "and_count": 14,
+  "or_count": 52,
+  "component_wires": {
+    "a_out": 69,
+    "a_in": 84,
+    "line_sum": 87
+  },
+  "verified_positive_edges": 52,
+  "verified_maximal_independent_sets": 704,
+  "derivatives": [
+    false,
+    false
+  ],
+  "formula": "(p OR A_out OR A_in) AND (L OR A_out)"
+}

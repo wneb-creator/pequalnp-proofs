@@ -1,0 +1,2 @@
+{"start": true, "seed": 640066, "seconds": 5, "positive_basis": 52, "negative_basis": 704, "method": "valid65 neutral walk; signatures include boundary values and both derivatives"}
+{"finished": true, "seconds": 5.0000196850000975, "attempts": 225681, "accepted": 13852, "distinct": 13619, "duplicates": 233, "by_kind": {"rotation": [63238, 13758], "edge": [22471, 0], "random": [139860, 4], "relocation": [112, 90]}, "seed": 640066, "gate_count": 65, "found": false}

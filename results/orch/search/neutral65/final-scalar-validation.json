@@ -1,0 +1,46 @@
+{
+  "utc": "2026-11-25T04:25:33.533086+00:00",
+  "runs": [
+    {
+      "result": "neutral65-best-resumed.json",
+      "gates": 65,
+      "AND": 13,
+      "positive_rows": 52,
+      "negative_rows": 704,
+      "both_derivatives_false": true,
+      "strictly_earlier_distinct_operands": true,
+      "scalar_validation": "PASS"
+    },
+    {
+      "result": "neutral65-best-v2-resumed.json",
+      "gates": 65,
+      "AND": 13,
+      "positive_rows": 52,
+      "negative_rows": 704,
+      "both_derivatives_false": true,
+      "strictly_earlier_distinct_operands": true,
+      "scalar_validation": "PASS"
+    },
+    {
+      "result": "neutral66-best.json",
+      "gates": 66,
+      "AND": 13,
+      "positive_rows": 52,
+      "negative_rows": 704,
+      "both_derivatives_false": true,
+      "strictly_earlier_distinct_operands": true,
+      "scalar_validation": "PASS"
+    },
+    {
+      "result": "neutral66-alternative-best.json",
+      "gates": 66,
+      "AND": 14,
+      "positive_rows": 52,
+      "negative_rows": 704,
+      "both_derivatives_false": true,
+      "strictly_earlier_distinct_operands": true,
+      "scalar_validation": "PASS"
+    }
+  ],
+  "scope": "Final saved states independently scalar-checked; unsuccessful walks prove no lower bound."
+}

@@ -1,0 +1,107 @@
+{
+  "created_utc": "2026-11-25T03:59:32.929349+00:00",
+  "purpose": "Heuristic search for a valid 64-gate double-derivative-zero plane circuit by a neutral walk through valid 65-gate circuits.",
+  "tests": {
+    "positive_edges": 52,
+    "maximal_independent_sets": 704,
+    "singleton_bases": 2,
+    "derivatives": 2
+  },
+  "invariant": "Legal strictly earlier distinct binary AND/OR operands; final output last gate; every accepted state passes full monotone boundary and both formal derivative recurrences.",
+  "scope": "No lower bound or UNSAT conclusion from failed heuristic search.",
+  "files": {
+    "results/orch/search/plane_local_search.py": "cf56873b58fabfe81d9d79246d580b41e37600e8271f7bd03e2eb29dda07367d",
+    "results/orch/search/plane-exact65.json": "41308aad3a87ea72476702e3f5fc26fb5c6a579ca5b6a47166720ef0c67113d1",
+    "results/orch/search/neutral65/neutral65_search.py": "e7c50fbf501ebdd7b6b39409e7ab2acc86b6c38894bf28cb8eaec39ff05daaa9",
+    "results/orch/search/neutral65/neutral65_search_v2.py": "ae128b1f9a727d222d4dcbb3430c981d0b8546d128af31eb731a4f519b09f068",
+    "results/orch/search/neutral65/neutral65-best.json": "52caabc3a93bea4653af086d247b14f26be614ce4bae76509827ee361e5152d9",
+    "results/orch/search/neutral65/neutral65-best-v2.json": "cdf754536c718c0381d026b3aa06248d2a2967bdfbcae5f7a13b70d197e6c2f0",
+    "results/orch/search/neutral65/neutral66-alternative-search.log": "0c163eb268a4123e8a60881319198d925f7d16d33ff7f8f56262ba7d7bd20bb1",
+    "results/orch/search/neutral65/neutral66-alternative-best.json": "640f3902de6c4e3a9e93cf5df408e7b769abb84c536047737dc1782f10080174",
+    "results/orch/search/neutral65/plane-alternative66.json": "fffc12477897a05acb9d37e0409ce827aa69bdc004f3f477bb1a4cd363120820",
+    "results/orch/search/neutral65/neutral66_from_seed.py": "418edcc65c51dd57d45f034515d4f5a245747974ad53cdc6b756cb10dda01a8d",
+    "results/orch/search/neutral65/neutral65-search-resumed.log": "16c492405cc54ef0e53fb3dc5a9f3fbdc4577849d6b6f353674f8d6367f8488f",
+    "results/orch/search/neutral65/neutral65-best-resumed.json": "73ce96c571ce599eefb580108391586a0213c0faf8da9cd476674f46ae28109d",
+    "results/orch/search/neutral65/neutral65-search-v2-resumed.log": "28167ac76000fb7bbd58f1d76ed0732cc32333144435e7756d100ce2387f5a22",
+    "results/orch/search/neutral65/neutral65-best-v2-resumed.json": "2369743276481e584e9094e0da0200d7fb8c7ec48fb662f5fbe8bfa7f3db65f4",
+    "results/orch/search/neutral65/neutral66-search.log": "7e72adabc449948f07ad8aeb6520de4a0bf6c9a3d53579023dc6cb9ed7b13e0b",
+    "results/orch/search/neutral65/neutral66-best.json": "faf2bc37aee998ace7bc7c4381a3deff7a0f6f424ad5dc41bbdb304a300377eb",
+    "results/orch/search/neutral65/neutral66_search.py": "7f9da55c5f60b2895f123573512d78777e760dba86055ba0529a1a521dd33fa8",
+    "results/orch/search/neutral65/final-scalar-validation.json": "28b1e141c23d6b16e82dee126f4a2b84e6bf6491babb817246c0e606a029b4de",
+    "results/orch/search/neutral65/archive_neutral_runs.py": "e64ee011d0e31a85b0812a2d4fc18bdddb74d69e549cd5ea9af68fadf402b2d1"
+  },
+  "runs": [
+    {
+      "program": "neutral65_search.py",
+      "seed": 640065,
+      "interrupted_after_seconds": 90,
+      "log": "neutral65-search.log"
+    },
+    {
+      "program": "neutral65_search_v2.py",
+      "seed": 640066,
+      "interrupted_after_seconds": 30,
+      "log": "neutral65-search-v2.log"
+    },
+    {
+      "program": "neutral65_search.py",
+      "seed": 640165,
+      "remaining_seconds": 1710,
+      "log": "neutral65-search-resumed.log",
+      "witness": "neutral65-best.json",
+      "result": "neutral65-best-resumed.json",
+      "seconds_requested": 1710,
+      "status": "completed",
+      "actual_seconds": 1710.0000125290003,
+      "attempts": 32963082,
+      "accepted_moves": 2067303,
+      "found_at_most64": false
+    },
+    {
+      "program": "neutral65_search_v2.py",
+      "seed": 640166,
+      "remaining_seconds": 1770,
+      "log": "neutral65-search-v2-resumed.log",
+      "witness": "neutral65-best-v2.json",
+      "result": "neutral65-best-v2-resumed.json",
+      "seconds_requested": 1770,
+      "status": "completed",
+      "actual_seconds": 1770.0000166920004,
+      "attempts": 33168082,
+      "accepted_moves": 2048963,
+      "found_at_most64": false
+    },
+    {
+      "program": "neutral66_from_seed.py",
+      "seed": 640168,
+      "seconds_requested": 600,
+      "keep_seed_family": true,
+      "initial_gate_count": 66,
+      "initial_AND_count": 14,
+      "seed_file": "plane-alternative66.json",
+      "log": "neutral66-alternative-search.log",
+      "result": "neutral66-alternative-best.json",
+      "status": "completed",
+      "found_at_most64": false,
+      "attempts": 7499513,
+      "accepted_moves": 470336,
+      "actual_seconds": 600.0000391970002
+    },
+    {
+      "seed": 640167,
+      "program": "neutral66_search.py",
+      "log": "neutral66-search.log",
+      "result": "neutral66-best.json",
+      "seconds_requested": 1200,
+      "status": "completed",
+      "actual_seconds": 1200.000055634,
+      "attempts": 15147058,
+      "accepted_moves": 1026729,
+      "found_at_most64": false
+    }
+  ],
+  "measurement_note": "The log field distinct counts states absent from a bounded cache that resets above200000 entries; it is not a global unique-circuit count. Use proposal and accepted-move counts for comparisons.",
+  "bounded_bypass_audit_scope": "One bypass, or two bypasses whose first intermediate remains valid. A failed first intermediate is not explored further. No global lower bound or unrestricted two-edit UNSAT claim.",
+  "alternative66_scope": "The alternate-seed run starts from a genuine66-gate circuit with14AND/52OR and adds no spare. The inherited startup method string mentioning one spare does not describe this initial seed; --keep-seed-family suppresses canonical replacements.",
+  "finished_utc": "2026-11-25T04:25:33.533086+00:00"
+}
