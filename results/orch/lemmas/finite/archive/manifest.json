@@ -1,0 +1,389 @@
+{
+  "archived_utc": "2026-11-25T15:35:50.484821+00:00",
+  "job": "pequalnp-pilot-134",
+  "gap": "L-meta-1890",
+  "status": "Audited exploratory data only; every search is unfinished; no Lean-certified exhaustive result or counterexample.",
+  "checkpoints": [
+    {
+      "checkpoint": "live-seed-nots3-v2-closed.pkl.gz",
+      "log": "live-search-seed-nots3-chain-dag-v2.txt",
+      "description": "seeded, at most3 NOTs; explicit-budget chain cuts",
+      "mode": [
+        "budget-siblings-v2",
+        false,
+        1,
+        18,
+        16,
+        true,
+        3
+      ],
+      "closed_states": 9391,
+      "final_summary": {
+        "elapsed": 303.258061901,
+        "nodes": 5121707,
+        "stats": {
+          "expand": 9397,
+          "restriction": 63609,
+          "cover": 3821500,
+          "markov_one": 31164,
+          "restriction_dag": 21690,
+          "count": 1165217,
+          "transposition": 9129,
+          "interrupted": 1
+        },
+        "frontier_examples": [],
+        "memo_states": 9397,
+        "closed_states": 9391,
+        "automorphisms": 4,
+        "depths": {
+          "0": 1,
+          "1": 5,
+          "2": 38,
+          "3": 266,
+          "4": 5972,
+          "5": 225591,
+          "6": 1899812,
+          "7": 2633994,
+          "8": 354144,
+          "9": 1884
+        },
+        "markov_witnesses": 191,
+        "markov_examples": [
+          [
+            3,
+            1,
+            17,
+            5
+          ],
+          [
+            3,
+            1,
+            17,
+            20
+          ],
+          [
+            3,
+            1,
+            17,
+            65
+          ],
+          [
+            3,
+            1,
+            17,
+            69
+          ],
+          [
+            3,
+            1,
+            17,
+            129
+          ]
+        ]
+      }
+    },
+    {
+      "checkpoint": "live-plain-nots2-v2-closed.pkl.gz",
+      "log": "live-search-plain-nots2-chain-dag-v2.txt",
+      "description": "seed unused, at most2 NOTs; explicit-budget chain cuts",
+      "mode": [
+        "budget-siblings-v2",
+        false,
+        0,
+        18,
+        16,
+        true,
+        2
+      ],
+      "closed_states": 8157,
+      "final_summary": {
+        "elapsed": 301.8014439819999,
+        "nodes": 4296891,
+        "stats": {
+          "expand": 8164,
+          "restriction": 84511,
+          "cover": 3258132,
+          "markov_one": 9203,
+          "count": 912139,
+          "restriction_dag": 11758,
+          "transposition": 12939,
+          "not_budget": 44,
+          "interrupted": 1
+        },
+        "frontier_examples": [],
+        "memo_states": 8164,
+        "closed_states": 8157,
+        "automorphisms": 4,
+        "depths": {
+          "0": 1,
+          "1": 1,
+          "2": 48,
+          "3": 492,
+          "4": 10926,
+          "5": 210855,
+          "6": 1980367,
+          "7": 1880298,
+          "8": 212029,
+          "9": 1874
+        },
+        "markov_witnesses": 255,
+        "markov_examples": [
+          [
+            3,
+            2,
+            6,
+            10
+          ],
+          [
+            3,
+            2,
+            6,
+            18
+          ],
+          [
+            3,
+            2,
+            6,
+            20
+          ],
+          [
+            3,
+            2,
+            6,
+            34
+          ],
+          [
+            3,
+            2,
+            6,
+            36
+          ]
+        ]
+      }
+    },
+    {
+      "checkpoint": "live-seed-nots3-width-v2-closed.pkl.gz",
+      "log": "live-search-seed-nots3-width-v2.txt",
+      "description": "seeded, at most3 NOTs; resumed first checkpoint, with width chain cuts",
+      "mode": [
+        "budget-siblings-v2",
+        false,
+        1,
+        18,
+        16,
+        true,
+        3
+      ],
+      "closed_states": 17765,
+      "final_summary": {
+        "elapsed": 305.7545817700002,
+        "nodes": 4576175,
+        "stats": {
+          "expand": 8379,
+          "restriction": 56121,
+          "cover": 3388894,
+          "markov_one": 28649,
+          "transposition": 10933,
+          "restriction_dag": 15722,
+          "count": 1067476,
+          "interrupted": 1
+        },
+        "frontier_examples": [],
+        "memo_states": 17770,
+        "closed_states": 17765,
+        "automorphisms": 4,
+        "depths": {
+          "0": 1,
+          "1": 5,
+          "2": 38,
+          "3": 418,
+          "4": 10273,
+          "5": 303239,
+          "6": 1641770,
+          "7": 2155007,
+          "8": 465044,
+          "9": 380
+        },
+        "markov_witnesses": 151,
+        "markov_examples": [
+          [
+            3,
+            1,
+            13,
+            5
+          ],
+          [
+            3,
+            1,
+            17,
+            5
+          ],
+          [
+            3,
+            1,
+            17,
+            20
+          ],
+          [
+            3,
+            1,
+            17,
+            65
+          ],
+          [
+            3,
+            1,
+            17,
+            69
+          ]
+        ]
+      }
+    },
+    {
+      "checkpoint": "live-seed-unbounded-width-v2-closed.pkl.gz",
+      "log": "live-search-seed-unbounded-width-v2.txt",
+      "description": "seeded, no global NOT limit; width chain cuts only",
+      "mode": [
+        "budget-siblings-v2",
+        false,
+        1,
+        18,
+        16,
+        true,
+        null
+      ],
+      "closed_states": 10125,
+      "final_summary": {
+        "elapsed": 302.0990279880002,
+        "nodes": 4894391,
+        "stats": {
+          "expand": 10131,
+          "restriction": 40258,
+          "cover": 4340252,
+          "restriction_dag": 4756,
+          "markov_one": 488126,
+          "transposition": 10867,
+          "interrupted": 1
+        },
+        "frontier_examples": [],
+        "memo_states": 10131,
+        "closed_states": 10125,
+        "automorphisms": 4,
+        "depths": {
+          "0": 1,
+          "1": 5,
+          "2": 37,
+          "3": 137,
+          "4": 5234,
+          "5": 269267,
+          "6": 2300715,
+          "7": 2298523,
+          "8": 20472
+        },
+        "markov_witnesses": 1164,
+        "markov_examples": [
+          [
+            3,
+            1,
+            17,
+            5
+          ],
+          [
+            3,
+            1,
+            33,
+            5
+          ],
+          [
+            3,
+            1,
+            33,
+            129
+          ],
+          [
+            3,
+            1,
+            265,
+            73
+          ],
+          [
+            3,
+            1,
+            641,
+            193
+          ]
+        ]
+      }
+    }
+  ],
+  "invalid_checkpoints_not_copied": [
+    "live-seed-nots3-closed.pkl.gz",
+    "live-plain-nots2-closed.pkl.gz"
+  ],
+  "other_checkpoints_not_copied": [
+    "live-checkpoint-smoke.pkl.gz",
+    "live-checkpoint-smoke2.pkl.gz"
+  ],
+  "files": {
+    "fast-cover-validation.txt": {
+      "bytes": 1026,
+      "sha256": "a461db5742be84faa887b837d6e9b41931ef0fdcff8eede4987da8424ba07c1b"
+    },
+    "live-chain-certificates.json": {
+      "bytes": 35034,
+      "sha256": "15baf90cbf8b0b0344a60777d8b7b8699420baaa574d3042c456dd6f1d6e1c64"
+    },
+    "live-chain-certificates.log": {
+      "bytes": 1625,
+      "sha256": "94c682e262447e9b6e362115121db790f1f9eb04c90c686a789df43cf9665f72"
+    },
+    "live-plain-nots2-v2-closed.pkl.gz": {
+      "bytes": 194706,
+      "sha256": "902bc594922f791021a0e6142a7e870b1fb2f9f5343ec0ffac2888ab06944de8"
+    },
+    "live-search-plain-nots2-chain-dag-v2.txt": {
+      "bytes": 45144,
+      "sha256": "000419a20932e60b33e07f76d48988c20357d3962d08ab5ffca868ccffa22e4e"
+    },
+    "live-search-plain-nots2.txt": {
+      "bytes": 125188,
+      "sha256": "2f48525dbf31cc001ca3f7482d9af8f2b0f770f578242969c7067f3bb79b7e8d"
+    },
+    "live-search-seed-nots3-chain-dag-v2.txt": {
+      "bytes": 52700,
+      "sha256": "2c0475038d3942da352d3f9875a274ca00b493fbfc162ee623ec39f350385853"
+    },
+    "live-search-seed-nots3-width-v2.txt": {
+      "bytes": 47762,
+      "sha256": "f1910b8a6f5b4f3b0d15cea659101eb80aeb41a57feddfdf433ede59efa7a2ea"
+    },
+    "live-search-seed-nots3.txt": {
+      "bytes": 133098,
+      "sha256": "05c01a364ffe6d84a904e2cdc2f6b58928a23e928e6ccfafa335f0ca2bd13313"
+    },
+    "live-search-seed-unbounded-width-v2.txt": {
+      "bytes": 47368,
+      "sha256": "341859b02a3821972e85cc2eb8e760d240f1a30d494492bd947e4eebb83d3ed9"
+    },
+    "live-seed-nots3-v2-closed.pkl.gz": {
+      "bytes": 226088,
+      "sha256": "4b27156d926f798b22e06174c27ed73f0556b502268b4e4a4d9b61ed10f6fffe"
+    },
+    "live-seed-nots3-width-v2-closed.pkl.gz": {
+      "bytes": 440571,
+      "sha256": "05b2c06cf8feb65fdbdddcb6d3294abe64eb0817eded943903e867321dbdba0f"
+    },
+    "live-seed-unbounded-width-v2-closed.pkl.gz": {
+      "bytes": 225544,
+      "sha256": "2e22315be089da13fffdf28a44a838c3313dac83699d97c551f196e94a4242a8"
+    },
+    "markov-chain-validation.txt": {
+      "bytes": 71,
+      "sha256": "ed580ee5be6d6c6ade036f001438eb07c6b49cae9eeaddfaecc47ebf6bbc3141"
+    }
+  },
+  "source_sha256": {
+    "live_search.py": "816cdbd5f6dc59ca988a0f8b9010c4474ce45be0cec604bd4cff046f554fb15d",
+    "exact_cover.c": "f5b856655a16abecdc8e88e3cf751d2a2534ce4fcafc344dcca65df496f5f93e"
+  }
+}

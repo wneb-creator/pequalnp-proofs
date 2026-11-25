@@ -1,11 +1,18 @@
-L-meta-1890 partial finite engine
-UTC: 2026-11-25T15:18:08.046579+00:00
+L-meta-1890 partial draft validation
+UTC: 2026-11-25T15:31:30.686468+00:00
 File: Live1024.lean
-Compiler: lake env lean ../results/orch/lemmas/finite/Live1024.lean
-Exit: 0
-Scope: total-gate live-state semantics on 1024 rows; extraction; one-NOT four-chain exclusion; width-forced one-NOT bound. No full gap theorem.
+Exit: 1
+Status: one elaboration error remains in the added reflected checkChain wrapper. The previous core without that wrapper compiled in live1024-002.log. This current source is not yet a verified artifact and not a gap proof.
 
 Complete compiler output:
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots
+build queue: waiting 180s for one of 3 slots
+build queue: waiting 240s for one of 3 slots
+build queue: waiting 300s for one of 3 slots
+build queue: waiting 360s for one of 3 slots
+build queue: waiting 420s for one of 3 slots
+build queue: waiting 480s for one of 3 slots
 ../results/orch/lemmas/finite/Live1024.lean:70:83: warning: This simp argument is unused:
   BitVec.or_zero
 
@@ -28,3 +35,18 @@ Note: This linter can be disabled with `set_option linter.unusedTactic false`
 ../results/orch/lemmas/finite/Live1024.lean:70:173: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 
 Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/finite/Live1024.lean:367:47: error: Application type mismatch: The argument
+  h₁
+has type
+  (!bit r₁ T) = true
+but is expected to have type
+  bit r₁ T = false
+in the application
+  live_no_four_chain h ht r₀ r₁ r₂ r₃ h₀ h₁
+../results/orch/lemmas/finite/Live1024.lean:358:41: warning: This simp argument is unused:
+  Bool.not_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [checkChain, Bool.and_eq_true, List.all_eq_true] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

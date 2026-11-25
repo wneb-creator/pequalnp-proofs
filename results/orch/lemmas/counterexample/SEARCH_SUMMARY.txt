@@ -26,3 +26,12 @@ Lean-compiled partials (none is the full posted theorem):
 - SeedNotCircuitPins.lean: stronger suffix exclusion using effective pins, exit0; preferred version.
 - Upper20Symbolic.lean: concrete20-gate upper-bound sanity circuit, exit0 with unused-simp/tactic warnings; NOT a refutation of18bound.
 Original Upper20.lean and Upper20Fast.lean are unsuccessful enumeration drafts, not validated.
+
+Lossless archival compression at 2026-11-25T15:31:34.889707+00:00:
+/tmp/oec/pequalnp-pilot-134/synth-18-bounded3-0.drat -> /tmp/oec/pequalnp-pilot-134/synth-18-bounded3-0.drat.gz
+Original and decompressed SHA256: e1556a7704f2012909e92c4e243d6350fb0ead3bf0738d60312bc072beb62c24
+Original bytes=80740352, gzip bytes=32877519, recovered bytes=47862833. Original uncompressed copy removed only after successful hash verification.
+/tmp/oec/pequalnp-pilot-134/synth-18-bounded3rawconst-0.drat -> /tmp/oec/pequalnp-pilot-134/synth-18-bounded3rawconst-0.drat.gz
+Original and decompressed SHA256: 0ce3bd83e7db659d56bcceeec6f82ac89d5729811d5661395462bd10ecaa9c9d
+Original bytes=65011712, gzip bytes=24419220, recovered bytes=40592492. Original uncompressed copy removed only after successful hash verification.
+Total recovered bytes: 88455325. CNFs and sources unchanged.

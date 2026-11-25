@@ -17,7 +17,19 @@
     "synth-18-bounded3-0.drat": {
       "bytes": 80740352,
       "sha256": "e1556a7704f2012909e92c4e243d6350fb0ead3bf0738d60312bc072beb62c24",
-      "status": "incomplete; no UNSAT verdict"
+      "status": "incomplete; no UNSAT verdict",
+      "stored_as": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3-0.drat.gz",
+      "compression": {
+        "original_path": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3-0.drat",
+        "gzip_path": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3-0.drat.gz",
+        "original_bytes": 80740352,
+        "gzip_bytes": 32877519,
+        "recovered_bytes": 47862833,
+        "original_sha256": "e1556a7704f2012909e92c4e243d6350fb0ead3bf0738d60312bc072beb62c24",
+        "decompressed_sha256": "e1556a7704f2012909e92c4e243d6350fb0ead3bf0738d60312bc072beb62c24",
+        "gzip_sha256": "23f78c21fb7e649741f4e609c823c5de7ce9fff1257eae3a798d8b92350dba83",
+        "verified_lossless": true
+      }
     },
     "synth-18-bounded3rawconst-0.cnf": {
       "bytes": 23023716,
@@ -27,7 +39,19 @@
     "synth-18-bounded3rawconst-0.drat": {
       "bytes": 65011712,
       "sha256": "0ce3bd83e7db659d56bcceeec6f82ac89d5729811d5661395462bd10ecaa9c9d",
-      "status": "incomplete; no UNSAT verdict"
+      "status": "incomplete; no UNSAT verdict",
+      "stored_as": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3rawconst-0.drat.gz",
+      "compression": {
+        "original_path": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3rawconst-0.drat",
+        "gzip_path": "/tmp/oec/pequalnp-pilot-134/synth-18-bounded3rawconst-0.drat.gz",
+        "original_bytes": 65011712,
+        "gzip_bytes": 24419220,
+        "recovered_bytes": 40592492,
+        "original_sha256": "0ce3bd83e7db659d56bcceeec6f82ac89d5729811d5661395462bd10ecaa9c9d",
+        "decompressed_sha256": "0ce3bd83e7db659d56bcceeec6f82ac89d5729811d5661395462bd10ecaa9c9d",
+        "gzip_sha256": "34ed326fba69e58c4d68f67128cee49f29beaeba951a1a0380270e690208be3b",
+        "verified_lossless": true
+      }
     }
   },
   "copied_full_logs": [
@@ -46,5 +70,7 @@
     "synth-18-seednot-progress.txt",
     "synth-18-bounded3-progress.txt",
     "synth-18-bounded3rawconst-progress.txt"
-  ]
+  ],
+  "lossless_compression_utc": "2026-11-25T15:31:34.889707+00:00",
+  "recovered_bytes": 88455325
 }

@@ -200,3 +200,9 @@ SignedBridge.lean23969bytes compiled exit0 as scratch SignedBridgeTest.lean. It 
 ### Preservation review 2026-11-25T15:26:15+00:00
 - PASS SeedNotCircuitPins.lean116lines5073B,SHA25664ea4d3b6cb01260f30441d0be8701ae9e3135c006f9f25b3f009e72bd4b0df7. Exact NOT-head semantics justify ignoring unused tail operands in safe-wire induction; finite collisions unchanged. Format clean.
 - Root reported unexpected lease410; status reviewer paused broad census and new work. Erase4093 source remains saved and independently reviewed, but build is still waiting for a slot; no successful compile claim.
+
+Erase4093 build finished exit0 at 2026-11-25T15:28:12+00:00; full diagnostics in status_review/Erase4093.validation.txt; independent source review already PASS.
+
+## readtwice 2026-11-25T15:37:00.890145+00:00 — signed nine bound CHECKED
+
+SignedBounds.lean compiled exit0,217712bytes3878lines, SHA256 e4fe84e1479d34553b00827d77f2b33dd2f686cc3ac9677b5c377f72261cdb8e. It includes actual finite signedRoot certificate and unconditional BoundsNine.minor_lower15 (C) (legal) (computes):15≤C.size for the exact nine-vertex Petersen minor. Complete validation and compiler output saved beside source. Temporary SignedBounds.olean is ready for development imports; final source remains Defs-only. Full nine≥16 Bounds compile remains active.

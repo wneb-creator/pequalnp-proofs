@@ -25,3 +25,5 @@ results/orch/lemmas/structural/ReaderSavings.lean
 
 Also preserve tracked results/orch/NOTES.md.
 Exclude __pycache__ directories and both .pyc files. No binaries/cache files included.
+
+Late addition: results/orch/lemmas/status_review/Erase4093.validation.txt (full compiler diagnostics, successful exit0; reviewed safe text).

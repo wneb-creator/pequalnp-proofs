@@ -14,3 +14,5 @@
 2026-11-25T15:14:06.667203+00:00 Conditional terminal-NOT case and seed-NOT suffix collision partials checked/reviewed.
 
 - 2026-11-25T15:25:56.695359+00:00 Desk returned HTTP410; preserving checked partials before the expressly requested recovery attempt.
+
+2026-11-25T15:37:00.890751+00:00 readtwice: SignedBounds.lean compiled exit0; compact ordinary nine-input lower15 checked (217712bytes).

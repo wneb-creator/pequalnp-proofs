@@ -1,0 +1,1 @@
+{'finite_truth_tables': 210, 'chains_found': 115, 'all_matches': True}

@@ -1,0 +1,79 @@
+L-meta-1890 partial draft validation
+UTC: 2026-11-25T15:30:42.553105+00:00
+File: Bridge1024.lean
+Exit: 1
+Status: elaboration errors remain; this is not a verified artifact and not a gap proof.
+
+Complete compiler output:
+build queue: waiting 60s for one of 3 slots
+build queue: waiting 120s for one of 3 slots
+../results/orch/lemmas/finite/Bridge1024.lean:70:83: warning: This simp argument is unused:
+  BitVec.or_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.and_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Bridge1024.lean:70:98: warning: This simp argument is unused:
+  BitVec.and_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [bin, one, zero, Bool.false_eq_true, ite_false, ite_true, BitVec.and_allOnes, BitVec.or_zero,
+    BitVec.or_allOnes, BitVec.and_self, BitVec.or_self, and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Bridge1024.lean:70:173: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/finite/Bridge1024.lean:70:173: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/finite/Bridge1024.lean:551:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/finite/Bridge1024.lean:601:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Bridge1024.lean:704:47: error: Application type mismatch: The argument
+  h₁
+has type
+  (!bit r₁ T) = true
+but is expected to have type
+  bit r₁ T = false
+in the application
+  live_no_four_chain h ht r₀ r₁ r₂ r₃ h₀ h₁
+../results/orch/lemmas/finite/Bridge1024.lean:695:41: warning: This simp argument is unused:
+  Bool.not_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [checkChain, Bool.and_eq_true, List.all_eq_true] at hc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/finite/Bridge1024.lean:784:33: error: Type mismatch: After simplification, term
+  hm
+ has type
+  a ∈ bank
+but is expected to have type
+  BoundsModel.inv (inv a) ∈ bank
+../results/orch/lemmas/finite/Bridge1024.lean:822:22: error: Function expected at
+  List.mem_cons_self
+but this term has type
+  ?m.418 ∈ ?m.418 :: ?m.419
+
+Note: Expected a function because this term is being applied to the argument
+  _
+../results/orch/lemmas/finite/Bridge1024.lean:828:22: error: Function expected at
+  List.mem_cons_self
+but this term has type
+  ?m.504 ∈ ?m.504 :: ?m.505
+
+Note: Expected a function because this term is being applied to the argument
+  _
