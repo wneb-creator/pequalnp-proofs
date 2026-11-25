@@ -1,0 +1,7 @@
+PASS: independent archive integrity, reporting and audit-source review.
+
+Root read the complete README, guard diff, metadata and audit source. All19 manifest entries and every decompressed stream match exact SHA256 and size. The source differs from the reviewed dynamic search only at two resource-limit thresholds. Reran the preserved audit from an isolated reconstructed directory; its complete JSON matches the archived output. All1145 weak-mode cofactor bounds equal the signed table, all574389 recorded strict rectangle sums are arithmetically consistent,164 bank histories replay, and26439 unique completed memo states use the weak-mode header. The initial bank is absent. No stronger-mode cache is loaded.
+
+The run stopped on its ordinary300second limit after734033nodes and exit0, not completion. The README expressly states no UNSAT, exact-cost-replay, complete recursion DAG or Lean claim. The audit checks recorded costs arithmetically; it does not prove their maxima or all cofactor cuts. A future certificate must reconstruct every used completed state. The current V3 continuation has separate immutable inputs and is not part of this archive.
+
+Manifest SHA256: 305e7bd9eb0a29c4d86d9ffef41ad044bf4309a267d1313ff5174e6b0054ef77

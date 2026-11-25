@@ -1,0 +1,8 @@
+{
+  "original_source_sha256": "2709cc91618d78399c15fd67bb2f8371722e7193b0c69b19e5a01470ef97742b",
+  "modified_source_sha256": "cad7cc15c9826879fc9968bc02c61e17c6fbddff279252cce887548d1c9bd35c",
+  "exact_replacements": 2,
+  "old_guard": "estimated_memory()>1500000000",
+  "new_guard": "estimated_memory()>800000000",
+  "matrix_sha256": "6b6c73f27d2d4c2acb94b26aa0d76466f4b947b631dbf68501be945a3313cda4"
+}

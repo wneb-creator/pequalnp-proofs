@@ -1,0 +1,9 @@
+PASS: independent review of PullPositiveKeep.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+Frozen SHA256 9dc48a056ea2dd172d5808b307128f6f2eb76a71479a77d2e3383a93aca6be02; 3832 bytes. Entire source and full compiler log read; recorded compiler exit 0, no warnings or errors. No new compile launched.
+
+The helper strengthens the existing FreeBank pull_gate and pull_positive_chunk arguments with explicit membership of a protected root. I compared the complete pull_gate and positive-chunk implementations with FreeBankExtraction. Existing representation, freshness, legality, and count arguments are preserved. In the only case that removes a generated wire z from the live set, the explicit z != keep hypothesis puts keep in S.erase z, hence in the replacement binary-input set. Other cases keep S unchanged. The chunk induction transfers its prefix safety hypothesis through execute of the first gate and applies the one-gate lemma; it adds at most one gate per removed positive gate and retains keep throughout.
+
+The safety premise is substantive and remains explicit: every generated positive gate value in the removed chunk must differ from keep. This result alone does not establish that premise for arbitrary circuits, nor prove a Petersen lower bound. No hidden assumption of nonconstant or distinct input roots is added.
+
+No sorry, axioms, native_decide, bv_decide, forbidden _root_ text, strings, custom datatypes/instances, attributes, or options occur in the new source. Cached import OneForcedBank is appropriate for this archived helper, not a final single-file PR. PASS is limited to the frozen helper and its documented successful build.

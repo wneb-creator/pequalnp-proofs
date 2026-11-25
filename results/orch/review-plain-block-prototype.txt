@@ -1,0 +1,4 @@
+PASS: limited five-node computation prototype.
+Source SHA256: 3f14f0865a4de16671c8411ee8b90353b4c8cfd95ff5e84ea8ba14946dc49bd4
+Complete source reviewed. Endpoint is exactly CutRow mo 10 0 5. checkedRow unfolds to five nodeVerified facts through block_at; ordinary decide+kernel checks the block Boolean, with no batch-checker premise or axiom. Both options are local allowed limits. This demonstrates replacement for only this five-node row, not all batches nor measured global source savings. Producer reports EXIT0 and empty compiler output; cached .olean is present.
+Final archive source hash unchanged; archived complete PlainBlockPrototype.compile.txt independently verified empty. Producer confirmed session26196 exit0. Final immutable review PASS.

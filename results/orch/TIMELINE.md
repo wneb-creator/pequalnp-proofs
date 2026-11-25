@@ -137,3 +137,5 @@
 - 2026-11-25 15:53:15 UTC — benchmark ended at ordinary limit:734,033nodes,26,439completed weak-only memo states, no circuit or completed-case verdict. Full archive preserved.
 
 - 2026-11-25T16:01:30.447136+00:00: full mono19 first-OR-edge computational lineage independently reviewed; allfive traces and final113408state cache preserved. ExactLean theorem remains absent.
+
+- 2026-11-25T16:05:01.392998+00:00: four additional compiled/reviewed smallcomponents preserved; weak15initial300second archive reviewed. Rootstarted freshstrongmono19ANDedge600second experiment after lease renewal.

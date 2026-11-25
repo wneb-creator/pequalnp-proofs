@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "profile_lower_bounds_all_match_signed_table": true,
+  "rectangle_events": {
+    "header": 1,
+    "matrix_loaded": 13,
+    "rectangle": 574389,
+    "signal": 36997
+  },
+  "rectangle_matrix_hits": {
+    "3": 4729,
+    "5": 86674,
+    "0": 339920,
+    "2": 1953,
+    "11": 6088,
+    "7": 16222,
+    "6": 68523,
+    "1": 14122,
+    "12": 4506,
+    "8": 7650,
+    "9": 2234,
+    "22": 1091,
+    "19": 4081,
+    "18": 1431,
+    "10": 1311,
+    "21": 1015,
+    "4": 194,
+    "20": 3437,
+    "23": 5016,
+    "16": 124,
+    "15": 88,
+    "13": 816,
+    "24": 2694,
+    "25": 384,
+    "17": 77,
+    "14": 9
+  },
+  "sampled_bank_histories_replayed": 164,
+  "memo_header": "PNP_COPY_MEMO_V1 0 19 oredge 1",
+  "memo_states": 26439,
+  "memo_remaining_budgets": {
+    "15": 9455,
+    "14": 6143,
+    "13": 1172,
+    "16": 6553,
+    "17": 2431,
+    "18": 596,
+    "12": 88,
+    "11": 1
+  },
+  "root_in_completed_memo": false,
+  "limitations": [
+    "Recorded root costs are checked arithmetically, not recomputed as rectangle maxima here.",
+    "These are full emitted rectangle/bank traces, not a complete recursion DAG.",
+    "Completed-only memo insertion follows the reviewed search source; no Lean proof is asserted.",
+    "No UNSAT claim is inferred from a timeout or other limit."
+  ]
+}

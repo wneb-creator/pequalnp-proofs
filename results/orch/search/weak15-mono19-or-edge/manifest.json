@@ -1,0 +1,84 @@
+{
+  "rectangles.jsonl": {
+    "original_bytes": 119228390,
+    "original_sha256": "93a813bb908f423ba74fd55c5d117d1d54079c4a9e0e55267414ef09403c8660",
+    "gzip_bytes": 8661950,
+    "gzip_sha256": "b67598b2a9b2bcf4ae9dcb29a16bc75e580f1904cf8c0461bf357f45db619d02"
+  },
+  "banks.jsonl": {
+    "original_bytes": 980755,
+    "original_sha256": "dc4494d5d2080f00f4d0e64f6098e3789b21067327aed34c8c316708ac5f5f4d",
+    "gzip_bytes": 16726,
+    "gzip_sha256": "2d968650949eb8bccd1cb98b34d7241349619a3309ed3d90ed757a0ab822537b"
+  },
+  "completed-weak15.memo": {
+    "original_bytes": 103413201,
+    "original_sha256": "4124aa77228c73e08e3cdf2549313f032deda1a1bdff6c1cb767ca515a3c6645",
+    "gzip_bytes": 1443834,
+    "gzip_sha256": "761b266d6ce2c566d4789fe22583a81667fc8a26aa9540a8d7b1f14bbd946be3"
+  },
+  "stdout.txt": {
+    "bytes": 14657,
+    "sha256": "c57cccc9d87eba3f75b02395210ca73e53944c1c3ffbb5ea9acd9a7bc0d86fc0"
+  },
+  "stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "runner-output.txt": {
+    "bytes": 1110,
+    "sha256": "a41e3f2e78d6762b73f5444f760a04bc2e1a82cfb2af647d7aa52e0e9d5dce58"
+  },
+  "postprocess-output.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "run-metadata.json": {
+    "bytes": 1220,
+    "sha256": "685e1dd212d2cbd4c234dc208e00b75c640f49e982aa19f0f8e1479b7099a9af"
+  },
+  "output-audit.json": {
+    "bytes": 1304,
+    "sha256": "fb88c13645b45e45ce20c5d55e34da290d2b95f2bbb123c2ef17cc08543cb508"
+  },
+  "output-audit.stderr.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "profile-bound-audit.json": {
+    "bytes": 1168,
+    "sha256": "a540b7b7a95b87982c5583de3886ce4ab62838de9c821cf4ee93dd236e1883dd"
+  },
+  "guard-change.json": {
+    "bytes": 404,
+    "sha256": "e39a510e80a56066390f40903617c6b3a71bf5d52e440b141575ef2f79c178cf"
+  },
+  "compile.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "compiler-help.txt": {
+    "bytes": 4091,
+    "sha256": "a47d05202c8797d0c508c87da67083f7d62028b9ac4a49ea8a6e3abd09f73886"
+  },
+  "run_bounded.py": {
+    "bytes": 2296,
+    "sha256": "b280270ada83e72ab1f88e9f6f69a4b0b79857f17222d6245d5540a493a4c53f"
+  },
+  "audit_outputs.py": {
+    "bytes": 4853,
+    "sha256": "375f6c4f655a172197b80de2e1c4ad4c23dc7f32c6af4370c302c52613ddc1f0"
+  },
+  "copy_search_weak15.cpp": {
+    "bytes": 85931,
+    "sha256": "cad7cc15c9826879fc9968bc02c61e17c6fbddff279252cce887548d1c9bd35c"
+  },
+  "rectangles-v2.txt": {
+    "bytes": 8076,
+    "sha256": "6b6c73f27d2d4c2acb94b26aa0d76466f4b947b631dbf68501be945a3313cda4"
+  },
+  "copy_search_first_dynamic.reviewed.cpp": {
+    "bytes": 85933,
+    "sha256": "2709cc91618d78399c15fd67bb2f8371722e7193b0c69b19e5a01470ef97742b"
+  }
+}

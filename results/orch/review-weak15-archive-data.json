@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "utc": "2026-11-25T16:01:57.761247+00:00",
+  "manifest_sha256": "305e7bd9eb0a29c4d86d9ffef41ad044bf4309a267d1313ff5174e6b0054ef77",
+  "verified_entries": 19,
+  "audit_rerun_matches": true,
+  "final_status_lines": [
+    "stdout.txt:77:limit reached"
+  ],
+  "scope": "incomplete weak15 computational search, not UNSAT or Lean certificate"
+}

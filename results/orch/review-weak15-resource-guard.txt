@@ -1,0 +1,5 @@
+Independent root review: PASS for resource-only delta.
+Source SHA256 cad7cc15c9826879fc9968bc02c61e17c6fbddff279252cce887548d1c9bd35c
+UTC 2026-11-25T15:47:44.611118+00:00
+
+Byte-exact comparison with the reviewed dynamic source shows only two hard estimated-memory thresholds reduced from1500000000 to800000000. Both still throw the same incomplete-search limit, never insert an interrupted state into completed exclusions. All search transitions, cofactor profiles, exact dynamic cuts, matrix parser and memo semantics are unchanged. This permits a fresh weak15 experiment with the explicit --mono-nine15 switch; no stronger-mode completed cache may be loaded. The guard is an estimate, not an exactRSS cap.

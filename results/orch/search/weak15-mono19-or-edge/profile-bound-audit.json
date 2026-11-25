@@ -1,0 +1,76 @@
+{
+  "profile_count": 1145,
+  "monotone_signed_differences": [
+    {
+      "index": 0,
+      "zeroes": 1,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 1,
+      "zeroes": 2,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 2,
+      "zeroes": 4,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 3,
+      "zeroes": 8,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 4,
+      "zeroes": 16,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 5,
+      "zeroes": 32,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 6,
+      "zeroes": 64,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 7,
+      "zeroes": 128,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 8,
+      "zeroes": 256,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    },
+    {
+      "index": 9,
+      "zeroes": 512,
+      "ones": 0,
+      "mono": 16,
+      "signed": 15
+    }
+  ],
+  "weak15_matches_all_signed_profile_bounds": true
+}

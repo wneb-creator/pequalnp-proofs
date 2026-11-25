@@ -1,0 +1,13 @@
+PASS: independent source, mathematical, and trust review of OneForcedBank.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+Frozen source SHA256: 7860a16116b8aadf54bce289cbd2a1673b6d2053e931a451859023e0cf0d228d
+Size: 4820 bytes, 120 lines. Full source and complete compiler log read.
+Compiler record: exit 0; one unused simp argument warning, no errors. No additional compile launched.
+
+The conclusion is a partial positive-bank lower bound: if h implies input a, a positive Live computation of the Petersen graph uses roots from original inputs together with h and its complement, and the complement is retained, then it needs at least 18 binary gates. The theorem does not assert the posted gap, an ordinary-circuit result, or monotonicity of h.
+
+live_row_order proves preservation of a two-row implication by positive AND/OR Live gates. The finite influence_values check supplies the stated graph/input row values. forcesInput makes h constantly false and its complement constantly true on the input-a-zero cofactor. If neither input a nor h is retained, every remaining root is ordered from presentRow to absentRow, contradicting the graph values; retained_positive therefore supplies a second live constant after restriction. That constant is distinct from the retained complement because its projection is false while the complement's projection is true. Coverage and the two-constant projected lower bound then give 18 <= k. No monotonicity hypothesis on h is silently assumed.
+
+Dependency limitation: projected_mono_lower_two currently uses NineSigned.nine_monotone_reach_lower (the existing nine-input monotone lower bound 16) through OneNotFirstAnd/ZeroProfilesMonotone16. This review does not claim independence from the old mono16 certificate. The proposed future conditional derivation of mono16 would require an independently established weak15 Petersen monotone lower bound.
+
+New source has only ordinary definitions/theorems, one permitted local heartbeat limit, no new datatype/instance/axiom, no sorry/native_decide/bv_decide, no string literals, no forbidden _root_ text, and no attributes. Cached-module import OneNotForcedPair is appropriate for this archived partial, not a final single-file PR import. Existing upstream dependency format caveats remain separate. PASS is limited to this immutable helper and its recorded successful build.
