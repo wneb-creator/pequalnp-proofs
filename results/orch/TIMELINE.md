@@ -10,3 +10,4 @@
 - 2026-11-25T03:05Z: alternative-route support child compiled successfully (renamed existing L_meta_2074 proof).
 - 2026-11-25T03:06:48.523376+00:00: full reduction named-file build passed; independent review passed. Official checker started. Structural and support lemmas also compiled.
 - 2026-11-25T03:08:32.207806+00:00: at-most-one-junk baseline compiled and independently reviewed for preservation.
+- 2026-11-25T03:09:17.720563+00:00: official local checker ACCEPTED (reduce), 1665 constants; cleanup pass started from112lines.
