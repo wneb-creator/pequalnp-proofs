@@ -1,0 +1,7 @@
+Gap: L-meta-5012
+Partial only: three helper lemmas, main theorem absent.
+Build: lake build PEqualNP.Outside.L_meta_5012 PASSED (5149 jobs).
+Checker: pending; full Mathlib cache currently exceeds available disk.
+Cleanup: not applicable yet; partial target 33 lines.
+Sub-agents: 6 (status/reviewer, toolchain, structural, finite search, restrictions, proof inventory)
+TIMING total=9.7 subagents=6

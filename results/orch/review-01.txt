@@ -1,0 +1,5 @@
+Independent reviewer: pilot176_status
+Reviewed 33-line target and result notes.
+Verdict: no semantic or file-format issues in the three helper lemmas.
+No main theorem present; this is partial preservation only, not a proof PR.
+Root verified lake build PEqualNP.Outside.L_meta_5012 passed.
