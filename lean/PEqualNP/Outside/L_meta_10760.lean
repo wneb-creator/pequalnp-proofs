@@ -1536,4 +1536,135 @@ lemma not_graphColorable_of_degreeFast {graph : List ℕ} {colors : ℕ}
   rw [h] at hh
   cases hh
 
+
+def colorSearchSym (graph : List ℕ) (colors : ℕ) : ℕ → ℕ → List ℕ → Bool
+  | 0, _, _ => true
+  | k + 1, used, assigned => (List.range (min colors (used + 1))).any (fun c =>
+      fitsColor graph assigned c &&
+        colorSearchSym graph colors k (max used (c + 1)) (assigned ++ [c]))
+
+lemma colorPrefix_congr (f g : ℕ → ℕ) (n : ℕ) (h : ∀ i < n, f i = g i) :
+    colorPrefix f n = colorPrefix g n := by
+  apply List.map_congr_left
+  intro i hi
+  exact h i (List.mem_range.mp hi)
+
+lemma colorRenaming_next (f : ℕ → ℕ) (n used colors : ℕ)
+    (hnext : f n < colors) (hprior : ∀ i < n, f i < used) :
+    ∃ e : ℕ ≃ ℕ,
+      (∀ c < colors, e c < colors) ∧
+      (∀ i < n, e (f i) = f i) ∧
+      e (f n) < min colors (used + 1) := by
+  by_cases hold : f n < used
+  · refine ⟨Equiv.refl _, (fun c hc => hc), (fun i hi => rfl), ?_⟩
+    change f n < min colors (used + 1)
+    exact lt_min hnext (by omega)
+  · have hu : used < colors := by omega
+    refine ⟨Equiv.swap (f n) used, ?_, ?_, ?_⟩
+    · intro c hc
+      by_cases hcn : c = f n
+      · subst c
+        simpa only [Equiv.swap_apply_left] using hu
+      · by_cases hcu : c = used
+        · subst c
+          simpa only [Equiv.swap_apply_right] using hnext
+        · rwa [Equiv.swap_apply_of_ne_of_ne hcn hcu]
+    · intro i hi
+      have hfi := hprior i hi
+      exact Equiv.swap_apply_of_ne_of_ne (by omega) (by omega)
+    · rw [Equiv.swap_apply_left]
+      exact lt_min hu (Nat.lt_succ_self _)
+
+lemma colorSearchSym_complete {graph : List ℕ} {colors : ℕ} {f : ℕ → ℕ}
+    (hbound : ∀ i < graph.length, f i < colors)
+    (hproper : ∀ i < graph.length, ∀ j < graph.length,
+      (graph.getD i 0).testBit j = true → f i ≠ f j)
+    (k n used : ℕ) (hsize : n + k ≤ graph.length) (hused : used ≤ colors)
+    (hprior : ∀ i < n, f i < used) :
+    colorSearchSym graph colors k used (colorPrefix f n) = true := by
+  induction k generalizing f n used with
+  | zero => rfl
+  | succ k ih =>
+    have hn : n < graph.length := by omega
+    obtain ⟨e, heBound, heFix, heNext⟩ :=
+      colorRenaming_next f n used colors (hbound n hn) hprior
+    let g : ℕ → ℕ := fun i => e (f i)
+    have hgBound : ∀ i < graph.length, g i < colors :=
+      fun i hi => heBound (f i) (hbound i hi)
+    have hgProper : ∀ i < graph.length, ∀ j < graph.length,
+        (graph.getD i 0).testBit j = true → g i ≠ g j := by
+      intro i hi j hj hedge heq
+      exact hproper i hi j hj hedge (e.injective heq)
+    have hprefix : colorPrefix g n = colorPrefix f n :=
+      colorPrefix_congr g f n heFix
+    apply List.any_eq_true.mpr
+    refine ⟨g n, List.mem_range.mpr heNext, ?_⟩
+    simp only [Bool.and_eq_true]
+    constructor
+    · rw [← hprefix]
+      exact fitsColor_prefix hgProper hn
+    · rw [← hprefix, ← colorPrefix_succ]
+      apply ih hgBound hgProper (n + 1) (max used (g n + 1))
+      · omega
+      · exact max_le hused (Nat.succ_le_of_lt (hgBound n hn))
+      · intro i hi
+        by_cases hin : i < n
+        · have heq : g i = f i := heFix i hin
+          rw [heq]
+          exact lt_of_lt_of_le (hprior i hin) (Nat.le_max_left _ _)
+        · have heq : i = n := by omega
+          subst i
+          exact lt_of_lt_of_le (Nat.lt_succ_self _) (Nat.le_max_right _ _)
+
+def graphColorSym (graph : List ℕ) (colors : ℕ) : Bool :=
+  colorSearchSym graph colors graph.length 0 []
+
+lemma graphColorSym_complete {graph : List ℕ} {colors : ℕ}
+    (h : graphColorable graph colors) : graphColorSym graph colors = true := by
+  obtain ⟨f, hbound, hproper⟩ := h
+  simpa only [graphColorSym, colorPrefix, List.range_zero, List.map_nil] using
+    colorSearchSym_complete hbound hproper graph.length 0 0 (by omega) (by omega)
+      (by intro i hi; omega)
+
+lemma not_graphColorable_of_sym {graph : List ℕ} {colors : ℕ}
+    (h : graphColorSym graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorSym_complete hc
+  rw [h] at hh
+  cases hh
+
+def graphColorSymOrdered (graph : List ℕ) (colors : ℕ) : Bool :=
+  graphColorSym (inducedGraph graph (graphOrder graph)) colors
+
+lemma graphColorSymOrdered_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphColorSymOrdered graph colors = true := by
+  exact graphColorSym_complete (graphColorable_induced hc (graphOrder_valid graph))
+
+def graphColorSymFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 1 then graphEmptyCheck graph
+  else if 1 < colors then graphColorSymOrdered graph colors
+  else graphColorSym graph colors
+
+lemma graphColorSymFast_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphColorSymFast graph colors = true := by
+  unfold graphColorSymFast
+  split
+  · next h => subst colors; exact graphEmptyCheck_complete hc
+  · split
+    · exact graphColorSymOrdered_complete hc
+    · exact graphColorSym_complete hc
+
+lemma not_graphColorable_of_symFast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorSymFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorSymFast_complete hc
+  rw [h] at hh
+  cases hh
+
+lemma not_fin_coloring_of_symFast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorSymFast graph colors = false)
+    (f : Fin graph.length → Fin colors)
+    (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
+  not_graphColorable_of_symFast h (graphColorable_of_fin f hproper)
+
 end PEqualNP.Outside.L_meta_10760
