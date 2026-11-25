@@ -19,3 +19,4 @@
 - 2026-11-25T20:15:44.756644+00:00: refined problematic case checked; peakmemory diagnosis continues; checkpointing valid proof and metrics.
 - 2026-11-25T20:20:36.985475+00:00: resource replan: all17 individual checks below4.29GiB, wholemodule6.68GiB; test Prop-valued definitions to avoid cross-declaration retention. Numerical search complete; no further graph search needed. Genuine pinned Mathlib umbrella recovered for checker.
 - 2026-11-25T20:24:33.778638+00:00: declaration-form fix checked under3threads at4529844KiB; exact17 lemma-to-def keyword changes independently reviewed; scaling to complete candidate.
+- 2026-11-25T20:28:40.859115+00:00: complete frozen candidate undergoing named build; reviewed optimized root proofs and candidate archived before completion.

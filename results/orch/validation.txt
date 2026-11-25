@@ -42,3 +42,5 @@ TIMING total=46.1 subagents=9
 Memory checkpoint: StrictSym8,RootShardAdapter,Sym8PhaseOnly compiled exit0 and reviewed. StrictSym8 peak7003760KiB remains over target; no final acceptance claim.
 
 Memory fix: StrictSym8Defs compiled exit0 under3threads in102.742s,peak4529844KiB. Independent review confirms only17 lemma keywords changed to def, with identical types/proof terms. Full candidate conversion and checker pending.
+
+Final candidate static review passed: SHA0199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d,8290lines,520385bytes. Root13Safe/Root14Safe/count-split adapters checked and reviewed. Named-file lake build is RUNNING, no final verdict yet.

@@ -1,0 +1,30 @@
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:7:0: warning: Definition `masks13_full` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:9:0: warning: Definition `shard13_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:12:0: warning: Definition `shard13_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:15:0: warning: Definition `shard13_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:18:0: warning: Definition `shard13_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:21:0: warning: Definition `shard13_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:24:0: warning: Definition `shard13_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:27:0: warning: Definition `shard13_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:30:0: warning: Definition `shard13_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-182/Root13Safe.lean:33:0: warning: Definition `shard13_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
