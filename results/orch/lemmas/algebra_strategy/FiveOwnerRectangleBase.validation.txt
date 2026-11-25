@@ -1,0 +1,4 @@
+Compiled successfully with lake env lean -j 1 -M 4096; exit0.
+Imports only PEqualNP.Defs. Full stdout/stderr: FiveOwnerRectangleBase.build.log (empty).
+Research geometry only: exact20 edges,15 individually allowed nonedges, raw support relations and elementary finite facts. No circuit lower bound or L650 refutation.
+SHA256 d96e0f9bfec61c145dadd455583a7453516a8688ed5dfcbb533a6e220722ae67
