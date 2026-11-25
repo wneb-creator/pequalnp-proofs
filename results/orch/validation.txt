@@ -1,0 +1,10 @@
+L-meta-2592 partial checkpoint
+2026-11-25T14:10:16.642233+00:00
+
+Checked partial: results/orch/lemmas/structural.lean
+Command: lake env lean ../results/orch/lemmas/structural.lean
+Result: exit 0; stdout and stderr empty, complete logs in results/orch/logs/.
+Full posted lower bound: NOT PROVED. No proof PR yet. Local full-statement checker: not run.
+
+Sub-agents: five (repository/review, counterexample search, Lean environment, structural argument, finite lower-bound search)
+TIMING total=10.11 subagents=5

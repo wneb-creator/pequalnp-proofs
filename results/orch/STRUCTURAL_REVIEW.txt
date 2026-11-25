@@ -1,0 +1,6 @@
+Independent review: PASS (status_and_review agent)
+Source: results/orch/lemmas/structural.lean
+SHA256: d51581e266ea19a5df155a6986570512354b1aa61c4686c50e48c977ba628618
+Checked all 1024 assignments for both automorphisms and independence bound, all 512 inputs for both cofactors, and ten essential-input witnesses.
+Allowed imports, scoped permitted options, module namespace, no prohibited tokens or axioms.
+This is a supporting partial, not the posted lower-bound theorem.
