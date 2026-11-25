@@ -1,0 +1,61 @@
+import took 1.58s
+parsing took 321ms
+parsing took 104ms
+elaboration took 203ms
+elaboration took 2.05s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 150ms
+linting took 122ms
+process pre-definitions took 310ms
+elaboration took 13.1s
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 101ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 169ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 310ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 162ms
+linting took 379ms
+elaboration took 134ms
+elaboration took 161ms
+elaboration took 2.05s
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 149ms
+linting took 109ms
+type checking took 12.6s
+type checking took 413ms
+type checking took 1.07s
+type checking took 1.12s
+type checking took 1.09s
+type checking took 886ms
+type checking took 1.11s
+type checking took 977ms
+type checking took 1.13s
+type checking took 416ms
+type checking took 1.81s
+type checking took 1.45s
+type checking took 1.15s
+type checking took 419ms
+type checking took 1.33s
+type checking took 436ms
+type checking took 384ms
+type checking took 115ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/IndividualGroupBenchmark.lean:387:0: warning: Definition `individualChecks` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.743ms
+	congr simp thm 1.02ms
+	declTypeLinter 162ms
+	elaboration 18.1s
+	fix level params 6.22ms
+	import 1.58s
+	initialization 41.5ms
+	instantiate metavars 72ms
+	interpretation 2.19s
+	let-to-have transformation 173ms
+	linting 683ms
+	module linting 0.142ms
+	parsing 496ms
+	process pre-definitions 519ms
+	share common exprs 139ms
+	simp 85.2ms
+	tactic execution 129ms
+	tacticAnalysis 152ms
+	type checking 28s
+	typeclass inference 6.59s
