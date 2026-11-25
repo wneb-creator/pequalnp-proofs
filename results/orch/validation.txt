@@ -11,3 +11,8 @@ Independent review: artifact_analysis checked the helper proofs and plain-file r
 
 Sub-agents: status_review (dimension/star formalization), toolchain_setup (setup/permanent), artifact_analysis (independent review/research), construct_search (symbolic constructions), geometry_search (geometric constraints), rowzero (row-zero classification).
 TIMING total=87.2 subagents=6
+
+SECOND PARTIAL CHECKPOINT
+Named file: 159 lines. Added the symmetric two-dimensional star level-space and its explicit permanent formula. This still does not prove dimension three.
+Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5149 jobs).
+Complete logs: star-build.stdout and star-build.stderr. Independent review: PASS for the new helper proofs and integration plan.
