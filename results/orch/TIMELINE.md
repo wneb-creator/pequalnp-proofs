@@ -16,3 +16,5 @@
 - 2026-11-25T14:24:37.767910+00:00: cross-component9/10gate local synthesis ended UNKNOWN after300s each; counterexample search strategy paused without witness.
 - 2026-11-25T14:28:09.901914+00:00: Integrated590-line partial builds; axiom audit allows only standard three axioms. Local exact-statement checker exits3 with missing fullMathlib closure, no verdict.
 - 2026-11-25T14:28:53.260258+00:00: SAT strategy has checked finite cofactor/output bounds and pair-orbit symmetry; 82-row strengthened heuristic ended UNKNOWN at600s, full1024-row run continues.
+- 2026-11-25T14:32:49.051151+00:00: checked signed NOT-prefix and minimal first-binary classification; passed components to proof_strategy for two-drop composition.
+- 2026-11-25T14:33:15.557734+00:00: Preserving reviewed two-drop and signed-first-gate normalization components; assembling the proposed floor16 remains ongoing.

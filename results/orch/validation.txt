@@ -23,3 +23,9 @@ Posted theorem remains absent; no proof PR is ready. Cleanup pass skipped becaus
 Named-file line counts: 71 initial checked normalization lines; 590 integrated partial lines. This is component integration, not a cleanup reduction.
 Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
 TIMING total=28 subagents=6
+
+Fourth preservation: TwoDropChecked.lean, SignedPrefix.lean and SignedFirst.lean each compile with exit 0. Independent source and statement review: PASS for partial preservation.
+TwoDropChecked source SHA256:55348d2b8934430897f2c6542b4d4f4c04693aea5172e30030f54d7d5c2ab2a1.
+The two-drop lemma saves at least two non-NOT gates under explicit hypotheses; signed-prefix lemmas supply part of those hypotheses. Full Petersen floor16 and the posted target remain unproved.
+Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
+TIMING total=33 subagents=6
