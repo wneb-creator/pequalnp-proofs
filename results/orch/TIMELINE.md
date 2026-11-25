@@ -32,3 +32,5 @@
 2026-11-25T17:12:05.976105+00:00: recovery request for L1884 instead assigned L-meta-3754, lease de5bc7ed-2bf7-473d-accd-592151afc8ee, expiry17:31:14.768Z. Reusing team for least lift-fixed AO circuits; prior checked results preserved.
 
 2026-11-25T17:36:36.911332+00:00: L3754 replan: focus unique-dirty strict saving (selection + semantic restoration + three-gate surgery), with independent two-AND classification and finite counterexample search. Named2398 and reviewed partials preserved. General multiple-dirty case remains unresolved.
+
+2026-11-25T17:52:32.815717+00:00: L3754 replan after accepted one-junk exclusion found. Freeze completed alternative unique-positive proof. Redirect to multiple-dirty circuits: separate total-gate, AND-count, OR-count lower bounds; generalized per-source cover; stronger exact circuit searches. No full result.

@@ -102,3 +102,7 @@ TIMING total=136.2 subagents=6
 2026-11-25T17:43:11.087152+00:00 L3754 partial preservation: named3275 passes lake build and exact concatenation independently reviewed. Strict3653 reach2505 independently reviewed by toolchain_setup/status_review, semantic restoration924 by status_review, alias agreement1053 by root/toolchain_setup, and double-star exclusion877 by root/status_review. Full compiler streams/hash manifest in checkpoint-25. Second search bundle102 hashes and two models rechecked by root; all claims are computational subcases only. The full posted theorem is absent; target checker not passed.
 Sub-agents: six, reused across proof, search and independent review tasks.
 TIMING total=140.6 subagents=6
+
+2026-11-25T17:52:32.815717+00:00 L3754 preservation: full independent positive unique-dirty proof6060 lines compiled, final composition independently reviewed by toolchain_setup; component proofs reviewed by status_review/ledger/AND/root. Root bypass129 compiled and independently approved by toolchain_setup. All compiler streams and hashes retained. Existing accepted L3760/L8725 already rule out one dirty gate, so work redirects to multiple dirty gates. Third search bundle31 hashes and all three positive models independently rechecked; matching-CNF probe bundle hashes checked and computational audit independently reviewed. No posted theorem, refutation, or target checker acceptance.
+Sub-agents: six, reused across proof, search and independent review tasks.
+TIMING total=149.9 subagents=6

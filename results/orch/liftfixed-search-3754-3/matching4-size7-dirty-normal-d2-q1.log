@@ -1,0 +1,31 @@
+2026-11-25T17:45:50.965163+00:00 matching 4 size 7 prefixTotal 6 dirtyANDcount 2 cleanANDs 1 samples 6 maxfalse 4 autos 8
+RESULT sat seconds 0.688
+VERIFIED_FULL_TRUTH_TABLE {"n": 4, "edges": [[0, 1], [2, 3]], "bipartition": [0, 1, 0, 1], "gates": [["or", 0, 2], ["or", 0, 3], ["or", 1, 2], ["or", 1, 3], ["and", 4, 6], ["and", 5, 7], ["and", 8, 9]], "output": 10, "dirty_and_indices": [4, 5], "below_gate": [false, false, false, false, false, false, true], "cover": [0, 2], "standard_bound": 3, "clean_ands": 1, "dirty_ands": 2}
+(:added-eqs           1339492
+ :binary-propagations 788536
+ :bv-bit2core         874786
+ :bv-diseqs           2496
+ :bv-dynamic-diseqs   94980
+ :bv-dynamic-eqs      384
+ :bv->core-eq         162828
+ :conflicts           4862
+ :decisions           16602
+ :del-clause          452124
+ :final-checks        2
+ :max-memory          23.86
+ :memory              17.91
+ :minimized-lits      28788
+ :mk-bool-var         413492
+ :mk-clause           461814
+ :mk-clause-binary    11348
+ :num-allocs          33623775
+ :num-checks          2
+ :pb-predicates       6
+ :pb-propagations     1350
+ :propagations        1100362
+ :restarts            40
+ :rlimit-count        2559671
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 7
+ :solve-eqs-steps     423
+ :time                0.69)

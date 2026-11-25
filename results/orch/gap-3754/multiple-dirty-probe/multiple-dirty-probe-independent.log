@@ -1,0 +1,5 @@
+VERIFIED matching 2 gates 7 dirty_ANDs 2 assignments 16 plus every local parent bypass changes F
+VERIFIED matching 3 gates 19 dirty_ANDs 6 assignments 64 plus every local parent bypass changes F
+VERIFIED matching 4 gates 43 dirty_ANDs 14 assignments 256 plus every local parent bypass changes F
+VERIFIED matching 5 gates 91 dirty_ANDs 30 assignments 1024 plus every local parent bypass changes F
+INDEPENDENT_AUDIT_PASSED

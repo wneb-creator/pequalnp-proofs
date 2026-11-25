@@ -1,0 +1,47 @@
+[
+  {
+    "query": "cycle8-size11-dirty-normal-d0-q4",
+    "result": "unsat",
+    "seconds": 3.193
+  },
+  {
+    "query": "cycle8-size11-one-normal-q3",
+    "result": "unsat",
+    "seconds": 170.406
+  },
+  {
+    "query": "matching4-size7-dirty-normal-d2-q1",
+    "result": "sat",
+    "seconds": 0.688
+  },
+  {
+    "query": "path4-size5-one-bypass-q1",
+    "result": "sat",
+    "seconds": 0.141
+  },
+  {
+    "query": "theta2449-size13-one-bypass-q4",
+    "result": "unknown",
+    "seconds": 180.096
+  },
+  {
+    "query": "theta2449-size13-one-normal-q4",
+    "result": "unknown",
+    "seconds": 120.052
+  },
+  {
+    "query": "theta3338-size12-one-bypass-q4",
+    "result": "unsat",
+    "seconds": 123.9
+  },
+  {
+    "query": "theta3338-size12-one-normal-q3",
+    "result": "unknown",
+    "seconds": 180.014
+  },
+  {
+    "query": "theta3338-size12-one-normal-q5",
+    "result": "unsat",
+    "seconds": 3.503
+  }
+]
