@@ -14,3 +14,5 @@
 - 2026-11-25T14:38:23.416278+00:00: five-orbit finite certificate compiled and archived.
 - 2026-11-25T14:41:07.980876+00:00: essential-five-case bridge and Petersen cofactor certificates checked and archived.
 - 2026-11-25T14:47:11.018875+00:00: all agents stopped after HTTP410; recovery snapshot prepared before re-request.
+- 2026-11-25T14:49:57.949494+00:00: same-gap recovery returned L-meta-2583, with reported expiry15:09:10Z; later identified as pre-existing. No new proof work started; old proof work remains stopped.
+- 2026-11-25T14:54:02.025670+00:00: ownership verification returned same pre-existing2583 lease at capacity; stopped without release; final validation recorded.

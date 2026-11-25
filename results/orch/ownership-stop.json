@@ -1,0 +1,17 @@
+{
+  "observed_at": "2026-11-25T14:54:02.025670+00:00",
+  "status": "STOPPED: repeated pre-existing lease at handle capacity",
+  "original_gap": "L-meta-2592",
+  "returned_gap": "L-meta-2583",
+  "same_lease_returned_twice": true,
+  "lease_terms_issued_at": "2026-11-25T13:59:02.364Z",
+  "job_started_at": "2026-11-25T14:00:51+00:00",
+  "holding": 5,
+  "exact_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "null_answers": 0,
+  "allocation_requests": 3,
+  "explicit_renewals_for_returned_2583_lease": 0,
+  "release_calls": 0,
+  "proof_work_on_2583": "none; read-only inspection only; no Lean file or build",
+  "no_more_desk_requests": true
+}

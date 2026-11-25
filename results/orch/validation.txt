@@ -1,26 +1,30 @@
-L-meta-2592 PARTIAL CHECKPOINT
-Not a completed proof of the posted statement; no PR is authorized by this result alone.
-Lean 4.36.0 direct compilation of identical HighNot.lean bytes exited 0 at 2026-11-25T14:09:28Z.
-Result: For a fan-in-two circuit computing the Petersen function: 15 + NOT-count <= size; size <=19 therefore implies at most four NOT gates.
-This ports the checked L_meta_4725 counting proof and adds the arithmetic consequence.
-Remaining: exclude circuits with one to four NOT gates, or find a verified counterexample.
-Full compiler stdout/stderr: results/orch/high-not-build.log.
-Target named build: PASS, 6655 jobs. Target checker: REJECTED (no-theorem); target theorem absent. Full outputs preserved in results/orch/target-build.* and partial-check.*.
-Cleanup: not started; 3228 lines before and after.
-Original checked partial SHA256: 7823c8648e521541c4e05085327ed3ce37e88603e56c0c86535c35db02b4ac4c
-Sub-agents: six (setup/review, structural proof, counterexample search, definition audit, library search, finite bounds)
-TIMING total=9.09 subagents=6
-Additional checked partials archived: Endpoint.lean (exit0, linter warning), Audit.lean (exit0, empty stdout/stderr).
-NotComparable.lean: semantic replacement of a NOT whose operand is comparable with the target; direct Lean exit0, empty complete log. No gate-count conclusion asserted.
-BranchBudget.lean: tight fanout budget gives exact read counts; compiled exit0, empty log. EndpointClean.lean is the warning-free checked revision of Endpoint.lean (exit0, empty log).
-NotComparableExtended.lean and GraphSeparator.lean: checked semantic refinements for an essential NOT operand; direct Lean exit0 with empty full logs. Neither proves the posted circuit-size bound.
-BranchCovered.lean: Lean exit0, establishes fresh first-input coverage for every branch in a Least Petersen circuit with at most 15 binary gates. UnaryBranch.lean: Lean exit0, proves the generic unary-successor path obstruction. Full logs archived.
-Latest checkpoint measurement: TIMING total=21.27 subagents=6
-LeastBudget.lean: direct Lean exit0, empty complete log; normalization and Least selection preserve the original total gate bound, and a witness with 4 NOT gates and at most 19 total gates yields exactly 15 binary gates. Scratch test imports the partial module; final integration must inline the body with no outside-module import.
-Integrated BranchCovered into the named file: lake build exit0, 6655 jobs; 3228 -> 3299 lines (integration, not cleanup). The target theorem remains absent. Current main SHA256: 39dd65f3d5ef87139b8f30a06d6d72904d2b9524ff2bb334368daf1f2fd56c5e
-BranchLocal.lean: direct Lean exit0; every internal branch in a Least Petersen circuit with at most 15 binary gates reads a nonbranch wire, excluding adjacent unary branches. MaximalIndependent.lean: direct Lean exit0; an independent input where a monotone operand is true extends to a maximal independent input where it remains true. Full source/log pairs archived.
-Second main integration: lake build PASS (6655 jobs), 3426 lines, SHA256 af3544446f1283c08d107db1a620766ea3a4257c98d5a3eeea1c967a834438e0. Added local branch restrictions, at least six fresh branches, and total-budget normalization. No target theorem.
-ReadTwoCofactors.lean: direct Lean exit0, empty full log; two Boolean identities for replacing a negative occurrence at an AND/OR common ancestor under monotonicity assumptions. This is not a full formula transformation theorem.
-OrbitCover.lean: direct Lean exit0, empty log; verifies120 explicit Petersen automorphisms, the15 maximal independent sets, and coverage of maximal-set/edge pairs by five representative orbits. This is a symmetry certificate, not the circuit lower bound.
-EssentialFiveCases.lean: direct Lean exit0, empty log; a monotone operand incomparable with the Petersen target has witnesses in one of five symmetry cases. This is not an exclusion of those cases.
-PetersenCofactors.lean: direct Lean exit0, empty log; finite checked restrictions cover every pair of distinct vertices and realize truth tables200,234,254. The general formula-leaf lower bound is still pending.
+Job: pequalnp-pilot-109
+Message: msg-f96f1d0c4d2128a9023a076b
+Recorded: 2026-11-25T14:54:02.025670+00:00
+Status: STOPPED because the desk repeatedly returned a pre-existing lease while the handle held five gaps.
+
+No complete proof or refutation. No PR opened. No lease release calls were made.
+The recovery and verification responses both returned L-meta-2583 with terms issued at13:59:02.364Z, before this job started14:00:51Z, and the exact note:
+you hold 5 gaps, the most one handle may hold at once; release one to get another
+That lease was not explicitly renewed or released; no Lean file/build or solver work was started for2583.
+Null answers:0. Allocation requests:3 (initial, same-gap recovery, one ownership-verification retry).
+
+Preserved project partial: lean/PEqualNP/Outside/L_meta_2592.lean
+Current SHA256: af3544446f1283c08d107db1a620766ea3a4257c98d5a3eeea1c967a834438e0
+Current lines: 3426
+Named lake build: PASS, Build completed successfully (6655 jobs).
+Latest full outputs: results/orch/integrated-build-002.stdout and .stderr.
+Checker verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2592 (one lemma, one file: the theorem carries the module's name)
+Checker ran on the original checked partial; full outputs: results/orch/partial-check.stdout and .stderr. The final partial still has no posted target theorem.
+Initial partial lines:3228. Final integrated partial lines:3426. No cleanup pass was attempted because no complete proof passed the checker.
+
+Checked progress: binary-gate floor and exclusion of at least5NOT gates; fresh-branch and local-sharing restrictions; total-budget normalization; five semantic one-NOT symmetry cases; Petersen cofactor and occurrence-count components. These do not prove the posted statement.
+Drafts that are NOT checked: full projection extension, final finite pruning obstruction, constant-wire deletion. No full formula lower bound was completed.
+Best exact optimizer circuit:20gates, zeroNOTs, checked on all1024inputs by the search program. Best19gate near-circuit has4false positives and is NOT a refutation.
+
+HTTP410: scheduled renewal14:44:28Z failed despite preceding expiry14:54:27Z. Required curl-si retry also returned410. Full headers/body: results/orch/recovery/desk/desk-error-full.txt.
+Recovery snapshot manifest: results/orch/recovery/manifest.json. Checked components, drafts, and research artifacts have separate status labels.
+All preservation pushes were independently reviewed. Main proof file contains no prohibited constructs; target theorem remains absent.
+
+Sub-agents: 6 (setup/review, structural proof, counterexample search, definition audit, library search, finite bounds)
+TIMING total=53.18 subagents=6
