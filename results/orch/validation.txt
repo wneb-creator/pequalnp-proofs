@@ -1,0 +1,14 @@
+L-meta-1772 PARTIAL VALIDATION
+2026-11-25T03:37:28.004842+00:00
+
+MinimalProof.lean: lake env lean ../results/orch/lemmas/MinimalProof.lean
+Exit 0; stdout and stderr empty. Checked C5 obstruction to a stronger parity implication, not a refutation of the gap.
+
+NormalForm.lean: lake env lean ../results/orch/lemmas/NormalForm.lean
+Exit 0; stdout and stderr empty. Checked conditional ownership normalization, not a full proof of the gap.
+
+Repository checker: not run on partial artifacts; no ACCEPTED verdict claimed.
+Independent source review: rules_review PASS for partial publication.
+
+Sub-agents: six; rules and independent review, minimality proof, conditional normalizer, finite counterexample search, algebraic route, soundness and ownership rewrites.
+TIMING total=11.9 subagents=6
