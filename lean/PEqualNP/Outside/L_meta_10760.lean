@@ -2695,4 +2695,95 @@ lemma sumCostCandidates_sound {R T s k} (hs : SliceN R T s)
 
 end RestrictionSixProof
 
+namespace AutoPool.IndependentCost
+
+open RestrictionSixProof
+
+def normalizedCandidates (d anchor : Nat) (ws : List Nat) : List Nat :=
+  (ws.map (fun raw => let w := raw &&& d; if w.testBit anchor then w ^^^ d else w)).eraseDups
+
+lemma normalizedCandidates_available {d anchor raw : Nat} {ws : List Nat}
+    (hr : raw ∈ ws) :
+    AutoPool.available d (normalizedCandidates d anchor ws) raw = true := by
+  have hm : (if (raw &&& d).testBit anchor then (raw &&& d) ^^^ d else raw &&& d) ∈
+      normalizedCandidates d anchor ws := by
+    apply List.mem_eraseDups.mpr
+    exact List.mem_map.mpr ⟨raw,hr,rfl⟩
+  simp only [AutoPool.available,Bool.or_eq_true,List.any_eq_true]
+  refine Or.inr ⟨_,hm,?_⟩
+  by_cases h : (raw &&& d).testBit anchor = true
+  · right
+    simp [h]
+  · left
+    simp [h]
+
+lemma normalizedCandidates_av {d anchor raw : Nat} {ws : List Nat}
+    (hr : raw ∈ ws) : av d (normalizedCandidates d anchor ws) raw = true := by
+  rw [←autoPool_available_eq_av]
+  exact normalizedCandidates_available hr
+
+lemma normalizedCandidates_all (d anchor : Nat) (ws : List Nat) :
+    ws.all (av d (normalizedCandidates d anchor ws)) = true := by
+  exact List.all_eq_true.mpr fun _ hr => normalizedCandidates_av hr
+
+end AutoPool.IndependentCost
+
+namespace AutoPool.IndependentCost
+
+open RestrictionSixProof
+
+def dedupFastCut (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  if L + constants <= k then false else
+    let anchor := Nat.log2 (d ^^^ (d - 1))
+    let pool := vs.map (fun v => AutoPool.var v &&& d)
+    let candidates := normalizedCandidates d anchor ws
+    match costs d anchor vs pool candidates with
+    | none => false
+    | some paid => k + paid < L + constants
+
+lemma dedupFastCut_sound {R T s k} (hs : SliceN R T s) (ws : List Nat)
+    (nd : (ws.map W).Nodup) (h : dedupFastCut k ws s = true) :
+    Impossible true (W T) k (ws.map W).toFinset := by
+  rcases s with ⟨d,L,vs⟩
+  obtain ⟨⟨f,roots,dom,base,nc,lo⟩,hv⟩ := hs
+  have hp : PS f (roots.map observe) (vs.map (fun v => AutoPool.var v &&& d)) := by
+    intro w hw
+    obtain ⟨v,hvs,rfl⟩ := List.mem_map.mp hw
+    change Available true (roots.map observe) (RF f (Nat.land (AutoPool.var v) d))
+    rw [rf_land dom]
+    by_cases h7 : v < 7
+    · rw [autoPool_var_eq_xN h7]
+      exact base _ (List.mem_map_of_mem (hv v hvs))
+    · rw [autoPool_var_eq_zero (by omega)]
+      exact Or.inr (Or.inl ⟨false,rf_zero⟩)
+  simp only [dedupFastCut] at h
+  split at h
+  · contradiction
+  · split at h
+    · contradiction
+    · rename_i paid hpaid
+      let anchor := Nat.log2 (d ^^^ (d - 1))
+      let candidates := normalizedCandidates d anchor ws
+      obtain ⟨bank,hr,hps,_⟩ := costs_sound dom hp candidates hpaid
+      have covered : ws.all (av d candidates) = true := normalizedCandidates_all d anchor ws
+      have supplyWords : supply true bank (((ws.map W).map observe).map (restrictRows f)) := by
+        simp only [List.map_map,Function.comp_def]
+        intro v hv'
+        obtain ⟨w,hw,rfl⟩ := List.mem_map.mp hv'
+        exact av_ok dom hps (List.all_eq_true.mp covered w hw)
+      intro k' hk run
+      have bound := projected_bound f (list_run run _ nd rfl) nc hr supplyWords lo
+      have count := sumc_ok dom ws
+      have mapped : (((ws.map W).map observe).map (restrictRows f)) = ws.map (RF f) := by
+        simp only [List.map_map,Function.comp_def]
+      rw [mapped] at bound
+      change L + mass (ws.map (RF f)) ≤ paid + k' at bound
+      change sumc d ws ≤ mass (ws.map (RF f)) at count
+      simp only [decide_eq_true_eq,autoPool_countConstants_eq_sumc] at h
+      omega
+
+end AutoPool.IndependentCost
+
 end PEqualNP.Outside.L_meta_10760
