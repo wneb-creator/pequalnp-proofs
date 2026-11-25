@@ -1,0 +1,29 @@
+{
+  "status": "COMPILED and independently APPROVED",
+  "exit_code": 0,
+  "sha256": "97010bac6ae6cfe2f83d7b3a8b676366d76def2962de8c2ddf99ee5ae777be80",
+  "lines": 10421,
+  "log": "PlanePenaltyFourStar.build.log",
+  "log_bytes": 22042,
+  "completed_utc": "2026-11-25T07:46:11.528555+00:00",
+  "build_command": "lake env lean -j1 -M6144 ../results/orch/lemmas/algebra_strategy/PlanePenaltyFourStar.lean",
+  "build_workdir": "/workspace/pequalnp-proofs/lean",
+  "exit_evidence": "Post-restart lake process52625 ran lean child52691. Its actual exit_group(0) and exited-with0 were recorded in PlanePenaltyFourStar.exit-trace.log; tracing session94894 also completed normally. Original resumed-build tool session identifier was lost in context compaction, so exit was observed directly.",
+  "scope": "Concrete necessary condition: an exact-plane IsLeastAO TopForm circuit of size\u226463, penalty4 AND Ustar.card4 has Ustar equal to the entire incident star of one vertex. Does not exclude this case, establish\u22653 junk, prove OR\u226551, or refute L650.",
+  "copied_prefixes": [
+    "Approved PlaneResidualCounting.lean",
+    "Approved TightCoverStar.lean with duplicate imports removed"
+  ],
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "final_gap_ready": false,
+  "format_scan": {
+    "forbidden_keywords": [],
+    "root_marker": false,
+    "quote": false,
+    "attributes": []
+  },
+  "independent_review": "status_review verified exact source/prefix/tail/format/scope, warning-only full log, actual exit0 trace and receipt; lower_bound independently audited accepted prefixes."
+}
