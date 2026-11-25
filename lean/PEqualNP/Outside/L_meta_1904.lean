@@ -502,4 +502,176 @@ lemma no_four_cycle : ∀ a b c d : Fin 9,
 
 end CloneObstruction
 
+-- Abstract incidence bounds for distinct source labels and gate output labels.
+-- The hypotheses explicitly provide reader coverage and operand capacities.
+namespace ConstantSourceCount
+
+lemma true_operand_incidence_bound {ι α : Type*} [DecidableEq ι] [DecidableEq α]
+    (P D : Finset ι) (T : ι → Finset α) (hPD : P ⊆ D)
+    (htrue : ∀ j ∈ P, (T j).card ≤ 2)
+    (hfalse : ∀ j ∈ D, j ∉ P → (T j).card ≤ 1) :
+    ∑ j ∈ D, (T j).card ≤ D.card + P.card := by
+  have indicator : (∑ j ∈ D, if j ∈ P then 1 else 0) = P.card := by
+    calc
+      (∑ j ∈ D, if j ∈ P then 1 else 0) =
+          ∑ j ∈ P, if j ∈ P then 1 else 0 := by
+        symm
+        apply Finset.sum_subset hPD
+        intro j _ hj
+        simp [hj]
+      _ = P.card := by simp
+  calc
+    ∑ j ∈ D, (T j).card ≤ ∑ j ∈ D, (1 + if j ∈ P then 1 else 0) := by
+      apply Finset.sum_le_sum
+      intro j hj
+      by_cases hp : j ∈ P
+      · simpa [hp] using htrue j hp
+      · simpa [hp] using hfalse j hj hp
+    _ = D.card + P.card := by simp [Finset.sum_add_distrib,indicator]
+
+lemma distinct_source_incidence_bound {ι α : Type*} [DecidableEq ι] [DecidableEq α]
+    (S : Finset α) (P D : Finset ι) (out : ι → α) (T : ι → Finset α)
+    (hinj : Set.InjOn out P) (hdisj : Disjoint S (P.image out))
+    (hread : S ∪ P.image out ⊆ D.biUnion T) :
+    S.card + P.card ≤ ∑ j ∈ D, (T j).card := by
+  have himage : (P.image out).card = P.card := Finset.card_image_iff.mpr hinj
+  calc
+    S.card + P.card = (S ∪ P.image out).card := by
+      rw [Finset.card_union_of_disjoint hdisj,himage]
+    _ ≤ (D.biUnion T).card := Finset.card_le_card hread
+    _ ≤ ∑ j ∈ D, (T j).card := Finset.card_biUnion_le
+
+lemma constant_source_count_le {ι α : Type*} [DecidableEq ι] [DecidableEq α]
+    (S : Finset α) (P D : Finset ι) (out : ι → α) (T : ι → Finset α)
+    (hinj : Set.InjOn out P) (hdisj : Disjoint S (P.image out))
+    (hread : S ∪ P.image out ⊆ D.biUnion T) (hPD : P ⊆ D)
+    (htrue : ∀ j ∈ P, (T j).card ≤ 2)
+    (hfalse : ∀ j ∈ D, j ∉ P → (T j).card ≤ 1) : S.card ≤ D.card := by
+  have hl := distinct_source_incidence_bound S P D out T hinj hdisj hread
+  have hu := true_operand_incidence_bound P D T hPD htrue hfalse
+  omega
+
+end ConstantSourceCount
+
+namespace OneBitCut
+
+variable {V : Type*} [DecidableEq V]
+
+def HasEdge (G : SimpleGraph V) (T : Finset V) : Prop :=
+  ∃ u ∈ T, ∃ v ∈ T, G.Adj u v
+
+omit [DecidableEq V] in
+lemma no_edge_empty (G : SimpleGraph V) : ¬ HasEdge G ∅ := by
+  simp [HasEdge]
+
+omit [DecidableEq V] in
+lemma no_edge_singleton (G : SimpleGraph V) (v : V) : ¬ HasEdge G {v} := by
+  simp [HasEdge]
+
+lemma edge_pair (G : SimpleGraph V) (u v : V) : HasEdge G {u,v} ↔ G.Adj u v := by
+  simp [HasEdge, G.adj_comm]
+
+def Factors (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool) : Prop :=
+  ∀ I ⊆ S, ∀ J ⊆ O, HasEdge G (I ∪ J) ↔ decode (code I) J = true
+
+lemma bool_same_when_ne {a b c : Bool} (hab : a ≠ c) (hbc : b ≠ c) : a = b := by
+  cases a <;> cases b <;> cases c <;> simp_all
+
+lemma internal_code_ne_empty (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) (internal : HasEdge G S) :
+    code S ≠ code ∅ := by
+  intro same
+  have yes : decode (code S) ∅ = true :=
+    (factors S Finset.Subset.rfl ∅ (Finset.empty_subset O)).mp (by simpa using internal)
+  rw [same] at yes
+  have empty : HasEdge G ∅ := by
+    simpa using (factors ∅ (Finset.empty_subset S) ∅ (Finset.empty_subset O)).mpr yes
+  exact no_edge_empty G empty
+
+lemma crossing_code_ne_empty (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) {u v : V}
+    (inside : u ∈ S) (outside : v ∈ O) (crossing : G.Adj u v) :
+    code {u} ≠ code ∅ := by
+  have usub : ({u} : Finset V) ⊆ S := by simpa using inside
+  have vsub : ({v} : Finset V) ⊆ O := by simpa using outside
+  have edge : HasEdge G ({u} ∪ {v}) := by
+    simpa only [Finset.singleton_union] using (edge_pair G u v).mpr crossing
+  have yes := (factors {u} usub {v} vsub).mp edge
+  intro same
+  rw [same] at yes
+  have single : HasEdge G {v} := by
+    simpa using (factors ∅ (Finset.empty_subset S) {v} vsub).mpr yes
+  exact no_edge_singleton G v single
+
+lemma internal_edge_forbids_boundary (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) (internal : HasEdge G S) :
+    ∀ u ∈ S, ∀ v ∈ O, ¬ G.Adj u v := by
+  intro u inside v outside crossing
+  have internalCode := internal_code_ne_empty G S O code decode factors internal
+  have crossingCode := crossing_code_ne_empty G S O code decode factors inside outside crossing
+  have same : code {u} = code S := bool_same_when_ne crossingCode internalCode
+  have yes : decode (code S) ∅ = true :=
+    (factors S Finset.Subset.rfl ∅ (Finset.empty_subset O)).mp (by simpa using internal)
+  rw [← same] at yes
+  have single : HasEdge G {u} := by
+    simpa using (factors {u} (by simpa using inside) ∅ (Finset.empty_subset O)).mpr yes
+  exact no_edge_singleton G u single
+
+lemma active_singletons_same_code (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) {u v : V}
+    (hu : u ∈ S) (hv : v ∈ S)
+    (activeU : ∃ a ∈ O, G.Adj u a) (activeV : ∃ b ∈ O, G.Adj v b) :
+    code {u} = code {v} := by
+  obtain ⟨a, ha, ua⟩ := activeU
+  obtain ⟨b, hb, vb⟩ := activeV
+  exact bool_same_when_ne
+    (crossing_code_ne_empty G S O code decode factors hu ha ua)
+    (crossing_code_ne_empty G S O code decode factors hv hb vb)
+
+lemma active_vertices_same_outside_neighbors (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode) {u v : V}
+    (hu : u ∈ S) (hv : v ∈ S)
+    (activeU : ∃ a ∈ O, G.Adj u a) (activeV : ∃ b ∈ O, G.Adj v b) :
+    ∀ w ∈ O, G.Adj u w ↔ G.Adj v w := by
+  have same := active_singletons_same_code G S O code decode factors hu hv activeU activeV
+  intro w hw
+  have left := factors {u} (by simpa using hu) {w} (by simpa using hw)
+  have right := factors {v} (by simpa using hv) {w} (by simpa using hw)
+  simp only [Finset.singleton_union, edge_pair] at left right
+  rw [same] at left
+  exact left.trans right.symm
+
+lemma distinct_active_vertices_have_one_outside_neighbor
+    (G : SimpleGraph V) (S O : Finset V)
+    (code : Finset V → Bool) (decode : Bool → Finset V → Bool)
+    (factors : Factors G S O code decode)
+    (noFour : ∀ a b c d : V,
+      G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    {u v : V} (hu : u ∈ S) (hv : v ∈ S) (different : u ≠ v)
+    (activeU : ∃ a ∈ O, G.Adj u a) (activeV : ∃ b ∈ O, G.Adj v b) :
+    ∃ w ∈ O, ∀ z ∈ O, (G.Adj u z ↔ z = w) ∧ (G.Adj v z ↔ z = w) := by
+  have same := active_vertices_same_outside_neighbors G S O code decode factors hu hv activeU activeV
+  obtain ⟨w, hw, uw⟩ := activeU
+  have vw : G.Adj v w := (same w hw).mp uw
+  refine ⟨w, hw, ?_⟩
+  intro z hz
+  have only : G.Adj u z ↔ z = w := by
+    constructor
+    · intro uz
+      have vz : G.Adj v z := (same z hz).mp uz
+      rcases noFour u w v z uw vw.symm vz uz.symm with equal | equal
+      · exact (different equal).elim
+      · exact equal.symm
+    · rintro rfl
+      exact uw
+  exact ⟨only, (same z hz).symm.trans only⟩
+
+end OneBitCut
+
 end PEqualNP.Outside.L_meta_1904
