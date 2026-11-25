@@ -1775,4 +1775,351 @@ lemma false_family_linear_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
 
 end AndPacking
 
+namespace TrueAndLoss
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.AO2Upper
+open PEqualNP.Outside.L_meta_3566.FalseRestrict
+open PEqualNP.Outside.L_meta_3566.OrLoss
+open PEqualNP.Outside.L_meta_3566.AndSignature
+
+/-- The AND/OR dual preserves the input wire indices. -/
+def dualOp : GateOp → GateOp
+  | .and => .or
+  | .or => .and
+  | op => op
+
+def dualGate (g : Gate) : Gate := ⟨dualOp g.op, g.inputs⟩
+def dual (C : Circuit) : Circuit := ⟨C.gates.map dualGate, C.output⟩
+
+lemma good_of_basis_back (gs : List Gate) (m : ℕ)
+    (hb : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2)
+    (hr : ∀ j < gs.length, ∀ i ∈ (gs.getD j ⟨GateOp.or, []⟩).inputs, i < m + j) :
+    Good m gs := by
+  induction gs generalizing m with
+  | nil => trivial
+  | cons g gs ih =>
+    refine ⟨⟨(hb g List.mem_cons_self).1, (hb g List.mem_cons_self).2, ?_⟩, ?_⟩
+    · intro i hi
+      simpa using hr 0 (by simp) i (by simpa using hi)
+    · apply ih (m + 1) (fun a ha => hb a (List.mem_cons_of_mem g ha))
+      intro j hj i hi
+      have h := hr (j + 1) (by simpa using hj) i (by simpa using hi)
+      omega
+
+lemma good_of_ao2 (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) : Good n C.gates :=
+  good_of_basis_back _ _ (fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩) hAO.2.1
+
+lemma good_dual (gs : List Gate) (m : ℕ) (h : Good m gs) : Good m (gs.map dualGate) := by
+  induction gs generalizing m with
+  | nil => trivial
+  | cons g gs ih =>
+    refine ⟨⟨?_, h.1.2.1, h.1.2.2⟩, ih (m + 1) h.2⟩
+    rcases h.1.1 with hp | hp
+    · exact Or.inr (by simp [dualGate, dualOp, hp])
+    · exact Or.inl (by simp [dualGate, dualOp, hp])
+
+lemma dual_ao2 (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) : IsAO2 n (dual C) :=
+  good_ao2 _ _ _ (good_dual _ _ (good_of_ao2 n C hAO))
+
+lemma getD_map_not (w : List Bool) (i : ℕ) (hi : i < w.length) :
+    (w.map Bool.not).getD i false = !(w.getD i false) := by
+  simp [List.getD_eq_getElem?_getD, hi]
+
+lemma dual_gate_eval (g : Gate) (w : List Bool)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hlen : g.inputs.length = 2)
+    (hb : ∀ i ∈ g.inputs, i < w.length) :
+    (dualGate g).op.eval ((dualGate g).inputs.map fun i =>
+      (w.map Bool.not).getD i false) = !(g.op.eval (g.inputs.map fun i => w.getD i false)) := by
+  obtain ⟨a, b, hab⟩ := List.length_eq_two.mp hlen
+  have ha : a < w.length := hb a (by simp [hab])
+  have hb' : b < w.length := hb b (by simp [hab])
+  simp only [dualGate, hab, List.map_cons, List.map_nil, getD_map_not w a ha,
+    getD_map_not w b hb']
+  rcases hop with hp | hp <;> rw [hp] <;>
+    cases w.getD a false <;> cases w.getD b false <;> rfl
+
+lemma wiresFrom_dual (gs : List Gate) (w : List Bool) (h : Good w.length gs) :
+    wiresFrom (gs.map dualGate) (w.map Bool.not) = (wiresFrom gs w).map Bool.not := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    have he := dual_gate_eval g w h.1.1 h.1.2.1 h.1.2.2
+    have hs : w.map Bool.not ++ [(dualGate g).op.eval
+        ((dualGate g).inputs.map fun i => (w.map Bool.not).getD i false)] =
+        (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]).map Bool.not := by
+      rw [he]
+      simp only [List.map_append, List.map_cons, List.map_nil]
+    change wiresFrom (gs.map dualGate) _ = (wiresFrom gs _).map Bool.not
+    dsimp only
+    rw [hs]
+    apply ih
+    simpa using h.2
+
+/-- Duality is asserted only for a valid output wire; out-of-range outputs default to false. -/
+lemma dual_circuitFun_neg (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hout : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (dual C) (fun i => !x i) = !(circuitFun n C x) := by
+  change (wiresFrom (C.gates.map dualGate) (List.ofFn fun i => !x i)).getD C.output false =
+    !((wiresFrom C.gates (List.ofFn x)).getD C.output false)
+  have hi : List.ofFn (fun i => !x i) = (List.ofFn x).map Bool.not := by
+    rw [List.map_ofFn]
+    rfl
+  rw [hi, wiresFrom_dual _ _ (by simpa using good_of_ao2 n C hAO)]
+  exact getD_map_not _ _ (by simpa [length_wiresFrom] using hout)
+
+lemma dual_circuitFun (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hout : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (dual C) x = !(circuitFun n C (fun i => !x i)) := by
+  simpa using dual_circuitFun_neg n C hAO hout (fun i => !x i)
+
+lemma output_lt_of_true (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hx : circuitFun n C x = true) : C.output < n + C.gates.length := by
+  by_contra h
+  have he : circuitFun n C x = false := by
+    change (wiresFrom C.gates (List.ofFn x)).getD C.output false = false
+    exact List.getD_eq_default _ _ (by simpa [length_wiresFrom] using Nat.le_of_not_gt h)
+  rw [hx] at he
+  contradiction
+
+lemma output_lt_of_depends (n : ℕ) (C : Circuit) (x y : Fin n → Bool)
+    (h : circuitFun n C x ≠ circuitFun n C y) : C.output < n + C.gates.length := by
+  cases hx : circuitFun n C x <;> cases hy : circuitFun n C y
+  · exact False.elim (h (hx.trans hy.symm))
+  · exact output_lt_of_true n C y hy
+  · exact output_lt_of_true n C x hx
+  · exact False.elim (h (hx.trans hy.symm))
+
+lemma andCount_dual (gs : List Gate) : andCount (gs.map dualGate) = orCount gs := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.map_cons, andCount, orCount, List.countP_cons] at *
+    rw [ih]
+    simp only [dualGate]
+    cases g with
+    | mk op inputs => cases op <;> rfl
+
+lemma orCount_dual (gs : List Gate) : orCount (gs.map dualGate) = andCount gs := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.map_cons, andCount, orCount, List.countP_cons] at *
+    rw [ih]
+    simp only [dualGate]
+    cases g with
+    | mk op inputs => cases op <;> rfl
+
+lemma neg_update_true (n : ℕ) (z : Fin n) (x : Fin n → Bool) :
+    (fun i => !(Function.update x z true i)) = Function.update (fun i => !x i) z false := by
+  funext i
+  by_cases hi : i = z <;> simp [Function.update, hi]
+
+lemma neg_update_false (n : ℕ) (z : Fin n) (x : Fin n → Bool) :
+    (fun i => !(Function.update (fun i => !x i) z false i)) = Function.update x z true := by
+  funext i
+  by_cases hi : i = z <;> simp [Function.update, hi]
+
+/-- An essential true restriction whose cofactor is not constant true saves an AND gate. -/
+lemma exists_restriction_and_loss (n : ℕ) (z : Fin n) (C : Circuit)
+    (hAO : IsAO2 n C)
+    (hfalse : ∃ y : Fin n → Bool, circuitFun n C (Function.update y z true) = false)
+    (hdepends : ∃ x : Fin n → Bool,
+      circuitFun n C x ≠ circuitFun n C (Function.update x z true)) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool => circuitFun n C (Function.update y z true)) ∧
+      andCount D.gates + 1 ≤ andCount C.gates := by
+  obtain ⟨x, hx⟩ := hdepends
+  have hout := output_lt_of_depends n C x (Function.update x z true) hx
+  have htrue : ∃ y : Fin n → Bool,
+      circuitFun n (dual C) (Function.update y z false) = true := by
+    obtain ⟨y, hy⟩ := hfalse
+    refine ⟨fun i => !y i, ?_⟩
+    rw [← neg_update_true, dual_circuitFun_neg n C hAO hout, hy]
+    rfl
+  have hdep : ∃ x : Fin n → Bool,
+      circuitFun n (dual C) x ≠ circuitFun n (dual C) (Function.update x z false) := by
+    refine ⟨fun i => !x i, ?_⟩
+    rw [← neg_update_true, dual_circuitFun_neg n C hAO hout,
+      dual_circuitFun_neg n C hAO hout]
+    intro he
+    exact hx (by simpa using congrArg Bool.not he)
+  obtain ⟨D, hD, hfun, hcount⟩ := exists_restriction_or_loss n z (dual C)
+    (dual_ao2 n C hAO) htrue hdep
+  have hDout : D.output < n + D.gates.length := by
+    obtain ⟨y, hy⟩ := htrue
+    apply output_lt_of_true n D y
+    rw [hfun]
+    exact hy
+  refine ⟨dual D, dual_ao2 n D hD, ?_, ?_⟩
+  · funext y
+    rw [dual_circuitFun n D hD hDout, hfun]
+    change Bool.not (circuitFun n (dual C) (Function.update (fun i => !y i) z false)) =
+      circuitFun n C (Function.update y z true)
+    rw [dual_circuitFun n C hAO hout, neg_update_false]
+    simp
+  · simpa only [dual, andCount_dual, orCount_dual] using hcount
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma reduce_and_count_le (m : ℕ) (op : GateOp) (a b : Option ℕ) :
+    andCount (reduceGate m op a b).1 ≤ if isAnd op then 1 else 0 := by
+  cases op <;> cases a <;> cases b <;> simp [reduceGate, andCount, isAnd]
+
+lemma compile_and_count_le (gs : List Gate) (m : ℕ) (σ : List (Option ℕ)) :
+    andCount (compile m σ gs).1 ≤ andCount gs := by
+  induction gs generalizing m σ with
+  | nil => simp [compile, andCount]
+  | cons g gs ih =>
+    have hstep := reduce_and_count_le m g.op (σ.getD (g.inputs.getD 0 0) none)
+      (σ.getD (g.inputs.getD 1 0) none)
+    have hrest := ih (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2])
+    change andCount (emit m σ g).1 ≤ if isAnd g.op then 1 else 0 at hstep
+    simp only [compile, andCount, List.countP_append, List.countP_cons]
+    change andCount (emit m σ g).1 +
+      andCount (compile (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2]) gs).1 ≤
+      andCount gs + (if isAnd g.op then 1 else 0)
+    omega
+
+lemma restricted_and_count_le (n : ℕ) (z : Fin n) (C : Circuit) :
+    andCount (restricted n z C).gates ≤ andCount C.gates :=
+  compile_and_count_le C.gates n (initialMap n z)
+
+lemma graph_true_restriction_and_loss {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (z v : Fin n) (hzv : G.Adj z v)
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = (fun y : Fin n → Bool => graphFun G ∅ (Function.update y z true)) ∧
+      andCount D.gates + 1 ≤ andCount C.gates := by
+  classical
+  have hfalse : ∃ y : Fin n → Bool, circuitFun n C (Function.update y z true) = false := by
+    refine ⟨fun _ => false, ?_⟩
+    rw [hfun]
+    have he : Function.update (fun _ : Fin n => false) z true = fun i => decide (i = z) := by
+      funext i
+      by_cases hi : i = z <;> simp [hi]
+    rw [he]
+    simp [graphFun]
+  have hdep : ∃ x : Fin n → Bool,
+      circuitFun n C x ≠ circuitFun n C (Function.update x z true) := by
+    let x : Fin n → Bool := fun i => decide (i = v)
+    have hbefore : graphFun G ∅ x = false := by simp [x, graphFun]
+    have hafter : graphFun G ∅ (Function.update x z true) = true := by
+      simp only [graphFun, Finset.notMem_empty, false_and, exists_false,
+        decide_false, Bool.false_or, decide_eq_true_eq]
+      exact ⟨z, v, hzv, by simp, by simp [x, hzv.ne.symm]⟩
+    refine ⟨x, ?_⟩
+    rw [hfun, hbefore, hafter]
+    decide
+  obtain ⟨D, hD, hf, hc⟩ := exists_restriction_and_loss n z C hAO hfalse hdep
+  exact ⟨D, hD, by simpa only [hfun] using hf, hc⟩
+
+lemma graph_leaf_true_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z v : Fin n) (hzv : G.Adj z v) (hsole : ∀ w, G.Adj z w → w = v) :
+    (fun y : Fin n → Bool => graphFun G ∅ (Function.update (Function.update y v false) z true)) =
+      graphFun (G.deleteEdges (G.incidenceSet v)) ∅ := by
+  classical
+  funext y
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false,
+    decide_false, Bool.false_or]
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_eq]
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    have hav : a ≠ v := by intro he; subst a; simp [hzv.ne.symm] at ha
+    have hbv : b ≠ v := by intro he; subst b; simp [hzv.ne.symm] at hb
+    have haz : a ≠ z := by intro he; subst a; exact hbv (hsole b hab)
+    have hbz : b ≠ z := by intro he; subst b; exact hav (hsole a hab.symm)
+    exact ⟨a, b, (PEqualNP.Outside.L_meta_3566.cut_adj G v a b).mpr ⟨hab, hav, hbv⟩,
+      by simpa [haz, hav] using ha, by simpa [hbz, hbv] using hb⟩
+  · rintro ⟨a, b, hab, ha, hb⟩
+    obtain ⟨hab, hav, hbv⟩ := (PEqualNP.Outside.L_meta_3566.cut_adj G v a b).mp hab
+    have haz : a ≠ z := by intro he; subst a; exact hbv (hsole b hab)
+    have hbz : b ≠ z := by intro he; subst b; exact hav (hsole a hab.symm)
+    exact ⟨a, b, hab, by simpa [haz, hav] using ha, by simpa [hbz, hbv] using hb⟩
+
+/-- Delete all edges incident to the neighbour of a leaf, saving at least one AND. -/
+lemma graph_leaf_and_loss {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z v : Fin n) (hleaf : G.degree z = 1) (hzv : G.Adj z v)
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) :
+    ∃ D : Circuit, IsAO2 n D ∧
+      circuitFun n D = graphFun (G.deleteEdges (G.incidenceSet v)) ∅ ∧
+      andCount D.gates + 1 ≤ andCount C.gates := by
+  classical
+  obtain ⟨D, hD, hfunD, hcountD⟩ := graph_true_restriction_and_loss G z v hzv C hAO hfun
+  obtain ⟨hE, hfunE, _⟩ := restricted_spec n v D hD
+  have hc := restricted_and_count_le n v D
+  refine ⟨restricted n v D, hE, ?_, by omega⟩
+  rw [hfunD] at hfunE
+  have hsole : ∀ w, G.Adj z w → w = v := by
+    obtain ⟨u, hu, huniq⟩ := SimpleGraph.degree_eq_one_iff_existsUnique_adj.mp hleaf
+    intro w hw
+    exact (huniq w hw).trans (huniq v hzv).symm
+  exact hfunE.trans (graph_leaf_true_false G z v hzv hsole)
+
+/-- Every minimum vertex cover is a lower bound for the number of AND gates. -/
+def AndLower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] : Prop :=
+  ∀ C : Circuit, IsAO2 n C → circuitFun n C = graphFun G ∅ →
+    ∀ T : Finset (Fin n), G.IsVertexCover (T : Set (Fin n)) →
+      (∀ U : Finset (Fin n), G.IsVertexCover (U : Set (Fin n)) → T.card ≤ U.card) →
+        T.card ≤ andCount C.gates
+
+lemma leaf_step {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z v : Fin n) (hleaf : G.degree z = 1) (hzv : G.Adj z v)
+    (hcut : AndLower (G.deleteEdges (G.incidenceSet v))) : AndLower G := by
+  classical
+  intro C hAO hfun T hT hTmin
+  obtain ⟨D, hD, hf, hc⟩ := graph_leaf_and_loss G z v hleaf hzv C hAO hfun
+  obtain ⟨S, hS, hSmin⟩ := PEqualNP.Outside.L_meta_3566.exists_min_cover
+    (G.deleteEdges (G.incidenceSet v))
+  have hbound := hcut D hD hf S hS hSmin
+  have hcover := (PEqualNP.Outside.L_meta_3566.cut_cover_bounds G v T S hT hTmin hS hSmin).2
+  omega
+
+lemma and_lower_edgeless {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hzero : G.edgeFinset.card = 0) : AndLower G := by
+  intro C hAO hfun T hT hTmin
+  have hempty : G.IsVertexCover (∅ : Set (Fin n)) := by
+    intro a b hab
+    have he : s(a, b) ∈ G.edgeFinset := SimpleGraph.mem_edgeFinset.mpr hab
+    have hz := Finset.card_eq_zero.mp hzero
+    simp [hz] at he
+  have hTzero := hTmin ∅ (by simpa using hempty)
+  simp only [Finset.card_empty] at hTzero
+  omega
+
+/-- It suffices to prove the AND lower bound for subgraphs with no degree-one vertices. -/
+lemma of_leaf_free_subgraphs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcore : ∀ (H : SimpleGraph (Fin n)) [DecidableRel H.Adj],
+      H ≤ G → (∀ z, H.degree z ≠ 1) → AndLower H) : AndLower G := by
+  classical
+  have hall : ∀ m : ℕ, ∀ (H : SimpleGraph (Fin n)) [DecidableRel H.Adj],
+      H.edgeFinset.card = m → H ≤ G → AndLower H := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro H hdec hcard hHG
+      by_cases hfree : ∀ z, H.degree z ≠ 1
+      · exact hcore H hHG hfree
+      · push Not at hfree
+        obtain ⟨z, hz⟩ := hfree
+        obtain ⟨v, hv, _⟩ := SimpleGraph.degree_eq_one_iff_existsUnique_adj.mp hz
+        apply leaf_step H z v hz hv
+        have hcount := PEqualNP.Outside.L_meta_3566.cut_edge_count H v
+        have hpos := hv.degree_pos_right
+        exact ih (H.deleteEdges (H.incidenceSet v)).edgeFinset.card (by omega)
+          (H.deleteEdges (H.incidenceSet v)) rfl ((H.deleteEdges_le _).trans hHG)
+  exact hall _ G rfl le_rfl
+
+lemma forest_and_lower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hacyclic : G.IsAcyclic) : AndLower G := by
+  apply of_leaf_free_subgraphs G
+  intro H hdec hHG hfree
+  apply and_lower_edgeless H
+  by_contra hzero
+  obtain ⟨z, hz⟩ := LeafOr.acyclic_has_leaf H (hacyclic.anti hHG) (by omega)
+  exact hfree z hz
+
+end TrueAndLoss
+
 end PEqualNP.Outside.L_meta_3566
