@@ -7605,4 +7605,289 @@ lemma exact_and_complexity_four :
 
 end ThetaAndBound
 
+namespace AndPairSeparation
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+  PEqualNP.Outside.L_meta_2583.AndSignature
+
+def crossedAt (n : ℕ) (C : Circuit) (x y : Fin n → Bool) (k : ℕ) : Prop :=
+  (wv n C x (opnd C k 0) = false ∧ wv n C x (opnd C k 1) = true ∧
+   wv n C y (opnd C k 0) = true ∧ wv n C y (opnd C k 1) = false) ∨
+  (wv n C x (opnd C k 0) = true ∧ wv n C x (opnd C k 1) = false ∧
+   wv n C y (opnd C k 0) = false ∧ wv n C y (opnd C k 1) = true)
+
+lemma false_join_of_no_crossed_and (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (x y : Fin n → Bool)
+    (hnocross : ∀ k < r, (gateAt C k).op = .and → ¬ crossedAt n C x y k) :
+    ∀ w, w < n + r → wv n C x w = false → wv n C y w = false →
+      wv n C (fun i => x i || y i) w = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hx hy
+    by_cases hwn : w < n
+    · rw [wv_input n C x w hwn] at hx
+      rw [wv_input n C y w hwn] at hy
+      rw [wv_input n C _ w hwn]
+      simp [hx, hy]
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hkr : k < r := by omega
+      have hk : k < C.gates.length := by omega
+      have ha := opnd_back n C hAO k hk 0
+      have hb := opnd_back n C hAO k hk 1
+      rw [wv_rec n C x hAO.2.1 k hk, inputs_two n C hAO k hk] at hx
+      rw [wv_rec n C y hAO.2.1 k hk, inputs_two n C hAO k hk] at hy
+      rw [wv_rec n C _ hAO.2.1 k hk, inputs_two n C hAO k hk]
+      rcases hAO.1 _ (gate_mem C k hk) with hop | hop
+      · by_cases hl : wv n C x (opnd C k 0) = false ∧
+            wv n C y (opnd C k 0) = false
+        · have hj := ih _ ha (by omega) hl.1 hl.2
+          simp [hop, GateOp.eval, hj]
+        · have hright : wv n C x (opnd C k 1) = false ∧
+              wv n C y (opnd C k 1) = false := by
+            have hn := hnocross k hkr hop
+            unfold crossedAt at hn
+            cases hxl : wv n C x (opnd C k 0) <;>
+              cases hxr : wv n C x (opnd C k 1) <;>
+              cases hyl : wv n C y (opnd C k 0) <;>
+              cases hyr : wv n C y (opnd C k 1) <;>
+              simp_all [GateOp.eval]
+          have hj := ih _ hb (by omega) hright.1 hright.2
+          simp [hop, GateOp.eval, hj]
+      · have hxx : wv n C x (opnd C k 0) = false ∧
+            wv n C x (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hx
+        have hyy : wv n C y (opnd C k 0) = false ∧
+            wv n C y (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hy
+        have hj0 := ih _ ha (by omega) hxx.1 hyy.1
+        have hj1 := ih _ hb (by omega) hxx.2 hyy.2
+        simp [hop, GateOp.eval, hj0, hj1]
+
+lemma exists_crossed_and_prefix (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (w : ℕ) (hw : w < n + r)
+    (x y : Fin n → Bool) (hx : wv n C x w = false) (hy : wv n C y w = false)
+    (hj : wv n C (fun i => x i || y i) w = true) :
+    ∃ k < r, (gateAt C k).op = .and ∧ crossedAt n C x y k := by
+  by_contra hn
+  have hnocross : ∀ k < r, (gateAt C k).op = .and → ¬ crossedAt n C x y k := by
+    intro k hk hop hcross
+    exact hn ⟨k, hk, hop, hcross⟩
+  have hf := false_join_of_no_crossed_and n C hAO r hr x y hnocross w hw hx hy
+  rw [hj] at hf
+  cases hf
+
+lemma exists_crossed_and (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (x y : Fin n → Bool)
+    (hx : C.eval (List.ofFn x) = false) (hy : C.eval (List.ofFn y) = false)
+    (hj : C.eval (List.ofFn (fun i => x i || y i)) = true) :
+    ∃ k < C.gates.length, (gateAt C k).op = .and ∧ crossedAt n C x y k := by
+  have hw : C.output < n + C.gates.length := by
+    by_contra hbad
+    have hf := wv_missing n C (fun i => x i || y i) C.output (by omega)
+    change C.eval (List.ofFn _) = false at hf
+    rw [hj] at hf
+    cases hf
+  exact exists_crossed_and_prefix n C hAO C.gates.length le_rfl C.output hw x y hx hy hj
+
+def choiceAt (n : ℕ) (C : Circuit) (x : Fin n → Bool) (k : ℕ) : Option Bool :=
+  match wv n C x (opnd C k 0), wv n C x (opnd C k 1) with
+  | false, true => some false
+  | true, false => some true
+  | _, _ => none
+
+lemma choiceAt_forced_iff (n : ℕ) (C : Circuit) (x : Fin n → Bool) (k : ℕ) :
+    choiceAt n C x k ≠ none ↔
+      wv n C x (opnd C k 0) ≠ wv n C x (opnd C k 1) := by
+  unfold choiceAt
+  cases wv n C x (opnd C k 0) <;> cases wv n C x (opnd C k 1) <;> simp
+
+lemma crossed_choices (n : ℕ) (C : Circuit) (x y : Fin n → Bool) (k : ℕ)
+    (hc : crossedAt n C x y k) :
+    ∃ b c : Bool, choiceAt n C x k = some b ∧ choiceAt n C y k = some c ∧ b ≠ c := by
+  rcases hc with ⟨hxl, hxr, hyl, hyr⟩ | ⟨hxl, hxr, hyl, hyr⟩
+  · exact ⟨false, true, by simp [choiceAt, hxl, hxr], by simp [choiceAt, hyl, hyr], by decide⟩
+  · exact ⟨true, false, by simp [choiceAt, hxl, hxr], by simp [choiceAt, hyl, hyr], by decide⟩
+
+end AndPairSeparation
+
+namespace AndChoiceBridge
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_2583.AndSignature
+open PEqualNP.Outside.L_meta_2583.AndPairSeparation
+
+def gateChoices (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
+    (andPrefix C C.gates.length) → Option Bool :=
+  fun k => choiceAt n C x k.val
+
+lemma family_choices_separate {α : Type} (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (f : α → Fin n → Bool)
+    (hfalse : ∀ a, C.eval (List.ofFn (f a)) = false)
+    (hjoin : ∀ a b, a ≠ b → C.eval (List.ofFn (fun i => f a i || f b i)) = true) :
+    ∀ a b, a ≠ b → ∃ k u v,
+      gateChoices n C (f a) k = some u ∧ gateChoices n C (f b) k = some v ∧ u ≠ v := by
+  intro a b hab
+  obtain ⟨k, hk, hop, hc⟩ := exists_crossed_and n C hAO (f a) (f b)
+    (hfalse a) (hfalse b) (hjoin a b hab)
+  have hkA : k ∈ andPrefix C C.gates.length := by
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_range.mpr hk, by simp [isAnd, hop]⟩
+  obtain ⟨u, v, hu, hv, huv⟩ := crossed_choices n C (f a) (f b) k hc
+  exact ⟨⟨k, hkA⟩, u, v, hu, hv, huv⟩
+
+end AndChoiceBridge
+
+namespace ChoiceSubcube
+
+variable {α K : Type*}
+
+def Compatible (p : K → Option Bool) (s : K → Bool) : Prop :=
+  ∀ k b, p k = some b → s k = b
+
+noncomputable def choiceSet [Fintype K] (p : K → Option Bool) : Finset (K → Bool) := by
+  classical
+  exact Finset.univ.filter (Compatible p)
+
+noncomputable def forcedCount [Fintype K] (p : K → Option Bool) : Nat := by
+  classical
+  exact Fintype.card {k : K // p k ≠ none}
+
+noncomputable def compatibleEquiv (p : K → Option Bool) :
+    {s : K → Bool // Compatible p s} ≃ ({k : K // p k = none} → Bool) := by
+  classical
+  refine {
+    toFun := fun s k => s.val k.val
+    invFun := fun t => ⟨fun k => if h : p k = none then t ⟨k, h⟩ else (p k).getD false, ?_⟩
+    left_inv := ?_
+    right_inv := ?_ }
+  · intro k b hb
+    simp [hb]
+  · intro s
+    apply Subtype.ext
+    funext k
+    cases hp : p k with
+    | none => simp [hp]
+    | some b => simpa [hp] using (s.property k b hp).symm
+  · intro t
+    funext k
+    simp [k.property]
+
+lemma choiceSet_card [Fintype K] (p : K → Option Bool) :
+    (choiceSet p).card = 2 ^ (Fintype.card K - forcedCount p) := by
+  classical
+  have hm (s : K → Bool) : s ∈ choiceSet p ↔ Compatible p s := by
+    simp [choiceSet]
+  let e : (choiceSet p : Set (K → Bool)) ≃ {s : K → Bool // Compatible p s} :=
+    Equiv.subtypeEquivRight hm
+  have hfree : Fintype.card {k : K // p k = none} =
+      Fintype.card K - forcedCount p := by
+    simpa only [not_not, forcedCount] using
+      (Fintype.card_subtype_compl (fun k : K => p k ≠ none))
+  calc
+    (choiceSet p).card = Fintype.card {s : K → Bool // Compatible p s} := by
+      rw [← Fintype.card_coe (choiceSet p)]
+      exact Fintype.card_congr e
+    _ = Fintype.card ({k : K // p k = none} → Bool) :=
+      Fintype.card_congr (compatibleEquiv p)
+    _ = 2 ^ (Fintype.card K - forcedCount p) := by
+      rw [Fintype.card_fun, Fintype.card_bool, hfree]
+
+lemma disjoint_of_opposite [Fintype K] (p q : K → Option Bool)
+    (h : ∃ k x y, p k = some x ∧ q k = some y ∧ x ≠ y) :
+    Disjoint (choiceSet p) (choiceSet q) := by
+  classical
+  apply Finset.disjoint_left.mpr
+  intro s hs ht
+  have hp : Compatible p s := by simpa [choiceSet] using hs
+  have hq : Compatible q s := by simpa [choiceSet] using ht
+  obtain ⟨k, x, y, hx, hy, hxy⟩ := h
+  exact hxy ((hp k x hx).symm.trans (hq k y hy))
+
+lemma sum_choiceSet_card [Fintype α] [Fintype K] (p : α → K → Option Bool)
+    (hsep : ∀ a b, a ≠ b → ∃ k x y, p a k = some x ∧ p b k = some y ∧ x ≠ y) :
+    ∑ a, (choiceSet (p a)).card ≤ 2 ^ Fintype.card K := by
+  classical
+  have hd : (↑(Finset.univ : Finset α) : Set α).PairwiseDisjoint
+      (fun a => choiceSet (p a)) := by
+    intro a ha b hb hab
+    exact disjoint_of_opposite (p a) (p b) (hsep a b hab)
+  calc
+    (∑ a, (choiceSet (p a)).card) =
+        ((Finset.univ : Finset α).biUnion (fun a => choiceSet (p a))).card := by
+      simpa using (Finset.card_biUnion hd).symm
+    _ ≤ Fintype.card (K → Bool) := by
+      simpa using Finset.card_le_card
+        (Finset.subset_univ ((Finset.univ : Finset α).biUnion (fun a => choiceSet (p a))))
+    _ = 2 ^ Fintype.card K := by rw [Fintype.card_fun, Fintype.card_bool]
+
+lemma sum_capacity [Fintype α] [Fintype K] (p : α → K → Option Bool)
+    (hsep : ∀ a b, a ≠ b → ∃ k x y, p a k = some x ∧ p b k = some y ∧ x ≠ y) :
+    ∑ a, 2 ^ (Fintype.card K - forcedCount (p a)) ≤ 2 ^ Fintype.card K := by
+  simpa only [choiceSet_card] using sum_choiceSet_card p hsep
+
+def forcedSet [Fintype K] (p : K → Option Bool) : Finset K :=
+  Finset.univ.filter (fun k => p k ≠ none)
+
+lemma forcedCount_eq_card [Fintype K] (p : K → Option Bool) :
+    forcedCount p = (forcedSet p).card := by
+  classical
+  let e : (forcedSet p : Set K) ≃ {k : K // p k ≠ none} :=
+    Equiv.subtypeEquivRight (fun k => by simp [forcedSet])
+  calc
+    forcedCount p = Fintype.card (forcedSet p : Set K) :=
+      (Fintype.card_congr e).symm
+    _ = (forcedSet p).card := Fintype.card_coe _
+
+lemma sum_forcedSet_capacity [Fintype α] [Fintype K] (p : α → K → Option Bool)
+    (hsep : ∀ a b, a ≠ b → ∃ k x y, p a k = some x ∧ p b k = some y ∧ x ≠ y) :
+    ∑ a, 2 ^ (Fintype.card K - (forcedSet (p a)).card) ≤ 2 ^ Fintype.card K := by
+  simpa only [forcedCount_eq_card] using sum_capacity p hsep
+
+lemma forcedCount_eq_card_filter [Fintype K] (p : K → Option Bool) :
+    forcedCount p = (Finset.univ.filter (fun k => p k ≠ none)).card := by
+  simpa only [forcedSet] using forcedCount_eq_card p
+
+end ChoiceSubcube
+
+namespace AndChoiceKraft
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_2583.SingleUse
+open PEqualNP.Outside.L_meta_2583.AndSignature
+open PEqualNP.Outside.L_meta_2583.AndPairSeparation
+open PEqualNP.Outside.L_meta_2583.AndChoiceBridge
+open PEqualNP.Outside.L_meta_2583.ChoiceSubcube
+open scoped BigOperators
+
+def oppositeAnds (n : ℕ) (C : Circuit) (x : Fin n → Bool) : Finset ℕ :=
+  (andPrefix C C.gates.length).filter (fun k =>
+    wv n C x (opnd C k 0) ≠ wv n C x (opnd C k 1))
+
+lemma forcedCount_gateChoices (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
+    forcedCount (gateChoices n C x) = (oppositeAnds n C x).card := by
+  classical
+  rw [forcedCount_eq_card]
+  apply Finset.card_bij (fun k _ => k.val)
+  · intro k hk
+    have hchoice : choiceAt n C x k.val ≠ none := (Finset.mem_filter.mp hk).2
+    exact Finset.mem_filter.mpr ⟨k.property, (choiceAt_forced_iff n C x k.val).mp hchoice⟩
+  · intro k hk l hl hkl
+    exact Subtype.ext hkl
+  · intro k hk
+    have hkA := (Finset.mem_filter.mp hk).1
+    refine ⟨⟨k, hkA⟩, ?_, rfl⟩
+    apply Finset.mem_filter.mpr
+    exact ⟨Finset.mem_univ _,
+      (choiceAt_forced_iff n C x k).mpr (Finset.mem_filter.mp hk).2⟩
+
+lemma false_family_capacity {α : Type} [Fintype α]
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (f : α → Fin n → Bool)
+    (hfalse : ∀ a, C.eval (List.ofFn (f a)) = false)
+    (hjoin : ∀ a b, a ≠ b → C.eval (List.ofFn (fun i => f a i || f b i)) = true) :
+    ∑ a : α, 2 ^ ((andPrefix C C.gates.length).card - (oppositeAnds n C (f a)).card) ≤
+      2 ^ (andPrefix C C.gates.length).card := by
+  have h := sum_capacity (fun a => gateChoices n C (f a))
+    (family_choices_separate n C hAO f hfalse hjoin)
+  simpa only [Fintype.card_coe, forcedCount_gateChoices] using h
+
+end AndChoiceKraft
+
 end PEqualNP.Outside.L_meta_2583
