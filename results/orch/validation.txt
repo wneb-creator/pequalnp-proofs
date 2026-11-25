@@ -1,5 +1,5 @@
-Namedfile lakebuild PASS (5149jobs,204.89s).
-Repositorychecker ACCEPTED (check): PEqualNP.Outside.L_meta_6349; axioms propext,Quot.sound,Classical.choice;3197constants rechecked in234.57s.
-Precleanup2936lines328476bytes,sha256850f99a46ae6297423188e19802af7f10561d88ba353e7d987ca87e3e30fc2d5.
+Cleanup namedfile lakebuild PASS (5149jobs,201.01s).
+Cleanup repositorychecker pending; acceptedoriginalpreservedin329cd311.
+Lines2936 ->2854; current327995bytes,sha256bdb7a9eab1988b97df73a884f062cade1a1d94a281bc8f8808e50b2f04d5c26b.
 Sub-agents: status_review, toolchain_setup, upper_bound, lower_certificate, finite_search, structural_lower
-TIMING total=65.72 subagents=6
+TIMING total=71.06 subagents=6

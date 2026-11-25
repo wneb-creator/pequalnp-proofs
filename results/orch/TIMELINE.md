@@ -26,3 +26,5 @@
 - 2026-11-25T06:04:20.733212+00:00: complete4,270-stateMemo lowerbound compiledexit0, independentlyreviewed, preserved before finalnamedbuild finishes.
 - 2026-11-25T06:07:37.797748+00:00: fullnamedproof lakebuildpassed5149jobs; preserving immediately before repositorychecker.
 - 2026-11-25T06:13:52.029266+00:00: repositorycheckerACCEPTED; beginningcappedcleanup withacceptedsource/logs preserved.
+- 2026-11-25T06:14:37.569655+00:00: cleanup removes90unusedlines andadds8-line named-node wrapper; revalidation started.
+- 2026-11-25T06:19:12.320541+00:00: cleanupnamedbuildPASS201.01s; rerunningrepositorycheckerbeforecleanupdeadline.

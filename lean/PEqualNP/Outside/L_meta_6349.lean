@@ -419,11 +419,6 @@ def dispatch (extra : ℕ) (next : ℕ → List W → Bool) (a b : W) (r : List 
                        ((v ||| sep b == -1) && next (extra - 1) (w :: b :: r)))) ||
     ((extra ≥ 2) && (v ||| sep a ||| sep b == -1) && next (extra - 2) (w :: a :: b :: r))
 
-def optimized : ℕ → ℕ → List W → Bool
-  | 0, _, ws => ws == [goal]
-  | k + 1, extra, ws => ws == [goal] ||
-    (pairs ws).any (fun (a, b, r) => dispatch extra (optimized k) a b r)
-
 theorem dispatch_complete {k extra : ℕ} {a b z : W} {r kept : List W}
     (next : ℕ → List W → Bool)
     (hz : z ∈ basicOps a b) (hk : kept ∈ keepChoices a b r)
@@ -441,40 +436,6 @@ theorem dispatch_complete {k extra : ℕ} {a b z : W} {r kept : List W}
   · left; right; exact ⟨by omega, .inl ⟨by convert hc using 1; ac_rfl, by convert ht using 2; omega⟩⟩
   · left; right; exact ⟨by omega, .inr ⟨by convert hc using 1; ac_rfl, by convert ht using 2; omega⟩⟩
   · right; exact ⟨⟨by omega, by convert hc using 1; ac_rfl⟩, by convert ht using 2; omega⟩
-
-theorem optimized_complete (n : ℕ) (ws : List W) (extra : ℕ) (hn : ws.Nodup)
-    (room : extra + ws.length = n + 1) (h : live basicOps goal n ws.toFinset) :
-    optimized n extra ws = true := by
-  induction n generalizing ws extra with
-  | zero => simp [optimized, singleton_list hn h]
-  | succ k ih =>
-    rcases first_live h with done | ⟨a, ha, b, hb, hab, z, hz, hout, needed, hs, tail⟩
-    · simp [optimized, singleton_list hn done]
-    · obtain ⟨r, hm, hp⟩ := pick_two (List.mem_toFinset.mp ha) (List.mem_toFinset.mp hb) hab
-      have go {a b : W} (perm : ws.Perm (a :: b :: r))
-          (hset : ws.toFinset = insert a (insert b needed)) (hop : z ∈ basicOps a b) :
-          dispatch extra (optimized k) a b r = true := by
-        obtain ⟨kept, hk, hnk, hfin⟩ := recover_kept perm hn hset
-        have hznew : z ∉ kept := by
-          intro hu
-          apply hout
-          rw [hset]
-          exact Finset.mem_insert_of_mem (Finset.mem_insert_of_mem (hfin ▸ (List.mem_toFinset.mpr hu)))
-        have hnd : (z :: kept).Nodup := List.nodup_cons.mpr ⟨hznew, hnk⟩
-        have hl : live basicOps goal k (z :: kept).toFinset := by
-          simpa [hfin] using tail
-        have hc := live_card hl
-        rw [List.toFinset_card_of_nodup hnd, List.length_cons] at hc
-        have len := perm.length_eq
-        simp only [List.length_cons] at len
-        apply dispatch_complete (k := k) (extra := extra) (optimized k) hop hk (by omega) (by omega) (cuts_full hl)
-        apply ih _ _ hnd _ hl
-        simp; omega
-      simp only [optimized, Bool.or_eq_true, List.any_eq_true]
-      right
-      rcases hm with direct | swap
-      · exact ⟨(a, b, r), direct, go hp hs hz⟩
-      · exact ⟨(b, a, r), swap, go (hp.trans (.swap _ _ _)) (by rw [hs, Finset.insert_comm]) (ops_swap a b ▸ hz)⟩
 
 def A : Fin 4 → Fin 4 → Bool := fun u v : Fin 4 => (5805 : ℕ).testBit (4 * u.val + v.val)
 
@@ -518,32 +479,6 @@ theorem inputs_nodup : inputs.Nodup := by decide +kernel
 theorem essential_inputs : inputs.sublists.all
     (fun l => (cuts l != -1) || (l == inputs)) = true := by
   decide +kernel
-
-theorem lower_of_search (hfalse : optimized 9 2 inputs = false) :
-    ¬ PEqualNP.Represents.RepSizeAtMost A 9 := by
-  rintro ⟨C, hm, hs, hr⟩
-  obtain ⟨S, hsub, hl⟩ := compress (get_build C hm hr)
-  have hl3 : live basicOps goal 9 S := extend_live hs hl
-  let l := inputs.filter (fun w => decide (w ∈ S))
-  have hlS : l.toFinset = S := by
-    ext v
-    simp only [l, List.mem_toFinset, List.mem_filter, decide_eq_true_eq]
-    constructor
-    · exact fun h => h.2
-    · exact fun h => ⟨List.mem_toFinset.mp (hsub h), h⟩
-  have hnd : l.Nodup := inputs_nodup.filter _
-  have hcard := live_card hl3
-  rw [← hlS, List.toFinset_card_of_nodup hnd] at hcard
-  have hsearch := optimized_complete 9 l (10 - l.length) hnd (by omega) (hlS ▸ hl3)
-  have hmem : l ∈ inputs.sublists := List.mem_sublists.mpr List.filter_sublist
-  have hrow := List.all_eq_true.mp essential_inputs l hmem
-  have hcuts : cuts l = -1 := cuts_full (hlS ▸ hl3)
-  have hli : l = inputs := by simpa [hcuts] using hrow
-  rw [hli] at hsearch
-  have hlen : 10 - inputs.length = 2 := by decide +kernel
-  rw [hlen, hfalse] at hsearch
-  exact Bool.noConfusion hsearch
-
 
 abbrev State := ℕ × List W
 abbrev Tree := BinaryTree State
@@ -675,37 +610,20 @@ theorem lower_of_certificate (T : Tree)
   rw [sorted_finset, ← hli, hlS]
   exact hl3
 
-theorem all_of_chunks {β : Type} (F : β → Bool) (n : ℕ) : ∀ (m : ℕ) (L : List β), L.length ≤ n * m →
-    (∀ j < m, ((L.drop (n * j)).take n).all F = true) → L.all F = true := by
-  intro m
-  induction m with
-  | zero =>
-    intro L hl _
-    have h0 : L = [] := List.eq_nil_of_length_eq_zero (by simpa using hl)
-    simp [h0]
-  | succ m ih =>
-    intro L hl h
-    rw [← List.take_append_drop n L, List.all_append, Bool.and_eq_true]
-    refine ⟨by simpa using h 0 (by omega), ih (L.drop n) ?_ ?_⟩
-    · rw [List.length_drop]
-      rw [Nat.mul_succ] at hl
-      generalize n * m = t at *
-      omega
-    · intro j hj
-      have e : List.drop (n * j) (List.drop n L) = List.drop (n * (j + 1)) L := by
-        rw [List.drop_drop]
-        congr 1
-        ring
-      rw [e]
-      exact h (j + 1) (by omega)
-
-
 theorem all_entry_node (T : Tree) (x : State) (l r : Tree)
     (hl : (entries l).all (nodeOK T) = true) (hx : nodeOK T x = true)
     (hr : (entries r).all (nodeOK T) = true) :
     (entries (.node x l r)).all (nodeOK T) = true := by
   simp only [entries, List.all_append, List.all_cons, List.all_nil, Bool.and_true]
   simp [hl, hx, hr]
+theorem all_entry_node_named (T whole : Tree) (x : State) (l r : Tree)
+    (he : whole = .node x l r)
+    (hl : (entries l).all (nodeOK T) = true) (hx : nodeOK T x = true)
+    (hr : (entries r).all (nodeOK T) = true) :
+    (entries whole).all (nodeOK T) = true := by
+  rw [he]
+  exact all_entry_node T x l r hl hx hr
+
 def v0 : W := 0x0
 def v1 : W := 0x101010101010101
 def v2 : W := 0x202020202020202
@@ -2231,699 +2149,699 @@ theorem ok_block_174 : (entries block_174).all (nodeOK table) = true := by
   decide +kernel
 
 theorem ok_stem_0 : (entries stem_0).all (nodeOK table) = true :=
-  all_entry_node table (3,[v45,v115,v152,v262]) block_0 block_1
+  all_entry_node_named table stem_0 (3,[v45,v115,v152,v262]) block_0 block_1 rfl
     ok_block_0 (by decide +kernel) ok_block_1
 
 theorem ok_stem_1 : (entries stem_1).all (nodeOK table) = true :=
-  all_entry_node table (3,[v85,v115,v143,v217]) stem_0 block_2
+  all_entry_node_named table stem_1 (3,[v85,v115,v143,v217]) stem_0 block_2 rfl
     ok_stem_0 (by decide +kernel) ok_block_2
 
 theorem ok_stem_2 : (entries stem_2).all (nodeOK table) = true :=
-  all_entry_node table (4,[v20,v29,v52,v66,v266]) block_3 block_4
+  all_entry_node_named table stem_2 (4,[v20,v29,v52,v66,v266]) block_3 block_4 rfl
     ok_block_3 (by decide +kernel) ok_block_4
 
 theorem ok_stem_3 : (entries stem_3).all (nodeOK table) = true :=
-  all_entry_node table (4,[v20,v29,v91,v217,v242]) stem_2 block_5
+  all_entry_node_named table stem_3 (4,[v20,v29,v91,v217,v242]) stem_2 block_5 rfl
     ok_stem_2 (by decide +kernel) ok_block_5
 
 theorem ok_stem_4 : (entries stem_4).all (nodeOK table) = true :=
-  all_entry_node table (4,[v12,v85,v115,v142,v210]) stem_1 stem_3
+  all_entry_node_named table stem_4 (4,[v12,v85,v115,v142,v210]) stem_1 stem_3 rfl
     ok_stem_1 (by decide +kernel) ok_stem_3
 
 theorem ok_stem_5 : (entries stem_5).all (nodeOK table) = true :=
-  all_entry_node table (4,[v20,v85,v108,v138,v269]) block_6 block_7
+  all_entry_node_named table stem_5 (4,[v20,v85,v108,v138,v269]) block_6 block_7 rfl
     ok_block_6 (by decide +kernel) ok_block_7
 
 theorem ok_stem_6 : (entries stem_6).all (nodeOK table) = true :=
-  all_entry_node table (4,[v29,v52,v66,v115,v198]) stem_5 block_8
+  all_entry_node_named table stem_6 (4,[v29,v52,v66,v115,v198]) stem_5 block_8 rfl
     ok_stem_5 (by decide +kernel) ok_block_8
 
 theorem ok_stem_7 : (entries stem_7).all (nodeOK table) = true :=
-  all_entry_node table (4,[v52,v66,v115,v164,v185]) block_9 block_10
+  all_entry_node_named table stem_7 (4,[v52,v66,v115,v164,v185]) block_9 block_10 rfl
     ok_block_9 (by decide +kernel) ok_block_10
 
 theorem ok_stem_8 : (entries stem_8).all (nodeOK table) = true :=
-  all_entry_node table (4,[v45,v80,v130,v138,v143]) stem_6 stem_7
+  all_entry_node_named table stem_8 (4,[v45,v80,v130,v138,v143]) stem_6 stem_7 rfl
     ok_stem_6 (by decide +kernel) ok_stem_7
 
 theorem ok_stem_9 : (entries stem_9).all (nodeOK table) = true :=
-  all_entry_node table (4,[v20,v66,v85,v217,v269]) stem_4 stem_8
+  all_entry_node_named table stem_9 (4,[v20,v66,v85,v217,v269]) stem_4 stem_8 rfl
     ok_stem_4 (by decide +kernel) ok_stem_8
 
 theorem ok_stem_10 : (entries stem_10).all (nodeOK table) = true :=
-  all_entry_node table (4,[v52,v85,v115,v138,v185]) block_11 block_12
+  all_entry_node_named table stem_10 (4,[v52,v85,v115,v138,v185]) block_11 block_12 rfl
     ok_block_11 (by decide +kernel) ok_block_12
 
 theorem ok_stem_11 : (entries stem_11).all (nodeOK table) = true :=
-  all_entry_node table (4,[v52,v85,v115,v143,v152]) stem_10 block_13
+  all_entry_node_named table stem_11 (4,[v52,v85,v115,v143,v152]) stem_10 block_13 rfl
     ok_stem_10 (by decide +kernel) ok_block_13
 
 theorem ok_stem_12 : (entries stem_12).all (nodeOK table) = true :=
-  all_entry_node table (4,[v61,v66,v115,v138,v185]) block_14 block_15
+  all_entry_node_named table stem_12 (4,[v61,v66,v115,v138,v185]) block_14 block_15 rfl
     ok_block_14 (by decide +kernel) ok_block_15
 
 theorem ok_stem_13 : (entries stem_13).all (nodeOK table) = true :=
-  all_entry_node table (4,[v85,v115,v143,v217]) stem_12 block_16
+  all_entry_node_named table stem_13 (4,[v85,v115,v143,v217]) stem_12 block_16 rfl
     ok_stem_12 (by decide +kernel) ok_block_16
 
 theorem ok_stem_14 : (entries stem_14).all (nodeOK table) = true :=
-  all_entry_node table (4,[v52,v85,v117,v138,v143]) stem_11 stem_13
+  all_entry_node_named table stem_14 (4,[v52,v85,v117,v138,v143]) stem_11 stem_13 rfl
     ok_stem_11 (by decide +kernel) ok_stem_13
 
 theorem ok_stem_15 : (entries stem_15).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v29,v46,v241,v269]) block_17 block_18
+  all_entry_node_named table stem_15 (5,[v12,v20,v29,v46,v241,v269]) block_17 block_18 rfl
     ok_block_17 (by decide +kernel) ok_block_18
 
 theorem ok_stem_16 : (entries stem_16).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v29,v66,v209,v269]) stem_15 block_19
+  all_entry_node_named table stem_16 (5,[v12,v20,v29,v66,v209,v269]) stem_15 block_19 rfl
     ok_stem_15 (by decide +kernel) ok_block_19
 
 theorem ok_stem_17 : (entries stem_17).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v45,v185,v241,v264]) block_20 block_21
+  all_entry_node_named table stem_17 (5,[v12,v20,v45,v185,v241,v264]) block_20 block_21 rfl
     ok_block_20 (by decide +kernel) ok_block_21
 
 theorem ok_stem_18 : (entries stem_18).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v30,v66,v209,v269]) stem_16 stem_17
+  all_entry_node_named table stem_18 (5,[v12,v20,v30,v66,v209,v269]) stem_16 stem_17 rfl
     ok_stem_16 (by decide +kernel) ok_stem_17
 
 theorem ok_stem_19 : (entries stem_19).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v29,v45,v239,v269]) stem_14 stem_18
+  all_entry_node_named table stem_19 (5,[v12,v20,v29,v45,v239,v269]) stem_14 stem_18 rfl
     ok_stem_14 (by decide +kernel) ok_stem_18
 
 theorem ok_stem_20 : (entries stem_20).all (nodeOK table) = true :=
-  all_entry_node table (4,[v52,v85,v115,v134,v185]) stem_9 stem_19
+  all_entry_node_named table stem_20 (4,[v52,v85,v115,v134,v185]) stem_9 stem_19 rfl
     ok_stem_9 (by decide +kernel) ok_stem_19
 
 theorem ok_stem_21 : (entries stem_21).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v66,v185,v209,v269]) block_22 block_23
+  all_entry_node_named table stem_21 (5,[v12,v20,v66,v185,v209,v269]) block_22 block_23 rfl
     ok_block_22 (by decide +kernel) ok_block_23
 
 theorem ok_stem_22 : (entries stem_22).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v85,v91,v159,v209]) stem_21 block_24
+  all_entry_node_named table stem_22 (5,[v12,v20,v85,v91,v159,v209]) stem_21 block_24 rfl
     ok_stem_21 (by decide +kernel) ok_block_24
 
 theorem ok_stem_23 : (entries stem_23).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v29,v45,v78,v241,v269]) block_25 block_26
+  all_entry_node_named table stem_23 (5,[v12,v29,v45,v78,v241,v269]) block_25 block_26 rfl
     ok_block_25 (by decide +kernel) ok_block_26
 
 theorem ok_stem_24 : (entries stem_24).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v29,v45,v172,v241,v269]) stem_23 block_27
+  all_entry_node_named table stem_24 (5,[v12,v29,v45,v172,v241,v269]) stem_23 block_27 rfl
     ok_stem_23 (by decide +kernel) ok_block_27
 
 theorem ok_stem_25 : (entries stem_25).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v23,v66,v91,v185,v209]) stem_22 stem_24
+  all_entry_node_named table stem_25 (5,[v12,v23,v66,v91,v185,v209]) stem_22 stem_24 rfl
     ok_stem_22 (by decide +kernel) ok_stem_24
 
 theorem ok_stem_26 : (entries stem_26).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v64,v97,v172,v185]) block_28 block_29
+  all_entry_node_named table stem_26 (5,[v12,v45,v64,v97,v172,v185]) block_28 block_29 rfl
     ok_block_28 (by decide +kernel) ok_block_29
 
 theorem ok_stem_27 : (entries stem_27).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v66,v91,v172,v259]) stem_26 block_30
+  all_entry_node_named table stem_27 (5,[v12,v45,v66,v91,v172,v259]) stem_26 block_30 rfl
     ok_stem_26 (by decide +kernel) ok_block_30
 
 theorem ok_stem_28 : (entries stem_28).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v85,v115,v134,v185]) block_31 block_32
+  all_entry_node_named table stem_28 (5,[v12,v45,v85,v115,v134,v185]) block_31 block_32 rfl
     ok_block_31 (by decide +kernel) ok_block_32
 
 theorem ok_stem_29 : (entries stem_29).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v66,v172,v185,v269]) stem_27 stem_28
+  all_entry_node_named table stem_29 (5,[v12,v45,v66,v172,v185,v269]) stem_27 stem_28 rfl
     ok_stem_27 (by decide +kernel) ok_stem_28
 
 theorem ok_stem_30 : (entries stem_30).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v29,v85,v115,v143,v205]) stem_25 stem_29
+  all_entry_node_named table stem_30 (5,[v12,v29,v85,v115,v143,v205]) stem_25 stem_29 rfl
     ok_stem_25 (by decide +kernel) ok_stem_29
 
 theorem ok_stem_31 : (entries stem_31).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v85,v115,v155,v185]) block_33 block_34
+  all_entry_node_named table stem_31 (5,[v12,v45,v85,v115,v155,v185]) block_33 block_34 rfl
     ok_block_33 (by decide +kernel) ok_block_34
 
 theorem ok_stem_32 : (entries stem_32).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v91,v168,v185,v237]) stem_31 block_35
+  all_entry_node_named table stem_32 (5,[v12,v45,v91,v168,v185,v237]) stem_31 block_35 rfl
     ok_stem_31 (by decide +kernel) ok_block_35
 
 theorem ok_stem_33 : (entries stem_33).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v66,v91,v168,v185,v209]) block_36 block_37
+  all_entry_node_named table stem_33 (5,[v12,v66,v91,v168,v185,v209]) block_36 block_37 rfl
     ok_block_36 (by decide +kernel) ok_block_37
 
 theorem ok_stem_34 : (entries stem_34).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v85,v115,v138,v143,v205]) stem_33 block_38
+  all_entry_node_named table stem_34 (5,[v12,v85,v115,v138,v143,v205]) stem_33 block_38 rfl
     ok_stem_33 (by decide +kernel) ok_block_38
 
 theorem ok_stem_35 : (entries stem_35).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v52,v85,v115,v143,v219]) stem_32 stem_34
+  all_entry_node_named table stem_35 (5,[v12,v52,v85,v115,v143,v219]) stem_32 stem_34 rfl
     ok_stem_32 (by decide +kernel) ok_stem_34
 
 theorem ok_stem_36 : (entries stem_36).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v29,v52,v66,v91,v158]) block_39 block_40
+  all_entry_node_named table stem_36 (5,[v20,v29,v52,v66,v91,v158]) block_39 block_40 rfl
     ok_block_39 (by decide +kernel) ok_block_40
 
 theorem ok_stem_37 : (entries stem_37).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v29,v52,v66,v140,v269]) stem_36 block_41
+  all_entry_node_named table stem_37 (5,[v20,v29,v52,v66,v140,v269]) stem_36 block_41 rfl
     ok_stem_36 (by decide +kernel) ok_block_41
 
 theorem ok_stem_38 : (entries stem_38).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v29,v66,v91,v217,v243]) block_42 block_43
+  all_entry_node_named table stem_38 (5,[v20,v29,v66,v91,v217,v243]) block_42 block_43 rfl
     ok_block_42 (by decide +kernel) ok_block_43
 
 theorem ok_stem_39 : (entries stem_39).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v29,v52,v77,v138,v269]) stem_37 stem_38
+  all_entry_node_named table stem_39 (5,[v20,v29,v52,v77,v138,v269]) stem_37 stem_38 rfl
     ok_stem_37 (by decide +kernel) ok_stem_38
 
 theorem ok_stem_40 : (entries stem_40).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v29,v45,v66,v152,v296]) stem_35 stem_39
+  all_entry_node_named table stem_40 (5,[v20,v29,v45,v66,v152,v296]) stem_35 stem_39 rfl
     ok_stem_35 (by decide +kernel) ok_stem_39
 
 theorem ok_stem_41 : (entries stem_41).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v45,v85,v115,v143,v157]) stem_30 stem_40
+  all_entry_node_named table stem_41 (5,[v12,v45,v85,v115,v143,v157]) stem_30 stem_40 rfl
     ok_stem_30 (by decide +kernel) ok_stem_40
 
 theorem ok_stem_42 : (entries stem_42).all (nodeOK table) = true :=
-  all_entry_node table (5,[v12,v20,v66,v91,v187,v209]) stem_20 stem_41
+  all_entry_node_named table stem_42 (5,[v12,v20,v66,v91,v187,v209]) stem_20 stem_41 rfl
     ok_stem_20 (by decide +kernel) ok_stem_41
 
 theorem ok_stem_43 : (entries stem_43).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v45,v72,v97,v138,v185]) block_44 block_45
+  all_entry_node_named table stem_43 (5,[v20,v45,v72,v97,v138,v185]) block_44 block_45 rfl
     ok_block_44 (by decide +kernel) ok_block_45
 
 theorem ok_stem_44 : (entries stem_44).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v51,v66,v91,v138,v185]) stem_43 block_46
+  all_entry_node_named table stem_44 (5,[v20,v51,v66,v91,v138,v185]) stem_43 block_46 rfl
     ok_stem_43 (by decide +kernel) ok_block_46
 
 theorem ok_stem_45 : (entries stem_45).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v66,v91,v185,v209]) block_47 block_48
+  all_entry_node_named table stem_45 (5,[v20,v52,v66,v91,v185,v209]) block_47 block_48 rfl
     ok_block_47 (by decide +kernel) ok_block_48
 
 theorem ok_stem_46 : (entries stem_46).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v66,v115,v172,v185]) stem_45 block_49
+  all_entry_node_named table stem_46 (5,[v20,v52,v66,v115,v172,v185]) stem_45 block_49 rfl
     ok_stem_45 (by decide +kernel) ok_block_49
 
 theorem ok_stem_47 : (entries stem_47).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v66,v91,v148,v185]) stem_44 stem_46
+  all_entry_node_named table stem_47 (5,[v20,v52,v66,v91,v148,v185]) stem_44 stem_46 rfl
     ok_stem_44 (by decide +kernel) ok_stem_46
 
 theorem ok_stem_48 : (entries stem_48).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v85,v91,v138,v269]) block_50 block_51
+  all_entry_node_named table stem_48 (5,[v20,v52,v85,v91,v138,v269]) block_50 block_51 rfl
     ok_block_50 (by decide +kernel) ok_block_51
 
 theorem ok_stem_49 : (entries stem_49).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v85,v91,v143,v168]) stem_48 block_52
+  all_entry_node_named table stem_49 (5,[v20,v52,v85,v91,v143,v168]) stem_48 block_52 rfl
     ok_stem_48 (by decide +kernel) ok_block_52
 
 theorem ok_stem_50 : (entries stem_50).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v61,v66,v91,v138,v185]) block_53 block_54
+  all_entry_node_named table stem_50 (5,[v20,v61,v66,v91,v138,v185]) block_53 block_54 rfl
     ok_block_53 (by decide +kernel) ok_block_54
 
 theorem ok_stem_51 : (entries stem_51).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v85,v106,v138,v143]) stem_49 stem_50
+  all_entry_node_named table stem_51 (5,[v20,v52,v85,v106,v138,v143]) stem_49 stem_50 rfl
     ok_stem_49 (by decide +kernel) ok_stem_50
 
 theorem ok_stem_52 : (entries stem_52).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v52,v85,v91,v134,v263]) stem_47 stem_51
+  all_entry_node_named table stem_52 (5,[v20,v52,v85,v91,v134,v263]) stem_47 stem_51 rfl
     ok_stem_47 (by decide +kernel) ok_stem_51
 
 theorem ok_stem_53 : (entries stem_53).all (nodeOK table) = true :=
-  all_entry_node table (5,[v26,v45,v66,v115,v138,v185]) block_55 block_56
+  all_entry_node_named table stem_53 (5,[v26,v45,v66,v115,v138,v185]) block_55 block_56 rfl
     ok_block_55 (by decide +kernel) ok_block_56
 
 theorem ok_stem_54 : (entries stem_54).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v45,v52,v66,v115,v142]) stem_53 block_57
+  all_entry_node_named table stem_54 (5,[v29,v45,v52,v66,v115,v142]) stem_53 block_57 rfl
     ok_stem_53 (by decide +kernel) ok_block_57
 
 theorem ok_stem_55 : (entries stem_55).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v66,v115,v137,v143]) block_58 block_59
+  all_entry_node_named table stem_55 (5,[v29,v52,v66,v115,v137,v143]) block_58 block_59 rfl
     ok_block_58 (by decide +kernel) ok_block_59
 
 theorem ok_stem_56 : (entries stem_56).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v66,v115,v141,v143]) stem_55 block_60
+  all_entry_node_named table stem_56 (5,[v29,v52,v66,v115,v141,v143]) stem_55 block_60 rfl
     ok_stem_55 (by decide +kernel) ok_block_60
 
 theorem ok_stem_57 : (entries stem_57).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v66,v91,v143,v168]) stem_54 stem_56
+  all_entry_node_named table stem_57 (5,[v29,v52,v66,v91,v143,v168]) stem_54 stem_56 rfl
     ok_stem_54 (by decide +kernel) ok_stem_56
 
 theorem ok_stem_58 : (entries stem_58).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v67,v115,v138,v143]) block_61 block_62
+  all_entry_node_named table stem_58 (5,[v29,v52,v67,v115,v138,v143]) block_61 block_62 rfl
     ok_block_61 (by decide +kernel) ok_block_62
 
 theorem ok_stem_59 : (entries stem_59).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v91,v115,v143,v237]) stem_58 block_63
+  all_entry_node_named table stem_59 (5,[v29,v52,v91,v115,v143,v237]) stem_58 block_63 rfl
     ok_stem_58 (by decide +kernel) ok_block_63
 
 theorem ok_stem_60 : (entries stem_60).all (nodeOK table) = true :=
-  all_entry_node table (5,[v45,v72,v85,v115,v138,v143]) block_64 block_65
+  all_entry_node_named table stem_60 (5,[v45,v72,v85,v115,v138,v143]) block_64 block_65 rfl
     ok_block_64 (by decide +kernel) ok_block_65
 
 theorem ok_stem_61 : (entries stem_61).all (nodeOK table) = true :=
-  all_entry_node table (5,[v36,v52,v85,v91,v143,v172]) stem_59 stem_60
+  all_entry_node_named table stem_61 (5,[v36,v52,v85,v91,v143,v172]) stem_59 stem_60 rfl
     ok_stem_59 (by decide +kernel) ok_stem_60
 
 theorem ok_stem_62 : (entries stem_62).all (nodeOK table) = true :=
-  all_entry_node table (5,[v29,v52,v66,v115,v185,v209]) stem_57 stem_61
+  all_entry_node_named table stem_62 (5,[v29,v52,v66,v115,v185,v209]) stem_57 stem_61 rfl
     ok_stem_57 (by decide +kernel) ok_stem_61
 
 theorem ok_stem_63 : (entries stem_63).all (nodeOK table) = true :=
-  all_entry_node table (5,[v21,v52,v85,v91,v138,v143]) stem_52 stem_62
+  all_entry_node_named table stem_63 (5,[v21,v52,v85,v91,v138,v143]) stem_52 stem_62 rfl
     ok_stem_52 (by decide +kernel) ok_stem_62
 
 theorem ok_stem_64 : (entries stem_64).all (nodeOK table) = true :=
-  all_entry_node table (5,[v52,v66,v115,v138,v143,v180]) block_66 block_67
+  all_entry_node_named table stem_64 (5,[v52,v66,v115,v138,v143,v180]) block_66 block_67 rfl
     ok_block_66 (by decide +kernel) ok_block_67
 
 theorem ok_stem_65 : (entries stem_65).all (nodeOK table) = true :=
-  all_entry_node table (5,[v52,v85,v91,v115,v143,v172]) stem_64 block_68
+  all_entry_node_named table stem_65 (5,[v52,v85,v91,v115,v143,v172]) stem_64 block_68 rfl
     ok_stem_64 (by decide +kernel) ok_block_68
 
 theorem ok_stem_66 : (entries stem_66).all (nodeOK table) = true :=
-  all_entry_node table (5,[v52,v85,v115,v143,v172]) block_69 block_70
+  all_entry_node_named table stem_66 (5,[v52,v85,v115,v143,v172]) block_69 block_70 rfl
     ok_block_69 (by decide +kernel) ok_block_70
 
 theorem ok_stem_67 : (entries stem_67).all (nodeOK table) = true :=
-  all_entry_node table (6,[v1,v12,v45,v85,v115,v138,v143]) stem_66 block_71
+  all_entry_node_named table stem_67 (6,[v1,v12,v45,v85,v115,v138,v143]) stem_66 block_71 rfl
     ok_stem_66 (by decide +kernel) ok_block_71
 
 theorem ok_stem_68 : (entries stem_68).all (nodeOK table) = true :=
-  all_entry_node table (5,[v52,v85,v115,v138,v143,v181]) stem_65 stem_67
+  all_entry_node_named table stem_68 (5,[v52,v85,v115,v138,v143,v181]) stem_65 stem_67 rfl
     ok_stem_65 (by decide +kernel) ok_stem_67
 
 theorem ok_stem_69 : (entries stem_69).all (nodeOK table) = true :=
-  all_entry_node table (6,[v7,v12,v20,v29,v45,v241,v269]) block_72 block_73
+  all_entry_node_named table stem_69 (6,[v7,v12,v20,v29,v45,v241,v269]) block_72 block_73 rfl
     ok_block_72 (by decide +kernel) ok_block_73
 
 theorem ok_stem_70 : (entries stem_70).all (nodeOK table) = true :=
-  all_entry_node table (6,[v8,v29,v52,v66,v115,v138,v143]) stem_69 block_74
+  all_entry_node_named table stem_70 (6,[v8,v29,v52,v66,v115,v138,v143]) stem_69 block_74 rfl
     ok_stem_69 (by decide +kernel) ok_block_74
 
 theorem ok_stem_71 : (entries stem_71).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v28,v45,v66,v138,v269]) block_75 block_76
+  all_entry_node_named table stem_71 (6,[v12,v20,v28,v45,v66,v138,v269]) block_75 block_76 rfl
     ok_block_75 (by decide +kernel) ok_block_76
 
 theorem ok_stem_72 : (entries stem_72).all (nodeOK table) = true :=
-  all_entry_node table (6,[v11,v20,v29,v52,v66,v138,v269]) stem_70 stem_71
+  all_entry_node_named table stem_72 (6,[v11,v20,v29,v52,v66,v138,v269]) stem_70 stem_71 rfl
     ok_stem_70 (by decide +kernel) ok_stem_71
 
 theorem ok_stem_73 : (entries stem_73).all (nodeOK table) = true :=
-  all_entry_node table (6,[v5,v12,v20,v29,v66,v209,v269]) stem_68 stem_72
+  all_entry_node_named table stem_73 (6,[v5,v12,v20,v29,v66,v209,v269]) stem_68 stem_72 rfl
     ok_stem_68 (by decide +kernel) ok_stem_72
 
 theorem ok_stem_74 : (entries stem_74).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v66,v237,v269]) block_77 block_78
+  all_entry_node_named table stem_74 (6,[v12,v20,v29,v45,v66,v237,v269]) block_77 block_78 rfl
     ok_block_77 (by decide +kernel) ok_block_78
 
 theorem ok_stem_75 : (entries stem_75).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v91,v142,v242]) stem_74 block_79
+  all_entry_node_named table stem_75 (6,[v12,v20,v29,v45,v91,v142,v242]) stem_74 block_79 rfl
     ok_stem_74 (by decide +kernel) ok_block_79
 
 theorem ok_stem_76 : (entries stem_76).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v185,v241,v269]) block_80 block_81
+  all_entry_node_named table stem_76 (6,[v12,v20,v29,v45,v185,v241,v269]) block_80 block_81 rfl
     ok_block_80 (by decide +kernel) ok_block_81
 
 theorem ok_stem_77 : (entries stem_77).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v241,v269,v277]) stem_76 block_82
+  all_entry_node_named table stem_77 (6,[v12,v20,v29,v45,v241,v269,v277]) stem_76 block_82 rfl
     ok_stem_76 (by decide +kernel) ok_block_82
 
 theorem ok_stem_78 : (entries stem_78).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v115,v143,v237]) stem_75 stem_77
+  all_entry_node_named table stem_78 (6,[v12,v20,v29,v45,v115,v143,v237]) stem_75 stem_77 rfl
     ok_stem_75 (by decide +kernel) ok_stem_77
 
 theorem ok_stem_79 : (entries stem_79).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v66,v91,v143,v215]) block_83 block_84
+  all_entry_node_named table stem_79 (6,[v12,v20,v29,v66,v91,v143,v215]) block_83 block_84 rfl
     ok_block_83 (by decide +kernel) ok_block_84
 
 theorem ok_stem_80 : (entries stem_80).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v66,v91,v205,v269]) stem_79 block_85
+  all_entry_node_named table stem_80 (6,[v12,v20,v29,v66,v91,v205,v269]) stem_79 block_85 rfl
     ok_stem_79 (by decide +kernel) ok_block_85
 
 theorem ok_stem_81 : (entries stem_81).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v77,v91,v143,v209]) block_86 block_87
+  all_entry_node_named table stem_81 (6,[v12,v20,v29,v77,v91,v143,v209]) block_86 block_87 rfl
     ok_block_86 (by decide +kernel) ok_block_87
 
 theorem ok_stem_82 : (entries stem_82).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v66,v172,v209,v269]) stem_80 stem_81
+  all_entry_node_named table stem_82 (6,[v12,v20,v29,v66,v172,v209,v269]) stem_80 stem_81 rfl
     ok_stem_80 (by decide +kernel) ok_stem_81
 
 theorem ok_stem_83 : (entries stem_83).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v64,v66,v209,v269]) stem_78 stem_82
+  all_entry_node_named table stem_83 (6,[v12,v20,v29,v64,v66,v209,v269]) stem_78 stem_82 rfl
     ok_stem_78 (by decide +kernel) ok_stem_82
 
 theorem ok_stem_84 : (entries stem_84).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v29,v45,v66,v142,v268]) stem_73 stem_83
+  all_entry_node_named table stem_84 (6,[v12,v20,v29,v45,v66,v142,v268]) stem_73 stem_83 rfl
     ok_stem_73 (by decide +kernel) ok_stem_83
 
 theorem ok_stem_85 : (entries stem_85).all (nodeOK table) = true :=
-  all_entry_node table (5,[v52,v66,v85,v115,v143,v155]) stem_63 stem_84
+  all_entry_node_named table stem_85 (5,[v52,v66,v85,v115,v143,v155]) stem_63 stem_84 rfl
     ok_stem_63 (by decide +kernel) ok_stem_84
 
 theorem ok_stem_86 : (entries stem_86).all (nodeOK table) = true :=
-  all_entry_node table (5,[v20,v39,v85,v91,v143,v219]) stem_42 stem_85
+  all_entry_node_named table stem_86 (5,[v20,v39,v85,v91,v143,v219]) stem_42 stem_85 rfl
     ok_stem_42 (by decide +kernel) ok_stem_85
 
 theorem ok_stem_87 : (entries stem_87).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v66,v85,v91,v142]) block_88 block_89
+  all_entry_node_named table stem_87 (6,[v12,v20,v45,v66,v85,v91,v142]) block_88 block_89 rfl
     ok_block_88 (by decide +kernel) ok_block_89
 
 theorem ok_stem_88 : (entries stem_88).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v66,v91,v138,v226]) stem_87 block_90
+  all_entry_node_named table stem_88 (6,[v12,v20,v45,v66,v91,v138,v226]) stem_87 block_90 rfl
     ok_stem_87 (by decide +kernel) ok_block_90
 
 theorem ok_stem_89 : (entries stem_89).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v67,v91,v138,v185]) block_91 block_92
+  all_entry_node_named table stem_89 (6,[v12,v20,v45,v67,v91,v138,v185]) block_91 block_92 rfl
     ok_block_91 (by decide +kernel) ok_block_92
 
 theorem ok_stem_90 : (entries stem_90).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v85,v91,v134,v243]) stem_89 block_93
+  all_entry_node_named table stem_90 (6,[v12,v20,v45,v85,v91,v134,v243]) stem_89 block_93 rfl
     ok_stem_89 (by decide +kernel) ok_block_93
 
 theorem ok_stem_91 : (entries stem_91).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v66,v115,v138,v185]) stem_88 stem_90
+  all_entry_node_named table stem_91 (6,[v12,v20,v45,v66,v115,v138,v185]) stem_88 stem_90 rfl
     ok_stem_88 (by decide +kernel) ok_stem_90
 
 theorem ok_stem_92 : (entries stem_92).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v85,v91,v209,v269]) block_94 block_95
+  all_entry_node_named table stem_92 (6,[v12,v20,v45,v85,v91,v209,v269]) block_94 block_95 rfl
     ok_block_94 (by decide +kernel) ok_block_95
 
 theorem ok_stem_93 : (entries stem_93).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v85,v115,v143,v172]) stem_92 block_96
+  all_entry_node_named table stem_93 (6,[v12,v20,v45,v85,v115,v143,v172]) stem_92 block_96 rfl
     ok_stem_92 (by decide +kernel) ok_block_96
 
 theorem ok_stem_94 : (entries stem_94).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v52,v91,v138,v185,v241]) block_97 block_98
+  all_entry_node_named table stem_94 (6,[v12,v20,v52,v91,v138,v185,v241]) block_97 block_98 rfl
     ok_block_97 (by decide +kernel) ok_block_98
 
 theorem ok_stem_95 : (entries stem_95).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v91,v185,v241,v265]) stem_93 stem_94
+  all_entry_node_named table stem_95 (6,[v12,v20,v45,v91,v185,v241,v265]) stem_93 stem_94 rfl
     ok_stem_93 (by decide +kernel) ok_stem_94
 
 theorem ok_stem_96 : (entries stem_96).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v45,v85,v91,v143,v172]) stem_91 stem_95
+  all_entry_node_named table stem_96 (6,[v12,v20,v45,v85,v91,v143,v172]) stem_91 stem_95 rfl
     ok_stem_91 (by decide +kernel) ok_stem_95
 
 theorem ok_stem_97 : (entries stem_97).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v66,v91,v185,v209,v213]) block_99 block_100
+  all_entry_node_named table stem_97 (6,[v12,v20,v66,v91,v185,v209,v213]) block_99 block_100 rfl
     ok_block_99 (by decide +kernel) ok_block_100
 
 theorem ok_stem_98 : (entries stem_98).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v66,v185,v209,v269]) stem_97 block_101
+  all_entry_node_named table stem_98 (6,[v12,v20,v66,v185,v209,v269]) stem_97 block_101 rfl
     ok_stem_97 (by decide +kernel) ok_block_101
 
 theorem ok_stem_99 : (entries stem_99).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v44,v66,v115,v138,v143]) block_102 block_103
+  all_entry_node_named table stem_99 (6,[v12,v29,v44,v66,v115,v138,v143]) block_102 block_103 rfl
     ok_block_102 (by decide +kernel) ok_block_103
 
 theorem ok_stem_100 : (entries stem_100).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v66,v91,v143,v173]) stem_99 block_104
+  all_entry_node_named table stem_100 (6,[v12,v29,v45,v66,v91,v143,v173]) stem_99 block_104 rfl
     ok_stem_99 (by decide +kernel) ok_block_104
 
 theorem ok_stem_101 : (entries stem_101).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v25,v29,v45,v66,v138,v269]) stem_98 stem_100
+  all_entry_node_named table stem_101 (6,[v12,v25,v29,v45,v66,v138,v269]) stem_98 stem_100 rfl
     ok_stem_98 (by decide +kernel) ok_stem_100
 
 theorem ok_stem_102 : (entries stem_102).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v66,v115,v141,v143]) block_105 block_106
+  all_entry_node_named table stem_102 (6,[v12,v29,v45,v66,v115,v141,v143]) block_105 block_106 rfl
     ok_block_105 (by decide +kernel) ok_block_106
 
 theorem ok_stem_103 : (entries stem_103).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v66,v115,v143,v219]) stem_102 block_107
+  all_entry_node_named table stem_103 (6,[v12,v29,v45,v66,v115,v143,v219]) stem_102 block_107 rfl
     ok_stem_102 (by decide +kernel) ok_block_107
 
 theorem ok_stem_104 : (entries stem_104).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v91,v115,v143,v237]) block_108 block_109
+  all_entry_node_named table stem_104 (6,[v12,v29,v45,v91,v115,v143,v237]) block_108 block_109 rfl
     ok_block_108 (by decide +kernel) ok_block_109
 
 theorem ok_stem_105 : (entries stem_105).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v66,v172,v181,v269]) stem_103 stem_104
+  all_entry_node_named table stem_105 (6,[v12,v29,v45,v66,v172,v181,v269]) stem_103 stem_104 rfl
     ok_stem_103 (by decide +kernel) ok_stem_104
 
 theorem ok_stem_106 : (entries stem_106).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v45,v66,v115,v136,v143]) stem_101 stem_105
+  all_entry_node_named table stem_106 (6,[v12,v29,v45,v66,v115,v136,v143]) stem_101 stem_105 rfl
     ok_stem_101 (by decide +kernel) ok_stem_105
 
 theorem ok_stem_107 : (entries stem_107).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v66,v91,v143,v185,v219]) stem_96 stem_106
+  all_entry_node_named table stem_107 (6,[v12,v20,v66,v91,v143,v185,v219]) stem_96 stem_106 rfl
     ok_stem_96 (by decide +kernel) ok_stem_106
 
 theorem ok_stem_108 : (entries stem_108).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v52,v85,v91,v143,v172]) block_110 block_111
+  all_entry_node_named table stem_108 (6,[v12,v29,v52,v85,v91,v143,v172]) block_110 block_111 rfl
     ok_block_110 (by decide +kernel) ok_block_111
 
 theorem ok_stem_109 : (entries stem_109).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v66,v91,v143,v172,v205]) stem_108 block_112
+  all_entry_node_named table stem_109 (6,[v12,v29,v66,v91,v143,v172,v205]) stem_108 block_112 rfl
     ok_stem_108 (by decide +kernel) ok_block_112
 
 theorem ok_stem_110 : (entries stem_110).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v53,v66,v91,v138,v185]) block_113 block_114
+  all_entry_node_named table stem_110 (6,[v12,v45,v53,v66,v91,v138,v185]) block_113 block_114 rfl
     ok_block_113 (by decide +kernel) ok_block_114
 
 theorem ok_stem_111 : (entries stem_111).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v66,v79,v115,v138,v185]) stem_110 block_115
+  all_entry_node_named table stem_111 (6,[v12,v45,v66,v79,v115,v138,v185]) stem_110 block_115 rfl
     ok_stem_110 (by decide +kernel) ok_block_115
 
 theorem ok_stem_112 : (entries stem_112).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v34,v45,v66,v115,v138,v143]) stem_109 stem_111
+  all_entry_node_named table stem_112 (6,[v12,v34,v45,v66,v115,v138,v143]) stem_109 stem_111 rfl
     ok_stem_109 (by decide +kernel) ok_stem_111
 
 theorem ok_stem_113 : (entries stem_113).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v66,v91,v172,v185,v257]) block_116 block_117
+  all_entry_node_named table stem_113 (6,[v12,v45,v66,v91,v172,v185,v257]) block_116 block_117 rfl
     ok_block_116 (by decide +kernel) ok_block_117
 
 theorem ok_stem_114 : (entries stem_114).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v78,v85,v91,v138,v143]) stem_113 block_118
+  all_entry_node_named table stem_114 (6,[v12,v45,v78,v85,v91,v138,v143]) stem_113 block_118 rfl
     ok_stem_113 (by decide +kernel) ok_block_118
 
 theorem ok_stem_115 : (entries stem_115).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v52,v66,v91,v172,v185]) block_119 block_120
+  all_entry_node_named table stem_115 (6,[v12,v52,v66,v91,v172,v185]) block_119 block_120 rfl
     ok_block_119 (by decide +kernel) ok_block_120
 
 theorem ok_stem_116 : (entries stem_116).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v85,v115,v130,v138,v143]) stem_114 stem_115
+  all_entry_node_named table stem_116 (6,[v12,v45,v85,v115,v130,v138,v143]) stem_114 stem_115 rfl
     ok_stem_114 (by decide +kernel) ok_stem_115
 
 theorem ok_stem_117 : (entries stem_117).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v45,v66,v91,v172,v174,v185]) stem_112 stem_116
+  all_entry_node_named table stem_117 (6,[v12,v45,v66,v91,v172,v174,v185]) stem_112 stem_116 rfl
     ok_stem_112 (by decide +kernel) ok_stem_116
 
 theorem ok_stem_118 : (entries stem_118).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v45,v52,v66,v91,v142]) block_121 block_122
+  all_entry_node_named table stem_118 (6,[v20,v29,v45,v52,v66,v91,v142]) block_121 block_122 rfl
     ok_block_121 (by decide +kernel) ok_block_122
 
 theorem ok_stem_119 : (entries stem_119).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v45,v66,v91,v152,v185]) stem_118 block_123
+  all_entry_node_named table stem_119 (6,[v20,v29,v45,v66,v91,v152,v185]) stem_118 block_123 rfl
     ok_stem_118 (by decide +kernel) ok_block_123
 
 theorem ok_stem_120 : (entries stem_120).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v91,v138,v199]) block_124 block_125
+  all_entry_node_named table stem_120 (6,[v20,v29,v52,v66,v91,v138,v199]) block_124 block_125 rfl
     ok_block_124 (by decide +kernel) ok_block_125
 
 theorem ok_stem_121 : (entries stem_121).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v91,v143,v165]) stem_120 block_126
+  all_entry_node_named table stem_121 (6,[v20,v29,v52,v66,v91,v143,v165]) stem_120 block_126 rfl
     ok_stem_120 (by decide +kernel) ok_block_126
 
 theorem ok_stem_122 : (entries stem_122).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v91,v134,v143]) stem_119 stem_121
+  all_entry_node_named table stem_122 (6,[v20,v29,v52,v66,v91,v134,v143]) stem_119 stem_121 rfl
     ok_stem_119 (by decide +kernel) ok_stem_121
 
 theorem ok_stem_123 : (entries stem_123).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v134,v143,v264]) block_127 block_128
+  all_entry_node_named table stem_123 (6,[v20,v29,v52,v66,v134,v143,v264]) block_127 block_128 rfl
     ok_block_127 (by decide +kernel) ok_block_128
 
 theorem ok_stem_124 : (entries stem_124).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v138,v241,v269]) stem_123 block_129
+  all_entry_node_named table stem_124 (6,[v20,v29,v52,v66,v138,v241,v269]) stem_123 block_129 rfl
     ok_stem_123 (by decide +kernel) ok_block_129
 
 theorem ok_stem_125 : (entries stem_125).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v34,v52,v66,v91,v138,v143]) block_130 block_131
+  all_entry_node_named table stem_125 (6,[v20,v34,v52,v66,v91,v138,v143]) block_130 block_131 rfl
     ok_block_130 (by decide +kernel) ok_block_131
 
 theorem ok_stem_126 : (entries stem_126).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v85,v91,v143,v155]) stem_124 stem_125
+  all_entry_node_named table stem_126 (6,[v20,v29,v52,v85,v91,v143,v155]) stem_124 stem_125 rfl
     ok_stem_124 (by decide +kernel) ok_stem_125
 
 theorem ok_stem_127 : (entries stem_127).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v29,v52,v66,v102,v138,v143]) stem_122 stem_126
+  all_entry_node_named table stem_127 (6,[v20,v29,v52,v66,v102,v138,v143]) stem_122 stem_126 rfl
     ok_stem_122 (by decide +kernel) ok_stem_126
 
 theorem ok_stem_128 : (entries stem_128).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v26,v45,v66,v91,v138,v185]) stem_117 stem_127
+  all_entry_node_named table stem_128 (6,[v20,v26,v45,v66,v91,v138,v185]) stem_117 stem_127 rfl
     ok_stem_117 (by decide +kernel) ok_stem_127
 
 theorem ok_stem_129 : (entries stem_129).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v29,v49,v66,v115,v138,v143]) stem_107 stem_128
+  all_entry_node_named table stem_129 (6,[v12,v29,v49,v66,v115,v138,v143]) stem_107 stem_128 rfl
     ok_stem_107 (by decide +kernel) ok_stem_128
 
 theorem ok_stem_130 : (entries stem_130).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v57,v85,v91,v138,v143]) block_132 block_133
+  all_entry_node_named table stem_130 (6,[v20,v52,v57,v85,v91,v138,v143]) block_132 block_133 rfl
     ok_block_132 (by decide +kernel) ok_block_133
 
 theorem ok_stem_131 : (entries stem_131).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v66,v85,v91,v143,v172]) stem_130 block_134
+  all_entry_node_named table stem_131 (6,[v20,v52,v66,v85,v91,v143,v172]) stem_130 block_134 rfl
     ok_stem_130 (by decide +kernel) ok_block_134
 
 theorem ok_stem_132 : (entries stem_132).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v66,v91,v155,v185]) block_135 block_136
+  all_entry_node_named table stem_132 (6,[v20,v52,v66,v91,v155,v185]) block_135 block_136 rfl
     ok_block_135 (by decide +kernel) ok_block_136
 
 theorem ok_stem_133 : (entries stem_133).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v85,v91,v109,v138,v143]) stem_132 block_137
+  all_entry_node_named table stem_133 (6,[v20,v52,v85,v91,v109,v138,v143]) stem_132 block_137 rfl
     ok_stem_132 (by decide +kernel) ok_block_137
 
 theorem ok_stem_134 : (entries stem_134).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v66,v91,v138,v185,v209]) stem_131 stem_133
+  all_entry_node_named table stem_134 (6,[v20,v52,v66,v91,v138,v185,v209]) stem_131 stem_133 rfl
     ok_stem_131 (by decide +kernel) ok_stem_133
 
 theorem ok_stem_135 : (entries stem_135).all (nodeOK table) = true :=
-  all_entry_node table (6,[v29,v36,v52,v66,v91,v143,v172]) block_138 block_139
+  all_entry_node_named table stem_135 (6,[v29,v36,v52,v66,v91,v143,v172]) block_138 block_139 rfl
     ok_block_138 (by decide +kernel) ok_block_139
 
 theorem ok_stem_136 : (entries stem_136).all (nodeOK table) = true :=
-  all_entry_node table (6,[v29,v45,v52,v66,v115,v143,v219]) stem_135 block_140
+  all_entry_node_named table stem_136 (6,[v29,v45,v52,v66,v115,v143,v219]) stem_135 block_140 rfl
     ok_stem_135 (by decide +kernel) ok_block_140
 
 theorem ok_stem_137 : (entries stem_137).all (nodeOK table) = true :=
-  all_entry_node table (6,[v29,v52,v66,v115,v138,v143,v218]) block_141 block_142
+  all_entry_node_named table stem_137 (6,[v29,v52,v66,v115,v138,v143,v218]) block_141 block_142 rfl
     ok_block_141 (by decide +kernel) ok_block_142
 
 theorem ok_stem_138 : (entries stem_138).all (nodeOK table) = true :=
-  all_entry_node table (6,[v29,v52,v66,v91,v115,v143,v209]) stem_136 stem_137
+  all_entry_node_named table stem_138 (6,[v29,v52,v66,v91,v115,v143,v209]) stem_136 stem_137 rfl
     ok_stem_136 (by decide +kernel) ok_stem_137
 
 theorem ok_stem_139 : (entries stem_139).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v52,v85,v91,v143,v241]) stem_134 stem_138
+  all_entry_node_named table stem_139 (6,[v20,v52,v85,v91,v143,v241]) stem_134 stem_138 rfl
     ok_stem_134 (by decide +kernel) ok_stem_138
 
 theorem ok_stem_140 : (entries stem_140).all (nodeOK table) = true :=
-  all_entry_node table (7,[v3,v12,v20,v29,v66,v91,v143,v209]) block_143 block_144
+  all_entry_node_named table stem_140 (7,[v3,v12,v20,v29,v66,v91,v143,v209]) block_143 block_144 rfl
     ok_block_143 (by decide +kernel) ok_block_144
 
 theorem ok_stem_141 : (entries stem_141).all (nodeOK table) = true :=
-  all_entry_node table (7,[v5,v12,v20,v45,v66,v91,v138,v185]) stem_140 block_145
+  all_entry_node_named table stem_141 (7,[v5,v12,v20,v45,v66,v91,v138,v185]) stem_140 block_145 rfl
     ok_stem_140 (by decide +kernel) ok_block_145
 
 theorem ok_stem_142 : (entries stem_142).all (nodeOK table) = true :=
-  all_entry_node table (7,[v11,v12,v20,v29,v66,v91,v143,v209]) block_146 block_147
+  all_entry_node_named table stem_142 (7,[v11,v12,v20,v29,v66,v91,v143,v209]) block_146 block_147 rfl
     ok_block_146 (by decide +kernel) ok_block_147
 
 theorem ok_stem_143 : (entries stem_143).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v18,v20,v29,v66,v91,v143,v209]) stem_142 block_148
+  all_entry_node_named table stem_143 (7,[v12,v18,v20,v29,v66,v91,v143,v209]) stem_142 block_148 rfl
     ok_stem_142 (by decide +kernel) ok_block_148
 
 theorem ok_stem_144 : (entries stem_144).all (nodeOK table) = true :=
-  all_entry_node table (7,[v9,v12,v20,v45,v66,v91,v138,v185]) stem_141 stem_143
+  all_entry_node_named table stem_144 (7,[v9,v12,v20,v45,v66,v91,v138,v185]) stem_141 stem_143 rfl
     ok_stem_141 (by decide +kernel) ok_stem_143
 
 theorem ok_stem_145 : (entries stem_145).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v66,v91,v138,v145]) block_149 block_150
+  all_entry_node_named table stem_145 (7,[v12,v20,v29,v45,v66,v91,v138,v145]) block_149 block_150 rfl
     ok_block_149 (by decide +kernel) ok_block_150
 
 theorem ok_stem_146 : (entries stem_146).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v66,v91,v143,v148]) stem_145 block_151
+  all_entry_node_named table stem_146 (7,[v12,v20,v29,v45,v66,v91,v143,v148]) stem_145 block_151 rfl
     ok_stem_145 (by decide +kernel) ok_block_151
 
 theorem ok_stem_147 : (entries stem_147).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v66,v138,v269,v269]) block_152 block_153
+  all_entry_node_named table stem_147 (7,[v12,v20,v29,v45,v66,v138,v269,v269]) block_152 block_153 rfl
     ok_block_152 (by decide +kernel) ok_block_153
 
 theorem ok_stem_148 : (entries stem_148).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v66,v102,v138,v143]) stem_146 stem_147
+  all_entry_node_named table stem_148 (7,[v12,v20,v29,v45,v66,v102,v138,v143]) stem_146 stem_147 rfl
     ok_stem_146 (by decide +kernel) ok_stem_147
 
 theorem ok_stem_149 : (entries stem_149).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v65,v91,v138,v143]) stem_144 stem_148
+  all_entry_node_named table stem_149 (7,[v12,v20,v29,v45,v65,v91,v138,v143]) stem_144 stem_148 rfl
     ok_stem_144 (by decide +kernel) ok_stem_148
 
 theorem ok_stem_150 : (entries stem_150).all (nodeOK table) = true :=
-  all_entry_node table (7,[v1,v12,v20,v29,v45,v91,v143,v241]) stem_139 stem_149
+  all_entry_node_named table stem_150 (7,[v1,v12,v20,v29,v45,v91,v143,v241]) stem_139 stem_149 rfl
     ok_stem_139 (by decide +kernel) ok_stem_149
 
 theorem ok_stem_151 : (entries stem_151).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v91,v143,v174,v241]) block_154 block_155
+  all_entry_node_named table stem_151 (7,[v12,v20,v29,v45,v91,v143,v174,v241]) block_154 block_155 rfl
     ok_block_154 (by decide +kernel) ok_block_155
 
 theorem ok_stem_152 : (entries stem_152).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v91,v241,v269]) stem_151 block_156
+  all_entry_node_named table stem_152 (7,[v12,v20,v29,v45,v91,v241,v269]) stem_151 block_156 rfl
     ok_stem_151 (by decide +kernel) ok_block_156
 
 theorem ok_stem_153 : (entries stem_153).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v66,v91,v143,v172,v209]) block_157 block_158
+  all_entry_node_named table stem_153 (7,[v12,v20,v29,v66,v91,v143,v172,v209]) block_157 block_158 rfl
     ok_block_157 (by decide +kernel) ok_block_158
 
 theorem ok_stem_154 : (entries stem_154).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v66,v91,v143,v209,v287]) stem_153 block_159
+  all_entry_node_named table stem_154 (7,[v12,v20,v29,v66,v91,v143,v209,v287]) stem_153 block_159 rfl
     ok_stem_153 (by decide +kernel) ok_block_159
 
 theorem ok_stem_155 : (entries stem_155).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v66,v91,v101,v143,v209]) stem_152 stem_154
+  all_entry_node_named table stem_155 (7,[v12,v20,v29,v66,v91,v101,v143,v209]) stem_152 stem_154 rfl
     ok_stem_152 (by decide +kernel) ok_stem_154
 
 theorem ok_stem_156 : (entries stem_156).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v45,v66,v91,v115,v138,v185]) block_160 block_161
+  all_entry_node_named table stem_156 (7,[v12,v20,v45,v66,v91,v115,v138,v185]) block_160 block_161 rfl
     ok_block_160 (by decide +kernel) ok_block_161
 
 theorem ok_stem_157 : (entries stem_157).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v45,v66,v91,v138,v185,v186]) stem_156 block_162
+  all_entry_node_named table stem_157 (7,[v12,v20,v45,v66,v91,v138,v185,v186]) stem_156 block_162 rfl
     ok_stem_156 (by decide +kernel) ok_block_162
 
 theorem ok_stem_158 : (entries stem_158).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v52,v66,v91,v138,v185]) block_163 block_164
+  all_entry_node_named table stem_158 (7,[v12,v20,v52,v66,v91,v138,v185]) block_163 block_164 rfl
     ok_block_163 (by decide +kernel) ok_block_164
 
 theorem ok_stem_159 : (entries stem_159).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v45,v85,v91,v120,v138,v143]) stem_157 stem_158
+  all_entry_node_named table stem_159 (7,[v12,v20,v45,v85,v91,v120,v138,v143]) stem_157 stem_158 rfl
     ok_stem_157 (by decide +kernel) ok_stem_158
 
 theorem ok_stem_160 : (entries stem_160).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v45,v66,v79,v91,v138,v185]) stem_155 stem_159
+  all_entry_node_named table stem_160 (7,[v12,v20,v45,v66,v79,v91,v138,v185]) stem_155 stem_159 rfl
     ok_stem_155 (by decide +kernel) ok_stem_159
 
 theorem ok_stem_161 : (entries stem_161).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v29,v45,v66,v91,v134,v143,v172]) block_165 block_166
+  all_entry_node_named table stem_161 (7,[v12,v29,v45,v66,v91,v134,v143,v172]) block_165 block_166 rfl
     ok_block_165 (by decide +kernel) ok_block_166
 
 theorem ok_stem_162 : (entries stem_162).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v29,v45,v66,v91,v143,v172,v190]) stem_161 block_167
+  all_entry_node_named table stem_162 (7,[v12,v29,v45,v66,v91,v143,v172,v190]) stem_161 block_167 rfl
     ok_stem_161 (by decide +kernel) ok_block_167
 
 theorem ok_stem_163 : (entries stem_163).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v45,v66,v91,v138,v143,v172,v185]) block_168 block_169
+  all_entry_node_named table stem_163 (7,[v12,v45,v66,v91,v138,v143,v172,v185]) block_168 block_169 rfl
     ok_block_168 (by decide +kernel) ok_block_169
 
 theorem ok_stem_164 : (entries stem_164).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v29,v45,v66,v115,v138,v143,v241]) stem_162 stem_163
+  all_entry_node_named table stem_164 (7,[v12,v29,v45,v66,v115,v138,v143,v241]) stem_162 stem_163 rfl
     ok_stem_162 (by decide +kernel) ok_stem_163
 
 theorem ok_stem_165 : (entries stem_165).all (nodeOK table) = true :=
-  all_entry_node table (7,[v20,v29,v52,v66,v91,v110,v138,v143]) block_170 block_171
+  all_entry_node_named table stem_165 (7,[v20,v29,v52,v66,v91,v110,v138,v143]) block_170 block_171 rfl
     ok_block_170 (by decide +kernel) ok_block_171
 
 theorem ok_stem_166 : (entries stem_166).all (nodeOK table) = true :=
-  all_entry_node table (7,[v20,v29,v52,v66,v91,v138,v143,v241]) stem_165 block_172
+  all_entry_node_named table stem_166 (7,[v20,v29,v52,v66,v91,v138,v143,v241]) stem_165 block_172 rfl
     ok_stem_165 (by decide +kernel) ok_block_172
 
 theorem ok_stem_167 : (entries stem_167).all (nodeOK table) = true :=
-  all_entry_node table (8,[v12,v20,v29,v45,v66,v91,v138,v143,v185]) block_173 block_174
+  all_entry_node_named table stem_167 (8,[v12,v20,v29,v45,v66,v91,v138,v143,v185]) block_173 block_174 rfl
     ok_block_173 (by decide +kernel) ok_block_174
 
 theorem ok_stem_168 : (entries stem_168).all (nodeOK table) = true :=
-  all_entry_node table (8,[v6,v12,v20,v29,v45,v66,v91,v138,v143]) stem_166 stem_167
+  all_entry_node_named table stem_168 (8,[v6,v12,v20,v29,v45,v66,v91,v138,v143]) stem_166 stem_167 rfl
     ok_stem_166 (by decide +kernel) ok_stem_167
 
 theorem ok_stem_169 : (entries stem_169).all (nodeOK table) = true :=
-  all_entry_node table (7,[v20,v29,v45,v66,v91,v138,v143,v152]) stem_164 stem_168
+  all_entry_node_named table stem_169 (7,[v20,v29,v45,v66,v91,v138,v143,v152]) stem_164 stem_168 rfl
     ok_stem_164 (by decide +kernel) ok_stem_168
 
 theorem ok_stem_170 : (entries stem_170).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v29,v45,v66,v79,v115,v138,v143]) stem_160 stem_169
+  all_entry_node_named table stem_170 (7,[v12,v29,v45,v66,v79,v115,v138,v143]) stem_160 stem_169 rfl
     ok_stem_160 (by decide +kernel) ok_stem_169
 
 theorem ok_stem_171 : (entries stem_171).all (nodeOK table) = true :=
-  all_entry_node table (7,[v12,v20,v29,v45,v91,v97,v143,v241]) stem_150 stem_170
+  all_entry_node_named table stem_171 (7,[v12,v20,v29,v45,v91,v97,v143,v241]) stem_150 stem_170 rfl
     ok_stem_150 (by decide +kernel) ok_stem_170
 
 theorem ok_stem_172 : (entries stem_172).all (nodeOK table) = true :=
-  all_entry_node table (6,[v20,v45,v66,v91,v134,v152,v185]) stem_129 stem_171
+  all_entry_node_named table stem_172 (6,[v20,v45,v66,v91,v134,v152,v185]) stem_129 stem_171 rfl
     ok_stem_129 (by decide +kernel) ok_stem_171
 
 theorem ok_stem_173 : (entries stem_173).all (nodeOK table) = true :=
-  all_entry_node table (6,[v12,v20,v34,v45,v66,v138,v269]) stem_86 stem_172
+  all_entry_node_named table stem_173 (6,[v12,v20,v34,v45,v66,v138,v269]) stem_86 stem_172 rfl
     ok_stem_86 (by decide +kernel) ok_stem_172
 
 theorem lower : ¬ PEqualNP.Represents.RepSizeAtMost A 9 :=
