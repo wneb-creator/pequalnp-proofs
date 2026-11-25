@@ -1,0 +1,8 @@
+UTC 2026-11-25T07:25:52.062795+00:00
+SHA256 d2d23d5a87ef671df1720c1246b8b638cfa2cf1054511159d394c367e46363e3
+Lean build exit0 at4GB; full stdout/stderr retained with8 inherited deprecation warnings only.
+Standalone projectDefs plus Mathlib.Combinatorics.Enumerative.DoubleCounting; no outside project imports.
+Copied accepted L5781 prefix through endS98 exactly except broadMathlib import removal/narrowDoubleCounting addition and outer namespaceclosure; copied approved JunkMinimalTopForm L8305 helperprefix unchanged except repeatedDefs import removal. Original upstream L5781 source is scratch upstream-refresh-004/L_meta_5781.lean.
+New below_to_output builds an OR-only path from output to every BelowF gate in leastTopForm, using S98.main_real reader theorem and decreasingdistance tofinalgate. orStep_patch/orPath_patch preserve every ORpath after an AND is replaced by off. star_pair_survives proves every top rawcrosspair remains accepted after cutting any junkAND. lost_pair_mem_Ustar: every positiveedge lost by L8305.patch C j off belongs toUstar. No NoFourCycle premise is required. Exact assumptions: IsLeastAO,TopForm,j∈junk,G.Adj u v,andpatchedpairfalse.
+No fullL650 proof/refutation, additional residual cardinality bound, or PRchecker acceptance claimed. The file uses accepted research helper namespaces, so it is a research component rather than a submission-format file.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/JunkLostUstar.lean
