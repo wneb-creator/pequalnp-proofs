@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-25T14:39:09.636662+00:00",
+  "reason": "Root lease renewal returned HTTP 410; stop all gap work",
+  "signal": "SIGINT",
+  "pids": [
+    15255
+  ]
+}

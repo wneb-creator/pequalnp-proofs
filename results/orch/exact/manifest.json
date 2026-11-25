@@ -1,0 +1,202 @@
+{
+  "timestamp": "2026-11-25T14:09:30.916070+00:00",
+  "warning": "Computational evidence only; no Lean proof or 19-gate counterexample found. SAT control and partial-domain candidates are not results for the posted statement.",
+  "sources": {
+    "synth.py": "9ed85f79a595e3829619ea1325907360248977628b239c0a7b2b6f7ae9b56f63",
+    "synth_connected.py": "c7dbaf41a239f0a4a91238d86b55cc5eea683db4e51beaba42c006620370db32",
+    "synth_ordered.py": "17bda35dd847219e237513ea29dffaba547b094240f690e6a5ebc175a2434a51",
+    "synth_distance.py": "289b86b1a2106b8276cedb1071eb3e21d41a47e885aec677022bb3ee86702e52",
+    "multi_relaxed_count.py": "418d87f951e54cf7847dadc51cf81a35ff279a9d606913ba7cd856b86e5dcb40",
+    "stars_relaxed.py": "7c90a07e0f22a21bd36a1795661077a1dd37514fb69fe13d70885721ed680204",
+    "stars_singletons.py": "7b1a6798e313f1af2858394c9710226be6cae9ce405b637601249d4d7027d58b",
+    "residual.py": "a313a79c91bd99c56485ef13ccff72500cdbbe96673f4171fabf1c5c62b1b6c1",
+    "multi_pairs.py": "69fb3ac97815a44a736492decfcc59aaf81d902e7abe9feff3407c1ab351b523",
+    "multi_tiny.py": "08fb12879bb7008768582ceae098cb635a830852a4fcf2df0e316ed78abac3d1"
+  },
+  "runs": [
+    {
+      "name": "validation",
+      "status": "SATISFIABLE",
+      "statistics": [
+        "c conflicts:                                0                0.00 per second",
+        "c process-time:                                              0.09 seconds"
+      ],
+      "stdout_sha256": "be7a3027724e4d00d3721543991de9bcb0015013f506c0e30bdbca7747a454ad",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/validation/round-00.log"
+    },
+    {
+      "name": "ordered-validation",
+      "status": "SATISFIABLE",
+      "statistics": [
+        "c conflicts:                                0                0.00 per second",
+        "c process-time:                                              0.12 seconds"
+      ],
+      "stdout_sha256": "a8bc0c81ead192579e4807b56b7d2fdc07c64d95f6fcdccd3201f740bef35d74",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/ordered-validation/round-00.log"
+    },
+    {
+      "name": "orbit0",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                          1348944            14650.35 per second",
+        "c process-time:                         1m 32s              92.07 seconds"
+      ],
+      "stdout_sha256": "d999ea9d997c96ec23dc8a6f142b200b1ce265ba856a10d4ef5029b2edcc8875",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/orbit0/round-00.log"
+    },
+    {
+      "name": "multi11",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                          2175949            16688.28 per second",
+        "c process-time:                         2m 10s             130.39 seconds"
+      ],
+      "stdout_sha256": "2aea01226454100d60ec8c193232427de21aad79ab25d0824be67c705e4d6bc7",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/multi11/solver.log"
+    },
+    {
+      "name": "relaxed11",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                          2230339            17562.12 per second",
+        "c process-time:                          2m 7s             127.00 seconds"
+      ],
+      "stdout_sha256": "9ff753dad3e6c98e1b0db33e682f90e890e5b97efe2a860d0c617b2841045229",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/relaxed11/solver.log"
+    },
+    {
+      "name": "stars7",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                             7014            35755.61 per second",
+        "c process-time:                                              0.19 seconds"
+      ],
+      "stdout_sha256": "56ee69b063e611488509ad75a0f2cb940a0f55b89cf3672f2f7cb202877d9afa",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/stars7/solver.log"
+    },
+    {
+      "name": "stars8",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                            55750            33566.28 per second",
+        "c process-time:                             2s               1.66 seconds"
+      ],
+      "stdout_sha256": "7bd255f9df2d3286856b41a65b4a6c814ffce6ea874a9b9a561062fa3a8cc584",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/stars8/solver.log"
+    },
+    {
+      "name": "stars8mono",
+      "status": "SATISFIABLE",
+      "statistics": [
+        "c conflicts:                              762            20634.19 per second",
+        "c process-time:                                              0.04 seconds"
+      ],
+      "stdout_sha256": "6d510147a132032eab311f94d353e17c4409ebb32524b3df8f128343281a9efb",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/stars8mono/solver.log"
+    },
+    {
+      "name": "singletons8",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                            96236            41566.78 per second",
+        "c process-time:                             2s               2.31 seconds"
+      ],
+      "stdout_sha256": "a6fa214c64ecb741508cc669f9ddc185d5c0784ab1cdf9849b9f4bff7aafe165",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/singletons8/solver.log"
+    },
+    {
+      "name": "relaxed11not3",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                           786322            18514.20 per second",
+        "c process-time:                            42s              42.47 seconds"
+      ],
+      "stdout_sha256": "628004b5fc329acd59051a895942c2799a71593cb9c3d613e3ab138d4782301f",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/relaxed11not3/solver.log"
+    },
+    {
+      "name": "relaxed12mono",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                          1255919            18414.51 per second",
+        "c process-time:                          1m 8s              68.20 seconds"
+      ],
+      "stdout_sha256": "2068b2955832bd1201f1567dcca1f61675f51b644d95ee3ceae8c29eba075029",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/relaxed12mono/solver.log"
+    },
+    {
+      "name": "residual5",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                             3574            13015.11 per second",
+        "c process-time:                                              0.27 seconds"
+      ],
+      "stdout_sha256": "eb7f26ab5603e9a103f622981e74e484f01e3ec70015827b2813424c11cac033",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/residual5/solver.log"
+    },
+    {
+      "name": "residual5anynot",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                             4372            15359.11 per second",
+        "c process-time:                                              0.28 seconds"
+      ],
+      "stdout_sha256": "0c11b1f9a830a20b5939d3b051f53f7f98d4ceb6f8f794f68e533650805b8fc6",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/residual5anynot/solver.log"
+    },
+    {
+      "name": "residual6mono",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                            18609            19544.58 per second",
+        "c process-time:                             1s               0.95 seconds"
+      ],
+      "stdout_sha256": "53a2d7bb2eca916c535fc06588d4e2dacdc1c7676938ae1714608945ee200106",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/residual6mono/solver.log"
+    },
+    {
+      "name": "near19-d4",
+      "status": "UNSATISFIABLE",
+      "statistics": [
+        "c conflicts:                           324428             4690.97 per second",
+        "c process-time:                          1m 9s              69.16 seconds"
+      ],
+      "stdout_sha256": "ac00c384d5f6e22591dd7014b7dd9424dc72253526bd5d7adacb08d048feff33",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/near19-d4/round-00.log"
+    },
+    {
+      "name": "ordered19pilot",
+      "status": "UNKNOWN",
+      "statistics": [
+        "c conflicts:                           241584             8331.12 per second",
+        "c process-time:                            29s              28.99 seconds"
+      ],
+      "stdout_sha256": "45483e78cd1184a3fa609c577b0fbedd11816a8e03f26d77da4647792916272a",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/ordered19pilot/round-00.log"
+    },
+    {
+      "name": "orbit3-long",
+      "status": "RUNNING",
+      "statistics": [],
+      "stdout_sha256": "0a46f6c05d5753af0b54c753eeab25e770770032ed164e7022d860ad654c8d29",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/orbit3-long/round-00.log"
+    },
+    {
+      "name": "tiny11",
+      "status": "SATISFIABLE",
+      "statistics": [
+        "c conflicts:                             3167            47845.66 per second",
+        "c process-time:                                              0.06 seconds"
+      ],
+      "stdout_sha256": "5bf57d120e11a1c78206eea5780b7ad3f84f860086201bdb45f966b51def5b10",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/tiny11/solver.log"
+    },
+    {
+      "name": "pairs11",
+      "status": "RUNNING",
+      "statistics": [],
+      "stdout_sha256": "332f21251545d845b5cb6d3d6e75f94838aa144f74fcdd2abca0ab9b05163622",
+      "scratch_log": "/tmp/oec/pequalnp-pilot-98/exact/pairs11/solver.log"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "UNKNOWN",
+  "wall_seconds": 900,
+  "cpu_seconds_lower_bound": 788.27,
+  "cpu_poll_seconds": 1,
+  "models": 8,
+  "best_full_table_errors": 92,
+  "last_sample_count": 40,
+  "not_count": 1,
+  "gates": 19,
+  "binary_sha256": "8bc0c78431e7f2d7ba930b6f3faf6f34962668344827fd177fbde8856c20f669",
+  "note": "This phase used first-gate union-of-orbits without the priority strengthening added for later phases."
+}

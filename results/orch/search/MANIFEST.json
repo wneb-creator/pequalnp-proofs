@@ -1,0 +1,220 @@
+{
+  "captured_at": "2026-11-25T14:36:03.739787+00:00",
+  "files": [
+    {
+      "file": "stochastic.cpp",
+      "bytes": 3937,
+      "sha256": "1ac870a83a1d58577c82ffda4fa93242b634921436d8425512c5cc47ed76c2dc"
+    },
+    {
+      "file": "stochastic-active.cpp",
+      "bytes": 4178,
+      "sha256": "545026f7b1867244df709fcf1059ba482bdaa7944faed68556d22b72f5fce429"
+    },
+    {
+      "file": "multi.cpp",
+      "bytes": 3079,
+      "sha256": "ae5512be031318a177cf4b7941b6d0f550b75be0f0826fed5e03feb9e4716657"
+    },
+    {
+      "file": "multi-relaxed.cpp",
+      "bytes": 3114,
+      "sha256": "a62b0fec51c64b78188e27090b5e9c9006afd179966378d6d71a3de16355109b"
+    },
+    {
+      "file": "multi-cycle.cpp",
+      "bytes": 3528,
+      "sha256": "0b7a39d5f632e7a4163f5c0f9250d491a1c27f8931c1a99b7f338d3db9671998"
+    },
+    {
+      "file": "repair.cpp",
+      "bytes": 1498,
+      "sha256": "6d55b9165f93c5b2de9cadf2069a6262597c2939ebbfebbbd9c017e1f064f566"
+    },
+    {
+      "file": "blif_to_circuit.py",
+      "bytes": 5827,
+      "sha256": "c820d9fc27ee5c62963277b5082034d57bf00f4dce820d0adbe8dfe86cec0db7"
+    },
+    {
+      "file": "lift_core13.py",
+      "bytes": 2539,
+      "sha256": "6ddc0f67c0fc2089c47566682e88826d51d4b8283559906fa6345433f5ce0efd"
+    },
+    {
+      "file": "known20.json",
+      "bytes": 1232,
+      "sha256": "e8a3f3c1695fde8983e34b6911bacdd2b7b93fb0bb93a28f0d02cc42ea6dfc59"
+    },
+    {
+      "file": "known20.blif",
+      "bytes": 616,
+      "sha256": "df7a28814860cd405ac0bde4e0715ac494012cb801dbe127a619ae22b0b9e511"
+    },
+    {
+      "file": "unitbasis.genlib",
+      "bytes": 316,
+      "sha256": "9265f0a1ba1b246d2918077c5fff2920be53e08bd35ef6ccaed04ed6a836f773"
+    },
+    {
+      "file": "known20-roundtrip.json",
+      "bytes": 1686,
+      "sha256": "88d0e34ab9429a5637ab518cdb7ed1883f6fb6750155423bd377189b9619dd56"
+    },
+    {
+      "file": "best-98.txt",
+      "bytes": 206,
+      "sha256": "9d178545d874c19dd31e3e590e94c0c7e2c1c945a00da72c1945a4730a627b9e"
+    },
+    {
+      "file": "best19.json",
+      "bytes": 1386,
+      "sha256": "92704173001c083e2f68ed5ff7eaac988a12d7ae838c44e6f1b185cae967d4e3"
+    },
+    {
+      "file": "best-active19.txt",
+      "bytes": 206,
+      "sha256": "1ff7bcb18abbc04fc09acb03579c60f4a4b9fe714894f6327ff9f8d348ae5646"
+    },
+    {
+      "file": "best-multi11.txt",
+      "bytes": 138,
+      "sha256": "d1140a0d1beb003d65807d9a74a1843b7098650e0f6792c7261dcf9dd856da9f"
+    },
+    {
+      "file": "best-relaxed11.txt",
+      "bytes": 139,
+      "sha256": "1da489b6dc21f60568e16c2d3549a69f276c65c5917bb6531318e8d3adadee12"
+    },
+    {
+      "file": "best-cycle13.txt",
+      "bytes": 156,
+      "sha256": "07b8ceddcbebd59992d6ba419ed758d55d7c915379f353d6bbe92f2032a021c1"
+    },
+    {
+      "file": "best-cycle13.json",
+      "bytes": 946,
+      "sha256": "832dded37e0f5701d5357465371e2f333fb4fb0ca96f1cd67ef4ab7270f7c69b"
+    },
+    {
+      "file": "best-cycle13-lifted.json",
+      "bytes": 1936,
+      "sha256": "4eb2f83c7b4b3f15384cfee36bbc5f54bf74022ce18eb0a3fc4d7039e9cbff6e"
+    },
+    {
+      "file": "cycle14-baseline.json",
+      "bytes": 893,
+      "sha256": "3bd36d54ca7a6a78660d0bf3a9f98ff1cc98b82d84e6538da0cd7a6cfee2c23a"
+    },
+    {
+      "file": "run-98.log",
+      "bytes": 735,
+      "sha256": "4e131e9358556815142d35d99ffcf20008ae3a106d797d8aa12c4d05f72856dc"
+    },
+    {
+      "file": "run-multi11.log",
+      "bytes": 357,
+      "sha256": "7645d6172094991d9714f02c323c9cd9eb276815c83c8c9bc85220734a3d2fc7"
+    },
+    {
+      "file": "run-relaxed11.log",
+      "bytes": 833,
+      "sha256": "c6d690ba4e80338eae0dea6f69e845a00a28e3160684c99dbe792a56c9a20cba"
+    },
+    {
+      "file": "run-active19.log",
+      "bytes": 985,
+      "sha256": "cc072ef54b0515802b99bf48a191715aafb4804f5094cea6109f414f081d8f5e"
+    },
+    {
+      "file": "run-cycle13.log",
+      "bytes": 574,
+      "sha256": "0748050ead28cca8f669c4107bbd4f11d613107469624d8416242800ec5eb1a6"
+    },
+    {
+      "file": "repair1.log",
+      "bytes": 52,
+      "sha256": "830d2b2481effff0f45b2423bcb5e3bf673de5090311cbf9190363be03465f34"
+    },
+    {
+      "file": "repair2.log",
+      "bytes": 53,
+      "sha256": "b1220e2672166bf85475a9de20fe278eb478c6a4eeb97cecaa223550ff9cbff3"
+    },
+    {
+      "file": "core13-pilot.log",
+      "bytes": 32,
+      "sha256": "de5fe8e1a04e1ce50f5e6af9c7b408d0bdf4ad0ece91a9a9296c7154fea51e6b"
+    },
+    {
+      "file": "core13-two-not.log",
+      "bytes": 32,
+      "sha256": "7393eaf916cbec9db298c6874bd7d95329b615d0f4a4fd03c6152714e6184f60"
+    },
+    {
+      "file": "best-cycle13-validation.log",
+      "bytes": 206,
+      "sha256": "284004bbb67ec3ce74b3e16987b84cee13e92cc2a64bb43a4dace46e7591fdb4"
+    },
+    {
+      "file": "blif-check.log",
+      "bytes": 49,
+      "sha256": "3e77fcc9f0977a3fedef851cc62f49ff4a70349d6e1c89f9e9ddd9f00acd4f3b"
+    },
+    {
+      "file": "compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compile-active.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compile-multi.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compile-relaxed.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compile-cycle.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "compile-repair.log",
+      "bytes": 313,
+      "sha256": "e252776aee7abf6ec132ddf72e1324277a794166efc25089dd826dc32d610078"
+    },
+    {
+      "file": "core13.py",
+      "bytes": 4249,
+      "sha256": "fb9187a14e7d7c8a9b9cb9ac9b40e0293fa17198c30aa96af124825fdb85c952"
+    },
+    {
+      "file": "core13_reach.py",
+      "bytes": 1987,
+      "sha256": "b890fae7faa5b2ddc9f5d3d5b8510cf652e4af40fb7d611152bbe99446025da3"
+    },
+    {
+      "file": "synth.py",
+      "bytes": 4645,
+      "sha256": "9ed85f79a595e3829619ea1325907360248977628b239c0a7b2b6f7ae9b56f63"
+    },
+    {
+      "file": "core13-one-not-solver.log",
+      "bytes": 69023,
+      "sha256": "fbc100b7d430ec69036761bdd4b992c390e744b1b97657b410568132243147ba"
+    },
+    {
+      "file": "core13-two-not-solver.log",
+      "bytes": 57799,
+      "sha256": "8b0090c98161afa00d4966a05c30856a9c4a6e557a86b91c7e063d38eead9212"
+    }
+  ]
+}

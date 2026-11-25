@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-25T14:35:47.224100+00:00",
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-98/exact/incremental-next",
+    "19",
+    "2",
+    "-2",
+    "900",
+    "/tmp/oec/pequalnp-pilot-98/exact/inc19-not2",
+    "98",
+    "small"
+  ],
+  "binary_sha256": "69ef65bda65a85851265f95a5496506b453899488cc326b8e4baead7b855dba6",
+  "source_sha256": "140c28c5bead83117f85508133ed3c5d863b10b9c9a886a7bb1bca1834902c6a",
+  "finished_at": "2026-11-25T14:39:09.642057+00:00",
+  "exit_code": -2
+}

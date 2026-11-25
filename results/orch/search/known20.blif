@@ -1,0 +1,60 @@
+.model petersen
+.inputs x0 x1 x2 x3 x4 x5 x6 x7 x8 x9
+.outputs y
+.names x0 x2 w10
+1- 1
+-1 1
+.names w10 x6 w11
+1- 1
+-1 1
+.names x1 w11 w12
+11 1
+.names x2 x4 w13
+1- 1
+-1 1
+.names w13 x8 w14
+1- 1
+-1 1
+.names x3 w14 w15
+11 1
+.names x0 x9 w16
+1- 1
+-1 1
+.names x4 w16 w17
+11 1
+.names x0 x7 w18
+1- 1
+-1 1
+.names w18 x8 w19
+1- 1
+-1 1
+.names x5 w19 w20
+11 1
+.names x9 x8 w21
+1- 1
+-1 1
+.names x6 w21 w22
+11 1
+.names x2 x9 w23
+1- 1
+-1 1
+.names x7 w23 w24
+11 1
+.names w12 w15 w25
+1- 1
+-1 1
+.names w25 w17 w26
+1- 1
+-1 1
+.names w26 w20 w27
+1- 1
+-1 1
+.names w27 w22 w28
+1- 1
+-1 1
+.names w28 w24 w29
+1- 1
+-1 1
+.names w29 y
+1 1
+.end

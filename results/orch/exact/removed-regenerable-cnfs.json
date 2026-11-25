@@ -1,0 +1,97 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/ordered19pilot/round-00.cnf",
+    "size": 6388782,
+    "sha256": "a9c6e014c3491be6c9a010b376a326120c1964a6b0f257a5c76d420078870338"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/tiny11/formula.cnf",
+    "size": 150982,
+    "sha256": "a6f894dd6a204ad2f863ca25aff925cbd5a00b5823b2d2814acda52a8f36580c"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/near19-d4/round-00.cnf",
+    "size": 6155740,
+    "sha256": "299f954200dd03c7d53290f7c51645dea0a2d52ca727f31028027ddead5b0b70"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/relaxed11/formula.cnf",
+    "size": 712343,
+    "sha256": "33bfeb4884fabcc9bf35bee05b75ca83ae76d2739e8e58076b42fb2444243192"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/pairs11ordered/formula.cnf",
+    "size": 329199,
+    "sha256": "7d73b8a1761ae12bba6fda39459e6269e6e7e4f1589b370111e8ca876bd42c7e"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/residual5/formula.cnf",
+    "size": 688347,
+    "sha256": "2090c899518815376a6f87ea69d326ff00dd8bca04a6e09bab41eb5addc080ed"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/pairs11/formula.cnf",
+    "size": 273108,
+    "sha256": "e67717ad2d04bc5f18e9d85b213b2beea588ec1ed8102d3479d96b14d7bbb883"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/singletons8/formula.cnf",
+    "size": 70908,
+    "sha256": "8373cd950de372eb4665f21c12da2bd6522ead7a49630a89551b9d5801443e52"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/relaxed12mono/formula.cnf",
+    "size": 813900,
+    "sha256": "34de1e92b26d19e5d39458351cb03fd821e8e2969b777e95a8031d367e1d3ece"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/multi11/formula.cnf",
+    "size": 731703,
+    "sha256": "8409d822b403d383cf32d71b392ddea0cf3c039b07af84ad2e62c2cca51f7d84"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/residual5anynot/formula.cnf",
+    "size": 688239,
+    "sha256": "d3dea52eebef2e6edb3230438eb45adf0e57c9fee9780a75545bccb05d0c2591"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/stars7/formula.cnf",
+    "size": 159471,
+    "sha256": "a290ded3455638e8cc8623498c0b1e56c8eee60a64f1cad5c362dfc0e88a03a8"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/orbit0/round-00.cnf",
+    "size": 2303703,
+    "sha256": "cec31af8aae96595b2067d500aa950e4b6a0250cad4d4c8f445001bf23dd3064"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/residual6mono/formula.cnf",
+    "size": 863626,
+    "sha256": "8a889bd6338f370d6f1a989b21a961044dc3c21775c2c1cf7a842d6f1d998a94"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/stars8mono/formula.cnf",
+    "size": 193703,
+    "sha256": "e612b4414d436db2e95aa718a1a19966364247fd3ef3ee21d34b47253f224ee1"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/relaxed11not3/formula.cnf",
+    "size": 720217,
+    "sha256": "6ece99111883632de94259b817ef928533f43115372d51ead0f007bcb3667874"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/stars8/formula.cnf",
+    "size": 193982,
+    "sha256": "df349fa4d140cf3477e6361ef34b1f0df423b8d3b93ca5f4e283bd310b262fdd"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/ordered-validation/round-00.cnf.gz",
+    "size": 7355646,
+    "sha256": "c406a91a9257e80e26de5662482956b5f26138ecf686e1c7c449b1e6baf07a23"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-98/exact/validation/round-00.cnf.gz",
+    "size": 7278872,
+    "sha256": "ea693d70268cf3aa3f12983f920d1957afd3ecc1d770874b2a45294cbe5bb483"
+  }
+]

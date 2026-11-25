@@ -1,0 +1,50 @@
+{
+  "at": "2026-11-25T14:40:03.589822+00:00",
+  "status": "STOPPED_LEASE_HTTP410",
+  "full_19_gate_counterexample_found": false,
+  "lean_proof_from_this_agent": false,
+  "phases": [
+    {
+      "name": "inc19",
+      "not_count": 1,
+      "gates": 19,
+      "status": "UNKNOWN_TIME_LIMIT",
+      "models": 8,
+      "best_full_table_errors": 92,
+      "last_progress": "round 8 segment 33 samples 40 vars 4129 clauses 124505 wall 898.053",
+      "log_sha256": "4acf1529df6c27c11e021663a0bd8928f3a2d8afc4b0b61766a0bd7f1a607ffa",
+      "wall_limit_seconds": 900,
+      "cpu_seconds_lower_bound": 788.27,
+      "cpu_measurement": "Last /proc sample, polled once per second immediately before exit"
+    },
+    {
+      "name": "inc19-not2",
+      "not_count": 2,
+      "gates": 19,
+      "status": "INTERRUPTED_LEASE_HTTP410",
+      "models": 11,
+      "best_full_table_errors": 92,
+      "last_progress": "round 11 segment 9 samples 52 vars 5603 clauses 160749 wall 183.439 cpu 179.915",
+      "log_sha256": "706ff821af9ad78df2d6281754d94ac1acc0f68bd1ceb4d398a58c50146b44ec",
+      "process_metadata": {
+        "started_at": "2026-11-25T14:35:47.224100+00:00",
+        "argv": [
+          "/tmp/oec/pequalnp-pilot-98/exact/incremental-next",
+          "19",
+          "2",
+          "-2",
+          "900",
+          "/tmp/oec/pequalnp-pilot-98/exact/inc19-not2",
+          "98",
+          "small"
+        ],
+        "binary_sha256": "69ef65bda65a85851265f95a5496506b453899488cc326b8e4baead7b855dba6",
+        "source_sha256": "140c28c5bead83117f85508133ed3c5d863b10b9c9a886a7bb1bca1834902c6a",
+        "finished_at": "2026-11-25T14:39:09.642057+00:00",
+        "exit_code": -2
+      },
+      "wall_seconds_observed": 202.417957
+    }
+  ],
+  "restriction_note": "Searches use normalized exact19 activegates withdistinctbinaryoperands; they do not bythemselves exhaustallcircuits ofsize\u226419. AllUNSATresults arecomputational, notLeanproofs."
+}

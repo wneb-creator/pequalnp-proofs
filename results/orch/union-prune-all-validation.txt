@@ -1,0 +1,12 @@
+UTC: 2026-11-25T14:37:14.434860+00:00
+Source: results/orch/lemmas/union_prune_all_chunks.lean
+SHA256: 953da8fd112cb367155e2c98d23af94a7ed60d40edd690cb9a93ee1c663177e1
+Lines: 7202
+Bytes: 240513
+Lean exit: 0
+Command: PATH=/tmp/oec/pequalnp-pilot-98/toolchain/bin:$PATH PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-98/toolchain/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-98/build-home MATHLIB_CACHE_DIR=/tmp/oec/pequalnp-pilot-98/mathlib-cache LAKE_ARTIFACT_CACHE=false ../tools/bin/lake env lean --profile -j 1 -M 3072 /workspace/pequalnp-proofs/results/orch/lemmas/union_prune_all_chunks.lean
+Formal conclusion: starHelperSearch = false. All 1378 pair lemmas and 53 row assemblies compiled, covering all 23426 unordered helper triples.
+No claim: This certificate alone does not prove the Petersen circuit lower bound. Circuit-to-set generation and program-to-closure bridges remain unproved.
+Resources: last sampled RSS 2966848 KiB, CPU 4m29s at wall 5m30s; exact terminal total was not captured. Process completed normally before next poll.
+Full stdout: results/orch/union-prune-all-kernel-stdout.txt
+Full stderr: results/orch/union-prune-all-kernel-stderr.txt

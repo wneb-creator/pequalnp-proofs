@@ -1,0 +1,13 @@
+PARTIAL RESULT — target not proved
+Gap:L-meta-2592
+Main file:lean/PEqualNP/Outside/L_meta_2592.lean,245lines, named lake build PASS.
+New finite certificate:results/orch/lemmas/union_prune_all_chunks.lean,7202lines,240513bytes, Lean exit0; all23426 triples checked.
+Certificate SHA256:953da8fd112cb367155e2c98d23af94a7ed60d40edd690cb9a93ee1c663177e1
+Independent certificate review:PASS, union-prune-review.md. It proves only starHelperSearch=false; semantic bridges to the full circuit statement remain missing.
+Local checker:CHECKER FAULT: the verifier ended without a verdict (exit137).
+Full target theorem absent; intake guard rejects that absence; no proof PR.
+Cleanup skipped: incomplete target and no checker acceptance. Main line count245→245; finite certificate7202→7202.
+Desk stopped ownlease withHTTP410 despite last reported expiry2026-11-25T14:54:59.114Z. All agent proof/search work stopped. Complete diagnostic headers/body:desk-error-full.txt.
+Desk null answers:0; no null-message text.
+Sub-agents:6 (environment/review, direct lower bound, counterexample, graphfacts, Lean structure, exact synthesis).
+TIMING total=56.2 subagents=6

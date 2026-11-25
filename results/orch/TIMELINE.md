@@ -8,3 +8,5 @@
 2026-11-25T14:15:10.103323+00:0018-gate approximation and exact four-error characterization passed Lean and independent exhaustive review.
 2026-11-25T14:22:58.739396+00:00 Fifth named partial build passed; checker returnedFAULT137; first finite helper-pair chunk passed kernel check and independent51-case replay.
 2026-11-25T14:26:40.002262+00:00 First complete finite helper row and one-NOT join obligation passed Lean and independent review; full chunked enumeration running.
+2026-11-25T14:34:56.590475+00:00 Replan: continue sequentialNOT-count searches; finite table now3GB; actualCircuit signed-path proof prepared.
+2026-11-25T14:41:50.752773+00:00 DeskHTTP410 confirmed withcurl-si; allagentworkstopped; preservingfullcheckedfinitecertificatebefore anyre-request.

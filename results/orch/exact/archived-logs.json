@@ -1,0 +1,131 @@
+{
+  "at": "2026-11-25T14:24:05.996596+00:00",
+  "records": [
+    {
+      "run": "orbit0",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/orbit0.log.gz",
+      "sha256": "d999ea9d997c96ec23dc8a6f142b200b1ce265ba856a10d4ef5029b2edcc8875"
+    },
+    {
+      "run": "multi11",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/multi11.log.gz",
+      "sha256": "2aea01226454100d60ec8c193232427de21aad79ab25d0824be67c705e4d6bc7"
+    },
+    {
+      "run": "relaxed11",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/relaxed11.log.gz",
+      "sha256": "9ff753dad3e6c98e1b0db33e682f90e890e5b97efe2a860d0c617b2841045229"
+    },
+    {
+      "run": "stars7",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/stars7.log.gz",
+      "sha256": "56ee69b063e611488509ad75a0f2cb940a0f55b89cf3672f2f7cb202877d9afa"
+    },
+    {
+      "run": "stars8",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/stars8.log.gz",
+      "sha256": "7bd255f9df2d3286856b41a65b4a6c814ffce6ea874a9b9a561062fa3a8cc584"
+    },
+    {
+      "run": "stars8mono",
+      "status": "SATISFIABLE",
+      "log": "results/orch/exact/logs/stars8mono.log.gz",
+      "sha256": "6d510147a132032eab311f94d353e17c4409ebb32524b3df8f128343281a9efb"
+    },
+    {
+      "run": "singletons8",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/singletons8.log.gz",
+      "sha256": "a6fa214c64ecb741508cc669f9ddc185d5c0784ab1cdf9849b9f4bff7aafe165"
+    },
+    {
+      "run": "relaxed11not3",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/relaxed11not3.log.gz",
+      "sha256": "628004b5fc329acd59051a895942c2799a71593cb9c3d613e3ab138d4782301f"
+    },
+    {
+      "run": "relaxed12mono",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/relaxed12mono.log.gz",
+      "sha256": "2068b2955832bd1201f1567dcca1f61675f51b644d95ee3ceae8c29eba075029"
+    },
+    {
+      "run": "residual5",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/residual5.log.gz",
+      "sha256": "eb7f26ab5603e9a103f622981e74e484f01e3ec70015827b2813424c11cac033"
+    },
+    {
+      "run": "residual5anynot",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/residual5anynot.log.gz",
+      "sha256": "0c11b1f9a830a20b5939d3b051f53f7f98d4ceb6f8f794f68e533650805b8fc6"
+    },
+    {
+      "run": "residual6mono",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/residual6mono.log.gz",
+      "sha256": "53a2d7bb2eca916c535fc06588d4e2dacdc1c7676938ae1714608945ee200106"
+    },
+    {
+      "run": "near19-d4",
+      "status": "UNSATISFIABLE",
+      "log": "results/orch/exact/logs/near19-d4.log.gz",
+      "sha256": "ac00c384d5f6e22591dd7014b7dd9424dc72253526bd5d7adacb08d048feff33"
+    },
+    {
+      "run": "ordered19pilot",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/ordered19pilot.log.gz",
+      "sha256": "45483e78cd1184a3fa609c577b0fbedd11816a8e03f26d77da4647792916272a"
+    },
+    {
+      "run": "orbit3-long",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/orbit3-long.log.gz",
+      "sha256": "2692217304281a1c310162a8590b43b8091c06ce7197a286b6172704c31b066f"
+    },
+    {
+      "run": "tiny11",
+      "status": "SATISFIABLE",
+      "log": "results/orch/exact/logs/tiny11.log.gz",
+      "sha256": "5bf57d120e11a1c78206eea5780b7ad3f84f860086201bdb45f966b51def5b10"
+    },
+    {
+      "run": "pairs11",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/pairs11.log.gz",
+      "sha256": "e90ddd59ad1c654f62bf55d0dc693115f23eb71698489f2e077ebe0929a0c5d6"
+    },
+    {
+      "run": "pairs11ordered",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/pairs11ordered.log.gz",
+      "sha256": "be99712db4a6f7cea9a77b6f8c62ab231d55ac63ddf51bde2640cef12522016e"
+    },
+    {
+      "run": "factored11",
+      "status": "UNKNOWN",
+      "log": "results/orch/exact/logs/factored11.log.gz",
+      "sha256": "8abf34844ddcdff193f4e51d9011c5f247a3c5205139369c7c4e17f95f4ef2a4"
+    },
+    {
+      "run": "inc-control",
+      "status": "SAT_CONTROL_FULL_TABLE",
+      "log": "results/orch/exact/logs/inc-control.log.gz",
+      "sha256": "4a84ceb524594162b7189a8c72fa183e9ba52a41dc84e399876c752c41cc109a"
+    },
+    {
+      "run": "inc-control-not",
+      "status": "SAT_CONTROL_FULL_TABLE",
+      "log": "results/orch/exact/logs/inc-control-not.log.gz",
+      "sha256": "76e84a862952f5ddd784a976ca01d5fc5be9d8d200cee0cc5cd04bb212f39352"
+    }
+  ]
+}

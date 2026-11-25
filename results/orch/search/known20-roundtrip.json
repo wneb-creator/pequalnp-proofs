@@ -1,0 +1,149 @@
+{
+  "n": 10,
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        2
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        10,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        1,
+        11
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        4
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        13,
+        8
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        3,
+        14
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        12,
+        15
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        9
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        4,
+        17
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        16,
+        18
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        7
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        20,
+        8
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        5,
+        21
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        19,
+        22
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        9,
+        8
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        6,
+        24
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        23,
+        25
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        9
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        7,
+        27
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        26,
+        28
+      ]
+    }
+  ],
+  "output": 29,
+  "gate_count": 20,
+  "not_count": 0,
+  "errors": []
+}
