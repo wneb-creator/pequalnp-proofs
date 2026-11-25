@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "reviewer": "counterexample",
+  "tests": 160,
+  "seed": 259296,
+  "tested_change_limits": [
+    0,
+    1,
+    4,
+    19
+  ],
+  "baseline_mismatches": 6,
+  "scope": "Independent fixed-order Hamming-neighborhood structural audit. Not a proof or general circuit lower bound.",
+  "static_findings": [
+    "Wire indices >=10 are shifted by1 to account for abstract false input10; AND/OR operands sorted without changing function.",
+    "An unchanged marker implies exact baseline op and inputs. Every k+1 markers contain true, hence at mostk positions may differ; converse witnessed by marking exactly equal gates.",
+    "NOT o=false is a representative choice only; o is ignored under n=true.",
+    "Mandatory at-least-one NOT comes from generic encoding.",
+    "Decoded models are checked against every CNF clause, actual changed positions, and all1024 truth assignments."
+  ]
+}

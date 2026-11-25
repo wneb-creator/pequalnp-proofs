@@ -1,0 +1,6 @@
+{
+  "tested_assignments": 6000,
+  "extra_constraints": "at most4NOT and independent adjacent source-pair lexorder",
+  "status": "PASS",
+  "limitation": "fixed first gate may change under canonicalization; witness-only class remains restricted"
+}

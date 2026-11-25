@@ -1,0 +1,15 @@
+PASS for exact listed partial-support artifact bytes; reproducibility gaps documented
+
+- This approves only these exact bytes as partial research/support artifacts, not as a proof PR or full-gap result.
+- All solver outcomes preserved for the main19-gate search are UNKNOWN/time limits. Small-control SAT/UNSAT and audit PASS labels concern only their explicitly bounded tests.
+- audit_aig_orient.py depends on scratch structural_aig_orient.py, reviewed separately at SHA25616f5c8ab81e6c172c1188bcfaf8be48bccc3ac822cb0ba8fe551b0241bc5a6b6; it is not yet archived under results.
+- audit_sat_encoding.py depends on scratch sat-control.cnf/stdout; the control artifacts/generator are not yet archived under results.
+- Original ordered-independent-audit.json omitted its generator/seed; fresh audit_ordered_sat.py and ordered-reproducible-audit.json now preserve an independent seed2026112596 rerun. Do not retroactively attribute that seed to the old report.
+- The current C++ heuristic source reproduces runs2/3. Run1 used zero-NOT penalty1 instead of100000, transparently documented in counterexample-notes.md.
+- Research scripts use explicit scratch paths or supplied output paths; no network URLs/calls or credential environment access were found in the reviewed code.
+- Some chronological notes are stale status snapshots. validation.txt and committed compiler logs are the authoritative local-build records; no full-gap checker acceptance exists.
+- Files may change after this manifest. Recheck hashes immediately before staging; any changed byte requires fresh review.
+- A final proof PR must add only lean/PEqualNP/Outside/L_meta_2592.lean; these support artifacts are branch checkpoints only.
+- Completed generic, normalized and ordered searches now include full wrapper/raw stdout/stderr, exact compressed CNFs, commands, seeds, timestamps with uncertainty, and byte hashes; all four remain UNKNOWN. Exact-four-NOT also has complete archived diagnostics.
+- audit_aig_sat.py depends on scratch structural_aig_sat.py (reviewed source), which is not yet archived under results. Its finite audit does not prove synthesis completeness or the main lower bound.
+- counterexample_sat_complete.py and sat-complete-prepared.json are explicitly PREPARED_NOT_RUN; they preserve no solver verdict or certificate.

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "seed": 2026112596,
+  "tested_assignments": 6000,
+  "generic_accepted": 106,
+  "normalized_accepted": 47,
+  "scope": "Added at-most4-NOT and independent-adjacent source-pair ordering clauses only; fixed-first and normalized-live classes remain witness-search restrictions, not an exhaustive lower-bound proof."
+}

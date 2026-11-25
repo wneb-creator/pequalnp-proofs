@@ -1,0 +1,15 @@
+{
+  "task": "L-meta-2592",
+  "class": "canonical final-output 19 gates with exactly4NOT; freefalse and repeated operands allowed",
+  "rows": 91,
+  "variables": 5985,
+  "clauses": 138564,
+  "seconds": 900.39,
+  "solver_exit": 0,
+  "verdict": "TIMEOUT/UNKNOWN; no SAT model and no UNSAT claim",
+  "cnf_sha256": "818c227451a271ccfe41f503db681b694a9d187e91e22fd3c55e9e00b57eced2",
+  "cnf_bytes": 2414153,
+  "compressed_bytes": 489557,
+  "seed": 42592096,
+  "time_finished_utc": "2026-11-25T14:12:58Z"
+}

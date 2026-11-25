@@ -235,3 +235,10 @@ Cleanup pass: skipped because full-gap checker could not issue a verdict and no 
 Checker: previous unmodified diagnostic FAULT, missing Batteries.olean, exit3/no verdict.
 Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
 TIMING total=44.8 subagents=6
+
+Support preservation checkpoint: 2026-11-25T14:34:07.213564+00:00
+Independently reviewed unchanged support files staged: 67. Changed files excluded: [].
+Review: toolchain PASS for exact byte hashes, credential/write-scope checks and honest result labels; see support-review-manifest.json and support-review.txt.
+This preserves scripts, audits, exact compressed CNFs and full logs for completed UNKNOWN searches, not an UNSAT certificate or proof PR. Scratch-only audit dependencies and chronology uncertainties are explicitly documented in the review.
+Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=49.2 subagents=6

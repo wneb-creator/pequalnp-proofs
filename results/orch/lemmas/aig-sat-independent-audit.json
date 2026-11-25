@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "assignment_cases": 46588,
+  "clauses_evaluated": 7254672,
+  "row_assignments": 18116,
+  "scope": "All sorted signed AIGs with n=0 or1 and b=1 or2, last-node output both phases, every orientation and every NOT cap; forward semantics and exact source-payment assignment, each single underpayment and each extra-payment perturbation checked. This audits encoding, not synthesis completeness or the Petersen lower bound."
+}

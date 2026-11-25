@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "exhaustive_aigs": 5110,
+  "orientations": 20198,
+  "truth_rows": 38826,
+  "scope": "All signed ordered AIGs with n=0 or 1 and at most 2 binary gates, including duplicate operands and arbitrary outputs; each orientation reconstructed and checked. This checks accounting and semantics, not synthesis completeness or preservation of a mandatory NOT."
+}

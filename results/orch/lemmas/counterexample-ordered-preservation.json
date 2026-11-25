@@ -1,0 +1,66 @@
+{
+  "name": "sat-ordered-or-edge-19",
+  "verdict": "UNKNOWN",
+  "solver_exit": 0,
+  "elapsed_wall_seconds": 1200.58,
+  "budget_seconds": 1200,
+  "seed": 2594,
+  "approx_start_utc": "2026-11-25T14:10:49.356905+00:00",
+  "end_log_mtime_utc": "2026-11-25T14:30:49.936905+00:00",
+  "timestamp_method": "Start inferred from final log mtime minus reported elapsed; rounding/IO uncertainty under one second.",
+  "initial_rows": 41,
+  "variables": 3135,
+  "clauses": 155996,
+  "restrictions": [
+    "exactly19gates",
+    "one-to-fourNOT",
+    "no constant reads",
+    "no binary identities",
+    "all gates syntactically live",
+    "adjacent independent source-pair ordering",
+    "firstORedge0-1"
+  ],
+  "scope": "Restricted witness search; UNKNOWN is not an UNSAT or proof result.",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-96/counterexample_sat_ordered.py",
+    "--seconds",
+    "1200",
+    "--first",
+    "or_edge",
+    "--seed",
+    "2594",
+    "--gates",
+    "19",
+    "--normalized",
+    "--samples",
+    "maximal",
+    "--solver",
+    "/tmp/oec/pequalnp-pilot-96/toolchain/lean-4.36.0-linux/bin/cadical",
+    "--out",
+    "/tmp/oec/pequalnp-pilot-96/sat-ordered-or-edge-19"
+  ],
+  "artifacts": [
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.cnf.gz",
+      "original_bytes": 3060319,
+      "stored_bytes": 450570,
+      "original_sha256": "5c004a03fe8f0bf198194c87068518b9ffae60289d1f936b49244b347f962571",
+      "stored_sha256": "53aa6517443245e91c20cf0bca243abaebed4bcf4c6214edb043696dd49de34e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.stdout",
+      "original_bytes": 10,
+      "stored_bytes": 10,
+      "original_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "stored_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.stderr",
+      "original_bytes": 0,
+      "stored_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "reviewed_at": "2026-11-25T14:32:59.634682+00:00",
+  "reviewer": "/root/toolchain",
+  "verdict": "PASS for exact listed partial-support artifact bytes; reproducibility gaps documented",
+  "safe_files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "sha256": "58f1a50cb6ea8c58019f095c939c347d1aafedf9fabbd21c2b087d059170a830",
+      "bytes": 2020,
+      "mtime_ns": 1795615595313645016
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "sha256": "e380f30bbdd5c2f90ddd48782ed1cbf07c8b1b33ef4d6039ca863ab10ff356b4",
+      "bytes": 339,
+      "mtime_ns": 1795615173818279441
+    },
+    {
+      "path": "results/orch/lemmas/aig-independent-audit.json",
+      "sha256": "dfdfe3f4713b5b04fbce3a036c94e894ea896310c0bb588720a1440661a9e822",
+      "bytes": 375,
+      "mtime_ns": 1795616570173029167
+    },
+    {
+      "path": "results/orch/lemmas/aig-sat-independent-audit.json",
+      "sha256": "02b88e0b0a7bbab46c64420909559ba9fe93a4cacdb224014d1059231057ac7c",
+      "bytes": 445,
+      "mtime_ns": 1795617051477347599
+    },
+    {
+      "path": "results/orch/lemmas/audit_aig_orient.py",
+      "sha256": "fdfeb79aa09e7d3b4fb5d79da7997c62c3c397fbba03ef93e7334c8ec883b185",
+      "bytes": 2455,
+      "mtime_ns": 1795616568549555878
+    },
+    {
+      "path": "results/orch/lemmas/audit_aig_sat.py",
+      "sha256": "34b48644887bcb4dea1deda37f69874111908297e0ca0f8d6f694d05fd7be591",
+      "bytes": 3745,
+      "mtime_ns": 1795617048074405007
+    },
+    {
+      "path": "results/orch/lemmas/audit_ordered_sat.py",
+      "sha256": "98e0db14aa24223189dbbae8a6ea655ae1c310d2ef339e740417a1e414a16eee",
+      "bytes": 2172,
+      "mtime_ns": 1795616846223146061
+    },
+    {
+      "path": "results/orch/lemmas/audit_repair_sat.py",
+      "sha256": "6cf15656e16da9ed9ce739a3ba3fcd1e6776cdc6c7435783b40b6da1ad155ad3",
+      "bytes": 3235,
+      "mtime_ns": 1795616710433290820
+    },
+    {
+      "path": "results/orch/lemmas/audit_sat_encoding.py",
+      "sha256": "759419d23c2793cbe18795b3d6cb5c82db3402a8638671942f0c62eaf733f3d5",
+      "bytes": 3845,
+      "mtime_ns": 1795615293516589799
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-best.txt",
+      "sha256": "58918259bc4f08a67135a835785671654f7ff52c61b3baced6eaa6df3e132448",
+      "bytes": 222,
+      "mtime_ns": 1795615485055637276
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-live-best.txt",
+      "sha256": "d332a6af7d119da707940995fce33a050c6c36985a126f72b213150c6fd60cc5",
+      "bytes": 222,
+      "mtime_ns": 1795615485053013980
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-live.combined",
+      "sha256": "be93e20309f9535f792e8fdd0f99d723ccb2915b1eaac45588fc6028f7146056",
+      "bytes": 1491,
+      "mtime_ns": 1795615485052907520
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-notes.md",
+      "sha256": "4323200f030a28618df91ed2eb16d833b43343605839acb9778105b52803323b",
+      "bytes": 7374,
+      "mtime_ns": 1795617088472548650
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-ordered-preservation.json",
+      "sha256": "148db7391b6953feaa96bd59832a3bf1a01384013c23f622fc410dfb6640257d",
+      "bytes": 2216,
+      "mtime_ns": 1795617088376157850
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-preservation-manifest.json",
+      "sha256": "d2caf72fcb9e7a8a9fb8ea8c02d9bddfed60afceae059f7b6159093e24f034f2",
+      "bytes": 9098,
+      "mtime_ns": 1795617029041497572
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-search.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795615106753036505
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-search.stdout",
+      "sha256": "79b3ad24594d174c4b592df2a25f45346d3c729e2c1245dc5f19dfafc7e331ca",
+      "bytes": 1750,
+      "mtime_ns": 1795615106753036505
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-strict-best.txt",
+      "sha256": "4237791a836b75da05f6ec0a5d1043f4a993f0bc962214d1992baa26ea7d0582",
+      "bytes": 222,
+      "mtime_ns": 1795615485053499447
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795615184145442379
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-strict.stdout",
+      "sha256": "4aa15907edcdc883dc52dd555b4c209d708926728a2bff95b6f69276cc7afa84",
+      "bytes": 1152,
+      "mtime_ns": 1795615184145442379
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-timeline.txt",
+      "sha256": "bd306880255c3799a1a5913d064651eb31e03d91afa7481c66644f8f4e96f740",
+      "bytes": 787,
+      "mtime_ns": 1795617029041682338
+    },
+    {
+      "path": "results/orch/lemmas/counterexample_sat.py",
+      "sha256": "8a51c5bd7f00ae019b3771c3aa01310669813086d24a7e7e7692ed2f5b036833",
+      "bytes": 5945,
+      "mtime_ns": 1795615970923405485
+    },
+    {
+      "path": "results/orch/lemmas/counterexample_sat_complete.py",
+      "sha256": "9c8874eed0cfb6fedf197b0ecbc407e49df83f5b0708e2c13072432cc7a3a2ef",
+      "bytes": 1087,
+      "mtime_ns": 1795617088376306796
+    },
+    {
+      "path": "results/orch/lemmas/counterexample_sat_ordered.py",
+      "sha256": "d55f0d9747a4738521371725d1e169f1d9795c00c20630c83cde570c9c2ab5e3",
+      "bytes": 1698,
+      "mtime_ns": 1795615970924183343
+    },
+    {
+      "path": "results/orch/lemmas/counterexample_search.cpp",
+      "sha256": "48b854c5d5c22d0d2454743a7a6f95d7e32dc82ca79f417093a445cfdeec80aa",
+      "bytes": 5188,
+      "mtime_ns": 1795615485060732301
+    },
+    {
+      "path": "results/orch/lemmas/few-not-notes.md",
+      "sha256": "52556759d5be1270d53919f5a12735a8d79aeb432c1f6cf9e0122bdab7f09ccf",
+      "bytes": 7029,
+      "mtime_ns": 1795616787627357212
+    },
+    {
+      "path": "results/orch/lemmas/four_not_sat.py",
+      "sha256": "9caa2e4c2708896daf4956614c153cf42d247f031474ffa354ce6defee738475",
+      "bytes": 3237,
+      "mtime_ns": 1795615293516855922
+    },
+    {
+      "path": "results/orch/lemmas/library-notes.md",
+      "sha256": "00a419cab461d59a3eee75a88d17ec73992f3d86a10bcc7c2a606e0674310e9b",
+      "bytes": 6371,
+      "mtime_ns": 1795615950907058208
+    },
+    {
+      "path": "results/orch/lemmas/memfd-cache-notes.md",
+      "sha256": "92c6d8d4ae14e7311a029d5ccb999e2b69dad11904fad0c1fc9c210e03459a7f",
+      "bytes": 1690,
+      "mtime_ns": 1795616527639458713
+    },
+    {
+      "path": "results/orch/lemmas/normalization-notes.md",
+      "sha256": "a41dea1171be07966903b93d955b81bd7e64ca7fa364f344992df86df02ca204",
+      "bytes": 3101,
+      "mtime_ns": 1795615638347000705
+    },
+    {
+      "path": "results/orch/lemmas/one_not_sat.py",
+      "sha256": "93db0cd5bdbff643bf761e399f0120d3f8ef1fc4649f20dfdcd85450d3eac6bf",
+      "bytes": 3335,
+      "mtime_ns": 1795616076773822989
+    },
+    {
+      "path": "results/orch/lemmas/ordered-independent-audit.json",
+      "sha256": "12efee43890b669a6c407fb4425303aef1f64e6636becc0a4ea1b9e972ef4032",
+      "bytes": 246,
+      "mtime_ns": 1795615945734712099
+    },
+    {
+      "path": "results/orch/lemmas/ordered-reproducible-audit.json",
+      "sha256": "6090d1de833882c300d08ba5ea171f57a7c24dd3afc997d4523f1aa4e4728f90",
+      "bytes": 337,
+      "mtime_ns": 1795616854549148414
+    },
+    {
+      "path": "results/orch/lemmas/proof_strategy.md",
+      "sha256": "338bca3c5987b272033c99d1516f7e547dbbdde7a4f706d03cb3ef938df2279f",
+      "bytes": 3081,
+      "mtime_ns": 1795614694710129331
+    },
+    {
+      "path": "results/orch/lemmas/repair-independent-audit.json",
+      "sha256": "5816cfd22dcf062499588ddd374f27b763af1d6bdd5f44630053edfcabd3d0be",
+      "bytes": 936,
+      "mtime_ns": 1795616711772040164
+    },
+    {
+      "path": "results/orch/lemmas/repair-review-counterexample.json",
+      "sha256": "40c1f028a8ff7fbfc13a1eeeca68546b27e62906f2d71f77439b15349f01d315",
+      "bytes": 901,
+      "mtime_ns": 1795616756733491987
+    },
+    {
+      "path": "results/orch/lemmas/repair_sat.py",
+      "sha256": "246362620f6973d76ef59152112177ad91544c73b28729edf14a44c0ca52df76",
+      "bytes": 4543,
+      "mtime_ns": 1795616768862008039
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.cnf.gz",
+      "sha256": "25bb68c2393f1e6066fc41d21189fc27368e34988e19079326caf003252ae3d7",
+      "bytes": 454151,
+      "mtime_ns": 1795617025005136118
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795617025015090285
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795617025015090285
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795615106753147966
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19.stdout",
+      "sha256": "1f188f634be1df92accf87b5206b4bbab6a65dd36019dd690b769ed611a99b22",
+      "bytes": 79,
+      "mtime_ns": 1795615106753147966
+    },
+    {
+      "path": "results/orch/lemmas/sat-complete-prepared.json",
+      "sha256": "4829d08fbe2bad2818f03dd19e73f661c96344a9e8a8e60042c01c35353af949",
+      "bytes": 336,
+      "mtime_ns": 1795617088376414586
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/iteration-00.cnf.gz",
+      "sha256": "f569f9b4bd0c66f61bf7ab50ccee8813f9708ec5f1605b52126e22a0888b9710",
+      "bytes": 489557,
+      "mtime_ns": 1795616016250451463
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795616014252613117
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795616014252613117
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/sat-exact-four-not.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795616014252275777
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/sat-exact-four-not.stdout",
+      "sha256": "c8a96b81295ab671aae6dc9809b0e3b2589619770eeca923ce2821cae6fc0d29",
+      "bytes": 169,
+      "mtime_ns": 1795616014252275777
+    },
+    {
+      "path": "results/orch/lemmas/sat-exact-four-not/summary.json",
+      "sha256": "214a6b140427728050693cb1b4020039813a222412ad3e2f9c28e10b655f6b2f",
+      "bytes": 499,
+      "mtime_ns": 1795616016270492883
+    },
+    {
+      "path": "results/orch/lemmas/sat-independent-audit.json",
+      "sha256": "89c8c020b104aa081dda75a3d38d4b6b7c88508266b56544fac7c728eaaae060",
+      "bytes": 525,
+      "mtime_ns": 1795615293516243044
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.cnf.gz",
+      "sha256": "2d1eb9e4970f1022bbdc1341120d6421c5e4364fe33d5ffcb92fcc6f1049289e",
+      "bytes": 456943,
+      "mtime_ns": 1795617029019092267
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795617029033098653
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795617029031840908
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795615795544263960
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19.stdout",
+      "sha256": "d56d17f3ed7087a11dde6bf789bc114d16aecb487ef4afbe436fb2f020685333",
+      "bytes": 79,
+      "mtime_ns": 1795615795544263960
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.cnf.gz",
+      "sha256": "ddc71da3af0a27966ca296f3aa8e448acabb99fdbd5c9d77075c6d00bb965b74",
+      "bytes": 456941,
+      "mtime_ns": 1795617027022584201
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795617027027562647
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795617027027562647
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795615795544139032
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19.stdout",
+      "sha256": "3a3b6fb553ce3ba8b025191f8908f74351c0e16e83cd6c56fdf6ddcc482cb1d4",
+      "bytes": 78,
+      "mtime_ns": 1795615795544139032
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.cnf.gz",
+      "sha256": "53aa6517443245e91c20cf0bca243abaebed4bcf4c6214edb043696dd49de34e",
+      "bytes": 450570,
+      "mtime_ns": 1795617088369961115
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795617088375267356
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.stdout",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10,
+      "mtime_ns": 1795617088375267356
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19.resources",
+      "sha256": "6b7ef1833f038b228353dd20e07516434949c70156b140d47c14401496d2276e",
+      "bytes": 96,
+      "mtime_ns": 1795617088375923026
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mtime_ns": 1795617088375504433
+    },
+    {
+      "path": "results/orch/lemmas/sat-ordered-or-edge-19.stdout",
+      "sha256": "e959ee146ac75faf775ce9ba3db3ace950ad1dae4c594d5b6684c6a15df54195",
+      "bytes": 80,
+      "mtime_ns": 1795617088375504433
+    },
+    {
+      "path": "results/orch/lemmas/toolchain-setup.md",
+      "sha256": "40fc8522a784122c56ccf9824c169b79c66fb2291bbf8c72c2b22421365e89fd",
+      "bytes": 3058,
+      "mtime_ns": 1795615372528428471
+    }
+  ],
+  "excluded": [
+    {
+      "path": "results/orch/lemmas/certificate-feasibility.md",
+      "reason": "Unreviewed/new artifact outside frozen audit census"
+    },
+    {
+      "path": "results/orch/lemmas/structural-bound-notes.md",
+      "reason": "Unreviewed/new artifact outside frozen audit census"
+    }
+  ],
+  "limitations": [
+    "This approves only these exact bytes as partial research/support artifacts, not as a proof PR or full-gap result.",
+    "All solver outcomes preserved for the main19-gate search are UNKNOWN/time limits. Small-control SAT/UNSAT and audit PASS labels concern only their explicitly bounded tests.",
+    "audit_aig_orient.py depends on scratch structural_aig_orient.py, reviewed separately at SHA25616f5c8ab81e6c172c1188bcfaf8be48bccc3ac822cb0ba8fe551b0241bc5a6b6; it is not yet archived under results.",
+    "audit_sat_encoding.py depends on scratch sat-control.cnf/stdout; the control artifacts/generator are not yet archived under results.",
+    "Original ordered-independent-audit.json omitted its generator/seed; fresh audit_ordered_sat.py and ordered-reproducible-audit.json now preserve an independent seed2026112596 rerun. Do not retroactively attribute that seed to the old report.",
+    "The current C++ heuristic source reproduces runs2/3. Run1 used zero-NOT penalty1 instead of100000, transparently documented in counterexample-notes.md.",
+    "Research scripts use explicit scratch paths or supplied output paths; no network URLs/calls or credential environment access were found in the reviewed code.",
+    "Some chronological notes are stale status snapshots. validation.txt and committed compiler logs are the authoritative local-build records; no full-gap checker acceptance exists.",
+    "Files may change after this manifest. Recheck hashes immediately before staging; any changed byte requires fresh review.",
+    "A final proof PR must add only lean/PEqualNP/Outside/L_meta_2592.lean; these support artifacts are branch checkpoints only.",
+    "Completed generic, normalized and ordered searches now include full wrapper/raw stdout/stderr, exact compressed CNFs, commands, seeds, timestamps with uncertainty, and byte hashes; all four remain UNKNOWN. Exact-four-NOT also has complete archived diagnostics.",
+    "audit_aig_sat.py depends on scratch structural_aig_sat.py (reviewed source), which is not yet archived under results. Its finite audit does not prove synthesis completeness or the main lower bound.",
+    "counterexample_sat_complete.py and sat-complete-prepared.json are explicitly PREPARED_NOT_RUN; they preserve no solver verdict or certificate."
+  ],
+  "verification": {
+    "credential_scan": "no patterns detected in approved text",
+    "active_results_logs": 0,
+    "exact_four_cnf_sha256": "818c227451a271ccfe41f503db681b694a9d187e91e22fd3c55e9e00b57eced2",
+    "exact_four_cnf_bytes": 2414153,
+    "exact_four_variables": 5985,
+    "exact_four_clauses": 138564,
+    "independent_candidate_mismatches": [
+      6,
+      15,
+      21
+    ],
+    "additional_cnf_checks": [
+      {
+        "path": "results/orch/lemmas/sat-any-19-iteration-00.cnf.gz",
+        "variables": 5985,
+        "clauses": 125948,
+        "original_bytes": 2047649,
+        "original_sha256": "0b914d11cf0898d1e9830ab820878558ea30a2a90e85d908efb0614092fb3f7d",
+        "maxvar": 5985
+      },
+      {
+        "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.cnf.gz",
+        "variables": 5985,
+        "clauses": 126387,
+        "original_bytes": 2055259,
+        "original_sha256": "1d4ed879f93e5498cf5c96c0f79c4b84d4b458b2912f1177aae10c1040045e10",
+        "maxvar": 5985
+      },
+      {
+        "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.cnf.gz",
+        "variables": 5985,
+        "clauses": 126388,
+        "original_bytes": 2055266,
+        "original_sha256": "01ca588d2ed51406a91e43ba902bade234ade27523b72d65fcb7c469ba76e24b",
+        "maxvar": 5985
+      },
+      {
+        "path": "results/orch/lemmas/sat-ordered-or-edge-19-iteration-00.cnf.gz",
+        "variables": 3135,
+        "clauses": 155996,
+        "original_bytes": 3060319,
+        "original_sha256": "5c004a03fe8f0bf198194c87068518b9ffae60289d1f936b49244b347f962571",
+        "maxvar": 3135
+      }
+    ],
+    "all_approved_text_credential_scan": "no patterns detected",
+    "stable_snapshot_files": 67
+  }
+}

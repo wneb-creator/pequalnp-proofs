@@ -1,0 +1,8 @@
+{
+  "status": "PREPARED_NOT_RUN",
+  "rows": 41,
+  "variables": 3135,
+  "clauses": 74826,
+  "cnf_sha256": "a6c842e412dd006b2ed311fef3a8abcb005a7e31155bbaaa16a02afc0299deb4",
+  "scope": "Generic canonical19gates,1to4NOT,freefalse,repeatedbinaryoperandsallowed,a<=bforbinary,unrestrictedfirstgate,arbitrarydeadgatesallowed,finaloutput."
+}

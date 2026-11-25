@@ -1,0 +1,214 @@
+{
+  "created_utc": "2026-11-25T14:30:22.736743+00:00",
+  "scope": "Completed counterexample searches only; no proof or refutation established.",
+  "source_version_note": "SAT encoder gained optional normalized and initial-sample modes during this task; exact completed-query CNF bytes are preserved here. The current C++ source is a later version: initial run used zero-NOT penalty1, strict run100000, final run additionally used output-ancestor penalties; see counterexample-notes.md. Original executable hashes are recorded, not claimed identical to latest source.",
+  "runs": [
+    {
+      "name": "sat-any-19",
+      "verdict": "UNKNOWN",
+      "solver_exit": 0,
+      "time_limit_seconds": 300,
+      "elapsed_wall_seconds": 300.43,
+      "approx_start_utc": "2026-11-25T13:50:42.818411+00:00",
+      "end_log_mtime_utc": "2026-11-25T13:55:43.248411+00:00",
+      "timestamp_method": "Start inferred from final log mtime minus reported elapsed; rounding/IO uncertainty under one second.",
+      "seed": 2592,
+      "first_gate": "any",
+      "normalized_witness_restrictions": false,
+      "initial_rows": 91,
+      "gates": 19,
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-96/counterexample_sat.py",
+        "--seconds",
+        "300",
+        "--first",
+        "any",
+        "--seed",
+        "2592",
+        "--gates",
+        "19",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-96/toolchain/lean-4.36.0-linux/bin/cadical",
+        "--out",
+        "/tmp/oec/pequalnp-pilot-96/sat-any-19"
+      ]
+    },
+    {
+      "name": "sat-normalized-not-19",
+      "verdict": "UNKNOWN",
+      "solver_exit": 0,
+      "time_limit_seconds": 900,
+      "elapsed_wall_seconds": 900.7,
+      "approx_start_utc": "2026-11-25T13:54:15.232857+00:00",
+      "end_log_mtime_utc": "2026-11-25T14:09:15.932857+00:00",
+      "timestamp_method": "Start inferred from final log mtime minus reported elapsed; rounding/IO uncertainty under one second.",
+      "seed": 2592,
+      "first_gate": "not",
+      "normalized_witness_restrictions": true,
+      "initial_rows": 91,
+      "gates": 19,
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-96/counterexample_sat.py",
+        "--seconds",
+        "900",
+        "--first",
+        "not",
+        "--seed",
+        "2592",
+        "--gates",
+        "19",
+        "--normalized",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-96/toolchain/lean-4.36.0-linux/bin/cadical",
+        "--out",
+        "/tmp/oec/pequalnp-pilot-96/sat-normalized-not-19"
+      ]
+    },
+    {
+      "name": "sat-normalized-and-edge-19",
+      "verdict": "UNKNOWN",
+      "solver_exit": 0,
+      "time_limit_seconds": 900,
+      "elapsed_wall_seconds": 900.81,
+      "approx_start_utc": "2026-11-25T13:54:15.234855+00:00",
+      "end_log_mtime_utc": "2026-11-25T14:09:16.044855+00:00",
+      "timestamp_method": "Start inferred from final log mtime minus reported elapsed; rounding/IO uncertainty under one second.",
+      "seed": 2593,
+      "first_gate": "and_edge",
+      "normalized_witness_restrictions": true,
+      "initial_rows": 91,
+      "gates": 19,
+      "command": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-96/counterexample_sat.py",
+        "--seconds",
+        "900",
+        "--first",
+        "and_edge",
+        "--seed",
+        "2593",
+        "--gates",
+        "19",
+        "--normalized",
+        "--solver",
+        "/tmp/oec/pequalnp-pilot-96/toolchain/lean-4.36.0-linux/bin/cadical",
+        "--out",
+        "/tmp/oec/pequalnp-pilot-96/sat-normalized-and-edge-19"
+      ]
+    },
+    {
+      "name": "heuristic-initial",
+      "verdict": "NO_WITNESS_FOUND_HEURISTIC_ONLY",
+      "duration_cap_seconds": 300,
+      "seed": 2592096,
+      "objective": "zero-NOT penalty1",
+      "final_score": 14,
+      "final_mismatches": 6,
+      "trials": 1596030001,
+      "end_log_mtime_utc": "2026-11-25T13:53:26.937673+00:00",
+      "approx_start_utc": "2026-11-25T13:48:26.937673+00:00",
+      "timestamp_method": "Heuristic start inferred from nominal300-second cap. For live run combined log was appended after session polling, so its mtime is an upper bound on actual finish rather than exact finish.",
+      "executable_sha256": "c3eccf72f097a11ffdb87507263d04a27fbf21ac10372a02c6ecd76d0ef5d28d"
+    },
+    {
+      "name": "heuristic-strict",
+      "verdict": "NO_WITNESS_FOUND_HEURISTIC_ONLY",
+      "duration_cap_seconds": 300,
+      "seed": 2592097,
+      "objective": "zero-NOT penalty100000",
+      "final_score": 29,
+      "final_mismatches": 15,
+      "trials": 1020550001,
+      "end_log_mtime_utc": "2026-11-25T13:59:15.022454+00:00",
+      "approx_start_utc": "2026-11-25T13:54:15.022454+00:00",
+      "timestamp_method": "Heuristic start inferred from nominal300-second cap. For live run combined log was appended after session polling, so its mtime is an upper bound on actual finish rather than exact finish.",
+      "executable_sha256": "8f373c8db5fe1d65a080846bf8f08071ce8705ddb0a22fb0f2e94a93603d3fc5"
+    },
+    {
+      "name": "heuristic-live",
+      "verdict": "NO_WITNESS_FOUND_HEURISTIC_ONLY",
+      "duration_cap_seconds": 300,
+      "seed": 2592098,
+      "objective": "output-ancestor NOT plus deadgate penalty, nice10",
+      "final_score": 35,
+      "final_mismatches": 21,
+      "trials": 150850001,
+      "end_log_mtime_utc": "2026-11-25T14:04:32.127500+00:00",
+      "approx_start_utc": "2026-11-25T13:59:32.127500+00:00",
+      "timestamp_method": "Heuristic start inferred from nominal300-second cap. For live run combined log was appended after session polling, so its mtime is an upper bound on actual finish rather than exact finish.",
+      "executable_sha256": "1239e485a126eb0aab51fce8d49eb5bd4f9471a74a43236ca815c70073b72a73"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.cnf.gz",
+      "original_bytes": 2047649,
+      "stored_bytes": 454151,
+      "original_sha256": "0b914d11cf0898d1e9830ab820878558ea30a2a90e85d908efb0614092fb3f7d",
+      "stored_sha256": "25bb68c2393f1e6066fc41d21189fc27368e34988e19079326caf003252ae3d7"
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.stdout",
+      "original_bytes": 10,
+      "stored_bytes": 10,
+      "original_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "stored_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-any-19-iteration-00.stderr",
+      "original_bytes": 0,
+      "stored_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.cnf.gz",
+      "original_bytes": 2055259,
+      "stored_bytes": 456941,
+      "original_sha256": "1d4ed879f93e5498cf5c96c0f79c4b84d4b458b2912f1177aae10c1040045e10",
+      "stored_sha256": "ddc71da3af0a27966ca296f3aa8e448acabb99fdbd5c9d77075c6d00bb965b74"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.stdout",
+      "original_bytes": 10,
+      "stored_bytes": 10,
+      "original_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "stored_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-not-19-iteration-00.stderr",
+      "original_bytes": 0,
+      "stored_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.cnf.gz",
+      "original_bytes": 2055266,
+      "stored_bytes": 456943,
+      "original_sha256": "01ca588d2ed51406a91e43ba902bade234ade27523b72d65fcb7c469ba76e24b",
+      "stored_sha256": "2d1eb9e4970f1022bbdc1341120d6421c5e4364fe33d5ffcb92fcc6f1049289e"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.stdout",
+      "original_bytes": 10,
+      "stored_bytes": 10,
+      "original_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "stored_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "path": "results/orch/lemmas/sat-normalized-and-edge-19-iteration-00.stderr",
+      "original_bytes": 0,
+      "stored_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "latest_source_hashes": {
+    "counterexample_sat.py": "8a51c5bd7f00ae019b3771c3aa01310669813086d24a7e7e7692ed2f5b036833",
+    "counterexample_sat_ordered.py": "d55f0d9747a4738521371725d1e169f1d9795c00c20630c83cde570c9c2ab5e3",
+    "counterexample_search.cpp": "48b854c5d5c22d0d2454743a7a6f95d7e32dc82ca79f417093a445cfdeec80aa"
+  }
+}

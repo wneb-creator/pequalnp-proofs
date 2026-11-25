@@ -1,0 +1,3 @@
+Cardinality construction checked exhaustively for n=1..8 and every target count.
+ITERATION 0 rows 91 vars 5985 clauses 138564 remaining 899
+SOLVER_EXIT 0 elapsed 900.39

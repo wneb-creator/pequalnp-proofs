@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "cardinality_cases": 768,
+  "baseline_rows": 1024,
+  "baseline_mismatches": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650
+  ],
+  "controls": [
+    {
+      "changed_gates": 1,
+      "max_changes": 0,
+      "expected": 20,
+      "actual": 20
+    },
+    {
+      "changed_gates": 1,
+      "max_changes": 1,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "changed_gates": 4,
+      "max_changes": 4,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "changed_gates": 5,
+      "max_changes": 4,
+      "expected": 20,
+      "actual": 20
+    },
+    {
+      "changed_gates": 19,
+      "max_changes": 19,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "changed_gates": 0,
+      "max_changes": 4,
+      "expected": 20,
+      "actual": 20
+    }
+  ],
+  "scope": "Neighborhood cardinality and baseline decoding; only a fixed-order Hamming neighborhood, not exhaustive synthesis."
+}

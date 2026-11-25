@@ -1,0 +1,30 @@
+{
+  "random_forward_semantics_clauses": 309630,
+  "small_sat_controls": [
+    {
+      "name": "not_input",
+      "exit": 10
+    },
+    {
+      "name": "one_gate_and_with_not",
+      "exit": 20
+    },
+    {
+      "name": "two_gate_and_with_dead_not",
+      "exit": 10
+    },
+    {
+      "name": "one_gate_true",
+      "exit": 10
+    },
+    {
+      "name": "one_gate_false_with_not",
+      "exit": 20
+    },
+    {
+      "name": "two_gate_false_with_not",
+      "exit": 10
+    }
+  ],
+  "pinned_control_model_clauses": 1520836
+}
