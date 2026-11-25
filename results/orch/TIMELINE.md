@@ -36,3 +36,7 @@
 
 - 2026-11-25T03:12:16.846396+00:00: lean_baseline compiled generic finite-basis theorem; notified root for early push.
 2026-11-25T03:14:48.413146+00:00 Renewed lease; expiry 2026-11-25T03:34:48.674Z.
+
+2026-11-25T03:18:54.536380+00:00 manual renewal before verifier calibration; expires_at=2026-11-25T03:38:21.315Z
+
+- 2026-11-25T03:20:20.043819+00:00: reduction_analysis compiled SingletonDirtySemantic.lean; structural lower-bound route remains conditional on reducing dirty AND count.
