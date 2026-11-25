@@ -2103,4 +2103,50 @@ lemma shared_belowOr_pair_palette {α : Type*} [DecidableEq α]
     exact hcw.symm
   · exact hvb.trans hwb.symm
 
+lemma shared_belowOr_imp_on_onehot {α : Type*} [DecidableEq α]
+    (A B : Finset α) (q : α) (hab : A ∩ B ⊆ {q})
+    (f : (α → Bool) → Bool) (ha : BelowOr A f) (hb : BelowOr B f)
+    (x : α → Bool)
+    (hhot : ∀ a ∈ A, ∀ b ∈ B, x a = true → x b = true → a = b)
+    (hx : f x = true) : x q = true := by
+  obtain ⟨a, ha', hxa⟩ := ha x hx
+  obtain ⟨b, hb', hxb⟩ := hb x hx
+  have he : a = b := hhot a ha' b hb' hxa hxb
+  have haq : a = q := Finset.mem_singleton.mp (hab (Finset.mem_inter.mpr ⟨ha', he ▸ hb'⟩))
+  simpa only [haq] using hxa
+
+lemma shared_belowOr_guard_on_onehot {α : Type*} [DecidableEq α]
+    (A B : Finset α) (q : α) (hab : A ∩ B ⊆ {q})
+    (f : (α → Bool) → Bool) (ha : BelowOr A f) (hb : BelowOr B f)
+    (x : α → Bool)
+    (hhot : ∀ a ∈ A, ∀ b ∈ B, x a = true → x b = true → a = b) :
+    f x = (f x && x q) := by
+  cases hx : f x with
+  | false => simp
+  | true => simp [shared_belowOr_imp_on_onehot A B q hab f ha hb x hhot hx]
+
+lemma shared_belowOr_guard_pair_palette {α : Type*} [DecidableEq α]
+    (colour : α → Bool) (side : Bool) (A B : Finset α) (q : α)
+    (hA : ∀ v ∈ A, colour v = side) (hB : ∀ v ∈ B, colour v = side)
+    (hab : A ∩ B ⊆ {q}) (f : (α → Bool) → Bool)
+    (ha : BelowOr A f) (hb : BelowOr B f)
+    (a b : α) (hcolour : colour a ≠ colour b) :
+    f (pairInput a b) = (f (pairInput a b) && pairInput a b q) := by
+  apply shared_belowOr_guard_on_onehot A B q hab f ha hb
+  intro v hv w hw hvx hwx
+  have hv' : v = a ∨ v = b := of_decide_eq_true hvx
+  have hw' : w = a ∨ w = b := of_decide_eq_true hwx
+  have hcw : colour v = colour w := (hA v hv).trans (hB w hw).symm
+  rcases hv' with hva | hvb <;> rcases hw' with hwa | hwb
+  · exact hva.trans hwa.symm
+  · exfalso
+    apply hcolour
+    rw [← hva, ← hwb]
+    exact hcw
+  · exfalso
+    apply hcolour
+    rw [← hwa, ← hvb]
+    exact hcw.symm
+  · exact hvb.trans hwb.symm
+
 end PEqualNP.Outside.L_meta_4970_aux
