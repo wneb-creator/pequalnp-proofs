@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v7.py",
+    "--graph",
+    "cycle5",
+    "--gates",
+    "8",
+    "--profile",
+    "star",
+    "--fixed-star-baseline",
+    "--padding-gates",
+    "1",
+    "--symmetry-first",
+    "--essential-gates",
+    "--ordered-independent",
+    "--undominated-signatures",
+    "--at-most",
+    "--seconds",
+    "30",
+    "--tag",
+    "c5-star8-padded-dominance-control"
+  ],
+  "pid": 40104,
+  "owned_process_group": 40104,
+  "process_start_ticks": 1766958,
+  "started_utc": "2026-11-25T07:37:22.382789+00:00",
+  "synthesis_address_space_limit_bytes": 1073741824,
+  "shared_stop_limit_bytes": 6979321856
+}

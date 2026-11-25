@@ -1,0 +1,18 @@
+{
+  "owned_group": 39328,
+  "recorded_leader_start_ticks": 1702735,
+  "members_now": [
+    {
+      "pid": 39328,
+      "state": "Z",
+      "start_ticks": 1702735
+    }
+  ],
+  "model_status": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 180.0185772320001,
+    "peak_child_KiB": 53664
+  },
+  "note": "Model and solver completed normally before environment restart; guardian final status missing. Independent post-restart owned-group census only."
+}

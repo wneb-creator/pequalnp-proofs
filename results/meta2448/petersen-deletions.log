@@ -1,0 +1,533 @@
+{
+  "automorphism_count": 120,
+  "deleted_set_count": 55,
+  "classes": [
+    {
+      "removed": [
+        0
+      ],
+      "old_vertices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n": 9,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      "edge_count": 12,
+      "vertex_cover_number": 5,
+      "minimum_cover": [
+        0,
+        2,
+        6,
+        7,
+        8
+      ],
+      "maximum_independent_masks": [
+        58,
+        201,
+        277
+      ],
+      "maximal_independent_masks": [
+        25,
+        52,
+        58,
+        69,
+        100,
+        104,
+        138,
+        201,
+        274,
+        277,
+        385,
+        386
+      ],
+      "degrees": [
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cycle_counts": {
+        "5": 6,
+        "6": 4,
+        "8": 3,
+        "9": 2
+      },
+      "star_DNF_gate_upper_bound": 16,
+      "scope": "Exact finite combinatorics and constructive star-DNF upper bound only; no minimum-circuit lower bound.",
+      "deleted_set_orbit": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ]
+      ],
+      "orbit_size": 10
+    },
+    {
+      "removed": [
+        0,
+        1
+      ],
+      "old_vertices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n": 8,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "edge_count": 10,
+      "vertex_cover_number": 4,
+      "minimum_cover": [
+        1,
+        5,
+        6,
+        7
+      ],
+      "maximum_independent_masks": [
+        29
+      ],
+      "maximal_independent_masks": [
+        26,
+        29,
+        50,
+        52,
+        69,
+        100,
+        137,
+        138,
+        193
+      ],
+      "degrees": [
+        2,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "cycle_counts": {
+        "5": 4,
+        "6": 2,
+        "8": 1
+      },
+      "star_DNF_gate_upper_bound": 13,
+      "scope": "Exact finite combinatorics and constructive star-DNF upper bound only; no minimum-circuit lower bound.",
+      "deleted_set_orbit": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "orbit_size": 15
+    },
+    {
+      "removed": [
+        0,
+        2
+      ],
+      "old_vertices": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "n": 8,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "edge_count": 9,
+      "vertex_cover_number": 4,
+      "minimum_cover": [
+        1,
+        3,
+        4,
+        7
+      ],
+      "maximum_independent_masks": [
+        101,
+        139
+      ],
+      "maximal_independent_masks": [
+        13,
+        26,
+        28,
+        35,
+        50,
+        52,
+        101,
+        139,
+        193
+      ],
+      "degrees": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3
+      ],
+      "cycle_counts": {
+        "5": 2,
+        "6": 1
+      },
+      "star_DNF_gate_upper_bound": 12,
+      "scope": "Exact finite combinatorics and constructive star-DNF upper bound only; no minimum-circuit lower bound.",
+      "deleted_set_orbit": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "orbit_size": 30
+    }
+  ],
+  "preferred_new_core": "Deleting adjacent vertices gives an 8-vertex 10-edge K4 subdivision; four subdivided edges and two unsubdivided opposite edges. Try 12 total gates against a 13-gate star control.",
+  "nonadjacent_note": "Deleting two nonadjacent vertices leaves one leaf; deleting that leaf gives theta(2,3,3), already searched."
+}

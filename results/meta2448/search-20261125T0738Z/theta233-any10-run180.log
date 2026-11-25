@@ -1,0 +1,2 @@
+{"graph": "theta233", "input_count": 7, "gate_count": 10, "profile": "any", "variables": 1723, "clauses": 11894}
+{"result": "unknown", "solver_exit": 0, "elapsed": 180.01707960199928, "peak_child_KiB": 46268}

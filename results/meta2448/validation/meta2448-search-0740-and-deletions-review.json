@@ -1,0 +1,284 @@
+{
+  "review": "PASS immutable 0740 archive, Petersen deletion census and static source reviews",
+  "scope": "Computational finite controls and source normalization arguments only; all compiled claims remain those separately archived; no full target result.",
+  "archive_files": 44,
+  "archive_originals_verified": 41,
+  "archive_replayed_controls": [
+    {
+      "file": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.witness.json",
+      "sha256": "bb705de793786b6a578c748b1acbfc677d1431fbaf535262ccf14636083f980a",
+      "assignments": 32,
+      "gates": 7,
+      "prefix_gates": 7,
+      "star": true
+    },
+    {
+      "file": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.witness.json",
+      "sha256": "e00467f839e89d4ff7b5a6a925207913b9f38d6eed63320302654fc89b422e65",
+      "assignments": 32,
+      "gates": 8,
+      "prefix_gates": 7,
+      "star": true
+    },
+    {
+      "file": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.witness.json",
+      "sha256": "072581eddf5e76595c5e85faa44f962b0ba993b115023285bde5b524626fe517",
+      "assignments": 1024,
+      "gates": 21,
+      "prefix_gates": 20,
+      "star": true
+    }
+  ],
+  "files": [
+    {
+      "path": "results/meta2448/search-20261125T0740Z/ORIGINAL-FILES.json",
+      "sha256": "e6810a6f0e6db450ba3c9597e09b67387bbebef00831a5a075be276a754eba32",
+      "bytes": 11233
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/README.md",
+      "sha256": "718e8d3e31d837cd34728b7ca1eab92e61e31fa57dbcb719ea6b338ef327181a",
+      "bytes": 1097
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/SHA256SUMS",
+      "sha256": "862c9c70bea68b8eddeed2c7a6476a69d6983005f1314beea44da617a44d7238",
+      "bytes": 4522
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/at-most-controls-independent-review.json",
+      "sha256": "5e4aed0d7b823690e9e169df4e6b1ac10c636d0d488d770683b6c12879f72a53",
+      "bytes": 1128
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.cnf",
+      "sha256": "5a0b395f8c1285c93505eb312a524d78b8a8b65a207d79d6f0878d4457318807",
+      "bytes": 76980
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.command.json",
+      "sha256": "f0647d22d493a87128825e4631d7a3f000583c968e3dee20b1bfacdb9c8e8a42",
+      "bytes": 259
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.guard-status.json",
+      "sha256": "e4b62114f0040c771af5a41d8d1087844f82ea7ce23120041ad30fb7d061e6e0",
+      "bytes": 836
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.guard.json",
+      "sha256": "e7f1c1032ab0ee32f3346f271936d6947e2276e6d4d060d41c891ce64b0420f9",
+      "bytes": 609
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.guard.log",
+      "sha256": "3376b181b36047122725eb9903179a2267569c1bfd531b554dec62fc5c4206d1",
+      "bytes": 736
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.log",
+      "sha256": "ec7a683bf2a771aff4745f116e4b938fa21844403b9b1c4f81b74c24874dbd06",
+      "bytes": 645
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.mapping.json",
+      "sha256": "88db43982777f4353ff8360e2b19f139bf313d1ce6f786e8c06c7bea184c608b",
+      "bytes": 3543
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.sol",
+      "sha256": "dc1c78147b1247f2fbf1668ab8d72d9bbf6f7d53985c7c1aa4d47a172b2a4450",
+      "bytes": 5524
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.solver.log",
+      "sha256": "ea39fbf3e17050c57005e6882a23c7edfece6e13b01e2ba392fc6b8f27008304",
+      "bytes": 5310
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.status.json",
+      "sha256": "71bf8ac1d31a826ed061a50d767351bdfb31b78dd8a2bece759d3153e9ec3eac",
+      "bytes": 103
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star7-dominance-control.witness.json",
+      "sha256": "bb705de793786b6a578c748b1acbfc677d1431fbaf535262ccf14636083f980a",
+      "bytes": 852
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.cnf",
+      "sha256": "63bc4ff6c29eada0366dd0fbdafd95e214a482c9459cd19d04eb1ccde7bd8f2c",
+      "bytes": 100772
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.command.json",
+      "sha256": "6a22c082fc68e25aa304575eb7f55818d1e7eff52858902e36d2ca9fdce333c8",
+      "bytes": 273
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.guard-status.json",
+      "sha256": "534dd1dfd5ac031a444a1ca8f52b39e935d4136d4a40e72dff0ddd276b9baa63",
+      "bytes": 904
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.guard.json",
+      "sha256": "0888ec0bba2717caa1ed2bd54a4a56f5014617d14957693bc230fc65f9ce69c1",
+      "bytes": 677
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.guard.log",
+      "sha256": "a323dd8ad6d58dbe9a3fdecf60769fab0b69dddef5b7ccaaec29150b6ab984cd",
+      "bytes": 792
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.log",
+      "sha256": "2392bbf05d45a507a46e41aafccf1d14a61f70423184cefeef344a45ad271902",
+      "bytes": 666
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.mapping.json",
+      "sha256": "3a08d6367aaf325e1b2c95393d743da6c36b1b603609b01fdac2a97c3c2b84bb",
+      "bytes": 4339
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.sol",
+      "sha256": "26c494b8109340b14a52ca38124f86549879a91f1833b089a14d36c30eaf555e",
+      "bytes": 7156
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.solver.log",
+      "sha256": "149a36945720646df0925cf747bf7e5d887531591da0cd5fb941f3ceb9fbeaf7",
+      "bytes": 3051
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.status.json",
+      "sha256": "19e33f3895775d44246885df0e53689b51210f9fe63dcdb646972eb0d6e43842",
+      "bytes": 104
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/c5-star8-padded-dominance-control.witness.json",
+      "sha256": "e00467f839e89d4ff7b5a6a925207913b9f38d6eed63320302654fc89b422e65",
+      "bytes": 904
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/circuit-synthesis-normalization.md",
+      "sha256": "d3b11bd246939b633dc1c06c84ebdec3adc7188bc45ce6b2d636e1cf459f6dbc",
+      "bytes": 3003
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/guard_synthesis_v6.py",
+      "sha256": "a7d1262cb1c67088e83dda7128bc3cef63903053e032e9b60832341df5cfe23c",
+      "bytes": 3561
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/guard_synthesis_v7.py",
+      "sha256": "e28a3e15ecd1e87b5ab1af254da16fcf39b9a88b40a71300106f0f95b22f9a1b",
+      "bytes": 3580
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/guard_synthesis_v8.py",
+      "sha256": "309588cdcb24f1642e19c8adac7ecf428b68934355147a692f088540a8c00e0f",
+      "bytes": 3599
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.cnf",
+      "sha256": "204f031dafe1f064184b35335e513eba73445f246daca8bf58c5891ffae1fc96",
+      "bytes": 2026286
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.command.json",
+      "sha256": "6d3eae2c1f0523d5ee1e6fa9abcdbe6204991d20b83d1045a106d88577afa3c1",
+      "bytes": 287
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.guard-status.json",
+      "sha256": "2bf1805c174f4d81d5beed9902d6048301b1b8f1b1d6111cf8d700d984a41e56",
+      "bytes": 914
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.guard.json",
+      "sha256": "e438df166d5b7963c442bcd48bdea266829f0f1423b3fc31055b04af09d0420a",
+      "bytes": 687
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.guard.log",
+      "sha256": "fb290d6b8dc2399c1109c52f0abf6397c24ad56d54d27c8f054e4535eb9bad1f",
+      "bytes": 802
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.log",
+      "sha256": "cce6eb960d721ddbe1192e32af265ef9385265268cce00d7a811135605fcdb71",
+      "bytes": 1046
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.mapping.json",
+      "sha256": "7152c57d4b5552849946d90285001e900c415733c65c7983b92c4b452aa5aace",
+      "bytes": 28622
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.sol",
+      "sha256": "b52147a96764a66cf1b41709eb1812d79a149aa5e1516ce7221faa8724174892",
+      "bytes": 121452
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.solver.log",
+      "sha256": "a4b0a6e4f283b0eef9df208fa3f8d51923d0a61fb3e0a826fef98b42d8c96326",
+      "bytes": 3083
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.status.json",
+      "sha256": "8d7f5ea8eaca85390655972cada1c9b4cebf189992908ce6bbddd1e13a8aa15b",
+      "bytes": 105
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/petersen-star21-padded-dominance-control.witness.json",
+      "sha256": "072581eddf5e76595c5e85faa44f962b0ba993b115023285bde5b524626fe517",
+      "bytes": 1990
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/synthesize_v5.py",
+      "sha256": "71c061decd88917909692a15c9b76f2eb8d39bfd94db303c75079cee57ae644e",
+      "bytes": 13949
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/synthesize_v6.py",
+      "sha256": "d8989c41d54ff0813091bfe691045dfe16bc92989756ec80904228bffbfad11c",
+      "bytes": 15044
+    },
+    {
+      "path": "results/meta2448/search-20261125T0740Z/synthesize_v7.py",
+      "sha256": "d463023d1fdf10c7dae1e1f945b2e1f3291aeaf9eadf8a5952bae9681374bef4",
+      "bytes": 16502
+    },
+    {
+      "path": "results/meta2448/petersen-deletions.py",
+      "sha256": "2b27908ce847357be090bbe44d12daeb5230910be10208e992a37ae54888476e",
+      "bytes": 3720
+    },
+    {
+      "path": "results/meta2448/petersen-deletions.json",
+      "sha256": "f077d11e6b305c52a81bee9acbb2adb84407d3e21285f932d656e99511a271c3",
+      "bytes": 7292
+    },
+    {
+      "path": "results/meta2448/petersen-deletions.log",
+      "sha256": "f077d11e6b305c52a81bee9acbb2adb84407d3e21285f932d656e99511a271c3",
+      "bytes": 7292
+    },
+    {
+      "path": "results/meta2448/petersen-deletions-independent-review.json",
+      "sha256": "228374fb7d51cd80b78c072375d7890647d8e771d274eaa137f3ba86379ccfd1",
+      "bytes": 502
+    },
+    {
+      "path": "results/meta2448/at-most-synthesis-independent-review.json",
+      "sha256": "f68eb74bd16af156f9ca0802952ba283e4990b78f0fa7361ac993d28e878ae12",
+      "bytes": 1526
+    },
+    {
+      "path": "results/meta2448/v8-v9-source-controls-independent-review.json",
+      "sha256": "4156d94d3a34a098f9ac37970b4d1a58936711a6edaa673c8081b403297ffe60",
+      "bytes": 1408
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-ordered-control.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-ordered-control.cnf'
+c found 'p cnf 902 4834' header
+c parsed 4834 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 4824 877 97%
+c {  0.00  3  0 0   0    0    0  0% 0 4824 877 97%
+c i  0.00  4 18 0   2  122  112 60% 5 4824 851 94%
+c i  0.00  4 17 0   9  186  163 61% 5 4824 849 94%
+c i  0.01  4 18 0  22  295  259 64% 5 4824 845 94%
+c -  0.01  4 18 1  22  301  264 64% 5 4496 845 94%
+c i  0.01  4 18 1  22  302  264 64% 5 4496 837 93%
+c i  0.01  4 19 1  23  354  307 65% 5 4496 809 90%
+c i  0.01  4 18 1  26  365  315 64% 5 4496 807 89%
+c i  0.01  4 17 1  54  585  513 66% 5 4496 806 89%
+c }  0.01  4 17 1  54  612  529 66% 5 4496 806 89%
+c 1  0.01  4 17 1  54  612  529 66% 5 4496 806 89%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-ordered-control.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.01   99.43% search
+c         0.01   97.67% unstable
+c         0.00   10.75% parse
+c         0.00    1.60% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.01   87.06% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               257        41.99 %  of conflicts
+c conflicts:                   612     57196.26    per second
+c decisions:                  1886    176261.68    per second
+c fixed:                        96        10.64 %  of all variables
+c learned:                     571        93.30 %  per conflict
+c learned_lits:               8127       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   1294        15.92 %  learned literals
+c minishrunken:                792         9.75 %  learned literals
+c otfs:                         10         1.63 %  of conflict
+c propagations:              73359         6.86 M  per second
+c restarts:                     54        11.33    interval
+c subsumed:                     34         0.63 %  of all clauses
+c strengthened:                 10         0.19 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.01    seconds
+c total real time since initialization:            0.01    seconds
+c maximum resident set size of process:           12.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

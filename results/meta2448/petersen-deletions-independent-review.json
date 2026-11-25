@@ -1,0 +1,18 @@
+{
+  "status": "PASS independent Kneser(5,2) symmetry, all55deletion orbit coverage, subset enumeration of independent sets and edge-subset cycle census",
+  "classes": 3,
+  "orbit_sizes": [
+    10,
+    15,
+    30
+  ],
+  "adjacent_deletion_K4_paths": {
+    "(1, 5)": 2,
+    "(1, 7)": 2,
+    "(1, 6)": 1,
+    "(5, 6)": 2,
+    "(5, 7)": 1,
+    "(6, 7)": 2
+  },
+  "scope": "Exact Python finite graph facts and constructive star-DNF upper bounds only; not Lean checked and no circuit-minimum lower bound."
+}

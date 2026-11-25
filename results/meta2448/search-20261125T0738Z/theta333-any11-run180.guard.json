@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v3.py",
+    "--graph",
+    "theta333",
+    "--gates",
+    "11",
+    "--profile",
+    "any",
+    "--symmetry-first",
+    "--essential-gates",
+    "--seconds",
+    "180",
+    "--tag",
+    "theta333-any11-run180"
+  ],
+  "pid": 39328,
+  "owned_process_group": 39328,
+  "process_start_ticks": 1702735,
+  "started_utc": "2026-11-25T07:26:40.156060+00:00",
+  "synthesis_address_space_limit_bytes": 1073741824,
+  "shared_stop_limit_bytes": 6979321856
+}

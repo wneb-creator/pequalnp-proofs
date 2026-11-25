@@ -1,0 +1,33 @@
+{
+  "status": "PASS independent padded/control truth, first-target, cone/ownership and signed-domination replay",
+  "scope": "Finite controls only, no minimum/counterexample certificate",
+  "controls": [
+    {
+      "tag": "c5-star8-padded-dominance-control",
+      "witness_sha256": "e00467f839e89d4ff7b5a6a925207913b9f38d6eed63320302654fc89b422e65",
+      "slots": 8,
+      "effective_prefix": 7,
+      "all_inputs": 32,
+      "prefix_star": true,
+      "all_pre_target_domination_constraints": true
+    },
+    {
+      "tag": "petersen-star21-padded-dominance-control",
+      "witness_sha256": "072581eddf5e76595c5e85faa44f962b0ba993b115023285bde5b524626fe517",
+      "slots": 21,
+      "effective_prefix": 20,
+      "all_inputs": 1024,
+      "prefix_star": true,
+      "all_pre_target_domination_constraints": true
+    },
+    {
+      "tag": "c5-star7-dominance-control",
+      "witness_sha256": "bb705de793786b6a578c748b1acbfc677d1431fbaf535262ccf14636083f980a",
+      "slots": 7,
+      "effective_prefix": 7,
+      "all_inputs": 32,
+      "prefix_star": true,
+      "all_pre_target_domination_constraints": true
+    }
+  ]
+}

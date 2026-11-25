@@ -1,0 +1,92 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-62/meta2448/p4-nonstar5-ordered-control.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-62/meta2448/p4-nonstar5-ordered-control.cnf'
+c found 'p cnf 371 1733' header
+c parsed 1733 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 1727 356 96%
+c {  0.00  3  0 0   0    0    0  0% 0 1727 356 96%
+c i  0.00  3  1 0   0    1    0 24% 0 1727 355 96%
+c i  0.00  3  3 0   0    7    5 41% 1 1727 354 95%
+c i  0.00  3  5 0   0   30   23 57% 2 1727 351 95%
+c i  0.00  3  4 0   0   74   46 61% 2 1727 350 94%
+c i  0.00  3  5 0   0   96   57 59% 2 1727 346 93%
+c i  0.00  3  5 0   0  105   63 58% 2 1727 344 93%
+c }  0.00  3  5 0   0  108   66 59% 2 1727 344 93%
+c 1  0.00  3  5 0   0  108   66 59% 2 1727 344 93%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-62/meta2448/p4-nonstar5-ordered-control.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   95.02% search
+c         0.00   89.10% unstable
+c         0.00   48.68% parse
+c         0.00    5.26% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   60.94% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                40        37.04 %  of conflicts
+c conflicts:                   108    101503.76    per second
+c decisions:                   150    140977.44    per second
+c fixed:                        27         7.28 %  of all variables
+c learned:                     102        94.44 %  per conflict
+c learned_lits:                857       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    362        42.24 %  learned literals
+c minishrunken:                 43         5.02 %  learned literals
+c otfs:                          3         2.78 %  of conflict
+c propagations:               6950         6.53 M  per second
+c subsumed:                     29         1.59 %  of all clauses
+c strengthened:                  3         0.16 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:           12.38    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

@@ -1,0 +1,14 @@
+{
+  "status": "PASS independent source and mathematical review before bounded controls",
+  "encoder_sha256": "d463023d1fdf10c7dae1e1f945b2e1f3291aeaf9eadf8a5952bae9681374bef4",
+  "guardian_sha256": "309588cdcb24f1642e19c8adac7ecf428b68934355147a692f088540a8c00e0f",
+  "claims": [
+    "No globally minimum circuit has a gate equal to an earlier wire on all edge/MIS samples: alias deletion preserves those samples, hence exact monotone output.",
+    "No globally minimum circuit has a gate dominated by an earlier wire that is at least as true on positive edges and at most as true on maximal false rows: aliasing improves both sample classes.",
+    "The previous-target flag guards both operand incomparability and optional uniqueness/domination; the first exact target itself still satisfies all cuts.",
+    "A normalized minimum prefix pads by repeating its last operation on the previous output and one original operand. OR padding introduces no owner; AND padding has a true earlier AND ancestor on every edge.",
+    "First-gate symmetry stays fixed; padding directly reads its predecessor, so adjacent-independent ordering does not forbid it.",
+    "Decoder replays the earliest target on all assignments and reports its profile separately from the whole circuit."
+  ],
+  "scope": "Mathematical finite-model completeness for normalized global-minimum prefixes; not a Lean normalization theorem, a proved lower bound, or a held-gap result. Aliasing is not claimed to preserve profile for arbitrary nonminimum circuits."
+}

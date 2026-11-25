@@ -1,0 +1,15 @@
+# Finite synthesis normalization scope
+
+These are mathematical arguments for the research encoder, not Lean certificates of circuit minimality.
+
+For a nonempty graph, the edge-pair inputs and all maximal independent-set inputs form a complete separating set for monotone functions: every true graph input contains an edge pair, and every false graph input lies below a maximal independent set.
+
+Suppose a globally minimum exact circuit has a gate `v` and an earlier wire `w` such that `w >= v` on every positive edge input and `w <= v` on every maximal-independent negative input. Replace every later reference to `v` by `w`, remove the gate, and renumber. On each positive row, later values can only increase; on each negative row, they can only decrease. Thus every output sample remains correct. The resulting monotone circuit computes the exact graph function by separation completeness, contradicting global minimality. Equal separating-row signatures are a special case. The argument does not assert that this replacement preserves ownership or a profile restriction for arbitrary nonminimum circuits.
+
+The encoder also uses proper binary gates, a final output, no unused gates, operand incomparability on the separating rows, and positive/negative relevance of every gate. These conditions are justified by deletion and constant/alias simplification in a globally minimum exact circuit. The complete conversion from the repository's arbitrary `Monotone2` circuits, including nullary/unary gates and out-of-range references, has not been formalized here.
+
+Adjacent independent gates can be exchanged by renaming their wire indices in all later references. This preserves all wire functions, dependency cones and ownership. Keeping gate zero fixed and sorting inverted adjacent independent separating signatures removes some redundant topological orderings. This is a structural exchange, not a profile-changing alias substitution.
+
+The at-most mode guards operand-incomparability and signed-domination constraints after an earlier gate already equals the target on every separating row. A shorter normalized minimum prefix ending in `X = A op B` can be padded using `X op A`, then repeating with the previous output. Each padding gate has the same function, uses its immediate predecessor and remains positive/negative relevant. OR padding has no ownership. AND padding has a true earlier AND in its cone on every accepted edge and therefore owns no edge. First-gate symmetry and ordering remain valid. The decoder separately reports the earliest exact prefix and its profile, because an arbitrary model's later redundant tail may have a different profile.
+
+An UNSAT result is still a result about the explicitly encoded finite model. It is not a machine-checked theorem about all Lean circuits until these normalization arguments and the SAT certificate are formalized. A nonstar circuit alone does not refute L-meta-2448: the statement permits another equally small circuit with a star profile.
