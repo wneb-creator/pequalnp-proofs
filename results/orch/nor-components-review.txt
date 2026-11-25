@@ -1,0 +1,4 @@
+Independent source review PASS, 2026-11-25.
+NorCompression and CleanReader reviewed by toolchain agent at frozen hashes. Compression explicitly excludes suffix/output reads of removed negative wires10/11; shifts all later indices, preserves defaults and semantics, saves one gate and one NOT. CleanReader assumes AND/OR suffix, derives constant behavior for complementary paired inputs, and proves clean positive readers through antitone induction and explicit Petersen witnesses.
+TwoNotSwap reviewed by root at frozen hash. Permutation swaps only wires10/11; fold relation preserves all remaining indices and default reads. The suffix count accounts for the initial AND consumer and explicitly retains h15. No i!=j assumption is silently needed.
+All three author builds exited0. These are conditional or partial structural lemmas, not the full posted theorem.

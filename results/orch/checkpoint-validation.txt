@@ -41,3 +41,5 @@ Named file before assembly3245lines; after5210lines/309284bytes. This was integr
 Only importPEqualNP.Defs, one outer namespace, scoped permitted limits. Exact module-named main theorem remains absent; checker not run for incomplete statement.
 
 Eleventh checkpoint: ReaderDeletion and ReaderRename compiled exit0; independent status_audit and one_not_route reviews PASS at frozen source hashes. Both results explicitly assume the accepted nine-variable lower16 statement h15; it has not yet been inlined. The arbitrary-input reader limit is two under size19. Full posted theorem remains unsolved.
+
+Twelfth checkpoint: NorCompression, CleanReader, and TwoNotSwap compiled exit0 and passed independent source reviews. Compression saves one gate and one NOT under explicit unused-wire hypotheses. Clean positive-reader existence and a symmetric conditional reader bound are now proved; they do not finish the main gap.
