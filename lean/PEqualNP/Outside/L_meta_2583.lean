@@ -3995,4 +3995,230 @@ lemma full_star_equal_penalty_degree_gap
 
 end FirstMixing
 
+
+
+namespace GlobalMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge
+open CircuitLedger CircuitLedger.Budget FirstMixing
+
+lemma getD_snoc (W : List Bool) (v : Bool) (i : ℕ) :
+    (W ++ [v]).getD i false = if i = W.length then v else W.getD i false := by
+  rcases lt_trichotomy i W.length with h | h | h
+  · rw [ite_eq_right (by omega)]
+    simp [List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+  · subst h
+    simp [List.getD_eq_getElem?_getD]
+  · rw [ite_eq_right (by omega)]
+    rw [List.getD_eq_getElem?_getD, List.getD_eq_getElem?_getD,
+      List.getElem?_eq_none (by simp; omega), List.getElem?_eq_none (by omega)]
+
+lemma op_eval_mono {op : GateOp} (hop : op = .and ∨ op = .or) (l : List ℕ)
+    (f f' : ℕ → Bool) (hff : ∀ a ∈ l, f a = true → f' a = true)
+    (h : op.eval (l.map f) = true) : op.eval (l.map f') = true := by
+  rcases hop with rfl | rfl
+  · simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply, id] at h ⊢
+    intro a ha
+    exact hff a ha (h a ha)
+  · simp only [GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id] at h ⊢
+    obtain ⟨a, ha, hfa⟩ := h
+    exact ⟨a, ha, hff a ha hfa⟩
+
+lemma fold_mono (gs : List Gate) : ∀ W1 W2 : List Bool,
+    W1.length = W2.length →
+    (∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) →
+    (∀ i, W1.getD i false = true → W2.getD i false = true) →
+    ∀ i, (gs.foldl stepWire W1).getD i false = true →
+      (gs.foldl stepWire W2).getD i false = true := by
+  induction gs with
+  | nil => intro W1 W2 _ _ H; simpa using H
+  | cons g gs ih =>
+    intro W1 W2 hl hop H
+    rw [List.foldl_cons, List.foldl_cons]
+    apply ih (stepWire W1 g) (stepWire W2 g) (by simp [stepWire, hl])
+      (fun g' hg' => hop g' (List.mem_cons_of_mem _ hg'))
+    intro i
+    simp only [stepWire, getD_snoc, hl]
+    split_ifs
+    · exact op_eval_mono (hop g List.mem_cons_self) _ _ _ (fun k _ => H k)
+    · exact H i
+
+lemma gateVal_mono {n : ℕ} {C : Circuit} (ao : IsAO2 n C)
+    {x y : Fin n → Bool} (hxy : ∀ v, x v = true → y v = true)
+    (j : ℕ) (h : gateVal n C j x = true) : gateVal n C j y = true := by
+  apply fold_mono C.gates (List.ofFn x) (List.ofFn y) (by simp) ao.1 ?_ (n+j) h
+  intro i hi
+  by_cases hin : i < n
+  · simpa [List.getD_eq_getElem?_getD, hin] using
+      hxy ⟨i,hin⟩ (by simpa [List.getD_eq_getElem?_getD, hin] using hi)
+  · have hge : (List.ofFn x).length ≤ i := by simpa using Nat.le_of_not_gt hin
+    rw [getD_ge _ _ hge] at hi
+    cases hi
+
+lemma singleton_to_pair {n : ℕ} {C : Circuit} (ao : IsAO2 n C)
+    (p l : Fin n) (m : ℕ) (hm : gateVal n C m (pairInput p p) = true) :
+    gateVal n C m (pairInput p l) = true := by
+  apply gateVal_mono ao _ m hm
+  intro v hv
+  have hp : v = p := by simpa only [pairInput_true, or_self] using hv
+  subst v
+  exact pairInput_left p l
+
+lemma true_leaf_mixing_true
+    {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Circuit}
+    (hL : IsLeastAO G C) (hT : TopForm G C) {p l : Fin n}
+    (he : s(p,l) ∈ Ustar G C)
+    (hncentre : ∀ a ∈ centreless G C, gateVal n C a (pairInput p l) = false)
+    (hnofalse : ∀ j ∈ junk G C, gateVal n C j (pairInput p p) = false →
+      gateVal n C j (pairInput p l) = false) :
+    ∃ m ∈ mixing G C, gateVal n C m (pairInput p p) = true ∧ PencilAt G C m l := by
+  obtain ⟨a, ha, b, j, hj, hv, hr, hjv⟩ := residualTrace hL hT he
+  obtain ⟨hlen, hop, hbelow⟩ := topData ha
+  have hjcentre : gateVal n C j (pairInput p p) = true := by
+    by_contra h
+    exact Bool.false_ne_true ((hnofalse j hj (Bool.eq_false_of_not_eq_true h)).symm.trans hjv)
+  have hbcentre : val C (List.ofFn (pairInput p p)) (opnd C a b) = true :=
+    orStep_up (n := n) (by simp) (orReaches_reach j _ hr).1 hjcentre
+  have htopfalse : gateVal n C a (pairInput p p) = false := by
+    by_contra h
+    exact G.irrefl ((graphFun_pair G p p).mp (hbelow _ (Bool.eq_true_of_not_eq_false h)))
+  have hselectedfalse := falseSide_and_correct hL.1 p hlen hop htopfalse
+  have hselectedraw := top_unserved_leaf_in_falseSide hL.1 hT p l ha hv hnofalse
+  have hl : l ∈ side C a (1-b) := by
+    rcases opposite b (falseSide C p a) with heq | heq
+    · rw [heq] at hselectedfalse
+      exact (Bool.false_ne_true (hselectedfalse.symm.trans hbcentre)).elim
+    · simpa only [side, heq] using hselectedraw
+  have hrawb : (side (n := n) C a b).Nonempty := by
+    rw [Finset.nonempty_iff_ne_empty]
+    intro hempty
+    have hac : a ∈ centreless G C := by
+      apply Finset.mem_filter.mpr
+      refine ⟨ha, ?_⟩
+      fin_cases b
+      · exact Or.inl hempty
+      · exact Or.inr hempty
+    exact Bool.false_ne_true ((hncentre a hac).symm.trans hv)
+  obtain ⟨m, hm, hraw, hpath, hmj⟩ :=
+    first_mixing hL.1 hj (opnd C a b) hrawb (orReaches_reach j _ hr).1
+  have hmcentre : gateVal n C m (pairInput p p) = true :=
+    orStep_up (n := n) (by simp) hmj hjcentre
+  exact ⟨m, hm, hmcentre, hraw, a, ha, b, hpath, hl⟩
+
+lemma global_opposite_leaf_unique
+    {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Circuit}
+    (ao : IsAO2 n C) (hfour : NoFourCycle G) {p l l' : Fin n} {m : ℕ}
+    (hedge : s(p,l) ∈ Ustar G C)
+    (hmcentre : gateVal n C m (pairInput p p) = true)
+    (hpencil : PencilAt G C m l) (hpencil' : PencilAt G C m l') : l' = l := by
+  obtain ⟨hraw, a, ha, b, hp, hl⟩ := hpencil
+  obtain ⟨_, a', ha', b', hp', hl'⟩ := hpencil'
+  obtain ⟨u, hu⟩ := hraw
+  have hua : u ∈ side C a b := reach_mem_orIn u (hp.trans (mem_orIn_reach u hu))
+  have hua' : u ∈ side C a' b' := reach_mem_orIn u (hp'.trans (mem_orIn_reach u hu))
+  have hul := SimpleGraph.deleteEdges_adj.mp (cleanAdj ao ha b hua hl)
+  have hul' := SimpleGraph.deleteEdges_adj.mp (cleanAdj ao ha' b' hua' hl')
+  have hpu : p ≠ u := by
+    intro heq
+    subst u
+    exact hul.2 hedge
+  have hpl : G.Adj p l := SimpleGraph.mem_edgeFinset.mp (Finset.mem_sdiff.mp hedge).1
+  have hpl' : G.Adj p l' := (graphFun_pair G p l').mp
+    (firingTop ao ha' hp' hl' (pairInput p l')
+      (singleton_to_pair ao p l' m hmcentre) (pairInput_right p l'))
+  exact (common_neighbors_unique_of_card_le_one G hfour p u hpu l l'
+    hpl hul.1 hpl' hul'.1).symm
+
+end GlobalMixing
+
+
+namespace CertificateCover
+
+lemma cover_of_unique_labels
+    {V M : Type} [DecidableEq V] [DecidableEq M]
+    (U : Finset (Sym2 V)) (labels : Finset M) (Cert : M → Sym2 V → V → Prop)
+    (hcover : ∀ e ∈ U, ∃ m ∈ labels, ∃ v, v ∈ e ∧ Cert m e v)
+    (hunique : ∀ m ∈ labels, ∀ e ∈ U, ∀ f ∈ U, ∀ v w,
+      Cert m e v → Cert m f w → v = w) :
+    ∃ S : Finset V, S.card ≤ labels.card ∧ ∀ e ∈ U, ∃ v ∈ S, v ∈ e := by
+  classical
+  let used := labels.filter fun m => ∃ e ∈ U, ∃ v, v ∈ e ∧ Cert m e v
+  have hex : ∀ m : {m // m ∈ used}, ∃ v, ∃ e ∈ U, v ∈ e ∧ Cert m.val e v := by
+    intro m
+    obtain ⟨_, e, he, v, hv, hc⟩ := Finset.mem_filter.mp m.property
+    exact ⟨v, e, he, hv, hc⟩
+  choose leaf hleaf using hex
+  let S := used.attach.image leaf
+  refine ⟨S, ?_, ?_⟩
+  · have hcard : S.card ≤ used.card := by
+      exact Finset.card_image_le.trans_eq Finset.card_attach
+    exact hcard.trans (Finset.card_le_card (Finset.filter_subset _ _))
+  · intro e he
+    obtain ⟨m, hm, v, hv, hc⟩ := hcover e he
+    have hused : m ∈ used := Finset.mem_filter.mpr ⟨hm, e, he, v, hv, hc⟩
+    let mm : {m // m ∈ used} := ⟨m, hused⟩
+    obtain ⟨f, hf, hlf, hcert⟩ := hleaf mm
+    have heq : leaf mm = v := hunique m hm f hf e he (leaf mm) v hcert hc
+    refine ⟨leaf mm, Finset.mem_image.mpr ⟨mm, Finset.mem_attach _ _, rfl⟩, ?_⟩
+    simpa only [heq] using hv
+
+end CertificateCover
+
+
+namespace GlobalMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open FirstMixing
+
+/-- Only selected residual edges satisfying the displayed orientation conditions are covered. -/
+lemma selected_true_edges_cover
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (U : Finset (Sym2 (Fin n))) (hU : U ⊆ Ustar G C)
+    (heligible : ∀ e ∈ U, ∃ p l : Fin n, e = s(p,l) ∧
+      (∀ a ∈ centreless G C, gateVal n C a (pairInput p l) = false) ∧
+      (∀ j ∈ junk G C, gateVal n C j (pairInput p p) = false →
+        gateVal n C j (pairInput p l) = false)) :
+    ∃ S : Finset (Fin n), S.card ≤ (mixing G C).card ∧
+      ∀ e ∈ U, ∃ v ∈ S, v ∈ e := by
+  classical
+  let Cert : ℕ → Sym2 (Fin n) → Fin n → Prop := fun m e l =>
+    ∃ p : Fin n, e = s(p,l) ∧ gateVal n C m (pairInput p p) = true ∧ PencilAt G C m l
+  apply CertificateCover.cover_of_unique_labels U (mixing G C) Cert
+  · intro e he
+    obtain ⟨p, l, heq, hncentre, hnofalse⟩ := heligible e he
+    have hres : s(p,l) ∈ Ustar G C := by rw [← heq]; exact hU he
+    obtain ⟨m, hm, hmtrue, hpencil⟩ := true_leaf_mixing_true hL hT hres hncentre hnofalse
+    refine ⟨m, hm, l, ?_, p, heq, hmtrue, hpencil⟩
+    rw [heq]
+    exact Sym2.mem_iff.mpr (Or.inr rfl)
+  · intro m hm e he f hf l l' hecert hfcert
+    obtain ⟨p, heq, hmtrue, hpencil⟩ := hecert
+    obtain ⟨p', hfeq, _, hpencil'⟩ := hfcert
+    have hres : s(p,l) ∈ Ustar G C := by rw [← heq]; exact hU he
+    exact (global_opposite_leaf_unique hL.1 hfour hres hmtrue hpencil hpencil').symm
+
+/-- Residual edges admitting an orientation with no accepting centreless top and no
+  accepting dirty gate that is false on the singleton centre. Other residual edges are excluded. -/
+noncomputable def trueEligibleEdges
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit) :
+    Finset (Sym2 (Fin n)) := by
+  classical
+  exact (Ustar G C).filter fun e => ∃ p l : Fin n, e = s(p,l) ∧
+    (∀ a ∈ centreless G C, gateVal n C a (pairInput p l) = false) ∧
+    (∀ j ∈ junk G C, gateVal n C j (pairInput p p) = false →
+      gateVal n C j (pairInput p l) = false)
+
+lemma true_eligible_edges_cover
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G) :
+    ∃ S : Finset (Fin n), S.card ≤ (mixing G C).card ∧
+      ∀ e ∈ trueEligibleEdges G C, ∃ v ∈ S, v ∈ e := by
+  apply selected_true_edges_cover G C hL hT hfour (trueEligibleEdges G C)
+    (Finset.filter_subset _ _)
+  intro e he
+  exact (Finset.mem_filter.mp he).2
+
+end GlobalMixing
+
 end PEqualNP.Outside.L_meta_2583
