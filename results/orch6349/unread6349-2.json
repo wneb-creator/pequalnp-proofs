@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch6349/lemmas/UnreadProbe.lean",
+  "sha256": "a8872df5c777d73a6d0fc0a7d5c74e6b2fe89248fbaa0946548011f2c44c6c21",
+  "bytes": 6491,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "-M3072",
+    "/workspace/pequalnp-proofs/results/orch6349/lemmas/UnreadProbe.lean"
+  ],
+  "seconds": 4.939,
+  "exit_code": 0,
+  "peak_rss_kib": 2906520,
+  "log": "/tmp/oec/pequalnp-pilot-61/unread6349-2.log"
+}

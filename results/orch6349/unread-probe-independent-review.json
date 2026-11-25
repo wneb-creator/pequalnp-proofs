@@ -1,0 +1,119 @@
+{
+  "utc": "2026-11-25T06:35:49.451344+00:00",
+  "reviewer": "/root/structural/compact_benchmark",
+  "verdict": "PASS independent semantics/API/finite-data review; matching-source Lean replay exited0",
+  "source": "results/orch6349/lemmas/UnreadProbe.lean",
+  "source_bytes": 6491,
+  "source_sha256": "a8872df5c777d73a6d0fc0a7d5c74e6b2fe89248fbaa0946548011f2c44c6c21",
+  "first_attempt_delta": {
+    "first_sha256": "0aae41619d67c2c66ac050e90866a1ca29294f8617541116ebf8b534229bdc3f",
+    "exact_change": "strong_induction_on case label h -> ind",
+    "all_other_bytes_identical": true
+  },
+  "exact_compiled_bridge_prefix": {
+    "source": "results/orch6349/lemmas/CombinedBridge.lean",
+    "source_sha256": "358ca2d5d50cb03dc6e70165ca1d30e4c9a171ce8aecd812617e6cdc29f7b884",
+    "build_exit_code": 0,
+    "Model_through_Valid_out_eq_byte_identical": true,
+    "prefix_sha256": "f28d061040096de9c0c13abd046b3658effbd4ee0f49d3b1abe9a62903065f07"
+  },
+  "semantic_review": {
+    "gfun_imp": "AND, OR and default TRUE are monotone; Bool case split covers allopvalues, so no hiddenop<3 assumption is required.",
+    "unread_output_imp": "Strong induction follows only genuine earlier wires k-n<j. Inputs use the all-other-bits comparison, future/out-of-range sources evaluate false, and gates use gfun monotonicity with sameop on bothrows. Explicit hso rules out a direct unread-input output.",
+    "read_of_witness": "Contradictory target true/false values force some gate source equalv; no normal-form assumption is introduced.",
+    "output_ne_of_witness": "If M.so=v<n, Valid.out_eq equals raw inputbit; the mismatch row contradicts this directly.",
+    "primaryGoal_correct": "Exact5805 truthmask on all16 promise rows; off-promise primaryGoal values are irrelevant because Valid is restricted to primaryRows.",
+    "primary_witnesses": "All8positive/negative/output rows are members, exacttruthvalues match, and all7othercoordinates are monotonically ordered.",
+    "primary_reads_all": "Fin8 witnesses instantiated from Nat v<8; Fin.val equality conversion preserves the k!=v premise. Conclusion proves everyprimary input appears as a gate source for every Valid restricted model, independent of s or NF."
+  },
+  "finite_lists": {
+    "primaryRows": [
+      17,
+      33,
+      65,
+      129,
+      18,
+      34,
+      66,
+      130,
+      20,
+      36,
+      68,
+      132,
+      24,
+      40,
+      72,
+      136
+    ],
+    "primaryPos": [
+      17,
+      34,
+      36,
+      24,
+      17,
+      34,
+      65,
+      129
+    ],
+    "primaryNeg": [
+      18,
+      33,
+      33,
+      18,
+      33,
+      18,
+      33,
+      33
+    ],
+    "primaryOut": [
+      33,
+      17,
+      17,
+      17,
+      65,
+      17,
+      17,
+      17
+    ],
+    "primaryGoal": [
+      17,
+      65,
+      129,
+      34,
+      130,
+      36,
+      68,
+      24
+    ]
+  },
+  "finite_data_verified": {
+    "promise_rows": 16,
+    "target_mask": 5805,
+    "positive_negative_pairs": 8,
+    "direct_output_mismatch_rows": 8,
+    "coordinate_comparisons": 56,
+    "matches_independent_witness_report": true
+  },
+  "format_checks": {
+    "only_defs_import": true,
+    "no_new_datatype_instance_axiom_or_admitted_proof": true,
+    "only_simp_attributes": true,
+    "own_namespace": true
+  },
+  "limits": [
+    "This is a checked generic monotonicity/read-support component, not the final nine-gate lower bound.",
+    "Integration with new encoding clauses and the final posted statement remains separate."
+  ],
+  "build_binding": {
+    "metadata": "results/orch6349/unread6349-2.json",
+    "metadata_sha256": "068a07cd60f4b25d840c2669f27b4101a999bf95ee86f65d251025dd50d39561",
+    "source_sha256": "a8872df5c777d73a6d0fc0a7d5c74e6b2fe89248fbaa0946548011f2c44c6c21",
+    "exit_code": 0,
+    "seconds": 4.939,
+    "peak_rss_kib": 2906520,
+    "log": "results/orch6349/unread6349-2.log",
+    "log_sha256": "be46f3e628d31a65609163d792853e4f58d9331e2607a420383f1b13013c2f68",
+    "log_bytes": 231,
+    "reviewer_scope": "Verified source/hash/metadata/log; did not rerun build"
+  }
+}

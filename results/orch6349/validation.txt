@@ -6,3 +6,5 @@ Canonical ninegate enc2 solver and a separatewitnesssearch are running. Generic 
 
 Sub-agents: status review, toolchain, structural, finite verification, normalization, restriction mathematics, compact runtime audit.
 TIMING total=220 subagents=7
+
+CombinedBridge.lean fullgenericchain passedLean-j1-M4096, sourceSHA358ca2d5d50cb03dc6e70165ca1d30e4c9a171ce8aecd812617e6cdc29f7b884,110087bytes; entireLRATchecker, renaming, normalforms, enc2soundnessandrep_lower44 bridge checked. Exactcompiledsource/delta independentreviewPASS. Thisdoesnotcontain thetargetlowerproof. UnreadProbe separatelypassed8primary-read forcing, withindependentreview. CanonicalUNSATrawtrace losslesslyarchived; trimmed2,036,244derivedclauses/782544851bytescannotfitPRcapbyordinarypacking.

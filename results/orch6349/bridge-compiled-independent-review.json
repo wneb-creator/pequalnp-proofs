@@ -1,0 +1,38 @@
+{
+  "reviewer": "/root/status_review",
+  "reviewed_at": "2026-11-25T06:34:08.226744+00:00",
+  "verdict": "PASS independent preservation audit of exact compiled generic bridge; no final lower-bound claim",
+  "source": "results/orch6349/lemmas/CombinedBridge.lean",
+  "sha256": "358ca2d5d50cb03dc6e70165ca1d30e4c9a171ce8aecd812617e6cdc29f7b884",
+  "bytes": 110087,
+  "source_and_build_metadata_match": true,
+  "build_exit_code": 0,
+  "log": "results/orch6349/combined-bridge-build-5.log",
+  "log_sha256": "b31a66074004f15a9e29accb253cc9eb0dccb0eb6c0843457fb1b85bf537e995",
+  "log_error_lines": 0,
+  "checker_rename_prefix_exact_modulo_diagnostic_header": true,
+  "prefix_sha256": "89096007e7f7ad965be2b5cd0171cfae9059738cb339e838a313adeb0e32eff9",
+  "bridge_sha256": "c35803da848669b88014d8c494bbe7ff33824b6800b83e362407418598d5967f",
+  "old_bridge_reconstructed_and_hash_verified": true,
+  "computational_definitions_changed_from_prior_review": false,
+  "original_theorem_types_changed": false,
+  "change_inventory": [
+    "five nested-product projection identities, each proved by rfl, with permitted simp attributes",
+    "explicit projection identities added to175 existing simp lists",
+    "indentation repaired inside existing Valid proof branches",
+    "two NF record literals converted to same seven ordered conjunction fields",
+    "three pad-branch proof regions use explicit positive/negative if rewrites instead of broad simp",
+    "previously independently checked RenamePreimage component included unchanged"
+  ],
+  "soundness_assumptions": "Original Model,Valid,NF,normal-form,encoding satisfaction and promise-link hypotheses preserved; no new axioms, no hidden inverse assumptions in formula renaming",
+  "forbidden_data_types_or_instances": false,
+  "allowed_imports": [
+    "Mathlib.Data.Tree.Basic",
+    "PEqualNP.Defs"
+  ],
+  "limitations": [
+    "Source is a compiled generic prefix, not a proof of the concrete lower bound.",
+    "Global diagnostic limit options need scoped final-file formatting.",
+    "Final posted theorem, numerical certificate replay, and full checker verdict remain separate."
+  ]
+}

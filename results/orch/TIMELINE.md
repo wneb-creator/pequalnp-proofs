@@ -84,3 +84,5 @@
 - 2026-11-25T06:00:26Z: exact namedmodule lakebuild passed exit0; source unchanged.
 
 - 2026-11-25 06:18:10 UTC — Frozen completed-before-410 Compact12203FlatPlainCandidate.lean (SHA256 95ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4, 512092 bytes) full replay PASS, exit 0. Wall 1137.657s; user 1079.581s; system 107.000s; peak RSS 5441972 KiB; CPUs 0–1 with -j3; explicit olean 21429456 bytes. Complete log and metadata preserved in results/orch. This is full mathematical replay; local checker verdict remains pending.
+
+- 2026-11-25T06:31:23+00:00 — Started validation-only replay of attributed public PR12184 head dce3ebb5, Compact12184LatestAttributed.lean SHA256 0995d35491fdbe53341164bc7ecaef8d6cb0545a5147c8561446874027a2b7cc, 516154 bytes. CPUs 2–3, -j3, explicit olean; source body unchanged. Session 71627, complete profile log in scratch. Baseline checker already passed; 6349 Bridge had priority.

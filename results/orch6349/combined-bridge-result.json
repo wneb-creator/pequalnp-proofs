@@ -1,0 +1,27 @@
+{
+  "source": "results/orch6349/lemmas/CombinedBridge.lean",
+  "source_sha256": "358ca2d5d50cb03dc6e70165ca1d30e4c9a171ce8aecd812617e6cdc29f7b884",
+  "source_bytes": 110087,
+  "log": "results/orch6349/combined-bridge-build-5.log",
+  "log_sha256": "b31a66074004f15a9e29accb253cc9eb0dccb0eb6c0843457fb1b85bf537e995",
+  "exit_code": 0,
+  "lean_args": [
+    "-j1",
+    "-M4096"
+  ],
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Data.Tree.Basic"
+  ],
+  "contains_target_lower_proof": false,
+  "checked_components": [
+    "BinaryTree LRAT checker",
+    "generic variable renaming",
+    "circuit Model/Valid/NF products",
+    "normal-form normalization",
+    "lexicographic normal form",
+    "enc2 satisfiability bridge",
+    "promise_lower",
+    "rep_lower44"
+  ]
+}

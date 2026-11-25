@@ -1,0 +1,384 @@
+--- old-a0d0b98e
++++ new-with-projection-noise-removed
+@@ -621,41 +621,41 @@
+   · exact fun j _ => (code_le n _ j).2.2
+   · exact by simp only [ofCirc]; split_ifs <;> omega
+   · exact fun j hj r _ => by
+-    by_cases hjl : j < C.gates.length
+-    · have hmem : gateAt C j ∈ C.gates := by
+-        rw [gateAt, List.getD_eq_getElem _ _ hjl]; exact List.getElem_mem hjl
+-      have hg := hC (gateAt C j) hmem
+-      obtain ⟨h1, h2⟩ := wire_gate C (xr n r) j hjl
+-      rw [xr_length] at h1 h2
+-      have hS : ∀ i, (wiresFrom (C.gates.take j) (xr n r)).getD i false =
+-          (ofCirc n s C).sv n j (nm n j i) r := by
+-        intro i
+-        rw [h2 i]
+-        unfold nm
+-        split_ifs with hi
+-        · rw [ofCirc_sv n s C j r i (by omega) hi]
+-        · simp [Model.sv]
+-      simp only [hS] at h1
+-      have hw : (ofCirc n s C).w j r = if j < C.gates.length then
+-          (C.wires (xr n r)).getD (n + j) false else true := rfl
+-      rw [hw, if_pos hjl, h1, code_eval n _ hg.1 hg.2 j (fun k => (ofCirc n s C).sv n j k r)
+-        (by simp [Model.sv])]
+-      rfl
+-    · have hga : gateAt C j = ⟨.and, []⟩ := by
+-        rw [gateAt, List.getD_eq_default _ _ (by omega)]
+-      simp [ofCirc, hjl, hga, code, gfun]
++      by_cases hjl : j < C.gates.length
++      · have hmem : gateAt C j ∈ C.gates := by
++          rw [gateAt, List.getD_eq_getElem _ _ hjl]; exact List.getElem_mem hjl
++        have hg := hC (gateAt C j) hmem
++        obtain ⟨h1, h2⟩ := wire_gate C (xr n r) j hjl
++        rw [xr_length] at h1 h2
++        have hS : ∀ i, (wiresFrom (C.gates.take j) (xr n r)).getD i false =
++            (ofCirc n s C).sv n j (nm n j i) r := by
++          intro i
++          rw [h2 i]
++          unfold nm
++          split_ifs with hi
++          · rw [ofCirc_sv n s C j r i (by omega) hi]
++          · simp [Model.sv]
++        simp only [hS] at h1
++        have hw : (ofCirc n s C).w j r = if j < C.gates.length then
++            (C.wires (xr n r)).getD (n + j) false else true := rfl
++        rw [hw, if_pos hjl, h1, code_eval n _ hg.1 hg.2 j (fun k => (ofCirc n s C).sv n j k r)
++          (by simp [Model.sv])]
++        rfl
++      · have hga : gateAt C j = ⟨.and, []⟩ := by
++          rw [gateAt, List.getD_eq_default _ _ (by omega)]
++        simp [ofCirc, hjl, hga, code, gfun]
+   · exact fun r hr => by
+-    rw [← hev r hr, Circuit.eval]
+-    have hso : (ofCirc n s C).so =
+-        if C.output < n + C.gates.length then C.output else n + s := rfl
+-    rw [hso]
+-    split_ifs with ho
+-    · by_cases h6 : C.output < n
+-      · simp only [Model.sv, if_pos h6]
+-        rw [wires_eq, getD_wiresFrom _ _ _ (by rw [xr_length]; exact h6), xr_getD n r _ h6]
+-      · rw [ofCirc_sv n s C s r _ ho (by omega)]
+-    · rw [List.getD_eq_default _ _ (by rw [wires_length, xr_length]; omega)]
+-      simp [Model.sv]
++      rw [← hev r hr, Circuit.eval]
++      have hso : (ofCirc n s C).so =
++          if C.output < n + C.gates.length then C.output else n + s := rfl
++      rw [hso]
++      split_ifs with ho
++      · by_cases h6 : C.output < n
++        · simp only [Model.sv, if_pos h6]
++          rw [wires_eq, getD_wiresFrom _ _ _ (by rw [xr_length]; exact h6), xr_getD n r _ h6]
++        · rw [ofCirc_sv n s C s r _ ho (by omega)]
++      · rw [List.getD_eq_default _ _ (by rw [wires_length, xr_length]; omega)]
++        simp [Model.sv]
+ 
+ end circuit
+ 
+@@ -741,50 +741,50 @@
+     Valid n s g R (mv n s M d t) := by
+   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+   · exact fun j hj => by
+-    simp only [mv]; split_ifs
+-    · omega
+-    · exact hv.op_lt _ (by omega)
+-    · exact hv.op_lt _ hj
++      simp only [mv]; split_ifs
++      · omega
++      · exact hv.op_lt _ (by omega)
++      · exact hv.op_lt _ hj
+   · exact fun j hj => by
+-    simp only [mv]; split_ifs with h0 h1
+-    · omega
+-    · have := hv.s1_le (j - 1) (by omega); unfold phi; split_ifs <;> omega
+-    · have := hv.s1_le j hj
+-      unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
++      simp only [mv]; split_ifs with h0 h1
++      · omega
++      · have := hv.s1_le (j - 1) (by omega); unfold phi; split_ifs <;> omega
++      · have := hv.s1_le j hj
++        unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
+   · exact fun j hj => by
+-    simp only [mv]; split_ifs with h0 h1
+-    · omega
+-    · have := hv.s2_le (j - 1) (by omega); unfold phi; split_ifs <;> omega
+-    · have := hv.s2_le j hj
+-      unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
++      simp only [mv]; split_ifs with h0 h1
++      · omega
++      · have := hv.s2_le (j - 1) (by omega); unfold phi; split_ifs <;> omega
++      · have := hv.s2_le j hj
++        unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
+   · exact by
+-    have := hv.so_le
+-    simp only [mv]; unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
++      have := hv.so_le
++      simp only [mv]; unfold rd phi; rcases ht with rfl | rfl | ⟨_, _⟩ <;> split_ifs <;> omega
+   · exact fun j hj r hr => by
+-    by_cases h0 : j = 0
+-    · subst h0; simp [mv, gfun]
+-    · by_cases h1 : j ≤ d
+-      · obtain ⟨i, rfl⟩ : ∃ i, j = i + 1 := ⟨j - 1, by omega⟩
+-        have e1 := sv_shift (M := M) (t := t) hd (i := i) (r := r) (by omega)
+-          (hv.s1_le i (by omega))
+-        have e2 := sv_shift (M := M) (t := t) hd (i := i) (r := r) (by omega)
+-          (hv.s2_le i (by omega))
+-        simp only [mv, if_neg h0, if_pos h1, Nat.add_sub_cancel] at e1 e2 ⊢
+-        rw [e1, e2]
+-        exact hv.w_eq i (by omega) r hr
+-      · have e1 := sv_rd (s := s) (M := M) ht (j := j) (k := M.s1 j) (r := r) (by omega)
+-          (fun h => htr (Or.inl ⟨j, by omega, hj, Or.inl h⟩) r hr)
+-        have e2 := sv_rd (s := s) (M := M) ht (j := j) (k := M.s2 j) (r := r) (by omega)
+-          (fun h => htr (Or.inl ⟨j, by omega, hj, Or.inr h⟩) r hr)
+-        simp only [mv, if_neg h0, if_neg h1] at e1 e2 ⊢
+-        rw [e1, e2]
+-        exact hv.w_eq j hj r hr
++      by_cases h0 : j = 0
++      · subst h0; simp [mv, gfun]
++      · by_cases h1 : j ≤ d
++        · obtain ⟨i, rfl⟩ : ∃ i, j = i + 1 := ⟨j - 1, by omega⟩
++          have e1 := sv_shift (M := M) (t := t) hd (i := i) (r := r) (by omega)
++            (hv.s1_le i (by omega))
++          have e2 := sv_shift (M := M) (t := t) hd (i := i) (r := r) (by omega)
++            (hv.s2_le i (by omega))
++          simp only [mv, if_neg h0, if_pos h1, Nat.add_sub_cancel] at e1 e2 ⊢
++          rw [e1, e2]
++          exact hv.w_eq i (by omega) r hr
++        · have e1 := sv_rd (s := s) (M := M) ht (j := j) (k := M.s1 j) (r := r) (by omega)
++            (fun h => htr (Or.inl ⟨j, by omega, hj, Or.inl h⟩) r hr)
++          have e2 := sv_rd (s := s) (M := M) ht (j := j) (k := M.s2 j) (r := r) (by omega)
++            (fun h => htr (Or.inl ⟨j, by omega, hj, Or.inr h⟩) r hr)
++          simp only [mv, if_neg h0, if_neg h1] at e1 e2 ⊢
++          rw [e1, e2]
++          exact hv.w_eq j hj r hr
+   · exact fun r hr => by
+-    have e := sv_rd (s := s) (M := M) ht (j := s) (k := M.so) (r := r) hd
+-      (fun h => htr (Or.inr h) r hr)
+-    simp only [mv] at e ⊢
+-    rw [e]
+-    exact hv.out_eq r hr
++      have e := sv_rd (s := s) (M := M) ht (j := s) (k := M.so) (r := r) hd
++        (fun h => htr (Or.inr h) r hr)
++      simp only [mv] at e ⊢
++      rw [e]
++      exact hv.out_eq r hr
+ 
+ theorem pad_mv0 : (mv n s M d t).pad n 0 := by simp [Model.pad, mv]
+ 
+@@ -870,9 +870,9 @@
+     · intro j hj _
+       unfold ind
+       by_cases h1 : (mv n s M d t).pad n j
+-      · simp [h1]
++      · rw [if_pos h1]; omega
+       · have h2 : ¬ M.pad n j := fun h => h1 (pad_mv_later hj h)
+-        simp [h1, h2]
++        rw [if_neg h1, if_neg h2]
+     · rcases hpos with h | ⟨i, hi, h⟩
+       · left; simp [ind, h]
+       · right; exact ⟨i, hi, by simp [ind, h]⟩
+@@ -892,24 +892,24 @@
+   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+   · exact hv.op_lt
+   · exact fun i hi => by
+-    simp only [sw]; split_ifs with h
+-    · subst h; exact hv.s2_le i hi
+-    · exact hv.s1_le i hi
++      simp only [sw]; split_ifs with h
++      · subst h; exact hv.s2_le i hi
++      · exact hv.s1_le i hi
+   · exact fun i hi => by
+-    simp only [sw]; split_ifs with h
+-    · subst h; exact hv.s1_le i hi
+-    · exact hv.s2_le i hi
++      simp only [sw]; split_ifs with h
++      · subst h; exact hv.s1_le i hi
++      · exact hv.s2_le i hi
+   · exact hv.so_le
+   · exact fun i hi r hr => by
+-    have := hv.w_eq i hi r hr
+-    have hsv : ∀ k, (sw M j).sv n i k r = M.sv n i k r := fun k => rfl
+-    simp only [hsv]
+-    simp only [sw]
+-    split_ifs with h1
+-    · subst h1
+-      rw [this]; unfold gfun
+-      split_ifs <;> simp [Bool.and_comm, Bool.or_comm]
+-    · exact this
++      have := hv.w_eq i hi r hr
++      have hsv : ∀ k, (sw M j).sv n i k r = M.sv n i k r := fun k => rfl
++      simp only [hsv]
++      simp only [sw]
++      split_ifs with h1
++      · subst h1
++        rw [this]; unfold gfun
++        split_ifs <;> simp [Bool.and_comm, Bool.or_comm]
++      · exact this
+   · exact fun r hr => hv.out_eq r hr
+ 
+ theorem pad_sw {n : ℕ} {M : Model} {j : ℕ} (i : ℕ) : (sw M j).pad n i ↔ M.pad n i := by
+@@ -1068,14 +1068,7 @@
+     intro j hj hnp
+     by_contra hc
+     exact hmv j 0 hj (Or.inl rfl) (fun h => absurd h hc) (Or.inl hnp)
+-  refine ⟨M, hv, {
+-    pre := pre
+-    padOp := padOp
+-    noF := noF
+-    noPadRd := padRd
+-    ord := ord
+-    used := ?_
+-    out := ?_ }⟩
++  refine ⟨M, hv, ⟨pre, padOp, noF, padRd, ord, ?_, ?_⟩⟩
+   · intro j hj hnp
+     rcases rd j (by omega) hnp with h | h
+     · exact h
+@@ -1216,9 +1209,9 @@
+     · intro j hj _
+       unfold ind
+       by_cases h1 : (mv n s M d t).pad n j
+-      · simp [h1]
++      · rw [if_pos h1]; omega
+       · have h2 : ¬ M.pad n j := fun h => h1 (pad_mv_later hj h)
+-        simp [h1, h2]
++        rw [if_neg h1, if_neg h2]
+     · rcases hpos with h | ⟨i, hi, h⟩
+       · left; simp [ind, h]
+       · right; exact ⟨i, hi, by simp [ind, h]⟩
+@@ -1318,59 +1311,59 @@
+ theorem valid_xsw : Valid n s g R (xsw n M j) := by
+   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+   · exact fun i hi => by
+-    simp only [xsw]; split_ifs
+-    · exact hv.op_lt _ hj
+-    · exact hv.op_lt _ (by omega)
+-    · exact hv.op_lt _ hi
++      simp only [xsw]; split_ifs
++      · exact hv.op_lt _ hj
++      · exact hv.op_lt _ (by omega)
++      · exact hv.op_lt _ hi
+   · exact fun i hi => by
+-    simp only [xsw]; split_ifs with a b c
+-    · omega
+-    · omega
+-    · exact tsw_le (by omega) (hv.s1_le i hi)
+-    · exact hv.s1_le i hi
++      simp only [xsw]; split_ifs with a b c
++      · omega
++      · omega
++      · exact tsw_le (by omega) (hv.s1_le i hi)
++      · exact hv.s1_le i hi
+   · exact fun i hi => by
+-    simp only [xsw]; split_ifs with a b c
+-    · omega
+-    · omega
+-    · exact tsw_le (by omega) (hv.s2_le i hi)
+-    · exact hv.s2_le i hi
++      simp only [xsw]; split_ifs with a b c
++      · omega
++      · omega
++      · exact tsw_le (by omega) (hv.s2_le i hi)
++      · exact hv.s2_le i hi
+   · exact tsw_le (by omega) hv.so_le
+   · exact fun i hi r hr => by
+-    by_cases a : i = j
+-    · subst a
+-      have e1 : (xsw n M i).s1 i = M.s1 (i + 1) := by simp [xsw]
+-      have e2 : (xsw n M i).s2 i = M.s2 (i + 1) := by simp [xsw]
+-      have e3 : (xsw n M i).op i = M.op (i + 1) := by simp [xsw]
+-      have e4 : (xsw n M i).w i r = M.w (i + 1) r := by simp [xsw]
+-      rw [e1, e2, e3, e4, sv_xsw_low h3 le_rfl (Nat.le_succ i),
+-        sv_xsw_low h4 le_rfl (Nat.le_succ i)]
+-      exact hv.w_eq (i + 1) hj r hr
+-    · by_cases b : i = j + 1
+-      · subst b
+-        have e1 : (xsw n M j).s1 (j + 1) = M.s1 j := by simp [xsw]
+-        have e2 : (xsw n M j).s2 (j + 1) = M.s2 j := by simp [xsw]
+-        have e3 : (xsw n M j).op (j + 1) = M.op j := by simp [xsw]
+-        have e4 : (xsw n M j).w (j + 1) r = M.w j r := by simp [xsw]
+-        rw [e1, e2, e3, e4, sv_xsw_low h1 (Nat.le_succ j) le_rfl,
+-          sv_xsw_low h2 (Nat.le_succ j) le_rfl]
+-        exact hv.w_eq j (by omega) r hr
+-      · by_cases c : j + 1 < i
+-        · have e1 : (xsw n M j).s1 i = tsw n j (M.s1 i) := by simp [xsw, a, b, c]
+-          have e2 : (xsw n M j).s2 i = tsw n j (M.s2 i) := by simp [xsw, a, b, c]
+-          have e3 : (xsw n M j).op i = M.op i := by simp [xsw, a, b]
+-          have e4 : (xsw n M j).w i r = M.w i r := by simp [xsw, a, b]
+-          rw [e1, e2, e3, e4, sv_xsw_late c, sv_xsw_late c]
+-          exact hv.w_eq i hi r hr
+-        · have e1 : (xsw n M j).s1 i = M.s1 i := by simp [xsw, a, b, c]
+-          have e2 : (xsw n M j).s2 i = M.s2 i := by simp [xsw, a, b, c]
+-          have e3 : (xsw n M j).op i = M.op i := by simp [xsw, a, b]
+-          have e4 : (xsw n M j).w i r = M.w i r := by simp [xsw, a, b]
+-          rw [e1, e2, e3, e4, sv_xsw_early (by omega), sv_xsw_early (by omega)]
+-          exact hv.w_eq i hi r hr
++      by_cases a : i = j
++      · subst a
++        have e1 : (xsw n M i).s1 i = M.s1 (i + 1) := by simp [xsw]
++        have e2 : (xsw n M i).s2 i = M.s2 (i + 1) := by simp [xsw]
++        have e3 : (xsw n M i).op i = M.op (i + 1) := by simp [xsw]
++        have e4 : (xsw n M i).w i r = M.w (i + 1) r := by simp [xsw]
++        rw [e1, e2, e3, e4, sv_xsw_low h3 le_rfl (Nat.le_succ i),
++          sv_xsw_low h4 le_rfl (Nat.le_succ i)]
++        exact hv.w_eq (i + 1) hj r hr
++      · by_cases b : i = j + 1
++        · subst b
++          have e1 : (xsw n M j).s1 (j + 1) = M.s1 j := by simp [xsw]
++          have e2 : (xsw n M j).s2 (j + 1) = M.s2 j := by simp [xsw]
++          have e3 : (xsw n M j).op (j + 1) = M.op j := by simp [xsw]
++          have e4 : (xsw n M j).w (j + 1) r = M.w j r := by simp [xsw]
++          rw [e1, e2, e3, e4, sv_xsw_low h1 (Nat.le_succ j) le_rfl,
++            sv_xsw_low h2 (Nat.le_succ j) le_rfl]
++          exact hv.w_eq j (by omega) r hr
++        · by_cases c : j + 1 < i
++          · have e1 : (xsw n M j).s1 i = tsw n j (M.s1 i) := by simp [xsw, a, b, c]
++            have e2 : (xsw n M j).s2 i = tsw n j (M.s2 i) := by simp [xsw, a, b, c]
++            have e3 : (xsw n M j).op i = M.op i := by simp [xsw, a, b]
++            have e4 : (xsw n M j).w i r = M.w i r := by simp [xsw, a, b]
++            rw [e1, e2, e3, e4, sv_xsw_late c, sv_xsw_late c]
++            exact hv.w_eq i hi r hr
++          · have e1 : (xsw n M j).s1 i = M.s1 i := by simp [xsw, a, b, c]
++            have e2 : (xsw n M j).s2 i = M.s2 i := by simp [xsw, a, b, c]
++            have e3 : (xsw n M j).op i = M.op i := by simp [xsw, a, b]
++            have e4 : (xsw n M j).w i r = M.w i r := by simp [xsw, a, b]
++            rw [e1, e2, e3, e4, sv_xsw_early (by omega), sv_xsw_early (by omega)]
++            exact hv.w_eq i hi r hr
+   · exact fun r hr => by
+-    have e : (xsw n M j).so = tsw n j M.so := rfl
+-    rw [e, sv_xsw_late hj]
+-    exact hv.out_eq r hr
++      have e : (xsw n M j).so = tsw n j M.so := rfl
++      rw [e, sv_xsw_late hj]
++      exact hv.out_eq r hr
+ 
+ omit hv hj in
+ theorem ind_xsw : ind n (xsw n M j) = ind n M := by
+@@ -1389,9 +1382,9 @@
+         · simp only [Model.pad, xsw, if_neg a, if_neg b, if_pos c, tsw_eq_iff c]
+         · simp only [Model.pad, xsw, if_neg a, if_neg b, if_neg c]
+   by_cases h : M.pad n i
+-  · simp [h, hp.2 h]
++  · rw [if_pos h, if_pos (hp.2 h)]
+   · have h' : ¬ (xsw n M j).pad n i := fun h' => h (hp.1 h')
+-    simp [h, h']
++    rw [if_neg h, if_neg h']
+ 
+ theorem meas2_xsw (hlt : lexKey n s M (j + 1) < lexKey n s M j) :
+     meas2 n s (xsw n M j) < meas2 n s M := by
+@@ -1472,14 +1465,7 @@
+     intro j hj hnp
+     by_contra hc
+     exact hmv j 0 hj (Or.inl rfl) (fun h => absurd h hc) (Or.inl hnp)
+-  refine {
+-    pre := pre
+-    padOp := padOp
+-    noF := noF
+-    noPadRd := padRd
+-    ord := ord
+-    used := ?_
+-    out := ?_ }
++  refine ⟨pre, padOp, noF, padRd, ord, ?_, ?_⟩
+   · intro j hj hnp
+     rcases rd j (by omega) hnp with h | h
+     · exact h

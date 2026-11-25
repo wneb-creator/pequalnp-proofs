@@ -1,0 +1,18 @@
+{
+  "old_bridge_sha256": "a0d0b98e5bed623229b0ceb9b2dd50b630ab25c6d1f308ddf7534970db00896f",
+  "new_bridge_sha256": "c35803da848669b88014d8c494bbe7ff33824b6800b83e362407418598d5967f",
+  "new_bytes": 88288,
+  "old_bytes": 74491,
+  "old_snapshot_reconstructed_exact_hash": true,
+  "five_projection_facts": "All five state the appropriate nested-product projection and are proved by rfl",
+  "explicit_simp_list_insertions": 175,
+  "remaining_changed_declarations": [
+    "exists_nf",
+    "ind_xsw",
+    "meas2_mv",
+    "meas_mv",
+    "nf_of_min2"
+  ],
+  "computational_definitions_changed": [],
+  "added_or_removed_old_declaration_names": false
+}
