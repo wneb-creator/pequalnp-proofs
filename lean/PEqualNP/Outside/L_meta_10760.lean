@@ -4771,4 +4771,67 @@ lemma no_build {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
 
 end MemoActualPruned
 
+
+
+namespace MemoPruned
+
+variable {width : Nat}
+
+def runBatchFrom (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (starts : List (States width)) : Bool :=
+  (scan (search (treeHitFrom threshold) (treePutFrom threshold) admissible done children k) starts ∅).1
+
+lemma runBatchFrom_correct (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (k : Nat) (starts : List (States width)) :
+    runBatchFrom threshold admissible done children k starts =
+      starts.any (plain admissible done children k) := by
+  exact (scan_correct (TreeGood admissible done children) (plain admissible done children k)
+    (search (treeHitFrom threshold) (treePutFrom threshold) admissible done children k)
+    (fun ws cache hc => search_correct (treeHitFrom threshold) (treePutFrom threshold)
+      admissible done children (TreeGood admissible done children)
+      (fun j vs c hgood hhit => tree_hitFrom_sound threshold j vs c hgood hhit)
+      (fun j vs c hgood hfalse => tree_putFrom_good threshold j vs c hgood hfalse)
+      k ws cache hc)
+    starts ∅ (tree_good_empty admissible done children)).1
+
+lemma runBatchFrom_reject (threshold : Nat) (admissible : Nat → States width → Bool)
+    (done : States width → Bool) (children : Nat → States width → List (States width))
+    (Sol : Nat → States width → Prop)
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (starts : List (States width))
+    (rejected : runBatchFrom threshold admissible done children k starts = false)
+    {ws : States width} (hws : ws ∈ starts) : ¬ Sol k ws := by
+  intro hs
+  have hp := plain_complete admissible done children Sol admissible_complete base step k ws hs
+  have ha : starts.any (plain admissible done children k) = true :=
+    List.any_eq_true.mpr ⟨ws,hws,hp⟩
+  rw [← runBatchFrom_correct, rejected] at ha
+  contradiction
+
+end MemoPruned
+
+namespace MemoActualPruned
+
+variable {width : Nat}
+
+lemma batch_no_live {goal g : BitVec width} (hg : g = goal ∨ g = ~~~goal)
+    (admissible : Nat → List (BitVec width) → Bool)
+    (admissible_complete : ∀ k ws, ws.Nodup → live basicOps g k ws.toFinset → admissible k ws = true)
+    (rows : List (Fin width)) (threshold k : Nat) (starts : List (List (BitVec width)))
+    (rejected : MemoPruned.runBatchFrom threshold admissible (done goal) (children goal rows) k starts = false)
+    {ws : List (BitVec width)} (hws : ws ∈ starts) (hn : ws.Nodup) :
+    ¬ live basicOps g k ws.toFinset := by
+  intro hl
+  exact MemoPruned.runBatchFrom_reject threshold admissible (done goal) (children goal rows)
+    (fun j vs => vs.Nodup ∧ live basicOps g j vs.toFinset)
+    (fun j vs h => admissible_complete j vs h.1 h.2)
+    (base_complete hg) (step_complete hg rows) k starts rejected hws ⟨hn,hl⟩
+
+end MemoActualPruned
+
+
 end PEqualNP.Outside.L_meta_10760
