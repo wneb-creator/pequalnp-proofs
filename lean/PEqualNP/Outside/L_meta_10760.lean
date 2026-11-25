@@ -3536,4 +3536,35 @@ lemma prechecked_search_complete {width : Nat} {target goal : BitVec width}
 
 end PNConcrete
 
+
+namespace PNConcrete
+
+lemma precheckedChildren_mono {b k : Nat} (hbk : b ≤ k) (state : Nat × Nat × Nat) :
+    ∀ child, child ∈ precheckedChildren b state → child ∈ precheckedChildren k state := by
+  intro child hchild
+  simp only [precheckedChildren, List.mem_flatMap] at hchild ⊢
+  obtain ⟨j, hj, i, hi, gate, hgate, hchild⟩ := hchild
+  refine ⟨j, hj, i, hi, gate, hgate, ?_⟩
+  split_ifs at hchild with hred
+  · cases hchild
+  · simp only [hred, Bool.false_eq_true, ite_false]
+    simp only [List.mem_filter, List.mem_map, Bool.and_eq_true, decide_eq_true_eq] at hchild ⊢
+    obtain ⟨⟨keep, ⟨hkeep, hbound, hpre⟩, heq⟩, hdisjoint⟩ := hchild
+    exact ⟨⟨keep, ⟨hkeep, by omega, hpre⟩, heq⟩, hdisjoint⟩
+
+lemma filteredChildren_mono {b k : Nat} (hbk : b ≤ k) (state : Nat × Nat × Nat) :
+    ∀ child, child ∈ filteredChildren b state → child ∈ filteredChildren k state := by
+  intro child hchild
+  simp only [filteredChildren, List.mem_flatMap] at hchild ⊢
+  obtain ⟨j, hj, i, hi, gate, hgate, hchild⟩ := hchild
+  refine ⟨j, hj, i, hi, gate, hgate, ?_⟩
+  split_ifs at hchild with hred
+  · cases hchild
+  · simp only [hred, Bool.false_eq_true, ite_false]
+    simp only [List.mem_filter, List.mem_map, decide_eq_true_eq] at hchild ⊢
+    obtain ⟨⟨keep, ⟨hkeep, hbound⟩, heq⟩, hdisjoint⟩ := hchild
+    exact ⟨⟨keep, ⟨hkeep, by omega⟩, heq⟩, hdisjoint⟩
+
+end PNConcrete
+
 end PEqualNP.Outside.L_meta_10760
