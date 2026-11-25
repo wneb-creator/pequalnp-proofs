@@ -11,3 +11,9 @@
 - 2026-11-25T05:12:47.391322+00:00: checkpointing full optimized candidate while compilation runs; not yet a validated full proof.
 - 2026-11-25T05:15:15.581475+00:00: selected optimization prefix passed actual project Lean compilation; no concurrent large build remains.
 - 2026-11-25T05:15:28.241245+00:00: complete generic certificate framework and optimization proofs compile; full finite certificate still running.
+- 2026-11-25T05:18:34.694204+00:00: lease renewed through 2026-11-25T05:38:34.531Z.
+
+- 2026-11-25T05:28:12.864337+00:00 first_gate: Standalone 1/4-state sharing benchmark kernel-checked successfully; began labeled repeat including 16-state batch.
+
+- 2026-11-25T05:31:50.949391+00:00 first_gate: Full16state/10row performance comparisons passed; no robust speed benefit from added forceBatch or force-mask. Prepared mask-only alternate; handed computation extractor to structural.
+- 2026-11-25T05:34:35.908239+00:00: confirmed complete target build exit0; retaining full source and complete build output before further runtime work.

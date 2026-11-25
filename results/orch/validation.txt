@@ -26,3 +26,10 @@ Prefix12184.lean: Lean compilation PASSED (exit0); complete output in prefix1218
 This checks the full generic certificate framework and optimization proofs, excluding finite certificate data and final theorem.
 Independently verified to be an exact prefix of the reviewed full candidate with a closing namespace.
 SHA256: 736f5e882e7ceb01c63b24d5062c4aee3ba920d33fddf8db6b2411544c9e7449
+
+FULL TARGET BUILD PASSED: lake build PEqualNP.Outside.L_meta_670, exit0, Build completed successfully (5149 jobs).
+Complete output: build-full-001.log. Source SHA256: 64b91888f855131b53d41286dc51ce666d3fb24a66c474d305c38f226010eb72
+Checker executable also built successfully; local proof checker remains pending.
+Full build completed before the requested cancellation could affect it.
+Timing benchmarks are diagnostic artifacts, excluded from the eventual one-file PR. They do not establish a new whole-gap theorem.
+Independent inspection found no axioms, sorry, unsafe or native decision tactics.
