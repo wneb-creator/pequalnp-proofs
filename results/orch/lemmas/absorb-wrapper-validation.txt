@@ -1,0 +1,13 @@
+Validated 2026-11-25 07:42:23 UTC.
+Working directory: /workspace/pequalnp-proofs/lean
+Command: PATH=/tmp/oec/pequalnp-pilot-71/elan/bin:$PATH ELAN_HOME=/tmp/oec/pequalnp-pilot-71/elan lake env lean /tmp/oec/pequalnp-pilot-71/structural/AbsorbWrapper.lean
+Exit status: 0
+Full stdout and stderr: absorb-wrapper-build.log (empty).
+
+The generic wrapper appends q=(old output OR input v), then r=(q AND old output).
+Checked conclusions: preservation of all old wires, exact q and r values,
+preservation of the circuit function, IsAO2, r BelowF, q not BelowF, and
+gammaE(r)=G.edgeFinset when the original circuit computes the graph function.
+The original output must name an existing wire. No ReadTwiceAt or maximal-core
+conclusion is asserted in this file; those are separate bridge obligations.
+This is a reusable conditional partial result, not a proof of L-meta-2962.

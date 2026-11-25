@@ -1,0 +1,4 @@
+Lean validation: PASS (exit 0)
+Command: lake env lean ../results/orch/lemmas/WrapperReadTwice.lean
+Source lines: 910
+Complete stdout and stderr:

@@ -3,7 +3,7 @@ Named partial: lean/PEqualNP/Outside/L_meta_2962.lean, 856 lines, lake build pas
 Checker: REJECTED (no-theorem); complete output in checker-partial-output.txt.
 Additional checked components and exact validation records are under results/orch/lemmas/.
 L-meta-2602 drafts remain UNVERIFIED; first renewal returned HTTP 410 despite advertised expiry.
-Three null assignment replies preceded L-meta-2962. Full desk log is in scratch and will be preserved at the final checkpoint.
+Three null assignment replies preceded L-meta-2962. Public desk outcomes are preserved in desk-history.txt; active lease identifiers remain in scratch.
 No proof cleanup pass yet: its full-proof/checker-pass prerequisites are unmet.
 Sub-agents: status_review, structural_proof, counterexample, lemma_search, single_core, combinatorial_bound
-TIMING total=72.5 subagents=6
+TIMING total=115.0 subagents=6

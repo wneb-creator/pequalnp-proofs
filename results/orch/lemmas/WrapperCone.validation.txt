@@ -1,0 +1,1 @@
+Lean compilation passed exit0, full stdout/stderr empty. Generic helpers prove gateAt/Step/Reach append invariance, cone inheritance by an appended reader, strictness of InCone under ReadsBack, singleton maximalCores and full coneSet for a final core containing all previous gates. Only Mathlib and PEqualNP.Defs imports. Not the full L-meta-2962 statement.

@@ -1,0 +1,1 @@
+Lean compilation passed exit0 with empty full stdout/stderr. Adds AV_snoc, the exact appended-gate read-vector equation, to the separately frozen WrapperVectors artifact. No wellformedness assumption is needed for AV_snoc. Not the full L-meta-2962 result.
