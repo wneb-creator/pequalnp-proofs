@@ -1,0 +1,35 @@
+2026-11-25T17:55:44.981779+00:00 theta333 OR budget 7 assignments 18 edges 9 maxfalse 9 Z3 5.3.3
+RESULT unknown seconds 120.014
+REASON timeout
+(:max-memory              42.72
+ :memory                  17.35
+ :num-allocs              358364392
+ :rlimit-count            72024191
+ :sat-ate                 3
+ :sat-backjumps           626598
+ :sat-bce                 236
+ :sat-conflicts           626598
+ :sat-decisions           1182626
+ :sat-del-clause          590255
+ :sat-elim-bool-vars-res  901
+ :sat-elim-clauses        10
+ :sat-elim-literals       63775
+ :sat-gc-clause           569307
+ :sat-minimized-lits      8064555
+ :sat-mk-clause-2ary      4766
+ :sat-mk-clause-3ary      1728
+ :sat-mk-clause-nary      630624
+ :sat-mk-var              1788
+ :sat-probing-assigned    3
+ :sat-propagations-2ary   42694373
+ :sat-propagations-nary   35973005
+ :sat-restarts            36914
+ :sat-scc-elim-binary     4
+ :sat-subs-resolution     33414
+ :sat-subs-resolution-dyn 685780
+ :sat-subsumed            8568
+ :sat-tr                  7
+ :sat-units               19
+ :solve-eqs-elim-vars     15
+ :solve-eqs-steps         398
+ :time                    120.01)

@@ -1,0 +1,31 @@
+2026-11-25T18:03:22.089692+00:00 theta333 first-edge-orbits OR budget 8 assignments 18 edges 9 maxfalse 9 first_orbits 18 Z3 5.3.3
+RESULT sat seconds 1.717
+{"n": 8, "edges": [[0, 1], [1, 2], [2, 7], [0, 3], [3, 4], [4, 7], [0, 5], [5, 6], [6, 7]], "or_gates": [[[0], [2]], [[1], [0, 5]], [[4], [0, 8]], [[5, 6], [7]], [[9], [2, 11]], [[4, 10], [6, 11]], [[8, 12], [11, 13]], [[3, 10], [14]]], "outputs": [15], "full_truth_verified": true}
+(:max-memory              27.02
+ :memory                  17.71
+ :num-allocs              9894168
+ :rlimit-count            2850223
+ :sat-backjumps           13510
+ :sat-conflicts           13510
+ :sat-decisions           40125
+ :sat-del-clause          5290
+ :sat-elim-bool-vars-res  1295
+ :sat-elim-clauses        86
+ :sat-elim-literals       186
+ :sat-minimized-lits      141856
+ :sat-mk-clause-2ary      7211
+ :sat-mk-clause-3ary      2798
+ :sat-mk-clause-nary      19613
+ :sat-mk-var              2837
+ :sat-probing-assigned    8
+ :sat-propagations-2ary   1784699
+ :sat-propagations-nary   1041452
+ :sat-restarts            1806
+ :sat-scc-elim-vars       6
+ :sat-subs-resolution     11
+ :sat-subs-resolution-dyn 11610
+ :sat-subsumed            1570
+ :sat-units               29
+ :solve-eqs-elim-vars     16
+ :solve-eqs-steps         470
+ :time                    1.71)

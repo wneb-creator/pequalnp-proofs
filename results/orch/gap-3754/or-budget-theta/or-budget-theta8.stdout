@@ -1,0 +1,27 @@
+2026-11-25T17:56:08.532088+00:00 theta333 OR budget 8 assignments 18 edges 9 maxfalse 9 Z3 5.3.3
+RESULT sat seconds 0.67
+{"n": 8, "edges": [[0, 1], [1, 2], [2, 7], [0, 3], [3, 4], [4, 7], [0, 5], [5, 6], [6, 7]], "or_gates": [[[0, 1], [5]], [[0], [3, 4]], [[1, 2], [7]], [[2, 10], [4, 10]], [[3, 9], [11]], [[6, 10], [12]], [[6, 8], [13]], [[8, 9], [14]]], "outputs": [15], "full_truth_verified": true}
+(:max-memory              26.58
+ :memory                  17.48
+ :num-allocs              4687736
+ :rlimit-count            966353
+ :sat-backjumps           6556
+ :sat-conflicts           6556
+ :sat-decisions           13590
+ :sat-del-clause          3381
+ :sat-elim-bool-vars-res  895
+ :sat-elim-literals       2
+ :sat-minimized-lits      66698
+ :sat-mk-clause-2ary      5660
+ :sat-mk-clause-3ary      1908
+ :sat-mk-clause-nary      11295
+ :sat-mk-var              2214
+ :sat-propagations-2ary   510059
+ :sat-propagations-nary   411904
+ :sat-restarts            1119
+ :sat-subs-resolution-dyn 10530
+ :sat-subsumed            541
+ :sat-units               1
+ :solve-eqs-elim-vars     16
+ :solve-eqs-steps         470
+ :time                    0.66)

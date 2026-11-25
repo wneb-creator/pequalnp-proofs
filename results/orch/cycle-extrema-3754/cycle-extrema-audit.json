@@ -1,0 +1,255 @@
+[
+  {
+    "n": 6,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        0
+      ]
+    ],
+    "maximal_false_count": 5,
+    "maximal_false_masks": [
+      9,
+      18,
+      21,
+      36,
+      42
+    ],
+    "all_induced_edge_le_vertex": true,
+    "bipartite": true,
+    "no_four_cycle": true,
+    "assignments_checked": 64
+  },
+  {
+    "n": 8,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        0
+      ]
+    ],
+    "maximal_false_count": 10,
+    "maximal_false_masks": [
+      37,
+      41,
+      73,
+      74,
+      82,
+      85,
+      146,
+      148,
+      164,
+      170
+    ],
+    "all_induced_edge_le_vertex": true,
+    "bipartite": true,
+    "no_four_cycle": true,
+    "assignments_checked": 256
+  },
+  {
+    "n": 10,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        0
+      ]
+    ],
+    "maximal_false_count": 17,
+    "maximal_false_masks": [
+      149,
+      165,
+      169,
+      293,
+      297,
+      298,
+      329,
+      330,
+      338,
+      341,
+      586,
+      594,
+      596,
+      658,
+      660,
+      676,
+      682
+    ],
+    "all_induced_edge_le_vertex": true,
+    "bipartite": true,
+    "no_four_cycle": true,
+    "assignments_checked": 1024
+  },
+  {
+    "n": 12,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        11,
+        0
+      ]
+    ],
+    "maximal_false_count": 29,
+    "maximal_false_masks": [
+      585,
+      597,
+      661,
+      677,
+      681,
+      1170,
+      1173,
+      1189,
+      1193,
+      1194,
+      1317,
+      1321,
+      1322,
+      1353,
+      1354,
+      1362,
+      1365,
+      2340,
+      2346,
+      2378,
+      2386,
+      2388,
+      2634,
+      2642,
+      2644,
+      2706,
+      2708,
+      2724,
+      2730
+    ],
+    "all_induced_edge_le_vertex": true,
+    "bipartite": true,
+    "no_four_cycle": true,
+    "assignments_checked": 4096
+  }
+]
