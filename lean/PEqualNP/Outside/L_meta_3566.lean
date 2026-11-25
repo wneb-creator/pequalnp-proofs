@@ -5135,3 +5135,397 @@ lemma clean_star_of_common_center {n : ℕ} (G : SimpleGraph (Fin n))
     simp [hOn a b hab, ← hbz, pairInput]
 
 end PEqualNP.Outside.L_meta_3566.OnePureFrontier
+
+namespace PEqualNP.Outside.L_meta_3566.NegativeMass
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+noncomputable def falseInputs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] :
+    Finset (Fin n → Bool) := by
+  classical
+  exact Finset.univ.filter fun x => graphFun G ∅ x = false
+
+lemma mem_falseInputs {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) : x ∈ falseInputs G ↔ graphFun G ∅ x = false := by
+  classical
+  simp [falseInputs]
+
+end PEqualNP.Outside.L_meta_3566.NegativeMass
+
+namespace PEqualNP.Outside.L_meta_3566.WireMass
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+noncomputable def mass {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : ℕ :=
+  ∑ x ∈ NegativeMass.falseInputs G, (C.wires (List.ofFn x)).count true
+
+end PEqualNP.Outside.L_meta_3566.WireMass
+
+namespace PEqualNP.Outside.L_meta_3566.WireProfile
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma list_count_true (w : List Bool) :
+    w.count true = ∑ j ∈ Finset.range w.length, (if w.getD j false then 1 else 0) := by
+  induction w with
+  | nil => simp
+  | cons b w ih =>
+    rw [List.length_cons, Finset.sum_range_succ']
+    cases b <;> simp [ih]
+
+noncomputable def trueGates {n : ℕ} (C : Circuit) (x : Fin n → Bool) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j => gateVal n C j x = true
+
+lemma mem_trueGates {n : ℕ} (C : Circuit) (x : Fin n → Bool) (j : ℕ) :
+    j ∈ trueGates C x ↔ j < C.gates.length ∧ gateVal n C j x = true := by
+  classical
+  simp [trueGates]
+
+lemma wire_count {n : ℕ} (C : Circuit) (x : Fin n → Bool) :
+    (C.wires (List.ofFn x)).count true = (List.ofFn x).count true + (trueGates C x).card := by
+  classical
+  obtain ⟨t, ht, hl⟩ := AO2Upper.wiresFrom_prefix C.gates (List.ofFn x)
+  have hw : C.wires (List.ofFn x) = List.ofFn x ++ t := ht
+  rw [hw, List.count_append]
+  congr 1
+  rw [list_count_true, hl]
+  have hv (j : ℕ) : t.getD j false = gateVal n C j x := by
+    change t.getD j false = (C.wires (List.ofFn x)).getD (n+j) false
+    rw [hw, List.getD_append_right _ _ _ _ (by simp)]
+    simp
+  simp_rw [hv]
+  simp [trueGates]
+
+lemma image_trueGates_subset {n : ℕ} (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j < D.gates.length, f j < C.gates.length)
+    (x : Fin n → Bool)
+    (hval : ∀ j < D.gates.length, gateVal n D j x = true → gateVal n C (f j) x = true) :
+    (trueGates D x).image f ⊆ trueGates C x := by
+  classical
+  intro i hi
+  obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hi
+  obtain ⟨hj, hv⟩ := (mem_trueGates D x j).mp hj
+  exact (mem_trueGates C x (f j)).mpr ⟨hforward j hj, hval j hj hv⟩
+
+lemma card_trueGates_image {n : ℕ} (D : Circuit) (f : ℕ → ℕ)
+    (hinj : Set.InjOn f (Finset.range D.gates.length : Set ℕ)) (x : Fin n → Bool) :
+    ((trueGates D x).image f).card = (trueGates D x).card := by
+  classical
+  apply Finset.card_image_of_injOn
+  intro i hi j hj heq
+  exact hinj (Finset.mem_range.mpr ((mem_trueGates D x i).mp hi).1)
+    (Finset.mem_range.mpr ((mem_trueGates D x j).mp hj).1) heq
+
+lemma wire_count_le {n : ℕ} (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j < D.gates.length, f j < C.gates.length)
+    (hinj : Set.InjOn f (Finset.range D.gates.length : Set ℕ))
+    (x : Fin n → Bool)
+    (hval : ∀ j < D.gates.length, gateVal n D j x = true → gateVal n C (f j) x = true) :
+    (D.wires (List.ofFn x)).count true ≤ (C.wires (List.ofFn x)).count true := by
+  have h := Finset.card_le_card (image_trueGates_subset C D f hforward x hval)
+  rw [card_trueGates_image D f hinj x] at h
+  rw [wire_count D x, wire_count C x]
+  omega
+
+lemma wire_count_lt {n : ℕ} (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j < D.gates.length, f j < C.gates.length)
+    (hinj : Set.InjOn f (Finset.range D.gates.length : Set ℕ))
+    (x : Fin n → Bool)
+    (hval : ∀ j < D.gates.length, gateVal n D j x = true → gateVal n C (f j) x = true)
+    (hstrict : ∃ i < C.gates.length, gateVal n C i x = true ∧
+      ∀ j < D.gates.length, f j = i → gateVal n D j x = false) :
+    (D.wires (List.ofFn x)).count true < (C.wires (List.ofFn x)).count true := by
+  classical
+  have hsub := image_trueGates_subset C D f hforward x hval
+  have hne : (trueGates D x).image f ≠ trueGates C x := by
+    intro heq
+    obtain ⟨i, hi, hv, hm⟩ := hstrict
+    have himem : i ∈ (trueGates D x).image f :=
+      heq.symm ▸ (mem_trueGates C x i).mpr ⟨hi,hv⟩
+    obtain ⟨j, hj, hji⟩ := Finset.mem_image.mp himem
+    obtain ⟨hj, hjv⟩ := (mem_trueGates D x j).mp hj
+    rw [hm j hj hji] at hjv
+    cases hjv
+  have h := Finset.card_lt_card (Finset.ssubset_iff_subset_ne.mpr ⟨hsub,hne⟩)
+  rw [card_trueGates_image D f hinj x] at h
+  rw [wire_count D x, wire_count C x]
+  omega
+
+lemma mass_lt_of_injective {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j < D.gates.length, f j < C.gates.length)
+    (hinj : Set.InjOn f (Finset.range D.gates.length : Set ℕ))
+    (hval : ∀ x : Fin n → Bool, graphFun G ∅ x = false →
+      ∀ j < D.gates.length, gateVal n D j x = true → gateVal n C (f j) x = true)
+    (hstrict : ∃ x : Fin n → Bool, graphFun G ∅ x = false ∧
+      ∃ i < C.gates.length, gateVal n C i x = true ∧
+        ∀ j < D.gates.length, f j = i → gateVal n D j x = false) :
+    WireMass.mass G D < WireMass.mass G C := by
+  unfold WireMass.mass
+  apply Finset.sum_lt_sum
+  · intro x hx
+    exact wire_count_le C D f hforward hinj x
+      (hval x ((NegativeMass.mem_falseInputs G x).mp hx))
+  · obtain ⟨x, hx, hstrict⟩ := hstrict
+    exact ⟨x, (NegativeMass.mem_falseInputs G x).mpr hx,
+      wire_count_lt C D f hforward hinj x (hval x hx) hstrict⟩
+
+lemma mass_lt_of_profile {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C D : Circuit) (f : ℕ → ℕ)
+    (hforward : ∀ j < D.gates.length, f j < C.gates.length)
+    (hinj : Set.InjOn f (Finset.range D.gates.length : Set ℕ))
+    (hval : ∀ x : Fin n → Bool, graphFun G ∅ x = false →
+      ∀ j < D.gates.length, gateVal n D j x = true → gateVal n C (f j) x = true)
+    (hstrict : ∃ x : Fin n → Bool, graphFun G ∅ x = false ∧
+      ∃ j < D.gates.length, gateVal n C (f j) x = true ∧ gateVal n D j x = false) :
+    WireMass.mass G D < WireMass.mass G C := by
+  apply mass_lt_of_injective G C D f hforward hinj hval
+  obtain ⟨x, hx, j, hj, hc, hd⟩ := hstrict
+  refine ⟨x,hx,f j,hforward j hj,hc,?_⟩
+  intro i hi hij
+  have heq : i = j := hinj (Finset.mem_range.mpr hi) (Finset.mem_range.mpr hj) hij
+  simpa [heq] using hd
+
+end PEqualNP.Outside.L_meta_3566.WireProfile
+
+namespace PEqualNP.Outside.L_meta_3566.WirePivotal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma mass_lt_of_clean_replace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : AndOrOnly C) (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hClean : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = true →
+        graphFun G ∅ x = true)
+    (hDirty : ∃ x : Fin n → Bool, gateVal n C j x = true ∧ graphFun G ∅ x = false)
+    (hNewClean : BelowF G (SharedRewrite.replace C j g) j) :
+    WireMass.mass G (SharedRewrite.replace C j g) < WireMass.mass G C := by
+  let D := SharedRewrite.replace C j g
+  have hlen : D.gates.length = C.gates.length := by simp [D, SharedRewrite.replace]
+  apply WireProfile.mass_lt_of_profile G C D id
+    (by intro k hk; simpa only [id_eq, hlen] using hk)
+    (by intro a ha b hb hab; exact hab)
+  · intro x hFalse k hk hOn
+    have hzero : g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = false := by
+      apply Bool.eq_false_iff.mpr
+      intro ht
+      have hF := hClean x ht
+      rw [hFalse] at hF
+      exact Bool.false_ne_true hF
+    have hle : gateVal n D k x ≤ gateVal n C k x :=
+      SharedRewrite.replace_ge n ⟨C.gates, n + k⟩ j hj g hgback hAO x
+        (by change g.op.eval (g.inputs.map fun i =>
+              (C.wires (List.ofFn x)).getD i false) ≤ _
+            rw [hzero]
+            exact Bool.false_le _)
+    exact Bool.le_iff_imp.mp hle hOn
+  · obtain ⟨x, hOld, hFalse⟩ := hDirty
+    refine ⟨x, hFalse, j, by simpa only [hlen] using hj, hOld, ?_⟩
+    apply Bool.eq_false_iff.mpr
+    intro hNew
+    have ht := hNewClean x hNew
+    rw [hFalse] at ht
+    exact Bool.false_ne_true ht
+
+lemma one_pivotal_edge_not_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C)
+    (hmin : ∀ D : Circuit, IsLeastAO G D → WireMass.mass G C ≤ WireMass.mass G D)
+    (j : ℕ) (hj : j < C.gates.length) (w u : Fin n) (hwu : G.Adj w u)
+    (hKeep : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      (pairInput a b w && pairInput a b u) = true) :
+    ¬ ∃ x : Fin n → Bool, gateVal n C j x = true ∧ graphFun G ∅ x = false := by
+  intro hDirty
+  have hBack : ∀ i ∈ [w.val, u.val], i < n + j := by
+    intro i hi
+    simp at hi
+    rcases hi with rfl | rfl <;> omega
+  have hEval : ∀ x : Fin n → Bool,
+      GateOp.and.eval ([w.val, u.val].map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = (x w && x u) := by
+    intro x
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [SharedRewrite.input_val, SharedRewrite.input_val]
+  have hClean : ∀ x : Fin n → Bool,
+      GateOp.and.eval ([w.val, u.val].map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = true → graphFun G ∅ x = true := by
+    intro x hx
+    rw [hEval] at hx
+    have hx' : x w = true ∧ x u = true := by simpa using hx
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨w, u, hwu, hx'.1, hx'.2⟩
+  obtain ⟨hD, hFun, hSize⟩ := JunkPivotal.correct_of_pivotal_cover G C hC.1 hC.2.1
+    j hj ⟨GateOp.and, [w.val, u.val]⟩ (Or.inl rfl) rfl hBack
+    (by intro a b hab hp; rw [hEval]; exact hKeep a b hab hp) hClean
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j ⟨GateOp.and, [w.val, u.val]⟩) :=
+    ⟨hD, hFun, fun D hD hFunD => hSize.trans_le (hC.2.2 D hD hFunD)⟩
+  have hStrict := mass_lt_of_clean_replace G C hC.1.1 j hj
+    ⟨GateOp.and, [w.val, u.val]⟩ hBack hClean hDirty
+    (JunkNormalize.edge_gate_below G C hC.1 j hj w u hwu)
+  have hMin := hmin _ hLeast
+  omega
+
+lemma dirty_gate_has_two_pivotal_edges {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hE : ∃ w u : Fin n, G.Adj w u)
+    (C : Circuit) (hC : IsLeastAO G C)
+    (hmin : ∀ D : Circuit, IsLeastAO G D → WireMass.mass G C ≤ WireMass.mass G D)
+    (j : ℕ) (hj : j < C.gates.length)
+    (hDirty : ∃ x : Fin n → Bool, gateVal n C j x = true ∧ graphFun G ∅ x = false) :
+    ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+      JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧ s(a, b) ≠ s(c, d) := by
+  classical
+  by_contra hTwo
+  by_cases hPivot : ∃ w u : Fin n, G.Adj w u ∧ JunkPivotal.pivotal C j w u
+  · obtain ⟨w, u, hwu, hOn⟩ := hPivot
+    apply one_pivotal_edge_not_dirty G C hC hmin j hj w u hwu ?_ hDirty
+    intro a b hab hp
+    have heq : s(a, b) = s(w, u) := by
+      by_contra hne
+      exact hTwo ⟨w, u, a, b, hwu, hab, hOn, hp, fun he => hne he.symm⟩
+    have hw : w ∈ s(a, b) := by rw [heq]; simp
+    have hu : u ∈ s(a, b) := by rw [heq]; simp
+    have hw' : pairInput a b w = true := by simpa [pairInput] using hw
+    have hu' : pairInput a b u = true := by simpa [pairInput] using hu
+    simp [hw', hu']
+  · obtain ⟨w, u, hwu⟩ := hE
+    apply one_pivotal_edge_not_dirty G C hC hmin j hj w u hwu ?_ hDirty
+    intro a b hab hp
+    exact False.elim (hPivot ⟨a, b, hab, hp⟩)
+
+end PEqualNP.Outside.L_meta_3566.WirePivotal
+
+namespace PEqualNP.Outside.L_meta_3566.SharedRewrite
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership
+
+lemma replace_gateVal (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (g : Gate) (hgback : ∀ i ∈ g.inputs, i < n + j) (x : Fin n → Bool) :
+    gateVal n (replace C j g) j x =
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) := by
+  obtain ⟨pre, post, old, hgs, hpre_len, htake, hdrop, _⟩ := split_gates C.gates j hj
+  let w0 := pre.foldl stepWire (List.ofFn x)
+  have hw0 : w0.length = n + j := by
+    dsimp [w0]
+    rw [foldl_stepWire_length, List.length_ofFn, hpre_len]
+  have hpre : ∀ i, i < n + j →
+      (C.wires (List.ofFn x)).getD i false = w0.getD i false := by
+    intro i hi
+    rw [wires_eq_foldl, hgs, List.foldl_append, List.foldl_cons,
+      foldl_stepWire_getD_lt _ _ _ (by change i < (stepWire w0 old).length; simp [stepWire, hw0]; omega),
+      stepWire_getD_lt _ _ _ (by change i < w0.length; omega)]
+  have hm : g.inputs.map (fun i => (C.wires (List.ofFn x)).getD i false) =
+      g.inputs.map (fun i => w0.getD i false) := by
+    apply List.map_congr_left
+    intro i hi
+    exact hpre i (hgback i hi)
+  rw [hm]
+  change ((replace C j g).wires (List.ofFn x)).getD (n + j) false = _
+  rw [wires_eq_foldl]
+  change ((C.gates.set j g).foldl stepWire (List.ofFn x)).getD (n + j) false = _
+  rw [List.set_eq_take_cons_drop g hj, htake, hdrop, List.foldl_append, List.foldl_cons,
+    foldl_stepWire_getD_lt _ _ _ (by change n + j < (stepWire w0 g).length; simp [stepWire, hw0])]
+  rw [← hw0, stepWire_getD_len]
+
+end PEqualNP.Outside.L_meta_3566.SharedRewrite
+
+namespace PEqualNP.Outside.L_meta_3566.JunkPivotal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma not_dirty_of_clean_pivotal_gate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : JunkMinimum.IsJunkLeastAO G C)
+    (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hgop : g.op = GateOp.and ∨ g.op = GateOp.or) (hglen : g.inputs.length = 2)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hPos : ∀ a b : Fin n, G.Adj a b → pivotal C j a b →
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = true)
+    (hClean : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = true →
+        graphFun G ∅ x = true) : j ∉ junk G C := by
+  intro hDirty
+  obtain ⟨hD, hFun, hSize⟩ := correct_of_pivotal_cover G C hC.1.1 hC.1.2.1
+    j hj g hgop hglen hgback hPos hClean
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j g) :=
+    ⟨hD, hFun, fun D hD hFunD => hSize.trans_le (hC.1.2.2 D hD hFunD)⟩
+  have hNewClean : BelowF G (SharedRewrite.replace C j g) j := by
+    intro x hx
+    rw [SharedRewrite.replace_gateVal n C j hj g hgback x] at hx
+    exact hClean x hx
+  have hStrict := JunkNormalize.junk_card_lt_of_clean_replace_any_op G C hC.1.1.1
+    j hj g hgback hClean hDirty hNewClean
+  have hMin := hC.2 _ hLeast
+  omega
+
+end PEqualNP.Outside.L_meta_3566.JunkPivotal
+
+namespace PEqualNP.Outside.L_meta_3566.OnePureFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma wire_not_dirty {n : ℕ} {ι : Type*} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hFour : NoFourCycle G)
+    (color : Fin n → Bool) (S T : Finset (Fin n))
+    (hDisjoint : Disjoint S T) (hMany : 2 ≤ S.card)
+    (hLeft : ∀ a ∈ S, color a = false)
+    (Q : ι → (Fin n → Bool) → Bool)
+    (hPure : ∀ i a b, color a = false → color b = true →
+      Q i (pairInput a b) = Q i (pairInput b b))
+    (hClean : ∀ i x, (orSet S x && orSet T x && Q i x) = true →
+      graphFun G ∅ x = true)
+    (E : Fin n → Fin n → Prop) (hNonempty : ∃ a b, E a b)
+    (hColor : ∀ a b, E a b → color a = false ∧ color b = true)
+    (hOn : ∀ a b, E a b → (orSet S (pairInput a b) && orSet T (pairInput a b)) = true)
+    (hCovered : ∀ a b, E a b → ∃ i, Q i (pairInput a b) = true)
+    (C : Circuit) (hC : JunkMinimum.IsJunkLeastAO G C)
+    (j : ℕ) (hj : j < C.gates.length) (r : ℕ) (hr : r < n + j)
+    (hR : ∀ x, wireVal n C r x = orSet S x)
+    (hPivCovered : ∀ a b, G.Adj a b → JunkPivotal.pivotal C j a b → E a b ∨ E b a) :
+    j ∉ junk G C := by
+  obtain ⟨z, _, hzT, hAdj, hCenter⟩ := common_center G hFour color S T hDisjoint hMany hLeft
+    Q hPure hClean E hNonempty hColor hOn hCovered
+  have hStar := clean_star_of_common_center G S T z hzT hAdj E
+    (by
+      intro a b h
+      have hBoth : orSet S (pairInput a b) = true ∧ orSet T (pairInput a b) = true := by
+        simpa using hOn a b h
+      exact hBoth.1) hCenter
+  have hBack : ∀ i ∈ [r, z.val], i < n + j := by
+    intro i hi
+    simp at hi
+    rcases hi with rfl | rfl
+    · exact hr
+    · omega
+  have hEval : ∀ x : Fin n → Bool,
+      GateOp.and.eval ([r, z.val].map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = (orSet S x && x z) := by
+    intro x
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [SharedRewrite.input_val]
+    change (wireVal n C r x && x z) = _
+    rw [hR]
+  apply JunkPivotal.not_dirty_of_clean_pivotal_gate G C hC j hj
+    ⟨GateOp.and, [r, z.val]⟩ (Or.inl rfl) rfl hBack
+  · intro a b hab hp
+    rw [hEval]
+    rcases hPivCovered a b hab hp with hE | hE
+    · exact hStar.2.2 a b hE
+    · have hSwap : pairInput a b = pairInput b a := by
+        funext i
+        simp [pairInput, or_comm]
+      rw [hSwap]
+      exact hStar.2.2 b a hE
+  · intro x hx
+    rw [hEval] at hx
+    exact hStar.1 x hx
+
+end PEqualNP.Outside.L_meta_3566.OnePureFrontier
