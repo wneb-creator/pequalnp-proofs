@@ -543,4 +543,219 @@ lemma normalize_pad_exactNot (n K : ℕ) (gs : List Gate) (o : ℕ)
     List.length_nil, List.length_ofFn]; omega) ho]
   simpa only [List.length_ofFn] using normalizeGates_eval gs o (List.ofFn x) hgs
 
+def outputPrefix (n : ℕ) (gs : List Gate) (o : ℕ) : List Gate :=
+  if o < n + gs.length then gs.take (o + 1 - n) else []
+
+lemma outputPrefix_length (n : ℕ) (gs : List Gate) (o : ℕ) :
+    (outputPrefix n gs o).length ≤ gs.length := by
+  unfold outputPrefix
+  split_ifs
+  · simp only [List.length_take]
+    exact Nat.min_le_right _ _
+  · simp
+
+lemma outputPrefix_mem {n o : ℕ} {gs : List Gate} {g : Gate}
+    (hg : g ∈ outputPrefix n gs o) : g ∈ gs := by
+  unfold outputPrefix at hg
+  split_ifs at hg
+  · exact List.mem_of_mem_take hg
+  · simp at hg
+
+lemma outputPrefix_eval (n : ℕ) (gs : List Gate) (o : ℕ) (w : List Bool)
+    (hw : w.length = n) : Circuit.eval ⟨outputPrefix n gs o, o⟩ w = Circuit.eval ⟨gs, o⟩ w := by
+  change (padRun (outputPrefix n gs o) w).getD o false = (padRun gs w).getD o false
+  unfold outputPrefix
+  split_ifs with ho
+  · have hq : o + 1 - n ≤ gs.length := by omega
+    exact (padRun_take_getD gs w (o + 1 - n) o (by
+      simp only [hw, List.length_take, Nat.min_eq_left hq]
+      omega)).symm
+  · change w.getD o false = (padRun gs w).getD o false
+    rw [show w.getD o false = false from List.getD_eq_default _ _ (by omega),
+      show (padRun gs w).getD o false = false from List.getD_eq_default _ _ (by
+        rw [padRun_length, hw]
+        omega)]
+
+lemma outputPrefix_oneNot (n : ℕ) (gs : List Gate) (o : ℕ)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
+    ∀ i j : Fin (outputPrefix n gs o).length,
+      ((outputPrefix n gs o).get i).op = GateOp.not →
+      ((outputPrefix n gs o).get j).op = GateOp.not → i = j := by
+  by_cases ho : o < n + gs.length
+  · rw [show outputPrefix n gs o = gs.take (o + 1 - n) by simp [outputPrefix, ho]]
+    intro i j hi hj
+    have hi' : i.val < gs.length := lt_of_lt_of_le i.isLt (by
+      simp only [List.length_take]; exact Nat.min_le_right _ _)
+    have hj' : j.val < gs.length := lt_of_lt_of_le j.isLt (by
+      simp only [List.length_take]; exact Nat.min_le_right _ _)
+    have hi0 : (gs.get ⟨i.val, hi'⟩).op = GateOp.not := by
+      simpa only [List.get_eq_getElem, List.getElem_take] using hi
+    have hj0 : (gs.get ⟨j.val, hj'⟩).op = GateOp.not := by
+      simpa only [List.get_eq_getElem, List.getElem_take] using hj
+    exact Fin.ext (congrArg (fun k : Fin gs.length => k.val)
+      (hu ⟨i.val, hi'⟩ ⟨j.val, hj'⟩ hi0 hj0))
+  · rw [show outputPrefix n gs o = [] by simp [outputPrefix, ho]]
+    intro i
+    exact Fin.elim0 i
+
+lemma outputPrefix_last {n o : ℕ} {gs : List Gate}
+    (hn : ∃ i : Fin (outputPrefix n gs o).length,
+      ((outputPrefix n gs o).get i).op = GateOp.not) :
+    n + (outputPrefix n gs o).length = o + 1 := by
+  have hp : 0 < (outputPrefix n gs o).length := by
+    obtain ⟨i, _⟩ := hn
+    exact Nat.zero_lt_of_lt i.isLt
+  by_cases ho : o < n + gs.length
+  · have hq : o + 1 - n ≤ gs.length := by omega
+    simp only [outputPrefix, ho, ite_true, List.length_take, Nat.min_eq_left hq] at hp ⊢
+    omega
+  · simp only [outputPrefix, ho, ite_false, List.length_nil, Nat.lt_irrefl] at hp
+
+def rootMonotoneReplacement (n : ℕ) (gs : List Gate) (o : ℕ) : Prop :=
+  ∃ (ms : List Gate) (mo : ℕ),
+    (∀ g ∈ ms, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+    ms.length ≤ gs.length ∧ ∀ x : Fin n → Bool,
+      Circuit.eval ⟨ms, mo⟩ (List.ofFn x) = Circuit.eval ⟨gs, o⟩ (List.ofFn x)
+
+lemma outputPrefix_noNot (n : ℕ) (gs : List Gate) (o : ℕ)
+    (hgs : ∀ g ∈ gs, basisGate g)
+    (hn : ¬ ∃ i : Fin (outputPrefix n gs o).length,
+      ((outputPrefix n gs o).get i).op = GateOp.not) : rootMonotoneReplacement n gs o := by
+  refine ⟨outputPrefix n gs o, o, ?_, outputPrefix_length n gs o, ?_⟩
+  · intro g hg
+    obtain ⟨hop, hlen⟩ := hgs g (outputPrefix_mem hg)
+    refine ⟨?_, hlen⟩
+    rcases hop with hop | hop | hop
+    · exact Or.inl hop
+    · exact Or.inr hop
+    · obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hg
+      exact (hn ⟨⟨i, hi⟩, hop⟩).elim
+  · intro x
+    exact outputPrefix_eval n gs o (List.ofFn x) (by simp)
+
+
+lemma padGates_last {n K o : ℕ} {gs : List Gate} (hlast : n + gs.length = o + 1) :
+    padGates n K gs o = gs ++ List.replicate (K - gs.length) (padCopy o) := by
+  have hq : o + 1 - n = gs.length := by omega
+  simp only [padGates, hq, List.take_length]
+
+lemma padGates_hasNot {n K o : ℕ} {gs : List Gate} (hlast : n + gs.length = o + 1)
+    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
+    ∃ j : Fin (padGates n K gs o).length,
+      ((padGates n K gs o).get j).op = GateOp.not := by
+  obtain ⟨j, hj⟩ := hnot
+  rw [padGates_last hlast]
+  refine ⟨⟨j.val, by simp only [List.length_append, List.length_replicate]; omega⟩, ?_⟩
+  simpa only [List.get_eq_getElem, List.getElem_append_left j.isLt] using hj
+
+lemma pad_exact_last_hasNot {n K o : ℕ} {gs : List Gate}
+    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
+    (hn : padNormal n gs)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
+    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
+    ∃ padded : List Gate,
+      padded.length = K ∧ padNormal n padded ∧
+      (∀ i j : Fin padded.length,
+        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
+      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
+      ∀ w : List Bool, w.length = n →
+        Circuit.eval ⟨padded, n + K - 1⟩ w = Circuit.eval ⟨gs, o⟩ w := by
+  have ho : o < n + gs.length := by omega
+  refine ⟨padGates n K gs o, padGates_length hL ho, padGates_normal hn ho,
+    padGates_oneNot hL ho hu, padGates_hasNot hlast hnot, ?_⟩
+  intro w hw
+  exact padGates_eval w hw hL hK ho
+
+lemma normalize_pad_last_hasNot (n K : ℕ) (gs : List Gate) (o : ℕ)
+    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
+    (hgs : ∀ g ∈ gs, basisGate g)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
+    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
+    ∃ padded : List Gate,
+      padded.length = K ∧ padNormal (n + 2) padded ∧
+      (∀ i j : Fin padded.length,
+        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
+      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
+      ∀ x : Fin n → Bool,
+        Circuit.eval ⟨padded, n + 2 + K - 1⟩ ([false, true] ++ List.ofFn x) =
+          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
+  have ho : o < n + gs.length := by omega
+  have hnlast : n + 2 + (normalizeGates n gs).length =
+      normalizeWire (n + gs.length) o + 1 := by
+    simp only [normalizeGates_length, normalizeWire, ho, ite_true]
+    omega
+  have hn : padNormal (n + 2) (normalizeGates n gs) :=
+    (padNormal_indexed _ _).mpr (fun j =>
+      ⟨normalizeGates_shape n gs hgs j, normalizeGates_readsBack n gs hgs j⟩)
+  obtain ⟨padded, hpL, hpN, hpU, hpNot, hpE⟩ := pad_exact_last_hasNot
+    (n := n + 2) (K := K) (gs := normalizeGates n gs)
+    (o := normalizeWire (n + gs.length) o)
+    (by simpa only [normalizeGates_length] using hL) hK hnlast hn
+    (normalizeGates_oneNot n gs hu) (normalizeGates_hasNot n gs hnot)
+  refine ⟨padded, hpL, hpN, hpU, hpNot, ?_⟩
+  intro x
+  rw [hpE _ (by simp only [List.length_append, List.length_cons, List.length_nil,
+    List.length_ofFn]; omega)]
+  simpa only [List.length_ofFn] using normalizeGates_eval gs o (List.ofFn x) hgs
+
+lemma pad_exact_hasNot {n K o : ℕ} {gs : List Gate}
+    (hL : gs.length ≤ K) (hK : 0 < K) (hlast : n + gs.length = o + 1)
+    (hs : ∀ j : Fin gs.length,
+      ((((gs.get j).op = GateOp.and ∨ (gs.get j).op = GateOp.or) ∧
+        (gs.get j).inputs.length = 2) ∨
+        ((gs.get j).op = GateOp.not ∧ (gs.get j).inputs.length = 1)))
+    (hr : ∀ j : Fin gs.length, ∀ i ∈ (gs.get j).inputs, i < n + j.val)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j)
+    (hnot : ∃ j : Fin gs.length, (gs.get j).op = GateOp.not) :
+    ∃ padded : List Gate,
+      padded.length = K ∧
+      (∀ j : Fin padded.length,
+        ((((padded.get j).op = GateOp.and ∨ (padded.get j).op = GateOp.or) ∧
+          (padded.get j).inputs.length = 2) ∨
+          ((padded.get j).op = GateOp.not ∧ (padded.get j).inputs.length = 1))) ∧
+      (∀ j : Fin padded.length, ∀ i ∈ (padded.get j).inputs, i < n + j.val) ∧
+      (∀ i j : Fin padded.length,
+        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
+      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
+      ∀ w : List Bool, w.length = n →
+        Circuit.eval ⟨padded, n + K - 1⟩ w = Circuit.eval ⟨gs, o⟩ w := by
+  have hn : padNormal n gs := (padNormal_indexed n gs).mpr (fun j => ⟨hs j, hr j⟩)
+  obtain ⟨padded, hpL, hpN, hpU, hpNot, hpE⟩ := pad_exact_last_hasNot hL hK hlast hn hu hnot
+  have hp := (padNormal_indexed n padded).mp hpN
+  exact ⟨padded, hpL, (fun j => (hp j).1), (fun j => (hp j).2), hpU, hpNot, hpE⟩
+
+lemma normalize_or_replace (n K : ℕ) (gs : List Gate) (o : ℕ)
+    (hL : gs.length ≤ K) (hK : 0 < K) (hgs : ∀ g ∈ gs, basisGate g)
+    (hu : ∀ i j : Fin gs.length,
+      (gs.get i).op = GateOp.not → (gs.get j).op = GateOp.not → i = j) :
+    rootMonotoneReplacement n gs o ∨
+    ∃ padded : List Gate,
+      padded.length = K ∧ padNormal (n + 2) padded ∧
+      (∀ i j : Fin padded.length,
+        (padded.get i).op = GateOp.not → (padded.get j).op = GateOp.not → i = j) ∧
+      (∃ j : Fin padded.length, (padded.get j).op = GateOp.not) ∧
+      ∀ x : Fin n → Bool,
+        Circuit.eval ⟨padded, n + 2 + K - 1⟩ ([false, true] ++ List.ofFn x) =
+          Circuit.eval ⟨gs, o⟩ (List.ofFn x) := by
+  classical
+  by_cases hn : ∃ i : Fin (outputPrefix n gs o).length,
+      ((outputPrefix n gs o).get i).op = GateOp.not
+  · right
+    have hpL : (outputPrefix n gs o).length ≤ K :=
+      (outputPrefix_length n gs o).trans hL
+    have hpS : ∀ g ∈ outputPrefix n gs o, basisGate g :=
+      fun g hg => hgs g (outputPrefix_mem hg)
+    obtain ⟨padded, hlen, hnormal, huniq, hnot, heval⟩ :=
+      normalize_pad_last_hasNot n K (outputPrefix n gs o) o hpL hK
+        (outputPrefix_last hn) hpS (outputPrefix_oneNot n gs o hu) hn
+    refine ⟨padded, hlen, hnormal, huniq, hnot, ?_⟩
+    intro x
+    rw [heval]
+    exact outputPrefix_eval n gs o (List.ofFn x) (by simp)
+  · exact Or.inl (outputPrefix_noNot n gs o hgs hn)
+
 end PEqualNP.Outside.L_meta_10760
