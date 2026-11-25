@@ -10,7 +10,11 @@ Each strategy owns a separate notes section below and separate files under resul
 
 At 2026-11-25 08:52 UTC, `direct_prime.lean` compiled with only `PEqualNP.Defs`: prime implicants are exactly incident point-line pairs, without plane assumptions. Root notified for checkpoint push.
 
-The direct quantitative route needs size lower bound N*(q+2)-1. Canonical line-star circuit costs N*q inner ORs, N ANDs, N-1 top ORs and is read-1 on every incident pair. Adapting accepted `L_meta_7684.lean` (generic bipartite edge-cover read1 upper bound) into our namespace as `direct_canonical.lean`; structural agent supplies incidence-cardinality identity.
+The direct quantitative route needs size lower bound N*(q+2)-1. Canonical line-star circuit costs N*q inner ORs, N ANDs, N-1 top ORs and is read-1 on every incident pair.
+
+At 2026-11-25 08:57 UTC, `direct_canonical.lean` compiled with ONLY `PEqualNP.Defs`. It adapts accepted `L_meta_7684.lean` into our namespace and specializes to plane incidence: lemma `PEqualNP.Outside.L_meta_2583_aux.plane_read_one_upper` assumes only uniform line degree q+1 and produces an AO2 read1 circuit of size at most N*(q+2)-1 computing the exact incidence function. No geometry assumptions needed for this upper bound. `incidence_card_canonical` is an 8-line sum-rearrangement proof of edge count N*(q+1). File frozen for checkpoint push; root notified. Full log `direct-canonical-plane.log` has only inherited warnings.
+
+Remaining obstruction for direct completion: prove arbitrary AO2 circuit size ≥ N*(q+2)-1, or weaker size comparison to some read1 circuit without the exact lower bound. The canonical upper bound is completely discharged.
 
 ## Counterexample strategy
 
@@ -18,7 +22,11 @@ Pending.
 
 ## Structural strategy
 
-Pending.
+- `structural_geometry.lean` compiles: `incidence_card` proves the incidence edge count is `N * (q + 1)`; `point_degree` proves every point lies on `q + 1` lines by partitioning the other points into the lines through the fixed point with that point removed.
+- Complete geometry build output is `/tmp/oec/pequalnp-pilot-76/structural-geometry.log` (exit 0, no diagnostics). The direct strategy has received the edge-count lemma.
+- Canonical point-star cover has `N * (q + 1) + N - 1 = N * (q + 2) - 1` gates and is read-1. The unresolved step is relating arbitrary AO2 circuit size to this sharp cost.
+- `structural_cover.lean` is a separate in-progress extension proving every incidence vertex cover has at least N vertices, using regularity and two fiber counts. The geometry checkpoint file is frozen.
+- Existing local `L_meta_6579.lean` is a general read-1 certificate for bipartite one-AND-level circuits. `L_meta_7684.lean` is the stronger canonical cover construction already adopted by the direct strategy.
 
 ## Reduction strategy
 
@@ -43,3 +51,7 @@ Useful stronger upper-bound code already accepted: L_meta_7684, 1123 lines, cons
 Latest guard: helper declarations must be inside namespace PEqualNP.Outside.L_meta_2583 (or its _aux), with exact matching end; final theorem fully qualified at top level and last. No _root_, double quotes, bv_decide/native_decide, global options, or attributes except simp; forbidden text includes comments. Run outside-guard imports separately from check-lean.mjs because the latter does not enforce source format.
 
 2026-11-25 08:49:35 UTC, independent pre-push checkpoint review of results/orch/lemmas/direct_prime.lean: PASS AS PARTIAL only. 72 lines, 2891 bytes; allowed import, own auxiliary namespace, mathematically correct disjointness and prime-implicant characterization, no axioms/admissions/forbidden tokens. Actual exported checkProofFile reported only the two expected missing-final-theorem messages. Compiler log direct-prime.log is empty; root/direct strategy reported compile exit 0. It is not yet a submission-ready proof and must not be represented as accepted.
+
+2026-11-25 08:50:51 UTC, independent checkpoint review: structural_geometry.lean and decomposition_minimal.lean PASS AS PARTIAL. Geometry correctly double-counts incidences and partitions the other points by lines through a fixed point; minimality correctly minimizes natural gate count then arbitrary natural measure. Guard has only expected missing-final-theorem findings, no forbidden tokens. direct_canonical.lean was extended to 1160 lines during review; its original 1125 lines match accepted L_meta_7684 after namespace renaming and removing import Mathlib. Found one integration format issue: helper theorem Canonical at lines1122-1125 is outside an ownnamespace block; move it inside PEqualNP.Outside.L_meta_2583_aux before final submission. Plane upper-bound appendix is mathematically correct. These are partial checkpoints, not a full proof or accepted checker result.
+
+2026-11-25 08:52:21 UTC, independent composed checkpoint review: PASS AS PARTIAL for named file SHA256 670c93a13b13d5927ca3579ee0c631e859cbbfb7db13acf9d55849973719d315. Exact bodies of prime, corrected canonical, geometry, and normalization files are present; 104 parsed declarations, no duplicate fully qualified names, permitted imports only, diff whitespace check passes. Source guard reports only expected missing-final-theorem. Normalization matches accepted4295 core after namespace renaming; added reflexive-transitive closure preservation and least normalized circuit existence are sound. This normal form only excludes mixed-below OR operands and does not prove blocks are stars or read-1.

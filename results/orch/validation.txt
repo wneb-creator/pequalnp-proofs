@@ -6,3 +6,12 @@ The full posted theorem is not proved. Checker verdict: not run; final theorem a
 No PR is opened for this checkpoint.
 Sub-agents: status_1035 (review), lean_setup (direct proof and setup), counterexample, structural, decomposition, lower_bound.
 TIMING total=47 subagents=6
+
+Checkpoint 2: canonical read-1 upper bound N*(q+2)-1, plane counting,
+and existence of a minimum-size lift-normal circuit have compiled.
+Independent reviewer: status_1035, PASS AS PARTIAL; composed source hash
+670c93a13b13d5927ca3579ee0c631e859cbbfb7db13acf9d55849973719d315.
+Source guard finds only expected absent final theorem; no other finding.
+Named-module build output is saved completely in build-checkpoint-2.log.
+The arbitrary AO2 lower bound remains unproved. No proof PR is opened.
+TIMING total=50 subagents=6
