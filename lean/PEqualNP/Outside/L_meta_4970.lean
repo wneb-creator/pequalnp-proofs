@@ -2572,4 +2572,144 @@ lemma exists_cover_le_and_count {p l : ℕ}
 
 end AndBound
 
+
+namespace SlotSurplus
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SeparatingTrace
+open PEqualNP.Outside.L_meta_4970.AndBound
+
+abbrev Slots (C : Circuit) := {j // j ∈ andSet C} × Fin 2
+
+def wire (C : Circuit) (s : Slots C) : ℕ := operand C s.1.val s.2
+
+noncomputable def emptySlots (n : ℕ) (C : Circuit) : Finset (Slots C) := by
+  classical
+  exact Finset.univ.filter fun s => orIn n C (wire C s) = ∅
+
+noncomputable def directAndSlots (n : ℕ) (C : Circuit) : Finset (Slots C) := by
+  classical
+  exact Finset.univ.filter fun s => ∃ j ∈ andSet C, wire C s = n + j
+
+lemma matching_slot_surplus {p l : ℕ}
+    (E M : Finset (Fin p × Fin l)) (C : Circuit)
+    (hc4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hC : IsAO2 (p+l) C)
+    (hc : ∀ x : Fin (p+l) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (p+l) C x = decide (∃ a b, (a,b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hT : PEqualNP.TwoColour.tCount (p+l) C (fun i => decide (p ≤ i)) = 0)
+    (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f) :
+    2 * M.card + (emptySlots (p+l) C).card ≤ 2 * (andSet C).card := by
+  classical
+  let active : Finset (Slots C) := Finset.univ \ emptySlots (p+l) C
+  let σ := {s // s ∈ active}
+  let P : σ → Finset (Fin p) := fun s =>
+    Finset.univ.filter fun a => Fin.castAdd l a ∈ orIn (p+l) C (wire C s.val)
+  let Q : σ → Finset (Fin l) := fun s =>
+    Finset.univ.filter fun b => Fin.natAdd p b ∈ orIn (p+l) C (wire C s.val)
+  have hmono : ∀ s, P s = ∅ ∨ Q s = ∅ := by
+    intro s
+    by_contra hn
+    have hp : (P s).Nonempty := Finset.nonempty_iff_ne_empty.mpr (fun h => hn (Or.inl h))
+    have hq : (Q s).Nonempty := Finset.nonempty_iff_ne_empty.mpr (fun h => hn (Or.inr h))
+    obtain ⟨a,ha⟩ := hp
+    obtain ⟨b,hb⟩ := hq
+    have hj := ((mem_andSet C s.val.1.val).mp s.val.1.property).1
+    have hw : wire C s.val < p+l+C.gates.length :=
+      (operand_lt C hC s.val.1.val hj s.val.2).trans (Nat.add_lt_add_left hj (p+l))
+    have heq := orIn_colour_equal C hC (fun i => decide (p ≤ i)) hT
+      (wire C s.val) hw (Fin.castAdd l a) (Fin.natAdd p b)
+      (Finset.mem_filter.mp ha).2 (Finset.mem_filter.mp hb).2
+    have hpa : ¬ p ≤ a.val := Nat.not_le_of_lt a.isLt
+    simp [hpa] at heq
+  have hp : ∀ e ∈ M, ∃ s : σ, e.1 ∈ P s ∧ ∀ a ∈ P s, (a,e.2) ∈ E := by
+    intro e he
+    obtain ⟨j,hj,hop,k,ha,hrow⟩ :=
+      BipartiteTraces.point_indexed_trace E C hC hc e.1 e.2 (hME he)
+    let s : Slots C := (⟨j,(mem_andSet C j).mpr ⟨hj,hop⟩⟩,k)
+    have hnonempty : orIn (p+l) C (wire C s) ≠ ∅ :=
+      Finset.nonempty_iff_ne_empty.mp ⟨Fin.castAdd l e.1,ha⟩
+    have hs : s ∈ active := by simp [active,emptySlots,hnonempty]
+    refine ⟨⟨s,hs⟩,Finset.mem_filter.mpr ⟨Finset.mem_univ _,ha⟩,?_⟩
+    intro a ha
+    exact hrow a (Finset.mem_filter.mp ha).2
+  have hq : ∀ e ∈ M, ∃ s : σ, e.2 ∈ Q s ∧ ∀ b ∈ Q s, (e.1,b) ∈ E := by
+    intro e he
+    obtain ⟨j,hj,hop,k,hb,hcol⟩ :=
+      BipartiteTraces.line_indexed_trace E C hC hc e.1 e.2 (hME he)
+    let s : Slots C := (⟨j,(mem_andSet C j).mpr ⟨hj,hop⟩⟩,k)
+    have hnonempty : orIn (p+l) C (wire C s) ≠ ∅ :=
+      Finset.nonempty_iff_ne_empty.mp ⟨Fin.natAdd p e.2,hb⟩
+    have hs : s ∈ active := by simp [active,emptySlots,hnonempty]
+    refine ⟨⟨s,hs⟩,Finset.mem_filter.mpr ⟨Finset.mem_univ _,hb⟩,?_⟩
+    intro b hb
+    exact hcol b (Finset.mem_filter.mp hb).2
+  let pointSlot : {e // e ∈ M} → σ := fun e => Classical.choose (hp e.val e.property)
+  let lineSlot : {e // e ∈ M} → σ := fun e => Classical.choose (hq e.val e.property)
+  have hbound := H4SlotCount.two_colour_slot_bound E M hleft hright hc4 P Q hmono
+    pointSlot lineSlot (fun e => Classical.choose_spec (hp e.val e.property))
+    (fun e => Classical.choose_spec (hq e.val e.property))
+  have hactive : 2 * M.card ≤ active.card := by
+    simpa only [σ,Fintype.card_coe] using hbound
+  have hsum := Finset.card_sdiff_add_card_eq_card
+    (Finset.subset_univ (emptySlots (p+l) C))
+  change active.card + (emptySlots (p+l) C).card = (Finset.univ : Finset (Slots C)).card at hsum
+  have htotal : (Finset.univ : Finset (Slots C)).card = 2 * (andSet C).card := by
+    simp [Slots,Fintype.card_prod,Nat.mul_comm]
+  omega
+
+lemma directAndSlots_subset_emptySlots {n : ℕ} (C : Circuit) (hC : IsAO2 n C) :
+    directAndSlots n C ⊆ emptySlots n C := by
+  classical
+  intro s hs
+  obtain ⟨_,j,hj,hw⟩ := Finset.mem_filter.mp hs
+  obtain ⟨hjl,hop⟩ := (mem_andSet C j).mp hj
+  apply Finset.mem_filter.mpr
+  refine ⟨Finset.mem_univ _,?_⟩
+  rw [hw,orIn_gate n C hC.2.1 j hjl]
+  simp [hop]
+
+lemma directAndSlots_card_le {n m : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (h : 2 * m + (emptySlots n C).card ≤ 2 * (andSet C).card) :
+    (directAndSlots n C).card ≤ 2 * ((andSet C).card - m) := by
+  have hsub := Finset.card_le_card (directAndSlots_subset_emptySlots C hC)
+  omega
+
+lemma operand_raw_nonempty_of_emptySlots_eq_empty {n : ℕ} (C : Circuit)
+    (hempty : emptySlots n C = ∅) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (s : Fin 2) :
+    (orIn n C (operand C j s)).Nonempty := by
+  classical
+  by_contra hn
+  have hz : orIn n C (operand C j s) = ∅ := Finset.not_nonempty_iff_eq_empty.mp hn
+  let slot : Slots C := (⟨j,(mem_andSet C j).mpr ⟨hj,hop⟩⟩,s)
+  have hm : slot ∈ emptySlots n C :=
+    Finset.mem_filter.mpr ⟨Finset.mem_univ _,hz⟩
+  rw [hempty] at hm
+  exact Finset.notMem_empty _ hm
+
+lemma emptySlots_zero_of_tight {p l : ℕ}
+    (E M : Finset (Fin p × Fin l)) (C : Circuit)
+    (hc4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hC : IsAO2 (p+l) C)
+    (hc : ∀ x : Fin (p+l) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (p+l) C x = decide (∃ a b, (a,b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hT : PEqualNP.TwoColour.tCount (p+l) C (fun i => decide (p ≤ i)) = 0)
+    (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (htight : (andSet C).card = M.card) :
+    emptySlots (p+l) C = ∅ := by
+  have h := matching_slot_surplus E M C hc4 hC hc hT hME hleft hright
+  apply Finset.card_eq_zero.mp
+  omega
+
+end SlotSurplus
+
 end PEqualNP.Outside.L_meta_4970
