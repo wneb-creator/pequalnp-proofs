@@ -1,0 +1,4 @@
+Independent root-wrapper review by counterexample: PASS
+Source results/orch/lemmas/RectangleFixture0Complete.lean
+SHA256 f737afe888dcab628c18b7cb99a2c3904d17f1101b8fd52cdae1c17047adea80
+All root data alias the separately reviewed thirteen-signal rectangle module. Root leaves/gates/target absence/injectivity/cardinality are kernel-decided; the root has no omitted-entry cuts. Every retained closure entry dispatches to the exact whole-copy-bank BudgetRunCut using entries membership and roots equality, satisfying PrunedNode depth1 without child tables or cofactor assumptions. InitialRawState supplies all four invariants, and PrunedSound is instantiated at the same12root/cap12 target as the original fixture. No stronger full-gap claim is made. All limit settings are local, no trust escapes or forbidden format text. Final immutable archive matches the reviewed source. Reported compiler EXIT0 and complete empty log independently confirmed.

@@ -1,0 +1,8 @@
+{
+  "source_count": 89,
+  "selected_component_count": 88,
+  "missing_import_count": 0,
+  "cycle_count": 0,
+  "manifest": "/workspace/pequalnp-proofs/results/orch/review-import-closure-89.json",
+  "manifest_sha256": "a4b0b79c2ca1ca0b858b06125991f843da687c71c6db81289b6cc5884b94ec7c"
+}

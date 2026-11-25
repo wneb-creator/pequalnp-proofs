@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_2373.RectangleBank41908.budget_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.RectangleBank13338.budget_cut' depends on axioms: [propext, Classical.choice, Quot.sound]

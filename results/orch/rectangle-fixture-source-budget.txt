@@ -1,0 +1,41 @@
+Rectangle-only fixture 0 source budget
+
+Scope: the actual twelve-root state from the previously checked fixture 0,
+with twelve remaining binary gates. This is a branch certificate, not the
+whole Petersen gap and not a completed first-gate mono19 certificate.
+
+Old cofactor fixture: 28 archived modules total 551701 bytes, including
+PetersenSeventeenFull, SliceProfiles, and concrete cofactor replay data.
+
+New rectangle fixture: all thirteen possible first-copy child banks are
+excluded by the same Tailored10286 integer rectangle matrix. Its full weight
+is 135, and every copied bank has strictly smaller total leaf cost. The
+root table has thirteen entries, no omitted entries, and the original
+eighteen row-separation witnesses. The completed root dispatch chooses the
+whole-bank BudgetRunCut branch for every entry.
+
+The exact standalone assembly is 189314 bytes and 3679 lines. Its only
+import is PEqualNP.Defs. It contains Live1024Count, the generic read-once,
+indexed forest, compressed-cut, pruned recursion, finite table, rectangle
+Run machinery, all concrete rectangle data, and the final root proof.
+
+No NineSigned declarations, nine-variable certificate, Slice/cofactor
+replay machinery, seventeen/eighteen circuit bound, or incidental State4
+concrete certificate is included. Existing generic declarations are kept
+without proof edits. The assembly removes plain import lines and the
+single concrete State4Copy14 namespace from State4ReadOnceForest.
+
+The resulting source leaves 334974 bytes of the 524288-byte file limit.
+This is a reproducible assembled upper bound, not a claim that all unused
+generic helpers have been pruned. The exact recipe, source hashes, and
+per-piece byte counts are in assembly-manifest.json and assemble.py.
+
+Adding a whole-case DAG or a nine-variable monotone cofactor certificate
+would require a new dependency and source-size calculation. The current
+result does not establish that such a combined whole-gap proof fits.
+
+The entire 63529-byte shared Live1024Count assembly piece occurs byte-for-byte
+in the checked NamesCompressed archive. Removing that duplicate piece and
+the duplicate import gives a prospective combined source of 459386 bytes,
+leaving 64902 bytes. That combined file has not been compiled, and this
+arithmetic excludes any new monotone nine-variable lower-16 certificate.

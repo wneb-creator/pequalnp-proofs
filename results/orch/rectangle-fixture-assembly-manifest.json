@@ -1,0 +1,262 @@
+{
+  "target": "/tmp/oec/pequalnp-pilot-87/rectangle-fixture/RectangleFixture0Standalone.lean",
+  "sha256": "80e5c89cf6a0c46bc82a11fbf2a1937728b82b0a6acd3bf233017f165871efe5",
+  "bytes": 189314,
+  "lines": 3679,
+  "pieces": [
+    {
+      "name": "Live1024Count",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/Live1024Count.lean",
+      "original_sha256": "686e0602a87a99ee2fed49ec3809d8e99cff0227d6b5664eb6e42b7f620302f0",
+      "original_bytes": 63551,
+      "body_sha256": "6a80e17246a49f07e976d9392e23120917d7ceff676f6923d5e377548fc60ac2",
+      "body_bytes": 63529,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "State4ReadOnceForest",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/State4ReadOnceForest.lean",
+      "original_sha256": "776cd1f2bafd8dcd9bf3e1050d1ed76f654492a906d8912db7da684abbaf8572",
+      "original_bytes": 13977,
+      "body_sha256": "47a29ef9bba55568a05b591864b9a2130aa96db4af0800cca84ab2ce7031d56c",
+      "body_bytes": 12211,
+      "transforms": [
+        "remove plain import lines",
+        "remove namespace State4Copy14 through its matching named end"
+      ]
+    },
+    {
+      "name": "IndexedForest",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IndexedForest.lean",
+      "original_sha256": "f165642bc68f4686e8a182aec14b5bcb3e0ce3a116f5d8a41e6e7abadd9657b9",
+      "original_bytes": 4161,
+      "body_sha256": "0ed79eaaf81eabedbb940487faae07b2a70703f22886b70934a4fe973ed6daa2",
+      "body_bytes": 4133,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "IntermediateCopyCut",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IntermediateCopyCut.lean",
+      "original_sha256": "acc521f908285615caa02a59d67ddab85cbab894f4bd6914d9362b829d97bef4",
+      "original_bytes": 7392,
+      "body_sha256": "ba62a19cd3eaf592a732a4054e4f52904e313c6cff998c9b036dc6cc2894d968",
+      "body_bytes": 7371,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "CompressedWireCut",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CompressedWireCut.lean",
+      "original_sha256": "d933f1f320c8933bcd0115ad82f055341d56c8f319b3638fdfa1c0885ebfe753",
+      "original_bytes": 4226,
+      "body_sha256": "9f14bc19826111c7cbce62bd8042b71524c08881f87a79d2dd67c0fd1cd356e9",
+      "body_bytes": 4199,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedInterface",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedInterface.lean",
+      "original_sha256": "696cee79f939109f778428e99161d3458022591e9f277821fe77f4da8e26155d",
+      "original_bytes": 2724,
+      "body_sha256": "3d167d0843b65b0d15f1936502a2e9a91c89c26d40f7337623762cff97abf061",
+      "body_bytes": 2699,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "SuccessorChecker",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/SuccessorChecker.lean",
+      "original_sha256": "8dfa045440873ed1931c1672b8f712d4aacdebc834317502ffec2b292a210097",
+      "original_bytes": 3818,
+      "body_sha256": "15763100181cd7719ce79375ca079aee999a83e0d5ff7643ab1089fbeb46aae0",
+      "body_bytes": 3789,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "EntryGateChecker",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/EntryGateChecker.lean",
+      "original_sha256": "842c5a74dde283f60bfd6f2fba51242777f7342729cfd76d58d8a974f2425499",
+      "original_bytes": 3435,
+      "body_sha256": "f74175c8b320ea0599901b3152e4c5b027f60b7c4f8d9f755245b3692d7c40ec",
+      "body_bytes": 3388,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "EntryTableAdapters",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/EntryTableAdapters.lean",
+      "original_sha256": "bff5dd53d0b1c820d6094041b8f441acd32443c463ce3e3918d507154f59aeda",
+      "original_bytes": 4015,
+      "body_sha256": "5eb60b110c3f9bc6f6f4799ac3b54a6f00dcc477798c8a1bd24733f7decead8a",
+      "body_bytes": 3991,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "InitialRawState",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/InitialRawState.lean",
+      "original_sha256": "bea391b7acc3bdf18a998c9438e815da6155d90bcbfca8118d81e254e9d3b141",
+      "original_bytes": 1907,
+      "body_sha256": "5ceae424b8eec83396064b1d9f78c6e05d378c8a9104e3c992c404378678b860",
+      "body_bytes": 1881,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PairColumnSemantics",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PairColumnSemantics.lean",
+      "original_sha256": "efb6a14b7da129d1d611883448692bf38220ed724bfd0ff33823655d332f8089",
+      "original_bytes": 1230,
+      "body_sha256": "c9cff384f57b554d155ac85f51b00b4dcaf9b21d4333ffc83b929ef397001042",
+      "body_bytes": 1206,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "CompressedIndexedForest",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/CompressedIndexedForest.lean",
+      "original_sha256": "cd2c8c12c41427a6c66650fc5e3da6f693098477197ea00c9ae5768fe2227402",
+      "original_bytes": 1876,
+      "body_sha256": "1f0a79cfce8eb740a7508e18b8b363b52a8a363bbf835fd897e2651418061c06",
+      "body_bytes": 1851,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedStructural",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedStructural.lean",
+      "original_sha256": "597f8f014b1bf8be278a7c1dbc5de5bea70c35fa3281f5f0985f71fbfe9244bc",
+      "original_bytes": 22573,
+      "body_sha256": "9c1e2fce2a4e9250ea95b12e37aa498569ad83a23dd8e0745fbd5501598ebe15",
+      "body_bytes": 22519,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedBridgeResolve",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedBridgeResolve.lean",
+      "original_sha256": "60e2838f369635f3952eca2e5496d869bdaffc32c5115e34038226e3e4f9a190",
+      "original_bytes": 2944,
+      "body_sha256": "d473b2fcc766702c4bdfdea0767af6f28675fbf6986e6d65ccae8b8b9bcdcd9c",
+      "body_bytes": 2920,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedMerge",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedMerge.lean",
+      "original_sha256": "e45127f96bc1efbe69f0eed22a3fb96d35f76c48bf5a60bdc11d342438efdeb5",
+      "original_bytes": 4030,
+      "body_sha256": "317e8da0053d9ab6eaf699e6f9fad4edbdb6ccd98c4d5ef785fb32be9bb11a03",
+      "body_bytes": 4003,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "SharingReadOnce",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/SharingReadOnce.lean",
+      "original_sha256": "3ed112974eca45c257fcf2a2314cf5e75b4187017e62408abaf86f983673226f",
+      "original_bytes": 3351,
+      "body_sha256": "e50e23c0c1d4ed09ae865ef4a3c679effa66a88c2ccd01dcc6e5fd6a99a3339a",
+      "body_bytes": 3327,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedDouble",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedDouble.lean",
+      "original_sha256": "2ef11d7f4a9cf298cd880ba34dcaaf6046bce92cfdc1ff235f28910046c391d9",
+      "original_bytes": 4276,
+      "body_sha256": "38958973e2592d845ec1f02c55aa9e99c5b05e244a19c25ce142f94b9bd00fbc",
+      "body_bytes": 4234,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedSingleTransfer",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedSingleTransfer.lean",
+      "original_sha256": "af362be5c3a67b00348753ace6bf41fd95a1e9d3e6b0a2eba1a6de823fbc2dd8",
+      "original_bytes": 3850,
+      "body_sha256": "f15520195e8e28a764491ae9c16540bfdf032565af9b799340624a1eecaa7363",
+      "body_bytes": 3808,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "PrunedSound",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PrunedSound.lean",
+      "original_sha256": "0dc3cbf6560ca69f726795f0eaa7b37268991fdcfe7c33ce78ae519630383f4b",
+      "original_bytes": 9455,
+      "body_sha256": "1c387aabdf236ae8803a21dafabf243cb074cc3f4f54a4ec4905f02d50a44fe1",
+      "body_bytes": 9407,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "RectangleRun",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/RectangleRun.lean",
+      "original_sha256": "642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00",
+      "original_bytes": 8466,
+      "body_sha256": "724ef6e6f339547d598f6a2a5a8b15d2fff2e40ea6606a060bfc08ac2bb10163",
+      "body_bytes": 8437,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "RectangleRunIndexed",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/RectangleRunIndexed.lean",
+      "original_sha256": "7dc46c45a36aaec15394eca9479dd0c71f4af57ec8db6b54cddf859b3ff8b129",
+      "original_bytes": 1213,
+      "body_sha256": "5e7732c45beea03b78049989d1bb3ea4fbc30d9887db6da3e5bab2f16b37aa5a",
+      "body_bytes": 1193,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "RectangleFixture0Children",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/RectangleFixture0Children.lean",
+      "original_sha256": "4f122abdedd1dd22dc2c673a1b051e143136eb746021497fd71f0af51123d6d2",
+      "original_bytes": 16067,
+      "body_sha256": "8d7fe2dbe25d806f2dea9654f0f3acf6d34b581c9ef8392538e4721beae43365",
+      "body_bytes": 16017,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    },
+    {
+      "name": "RectangleFixture0Complete",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/RectangleFixture0Complete.lean",
+      "original_sha256": "f737afe888dcab628c18b7cb99a2c3904d17f1101b8fd52cdae1c17047adea80",
+      "original_bytes": 3308,
+      "body_sha256": "1508a0dd209185bdaef5b948917a23ccdf7893a77c61f0c4c10ce8d5d3bcb87a",
+      "body_bytes": 3180,
+      "transforms": [
+        "remove plain import lines"
+      ]
+    }
+  ]
+}

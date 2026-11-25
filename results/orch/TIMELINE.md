@@ -101,3 +101,7 @@
 - 2026-11-25T15:03:44.319104+00:00: counterexample independently audited exact rectangle bank41908, then compiled its direct Fin20 BudgetRunCut adapter EXIT0; SHA256 1b0561b310dbbe442dc61ec48e4d2ebb1667985e13e228f22dcfcc85ba4f5cec.
 
 - 2026-11-25T15:06:01.788658+00:00: counterexample compiled concrete compound first-OR-edge terminal13338 rectangle exclusion plus Fin18 BudgetRunCut adapter, both EXIT0/empty log; target135 versus bank132.
+
+2026-11-25T15:08:07.894957+00:00 finite_invariants: compound bank13338 proof and BudgetRunCut adapter independently audited PASS; rectangle strategy handoff complete with all45 sampled banks computationally covered.
+
+- 2026-11-25T15:12:23.980467+00:00: counterexample compiled shared rectangle proof replacing all13 fixture0 copied children with direct whole-bank cuts. One13-signal profile basis, target135, all bank costs116–132. EXIT0/empty log.

@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "sha256": "3f7ad17b31e0d18a3aa74f9af394cb85dd3b40b7190323f1448f376caa33cfe5",
+  "matrix_entries": 225,
+  "sample_bits": 360,
+  "full_root_rows": 18432,
+  "subset_checks": 768,
+  "positions_cases": 180,
+  "total": 135,
+  "cost_sum": 132,
+  "exact_costs": [
+    0,
+    0,
+    6,
+    10,
+    12,
+    12,
+    6,
+    8,
+    10,
+    8,
+    0,
+    18
+  ],
+  "node": 13338
+}

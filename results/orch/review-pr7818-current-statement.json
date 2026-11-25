@@ -1,0 +1,16 @@
+{
+  "pr": "https://github.com/open-goat/pequalnp-proofs/pull/7818",
+  "state": "MERGED",
+  "file": "lean/PEqualNP/Outside/R_meta_2373_267.lean",
+  "head": "e55a69112429e53c486bcc4f67824ba4783c07ea",
+  "merged_commit": "0b6803b5507078a897dee2c3604c691a26432c4f",
+  "merged_utc": "2026-11-25T02:02:24Z",
+  "source_sha256": "d6917576ccb656de4a62b9d6a3a8b24ff42858f0fb4f3b92d5e30cb423ed1186",
+  "conclusion_matches_current_posted_statement_ignoring_whitespace": true,
+  "hypotheses": [
+    "andFirst: distinct original input operands a,b:Fin10; output offsets10+x3,10+x4 with x3,x4:Fin18",
+    "orFirst: operands a,b:Fin11 including default-false index10; same output offsets",
+    "notFirst: operand a:Fin11 including default-false index10; same output offsets"
+  ],
+  "verdict": "Accepted reduction of exactly the current statement, not a proof of that statement without assumptions."
+}

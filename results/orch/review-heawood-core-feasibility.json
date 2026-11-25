@@ -1,0 +1,73 @@
+{
+  "source_sha256": "24a7f69db99fb56060c3d343f15f36688f1ee8fdc1b3d76f0942ee9874c2138e",
+  "sem_Gr_satisfied": true,
+  "cubic": true,
+  "common_neighbors_at_most_one": true,
+  "sem_hw_third_analogue": true,
+  "independent_sets": 76,
+  "independence_number": 4,
+  "whole_neighbor_triples_per_independent_projection_at_most": 1,
+  "orbit_counting": [
+    {
+      "ineligible": [],
+      "eligible_size": 10,
+      "residual_budget_max": 0,
+      "independent_projection_cases": 86,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    },
+    {
+      "ineligible": [
+        0
+      ],
+      "eligible_size": 9,
+      "residual_budget_max": 1,
+      "independent_projection_cases": 65,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    },
+    {
+      "ineligible": [
+        0,
+        2
+      ],
+      "eligible_size": 8,
+      "residual_budget_max": 2,
+      "independent_projection_cases": 50,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    },
+    {
+      "ineligible": [
+        1,
+        3,
+        5
+      ],
+      "eligible_size": 7,
+      "residual_budget_max": 3,
+      "independent_projection_cases": 39,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    },
+    {
+      "ineligible": [
+        1,
+        4,
+        5
+      ],
+      "eligible_size": 7,
+      "residual_budget_max": 3,
+      "independent_projection_cases": 39,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    },
+    {
+      "ineligible": [
+        2,
+        4,
+        5,
+        6
+      ],
+      "eligible_size": 6,
+      "residual_budget_max": 4,
+      "independent_projection_cases": 31,
+      "max_extra_Bplus_required_by_hw_count_shape": 0
+    }
+  ],
+  "scope": "Finite feasibility calculations only; no Lean theorem or exhaustive proof of the gap."
+}

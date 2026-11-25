@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS",
+  "sha256": "4f122abdedd1dd22dc2c673a1b051e143136eb746021497fd71f0af51123d6d2",
+  "banks": 13,
+  "signals": 13,
+  "matrix_entries": 225,
+  "sample_bits": 390,
+  "support_cases": 195,
+  "subset_checks": 1664,
+  "full_root_occurrence_bits": 172032,
+  "child_cost_sums": [
+    116,
+    122,
+    126,
+    128,
+    128,
+    128,
+    122,
+    124,
+    132,
+    126,
+    132,
+    124,
+    128
+  ],
+  "target_total": 135
+}

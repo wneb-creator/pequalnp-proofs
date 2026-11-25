@@ -1,0 +1,6 @@
+Read-only PR status audit, 2026-11-25T15:10:49.320679+00:00
+
+PR https://github.com/open-goat/pequalnp-proofs/pull/15214 is open under the shared wneb-creator handle, branch pnp/pr-L_meta_2373. Its body calls the file a proof built by pilot87. The API reports exactly one added98-line file. The file contains only preliminary graph facts in the target namespace and lacks the required exact theorem. This is the previously rejected no-theorem checkpoint, not an accepted result. This agent did not create this PR, edit it, push that branch, or touch its lease. The current working branch remains pnp/pilot-87.
+
+PR file SHA256: 266bb1614e6f2a8a9a8bdc048ca30c84089591e8cc4f89ceafa64711d74e3952
+The requested brilliant-hq repository redirects to open-goat; gh pr list search against the old owner returns zero results, whereas the current-owner query returns20matches. Of these, the old mergedPR7818 is itself a reduction R_meta_2373_267, not an exact theorem proof; independent comparison by status_review confirms the same posted conclusion.

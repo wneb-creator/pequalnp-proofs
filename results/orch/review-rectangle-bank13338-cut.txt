@@ -1,0 +1,4 @@
+Independent review: PASS
+Reviewed by finite_invariants at 2026-11-25T15:06:46.611647+00:00
+SHA256 ff5bbeb31e44f461c45127e1b53bd341b369b5843bed39219f6d433051b00607
+The complete source is exactly the reviewed41908 BudgetRunCut adapter after replacing the bank module, Fin20 byFin18, cardinality20 by18, and remaining gate count19 by17. It preserves18 indexed occurrences, permutes univ.toList to finRange18, identifies the exact checked compound bank list by rfl, and uses Run length plus depth0 cap to force17 gates. The new bank theorem and all bank data were separately independently reviewed. Empty compile log verified.

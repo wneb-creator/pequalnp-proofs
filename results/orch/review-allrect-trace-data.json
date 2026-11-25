@@ -1,0 +1,15 @@
+{
+  "trace_sha256": "9d7098c0e5aab6c12b6791b7e894828d4b5f968a44202107936119048830c0f5",
+  "trace_bytes": 78855046,
+  "event_counts": {
+    "header": 1,
+    "rectangle": 374385,
+    "signal": 25994
+  },
+  "root_occurrences_checked_with_duplicates": 5947349,
+  "unique_winning_profiles_recomputed": 23585,
+  "rectangle_subsets_enumerated": 612897,
+  "trace_totals_match_complete_run_log": true,
+  "all_recorded_rectangle_cuts_valid": true,
+  "limitation": "The bounded search stopped before root exhaustion; this validates terminal cuts only, not a full lower-bound certificate."
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "80e5c89cf6a0c46bc82a11fbf2a1937728b82b0a6acd3bf233017f165871efe5",
+  "source_bytes": 189314,
+  "source_lines": 3679,
+  "constituents_byte_verified": 23,
+  "sole_import": "PEqualNP.Defs",
+  "compile_log_sha256": "c370e156ef2737615f342eed7696cb9a69e6009731e9388573af6ed63010be29",
+  "compile_log_bytes": 15801,
+  "warning_diagnostic_lines": 54,
+  "error_diagnostics": 0,
+  "standalone_compile_exit0_reported_by_owner": true,
+  "source_and_logs_match_scratch": true,
+  "all_source_transformations_exact": true,
+  "local_resource_options": 27,
+  "scope": "One concrete12-root state exclusion; no exact posted gap theorem."
+}

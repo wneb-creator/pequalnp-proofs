@@ -1,0 +1,4 @@
+Independent finite data review: PASS
+Reviewed by finite_invariants at 2026-11-25T15:14:03.451932+00:00
+SHA256 4f122abdedd1dd22dc2c673a1b051e143136eb746021497fd71f0af51123d6d2
+Parsed the exact Lean literals independently. The225 weights exactly match Tailored10286. All390 Boolean sample bits,195 support cases and1664 support subsets checked; the declared13 costs equal the exact maxima. Every copied root-label list is duplicate-free as labels and equals the expected remove-support/add-two-copy labels. All168 root occurrences match the corresponding exported fixture0 child bank over1024 bits, with multiplicities preserved. The compound signal12 equals signal5 AND signal8. Target weight135 exceeds all13 child sums [116, 122, 126, 128, 128, 128, 122, 124, 132, 126, 132, 124, 128]. Empty compile log verified. Semantic BudgetRunCut and entry dispatch proof review is owned by status_review.

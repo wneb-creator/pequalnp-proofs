@@ -16,8 +16,8 @@
     "sha256": "4ea4d771e423739fa34417c7134d9ec13d68ae87ef5a0793963deb334f66d506"
   },
   "README.md": {
-    "bytes": 2934,
-    "sha256": "b059548267a431e52e31465650571b26b0c26b11dc569550be24e0c77b9810fd"
+    "bytes": 3366,
+    "sha256": "61076d607ddedf8afc8268759099ecdc438cc1e516f48ceeb6f1d1267e6a687c"
   },
   "audit_live_trace_ornonedge.py": {
     "bytes": 8533,
@@ -54,5 +54,13 @@
   "fixture0-row-selection.json": {
     "bytes": 11369,
     "sha256": "4970434d87a48b574936dc9d35fbcf5f1b6eebca84c5612be275849e9c84fabf"
+  },
+  "audit_import_closure89.py": {
+    "bytes": 5738,
+    "sha256": "1d469d989994b6b3d34454cb63e0e40053384e440eebbc2a0f9aac8761d586c8"
+  },
+  "audit-import-closure-89.txt": {
+    "bytes": 284,
+    "sha256": "40603437c6fce24ad9c1821f01a608da481c242cd493705f9abc163267da4b93"
   }
 }

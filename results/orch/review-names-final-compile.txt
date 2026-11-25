@@ -1,0 +1,7 @@
+Independent final compilation-log audit by status_review: PASS.
+
+NamesCompressed.lean is exactly333623bytes, SHA256 9a3a96e0579986397e32604f30b98368a101ec68c09ecc685e6498f1e3f36381, matching proof_structure's independent reversible metadata-renaming review and the source used by the successful build. Its only import is PEqualNP.Defs. The archived source and complete log match the scratch build byte for byte.
+
+NamesCompressed.compile.txt is exactly43494bytes, SHA256 b1121e4f725f3af0113e7638adae67ccd131fd18f917deadf14ee7dd717542e5. It contains140 warning diagnostic lines and zero error diagnostics. The201 total occurrences of the substring warning: include repeated explanatory hint text and are not201 separate diagnostics. The matching newer NamesCompressed.olean exists. Build owner lean_setup confirmed that session54243 returned compiler exit_code0; no redundant rebuild was launched for this review.
+
+The existing source review independently establishes all683 constant renames and3863 source-span edits, exact forward reconstruction, and exact inverse restoration. This final audit discharges that review's former compilation condition. The file remains a checked partial source without the exact posted gap theorem.

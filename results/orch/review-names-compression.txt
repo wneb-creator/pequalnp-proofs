@@ -5,4 +5,4 @@ Verdict: PASS for exact reversible metadata-only renaming, with final standalone
 
 Independently matched all683 mapped constants and3863 source spans to the frozen NamesOriginal.ilean reference definition/usage records. Every declaration-name span is included. Every replaced suffix exactly matches its recorded old identifier. Spans do not overlap. Reapplying those edits to the original text reconstructs NamesCompressed.lean byte for byte. All683 new names are unique and absent from the original identifier tokens; tokenwise inverse replacement restores the original bytes exactly. The change saves19721bytes (353344 to333623). This review checks the exact reversible transformation and metadata reference targeting; it does not certify unprovided future source renames.
 
-Final compiler result: exit0,0errors,201nonblocking warnings; complete43494-byte log archived as lemmas/NamesCompressed.compile.txt.
+Final compiler result: exit0,0errors,140nonblocking warning diagnostics; complete43494-byte log archived as lemmas/NamesCompressed.compile.txt.

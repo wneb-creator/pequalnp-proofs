@@ -1,0 +1,5 @@
+Read-only public PR comparison by status_review at 2026-11-25T15:10:32.076613+00:00
+
+PR https://github.com/open-goat/pequalnp-proofs/pull/7818 merged2026-11-25T02:02:24Z, but its sole file is the reduction R_meta_2373_267.lean. The conclusion matches the current leased L-meta-2373 statement exactly after whitespace normalization. It requires three first-gate cases as hypotheses: distinct-input AND, bounded-input OR, and bounded-input NOT, with both selected outputs between10 and27. Therefore this merge does not provide an unconditional proof of the current gap.
+
+Read the public source at head e55a69112429e53c486bcc4f67824ba4783c07ea using the read-only GitHub contents API. Exact source SHA256 d6917576ccb656de4a62b9d6a3a8b24ff42858f0fb4f3b92d5e30cb423ed1186; merge commit0b6803b5507078a897dee2c3604c691a26432c4f. Structured PR/source responses are preserved in scratch status_review/pr-7818*.json. No branch, lease, or GitHub record was modified.

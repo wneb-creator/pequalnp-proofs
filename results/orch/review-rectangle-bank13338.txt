@@ -1,0 +1,4 @@
+Independent review: PASS
+Reviewed by finite_invariants at 2026-11-25T15:06:31.555584+00:00
+SHA256 3f7ad17b31e0d18a3aa74f9af394cb85dd3b40b7190323f1448f376caa33cfe5
+Read all122 source lines. Exact exported node13338 roots, order and duplicate occurrences match the12-function basis and18 labels over all1024 rows. The matrix matches Tailored10286 exactly; all225 weights,360 sample bits,180 support cases and768 support subsets independently checked. Exact maxima equal the12 declared costs. Matrix total135 and duplicate-root sum132 give a strict contradiction for17 remaining gates. The leaf rectangle proof is the reviewed support-enumeration argument; raw_bound uses exact finite sample identities; final theorem applies the reviewed tight_run_indexed bridge. No normalization or extra bank-membership assumption is hidden. Source rules and empty compile log verified.

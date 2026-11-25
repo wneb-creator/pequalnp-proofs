@@ -1,0 +1,2499 @@
+{
+  "audited_utc": "2026-11-25T15:08:23.242885+00:00",
+  "scope": "Frozen 89-source census, including one explicitly excluded obsolete source.",
+  "rebuilds_performed": false,
+  "source_count": 89,
+  "selected_component_count": 88,
+  "historical_snapshot_unchanged": true,
+  "historical_manifest_sha256": "ecb6f0be0835da3bc8e8e0a326c9f22b764a75a29fbf7bc55539aafaa6405695",
+  "historical_rebuild_instructions_sha256": "14f8621c93bfe5469a167b27499083a5ca6534a793bfffdcb97e05d18734ae6f",
+  "missing_local_imports": [],
+  "local_dependency_topological_order": [
+    "Automorphisms",
+    "BinaryLower",
+    "Bridge",
+    "PetersenSeventeenFull",
+    "SuccessorChecker",
+    "CofactorCheck",
+    "CompressPartition",
+    "SliceProfiles",
+    "RunPoolCut",
+    "State4Copy14",
+    "State4ReadOnceForest",
+    "IndexedForest",
+    "IntermediateCopyCut",
+    "CompressedWireCut",
+    "CompressedIndexedForest",
+    "ConditionalInfluence",
+    "ConditionalRows",
+    "ConditionalSeventeen",
+    "CopyInputPartition",
+    "DoubleSharing",
+    "PrunedInterface",
+    "EntryGateChecker",
+    "EntryTableAdapters",
+    "Expansion126663Conditional",
+    "Expansion126663",
+    "Expansion126663Compact",
+    "Expansion126663CompactFinal",
+    "FiniteInvariants",
+    "FirstCopyRun",
+    "FirstCopyRunGeneral",
+    "FirstOperandsRetained",
+    "GapBridge",
+    "IndexedCopyBridge",
+    "InitialRawState",
+    "Live1024",
+    "Live1024CertificateTower",
+    "Live1024Closure",
+    "Live1024ClosureFresh",
+    "Live1024Count",
+    "Live1024DeltaOne",
+    "Live1024FirstRetention",
+    "Live1024HierarchyDraft",
+    "Live1024ReadOnce",
+    "Live1024ReadOnceForest",
+    "Live1024RunCompose",
+    "Live1024Terminal0",
+    "Live1024Tight",
+    "Live1024WitnessTables",
+    "MemoRename",
+    "NamesCompressed",
+    "NineSignedPruned",
+    "NineSignedReach",
+    "NoOrIdentification",
+    "NoOrRows",
+    "PairColumnSemantics",
+    "PartitionLists",
+    "PetersenEighteenExtension",
+    "PositiveCofactors",
+    "PositiveProfiles",
+    "PrunedStructural",
+    "PrunedBridgeResolve",
+    "RunCofactorCheck",
+    "PrunedCopyFixture0Cuts",
+    "PrunedCopyFixture0Tables",
+    "PrunedCopyFixture0Node",
+    "PrunedCopyFixture0Initial",
+    "PrunedMerge",
+    "SharingReadOnce",
+    "PrunedDouble",
+    "PrunedSingleTransfer",
+    "PrunedSound",
+    "PrunedCopyFixture0Complete",
+    "RectangleRun",
+    "RectangleRunIndexed",
+    "RectangleOrEdge",
+    "RectangleOrEdgeRun",
+    "RectangleBank41908",
+    "RectangleBank41908Cut",
+    "RectangleBinaryPrefixes",
+    "RectangleNot",
+    "RowAvailability",
+    "RowProjection",
+    "SliceFromNine",
+    "TargetPartial135",
+    "WidthPrototype",
+    "WidthSpecialization",
+    "WordCompression126663",
+    "ZeroProfiles"
+  ],
+  "modules": {
+    "Automorphisms": {
+      "source": "lemmas/Automorphisms.lean",
+      "bytes": 1254,
+      "sha256": "57ef8ced98c54e6c69133b7110e16c22708f46664a74723041ad02967f1d154f",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Automorphisms.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-automorphisms.txt",
+          "sha256": "0bf80d98fa444ed289da0f380056bb8217e563cbc37120285b68cea1b9cd6d6f"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "BinaryLower": {
+      "source": "lemmas/BinaryLower.lean",
+      "bytes": 146765,
+      "sha256": "8f3f7098e38a6e84ee3f96515594eb165adfb88532e63dc26d7856cd72e19931",
+      "imports": [
+        "Mathlib.Tactic",
+        "Mathlib.Combinatorics.SimpleGraph.Basic",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/BinaryLower.compile.txt",
+        "bytes": 5803,
+        "sha256": "336e50c0f5adcea1a51dff9b61c8dbb2e7922e193fd7314b43f73035d35331c3",
+        "error_lines": [],
+        "warning_count": 20
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-binary-lower.txt",
+          "sha256": "aa66601b27a2a529138b2063b9881fec80a6a5705d6d77212b55573e95a12a55"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Bridge": {
+      "source": "lemmas/Bridge.lean",
+      "bytes": 4007,
+      "sha256": "27ff0189f00902e6fa49900776c0c32cd511b5e4a6dc7901c6df999734ce003b",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Bridge.compile.txt",
+        "bytes": 44,
+        "sha256": "f667d713ec2d4c290aa95ad87eb531d9abcf3867bd914d6917b3294a36d9e4c0",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [],
+      "legacy_review_pinned_by_previous_manifest": {
+        "path": "review-bridge.txt",
+        "sha256": "5394bb447b07e38ddbd2bbf6a52e6849c72bf9cb15ffc4bc08da0238e2acbe0f",
+        "unchanged_previous_manifest_source_sha256": "27ff0189f00902e6fa49900776c0c32cd511b5e4a6dc7901c6df999734ce003b"
+      }
+    },
+    "CofactorCheck": {
+      "source": "lemmas/CofactorCheck.lean",
+      "bytes": 862,
+      "sha256": "5e273b84fc35d1453e5a9e469cf90e02ba178d094acea1a2882c600f4dc882bd",
+      "imports": [
+        "SuccessorChecker"
+      ],
+      "local_dependencies": [
+        "SuccessorChecker"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/CofactorCheck.compile.txt",
+        "bytes": 23,
+        "sha256": "b023b04dceeac6b9c6e5f433584bb31b0dc9912f6cb4a694266cb348fa7f3191",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-cofactor-check.txt",
+          "sha256": "b5b439d3080093116632ca4339723b10de9504b5b329ee21052cedbc433af2cd"
+        },
+        {
+          "path": "review-successor-cofactor-math.txt",
+          "sha256": "f5c4ae2da4557af48d4dae48ea906679a4e5b7e0ad7eb1c81611720f3c67ad04"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "CompressPartition": {
+      "source": "lemmas/CompressPartition.lean",
+      "bytes": 3084,
+      "sha256": "12e4d26552e98c21861fb9dbf50a5b20d3d7aae66541ee0744579a03c1165b6d",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/CompressPartition.compile.txt",
+        "bytes": 281,
+        "sha256": "f92d1cce66884c4ba32724405a6ab0a8af68d37f1c54ffe0dce8134e3df3b51b",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-compress-partition.txt",
+          "sha256": "45b03526ffed00ec4678a0fbf52545b2339f4583d85a7ec2637d067ef6efbbce"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "CompressedIndexedForest": {
+      "source": "lemmas/CompressedIndexedForest.lean",
+      "bytes": 1876,
+      "sha256": "cd2c8c12c41427a6c66650fc5e3da6f693098477197ea00c9ae5768fe2227402",
+      "imports": [
+        "CompressedWireCut"
+      ],
+      "local_dependencies": [
+        "CompressedWireCut"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/CompressedIndexedForest.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-compressed-indexed-forest.txt",
+          "sha256": "c3fc613512e36dc3e59da51bfb5d2047460e73d37910356dcbc18bae6c944cf0"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "CompressedWireCut": {
+      "source": "lemmas/CompressedWireCut.lean",
+      "bytes": 4226,
+      "sha256": "d933f1f320c8933bcd0115ad82f055341d56c8f319b3638fdfa1c0885ebfe753",
+      "imports": [
+        "IntermediateCopyCut"
+      ],
+      "local_dependencies": [
+        "IntermediateCopyCut"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/CompressedWireCut.compile.txt",
+        "bytes": 296,
+        "sha256": "1392f3925cfdba34c7b8c3d44bb415559088deb4d994927a0c84e32b211d21ba",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-compressed-wire-cut.txt",
+          "sha256": "abecde565dfa2fce9b540600482ab1623b4643a8ada24cb568ca7fb4880beda5"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "ConditionalInfluence": {
+      "source": "lemmas/ConditionalInfluence.lean",
+      "bytes": 2776,
+      "sha256": "9db9e34f3b717c7b3d07cda8f434e02117780708a25b0ab98aa23cac93f6d1d9",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/ConditionalInfluence.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-conditional-influence.txt",
+          "sha256": "061e19ab43ca49738a6b3a91b7559e1c75b03fbf3311d0e89b5a828f06f115d4"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "ConditionalRows": {
+      "source": "lemmas/ConditionalRows.lean",
+      "bytes": 9626,
+      "sha256": "b2bfd97823586e4da8ee913603b4b295eeb461ff04ae1f9521f6492b2f2ce3bf",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/ConditionalRows.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-conditional-rows.txt",
+          "sha256": "e60c87aec99b141eb27336fb7df59fac87708f136110fb92380b74bcb363f9ea"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "ConditionalSeventeen": {
+      "source": "lemmas/ConditionalSeventeen.lean",
+      "bytes": 77150,
+      "sha256": "99bbed41d37da112ea613c9cebeb9ef159cbf4f720eaf18cc8868e90795ee061",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/ConditionalSeventeen.compile.txt",
+        "bytes": 5360,
+        "sha256": "b8cfc01faa03640009ab237e3bf1a5bb24a6071f801aa33b21b549020cba5bf4",
+        "error_lines": [],
+        "warning_count": 17
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-conditional-seventeen.txt",
+          "sha256": "5611c19e433cbe962c5f0911150860d4e976453d2fffe6b0f3f9ee67c3cfe5e3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "CopyInputPartition": {
+      "source": "lemmas/CopyInputPartition.lean",
+      "bytes": 3746,
+      "sha256": "833b07143298eb34d2dd8fa0fe963dff5e915013163a5cdb8c133d9399cc8875",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/CopyInputPartition.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-copy-input-partition.txt",
+          "sha256": "29d100d34c80b976a5e190fc7805b54968834e73e782559d57377303a91da23f"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "DoubleSharing": {
+      "source": "lemmas/DoubleSharing.lean",
+      "bytes": 119450,
+      "sha256": "666aaf62af086de249bffb3c855e0932846c62ac20066868d9b5e78563d730b2",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/DoubleSharing.compile.txt",
+        "bytes": 11820,
+        "sha256": "c3d986f2fdd575dae74dfb856d8b634bd6355589043fc730e6bdd2589df1710f",
+        "error_lines": [],
+        "warning_count": 42
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-double-sharing.txt",
+          "sha256": "97143e4cfb5e363db7ff99ba98ae711c51842b418f6c9a5c179951a01c29021e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "EntryGateChecker": {
+      "source": "lemmas/EntryGateChecker.lean",
+      "bytes": 3435,
+      "sha256": "842c5a74dde283f60bfd6f2fba51242777f7342729cfd76d58d8a974f2425499",
+      "imports": [
+        "PrunedInterface",
+        "SuccessorChecker"
+      ],
+      "local_dependencies": [
+        "PrunedInterface",
+        "SuccessorChecker"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/EntryGateChecker.compile.txt",
+        "bytes": 245,
+        "sha256": "30c19a7655045d8d4c6070822f17a24b6636740c2505b4a5ae1dc9d7f00b4832",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-entry-gate-checker.txt",
+          "sha256": "b09ed82104e8a29553f5ef858d819185d69e801e719fc16e42356b986675bd70"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "EntryTableAdapters": {
+      "source": "lemmas/EntryTableAdapters.lean",
+      "bytes": 4015,
+      "sha256": "bff5dd53d0b1c820d6094041b8f441acd32443c463ce3e3918d507154f59aeda",
+      "imports": [
+        "EntryGateChecker"
+      ],
+      "local_dependencies": [
+        "EntryGateChecker"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/EntryTableAdapters.compile.txt",
+        "bytes": 247,
+        "sha256": "7f06972329cbb225a1d0b4b493f4c181f16e2b28318f9ef10d021a11a35a48b9",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-entry-table-adapters.txt",
+          "sha256": "5ae7c0135f6bd0065dbf5b28f25807b2000fd56516bbe60b00737f2157dc6ab9"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Expansion126663": {
+      "source": "lemmas/Expansion126663.lean",
+      "bytes": 2687,
+      "sha256": "721c55954438d3b4a105c97fee5b6e90b393574c104588d08b486adf2830658e",
+      "imports": [
+        "Expansion126663Conditional",
+        "SliceProfiles"
+      ],
+      "local_dependencies": [
+        "Expansion126663Conditional",
+        "SliceProfiles"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Expansion126663.compile.txt",
+        "bytes": 23,
+        "sha256": "b023b04dceeac6b9c6e5f433584bb31b0dc9912f6cb4a694266cb348fa7f3191",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-expansion126663-wrapper.txt",
+          "sha256": "efefaa1a40869fdcb4cb44b78858f05e73a6df89dd589f1600b52268f1fab8a3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Expansion126663Compact": {
+      "source": "lemmas/Expansion126663Compact.lean",
+      "bytes": 36604,
+      "sha256": "3087d43617db1aeef4e30c871797592c3d2ff8c25eff31634acead71fccc2925",
+      "imports": [
+        "CofactorCheck"
+      ],
+      "local_dependencies": [
+        "CofactorCheck"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Expansion126663Compact.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-expansion126663-wrapper.txt",
+          "sha256": "efefaa1a40869fdcb4cb44b78858f05e73a6df89dd589f1600b52268f1fab8a3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Expansion126663CompactFinal": {
+      "source": "lemmas/Expansion126663CompactFinal.lean",
+      "bytes": 2683,
+      "sha256": "dbba52a4bf9422a9612d64c67836262d70139c3153c66872d92ed11b54409f2b",
+      "imports": [
+        "Expansion126663Compact",
+        "SliceProfiles"
+      ],
+      "local_dependencies": [
+        "Expansion126663Compact",
+        "SliceProfiles"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Expansion126663CompactFinal.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-expansion126663-wrapper.txt",
+          "sha256": "efefaa1a40869fdcb4cb44b78858f05e73a6df89dd589f1600b52268f1fab8a3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Expansion126663Conditional": {
+      "source": "lemmas/Expansion126663Conditional.lean",
+      "bytes": 82122,
+      "sha256": "4205676376be92ecac5c39d2d125c274ba3926a6b2627f7d74fe5f23f5e0ffff",
+      "imports": [
+        "CofactorCheck"
+      ],
+      "local_dependencies": [
+        "CofactorCheck"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Expansion126663Conditional.compile.txt",
+        "bytes": 23,
+        "sha256": "b023b04dceeac6b9c6e5f433584bb31b0dc9912f6cb4a694266cb348fa7f3191",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-expansion126663-wrapper.txt",
+          "sha256": "efefaa1a40869fdcb4cb44b78858f05e73a6df89dd589f1600b52268f1fab8a3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "FiniteInvariants": {
+      "source": "lemmas/FiniteInvariants.lean",
+      "bytes": 6219,
+      "sha256": "c02d55b9e90eb3c0627899f82189b6bfa47605f2e857f9db1e60b93f0b9c1266",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/FiniteInvariants.compile.txt",
+        "bytes": 376,
+        "sha256": "388f059e7cd523fcaf08788ab070036bf8ab37b4dbec33219d57f2a0e92dbc82",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [],
+      "legacy_review_pinned_by_previous_manifest": {
+        "path": "review-finite-search.txt",
+        "sha256": "c795886bf734e6c4081c795749986be17e032bd4a27cbfc714f46d9c56d54283",
+        "unchanged_previous_manifest_source_sha256": "c02d55b9e90eb3c0627899f82189b6bfa47605f2e857f9db1e60b93f0b9c1266"
+      }
+    },
+    "FirstCopyRun": {
+      "source": "lemmas/FirstCopyRun.lean",
+      "bytes": 65626,
+      "sha256": "e9b54255c9080df89acc884fca8e8d4c561ab23611684cdb1bee5f2327b8595f",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/FirstCopyRun.compile.txt",
+        "bytes": 4994,
+        "sha256": "f208df4db443a94b9a19fe6d2d59c0521f4cc95bd4ef01c2a32cd80114439c58",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-first-copy-run.txt",
+          "sha256": "5c2969406156d2a130f65c61fba793bd8194b131fc32f10b4e5b70b7d3f2e04e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "FirstCopyRunGeneral": {
+      "source": "lemmas/FirstCopyRunGeneral.lean",
+      "bytes": 67830,
+      "sha256": "325a6e231bc844112e73f3b615eebc3bfe7f785f4fcadb5d749c86d8b05b8a00",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/FirstCopyRunGeneral.compile.txt",
+        "bytes": 5106,
+        "sha256": "d731c85b4e135b1d72e0f05250e85c02829dffb162c4c7f92b58a8660ad15cfc",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-first-copy-run-general.txt",
+          "sha256": "2e668958243a9e02809b63a20b6b959010868a2be4b0f56be3ac82a3af1b2429"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "FirstOperandsRetained": {
+      "source": "lemmas/FirstOperandsRetained.lean",
+      "bytes": 71650,
+      "sha256": "3eec04a916fb18e60f6f87f7a419392fb435f0dbdfb3481f32f6b49c53203d61",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/FirstOperandsRetained.compile.txt",
+        "bytes": 5246,
+        "sha256": "65135e81962957a1862b4bb5cea8f2becfa88287fcad58229fc0747a9eaffa60",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-first-operands-retained.txt",
+          "sha256": "24ad16628715854fc7b22e6ea1769f372e2fcd97f80758de6e482908afa5cc26"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "GapBridge": {
+      "source": "lemmas/GapBridge.lean",
+      "bytes": 5550,
+      "sha256": "aab159186ab5d8187b41a4ccbb4a9de394e800603d7445a1942d9f12add1e8ae",
+      "imports": [
+        "PEqualNP.Outside.L_meta_2373"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/GapBridge.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-gap-bridge.txt",
+          "sha256": "1e93baa388195ae4e66ea23580a2e7cafae61a177c0dcf3247e686c31e68bb05"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "IndexedCopyBridge": {
+      "source": "lemmas/IndexedCopyBridge.lean",
+      "bytes": 2372,
+      "sha256": "afbc6849a0606fab3321a70a91e13e0563c53b5c78a8a4b40861524f37d2d0bb",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/IndexedCopyBridge.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-indexed-copy-bridge.txt",
+          "sha256": "83cb400596fe8424412414f5b0b523a527e354420cdb083d2d5ad293005257a8"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "IndexedForest": {
+      "source": "lemmas/IndexedForest.lean",
+      "bytes": 4161,
+      "sha256": "f165642bc68f4686e8a182aec14b5bcb3e0ce3a116f5d8a41e6e7abadd9657b9",
+      "imports": [
+        "State4ReadOnceForest"
+      ],
+      "local_dependencies": [
+        "State4ReadOnceForest"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/IndexedForest.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-indexed-forest.txt",
+          "sha256": "da66b22f321084320fb583d612ffc382e33442d9111b45ea475b4d700bf16089"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "InitialRawState": {
+      "source": "lemmas/InitialRawState.lean",
+      "bytes": 1907,
+      "sha256": "bea391b7acc3bdf18a998c9438e815da6155d90bcbfca8118d81e254e9d3b141",
+      "imports": [
+        "EntryTableAdapters"
+      ],
+      "local_dependencies": [
+        "EntryTableAdapters"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/InitialRawState.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-initial-semantics.txt",
+          "sha256": "b20e3eff3132b26e25ec6bafdf599b414c649a5e8b2e113fe28d7678121948bd"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "IntermediateCopyCut": {
+      "source": "lemmas/IntermediateCopyCut.lean",
+      "bytes": 7392,
+      "sha256": "acc521f908285615caa02a59d67ddab85cbab894f4bd6914d9362b829d97bef4",
+      "imports": [
+        "IndexedForest"
+      ],
+      "local_dependencies": [
+        "IndexedForest"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/IntermediateCopyCut.compile.txt",
+        "bytes": 396,
+        "sha256": "7b6a3ac9a5e5c9eabe55f3d65da756d90ad729f3e967b335f368bc822a44d6b1",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-intermediate-copy-cut.txt",
+          "sha256": "a6065146f8a6c03e474c63718f8901528307760313bfe8f8ccebe4dc7abf352b"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024": {
+      "source": "lemmas/Live1024.lean",
+      "bytes": 61643,
+      "sha256": "ff6605ddff5663cec2f175069edab7ad015c18e1f641da70d82b6151ec116e1b",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024.compile.txt",
+        "bytes": 4850,
+        "sha256": "c1fe8b050039d88c17954cceebc289b68f55b7118b7826b22411b4c5cc180de8",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-live1024.txt",
+          "sha256": "dbe840274aabebff5afd65ef66a9aa230f0786f1f1b9040b68b290bf229e647c"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024CertificateTower": {
+      "source": "lemmas/Live1024CertificateTower.lean",
+      "bytes": 139048,
+      "sha256": "261401f9c324ac1991a2285df47063f2746cc18f5771f7012580712632098b66",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024CertificateTower.compile.txt",
+        "bytes": 13147,
+        "sha256": "4db019a00bab114bf2d796e4f59c4bd6ba139ff66fdbce12844b7ed785853b57",
+        "error_lines": [],
+        "warning_count": 44
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-certificate-tower.txt",
+          "sha256": "8a14cbbfc180681aebfb82476da3340df1ba6dd95b6fef90c96f1eb4ed4ca67e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024Closure": {
+      "source": "lemmas/Live1024Closure.lean",
+      "bytes": 74720,
+      "sha256": "d5325b37a5b30122a2d9bc40d1f741174e287e22d8d7f58095a3deef0655b499",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024Closure.compile.txt",
+        "bytes": 5096,
+        "sha256": "1eff9146e92758585cf2969579b2f58c6a74f71ea4e056fa3c0eac891fc61914",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-live1024-closure.txt",
+          "sha256": "352380adf855088a1312cf0bd4064466544729a291b36a4b8723e01a29e3753d"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024ClosureFresh": {
+      "source": "lemmas/Live1024ClosureFresh.lean",
+      "bytes": 79318,
+      "sha256": "b48532d73a1eb0529a4b454118bbb0b83e4953dfb59612a51a0f0b66b69817ef",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024ClosureFresh.compile.txt",
+        "bytes": 5042,
+        "sha256": "dd7a840bbc752654ea9d8f4e8d38cc3d2ff90507c26ca5fba8a164d854104eb8",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-live1024-closure.txt",
+          "sha256": "352380adf855088a1312cf0bd4064466544729a291b36a4b8723e01a29e3753d"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024Count": {
+      "source": "lemmas/Live1024Count.lean",
+      "bytes": 63551,
+      "sha256": "686e0602a87a99ee2fed49ec3809d8e99cff0227d6b5664eb6e42b7f620302f0",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024Count.compile.txt",
+        "bytes": 4930,
+        "sha256": "94896cf4723ce9982099760be5d57bc5004e96d92ce1496b5480d710c9c37575",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-live1024-count.txt",
+          "sha256": "8b8474ae5c2496f771e01285166654009c247ffb00529bd7fb021b13394c0e01"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024DeltaOne": {
+      "source": "lemmas/Live1024DeltaOne.lean",
+      "bytes": 108068,
+      "sha256": "6032bb5579426da3fd9f6b50cf04d57b0665fd659212268fbedc17821d1bee46",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024DeltaOne.compile.txt",
+        "bytes": 8452,
+        "sha256": "1bd1138a2e31b3e0fc044c8197ff4707c3e71d648e28ce9df1e8c4ee2c25b415",
+        "error_lines": [],
+        "warning_count": 28
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-delta-one-mathematics.txt",
+          "sha256": "85d556a7ca7f9e93de773d1647c49281e95ffa10b9a3d07f827f3e62a1fd1360"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024FirstRetention": {
+      "source": "lemmas/Live1024FirstRetention.lean",
+      "bytes": 112481,
+      "sha256": "a2122aef06514264db749fbcd43187a07e942da0c6977bee78c4a7ba707866de",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024FirstRetention.compile.txt",
+        "bytes": 8844,
+        "sha256": "93731cca53bd35e6c565961e6a34244fb4d9e2325a93b9f445245f74a3d35850",
+        "error_lines": [],
+        "warning_count": 28
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-first-retention.txt",
+          "sha256": "bb0c45726be798dba06ba8cfb93f9677933822a32faf51dc40ca6ce3a6ac3523"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024HierarchyDraft": {
+      "source": "lemmas/Live1024HierarchyDraft.lean",
+      "bytes": 120048,
+      "sha256": "bff332a4ffe4c0d095aaf6cd26e5226ab54c7e512f4accc415225e2f1682057b",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024HierarchyDraft.compile.txt",
+        "bytes": 8988,
+        "sha256": "d842303eb7cfa436bbda2705819117ac814dde8205ef9bcfd26f64aa36722565",
+        "error_lines": [],
+        "warning_count": 29
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-hierarchy-draft.txt",
+          "sha256": "9b1c185abf060132f9afae9e2ae8504d403c06c5a38bd7a16971485bc123e8a7"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024ReadOnce": {
+      "source": "lemmas/Live1024ReadOnce.lean",
+      "bytes": 68633,
+      "sha256": "0203de82d93aed8b85fadc1d1b5d0c3b2f09b0a782b3bc5a09bae460d6690887",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024ReadOnce.compile.txt",
+        "bytes": 4978,
+        "sha256": "638ba9ba7c8748b2ade8817a89be8ffb1738aae414ea8a14f077f2d15b372480",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-readonce.txt",
+          "sha256": "14c0cb2b6660855f19fa9796403b7ffeaf616eca0221c1c47305466f97778a13"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024ReadOnceForest": {
+      "source": "lemmas/Live1024ReadOnceForest.lean",
+      "bytes": 150503,
+      "sha256": "4abb09b3d0ac362a96d2e325001e383b2c9c87e9bf4812c855134ad4d16c30a1",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024ReadOnceForest.compile.txt",
+        "bytes": 12927,
+        "sha256": "f965a70364005d94f55a6f0bcd088fcc67e240cfc0ccf9b51106c995b11ce360",
+        "error_lines": [],
+        "warning_count": 44
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-readonce-forest.txt",
+          "sha256": "a11d845412397b2b23445115c148ec2620a8cf2c331c9fd0976922adfab6914e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024RunCompose": {
+      "source": "lemmas/Live1024RunCompose.lean",
+      "bytes": 65362,
+      "sha256": "4d5016fe2ea5cfd2bcddb347c53fc5cc9e981aca93d60179ba50736d8f7b1921",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024RunCompose.compile.txt",
+        "bytes": 5010,
+        "sha256": "de6c4812f62abe0418140b35c79a7e36ea3b5270fdc036d172dc80f92564fafc",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-run-composition.txt",
+          "sha256": "0f5b785d6f9fce6335db6c0fb4e3fcefa1a0b7c20827e48ef3b1cc718540af90"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024Terminal0": {
+      "source": "lemmas/Live1024Terminal0.lean",
+      "bytes": 245134,
+      "sha256": "44d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024Terminal0.compile.txt",
+        "bytes": 8928,
+        "sha256": "8a703dc8d70a57c5ae452501d739ae9e847daa1414bfa55863a99abdc5ed23de",
+        "error_lines": [],
+        "warning_count": 28
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-terminal0-complete.txt",
+          "sha256": "ee9346acd3a07c403625545833ebecd68f14999180c6b80516cec82c0f0d8e05"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024Terminal0Closure": {
+      "source": "lemmas/Live1024Terminal0Closure.lean",
+      "bytes": 234701,
+      "sha256": "7b8ccd2b8e5c38716ec6f972a942fb7b7788f114fa58b716c0bdc3b5fff4f331",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": false,
+      "status": "excluded_obsolete_prototype",
+      "compile_log": {
+        "path": "lemmas/Live1024Terminal0Closure.compile.txt",
+        "bytes": 8760,
+        "sha256": "62d837f0a8d12ef8baad7509fa77c93a6850a3053d548d57ad168dece72ee4dd",
+        "error_lines": [],
+        "warning_count": 28
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-terminal0-closure.txt",
+          "sha256": "717606760582a4254b48a7e4fb99483b46223826be1cf59c4dc01543997961c7"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "Live1024Tight": {
+      "source": "lemmas/Live1024Tight.lean",
+      "bytes": 64906,
+      "sha256": "2daff846abfa08a7efbeca1bf3038d07fb4da042ce611be86ff31ec1fdfd5070",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024Tight.compile.txt",
+        "bytes": 4930,
+        "sha256": "12c8b58619ea08155968d598331f3d3c3f9e81ee8a9a9cd4a6c279aaab0e5e24",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [],
+      "legacy_review_pinned_by_previous_manifest": {
+        "path": "review-live1024-tight.txt",
+        "sha256": "5d8e092ececef377d44e6d7ebfbcf6199c8877b200b8fe28a81bd400ed7fb7d6",
+        "unchanged_previous_manifest_source_sha256": "2daff846abfa08a7efbeca1bf3038d07fb4da042ce611be86ff31ec1fdfd5070"
+      }
+    },
+    "Live1024WitnessTables": {
+      "source": "lemmas/Live1024WitnessTables.lean",
+      "bytes": 87770,
+      "sha256": "95ed9bee401c2672d58bb092947853f326700c9e322c85163a1502052647eba4",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/Live1024WitnessTables.compile.txt",
+        "bytes": 5058,
+        "sha256": "c65c366a529e6af0420c8a97df1e2cc532065c6074aae822c62039b0153fad8e",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-witness-table-adapters.txt",
+          "sha256": "9122fee6ec3a655f93934642bbb78d35730aacd684242929a2389d7ab9620dc7"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "MemoRename": {
+      "source": "lemmas/MemoRename.lean",
+      "bytes": 65469,
+      "sha256": "5bc70bea8656b8a237d5ff615309a8609b6c09de3883e55568c75a3a21fa2739",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/MemoRename.compile.txt",
+        "bytes": 5026,
+        "sha256": "15bf1b4b0479a820b270916b11c64c851310fdeaa7dccfe25014336f2a8d8aef",
+        "error_lines": [],
+        "warning_count": 16
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-memo-rename.txt",
+          "sha256": "419776798b037f40f3e3c1d8b1e7f3568e1012fb676ef6b8627d4215ea57aadc"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "NamesCompressed": {
+      "source": "lemmas/NamesCompressed.lean",
+      "bytes": 333623,
+      "sha256": "9a3a96e0579986397e32604f30b98368a101ec68c09ecc685e6498f1e3f36381",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/NamesCompressed.compile.txt",
+        "bytes": 43494,
+        "sha256": "b1121e4f725f3af0113e7638adae67ccd131fd18f917deadf14ee7dd717542e5",
+        "error_lines": [],
+        "warning_count": 140
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-names-compression.txt",
+          "sha256": "4a0d6e62e2f227f51fefccd5e61621ed83e3aa731dcc8c4c13554babdaa4da12"
+        },
+        {
+          "path": "review-names-final-compile.txt",
+          "sha256": "e6ae84f257fd0b329b3b674a23f004f226018c9084fade9368622c2fdf42f46d"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "NineSignedPruned": {
+      "source": "lemmas/NineSignedPruned.lean",
+      "bytes": 239198,
+      "sha256": "0fed459a6e9ab87f77517445c235e544530210420df54e2e64e31e0f0dadcbb3",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/NineSignedPruned.compile.txt",
+        "bytes": 37827,
+        "sha256": "33a704a02ec5dd170d8365b5f2db5f35c343cb2dcc270cd354396ae40abab1ca",
+        "error_lines": [],
+        "warning_count": 120
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-nine-signed-pruned.txt",
+          "sha256": "38fa3e0326d42c9c38424eb7889f9a6c15d963c76c9e7548cacb21bda52bc232"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "NineSignedReach": {
+      "source": "lemmas/NineSignedReach.lean",
+      "bytes": 247029,
+      "sha256": "deb15cf662bca636e857802ca0b3fdbc1e97508f716dafe1a1d7e526f27a5548",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/NineSignedReach.compile.txt",
+        "bytes": 38091,
+        "sha256": "42f244cb679da7c753adeef221039d4f2ea4115d9ecbf6db9e629d3602c48e41",
+        "error_lines": [],
+        "warning_count": 120
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-nine-signed-reach.txt",
+          "sha256": "fd43bf712ef4c694c2ccb32871ef41b76c0b30ce532de9d01fefe7591e5502a7"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "NoOrIdentification": {
+      "source": "lemmas/NoOrIdentification.lean",
+      "bytes": 1116,
+      "sha256": "a0a312fa453bc277724b150264c525e5726870ad06b7383974eef62053e1dbd1",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/NoOrIdentification.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [],
+      "legacy_review_pinned_by_previous_manifest": {
+        "path": "review-no-or-identification.txt",
+        "sha256": "3a17bfc5151a35622d06c5e09662f735780eaf8855d07eb8bb60d7f8514d21ae",
+        "unchanged_previous_manifest_source_sha256": "a0a312fa453bc277724b150264c525e5726870ad06b7383974eef62053e1dbd1"
+      }
+    },
+    "NoOrRows": {
+      "source": "lemmas/NoOrRows.lean",
+      "bytes": 4431,
+      "sha256": "d839f6db1f8423f0bae37f9448d4eddb8f5118e32f4354db35f0ce797c6d6061",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/NoOrRows.compile.txt",
+        "bytes": 89,
+        "sha256": "9481aba302b6551fa5f474ab34dbb53b3d63e97dc95b1369f391fb87b42af641",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [],
+      "legacy_review_pinned_by_previous_manifest": {
+        "path": "review-no-or-rows.txt",
+        "sha256": "268688d0d06307638eea50170eaec4791b98417cb814531de7031ff5a542e48d",
+        "unchanged_previous_manifest_source_sha256": "d839f6db1f8423f0bae37f9448d4eddb8f5118e32f4354db35f0ce797c6d6061"
+      }
+    },
+    "PairColumnSemantics": {
+      "source": "lemmas/PairColumnSemantics.lean",
+      "bytes": 1230,
+      "sha256": "efb6a14b7da129d1d611883448692bf38220ed724bfd0ff33823655d332f8089",
+      "imports": [
+        "EntryGateChecker"
+      ],
+      "local_dependencies": [
+        "EntryGateChecker"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PairColumnSemantics.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-initial-semantics.txt",
+          "sha256": "b20e3eff3132b26e25ec6bafdf599b414c649a5e8b2e113fe28d7678121948bd"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PartitionLists": {
+      "source": "lemmas/PartitionLists.lean",
+      "bytes": 2842,
+      "sha256": "0758f2c1d8eb9cbf965cb65455bba2b792dc9dae9b7735c1f0e222b7884a5da7",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PartitionLists.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-partition-lists.txt",
+          "sha256": "a630167a631c9570111caf09cddf2e7f4e0904e34a82fdb4a602d150178a8dd5"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PetersenEighteenExtension": {
+      "source": "lemmas/PetersenEighteenExtension.lean",
+      "bytes": 17676,
+      "sha256": "d9ec9bfa4d4fd27f1d6f24bbc58d815b1dae4c3d39926d106709af3a3ba68d08",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PetersenEighteenExtension.compile.txt",
+        "bytes": 578,
+        "sha256": "15901ff3f2d9f3e956723485fbc95c1f0005e0beefa1c17da7a3f65b176c5387",
+        "error_lines": [],
+        "warning_count": 2
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-petersen-eighteen-extension.txt",
+          "sha256": "382222c306d7cdd9f89dcc7a27f3dc94eadb5c724d417fda9f64bc6da4f216e2"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PetersenSeventeenFull": {
+      "source": "lemmas/PetersenSeventeenFull.lean",
+      "bytes": 330182,
+      "sha256": "67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PetersenSeventeenFull.compile.txt",
+        "bytes": 44636,
+        "sha256": "0aac5acd9978026b47cfe1c08f332be20b5d774521bc2f02efc8e9032234956c",
+        "error_lines": [],
+        "warning_count": 138
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-petersen-seventeen-full.txt",
+          "sha256": "ea0c81f32a26f8c3fa9d8d49c8c71bc30bfe330e9b9cd075f9850954b9563ac1"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PositiveCofactors": {
+      "source": "lemmas/PositiveCofactors.lean",
+      "bytes": 3454,
+      "sha256": "5ea7cbcf46b3a52c85755114a2502aeeb17e841473b406e8b35d3be2429641ed",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PositiveCofactors.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-positive-cofactors.txt",
+          "sha256": "d3f2279ad14da8b6e90c0bf800dcbb5bc8bbda98b036d80def3e8dc156495186"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PositiveProfiles": {
+      "source": "lemmas/PositiveProfiles.lean",
+      "bytes": 7029,
+      "sha256": "9ec79cac7fc493916ac9e1d9bcec1a67ada6455bb1ade4cb7fbe5194e61b2763",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PositiveProfiles.compile.txt",
+        "bytes": 464,
+        "sha256": "d06b881c4b3495211213f1bcc66e90cdcb836e600fe4c67ddde9dab353d89e16",
+        "error_lines": [],
+        "warning_count": 2
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-positive-profiles.txt",
+          "sha256": "8fd7ae75d02a8f53dedd6bf8e2c7775dfaa428ccb7e1fa64a3750407541852c3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedBridgeResolve": {
+      "source": "lemmas/PrunedBridgeResolve.lean",
+      "bytes": 2944,
+      "sha256": "60e2838f369635f3952eca2e5496d869bdaffc32c5115e34038226e3e4f9a190",
+      "imports": [
+        "PrunedStructural"
+      ],
+      "local_dependencies": [
+        "PrunedStructural"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedBridgeResolve.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-bridge-and-merge.txt",
+          "sha256": "a384b34335669dd64b3e01d848344af0f8e6306d6cbca0b61effb02d545bc794"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedCopyFixture0Complete": {
+      "source": "lemmas/PrunedCopyFixture0Complete.lean",
+      "bytes": 757,
+      "sha256": "b2003cc27a0131d696a775a6caa22fc74f250bb0bc918d705aabf4a262b8eff2",
+      "imports": [
+        "PrunedCopyFixture0Initial",
+        "PrunedSound"
+      ],
+      "local_dependencies": [
+        "PrunedCopyFixture0Initial",
+        "PrunedSound"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedCopyFixture0Complete.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-copy-complete-application.txt",
+          "sha256": "cac5cc70634258da9de9470ddc0a78df01eab15a62d1f0ef0ee060a58238219d"
+        },
+        {
+          "path": "review-pruned-copy-tables.txt",
+          "sha256": "97e970079a2dab3a6959abe83608cda7b68d158aca147f7309e755c0e7070d00"
+        },
+        {
+          "path": "review-pruned-fixture0-application.txt",
+          "sha256": "796deacac520bfee83046c9cf7ac72e072ebbac74d5ad90da74a117c165db0e2"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedCopyFixture0Cuts": {
+      "source": "lemmas/PrunedCopyFixture0Cuts.lean",
+      "bytes": 25078,
+      "sha256": "149b0e678f18803ae35d06d737caedc705c6c36130a42fdf50a9d7694063786e",
+      "imports": [
+        "SliceProfiles",
+        "RunCofactorCheck"
+      ],
+      "local_dependencies": [
+        "SliceProfiles",
+        "RunCofactorCheck"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedCopyFixture0Cuts.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-copy-fixture.txt",
+          "sha256": "32cec688925b96760ca65584749b3d9b1d145592e5546f8bbf248562472d9cd6"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedCopyFixture0Initial": {
+      "source": "lemmas/PrunedCopyFixture0Initial.lean",
+      "bytes": 1018,
+      "sha256": "23439bbb199285794c05b0ee19c47fe3d5ccc2a190a1258691de3696f3b0c188",
+      "imports": [
+        "PrunedCopyFixture0Node",
+        "InitialRawState",
+        "PairColumnSemantics"
+      ],
+      "local_dependencies": [
+        "PrunedCopyFixture0Node",
+        "InitialRawState",
+        "PairColumnSemantics"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedCopyFixture0Initial.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-initial-semantics.txt",
+          "sha256": "b20e3eff3132b26e25ec6bafdf599b414c649a5e8b2e113fe28d7678121948bd"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedCopyFixture0Node": {
+      "source": "lemmas/PrunedCopyFixture0Node.lean",
+      "bytes": 9812,
+      "sha256": "5ced14547af9b7e8d780a23f77f04c0def704c2f92c2b90dacde2f7365c49bb4",
+      "imports": [
+        "PrunedCopyFixture0Tables"
+      ],
+      "local_dependencies": [
+        "PrunedCopyFixture0Tables"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedCopyFixture0Node.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-copy-tables.txt",
+          "sha256": "97e970079a2dab3a6959abe83608cda7b68d158aca147f7309e755c0e7070d00"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedCopyFixture0Tables": {
+      "source": "lemmas/PrunedCopyFixture0Tables.lean",
+      "bytes": 61661,
+      "sha256": "a1fa742ea398412c1ccee1c76e0d70019323bd58fbf0b97737dd90d75aa75b8a",
+      "imports": [
+        "EntryTableAdapters",
+        "PrunedCopyFixture0Cuts"
+      ],
+      "local_dependencies": [
+        "EntryTableAdapters",
+        "PrunedCopyFixture0Cuts"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedCopyFixture0Tables.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-copy-tables.txt",
+          "sha256": "97e970079a2dab3a6959abe83608cda7b68d158aca147f7309e755c0e7070d00"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedDouble": {
+      "source": "lemmas/PrunedDouble.lean",
+      "bytes": 4276,
+      "sha256": "2ef11d7f4a9cf298cd880ba34dcaaf6046bce92cfdc1ff235f28910046c391d9",
+      "imports": [
+        "PrunedMerge",
+        "SharingReadOnce"
+      ],
+      "local_dependencies": [
+        "PrunedMerge",
+        "SharingReadOnce"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedDouble.compile.txt",
+        "bytes": 1440,
+        "sha256": "679c2c7f57df5848592453de88b09192fe3464517447741c411e8f7f0665458c",
+        "error_lines": [],
+        "warning_count": 6
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-double.txt",
+          "sha256": "1ab1321c4967cfd9abf0c3c1905f5a264c9d1ebc1388cdacea7835c7a8045d7b"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedInterface": {
+      "source": "lemmas/PrunedInterface.lean",
+      "bytes": 2724,
+      "sha256": "696cee79f939109f778428e99161d3458022591e9f277821fe77f4da8e26155d",
+      "imports": [
+        "CompressedWireCut"
+      ],
+      "local_dependencies": [
+        "CompressedWireCut"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedInterface.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-interface.txt",
+          "sha256": "a87510387f12288abe819bf8ac9b86e9229bce74dbff82cb4c03cd4e0ad8aeb3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedMerge": {
+      "source": "lemmas/PrunedMerge.lean",
+      "bytes": 4030,
+      "sha256": "e45127f96bc1efbe69f0eed22a3fb96d35f76c48bf5a60bdc11d342438efdeb5",
+      "imports": [
+        "PrunedBridgeResolve"
+      ],
+      "local_dependencies": [
+        "PrunedBridgeResolve"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedMerge.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-bridge-and-merge.txt",
+          "sha256": "a384b34335669dd64b3e01d848344af0f8e6306d6cbca0b61effb02d545bc794"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedSingleTransfer": {
+      "source": "lemmas/PrunedSingleTransfer.lean",
+      "bytes": 3850,
+      "sha256": "af362be5c3a67b00348753ace6bf41fd95a1e9d3e6b0a2eba1a6de823fbc2dd8",
+      "imports": [
+        "PrunedMerge",
+        "SharingReadOnce"
+      ],
+      "local_dependencies": [
+        "PrunedMerge",
+        "SharingReadOnce"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedSingleTransfer.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-single-transfer.txt",
+          "sha256": "f92c5524b45d3a8142031c7a8d042e57917d1da11822388699d307a75c42b6f3"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedSound": {
+      "source": "lemmas/PrunedSound.lean",
+      "bytes": 9455,
+      "sha256": "0dc3cbf6560ca69f726795f0eaa7b37268991fdcfe7c33ce78ae519630383f4b",
+      "imports": [
+        "PrunedDouble",
+        "PrunedSingleTransfer"
+      ],
+      "local_dependencies": [
+        "PrunedDouble",
+        "PrunedSingleTransfer"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedSound.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-sound.txt",
+          "sha256": "15cb588a7db605aeba12b68f28bb239e964641f6bf5178998fd75c715caa30e8"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "PrunedStructural": {
+      "source": "lemmas/PrunedStructural.lean",
+      "bytes": 22573,
+      "sha256": "597f8f014b1bf8be278a7c1dbc5de5bea70c35fa3281f5f0985f71fbfe9244bc",
+      "imports": [
+        "PrunedInterface",
+        "CompressedIndexedForest"
+      ],
+      "local_dependencies": [
+        "PrunedInterface",
+        "CompressedIndexedForest"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/PrunedStructural.compile.txt",
+        "bytes": 6802,
+        "sha256": "ad76c3b42273e9918e0cba9679d5a0f5bb088095f218ba4897c0f4ee16d99faf",
+        "error_lines": [],
+        "warning_count": 25
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-pruned-structural.txt",
+          "sha256": "55ddca4dea5fd6b81d12e9115c5daa36f34ea9f97168b6b3b4d9b8b443a16373"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleBank41908": {
+      "source": "lemmas/RectangleBank41908.lean",
+      "bytes": 5020,
+      "sha256": "a00dd72a9786d235c718a8ce185dee2261c788d255bb6040e55f07d6e2963428",
+      "imports": [
+        "RectangleRunIndexed",
+        "RectangleOrEdgeRun"
+      ],
+      "local_dependencies": [
+        "RectangleRunIndexed",
+        "RectangleOrEdgeRun"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleBank41908.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-bank41908.txt",
+          "sha256": "3142c8c4a39c913914069d10f7f456a19544b931a003510652871da509b916bc"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleBank41908Cut": {
+      "source": "lemmas/RectangleBank41908Cut.lean",
+      "bytes": 1064,
+      "sha256": "1b0561b310dbbe442dc61ec48e4d2ebb1667985e13e228f22dcfcc85ba4f5cec",
+      "imports": [
+        "PrunedInterface",
+        "RectangleBank41908"
+      ],
+      "local_dependencies": [
+        "PrunedInterface",
+        "RectangleBank41908"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleBank41908Cut.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-bank41908-cut.txt",
+          "sha256": "c293c91ac74f17326bfdec35338a177be0723d7ea4c9ac19939f353e616766a1"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleBinaryPrefixes": {
+      "source": "lemmas/RectangleBinaryPrefixes.lean",
+      "bytes": 24836,
+      "sha256": "9139466d32953231d9a3883f694543ac1cb494b4fdad34bdccf877d5e50911c6",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleBinaryPrefixes.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-binary-prefixes.txt",
+          "sha256": "3d13ead40d770dd793ef2095625cfa9e892ce37162d874e301ac681691345e3d"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleNot": {
+      "source": "lemmas/RectangleNot.lean",
+      "bytes": 9077,
+      "sha256": "ebe9484f3e16e28703a550c562dfe3e95dc22cfe17336f50d1c604a937bd1baf",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleNot.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-not.txt",
+          "sha256": "31af7a168d520e77cc25b6cbd70d7ab5d31c385dab7d59fd5b64b0e9cd43e62e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleOrEdge": {
+      "source": "lemmas/RectangleOrEdge.lean",
+      "bytes": 8192,
+      "sha256": "71e0644fa278a1921c61d114e889ce20a9bb8c2eb7bff434a33ff2d8d9ce560f",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleOrEdge.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-or-edge.txt",
+          "sha256": "1ab91ef60130921fc40c2eba3d280234ab0ee031687f64e2aeb86d9298e9f317"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleOrEdgeRun": {
+      "source": "lemmas/RectangleOrEdgeRun.lean",
+      "bytes": 2256,
+      "sha256": "c7ef98685c8377c1c8422f2bc861a9c6dde5e3bd4eb3b419ad739f9dd798964e",
+      "imports": [
+        "RectangleRun",
+        "RectangleOrEdge"
+      ],
+      "local_dependencies": [
+        "RectangleRun",
+        "RectangleOrEdge"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleOrEdgeRun.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-or-edge-run.txt",
+          "sha256": "d635805351dc6e546e3604297c18ca53d65fa5982b1ed4f8a582c35527653263"
+        },
+        {
+          "path": "review-rectangle-run-wrappers.txt",
+          "sha256": "7057f4728f4e0a221590a1161b180df9b85ea6160e4df1bccdfd4b87e4f8ca73"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleRun": {
+      "source": "lemmas/RectangleRun.lean",
+      "bytes": 8466,
+      "sha256": "642aa3a2a10a90775e4cee820b5a1936fc4ddb770d3d1b7799def46ec2d34e00",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleRun.compile.txt",
+        "bytes": 226,
+        "sha256": "418e0e77bee310363d5fccef3bbc3c5859e07e7f7041dddeee12823dc65f6932",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-run.txt",
+          "sha256": "de276aa4b66b17f993acc0acb651a9f6eef5bd3282c425748ead70c22149d745"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RectangleRunIndexed": {
+      "source": "lemmas/RectangleRunIndexed.lean",
+      "bytes": 1213,
+      "sha256": "7dc46c45a36aaec15394eca9479dd0c71f4af57ec8db6b54cddf859b3ff8b129",
+      "imports": [
+        "RectangleRun"
+      ],
+      "local_dependencies": [
+        "RectangleRun"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RectangleRunIndexed.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-rectangle-run-wrappers.txt",
+          "sha256": "7057f4728f4e0a221590a1161b180df9b85ea6160e4df1bccdfd4b87e4f8ca73"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RowAvailability": {
+      "source": "lemmas/RowAvailability.lean",
+      "bytes": 8210,
+      "sha256": "7d5d7a504c3b41f15f0a3a89c45b34c5bbc86bd05fd06b72d66c09b6496c962f",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RowAvailability.compile.txt",
+        "bytes": 134,
+        "sha256": "cad07287dfd68825a8f3f5638a578aaae993c2f7a5179e03a68f7d7212453541",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-row-availability.txt",
+          "sha256": "1c506a3c3fe6d613d92a679e6b60b5d6b9641a377923ebf3ec7d0f3c50ede39e"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RowProjection": {
+      "source": "lemmas/RowProjection.lean",
+      "bytes": 6977,
+      "sha256": "7cb5db298b8b3c36f742c9006aa38e6aa275a7b27d9c288d231345c07eefc375",
+      "imports": [
+        "Mathlib"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RowProjection.compile.txt",
+        "bytes": 44,
+        "sha256": "f667d713ec2d4c290aa95ad87eb531d9abcf3867bd914d6917b3294a36d9e4c0",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-row-projection.txt",
+          "sha256": "e0101f93c2fb05f7536381305106a095f965bddb1143f903ffcda926583cb89c"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RunCofactorCheck": {
+      "source": "lemmas/RunCofactorCheck.lean",
+      "bytes": 846,
+      "sha256": "b043a7c2ea56c57f0ea5f37e96b12f6f91b22ee2e0fdcb886f423c663b9cd501",
+      "imports": [
+        "RunPoolCut"
+      ],
+      "local_dependencies": [
+        "RunPoolCut"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RunCofactorCheck.compile.txt",
+        "bytes": 22,
+        "sha256": "ce715eb088a2c07ef325992982d97b9dbe11b632f93fa0b11dd1199a2342bd26",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-run-cofactor-check.txt",
+          "sha256": "d6ef7b37a0e00abcd8c289efe32ef962907eee96a53a2806af93d894e7902991"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "RunPoolCut": {
+      "source": "lemmas/RunPoolCut.lean",
+      "bytes": 1073,
+      "sha256": "fd5370aff12a84242060bb7ec15d8d6cfc74acff5766f768feaf625c4c4bf050",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/RunPoolCut.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-run-pool-cut.txt",
+          "sha256": "2af44deb62a8c8d2789156f8503a6192a0e8268de0cff4d39c1ab4a1b6f6aa75"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "SharingReadOnce": {
+      "source": "lemmas/SharingReadOnce.lean",
+      "bytes": 3351,
+      "sha256": "3ed112974eca45c257fcf2a2314cf5e75b4187017e62408abaf86f983673226f",
+      "imports": [
+        "PrunedStructural"
+      ],
+      "local_dependencies": [
+        "PrunedStructural"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/SharingReadOnce.compile.txt",
+        "bytes": 743,
+        "sha256": "dcbc4a578b47ecec18805e0c7c932b642759f46d4e324023cccbe400a3659fad",
+        "error_lines": [],
+        "warning_count": 2
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-sharing-readonce.txt",
+          "sha256": "4afb12e5978d2096461028579807329fd10209889665265e61aa1077a9dc8222"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "SliceFromNine": {
+      "source": "lemmas/SliceFromNine.lean",
+      "bytes": 4173,
+      "sha256": "2dcddf4c4ce871ec6b7a1bdea4645e9c6f3648b597befa7a4f40c7a849094871",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/SliceFromNine.compile.txt",
+        "bytes": 305,
+        "sha256": "e84dcdaf7fba4a4ef171d1691de5348f207082f82e3249f0d5f8e0f765082617",
+        "error_lines": [],
+        "warning_count": 1
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-slice-from-nine.txt",
+          "sha256": "12f6b563591e5810f7b88d530bcddf49673c916320c119c8b724a80207fb9a12"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "SliceProfiles": {
+      "source": "lemmas/SliceProfiles.lean",
+      "bytes": 15321,
+      "sha256": "e8e2182d04ca6c8ca030e240b4883d65cb38b7f84c3965894a3bfa835f994da8",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/SliceProfiles.compile.txt",
+        "bytes": 770,
+        "sha256": "7f29eb0e973396738b306af64df5311d945a1b7f609849b97794a1bf691cae0d",
+        "error_lines": [],
+        "warning_count": 3
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-slice-profiles.txt",
+          "sha256": "7da50e5191e21aa0d1f9fee802c72602a206dca16c4e337ff728053e20334d01"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "State4Copy14": {
+      "source": "lemmas/State4Copy14.lean",
+      "bytes": 6713,
+      "sha256": "fd39b89f43366d11c19cf085027a3fed69c8746187953d319bfc8b5717e40e61",
+      "imports": [
+        "SliceProfiles",
+        "RunPoolCut"
+      ],
+      "local_dependencies": [
+        "SliceProfiles",
+        "RunPoolCut"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/State4Copy14.compile.txt",
+        "bytes": 44,
+        "sha256": "fb07171abc686e9c8c6ffe7e1207ea42f2f98f5d8bb559339970bd7d2c0f5291",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-state4-copy14.txt",
+          "sha256": "fd017170d8855b74addd584edbe4a00b5398db598bcd00f47799a405de64a676"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "State4ReadOnceForest": {
+      "source": "lemmas/State4ReadOnceForest.lean",
+      "bytes": 13977,
+      "sha256": "776cd1f2bafd8dcd9bf3e1050d1ed76f654492a906d8912db7da684abbaf8572",
+      "imports": [
+        "State4Copy14"
+      ],
+      "local_dependencies": [
+        "State4Copy14"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/State4ReadOnceForest.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-state4-readonce-forest.txt",
+          "sha256": "f945cebaf41ba02ffbb91d80dc1960e258c5a5acd1903d6bbbab73e7a7285688"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "SuccessorChecker": {
+      "source": "lemmas/SuccessorChecker.lean",
+      "bytes": 3818,
+      "sha256": "8dfa045440873ed1931c1672b8f712d4aacdebc834317502ffec2b292a210097",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/SuccessorChecker.compile.txt",
+        "bytes": 23,
+        "sha256": "b023b04dceeac6b9c6e5f433584bb31b0dc9912f6cb4a694266cb348fa7f3191",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-successor-checker.txt",
+          "sha256": "825814830f61beea76efb24d518ec69d5e697abd5121399e8cb6b6e2ca76e547"
+        },
+        {
+          "path": "review-successor-cofactor-math.txt",
+          "sha256": "f5c4ae2da4557af48d4dae48ea906679a4e5b7e0ad7eb1c81611720f3c67ad04"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "TargetPartial135": {
+      "source": "lemmas/TargetPartial135.lean",
+      "bytes": 4688,
+      "sha256": "035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1",
+      "imports": [
+        "Mathlib",
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/TargetPartial135.compile.txt",
+        "bytes": 58263,
+        "sha256": "0ac9b8bfac1e621707d84610d1fbf4137a5cfd6ce9565defd7eea14f3261c77a",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-target-trim.txt",
+          "sha256": "a629466b023b0da60d78fc6d0358fa1eb71c18c72bdcd83315c85cfbb741dcb6"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "WidthPrototype": {
+      "source": "lemmas/WidthPrototype.lean",
+      "bytes": 39758,
+      "sha256": "ed18ec77987d3c9ef05208110e773fc20f604a0a1e40cf98d605248575979912",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "local_dependencies": [],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/WidthPrototype.compile.txt",
+        "bytes": 4344,
+        "sha256": "224b528e40d7685ac87ff8cf540ab819bec7344b545ef2d05f84154573062f44",
+        "error_lines": [],
+        "warning_count": 14
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-width-prototype.txt",
+          "sha256": "b9220836cea4b1fb5a2c700f805364bc7654e9fd1b2cd8240f74c42853868f57"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "WidthSpecialization": {
+      "source": "lemmas/WidthSpecialization.lean",
+      "bytes": 2796,
+      "sha256": "3d2b39719cf0f8f6a4f39deecaf9629ab2c3635624d73906d207a8e736f13400",
+      "imports": [
+        "PetersenSeventeenFull",
+        "WidthPrototype"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull",
+        "WidthPrototype"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/WidthSpecialization.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-width-specialization.txt",
+          "sha256": "4511c64acc7e80135413a3b413baf05d665315e989aa45041d261f3a0f025964"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "WordCompression126663": {
+      "source": "lemmas/WordCompression126663.lean",
+      "bytes": 5381,
+      "sha256": "be8649f1d56ba27b393da2f414cc5014bb6f447df4414d0481b0bcef8bf7d15f",
+      "imports": [
+        "Expansion126663Conditional"
+      ],
+      "local_dependencies": [
+        "Expansion126663Conditional"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/WordCompression126663.compile.txt",
+        "bytes": 23,
+        "sha256": "b023b04dceeac6b9c6e5f433584bb31b0dc9912f6cb4a694266cb348fa7f3191",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-word-compression.txt",
+          "sha256": "c0859fbde4e9a0d8e82736cfa4582091de44ac64341160f69c46daaa1b530ac9"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    },
+    "ZeroProfiles": {
+      "source": "lemmas/ZeroProfiles.lean",
+      "bytes": 1909,
+      "sha256": "15800acb689c783a25f23791ce7fc7a499a4febba98e5a122f6204b0777a4ddc",
+      "imports": [
+        "PetersenSeventeenFull"
+      ],
+      "local_dependencies": [
+        "PetersenSeventeenFull"
+      ],
+      "selected_for_current_closure": true,
+      "status": "reviewed_component_with_preserved_compilation_log",
+      "compile_log": {
+        "path": "lemmas/ZeroProfiles.compile.txt",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "error_lines": [],
+        "warning_count": 0
+      },
+      "independent_review_exact_hash": [
+        {
+          "path": "review-zero-profiles.txt",
+          "sha256": "942bbfc17e14f0b170fc9888df3c19df6547018706255d4b710842cfb3b55ab9"
+        }
+      ],
+      "legacy_review_pinned_by_previous_manifest": null
+    }
+  },
+  "historical_target_exception": {
+    "GapBridge": {
+      "original_module": "PEqualNP.Outside.L_meta_2373",
+      "preserved_source": "PetersenSeventeenFull.lean",
+      "preserved_sha256": "67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721",
+      "preserved_lines": 7156,
+      "warning": "Use the historical frozen target prefix, not the current target containing GapBridge declarations."
+    }
+  },
+  "explicit_exclusions": {
+    "Live1024Terminal0Closure": "Obsolete, intentionally unpushed, global resource options; use Live1024Terminal0."
+  },
+  "later_additions_outside_this_census": [
+    "RectangleBank13338",
+    "RectangleBank13338Cut"
+  ],
+  "limitations": [
+    "No Lean build was rerun for this import-closure audit.",
+    "Compilation logs and immutable independent reviews are evidence of the original checks; no-error logs alone do not encode process exit status.",
+    "NamesCompressed compiler exit0 was confirmed by its build owner for session54243; its immutable source/full log match the archived build and a newer .olean exists.",
+    "The exact posted L-meta-2373 theorem remains unproved. Conditional lemmas, draft-named infrastructure, finite substate exclusions, and formula cases remain components only.",
+    "Scratch work and files introduced after this fixed census are not certified or promised by this manifest.",
+    "GapBridge needs its historical PetersenSeventeenFull target context, as documented in the unchanged REBUILD.md."
+  ]
+}
