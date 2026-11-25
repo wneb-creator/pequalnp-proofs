@@ -1,0 +1,14 @@
+# Timeline
+
+- 2026-11-25 18:55:58 UTC: task started.
+- 2026-11-25 18:58:02 UTC: L-meta-10760 lease acquired.
+- 2026-11-25 18:58 UTC: structural, finite-search, and library routes started.
+- 2026-11-25 18:59:38 UTC: lease renewed, expiry19:19:38 UTC.
+- 2026-11-25 19:00 UTC:14gate partial witness written; independent exhaustive review passed.
+- 2026-11-25 19:02 UTC: no isomorphic existing theorem; cache setup ongoing.
+- 2026-11-25 19:03:42 UTC: first named-file Lean build started; dependencies cached.
+- 2026-11-25 19:04 UTC: simple restriction approach capped below target; certificate port inconsistency found by independent upper bounds.
+-2026-11-25 19:04:38 UTC: timer renewed lease; expiry19:24:38 UTC.
+-2026-11-25 19:05 UTC: self-collision bug fixed; restriction bounds restarted. LRAT helper assembly ready pending initial build.
+-2026-11-25 19:07 UTC: redundant solver jobs stopped to prioritize first Lean build under constrained CPU.
+-2026-11-25 19:07:55 UTC: named-file build passed;14gate upper bound Lean-checked.

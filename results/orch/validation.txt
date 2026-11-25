@@ -1,0 +1,10 @@
+L-meta-10760 PARTIAL RESULT ONLY
+File: lean/PEqualNP/Outside/L_meta_10760.lean
+Verified14-gate AND/OR upper bound, all128 assignments. Full replacement theorem not yet proved.
+Build: lake build PEqualNP.Outside.L_meta_10760
+Build completed successfully(5149 jobs), exit0.
+Checker: not run on partial; target theorem absent.
+Independent review: repo_review PASS for partial preservation.
+Line count before cleanup:28. After:28. Cleanup deferred until full proof.
+Sub-agents:6 (repository/LRAT review, structural reuse, finite search, Lean setup, certificate search, gate elimination)
+TIMING total=12.3 subagents=6
