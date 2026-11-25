@@ -22,3 +22,9 @@ Mathlib source modules built during this successful run: 0.
 Local reduction checker: pending.
 Independent red-team review: PASS, SHA256 9c23581614a91da87096edd357ef6719c6a094a36d73fdd3574f92276748febe.
 Timestamp: 2026-11-24T23:30:57.686596+00:00
+
+Timestamp: 2026-11-25T00:09:31.173471+00:00
+Four complete local-checker attempts ended with environment faults before a verdict.
+Attempts 2, 3, and 4: verifier exit 137 (container memory limit).
+Fourth attempt used supported mimalloc purge settings; checker and proof inputs were unchanged.
+Reduction remains compiled but not accepted by the local checker.
