@@ -1,0 +1,26 @@
+{
+  "status": "COMPILED; frozen for independent review",
+  "exit_code": 0,
+  "sha256": "9d3e3a7b928e308cfc723d9ce1a58204f4107f6f858d0697bb67dcb40b810da7",
+  "lines": 10091,
+  "log": "PlaneResidualCounting.build.log",
+  "log_bytes": 22128,
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "scope": "Necessary conditions for exact-plane IsLeastAO TopForm size\u226463: P+1\u22642U;4P+4\u22645U;some centreless/junk/mixing gate active on\u22652 residualedges;P4\u21d2U\u22654;P4/U4\u21d2size63,mincover12,12centreful tops. Public normalization is available in copied checked prefix. Does not exclude penalty4 or prove fullL650 false.",
+  "copied_prefixes": [
+    "NormalizedPenaltyFour",
+    "ResidualCoverCounting",
+    "acceptedL_meta_6240(import lines removed)"
+  ],
+  "format_scan": {
+    "sorry": false,
+    "native_decide": false,
+    "_root_": false,
+    "\"": false,
+    "axiom ": false
+  },
+  "completed_utc": "2026-11-25T07:14:31.907745+00:00"
+}
