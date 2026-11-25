@@ -57,3 +57,7 @@
 - 2026-11-25 20:31 UTC: Same18 concrete leaf cases checked individually in28.0s kernel, versus35.8s in one6k batch (22% less time); peak4,189,504KiB. Root independently reviewed exact membership cases and closed kernel calls; preserving source/log. Final small-batch/two-worker layout selected pending whole-file measurement.
 
 - 2026-11-25T20:38:47.693516+00:00: Desk beat returnedHTTP410 despite last recorded valid expiry20:51:05.980UTC. Repeated exactcurl-si request confirmed410 and message no such live lease. Following user410 rule: stop timer, preserve frozen6037-line522784-byte candidate and all checked components, push before re-request. Full named-file build and final checker have NOT run.
+
+- 2026-11-25 20:39:35 UTC: recovery desk assigned L-meta-3566, new sole lease. Six existing agents redirected to different strategies.
+- 2026-11-25 20:42:18 UTC: new lease renewed, expiry21:02:18 UTC; five-minute timer restarted.
+- 2026-11-25 20:46 UTC: graph-only deletion/minimum-cover partial passedLean; independentred-teamreviewPASS.

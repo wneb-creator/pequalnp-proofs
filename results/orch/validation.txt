@@ -27,3 +27,6 @@ Continuation cut/patch glue and normalized initial-state identities passed Lean.
 As of2026-11-25 19:58UTC: generic continuation cuts and restoration checked; unarycoverage andall54unaryleaves checked; worstbinaryleaf(4061states) checked; lower13t0cut/all21leaves andt1..12checked under6000MB. Fullgapstillpending binarybatches, sourceassembly, ordinarylakebuild andlocalchecker. Everycheckedcomponent ispreserved withcompletecompilerlogs.
 
 410 PRESERVATION CHECKPOINT: frozen named source6037lines522784bytes SHA25650f667bdf48813034b7ded2cc431705ba63b5a488a6da81ff1054e2ad134d5b4. Static independent review PASS TO PRESERVE. Combined build NOT RUN; checker NOT RUN; all3199 concrete cases NOT yet checked. Many components and exact final interfaces passed, as recorded above and in logs. This is NOT a completed proof submission.
+
+L-meta-3566 PARTIAL: GraphPeel3566.lean passed Lean exit0. Namedfile now contains these checkedgraphlemmas only; fullpostedtheorem absent, localchecker notrun. Old10760 frozen source moved underresults aswithdrawn artifact.
+Independent red-team review repo_review: PASS for GraphPeel partial preservation;124lines5421bytes, SHA2566e30a166a6f32fa423692bca6ea4e29e490b1a52c3f595055815470017720c8f. No fulltheorem claimed.
