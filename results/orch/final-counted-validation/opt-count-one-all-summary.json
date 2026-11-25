@@ -1,8 +1,0 @@
-{
-  "cases": 24,
-  "all_true": true,
-  "total_cpu_seconds": 44.742399999999996,
-  "total_native_ms": 44636,
-  "max_cpu_seconds": 6.011429,
-  "baseline_all_counts_final_ms": 132808
-}
