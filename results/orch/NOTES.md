@@ -47,3 +47,29 @@ Searched final theorem statements across all current L_meta files. No full Peter
 2026-11-25T16:50:55.957457+00:00 Normalization strategy: normalization.lean COMPILED exit 0 with no diagnostics (687 lines). Exact helpers relabel and normalize preserve/nonincrease full circuit size; canonical_reduction now derives entire posted L-meta-1884 statement from the canonical 11-wire free-NOT lower bound alone. Original checked components L_meta_2594/L_meta_2596 are inlined, no Outside imports. Root notified immediately for push-early.
 
 2026-11-25T16:52:37.123269+00:00 Structural omission and unary-classification helpers COMPILED (exit0). Logs scratch/structural/lean.stdout and lean.stderr; two deprecation warnings only. Compiled immutable copy at scratch/structural/structural-compiled.lean.
+
+## 2026-11-25T16:53:34.011492+00:00 checked Boolean context movement
+
+results/orch/lemmas/combinatorial.lean compiles with Lean4.36.0, exit0, complete stdout/stderr empty at combinatorial/build-03.stdout and .stderr in scratch. It proves K(a OR b)=K(a) OR b whenever b=true forces original outputtrue, and the dual AND identity when b=false forces original outputfalse. K may contain arbitrary negation: no monotonicity assumption. A circuit transformation would replace a certifying first OR by a wire and append the same OR at output, preserving gate count; wiring/index-preservation remains to be implemented elsewhere. Exact RHS Bool operations are parenthesized.
+
+2026-11-25T16:54:07.929892+00:00 finite source-clamping normalization COMPILED with lake env lean, exit0, clean output. File results/orch/lemmas/finite_certificate.lean. Caps29 are correct:11input+18gatewires haveindices0..28, so29remainsfalse.
+
+2026-11-25T16:54:48.822812+00:00 Structural 132-line revision including target_separation compiled cleanly (exit0, empty stdout/stderr), SHA256 6afed0e604d5b82dd7ee18be173a3f705708b0a197d8c36c8fa988c64a45298f. Immutable copy scratch/structural/structural-002-compiled.lean.
+
+2026-11-25T16:55:26.059702+00:00 finite-certificate output_internal compiled cleanly (interval-2 logs): for anytarget withtwoassignments agreeingatqand0 but differingtargetvalue, acomputingcircuitoutputmust beacomputedgatewire11≤output<11+size. Combinedsource nowinresults/orch/lemmas/finite_certificate.lean; sourcefrozenforrootpreservation.
+
+## 2026-11-25T16:56:35.343539+00:00 existing_lemmas
+UnaryBridge simulation compiled successfully (bridge-check-002 exit0). First full-file pass validated transplanted 3193-line binary-bound proof and found only three bridge errors, now fixed. Full recomposition compile-003 is running. Binary lower bound uses6 distinct branching wires and incidence counting; NOT costs cancel, so reweighting the existing BFS does not yield19total. Candidate refinement is excess-fanout multiplicity, especially exact15binary/3NOT case, where normalized branch incidence must be tight.
+
+2026-11-25T16:57:04.584123+00:00 Structural generic wire-alias deletion evaluator compiled cleanly; results/orch/lemmas/structural_move.lean SHA256 be5a890e01f5d73146cb50382018fbc426103979c257f53f6a05e9655efab6d8. Full certifying-OR move construction is the next step.
+
+## 2026-11-25T16:59:04.620618+00:00 existing_lemmas CHECKED PARTIAL
+Full library_route.lean compiled with Lean exit0. `UnaryBridge.at_least_four_nots_fail` excludes every circuit with ≥4 NOT gates under the leased input format; `at_most_three_nots` proves the complementary necessary condition. Complete outputs are scratch library_route/compile-003.stdout and .stderr; warnings only. Source 3371 lines, 152620 bytes. Ready for root to merge and push.
+
+2026-11-25T16:59:38.468103+00:00 Full certifying-OR circuit move COMPILED: results/orch/lemmas/structural_move_full.lean SHA256 79baa41391e4e762710c85ffb4e4c1f46ef4f363035380d687988c649ae78c82. Removes OR(a,b), redirects its output to a, appends OR b; same number of gates and FanInTwo, exact evaluation for fixed arity when b=true forces original outputtrue. Includes arbitrary downstream NOT/forward/default semantics.
+
+## 2026-11-25T17:01:11.689522+00:00 finite-certificate replan
+
+The600-second global search withatmost3NOT gates, adjacent independent-gate lex order, no deadgates, and Petersen automorphisms fixingvertex0 finished UNKNOWN on42rows (3060variables,145140clauses). This is not an UNSAT result. Source/outputnormalization is compiled and independently reviewed; a small kernel certificate for thefull search appears unlikely, so prioritize mathematical structure. A120-second phase-seeded run fromthe13-error18-gate approximation is the remaining short experiment.
+
+2026-11-25T17:01:33.659295+00:00 ROOT REPLAN: normalization/finite-source/pivotal stages checked;≥4internalNOT case checked. Deprioritize unrestricted SAT after120s/180s/600s UNKNOWN. Continue exact3NOT tight-incidence classification, zeroNOT minterm/first-gate simplification, generic certified gate movement, and ABC/local synthesis. Full theorem still absent.

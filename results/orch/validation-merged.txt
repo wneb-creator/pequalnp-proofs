@@ -1,0 +1,9 @@
+L-meta-1884 consolidated checked partial
+UTC: 2026-11-25T17:01:33.659295+00:00
+Command: lake build PEqualNP.Outside.L_meta_1884
+Exit status: 0
+Source SHA256: 485b8cce5b78388571eb90ff48f6b5bac8eaa396cf2dc32c037d43be789a722a
+Complete output: build-002.stdout and build-002.stderr
+Independent review: status_review; merged components preserved modulo namespace consolidation. The final posted theorem is absent and the full gap remains unproved.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=24 subagents=6

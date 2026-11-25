@@ -21,3 +21,18 @@
 
 2026-11-25T16:52:29.131006+00:00 Normalization partial pushed at 5110e3add996bb021ba024a21f0bd0791f277aeb. Named pivotal helper lake build completed exit0.
 2026-11-25T16:52:37.123269+00:00 Structural omitted-coordinate partial compiled successfully.
+2026-11-25T16:53:34.011492+00:00 Boolean context movement lemmas compiled; notified root for independent review and early push.
+
+2026-11-25T16:54:07.929892+00:00 finite certificate: source-clamping lemma compiled successfully.
+
+2026-11-25T16:55:26.059702+00:00 finite certificate: output-range normalization compiled successfully.
+2026-11-25T16:56:35.343539+00:00 existing_lemmas: UnaryBridge checked; full≥4-NOT exclusion recompiling.
+
+2026-11-25T16:56:56.832334+00:00 Lease renewed; expiry 2026-11-25T17:16:56.850Z.
+2026-11-25T16:57:04.584123+00:00 Generic gate-removal wire-alias semantics compiled.
+2026-11-25T16:59:04.620618+00:00 existing_lemmas: full≥4-NOT exclusion checked (Lean exit0), sent to root for immediate push.
+2026-11-25T16:59:38.468103+00:00 Full same-size certifying-OR move compiled.
+
+2026-11-25T17:01:11.689522+00:00 finite certificate: long600s SAT run UNKNOWN; unrestricted certificate route deprioritized.
+
+2026-11-25T17:01:33.659295+00:00 Root first replan after checked partials; next review in20–30min.

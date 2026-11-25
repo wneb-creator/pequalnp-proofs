@@ -1,0 +1,27 @@
+[
+  {
+    "source": "lean/PEqualNP/Outside/L_meta_1884.lean",
+    "sha256": "675913356ca600f624696266ed4d48bc549088e03842d50193f1ebad1f8af2e2",
+    "lines": 44
+  },
+  {
+    "source": "results/orch/lemmas/normalization.lean",
+    "sha256": "76f10164f102d74ad8dfee3bc35de08002461356714ad6dc4f86a1134b305fb0",
+    "lines": 687
+  },
+  {
+    "source": "results/orch/lemmas/combinatorial.lean",
+    "sha256": "2d3a6552608b1c26e7302938ef9891892b3a62f77b5bb3674fff465361464ecd",
+    "lines": 19
+  },
+  {
+    "source": "results/orch/lemmas/structural.lean",
+    "sha256": "6afed0e604d5b82dd7ee18be173a3f705708b0a197d8c36c8fa988c64a45298f",
+    "lines": 132
+  },
+  {
+    "source": "results/orch/lemmas/finite_certificate.lean",
+    "sha256": "e33b19f062e61077863d5501a09255b1f60b07530950da2b0a78d0ab9a75ec02",
+    "lines": 146
+  }
+]
