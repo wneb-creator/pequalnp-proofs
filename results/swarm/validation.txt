@@ -1,0 +1,22 @@
+Gap: L-meta-2590
+Branch: pnp/swarm-L-meta-2590-orch
+Status at 2026-11-25T22:21:00Z: partial research; full posted theorem not proved or refuted.
+
+Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
+also passed independent source and standard-axiom review. DeskDriver's new
+normalization/lifting source passed independent exact-statement and axiom
+review: propext, Classical.choice, and Quot.sound only. Its case-exclusion
+hypothesis remains explicit. No checker acceptance is claimed.
+
+Latest independently rebuilt helper snapshots:
+helper-1 72b88053; helper-9 5eb83c6b; helper-6 0f38695c;
+helper-5 44e9fb06; helper-7 574c28ae.
+The newer full extendable-i3 case f703ef1f is being rebuilt independently.
+
+Two exact-19-gate searches (6 or 7 AND gates) each finished UNKNOWN after their
+2100-second limits at 2026-11-25T22:20:36Z. They provide no SAT or UNSAT result.
+The exploratory C6 free-pair model has independently checked positive controls;
+no computational or kernel lower-bound result is claimed for it.
+
+Sub-agents: nine external helper jobs (helper-1 through helper-9), plus two local setup/review and assembly-review agents; 11 directly coordinated agents.
+TIMING total=73 subagents=11

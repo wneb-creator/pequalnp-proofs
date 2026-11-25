@@ -25,7 +25,7 @@ All timestamps UTC.
 - 2026-11-25T21:35:00Z: Independently compiled helper-8 boundary/trace and helper-9 causal lemmas from their pushed commits; both passed with empty diagnostics.
 - 2026-11-25T21:38:17+00:00: Root five-case independent-set orbit normalization and conditional DagTools carrier obstruction compiled; independent review and axiom audits passed (propext, Classical.choice, Quot.sound only). Full gap remains open.
 
-Sub-agents: nine external helper jobs (helper-1 through helper-9), plus one local setup and review agent. Directly coordinated count: 10.
+Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local setup/review and assembly-review agents. Directly coordinated count: 11 (the second local agent joined after the earlier count of 10).
 
 - 2026-11-25T21:45:38+00:00: Third partial push confirmed at e1cee1b1f; independent review and kernel checks passed for orbit and carrier helpers.
 - 2026-11-25T21:45:38+00:00: Exact semantic trace compression independently reviewed and compiled; it preserves outputs and proves an exact deletion-count identity. Still no full gap proof.
@@ -33,3 +33,13 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus one loca
 - 2026-11-25T21:50:33+00:00: Second re-plan retained all full-proof routes; root added and independently reviewed a linear-wire/AND-closure obstruction for the seven-row residual problem. Kernel and standard-axiom checks passed. Full gap remains open.
 
 - 2026-11-25T22:03:23+00:00: Confirmed partial push 27a5e33c6 (commit 21:50:33Z). Root generalized zero-row gate counting, allowed exact copies in the linear barrier, and generalized the one-mixing-OR condition without a junk-count bound. All three helper sources passed independent kernel, axiom, and source review. No full gap theorem yet.
+
+- 2026-11-25T22:07:06+00:00: Added a second local agent for independent final-source dependency and assembly review. Directly coordinated team now has 11 agents (nine external and two local); full proof remains in progress.
+
+- 2026-11-25T22:03:23Z: Partial push 17d8e469 confirmed: generalized zero-row flow, exact-copy linear barrier, and one-mixing condition. These are conditional helper results.
+- 2026-11-25T22:09:07Z: Third re-plan assigned precise remaining full-proof cases and shared bridges; no reduction route assigned. Lease renewed.
+- 2026-11-25T22:14:22Z: Independent complete-source builds passed for helper-1 72b88053, helper-9 5eb83c6b, helper-6 0f38695c, helper-5 44e9fb06, and helper-7 574c28ae. These snapshots contain partial lemmas, not the full gap theorem.
+- 2026-11-25T22:18:34Z: Helper-5 pushed f703ef1f, closing the extendable three-ineligible orbit. Its source interface has been independently reviewed; root's full rebuild is in progress. The neighborhood orbit remains open.
+- 2026-11-25T22:19:02Z: Root DeskDriver normalization and five-case lifting source passed Lean with empty diagnostics. It covers the exact posted circuit semantics, but assumes the still-unfinished case exclusions.
+- 2026-11-25T22:21:00Z: Independent DeskDriver review, exact posted-statement bridge, and compiled axiom inspection passed. Dependencies are only propext, Classical.choice, and Quot.sound. The five-case exclusion family remains an explicit hypothesis.
+- 2026-11-25T22:20:36Z: Both independent exact-19-gate searches (six and seven AND gates) reached their 2100-second limits with UNKNOWN. Full CNFs, diagnostics, and lossless proof prefixes are preserved in scratch; no lower bound follows from these searches.
