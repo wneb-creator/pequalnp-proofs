@@ -2178,3 +2178,398 @@ lemma replace_rectangle_family {n k : ℕ} (hk : 0 < k)
     simpa only [hgate] using ht
 
 end PEqualNP.Outside.L_meta_3566.RectangleCircuit
+
+
+
+namespace PEqualNP.Outside.L_meta_3566.PureFunctionFamily
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+
+def family {n k : ℕ} (L R : Fin k → (Fin n → Bool) → Bool) (x : Fin n → Bool) : Bool :=
+  decide (∀ i, L i x = true ∧ R i x = true)
+
+def maskTrue {n : ℕ} (s x : Fin n → Bool) : Fin n → Bool :=
+  fun v => if s v = true then x v else false
+
+lemma graph_true {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) : graphFun G ∅ x = true ↔
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true := by
+  simp [graphFun]
+
+lemma true_of_le {a b : Bool} (h : a ≤ b) (ha : a = true) : b = true := by
+  exact Bool.le_iff_imp.mp h ha
+
+lemma existing_filter {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (L R : Fin k → (Fin n → Bool) → Bool)
+    (hLmono : ∀ i, Monotone (L i)) (hRmono : ∀ i, Monotone (R i))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (hbelow : ∀ x, family L R x = true → graphFun G ∅ x = true)
+    (u : Fin n) (hucol : s u = false)
+    (hLu : ∀ i, L i (pairInput u u) = true) :
+    ∃ i, ∀ x, x u && R i x = true → graphFun G ∅ x = true := by
+  classical
+  by_contra hnone
+  push Not at hnone
+  choose X hX hbad using hnone
+  have hX' : ∀ i, X i u = true ∧ R i (X i) = true := by
+    intro i
+    simpa using hX i
+  have hXu : ∀ i, X i u = true := fun i => (hX' i).1
+  have hXR : ∀ i, R i (X i) = true := fun i => (hX' i).2
+  let x : Fin n → Bool := fun v => decide (v = u ∨ ∃ i, s v = true ∧ X i v = true)
+  have hxu : x u = true := by simp [x]
+  have hsingle : pairInput u u ≤ x := by
+    intro v
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    have hvu : v = u := by simpa [pairInput] using hv
+    subst v
+    exact hxu
+  have hmask : ∀ i, maskTrue s (X i) ≤ x := by
+    intro i v
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    have hcolor : s v = true := by
+      by_contra hcolor
+      simp [maskTrue, hcolor] at hv
+    have hXv : X i v = true := by simpa [maskTrue, hcolor] using hv
+    change decide (v = u ∨ ∃ i, s v = true ∧ X i v = true) = true
+    exact decide_eq_true (Or.inr ⟨i, hcolor, hXv⟩)
+  have hfamily : family L R x = true := by
+    apply decide_eq_true
+    intro i
+    constructor
+    · exact true_of_le (hLmono i hsingle) (hLu i)
+    · apply true_of_le (hRmono i (hmask i))
+      rw [← hRpure i (X i)]
+      exact hXR i
+  obtain ⟨a, b, hab, ha, hb⟩ := (graph_true G x).mp (hbelow x hfamily)
+  have ha' : a = u ∨ ∃ i, s a = true ∧ X i a = true := by simpa [x] using ha
+  have hb' : b = u ∨ ∃ i, s b = true ∧ X i b = true := by simpa [x] using hb
+  rcases ha' with rfl | ⟨i, hacol, hai⟩ <;>
+    rcases hb' with rfl | ⟨j, hbcol, hbj⟩
+  · exact G.irrefl hab
+  · exact hbad j ((graph_true G (X j)).2 ⟨_, _, hab, hXu j, hbj⟩)
+  · exact hbad i ((graph_true G (X i)).2 ⟨_, _, hab, hai, hXu i⟩)
+  · exact (hbip a b hab) (hacol.trans hbcol.symm)
+
+
+lemma mask_pair {n : ℕ} (s : Fin n → Bool) (u v : Fin n)
+    (hu : s u = true) (hv : s v = false) :
+    maskTrue s (pairInput u v) = pairInput u u := by
+  funext w
+  by_cases hwu : w = u
+  · subst w
+    simp [maskTrue, pairInput, hu]
+  · by_cases hwv : w = v
+    · subst w
+      simp [maskTrue, pairInput, hv, hwu]
+    · simp [maskTrue, pairInput, hwu, hwv]
+
+lemma mask_pair_swap {n : ℕ} (s : Fin n → Bool) (u v : Fin n)
+    (hu : s u = false) (hv : s v = true) :
+    maskTrue s (pairInput u v) = pairInput v v := by
+  have hswap : pairInput u v = pairInput v u := by
+    funext w
+    simp [pairInput, or_comm]
+  rw [hswap]
+  exact mask_pair s v u hv hu
+
+lemma mask_single_false {n : ℕ} (s : Fin n → Bool) (u : Fin n)
+    (hu : s u = false) : maskTrue s (pairInput u u) = (fun _ => false) := by
+  funext w
+  by_cases hwu : w = u
+  · subst w
+    simp [maskTrue, hu]
+  · simp [maskTrue, pairInput, hwu]
+
+lemma singleton_color {n : ℕ} (s : Fin n → Bool) (f : (Fin n → Bool) → Bool)
+    (hpure : ∀ x, f x = f (maskTrue s x)) (hzero : f (fun _ => false) = false)
+    (u : Fin n) (hu : f (pairInput u u) = true) : s u = true := by
+  cases hs : s u with
+  | false =>
+    rw [hpure (pairInput u u), mask_single_false s u hs, hzero] at hu
+    cases hu
+  | true => rfl
+
+def commonSupport {n k : ℕ} (F : Fin k → (Fin n → Bool) → Bool) : Finset (Fin n) :=
+  Finset.univ.filter fun u => ∀ i, F i (pairInput u u) = true
+
+lemma family_pair_left_right {n k : ℕ} (s : Fin n → Bool)
+    (L R : Fin k → (Fin n → Bool) → Bool)
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (u v : Fin n) (hu : s u = false) (hv : s v = true) :
+    family L R (pairInput u v) = true ↔ u ∈ commonSupport L ∧ v ∈ commonSupport R := by
+  have hLu : ∀ i, L i (pairInput u v) = L i (pairInput u u) := by
+    intro i
+    rw [hLpure i (pairInput u v), mask_pair (fun w => !(s w)) u v (by simp [hu]) (by simp [hv])]
+  have hRv : ∀ i, R i (pairInput u v) = R i (pairInput v v) := by
+    intro i
+    rw [hRpure i (pairInput u v), mask_pair_swap s u v hu hv]
+  simp only [family, decide_eq_true_eq, commonSupport, Finset.mem_filter,
+    Finset.mem_univ, true_and, hLu, hRv]
+  exact forall_and
+
+lemma accepted_pair_common {n k : ℕ} (G : SimpleGraph (Fin n))
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (L R : Fin k → (Fin n → Bool) → Bool)
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (u v : Fin n) (huv : G.Adj u v)
+    (hf : family L R (pairInput u v) = true) :
+    (u ∈ commonSupport L ∧ v ∈ commonSupport R) ∨
+      (v ∈ commonSupport L ∧ u ∈ commonSupport R) := by
+  cases hu : s u with
+  | false =>
+    have hv : s v = true := by
+      cases hv : s v with
+      | false => exact ((hbip u v huv) (hu.trans hv.symm)).elim
+      | true => rfl
+    exact Or.inl ((family_pair_left_right s L R hLpure hRpure u v hu hv).mp hf)
+  | true =>
+    have hv : s v = false := by
+      cases hv : s v with
+      | false => rfl
+      | true => exact ((hbip u v huv) (hu.trans hv.symm)).elim
+    have hswap : pairInput u v = pairInput v u := by
+      funext w
+      simp [pairInput, or_comm]
+    rw [hswap] at hf
+    exact Or.inr ((family_pair_left_right s L R hLpure hRpure v u hv hu).mp hf)
+
+lemma rectangle_small_side {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : PEqualNP.TopForm.NoFourCycle G) (I J : Finset (Fin n))
+    (hIJ : ∀ u ∈ I, ∀ v ∈ J, G.Adj u v) : I.card ≤ 1 ∨ J.card ≤ 1 := by
+  classical
+  by_cases hI : I.card ≤ 1
+  · exact Or.inl hI
+  have hIpos : I.Nonempty := Finset.card_pos.mp (by omega)
+  obtain ⟨a, ha⟩ := hIpos
+  obtain ⟨c, hc, hca⟩ := Finset.exists_mem_ne (by omega : 1 < I.card) a
+  have hsub : J ⊆ Finset.univ.filter fun v => G.Adj a v ∧ G.Adj c v := by
+    intro v hv
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ v, hIJ a ha v hv, hIJ c hc v hv⟩
+  exact Or.inr ((Finset.card_le_card hsub).trans (h4 a c hca.symm))
+
+lemma replacement_existing_side {n k : ℕ} (hk : 0 < k)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (h4 : PEqualNP.TopForm.NoFourCycle G)
+    (L R : Fin k → (Fin n → Bool) → Bool)
+    (hLmono : ∀ i, Monotone (L i)) (hRmono : ∀ i, Monotone (R i))
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (hLzero : ∀ i, L i (fun _ => false) = false)
+    (hRzero : ∀ i, R i (fun _ => false) = false)
+    (hbelow : ∀ x, family L R x = true → graphFun G ∅ x = true)
+    (haccept : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true) :
+    ∃ (u : Fin n) (i : Fin k) (f : (Fin n → Bool) → Bool),
+      (f = L i ∨ f = R i) ∧
+      (∀ x, x u && f x = true → graphFun G ∅ x = true) ∧
+      (∀ a b, G.Adj a b → family L R (pairInput a b) = true →
+        pairInput a b u && f (pairInput a b) = true) := by
+  classical
+  let i0 : Fin k := ⟨0, hk⟩
+  have hLeftColor : ∀ u ∈ commonSupport L, s u = false := by
+    intro u hu
+    have h := singleton_color (fun w => !(s w)) (L i0) (hLpure i0) (hLzero i0) u
+      ((Finset.mem_filter.mp hu).2 i0)
+    simpa using h
+  have hRightColor : ∀ v ∈ commonSupport R, s v = true := by
+    intro v hv
+    exact singleton_color s (R i0) (hRpure i0) (hRzero i0) v
+      ((Finset.mem_filter.mp hv).2 i0)
+  have hPair := accepted_pair_common G s hbip L R hLpure hRpure
+  obtain ⟨a, b, hab, habf⟩ := haccept
+  have hIJne : (commonSupport L).Nonempty ∧ (commonSupport R).Nonempty := by
+    rcases hPair a b hab habf with ⟨ha, hb⟩ | ⟨hb, ha⟩
+    · exact ⟨⟨a, ha⟩, ⟨b, hb⟩⟩
+    · exact ⟨⟨b, hb⟩, ⟨a, ha⟩⟩
+  have hIJ : ∀ u ∈ commonSupport L, ∀ v ∈ commonSupport R, G.Adj u v := by
+    intro u hu v hv
+    have hf := (family_pair_left_right s L R hLpure hRpure u v
+      (hLeftColor u hu) (hRightColor v hv)).2 ⟨hu, hv⟩
+    obtain ⟨p, q, hpq, hp, hq⟩ := (graph_true G _).mp (hbelow _ hf)
+    have hp' : p = u ∨ p = v := by simpa [pairInput] using hp
+    have hq' : q = u ∨ q = v := by simpa [pairInput] using hq
+    rcases hp' with rfl | rfl <;> rcases hq' with rfl | rfl
+    · exact (G.irrefl hpq).elim
+    · exact hpq
+    · exact hpq.symm
+    · exact (G.irrefl hpq).elim
+  rcases rectangle_small_side G h4 (commonSupport L) (commonSupport R) hIJ with hI | hJ
+  · obtain ⟨u, hu⟩ := Finset.card_eq_one.mp (le_antisymm hI (Finset.card_pos.mpr hIJne.1))
+    have huL : u ∈ commonSupport L := by rw [hu]; simp
+    obtain ⟨i, hi⟩ := existing_filter G s hbip L R hLmono hRmono hRpure hbelow u
+      (hLeftColor u huL) (Finset.mem_filter.mp huL).2
+    refine ⟨u, i, R i, Or.inr rfl, hi, ?_⟩
+    intro a b hab hf
+    have hR : R i (pairInput a b) = true := ((of_decide_eq_true hf) i).2
+    rcases hPair a b hab hf with ⟨ha, _⟩ | ⟨hb, _⟩
+    · have hau : a = u := by simpa [hu] using ha
+      subst a
+      simp [pairInput, hR]
+    · have hbu : b = u := by simpa [hu] using hb
+      subst b
+      simp [pairInput, hR]
+  · obtain ⟨v, hv⟩ := Finset.card_eq_one.mp (le_antisymm hJ (Finset.card_pos.mpr hIJne.2))
+    have hvR : v ∈ commonSupport R := by rw [hv]; simp
+    have hbip' : ∀ u v, G.Adj u v → (!(s u)) ≠ (!(s v)) := by
+      intro u v huv hnot
+      exact hbip u v huv (by simpa only [Bool.not_not] using congrArg Bool.not hnot)
+    have hLpure' : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x) := hLpure
+    have hbelow' : ∀ x, family R L x = true → graphFun G ∅ x = true := by
+      intro x hx
+      apply hbelow x
+      simpa only [family, decide_eq_true_eq, and_comm] using hx
+    obtain ⟨i, hi⟩ := existing_filter G (fun w => !(s w)) hbip' R L hRmono hLmono hLpure' hbelow' v
+      (by simp [hRightColor v hvR]) (Finset.mem_filter.mp hvR).2
+    refine ⟨v, i, L i, Or.inl rfl, hi, ?_⟩
+    intro a b hab hf
+    have hL : L i (pairInput a b) = true := ((of_decide_eq_true hf) i).1
+    rcases hPair a b hab hf with ⟨_, hb⟩ | ⟨_, ha⟩
+    · have hbv : b = v := by simpa [hv] using hb
+      subst b
+      simp [pairInput, hL]
+    · have hav : a = v := by simpa [hv] using ha
+      subst a
+      simp [pairInput, hL]
+
+end PEqualNP.Outside.L_meta_3566.PureFunctionFamily
+
+
+namespace PEqualNP.Outside.L_meta_3566.WireFacts
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm
+
+lemma step_zero (g : Gate) (hao : g.op = .and ∨ g.op = .or)
+    (h2 : g.inputs.length = 2) (a : List Bool)
+    (ha : ∀ w, a.getD w false = false) :
+    ∀ w, (Splice.stepWire a g).getD w false = false := by
+  obtain ⟨i, j, hij⟩ := List.length_eq_two.mp h2
+  have hval : g.op.eval (g.inputs.map fun w => a.getD w false) = false := by
+    rw [hij]
+    simp only [List.map_cons, List.map_nil, ha i, ha j]
+    rcases hao with hop | hop <;> simp [hop, GateOp.eval]
+  intro w
+  rcases lt_trichotomy w a.length with hw | hw | hw
+  · rw [Splice.stepWire_getD_lt a g w hw]
+    exact ha w
+  · rw [hw, Splice.stepWire_getD_len]
+    exact hval
+  · apply Splice.getD_ge_length
+    simp only [Splice.stepWire, List.length_append, List.length_singleton]
+    omega
+
+lemma foldl_zero (gs : List Gate)
+    (hao : ∀ g ∈ gs, g.op = .and ∨ g.op = .or)
+    (h2 : ∀ g ∈ gs, g.inputs.length = 2)
+    (a : List Bool) (ha : ∀ w, a.getD w false = false) :
+    ∀ w, (gs.foldl Splice.stepWire a).getD w false = false := by
+  induction gs generalizing a with
+  | nil => exact ha
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    exact ih (fun g hg => hao g (by simp [hg]))
+      (fun g hg => h2 g (by simp [hg])) (Splice.stepWire a g)
+      (step_zero g (hao g (by simp)) (h2 g (by simp)) a ha)
+
+lemma wire_zero {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (w : ℕ) :
+    (C.wires (List.ofFn (fun _ : Fin n => false))).getD w false = false := by
+  apply foldl_zero C.gates hAO.1 hAO.2.2
+  intro i
+  by_cases hi : i < n
+  · rw [List.getD_eq_getElem _ _ (by simpa using hi)]
+    simp
+  · exact Splice.getD_ge_length _ _ (by simpa using Nat.le_of_not_gt hi)
+
+lemma wire_monotone {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (w : ℕ) :
+    Monotone (fun x : Fin n → Bool => (C.wires (List.ofFn x)).getD w false) := by
+  change Monotone (circuitFun n {C with output := w})
+  exact Splice.circuitFun_monotone n {C with output := w} hAO.1
+
+end PEqualNP.Outside.L_meta_3566.WireFacts
+
+namespace PEqualNP.Outside.L_meta_3566.PureFunctionCircuit
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+def wireFun {n : ℕ} (C : Circuit) (w : ℕ) (x : Fin n → Bool) : Bool :=
+  (C.wires (List.ofFn x)).getD w false
+
+lemma replace_pure_family {n k : ℕ} (hk : 0 < k)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (j : ℕ) (hj : j < C.gates.length) (wL wR : Fin k → ℕ)
+    (hbackL : ∀ i, wL i < n + j) (hbackR : ∀ i, wR i < n + j)
+    (hLpure : ∀ i x, wireFun C (wL i) x =
+      wireFun C (wL i) (PureFunctionFamily.maskTrue (fun v => !(s v)) x))
+    (hRpure : ∀ i x, wireFun C (wR i) x =
+      wireFun C (wR i) (PureFunctionFamily.maskTrue s x))
+    (hjval : ∀ x : Fin n → Bool, wireFun C (n + j) x =
+      PureFunctionFamily.family (fun i => wireFun C (wL i)) (fun i => wireFun C (wR i)) x)
+    (hbelow : ∀ x, wireFun C (n + j) x = true → graphFun G ∅ x = true)
+    (haccept : ∃ a b, G.Adj a b ∧ wireFun C (n + j) (pairInput a b) = true) :
+    ∃ (u : Fin n) (i : Fin k) (w : ℕ),
+      (w = wL i ∨ w = wR i) ∧ w < n + j ∧
+      IsAO2 n (GateReplace.replace C j ⟨GateOp.and, [u.val, w]⟩) ∧
+      circuitFun n (GateReplace.replace C j ⟨GateOp.and, [u.val, w]⟩) = graphFun G ∅ ∧
+      (GateReplace.replace C j ⟨GateOp.and, [u.val, w]⟩).size = C.size := by
+  have hbelow' : ∀ x, PureFunctionFamily.family
+      (fun i => wireFun C (wL i)) (fun i => wireFun C (wR i)) x = true →
+        graphFun G ∅ x = true := by
+    intro x hx
+    exact hbelow x (by simpa only [hjval] using hx)
+  have haccept' : ∃ a b, G.Adj a b ∧ PureFunctionFamily.family
+      (fun i => wireFun C (wL i)) (fun i => wireFun C (wR i)) (pairInput a b) = true := by
+    simpa only [hjval] using haccept
+  obtain ⟨u, i, f, hside, hclean, hkeep⟩ :=
+    PureFunctionFamily.replacement_existing_side hk G s hbip h4
+      (fun i => wireFun C (wL i)) (fun i => wireFun C (wR i))
+      (fun i => WireFacts.wire_monotone C hAO (wL i))
+      (fun i => WireFacts.wire_monotone C hAO (wR i)) hLpure hRpure
+      (fun i => WireFacts.wire_zero C hAO (wL i))
+      (fun i => WireFacts.wire_zero C hAO (wR i)) hbelow' haccept'
+  have hw : ∃ w : ℕ, (w = wL i ∨ w = wR i) ∧ w < n + j ∧
+      wireFun (n := n) C w = f := by
+    rcases hside with rfl | rfl
+    · exact ⟨wL i, Or.inl rfl, hbackL i, rfl⟩
+    · exact ⟨wR i, Or.inr rfl, hbackR i, rfl⟩
+  obtain ⟨w, hwside, hwback, hwval⟩ := hw
+  refine ⟨u, i, w, hwside, hwback, ?_⟩
+  have hgate : ∀ x : Fin n → Bool,
+      GateOp.and.eval ([u.val, w].map fun t => (C.wires (List.ofFn x)).getD t false) =
+        (x u && f x) := by
+    intro x
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [RectangleCircuit.input_val]
+    change (x u && wireFun C w x) = (x u && f x)
+    rw [hwval]
+  apply GateReplace.correct_of_edge_cover G C hAO hfun j hj ⟨GateOp.and, [u.val, w]⟩
+    (Or.inl rfl) rfl
+  · intro t ht
+    simp at ht
+    rcases ht with rfl | rfl
+    · omega
+    · exact hwback
+  · intro a b hab ht
+    change wireFun C (n + j) (pairInput a b) = true at ht
+    rw [hjval] at ht
+    change GateOp.and.eval ([u.val, w].map fun t =>
+      (C.wires (List.ofFn (pairInput a b))).getD t false) = true
+    rw [hgate]
+    simpa using hkeep a b hab ht
+  · intro x ht
+    apply hclean x
+    change GateOp.and.eval ([u.val, w].map fun t =>
+      (C.wires (List.ofFn x)).getD t false) = true at ht
+    rw [hgate] at ht
+    simpa using ht
+
+end PEqualNP.Outside.L_meta_3566.PureFunctionCircuit
