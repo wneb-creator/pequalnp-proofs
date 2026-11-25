@@ -1,0 +1,31 @@
+{
+  "cpp_sha256": "8210b12fa20ec148bc4363ecd1314cfbf8dbb7fa92b046fd34f864e78ead759e",
+  "data_generator_sha256": "48a38c4e0d5473cf91b59eb6dd76e37823e2b733627fd451676c74d69c32401a",
+  "data_models": [
+    {
+      "model": "theta",
+      "inputs": 8,
+      "target_gate_budget": 11,
+      "decisive_rows": 18,
+      "maximal_independent_rows": 9,
+      "seeds_full_truth_verified": 128,
+      "assignments_per_seed": 256
+    },
+    {
+      "model": "fano",
+      "inputs": 14,
+      "target_gate_budget": 26,
+      "decisive_rows": 58,
+      "maximal_independent_rows": 37,
+      "seeds_full_truth_verified": 128,
+      "assignments_per_seed": 16384
+    }
+  ],
+  "text_serialization": "exactly matches JSON",
+  "positive_control": {
+    "gates": 12,
+    "all_truth_rows": 256,
+    "result": "PASS"
+  },
+  "scope": "Heuristic search only; failure to find zero loss gives no exclusion. Any candidate still requires independent full semantics and Lean."
+}

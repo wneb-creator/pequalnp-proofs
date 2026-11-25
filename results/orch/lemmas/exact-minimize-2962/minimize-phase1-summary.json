@@ -1,0 +1,12 @@
+{
+  "phase": 1,
+  "result": "No exact target circuit found",
+  "exit_code": 1,
+  "observed_complete_utc": "2026-11-25T07:56:07.675414+00:00",
+  "final_progress": "DONE seconds=900 theta_evaluations=2236744869 best=1 fano_evaluations=2236740000 best=1",
+  "evaluations_include_duplicates": true,
+  "exhaustive": false,
+  "source_sha256": "8210b12fa20ec148bc4363ecd1314cfbf8dbb7fa92b046fd34f864e78ead759e",
+  "data_sha256": "bb30d24b6a173155386cf098ec5c3d834f332b12b0046d53e9c17a5f71bae8cd",
+  "independent_review": "minimize-independent-review.json"
+}

@@ -1,0 +1,22 @@
+BEST theta loss=5 evaluations=1 seconds=0.000662852
+BEST theta loss=2 evaluations=3 seconds=0.00144533
+BEST theta loss=1 evaluations=20 seconds=0.00206098
+BEST fano loss=26 evaluations=1 seconds=0.0110821
+BEST fano loss=20 evaluations=8 seconds=0.0111501
+BEST fano loss=18 evaluations=35 seconds=0.0114945
+BEST fano loss=17 evaluations=22231 seconds=0.0195448
+BEST fano loss=15 evaluations=60001 seconds=0.0466971
+BEST fano loss=5 evaluations=60002 seconds=0.0469987
+BEST fano loss=4 evaluations=90004 seconds=0.0610802
+BEST fano loss=3 evaluations=90011 seconds=0.061382
+BEST fano loss=1 evaluations=90022 seconds=0.0615696
+PROGRESS seconds=30.0001 theta_evaluations=66330000 best=1 subtests=15548121 fullchecks=0 fano_evaluations=66330000 best=1 subtests=22356684 fullchecks=0
+PROGRESS seconds=60.0015 theta_evaluations=133500000 best=1 subtests=30922200 fullchecks=0 fano_evaluations=133470000 best=1 subtests=44598910 fullchecks=0
+PROGRESS seconds=90.0058 theta_evaluations=200640000 best=1 subtests=46709373 fullchecks=0 fano_evaluations=200640000 best=1 subtests=66587204 fullchecks=0
+PROGRESS seconds=120.011 theta_evaluations=267660000 best=1 subtests=62554956 fullchecks=0 fano_evaluations=267630000 best=1 subtests=89054064 fullchecks=0
+PROGRESS seconds=150.016 theta_evaluations=334200000 best=1 subtests=78398720 fullchecks=0 fano_evaluations=334200000 best=1 subtests=111157375 fullchecks=0
+PROGRESS seconds=180.017 theta_evaluations=401790000 best=1 subtests=94237380 fullchecks=0 fano_evaluations=401760000 best=1 subtests=133912126 fullchecks=0
+PROGRESS seconds=210.024 theta_evaluations=469080000 best=1 subtests=110888535 fullchecks=0 fano_evaluations=469080000 best=1 subtests=156205141 fullchecks=0
+PROGRESS seconds=240.025 theta_evaluations=536880000 best=1 subtests=127023233 fullchecks=0 fano_evaluations=536850000 best=1 subtests=178328263 fullchecks=0
+PROGRESS seconds=270.029 theta_evaluations=604560000 best=1 subtests=142986613 fullchecks=0 fano_evaluations=604560000 best=1 subtests=200447852 fullchecks=0
+DONE seconds=300 theta_evaluations=671904308 best=1 subtests=159023456 fullchecks=0 fano_evaluations=671880000 best=1 subtests=222575717 fullchecks=0

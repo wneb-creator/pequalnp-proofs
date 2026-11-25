@@ -31,8 +31,8 @@
   },
   {
     "path": "combinatorial-bound/exact-minimize-phase2.log",
-    "bytes": 625,
-    "sha256": "4430c5698c63755a69131738a8e01ac5bc03d92c113ee5641173541eddf1f7aa"
+    "bytes": 2185,
+    "sha256": "c5b9e34aff58fe1d5d55263bb0fe30a972aef2d98d676fdc9ea30f556d9a6b42"
   },
   {
     "path": "combinatorial-bound/exact-minimize.log",
@@ -133,6 +133,11 @@
     "path": "combinatorial-bound/minimize-phase1-summary.json",
     "bytes": 551,
     "sha256": "853272284bb8ab121595ea7898e39757bcf86d5907421edadcc71a288f090496"
+  },
+  {
+    "path": "combinatorial-bound/minimize-phase2-summary.json",
+    "bytes": 671,
+    "sha256": "4afa1044ca561c7f0acd3485fa9df89e7b10351ac9021fd33b45e0c78c9de8ab"
   },
   {
     "path": "combinatorial-bound/minimize-phase2/minimize-best-fano.json",

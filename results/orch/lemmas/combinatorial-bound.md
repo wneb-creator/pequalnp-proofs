@@ -128,3 +128,128 @@ circuits are not single-level. Threshold two is the edge function of a complete
 graph, which contains many four-cycles. This provides no C4-free counterexample.
 The page does not establish the current status of superlinear lower bounds for
 explicit C4-free quadratic graph functions; that status remains UNVERIFIED here.
+
+## Further phase: matching-to-AND injection
+
+The proposed Hall argument remains unproved. For each accepted edge of a maximum
+matching, one can consider all AND gates true on its pair input. A successful
+injection into these gates would give the desired AND bound. Merely choosing
+the first AND where both endpoints meet fails: the P4 filtering example in
+core-charging.md creates two matched edges at one AND and needs a later AND to
+remove a bad pair. Including later filters restores the necessary candidate
+gates in that example, but no general Hall inequality has been established.
+
+Looking only at independent transversals of the matching is insufficient. With
+matching edges a_i b_i, a cross edge a_i b_j imposes an implication on which
+endpoint is selected. A directed cycle of these implications can force all
+choices equal, leaving only the all-left and all-right transversals. Additional
+maximal independent sets that omit some matched pairs carry essential negative
+information. This is already visible for even cycles.
+
+Free-OR normalization offers a useful simplification. Factor common selected
+wires from each AND operand using (A OR C) AND (B OR C) = C OR (A AND B), and
+replace future uses accordingly. Processing gates topologically yields disjoint
+operand-factor sets without increasing AND count; absorbed gates may be padded
+unused. In this normalized model every AND generator rejects every singleton:
+earlier generators do by induction, and the raw input sets of the two operands
+are disjoint. This does not make intermediate generators below the graph
+function, and filtering bad pairs and larger independent sets remains necessary.
+
+A restricted linear-filter observation is sound. If g accepts an opposite-side
+nonedge pair u,v and g AND OR(R) is below fG, every r in R must be adjacent to u
+or v. Bipartition determines which endpoint. If R has at least two vertices of
+each color, C4-freeness makes the endpoints of every such bad pair unique. This
+explains why one shared linear filter cannot cheaply repair many unrelated
+rectangles. The argument does not extend as stated to same-side bad pairs or
+nonlinear filter operands.
+
+Finite search prioritization: an exact graph function computed with k AND gates
+has at most 2^k maximal false inputs, by choosing a false operand at each AND.
+Brute-force maximal-independent-set counts for C6,C8,C10,C12,C14 are respectively
+5,10,17,29,51 (cycle-mis-census.json). Thus counting alone forces AND counts
+3,4,5 for the first three cycles, but permits five ANDs for C12 despite its cover
+number six. C12 with five AND gates and free OR gates is a useful next auxiliary
+test, suggested to the counterexample agent. No such counterexample is claimed.
+
+An explicit pair-only impostor clarifies the missing Hall step. Index six
+matched pairs a_U,b_U by the two-element subsets U of {1,2,3,4}. Take six OR
+clauses: all a variables; all b variables; and, for each coordinate t, the a_U
+with t in U together with the b_U with t not in U. Their conjunction uses five
+AND gates. It accepts exactly the six matching edges among all pair inputs and
+rejects the two entire bipartition classes, yet accepts the independent triple
+a_{12},a_{34},b_{13}. The script pair_only_control.py verifies these assertions.
+It is not a counterexample because BelowF fails.
+
+The counterexample agent checked whether this same function could be below any
+C4-free bipartite completion of its matching, obtaining UNSAT. There is also a
+short combinatorial explanation: the three complementary pairs of code sets
+each dominate the opposite graph part, forcing every graph vertex to have
+degree at least three. Then the six right vertices contribute at least eighteen
+pairs of common left neighbors, exceeding the fifteen available pairs and
+forcing a four-cycle.
+
+The analogous seven-of-ten family of two-element subsets of five coordinates
+is also ruled out informally. Every graph nonneighbor set of a left code U must
+share a coordinate outside U; otherwise that one left input together with all
+its nonneighbors would satisfy the function. Each coordinate occurs at most
+four times, forcing minimum graph degree three on 7+7 vertices. C4-freeness
+then forces degree exactly three everywhere, so every U needs an outside
+coordinate whose full four-code star is present. There can be at most two such
+coordinates. With two, the seven codes are exactly their two stars, and their
+common two-element code has neither full-star coordinate outside it. With only
+one, any code containing that coordinate fails. This excludes the proposed
+six-AND CNF family, but does not exclude arbitrary nested six-AND circuits.
+
+## Direct exact-function minimization
+
+At approximately 2026-11-25 07:41 UTC, a 900-second, one-CPU C++ heuristic began
+searching for an 11-gate exact theta circuit and a 26-gate exact Fano circuit.
+These are direct function searches, with no core or read-once restriction.
+Each model has 128 randomized canonical minimum-cover circuits as seeds;
+removing one gate and redirecting its uses gives the target gate budget.
+
+Fitness compares all graph-edge inputs and all maximal-independent-set inputs,
+18 rows for theta and 58 for Fano, using 64-bit signatures. For valid AND/OR
+circuits, zero loss on these rows implies exact equality on every input.
+Mutations change operations, operands and output; interchange adjacent
+independent gates; or delete a gate and append another. Equal-signature merges
+and neutral mutations permit movement among equivalent candidates. Simulated
+annealing restarts alternate between the two graphs and use an elite pool.
+
+The positive control removes redundancy from a 13-gate theta seed, recovers a
+12-gate exact circuit, and passes an independent full 256-input truth check.
+This validates discovery and verification, not the existence of a shorter
+circuit. Candidate evaluation totals include duplicates and are not exhaustive
+coverage. Sources, complete progress log, best genotypes, and control records
+are saved under scratch/combinatorial-bound. Any zero-loss result must receive
+independent full-truth validation and a Lean proof before submission.
+
+The first heuristic phase completed its full 900 seconds with no candidate:
+theta 2,236,744,869 candidate evaluations and Fano 2,236,740,000, both best
+row loss one. Evaluations include repeated circuits. This is a search failure,
+not a lower-bound proof. Independent complete truth replay shows the saved
+bests compute exact subgraphs: theta has eight edges, cover four and eleven
+active gates; Fano has twenty edges, cover seven and twenty-six active gates.
+Both meet, but do not improve, their own canonical bound.
+
+A separately reviewed final 300-second phase additionally tests accepted-pair
+subgraphs H. A successful candidate must reject all original graph maximal
+independent sets, have active size strictly below |E(H)| + tau(H) - 1, and
+reject every H-independent assignment. Exact bipartite matching computes
+tau(H); complete truth checks close the higher-degree-term loophole. This
+criterion and pruning were independently reviewed, and matching was compared
+with exhaustive minimum vertex covers on all 512 theta subgraphs and 256
+Fano samples. Full sources, input data, controls, logs and review records are
+archived in results/orch/lemmas/exact-minimize-2962.
+
+The final 300-second phase completed normally without a candidate. Its exact
+completion line is:
+
+```text
+DONE seconds=300 theta_evaluations=671904308 best=1 subtests=159023456 fullchecks=0 fano_evaluations=671880000 best=1 subtests=222575717 fullchecks=0
+```
+
+No candidate passed the strict active-gate versus cover bound. The frozen
+archive includes both complete logs, summaries and a SHA-256 manifest. No
+further search was run. This does not establish either the general bound or
+the posted statement.

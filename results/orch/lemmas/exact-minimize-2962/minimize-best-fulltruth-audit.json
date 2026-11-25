@@ -1,0 +1,24 @@
+[
+  {
+    "model": "theta",
+    "decisive_loss": 1,
+    "wrong_decisive_inputs": [
+      5
+    ],
+    "full_truth_error_count": 5,
+    "full_false_positives": 0,
+    "full_false_negatives": 5,
+    "all_inputs": 256
+  },
+  {
+    "model": "fano",
+    "decisive_loss": 1,
+    "wrong_decisive_inputs": [
+      4160
+    ],
+    "full_truth_error_count": 47,
+    "full_false_positives": 0,
+    "full_false_negatives": 47,
+    "all_inputs": 16384
+  }
+]

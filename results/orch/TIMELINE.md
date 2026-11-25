@@ -18,7 +18,14 @@
 
 - 2026-11-25T07:21:38.714308+00:00: CyclicCore positive example compiled with scoped finite limits; independent review and standard-axiom audit passed. Full target remains unproved.
 
-- 2026-11-25T07:37:58.791440+00:00: read-vector semantic support compiled and independently reviewed. Environment reconnect preserved files and running searches but reset tool session handles; saved logs remain authoritative for their documented scope.
+- 2026-11-25T07:37:58.791440+00:00: read-vector semantic support compiled and independently reviewed. Environment reconnect preserved files and reset tool session handles. A later process-state check showed the old solver and renewal processes were zombies; affected searches are interrupted without verdict, not ongoing or completed.
 
 - 2026-11-25T07:44Z: Four further wrapper components compiled and passed independent review: append-vector equation, cone/maximality helpers, semantic absorption wrapper, and ReadTwiceAt. Full target remains unproved.
 - 2026-11-25T07:43:15Z: Restarted two exact Fano26 searches with persistent supervisors; reconnect-killed earlier runs are explicitly interrupted without verdict.
+
+- 2026-11-25T07:53Z: Checkpoint: counterexample synthesis and generic wrapper formalization strategies have finished without a full target result. WrapperCore, WrapperMaximal, WrapperDominance, and MatchingCoverCertificate compiled, passed independent review, and were pushed. Exact Fano SAT and exact-function heuristic strategies remain active. No proof accepted.
+
+- 2026-11-25T07:58:16Z: Both persistent exact Fano26 retries ended after 900 seconds with TIMEOUT_OR_UNKNOWN. Structural search strategy finished; all 65 runs accounted for and no solver remains.
+- 2026-11-25T08:00Z: First 900-second exact-function heuristic phase is complete without a candidate. The final 300-second subgraph variant is active; no further phases planned absent a verified witness.
+
+- 2026-11-25T08:03:59.625137+00:00: Final 300-second subgraph heuristic completed without a candidate. All search strategies stopped; no full proof or refutation, and no accepted result. Preparing final preservation and own-lease release.

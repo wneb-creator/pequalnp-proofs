@@ -1,0 +1,12 @@
+{
+  "phase": 2,
+  "result": "No exact target or strictly cheaper exact accepted-pair subgraph circuit found",
+  "exit_code": 1,
+  "observed_complete_utc": "2026-11-25T08:03:20.089402+00:00",
+  "final_progress": "DONE seconds=300 theta_evaluations=671904308 best=1 subtests=159023456 fullchecks=0 fano_evaluations=671880000 best=1 subtests=222575717 fullchecks=0",
+  "evaluations_include_duplicates": true,
+  "exhaustive": false,
+  "source_sha256": "031249bdf0aa7f0556a958dd99315bad7904e0dd64f9a2e11576a2feb000a5f3",
+  "data_sha256": "bb30d24b6a173155386cf098ec5c3d834f332b12b0046d53e9c17a5f71bae8cd",
+  "independent_review": "minimize-subgraph-independent-review.json"
+}

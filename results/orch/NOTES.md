@@ -18,3 +18,7 @@ The six-agent phase now separately tests shared maximal cores, an AND-budget mod
 ## Checkpoint 2026-11-25T07:46Z
 
 See REPORT.md for the current synthesis. Checked wrapper components have been pushed. The posted target remains unproved, and its row still lacks reduction eligibility. The reconnect preserved files but killed old solver/timer processes; those searches are interrupted with no verdict. The lease was renewed and its timer restarted; two Fano26 retries now use persistent status files.
+
+## Final research status 2026-11-25T08:03:59.625137+00:00
+
+All searches have stopped without a full proof or refutation. The checked partials and complete evidence are preserved; REPORT.md and validation.txt distinguish compilation from checker rejection. No reduction is eligible. Only the parent-held L-meta-2962 lease will be released after the final preservation push.

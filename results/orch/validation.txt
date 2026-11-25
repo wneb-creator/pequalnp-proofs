@@ -1,9 +1,19 @@
-Checkpoint only; no full proof or refutation of L-meta-2962.
-Named partial: lean/PEqualNP/Outside/L_meta_2962.lean, 856 lines, lake build passed.
+Research result: no full proof or refutation of L-meta-2962.
+Job: msg-9d45b31e1d52e8587cfb2214
+Named partial: lean/PEqualNP/Outside/L_meta_2962.lean, 856 lines, 37027 bytes.
+Build: lake build PEqualNP.Outside.L_meta_2962 passed; complete output in partial-build-output.txt.
 Checker: REJECTED (no-theorem); complete output in checker-partial-output.txt.
-Additional checked components and exact validation records are under results/orch/lemmas/.
-L-meta-2602 drafts remain UNVERIFIED; first renewal returned HTTP 410 despite advertised expiry.
-Three null assignment replies preceded L-meta-2962. Public desk outcomes are preserved in desk-history.txt; active lease identifiers remain in scratch.
-No proof cleanup pass yet: its full-proof/checker-pass prerequisites are unmet.
+The required theorem PEqualNP.Outside.L_meta_2962 is absent. No proof PR opened.
+Cleanup: skipped because full-proof/checker-pass prerequisites were unmet; named-file lines before/after 856/856.
+Final named-file format scan: no sorry/admit, new axiom, native_decide, forbidden root text, string literal, or nonsimp attribute.
+Additional checked standalone components, complete build logs and validation records are under results/orch/lemmas/.
+Independent red-team checks and standard-axiom audits passed for the preserved components; none proves the full target.
+All search phases stopped. Final Fano26 SAT runs: UNKNOWN after 900 seconds each.
+Exact-function heuristic: 900-second target phase and 300-second subgraph phase completed without a candidate; these are not exclusions.
+Reduction: ineligible because the authoritative gap row has no reductions flag (last checked 07:58 UTC).
+L-meta-1035 was not open. L-meta-2602 drafts remain UNVERIFIED; its first renewal returned HTTP 410 despite advertised expiry.
+Three null assignment replies preceded L-meta-2962; exact public desk outcomes are in desk-history.txt.
+Lease: L-meta-2962 still held pending final preservation push and release with reason=other.
+Branch: pnp/pilot-71; all pushes only to fork origin.
 Sub-agents: status_review, structural_proof, counterexample, lemma_search, single_core, combinatorial_bound
-TIMING total=115.0 subagents=6
+TIMING total=134.7 subagents=6

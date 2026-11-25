@@ -1,0 +1,9 @@
+{
+  "graph": "fano",
+  "pair_edges": 20,
+  "cover": 7,
+  "active_gates": 26,
+  "exact_pair_function": true,
+  "canonical_bound": 26,
+  "global_counterexample": false
+}
