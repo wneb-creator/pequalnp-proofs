@@ -21,3 +21,9 @@ Toolchain: /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin. Cache set
 - 2026-11-25T02:59:37.255070+00:00: reduction_design: focused route is face≥56 plus double-zero restriction removes≥9 gates. Exact small search supports matching/P4 cases and disproves the analogous claim for C4, so C4-free hypothesis is essential. No fourth reduction slot. Details in reduction-design.md.
 
 - 2026-11-25T02:59:42.487917+00:00 lemma_search: Clean.lean COMPILED exit0. counterexample_shape eliminates flat and all-cleanAND cases; remaining case must contain an uncleanAND gate. Root notified for early push.
+
+- Structural computation: plane has704maximalindependentsets and52minimaltrueedges, so monotone specification could be checked on756patterns. Maximalindependentsets recorded in job scratch structural-max-independent.json. This is a computed observation, not yet Leanchecked.
+
+- 2026-11-25T03:01:43.327129+00:00: Derivative path bridge CHECKED: derivative_true_iff_walk converts the posted recurrence into exact reachability through OR / singleton-guarded AND steps. Direct pair-input repeated-AND corollary is checked too. No global gate bound yet.
+
+- 2026-11-25T03:02:14.586488+00:00: Geometry.lean CHECKED (lake env lean exit0; empty complete log geometry-build-2.log). Degree4, common-neighbor uniqueness,52edges,45faceedges,face diagonal matching12 andfacevertexcover≥12 proved without newinstances. Root notified for preservation.

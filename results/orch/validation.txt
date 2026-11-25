@@ -1,9 +1,10 @@
-L-meta-2602 partial progress; not a completed proof and not ready for a proof PR.
+L-meta-2602 partial progress; original target remains unproved. No proof PR opened.
 Named file: lean/PEqualNP/Outside/L_meta_2602.lean
-SHA256: 082c3786f1d1aeb4c4b5c98648d1065ff912d9863ad8512b57ed2b6452d4181d
-Lines: 201. Cleanup: not yet applicable to a full proof.
+SHA256: f434ee3c83bcbe6d91b944885adde87da106b804395bbb78b31c372b6b84f32f
+Lines: 1768. Cleanup: not yet applicable to a full proof.
 Build: lake build PEqualNP.Outside.L_meta_2602 exited 0; Build completed successfully (5149 jobs).
-Checker: not run on this partial artifact; the posted target theorem is not yet declared.
-Independent red-team review: structural_proof PASS for the exact partial snapshot, with its incomplete status explicit.
+Partial results: formal derivative uniqueness and repeated-AND certificates; every counterexample has nested ANDs and an unclean AND gate.
+Checker: not run on this partial artifact; original target theorem is not declared.
+Independent review: structural_proof PASS for this exact combined snapshot.
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=17.0 subagents=6
+TIMING total=20.4 subagents=6

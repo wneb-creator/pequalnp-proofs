@@ -9,3 +9,6 @@
 - 2026-11-25T02:59:37.255070+00:00: Reduction-design audit completed; identified local9-gate deletion route and existing open children.
 - 2026-11-25T02:59:42.487917+00:00: lemma_search Clean.lean compiled; partial ready for independent review and push.
 - 2026-11-25T02:59:50.164580+00:00: Named derivative partial built successfully and independently reviewed.
+- 2026-11-25T03:01:43.327129+00:00: Derivative strategy completed local recurrence/path and repeated-AND lemmas; all checked. Global counting unresolved.
+- 2026-11-25T03:02:14.586488+00:00: Geometry certificates compiled successfully; parent notified immediately.
+- 2026-11-25T03:03:13.563645+00:00: Combined derivative and clean/flat exclusion partial built and independently reviewed.
