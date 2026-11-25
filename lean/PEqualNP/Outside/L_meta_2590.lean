@@ -6821,3 +6821,686 @@ lemma case50_budget_ports_of_common {D : Dag}
   case50_ports_of_common h hc hi (budget_one_first_zero_star h hc zero hi budget) sat hpq common
 
 end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50Meeting
+open DagTools Four
+
+lemma edge_slots_away_one {n : Nat} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x y i : Fin n} (hxy : G x y) (hyi : y ≠ i)
+    {e q f : Nat × Bool} (cover : sem_W n D x ⊆ {e,q,f})
+    (epure : supp n D (src D (sem_bar e)) ⊆ {i}) :
+    (sem_bar q ∈ sem_W n D y ∧ y ∉ supp n D (src D q) ∧
+      x ∉ supp n D (src D (sem_bar q)) ∧
+      val D (sem_two x y) (n + q.1) = true) ∨
+    (sem_bar f ∈ sem_W n D y ∧ y ∉ supp n D (src D f) ∧
+      x ∉ supp n D (src D (sem_bar f)) ∧
+      val D (sem_two x y) (n + f.1) = true) := by
+  obtain ⟨a,ha,hb,hy,hx,hval⟩ := sem_edge_slots hG hS hC hxy
+  have member := cover ha
+  simp only [Finset.mem_insert,Finset.mem_singleton] at member
+  rcases member with rfl | rfl | rfl
+  · exact False.elim (hyi (Finset.mem_singleton.mp (epure (sem_mem_W.mp hb).2.1)))
+  · exact Or.inl ⟨hb,hy,hx,hval⟩
+  · exact Or.inr ⟨hb,hy,hx,hval⟩
+
+lemma edge_private_of_empty_opposite {n : Nat} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x y i : Fin n} (hxy : G x y) (hyi : y ≠ i)
+    {e q f : Nat × Bool} (cover : sem_W n D x ⊆ {e,q,f})
+    (epure : supp n D (src D (sem_bar e)) ⊆ {i})
+    (qempty : supp n D (src D (sem_bar q)) = ∅) :
+    sem_bar f ∈ sem_W n D y ∧ y ∉ supp n D (src D f) ∧
+      x ∉ supp n D (src D (sem_bar f)) ∧
+      val D (sem_two x y) (n + f.1) = true := by
+  rcases edge_slots_away_one hG hS hC hxy hyi cover epure with hq | hf
+  · have hy := (sem_mem_W.mp hq.1).2.1
+    rw [qempty] at hy
+    exact False.elim (Finset.notMem_empty _ hy)
+  · exact hf
+
+lemma case50_edge_coverage {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    {x y : V} (hxy : Adj x y) (hy : y ≠ 0)
+    {e q f : Nat × Bool} (cover : sem_W 10 D x = {sem_bar e,q,f})
+    (epure : supp 10 D (src D e) = {0}) :
+    (sem_bar q ∈ sem_W 10 D y ∧ y ∉ supp 10 D (src D q) ∧
+      x ∉ supp 10 D (src D (sem_bar q)) ∧
+      val D (sem_two x y) (10 + q.1) = true) ∨
+    (sem_bar f ∈ sem_W 10 D y ∧ y ∉ supp 10 D (src D f) ∧
+      x ∉ supp 10 D (src D (sem_bar f)) ∧
+      val D (sem_two x y) (10 + f.1) = true) := by
+  apply edge_slots_away_one graph_ok h.1 hc hxy hy cover.subset
+  simp [sem_bar,epure]
+
+lemma case50_private_neighbors {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    {x : V} {e q f : Nat × Bool}
+    (cover : sem_W 10 D x = {sem_bar e,q,f})
+    (epure : supp 10 D (src D e) = {0})
+    (qempty : supp 10 D (src D (sem_bar q)) = ∅) :
+    ∀ y : V, Adj x y → y ≠ 0 →
+      sem_bar f ∈ sem_W 10 D y ∧ y ∈ supp 10 D (src D (sem_bar f)) := by
+  intro y hxy hy
+  rcases case50_edge_coverage h hc hxy hy cover epure with hq | hf
+  · have mem := (sem_mem_W.mp hq.1).2.1
+    rw [qempty] at mem
+    exact False.elim (Finset.notMem_empty _ mem)
+  · exact ⟨hf.1,(sem_mem_W.mp hf.1).2.1⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.S50Meeting
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50Private
+open DagTools Four S50Meeting
+
+lemma bar_bar (a : Nat × Bool) : sem_bar (sem_bar a) = a := by simp [sem_bar]
+
+lemma exit_opposite_excludes {n : Nat} {D : Dag} (h : Strict n D)
+    {x : Fin n} {a : Nat × Bool} (ha : a ∈ sem_W n D x) :
+    x ∉ supp n D (src D (sem_bar a)) := by
+  obtain ⟨j,s⟩ := a
+  obtain ⟨hj,hxs,hxo⟩ := sem_mem_W.mp ha
+  have ht := sem_W_and h ha
+  intro hbar
+  apply hxo
+  rw [sem_supp_and h hj ht]
+  cases s <;> simpa [sem_bar,src,Finset.mem_inter,and_comm] using And.intro hxs hbar
+
+lemma pure_mate_exit {n : Nat} {D : Dag} (h : Strict n D)
+    {x y : Fin n} {a : Nat × Bool} (ha : a ∈ sem_W n D x)
+    (hp : supp n D (src D a) = {x}) (hyx : y ≠ x)
+    (hy : y ∈ supp n D (src D (sem_bar a))) : sem_bar a ∈ sem_W n D y := by
+  obtain ⟨hj,hxs,hxo⟩ := sem_mem_W.mp ha
+  apply sem_mem_W.mpr
+  refine ⟨hj,hy,?_⟩
+  intro hout
+  have hsub := sem_supp_and_sub h hj (sem_W_and h ha) a.2
+  change y ∈ supp n D (n + a.1) at hout
+  have hs := hsub hout
+  change y ∈ supp n D (src D a) at hs
+  rw [hp,Finset.mem_singleton] at hs
+  exact hyx hs
+
+lemma mem_of_card_le_two {α : Type*} [DecidableEq α] (S : Finset α)
+    (small : S.card ≤ 2) {a b c : α} (ha : a ∈ S) (hb : b ∈ S)
+    (hc : c ∈ S) (hab : a ≠ b) : c = a ∨ c = b := by
+  by_contra hn
+  push Not at hn
+  have sub : ({a,b,c} : Finset α) ⊆ S := by
+    intro v hv
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl | rfl <;> assumption
+  have card : ({a,b,c} : Finset α).card = 3 := by
+    simp [hab,Ne.symm hn.1,Ne.symm hn.2]
+  have := Finset.card_le_card sub
+  omega
+
+lemma two_exit_neighbor_coverage {n : Nat} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
+    {x y : Fin n} (hxy : G x y) (small : (sem_W n D x).card ≤ 2)
+    {a b : Nat × Bool} (ha : a ∈ sem_W n D x) (hb : b ∈ sem_W n D x)
+    (hab : a ≠ b) :
+    y ∈ supp n D (src D (sem_bar a)) ∨ y ∈ supp n D (src D (sem_bar b)) := by
+  obtain ⟨e,he,hbar,_⟩ := sem_edge_slots hG hS hC hxy
+  have hs := (sem_mem_W.mp hbar).2.1
+  rcases mem_of_card_le_two (sem_W n D x) small ha hb he hab with rfl | rfl
+  · exact Or.inl hs
+  · exact Or.inr hs
+
+set_option maxRecDepth 100000 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma external_neighbor : ∀ x : V, Adj 0 x →
+    ∃ c : V, Adj x c ∧ c ≠ 0 ∧ ¬ Adj 0 c := by
+  unfold Adj
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma outside_neighbors : ∀ y : V, y ≠ 0 → ¬ Adj 0 y →
+    ∃ a z : V, Adj 0 a ∧ Adj a y ∧ Adj y z ∧ z ≠ 0 ∧ ¬ Adj 0 z := by
+  unfold Adj
+  decide +kernel
+
+lemma private_mates_exact_of_no_opposite_exit {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (qno : ∀ y : V, sem_bar q ∉ sem_W 10 D y)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2) :
+    ∀ x : V, Adj 0 x →
+      supp 10 D (src D (sem_bar (f x))) = Finset.univ.filter (fun y => Adj x y ∧ y ≠ 0) := by
+  classical
+  have fxmem (x : V) (hx : Adj 0 x) : f x ∈ sem_W 10 D x := by rw [cover x hx]; simp
+  have lower (x : V) (hx : Adj 0 x) (y : V) (hxy : Adj x y) (hy0 : y ≠ 0) :
+      sem_bar (f x) ∈ sem_W 10 D y ∧ y ∈ supp 10 D (src D (sem_bar (f x))) := by
+    rcases case50_edge_coverage h hc hxy hy0 (cover x hx) epure with hq | hf
+    · exact False.elim (qno y hq.1)
+    · exact ⟨hf.1,(sem_mem_W.mp hf.1).2.1⟩
+  intro x hx
+  have hx0 : x ≠ 0 := fun eq => graph_ok.2.1 0 (eq ▸ hx)
+  obtain ⟨c,hxc,hc0,hcN⟩ := external_neighbor x hx
+  have hcP := (lower x hx c hxc hc0).2
+  apply Finset.Subset.antisymm
+  · intro y hy
+    have hy0 : y ≠ 0 := by
+      intro eq
+      have zero : (0 : V) ∈ supp 10 D (src D (sem_bar (f x))) := eq ▸ hy
+      have hp := sem_inelig_pure graph_ok h.1 hc hi zero
+      rw [hp,Finset.mem_singleton] at hcP
+      exact hc0 hcP
+    have hyx : y ≠ x := fun eq => exit_opposite_excludes h.1 (fxmem x hx) (eq ▸ hy)
+    have hymem : sem_bar (f x) ∈ sem_W 10 D y := pure_mate_exit h.1 (fxmem x hx) (pure x hx) hyx hy
+    have hyN : ¬ Adj 0 y := by
+      intro h0y
+      rw [cover y h0y] at hymem
+      simp only [Finset.mem_insert,Finset.mem_singleton] at hymem
+      rcases hymem with hye | hyq | hyf
+      · have eq : f x = e := by simpa only [bar_bar] using congrArg sem_bar hye
+        have hs : ({x} : Finset V) = {0} := by rw [← pure x hx,eq,epure]
+        exact hx0 (Finset.singleton_inj.mp hs)
+      · have eq : f x = sem_bar q := by simpa only [bar_bar] using congrArg sem_bar hyq
+        exact qno x (eq ▸ fxmem x hx)
+      · have hp : supp 10 D (src D (sem_bar (f x))) = {y} := by rw [hyf,pure y h0y]
+        rw [hp,Finset.mem_singleton] at hcP
+        exact hcN (hcP ▸ h0y)
+    have hxy : Adj x y := by
+      by_contra hxy
+      obtain ⟨a,z,haN,hay,hyz,hz0,hzN⟩ := outside_neighbors y hy0 hyN
+      have hamem := (lower a haN y hay hy0).1
+      have hax : a ≠ x := fun eq => hxy (eq ▸ hay)
+      have hne : sem_bar (f x) ≠ sem_bar (f a) := by
+        intro eq
+        have feq : f x = f a := by simpa only [bar_bar] using congrArg sem_bar eq
+        have seq : ({x} : Finset V) = {a} := by rw [← pure x hx,feq,pure a haN]
+        exact hax (Finset.singleton_inj.mp seq).symm
+      have hz := two_exit_neighbor_coverage graph_ok h.1 hc hyz (small y hy0 hyN) hymem hamem hne
+      simp only [bar_bar,pure x hx,pure a haN,Finset.mem_singleton] at hz
+      rcases hz with rfl | rfl
+      · exact hzN hx
+      · exact hzN haN
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ y,hxy,hy0⟩
+  · intro y hy
+    obtain ⟨_,hxy,hy0⟩ := Finset.mem_filter.mp hy
+    exact (lower x hx y hxy hy0).2
+
+lemma opposite_subset_no_exit {n : Nat} {D : Dag} (h : Strict n D)
+    {q : Nat × Bool} (sub : supp n D (src D (sem_bar q)) ⊆ supp n D (src D q)) :
+    ∀ y : Fin n, sem_bar q ∉ sem_W n D y := by
+  intro y hy
+  have hn := exit_opposite_excludes h hy
+  rw [bar_bar] at hn
+  exact hn (sub (sem_mem_W.mp hy).2.1)
+
+lemma private_mates_exact_of_opposite_subset {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (qsub : supp 10 D (src D (sem_bar q)) ⊆ supp 10 D (src D q))
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2) :
+    ∀ x : V, Adj 0 x →
+      supp 10 D (src D (sem_bar (f x))) = Finset.univ.filter (fun y => Adj x y ∧ y ≠ 0) :=
+  private_mates_exact_of_no_opposite_exit h hc hi f epure
+    (opposite_subset_no_exit h.1 qsub) cover pure small
+
+lemma private_mates_exact {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (qempty : supp 10 D (src D (sem_bar q)) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2) :
+    ∀ x : V, Adj 0 x →
+      supp 10 D (src D (sem_bar (f x))) = Finset.univ.filter (fun y => Adj x y ∧ y ≠ 0) := by
+  apply private_mates_exact_of_opposite_subset h hc hi f epure _ cover pure small
+  rw [qempty]
+  exact Finset.empty_subset _
+
+end PEqualNP.Outside.L_meta_2590_aux.S50Private
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open PEqualNP.Outside.L_meta_2590_aux.DagTools
+open PEqualNP.Outside.L_meta_2590_aux.Four
+open PEqualNP.Outside.L_meta_2590_aux.I1Exposure
+open PEqualNP.Outside.L_meta_2590_aux.S50Meeting
+
+lemma case50_residual_support {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (sat : ∀ x : V, Adj 0 x → 3 ≤ (sem_W 10 D x).card) :
+    supp 10 D r.1 = ({1,4,5} : Finset V) := by
+  classical
+  have coded (x : V) (hx : Adj 0 x) : x ∈ supp 10 D r.1 := by
+    have count := sem_code_count graph_ok h hc b hb x
+    have single : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+      (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    have three := sat x hx
+    have positive : 0 < ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).card := by omega
+    obtain ⟨u,hu⟩ := Finset.card_pos.mp positive
+    obtain ⟨hu,hxu⟩ := Finset.mem_filter.mp hu
+    have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+    exact eq ▸ hxu
+  apply Finset.Subset.antisymm
+  · exact single_residual_support_subset_of_bzero h hc b hb zero hi hR
+      ⟨1,by decide +kernel,coded 1 (by decide +kernel)⟩
+  · intro x hx
+    exact coded x ((zero_neighbors x).mpr hx)
+
+lemma common_gate_output_empty {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hS : supp 10 D r.1 = ({1,4,5} : Finset V))
+    {e q : Nat × Bool} (epure : supp 10 D (src D e) = {0})
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    (ports : ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x}) :
+    supp 10 D (10 + q.1) = ∅ := by
+  classical
+  have hq1 := hq 1 (by decide +kernel)
+  have valid := (sem_mem_W.mp hq1).1
+  have tagq := sem_W_and h.1 hq1
+  apply Finset.eq_empty_of_forall_notMem
+  intro c hcout
+  have hcs := sem_supp_and_sub h.1 valid tagq q.2 hcout
+  have hcn : ¬ Adj 0 c := fun h0c => (sem_mem_W.mp (hq c h0c)).2.2 hcout
+  have hc0 : c ≠ 0 := by
+    intro eq
+    have hz : (0 : V) ∈ supp 10 D (src D q) := eq ▸ hcs
+    have pure := sem_inelig_pure graph_ok h.1 hc hi hz
+    have hone := (sem_mem_W.mp hq1).2.1
+    rw [pure,Finset.mem_singleton] at hone
+    exact (by decide : (1 : V) ≠ 0) hone
+  obtain ⟨j,_,h0j,hjc,_,_,_⟩ := dirty_neighbor_geometry c hc0 hcn
+  obtain ⟨f,cover,fpure⟩ := ports j h0j
+  have hfc : sem_bar f ∈ sem_W 10 D c := by
+    rcases case50_edge_coverage h hc hjc hc0 cover epure with hcase | hcase
+    · exact False.elim (hcase.2.1 hcs)
+    · exact hcase.1
+  obtain ⟨d,hcd,hdj⟩ := graph_ok.2.2.2 c j
+  obtain ⟨z,hz,hbz,_,_,_⟩ := sem_edge_slots graph_ok h.1 hc hcd
+  have hne : z ≠ sem_bar f := by
+    intro eq
+    have hd : d ∈ supp 10 D (src D f) := by
+      simpa [eq,sem_bar] using (sem_mem_W.mp hbz).2.1
+    rw [fpure,Finset.mem_singleton] at hd
+    exact hdj hd
+  have sub : {z,sem_bar f} ⊆ sem_W 10 D c := by
+    intro v hv
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl <;> assumption
+  have two : 2 ≤ (sem_W 10 D c).card := by
+    have bound := Finset.card_le_card sub
+    simpa [hne] using bound
+  have count := sem_code_count graph_ok h hc b hb c
+  have single : (({c} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have filt : ((residualUnits 10 D b).filter (fun u => c ∈ supp 10 D u.1)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro u hu
+    obtain ⟨hu,hcu⟩ := Finset.mem_filter.mp hu
+    have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+    rw [eq,hS] at hcu
+    exact hcn ((zero_neighbors c).mpr hcu)
+  have hop : c ∈ supp 10 D (opA D q.1) ∧ c ∈ supp 10 D (opB D q.1) := by
+    have hh := hcout
+    rw [supp_gate h.1 q.1 valid] at hh
+    simpa [tagq] using hh
+  have hmerge : q.1 ∈ merges 10 D (carrierT 10 D {c}) := by
+    simp only [merges,Finset.mem_filter,Finset.mem_range,sem_mem_carrier1]
+    exact ⟨valid,hcout,hop.1,hop.2⟩
+  have positive : 0 < (merges 10 D (carrierT 10 D {c})).card := Finset.card_pos.mpr ⟨q.1,hmerge⟩
+  rw [filt,Finset.card_empty] at count
+  omega
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open DagTools Four S50Meeting S50Private I1Exposure
+
+lemma two_exits_of_distinct {D : Dag} {c : V} {a b : Nat × Bool}
+    (ha : a ∈ sem_W 10 D c) (hb : b ∈ sem_W 10 D c) (hab : a ≠ b) :
+    2 ≤ (sem_W 10 D c).card := by
+  have sub : ({a,b} : Finset (Nat × Bool)) ⊆ sem_W 10 D c := by
+    intro v hv
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hv
+    rcases hv with rfl | rfl <;> assumption
+  have bound := Finset.card_le_card sub
+  simpa [hab] using bound
+
+lemma outside_two_exits_of_large_opposite {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (epure : supp 10 D (src D e) = {0})
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    (ports : ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x})
+    (emptyout : supp 10 D (10 + q.1) = ∅)
+    (large : (∃ u : V, u ≠ 0 ∧ ¬ Adj 0 u ∧ u ∈ supp 10 D (src D q)) →
+      2 ≤ (supp 10 D (src D (sem_bar q))).card)
+    {c : V} (hc0 : c ≠ 0) (hcN : ¬ Adj 0 c) : 2 ≤ (sem_W 10 D c).card := by
+  classical
+  have hq1 := hq 1 (by decide +kernel)
+  have valid := (sem_mem_W.mp hq1).1
+  obtain ⟨j,d,hj,hjc,hcd,hd0,hdN⟩ := outside_neighbors c hc0 hcN
+  by_cases hct : c ∈ supp 10 D (src D (sem_bar q))
+  · have hqc : sem_bar q ∈ sem_W 10 D c := by
+      apply sem_mem_W.mpr
+      refine ⟨valid,hct,?_⟩
+      change c ∉ supp 10 D (10 + q.1)
+      rw [emptyout]
+      exact Finset.notMem_empty c
+    by_cases extra : ∃ u : V, u ≠ 0 ∧ ¬ Adj 0 u ∧ u ∈ supp 10 D (src D q)
+    · have big := large extra
+      have another : ∃ a : V, a ∈ supp 10 D (src D (sem_bar q)) ∧ a ≠ c := by
+        by_contra hn
+        push Not at hn
+        have sub : supp 10 D (src D (sem_bar q)) ⊆ {c} := by
+          intro a ha
+          exact Finset.mem_singleton.mpr (hn a ha)
+        have bound := Finset.card_le_card sub
+        simp only [Finset.card_singleton] at bound
+        omega
+      obtain ⟨a,ha,hac⟩ := another
+      have ha0 : a ≠ 0 := by
+        intro eq
+        have hp := sem_inelig_pure graph_ok h.1 hc hi (eq ▸ ha)
+        rw [hp,Finset.mem_singleton] at hct
+        exact hc0 hct
+      obtain ⟨A,hA,haA,_,hitc⟩ := i1_exposure_omit_geometry c a hc0 ha0 hac
+      obtain ⟨g,s,hg,_,hcg,hcgo,free⟩ := sem_exposure graph_ok h.1 hc A hA c hitc
+      have hgW : (g,s) ∈ sem_W 10 D c := sem_mem_W.mpr ⟨hg,hcg,hcgo⟩
+      have hneq : (g,s) ≠ sem_bar q := by
+        intro eq
+        rw [eq] at free
+        exact Finset.disjoint_left.mp free ha haA
+      exact two_exits_of_distinct hgW hqc hneq
+    · obtain ⟨z,hz,hbz,_,_,_⟩ := sem_edge_slots graph_ok h.1 hc hcd
+      have hneq : z ≠ sem_bar q := by
+        intro eq
+        have hds : d ∈ supp 10 D (src D q) := by
+          simpa only [eq,bar_bar] using (sem_mem_W.mp hbz).2.1
+        exact extra ⟨d,hd0,hdN,hds⟩
+      exact two_exits_of_distinct hz hqc hneq
+  · obtain ⟨f,cover,fpure⟩ := ports j hj
+    have hf : sem_bar f ∈ sem_W 10 D c := by
+      rcases case50_edge_coverage h hc hjc hc0 cover epure with hcase | hcase
+      · exact False.elim (hct (sem_mem_W.mp hcase.1).2.1)
+      · exact hcase.1
+    obtain ⟨z,hz,hbz,_,_,_⟩ := sem_edge_slots graph_ok h.1 hc hcd
+    have hneq : z ≠ sem_bar f := by
+      intro eq
+      have hds : d ∈ supp 10 D (src D f) := by
+        simpa only [eq,bar_bar] using (sem_mem_W.mp hbz).2.1
+      rw [fpure,Finset.mem_singleton] at hds
+      exact hdN (hds ▸ hj)
+    exact two_exits_of_distinct hz hf hneq
+
+lemma case50_no_singleton_merges_of_outside_two {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (b : V → Nat) (hb : PureBranch 10 D b)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {r : Sigma (fun _ : Nat => Nat)} (hR : residualUnits 10 D b = {r})
+    (hS : supp 10 D r.1 = ({1,4,5} : Finset V))
+    (sat : ∀ x : V, Adj 0 x → 3 ≤ (sem_W 10 D x).card)
+    (outside : ∀ x : V, x ≠ 0 → ¬ Adj 0 x → 2 ≤ (sem_W 10 D x).card) :
+    (∀ x : V, merges 10 D (carrierT 10 D {x}) = ∅) ∧
+    (∀ x : V, x ≠ 0 → ¬ Adj 0 x → (sem_W 10 D x).card = 2) := by
+  classical
+  have getcount (x : V) := sem_code_count graph_ok h hc b hb x
+  have single (x : V) : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have rcount (x : V) : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).card ≤ 1 := by
+    have sub := Finset.filter_subset (fun u => x ∈ supp 10 D u.1) (residualUnits 10 D b)
+    have bound := Finset.card_le_card sub
+    simpa [hR] using bound
+  have outsidecount (x : V) (hx : ¬ Adj 0 x) :
+      (sem_W 10 D x).card + (merges 10 D (carrierT 10 D {x})).card ≤ 2 := by
+    have count := getcount x
+    have one := single x
+    have filt : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)) = ∅ := by
+      apply Finset.eq_empty_of_forall_notMem
+      intro u hu
+      obtain ⟨hu,hxu⟩ := Finset.mem_filter.mp hu
+      have eq : u = r := by simpa only [hR,Finset.mem_singleton] using hu
+      rw [eq,hS] at hxu
+      exact hx ((zero_neighbors x).mpr hxu)
+    rw [filt,Finset.card_empty] at count
+    omega
+  constructor
+  · intro x
+    apply Finset.card_eq_zero.mp
+    by_cases hx0 : x = 0
+    · subst x
+      obtain ⟨e,_,_,_,_,_,_,hm⟩ := sem_inelig_consumer graph_ok h hc hi
+      simp [hm]
+    · by_cases hxN : Adj 0 x
+      · have count := getcount x
+        have one := single x
+        have residual := rcount x
+        have three := sat x hxN
+        omega
+      · have bound := outsidecount x hxN
+        have two := outside x hx0 hxN
+        omega
+  · intro x hx0 hxN
+    have bound := outsidecount x hxN
+    have two := outside x hx0 hxN
+    omega
+
+lemma and_output_empty_of_no_singleton_merges {D : Dag}
+    (h : Strict 10 D)
+    (none : ∀ x : V, merges 10 D (carrierT 10 D {x}) = ∅)
+    {j : Nat} (hj : j < D.length) (ht : tag D j = true) :
+    supp 10 D (10 + j) = ∅ := by
+  apply Finset.eq_empty_of_forall_notMem
+  intro x hx
+  have hop : x ∈ supp 10 D (opA D j) ∧ x ∈ supp 10 D (opB D j) := by
+    have hh := hx
+    rw [supp_gate h j hj] at hh
+    simpa [ht] using hh
+  have hm : j ∈ merges 10 D (carrierT 10 D {x}) := by
+    simp only [merges,Finset.mem_filter,Finset.mem_range,sem_mem_carrier1]
+    exact ⟨hj,hx,hop.1,hop.2⟩
+  rw [none x] at hm
+  exact Finset.notMem_empty _ hm
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraSource
+open DagTools Four SharedDom S50Meeting S50Private
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma three_opposite_geometry : ∀ u : V, u ≠ 0 → ¬ Adj 0 u →
+    ∃ x v w p : V, Adj 0 x ∧ Adj x u ∧ Adj u v ∧ Adj u w ∧ Adj x p ∧
+      v ≠ x ∧ w ≠ x ∧ p ≠ 0 ∧ p ≠ u ∧ v ≠ w ∧ v ≠ p ∧ w ≠ p := by
+  unfold Adj
+  decide +kernel
+
+lemma extra_common_source_forces_three {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (epure : supp 10 D (src D e) = {0})
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    (qout : supp 10 D (10 + q.1) = ∅)
+    (ports : ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x})
+    {u : V} (hu0 : u ≠ 0) (huN : ¬ Adj 0 u)
+    (small : (sem_W 10 D u).card ≤ 2) (huq : u ∈ supp 10 D (src D q)) :
+    3 ≤ (supp 10 D (src D (sem_bar q))).card := by
+  classical
+  obtain ⟨x,v,w,p,hxN,hxu,huv,huw,hxp,hvx,hwx,hp0,hpu,hvw,hvp,hwp⟩ :=
+    three_opposite_geometry u hu0 huN
+  obtain ⟨f,cover,fpure⟩ := ports x hxN
+  have fxmem : f ∈ sem_W 10 D x := by rw [cover]; simp
+  have qxu := hq x hxN
+  have qvalid := (sem_mem_W.mp qxu).1
+  have qumem : q ∈ sem_W 10 D u := by
+    apply sem_mem_W.mpr
+    exact ⟨qvalid,huq,by rw [qout]; simp⟩
+  have fumem : sem_bar f ∈ sem_W 10 D u := by
+    rcases case50_edge_coverage h hc hxu hu0 cover epure with hh | hh
+    · exact False.elim (hh.2.1 huq)
+    · exact hh.1
+  have fne : sem_bar f ≠ q := by
+    intro eq
+    have hm := (sem_mem_W.mp qxu).2.1
+    rw [← eq] at hm
+    exact exit_opposite_excludes h.1 fxmem hm
+  have fpureU : supp 10 D (src D (sem_bar f)) = {u} :=
+    other_exit_pure h hc hi hu0 small qumem
+      (fun a ha => (sem_mem_W.mp (hq a ha)).2.1) fumem fne
+  have other (z : V) (huz : Adj u z) (hzx : z ≠ x) :
+      z ∈ supp 10 D (src D (sem_bar q)) := by
+    obtain ⟨a,ha,hza,_⟩ := sem_edge_slots graph_ok h.1 hc huz
+    have hm := (sem_mem_W.mp hza).2.1
+    rcases mem_of_card_le_two (sem_W 10 D u) small qumem fumem ha (Ne.symm fne) with he | he
+    · exact he ▸ hm
+    · rw [he,bar_bar,fpure,Finset.mem_singleton] at hm
+      exact False.elim (hzx hm)
+  have hv := other v huv hvx
+  have hw := other w huw hwx
+  have hp : p ∈ supp 10 D (src D (sem_bar q)) := by
+    rcases case50_edge_coverage h hc hxp hp0 cover epure with hh | hh
+    · exact (sem_mem_W.mp hh.1).2.1
+    · have hm := (sem_mem_W.mp hh.1).2.1
+      rw [fpureU,Finset.mem_singleton] at hm
+      exact False.elim (hpu hm)
+  have sub : ({v,w,p} : Finset V) ⊆ supp 10 D (src D (sem_bar q)) := by
+    intro z hz
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hz
+    rcases hz with rfl | rfl | rfl <;> assumption
+  have card : ({v,w,p} : Finset V).card = 3 := by simp [hvw,hvp,hwp]
+  have count := Finset.card_le_card sub
+  omega
+
+lemma small_opposite_forces_common_source {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (epure : supp 10 D (src D e) = {0})
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    (qout : supp 10 D (10 + q.1) = ∅)
+    (ports : ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x})
+    (small : ∀ u : V, u ≠ 0 → ¬ Adj 0 u → (sem_W 10 D u).card ≤ 2)
+    (bound : (supp 10 D (src D (sem_bar q))).card ≤ 2) :
+    supp 10 D (src D q) = ({1,4,5} : Finset V) := by
+  apply Finset.Subset.antisymm
+  · intro u hu
+    apply (I1Exposure.zero_neighbors u).mp
+    by_contra hn
+    have hu0 : u ≠ 0 := by
+      intro eq
+      have zero : (0 : V) ∈ supp 10 D (src D q) := eq ▸ hu
+      have pure := sem_inelig_pure graph_ok h.1 hc hi zero
+      have one := (sem_mem_W.mp (hq 1 (by decide +kernel))).2.1
+      rw [pure,Finset.mem_singleton] at one
+      exact (by decide : (1 : V) ≠ 0) one
+    have three := extra_common_source_forces_three h hc hi epure hq qout ports hu0 hn (small u hu0 hn) hu
+    omega
+  · intro u hu
+    exact (sem_mem_W.mp (hq u ((I1Exposure.zero_neighbors u).mpr hu))).2.1
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraSource
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.SharedDom
+open DagTools Four S50Meeting S50Private S50ExtraSource I1Exposure
+
+lemma case50_no_singleton_merges_of_common {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    (budget : Bplus 10 D = (eligSet 10 D).card + 1)
+    (sat : ∀ x : V, Adj 0 x → (sem_W 10 D x).card = 3)
+    {P Q : Nat × Bool} (hpq : P.1 ≠ Q.1)
+    (common : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x ∧ Q ∈ sem_W 10 D x) :
+    (∀ x : V, merges 10 D (carrierT 10 D {x}) = ∅) ∧
+    (∀ x : V, x ≠ 0 → ¬ Adj 0 x → (sem_W 10 D x).card = 2) ∧
+    (∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) := by
+  classical
+  obtain ⟨b,hbfirst⟩ := sem_exists_firstBranch graph_ok h.1 hc
+  have hb := sem_firstBranch_pure hbfirst
+  have rcard : (residualUnits 10 D b).card = 1 := by
+    have count := card_residual h.1 b hb
+    omega
+  obtain ⟨r,hR⟩ := Finset.card_eq_one.mp rcard
+  have three (x : V) (hx : Adj 0 x) : 3 ≤ (sem_W 10 D x).card := (sat x hx).ge
+  have hS := case50_residual_support h hc b hb zero hi hR three
+  obtain ⟨e,q,_,_,epure,_,_,_,hq,portsFull⟩ :=
+    case50_budget_ports_of_common h hc zero hi budget sat hpq common
+  have ports (x : V) (hx : Adj 0 x) : ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x} := by
+    obtain ⟨f,cover,_,_,pure⟩ := portsFull x hx
+    exact ⟨f,cover,pure⟩
+  have emptyout := common_gate_output_empty h hc b hb hi hR hS epure hq ports
+  have small (u : V) (huN : ¬ Adj 0 u) : (sem_W 10 D u).card ≤ 2 := by
+    have count := sem_code_count graph_ok h hc b hb u
+    have one : (({u} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+      (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    have filt : ((residualUnits 10 D b).filter (fun a => u ∈ supp 10 D a.1)) = ∅ := by
+      apply Finset.eq_empty_of_forall_notMem
+      intro a ha
+      obtain ⟨ha,hua⟩ := Finset.mem_filter.mp ha
+      have eq : a = r := by simpa only [hR,Finset.mem_singleton] using ha
+      rw [eq,hS] at hua
+      exact huN ((zero_neighbors u).mpr hua)
+    rw [filt,Finset.card_empty] at count
+    omega
+  have large : (∃ u : V, u ≠ 0 ∧ ¬ Adj 0 u ∧ u ∈ supp 10 D (src D q)) →
+      2 ≤ (supp 10 D (src D (sem_bar q))).card := by
+    rintro ⟨u,hu0,huN,huq⟩
+    have bound := extra_common_source_forces_three h hc hi epure hq emptyout ports hu0 huN
+      (small u huN) huq
+    omega
+  have outside (u : V) (hu0 : u ≠ 0) (huN : ¬ Adj 0 u) : 2 ≤ (sem_W 10 D u).card :=
+    outside_two_exits_of_large_opposite h hc hi epure hq ports emptyout large hu0 huN
+  obtain ⟨none,two⟩ := case50_no_singleton_merges_of_outside_two h hc b hb hi hR hS three outside
+  exact ⟨none,two,fun j hj ht => and_output_empty_of_no_singleton_merges h.1 none hj ht⟩
+
+lemma case50_no_singleton_merges_of_saturated_common {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    (budget : Bplus 10 D = (eligSet 10 D).card + 1)
+    (sat : ∀ x : V, Adj 0 x → 3 ≤ (sem_W 10 D x).card)
+    {P Q : Nat × Bool} (hpq : P.1 ≠ Q.1)
+    (common : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x ∧ Q ∈ sem_W 10 D x) :
+    (∀ x : V, merges 10 D (carrierT 10 D {x}) = ∅) ∧
+    (∀ x : V, x ≠ 0 → ¬ Adj 0 x → (sem_W 10 D x).card = 2) ∧
+    (∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) := by
+  classical
+  obtain ⟨b,hbfirst⟩ := sem_exists_firstBranch graph_ok h.1 hc
+  have hb := sem_firstBranch_pure hbfirst
+  have rcard : (residualUnits 10 D b).card = 1 := by
+    have count := card_residual h.1 b hb
+    omega
+  have exactSat (x : V) (hx : Adj 0 x) : (sem_W 10 D x).card = 3 := by
+    have count := sem_code_count graph_ok h hc b hb x
+    have one : (({x} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+      (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    have residual := Finset.card_le_card
+      (Finset.filter_subset (fun a => x ∈ supp 10 D a.1) (residualUnits 10 D b))
+    have three := sat x hx
+    omega
+  exact case50_no_singleton_merges_of_common h hc zero hi budget exactSat hpq common
+
+end PEqualNP.Outside.L_meta_2590_aux.SharedDom
