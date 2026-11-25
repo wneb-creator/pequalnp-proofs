@@ -1,0 +1,9 @@
+Independent review: PASS for checked row-projection partial artifact.
+Reviewer: finite_invariants
+Artifact: results/orch/lemmas/RowProjection.lean
+SHA256: 7cb5db298b8b3c36f742c9006aa38e6aa275a7b27d9c288d231345c07eefc375
+UTC: 2026-11-25T13:22:50.172084+00:00
+
+Verified byte equality with compiledscratch and that the previously-reviewed Automorphisms block is unchanged. Both input tables and graph constants exactly match the independently-reviewed Live1024 artifact and L_meta_670 nine-input data. Recomputed all10×512 mapped rows independently: targetgraph equals the nine-input cofactorgraph, the requested removedvertex is zero, and all9 relabeled coordinate bits equal their nine-input roots. Every relabel row is a permutation sending9 to the removedvertex. The sum defining rowMap uses nine distinct bitpositions, is always below1024, and introduces no hidden modulus aliasing.
+
+The three finite kernel-checked lemmas express exactly the needed graphprojection, fixedzero input, and other-coordinate projection. Source uses only Mathlib, existing types, nested namespaces under the target helper namespace, definitions/lemmas and allowed scoped resource limits. No forbidden constructs, custom instances/data types or changed proof statement were found. Author reports compilerexit0; the complete retained log contains only a build-queue wait. This is a projection helper, not a standalone proof of the posted lower bound.

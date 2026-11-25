@@ -1,0 +1,5 @@
+build queue: waiting 60s for one of 3 slots
+'PEqualNP.Outside.L_meta_2373.upper_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.vertex_cover_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.independent_set_size' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.false_input_support_size' depends on axioms: [propext, Classical.choice, Quot.sound]

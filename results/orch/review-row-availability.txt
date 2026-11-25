@@ -1,0 +1,11 @@
+Independent review: PASS for checked conditional availability helper.
+Reviewer: finite_invariants
+Artifact: results/orch/lemmas/RowAvailability.lean
+SHA256: 7d5d7a504c3b41f15f0a3a89c45b34c5bbc86bd05fd06b72d66c09b6496c962f
+UTC: 2026-11-25T13:32:04.277450+00:00
+
+Verified byte equality with compiledscratch. The previously-reviewed automorphisms, all input/graph constants and rowMap definition remain unchanged from RowProjection. The added Wire/inv/Constant/Available definitions match the generic Live semantics, and the nine-input listidentity is reflexive. The exported ConditionalSuffix is exactly the proved lemma body.
+
+The lemma deliberately takes missing-coordinate and remaining-coordinate projection equalities as hypotheses. For the removedcoordinate, missing supplies a constantfalse available wire. For any othercoordinate, permutation surjectivity provides a preimage j; relabel9=v implies j≠9, hence j is one of the nine retainedindices. Remaining identifies the projected wire with that root, and List.ofFn membership proves availability. There is no appeal to an unproved dimension/cardinality assumption or hidden graphbound. These hypotheses can be supplied by the previously checked RowProjection lemmas.
+
+Author reports compilerexit0 and retains the complete queue-only log. No forbidden constructs, new axioms, custom data types, instances or attributes occur. This artifact is a conditional projection helper only, not a proof of the posted lower bound.

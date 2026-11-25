@@ -1,0 +1,17 @@
+Independent review: PASS for both checked generic conditional closure artifacts.
+Reviewer: finite_invariants
+UTC: 2026-11-25T13:34:30.037743+00:00
+Live1024Closure SHA256 d5325b37a5b30122a2d9bc40d1f741174e287e22d8d7f58095a3deef0655b499
+Live1024ClosureFresh SHA256 b48532d73a1eb0529a4b454118bbb0b83e4953dfb59612a51a0f0b66b69817ef
+
+Both files byte-match their compiled scratch sources. Their Live1024Count bases are unchanged. The new declarations use existing types and proposition parameters; no finite certificate is silently asserted.
+
+Closure proof: maximal frontier cardinality and live_size force every transition to discard both operands. Labels form a disjoint partition of original roots, each current column is supported by its label, and each label/value pair has a Cert witness. For a new gate, rowCover of the actual tail implies admissibility: any required observation not covered outside the two merged labels must be separated by the new wire, since every other frontier wire is supported by disjoint outside labels. The conditional closed premise then supplies the new Cert. Replacing the two labels by their union preserves partition, support and Cert invariants. At the singleton target, the partition forces its label to equal all roots, yielding Cert roots T.
+
+Raw initialization explicitly requires injectivity on root indices, so singleton labels are justified. Exclusion combines width=cap+1, k≤cap and live_size to establish tightness before applying closure. The state theorem itself does not require injectivity of raw, which is useful for a later duplicated-root argument; that later argument is not proved here.
+
+The separation-column interface is sound for both modes: monotone mode uses positive/negative orientation and only AND/OR; signed mode uses differing bits and allows the two signed AND operations. The gate-column containment is checked by all four input bits, and coverage comes from the existing mono_row_difference/live_row_difference lemmas.
+
+Fresh addendum: inspected the complete delta. It adds a≠b and output≠a,b premises to the closed oracle; actual Live distinctness/freshness discharges exactly those premises. The old interface is preserved by a wrapper that ignores the added side conditions. New raw/exclusion versions repeat the same initialization and tightness argument. No other semantic change was found.
+
+Both authors report compiler exit0 with complete logs retained (preexisting linter warnings only). No new forbidden constructs, axioms, custom types, instances or attributes. These are generic conditional certificate interfaces, not a concrete Petersen certificate or proof of the posted lower bound.

@@ -1,18 +1,18 @@
-L-meta-2373 PARTIAL CHECKPOINT
+L-meta-2373 PARTIAL CHECKPOINT — TARGET UNPROVED
 
-The posted statement is NOT proved. No proof PR has been opened.
-The file contains checked helper lemmas only; the required top-level theorem is absent.
+The required top-level theorem is absent. No proof PR has been opened and no ACCEPTED verdict is claimed.
 
-Build: lake build PEqualNP.Outside.L_meta_2373
-Build result: exit 0; Build completed successfully (18423 jobs).
-Complete output: build-partial-1.txt
-Local checker: not yet run; missing target theorem means no acceptance is claimed.
-Independent review: status_review PASS for partial snapshots (80 and 135 lines).
+Target: lean/PEqualNP/Outside/L_meta_2373.lean (135 lines).
+Target SHA256: 035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1.
+Both target lake builds exited 0: Build completed successfully (18423 jobs).
+Full outputs: build-partial-1.txt and build-partial-2.txt.
+Axiom audit: all four audited target helpers depend only on propext, Classical.choice, Quot.sound; target-axioms.txt.
+Repository checker against ORIGINAL statement ran twice, both exit 3 with CHECKER FAULT: verifier exit137, no verdict.
+Full outputs: check-partial-1.txt and check-partial-2.txt. Container memory limit is16GiB; cgroup confirmed OOM kills. Narrowing imports and simplifying helper proof before another attempt.
+
+Reviewed compiled components are archived under lemmas/, with complete logs and separate independent reviews. They do not prove the posted statement. The strongest completed binary-gate lower bound currently preserved is15, excluding19-gate circuits withatleast5NOT gates. Stronger lifts are under development.
+All finite/SAT searches remain incomplete or bounded, with no exact counterexample. Archive READMEs state their limits.
+Desk null replies: 0. One lease held, L-meta-2373; renewed every5minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=11 subagents=6
-
-Expanded target partial: 135 lines, SHA256 035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1.
-Second lake build: exit 0; Build completed successfully (18423 jobs).
-Complete second output: build-partial-2.txt.
-Repository checker against original statement is running; no acceptance claimed.
+TIMING total=43.9 subagents=6

@@ -1,0 +1,18 @@
+Independent archive review by status_review, 2026-11-25.
+
+Scope: results/orch/search/live, the 12 entries listed in manifest.json.
+All SHA256 and byte counts verified: 64,156 bytes. All Python files parse.
+The Python and C++ sources perform local finite computation only; no network,
+credential access, shell execution, or credential material was found.
+The embedded proper-subgraph tables agree with the previously reviewed
+cofactor archive. The C++ source contains 1,145 finite cofactor profiles.
+The exact-cover report was independently reproduced byte for byte.
+
+The README accurately identifies the experiments as incomplete and conditional.
+The two copy searches stopped at a closure cap; this is not a completed search.
+First-sharing decomposition and Live freshness assumptions remain unproved.
+The source has no serialized Lean certificate. No proof of the posted bound
+or counterexample is claimed. Older unexplained lex-order variants are omitted.
+
+Verdict: PASS for preservation as exploratory source and complete logs.
+This is an archive/scope review, not certification of the search algorithms.

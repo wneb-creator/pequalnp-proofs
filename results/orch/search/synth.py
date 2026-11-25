@@ -28,7 +28,7 @@ class CNF:
             for c in self.clauses:
                 f.write(' '.join(map(str,c))+' 0\n')
 
-def encode(rows, gates, first, monotone, live, ordered, irredundant=False, notmax=None):
+def encode(rows, gates, first, monotone, live, ordered, irredundant=False, notmax=None, roots_last=False):
     c = CNF()
     typ=[]; left=[]; right=[]
     for i in range(gates):
@@ -45,6 +45,9 @@ def encode(rows, gates, first, monotone, live, ordered, irredundant=False, notma
                 c.clause(ts[2],-a[aa],-b[bb])
         typ.append(ts);left.append(a);right.append(b)
     c.clause(typ[-1][1])
+    if roots_last:
+        c.clause(left[-1][gates+8]);c.clause(right[-1][gates+9])
+        c.clause(-left[-2][gates+8]);c.clause(-right[-2][gates+8])
     if irredundant:
         for i in range(gates):
             c.clause(-left[i][0])
@@ -111,13 +114,14 @@ def main():
     p.add_argument('--allrows',action='store_true')
     p.add_argument('--irredundant',action='store_true')
     p.add_argument('--notmax',type=int)
+    p.add_argument('--roots-last',action='store_true')
     args=p.parse_args()
     dest=Path(args.dir);dest.mkdir(parents=True,exist_ok=True)
     rows=list(range(1024)) if args.allrows else [x for x in range(1024) if x.bit_count()<=2 or not target(x)]
     first=tuple(map(int,args.first.split(','))) if args.first else None
     start=time.monotonic()
     for iteration in range(100):
-        c,typ,left,right=encode(rows,args.gates,first,args.monotone,args.live,args.ordered,args.irredundant,args.notmax)
+        c,typ,left,right=encode(rows,args.gates,first,args.monotone,args.live,args.ordered,args.irredundant,args.notmax,args.roots_last)
         cnfpath=dest/f'round{iteration}.cnf';c.write(cnfpath)
         print('round',iteration,'rows',len(rows),'vars',c.nvars,'clauses',len(c.clauses),flush=True)
         log=dest/f'round{iteration}.log'

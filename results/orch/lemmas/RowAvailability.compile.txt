@@ -1,0 +1,3 @@
+build queue: waiting 60s for one of 1 slots
+build queue: waiting 120s for one of 1 slots
+build queue: waiting 180s for one of 1 slots

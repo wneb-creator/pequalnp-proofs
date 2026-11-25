@@ -17,3 +17,10 @@
 - 2026-11-25T13:11:57.314895+00:00: Live1024Count exactbinarybudget extraction compiledexit0; preservedsource+fullcompileroutput.
 - 2026-11-25T13:13:07.310543+00:00: first strategy replan; full target still open; focus signed cofactor lift and certificate search, retire basic branch counting and broad SAT expansion.
 - 2026-11-25T13:16:49.877252+00:00: preserving expanded135-line target and exact-count/no-OR-identification helpers after independent review; original-statement checker still running.
+
+- 2026-11-25T13:22:41.104503+00:00: counterexample strategy retired after all bounded jobs finished: no witness;8,325,500,000 stochastic evaluations, globalSAT timeouts, and1404 localSAT neighborhoods. Complete evidence preserved in results/orch/search/. Agent available for certificate review.
+
+- 2026-11-25T13:32:19.742872+00:00: lean_setup completed kernel compilation of Live1024Closure (74720 bytes); conditional δ0 sparse-closure verifier available.
+
+- 2026-11-25T13:33:17.296888+00:00: lean_setup compiled fresh δ0 closure variant and emitted module object; aliases may now be omitted from sparse tables.
+- 2026-11-25T13:35:49.925480+00:00: preserving reviewed closure/symmetry/table proofs, complete bounded-search archives, axiom audit and both checker OOM fault logs. Target remains unproved.

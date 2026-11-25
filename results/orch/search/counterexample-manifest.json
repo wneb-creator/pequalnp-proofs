@@ -3,13 +3,21 @@
     "sha256": "0b6cbbf24d1399c3ed26fc056f71805acfb7af997b8981d55b20a6f7b17cb9bd",
     "bytes": 3740
   },
+  "search_signed.cpp": {
+    "sha256": "0159522dc01dd6292009e944c5397922f371af27cb2e32b5af714c351fd56d28",
+    "bytes": 3908
+  },
   "synth.py": {
-    "sha256": "56ebf402d9eea13401b6fcc4a04e445232ed236f68c1701bb702a52ca64a5194",
-    "bytes": 6642
+    "sha256": "1b182a1ffc63df710a8f58db37218ac4861224931b2feb6b0c1977db7f6c0d39",
+    "bytes": 6882
   },
   "local_sat.py": {
-    "sha256": "56a23caeaea1886874cf249c225c6e09a0d908dda2267f8a08298082b99db3d8",
-    "bytes": 5169
+    "sha256": "b6d67197000002233cdc3c10452766cd8405fbaf9b901331258c0039c7329abd",
+    "bytes": 5572
+  },
+  "normalize_signed.py": {
+    "sha256": "dbb964e8171e57c25770eba484aa05a7c23625ee0bd23734e047ee8597408a1b",
+    "bytes": 4497
   },
   "cadical_wrap.cpp": {
     "sha256": "b70954ee65e9a6c72b4b0ff632b579e3b5125eeccb5a980be877b51c7672a790",
@@ -23,9 +31,21 @@
     "sha256": "f192a17e846cab665c969bad94e235b0ba789197bc536a0de1a989a58770a9f2",
     "bytes": 1478
   },
-  "sat20-control-run.txt": {
-    "sha256": "3fd05f519d735f2cdbe6dc3a958b4013ef6a47482d91567b0f491bf3b5ec3a42",
-    "bytes": 90
+  "search-hot-log.txt": {
+    "sha256": "e867da9b0bc0d6e4831bb43c58fce189cfdfca568e8a3c6e54ffd344e566080c",
+    "bytes": 287
+  },
+  "search-signed-log.txt": {
+    "sha256": "34261057873c412e135250e14a96da861f0ac7af6c5d597c383b1a854136dc36",
+    "bytes": 338
+  },
+  "local-sat-log.txt": {
+    "sha256": "be2bc18de9eb6d0de4cc13d1f495ec23b6809887e81946e2e6d8c694c9db4174",
+    "bytes": 543
+  },
+  "local-sat-promise-log.txt": {
+    "sha256": "a677d6a4fcdc2a88bfc6b2da419be6a64cc37956e14efb919bf3ece17a6e1c07",
+    "bytes": 1681
   },
   "sat-andedge-run.txt": {
     "sha256": "66654ce3145dff3ebdb7a47592c8cabaa79da7efac2770e55052b6a367436a74",
@@ -35,6 +55,30 @@
     "sha256": "3eb9963d600b4880ff98319773609a4b962413e476cbbccf7d8e58e4ffca6ab4",
     "bytes": 89
   },
+  "sat-ornonedge-run.txt": {
+    "sha256": "1c9605b3eb67557e699344ceeef3463c1d4a2110b8decb1ebef1ea64ea48904a",
+    "bytes": 85
+  },
+  "sat20-control-run.txt": {
+    "sha256": "3fd05f519d735f2cdbe6dc3a958b4013ef6a47482d91567b0f491bf3b5ec3a42",
+    "bytes": 90
+  },
+  "sat20-roots-control-run.txt": {
+    "sha256": "87b854aab9ee349436368082113d896a0a3a6297da3367f1d3d56f965584d1a2",
+    "bytes": 90
+  },
+  "validate20.log": {
+    "sha256": "ac350fc39290bb6b8bc0a281e4ea66db1bbf6bc196dc12bf7b42567d63064c69",
+    "bytes": 476349
+  },
+  "normalize-control.txt": {
+    "sha256": "a41a5d1b987bbc97491e772347133719c182725ef8e139dd266a615148402169",
+    "bytes": 397
+  },
+  "normalize-signed-current.txt": {
+    "sha256": "b3bc131f9dfb7358d1fb5cb5b852f88c7e317391d7e2d6c3be7f7245fd86d422",
+    "bytes": 382
+  },
   "sat-andedge/round0.log": {
     "sha256": "4003d6f4040cdb8fba1d0813154e0ec807dad4cf531fe8314a662b5026d9bf83",
     "bytes": 27774
@@ -43,8 +87,36 @@
     "sha256": "359f9a1374277f5d590b5abd4d6aa72c8d2d88fa432401cc380462a0be5f6e79",
     "bytes": 24940
   },
+  "sat-ornonedge/round0.log": {
+    "sha256": "cb68fc6fc1bdac447c68aba7f8f9415c9e1a7ace77ee02eacc7a5f5c13adad61",
+    "bytes": 26660
+  },
   "sat20-control/round0.log": {
     "sha256": "b0cccd78f8e52801a36785442b62916c22a74ef317446ddbb928ab68034be987",
     "bytes": 14280
+  },
+  "sat20-roots-control/round0.log": {
+    "sha256": "1303623a584a2412691a6bf938b71becfd947fae33ee62912b772298e22b4241",
+    "bytes": 15921
+  },
+  "search-signed18-log.txt": {
+    "sha256": "f757f3f416ffe5590187d11107656f424b560ea7b583d0439fa8cc1d07e1a28e",
+    "bytes": 5047
+  },
+  "normalize-signed18-current.txt": {
+    "sha256": "0e0ab41961e76a33e816705b15cf210a517bbb242c86071dc97aeaafa72e71df",
+    "bytes": 369
+  },
+  "normalize-random-validation.txt": {
+    "sha256": "010c4db64d05207990c7202d589f21642b51339cc622f319b219a301d7450349",
+    "bytes": 123
+  },
+  "sat-ornonedge-roots-run.txt": {
+    "sha256": "0296de8f99202376fdb8b633332226aeb3271e6176fecfbc9091243d629d5f23",
+    "bytes": 89
+  },
+  "sat-ornonedge-roots/round0.log": {
+    "sha256": "cdaf3553e47b801d419bea0f73634f484a06ed5324d067860cacdb468994a418",
+    "bytes": 24848
   }
 }

@@ -1,0 +1,50 @@
+{
+  "README.md": {
+    "bytes": 2902,
+    "sha256": "b7e118ed0be630f42ed56efd1e990b0bbde8d10f1ced0dd34ba6f5412dc35c86"
+  },
+  "copy-closure-cap-state.json": {
+    "bytes": 5692,
+    "sha256": "572564b78c16d01a7551e99a4631ea792444bff1dd09f4ad94cb948e7c2602d9"
+  },
+  "copy-search-irredundant-mono30.log": {
+    "bytes": 220,
+    "sha256": "9a10a427bed23b95a50ddf445eadc68f93cb0dbd0f9365be8eaa86ae625b8e06"
+  },
+  "copy-search-mono30.log": {
+    "bytes": 220,
+    "sha256": "39d87413b49199ad1f2f116f443d5fb45d238a55fc8dbe47be11d11ffaeab98e"
+  },
+  "copy_search.py": {
+    "bytes": 5611,
+    "sha256": "197657be9c53a49dedd58ace44ae337a5d53242871fb94a28f531bbd2f36c688"
+  },
+  "copy_search_irredundant.py": {
+    "bytes": 5836,
+    "sha256": "332a7bc7a79f9d40a052833fc15dd4be2084b1b69ef3d18349d0b77be420d020"
+  },
+  "exact-cover-report.txt": {
+    "bytes": 865,
+    "sha256": "00a4376470611b07ca7520e97a098f158193d69eb9d92dcfd23edca7b8e7b917"
+  },
+  "exact_cover.py": {
+    "bytes": 1415,
+    "sha256": "612e62629c59e2e43760ef0b64fd73e0223ef108b9c7f24555a1925a4a34e4b6"
+  },
+  "formula_sparse.py": {
+    "bytes": 1886,
+    "sha256": "4fb1f15db870fe69d96f23ec5d5ef77765226061690d8e18d414b176fed28a59"
+  },
+  "live_search.py": {
+    "bytes": 6109,
+    "sha256": "55c92f471c9140e199046b07ee195515627042b67ce62fb3a7b87a53c7843551"
+  },
+  "live_search_allcuts_fast.cpp": {
+    "bytes": 31550,
+    "sha256": "b9bf0b7566833db4a4e5f743b22a30ea87818f479858e5e7419940aca48f5f4f"
+  },
+  "one_share.py": {
+    "bytes": 1850,
+    "sha256": "37ece1b60ccb0c9f3810badfcabf1c82ee615007e7c4542e58a8e07bf1da5df0"
+  }
+}

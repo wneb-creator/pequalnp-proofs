@@ -103,7 +103,14 @@ def main():
             def fix(a):return copy if a==d+11 else a-1 if a>d+11 else a
             out=[(op,fix(a),fix(b)) for op,a,b in out]
             assert all(evaluate(out,x)[-1]==target(x) for x in range(1024))
-            print('WITNESS',out,flush=True)
+            a,b=out[-1][1:]
+            exclusive=[[],[]]
+            for row in range(1024):
+                vals=evaluate(out,row)
+                if vals[a] and not vals[b]:exclusive[0].append(row)
+                if vals[b] and not vals[a]:exclusive[1].append(row)
+            print('FULL_FUNCTION',out,'exclusive examples',[xs[:4] for xs in exclusive],flush=True)
+            if all(exclusive):print('TARGET_REFUTATION_CANDIDATE',flush=True)
             (ROOT/'local-sat-witness.json').write_text(json.dumps(out))
             break
         if trial%50==0:print('trial',trial,'counts',counts,'elapsed',time.monotonic()-start,flush=True)

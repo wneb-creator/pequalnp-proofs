@@ -90,7 +90,7 @@ Top conditional theorem directSplit: excluding monoLive≤19 and signedLive≤18
 Independent Bridge.lean review by status_review: PASS as partial conditional bridge.
 The glued circuit evaluates the first gate, the original tail, then OR(u,v), with outputindex11+C.size equal to the final appended wire. FanInTwo is inherited and size=C.size+2<=19. Exact graph expression matches postedPetersen. cover_gives_circuit has the correct orientation of Boolean equality. missed_of_no_circuit uses soundness plus failure of existential to produce exact coverage, contradicting its explicit lower-bound hypothesis. It does not prove that lower-bound hypothesis and does not claim the target theorem. No forbidden source tokens/newaxioms. Full compilelog preserves the queuewaitmessage; root reports compilerexit0.
 
-Counterexample update at2026-11-25T13:08Z: initial stochastic run completed2,120,500,000 evaluations (8,482 restarts), best weighted error6, exactly Petersen missing one edge. Global SAT firstAND-edge and firstNOT-input each timed out UNKNOWN at600 seconds. From-scratch20-gate monotone positive control likewise timed out120 seconds, showing general synthesis is too hard for this encoding. Fixed20 controls are SAT. Source and complete finished logs+SHA256 manifest are now in results/orch/search/. Local incrementalSAT is still running; no full19-gate witness.
+Counterexample update at2026-11-25T13:08Z: initial stochastic run completed2,120,500,000 evaluations (8,482 restarts), best weighted error6: exactly six false negatives and zero false positives. Global SAT firstAND-edge and firstNOT-input each timed out UNKNOWN at600 seconds. From-scratch20-gate monotone positive control likewise timed out120 seconds, showing general synthesis is too hard for this encoding. Fixed20 controls are SAT. Source and complete finished logs+SHA256 manifest are now in results/orch/search/. Local incrementalSAT is still running; no full19-gate witness.
 
 ## status_review: cofactor search certificates
 
@@ -110,3 +110,51 @@ The first twenty minutes produced checked partials but no target theorem. Global
 
 Independent NoOrIdentification.lean review by status_review: PASS as helper partial.
 Checked exactPetersen expression and all90ordered distinctvertexpairs independently: each has a thirdvertex c adjacent to a and notadjacent to b. pairInput(a,c) and pairInput(b,c) agree outside a,b and have equal OR at a,b, but different graphoutputs. This proves loss of information when identifying any two variables by OR. Kerneldecide handles a finite10^3certificate, and subsequent proof uses onlythose conclusions. No newaxioms or forbidden plain-file tokens/options/attributes. Compilelog preserved(empty); root reports success. This is not the target circuitlowerbound.
+
+### library_route search update 2026-11-25T13:17:54.484636+00:00
+
+Implemented exact Live-state computational search in scratch library_route/live_search.py and several C++variants. Full1024-bit wire truth tables; actual fanout handled by retaining/deleting operands. Monotone samples are15edge rows×15maximal independent sets; signed mode uses15edge rows×76independent sets. States canonicalized by Petersen graph automorphisms stabilizing firstgate. No full exhaustion or counterexample yet.
+
+Cofactor cuts provided by status_review:10single0,10single1,45double0 then240mixed/triple0 profiles. The extra240rejected982/1000surviving depth7states. Another840profiles left6survivors, and exhaustive17522proper nonconstant restrictions killednoneofthose6. All6have sharingdeficit1.
+
+Terminal oracle atdeficit0 computes sparse closure of pairs(maskoforiginalleaves, truthfunction). Combine disjointmask entries; keep onlyoutputs covering row-separation obligations notalready covered by outside originalleaves. For one13leafstate there were63closureentries and nofulltarget;25sample states allrejected in~0.2sPython. Atdeficit1, enumerate sharedsubexpression (a readonce subformula onleafsubsetA), replaceA bytwo copiesofthatwire, theninvoke deficit0closure. All6strongcofactor survivors rejected in0.7s; eachhad15–17possible sharedsubexpressions. Lean_setup is formalizingδ0closure, parent arrangingδ1decomposition.
+
+Current C++live_search_allcuts.cpp uses1145profiles plus deficit0/1oracles; running bounded180s firstANDedge. Experimental lexordering variants exist but are notused inlatest search and noresult is basedonthem (earlier logs withbothlexorder andnontrivialsymmetry are notsound asquotientsearch). All longdiagnostics savedcomplete in scratch.
+
+## status_review: tight Live induction review
+
+Independent Live1024Tight review by status_review: PASS for the added tight_induction helper.
+Compared against Live1024Count.lean: only the32-line helper and whitespace were added. With S.card=k+1, live_size on the tail forces both operands absent from U, hence every step consumes both input wires and the tail again has cardinality k+1. Freshness justifies the tail-cardinality rewrite; cardinal bounds plus omega establish the two nonmembership facts without additional assumptions. The induction returns P S from the stated stop and step premises. No new axioms, definitions, options, attributes, imports, or forbidden tokens. Full compile log contains only existing linter/deprecation warnings; root reports success. This helper characterizes tight Live runs and does not itself prove the target lower bound.
+
+2026-11-25T13:19:20.471455+00:00: ExactLive1024 table-level ORidentificationwitness compiledexit0. Artifact results/orch/lemmas/NoOrRows.lean, completecompilelogretained. For eachdistincta,b, it searches onlyc:Fin10 andreturns pairRow(a,c),pairRow(b,c) that agreeonallotherinputcolumns, agreeonbin1(OR), butdifferentgraphbits. TabledefinitionscopiedexactlyfromreviewedLive1024. AllmyLeanrunsnowfinished; pausednewrunsforrootsolochecker. UpperFast3norm_num+AC attemptfailedsameinnerANDorientationissue; no sourcechange made totarget.
+
+## status_review: row-level OR identification review
+
+Independent NoOrRows review by status_review: PASS as partial row-level helper.
+All ten input tables and the target graph table exactly match Live1024Count. Independently verified all90 ordered distinct input pairs have a c whose two pair rows agree on every other input and on the OR word, but disagree on graph. pairRow stays within0..1023. The final existential theorem directly packages the finite kernel certificate. No forbidden source tokens or new axioms; full compilation log preserves queue waits only, and author reports exit0. This helper excludes identifying both OR operands and does not claim the target lower bound.
+
+## status_review: checked symmetry projection
+
+RowProjection.lean compiled with exit0; the complete log contains only a queue wait. It defines rowMap(v,r) by permuting the nine row bits through relabel(v), setting original vertexv tofalse. Three kernel-checked table identities prove: the10-variable graph restricted along rowMap equals the9-variable graph; inputv is constantlyfalse; and input relabel(v,j.castSucc) becomes nine-variable inputj. Source and full log preserved under results/orch/lemmas, with an appendable suffix for proof_structure. Observed RSS during compilation was about6.7GiB, so large proof checks must run alone.
+
+## counterexample final search outcome — 2026-11-25T13:22:41.104503+00:00
+
+All bounded searches completed without a target witness. Four stochastic runs used8,325,500,000 heuristic evaluations total: ordinary19 best6 false negatives; hotter ordinary19 best9; signed19 best9; signed18 best15. Both best signed candidates normalize to monotone circuits, so neither challenges the signed18 exclusion framework. Global19 SAT cases (firstAND-edge, firstNOT-input, firstOR-nonedge, and a root-last/at-most-one-NOT case) each returned UNKNOWN after600 seconds. Unseeded20 monotone controls likewise returned UNKNOWN after120 seconds; fixed20 controls passed. LocalSAT:286 all-row neighborhoods gave1UNSAT/285UNKNOWN;1118 promise neighborhoods gave27UNSAT/1091UNKNOWN. No search result is presented as a general lower bound. Final source, full logs, README and SHA256/size manifest are preserved under results/orch/search/.
+
+Counterexample archive correction: independent review verified6false negatives and0false positives for the best ordinary19 candidate, but it is not equal to the graph function after deleting any one edge. Earlier stronger wording was an incorrect inference from its missed assignments and has been corrected. No mathematical proof or search verdict is affected.
+
+## status_review: projection availability and subtree profile
+
+2026-11-25T13:31:47.411527+00:00
+
+RowAvailability.lean compiled with exit 0. Its conditional lemma rowMap_available_of combines the already checked rowMap_missing and rowMap_input identities with relabel bijectivity, supplying every projected primary input from the signed nine-input pool. Full source, reusable suffix, and complete compiler output are preserved under results/orch/lemmas. Independent review requested from finite_invariants.
+
+Exploratory subtree pruning: on library_route's 18-root closure cap snapshot, checking each read-once candidate subtree as a reordered prefix reduced the closure from a 3,003-entry cap to a complete 36-entry closure without the target. It rejected 240 of 266 candidates in 0.079 seconds. This is not a Lean result: the first-sharing/reordering decomposition still needs proof. Source and full output remain in status_review scratch for library_route integration.
+
+### lean_setup δ0 sparse closure verifier, 2026-11-25T13:32:19.742872+00:00
+
+Checked `results/orch/lemmas/Live1024Closure.lean`: 1524 lines, 74720 bytes, SHA256 `d5325b37a5b30122a2d9bc40d1f741174e287e22d8d7f58095a3deef0655b499`. Full Lean compile exit0; 16 preexisting linter warnings, no errors. Adds finite root-partition, column support/admissibility invariants, tight Live closure-state induction, raw root initialization, impossible-target corollary, and both monotone/signed row-separation columns. Cert remains an abstract predicate: this proves a certificate verifier interface, not an exhaustive Petersen certificate or the posted theorem. Complete output beside source. Fresh-input/nonalias-output variant prepared separately to shrink duplicated-root tables; not yet compiled.
+
+### lean_setup fresh δ0 closure, 2026-11-25T13:33:17.296888+00:00
+
+Checked `results/orch/lemmas/Live1024ClosureFresh.lean`: 1609 lines, 79318 bytes, SHA256 `b48532d73a1eb0529a4b454118bbb0b83e4953dfb59612a51a0f0b66b69817ef`. Full Lean compile exit0, 16 linter warnings. `tight_closure_fresh_state/raw/exclusion` allow closure tables to omit equal operands and outputs equal to either operand, since actual Live transitions forbid these cases. Original closure interfaces preserved by a wrapper. Saved scratch module object `live1024/Live1024ClosureFresh.olean` for later wrapper debugging. Still a conditional verifier only.

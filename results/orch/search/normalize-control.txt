@@ -1,0 +1,2 @@
+signed_gates 20 minimum_added_NOTs 0 ordinary_gates 20 target_mismatches 0
+output 29 gates [('or', 1, 4), ('or', 10, 5), ('and', 0, 11), ('or', 2, 6), ('and', 1, 13), ('or', 2, 4), ('or', 15, 8), ('and', 3, 16), ('or', 2, 5), ('or', 18, 9), ('and', 7, 19), ('or', 6, 5), ('and', 8, 21), ('or', 4, 6), ('and', 9, 23), ('or', 12, 14), ('or', 25, 17), ('or', 26, 20), ('or', 27, 22), ('or', 28, 24)]

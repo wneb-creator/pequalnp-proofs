@@ -1,0 +1,27 @@
+Independent archive review by status_review, 2026-11-25.
+
+Scope: all 30 files in results/orch/search/counterexample-manifest.json,
+including the completed signed searches and phase-normalization artifacts.
+All byte counts and SHA256 values verified: 648,017 bytes. Source review and
+targeted scans found no credential material or credential/network access.
+The solver wrapper runs the local pinned Cadical library; source operations
+are bounded local search, circuit evaluation, and local output preservation.
+
+The final stochastic candidates were independently evaluated on all 1,024
+assignments. Ordinary seed2373 has 6 false negatives, hot ordinary has 9,
+signed19 has 9, and signed18 has 15; all have zero false positives.
+The four complete logs report 8,325,500,000 heuristic candidate evaluations.
+The fixed20-gate SAT control is SATISFIABLE. The global runs are UNKNOWN.
+Local all-row and promise runs report respectively 1 and 27 UNSAT individual
+neighborhoods, with all other attempted neighborhoods UNKNOWN and no SAT.
+The phase-normalization checks and 200 random-circuit validation outcomes
+agree with the preserved reports. No exact counterexample was found.
+
+Review corrected an overstatement: the best ordinary circuit does not equal
+Petersen with one edge deleted. All 15 such functions were checked against it.
+The README now states only the verified six-false-negative result and records
+that distinction. Its search limitations, free-complementation distinction,
+local UNSAT scope, and lack of any exhaustive lower-bound proof are clear.
+
+Verdict: PASS for preservation of the corrected archive and complete logs.
+This is an archive/scope review, not a proof of the posted statement.

@@ -1,0 +1,26 @@
+def rowMap (v : Fin 10) (r : Fin 512) : Fin 1024 :=
+  Fin.ofNat 1024 (∑ i : Fin 9,
+    if r.val.testBit i.val then 2 ^ (relabel v i.castSucc).val else 0)
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma rowMap_graph : ∀ (v : Fin 10) (r : Fin 512),
+    Live1024.observe Live1024.graph (rowMap v r) = NineSigned.observe NineSigned.graph r := by
+  intro v
+  fin_cases v <;> decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma rowMap_missing : ∀ (v : Fin 10) (r : Fin 512),
+    Live1024.observe (Live1024.inputs.getD v.val Live1024.zero) (rowMap v r) = false := by
+  intro v
+  fin_cases v <;> decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 50000000 in
+lemma rowMap_input : ∀ (v : Fin 10) (j : Fin 9) (r : Fin 512),
+    Live1024.observe (Live1024.inputs.getD (relabel v j.castSucc).val Live1024.zero)
+      (rowMap v r) = NineSigned.observe (NineSigned.inputs.getD j.val NineSigned.zero) r := by
+  intro v j
+  fin_cases v <;> fin_cases j <;> decide +kernel
+

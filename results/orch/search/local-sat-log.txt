@@ -1,0 +1,10 @@
+local SAT vars 73603 clauses 1869018
+loaded seconds 12.167549563999955
+positive control 10
+trial 0 counts {0: 1, 10: 0, 20: 0} elapsed 14.224965531999942
+trial 50 counts {0: 51, 10: 0, 20: 0} elapsed 122.96729225499996
+trial 100 counts {0: 101, 10: 0, 20: 0} elapsed 225.68286725500002
+trial 150 counts {0: 151, 10: 0, 20: 0} elapsed 328.07978742700004
+trial 200 counts {0: 201, 10: 0, 20: 0} elapsed 429.58622534699987
+trial 250 counts {0: 250, 10: 0, 20: 1} elapsed 529.8131595240001
+DONE counts {0: 285, 10: 0, 20: 1} elapsed 600.920686714

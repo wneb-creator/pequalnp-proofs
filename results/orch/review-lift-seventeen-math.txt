@@ -1,0 +1,11 @@
+Independent mathematical review: PASS, conditional on the stated row-projection hypotheses and previously checked nine-input signed lower bound. The suffix itself has not been compiled in this review.
+Reviewer: finite_invariants
+Source: scratch proof_structure/LiftSeventeenSuffix.txt
+SHA256: e3a97e3cc06d9bc101cdee3324c47e6e02f4acdd989a0993b8e15a190150a612
+UTC: 2026-11-25T13:22:10.351786+00:00
+
+The projected_tail_lower argument correctly instantiates projected_bound with the nine-input rootbank available at zero cost. The prior gives15≤q and a constant projected frontier member contributes at least1 to mass, hence tail length≥16. It uses only constant mass, never an unsupported charge for duplicate nonconstant roots. Reach bridging is between identical generic definitions; the target is nonconstant by the checked nine-input graph property.
+
+The first Live step draws two distinct input columns because its entire frontier is inputs.toFinset. Its operation is one of AND, OR, ANDNOT, NOTAND. Zeroing the positive endpoint of each AND-type operation makes the newly inserted result constantfalse, while every other old frontier member remains available from the cofactor rootbank. For OR, assuming neither operand is retained inU contradicts no_or_identification_rows and live_row_difference: the new OR wire and all other original-input wires agree on the witness rows, but the target does not. Zeroing a retained operand then leaves that old wire constantfalse, and the new OR wire equals the other available input. In every case tail≥16; adding the first binary operation gives17.
+
+No normalization issue was found: the argument operates inside the already-proved Live semantics, its signed operations are exactly bin0..3, and it counts the first binary step once. The zero-run case correctly contradicts ten distinct initial columns versus singleton target. The remaining obligations are the explicit row maps, graph projection, fixed input, and availability hypotheses; they are visible parameters, not assumed silently.

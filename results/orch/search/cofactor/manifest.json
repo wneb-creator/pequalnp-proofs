@@ -1,0 +1,38 @@
+{
+  "cofactor_prune.py": {
+    "bytes": 8970,
+    "sha256": "ac80c5bee69c8df7a142f1f84ba1b5fe06c59788b09907a9cf7ee9f400966dcc"
+  },
+  "extract_bounds.py": {
+    "bytes": 3264,
+    "sha256": "7296ede3c2ff8eb3bec28fea7acc248c51a3c0f9132aa1e6f160d8f516a82b5b"
+  },
+  "subgraph_bounds.json": {
+    "bytes": 27565,
+    "sha256": "7daaddd9c2e85c06f8c512279f36714d7b8d67fc9e37447050349e18ced24a4e"
+  },
+  "frontier-direct-report.json": {
+    "bytes": 58,
+    "sha256": "68c7be899a4a76613d775fa8cd651cea0d1b2025fc92d14aae782d64abaf6d58"
+  },
+  "frontier-supplemental-report.json": {
+    "bytes": 5060,
+    "sha256": "de95e819e6cc2487dbca8d531dddf8eee3fdcce51511e9a4cc0ad7b11d2a23a8"
+  },
+  "extra-profile-cuts.json": {
+    "bytes": 38976,
+    "sha256": "2c939823974b675b1aa53eaa411e45387bcae509980dd4fb0e7392a3f223903a"
+  },
+  "allcofactor-profile-report.json": {
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "allcofactor-direct-report.json": {
+    "bytes": 2,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "frontier-allcofactor-survivors.json": {
+    "bytes": 49290,
+    "sha256": "5da70cb42c58d9d64678a1c77190ddc69cf5a842a0012ca4e19dac26a8ca2ec0"
+  }
+}

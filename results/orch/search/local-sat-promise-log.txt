@@ -1,0 +1,27 @@
+local SAT vars 7360 clauses 178422
+loaded seconds 0.9948233600000549
+positive control 10
+trial 0 counts {0: 1, 10: 0, 20: 0} elapsed 1.573159024000006
+trial 50 counts {0: 50, 10: 0, 20: 1} elapsed 23.40917743800003
+trial 100 counts {0: 99, 10: 0, 20: 2} elapsed 50.192425352999976
+trial 150 counts {0: 149, 10: 0, 20: 2} elapsed 75.11482297300006
+trial 200 counts {0: 198, 10: 0, 20: 3} elapsed 91.51310291800007
+trial 250 counts {0: 247, 10: 0, 20: 4} elapsed 106.20114971400005
+trial 300 counts {0: 296, 10: 0, 20: 5} elapsed 122.52713742000003
+trial 350 counts {0: 346, 10: 0, 20: 5} elapsed 145.02019137000002
+trial 400 counts {0: 396, 10: 0, 20: 5} elapsed 167.31130482999993
+trial 450 counts {0: 444, 10: 0, 20: 7} elapsed 192.13716855300004
+trial 500 counts {0: 493, 10: 0, 20: 8} elapsed 231.89773399199998
+trial 550 counts {0: 541, 10: 0, 20: 10} elapsed 268.91344377099995
+trial 600 counts {0: 590, 10: 0, 20: 11} elapsed 301.289806582
+trial 650 counts {0: 639, 10: 0, 20: 12} elapsed 324.76720905599996
+trial 700 counts {0: 687, 10: 0, 20: 14} elapsed 343.67283337899994
+trial 750 counts {0: 737, 10: 0, 20: 14} elapsed 368.61396872699993
+trial 800 counts {0: 785, 10: 0, 20: 16} elapsed 390.1670430030001
+trial 850 counts {0: 833, 10: 0, 20: 18} elapsed 430.7258431529999
+trial 900 counts {0: 881, 10: 0, 20: 20} elapsed 462.02941078999993
+trial 950 counts {0: 930, 10: 0, 20: 21} elapsed 492.22219292599993
+trial 1000 counts {0: 980, 10: 0, 20: 21} elapsed 516.904733997
+trial 1050 counts {0: 1027, 10: 0, 20: 24} elapsed 549.337286492
+trial 1100 counts {0: 1075, 10: 0, 20: 26} elapsed 588.3896066570001
+DONE counts {0: 1091, 10: 0, 20: 27} elapsed 600.0771993870001
