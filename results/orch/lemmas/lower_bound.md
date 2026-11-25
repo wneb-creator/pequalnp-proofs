@@ -19,3 +19,7 @@
 A blanket no-negation-savings result for triangle/C4-free graphs is not established by the inspected library. The local long-thread theorems require cycles/hubs much farther apart than Petersen permits. Counting independent branch groups alone cannot yield 20.
 
 Public search on 2026-11-25 found https://pequalnp.com/papers/note-1, whose search excerpt distinguishes formula/single-level results from general monotone graph circuits and claims no-NOT savings only for special sparse classes. Full-page web open errored, so additional numerical claims from this page remain UNVERIFIED.
+
+## New checked component, 2026-11-25T14:04Z
+
+`/tmp/oec/pequalnp-pilot-99/OneNotWitnessLean.lean` (206 lines) compiles with Lean4.36, imports Mathlib.Tactic, Mathlib.Data.List.OfFn, Mathlib.Order.Monotone.Basic. Logs `one-not-witness-lean.stdout` and `.stderr` are empty; exit0. It proves all fifteen edge masks, all fifteen maximal-independent masks, boundary coverage of all1024 inputs using sixteen64-mask kernel-only certificates, and the essential-one-NOT witness theorem. No full circuit-size bound is claimed. The earlier `PetBoundaryBV.lean` solver-tactic experiment compiled but is forbidden by the format guard; DO NOT USE IT.

@@ -30,6 +30,16 @@ The source has three helpers, all in `PEqualNP.Outside.L_meta_2592_aux`: last-NO
 
 These boundary lemmas do not need a constant-free circuit or valid-wire assumptions. Empty inputs and missing reads are included. Logs `monoprefix.stdout` and `monoprefix.stderr` are empty. Root was alerted immediately.
 
+## Compiled removal and connected representative
+
+`/tmp/oec/pequalnp-pilot-99/reduction_strategy/Connected.lean` compiles and supersedes `EraseUnused.lean` by including its entire source plus two new lemmas. Empty successful logs: `connected.stdout`, `connected.stderr` (also `eraseunused.stdout`, `eraseunused.stderr` for the earlier component).
+
+- `erase_unused_gate`: if gate j is not the output and no later gate reads its wire, remove it and renumber the suffix. The equivalent fan-in-two circuit has exactly one fewer gate. The list-erasure proof covers out-of-range reads.
+- `minimal_not_preserving_representative`: choose a minimum-size equivalent circuit among fan-in-two circuits with at least one NOT or strictly smaller than the original. Every remaining gate is the output or is read by some later gate.
+- `used_gates_output_last`: any nonempty circuit satisfying that usage condition outputs its last gate, in the exact form `output + 1 = n + size`.
+
+The minimum representative uses ordinary `Nat.find`; no added axiom, executable declaration, or placeholder is present. These results supply the connectivity and output-trimming parts of the normalization reduction, but not its invalid-wire/NOT-operand normalization nor its hard lower bound.
+
 ## Other useful existing sources
 
 - `L_meta_2826`: roughly 200 lines; normalizes arbitrary 10-input circuits to binary circuits, with `binary.size + notCount C ≤ C.size`.

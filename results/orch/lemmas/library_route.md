@@ -35,3 +35,16 @@ Found L_meta_6581 already provides the general sixteen-binary floor via the same
 - Source L_meta_6581 has `nineFloor : Lower true inputs graph 15` for the nine-input vertex-deleted graph, and charges one additional binary gate when restoring the tenth essential input. Its generic contraction lemma is `projected_bound` (source line 583).
 - L_meta_5236 gives the same sixteen-binary floor with one free nonedge OR x0 OR x2. Thus a first nonedge-OR gate can in principle be charged separately, giving a seventeen-binary floor for that first-gate case. Need an analogous certificate for the edge-OR orbit plus normalization to finish all first-gate cases.
 - Direct strengthening to seventeen by gate elimination would need an extra eliminated binary gate beyond the source contraction's unit charge. The current floor is not enough to rule out one to three NOT gates at size nineteen.
+
+## Verified SAT/LRAT route (14:02 UTC)
+
+Read Defs/LratEncoding.lean. `enc` and `enc2` encode AND/OR/TRUE-padding circuits, not NOT gates. The definitions include invalid-source-as-false, arbitrary output selection, normalization, and adjacent independent-gate ordering.
+
+- L_meta_5050.lean has generic normalization/completeness and cube covering for arbitrary n,s, despite its public theorem specializing n=14,s=26; `main` is used at final line 1465. Around 1460 lines total.
+- L_meta_3644.lean has the basic monotone `valid_ofCirc`, `exists_nf`, and `enc_sat` bridge, around 1040 lines.
+- L_meta_5531.lean contains a proved generic LRAT checker: `check_sound` line 540, `checkW_sound` line 546 (compressed words), `checkFirst_sound` line 552. Generic checker can replay any suitable CNF certificate.
+- No verified NOT-capable synthesis encoding was found among 48 Outside files selected by SAT/CNF/LRAT terminology. Signed truth-table search certificates are a separate route and do permit complements for free.
+
+A direct completeness proof for unnormalized NOT circuits could avoid the expensive structural part: four operation slots AND/OR/NOT/TRUE, false extra source at each step, arbitrary output, pad with OR(false,false), encode invalid/future reads as false, duplicate unary AND/OR sources. Existing solver symmetry constraints would need their own normalization proofs before a certificate covers all possible circuits.
+
+Further finite-search lead: L_meta_4807.lean defines `Live target k t S` with both total gate count k and NOT count t (lines 18-24), explicit unary NOT and binary AND/OR transitions, and a verified cover/checker framework. This is not CNF, but it is a ready semantic model for counting negations, unlike the free-complement certificate in Partial16. Existing instance uses BitVec512 / nine inputs and seeded monotone final theorem; no full ten-input nineteen-gate instance found.
