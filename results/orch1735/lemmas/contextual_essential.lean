@@ -512,4 +512,73 @@ lemma or_left_bypass_essential {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel
     cases h1 : W n C (pairInput u v) a <;>
     cases h2 : W n C (pairInput u v) b <;> simp_all
 
+lemma or_right_bypass_essential {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hE : G.edgeFinset.Nonempty)
+    (j a b : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or) (hin : (gateAt C j).inputs = [a, b]) :
+    ∃ u v : Fin n, G.Adj u v ∧
+      circuitFun n (eraseC n C j b) (pairInput u v) = false ∧
+      W n C (pairInput u v) a = true ∧ W n C (pairInput u v) b = false := by
+  have hA := AO_of_IsAO2 n C hL.1
+  have ha : a < n + j := hL.1.2.1 j hj a (by simp [hin])
+  have hb : b < n + j := hL.1.2.1 j hj b (by simp [hin])
+  have hout : C.output < n + C.gates.length := by
+    obtain ⟨e, he⟩ := hE
+    induction e using Sym2.ind with
+    | _ u v =>
+      exact output_lt_of_true n C (pairInput u v)
+        ((congrFun hL.2.1 _).trans ((graphFun_pair n G u v).mpr (SimpleGraph.mem_edgeFinset.mp he)))
+  have hD : IsAO2 n (eraseC n C j b) :=
+    IsAO2_of_AO n _ (erase_AO n C j b hA hj hb)
+  have hsize : (eraseC n C j b).size < C.size := by
+    change (eraseC n C j b).gates.length < C.gates.length
+    have hl := erase_length n C j b hj
+    omega
+  have hle : ∀ x : Fin n → Bool,
+      circuitFun n (eraseC n C j b) x = true → circuitFun n C x = true := by
+    intro x hx
+    exact erase_W_le_of_le C hA j b hj hb x
+      (by intro h; rw [W_or n C x j hj hop a b hin ha hb, h, Bool.or_true])
+      C.output hout hx
+  obtain ⟨u, v, huv, hfalse⟩ := smaller_lower_misses_edge G C _ hL hD hsize hle
+  have horig : circuitFun n C (pairInput u v) = true :=
+    (congrFun hL.2.1 _).trans ((graphFun_pair n G u v).mpr huv)
+  have hneq : W n C (pairInput u v) b ≠ W n C (pairInput u v) (n + j) := by
+    intro hsame
+    have heq := erase_wires n C j b hj hb (pairInput u v) (Or.inl hsame) C.output
+      (fun _ => hsame)
+    change circuitFun n (eraseC n C j b) (pairInput u v) = circuitFun n C (pairInput u v) at heq
+    rw [hfalse, horig] at heq
+    cases heq
+  rw [W_or n C (pairInput u v) j hj hop a b hin ha hb] at hneq
+  refine ⟨u, v, huv, hfalse, ?_, ?_⟩ <;>
+    cases h1 : W n C (pairInput u v) a <;>
+    cases h2 : W n C (pairInput u v) b <;> simp_all
+
+lemma pairInput_eq_of_edge_eq {n : ℕ} {u v p q : Fin n}
+    (h : s(u, v) = s(p, q)) : pairInput u v = pairInput p q := by
+  funext i
+  simp only [pairInput]
+  congr 1
+  have hm : i ∈ s(u, v) ↔ i ∈ s(p, q) := by rw [h]
+  apply propext
+  simpa only [Sym2.mem_iff] using hm
+
+lemma or_two_distinct_critical_edges {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hE : G.edgeFinset.Nonempty)
+    (j a b : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.or) (hin : (gateAt C j).inputs = [a, b]) :
+    ∃ u v p q : Fin n, G.Adj u v ∧ G.Adj p q ∧ s(u, v) ≠ s(p, q) ∧
+      circuitFun n (eraseC n C j a) (pairInput u v) = false ∧
+      circuitFun n (eraseC n C j b) (pairInput p q) = false ∧
+      W n C (pairInput u v) a = false ∧ W n C (pairInput u v) b = true ∧
+      W n C (pairInput p q) a = true ∧ W n C (pairInput p q) b = false := by
+  obtain ⟨u, v, huv, hleft, hua, hub⟩ := or_left_bypass_essential G C hL hE j a b hj hop hin
+  obtain ⟨p, q, hpq, hright, hpa, hpb⟩ := or_right_bypass_essential G C hL hE j a b hj hop hin
+  refine ⟨u, v, p, q, huv, hpq, ?_, hleft, hright, hua, hub, hpa, hpb⟩
+  intro heq
+  have hi := pairInput_eq_of_edge_eq heq
+  rw [hi, hpa] at hua
+  cases hua
+
 end PEqualNP.Outside.L_meta_1735_aux.ContextualEssential

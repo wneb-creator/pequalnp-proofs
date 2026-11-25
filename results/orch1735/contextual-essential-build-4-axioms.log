@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_1735_aux.ContextualEssential.or_two_distinct_critical_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
