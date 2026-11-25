@@ -1,8 +1,22 @@
-# L-gct-231 research checkpoint
+# L-gct-231 final partial-result handoff
 
-Updated 2026-11-25T13:01:53.655118+00:00. This branch contains checked partial results. It does **not** prove or refute the posted statement, has no required final declaration, and has no proof PR or authoritative checker verdict.
+Updated 2026-11-25T13:20:30.810320+00:00. Work is stopped because no fresh own lease was obtained. This branch contains checked partial results; it does **not** prove or refute the posted statement and has no required final declaration, proof PR or authoritative checker verdict.
 
 The question is whether a three-dimensional complex linear subspace of symmetric four-by-four matrices can satisfy `permanent(J + T) = 24` for every member, with every entry of `J` equal to one. A complete negative answer must be packaged as the exact posted negated twin, L-gct-232, and pass the repository's ordinary checker.
+
+## Terminal desk outcome
+
+Work stopped after the owned L-gct-231 lease returned HTTP410. The complete response and advertised-expiry discrepancy are preserved in [desk-410-response.txt](desk-410-response.txt) and [desk-410-status.json](desk-410-status.json). The coordinator pushed the immutable work at `add965fc` before making the two permitted reacquisition attempts. Both returned the same other pilot's lease with the exact note:
+
+> you hold 5 gaps, the most one handle may hold at once; release one to get another
+
+No fresh own lease was obtained. No other pilot's lease was renewed, released or worked. The old own lease was already invalid, so there was no live own lease to release. Both remaining native processes were terminated; their final records are in [final-termination-checkpoint](research/final-termination-checkpoint/MANIFEST.json). Neither produced a completed basis or certificate. No further mathematics or builds were run after the freeze.
+
+There were **20 original null desk answers** before the initial successful lease. The last generic null answer was exactly:
+
+> No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes.
+
+All 20 exact texts, including the earlier cooldown variants, and both terminal attempts' shared-handle outcome are recorded in [terminal-desk-status.json](terminal-desk-status.json). The task ends with preserved checked partial results, **no full proof/refutation, no PR and no authoritative checker verdict**.
 
 ## Current checked source
 
@@ -37,7 +51,7 @@ The main file proves exact Hadamard-coordinate reconstruction, injectivity/bijec
 
 The separately checked **162-line** `lemmas/CanonicalHomogeneous.lean` additionally proves the canonical family with `D = (s,t,u)` and row-major coefficient matrices `P` and `B`. Its exact radial permanent formula has a quadratic term `q`, cubic term `c/2`, and quartic term `p/32`; the three homogeneous polynomials have 9, 36, and 123 terms. The permanent identity forces all three to vanish on the family. This component passed Lean and independent arithmetic/source review; it establishes necessary equations, not infeasibility.
 
-The **31-coefficient collection bridge is drafted and independently audited but has not yet compiled**. Its generator definitions match the authoritative eighteen-variable chart exactly, and its finite-difference identities have independent exact checks. A 174-line equivalent normalization of the checked radial component is also drafted/audited but uncompiled; it collects matrix entries to reduce the first proof's 4.04 GiB peak memory before further compilation.
+The **31-coefficient collection bridge is drafted and independently audited but has not yet compiled**. Its generator definitions match the authoritative eighteen-variable chart exactly, and its finite-difference identities have independent exact checks. A 174-line equivalent normalization was independently audited, but its controlled check aborted at the managed-memory limit and produced no olean. A reduced 217-line scalar prelude, 1296-line coefficient collection and 24 extra-quartic consequence drafts are preserved with exact source audits; they remain uncompiled. All further checks stopped when the invalid lease was detected.
 
 The missing rank-three obligation is an exact complex inconsistency proof for the 31 canonical coefficient equations, or a verified reduction from an equivalent augmented system. The 55-equation native chart adds 24 independently audited rational quartic consequences. No completed exact inconsistency certificate or global nonextension theorem is claimed.
 
@@ -56,4 +70,4 @@ The full checker has no verdict. Earlier unchanged-checker smoke runs stopped un
 Research and logs are preserved on the task branch under the push-early instruction. A future proof PR must have a final diff adding exactly one correctly named Lean file; branch-only research must be absent from that PR diff while remaining preserved in history. `NOTES.md` and `TIMELINE.md` retain intermediate and abandoned routes; use successful logs and the explicit scope statements here for current conclusions.
 
 Sub-agents: construct_search, geometry_search, status_review, toolchain_setup, artifact_analysis, rowzero, net_normal_form
-TIMING total=287.0 subagents=7
+TIMING total=305.7 subagents=7

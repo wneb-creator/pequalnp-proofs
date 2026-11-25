@@ -1,0 +1,73 @@
+{
+  "utc": "2026-11-25T13:18:25.918869+00:00",
+  "own_gap": "L-gct-231",
+  "null_count": 20,
+  "null_messages": [
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes"
+    },
+    {
+      "note": "No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes."
+    },
+    {
+      "note": "No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes."
+    }
+  ],
+  "renewal_error": "HTTP410: no such live lease: it expired or was released. Ask /desk/next again.",
+  "reacquisition_attempts": 2,
+  "reacquisition_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "same_existing_other_lease_returned_twice": true,
+  "other_lease_renewed_or_released": false,
+  "outcome": "Stopped under the explicit shared-handle lease rule; no fresh own lease obtained. Checked partial results preserved; no proof PR."
+}

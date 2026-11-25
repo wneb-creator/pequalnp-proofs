@@ -1,0 +1,152 @@
+{
+  "frozen_utc": "2026-11-25T13:19:40.493560+00:00",
+  "source_manifests": [
+    {
+      "path": "geometry_search/canonical55-termination-preservation-manifest.json",
+      "sha256": "7a36b95cf0fa6622fd31afc726dbca0e21b4fa9a1239c7d00f1bd0f83f635e8d",
+      "scope": "Final immutable canonical55 termination diagnostics. Root lease recovery failed; paused native killed without resuming target computation, wrapper only reaped child/compressed complete logs. Both PIDs absent; full output equals immutable pause snapshot. No completed basis, unit, or exact certificate; INCONCLUSIVE. Inputs were preserved separately in canonical55-inputs manifest.",
+      "entries": 9
+    },
+    {
+      "path": "construct_search/lease410-final-termination-manifest.json",
+      "sha256": "a9ea6a67eb4a5aeb5318942a3e4236d84d1ff00059baa134f77bd482b16279d9",
+      "scope": "No complete modular or rational certificate. All target work stopped; no lease was renewed, released, or requested by this agent.",
+      "entries": 8
+    }
+  ],
+  "files": [
+    {
+      "path": "AUDIT.json",
+      "bytes": 482,
+      "sha256": "46172bf049834feeafd9988c05bb22cc1d0434abbef1676ee89dd7f86a902b82",
+      "decoded_sha256": "46172bf049834feeafd9988c05bb22cc1d0434abbef1676ee89dd7f86a902b82"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1297,
+      "sha256": "f11f28b176ec08ecd2432332c470aa8001787663d336b6d6d211f189478526b4",
+      "decoded_sha256": "f11f28b176ec08ecd2432332c470aa8001787663d336b6d6d211f189478526b4"
+    },
+    {
+      "path": "construct_search/lease410-final-capture-status.json",
+      "bytes": 631,
+      "sha256": "ab824becafd8215040d2b032e733d87c8cbf45a9945e6027eb7c5fd9049e8914",
+      "decoded_sha256": "ab824becafd8215040d2b032e733d87c8cbf45a9945e6027eb7c5fd9049e8914"
+    },
+    {
+      "path": "construct_search/lease410-final-native-stop.json",
+      "bytes": 486,
+      "sha256": "667a446aa3450709e9e5a2e72f503c328f65fe36890bbcbee0c766414851e493",
+      "decoded_sha256": "667a446aa3450709e9e5a2e72f503c328f65fe36890bbcbee0c766414851e493"
+    },
+    {
+      "path": "construct_search/lease410-final-termination-manifest.json",
+      "bytes": 1828,
+      "sha256": "a9ea6a67eb4a5aeb5318942a3e4236d84d1ff00059baa134f77bd482b16279d9",
+      "decoded_sha256": "a9ea6a67eb4a5aeb5318942a3e4236d84d1ff00059baa134f77bd482b16279d9"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.progress.jsonl",
+      "bytes": 605,
+      "sha256": "fd81b699c35f2d0ece77cb4aa713aa2f7f9595c945d09baf3c1152ccc6ad834e",
+      "decoded_sha256": "fd81b699c35f2d0ece77cb4aa713aa2f7f9595c945d09baf3c1152ccc6ad834e"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.result.json",
+      "bytes": 803,
+      "sha256": "6e4c4ad5bd08d7ffa8157d281877aeea5510eb1809b54bbf65a3dee6b3c24cc2",
+      "decoded_sha256": "6e4c4ad5bd08d7ffa8157d281877aeea5510eb1809b54bbf65a3dee6b3c24cc2"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.stdout.gz",
+      "bytes": 130,
+      "sha256": "3b3520fce25609a6cb86e4369b6dfef25a4956ff46b307dcab92aacaea22560a",
+      "decoded_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-stream-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-stream-run.stdout",
+      "bytes": 765,
+      "sha256": "e7b6a5209fe0df9681f402115c801a62b3e44a2d8ffe7eff3637becc3cb8a798",
+      "decoded_sha256": "e7b6a5209fe0df9681f402115c801a62b3e44a2d8ffe7eff3637becc3cb8a798"
+    },
+    {
+      "path": "geometry_search/canonical55-termination-preservation-manifest.json",
+      "bytes": 3069,
+      "sha256": "7a36b95cf0fa6622fd31afc726dbca0e21b4fa9a1239c7d00f1bd0f83f635e8d",
+      "decoded_sha256": "7a36b95cf0fa6622fd31afc726dbca0e21b4fa9a1239c7d00f1bd0f83f635e8d"
+    },
+    {
+      "path": "geometry_search/canonical55/canonical55-modGB.result.json",
+      "bytes": 747,
+      "sha256": "7a74be2a7efff5f354dd66432173028cb56d399523935c099f83c4f49b21482c",
+      "decoded_sha256": "7a74be2a7efff5f354dd66432173028cb56d399523935c099f83c4f49b21482c"
+    },
+    {
+      "path": "geometry_search/canonical55/canonical55-modGB.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/canonical55/canonical55-modGB.stdout.zst",
+      "bytes": 456,
+      "sha256": "f33bb2fdca6a8946d1bf204d82edd6e0e6d3e443140946a5145961b539ab0bfb",
+      "decoded_sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21"
+    },
+    {
+      "path": "geometry_search/canonical55/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/canonical55/driver.stdout",
+      "bytes": 713,
+      "sha256": "47b4a2cc26996fa0ff3e9ce99727bce1d0b591bb5eaff82fd0a74d85810097c0",
+      "decoded_sha256": "47b4a2cc26996fa0ff3e9ce99727bce1d0b591bb5eaff82fd0a74d85810097c0"
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.json",
+      "bytes": 769,
+      "sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e",
+      "decoded_sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e"
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/canonical55/lease-freeze.stdout",
+      "bytes": 1877,
+      "sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21",
+      "decoded_sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21"
+    },
+    {
+      "path": "geometry_search/canonical55/lease-termination.json",
+      "bytes": 740,
+      "sha256": "38d5759e8954f2068457ccddcfd02a0877d8d2f3e14ef2c042296b2079ab75f6",
+      "decoded_sha256": "38d5759e8954f2068457ccddcfd02a0877d8d2f3e14ef2c042296b2079ab75f6"
+    },
+    {
+      "path": "terminal-desk-status.json",
+      "bytes": 4328,
+      "sha256": "c8516f186d21b839df3a89390a7efbfae6a38009ed241024cd99ca733911c7d0",
+      "decoded_sha256": "c8516f186d21b839df3a89390a7efbfae6a38009ed241024cd99ca733911c7d0"
+    }
+  ],
+  "payload_bytes": 19726
+}

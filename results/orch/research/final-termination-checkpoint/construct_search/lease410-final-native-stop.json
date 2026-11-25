@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T13:18:22.937513+00:00",
+  "status": "TERMINATED_INCONCLUSIVE_LEASE410",
+  "reason": "Fresh desk retry repeated another pilot lease and five-gap limit. Root requires stopping. No target work resumed; SIGTERM was queued before SIGCONT solely for termination.",
+  "signal_sequence": [
+    "SIGTERM",
+    "SIGCONT"
+  ],
+  "native_pid": 30201,
+  "process_sample": "    PID    PPID STAT     ELAPSED     TIME   RSS\n  30201   30200 T          10:33 00:02:06 760236\n"
+}

@@ -1,0 +1,20 @@
+{
+  "engine": "Singular_focused_liftstd_12_streaming",
+  "source": "/tmp/oec/pequalnp-pilot-78/construct_search/rank1-incident-opposite-liftstd-Q-2g.sing",
+  "source_sha256": "ccfd658ed040658b323033301654abef9af353a1b2569ead1267aff57ef53372",
+  "cpu_budget": 1200,
+  "wall_budget": 2400,
+  "memory_mib": 2048,
+  "wall_seconds": 633.4205960389991,
+  "exit": 0,
+  "termination": null,
+  "errors": [],
+  "raw_stdout_bytes": 56,
+  "raw_stdout_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+  "gzip_bytes": 130,
+  "lossless_roundtrip_verified": true,
+  "child_user_cpu": 124.801675,
+  "child_system_cpu": 1.8922409999999998,
+  "child_maxrss_kib": 764736,
+  "scope": "Complete stdout retained in lossless gzip. Exact polynomial identity still required before any proof claim."
+}

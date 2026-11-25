@@ -1,0 +1,10 @@
+{
+  "terminated_utc": "2026-11-25T13:18:18.269722+00:00",
+  "native_pid": 28884,
+  "wrapper_pid": 28883,
+  "pre_termination_status": "28883 python          T          23:23 00:00:01 10504  36440\n  28884 Singular        T          23:23 00:10:29 665548 864348",
+  "native_action": "SIGKILL while already SIGSTOP-paused; no target computation resumed",
+  "wrapper_action": "SIGCONT only to reap killed child and finalize complete diagnostics",
+  "reason": "Root confirmed both permitted reacquisition attempts returned another pilot existing lease and five-gap limit. Original lease invalid; task must stop, no other lease released.",
+  "scope": "Incomplete modular computation with no completed basis or exact certificate; INCONCLUSIVE."
+}

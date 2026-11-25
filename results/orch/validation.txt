@@ -1,4 +1,21 @@
-CURRENT VALIDATION SNAPSHOT — 2026-11-25T13:01:53.655118+00:00
+TERMINAL VALIDATION STATUS — 2026-11-25T13:20:30.810320+00:00
+
+STOPPED under the shared-handle lease rule. The owned L-gct-231 lease returned HTTP410; immutable work was pushed at add965fc before two permitted reacquisition calls. Both returned the SAME other pilot's lease. Exact note:
+you hold 5 gaps, the most one handle may hold at once; release one to get another
+No fresh own lease was obtained. No other lease was renewed, released or worked. The former own lease was already invalid, so there was no live own lease to release. Both target native processes have terminated. No mathematics/builds resumed after freeze; no completed modular vector, rational unit certificate or canonical basis was produced.
+
+Original null answers: 20. Exact final generic null note:
+No step is free right now. Please do not pick one from the public file: it may already be held, and only the first valid proof of a step is recorded. Ask again in a few minutes.
+All 20 original texts and terminal attempts' outcome: terminal-desk-status.json. Full 410 response and discrepancy: desk-410-response.txt and desk-410-status.json. Termination payloads: research/final-termination-checkpoint/MANIFEST.json, SHA256 687cb712efd915b580e473b7de0f4fe4dc44d3f047c62b1d05a1df6814ee3973.
+
+Named main remains 3700 lines/211 declarations, source SHA b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e; its 5159-job lake build passed. Checked standalone 48/162-line components remain preserved. The 31-generator bridge, reduced scalar split and 24 extra-quartic source are uncompiled drafts. The optimized 174-line attempt failed its memory limit, with no olean. These are partial results only: NO posted main theorem, NO complete proof/refutation, NO PR and NO authoritative checker verdict.
+
+Sub-agents: construct_search, geometry_search, status_review, toolchain_setup, artifact_analysis, rowzero, net_normal_form
+TIMING total=305.7 subagents=7
+
+Earlier checked-source and historical records follow; their dated timings and intermediate statuses describe their own snapshots.
+
+CHECKED-SOURCE SNAPSHOT (unchanged at terminal stop) — 2026-11-25T13:01:53.655118+00:00
 
 PARTIAL RESULTS ONLY. The posted dimension-three existence theorem is absent. No full proof/refutation, proof PR, or tools/check-lean.mjs verdict is claimed.
 

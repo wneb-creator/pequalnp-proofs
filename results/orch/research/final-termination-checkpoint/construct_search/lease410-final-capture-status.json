@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T13:18:33.191986+00:00",
+  "status": "FINAL_INCONCLUSIVE_LEASE410",
+  "native_gone": true,
+  "capture_wrapper_completed": true,
+  "process_exit": 0,
+  "exit_interpretation": "Singular SIGTERM handler exit0 is not mathematical success.",
+  "complete_modular_vectors": 0,
+  "exact_certificate_labels": 0,
+  "raw_stdout_bytes": 56,
+  "raw_stdout_sha256": "adf2d687ea3faf8c0bb845b3d329c4d000873044c4430669989f96d977dd2b5a",
+  "gzip_lossless_roundtrip_verified": true,
+  "scope": "No complete modular or rational certificate. All target work stopped; no lease was renewed, released, or requested by this agent."
+}

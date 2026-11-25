@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-25T13:18:33.191986+00:00",
+  "status": "FINAL_INCONCLUSIVE_LEASE410",
+  "scope": "No complete modular or rational certificate. All target work stopped; no lease was renewed, released, or requested by this agent.",
+  "files": [
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.stdout.gz",
+      "bytes": 130,
+      "sha256": "3b3520fce25609a6cb86e4369b6dfef25a4956ff46b307dcab92aacaea22560a"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.progress.jsonl",
+      "bytes": 605,
+      "sha256": "fd81b699c35f2d0ece77cb4aa713aa2f7f9595c945d09baf3c1152ccc6ad834e"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-liftstd-Q-2g-stream.result.json",
+      "bytes": 803,
+      "sha256": "6e4c4ad5bd08d7ffa8157d281877aeea5510eb1809b54bbf65a3dee6b3c24cc2"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-stream-run.stdout",
+      "bytes": 765,
+      "sha256": "e7b6a5209fe0df9681f402115c801a62b3e44a2d8ffe7eff3637becc3cb8a798"
+    },
+    {
+      "path": "construct_search/rank1-liftstd-2g-stream-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/lease410-final-native-stop.json",
+      "bytes": 486,
+      "sha256": "667a446aa3450709e9e5a2e72f503c328f65fe36890bbcbee0c766414851e493"
+    },
+    {
+      "path": "construct_search/lease410-final-capture-status.json",
+      "bytes": 631,
+      "sha256": "ab824becafd8215040d2b032e733d87c8cbf45a9945e6027eb7c5fd9049e8914"
+    }
+  ],
+  "total_bytes": 3420
+}

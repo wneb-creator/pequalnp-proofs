@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-25T13:18:29.933124+00:00",
+  "scope": "Final immutable canonical55 termination diagnostics. Root lease recovery failed; paused native killed without resuming target computation, wrapper only reaped child/compressed complete logs. Both PIDs absent; full output equals immutable pause snapshot. No completed basis, unit, or exact certificate; INCONCLUSIVE. Inputs were preserved separately in canonical55-inputs manifest.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/canonical55-modGB.result.json",
+      "relative_path": "geometry_search/canonical55/canonical55-modGB.result.json",
+      "bytes": 747,
+      "sha256": "7a74be2a7efff5f354dd66432173028cb56d399523935c099f83c4f49b21482c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/canonical55-modGB.stdout.zst",
+      "relative_path": "geometry_search/canonical55/canonical55-modGB.stdout.zst",
+      "bytes": 456,
+      "sha256": "f33bb2fdca6a8946d1bf204d82edd6e0e6d3e443140946a5145961b539ab0bfb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/canonical55-modGB.stderr",
+      "relative_path": "geometry_search/canonical55/canonical55-modGB.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/driver.stdout",
+      "relative_path": "geometry_search/canonical55/driver.stdout",
+      "bytes": 713,
+      "sha256": "47b4a2cc26996fa0ff3e9ce99727bce1d0b591bb5eaff82fd0a74d85810097c0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/driver.stderr",
+      "relative_path": "geometry_search/canonical55/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.json",
+      "relative_path": "geometry_search/canonical55/lease-freeze.json",
+      "bytes": 769,
+      "sha256": "57c701f7bf3d1c90d2dc4d3e7f1f2f4ed33531998a96c7b3ae29a99c0bf0719e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.stdout",
+      "relative_path": "geometry_search/canonical55/lease-freeze.stdout",
+      "bytes": 1877,
+      "sha256": "91c0f76c3232094b968156f22b53e60d0b288d80257e87f0d23d859cdc63ee21"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-freeze.stderr",
+      "relative_path": "geometry_search/canonical55/lease-freeze.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/canonical55/lease-termination.json",
+      "relative_path": "geometry_search/canonical55/lease-termination.json",
+      "bytes": 740,
+      "sha256": "38d5759e8954f2068457ccddcfd02a0877d8d2f3e14ef2c042296b2079ab75f6"
+    }
+  ],
+  "file_count": 9,
+  "total_bytes": 5302
+}
