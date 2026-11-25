@@ -1,0 +1,35 @@
+round 0 samples 16 vars 18176 clauses 269296 wall 0.114882 cpu 0.117033
+solve 10 wall 0.14169 cpu 0.143819
+candidate 0 basis_errors 81
+round 1 samples 24 vars 19896 clauses 387448 wall 0.179174 cpu 0.1813
+solve 10 wall 0.354592 cpu 0.353577
+candidate 1 basis_errors 304
+round 2 samples 32 vars 21616 clauses 505600 wall 0.392136 cpu 0.39112
+solve 10 wall 3.57559 cpu 3.5583
+candidate 2 basis_errors 12
+round 3 samples 36 vars 22476 clauses 564676 wall 3.58622 cpu 3.56893
+solve 10 wall 4.47771 cpu 4.40438
+candidate 3 basis_errors 8
+round 4 samples 40 vars 23336 clauses 623752 wall 4.49069 cpu 4.41731
+solve 10 wall 14.358 cpu 14.1687
+candidate 4 basis_errors 8
+round 5 samples 44 vars 24196 clauses 682828 wall 14.3701 cpu 14.1807
+solve 0 wall 34.9465 cpu 27.3527
+round 5 samples 44 vars 24196 clauses 682828 wall 34.9466 cpu 27.3528
+solve 10 wall 42.1299 cpu 32.0227
+candidate 5 basis_errors 7
+round 6 samples 48 vars 25056 clauses 741904 wall 42.1451 cpu 32.0379
+solve 0 wall 63.2638 cpu 47.5065
+round 6 samples 48 vars 25056 clauses 741904 wall 63.264 cpu 47.5066
+solve 0 wall 83.9556 cpu 60.437
+round 6 samples 48 vars 25056 clauses 741904 wall 83.9557 cpu 60.4372
+solve 10 wall 86.1253 cpu 61.8495
+candidate 6 basis_errors 3
+round 7 samples 51 vars 25701 clauses 786211 wall 86.1376 cpu 61.8617
+solve 0 wall 99.8256 cpu 74.8372
+round 7 samples 51 vars 25701 clauses 786211 wall 99.8258 cpu 74.8373
+solve 10 wall 106.126 cpu 80.9364
+candidate 7 basis_errors 3
+round 8 samples 54 vars 26346 clauses 830518 wall 106.139 cpu 80.9492
+solve 0 wall 120.021 cpu 92.4755
+UNKNOWN wall deadline wall 120.021 cpu 92.4759

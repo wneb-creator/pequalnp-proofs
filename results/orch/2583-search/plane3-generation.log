@@ -1,0 +1,2 @@
+VERIFIED PG(2,3): 26 inputs, 52 edges, 704 maximal false rows, 64 gates.
+Monotonicity makes agreement on these 756 rows equivalent to full equality.

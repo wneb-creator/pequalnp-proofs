@@ -1,0 +1,13 @@
+L-meta-2583 status at lease loss
+No proof or refutation found. No proof PR opened.
+Named partial module: 3507 lines, normal lake build PASS.
+Unmodified exact-statement checker: killed exit137 before any verdict.
+Independent source/provenance reviews PASS for checked partials.
+Closed-boundary helper compiled and independent preservation review PASS.
+Linear-filter helper and plane wrapper were NOT compiled and are marked UNCHECKED.
+Final stochastic63 approximation has four extra pairs and215 false maximal inputs; not a counterexample. Restoration reaches64gates.
+SATrepair radius4 andradius6 returnedUNKNOWN. Five-line type1 was interrupted by lease loss; no SAT/UNSAT verdict. Types2/3 never started.
+All complete logs/sources/candidates/controls are preserved.
+Desk null answers sofar:0.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=82 subagents=6

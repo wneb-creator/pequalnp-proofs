@@ -1,0 +1,4 @@
+round 0 samples 756 vars 179656 clauses 11472348 wall 1.00964 cpu 1.00487
+solve 10 wall 1.01045 cpu 1.0056
+candidate 0 basis_errors 0
+WITNESS complete supplied basis verified wall 1.01309 cpu 1.00824

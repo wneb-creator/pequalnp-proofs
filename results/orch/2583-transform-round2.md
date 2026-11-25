@@ -21,3 +21,9 @@ Drafted results/orch/lemmas/2583_boundary.lean. For an arbitrary bipartite relat
 This reduces an order-3 candidate certificate from 2^26 arbitrary assignments to 52 positive pair tests and 2^13 negative boundary tests, plus monotonicity. Source is a draft until Lean checked; no circuit-normalization or size claim is included.
 
 2026-11-25T15:01:43.689556+00:00 Boundary-completeness source checked with Lean (exit 0, no warnings/errors). Validation and SHA256 recorded in results/orch/2583-boundary-validation.txt.
+
+## Stronger local criterion
+
+The local OR-set criterion extends to arbitrary monotone point-only functions A and B. If line l AND A AND B is below incidence, then line l AND A or line l AND B is below incidence. Indeed, evaluate point functions at the largest point assignment disjoint from the neighbors of l. Their AND must be false there, so one is false there; monotonicity then makes that factor false on every point assignment with no neighbor of l. The clean top wire can therefore bypass an immediately preceding point-only AND by rewiring to a child, without new gates. This does not justify changing a shared point-only OR ancestor; that remains the missing global step.
+
+2026-11-25T15:05:37.719975+00:00 Closed-boundary extension checked with Lean, exit 0 and no diagnostics. Source contains 74 new lines above the existing checked base; validation hash in results/orch/2583-closed-boundary-validation.txt.

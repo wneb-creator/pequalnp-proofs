@@ -1,0 +1,6 @@
+best 3375 missedges 3 falsepositives 303 steps 1 restarts 1 elapsed 0.00016174
+best 2289 missedges 2 falsepositives 241 steps 2 restarts 1 elapsed 0.0003172
+best 1221 missedges 1 falsepositives 197 steps 3 restarts 1 elapsed 0.000614712
+positivebest 197 steps 23 restarts 1 elapsed 0.000755311
+best 197 missedges 0 falsepositives 197 steps 23 restarts 1 elapsed 0.000797894
+END cost 197 steps 520600000 restarts 1808 elapsed 300.011

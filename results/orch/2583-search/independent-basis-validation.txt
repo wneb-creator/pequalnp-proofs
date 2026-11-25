@@ -1,0 +1,5 @@
+PASS: q=3 plane axioms, 52 edges, all 8192 point subsets checked.
+PASS: 704 maximal false rows form a complete false boundary by Galois closure.
+PASS: 64-gate AO2 control evaluates correctly on all 756 boundary rows.
+For any monotone candidate, agreement on these minimal true and maximal false rows implies agreement on all inputs.
+This Python check is independent search validation, not a Lean certificate or circuit lower bound.

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T15:06:35.796468+00:00",
+  "pgrep_status": 0,
+  "stopped": [
+    {
+      "pid": 19728,
+      "signal": "SIGINT",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-98/exact/kissat/build/kissat",
+        "--time=300",
+        "--seed=98",
+        "results/orch/2583-exact/type1-m19/formula.cnf"
+      ]
+    }
+  ]
+}

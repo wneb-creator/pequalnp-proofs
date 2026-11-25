@@ -1,0 +1,7 @@
+positivebest 290 steps 1 restarts 1 elapsed 0.000237302
+best 290 missedges 0 pure_side_errors 0 falsepositives 290 steps 1 restarts 1 elapsed 0.000293856
+positivebest 262 steps 2867895 restarts 10 elapsed 1.45221
+best 262 missedges 0 pure_side_errors 0 falsepositives 262 steps 2867895 restarts 10 elapsed 1.45237
+positivebest 215 steps 275044434 restarts 956 elapsed 141.275
+best 215 missedges 0 pure_side_errors 0 falsepositives 215 steps 275044434 restarts 956 elapsed 141.275
+END cost 215 steps 573120000 restarts 1990 elapsed 300.009

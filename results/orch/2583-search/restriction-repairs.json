@@ -1,0 +1,269 @@
+[
+  {
+    "zeros": [
+      21,
+      24
+    ],
+    "restricted_gates": 54,
+    "restored_gates": 64
+  },
+  {
+    "zeros": [
+      3,
+      21,
+      24
+    ],
+    "restricted_gates": 51,
+    "restored_gates": 65
+  },
+  {
+    "zeros": [
+      7,
+      21,
+      24
+    ],
+    "restricted_gates": 51,
+    "restored_gates": 65
+  },
+  {
+    "zeros": [
+      8,
+      21,
+      24
+    ],
+    "restricted_gates": 51,
+    "restored_gates": 65
+  },
+  {
+    "zeros": [
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 51,
+    "restored_gates": 65
+  },
+  {
+    "zeros": [
+      7,
+      24
+    ],
+    "restricted_gates": 56,
+    "restored_gates": 65
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      3,
+      8,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      3,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      7,
+      8,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      7,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      8,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      24
+    ],
+    "restricted_gates": 52,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      7,
+      8,
+      24
+    ],
+    "restricted_gates": 52,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      7,
+      10,
+      24
+    ],
+    "restricted_gates": 52,
+    "restored_gates": 66
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      21,
+      24
+    ],
+    "restricted_gates": 45,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 45,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      3,
+      8,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 45,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      7,
+      8,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 45,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      10,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      7,
+      8,
+      10,
+      24
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 67
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      10,
+      21,
+      24
+    ],
+    "restricted_gates": 42,
+    "restored_gates": 68
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      10,
+      24
+    ],
+    "restricted_gates": 44,
+    "restored_gates": 68
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      10
+    ],
+    "restricted_gates": 48,
+    "restored_gates": 68
+  },
+  {
+    "zeros": [
+      3,
+      7,
+      8,
+      10,
+      21
+    ],
+    "restricted_gates": 47,
+    "restored_gates": 69
+  },
+  {
+    "zeros": [
+      3,
+      8,
+      10,
+      21
+    ],
+    "restricted_gates": 52,
+    "restored_gates": 69
+  }
+]

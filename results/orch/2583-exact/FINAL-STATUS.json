@@ -1,0 +1,64 @@
+{
+  "gap": "L-meta-2583",
+  "stopped_utc": "2026-11-25T15:06:35.796468+00:00",
+  "reason": "Parent reported loss of live lease and ordered all searches stopped",
+  "lean_proof_produced": false,
+  "full_plane_63_gate_counterexample_found": false,
+  "remaining_active_solver_processes": 0,
+  "controls": {
+    "64_gate_star_fixed": "SAT; all 756 monotone basis rows verified",
+    "63_gate_deleted_edge_fixed": "UNSAT",
+    "C6_8_gate_unseeded": "SAT; all 64 assignments verified",
+    "three_compressed_graft_controls": "All produce 64 full-plane gates and pass all 756 monotone basis rows"
+  },
+  "completed_searches": [
+    {
+      "name": "distance4",
+      "result": "UNKNOWN",
+      "wall_seconds": 120.021,
+      "cpu_seconds": 92.4759,
+      "models": 8,
+      "final_encoded_basis_rows": 54
+    },
+    {
+      "name": "distance6-edges",
+      "result": "UNKNOWN",
+      "wall_seconds": 300.001,
+      "cpu_seconds": 262.804,
+      "models": 1,
+      "final_encoded_basis_rows": 64,
+      "model_bad_maximal_false_rows": 458
+    }
+  ],
+  "interrupted_search": {
+    "name": "type1-m19",
+    "inputs": 14,
+    "gates": 19,
+    "result": "INTERRUPTED_UNKNOWN",
+    "signal": "SIGINT",
+    "solver_exit": -2,
+    "pid": 19728,
+    "cpu_seconds": 249.67,
+    "maximum_resident_bytes": 38051840,
+    "variables": 4230,
+    "clauses": 147702,
+    "basis_rows": 47,
+    "first_orbit_cut": false,
+    "nested_AND_restriction": false,
+    "models": 0
+  },
+  "not_run": [
+    "type3 23-gate compressed search",
+    "type2 22-gate compressed search",
+    "optional first-pair automorphism cut",
+    "repair around stochastic non-read1 mixed seed"
+  ],
+  "classification": {
+    "five_line_subsets": 1287,
+    "isomorphism_types": 3,
+    "class_sizes": [117, 702, 468],
+    "compressed_input_counts": [14, 16, 16],
+    "compressed_target_gate_counts": [19, 22, 23],
+    "outside_OR_prefix_gate_counts": [4, 1, 0]
+  }
+}

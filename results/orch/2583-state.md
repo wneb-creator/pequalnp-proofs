@@ -7,3 +7,7 @@ Current named file: 3,507 lines, SHA256 a4744e2c47a48c89af511e858edff76be56380da
 Checker invocation against the exact statement ended with exit137 while loading the built file, no verdict. No verifier process remains and its empty stale lock was removed after confirming termination. All four cache keeper processes remain alive.
 
 Six parallel strategies were used. Current second round: five-line local synthesis, full 63-gate stochastic searches, semantic shared-factor analysis, and a generic monotone boundary correctness lemma. No accepted full witness. Root renews the lease every five minutes.
+
+## STOPPED 2026-11-25 15:06 UTC
+
+The lease returned HTTP410. No gap research, search, or builds may resume without a newly verified assignment. All agents stopped; the root heartbeat was stopped. The last successful renewal and complete diagnostic are saved. Do not release this dead lease or any other pilot lease.

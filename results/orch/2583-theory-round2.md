@@ -66,3 +66,16 @@ Command: PATH=/tmp/oec/pequalnp-pilot-98/toolchain/bin:$PATH PEQUALNP_REAL_LAKE=
 Stdout: empty
 Stderr: empty
 Scope: three incidence corners exclude the fourth, and edges between subsets of opposite neighborhoods of a nonincident pair form a matching (cardinality bound). No arbitrary Circuit gate-budget theorem.
+
+## UNCHECKED linear-filter drafts at lease termination
+
+UTC: 2026-11-25T15:06:34.357926+00:00
+STATUS: UNCHECKED DRAFTS
+Reason: root reported lease ended before any build was launched. No Lean check was attempted for either draft.
+results/orch/lemmas/2583_linear_filter.lean
+SHA256: be755679f00ff0ae00d49a47d853eb96bd324114686dbf67d551889e440a8023
+Lines: 94
+results/orch/lemmas/2583_linear_filter_plane.lean
+SHA256: f46c7397f9d32b2140a98685d107caa9829de30b163b1e3c86e5cdc5c6ef0547
+Lines: 35
+The first file is intended as a standalone generic lemma bundle. The second is a namespace fragment requiring the main file and first bundle. The previously checked 2583_shared_filter.lean is separate and remains valid.

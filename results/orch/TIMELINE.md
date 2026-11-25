@@ -19,3 +19,7 @@
 - 2026-11-25 14:55 UTC: 3507-line combined L-meta-2583 partial named build passes, independently reviewed and pushed at bba953d40f2a6b2b4321dd67f566538bdd3acbe3.
 - 2026-11-25 14:59 UTC: unmodified checker against exact posted statement terminated with exit137 before any verdict. No checker acceptance. No remaining verifier process.
 - 2026-11-25 15:01 UTC: second research round targets all three five-line sub-incidence isomorphism classes; strict gate savings would lift to a full order-three counterexample.
+
+- 2026-11-25 15:06 UTC: L-meta-2583 renewal unexpectedly returned no-live-lease; exact curl -si diagnostic confirmed HTTP410 at15:06:34 UTC, despite successful prior renewal expiry15:23:57.574 UTC. All work stopped. Active type1 solver interrupted, no SAT/UNSAT verdict.
+
+- 2026-11-25 15:08 UTC: stopped-state preservation review confirms closed-boundary proof; all solver outcomes remain UNKNOWN or negative heuristic searches. Last timer renewal had expiry15:24:57.304 UTC, later than the410 diagnostic.

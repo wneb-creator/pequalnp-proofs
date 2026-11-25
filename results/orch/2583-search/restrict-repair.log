@@ -1,0 +1,1 @@
+best [{'zeros': [21, 24], 'restricted_gates': 54, 'restored_gates': 64}, {'zeros': [3, 21, 24], 'restricted_gates': 51, 'restored_gates': 65}, {'zeros': [7, 21, 24], 'restricted_gates': 51, 'restored_gates': 65}, {'zeros': [8, 21, 24], 'restricted_gates': 51, 'restored_gates': 65}, {'zeros': [10, 21, 24], 'restricted_gates': 51, 'restored_gates': 65}]

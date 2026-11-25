@@ -1,0 +1,3 @@
+{"variables": 490, "clauses": 6236, "gates": 8, "inputs": 6, "basis_rows": 11, "nested_required": false}
+solver_exit=10
+WITNESS: all 64 assignments independently checked; nested=False

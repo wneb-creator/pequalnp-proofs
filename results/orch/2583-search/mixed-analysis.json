@@ -1,0 +1,37 @@
+{
+  "extra_quadratic_minterms": [
+    [
+      3,
+      24
+    ],
+    [
+      7,
+      21
+    ],
+    [
+      8,
+      24
+    ],
+    [
+      10,
+      24
+    ]
+  ],
+  "augmented_graph_maximal_false_count": 531,
+  "augmented_graph_false_positives": [],
+  "read1_failed_edges": [
+    [
+      2,
+      24
+    ],
+    [
+      11,
+      24
+    ]
+  ],
+  "active_gates": 63,
+  "nested_and_gate_indices": [
+    19
+  ],
+  "candidate_steps": 275044434
+}

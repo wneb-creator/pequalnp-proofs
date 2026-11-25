@@ -1,0 +1,8 @@
+Checked 2026-11-25T15:05:37.719594+00:00
+Source: results/orch/lemmas/2583_closed_boundary.lean
+SHA256: bd8dad446d776a134443d3aa811fb023d03e22d7152557062ac3daae34e23907
+Exit: 0
+STDOUT: empty
+STDERR: empty
+Command: lake env lean -j1 -M3072 results/orch/lemmas/2583_closed_boundary.lean
+Generic correctness from closed negative boundaries. No size claim.
