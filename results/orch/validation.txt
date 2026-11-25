@@ -90,3 +90,12 @@ Search archives remain diagnostic; no refutation or unrestricted bound found.
 Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math.
 TIMING total=101 subagents=7
+
+Checkpoint 8: fresh pivotal witnesses and generic merger-count invariant
+compiled and independently reviewed by root. The full goal remains open.
+Named file still4978 lines; no new official checker run.
+Added gate_charge (gpt-6.2-astra, ultra) for an independent global counting
+attempt; eight distinct sub-agents in total, at most six active at a time.
+Sub-agents: status_1035, lean_setup, counterexample, structural,
+decomposition, lower_bound, fresh_math, gate_charge.
+TIMING total=109 subagents=8

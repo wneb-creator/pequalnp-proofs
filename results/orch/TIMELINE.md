@@ -21,3 +21,5 @@
 - 2026-11-25T09:33:19Z: second strategy re-plan: fresh independent mathematical agent added; global core charging, single-core tests, mixed-cover surplus, corrected structured SAT and checker memory repair continue. Seven distinct sub-agents used.
 
 - 2026-11-25 09:44 UTC: checkpoint7 preserves five independently reviewed compiled partials and the two full checker OOM logs. No verdict or full theorem. Search resumed after resource hold; actual 64-gate q3 solver calibration succeeded.
+
+- 2026-11-25 09:48:49 UTC: fresh pivotal and merger-count invariants compile and pass independent root review; gate_charge joins global lower-bound strategy.
