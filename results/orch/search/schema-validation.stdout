@@ -1,0 +1,4 @@
+plain passed 182117 clauses binary 20 charged inversions 0
+flipped passed 209492 clauses binary 20 charged inversions 3
+diff_a passed 198443 clauses binary 21 charged inversions 1
+diff_b passed 198443 clauses binary 21 charged inversions 1

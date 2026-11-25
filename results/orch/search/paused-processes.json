@@ -1,0 +1,37 @@
+[
+  {
+    "pid": 3707,
+    "program": "cadical",
+    "files": [
+      "p19-strengthened-n1.cnf"
+    ]
+  },
+  {
+    "pid": 4210,
+    "program": "search_not",
+    "files": [
+      "search_not"
+    ]
+  },
+  {
+    "pid": 5036,
+    "program": "signed_search",
+    "files": [
+      "signed_search"
+    ]
+  },
+  {
+    "pid": 5131,
+    "program": "cadical",
+    "files": [
+      "p19-strengthened-n1-useful.cnf"
+    ]
+  },
+  {
+    "pid": 6429,
+    "program": "cadical",
+    "files": [
+      "p10-signed17-n2.cnf"
+    ]
+  }
+]

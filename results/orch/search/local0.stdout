@@ -1,0 +1,96 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 120 seconds real time (due to '-t 120')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-111/counterexample/local0.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-111/counterexample/local0.cnf'
+c found 'p cnf 211000 194262' header
+c parsed 194262 clauses in 0.10 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail      variables
+c          level   conflicts       glue        remaining
+c 
+c *  0.10 54  0 0   0    0    0  0% 0 189104 1028  0%
+c {  0.12 58  0 0   0    0    0  0% 0 189104 1028  0%
+c i  0.13 58 90370 0   0   86   68 45% 4 189104 1027  0%
+c i  0.13 58 89733 0   0   95   76 45% 4 189104 1026  0%
+c i  0.13 58 89610 0   0  104   77 45% 4 189104 1025  0%
+c i  0.14 58 89434 0   0  107   79 44% 4 189104 1024  0%
+c -  0.17 58 75222 1   2  301  236 35% 3 29749 1024  0%
+c i  0.17 58 71038 1   2  319  245 33% 3 29749 1023  0%
+c i  0.17 58 63083 1   2  354  269 30% 3 29749 1000  0%
+c i  0.17 58 62466 1   2  357  271 30% 3 29749 999  0%
+c i  0.17 58 55415 1   2  404  300 27% 3 29749 990  0%
+c }  0.17 58 54468 1   2  412  304 26% 3 29749 901  0%
+c 0  0.17 58 54468 1   2  412  304 26% 3 29749 901  0%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.10  158.74% parse
+c         0.06   99.56% search
+c         0.05   72.36% unstable
+c         0.02   27.18% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.06   38.57% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               201        48.79 %  of conflicts
+c conflicts:                   412      6357.34    per second
+c decisions:                 93719   1446124.65    per second
+c fixed:                      4088         1.94 %  of all variables
+c learned:                     348        84.47 %  per conflict
+c learned_lits:               4421       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   1275        28.84 %  learned literals
+c minishrunken:                531        12.01 %  learned literals
+c otfs:                         10         2.43 %  of conflict
+c propagations:             149703         2.31 M  per second
+c restarts:                      2       206.00    interval
+c subsumed:                     36         0.02 %  of all clauses
+c strengthened:                  9         0.00 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.17    seconds
+c total real time since initialization:            0.41    seconds
+c maximum resident set size of process:           57.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

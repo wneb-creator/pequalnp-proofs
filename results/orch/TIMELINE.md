@@ -29,3 +29,5 @@
 2026-11-25T14:37:33.663022+00:00 Portable PetersenPartial compiled and independently reviewed. Standard-axiom audit also passed. Full one/two-NOT cases remain unresolved.
 
 2026-11-25T14:39:27.260703+00:00 Desk returned410 before advertised14:54:27 expiry. All proof/search work paused. TightBudget and Fresh compiled before pause, passed preservation-only independent review, and are being pushed before gap re-request.
+
+2026-11-25T14:42:39.302401+00:00 Recovery retry returned the same pre-existing L-meta-2583 lease and max5-held message. Stopping under explicit ownership safeguard; no release requests sent. Null answers0.

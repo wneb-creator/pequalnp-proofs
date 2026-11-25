@@ -1,0 +1,17 @@
+[
+  {
+    "pid": 8595,
+    "ppid": 8591,
+    "file": "/tmp/oec/pequalnp-pilot-111/counterexample/p10-b17-n2-edge.cnf"
+  },
+  {
+    "pid": 8616,
+    "ppid": 8613,
+    "file": "/tmp/oec/pequalnp-pilot-111/counterexample/p10-b17-n2-nonedge.cnf"
+  },
+  {
+    "pid": 9260,
+    "ppid": 9257,
+    "file": "/tmp/oec/pequalnp-pilot-111/counterexample/p10-b18-n1-normalized.cnf"
+  }
+]
