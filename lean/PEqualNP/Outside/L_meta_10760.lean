@@ -2430,3 +2430,141 @@ def checkedChunk39 : chunk39.all checkEntry = true := by
   decide +kernel
 
 end PEqualNP.Outside.L_meta_10760.KernelPN
+
+
+namespace PEqualNP.Outside.L_meta_10760
+
+variable {width : Nat}
+
+def ops (x y : BitVec width) : List (BitVec width) :=
+  [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
+
+abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
+
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
+
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
+
+
+theorem ops_equal_bits {width : Nat} {a b z : BitVec width} {p q : Fin width}
+    (hz : z ∈ basicOps a b) (ha : a[p.val] = a[q.val])
+    (hb : b[p.val] = b[q.val]) : z[p.val] = z[q.val] := by
+  simp only [basicOps, ops, List.mem_toFinset, List.mem_cons,
+    List.not_mem_nil, or_false] at hz
+  rcases hz with rfl | rfl | rfl | rfl <;> simp [ha, hb]
+
+
+theorem uniqueSep_insert_of_gate_agreement
+    {S R : Finset (BitVec width)} {a b z c : BitVec width} {p q : Fin width}
+    (hR : R ⊆ S) (ha : a ∈ S) (hb : b ∈ S) (hac : a ≠ c) (hbc : b ≠ c)
+    (gate_agrees : ∀ p q : Fin width,
+      a[p.val] = a[q.val] → b[p.val] = b[q.val] → z[p.val] = z[q.val])
+    (hc : uniqueSep S c p q) : uniqueSep (insert z R) c p q := by
+  refine ⟨hc.1, ?_⟩
+  intro w hw hwc
+  rcases Finset.mem_insert.mp hw with rfl | hwr
+  · exact gate_agrees p q (hc.2 a ha hac) (hc.2 b hb hbc)
+  · exact hc.2 w (hR hwr) hwc
+
+theorem criticalPair_insert_of_gate_agreement
+    {target : BitVec width} {S R : Finset (BitVec width)} {a b z c d : BitVec width}
+    (hR : R ⊆ S) (ha : a ∈ S) (hb : b ∈ S) (hcR : c ∈ R) (hdR : d ∈ R)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (gate_agrees : ∀ p q : Fin width,
+      a[p.val] = a[q.val] → b[p.val] = b[q.val] → z[p.val] = z[q.val])
+    (hpair : criticalPair target S c d) : criticalPair target (insert z R) c d := by
+  obtain ⟨_, _, hcd, p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    u1, u2, u3, u4, phase1, phase2⟩ := hpair
+  refine ⟨Finset.mem_insert_of_mem hcR, Finset.mem_insert_of_mem hdR, hcd,
+    p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb, ?_, ?_, ?_, ?_, phase1, phase2⟩
+  · exact uniqueSep_insert_of_gate_agreement hR ha hb hac hbc gate_agrees u1
+  · exact uniqueSep_insert_of_gate_agreement hR ha hb had hbd gate_agrees u2
+  · exact uniqueSep_insert_of_gate_agreement hR ha hb hac hbc gate_agrees u3
+  · exact uniqueSep_insert_of_gate_agreement hR ha hb had hbd gate_agrees u4
+
+theorem criticalPair_insert_basicOps
+    {target : BitVec width} {S R : Finset (BitVec width)} {a b z c d : BitVec width}
+    (hR : R ⊆ S) (ha : a ∈ S) (hb : b ∈ S) (hcR : c ∈ R) (hdR : d ∈ R)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (hz : z ∈ basicOps a b) (hpair : criticalPair target S c d) :
+    criticalPair target (insert z R) c d := by
+  apply criticalPair_insert_of_gate_agreement hR ha hb hcR hdR hac had hbc hbd _ hpair
+  intro p q hap hbq
+  exact ops_equal_bits hz hap hbq
+
+end PEqualNP.Outside.L_meta_10760
+
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+abbrev Sig := BitVec 128
+
+def bin (d : Nat) (a b : Sig) : Sig :=
+  if d=0 then a &&& b else if d=1 then a ||| b else if d=2 then a &&& ~~~b else ~~~a &&& b
+
+def bit (i : Fin 128) (a : Sig) : Bool := a.getLsbD i.val
+
+theorem bin_getLsbD_eq (d : Nat) (a b : Sig) (i j : Fin 128)
+    (ha : a.getLsbD i.val = a.getLsbD j.val)
+    (hb : b.getLsbD i.val = b.getLsbD j.val) :
+    (bin d a b).getLsbD i.val = (bin d a b).getLsbD j.val := by
+  simp at ha hb
+  by_cases h0 : d = 0
+  · simp [bin, h0, ha, hb]
+  by_cases h1 : d = 1
+  · simp [bin, h1, ha, hb]
+  by_cases h2 : d = 2
+  · simp [bin, h2, ha, hb, i.isLt, j.isLt]
+  · simp [bin, h0, h1, h2, ha, hb, i.isLt, j.isLt]
+
+theorem bin_bit_eq (d : Nat) (a b : Sig) (i j : Fin 128)
+    (ha : bit i a = bit j a) (hb : bit i b = bit j b) :
+    bit i (bin d a b) = bit j (bin d a b) :=
+  bin_getLsbD_eq d a b i j ha hb
+
+end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+namespace PEqualNP.Outside.L_meta_10760.AutoPool
+
+def op (o a b : Nat) : Nat :=
+  if o == 0 then a &&& b else if o == 1 then a ||| b
+  else if o == 2 then a ^^^ (a &&& b) else b ^^^ (a &&& b)
+
+theorem op_testBit_eq (o a b i j : Nat)
+    (ha : a.testBit i = a.testBit j) (hb : b.testBit i = b.testBit j) :
+    (op o a b).testBit i = (op o a b).testBit j := by
+  by_cases h0 : o = 0
+  · simp [op, h0, Nat.testBit_and, ha, hb]
+  by_cases h1 : o = 1
+  · simp [op, h1, Nat.testBit_or, ha, hb]
+  by_cases h2 : o = 2
+  · simp [op, h2, Nat.testBit_and, Nat.testBit_xor, ha, hb]
+  · simp [op, h0, h1, h2, Nat.testBit_and, Nat.testBit_xor, ha, hb]
+
+end PEqualNP.Outside.L_meta_10760.AutoPool
+
+
+namespace PEqualNP.Outside.L_meta_10760
+
+theorem criticalPair_insert_bin
+    {target : BitVec 128} {S R : Finset (BitVec 128)} {a b c d : BitVec 128}
+    (hR : R ⊆ S) (ha : a ∈ S) (hb : b ∈ S) (hcR : c ∈ R) (hdR : d ∈ R)
+    (hac : a ≠ c) (had : a ≠ d) (hbc : b ≠ c) (hbd : b ≠ d)
+    (o : Nat) (hpair : criticalPair target S c d) :
+    criticalPair target (insert (RestrictionSixProof.bin o a b) R) c d := by
+  apply criticalPair_insert_of_gate_agreement hR ha hb hcR hdR hac had hbc hbd _ hpair
+  intro p q hap hbq
+  exact RestrictionSixProof.bin_getLsbD_eq o a b p q hap hbq
+
+end PEqualNP.Outside.L_meta_10760
+
