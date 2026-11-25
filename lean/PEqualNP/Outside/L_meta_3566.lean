@@ -2330,3 +2330,346 @@ lemma low_read_active_vertex (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     omega
 
 end PEqualNP.Outside.L_meta_3566.WeightedReads
+
+namespace PEqualNP.Outside.L_meta_3566.SoleAnd
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.EdgeOwnership PEqualNP.Outside.L_meta_3566.SingleRead
+
+variable {n : ℕ}
+
+def SoleAndReader (C : Circuit) (u : Fin n) : Prop :=
+  ∃ pre post : List Gate, ∃ g : Gate, ∃ t : ℕ,
+    C.gates = pre ++ g :: post ∧ g.op = GateOp.and ∧
+    (g.inputs = [u.val, t] ∨ g.inputs = [t, u.val]) ∧ t ≠ u.val ∧
+    ∀ q ∈ pre ++ post, u.val ∉ q.inputs
+
+lemma append_false_away (xs : List Bool) (u : ℕ)
+    (hxs : ∀ i, i ≠ u → xs.getD i false = false) :
+    ∀ i, i ≠ u → (xs ++ [false]).getD i false = false := by
+  intro i hi
+  by_cases hil : i < xs.length
+  · rw [List.getD_append _ _ _ _ hil]
+    exact hxs i hi
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_append_right (Nat.le_of_not_gt hil)]
+    cases i - xs.length <;> simp
+
+lemma gate_false_away (xs : List Bool) (u : ℕ) (g : Gate)
+    (hxs : ∀ i, i ≠ u → xs.getD i false = false)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hlen : g.inputs.length = 2)
+    (hread : (g.op = GateOp.and ∧ ∃ a ∈ g.inputs, a ≠ u) ∨ u ∉ g.inputs) :
+    g.op.eval (g.inputs.map fun i => xs.getD i false) = false := by
+  rcases hread with ⟨hand, a, ha, hne⟩ | hno
+  · apply Bool.eq_false_iff.mpr
+    simp only [hand, GateOp.eval, List.all_map]
+    intro h
+    have ht := (List.all_eq_true.mp h) a ha
+    change xs.getD a false = true at ht
+    rw [hxs a hne] at ht
+    cases ht
+  · obtain ⟨a, b, hin⟩ := List.length_eq_two.mp hlen
+    have ha : a ≠ u := by intro he; exact hno (by simp [hin, he])
+    have hb : b ≠ u := by intro he; exact hno (by simp [hin, he])
+    rcases hop with hop | hop <;>
+      simp only [hop, hin, List.map_cons, List.map_nil, hxs a ha, hxs b hb, GateOp.eval,
+        List.all_cons, List.all_nil, List.any_cons, List.any_nil, id_eq,
+        Bool.false_and, Bool.false_or]
+
+lemma fold_false_away (gs : List Gate) (u : ℕ) (xs : List Bool)
+    (hxs : ∀ i, i ≠ u → xs.getD i false = false)
+    (hop : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hlen : ∀ g ∈ gs, g.inputs.length = 2)
+    (hread : ∀ g ∈ gs, (g.op = GateOp.and ∧ ∃ a ∈ g.inputs, a ≠ u) ∨ u ∉ g.inputs) :
+    ∀ i, i ≠ u → (gs.foldl step xs).getD i false = false := by
+  induction gs generalizing xs with
+  | nil => exact hxs
+  | cons g gs ih =>
+    rw [List.foldl_cons]
+    apply ih
+    · have hg := gate_false_away xs u g hxs (hop g (by simp)) (hlen g (by simp)) (hread g (by simp))
+      simpa only [step, hg] using append_false_away xs u hxs
+    · intro q hq
+      exact hop q (by simp [hq])
+    · intro q hq
+      exact hlen q (by simp [hq])
+    · intro q hq
+      exact hread q (by simp [hq])
+
+lemma sole_and_wire_singleton_false (C : Circuit) (hao : IsAO2 n C) (u : Fin n)
+    (hr : SoleAndReader C u) :
+    ∀ w : ℕ, w ≠ u.val → (C.wires (List.ofFn (pairInput u u))).getD w false = false := by
+  obtain ⟨pre, post, g, t, hshape, hand, hin, htu, hno⟩ := hr
+  change ∀ w : ℕ, w ≠ u.val → (C.gates.foldl step (List.ofFn (pairInput u u))).getD w false = false
+  refine fold_false_away C.gates u.val _ ?_ hao.1 hao.2.2 ?_
+  · intro i hi
+    by_cases hil : i < n
+    · let j : Fin n := ⟨i, hil⟩
+      have hj : j ≠ u := by intro h; exact hi (congrArg Fin.val h)
+      change (List.ofFn (pairInput u u)).getD j.val false = false
+      rw [ofFn_get]
+      simp [pairInput, hj]
+    · simp [List.getD_eq_getElem?_getD, hil]
+  · intro q hq
+    rw [hshape] at hq
+    rcases List.mem_append.mp hq with hq | hq
+    · exact Or.inr (hno q (List.mem_append_left _ hq))
+    · rcases List.mem_cons.mp hq with he | hq
+      · subst q
+        exact Or.inl ⟨hand, t, by rcases hin with h | h <;> simp [h], htu⟩
+      · exact Or.inr (hno q (List.mem_append_right _ hq))
+
+lemma adjacent_sole_and_degree (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hao : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (u v : Fin n) (hu : SoleAndReader C u) (hv : SoleAndReader C v) (huv : G.Adj u v) :
+    G.degree u ≤ 1 := by
+  obtain ⟨pre, post, g, t, hshape, hand, hin, htu, hno⟩ := hu
+  have hs := sole_and_neighbor_singleton G C u pre post g t hshape hand hin hao hno hfun htu
+  have htv : t = v.val := by
+    by_contra hne
+    have hz := sole_and_wire_singleton_false C hao v hv t hne
+    have ht := hs v huv
+    rw [hz] at ht
+    cases ht
+  have hsub : G.neighborFinset u ⊆ {v} := by
+    intro w hw
+    have ht := hs w ((G.mem_neighborFinset u w).1 hw)
+    have hwv : w = v := by
+      rw [htv] at ht
+      change wireVal n C v.val (pairInput w w) = true at ht
+      rw [PEqualNP.Outside.L_meta_3566.Pruning.wireVal_lt C v.val v.isLt] at ht
+      have hvw : v = w := by
+        simpa only [pairInput, decide_eq_true_eq, or_self] using ht
+      exact hvw.symm
+    simpa using hwv
+  have hc := Finset.card_le_card hsub
+  simpa [G.card_neighborFinset_eq_degree] using hc
+
+lemma high_degree_sole_and_independent (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hao : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) :
+    ∀ u v : Fin n, 2 ≤ G.degree u → SoleAndReader C u → SoleAndReader C v → ¬ G.Adj u v := by
+  intro u v hd hu hv huv
+  have hlow := adjacent_sole_and_degree G C hao hfun u v hu hv huv
+  omega
+
+end PEqualNP.Outside.L_meta_3566.SoleAnd
+
+namespace PEqualNP.Outside.L_meta_3566.MobiusKantor
+
+/-- GP(8,3): outer vertices 0..7, inner vertices 8..15. -/
+abbrev graph : SimpleGraph (Fin 16) :=
+  SimpleGraph.fromRel fun u v =>
+    (u.val < 8 ∧ v.val < 8 ∧ (u.val + 1) % 8 = v.val) ∨
+    (u.val < 8 ∧ v.val = u.val + 8) ∨
+    (8 ≤ u.val ∧ 8 ≤ v.val ∧ 8 + (u.val - 8 + 3) % 8 = v.val)
+
+/-- Exact edge list of the independent search fixture. -/
+def fixtureEdges : List (ℕ × ℕ) :=
+  [(0, 1), (0, 7), (0, 8), (1, 2), (1, 9), (2, 3), (2, 10), (3, 4), (3, 11), (4, 5), (4, 12), (5, 6), (5, 13), (6, 7), (6, 14), (7, 15), (8, 11), (8, 13), (9, 12), (9, 14), (10, 13), (10, 15), (11, 14), (12, 15)]
+
+lemma graph_eq_fixture : graph = PEqualNP.EdgeOwnership.edgeGraph 16 fixtureEdges := by
+  ext u v
+  revert u v
+  decide
+
+abbrev color (v : Fin 16) : Bool :=
+  decide ((v.val < 8 ∧ v.val % 2 = 0) ∨ (8 ≤ v.val ∧ v.val % 2 = 1))
+
+lemma bipartite : ∀ u v : Fin 16, graph.Adj u v → color u ≠ color v := by
+  decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma no_four : PEqualNP.TopForm.NoFourCycle graph := by
+  decide
+
+lemma degree_three : ∀ z : Fin 16, graph.degree z = 3 := by
+  decide
+
+lemma edges_twenty_four : graph.edgeFinset.card = 24 := by
+  decide
+
+abbrev outer (i : Fin 8) : Fin 16 := ⟨i.val, by omega⟩
+abbrev inner (i : Fin 8) : Fin 16 := ⟨i.val + 8, by omega⟩
+
+lemma spokes : ∀ i : Fin 8, graph.Adj (outer i) (inner i) := by
+  decide
+
+lemma cover_lower (S : Finset (Fin 16))
+    (hS : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph S) :
+    8 ≤ S.card := by
+  let f (i : Fin 8) : Fin 16 := if outer i ∈ S then outer i else inner i
+  have hmem (i : Fin 8) : f i ∈ S := by
+    dsimp [f]
+    split_ifs with h
+    · exact h
+    · exact (hS _ _ (spokes i)).resolve_left h
+  have hfmod (i : Fin 8) : (f i).val % 8 = i.val := by
+    dsimp [f]
+    split_ifs <;> dsimp [outer, inner] <;> omega
+  have hinj : Function.Injective (fun i : Fin 8 => (⟨f i, hmem i⟩ : S)) := by
+    intro i j hij
+    have heq : f i = f j := congrArg Subtype.val hij
+    have hi := hfmod i
+    have hj := hfmod j
+    apply Fin.ext
+    rw [heq] at hi
+    omega
+  have hc := Fintype.card_le_of_injective _ hinj
+  simpa using hc
+
+abbrev cover : Finset (Fin 16) := {0, 2, 4, 6, 9, 11, 13, 15}
+
+lemma cover_valid : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph cover := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  decide
+
+lemma cover_card : cover.card = 8 := by
+  decide
+
+lemma cover_minimum : PEqualNP.MetaComplexity.NestedCover.IsMinCover graph cover := by
+  exact ⟨cover_valid, fun S hS => by simpa only [cover_card] using cover_lower S hS⟩
+
+abbrev cutCover (z : Fin 16) : Finset (Fin 16) :=
+  Finset.univ.filter (fun v => color v = color z ∧ v ≠ z)
+
+set_option synthInstance.maxSize 1000 in
+lemma cut_cover_valid : ∀ z : Fin 16,
+    PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+      (graph.deleteEdges (graph.incidenceSet z)) (cutCover z) := by
+  unfold PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+  simp only [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+  decide
+
+lemma cut_cover_card : ∀ z : Fin 16, (cutCover z).card = 7 := by
+  decide
+
+lemma cut_cover_lower (z : Fin 16) (S : Finset (Fin 16))
+    (hS : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover
+      (graph.deleteEdges (graph.incidenceSet z)) S) :
+    7 ≤ S.card := by
+  have hfull : PEqualNP.MetaComplexity.CoverPromise.IsVertexCover graph (insert z S) := by
+    intro a b hab
+    by_cases hza : z = a
+    · exact Or.inl (by simp [← hza])
+    by_cases hzb : z = b
+    · exact Or.inr (by simp [← hzb])
+    have hcut : (graph.deleteEdges (graph.incidenceSet z)).Adj a b := by
+      simp only [SimpleGraph.deleteEdges_adj, SimpleGraph.mk'_mem_incidenceSet_iff]
+      exact ⟨hab, fun h => h.2.elim hza hzb⟩
+    rcases hS a b hcut with ha | hb
+    · exact Or.inl (Finset.mem_insert_of_mem ha)
+    · exact Or.inr (Finset.mem_insert_of_mem hb)
+  have h := cover_lower (insert z S) hfull
+  have hcard := Finset.card_insert_le z S
+  omega
+
+lemma cut_cover_minimum (z : Fin 16) :
+    PEqualNP.MetaComplexity.NestedCover.IsMinCover
+      (graph.deleteEdges (graph.incidenceSet z)) (cutCover z) := by
+  exact ⟨cut_cover_valid z, fun S hS => by
+    simpa only [cut_cover_card] using cut_cover_lower z S hS⟩
+
+end PEqualNP.Outside.L_meta_3566.MobiusKantor
+
+
+namespace PEqualNP.Outside.L_meta_3566.MobiusKantor
+
+def symmetry (z v : Fin 16) : Fin 16 :=
+  if z.val < 8 then
+    ⟨(if v.val < 8 then 0 else 8) + (v.val % 8 + z.val) % 8, by split_ifs <;> omega⟩
+  else
+    ⟨(if v.val < 8 then 8 else 0) + (3 * (v.val % 8) + z.val % 8) % 8,
+      by split_ifs <;> omega⟩
+
+lemma symmetry_zero : ∀ z : Fin 16, symmetry z 0 = z := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma symmetry_bijective : ∀ z : Fin 16, Function.Bijective (symmetry z) := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma symmetry_adj : ∀ z u v : Fin 16,
+    graph.Adj (symmetry z u) (symmetry z v) ↔ graph.Adj u v := by decide
+
+end PEqualNP.Outside.L_meta_3566.MobiusKantor
+
+namespace PEqualNP.Outside.L_meta_3566.ActiveReads
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_3566.Pruning
+open PEqualNP.Outside.L_meta_3566.GateSavings
+
+variable {n : ℕ}
+
+lemma restrict_read_saves_one (C : Circuit) (hC : IsAO2 n C)
+    (ho : C.output < n + C.size) (z : Fin n) (hread : z.val ∈ readList C) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size + 1 ≤ C.size ∧
+      circuitFun n D = fun x => circuitFun n C (cutInput z x) := by
+  classical
+  obtain ⟨g, hg, hzg⟩ := List.mem_flatMap.mp hread
+  obtain ⟨j, hj, he⟩ := List.mem_iff_getElem.mp hg
+  have hj' : j < C.size := hj
+  have hgate : gateAt C j = g := by
+    simp [gateAt, List.getD_eq_getElem?_getD, hj, he]
+  obtain ⟨b, hb⟩ := exists_opnd_of_mem C hC j hj' z.val (by rwa [hgate])
+  have hsub : ({j} : Finset ℕ) ⊆ Finset.range C.size := by
+    intro k hk
+    have hk' : k = j := Finset.mem_singleton.mp hk
+    subst k
+    exact Finset.mem_range.mpr hj'
+  have hzero : ∀ k ∈ ({j} : Finset ℕ), ∃ b : Fin 2,
+      wireVal n C (opnd C k b) (cutInput z (fun _ => true)) = false := by
+    intro k hk
+    have hk' : k = j := Finset.mem_singleton.mp hk
+    subst k
+    exact ⟨b, by rw [hb]; exact input_zero C z⟩
+  obtain ⟨D, hD, hs, hf⟩ := restrict_false_saves C hC ho z {j} hsub hzero
+  exact ⟨D, hD, by simpa using hs, hf⟩
+
+lemma graph_cutInput_of_isolated (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (hiso : ∀ v, ¬ G.Adj z v) :
+    (fun x => graphFun G ∅ (cutInput z x)) = graphFun G ∅ := by
+  classical
+  funext x
+  simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false, Bool.false_or]
+  congr 1
+  apply propext
+  have hne : ∀ a b, G.Adj a b → a ≠ z ∧ b ≠ z := by
+    intro a b hab
+    exact ⟨fun h => hiso b (h ▸ hab), fun h => hiso a (h ▸ hab.symm)⟩
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    obtain ⟨haz, hbz⟩ := hne a b hab
+    exact ⟨a, b, hab, by simpa [cutInput, haz] using ha,
+      by simpa [cutInput, hbz] using hb⟩
+  · rintro ⟨a, b, hab, ha, hb⟩
+    obtain ⟨haz, hbz⟩ := hne a b hab
+    exact ⟨a, b, hab, by simpa [cutInput, haz] using ha,
+      by simpa [cutInput, hbz] using hb⟩
+
+lemma least_read_nonisolated (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ p q, G.Adj p q)
+    (z : Fin n) (hread : z.val ∈ readList C) : ∃ v, G.Adj z v := by
+  classical
+  by_contra hiso
+  push Not at hiso
+  obtain ⟨D, hD, hs, hf⟩ := restrict_read_saves_one C hC.1
+    (InputReads.output_upper G C hC.2.1 hne) z hread
+  have hDF : circuitFun n D = graphFun G ∅ := by
+    rw [hf, hC.2.1]
+    exact graph_cutInput_of_isolated G z hiso
+  have hmin := hC.2.2 D hD hDF
+  omega
+
+lemma least_read_iff_degree_pos (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (hne : ∃ p q, G.Adj p q) (z : Fin n) :
+    z.val ∈ readList C ↔ 0 < G.degree z := by
+  rw [G.degree_pos_iff_exists_adj]
+  exact ⟨least_read_nonisolated G C hC hne z,
+    InputReads.nonisolated_read G C hC.1 hC.2.1 z⟩
+
+end PEqualNP.Outside.L_meta_3566.ActiveReads
