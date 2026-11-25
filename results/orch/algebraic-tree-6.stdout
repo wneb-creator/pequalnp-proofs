@@ -1,0 +1,31 @@
+../results/orch/lemmas/algebraic-tree.lean:1871:42: warning: This simp argument is unused:
+  true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.cons.injEq, and_true] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/algebraic-tree.lean:1878:5: warning: Variable name `hRead` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hRead
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/algebraic-tree.lean:1900:5: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/algebraic-tree.lean:1901:5: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/algebraic-tree.lean:1904:64: warning: Variable name `hout` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hout
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

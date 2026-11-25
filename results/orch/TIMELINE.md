@@ -9,3 +9,5 @@
 - 2026-11-25T17:31:42.745072+00:00: strict pair-inactive deletion and pairactivity of fixed constrained minima checked; T0-preserving top-form core checked; negative-input rectangle characterization checked.
 - 2026-11-25T17:42:07.535980+00:00: assembled checked components and combined top-form/least/pairactive witness in named file; build passes; OR branch essentiality checked.
 - 2026-11-25T17:52:49.529956+00:00: contextual pivotality/no-unused/output-last, residual conditional bound, and free-bank matching cost checked. No general residual-cost proof.
+
+- 2026-11-25T18:02:12.426127+00:00: Combined 8308-line helper file builds, including constrained residual closure and larger lambda budget. Exact residual certificate remains unproved.

@@ -12,7 +12,7 @@ names = [
     'semantic-support', 'algebraic-mask', 'algebraic-certificate',
     'library-onecolour', 'semantic-linear', 'semantic-starforest',
     'semantic-minterms', 'algebraic-private', 'structural-partners',
-    'algebraic-bridge', 'semantic-least-active', 'library-or-essential',
+    'algebraic-bridge', 'semantic-no-unused', 'library-or-essential',
     'structural-classification',
 ]
 chunks = []
@@ -52,5 +52,19 @@ lemma exists_top_form_pair_active {n : ℕ} (G : SimpleGraph (Fin n)) [Decidable
 
 end PEqualNP.Outside.L_meta_4675.Normalized
 '''
+sections = [
+    ('algebraic-tree', 'namespace PEqualNP.Outside.L_meta_4675.TreeCount', False),
+    ('algebraic-residual-complete', 'namespace PEqualNP.Outside.L_meta_4675.Residual', False),
+    ('algebraic-residual-closed', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
+    ('algebraic-bipartite-reduction', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
+    ('algebraic-residual-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
+    ('algebraic-bipartite-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
+]
+for name, marker, last in sections:
+    source = (src / (name + '.lean')).read_text()
+    pos = source.rindex(marker) if last else source.index(marker)
+    content += '\n' + source[pos:].rstrip() + '\n'
+# Research snapshots allow helper theorems; the submission uses helper lemmas.
+content = content.replace('\ntheorem ', '\nlemma ')
 target.write_text(content)
 print('Assembled lines', len(content.splitlines()), 'bytes', len(content.encode()))

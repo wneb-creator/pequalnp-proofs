@@ -56,3 +56,12 @@ structural-matching-bank.lean: lake env lean exit 0; SHA256 240325a573c3e0428804
 Checked partial snapshot 8:
 algebraic-bipartite-reduction.lean: lake env lean exit 0; SHA256 b20ca88ab11ac6e17f187a4bd4f9ae8949468f68ca3896e8313926404c7e561e
 algebraic-residual-large.lean: lake env lean exit 0; SHA256 4f8e829b998507f89f93f2a454af9ed6f99d760324713bba914a59c4c07e7b69
+
+Snapshot 9 2026-11-25T18:02:12.426127+00:00
+results/orch/lemmas/algebraic-bipartite-large.lean SHA256 17e544064b4ee62c82b0a95af8fcfa04a97937d7119688b3be5da75e607b19ea compiled exit0; full diagnostics algebraic-bipartite-large-1.stdout/.stderr.
+results/orch/lemmas/structural-anchored-box.lean SHA256 1cf42497ca3e06185bb144d17f849ad6463229de3129755cc255fbaa0207ed8d compiled exit0; full diagnostics structural-anchored-box.stdout/.stderr.
+results/orch/lemmas/structural-bank-selected.lean SHA256 da56a4c148dda8307bd1188cd9560d2714c67ca7700cb36842917ac4b3c4f6ef compiled exit0; full diagnostics structural-bank-selected.stdout/.stderr.
+results/orch/lemmas/semantic-rawcut-complete.lean SHA256 95c12d844643168893c5344048fa47e003ac46d20875e02ae612377bdc4a7dba compiled exit0; full diagnostics semantic-rawcut-complete.stdout/.stderr.
+Combined file 8308 lines, 375382 bytes; SHA256 bd9ced1d1a1772363254c2821b998c729c08e6d8a7660159600cd0692452037d; lake build exit0. No exact target theorem; checker no-theorem status remains. Cleanup not eligible.
+Assembly dependency results/orch/lemmas/algebraic-tree.lean SHA256 462131f5e680cdc40901ae62ec25875d2ebfa82e6f548d740e3b38d9a4f9bd27, compiled exit0; algebraic-tree-6.stdout/.stderr.
+Assembly dependency results/orch/lemmas/algebraic-residual-complete.lean SHA256 a62df2ff17a6f024e307a7f905f3935029943f957bcf9d92819aa91615300e14, compiled exit0; algebraic-residual-complete-1.stdout/.stderr.

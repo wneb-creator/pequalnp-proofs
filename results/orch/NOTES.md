@@ -34,3 +34,6 @@ Remaining core: residual edges Ustar and a cover S must fit 2*centreless+junk+(o
 Correction: the proposed 8-gate counterexample to a weaker residual invariant was a counting error. Two upstream OR gates were omitted. Independently evaluated full finsets give equality5, not a counterexample.
 
 Free pure-bank witnesses and matching-with-two-free-side-banks are checked. Actual lambda wires carry dirty payload; treating them as purebanks would be invalid. Raw/payload OR-tree factorization is straightforward, but shared DAGs, multiple terminals and the lower bound for a potentially dense residual graph remain open.
+
+## Combined residual route
+The named file now includes all checked normalization, pair-clean bridge, constrained leastness, top/OR count, original and large-lambda residual accounting, and conditional exact-target bridges. It builds but has no theorem carrying the module name. A support-cut OR-DAG count and anchored-bank matching tools are checked separately. None supplies the residual certificate.
