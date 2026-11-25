@@ -1,0 +1,17 @@
+Gap: L-meta-2592
+Status: partial checkpoint; exact posted statement remains unproved.
+Artifact: results/orch/lemmas/LastNotFactor.lean
+This is an independently re-derived generic last-NOT decomposition already present upstream as L-meta-8295. No novelty or full-gap acceptance is claimed.
+
+Build command (workdir lean/): lake env lean ../results/orch/lemmas/LastNotFactor.lean
+Pinned toolchain: Lean 4.36.0
+Build exit status: 0
+Complete compiler stdout: empty
+Complete compiler stderr: empty
+Local full-gap checker: NOT RUN; no theorem proving the posted L-meta-2592 statement exists yet.
+Independent review: proof_strategy mathematical review; toolchain plain-file/credential/scope review; root source and hash review.
+SHA256: 234c17f2813ffe726c84a8cbfb205eb6461604fc0e5c5e0644de30f4cb5ddb65
+Lines: 90; cleanup pass for full proof not applicable yet.
+
+Sub-agents: 5 (status/library and decomposition; proof strategy and normalization; toolchain and review; counterexample/SAT; few-NOT/SAT audit)
+TIMING total=12.8 subagents=5
