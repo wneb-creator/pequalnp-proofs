@@ -1,0 +1,20 @@
+commonkernel {0: 148, 1: 8}
+minrank {2: 116, 3: 24, 4: 16}
+directionranks {(2, 3, 4, 4, 4, 4): 72, (3, 4, 4, 4, 4, 4): 24, (4, 4, 4, 4, 4, 4): 16, (2, 2, 4, 4, 4, 4): 12, (2, 3, 3, 3, 3, 3): 24, (2, 2, 2, 2, 2, 2): 4, (2, 2, 2, 3, 3, 3): 4}
+diagrank {1: 72, 2: 60, 0: 24}
+rowsumrank {2: 156}
+S4orbits 14
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 1, 'row_sum_rank': 2} representative ((0, 1, 1, 4, 3, 3, 0, 3, 0), (0, 0, 0, 0, 0, 0, 1, 0, 4))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 1, 'row_sum_rank': 2} representative ((0, 1, 1, 2, 2, 2, 0, 2, 1), (0, 0, 0, 0, 0, 0, 1, 0, 4))
+orbit 24 invariants {'common_kernel_dim': 0, 'min_rank': 3, 'direction_ranks': (3, 4, 4, 4, 4, 4), 'diag_rank': 2, 'row_sum_rank': 2} representative ((1, 0, 0, 3, 3, 2, 0, 3, 4), (0, 1, 2, 1, 2, 4, 2, 2, 2))
+orbit 8 invariants {'common_kernel_dim': 0, 'min_rank': 4, 'direction_ranks': (4, 4, 4, 4, 4, 4), 'diag_rank': 0, 'row_sum_rank': 2} representative ((0, 1, 0, 1, 0, 1, 3, 0, 4), (0, 0, 1, 3, 0, 1, 2, 0, 3))
+orbit 8 invariants {'common_kernel_dim': 0, 'min_rank': 4, 'direction_ranks': (4, 4, 4, 4, 4, 4), 'diag_rank': 2, 'row_sum_rank': 2} representative ((0, 1, 0, 4, 2, 2, 0, 1, 3), (0, 0, 1, 4, 4, 2, 3, 3, 0))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 2, 'row_sum_rank': 2} representative ((1, 0, 0, 1, 0, 0, 0, 4, 4), (0, 0, 1, 1, 3, 0, 3, 2, 3))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 2, 4, 4, 4, 4), 'diag_rank': 0, 'row_sum_rank': 2} representative ((0, 0, 1, 0, 0, 1, 0, 0, 3), (0, 0, 0, 1, 0, 0, 4, 0, 0))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 3, 3, 3, 3), 'diag_rank': 1, 'row_sum_rank': 2} representative ((0, 1, 0, 1, 1, 1, 4, 1, 4), (0, 0, 1, 1, 1, 1, 4, 1, 4))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 3, 3, 3, 3), 'diag_rank': 1, 'row_sum_rank': 2} representative ((1, 0, 0, 1, 2, 2, 4, 2, 4), (0, 1, 4, 0, 0, 0, 0, 0, 0))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 1, 'row_sum_rank': 2} representative ((0, 1, 0, 2, 4, 4, 0, 4, 0), (0, 0, 1, 2, 4, 4, 0, 4, 0))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 1, 'row_sum_rank': 2} representative ((1, 0, 0, 1, 2, 2, 0, 2, 3), (0, 0, 0, 0, 0, 0, 1, 0, 4))
+orbit 12 invariants {'common_kernel_dim': 0, 'min_rank': 2, 'direction_ranks': (2, 3, 4, 4, 4, 4), 'diag_rank': 2, 'row_sum_rank': 2} representative ((0, 1, 0, 4, 0, 1, 1, 4, 2), (0, 0, 1, 4, 0, 0, 0, 1, 0))
+orbit 4 invariants {'common_kernel_dim': 1, 'min_rank': 2, 'direction_ranks': (2, 2, 2, 2, 2, 2), 'diag_rank': 0, 'row_sum_rank': 2} representative ((0, 0, 0, 1, 0, 0, 0, 0, 4), (0, 0, 0, 0, 0, 0, 1, 0, 4))
+orbit 4 invariants {'common_kernel_dim': 1, 'min_rank': 2, 'direction_ranks': (2, 2, 2, 3, 3, 3), 'diag_rank': 2, 'row_sum_rank': 2} representative ((0, 1, 0, 4, 1, 0, 0, 0, 0), (0, 0, 1, 4, 0, 0, 0, 1, 0))

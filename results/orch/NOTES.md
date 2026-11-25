@@ -118,3 +118,17 @@ Environment is ready: pinned Lean 4.36.0 and full prebuilt Mathlib cache, checkl
 - `results/orch/lemmas/CenteredObstruction.lean` compiled successfully with exit0. It is34 lines and proves that h²+2=0 plus the ten exact centered-chart cubic coefficient equations implyFalse.
 - The certificate is an integer polynomial identity with right-hand side31578, verified by Lean linear_combination, followed by norm_num. This proves one algebraic chart obstruction only; it does not prove chart coverage or refute L-gct-231.
 - Full compile output is empty and preserved at scratch centered-obstruction-build.log; compilation command was lake env lean ../results/orch/lemmas/CenteredObstruction.lean with the documented environment.
+
+### geometry_route bounded GB status
+- GlobalWitt18mod97F4 stopped atdegree8 afterdegree7matrix238597x446773; noresult.
+- Genericrowpair2plane graph (normalu=(0,1,2,-3), rowbasis(1,-2,1,0),(-4,3,0,1)):12variables12eq1015terms, mod97F4 capped180s atdegree10matrix219366x342463; noresult. Exactrationalinput generic-rowpair-rational.msolve available.
+- Firstorderthird-row extension:18variables21eq2435terms, eliminate6C3variables,maxpairs256,4GiB180s. Reacheddegree7large matrices; noverdictwithinbound. Input generic-rowpair-extend-{mod97,rational}.msolve.
+- ImportantAGcaution: finitefieldobservations do NOT implyallcomplex2planeshaveinjectiverowsum. Fano2dimension argument suggestscomplexboundary2planes exist. Couldinsteadboundboundary2planes tofinite andexclude3planesofrowrank≤2.
+- No globalproof/refutation obtained. AllCASclaims are exactcomputationalexperiments butnotLean-checked.
+
+## Finite-field boundary and extension checks / 2026-11-25T09:45:08.021857+00:00
+- A conjectured restriction on row-sum images from F5/F7 was disproved over F11: for the fixed generic normal (0,1,2,-3), exhaustive search found three level 2-planes, each with row-sum rank 2. Their common linearized extension spaces have dimension exactly 2, so none extends to a 3-plane, even after extending the field.
+- Boundary search enumerates every centered constant direction B, then every projective compatible A modulo B. The linear constraints are the gradients of the degree 2, 3 and 4 coefficients at B. Testing A and A±B kills every remaining mixed coefficient for characteristic greater than 3. Counts: F11 has 84 centered lines; F13 has 200; F17 has 252; F19 has 272. None extends to a level 2-plane over its base field. This does NOT prove the complex boundary empty; a projective dimension argument indicates complex boundary planes must exist.
+- Random F13 search sampled 3026 constant directions and found 15 distinct level 2-planes, none extending to a 3-plane over F13. Five had larger linearized extension spaces.
+- The nontrivial nullity-4 example lifts over Q: A01=1, A12=A13=-1/2, B02=1, B03=-1. Its exact extension quotient has coordinates p0,p1 and Groebner basis [4p0²-12p0p1-63p1², p1³], so it has no extension over C either. The other nullity-4 examples are permutations of this crossed-star plane or the ordinary star plane.
+- Scripts, complete logs, and small plane lists are archived under results/orch/lemmas. None of these computational diagnostics is a Lean refutation of the full statement.

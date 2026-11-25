@@ -11,3 +11,6 @@
 - 2026-11-25T09:38:06.119263+00:00: numerical search finished 8000 starts without a zero; finite-field F5/F7 plane censuses found no dimension-3 space, recorded only as diagnostic evidence.
 - 2026-11-25T09:38:06.119263+00:00: stronger F11 test refuted an earlier finite-field row-image pattern; that pattern is not used as a complex theorem.
 - 2026-11-25T09:39:43.197564+00:00: centered polynomial-chart obstruction compiled and independently reviewed; preserving checked partial.
+
+- 2026-11-25T09:45:04.732764+00:00 geometry_route started sole long rowsum18 mod97 F4, LA44 probabilistic sparse, 2threads, maxpairs512, 8GiB AS,1200s CPU/wall bounds. No other largeGB jobs active.
+- 2026-11-25T09:48:45.332127+00:00: archived 38 independently reviewed CAS/search artifacts with explicit diagnostic-only scope.
