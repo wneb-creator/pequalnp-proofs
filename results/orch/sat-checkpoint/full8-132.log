@@ -1,0 +1,3 @@
+{'case': 'full', 'n': 26, 'gates': 63, 'free': [7, 37, 40, 41, 42, 53, 56, 58], 'tests': 756, 'seed': 132}
+round 0 cases 60 variables 3636 clauses 75404
+solver_exit 0 elapsed 30.5

@@ -1,0 +1,8 @@
+round 0 cases 6 variables 729 clauses 7972
+result 10 elapsed 0.1
+wrong 9 positive 7
+round 1 cases 15 variables 1107 clauses 14533
+result 10 elapsed 22.13
+wrong 7 positive 0
+round 2 cases 22 variables 1401 clauses 19636
+result 0 elapsed 142.18

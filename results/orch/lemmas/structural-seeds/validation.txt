@@ -1,0 +1,4 @@
+superset-cycle6-share-side0-63g.json 63 gates; 52 positive PASS; 26 singleton PASS; 210 maximal-negative failures; NOT a proof; SHA256 86169d76fa7856e373aa2ec04949f2a57b33cc39e58b8a43d8637fdebdacdf88
+superset-cycle6-share-side1-63g.json 63 gates; 52 positive PASS; 26 singleton PASS; 210 maximal-negative failures; NOT a proof; SHA256 83948e1bb5cc0e0fbd556c170dd6491a648385490847f2841daafcb5c0708697
+Grid-tap exact cases independently regenerated: 2 positive singleton hubs + 50 negative maximal assignments; PASS
+Independent reviewer: root. These are computational artifacts, not Lean certificates.

@@ -1,0 +1,12 @@
+{'case': 'control', 'n': 26, 'gates': 64, 'free': [0, 1, 2, 3, 25, 47, 52, 63], 'tests': 756, 'seed': 132}
+round 0 cases 6 variables 1731 clauses 8352
+solver_exit 10 elapsed 0.17
+wrong 13
+round 1 cases 19 variables 2057 clauses 20529
+solver_exit 10 elapsed 2.3
+wrong 386
+round 2 cases 51 variables 2859 clauses 50433
+solver_exit 10 elapsed 23.57
+wrong 4
+round 3 cases 55 variables 2959 clauses 54171
+solver_exit 0 elapsed 54.08

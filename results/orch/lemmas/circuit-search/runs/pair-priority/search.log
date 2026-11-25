@@ -1,0 +1,126 @@
+best raw=819 iter=1 seconds=0.000111245
+best pairerrors=117 totalerrors=819 iter=1
+best raw=811 iter=281 seconds=0.0398239
+best pairerrors=109 totalerrors=811 iter=281
+best raw=809 iter=472 seconds=0.0676611
+best pairerrors=108 totalerrors=809 iter=472
+superset falsepositives=809 dirty=1 iter=1000
+proper dirty candidate raw=809 count=1 iter=1000
+best raw=807 iter=1026 seconds=0.143342
+best pairerrors=106 totalerrors=807 iter=1026
+best raw=804 iter=1357 seconds=0.185296
+best pairerrors=103 totalerrors=804 iter=1357
+best raw=801 iter=1579 seconds=0.217743
+best pairerrors=100 totalerrors=801 iter=1579
+best raw=799 iter=1956 seconds=0.271157
+best pairerrors=98 totalerrors=799 iter=1956
+superset falsepositives=799 dirty=4 iter=2000
+proper dirty candidate raw=799 count=4 iter=2000
+best raw=796 iter=3004 seconds=0.445662
+best pairerrors=96 totalerrors=796 iter=3004
+best raw=794 iter=3185 seconds=0.476966
+best pairerrors=95 totalerrors=794 iter=3185
+superset falsepositives=794 dirty=3 iter=4000
+proper dirty candidate raw=794 count=3 iter=4000
+best raw=792 iter=10748 seconds=1.60395
+best pairerrors=93 totalerrors=792 iter=10748
+superset falsepositives=792 dirty=3 iter=11000
+proper dirty candidate raw=792 count=3 iter=11000
+best raw=787 iter=13027 seconds=1.92451
+best pairerrors=88 totalerrors=787 iter=13027
+best raw=786 iter=13045 seconds=1.92703
+best pairerrors=87 totalerrors=786 iter=13045
+best raw=784 iter=13511 seconds=1.99506
+best pairerrors=86 totalerrors=784 iter=13511
+best raw=782 iter=13514 seconds=1.99575
+best pairerrors=85 totalerrors=782 iter=13514
+superset falsepositives=782 dirty=4 iter=14000
+proper dirty candidate raw=782 count=4 iter=14000
+best raw=776 iter=14476 seconds=2.14489
+best pairerrors=80 totalerrors=776 iter=14476
+best raw=774 iter=14546 seconds=2.15538
+best pairerrors=79 totalerrors=774 iter=14546
+superset falsepositives=774 dirty=2 iter=15000
+proper dirty candidate raw=774 count=2 iter=15000
+best raw=770 iter=17253 seconds=2.5893
+best pairerrors=77 totalerrors=770 iter=17253
+superset falsepositives=770 dirty=2 iter=18000
+proper dirty candidate raw=770 count=2 iter=18000
+best raw=767 iter=18725 seconds=2.80849
+best pairerrors=76 totalerrors=767 iter=18725
+superset falsepositives=767 dirty=5 iter=19000
+proper dirty candidate raw=767 count=5 iter=19000
+best raw=765 iter=19055 seconds=2.85899
+best pairerrors=74 totalerrors=765 iter=19055
+best raw=763 iter=19058 seconds=2.85999
+best pairerrors=73 totalerrors=763 iter=19058
+superset falsepositives=763 dirty=4 iter=20000
+proper dirty candidate raw=763 count=4 iter=20000
+best raw=759 iter=21994 seconds=3.32186
+best pairerrors=71 totalerrors=759 iter=21994
+superset falsepositives=759 dirty=4 iter=22000
+proper dirty candidate raw=759 count=4 iter=22000
+best raw=758 iter=28391 seconds=4.36317
+best pairerrors=70 totalerrors=758 iter=28391
+superset falsepositives=758 dirty=6 iter=29000
+proper dirty candidate raw=758 count=6 iter=29000
+best raw=756 iter=29295 seconds=4.49545
+best pairerrors=68 totalerrors=756 iter=29295
+best raw=755 iter=29313 seconds=4.49862
+best pairerrors=67 totalerrors=755 iter=29313
+superset falsepositives=755 dirty=5 iter=30000
+proper dirty candidate raw=755 count=5 iter=30000
+restart=1 iterations=30000 positivePriority=1 weighted=70447117 raw=755 seconds=4.60724
+best raw=450 iter=30001 seconds=4.6074
+best pairerrors=15 totalerrors=450 iter=30001
+superset falsepositives=450 dirty=1 iter=31000
+proper dirty candidate raw=450 count=1 iter=31000
+best raw=435 iter=35885 seconds=5.72351
+best pairerrors=13 totalerrors=435 iter=35885
+superset falsepositives=435 dirty=1 iter=36000
+proper dirty candidate raw=435 count=1 iter=36000
+restart=2 iterations=60000 positivePriority=1 weighted=13742413 raw=435 seconds=10.3331
+best raw=414 iter=61851 seconds=10.666
+best pairerrors=11 totalerrors=414 iter=61851
+superset falsepositives=414 dirty=2 iter=62000
+proper dirty candidate raw=414 count=2 iter=62000
+best raw=394 iter=88828 seconds=16.5394
+best pairerrors=10 totalerrors=394 iter=88828
+superset falsepositives=394 dirty=1 iter=89000
+proper dirty candidate raw=394 count=1 iter=89000
+restart=3 iterations=90000 positivePriority=1 weighted=10586230 raw=394 seconds=16.7537
+best raw=296 iter=90001 seconds=16.7539
+best pairerrors=6 totalerrors=296 iter=90001
+superset falsepositives=296 dirty=1 iter=91000
+proper dirty candidate raw=296 count=1 iter=91000
+best raw=267 iter=101680 seconds=19.1179
+best pairerrors=5 totalerrors=267 iter=101680
+superset falsepositives=267 dirty=1 iter=102000
+proper dirty candidate raw=267 count=1 iter=102000
+restart=4 iterations=120000 positivePriority=1 weighted=5310965 raw=267 seconds=22.6252
+best raw=213 iter=120001 seconds=22.6253
+best pairerrors=3 totalerrors=213 iter=120001
+best raw=142 iter=120063 seconds=22.6372
+best pairerrors=2 totalerrors=142 iter=120063
+superset falsepositives=142 dirty=2 iter=121000
+proper dirty candidate raw=142 count=2 iter=121000
+restart=5 iterations=150000 positivePriority=1 weighted=2133362 raw=142 seconds=28.776
+restart=6 iterations=180000 positivePriority=1 weighted=2133362 raw=142 seconds=36.461
+restart=7 iterations=210000 positivePriority=1 weighted=5310965 raw=267 seconds=43.0643
+restart=8 iterations=240000 positivePriority=1 weighted=10586230 raw=394 seconds=48.9688
+restart=9 iterations=270000 positivePriority=1 weighted=29518630 raw=626 seconds=54.9745
+restart=10 iterations=300000 positivePriority=1 weighted=2133362 raw=142 seconds=61.0287
+restart=11 iterations=330000 positivePriority=1 weighted=2133362 raw=142 seconds=66.7517
+restart=12 iterations=360000 positivePriority=1 weighted=6366936 raw=296 seconds=72.2416
+restart=13 iterations=390000 positivePriority=1 weighted=20042284 raw=468 seconds=77.7115
+restart=14 iterations=420000 positivePriority=1 weighted=5310965 raw=267 seconds=83.1936
+restart=15 iterations=450000 positivePriority=1 weighted=12694033 raw=436 seconds=88.5612
+restart=16 iterations=480000 positivePriority=1 weighted=27419036 raw=612 seconds=94.0309
+restart=17 iterations=510000 positivePriority=1 weighted=10586230 raw=394 seconds=99.4648
+restart=18 iterations=540000 positivePriority=1 weighted=16897576 raw=472 seconds=105.046
+restart=19 iterations=570000 positivePriority=1 weighted=2133362 raw=142 seconds=110.418
+restart=20 iterations=600000 positivePriority=1 weighted=6366936 raw=296 seconds=115.74
+restart=21 iterations=630000 positivePriority=1 weighted=2133362 raw=142 seconds=121.566
+restart=22 iterations=660000 positivePriority=1 weighted=31615236 raw=631 seconds=126.961
+restart=23 iterations=690000 positivePriority=1 weighted=2133362 raw=142 seconds=132.811
+restart=24 iterations=720000 positivePriority=1 weighted=20049169 raw=495 seconds=138.506

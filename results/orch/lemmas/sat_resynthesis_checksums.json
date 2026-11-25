@@ -1,0 +1,19 @@
+{
+  "scratch_sources": {
+    "synth.py": "3a280142fe4c587440569fd16611c19bdaf2d3334b675a478e3b24aec2ac9f2c",
+    "incremental.py": "d0b2be2affa7ff5877e0278d583f57b090fca6002f2b6a4dc935110cd92a8f5b",
+    "tap_incremental.py": "6efd94c1b2581ef433c1f6dac468ea0e1c542a29556503c5414827bd87758b14",
+    "lift_rows.py": "5a98691ce0160200151b806133742d0b6f17be092cefa168d203366b75f90c74"
+  },
+  "preserved_sources": {
+    "sat_resynthesis.py": "3a280142fe4c587440569fd16611c19bdaf2d3334b675a478e3b24aec2ac9f2c",
+    "sat_incremental.py": "1569de2e198dc33b3454a3ffb1c9e7a2619f27a0d011554e05f8ef593e51a36b",
+    "sat_tap_incremental.py": "89757b862a9f62dbe6c483e9ae830b9b009523ee5b411ee062ec3baa6cb7d028",
+    "sat_lift_rows.py": "ae1ad9c245427217b866d7ad19d75be68248827d19062e2e5f94c173d6f378ec"
+  },
+  "tools": {
+    "kissat-4.0.4-linux-amd64": "21da5d984e38b74f620f14c62442f834f27b9158decdb722540d97f98aac93a1",
+    "cadical.tar.gz": "187fb83106e8d7964f1d409ebf056f3853105c2a8ec32427472eff734c9ccb01"
+  },
+  "note": "Preserved source imports are renamed to sat_ module filenames; scratch and preserved hashes intentionally differ."
+}

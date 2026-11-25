@@ -1,0 +1,66 @@
+[
+  {
+    "side": 0,
+    "rows": [
+      0,
+      1,
+      2
+    ],
+    "columns": [
+      13,
+      14,
+      25
+    ],
+    "gates": 63,
+    "added_pairs": [
+      [
+        0,
+        25
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        2,
+        13
+      ]
+    ],
+    "positive_errors": 0,
+    "negative_errors": 210,
+    "singleton_errors": 0,
+    "path": "/tmp/oec/pequalnp-pilot-132/structural/superset-cycle6-share-side0-63g.json"
+  },
+  {
+    "side": 1,
+    "rows": [
+      13,
+      14,
+      15
+    ],
+    "columns": [
+      0,
+      1,
+      12
+    ],
+    "gates": 63,
+    "added_pairs": [
+      [
+        13,
+        12
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        15,
+        0
+      ]
+    ],
+    "positive_errors": 0,
+    "negative_errors": 210,
+    "singleton_errors": 0,
+    "path": "/tmp/oec/pequalnp-pilot-132/structural/superset-cycle6-share-side1-63g.json"
+  }
+]

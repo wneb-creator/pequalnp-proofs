@@ -1,0 +1,22 @@
+best 1 raw 0 restart 0 iter 1 sec 8.149e-05
+restart 100 iter 300000 sec 37.983
+restart 200 iter 600000 sec 73.9432
+restart 300 iter 900000 sec 110.102
+restart 400 iter 1200000 sec 148.598
+restart 500 iter 1500000 sec 188.596
+restart 600 iter 1800000 sec 229.801
+restart 700 iter 2100000 sec 271.013
+restart 800 iter 2400000 sec 310.625
+restart 900 iter 2700000 sec 361.09
+restart 1000 iter 3000000 sec 405.992
+restart 1100 iter 3300000 sec 460.497
+restart 1200 iter 3600000 sec 516.681
+restart 1300 iter 3900000 sec 565.41
+restart 1400 iter 4200000 sec 608.984
+restart 1500 iter 4500000 sec 665.017
+restart 1600 iter 4800000 sec 708.243
+restart 1700 iter 5100000 sec 774.312
+restart 1800 iter 5400000 sec 820.33
+restart 1900 iter 5700000 sec 865.83
+restart 2000 iter 6000000 sec 898.181
+done best=1 restarts=2009 iterations=6025471

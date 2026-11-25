@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-11-25T15:25:58.652582+00:00",
+  "status": "PAUSED_AFTER_LEASE_410",
+  "active_owned_solvers": 0,
+  "unrestricted_rows6_28": "UNKNOWN after181.17s",
+  "normalized_rows6_28": "UNKNOWN after301.63s",
+  "free_tap_selector": "prepared but not executed or validated",
+  "grid29_conditional_tap": "math/data verified by structural agent; not yet implemented",
+  "copied_artifact_files": 135,
+  "copied_bytes": 653716,
+  "excluded": "all CNF, solver binaries, source solver checkout, and tool archives"
+}

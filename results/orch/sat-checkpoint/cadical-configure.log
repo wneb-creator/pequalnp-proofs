@@ -1,0 +1,19 @@
+configure: 'Release' build
+configure: making default 'build' directory
+configure: building in default '/tmp/oec/pequalnp-pilot-132/sat-resynthesis/cadical/build'
+configure: root directory '/tmp/oec/pequalnp-pilot-132/sat-resynthesis/cadical'
+configure: source directory '/tmp/oec/pequalnp-pilot-132/sat-resynthesis/cadical/src'
+configure: assuming 'clang' NOT used as compiler
+configure: assuming NOT compiling for 'MacOS'
+configure: compiler supports all required C99/C++11 extensions
+configure: compiler configuration supports flexible array members
+configure: unlocked IO with '{putc,getc}_unlocked' seems to work
+configure: adding 'libcadical.so' and 'cadical-dynamic' to default makefile goal
+configure: compiling C++ with 'g++ -Wall -Wextra -O3 -DNDEBUG -fpic'
+configure: compiling C with 'gcc -Wall -Wextra -O3 -DNDEBUG -fpic'
+configure: generated 'build/makefile' from '../makefile.in'
+configure: generated '../makefile' as proxy to ...
+configure: ... '/tmp/oec/pequalnp-pilot-132/sat-resynthesis/cadical/build/makefile'
+configure: linking '/tmp/oec/pequalnp-pilot-132/sat-resynthesis/cadical/makefile'
+configure: now run 'make' to compile CaDiCaL
+configure: optionally run 'make test'

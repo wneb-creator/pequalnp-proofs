@@ -1,0 +1,13 @@
+Computational search only; no Lean proof from this strategy.
+Control 1: unpinned 8-gate window inside a valid 64-gate plane star.
+Kissat 4.0.4: SAT in 0.12s; reconstructed circuit matches all 756 cases.
+CaDiCaL 3.1.0 incremental: SAT in 0.08s; reconstructed circuit matches all 756 cases.
+Control 2: two-output residual circuit with 62 gates, 16 gates free: SAT in 0.29s; all 802 residual/tap tests pass.
+Control 3: six full rows on points [0,1,2,3,6,7], 17 inputs, 24 edges, all 29 gates free: SAT in 1.42s; all 76 extremal tests pass. Lifting this control with the seven remaining point stars yields 64 gates and passes all 756 full-plane tests.
+SAT encoding uses binary AND/OR, earlier-wire sources, source order a <= b (duplicates permitted), and all wires used. Template windows keep their stated output indices. All-free circuits additionally impose adjacent-independent operator/first-source ordering.
+Source selectors are at least one, not exactly one. Every selected source agrees on tested rows; choosing any selected source preserves those rows. Decoded circuits need not retain source ordering or all-wires-used constraints, but independent complete-case evaluation is mandatory before accepting a witness.
+All 63-gate and 61-gate window searches completed so far returned UNKNOWN at time limits, not UNSAT. The 14-gate subdivision-K4 route was stopped because existing checked L_meta_723 proves at least 15 gates; the SAT run itself was UNKNOWN.
+The current six-row target is 28 gates; a verified witness would lift to 63 full-plane gates. No such witness has been found yet.
+Full solver stdout/stderr is saved under /tmp/oec/pequalnp-pilot-132/sat-resynthesis/. Scripts use that scratch layout for solver/data paths. Preserved imports are renamed; checksums distinguish scratch and preserved source files.
+Earlier conditional61 windows fixed tap output to penultimate wire84 and residual output85. This prevents general early-tap sharing across multiple later gates, so those UNKNOWN runs provide no evidence against unrestricted61-gate witnesses. A free-tap-selector variant is being tested separately.
+Checkpoint after root reported own lease HTTP410 at2026-11-25T15:21:19Z: all owned SAT searches stopped. Normalized six-row28 target returned UNKNOWN after301.63s. Normalized unrestricted29 control passed in1.72s with93rows. New free-tap-selector implementation is preserved but was not executed or positively controlled before pause. It still fixes residualF outputlast; only tap is freely selected. This is not a complete unrestricted61-output search. New29gate six-row conditional-tap proposal is data/math only, not yet implemented.

@@ -1,0 +1,6 @@
+free [12, 13, 14, 15, 24, 25, 26, 27, 32, 33, 34, 35, 40, 41, 42, 43, 44, 45, 46, 47, 52, 57, 58, 59, 60]
+round 0 cases 26 inputrows 26 vars 5126 clauses 103181
+result 10 elapsed 8.04
+wrong 234 f 182 tap 52
+round 1 cases 58 inputrows 58 vars 7588 clauses 228017
+result 0 elapsed 188.5

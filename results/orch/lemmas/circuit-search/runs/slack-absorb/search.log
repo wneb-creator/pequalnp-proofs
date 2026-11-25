@@ -1,0 +1,63 @@
+bestsize 67 iter 1 sec 0.000116582
+dirtysize 67 dirtycount 1 iter 1000
+bestsize 66 iter 20001 sec 2.92169
+dirtysize 66 dirtycount 1 iter 21000
+bestsize 65 iter 26557 sec 3.93471
+bestsize 64 iter 28086 sec 4.22832
+restarts 10 iter 200000
+restarts 20 iter 400000
+restarts 30 iter 600000
+restarts 40 iter 800000
+restarts 50 iter 1000000
+restarts 60 iter 1200000
+restarts 70 iter 1400000
+restarts 80 iter 1600000
+restarts 90 iter 1800000
+restarts 100 iter 2000000
+restarts 110 iter 2200000
+restarts 120 iter 2400000
+restarts 130 iter 2600000
+restarts 140 iter 2800000
+restarts 150 iter 3000000
+restarts 160 iter 3200000
+restarts 170 iter 3400000
+restarts 180 iter 3600000
+restarts 190 iter 3800000
+restarts 200 iter 4000000
+restarts 210 iter 4200000
+restarts 220 iter 4400000
+restarts 230 iter 4600000
+restarts 240 iter 4800000
+restarts 250 iter 5000000
+restarts 260 iter 5200000
+restarts 270 iter 5400000
+restarts 280 iter 5600000
+restarts 290 iter 5800000
+restarts 300 iter 6000000
+restarts 310 iter 6200000
+restarts 320 iter 6400000
+restarts 330 iter 6600000
+restarts 340 iter 6800000
+restarts 350 iter 7000000
+restarts 360 iter 7200000
+restarts 370 iter 7400000
+restarts 380 iter 7600000
+restarts 390 iter 7800000
+restarts 400 iter 8000000
+restarts 410 iter 8200000
+restarts 420 iter 8400000
+restarts 430 iter 8600000
+restarts 440 iter 8800000
+restarts 450 iter 9000000
+restarts 460 iter 9200000
+restarts 470 iter 9400000
+restarts 480 iter 9600000
+restarts 490 iter 9800000
+restarts 500 iter 10000000
+restarts 510 iter 10200000
+restarts 520 iter 10400000
+restarts 530 iter 10600000
+restarts 540 iter 10800000
+restarts 550 iter 11000000
+restarts 560 iter 11200000
+done bestsize=64 iterations=11374701

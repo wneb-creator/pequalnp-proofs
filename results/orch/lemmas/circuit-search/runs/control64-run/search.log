@@ -1,0 +1,3 @@
+best 1 raw 1 restart 0 iter 1 sec 8.5046e-05
+restart 100 iter 300000 sec 41.2229
+best 0 raw 0 restart 112 iter 336105 sec 45.781

@@ -1,0 +1,6 @@
+free [8, 9, 10, 11, 12, 13, 14, 15, 28, 29, 30, 31, 55, 58, 59, 60]
+round 0 cases 26 inputrows 26 vars 3000 clauses 55113
+result 10 elapsed 0.51
+wrong 10 f 10 tap 0
+round 1 cases 36 inputrows 36 vars 3500 clauses 75983
+result 0 elapsed 120.63

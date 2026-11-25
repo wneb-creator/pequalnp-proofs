@@ -1,0 +1,5 @@
+{'case': 'control', 'n': 26, 'gates': 64, 'free': [0, 1, 2, 3, 25, 47, 52, 63], 'tests': 756, 'seed': 132, 'dirty': None, 'full_positive': False}
+round 0 cases 6 variables 961 clauses 6037
+solver_exit 10 elapsed 0.12
+wrong 0
+SOLVED
