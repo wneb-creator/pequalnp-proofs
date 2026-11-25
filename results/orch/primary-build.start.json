@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-11-25T05:03:15.252965+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-67/toolchain/lean-4.36.0-linux/bin/lake",
+    "build",
+    "PEqualNP.Outside.L_meta_670"
+  ],
+  "requested_outer_lean_num_threads": 2,
+  "effective_threads_note": "Repository build wrapper may override outer setting using build-jobs.conf; default 3 per root inspection."
+}
