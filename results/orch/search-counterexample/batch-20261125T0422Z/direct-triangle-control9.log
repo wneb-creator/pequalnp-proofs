@@ -1,0 +1,3 @@
+{"points": [0, 1, 2], "inputs": 9, "negative_rows": 15, "or_count": 9, "variables": 4608, "clauses": 19317, "encoding_seconds": 0.15498857100010355, "max_rss_KiB": 11392}
+result sat solver_exit 10 elapsed 0.22470385100041312
+WITNESS_VERIFIED 9 ORs 3 outputs 153 assignments

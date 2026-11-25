@@ -1,0 +1,3 @@
+{"or_count": 39, "variables": 32409, "clauses": 370305, "encoding_seconds": 1.0009900810000545, "max_rss_KiB": 12928}
+result sat solver_exit 10 elapsed 1.0992212219998692
+WITNESS_VERIFIED 39 ORs 7280 output/cap checks

@@ -1,0 +1,2 @@
+{"points": [0, 1, 2], "inputs": 9, "negative_rows": 15, "or_count": 8, "variables": 3845, "clauses": 16606, "encoding_seconds": 0.09478879699963727, "max_rss_KiB": 11392}
+result unknown solver_exit 0 elapsed 30.11115322400019

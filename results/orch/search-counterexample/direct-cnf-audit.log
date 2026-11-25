@@ -1,0 +1,23 @@
+{
+  "source_sha256": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+  "primitive_truth_checks": 1068,
+  "witness_checks": [
+    {
+      "name": "direct-triangle-control9",
+      "or_count": 9,
+      "inputs": 9,
+      "outputs": 3,
+      "cap_assignments": 153,
+      "comparisons": 459
+    },
+    {
+      "name": "direct-full-control39",
+      "or_count": 39,
+      "inputs": 13,
+      "outputs": 13,
+      "cap_assignments": 560,
+      "comparisons": 7280
+    }
+  ],
+  "status": "Independent primitive and witness checks passed."
+}

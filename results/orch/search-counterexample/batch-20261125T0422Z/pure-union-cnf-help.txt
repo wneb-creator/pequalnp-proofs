@@ -1,0 +1,13 @@
+usage: pure_union_cnf.py [-h] [--seconds SECONDS] [--tag TAG]
+                         [--fixed-baseline] [--cnf-only]
+                         or_count
+
+positional arguments:
+  or_count
+
+options:
+  -h, --help         show this help message and exit
+  --seconds SECONDS
+  --tag TAG
+  --fixed-baseline
+  --cnf-only

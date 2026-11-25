@@ -1,0 +1,14 @@
+usage: multi_output_direct_cnf.py [-h] [--points POINTS] [--seconds SECONDS]
+                                  [--tag TAG] [--fixed-baseline] [--cnf-only]
+                                  or_count
+
+positional arguments:
+  or_count
+
+options:
+  -h, --help         show this help message and exit
+  --points POINTS
+  --seconds SECONDS
+  --tag TAG
+  --fixed-baseline
+  --cnf-only

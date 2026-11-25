@@ -1,0 +1,10 @@
+{
+  "max_drop_for_two_disjoint_pairs": [
+    60,
+    [
+      3,
+      12
+    ]
+  ],
+  "normalization_per_pencil": 54
+}

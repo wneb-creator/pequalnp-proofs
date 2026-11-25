@@ -1,0 +1,7 @@
+{
+  "sha256": "d32326e551b11ed152612dc0f624a339487dbb7d8fa1114802a25df3a10dfe09",
+  "lines": 145,
+  "exit_code": 0,
+  "independent_review": "repo_audit approved this exact hash as a conditional helper, not a concrete packing bound.",
+  "claim": "The pruned finite search is sound assuming antitone legality, sound pruning, successful evaluation and a valid chosen sublist."
+}
