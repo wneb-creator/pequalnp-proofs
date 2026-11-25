@@ -26,3 +26,7 @@ TIMING total=18.8 subagents=6
 Fourth checkpoint: Kernel13, KernelFullTables and KernelBridge13 compiled exit0; independent review passed. Checked actual circuit lower bound13 and monotone upper bound14. Full posted replacement theorem still pending.
 Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count
 TIMING total=21.2 subagents=6
+
+Fifth checkpoint: six advanced proof components compiled exit0 and independently reviewed. Exact posted conclusion proved conditionally on two numerical certificates. Full theorem and official checker remain pending.
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
+TIMING total=31.0 subagents=9

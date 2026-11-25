@@ -12,3 +12,4 @@
 - 2026-11-25T19:37:16.030664+00:00: independent review passed for checked406-line NOT-count bridge and full128-row soundness engine; preparing immediate preservation push.
 - 2026-11-25T19:37:51.221849+00:00: lower_bound native Full sample root14 t1 accepted in341534ms; saved exactengine+runnerhashes and complete log. Kernelcheck pending.
 - 2026-11-25T19:39:35.667175+00:00: actual unrestricted lower bound13 and monotone upper bound14 kernel checked and independently reviewed. Replan: stop general exploratory SAT; prioritize advanced first-gate certificate and exact NOT-count preservation to make final proof fit checker runtime.
+- 2026-11-25T19:49:26.957428+00:00: advanced engine, tight NOT invariant,184 restriction certificates and exact conditional final step checked/reviewed; checkpointing.
