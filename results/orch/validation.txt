@@ -25,3 +25,7 @@ ParentSmallProbe.lean: Lean -j1 exit 0; 56.46 s, peak RSS 4.512 GB. Parent opcod
 
 Unified2444Prefix.lean: Lean exit 0; generic verifier with Live/Reach/Run encoded as propositions over library types. Complete log logs/unified2444-prefix.log.
 Records2444Prefix.lean: Lean exit 0; generic verifier with product/list BoundPool, Forest, IndexTree. Complete log records2444-prefix-build.log. These are separately checked prefixes; combined full certificate replay remains pending. Root independent review passed.
+
+ParentLargeProbe.lean: Lean -j1 exit 0; 182.45 s; peak RSS 4.626 GB. Covers forests through g383, including multi-level opcode/rule reconstruction. Full log logs/parent-large.log.
+SortedHashProbe.lean: Lean exit 0; compact pure lookup supplies only hints checked by unchanged sameWords/linkedSet soundness. Independent status_review semantic review passed. Full log logs/sorted-hash-probe.log. Neither component is the full gap proof.
+Transformation scripts preserved in tools/; some composed transformations remain unverified and are not a checker acceptance claim.

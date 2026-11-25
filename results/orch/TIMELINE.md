@@ -18,3 +18,7 @@
 - 2026-11-25T03:20:41.232768+00:00: first finite forest proof passed after cells-proof batching; grouped scoped-open behavior checked.
 - 2026-11-25T03:23:48.135170+00:00: root independently reviewed kernel-checked parent opcode/rule decoder and unchanged certificate soundness chain; preserving ParentSmallProbe.
 - 2026-11-25T03:28:23.982946+00:00: root independently reviewed separately compiled Church-state and product/list-record conversions of the 2444 verifier prefix; preserving both before integration.
+
+2026-11-25T03:31:40.944913+00:00 Narrow raw run stoppedexit130 after15min due three ambiguous-graph diagnostics atline7243 in C4338. C2444 outeropen leaked. Independent reviewer confirmed namedsection wrappers for eachsource; generatorfixed, no mathematicalcasegap. Complete log full-raw-narrow-build.log retained.
+- 2026-11-25T03:33:17.510846+00:00: parent-opcode and inherited-rule compression representative replay passed (182.45s,4.626GB), through L5120 g383 certificate.
+- 2026-11-25T03:35:43.269470+00:00: reviewed larger parent codec and sorted lookup benchmarks; preserving successful components, complete logs, and reproducible transformation scripts.

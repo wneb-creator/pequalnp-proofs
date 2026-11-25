@@ -1,0 +1,13 @@
+def cmpSkip (data : Nat → Nat) (cw depth : Nat) : Nat → Nat → Nat
+  | 0,pos => pos
+  | n+1,pos =>
+    let nr := packedAt data pos 5
+    cmpSkip data cw depth n (pos+5+nr*(cw+depth))
+def cmpNewRules (g : Forest) (k i : Nat) : List (Nat × Nat) :=
+  let (num,depth,cw,_,_,ow,_,_,data) := g.levels k
+  let start := num*cmpWidth g k
+  let blocks := (num+15)/16
+  let anchor := packedAt data (start+(i/16)*ow) ow
+  let pos := cmpSkip data cw depth (i%16) (start+blocks*ow+anchor)
+  let nr := packedAt data pos 5
+  getPairs data cw depth nr (pos+5)
