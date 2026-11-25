@@ -1,0 +1,5 @@
+b3 nonempty types 15 computed UNSAT below bound 14 single-edge zero-gate case 1
+b34 nonempty types 39 computed UNSAT below bound 38 single-edge zero-gate case 1
+Verified artifact hashes, solver status text, C4-freeness, census coverage, and all SAT truth tables.
+Solver return-code counts (10 SAT, 20 computed UNSAT, 0 UNKNOWN): {"10": 2, "20": 54, "0": 7}
+UNSAT results are computed evidence, not Lean-certified proofs. UNKNOWN gives no conclusion.

@@ -13,3 +13,6 @@
 
 2026-11-25T02:27:03.104230+00:00 counting-route incidence realization and exact size compiled.
 - 2026-11-25T02:27:58.572119+00:00: integrated full canonical realization and size, shared-linear replacement, and leaf restriction lemmas.
+
+2026-11-25T02:33:08.934884+00:00 counting-route disjoint-star budget/card component compiled; coordinated generic support lemma with prepare_lean.
+- 2026-11-25T02:35:20.330596+00:00: closed star_forest_normal_form compiled in named target; no remaining support-budget hypothesis for disjoint-star incidence.

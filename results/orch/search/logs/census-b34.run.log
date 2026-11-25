@@ -1,0 +1,40 @@
+3x4 C4-free nonempty graph types: 39
+mask 1: no zero-gate circuit computes a quadratic edge
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1]], "gates": 1, "variables": 399, "clauses": 2753, "returncode": 20, "seconds": 0.005641221000018959}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2]], "gates": 2, "variables": 800, "clauses": 5911, "returncode": 20, "seconds": 0.005152585000018917}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [0, 3]], "gates": 3, "variables": 1203, "clauses": 9605, "returncode": 20, "seconds": 0.0069887800000287825}
+{"case": "b34", "n": 7, "edges": [[0, 0], [1, 0]], "gates": 1, "variables": 399, "clauses": 2753, "returncode": 20, "seconds": 0.002486001000079341}
+{"case": "b34", "n": 7, "edges": [[0, 1], [1, 0]], "gates": 2, "variables": 800, "clauses": 5911, "returncode": 20, "seconds": 0.0037415319999354324}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [1, 0]], "gates": 3, "variables": 1203, "clauses": 9605, "returncode": 20, "seconds": 0.008492972999988524}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [1, 0]], "gates": 3, "variables": 1203, "clauses": 9605, "returncode": 20, "seconds": 0.006470700000022589}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [1, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.016822861000036937}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [1, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.022138231999974778}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [0, 3], [1, 0]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.08301650400005656}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [1, 0], [1, 1]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.021258486999954584}
+{"case": "b34", "n": 7, "edges": [[0, 2], [0, 3], [1, 0], [1, 1]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.01659957500010023}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [0, 3], [1, 0], [1, 1]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.0761190619999752}
+{"case": "b34", "n": 7, "edges": [[0, 0], [1, 0], [2, 0]], "gates": 2, "variables": 800, "clauses": 5911, "returncode": 20, "seconds": 0.004043667000019013}
+{"case": "b34", "n": 7, "edges": [[0, 1], [1, 0], [2, 0]], "gates": 3, "variables": 1203, "clauses": 9605, "returncode": 20, "seconds": 0.006677030999981071}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [1, 0], [2, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.017654713000069933}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [1, 0], [2, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.016336979000016072}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [1, 0], [2, 0]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.09405310399995415}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [1, 0], [2, 0]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.07455395099998441}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.8839890389999709}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [1, 1], [2, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.018439114000102563}
+{"case": "b34", "n": 7, "edges": [[0, 2], [1, 1], [2, 0]], "gates": 4, "variables": 1608, "clauses": 13838, "returncode": 20, "seconds": 0.055530153000063365}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [1, 1], [2, 0]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.13824994000003699}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [1, 1], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 1.2165164540000433}
+{"case": "b34", "n": 7, "edges": [[0, 2], [0, 3], [1, 1], [2, 0]], "gates": 5, "variables": 2015, "clauses": 18613, "returncode": 20, "seconds": 0.11779536200003804}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [0, 3], [1, 1], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.7906272380000701}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 2], [0, 3], [1, 1], [2, 0]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 6.298497865999934}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [1, 0], [1, 1], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.8411546240000689}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [1, 0], [1, 1], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.836776109000084}
+{"case": "b34", "n": 7, "edges": [[0, 2], [0, 3], [1, 0], [1, 1], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.5591742190000559}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 2], [0, 3], [1, 0], [1, 1], [2, 0]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 4.465016178000042}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [2, 0]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 7.642539120000038}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 3], [1, 1], [1, 2], [2, 0]], "gates": 6, "variables": 2424, "clauses": 23933, "returncode": 20, "seconds": 0.4794388479999725}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 1], [0, 3], [1, 1], [1, 2], [2, 0]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 7.393817984000066}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 5.050190945000054}
+{"case": "b34", "n": 7, "edges": [[0, 0], [0, 3], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 6.593517639999959}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 3], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 7, "variables": 2835, "clauses": 29801, "returncode": 20, "seconds": 6.230888255999957}
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 8, "variables": 3248, "clauses": 36220, "returncode": 0, "seconds": 60.00506043199994}

@@ -1,0 +1,127 @@
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-1-m3.cnf", "variables": 205, "clauses": 1263}
+HASH_MATCH synth-b3-1-m3
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-2-m10.cnf", "variables": 412, "clauses": 2736}
+HASH_MATCH synth-b3-2-m10
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-2-m7.cnf", "variables": 412, "clauses": 2736}
+HASH_MATCH synth-b3-2-m7
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-3-m11.cnf", "variables": 621, "clauses": 4486}
+HASH_MATCH synth-b3-3-m11
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-3-m14.cnf", "variables": 621, "clauses": 4486}
+HASH_MATCH synth-b3-3-m14
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-4-m15.cnf", "variables": 832, "clauses": 6516}
+HASH_MATCH synth-b3-4-m15
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-4-m29.cnf", "variables": 832, "clauses": 6516}
+HASH_MATCH synth-b3-4-m29
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-4-m78.cnf", "variables": 832, "clauses": 6516}
+HASH_MATCH synth-b3-4-m78
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-4-m84.cnf", "variables": 832, "clauses": 6516}
+HASH_MATCH synth-b3-4-m84
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-5-m79.cnf", "variables": 1045, "clauses": 8829}
+HASH_MATCH synth-b3-5-m79
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-5-m85.cnf", "variables": 1045, "clauses": 8829}
+HASH_MATCH synth-b3-5-m85
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-6-m87.cnf", "variables": 1260, "clauses": 11428}
+HASH_MATCH synth-b3-6-m87
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-6-m94.cnf", "variables": 1260, "clauses": 11428}
+HASH_MATCH synth-b3-6-m94
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b3-7-m238.cnf", "variables": 1477, "clauses": 14316}
+HASH_MATCH synth-b3-7-m238
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-1-m17.cnf", "variables": 399, "clauses": 2753}
+HASH_MATCH synth-b34-1-m17
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-1-m3.cnf", "variables": 399, "clauses": 2753}
+HASH_MATCH synth-b34-1-m3
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-2-m18.cnf", "variables": 800, "clauses": 5911}
+HASH_MATCH synth-b34-2-m18
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-2-m273.cnf", "variables": 800, "clauses": 5911}
+HASH_MATCH synth-b34-2-m273
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-2-m7.cnf", "variables": 800, "clauses": 5911}
+HASH_MATCH synth-b34-2-m7
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-3-m15.cnf", "variables": 1203, "clauses": 9605}
+HASH_MATCH synth-b34-3-m15
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-3-m19.cnf", "variables": 1203, "clauses": 9605}
+HASH_MATCH synth-b34-3-m19
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-3-m22.cnf", "variables": 1203, "clauses": 9605}
+HASH_MATCH synth-b34-3-m22
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-3-m274.cnf", "variables": 1203, "clauses": 9605}
+HASH_MATCH synth-b34-3-m274
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m23.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m23
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m275.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m275
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m278.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m278
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m291.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m291
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m292.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m292
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m30.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m30
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m53.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m53
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-4-m60.cnf", "variables": 1608, "clauses": 13838}
+HASH_MATCH synth-b34-4-m60
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m279.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m279
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m286.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m286
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m293.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m293
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m300.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m300
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m31.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m31
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-5-m61.cnf", "variables": 2015, "clauses": 18613}
+HASH_MATCH synth-b34-5-m61
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m287.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m287
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m295.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m295
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m301.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m301
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m309.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m309
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m310.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m310
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m316.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m316
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-6-m362.cnf", "variables": 2424, "clauses": 23933}
+HASH_MATCH synth-b34-6-m362
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m303.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m303
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m317.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m317
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m318.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m318
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m363.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m363
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m854.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m854
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m857.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m857
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-7-m858.cnf", "variables": 2835, "clauses": 29801}
+HASH_MATCH synth-b34-7-m858
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-8-m862-boundary.cnf", "variables": 488, "clauses": 4825}
+HASH_MATCH synth-b34-8-m862-boundary
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-b34-8-m862.cnf", "variables": 3248, "clauses": 36220}
+HASH_MATCH synth-b34-8-m862
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c6-12-or4.cnf", "variables": 2592, "clauses": 33988}
+HASH_MATCH synth-c6-12-or4
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c6-7.cnf", "variables": 1477, "clauses": 14316}
+HASH_MATCH synth-c6-7
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c6-8.cnf", "variables": 1696, "clauses": 17496}
+HASH_MATCH synth-c6-8
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c8-10-boundary.cnf", "variables": 800, "clauses": 9518}
+HASH_MATCH synth-c8-10-boundary
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c8-10.cnf", "variables": 7940, "clauses": 104956}
+HASH_MATCH synth-c8-10
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c8-11-boundary.cnf", "variables": 891, "clauses": 11095}
+HASH_MATCH synth-c8-11-boundary
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-path6-6.cnf", "variables": 1260, "clauses": 11428}
+HASH_MATCH synth-path6-6
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-tetra-14-boundary.cnf", "variables": 1484, "clauses": 23236}
+HASH_MATCH synth-tetra-14-boundary
+All archived CNFs regenerated with identical hashes.
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-c8-10-boundary-canonical.cnf", "variables": 800, "clauses": 13817}
+{"cnf": "/tmp/oec/pequalnp-pilot-58/reproduced-cnfs/synth-tetra-14-boundary-canonical.cnf", "variables": 1484, "clauses": 37055}
+HASH_MATCH synth-c8-10-boundary-canonical
+HASH_MATCH synth-tetra-14-boundary-canonical

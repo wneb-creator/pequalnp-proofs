@@ -1,0 +1,1 @@
+{"case": "b34", "n": 7, "edges": [[0, 1], [0, 2], [0, 3], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 8, "variables": 488, "clauses": 4825, "returncode": 20, "seconds": 70.33940748499992, "boundary": true, "rows": 13}

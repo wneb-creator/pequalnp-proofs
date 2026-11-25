@@ -1,0 +1,19 @@
+{
+  "case": "b3",
+  "n": 6,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "gates": 1,
+  "variables": 205,
+  "clauses": 1263,
+  "returncode": 20,
+  "seconds": 0.0029357580000350936
+}

@@ -1,0 +1,1 @@
+{"case": "c6", "n": 6, "edges": [[0, 0], [0, 1], [1, 1], [1, 2], [2, 2], [2, 0]], "gates": 12, "variables": 2592, "clauses": 33988, "returncode": 0, "seconds": 120.00723864199995, "or_max": 4}

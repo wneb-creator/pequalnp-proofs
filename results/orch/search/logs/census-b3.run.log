@@ -1,0 +1,15 @@
+mask 1: a single quadratic edge cannot equal any input wire or constant false from a zero-gate circuit
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1]], "gates": 1, "variables": 205, "clauses": 1263, "returncode": 20, "seconds": 0.0029357580000350936}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1], [0, 2]], "gates": 2, "variables": 412, "clauses": 2736, "returncode": 20, "seconds": 0.003544072999943637}
+{"case": "b3", "n": 6, "edges": [[0, 1], [1, 0]], "gates": 2, "variables": 412, "clauses": 2736, "returncode": 20, "seconds": 0.0032519039999669985}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1], [1, 0]], "gates": 3, "variables": 621, "clauses": 4486, "returncode": 20, "seconds": 0.00656130499999108}
+{"case": "b3", "n": 6, "edges": [[0, 1], [0, 2], [1, 0]], "gates": 3, "variables": 621, "clauses": 4486, "returncode": 20, "seconds": 0.005949905000079525}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1], [0, 2], [1, 0]], "gates": 4, "variables": 832, "clauses": 6516, "returncode": 20, "seconds": 0.010048823000033735}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 2], [1, 0], [1, 1]], "gates": 4, "variables": 832, "clauses": 6516, "returncode": 20, "seconds": 0.010099329000013313}
+{"case": "b3", "n": 6, "edges": [[0, 1], [0, 2], [1, 0], [2, 0]], "gates": 4, "variables": 832, "clauses": 6516, "returncode": 20, "seconds": 0.008318028999951821}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1], [0, 2], [1, 0], [2, 0]], "gates": 5, "variables": 1045, "clauses": 8829, "returncode": 20, "seconds": 0.06920561300000827}
+{"case": "b3", "n": 6, "edges": [[0, 2], [1, 1], [2, 0]], "gates": 4, "variables": 832, "clauses": 6516, "returncode": 20, "seconds": 0.012345689999960996}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 2], [1, 1], [2, 0]], "gates": 5, "variables": 1045, "clauses": 8829, "returncode": 20, "seconds": 0.05012273300008019}
+{"case": "b3", "n": 6, "edges": [[0, 0], [0, 1], [0, 2], [1, 1], [2, 0]], "gates": 6, "variables": 1260, "clauses": 11428, "returncode": 20, "seconds": 0.48324659699994754}
+{"case": "b3", "n": 6, "edges": [[0, 1], [0, 2], [1, 0], [1, 1], [2, 0]], "gates": 6, "variables": 1260, "clauses": 11428, "returncode": 20, "seconds": 0.488270306000004}
+{"case": "b3", "n": 6, "edges": [[0, 1], [0, 2], [1, 0], [1, 2], [2, 0], [2, 1]], "gates": 7, "variables": 1477, "clauses": 14316, "returncode": 20, "seconds": 5.150311265000028}

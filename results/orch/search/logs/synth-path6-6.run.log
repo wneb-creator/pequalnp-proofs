@@ -1,0 +1,1 @@
+{"case": "path6", "n": 6, "edges": [[0, 0], [1, 0], [1, 1], [2, 1], [2, 2]], "gates": 6, "variables": 1260, "clauses": 11428, "returncode": 20, "seconds": 0.3844269669999676}

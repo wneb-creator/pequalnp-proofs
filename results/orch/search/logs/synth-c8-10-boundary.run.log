@@ -1,0 +1,1 @@
+{"case": "c8", "n": 8, "edges": [[0, 0], [0, 1], [1, 1], [1, 2], [2, 2], [2, 3], [3, 3], [3, 0]], "gates": 10, "variables": 800, "clauses": 9518, "returncode": 0, "seconds": 120.01177544799998, "boundary": true, "rows": 18}

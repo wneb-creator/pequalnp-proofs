@@ -693,4 +693,176 @@ lemma normal_form_of_ownership (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
     coverCircuitB_incidence Np Nl I own (fun tx htx => (ho tx htx).2) hc,?_,hP,hL,hands⟩
   rwa [coverCircuitB_size_eq (Np+Nl) own (fun tx htx => (ho tx htx).1)]
 
+lemma point_ne_line (Np Nl : ℕ) (p : Fin Np) (l : Fin Nl) :
+    Fin.castAdd Nl p ≠ Fin.natAdd Np l := by
+  intro h
+  have he := congrArg Fin.val h
+  have hp := p.isLt
+  simp only [Fin.val_castAdd,Fin.val_natAdd] at he
+  omega
+
+lemma point_essential (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop) [DecidableRel I]
+    (C : Circuit)
+    (hfun : ∀ z : Fin (Np+Nl) → Bool, circuitFun (Np+Nl) C z =
+      decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧ z (Fin.natAdd Np l) = true))
+    (p : Fin Np) (l : Fin Nl) (hI : I p l) :
+    ∃ x : Fin (Np+Nl) → Bool,
+      circuitFun (Np+Nl) C (Function.update x (Fin.castAdd Nl p) (!x (Fin.castAdd Nl p))) ≠
+      circuitFun (Np+Nl) C x := by
+  let x : Fin (Np+Nl) → Bool := fun i => decide (i = Fin.natAdd Np l)
+  have hx (q : Fin Np) : x (Fin.castAdd Nl q) = false := by
+    simp [x,point_ne_line Np Nl q l]
+  have old : circuitFun (Np+Nl) C x = false := by
+    apply Bool.eq_false_of_not_eq_true
+    intro h
+    rw [hfun] at h
+    obtain ⟨q,s,_,hq,_⟩ := of_decide_eq_true h
+    rw [hx q] at hq
+    contradiction
+  have fresh : circuitFun (Np+Nl) C (Function.update x (Fin.castAdd Nl p) (!x (Fin.castAdd Nl p))) = true := by
+    rw [hfun]
+    apply decide_eq_true_iff.mpr
+    refine ⟨p,l,hI,?_,?_⟩
+    · simp [hx p]
+    · rw [Function.update_of_ne (point_ne_line Np Nl p l).symm]
+      simp [x]
+  exact ⟨x,by rw [old,fresh]; decide⟩
+
+lemma line_essential (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop) [DecidableRel I]
+    (C : Circuit)
+    (hfun : ∀ z : Fin (Np+Nl) → Bool, circuitFun (Np+Nl) C z =
+      decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧ z (Fin.natAdd Np l) = true))
+    (p : Fin Np) (l : Fin Nl) (hI : I p l) :
+    ∃ x : Fin (Np+Nl) → Bool,
+      circuitFun (Np+Nl) C (Function.update x (Fin.natAdd Np l) (!x (Fin.natAdd Np l))) ≠
+      circuitFun (Np+Nl) C x := by
+  let x : Fin (Np+Nl) → Bool := fun i => decide (i = Fin.castAdd Nl p)
+  have hx (s : Fin Nl) : x (Fin.natAdd Np s) = false := by
+    simp [x,(point_ne_line Np Nl p s).symm]
+  have old : circuitFun (Np+Nl) C x = false := by
+    apply Bool.eq_false_of_not_eq_true
+    intro h
+    rw [hfun] at h
+    obtain ⟨q,s,_,_,hs⟩ := of_decide_eq_true h
+    rw [hx s] at hs
+    contradiction
+  have fresh : circuitFun (Np+Nl) C (Function.update x (Fin.natAdd Np l) (!x (Fin.natAdd Np l))) = true := by
+    rw [hfun]
+    apply decide_eq_true_iff.mpr
+    refine ⟨p,l,hI,?_,?_⟩
+    · rw [Function.update_of_ne (point_ne_line Np Nl p l)]
+      simp [x]
+    · simp [hx l]
+  exact ⟨x,by rw [old,fresh]; decide⟩
+
+lemma owner_vertices_incident (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
+    [DecidableRel I] (own : List (ℕ × List ℕ))
+    (ho : ∀ tx ∈ own, tx.2 ≠ [] ∧
+      ((tx.1 < Np ∧ ∀ u ∈ tx.2, Np ≤ u ∧ u < Np+Nl) ∨
+      (Np ≤ tx.1 ∧ tx.1 < Np+Nl ∧ ∀ u ∈ tx.2, u < Np)))
+    (hc : ∀ p l, I p l ↔ ∃ tx ∈ own,
+      (tx.1 = p.val ∧ Np+l.val ∈ tx.2) ∨
+      (tx.1 = Np+l.val ∧ p.val ∈ tx.2)) :
+    ∀ w ∈ own.flatMap (fun tx => tx.1 :: tx.2),
+      ∃ (p : Fin Np) (l : Fin Nl), I p l ∧ (w = p.val ∨ w = Np+l.val) := by
+  intro w hw
+  obtain ⟨tx,htx,hw⟩ := List.mem_flatMap.mp hw
+  obtain ⟨hne,htag⟩ := ho tx htx
+  obtain ⟨u,hu,hw⟩ : ∃ u ∈ tx.2, w = tx.1 ∨ w = u := by
+    rcases List.mem_cons.mp hw with hw | hw
+    · obtain ⟨u,hu⟩ := List.exists_mem_of_ne_nil _ hne
+      exact ⟨u,hu,Or.inl hw⟩
+    · exact ⟨w,hw,Or.inr rfl⟩
+  rcases htag with ⟨ht,hr⟩ | ⟨ht,ht',hr⟩
+  · obtain ⟨hul,huh⟩ := hr u hu
+    let p : Fin Np := ⟨tx.1,ht⟩
+    let l : Fin Nl := ⟨u-Np,by omega⟩
+    have he : Np+l.val = u := by dsimp [l]; omega
+    refine ⟨p,l,(hc p l).mpr ⟨tx,htx,Or.inl ⟨rfl,he.symm ▸ hu⟩⟩,?_⟩
+    simpa only [p,Fin.val_mk,he] using hw
+  · have hup := hr u hu
+    let p : Fin Np := ⟨u,hup⟩
+    let l : Fin Nl := ⟨tx.1-Np,by omega⟩
+    have he : Np+l.val = tx.1 := by dsimp [l]; omega
+    refine ⟨p,l,(hc p l).mpr ⟨tx,htx,Or.inr ⟨he.symm,hu⟩⟩,?_⟩
+    simpa only [p,Fin.val_mk,he] using hw.symm
+
+lemma owner_vertices_length (own : List (ℕ × List ℕ)) :
+    (own.flatMap (fun tx => tx.1 :: tx.2)).length =
+      (own.map (fun tx => tx.2.length)).sum + own.length := by
+  induction own with
+  | nil => simp
+  | cons tx own ih => simp [ih]; omega
+
+lemma disjoint_owner_support (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
+    [DecidableRel I] (C : Circuit) (own : List (ℕ × List ℕ))
+    (ho : ∀ tx ∈ own, tx.2 ≠ [] ∧
+      ((tx.1 < Np ∧ ∀ u ∈ tx.2, Np ≤ u ∧ u < Np+Nl) ∨
+      (Np ≤ tx.1 ∧ tx.1 < Np+Nl ∧ ∀ u ∈ tx.2, u < Np)))
+    (hc : ∀ p l, I p l ↔ ∃ tx ∈ own,
+      (tx.1 = p.val ∧ Np+l.val ∈ tx.2) ∨
+      (tx.1 = Np+l.val ∧ p.val ∈ tx.2))
+    (hfun : ∀ z : Fin (Np+Nl) → Bool, circuitFun (Np+Nl) C z =
+      decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧ z (Fin.natAdd Np l) = true))
+    (hn : (own.flatMap (fun tx => tx.1 :: tx.2)).Nodup) :
+    ∃ S : Finset (Fin (Np+Nl)),
+      S.card = (own.map (fun tx => tx.2.length)).sum + own.length ∧
+      ∀ i ∈ S, ∃ x : Fin (Np+Nl) → Bool,
+        circuitFun (Np+Nl) C (Function.update x i (!x i)) ≠ circuitFun (Np+Nl) C x := by
+  let R := own.flatMap (fun tx => tx.1 :: tx.2)
+  let T := R.toFinset
+  let S : Finset (Fin (Np+Nl)) := Finset.univ.filter (fun i => i.val ∈ T)
+  have hbound : ∀ w ∈ T, w < Np+Nl := by
+    intro w hw
+    obtain ⟨p,l,_,he⟩ := owner_vertices_incident Np Nl I own ho hc w (List.mem_toFinset.mp hw)
+    have hp := p.isLt
+    have hl := l.isLt
+    rcases he with he | he <;> omega
+  have heq : S.image Fin.val = T := by
+    ext w
+    constructor
+    · intro hw
+      obtain ⟨i,hi,rfl⟩ := Finset.mem_image.mp hw
+      exact (Finset.mem_filter.mp hi).2
+    · intro hw
+      refine Finset.mem_image.mpr ⟨⟨w,hbound w hw⟩,?_,rfl⟩
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,hw⟩
+  have hcard : S.card = R.length := by
+    calc
+      S.card = T.card := by rw [← heq,Finset.card_image_of_injective _ Fin.val_injective]
+      _ = R.length := List.toFinset_card_of_nodup hn
+  refine ⟨S,?_,?_⟩
+  · rw [hcard]
+    exact owner_vertices_length own
+  · intro i hi
+    have hiR : i.val ∈ R := List.mem_toFinset.mp (Finset.mem_filter.mp hi).2
+    obtain ⟨p,l,hI,he⟩ := owner_vertices_incident Np Nl I own ho hc i.val hiR
+    rcases he with he | he
+    · have hia : i = Fin.castAdd Nl p := Fin.ext he
+      rw [hia]
+      exact point_essential Np Nl I C hfun p l hI
+    · have hia : i = Fin.natAdd Np l := Fin.ext he
+      rw [hia]
+      exact line_essential Np Nl I C hfun p l hI
+
+lemma star_forest_budget (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
+    [DecidableRel I] (C : Circuit) (own : List (ℕ × List ℕ))
+    (ho : ∀ tx ∈ own, tx.2 ≠ [] ∧
+      ((tx.1 < Np ∧ ∀ u ∈ tx.2, Np ≤ u ∧ u < Np+Nl) ∨
+      (Np ≤ tx.1 ∧ tx.1 < Np+Nl ∧ ∀ u ∈ tx.2, u < Np)))
+    (hc : ∀ p l, I p l ↔ ∃ tx ∈ own,
+      (tx.1 = p.val ∧ Np+l.val ∈ tx.2) ∨
+      (tx.1 = Np+l.val ∧ p.val ∈ tx.2))
+    (hfun : ∀ z : Fin (Np+Nl) → Bool, circuitFun (Np+Nl) C z =
+      decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧ z (Fin.natAdd Np l) = true))
+    (hn : (own.flatMap (fun tx => tx.1 :: tx.2)).Nodup)
+    (lower : ∀ S : Finset (Fin (Np+Nl)),
+      (∀ i ∈ S, ∃ x : Fin (Np+Nl) → Bool,
+        circuitFun (Np+Nl) C (Function.update x i (!x i)) ≠ circuitFun (Np+Nl) C x) →
+      S.card ≤ C.size+1) :
+    (own.map (fun tx => tx.2.length)).sum + own.length - 1 ≤ C.size := by
+  obtain ⟨S,hs,hdep⟩ := disjoint_owner_support Np Nl I C own ho hc hfun hn
+  have h := lower S hdep
+  omega
+
 end PEqualNP.Outside.L_meta_2685_aux

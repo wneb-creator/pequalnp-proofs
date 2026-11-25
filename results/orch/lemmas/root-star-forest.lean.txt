@@ -1,0 +1,26 @@
+namespace PEqualNP.Outside.L_meta_2685
+
+lemma star_forest_normal_form (Np Nl : ℕ) (I : Fin Np → Fin Nl → Prop)
+    [DecidableRel I] (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (ao : PEqualNP.TopForm.IsAO2 (Np + Nl) C)
+    (correct : ∀ z : Fin (Np + Nl) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (Np + Nl) C z =
+        decide (∃ p l, I p l ∧ z (Fin.castAdd Nl p) = true ∧
+          z (Fin.natAdd Np l) = true))
+    (own : List (ℕ × List ℕ))
+    (tagged : ∀ tx ∈ own, tx.2 ≠ [] ∧
+      ((tx.1 < Np ∧ ∀ u ∈ tx.2, Np ≤ u ∧ u < Np + Nl) ∨
+        (Np ≤ tx.1 ∧ tx.1 < Np + Nl ∧ ∀ u ∈ tx.2, u < Np)))
+    (covered : ∀ p l, I p l ↔ ∃ tx ∈ own,
+      (tx.1 = p.val ∧ Np + l.val ∈ tx.2) ∨
+        (tx.1 = Np + l.val ∧ p.val ∈ tx.2))
+    (disjoint : (own.flatMap (fun tx => tx.1 :: tx.2)).Nodup) :
+    ∃ (D : PEqualNP.CircuitLowerBounds.Circuit) (P L : Finset ℕ), PEqualNP.TopForm.IsAO2 (Np + Nl) D ∧ (∀ y : Fin (Np + Nl) → Bool, PEqualNP.MetaComplexity.circuitFun (Np + Nl) D y = decide (∃ p : Fin Np, ∃ l : Fin Nl, I p l ∧ y (Fin.castAdd Nl p) = true ∧ y (Fin.natAdd Np l) = true)) ∧ D.size ≤ C.size ∧ (∀ w ∈ P, w < Np ∨ ∃ i < D.gates.length, w = Np + Nl + i ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt D i).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ ∀ u ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt D i).inputs, u ∈ P) ∧ (∀ w ∈ L, (Np ≤ w ∧ w < Np + Nl) ∨ ∃ i < D.gates.length, w = Np + Nl + i ∧ (PEqualNP.MetaComplexity.NestedCover.gateAt D i).op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ ∀ u ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt D i).inputs, u ∈ L) ∧ ∀ i < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D i).op = PEqualNP.CircuitLowerBounds.GateOp.and → ∃ a b : ℕ, (PEqualNP.MetaComplexity.NestedCover.gateAt D i).inputs = [a, b] ∧ ((a ∈ P ∧ b ∈ L) ∨ (a ∈ L ∧ b ∈ P)) := by
+  apply PEqualNP.Outside.L_meta_2685_aux.normal_form_of_ownership Np Nl I C own tagged covered
+  apply PEqualNP.Outside.L_meta_2685_aux.star_forest_budget Np Nl I C own tagged covered correct disjoint
+  intro S hS
+  apply EliminationRoute.essential_card_le_size (Np + Nl) C _ S hS
+  intro g hg
+  exact (ao.2.2 g hg).le
+
+end PEqualNP.Outside.L_meta_2685

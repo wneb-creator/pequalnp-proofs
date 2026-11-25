@@ -1,8 +1,8 @@
-L-meta-2685 PARTIAL snapshot; posted theorem remains unproved.
-Named-file lake build: PASS.
-Constructive realization, exact cost and two-level shape proved; shared-linear operand replacement and leaf restrictions proved.
-Local checker: not run; target theorem is not yet present.
+L-meta-2685 PARTIAL snapshot; general posted theorem remains unproved.
+Named-file lake build: PASS, 2483 lines.
+Closed star_forest_normal_form proves full requested conclusion for a tagged disjoint-star incidence representation and any correct AO2 circuit.
+Constructive realization, exact cost, two-level shape, shared-linear replacement, and generic fanin-two essential-input lower bound are compiled.
+Local checker: not run; full-name target theorem is not yet present.
 Library normalization simplification: 1473 to 1149 lines.
-Independent review required before this partial push; no proof PR until full statement passes.
 Sub-agents: 6 (library route, environment/elimination, independent reviewer, normalization, counterexample search, construction/counting).
-TIMING total=19 subagents=6
+TIMING total=24 subagents=6

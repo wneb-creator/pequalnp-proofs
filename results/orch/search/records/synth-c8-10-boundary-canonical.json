@@ -1,0 +1,46 @@
+{
+  "case": "c8",
+  "n": 8,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "gates": 10,
+  "variables": 800,
+  "clauses": 13817,
+  "returncode": 0,
+  "seconds": 180.02380540699983,
+  "boundary": true,
+  "rows": 18,
+  "canonical_order": true
+}

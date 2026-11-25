@@ -1,0 +1,105 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 60 seconds real time (due to '-t 60')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-58/synth-b34-5-m300.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-58/synth-b34-5-m300.cnf'
+c found 'p cnf 2015 18613' header
+c parsed 18613 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c *  0.00  5  0 0   0    0    0  0% 0 18485 1887 94%
+c {  0.00  5  0 0   0    0    0  0% 0 18485 1887 94%
+c -  0.01  5 61 1   5  300  258 53% 3 18101 1887 94%
+c i  0.01  5 42 1  10  467  347 45% 3 18101 1886 94%
+c i  0.03  5 36 1  26  588  456 45% 3 18101 1876 93%
+c -  0.04  6 27 2 104  902  658 44% 4 16326 1876 93%
+c }  0.04  6 26 2 128 1002  749 42% 4 16326 1876 93%
+c [  0.04  6  0 2 128 1002  749  0% 0 16326 1876 93%
+c O  0.04  6 10 2 128 1003  750 85% 4 16326 1876 93%
+c i  0.05  6  5 2 128 1714 1266 44% 4 16326 1875 93%
+c -  0.06  6  6 3 128 1802 1172 43% 4 15942 1875 93%
+c i  0.06  6  5 3 128 2029 1257 40% 4 15942 1874 93%
+c i  0.07  6  5 3 129 2195 1341 40% 4 15942 1873 93%
+c i  0.07  6  5 3 129 2287 1379 40% 4 15942 1626 81%
+c i  0.07  6  5 3 129 2314  715  9% 4 11460 1624 81%
+c i  0.07  6  5 3 129 2318  715  9% 4 11460 1573 78%
+c ]  0.07  6  5 3 129 2320  715  9% 4 11460 1557 77%
+c 0  0.07  6  5 3 129 2320  715  9% 4 11460 1557 77%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.07   99.86% search
+c         0.03   50.14% unstable
+c         0.03   48.75% stable
+c         0.00    5.21% parse
+c         0.00    0.95% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.07   94.89% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               517        22.28 %  of conflicts
+c conflicts:                  2320     33349.62    per second
+c decisions:                  4290     61668.06    per second
+c fixed:                       458        22.73 %  of all variables
+c learned:                    2227        95.99 %  per conflict
+c learned_lits:              31663       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  11191        35.34 %  learned literals
+c minishrunken:               2999         9.47 %  learned literals
+c otfs:                         59         2.54 %  of conflict
+c propagations:             473835         6.81 M  per second
+c reduced:                     104         4.48 %  per conflict
+c rephased:                      1      2320.00    interval
+c restarts:                    129        17.98    interval
+c stabilizing:                   1        56.72 %  of conflicts
+c subsumed:                    634         3.06 %  of all clauses
+c strengthened:                 57         0.28 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.07    seconds
+c total real time since initialization:            0.11    seconds
+c maximum resident set size of process:           12.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20
