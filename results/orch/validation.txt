@@ -28,3 +28,6 @@ TIMING total=21.35 subagents=7
 
 BinaryRestriction.lean:534lines, compileexit0; independentreviewPASS. nonNotCount counts AND/OR gates including permitted unary/constant gates.
 TIMING total=25.20 subagents=7
+
+BinaryRestrictionPetersen.lean: compileexit0; independentrootreviewPASS.
+TIMING total=26.63 subagents=7

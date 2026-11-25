@@ -1,0 +1,4 @@
+Independent root review: PASS for Petersen restriction partial.
+SHA256: 2a42f098676b1fcc7fb992e2d68bd942d5f7f88aafb7fdac537413d5b39c5dc4
+Diff from independentlyreviewed generic restriction consists only42lines. fullEdge exactlymatches posted15edges; deletedEdge removes the3edgesincidentto9. Falsecofactor is nonconstant (allzero/allone witnesses); input9 isessential atinput4=true. Applyinggenericrestriction yields onefewerAND/OR gate and correct9inputfunction. Verified all newproofsteps and plainformtokens; nofull lowerbound asserted.
+Lean compileexit0, full warnings andempty stderr retained.
