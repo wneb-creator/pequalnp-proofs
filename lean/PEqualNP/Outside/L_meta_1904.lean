@@ -3562,4 +3562,668 @@ lemma GraphExtremal.activity_le_of_nonincrease {n : ℕ} {G : SimpleGraph (Fin n
     Nat.le_antisymm hpairs (hC.2.2.2.2.1 D hminD hcD hj)
   exact hC.2.2.2.2.2 D hminD hcD hj hp
 
+def certificateAndCount (gs : List Gate) : ℕ :=
+  (gs.filter fun g => match g.op with | GateOp.and => true | _ => false).length
+
+lemma certificateAndCount_append (gs hs : List Gate) :
+    certificateAndCount (gs ++ hs) = certificateAndCount gs + certificateAndCount hs := by
+  simp [certificateAndCount, List.filter_append]
+
+lemma certificate_getD_snoc_ne (p : List Bool) (b : Bool) (i : ℕ) (hi : i ≠ p.length) :
+    (p ++ [b]).getD i false = p.getD i false := by
+  by_cases hl : i < p.length
+  · exact List.getD_append _ _ _ _ hl
+  · rw [List.getD_eq_default _ _ (by simp; omega),
+      List.getD_eq_default _ _ (by omega)]
+
+lemma true_frontier_certificate (n : ℕ) (gs : List Gate)
+    (hm : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (x : Fin n → Bool) (S : Finset ℕ)
+    (htrue : ∀ w ∈ S, (run gs (List.ofFn x)).getD w false = true) :
+    ∃ Y : Finset (Fin n), (∀ u ∈ Y, x u = true) ∧
+      Y.card ≤ certificateAndCount gs + S.card ∧
+      ∀ y : Fin n → Bool, (∀ u ∈ Y, y u = true) →
+        ∀ w ∈ S, (run gs (List.ofFn y)).getD w false = true := by
+  classical
+  induction gs using List.reverseRecOn generalizing S with
+  | nil =>
+    have hb : ∀ w ∈ S, w < n := by
+      intro w hw
+      have ht := htrue w hw
+      change (List.ofFn x).getD w false = true at ht
+      by_contra hn
+      rw [List.getD_eq_default _ _ (by simp; omega)] at ht
+      contradiction
+    let Y := S.attach.image (fun w => (⟨w.val, hb w.val w.property⟩ : Fin n))
+    refine ⟨Y, ?_, ?_, ?_⟩
+    · intro u hu
+      obtain ⟨w, _, rfl⟩ := Finset.mem_image.mp hu
+      simpa [run, List.getD, List.getElem?_ofFn, hb w.val w.property] using htrue w.val w.property
+    · have hcard : Y.card ≤ S.card := by
+        calc
+          Y.card ≤ S.attach.card := Finset.card_image_le
+          _ = S.card := Finset.card_attach
+      simpa [certificateAndCount] using hcard
+    · intro y hy w hw
+      have hu : (⟨w, hb w hw⟩ : Fin n) ∈ Y :=
+        Finset.mem_image.mpr ⟨⟨w,hw⟩, by simp, rfl⟩
+      simpa [run, List.getD, List.getElem?_ofFn, hb w hw] using hy ⟨w, hb w hw⟩ hu
+  | append_singleton gs g ih =>
+    have hmgs := fun a ha => hm a (List.mem_append_left _ ha)
+    have hmg := hm g (by simp)
+    let k := n + gs.length
+    have hlen (y : Fin n → Bool) : (run gs (List.ofFn y)).length = k := by simp [run_length, k]
+    have hsnoc (y : Fin n → Bool) : run (gs ++ [g]) (List.ofFn y) =
+        run gs (List.ofFn y) ++
+          [g.op.eval (g.inputs.map fun i => (run gs (List.ofFn y)).getD i false)] := by
+      simp only [run, List.foldl_append, List.foldl_cons, List.foldl_nil]
+    have hold (y : Fin n → Bool) (w : ℕ) (hw : w ≠ k) :
+        (run (gs ++ [g]) (List.ofFn y)).getD w false = (run gs (List.ofFn y)).getD w false := by
+      rw [hsnoc]
+      exact certificate_getD_snoc_ne _ _ _ (by rwa [hlen])
+    have hlast (y : Fin n → Bool) :
+        (run (gs ++ [g]) (List.ofFn y)).getD k false =
+          g.op.eval (g.inputs.map fun i => (run gs (List.ofFn y)).getD i false) := by
+      rw [hsnoc, ← hlen y]
+      simp
+    by_cases hk : k ∈ S
+    · have hgate : g.op.eval (g.inputs.map fun i => (run gs (List.ofFn x)).getD i false) = true :=
+        (hlast x).symm.trans (htrue k hk)
+      have needed : ∃ Q : Finset ℕ,
+          (∀ i ∈ Q, (run gs (List.ofFn x)).getD i false = true) ∧
+          (∀ y : Fin n → Bool, (∀ i ∈ Q, (run gs (List.ofFn y)).getD i false = true) →
+            g.op.eval (g.inputs.map fun i => (run gs (List.ofFn y)).getD i false) = true) ∧
+          Q.card ≤ certificateAndCount [g] + 1 := by
+        rcases hmg.1 with hand | hor
+        · refine ⟨g.inputs.toFinset, ?_, ?_, ?_⟩
+          · simpa only [hand, GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply,
+              id_eq, List.mem_toFinset] using hgate
+          · intro y hy
+            simpa only [hand, GateOp.eval, List.all_map, List.all_eq_true, Function.comp_apply,
+              id_eq, List.mem_toFinset] using hy
+          · have hcard := (List.toFinset_card_le g.inputs).trans hmg.2
+            simpa [certificateAndCount, hand] using hcard
+        · have hex : ∃ r ∈ g.inputs, (run gs (List.ofFn x)).getD r false = true := by
+            simpa only [hor, GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq] using hgate
+          obtain ⟨r, hr, hxr⟩ := hex
+          refine ⟨{r}, by simpa using hxr, ?_, by simp [certificateAndCount, hor]⟩
+          intro y hy
+          simpa only [hor, GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq]
+            using (show ∃ i ∈ g.inputs, (run gs (List.ofFn y)).getD i false = true from
+              ⟨r, hr, hy r (by simp)⟩)
+      obtain ⟨Q, hQ, hforce, hQcard⟩ := needed
+      let T := S.erase k ∪ Q
+      have hT : ∀ w ∈ T, (run gs (List.ofFn x)).getD w false = true := by
+        intro w hw
+        rcases Finset.mem_union.mp hw with hw | hw
+        · obtain ⟨hne, hmem⟩ := Finset.mem_erase.mp hw
+          exact (hold x w hne).symm.trans (htrue w hmem)
+        · exact hQ w hw
+      obtain ⟨Y, hY, hYcard, hYforce⟩ := ih hmgs T hT
+      refine ⟨Y, hY, ?_, ?_⟩
+      · have hTcard : T.card ≤ S.card - 1 + Q.card := by
+          exact (Finset.card_union_le _ _).trans_eq (by rw [Finset.card_erase_of_mem hk])
+        have hSpos : 0 < S.card := Finset.card_pos.mpr ⟨k,hk⟩
+        rw [certificateAndCount_append]
+        omega
+      · intro y hy w hw
+        by_cases hwk : w = k
+        · subst w
+          rw [hlast]
+          exact hforce y (fun i hi => hYforce y hy i (Finset.mem_union_right _ hi))
+        · rw [hold y w hwk]
+          exact hYforce y hy w (Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨hwk,hw⟩))
+    · obtain ⟨Y, hY, hYcard, hYforce⟩ := ih hmgs S (fun w hw =>
+        (hold x w (fun e => hk (e ▸ hw))).symm.trans (htrue w hw))
+      refine ⟨Y, hY, ?_, ?_⟩
+      · rw [certificateAndCount_append]
+        omega
+      · intro y hy w hw
+        rw [hold y w (fun e => hk (e ▸ hw))]
+        exact hYforce y hy w hw
+
+lemma true_input_certificate (n : ℕ) (C : Circuit) (hm : Monotone2 C)
+    (x : Fin n → Bool) (htrue : C.eval (List.ofFn x) = true) :
+    ∃ Y : Finset (Fin n), (∀ u ∈ Y, x u = true) ∧
+      Y.card ≤ certificateAndCount C.gates + 1 ∧
+      ∀ y : Fin n → Bool, (∀ u ∈ Y, y u = true) → C.eval (List.ofFn y) = true := by
+  obtain ⟨Y, hY, hcard, hforce⟩ := true_frontier_certificate n C.gates
+    (fun g hg => ⟨by simpa using (hm g hg).1, (hm g hg).2⟩) x {C.output}
+    (by intro w hw; rcases Finset.mem_singleton.mp hw with rfl; exact htrue)
+  exact ⟨Y, hY, by simpa using hcard, fun y hy => hforce y hy C.output (by simp)⟩
+
+lemma true_subset_certificate (n : ℕ) (C : Circuit) (hm : Monotone2 C)
+    (X : Finset (Fin n))
+    (htrue : C.eval (List.ofFn (fun u => decide (u ∈ X))) = true) :
+    ∃ Y : Finset (Fin n), Y ⊆ X ∧ Y.card ≤ certificateAndCount C.gates + 1 ∧
+      C.eval (List.ofFn (fun u => decide (u ∈ Y))) = true := by
+  obtain ⟨Y, hY, hcard, hforce⟩ := true_input_certificate n C hm (fun u => decide (u ∈ X)) htrue
+  exact ⟨Y, fun u hu => of_decide_eq_true (hY u hu), hcard,
+    hforce (fun u => decide (u ∈ Y)) (fun u hu => decide_eq_true hu)⟩
+
+lemma minimal_true_support_card (n : ℕ) (C : Circuit) (hm : Monotone2 C)
+    (X : Finset (Fin n))
+    (htrue : C.eval (List.ofFn (fun u => decide (u ∈ X))) = true)
+    (hminimal : ∀ Y : Finset (Fin n), Y ⊆ X →
+      C.eval (List.ofFn (fun u => decide (u ∈ Y))) = true → X ⊆ Y) :
+    X.card ≤ certificateAndCount C.gates + 1 := by
+  obtain ⟨Y, hYX, hcard, hY⟩ := true_subset_certificate n C hm X htrue
+  exact (Finset.card_le_card (hminimal Y hYX hY)).trans hcard
+
+def certificateAndGate (g : Gate) : Bool :=
+  match g.op with | GateOp.and => true | _ => false
+
+lemma certificateAndGate_true_iff (g : Gate) :
+    certificateAndGate g = true ↔ g.op = GateOp.and := by
+  cases h : g.op <;> simp [certificateAndGate, h]
+
+def certificatePrune (_n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ) : Circuit :=
+  ⟨(List.range C.gates.length).map (fun j =>
+      if j ∈ T then PEqualNP.MetaComplexity.NestedCover.gateAt C j else ⟨GateOp.or, []⟩), out⟩
+
+lemma certificatePrune_length (n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ) :
+    (certificatePrune n C T out).gates.length = C.gates.length := by simp [certificatePrune]
+
+lemma certificatePrune_gate (n : ℕ) (C : Circuit) (T : Finset ℕ) (out j : ℕ)
+    (hj : j < C.gates.length) :
+    PEqualNP.MetaComplexity.NestedCover.gateAt (certificatePrune n C T out) j =
+      if j ∈ T then PEqualNP.MetaComplexity.NestedCover.gateAt C j else ⟨GateOp.or, []⟩ :=
+  SafeLift.gateAt_range _ _ _ _ hj
+
+lemma certificatePrune_mono (n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ)
+    (hm : Monotone2 C) : Monotone2 (certificatePrune n C T out) := by
+  intro g hg
+  obtain ⟨j, hj, rfl⟩ := List.mem_map.mp hg
+  have hjl : j < C.gates.length := List.mem_range.mp hj
+  by_cases ht : j ∈ T
+  · simpa only [ite_eq_left ht] using hm _ (SafeLift.gateAt_mem hjl)
+  · simp [ht]
+
+lemma certificatePrune_AOB (n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ)
+    (hC : SafeLift.AOB n C) : SafeLift.AOB n (certificatePrune n C T out) := by
+  intro j hj
+  rw [certificatePrune_length] at hj
+  rw [certificatePrune_gate n C T out j hj]
+  by_cases ht : j ∈ T
+  · simpa only [ite_eq_left ht] using hC j hj
+  · simp [ht]
+
+lemma certificatePrune_count (n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ) :
+    certificateAndCount (certificatePrune n C T out).gates =
+      ((Finset.range C.gates.length).filter (fun j => j ∈ T ∧
+        certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C j) = true)).card := by
+  classical
+  have hc := (List.nodup_range (n := C.gates.length)).card_eq_countP
+    (P := fun j => j ∈ T ∧ certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C j) = true)
+  rw [List.toFinset_range, List.countP_eq_length_filter] at hc
+  rw [hc]
+  simp only [certificateAndCount, certificatePrune, List.filter_map, List.length_map]
+  congr 1
+  apply List.filter_congr
+  intro j hj
+  by_cases ht : j ∈ T
+  · cases hop : (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op <;>
+      simp [certificateAndGate, ht, hop]
+  · simp [ht]
+
+lemma certificatePrune_agrees (n : ℕ) (C : Circuit) (T : Finset ℕ) (out : ℕ)
+    (hC : SafeLift.AOB n C)
+    (hclosed : ∀ j < C.gates.length, j ∈ T → ∀ k < j,
+      n+k ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).inputs → k ∈ T) :
+    ∀ w, w < n + C.gates.length → (w < n ∨ w-n ∈ T) → ∀ x : Fin n → Bool,
+      SafeLift.wv n (certificatePrune n C T out) x w = SafeLift.wv n C x w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw hkeep x
+    by_cases hin : w < n
+    · rw [SafeLift.wv_input n _ x w hin, SafeLift.wv_input n C x w hin]
+    · have hkt : w-n ∈ T := hkeep.resolve_left hin
+      have hk : w-n < C.gates.length := by omega
+      have he : w = n + (w-n) := by omega
+      rw [he, SafeLift.wv_rec n _ x (certificatePrune_AOB n C T out hC) (w-n)
+          (by rwa [certificatePrune_length]),
+        SafeLift.wv_rec n C x hC (w-n) hk,
+        certificatePrune_gate n C T out (w-n) hk, ite_eq_left hkt]
+      congr 1
+      apply List.map_congr_left
+      intro v hv
+      have hvlt := (hC (w-n) hk).2 v hv
+      apply ih v (by omega) (by omega)
+      by_cases hvin : v < n
+      · exact Or.inl hvin
+      · refine Or.inr (hclosed (w-n) hk hkt (v-n) (by omega) ?_)
+        simpa only [show n + (v-n) = v by omega] using hv
+
+lemma true_gate_cone_certificate (n : ℕ) (C : Circuit)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (j : ℕ) (hj : j < C.gates.length)
+    (X : Finset (Fin n))
+    (htrue : PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ X)) = true) :
+    ∃ Y : Finset (Fin n), Y ⊆ X ∧
+      Y.card ≤ ((Finset.range C.gates.length).filter (fun i =>
+        (i = j ∨ PEqualNP.EdgeOwnership.InCone n C i j) ∧
+        certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C i) = true)).card + 1 ∧
+      PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ Y)) = true := by
+  classical
+  let T := (Finset.range C.gates.length).filter (fun i => i = j ∨ PEqualNP.EdgeOwnership.InCone n C i j)
+  let D := certificatePrune n C T (n+j)
+  have hC := SafeLift.aob (SafeLift.of_real hAO)
+  have hm : Monotone2 C := by
+    intro g hg
+    exact ⟨by simpa using hAO.1 g hg, by rw [hAO.2.2 g hg]⟩
+  have hclosed : ∀ a < C.gates.length, a ∈ T → ∀ b < a,
+      n+b ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt C a).inputs → b ∈ T := by
+    intro a ha hat b hb hread
+    have hcone : PEqualNP.EdgeOwnership.InCone n C b a :=
+      (SafeLift.inCone_iff n C b a).mpr ⟨ha, b, hb, hread, Or.inl rfl⟩
+    have htop : a = j ∨ PEqualNP.EdgeOwnership.InCone n C a j := (Finset.mem_filter.mp hat).2
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_range.mpr (hb.trans ha), Or.inr ?_⟩
+    rcases htop with rfl | htop
+    · exact hcone
+    · exact SafeLift.inCone_trans n C b a hcone j htop
+  have hval (x : Fin n → Bool) : D.eval (List.ofFn x) = PEqualNP.EdgeOwnership.gateVal n C j x := by
+    apply certificatePrune_agrees n C T (n+j) hC hclosed (n+j) (by omega)
+    exact Or.inr (by simp [T, hj])
+  obtain ⟨Y, hYX, hcard, hYtrue⟩ := true_subset_certificate n D (certificatePrune_mono n C T (n+j) hm)
+    X ((hval _).trans htrue)
+  refine ⟨Y, hYX, ?_, (hval _).symm.trans hYtrue⟩
+  have hcount := certificatePrune_count n C T (n+j)
+  have hset : ((Finset.range C.gates.length).filter (fun i => i ∈ T ∧
+      certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C i) = true)) =
+      ((Finset.range C.gates.length).filter (fun i =>
+        (i = j ∨ PEqualNP.EdgeOwnership.InCone n C i j) ∧
+        certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C i) = true)) := by
+    ext i
+    simp only [Finset.mem_filter, Finset.mem_range, T]
+    tauto
+  rw [hset] at hcount
+  exact hcount ▸ hcard
+
+lemma minimal_true_gate_support_card (n : ℕ) (C : Circuit)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (j : ℕ) (hj : j < C.gates.length)
+    (X : Finset (Fin n))
+    (htrue : PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ X)) = true)
+    (hminimal : ∀ Y : Finset (Fin n), Y ⊆ X →
+      PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ Y)) = true → X ⊆ Y) :
+    X.card ≤ ((Finset.range C.gates.length).filter (fun i =>
+      (i = j ∨ PEqualNP.EdgeOwnership.InCone n C i j) ∧
+      certificateAndGate (PEqualNP.MetaComplexity.NestedCover.gateAt C i) = true)).card + 1 := by
+  obtain ⟨Y, hYX, hcard, hY⟩ := true_gate_cone_certificate n C hAO j hj X htrue
+  exact (Finset.card_le_card (hminimal Y hYX hY)).trans hcard
+
+lemma true_ancestor_dirty_certificate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 n C) (htop : PEqualNP.TopForm.TopForm G C)
+    (j h : ℕ) (hcone : PEqualNP.EdgeOwnership.InCone n C j h)
+    (hhand : (PEqualNP.MetaComplexity.NestedCover.gateAt C h).op = GateOp.and)
+    (X : Finset (Fin n))
+    (htrue : PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ X)) = true) :
+    ∃ Y : Finset (Fin n), Y ⊆ X ∧
+      Y.card ≤ ((PEqualNP.TopForm.junk G C).filter
+        (fun i => PEqualNP.EdgeOwnership.InCone n C i h)).card + 1 ∧
+      PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ Y)) = true := by
+  classical
+  have hjh := SafeLift.inCone_lt n C j h hcone
+  obtain ⟨Y, hYX, hcard, hY⟩ := true_gate_cone_certificate n C hAO j
+    (hjh.1.trans hjh.2) X htrue
+  refine ⟨Y, hYX, hcard.trans (Nat.add_le_add_right (Finset.card_le_card ?_) 1), hY⟩
+  intro i hi
+  obtain ⟨hilen, hipath, hiand⟩ := Finset.mem_filter.mp hi
+  have hil : i < C.gates.length := Finset.mem_range.mp hilen
+  have hiand' : (PEqualNP.MetaComplexity.NestedCover.gateAt C i).op = GateOp.and :=
+    (certificateAndGate_true_iff _).mp hiand
+  have hicone : PEqualNP.EdgeOwnership.InCone n C i h := by
+    rcases hipath with rfl | hipath
+    · exact hcone
+    · exact SafeLift.inCone_trans n C i j hipath h hcone
+  have hdirty : PEqualNP.CleanedNonEdge.IsDirtyAnd n G C i := by
+    refine ⟨hiand', ?_⟩
+    by_contra hn
+    have hbelow : PEqualNP.TopForm.BelowF G C i := by
+      intro x hx
+      cases hf : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x with
+      | false => exact False.elim (hn ⟨hil, x, hx, hf⟩)
+      | true => rfl
+    exact htop i hil h hjh.2 hiand' hbelow hhand hicone
+  apply Finset.mem_filter.mpr
+  refine ⟨?_, hicone⟩
+  simp only [PEqualNP.TopForm.junk, PEqualNP.TopForm.gatesWhere,
+    Finset.mem_filter, Finset.mem_range]
+  exact ⟨hil, hdirty⟩
+
+lemma minimal_true_ancestor_dirty_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 n C) (htop : PEqualNP.TopForm.TopForm G C)
+    (j h : ℕ) (hcone : PEqualNP.EdgeOwnership.InCone n C j h)
+    (hhand : (PEqualNP.MetaComplexity.NestedCover.gateAt C h).op = GateOp.and)
+    (X : Finset (Fin n))
+    (htrue : PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ X)) = true)
+    (hminimal : ∀ Y : Finset (Fin n), Y ⊆ X →
+      PEqualNP.EdgeOwnership.gateVal n C j (fun u => decide (u ∈ Y)) = true → X ⊆ Y) :
+    X.card - 1 ≤ ((PEqualNP.TopForm.junk G C).filter
+      (fun i => PEqualNP.EdgeOwnership.InCone n C i h)).card := by
+  obtain ⟨Y, hYX, hcard, hY⟩ := true_ancestor_dirty_certificate G C hAO htop j h hcone hhand X htrue
+  have hXYcard := Finset.card_le_card (hminimal Y hYX hY)
+  omega
+
+lemma shared_support_dirty_budget {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (C : Circuit) (hAO : PEqualNP.TopForm.IsAO2 n C)
+    (htop : PEqualNP.TopForm.TopForm G C) (j h : ℕ)
+    (hcone : InCone n C j h) (hhand : (gateAt C h).op = GateOp.and)
+    (v : Fin n) (L X : Finset (Fin n)) (hL : ∀ l ∈ L, G.Adj v l) (hv : v ∉ X)
+    (U : (Fin n → Bool) → Bool) (hUm : SharedSupport.InputMonotone U)
+    (hU : ∀ l ∈ L, U (SharedSupport.setInput {l}) = true)
+    (hbelow : ∀ x, U x = true → gateVal n C j x = true → graphFun G ∅ x = true)
+    (hX : graphFun G ∅ (SharedSupport.setInput X) = false)
+    (hD : gateVal n C j (SharedSupport.setInput X) = true) :
+    L.card - 1 ≤ ((PEqualNP.TopForm.junk G C).filter (fun i => InCone n C i h)).card := by
+  obtain ⟨Y, hYX, hYcard, hYtrue⟩ :=
+    true_ancestor_dirty_certificate G C hAO htop j h hcone hhand X hD
+  have hYneg : graphFun G ∅ (SharedSupport.setInput Y) = false := by
+    apply (SharedSupport.graphFun_setInput_false_iff G Y).mpr
+    have hXi := (SharedSupport.graphFun_setInput_false_iff G X).mp hX
+    intro a ha b hb
+    exact hXi a (hYX ha) b (hYX hb)
+  have hDmono : SharedSupport.InputMonotone (gateVal n C j) := by
+    intro x y hxy hx
+    exact signed_eval_mono (n := n) ⟨C.gates, n+j⟩ (ao2_mono hAO) hxy hx
+  have hLY := SharedSupport.safe_and_negative_witness_card G hfour v L Y hL
+    (fun hy => hv (hYX hy)) U (gateVal n C j) hUm hDmono hU hbelow hYneg hYtrue
+  omega
+
+
+lemma zeroDeletion_wire_correspondence (n : ℕ) (pre post : List Gate)
+    (out i : ℕ) (x : List Bool) (hx : x.length = n) :
+    let q := n + pre.length + post.length
+    ((familyDeletionCircuit n pre post out q).wires x).getD
+        (deletionIndex (n + pre.length) q i) false =
+      (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ x).getD i false := by
+  let k := n + pre.length
+  let q := n + pre.length + post.length
+  let p := deletionRun pre x
+  have hp : p.length = k := by simp [p, deletionRun_length, hx, k]
+  obtain ⟨u, hu, hv, hl⟩ := deletionRun_suffix p [] post q (by simp [hp, q, k])
+  have hOld : Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ x =
+      p ++ false :: u := by
+    change deletionRun (pre ++ ⟨GateOp.or, []⟩ :: post) x = _
+    rw [deletionRun_append]
+    change deletionRun post (p ++ [GateOp.or.eval []]) = _
+    exact hu
+  have hNew : (familyDeletionCircuit n pre post out q).wires x = p ++ u := by
+    change deletionRun (pre ++ post.map (deletionGate k q)) x = _
+    rw [deletionRun_append]
+    simpa only [List.append_nil, hp] using hv
+  change ((familyDeletionCircuit n pre post out q).wires x).getD
+      (deletionIndex k q i) false = _
+  rw [hOld, hNew, ← hp]
+  exact (deletion_getD p u q i (by
+    simp only [List.length_nil, Nat.zero_add] at hl
+    dsimp [q, k] at hp ⊢
+    omega)).symm
+
+lemma appendOrGate_eval_prefix (n : ℕ) (gs : List Gate) (a b : ℕ)
+    (x : List Bool) (hx : x.length = n) :
+    Circuit.eval ⟨gs ++ [⟨GateOp.or, [a, b]⟩], n + gs.length⟩ x =
+      ((deletionRun gs x).getD a false || (deletionRun gs x).getD b false) := by
+  change (deletionRun (gs ++ [⟨GateOp.or, [a, b]⟩]) x).getD
+    (n + gs.length) false = _
+  have h := deletionRun_gate_value gs [] ⟨GateOp.or, [a, b]⟩ x
+  simpa only [hx, List.map_cons, List.map_nil, GateOp.eval,
+    List.any_cons, List.any_nil, id_eq, Bool.or_false] using h
+
+def survivingWirePromotion (n : ℕ) (pre post : List Gate) (out h : ℕ) : Circuit :=
+  let q := n + pre.length + post.length
+  let B := familyDeletionCircuit n pre post out q
+  ⟨B.gates ++ [⟨GateOp.or, [B.output, deletionIndex (n + pre.length) q h]⟩], q⟩
+
+lemma survivingWirePromotion_mono (n : ℕ) (pre post : List Gate) (g : Gate)
+    (out h : ℕ) (hm : Monotone2 ⟨pre ++ g :: post, out⟩) :
+    Monotone2 (survivingWirePromotion n pre post out h) := by
+  intro a ha
+  change a ∈ (pre ++ post.map
+    (deletionGate (n + pre.length) (n + pre.length + post.length))) ++
+      [⟨GateOp.or, [deletionIndex (n + pre.length) (n + pre.length + post.length) out,
+        deletionIndex (n + pre.length) (n + pre.length + post.length) h]⟩] at ha
+  rcases List.mem_append.mp ha with ha | ha
+  · rcases List.mem_append.mp ha with ha | ha
+    · exact hm a (List.mem_append_left _ ha)
+    · obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
+      have H := hm b (List.mem_append_right _ (List.mem_cons_of_mem _ hb))
+      exact ⟨H.1, by simpa [deletionGate] using H.2⟩
+  · have he := List.mem_singleton.mp ha
+    subst a
+    simp
+
+lemma survivingWirePromotion_size (n : ℕ) (pre post : List Gate) (g : Gate)
+    (out h : ℕ) :
+    (survivingWirePromotion n pre post out h).size =
+      Circuit.size ⟨pre ++ g :: post, out⟩ := by
+  simp [survivingWirePromotion, familyDeletionCircuit, Circuit.size, Nat.add_assoc]
+
+lemma survivingWirePromotion_eval (n : ℕ) (pre post : List Gate) (out h : ℕ)
+    (x : List Bool) (hx : x.length = n) :
+    (survivingWirePromotion n pre post out h).eval x =
+      (Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ x ||
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ x).getD h false) := by
+  let q := n + pre.length + post.length
+  let B := familyDeletionCircuit n pre post out q
+  have hq : q = n + B.gates.length := by simp [B, familyDeletionCircuit, q, Nat.add_assoc]
+  change Circuit.eval ⟨B.gates ++
+    [⟨GateOp.or, [B.output, deletionIndex (n + pre.length) q h]⟩], q⟩ x = _
+  have he := appendOrGate_eval_prefix n B.gates B.output
+    (deletionIndex (n + pre.length) q h) x hx
+  rw [← hq] at he
+  rw [he]
+  change ((B.wires x).getD (deletionIndex (n + pre.length) q out) false ||
+    (B.wires x).getD (deletionIndex (n + pre.length) q h) false) = _
+  rw [zeroDeletion_wire_correspondence n pre post out out x hx,
+    zeroDeletion_wire_correspondence n pre post out h x hx]
+  rfl
+
+lemma promote_surviving_wire_family {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre post : List Gate) (g : Gate)
+    (out h : ℕ) (F : ι → Bool)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hcorrect : ∀ x : ι,
+      (Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (input x) ||
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (input x)).getD h false) = F x) :
+    let D := survivingWirePromotion n pre post out h
+    Monotone2 D ∧ D.size = Circuit.size ⟨pre ++ g :: post, out⟩ ∧
+      ∀ x : ι, D.eval (input x) = F x := by
+  refine ⟨survivingWirePromotion_mono n pre post g out h hm,
+    survivingWirePromotion_size n pre post g out h, ?_⟩
+  intro x
+  exact (survivingWirePromotion_eval n pre post out h (input x) (hlen x)).trans
+    (hcorrect x)
+
+lemma promote_surviving_wire (n : ℕ) (pre post : List Gate) (g : Gate)
+    (out h : ℕ) (F : (Fin n → Bool) → Bool)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hcorrect : ∀ x : Fin n → Bool,
+      (Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) ||
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x)).getD h false) = F x) :
+    let D := survivingWirePromotion n pre post out h
+    Monotone2 D ∧ D.size = Circuit.size ⟨pre ++ g :: post, out⟩ ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = F x :=
+  promote_surviving_wire_family n List.ofFn (fun _ => List.length_ofFn) pre post g
+    out h F hm hcorrect
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma zeroReplacement_wires_le (n : ℕ) (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩) :
+    ∀ x : Fin n → Bool, ∀ w : ℕ,
+      (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x)).getD w false = true →
+      (Circuit.wires ⟨pre ++ g :: post, out⟩ (List.ofFn x)).getD w false = true := by
+  intro x w
+  exact negative_replacement_wires_le n pre post g ⟨GateOp.or, []⟩ out (fun _ => false)
+    hm (by intro y _ hy; simp [GateOp.eval] at hy) x rfl w
+
+lemma survivingWirePromotion_gate_op (n : ℕ) (pre post : List Gate) (g : Gate)
+    (out h j : ℕ) (hj : j < pre.length + post.length) :
+    (gateAt (survivingWirePromotion n pre post out h) j).op =
+      (gateAt ⟨pre ++ g :: post, out⟩ (SafeLift.rho pre.length j)).op := by
+  have hjD : j < (survivingWirePromotion n pre post out h).gates.length := by
+    simp only [survivingWirePromotion, familyDeletionCircuit, List.length_append,
+      List.length_map, List.length_cons, List.length_nil]
+    omega
+  have hjC : SafeLift.rho pre.length j < (pre ++ g :: post).length := by
+    unfold SafeLift.rho
+    split_ifs <;> simp only [List.length_append, List.length_cons] <;> omega
+  rw [SafeLift.gateAt_eq hjD, SafeLift.gateAt_eq hjC]
+  dsimp only [survivingWirePromotion, familyDeletionCircuit] at hjD ⊢
+  rw [List.getElem_append_left (as := pre ++ post.map (deletionGate (n + pre.length)
+    (n + pre.length + post.length))) (i := j) (by simpa using hj)]
+  by_cases hp : j < pre.length
+  · have hr : SafeLift.rho pre.length j = j := by simp [SafeLift.rho, hp]
+    simp only [hr] at hjC ⊢
+    rw [List.getElem_append_left (as := pre) (i := j) hp,
+      List.getElem_append_left (as := pre) (i := j) hp]
+  · have hr : SafeLift.rho pre.length j = j + 1 := by simp [SafeLift.rho, hp]
+    simp only [hr] at hjC ⊢
+    rw [List.getElem_append_right (as := pre) (i := j) (by omega),
+      List.getElem_append_right (as := pre) (i := j + 1) (by omega)]
+    have he : j + 1 - pre.length = j - pre.length + 1 := by omega
+    simp only [he, List.getElem_cons_succ, List.getElem_map]
+    rfl
+
+lemma survivingWirePromotion_last_op (n : ℕ) (pre post : List Gate) (out h : ℕ) :
+    (gateAt (survivingWirePromotion n pre post out h) (pre.length + post.length)).op =
+      GateOp.or := by
+  let q := n + pre.length + post.length
+  let B := familyDeletionCircuit n pre post out q
+  have hl : B.gates.length = pre.length + post.length := by
+    simp [B, familyDeletionCircuit]
+  change (gateAt ⟨B.gates ++ [⟨GateOp.or,
+    [B.output, deletionIndex (n + pre.length) q h]⟩], q⟩
+      (pre.length + post.length)).op = _
+  rw [← hl]
+  simp [gateAt, List.getD_eq_getElem?_getD]
+
+lemma survivingWirePromotion_gate_value (n : ℕ) (pre post : List Gate) (out h j : ℕ)
+    (hj : j < pre.length + post.length) (x : List Bool) (hx : x.length = n) :
+    ((survivingWirePromotion n pre post out h).wires x).getD (n + j) false =
+      (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ x).getD
+        (n + SafeLift.rho pre.length j) false := by
+  let q := n + pre.length + post.length
+  let B := familyDeletionCircuit n pre post out q
+  have hprefix : ((survivingWirePromotion n pre post out h).wires x).getD
+      (n + j) false = (B.wires x).getD (n + j) false := by
+    change (deletionRun (B.gates ++ [⟨GateOp.or,
+      [B.output, deletionIndex (n + pre.length) q h]⟩]) x).getD (n + j) false = _
+    rw [deletionRun_append]
+    change ((B.wires x) ++ [_]).getD (n + j) false = _
+    apply List.getD_append
+    change n + j < (deletionRun B.gates x).length
+    simp only [deletionRun_length, hx]
+    simp only [B, familyDeletionCircuit, List.length_append, List.length_map]
+    omega
+  have hmap : deletionIndex (n + pre.length) q
+      (n + SafeLift.rho pre.length j) = n + j :=
+    SafeLift.tau_rho n pre.length q j
+  have hw := zeroDeletion_wire_correspondence n pre post out
+    (n + SafeLift.rho pre.length j) x hx
+  change (B.wires x).getD (deletionIndex (n + pre.length) q
+    (n + SafeLift.rho pre.length j)) false = _ at hw
+  rw [hmap] at hw
+  exact hprefix.trans hw
+
+lemma survivingWirePromotion_dirty_index {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g : Gate) (out h j : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hd : IsDirtyAnd n G (survivingWirePromotion n pre post out h) j) :
+    IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ (SafeLift.rho pre.length j) := by
+  have hjD : j < pre.length + post.length + 1 := by
+    simpa only [survivingWirePromotion, familyDeletionCircuit, List.length_append,
+      List.length_map, List.length_cons, List.length_nil, Nat.zero_add] using hd.2.1
+  have hj : j < pre.length + post.length := by
+    by_contra hlt
+    have he : j = pre.length + post.length := by omega
+    have hop := hd.1
+    rw [he, survivingWirePromotion_last_op] at hop
+    contradiction
+  have hjC : SafeLift.rho pre.length j < (pre ++ g :: post).length := by
+    unfold SafeLift.rho
+    split_ifs <;> simp only [List.length_append, List.length_cons] <;> omega
+  obtain ⟨x, hx, hf⟩ := hd.2.2
+  refine ⟨(survivingWirePromotion_gate_op n pre post g out h j hj).symm.trans hd.1,
+    hjC, x, ?_, hf⟩
+  apply zeroReplacement_wires_le n pre post g out hm x
+  change ((survivingWirePromotion n pre post out h).wires (List.ofFn x)).getD
+    (n+j) false = true at hx
+  rw [survivingWirePromotion_gate_value n pre post out h j hj (List.ofFn x)
+    List.length_ofFn] at hx
+  exact hx
+
+lemma survivingWirePromotion_junk_image_subset {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g : Gate) (out h : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩) :
+    (PEqualNP.TopForm.junk G (survivingWirePromotion n pre post out h)).image
+        (SafeLift.rho pre.length) ⊆ PEqualNP.TopForm.junk G ⟨pre ++ g :: post, out⟩ := by
+  intro k hk
+  obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hk
+  change j ∈ (Finset.range (survivingWirePromotion n pre post out h).gates.length).filter
+    (fun i => IsDirtyAnd n G (survivingWirePromotion n pre post out h) i) at hj
+  have hd := survivingWirePromotion_dirty_index G pre post g out h j hm
+    (Finset.mem_filter.mp hj).2
+  change SafeLift.rho pre.length j ∈ (Finset.range (pre ++ g :: post).length).filter
+    (fun i => IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ i)
+  exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hd.2.1, hd⟩
+
+lemma survivingWirePromotion_junk_lt {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (pre post : List Gate) (g : Gate) (out h : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hg : IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length) :
+    (PEqualNP.TopForm.junk G (survivingWirePromotion n pre post out h)).card <
+      (PEqualNP.TopForm.junk G ⟨pre ++ g :: post, out⟩).card := by
+  rw [← Finset.card_image_of_injective
+    (PEqualNP.TopForm.junk G (survivingWirePromotion n pre post out h))
+    (SafeLift.rho_inj pre.length)]
+  apply Finset.card_lt_card
+  rw [Finset.ssubset_iff_of_subset]
+  · refine ⟨pre.length, ?_, ?_⟩
+    · change pre.length ∈ (Finset.range (pre ++ g :: post).length).filter
+        (fun i => IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ i)
+      exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hg.2.1, hg⟩
+    · intro hmem
+      obtain ⟨j, _, he⟩ := Finset.mem_image.mp hmem
+      exact SafeLift.rho_ne pre.length j he
+  · exact survivingWirePromotion_junk_image_subset G pre post g out h hm
+
+lemma graphExtremal_promotion_gate_not_dirty (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (activity : Circuit → ℕ) (pre post : List Gate)
+    (g : Gate) (out h : ℕ)
+    (hX : GraphExtremal n G activity ⟨pre ++ g :: post, out⟩)
+    (hcorrect : ∀ x : Fin n → Bool,
+      (Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) ||
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x)).getD h false) =
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x) :
+    ¬ IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length := by
+  intro hg
+  let D := survivingWirePromotion n pre post out h
+  obtain ⟨hmD, hsD, heD⟩ := promote_surviving_wire n pre post g out h
+    (PEqualNP.MetaComplexity.NestedCover.graphFun G ∅) hX.1.1 hcorrect
+  have hcD : circuitFun n D = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ :=
+    funext heD
+  have hminD : IsMinimalMonoCircuit n D := by
+    refine ⟨hmD, ?_⟩
+    intro E hmE heE
+    rw [hsD]
+    exact hX.1.2 E hmE (heE.trans (hcD.trans hX.2.1.symm))
+  have hle := hX.2.2.2.1 D hminD hcD
+  have hlt := survivingWirePromotion_junk_lt G pre post g out h hX.1.1 hg
+  exact (Nat.not_lt_of_ge hle) hlt
+
+lemma graphExtremal_surviving_wire_obstruction (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (activity : Circuit → ℕ) (pre post : List Gate)
+    (g : Gate) (out h : ℕ)
+    (hX : GraphExtremal n G activity ⟨pre ++ g :: post, out⟩)
+    (hg : IsDirtyAnd n G ⟨pre ++ g :: post, out⟩ pre.length) :
+    ∃ x : Fin n → Bool,
+      (Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) ||
+        (Circuit.wires ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x)).getD h false) ≠
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x := by
+  classical
+  by_contra hn
+  push Not at hn
+  exact graphExtremal_promotion_gate_not_dirty n G activity pre post g out h hX hn hg
 end PEqualNP.Outside.L_meta_1904_aux
