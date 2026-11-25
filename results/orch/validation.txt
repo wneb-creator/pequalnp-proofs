@@ -1,14 +1,17 @@
 PARTIAL CHECKPOINT — L-meta-1896
-UTC: 2026-11-25T05:10:14.108779+00:00
+UTC: 2026-11-25T05:17:17.122686+00:00
 Posted target: at least51 OR gates, still unproved. This branch is not a proof PR.
 Checked partial: exact posted hypotheses imply at least21 OR gates.
 Named file: lean/PEqualNP/Outside/L_meta_1896.lean
 SHA256: 6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3
 Lines:4133; previous named checkpoint2232. No final cleanup pass: full theorem and checker have not passed.
-Direct Lean compile run005 exited0; full output: checked/TwentyOne.log. Axiom audit: propext, Classical.choice, Quot.sound only.
-Named lake build is running. Previous20-bound named build passed5149jobs.
-Last actual checker: exit3 at missing root Mathlib cache before statement checking. Genuine official cache has now been restored; fresh checker pending.
-Independent review: repo_audit approved this exact source hash as a labelled partial, including exact hypotheses, finite certificates and final glue. No forbidden source constructs.
+Direct Lean compile run005 exited0. Axiom audit: propext, Classical.choice, Quot.sound only.
+Named lake build exited0 in331.17s; full output: validation/twenty-one-named-build.log.
+Actual tools/check-lean.mjs check exited3 in11.88s. It built the verifier, file and definitions root, then faulted before a proof verdict:
+checker fault: object file '/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries.olean' of module Batteries does not exist
+CHECKER FAULT: the verifier ended without a verdict (exit3).
+Full checker output: validation/twenty-one-posted-checker.log. The earlier missing root Mathlib artifact was restored genuinely, but its complete dependency cache remains unavailable. Further cache feasibility is being assessed; checker source and project configuration remain unchanged.
+Independent review: repo_audit and proof_routes approved this exact source hash as a labelled partial, including exact hypotheses, finite certificates and final glue. No forbidden source constructs.
 No PR opened because the posted51-OR statement is not proved or refuted.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=146.8 subagents=7
+TIMING total=153.8 subagents=7

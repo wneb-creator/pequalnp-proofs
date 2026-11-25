@@ -1,0 +1,12 @@
+{
+  "exit": 3,
+  "seconds": 11.879085659998964,
+  "utc": "2026-11-25T05:16:11.213670+00:00",
+  "command": [
+    "node",
+    "tools/check-lean.mjs",
+    "lean/PEqualNP/Outside/L_meta_1896.lean",
+    "/tmp/oec/pequalnp-pilot-62/statement.txt",
+    "check"
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "module": "CanonicalCompilerDefs",
+    "source_snapshot": "results/orch/checked/modules/CanonicalCompilerAliasDefs.lean",
+    "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 0
+  },
+  {
+    "module": "CanonicalCompilerStructure",
+    "source_snapshot": "results/orch/checked/canonical-compiler-structure.lean",
+    "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 1
+  },
+  {
+    "module": "CanonicalCompilerSemantics",
+    "source_snapshot": "results/orch/checked/canonical-compiler-semantics.lean",
+    "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 2
+  },
+  {
+    "module": "CanonicalCompilerMasks",
+    "source_snapshot": "results/orch/checked/canonical-compiler-mask-certificates.lean",
+    "sha256": "e6d6fb6f54e6e20749d632aeabf6098d940a1f09b091ebb496571d9f4b705795",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 3
+  },
+  {
+    "module": "CanonicalCompilerSamples",
+    "source_snapshot": "results/orch/checked/canonical-compiler-samples.lean",
+    "sha256": "f0a32c04062e4e86770b14dcdea3b94bb04a9882d7182e2f976bd0c91e1a19b6",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 4
+  },
+  {
+    "module": "CanonicalCycleControl",
+    "source_snapshot": "results/orch/checked/canonical-cycle-control.lean",
+    "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220",
+    "status": "Compiled and independently reviewed",
+    "compile_order": 5
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "status": "Flattened assembly of independently checked modules; this exact combined source has not yet been rebuilt",
+  "sha256": "892d6622f6cd957eec902d1632ce17923c144f7aac73187f5d236759db03fe28",
+  "lines": 389,
+  "sources": [
+    {
+      "path": "results/orch/checked/modules/CanonicalCompilerAliasDefs.lean",
+      "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-structure.lean",
+      "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-semantics.lean",
+      "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-mask-certificates.lean",
+      "sha256": "e6d6fb6f54e6e20749d632aeabf6098d940a1f09b091ebb496571d9f4b705795"
+    },
+    {
+      "path": "results/orch/checked/canonical-compiler-samples.lean",
+      "sha256": "f0a32c04062e4e86770b14dcdea3b94bb04a9882d7182e2f976bd0c91e1a19b6"
+    }
+  ]
+}
