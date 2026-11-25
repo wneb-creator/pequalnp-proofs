@@ -3329,4 +3329,278 @@ lemma three_edge_walk_packing_gate_lower_bound {n m : ℕ}
 
 end PackingSources
 
+
+namespace FiniteAmplification
+
+def adj {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (G : SimpleGraph (V)) (B : I → Finset V) :
+    (V ⊕ (I ⊕ I)) → (V ⊕ (I ⊕ I)) → Prop
+  | .inl a, .inl b => G.Adj a b
+  | .inl a, .inr (.inl i) => a ∈ B i
+  | .inr (.inl i), .inl a => a ∈ B i
+  | .inr (.inl i), .inr (.inr j) => i = j
+  | .inr (.inr j), .inr (.inl i) => i = j
+  | _, _ => False
+
+def graph {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (G : SimpleGraph (V)) (B : I → Finset V) :
+    SimpleGraph (V ⊕ (I ⊕ I)) where
+  Adj := adj G B
+  symm := by
+    constructor
+    intro a b h
+    rcases a with a | a | a <;> rcases b with b | b | b <;>
+      simp only [adj] at h ⊢
+    · exact h.symm
+    all_goals assumption
+  loopless := by
+    constructor
+    intro a
+    rcases a with a | a | a <;> simp [adj]
+
+def baseEmb {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] : V ↪ (V ⊕ (I ⊕ I)) :=
+  ⟨Sum.inl, Sum.inl_injective⟩
+
+def centerEmb {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] : I ↪ (V ⊕ (I ⊕ I)) :=
+  ⟨fun i => Sum.inr (Sum.inl i), by intro i j h; simpa using h⟩
+
+def liftCover {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (T : Finset (V)) :
+    Finset (V ⊕ (I ⊕ I)) :=
+  T.map baseEmb ∪ Finset.univ.map centerEmb
+
+lemma liftCover_card {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (T : Finset (V)) :
+    (liftCover (I := I) T).card = T.card + Fintype.card I := by
+  unfold liftCover
+  rw [Finset.card_union_of_disjoint]
+  · simp
+  · rw [Finset.disjoint_left]
+    intro x hx hy
+    rcases Finset.mem_map.mp hx with ⟨a, _, rfl⟩
+    rcases Finset.mem_map.mp hy with ⟨i, _, hi⟩
+    cases hi
+
+lemma liftCover_covers {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (G : SimpleGraph (V))
+    (B : I → Finset V) (T : Finset (V)) (hT : G.IsVertexCover (T : Set (V))) :
+    (graph G B).IsVertexCover (liftCover (I := I) T : Set _) := by
+  intro a b hab
+  rcases a with a | a | a <;> rcases b with b | b | b <;>
+    simp only [graph, adj] at hab
+  · rcases hT hab with ha | hb
+    · left
+      exact Finset.mem_union_left _ (Finset.mem_map.mpr ⟨a, ha, rfl⟩)
+    · right
+      exact Finset.mem_union_left _ (Finset.mem_map.mpr ⟨b, hb, rfl⟩)
+  · right
+    exact Finset.mem_union_right _ (Finset.mem_map.mpr ⟨b, Finset.mem_univ _, rfl⟩)
+  · left
+    exact Finset.mem_union_right _ (Finset.mem_map.mpr ⟨a, Finset.mem_univ _, rfl⟩)
+  · left
+    exact Finset.mem_union_right _ (Finset.mem_map.mpr ⟨a, Finset.mem_univ _, rfl⟩)
+  · right
+    exact Finset.mem_union_right _ (Finset.mem_map.mpr ⟨b, Finset.mem_univ _, rfl⟩)
+
+lemma cover_lower {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (G : SimpleGraph (V))
+    (B : I → Finset V) (t : ℕ)
+    (hmin : ∀ T : Finset (V), G.IsVertexCover (T : Set _) → t ≤ T.card)
+    (S : Finset (V ⊕ (I ⊕ I)))
+    (hS : (graph G B).IsVertexCover (S : Set _)) :
+    t + Fintype.card I ≤ S.card := by
+  classical
+  let T : Finset (V) := Finset.univ.filter fun a => Sum.inl a ∈ S
+  have hT : G.IsVertexCover (T : Set _) := by
+    intro a b hab
+    rcases hS (show (graph G B).Adj (Sum.inl a) (Sum.inl b) from hab) with ha | hb
+    · left; exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, ha⟩
+    · right; exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hb⟩
+  let pick : I → (V ⊕ (I ⊕ I)) := fun i =>
+    if Sum.inr (Sum.inl i) ∈ S then Sum.inr (Sum.inl i) else Sum.inr (Sum.inr i)
+  have hpick (i : I) : pick i ∈ S := by
+    dsimp only [pick]
+    split
+    · assumption
+    · rename_i h
+      rcases hS (show (graph G B).Adj
+        (Sum.inr (Sum.inl i)) (Sum.inr (Sum.inr i)) from rfl) with hi | hi
+      · exact (h hi).elim
+      · exact hi
+  have hinj : Function.Injective pick := by
+    intro i j h
+    dsimp only [pick] at h
+    split_ifs at h <;> simp_all only [Sum.inr.injEq, Sum.inl.injEq,
+      Sum.inl_ne_inr, Sum.inr_ne_inl]
+  let B := T.map (baseEmb (I := I))
+  let P := Finset.univ.image pick
+  have hB : B ⊆ S := by
+    intro x hx
+    rcases Finset.mem_map.mp hx with ⟨a, ha, rfl⟩
+    exact (Finset.mem_filter.mp ha).2
+  have hP : P ⊆ S := by
+    intro x hx
+    rcases Finset.mem_image.mp hx with ⟨i, _, rfl⟩
+    exact hpick i
+  have hd : Disjoint B P := by
+    rw [Finset.disjoint_left]
+    intro x hx hy
+    rcases Finset.mem_map.mp hx with ⟨a, _, rfl⟩
+    rcases Finset.mem_image.mp hy with ⟨i, _, hi⟩
+    dsimp only [pick, baseEmb, Function.Embedding.coeFn_mk] at hi
+    split_ifs at hi
+  have hcount : T.card + Fintype.card I ≤ S.card := by
+    have := Finset.card_le_card (Finset.union_subset hB hP)
+    rw [Finset.card_union_of_disjoint hd] at this
+    simpa [B, P, Finset.card_image_of_injective _ hinj] using this
+  exact Nat.add_le_add_right (hmin T hT) (Fintype.card I) |>.trans hcount
+
+lemma min_cover {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I] (G : SimpleGraph (V))
+    (B : I → Finset V) (T : Finset (V))
+    (hT : G.IsVertexCover (T : Set _))
+    (hmin : ∀ U : Finset (V), G.IsVertexCover (U : Set _) → T.card ≤ U.card) :
+    (graph G B).IsVertexCover (liftCover (I := I) T : Set _) ∧
+    (liftCover (I := I) T).card = T.card + Fintype.card I ∧
+    ∀ S : Finset (V ⊕ (I ⊕ I)),
+      (graph G B).IsVertexCover (S : Set _) → T.card + Fintype.card I ≤ S.card := by
+  exact ⟨liftCover_covers G B T hT, liftCover_card T,
+    cover_lower G B T.card hmin⟩
+
+lemma no_triangle {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I]
+    (G : SimpleGraph V) (B : I → Finset V)
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hind : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b) :
+    ∀ a b c, (graph G B).Adj a b → (graph G B).Adj b c → ¬ (graph G B).Adj c a := by
+  intro a b c hab hbc hca
+  rcases a with a | a | a <;> rcases b with b | b | b <;>
+    rcases c with c | c | c <;> simp only [graph, adj] at hab hbc hca
+  · exact htri a b c hab hbc hca
+  · exact hind c a hca b hbc hab
+  · exact hind b c hbc a hab hca
+  · exact hind a b hab c hca hbc
+
+lemma common_unique {V I : Type*} [DecidableEq V]
+    (G : SimpleGraph V) (B : I → Finset V)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (i : I) (w a b : V) (ha : a ∈ B i) (hb : b ∈ B i)
+    (hwa : G.Adj w a) (hwb : G.Adj w b) : a = b := by
+  by_contra hab
+  exact hpacking i a ha b hb hab w ⟨hwa.symm, hwb.symm⟩
+
+lemma intersection_unique {V I : Type*} [DecidableEq V]
+    (B : I → Finset V)
+    (hlinear : ∀ i j, i ≠ j → (B i ∩ B j).card ≤ 1)
+    (i j : I) (a b : V) (hai : a ∈ B i) (hbi : b ∈ B i)
+    (haj : a ∈ B j) (hbj : b ∈ B j) : i = j ∨ a = b := by
+  by_cases hij : i = j
+  · exact Or.inl hij
+  · exact Or.inr (Finset.card_le_one.mp (hlinear i j hij)
+      a (Finset.mem_inter.mpr ⟨hai, haj⟩) b (Finset.mem_inter.mpr ⟨hbi, hbj⟩))
+
+lemma no_four_cycle {V I : Type*} [Fintype V] [Fintype I] [DecidableEq V] [DecidableEq I]
+    (G : SimpleGraph V) (B : I → Finset V)
+    (hfour : ∀ a b c d, G.Adj a c → G.Adj b c → G.Adj a d → G.Adj b d → a = b ∨ c = d)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hlinear : ∀ i j, i ≠ j → (B i ∩ B j).card ≤ 1) :
+    ∀ a b c d, (graph G B).Adj a c → (graph G B).Adj b c →
+      (graph G B).Adj a d → (graph G B).Adj b d → a = b ∨ c = d := by
+  intro a b c d hac hbc had hbd
+  rcases a with a | a | a <;> rcases b with b | b | b <;>
+    rcases c with c | c | c <;> rcases d with d | d | d <;>
+    simp only [graph, adj] at hac hbc had hbd
+  all_goals simp only [Sum.inl.injEq, Sum.inr.injEq, Sum.inl_ne_inr,
+    Sum.inr_ne_inl, false_or]
+  · exact hfour a b c d hac hbc had hbd
+  · exact Or.inl (common_unique G B hpacking d c a b had hbd hac.symm hbc.symm)
+  · exact Or.inl (common_unique G B hpacking c d a b hac hbc had.symm hbd.symm)
+  · exact (intersection_unique B hlinear c d a b hac hbc had hbd).symm
+  · exact common_unique G B hpacking b a c d hbc hbd hac had
+  · exact hbc.trans hbd.symm
+  · exact common_unique G B hpacking a b c d hac had hbc hbd
+  · exact intersection_unique B hlinear a b c d hac had hbc hbd
+  · exact Or.inl (had.trans hbd.symm)
+  · exact Or.inl (hac.trans hbc.symm)
+  · exact Or.inl (hac.trans hbc.symm)
+  · exact hac.trans had.symm
+  · exact Or.inl (hac.symm.trans hbc)
+
+
+def edgeCode {V I : Type*} :
+    Sym2 V ⊕ ((Σ _ : I, V) ⊕ I) → Sym2 (V ⊕ (I ⊕ I))
+  | .inl e => e.map Sum.inl
+  | .inr (.inl p) => s(Sum.inl p.2, Sum.inr (Sum.inl p.1))
+  | .inr (.inr i) => s(Sum.inr (Sum.inl i), Sum.inr (Sum.inr i))
+
+lemma edgeCode_injective {V I : Type*} :
+    Function.Injective (edgeCode (V := V) (I := I)) := by
+  intro e f h
+  rcases e with e | p | i <;> rcases f with f | q | j
+  · exact congrArg Sum.inl ((Sym2.map.injective Sum.inl_injective) h)
+  · induction e using Sym2.ind with
+    | _ a b => simp [edgeCode] at h
+  · induction e using Sym2.ind with
+    | _ a b => simp [edgeCode] at h
+  · induction f using Sym2.ind with
+    | _ a b => simp [edgeCode] at h
+  · obtain ⟨i, a⟩ := p
+    obtain ⟨j, b⟩ := q
+    have he : a = b ∧ i = j := by
+      simpa [edgeCode, Sym2.eq_iff] using h
+    obtain ⟨rfl, rfl⟩ := he
+    rfl
+  · simp [edgeCode] at h
+  · induction f using Sym2.ind with
+    | _ a b => simp [edgeCode] at h
+  · simp [edgeCode] at h
+  · have hij : i = j := by
+      simpa [edgeCode, Sym2.eq_iff] using h
+    subst j
+    rfl
+
+lemma graph_edgeFinset {V I : Type*} [Fintype V] [Fintype I]
+    [DecidableEq V] [DecidableEq I] (G : SimpleGraph V) (B : I → Finset V)
+    [DecidableRel G.Adj] [DecidableRel (graph G B).Adj] :
+    (graph G B).edgeFinset =
+      (G.edgeFinset.disjSum ((Finset.univ.sigma B).disjSum Finset.univ)).image
+        edgeCode := by
+  classical
+  ext e
+  constructor
+  · intro he
+    induction e using Sym2.ind with
+    | _ a b =>
+      have he := SimpleGraph.mem_edgeFinset.mp he
+      change adj G B a b at he
+      rcases a with a | i | i <;> rcases b with b | j | j <;>
+        simp only [adj] at he
+      · exact Finset.mem_image.mpr ⟨Sum.inl s(a, b), by simpa using he, rfl⟩
+      · exact Finset.mem_image.mpr
+          ⟨Sum.inr (Sum.inl ⟨j, a⟩), by simpa using he, rfl⟩
+      · exact Finset.mem_image.mpr
+          ⟨Sum.inr (Sum.inl ⟨i, b⟩), by simpa using he, Sym2.eq_swap⟩
+      · subst j
+        exact Finset.mem_image.mpr ⟨Sum.inr (Sum.inr i), by simp, rfl⟩
+      · subst j
+        exact Finset.mem_image.mpr ⟨Sum.inr (Sum.inr i), by simp, Sym2.eq_swap⟩
+  · intro himage
+    obtain ⟨e, hsource, rfl⟩ := Finset.mem_image.mp himage
+    rcases e with e | p | i
+    · have he' : e ∈ G.edgeFinset := Finset.inl_mem_disjSum.mp hsource
+      induction e using Sym2.ind with
+      | _ a b =>
+        apply SimpleGraph.mem_edgeFinset.mpr
+        change G.Adj a b
+        exact SimpleGraph.mem_edgeFinset.mp he'
+    · have hp : p.2 ∈ B p.1 := by simpa using hsource
+      apply SimpleGraph.mem_edgeFinset.mpr
+      exact hp
+    · apply SimpleGraph.mem_edgeFinset.mpr
+      change i = i
+      rfl
+
+lemma graph_edge_card {V I : Type*} [Fintype V] [Fintype I]
+    [DecidableEq V] [DecidableEq I] (G : SimpleGraph V) (B : I → Finset V)
+    [DecidableRel G.Adj] [DecidableRel (graph G B).Adj] :
+    (graph G B).edgeFinset.card = G.edgeFinset.card + ∑ i, ((B i).card + 1) := by
+  rw [graph_edgeFinset, Finset.card_image_of_injective _ edgeCode_injective]
+  simp [Finset.sum_add_distrib]
+
+end FiniteAmplification
+
 end PEqualNP.Outside.L_meta_1904_aux
