@@ -1,0 +1,35 @@
+[
+  {
+    "file": "plane-exact65.json",
+    "sha256": "41308aad3a87ea72476702e3f5fc26fb5c6a579ca5b6a47166720ef0c67113d1",
+    "gates": 65,
+    "and": 13,
+    "or": 52,
+    "output": 90,
+    "missing_edges": [],
+    "false_positive_among_8192_dominating_negative_rows": [],
+    "derivatives": [
+      false,
+      false
+    ]
+  },
+  {
+    "file": "plane-nearmiss64.json",
+    "sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+    "gates": 64,
+    "and": 13,
+    "or": 51,
+    "output": 89,
+    "missing_edges": [
+      [
+        8,
+        8
+      ]
+    ],
+    "false_positive_among_8192_dominating_negative_rows": [],
+    "derivatives": [
+      false,
+      false
+    ]
+  }
+]

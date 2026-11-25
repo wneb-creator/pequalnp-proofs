@@ -1,0 +1,7 @@
+../results/orch/lemmas/Distributed.lean:162:29: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [linearOp, List.map_cons, List.map_nil, List.any_cons, List.any_nil, Bool.or_false, hC, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

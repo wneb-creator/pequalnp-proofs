@@ -1,0 +1,2 @@
+{"free": [28, 29, 30, 55, 60, 61, 62, 63], "total_gates": 64, "positive_basis": 52, "negative_basis": 704}
+{"round": 0, "rows": 54, "variables": 3833, "clauses": 103969, "code": 10, "seconds": 36.68, "violated_negatives": 442}

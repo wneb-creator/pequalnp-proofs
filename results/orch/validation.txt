@@ -21,3 +21,8 @@ Counterexample.lean: lake env lean passed, exit0;39 lines, no output. Monotone O
 Distributed.lean: lake env lean passed, exit0;112 lines, no output. Distributive wrapper equivalence with +1 gate relative to ordinary form.
 
 Structural.lean v2: lake env lean passed, exit0;255 lines. Rectangle-cover bound13 and exact normalized minimum-cover classification; independent review passed.
+
+Boundary.lean: lake env lean passed, exit0;77 lines. Maximal-independent-set boundary completeness.
+BipartiteBoundary.lean: lake env lean passed, exit0;37 lines. Saturated point-subset boundary completeness.
+Distributed.lean v3: lake env lean passed, exit0;223 lines. Added legal topology and vanishing linear output; independent review passed.
+Computational65-gate witness and64-gate near-miss independently verified on all52 positive edges and8192 canonical negative inputs. Neither settles the posted64-gate gap.

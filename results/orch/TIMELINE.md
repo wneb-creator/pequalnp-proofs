@@ -17,3 +17,5 @@
 2026-11-25T03:20:57.584149+00:00 ANDcount12 full-plane SAT reached180s cap; pivot to local64-gate near-miss repair SAT.
 
 2026-11-25T03:21:31.121085+00:00 Structural.lean v2 compiled; independent review passed.
+
+2026-11-25T03:24:42.182631+00:00 Boundary certificates and strengthened distributed wrapper compiled and independently reviewed; computational artifacts archived.
