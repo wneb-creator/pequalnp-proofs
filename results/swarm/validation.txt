@@ -24,3 +24,9 @@ Stripped-core encoder review PASS:13 inputs,17 edges,17 positive+24 maximal-fals
 A stripped20 SAT candidate would not by itself extend to full63; extension code rejects stripped metadata. All three live searches still unresolved.
 Sub-agents: 9 external bus helpers, 1 local support/review agent, 1 nested source auditor (11 known agents; external helper descendants not included).
 TIMING total=50.1 subagents=11
+
+2026-11-25T22:39:07Z progress update
+SupportBudget.lean: independent root standalone build/type/axiom audit PASS, standard three only. Removes an assumed gate-count inequality from earlier interface; validity, reachability, false-complement tests, edge coverage, and root/center counts remain explicit hypotheses. No full target proof.
+Existing L_meta_603 OrBound603.or_bound: named build and root type/axiom audit PASS. OR>=edges-1 applies to no-four-cycle pseudoforests; full planes fail the induced-density hypothesis.
+Fourth root stripped-core20 SAT variant adds pair-active gates; canonical21 positive control SAT. No search has produced a candidate or UNSAT result.
+TIMING total=60.7 subagents=11 (known root/external jobs only; helper-descendant census requested for final aggregate).

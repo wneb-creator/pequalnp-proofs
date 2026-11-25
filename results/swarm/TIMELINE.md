@@ -54,3 +54,5 @@ First substantive helper results (distinct from setup check-ins):
 - 2026-11-25T22:21:35Z: Three root SAT runs active: original order-3 core23, stripped core20, and stripped core20 with every gate used. Independent encoding/stripping audit passed; no candidate or impossibility result.
 - 2026-11-25T22:27:06.665012+00:00: BlockingGuard.lean built and independently reviewed: exact posted plane premises imply any two lines meet and the whole-line conjunction guard is safe. No gate-saving construction follows.
 - 2026-11-25T22:28:32Z: Refreshed upstream main 7a1c8135e2be6a24df7c4062b7e4bffd0953d200; independent census of all 283 new/changed proof files found no unrestricted plane lower bound or normalization theorem. Worktree base unchanged.
+
+- 2026-11-25T22:39:07Z: SupportBudget.lean independently rebuilt and type/axiom-audited by root. Generic reachable birth/merge budget and refined multi-root frontier imply the cover-cost bound under explicit root coverage/count hypotheses. Those hypotheses are not yet derived for arbitrary plane circuits.
