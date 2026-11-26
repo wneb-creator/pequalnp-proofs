@@ -994,6 +994,205 @@ set_option maxRecDepth 8192 in
 lemma families_nodup : families.Nodup := by
   decide +kernel
 
+lemma canUnion_mono (m : Nat) (xs ys : List Nat)
+    (hsub : ∀ x ∈ xs, x ∈ ys) (h : canUnion m xs = true) :
+    canUnion m ys = true := by
+  simp only [canUnion, Bool.or_eq_true, List.any_eq_true, Bool.and_eq_true] at h ⊢
+  rcases h with h | ⟨a, ha, ⟨hne, hsubset⟩, hrest⟩
+  · exact Or.inl h
+  · apply Or.inr
+    refine ⟨a, hsub a ha, ⟨hne, hsubset⟩, ?_⟩
+    rcases hrest with hbit | ⟨b, hb, hbn, hbor⟩
+    · exact Or.inl hbit
+    · exact Or.inr ⟨b, hsub b hb, hbn, hbor⟩
+
+lemma filter_lt_head_empty (a : Nat) (xs : List Nat)
+    (h : List.Pairwise (fun x y : Nat => x < y) (a :: xs)) :
+    (a :: xs).filter (fun x => x < a) = [] := by
+  apply List.filter_eq_nil_iff.mpr
+  intro x hx
+  rcases List.mem_cons.mp hx with hx | hx
+  · subst x
+    simp
+  · have hax := (List.pairwise_cons.mp h).1 x hx
+    intro hxlt
+    have hxa : x < a := of_decide_eq_true hxlt
+    omega
+
+lemma fold_builds_locally_closed (xs known : List Nat)
+    (hsorted : List.Pairwise (fun x y : Nat => x < y) xs)
+    (hready : ∀ m ∈ xs,
+      canUnion m (known ++ xs.filter (fun a => a < m)) = true) :
+    xs.foldl (fun acc m => if canUnion m acc then m :: acc else acc) known =
+      xs.reverse ++ known := by
+  induction xs generalizing known with
+  | nil => rfl
+  | cons a xs ih =>
+    have hhead := hready a (by simp)
+    rw [filter_lt_head_empty a xs hsorted, List.append_nil] at hhead
+    have hnext : ∀ m ∈ xs,
+        canUnion m ((a :: known) ++ xs.filter (fun x => x < m)) = true := by
+      intro m hm
+      apply canUnion_mono m (known ++ (a :: xs).filter (fun x => x < m))
+        ((a :: known) ++ xs.filter (fun x => x < m))
+      · intro z hz
+        rcases List.mem_append.mp hz with hz | hz
+        · exact List.mem_append.mpr (Or.inl (List.mem_cons_of_mem a hz))
+        · have hz' := List.mem_filter.mp hz
+          rcases List.mem_cons.mp hz'.1 with heq | hrest
+          · subst z
+            exact List.mem_append.mpr (Or.inl (by simp))
+          · exact List.mem_append.mpr (Or.inr (List.mem_filter.mpr ⟨hrest, hz'.2⟩))
+      · exact hready m (List.mem_cons_of_mem a hm)
+    have htail := ih (a :: known) (List.pairwise_cons.mp hsorted).2 hnext
+    simp only [List.foldl_cons, hhead, ite_true]
+    rw [htail]
+    simp only [List.reverse_cons, List.append_assoc, List.singleton_append]
+
+lemma generated_of_local_closure (f : List Nat)
+    (hsorted : List.Pairwise (fun x y : Nat => x < y) f)
+    (hlocal : ∀ m ∈ f, canUnion m (f.filter (fun a => a < m)) = true) :
+    generated f f = true := by
+  have hfold := fold_builds_locally_closed f [] hsorted (by simpa using hlocal)
+  simp only [List.append_nil] at hfold
+  unfold generated closeMasks
+  rw [hfold]
+  apply List.all_eq_true.mpr
+  intro m hm
+  simpa only [List.contains_iff_mem, List.mem_reverse] using hm
+
+def rawMask (i : Fin 8) : Nat := singletonMasks.getD i.val 0
+
+lemma rawMask_complete (a : Nat) (h : a ∈ singletonMasks) :
+    ∃ i : Fin 8, rawMask i = a := by
+  simp only [singletonMasks, List.mem_cons, List.not_mem_nil, or_false] at h
+  rcases h with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨0, rfl⟩
+  · exact ⟨1, rfl⟩
+  · exact ⟨2, rfl⟩
+  · exact ⟨3, rfl⟩
+  · exact ⟨4, rfl⟩
+  · exact ⟨5, rfl⟩
+  · exact ⟨6, rfl⟩
+  · exact ⟨7, rfl⟩
+
+lemma raw_pair_certificate : ∀ i j : Fin 8,
+    rawMask i < rawMask i ||| rawMask j →
+    rawMask j < rawMask i ||| rawMask j →
+    singleBit ((rawMask i ||| rawMask j) &&& ((rawMask i ||| rawMask j) - 1)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 4000000 in
+lemma raw_known_certificate : ∀ i : Fin 8, ∀ a : Fin 256,
+    a.val < a.val ||| rawMask i →
+    singleBit ((a.val ||| rawMask i) ^^^ a.val) = true := by
+  decide +kernel
+
+lemma and_or_absorb (a b : Nat) : a &&& (a ||| b) = a := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  simp only [Nat.testBit_and, Nat.testBit_or]
+  cases a.testBit i <;> cases b.testBit i <;> rfl
+
+lemma canUnion_of_known_known (m a b : Nat) (known : List Nat)
+    (ha : a < m) (hb : b < m) (hor : a ||| b = m)
+    (hmemA : a ∈ known) (hmemB : b ∈ known) : canUnion m known = true := by
+  have hsubset : a &&& m = a := by rw [← hor]; exact and_or_absorb a b
+  have hinner : (known.any fun x => x != m && (a ||| x == m)) = true := by
+    apply List.any_eq_true.mpr
+    exact ⟨b, hmemB, by simp [Nat.ne_of_lt hb, hor]⟩
+  simp only [canUnion, Bool.or_eq_true]
+  right
+  apply List.any_eq_true.mpr
+  exact ⟨a, hmemA, by simp [Nat.ne_of_lt ha, hsubset, hinner]⟩
+
+lemma canUnion_of_known_raw (m a b : Nat) (known : List Nat)
+    (hm : m < 256) (ha : a < m) (hor : a ||| b = m)
+    (hmemA : a ∈ known) (hmemB : b ∈ singletonMasks) : canUnion m known = true := by
+  obtain ⟨i, hi⟩ := rawMask_complete b hmemB
+  have hcert := raw_known_certificate i ⟨a, Nat.lt_trans ha hm⟩
+  dsimp only at hcert
+  rw [hi, hor] at hcert
+  have hbit := hcert ha
+  have hsubset : a &&& m = a := by rw [← hor]; exact and_or_absorb a b
+  simp only [canUnion, Bool.or_eq_true]
+  right
+  apply List.any_eq_true.mpr
+  exact ⟨a, hmemA, by simp [Nat.ne_of_lt ha, hsubset, hbit]⟩
+
+lemma canUnion_of_proper_union (m a b : Nat) (known : List Nat)
+    (hm : m < 256) (ha : a < m) (hb : b < m) (hor : a ||| b = m)
+    (hmemA : a ∈ singletonMasks ∨ a ∈ known)
+    (hmemB : b ∈ singletonMasks ∨ b ∈ known) : canUnion m known = true := by
+  rcases hmemA with hrawA | hknownA <;> rcases hmemB with hrawB | hknownB
+  · obtain ⟨i, hi⟩ := rawMask_complete a hrawA
+    obtain ⟨j, hj⟩ := rawMask_complete b hrawB
+    have hcert := raw_pair_certificate i j
+    rw [hi, hj, hor] at hcert
+    simp only [canUnion, Bool.or_eq_true]
+    exact Or.inl (hcert ha hb)
+  · exact canUnion_of_known_raw m b a known hm hb
+      ((Nat.or_comm b a).trans hor) hknownB hrawA
+  · exact canUnion_of_known_raw m a b known hm ha hor hknownA hrawB
+  · exact canUnion_of_known_known m a b known ha hb hor hknownA hknownB
+
+lemma generated_of_proper_union_closed (f : List Nat)
+    (hsorted : List.Pairwise (fun x y : Nat => x < y) f)
+    (hbound : ∀ m ∈ f, m < 256)
+    (hclosed : ∀ m ∈ f, ∃ a b, a < m ∧ b < m ∧ a ||| b = m ∧
+      (a ∈ singletonMasks ∨ a ∈ f) ∧ (b ∈ singletonMasks ∨ b ∈ f)) :
+    generated f f = true := by
+  apply generated_of_local_closure f hsorted
+  intro m hm
+  obtain ⟨a, b, ha, hb, hor, hmemA, hmemB⟩ := hclosed m hm
+  apply canUnion_of_proper_union m a b (f.filter fun x => x < m) (hbound m hm) ha hb hor
+  · rcases hmemA with hraw | hin
+    · exact Or.inl hraw
+    · exact Or.inr (List.mem_filter.mpr ⟨hin, by simpa using ha⟩)
+  · rcases hmemB with hraw | hin
+    · exact Or.inl hraw
+    · exact Or.inr (List.mem_filter.mpr ⟨hin, by simpa using hb⟩)
+
+lemma pairwise_of_strictlySorted (f : List Nat) (h : strictlySorted f = true) :
+    List.Pairwise (fun x y : Nat => x < y) f := by
+  induction f with
+  | nil => simp
+  | cons a xs ih =>
+    cases xs with
+    | nil => simp
+    | cons b xs =>
+      change (decide (a < b) && strictlySorted (b :: xs)) = true at h
+      have hparts : a < b ∧ strictlySorted (b :: xs) = true := by
+        simpa only [Bool.and_eq_true, decide_eq_true_eq] using h
+      have htail := ih hparts.2
+      apply List.pairwise_cons.mpr
+      refine ⟨?_, htail⟩
+      intro x hx
+      rcases List.mem_cons.mp hx with heq | hmem
+      · subst x
+        exact hparts.1
+      · exact Nat.lt_trans hparts.1 ((List.pairwise_cons.mp htail).1 x hmem)
+
+lemma generated_targets_subset (required permitted : List Nat)
+    (hsub : ∀ m ∈ required, m ∈ permitted)
+    (hgen : generated permitted permitted = true) : generated required permitted = true := by
+  unfold generated at hgen ⊢
+  apply List.all_eq_true.mpr
+  intro m hm
+  exact (List.all_eq_true.mp hgen) m (hsub m hm)
+
+lemma generated_subset_of_union_closed (required permitted : List Nat)
+    (hsub : ∀ m ∈ required, m ∈ permitted)
+    (hsorted : strictlySorted permitted = true)
+    (hbound : ∀ m ∈ permitted, m < 256)
+    (hclosed : ∀ m ∈ permitted, ∃ a b, a < m ∧ b < m ∧ a ||| b = m ∧
+      (a ∈ singletonMasks ∨ a ∈ permitted) ∧
+      (b ∈ singletonMasks ∨ b ∈ permitted)) : generated required permitted = true := by
+  exact generated_targets_subset required permitted hsub
+    (generated_of_proper_union_closed permitted (pairwise_of_strictlySorted permitted hsorted)
+      hbound hclosed)
+
 end R3Family
 
 end PEqualNP.Outside.L_meta_9033_aux
