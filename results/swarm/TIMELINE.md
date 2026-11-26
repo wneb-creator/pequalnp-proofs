@@ -5,7 +5,7 @@ Swarm L-meta-4970 timeline (UTC)
 - 2026-11-25T22:11:01Z: Updated fork checkout from upstream; confirmed canonical desk module PEqualNP.Outside.L_meta_4970. Build setup lacks promised Lean/cache; restoring while proof work continues.
 
 Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
-TIMING total=122.0 subagents=19
+TIMING total=151.9 subagents=19
 
 - 2026-11-25T22:11:14+00:00: helper-1 first result: reusable L_meta_4990 leaf-count machinery; semantic star witnesses may contain AND bypasses.
 - 2026-11-25T22:12:11+00:00: helper-2 first result: IsAO2 excludes malformed-gate shortcuts; T resets at AND; finite counterexample search in preparation.
@@ -37,3 +37,10 @@ TIMING total=122.0 subagents=19
 - 2026-11-25T23:41:21Z: Independently reviewed ordinary-AND checkpoint 1df5ab34a38f19cf282a5c1606e0c16869fbf3ec pushed successfully to the fork orch branch.
 - 2026-11-25T23:51:02Z: FlagComponents local graph lemmas compiled with a deprecation warning only; global connector inequality remains open.
 - 2026-11-26T00:11:13Z: Root reviewed and independently compiled helper-3 productive forest toolkit at c69a0313; ordinary AND half also independently rebuilt by several external helpers. Full proof and refutation searches continue.
+
+- 2026-11-26T00:16:17Z: Independently reviewed partial checkpoint 1ea8a0ec06d7af4b4f9c1aa5df47de30e1ae767a pushed to the fork orch branch; no full candidate.
+- 2026-11-26T00:25:13Z: Heartbeat returned HTTP410; coordinator informed, no lease requested or released.
+- 2026-11-26T00:29:40Z: Four root K5-incidence/affine stochastic runs completed without a valid candidate; failures are not finite exclusions.
+- 2026-11-26T00:35:14Z: Independent W(3,3) exact-output matrix obstruction audited and reproduced. It refutes intermediate matrix/BAD bounds, not the posted gap.
+- 2026-11-26T00:36:32Z: Final route review corrected the L7241 shortcut: its all-input-pair cleanliness includes diagonal and same-palette pairs and is equivalent to global safety of every AND gate. No weaker closing normalization was established.
+- 2026-11-26T00:41:11Z: Independent actual-diff/source/scope review PASS for matrix audit, search outcomes, and metadata; new matrix verifier and all four saved search candidates independently reproduced. Two documentation clarifications applied before commit.

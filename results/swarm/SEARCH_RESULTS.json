@@ -1,0 +1,90 @@
+[
+  {
+    "script": "search_incidence.py",
+    "script_sha256": "56f9c35602477428facaa20eb1342ff27906790542ccfcf0622ab9b22ae98035",
+    "requested_seconds": 1800,
+    "seed": 497091,
+    "iterations": 200693000,
+    "restarts": 4051,
+    "target_gates": 23,
+    "best_score": [
+      8,
+      1,
+      0,
+      1,
+      0
+    ],
+    "failed_edge": [
+      3,
+      2
+    ],
+    "test_rows": 134,
+    "scope": "Heuristic search found no valid candidate; this is not an exhaustive exclusion."
+  },
+  {
+    "script": "search_affine_root.py",
+    "script_sha256": "53dc2d5d0bde04d0dc2a9b80af182f5b0df33b763e1ce05679ae79e1e6a83c34",
+    "requested_seconds": 1800,
+    "seed": 497092,
+    "iterations": 146287000,
+    "restarts": 2981,
+    "target_gates": 34,
+    "best_score": [
+      8,
+      1,
+      0,
+      1,
+      0
+    ],
+    "failed_edge": [
+      5,
+      4
+    ],
+    "test_rows": 631,
+    "scope": "Heuristic search found no valid candidate; this is not an exhaustive exclusion."
+  },
+  {
+    "script": "search_k5_anneal_root.py",
+    "script_sha256": "6a0980e753bc1206a114319dc7dcbd3459f2878074403c9ae7195ed0c0803c6a",
+    "requested_seconds": 1200,
+    "seed": 497093,
+    "iterations": 162623000,
+    "restarts": 3253,
+    "target_gates": 23,
+    "best_score": [
+      8,
+      1,
+      0,
+      1,
+      0
+    ],
+    "failed_edge": [
+      2,
+      8
+    ],
+    "test_rows": 134,
+    "scope": "Heuristic search found no valid candidate; this is not an exhaustive exclusion."
+  },
+  {
+    "script": "search_affine_anneal_root.py",
+    "script_sha256": "399fe2226d84dc1857cc3752f2dd07896a95fe450a0ce55542224f0b37d4accb",
+    "requested_seconds": 1200,
+    "seed": 497094,
+    "iterations": 85124000,
+    "restarts": 1703,
+    "target_gates": 34,
+    "best_score": [
+      8,
+      1,
+      0,
+      1,
+      0
+    ],
+    "failed_edge": [
+      5,
+      6
+    ],
+    "test_rows": 631,
+    "scope": "Heuristic search found no valid candidate; this is not an exhaustive exclusion."
+  }
+]
