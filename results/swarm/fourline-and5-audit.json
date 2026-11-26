@@ -1,0 +1,31 @@
+{
+  "false_rows": 16,
+  "join_pairs_checked": 120,
+  "maximality_checked": true,
+  "no_four_cycle": true,
+  "disjoint_matching": [
+    [
+      2,
+      12
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      13
+    ]
+  ],
+  "active_and_equivalences_checked": 144,
+  "cardinality_subsets": 3060,
+  "new_clauses": 3114,
+  "variables": 7045,
+  "clauses": 157276,
+  "cnf_sha256": "a372112cfa4678c14c2669ce0a61bce5598510e9cddf09c560b666979ada5219",
+  "original_cnf_sha256": "bf2052ead7edcd39b5249f1f0f4c6906c6506d85b18e5ec45b361b072f09403d"
+}

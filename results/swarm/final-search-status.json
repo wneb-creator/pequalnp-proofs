@@ -1,0 +1,75 @@
+{
+  "updated_utc": "2026-11-26T00:32:00.030244+00:00",
+  "searches": {
+    "q3core23-ordered-restart-solver.log": {
+      "metadata": "q3core23-atmost-ordered.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 3000,
+      "reported_real_seconds": 3000.0,
+      "reported_cpu_seconds": 2398.03,
+      "last_log_write_utc": "2026-11-26T00:17:03.611432+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3core23-satmode-restart-solver.log": {
+      "metadata": "q3core23-atmost-used.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 3000,
+      "reported_real_seconds": 3000.0,
+      "reported_cpu_seconds": 2360.07,
+      "last_log_write_utc": "2026-11-26T00:17:03.591433+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3core23-opcritical-solver.log": {
+      "metadata": "q3core23-opcritical.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 2400,
+      "reported_real_seconds": 2400.0,
+      "reported_cpu_seconds": 1827.66,
+      "last_log_write_utc": "2026-11-26T00:16:16.704648+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3core23-critical-output-solver.log": {
+      "metadata": "q3core23-critical-output.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 2400,
+      "reported_real_seconds": 2400.0,
+      "reported_cpu_seconds": 1784.76,
+      "last_log_write_utc": "2026-11-26T00:21:09.101261+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3core23-first-orbit-solver.log": {
+      "metadata": "q3core23-first-orbit.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 2400,
+      "reported_real_seconds": 2400.0,
+      "reported_cpu_seconds": 1990.12,
+      "last_log_write_utc": "2026-11-26T00:27:06.304353+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3fourline18-all-solver.log": {
+      "metadata": "q3fourline18-all.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 1800,
+      "reported_real_seconds": 1800.01,
+      "reported_cpu_seconds": 1338.58,
+      "last_log_write_utc": "2026-11-26T00:25:01.739452+00:00",
+      "completion_classification": "completed_wall_limit"
+    },
+    "q3fourline18-and5-solver.log": {
+      "metadata": "q3fourline18-and5.json",
+      "status": "UNKNOWN",
+      "exit_code": 0,
+      "declared_wall_limit_seconds": 900,
+      "reported_real_seconds": 900.0,
+      "reported_cpu_seconds": 888.42,
+      "last_log_write_utc": "2026-11-26T00:31:15.750036+00:00",
+      "completion_classification": "completed_wall_limit"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "original_clauses_preserved": 154162,
+  "new_variables": 18,
+  "new_equivalence_clauses": 54,
+  "active_and_truth_cases": 144,
+  "all_14_subsets_cardinality_clauses": 3060,
+  "cardinality_proof": "at least5 of18 iff no14-element set is allfalse",
+  "maximal_false_rows_exhaustively_derived": 16,
+  "false_join_pairs": 120,
+  "graph_no_four_cycle": true,
+  "graph_edges": 16,
+  "minimum_vertex_cover": 4,
+  "inactive_ands_excluded": true,
+  "new_variables_total": 7045,
+  "new_clauses_total": 157276,
+  "new_cnf_sha256": "a372112cfa4678c14c2669ce0a61bce5598510e9cddf09c560b666979ada5219",
+  "original_cnf_sha256": "bf2052ead7edcd39b5249f1f0f4c6906c6506d85b18e5ec45b361b072f09403d"
+}

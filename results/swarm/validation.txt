@@ -58,3 +58,11 @@ Final geometry/extension audit PASS: unchanged original core labels; canonical24
 Live desk row updated23:36:24 continues lacking reductions:true, so accepted mathematical reduction remains submission-ineligible. No FINAL/PR/release.
 Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
 TIMING total=131.7 subagents=67
+
+2026-11-26T00:32:31.783030+00:00 final research validation snapshot
+Full target UNPROVED and UNREFUTED. Mathematical reduction checker ACCEPTED (reduce), but desk eligibility REFUSED because the live gap row lacks reductions:true. The exact refusal and live row are archived. No eligible FINAL file, PR, or lease release.
+All seven post-restart root SAT searches completed their declared wall limits normally with UNKNOWN and exit0. Full stdout/stderr logs and final status JSON archived. No candidate or UNSAT certificate. Two earlier3600-second searches also completed UNKNOWN; other pre-restart interrupted runs remain distinguished.
+Four-line canonical control: every16384input,185887clauses,38output-bypass witnesses checked; unchanged decoder gives19gates and extension64passes52positive/704maxfalse rows. Root and independent audit PASS. The added active-AND>=5 cut: root H8 saturation and H7 clean-budget Lean rebuild/type/standard3 audits PASS; independent finite geometry and all3114addedCNFclauses audit PASS. These are constraints for the searched class, not a full-gap lower bound.
+Nine helper research checkpoint commits verified present in the local clone. Latest helper checks are attributed in helper-checkpoints.json; this does not claim root rebuilt every latest checkpoint. All helpers still report full target open.
+Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
+TIMING total=174.1 subagents=67

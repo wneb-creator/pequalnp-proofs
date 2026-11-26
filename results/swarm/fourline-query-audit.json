@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "encoder_sha256": "85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b",
+  "inputs": 14,
+  "edges": 16,
+  "point_degrees_at_most_two": true,
+  "canonical_gates": 19,
+  "budget": 20,
+  "target_budget": 18,
+  "automorphisms": 24,
+  "assignments_exhaustively_checked": 16384,
+  "clauses_checked": 185887,
+  "counterfactual_output_witnesses_checked": 38,
+  "explicit_model_without_solver": true,
+  "inactive_duplicate_gate_exempt": true,
+  "extension_added_gates": 45,
+  "canonical_extended_size": 64,
+  "target_extended_size_at_most": 63,
+  "target_cnf_sha256": "bf2052ead7edcd39b5249f1f0f4c6906c6506d85b18e5ec45b361b072f09403d",
+  "extension_control_actual_full_gates": 64,
+  "extension_control_positive_boundary_checked": 52,
+  "extension_control_negative_boundary_checked": 704
+}

@@ -69,3 +69,6 @@ First substantive helper results (distinct from setup check-ins):
 
 - 2026-11-25T23:33:21.261216+00:00: Independently reviewed research checkpoint a40f75f9a pushed to fork orchestrator branch. No final branch push or FINAL.
 - 2026-11-25T23:50:06.824909+00:00: Final core23 search encoder frozen and archived. Root reviewed actual changes; independent canonical/full-clause/tiny-minimum audits passed. Five post-restart queries remain pending. Current helper1/3/4/9 snapshots independently rebuilt at exact recorded commits; arbitrary-circuit target remains open.
+
+- 2026-11-25T23:51:30.909766+00:00: Independently reviewed research checkpoint 6bf2fd52f2db439c2b710d17371d6ddac7a13037 pushed to the fork orchestrator branch.
+- 2026-11-26T00:31:45.208208+00:00: Final archive preparation. All seven post-restart searches completed their wall limits with UNKNOWN; the last four-line AND>=5 query ended at 00:31:15.750036 UTC. Root independently rebuilt the saturation and clean-graph budget theorems used to justify that cut. Final desk row still refuses reductions; full target remains open.

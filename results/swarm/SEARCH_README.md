@@ -1,12 +1,12 @@
 # L-meta-2583 circuit search handoff
 
-Status recorded at 2026-11-25T23:48:50.507542+00:00: no satisfying candidate has been found. The strongest original-core query is pending. A search timeout or interrupted run is UNKNOWN, never an UNSAT certificate or a full-gap proof.
+Status recorded at 2026-11-26T00:32:31.783030+00:00: all seven post-restart searches completed their wall limits with UNKNOWN (exit 0). No satisfying candidate or UNSAT certificate was found. Complete solver outputs are in `search-logs/`; exact timings are in `final-search-status.json`. A timeout or interrupted run is never a full-gap proof.
 
 The frozen encoder is `core_sat.py`, SHA256 `85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b`. Do not change it while comparing these runs. The encoder, principal notes and audit summaries are archived alongside this README; other detailed diagnostic files remain in the scratch directory. Scratch directory: `/tmp/oec/pnp-swarm-2583-orch/`; working directory for commands: `/workspace/pequalnp-proofs`.
 
 ## Reproduce the strongest query
 
-These commands use a fresh prefix. The existing pending query is `q3core23-first-orbit.cnf`, with metadata `q3core23-first-orbit.json` and complete solver output `q3core23-first-orbit-solver.log` (12,729 variables, 356,325 clauses). Its metadata SHA256 is `214b016e74fb187e5996c475fdf7bf53021b7512c017a1be41add2e6cebd5fc9`.
+These commands use a fresh prefix. The original five-line query is `q3core23-first-orbit.cnf`, with metadata `q3core23-first-orbit.json` and complete solver output `q3core23-first-orbit-solver.log` (12,729 variables, 356,325 clauses). Its metadata SHA256 is `214b016e74fb187e5996c475fdf7bf53021b7512c017a1be41add2e6cebd5fc9`.
 
 ```sh
 PNP_SWARM_SEARCH_DIR='/tmp/oec/pnp-swarm-2583-orch'
@@ -66,16 +66,26 @@ Bridge SHA256: `0321cd3d5f5049052b0cb5e00b3f221fee2875f8daff06c8f6332feef192177c
 - `audit_op_critical.py`, `audit_critical_output.py`, `audit_first_input_orbit.py` reproduce calibration audits.
 - `recovery-refutation-bridge-review.txt`, `recovery-refutation-bridge-build-v3.log`, `recovery-refutation-bridge-axioms.log`, `recovery-refutation-packed-audit.json` document the conditional bridge.
 
-## Wall-time limits and pending status
+## Completed search outcomes
 
-The following post-restart runs remain pending at this snapshot; no SAT or UNSAT verdict is recorded:
+All seven post-restart runs reached their limits normally; every verdict was UNKNOWN.
 
-| Complete solver log | Wall limit | Status |
+| Complete solver log in `search-logs/` | Wall limit | Status |
 | --- | ---: | --- |
-| `q3core23-ordered-restart-solver.log` | 3000 s | Pending |
-| `q3core23-satmode-restart-solver.log` | 3000 s | Pending |
-| `q3core23-opcritical-solver.log` | 2400 s | Pending |
-| `q3core23-critical-output-solver.log` | 2400 s | Pending |
-| `q3core23-first-orbit-solver.log` | 2400 s | Pending; orchestrator reports start about 23:47 UTC, limit about 00:27 UTC |
+| `q3core23-ordered-restart-solver.log` | 3000 s | UNKNOWN; exit 0 |
+| `q3core23-satmode-restart-solver.log` | 3000 s | UNKNOWN; exit 0 |
+| `q3core23-opcritical-solver.log` | 2400 s | UNKNOWN; exit 0 |
+| `q3core23-critical-output-solver.log` | 2400 s | UNKNOWN; exit 0 |
+| `q3core23-first-orbit-solver.log` | 2400 s | UNKNOWN; exit 0 |
+| `q3fourline18-all-solver.log` | 1800 s | UNKNOWN; exit 0 |
+| `q3fourline18-and5-solver.log` | 900 s | UNKNOWN; exit 0 |
 
 Earlier `q3core23-solver.log` and `q3core20-stripped-solver.log` reached their 3600-second limits with `c UNKNOWN` and exit 0. Other pre-restart pending runs were interrupted around 23:20 UTC; their incomplete logs must not be called completed timeouts or UNSAT. Later status updates should retain these distinctions.
+
+## Four-line query and strengthened cut
+
+The four-line core has 14 inputs and 16 edges; its canonical circuit has 19 gates. Any exact circuit with at most 18 gates extends by 45 gates to a full order-three circuit with at most 63 gates. See `fourline-query-notes.md` and `fourline-query-audit.json` for generation and independent canonical-model checks. Both four-line target runs ended UNKNOWN.
+
+`add_fourline_and_bound.py` adds the independently reviewed necessary condition of at least five active AND gates. See `fourline-and5-proof-note.md` for the mathematical scope and `fourline-and5-independent-audit.json` for the CNF audit. To reproduce this variant, generate the base query with output prefix `/tmp/oec/pnp-swarm-2583-orch/q3fourline18-all` using the four-line command, copy the archived constraint script beside that prefix, and run it. It writes `q3fourline18-and5.cnf` and matching metadata. The solver command is the same as above with that CNF and a 900-second limit. The frozen encoder itself is unchanged.
+
+`helper-checkpoints.json` records exact helper research commits and distinguishes helper-reported checks from independent orchestrator rebuilds. These are partial results; no final proof or refutation is claimed.

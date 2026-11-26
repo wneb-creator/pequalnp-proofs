@@ -1,0 +1,22 @@
+Final independent research archive review
+
+UTC: 2026-11-26T00:33:45.431817+00:00
+Verdict: PASS for the current research-only diff.
+
+Actual scope:3modified docs plus20new files, all in results/swarm (including9complete solver logs). No proof target, definitions, checker, toolchain, or frozenencoder change. git diff --check PASS.
+
+Read the actual three document diffs, HANDOFF, four-line proof note, helpercheckpoint manifest, final statusJSON, eligibility refusal, and new script. All copied script/audit files and all9solver logs byte-match scratch originals; final statusJSON byte-equals this reviewer's finished seven-search monitor; final desk row byte-equals the fetched gap-live-row-final.json; refusal byte-equals the original exact gap-guard log. FrozenencoderSHA remains85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b.
+
+All7post-restart logs independently rechecked: exactly UNKNOWN,exit0, correct declaredwalllimit and footerrealtime. The2earlier logs also retain UNKNOWN; interrupted pre-restart runs are separately described. No SAT,candidate,UNSATcertificate,or full-gap proof/refutation is claimed. Exact completion times and observed statuses are consistent with my live monitoring through00:32.
+
+Guard refusal is explicit throughout. The desk snapshot updated00:22:05.118Z contains the gap with no reductions:true. Mathematical acceptance of the3child reduction is never treated as eligibility or fullproof; child1 remains open. RefutationBridge remains conditional.
+
+Four-line AND>=5 cut has the independently reviewed scope: exact four-line circuits size<=18. Its generic Lean components/type/standard3 audits and finite Python geometry are distinguished from a standalone Lean specialization. Activeprefix handling, all3114newclauses, and baseline-preservation were independently checked in the earlier cut review. OriginalcoreSAT would need concreteLean validation; coreUNSAT would not prove the full target; strippedcoredoesnotautomaticallyextend.
+
+Reproduction instructions correctly use the archived frozenencoder variable. The AND>=5 postprocessor's directory-relative inputs are handled explicitly: generate the base prefix in scratch, copy the constraint script beside it, then run it. Source paths and declared variable/clause counts match reviewed artifacts.
+
+All9cited helper checkpoint commits exist in the clone. Per-helper validation explicitly attributes latest checks to the helper and separates root rebuilds. Reported descendant counts sum55;9external+55descendants+3locals=67. At00:32:31.783030, elapsed time since21:38:24 is174.1297minutes, correctly rounded TIMING174.1.
+
+All20new files are plain nonexecutables and their complete text passed credential-pattern checks without reading any environment credentials. Modifieddocs were read in full diff and contain no credential material. These are research artifacts, not an eligible one-file submission.
+
+No edits, commits, pushes, newagents, or solver launches performed during review. Later timing/helper-outcome or push-receipt addenda require their own small review.

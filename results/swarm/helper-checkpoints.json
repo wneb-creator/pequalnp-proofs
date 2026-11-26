@@ -1,0 +1,108 @@
+{
+  "snapshot_utc": "2026-11-26T00:31:45.208208+00:00",
+  "repository": "https://github.com/wneb-creator/pequalnp-proofs",
+  "source_path": "lean/PEqualNP/Outside/L_meta_2583.lean",
+  "status": "Research only; no helper has proved or refuted the full posted target.",
+  "helpers": [
+    {
+      "helper": "helper-1",
+      "branch": "pnp/swarm-L-meta-2583-h1",
+      "checked_research_checkpoint": "0c6401f6d10775c18778cbb660916474e29456bb",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 6,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Three-clause residual class, nonstar four-clause and monochromatic arbitrary-CNF star bounds. General mixed-color shared-source cost remains open.",
+      "full_target": "unproved and unrefuted"
+    },
+    {
+      "helper": "helper-2",
+      "branch": "pnp/swarm-L-meta-2583-h2",
+      "checked_research_checkpoint": "933c962e1f24e032d883cea8d5f1064f262ee43f",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 7,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Input embedding, append/disjoin and affine 36-edge core extension; core AND lower bound 8. No concrete subcanonical plane circuit.",
+      "full_target": "unproved and unrefuted"
+    },
+    {
+      "helper": "helper-3",
+      "branch": "pnp/swarm-L-meta-2583-h3",
+      "checked_research_checkpoint": "861756d6ebfbda0b5e53849d1800d1b867637204",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 6,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Minimum-circuit essential edges and ports, false-join triples and shared-AND surplus on induced matchings. Unrestricted OR cost remains open.",
+      "full_target": "unproved and unrefuted"
+    },
+    {
+      "helper": "helper-4",
+      "branch": "pnp/swarm-L-meta-2583-h4",
+      "checked_research_checkpoint": "6031d25f65d97fad3bb14329eab1ce98697da622",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 6,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Tight cones give exact short CNFs, productive cover for junk at most 3, safe-product endpoint bound. Semantic CNF does not fund actual shared sources.",
+      "full_target": "unproved and unrefuted",
+      "portable_reported_checkpoint": "f9837e9e7d6382fbaf38f069160e2007359b3d48",
+      "byte_identical_restore_reported_checkpoint": "2fd8653d8378f40e9c2553d90f8ac80ad0247630"
+    },
+    {
+      "helper": "helper-5",
+      "branch": "pnp/swarm-L-meta-2583-h5",
+      "checked_research_checkpoint": "fdb228166872e9814281702a0538ba489035308d",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 8,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Thin F5 LinearAndCore bound; checked counterexample to an unrestricted intermediate M+Q inequality. This is not a counterexample to the posted gap.",
+      "full_target": "unproved and unrefuted"
+    },
+    {
+      "helper": "helper-6",
+      "branch": "pnp/swarm-L-meta-2583-h6",
+      "checked_research_checkpoint": "747ac0df42df93bf36cd001784cdeeb520dc5158",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 8,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Normalization to a representative with at least six bad incidences; remaining missing-center and slack-2 cost argument is open. Full-plane SAT search ended UNKNOWN.",
+      "full_target": "unproved and unrefuted"
+    },
+    {
+      "helper": "helper-7",
+      "branch": "pnp/swarm-L-meta-2583-h7",
+      "checked_research_checkpoint": "c960d585cd88bdd35d870227fa3d343546d5490e",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 3,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Clean graph budget and shared-collapse repair ledger, including no extra OR under an explicit selected nonoutput root. Affordability and coverage remain open.",
+      "full_target": "unproved and unrefuted",
+      "portable_reported_checkpoint": "9fb24814a1f0ff58ab1017c31073a074d71d411f",
+      "byte_identical_restore_reported_checkpoint": "1599f0eafcc9e76a3d28dcf1783de2b807e9a3e0"
+    },
+    {
+      "helper": "helper-8",
+      "branch": "pnp/swarm-L-meta-2583-h8",
+      "checked_research_checkpoint": "990d54d14bd353b39519dd0e4d28ed5116a1b5b1",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 7,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Generic Kraft and saturation rigidity, strict dirty-cube bound, conditional q3/q4 certifiers and canonical controls. No subcanonical candidate.",
+      "full_target": "unproved and unrefuted",
+      "portable_saturation_root_rebuilt_checkpoint": "55ab4003d08f21d7d939b6a1c6c8096bc9b9a22b",
+      "portable_q4_reported_checkpoint": "b81607016e9eecf8a8344058f57137666d7b4393"
+    },
+    {
+      "helper": "helper-9",
+      "branch": "pnp/swarm-L-meta-2583-h9",
+      "checked_research_checkpoint": "59a63fe34b0d4021e0eec309248f95e9149aac4b",
+      "commit_present_in_orchestrator_clone": true,
+      "descendant_count_reported": 4,
+      "validation": "Helper reports named lake build and independent source/type/axiom review; not all latest checkpoints independently rebuilt by orchestrator. Exact root rebuilds are recorded separately in validation.txt.",
+      "scope": "Penalty P<=5 forces Ustar<=5, while a normalized q>=3 plane counterexample forces Ustar>=6. Cases P>=6 remain open.",
+      "full_target": "unproved and unrefuted"
+    }
+  ],
+  "external_helpers": 9,
+  "reported_helper_descendants": 55,
+  "local_support_and_audit_agents": 3,
+  "total_subagents": 67
+}
