@@ -6797,4 +6797,1533 @@ lemma petersen_first_and_residual_seventeen_with_not_bound
 
 end ResidualFirstAnd
 
+
+namespace BoundaryOperands
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2373_aux
+
+def ordered (up : Bool) (new old : Bool) : Prop := if up then old ≤ new else new ≤ old
+
+lemma ordered_refl (up a : Bool) : ordered up a a := by cases up <;> simp [ordered]
+
+lemma ordered_and : ∀ up a b c d : Bool, ordered up a b → ordered up c d →
+    ordered up (a && c) (b && d) := by unfold ordered; decide +kernel
+
+lemma ordered_or : ∀ up a b c d : Bool, ordered up a b → ordered up c d →
+    ordered up (a || c) (b || d) := by unfold ordered; decide +kernel
+
+lemma all_ordered (up : Bool) (ins : List ℕ) (f g : ℕ → Bool)
+    (h : ∀ i ∈ ins, ordered up (f i) (g i)) :
+    ordered up ((ins.map f).all id) ((ins.map g).all id) := by
+  induction ins with
+  | nil => exact ordered_refl up true
+  | cons i ins ih =>
+    simp only [List.map_cons, List.all_cons, id_eq]
+    exact ordered_and up _ _ _ _ (h i (by simp)) (ih (fun j hj => h j (by simp [hj])))
+
+lemma any_ordered (up : Bool) (ins : List ℕ) (f g : ℕ → Bool)
+    (h : ∀ i ∈ ins, ordered up (f i) (g i)) :
+    ordered up ((ins.map f).any id) ((ins.map g).any id) := by
+  induction ins with
+  | nil => exact ordered_refl up false
+  | cons i ins ih =>
+    simp only [List.map_cons, List.any_cons, id_eq]
+    exact ordered_or up _ _ _ _ (h i (by simp)) (ih (fun j hj => h j (by simp [hj])))
+
+lemma gate_ordered (up : Bool) (q : Gate) (f g : ℕ → Bool)
+    (hop : q.op = GateOp.and ∨ q.op = GateOp.or)
+    (h : ∀ i ∈ q.inputs, ordered up (f i) (g i)) :
+    ordered up (q.op.eval (q.inputs.map f)) (q.op.eval (q.inputs.map g)) := by
+  rcases hop with hop | hop
+  · simpa [hop, GateOp.eval] using all_ordered up q.inputs f g h
+  · simpa [hop, GateOp.eval] using any_ordered up q.inputs f g h
+
+lemma append_ordered (up : Bool) (k p : ℕ) (xs ys : List Bool) (u v : Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length) (hp : p < k)
+    (h : ∀ i, ordered up (xs.getD (AliasPruning.redirect k p i) false) (ys.getD i false))
+    (huv : ordered up u v) :
+    ∀ i, ordered up ((xs ++ [u]).getD (AliasPruning.redirect k p i) false)
+      ((ys ++ [v]).getD i false) := by
+  intro i
+  by_cases hik : i = k
+  · subst i
+    simp only [AliasPruning.redirect, ite_true]
+    rw [List.getD_append _ _ _ _ (by omega), List.getD_append _ _ _ _ hk]
+    simpa [AliasPruning.redirect] using h k
+  · simp only [AliasPruning.redirect, ite_eq_right hik]
+    rcases Nat.lt_trichotomy i ys.length with hlt | he | hgt
+    · have hd : LivePruning.down k i < xs.length := by
+        unfold LivePruning.down
+        split <;> omega
+      rw [List.getD_append _ _ _ _ hd, List.getD_append _ _ _ _ hlt]
+      simpa [AliasPruning.redirect, hik] using h i
+    · subst i
+      have hd : LivePruning.down k ys.length = xs.length := by
+        unfold LivePruning.down
+        split <;> omega
+      rw [hd]
+      simpa using huv
+    · rw [List.getD_eq_default _ _ (by
+        simp only [List.length_append, List.length_singleton]
+        unfold LivePruning.down
+        split <;> omega),
+        List.getD_eq_default _ _ (by simp; omega)]
+      exact ordered_refl up false
+
+lemma initial_ordered (up : Bool) (xs : List Bool) (p : ℕ) (v : Bool)
+    (h : ordered up (xs.getD p false) v) :
+    ∀ i, ordered up (xs.getD (AliasPruning.redirect xs.length p i) false)
+      ((xs ++ [v]).getD i false) := by
+  intro i
+  by_cases hi : i = xs.length
+  · subst i
+    simpa [AliasPruning.redirect] using h
+  · have he := LivePruning.initial_agree xs v i hi
+    rw [show AliasPruning.redirect xs.length p i = LivePruning.down xs.length i by
+      simp [AliasPruning.redirect, hi], he]
+    exact ordered_refl up _
+
+lemma wires_ordered (up : Bool) (k p : ℕ) (gs : List Gate) (xs ys : List Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length) (hp : p < k)
+    (hmono : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (h : ∀ i, ordered up (xs.getD (AliasPruning.redirect k p i) false) (ys.getD i false)) :
+    ∀ i, ordered up
+      ((Circuit.wires ⟨gs.map (AliasPruning.renamed k p), 0⟩ xs).getD
+        (AliasPruning.redirect k p i) false)
+      ((Circuit.wires ⟨gs, 0⟩ ys).getD i false) := by
+  induction gs generalizing xs ys with
+  | nil => exact h
+  | cons g gs ih =>
+    have hg : ordered up (LivePruning.gateValue (AliasPruning.renamed k p g) xs)
+        (LivePruning.gateValue g ys) := by
+      unfold LivePruning.gateValue AliasPruning.renamed
+      simp only [List.map_map, Function.comp_def]
+      exact gate_ordered up g _ _ (hmono g (by simp)) (fun i _ => h i)
+    change ∀ i, ordered up
+      ((Circuit.wires ⟨gs.map (AliasPruning.renamed k p), 0⟩
+        (xs ++ [LivePruning.gateValue (AliasPruning.renamed k p g) xs])).getD
+          (AliasPruning.redirect k p i) false)
+      ((Circuit.wires ⟨gs, 0⟩ (ys ++ [LivePruning.gateValue g ys])).getD i false)
+    apply ih _ _
+    · simp only [List.length_append, List.length_singleton]; omega
+    · simp only [List.length_append, List.length_singleton]; omega
+    · intro q hq
+      exact hmono q (by simp [hq])
+    · exact append_ordered up k p xs ys _ _ hlen hk hp h hg
+
+lemma erase_monotone (n : ℕ) (pre post : List Gate) (g : Gate) (p out : ℕ)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) out)) :
+    Monotone2 (AliasPruning.erase n pre post p out) := by
+  intro q hq
+  change q ∈ pre ++ post.map (AliasPruning.renamed (n + pre.length) p) at hq
+  rcases List.mem_append.mp hq with hq | hq
+  · exact hmono q (List.mem_append_left _ hq)
+  · obtain ⟨q0, hq0, rfl⟩ := List.mem_map.mp hq
+    simpa [AliasPruning.renamed] using
+      hmono q0 (List.mem_append_right _ (List.mem_cons_of_mem _ hq0))
+
+lemma erase_ordered (up : Bool) (n : ℕ) (pre post : List Gate) (g : Gate) (p out : ℕ)
+    (hp : p < n + pre.length)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) out))
+    (x : Fin n → Bool)
+    (hlocal : ordered up ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false)
+      (LivePruning.gateValue g (Circuit.wires ⟨pre, 0⟩ (List.ofFn x)))) :
+    ordered up ((AliasPruning.erase n pre post p out).eval (List.ofFn x))
+      ((Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x)) := by
+  let xs := Circuit.wires ⟨pre, 0⟩ (List.ofFn x)
+  have hx : xs.length = n + pre.length := by
+    simp [xs, LivePruning.wires_length]
+  simp only [AliasPruning.erase, Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons]
+  change ordered up
+    ((Circuit.wires ⟨post.map (AliasPruning.renamed (n + pre.length) p), 0⟩ xs).getD
+      (AliasPruning.redirect (n + pre.length) p out) false)
+    ((Circuit.wires ⟨post, 0⟩ (xs ++ [LivePruning.gateValue g xs])).getD out false)
+  apply wires_ordered up _ _ _ _ _ (by simp) (by simp [hx]) hp _ _ out
+  · intro q hq
+    exact (hmono q (List.mem_append_right _ (List.mem_cons_of_mem _ hq))).1
+  · rw [← hx]
+    exact initial_ordered up xs p _ hlocal
+
+def CompleteBoundary (n : ℕ) (f : (Fin n → Bool) → Bool)
+    (positive negative : List (Fin n → Bool)) : Prop :=
+  ∀ D : Circuit, Monotone2 D →
+    (∀ x ∈ positive, D.eval (List.ofFn x) = true) →
+    (∀ x ∈ negative, D.eval (List.ofFn x) = false) →
+    ∀ x : Fin n → Bool, D.eval (List.ofFn x) = f x
+
+lemma boundary_alias_failure (up : Bool) (n : ℕ) (f : (Fin n → Bool) → Bool)
+    (positive negative : List (Fin n → Bool)) (pre post : List Gate) (g : Gate) (p out : ℕ)
+    (hp : p < n + pre.length)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) out))
+    (hev : ∀ x : Fin n → Bool, (Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x) = f x)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = f x) →
+      (Circuit.mk (pre ++ g :: post) out).size ≤ D.size)
+    (hpos : ∀ x ∈ positive, f x = true) (hneg : ∀ x ∈ negative, f x = false)
+    (hcomplete : CompleteBoundary n f positive negative)
+    (horder : ∀ x : Fin n → Bool,
+      ordered up ((AliasPruning.erase n pre post p out).eval (List.ofFn x))
+        ((Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x))) :
+    ∃ x ∈ (if up then negative else positive),
+      ((Circuit.mk (pre ++ g :: post) out).wires (List.ofFn x)).getD (n + pre.length) false ≠
+        ((Circuit.mk (pre ++ g :: post) out).wires (List.ofFn x)).getD p false := by
+  classical
+  by_contra hn
+  have hcopy (x : Fin n → Bool) (hx : x ∈ (if up then negative else positive)) :
+      ((Circuit.mk (pre ++ g :: post) out).wires (List.ofFn x)).getD (n + pre.length) false =
+        ((Circuit.mk (pre ++ g :: post) out).wires (List.ofFn x)).getD p false := by
+    by_contra he
+    exact hn ⟨x, hx, he⟩
+  have hexact (x : Fin n → Bool) (hx : x ∈ (if up then negative else positive)) :
+      (AliasPruning.erase n pre post p out).eval (List.ofFn x) =
+        (Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x) :=
+    ResidualFirstAnd.alias_erase_eval_at n pre post g p out hp x (hcopy x hx)
+  have hDmono := erase_monotone n pre post g p out hmono
+  have hDpos : ∀ x ∈ positive, (AliasPruning.erase n pre post p out).eval (List.ofFn x) = true := by
+    intro x hx
+    cases hu : up with
+    | false => rw [hexact x (by simpa [hu] using hx), hev, hpos x hx]
+    | true =>
+      have ho := horder x
+      change (if up then _ else _) at ho
+      simp only [hu, ite_true] at ho
+      rw [hev, hpos x hx] at ho
+      exact Bool.eq_true_of_true_le ho
+  have hDneg : ∀ x ∈ negative, (AliasPruning.erase n pre post p out).eval (List.ofFn x) = false := by
+    intro x hx
+    cases hu : up with
+    | false =>
+      have ho := horder x
+      change (if up then _ else _) at ho
+      simp only [hu, Bool.false_eq_true, ite_false] at ho
+      rw [hev, hneg x hx] at ho
+      exact Bool.eq_false_of_le_false ho
+    | true => rw [hexact x (by simpa [hu] using hx), hev, hneg x hx]
+  have hD := hcomplete (AliasPruning.erase n pre post p out) hDmono hDpos hDneg
+  have hm := hmin (AliasPruning.erase n pre post p out) hDmono hD
+  have hs := AliasPruning.erase_size n pre post g p out
+  omega
+
+lemma and_left_order : ∀ a b : Bool, ordered true a (a && b) := by unfold ordered; decide +kernel
+lemma and_right_order : ∀ a b : Bool, ordered true b (a && b) := by unfold ordered; decide +kernel
+lemma or_left_order : ∀ a b : Bool, ordered false a (a || b) := by unfold ordered; decide +kernel
+lemma or_right_order : ∀ a b : Bool, ordered false b (a || b) := by unfold ordered; decide +kernel
+
+lemma and_ne_left : ∀ a b : Bool, (a && b) ≠ a → a = true ∧ b = false := by decide +kernel
+lemma and_ne_right : ∀ a b : Bool, (a && b) ≠ b → a = false ∧ b = true := by decide +kernel
+lemma or_ne_left : ∀ a b : Bool, (a || b) ≠ a → a = false ∧ b = true := by decide +kernel
+lemma or_ne_right : ∀ a b : Bool, (a || b) ≠ b → a = true ∧ b = false := by decide +kernel
+
+abbrev wireValue {n : ℕ} (C : Circuit) (x : Fin n → Bool) (i : ℕ) : Bool :=
+  (C.wires (List.ofFn x)).getD i false
+
+lemma minimum_and_negative_incomparable (n : ℕ) (f : (Fin n → Bool) → Bool)
+    (positive negative : List (Fin n → Bool)) (C : Circuit)
+    (pre post : List Gate) (p q : ℕ)
+    (hp : p < n + pre.length) (hq : q < n + pre.length)
+    (hgs : C.gates = pre ++ ⟨GateOp.and, [p, q]⟩ :: post)
+    (hmono : Monotone2 C)
+    (hev : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = f x)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = f x) → C.size ≤ D.size)
+    (hpos : ∀ x ∈ positive, f x = true) (hneg : ∀ x ∈ negative, f x = false)
+    (hcomplete : CompleteBoundary n f positive negative) :
+    (∃ x ∈ negative, wireValue C x p = true ∧ wireValue C x q = false) ∧
+    (∃ x ∈ negative, wireValue C x p = false ∧ wireValue C x q = true) := by
+  rcases C with ⟨gs, out⟩
+  change gs = _ at hgs
+  subst gs
+  let C : Circuit := ⟨pre ++ ⟨GateOp.and, [p, q]⟩ :: post, out⟩
+  have hvalue (x : Fin n → Bool) :
+      wireValue C x (n + pre.length) = (wireValue C x p && wireValue C x q) := by
+    have he := FirstAndClassification.full_gate_value n C pre post
+      ⟨GateOp.and, [p, q]⟩ rfl (by
+        intro i hi
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+        rcases hi with rfl | rfl
+        · exact hp
+        · exact hq) x
+    simpa [wireValue, GateOp.eval] using he
+  have hl := boundary_alias_failure true n f positive negative pre post
+    ⟨GateOp.and, [p, q]⟩ p out hp hmono hev hmin hpos hneg hcomplete (by
+      intro x
+      apply erase_ordered true n pre post _ p out hp hmono x
+      simpa [LivePruning.gateValue, GateOp.eval] using
+        and_left_order ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false)
+          ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD q false))
+  have hr := boundary_alias_failure true n f positive negative pre post
+    ⟨GateOp.and, [p, q]⟩ q out hq hmono hev hmin hpos hneg hcomplete (by
+      intro x
+      apply erase_ordered true n pre post _ q out hq hmono x
+      simpa [LivePruning.gateValue, GateOp.eval] using
+        and_right_order ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false)
+          ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD q false))
+  constructor
+  · obtain ⟨x, hx, hne⟩ := hl
+    change wireValue C x (n + pre.length) ≠ wireValue C x p at hne
+    rw [hvalue x] at hne
+    exact ⟨x, hx, and_ne_left _ _ hne⟩
+  · obtain ⟨x, hx, hne⟩ := hr
+    change wireValue C x (n + pre.length) ≠ wireValue C x q at hne
+    rw [hvalue x] at hne
+    exact ⟨x, hx, and_ne_right _ _ hne⟩
+
+lemma minimum_or_positive_incomparable (n : ℕ) (f : (Fin n → Bool) → Bool)
+    (positive negative : List (Fin n → Bool)) (C : Circuit)
+    (pre post : List Gate) (p q : ℕ)
+    (hp : p < n + pre.length) (hq : q < n + pre.length)
+    (hgs : C.gates = pre ++ ⟨GateOp.or, [p, q]⟩ :: post)
+    (hmono : Monotone2 C)
+    (hev : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = f x)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = f x) → C.size ≤ D.size)
+    (hpos : ∀ x ∈ positive, f x = true) (hneg : ∀ x ∈ negative, f x = false)
+    (hcomplete : CompleteBoundary n f positive negative) :
+    (∃ x ∈ positive, wireValue C x p = true ∧ wireValue C x q = false) ∧
+    (∃ x ∈ positive, wireValue C x p = false ∧ wireValue C x q = true) := by
+  rcases C with ⟨gs, out⟩
+  change gs = _ at hgs
+  subst gs
+  let C : Circuit := ⟨pre ++ ⟨GateOp.or, [p, q]⟩ :: post, out⟩
+  have hvalue (x : Fin n → Bool) :
+      wireValue C x (n + pre.length) = (wireValue C x p || wireValue C x q) := by
+    have he := FirstAndClassification.full_gate_value n C pre post
+      ⟨GateOp.or, [p, q]⟩ rfl (by
+        intro i hi
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+        rcases hi with rfl | rfl
+        · exact hp
+        · exact hq) x
+    simpa [wireValue, GateOp.eval] using he
+  have hl := boundary_alias_failure false n f positive negative pre post
+    ⟨GateOp.or, [p, q]⟩ p out hp hmono hev hmin hpos hneg hcomplete (by
+      intro x
+      apply erase_ordered false n pre post _ p out hp hmono x
+      simpa [LivePruning.gateValue, GateOp.eval] using
+        or_left_order ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false)
+          ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD q false))
+  have hr := boundary_alias_failure false n f positive negative pre post
+    ⟨GateOp.or, [p, q]⟩ q out hq hmono hev hmin hpos hneg hcomplete (by
+      intro x
+      apply erase_ordered false n pre post _ q out hq hmono x
+      simpa [LivePruning.gateValue, GateOp.eval] using
+        or_right_order ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false)
+          ((Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD q false))
+  constructor
+  · obtain ⟨x, hx, hne⟩ := hr
+    change wireValue C x (n + pre.length) ≠ wireValue C x q at hne
+    rw [hvalue x] at hne
+    exact ⟨x, hx, or_ne_right _ _ hne⟩
+  · obtain ⟨x, hx, hne⟩ := hl
+    change wireValue C x (n + pre.length) ≠ wireValue C x p at hne
+    rw [hvalue x] at hne
+    exact ⟨x, hx, or_ne_left _ _ hne⟩
+
+end BoundaryOperands
+
+namespace BoundaryOperands
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma erase_ordered_of_full_wires (up : Bool) (n : Nat)
+    (pre post : List Gate) (g : Gate) (p out : Nat)
+    (hp : p < n + pre.length)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) out))
+    (x : Fin n → Bool)
+    (horder : ordered up
+      (wireValue (Circuit.mk (pre ++ g :: post) out) x p)
+      (wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length))) :
+    ordered up ((AliasPruning.erase n pre post p out).eval (List.ofFn x))
+      ((Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x)) := by
+  apply erase_ordered up n pre post g p out hp hmono x
+  have hpv := Restriction.getD_wiresFrom (g :: post)
+    (Restriction.wiresFrom pre (List.ofFn x)) p
+    (by simpa [Restriction.length_wiresFrom] using hp)
+  have hgv := positive_gate_output_value pre post g (List.ofFn x)
+  have hpv' : wireValue (Circuit.mk (pre ++ g :: post) out) x p =
+      (Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false := by
+    simpa only [wireValue, Circuit.wires, Restriction.wiresFrom, List.foldl_append] using hpv
+  have hgv' : wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) =
+      LivePruning.gateValue g (Circuit.wires ⟨pre, 0⟩ (List.ofFn x)) := by
+    simpa only [wireValue, Circuit.wires, Restriction.wiresFrom, List.length_ofFn,
+      LivePruning.gateValue] using hgv
+  rwa [hpv', hgv'] at horder
+
+lemma minimum_no_boundary_dominator (n : Nat) (f : (Fin n → Bool) → Bool)
+    (positive negative : List (Fin n → Bool)) (pre post : List Gate)
+    (g : Gate) (p out : Nat) (hp : p < n + pre.length)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) out))
+    (hev : ∀ x : Fin n → Bool, (Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x) = f x)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = f x) →
+      (Circuit.mk (pre ++ g :: post) out).size ≤ D.size)
+    (hpos : ∀ x ∈ positive, f x = true)
+    (hneg : ∀ x ∈ negative, f x = false)
+    (hcomplete : CompleteBoundary n f positive negative) :
+    (∃ x ∈ positive,
+      wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) = true ∧
+      wireValue (Circuit.mk (pre ++ g :: post) out) x p = false) ∨
+    (∃ x ∈ negative,
+      wireValue (Circuit.mk (pre ++ g :: post) out) x p = true ∧
+      wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) = false) := by
+  classical
+  by_contra hn
+  have hDmono := erase_monotone n pre post g p out hmono
+  have hDpos : ∀ x ∈ positive, (AliasPruning.erase n pre post p out).eval (List.ofFn x) = true := by
+    intro x hx
+    have hw : wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) ≤
+        wireValue (Circuit.mk (pre ++ g :: post) out) x p := by
+      cases hz : wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) <;>
+        cases hpv : wireValue (Circuit.mk (pre ++ g :: post) out) x p <;> simp_all
+    have ho := erase_ordered_of_full_wires true n pre post g p out hp hmono x hw
+    change (Circuit.mk (pre ++ g :: post) out).eval (List.ofFn x) ≤ _ at ho
+    rw [hev, hpos x hx] at ho
+    exact Bool.eq_true_of_true_le ho
+  have hDneg : ∀ x ∈ negative, (AliasPruning.erase n pre post p out).eval (List.ofFn x) = false := by
+    intro x hx
+    have hw : wireValue (Circuit.mk (pre ++ g :: post) out) x p ≤
+        wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) := by
+      cases hpv : wireValue (Circuit.mk (pre ++ g :: post) out) x p <;>
+        cases hz : wireValue (Circuit.mk (pre ++ g :: post) out) x (n + pre.length) <;> simp_all
+    have ho := erase_ordered_of_full_wires false n pre post g p out hp hmono x hw
+    change (AliasPruning.erase n pre post p out).eval (List.ofFn x) ≤ _ at ho
+    rw [hev, hneg x hx] at ho
+    exact Bool.eq_false_of_le_false ho
+  have he := hcomplete (AliasPruning.erase n pre post p out) hDmono hDpos hDneg
+  have hm := hmin (AliasPruning.erase n pre post p out) hDmono he
+  have hs := AliasPruning.erase_size n pre post g p out
+  omega
+
+end BoundaryOperands
+
+namespace EarlierGuardBlockers
+
+set_option maxHeartbeats 4000000 in
+lemma endpoint0_independent_extension : ∀ y : Fin 10 → Bool,
+    y 0 = false → y 1 = false → petersen y = false →
+    ((y 3 && y 7) || (y 8 && y 9)) = false →
+    ∃ t : Fin 10, (t = 4 ∨ t = 5) ∧
+      petersen (partnerRaise t y) = false ∧
+      petersen (partnerRaise 0 (partnerRaise t y)) = true := by
+  decide +kernel
+
+lemma monotone_endpoint0_guard_blockers (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip0 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 0 y) = petersen y) :
+    ∀ x : Fin 10 → Bool, H x = true → petersen x = false →
+      ((x 3 && x 7) || (x 8 && x 9)) = true := by
+  intro x hx hf
+  cases hb : ((x 3 && x 7) || (x 8 && x 9)) with
+  | true => rfl
+  | false =>
+    let y := partnerClear01 x
+    have hy : H y = true := by simpa [y, ← hmask x hf] using hx
+    have hy0 : y 0 = false := by simp [y, partnerClear01]
+    have hy1 : y 1 = false := by simp [y, partnerClear01]
+    have hyf : petersen y = false := partner_clear_independent x hf
+    have hyb : ((y 3 && y 7) || (y 8 && y 9)) = false := by
+      simpa [y, partnerClear01] using hb
+    obtain ⟨t, ht, hzf, hzpositive⟩ := endpoint0_independent_extension y hy0 hy1 hyf hyb
+    have ht0 : t ≠ 0 := by rcases ht with rfl | rfl <;> decide
+    have ht1 : t ≠ 1 := by rcases ht with rfl | rfl <;> decide
+    have hle : y ≤ partnerRaise t y := by
+      intro i
+      by_cases hi : i = t <;> simp [partnerRaise, hi]
+    have hz : H (partnerRaise t y) = true := by
+      have hh := hmono hle
+      apply Bool.eq_true_of_true_le
+      simpa [hy] using hh
+    have hz0 : partnerRaise t y 0 = false := by
+      simp [partnerRaise, Ne.symm ht0, hy0]
+    have hz1 : partnerRaise t y 1 = false := by
+      simp [partnerRaise, Ne.symm ht1, hy1]
+    have hsame := hflip0 (partnerRaise t y) hz0 hz1 hz
+    rw [hzpositive, hzf] at hsame
+    exact False.elim (Bool.false_ne_true hsame.symm)
+
+set_option maxHeartbeats 4000000 in
+lemma endpoint0_blocker_rows_below_maxima : ∀ y : Fin 10 → Bool,
+    y 0 = false → y 1 = false → petersen y = false →
+    ((y 3 && y 7) || (y 8 && y 9)) = true →
+    y ≤ (fun i => decide (i = 3 ∨ i = 6 ∨ i = 7)) ∨
+      y ≤ (fun i => decide (i = 2 ∨ i = 8 ∨ i = 9)) := by
+  decide +kernel
+
+lemma endpoint0_maximal_rows_negative :
+    petersen (fun i => decide (i = 3 ∨ i = 6 ∨ i = 7)) = false ∧
+      petersen (fun i => decide (i = 2 ∨ i = 8 ∨ i = 9)) = false := by
+  decide +kernel
+
+lemma monotone_endpoint0_unsafe_fixed_row (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip0 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 0 y) = petersen y)
+    (hunsafe : ∃ x : Fin 10 → Bool, H x = true ∧ petersen x = false) :
+    H (fun i => decide (i = 3 ∨ i = 6 ∨ i = 7)) = true ∨
+      H (fun i => decide (i = 2 ∨ i = 8 ∨ i = 9)) = true := by
+  obtain ⟨x, hx, hf⟩ := hunsafe
+  let y := partnerClear01 x
+  have hy : H y = true := by simpa [y, ← hmask x hf] using hx
+  have hy0 : y 0 = false := by simp [y, partnerClear01]
+  have hy1 : y 1 = false := by simp [y, partnerClear01]
+  have hyf : petersen y = false := partner_clear_independent x hf
+  have hyb := monotone_endpoint0_guard_blockers H hmono hmask hflip0 y hy hyf
+  rcases endpoint0_blocker_rows_below_maxima y hy0 hy1 hyf hyb with hle | hle
+  · left
+    apply Bool.eq_true_of_true_le
+    simpa [hy] using hmono hle
+  · right
+    apply Bool.eq_true_of_true_le
+    simpa [hy] using hmono hle
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+set_option maxHeartbeats 4000000 in
+lemma endpoint1_independent_extension : ∀ y : Fin 10 → Bool,
+    y 0 = false → y 1 = false → petersen y = false →
+    ((y 3 && y 9) || (y 7 && y 8)) = false →
+    ∃ t : Fin 10, (t = 2 ∨ t = 6) ∧
+      petersen (partnerRaise t y) = false ∧
+      petersen (partnerRaise 1 (partnerRaise t y)) = true := by
+  decide +kernel
+
+lemma monotone_endpoint1_blockers (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 1 y) = petersen y) :
+    ∀ x : Fin 10 → Bool, H x = true → petersen x = false →
+      ((x 3 && x 9) || (x 7 && x 8)) = true := by
+  intro x hx hxf
+  cases hb : ((x 3 && x 9) || (x 7 && x 8)) with
+  | true => rfl
+  | false =>
+    let y := partnerClear01 x
+    have hy : H y = true := by simpa [y, ← hmask x hxf] using hx
+    have hy0 : y 0 = false := by simp [y, partnerClear01]
+    have hy1 : y 1 = false := by simp [y, partnerClear01]
+    have hyf : petersen y = false := partner_clear_independent x hxf
+    have hyb : ((y 3 && y 9) || (y 7 && y 8)) = false := by
+      simpa [y, partnerClear01] using hb
+    obtain ⟨t, ht, hzf, hpos⟩ := endpoint1_independent_extension y hy0 hy1 hyf hyb
+    have hle : y ≤ partnerRaise t y := by
+      intro i
+      by_cases hi : i = t <;> simp [partnerRaise, hi]
+    have hz : H (partnerRaise t y) = true := by
+      have hh := hmono hle
+      apply Bool.eq_true_of_true_le
+      simpa [hy] using hh
+    have hz0 : partnerRaise t y 0 = false := by
+      rcases ht with rfl | rfl <;> simp [partnerRaise, hy0]
+    have hz1 : partnerRaise t y 1 = false := by
+      rcases ht with rfl | rfl <;> simp [partnerRaise, hy1]
+    have he := hflip (partnerRaise t y) hz0 hz1 hz
+    rw [hpos, hzf] at he
+    contradiction
+
+lemma circuit_endpoint0_blockers
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 0 ∈ effectiveInputs g → maskedReadShape 0 1 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    ∀ x : Fin 10 → Bool, commonPartnerValue pre h x = true → petersen x = false →
+      ((x 3 && x 7) || (x 8 && x 9)) = true := by
+  apply monotone_endpoint0_guard_blockers (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 0 1 (by decide)
+    pre post out h hh hupper _ hpost hev y hy1 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inl hr) with rfl | rfl <;> simp [uniformReadShape]
+
+lemma circuit_endpoint1_blockers
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 1 ∈ effectiveInputs g → maskedReadShape 1 0 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    ∀ x : Fin 10 → Bool, commonPartnerValue pre h x = true → petersen x = false →
+      ((x 3 && x 9) || (x 7 && x 8)) = true := by
+  apply monotone_endpoint1_blockers (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 1 0 (by decide)
+    pre post out h hh hupper _ hpost hev y hy0 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inr hr) with rfl | rfl <;> simp [uniformReadShape]
+
+
+lemma monotone_endpoint0_unsafe_fixed_row_iff (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip0 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 0 y) = petersen y) :
+    (∃ x : Fin 10 → Bool, H x = true ∧ petersen x = false) ↔
+      H (fun i => decide (i = 3 ∨ i = 6 ∨ i = 7)) = true ∨
+        H (fun i => decide (i = 2 ∨ i = 8 ∨ i = 9)) = true := by
+  constructor
+  · exact monotone_endpoint0_unsafe_fixed_row H hmono hmask hflip0
+  · intro hrows
+    rcases hrows with hrow | hrow
+    · exact ⟨_, hrow, endpoint0_maximal_rows_negative.1⟩
+    · exact ⟨_, hrow, endpoint0_maximal_rows_negative.2⟩
+
+lemma monotone_endpoint0_guard_singleton_false (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip0 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 0 y) = petersen y) :
+    ∀ a : Fin 10, H (fun i => decide (i = a)) = false := by
+  intro a
+  cases he : H (fun i => decide (i = a)) with
+  | false => rfl
+  | true =>
+    have hb := monotone_endpoint0_guard_blockers H hmono hmask hflip0
+      (fun i => decide (i = a)) he (petersen_singleton_false a)
+    have hsingle : ∀ a : Fin 10,
+        ((decide ((3 : Fin 10) = a) && decide ((7 : Fin 10) = a)) ||
+          (decide ((8 : Fin 10) = a) && decide ((9 : Fin 10) = a))) = false := by
+      decide +kernel
+    rw [hsingle a] at hb
+    exact False.elim (Bool.false_ne_true hb)
+
+lemma circuit_endpoint0_unsafe_fixed_row_iff
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 0 ∈ effectiveInputs g → maskedReadShape 0 1 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    (∃ x : Fin 10 → Bool, commonPartnerValue pre h x = true ∧ petersen x = false) ↔
+      commonPartnerValue pre h (fun i => decide (i = 3 ∨ i = 6 ∨ i = 7)) = true ∨
+        commonPartnerValue pre h (fun i => decide (i = 2 ∨ i = 8 ∨ i = 9)) = true := by
+  apply monotone_endpoint0_unsafe_fixed_row_iff (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 0 1 (by decide)
+    pre post out h hh hupper _ hpost hev y hy1 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inl hr) with rfl | rfl <;> simp [uniformReadShape]
+
+lemma circuit_endpoint0_guard_singleton_false
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 0 ∈ effectiveInputs g → maskedReadShape 0 1 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    ∀ a : Fin 10, commonPartnerValue pre h (fun i => decide (i = a)) = false := by
+  apply monotone_endpoint0_guard_singleton_false (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 0 1 (by decide)
+    pre post out h hh hupper _ hpost hev y hy1 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inl hr) with rfl | rfl <;> simp [uniformReadShape]
+
+set_option maxHeartbeats 4000000 in
+lemma endpoint1_blocker_rows_below_maxima : ∀ y : Fin 10 → Bool,
+    y 0 = false → y 1 = false → petersen y = false →
+    ((y 3 && y 9) || (y 7 && y 8)) = true →
+    y ≤ (fun i => decide (i = 3 ∨ i = 5 ∨ i = 9)) ∨
+      y ≤ (fun i => decide (i = 4 ∨ i = 7 ∨ i = 8)) := by
+  decide +kernel
+
+lemma endpoint1_maximal_rows_negative :
+    petersen (fun i => decide (i = 3 ∨ i = 5 ∨ i = 9)) = false ∧
+      petersen (fun i => decide (i = 4 ∨ i = 7 ∨ i = 8)) = false := by
+  decide +kernel
+
+lemma monotone_endpoint1_unsafe_fixed_row (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip1 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 1 y) = petersen y)
+    (hunsafe : ∃ x : Fin 10 → Bool, H x = true ∧ petersen x = false) :
+    H (fun i => decide (i = 3 ∨ i = 5 ∨ i = 9)) = true ∨
+      H (fun i => decide (i = 4 ∨ i = 7 ∨ i = 8)) = true := by
+  obtain ⟨x, hx, hf⟩ := hunsafe
+  let y := partnerClear01 x
+  have hy : H y = true := by simpa [y, ← hmask x hf] using hx
+  have hy0 : y 0 = false := by simp [y, partnerClear01]
+  have hy1 : y 1 = false := by simp [y, partnerClear01]
+  have hyf : petersen y = false := partner_clear_independent x hf
+  have hyb := monotone_endpoint1_blockers H hmono hmask hflip1 y hy hyf
+  rcases endpoint1_blocker_rows_below_maxima y hy0 hy1 hyf hyb with hle | hle
+  · left
+    apply Bool.eq_true_of_true_le
+    simpa [hy] using hmono hle
+  · right
+    apply Bool.eq_true_of_true_le
+    simpa [hy] using hmono hle
+
+lemma monotone_endpoint1_unsafe_fixed_row_iff (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip1 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 1 y) = petersen y) :
+    (∃ x : Fin 10 → Bool, H x = true ∧ petersen x = false) ↔
+      (H (fun i => decide (i = 3 ∨ i = 5 ∨ i = 9)) = true ∨
+        H (fun i => decide (i = 4 ∨ i = 7 ∨ i = 8)) = true) := by
+  constructor
+  · exact monotone_endpoint1_unsafe_fixed_row H hmono hmask hflip1
+  · intro h
+    rcases h with h | h
+    · exact ⟨_, h, endpoint1_maximal_rows_negative.1⟩
+    · exact ⟨_, h, endpoint1_maximal_rows_negative.2⟩
+
+lemma endpoint1_singleton_negative_unblocked : ∀ v : Fin 10,
+    petersen (fun i => decide (i = v)) = false ∧
+      (((fun i : Fin 10 => decide (i = v)) 3 && (fun i : Fin 10 => decide (i = v)) 9) ||
+        ((fun i : Fin 10 => decide (i = v)) 7 && (fun i : Fin 10 => decide (i = v)) 8)) = false := by
+  decide +kernel
+
+lemma monotone_endpoint1_singleton_false (H : (Fin 10 → Bool) → Bool)
+    (hmono : Monotone H)
+    (hmask : ∀ x : Fin 10 → Bool, petersen x = false →
+      H x = H (partnerClear01 x))
+    (hflip1 : ∀ y : Fin 10 → Bool, y 0 = false → y 1 = false → H y = true →
+      petersen (partnerRaise 1 y) = petersen y) :
+    ∀ v : Fin 10, H (fun i => decide (i = v)) = false := by
+  intro v
+  cases hh : H (fun i => decide (i = v)) with
+  | false => rfl
+  | true =>
+    have hb := monotone_endpoint1_blockers H hmono hmask hflip1
+      (fun i => decide (i = v)) hh (endpoint1_singleton_negative_unblocked v).1
+    rw [(endpoint1_singleton_negative_unblocked v).2] at hb
+    exact False.elim (Bool.false_ne_true hb)
+
+lemma circuit_endpoint1_unsafe_fixed_row_iff
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 1 ∈ effectiveInputs g → maskedReadShape 1 0 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    (∃ x : Fin 10 → Bool, commonPartnerValue pre h x = true ∧ petersen x = false) ↔
+      (commonPartnerValue pre h (fun i => decide (i = 3 ∨ i = 5 ∨ i = 9)) = true ∨
+        commonPartnerValue pre h (fun i => decide (i = 4 ∨ i = 7 ∨ i = 8)) = true) := by
+  apply monotone_endpoint1_unsafe_fixed_row_iff (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 1 0 (by decide)
+    pre post out h hh hupper _ hpost hev y hy0 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inr hr) with rfl | rfl <;> simp [uniformReadShape]
+
+lemma circuit_endpoint1_guard_singleton_false
+    (pre post : List Gate) (out h : ℕ) (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hpost : ∀ g ∈ post, 1 ∈ effectiveInputs g → maskedReadShape 1 0 h g)
+    (hev : ∀ x : Fin 10 → Bool,
+      ({gates := pre ++ post, output := out} : Circuit).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    ∀ a : Fin 10, commonPartnerValue pre h (fun i => decide (i = a)) = false := by
+  apply monotone_endpoint1_singleton_false (commonPartnerValue pre h) hmono
+    (common_partner_clear_mask pre h hh hpre)
+  intro y hy0 hy1 hy
+  apply partner_endpoint_flip_of_read_masks 1 0 (by decide)
+    pre post out h hh hupper _ hpost hev y hy0 hy
+  intro g hg hr
+  rcases hpre g hg (Or.inr hr) with rfl | rfl <;> simp [uniformReadShape]
+
+
+end EarlierGuardBlockers
+
+namespace AliasPruning
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open LivePruning
+
+lemma wires_renamed_true_count (k p : ℕ) (gs : List Gate) (xs ys : List Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length) (hp : p < k)
+    (heq : ∀ i, xs.getD (redirect k p i) false = ys.getD i false)
+    (d : ℕ) (hcount : xs.countP id + d = ys.countP id) :
+    (Circuit.wires ⟨gs.map (renamed k p), 0⟩ xs).countP id + d =
+      (Circuit.wires ⟨gs, 0⟩ ys).countP id := by
+  induction gs generalizing xs ys with
+  | nil => exact hcount
+  | cons g gs ih =>
+    have hg := renamed_value k p g xs ys heq
+    change (Circuit.wires ⟨gs.map (renamed k p), 0⟩
+        (xs ++ [gateValue (renamed k p g) xs])).countP id + d =
+      (Circuit.wires ⟨gs, 0⟩ (ys ++ [gateValue g ys])).countP id
+    rw [hg]
+    apply ih _ _
+    · simp only [List.length_append, List.length_singleton]
+      omega
+    · simp only [List.length_append, List.length_singleton]
+      omega
+    · exact append_agree k p xs ys _ hlen hk hp heq
+    · simp only [List.countP_append]
+      omega
+
+lemma alias_erase_true_count_at (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length) (x : Fin n → Bool)
+    (hcopy : (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD (n + pre.length) false =
+      (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD p false) :
+    ((erase n pre post p o).wires (List.ofFn x)).countP id +
+      Bool.toNat ((Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD (n + pre.length) false) =
+      (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).countP id := by
+  let xs := Circuit.wires ⟨pre, 0⟩ (List.ofFn x)
+  have hx : xs.length = n + pre.length := by
+    unfold xs
+    rw [LivePruning.wires_length, List.length_ofFn]
+  have hwires : Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x) =
+      Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs]) := by
+    simp [Circuit.wires, List.foldl_append, xs, gateValue]
+  have hgate : (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD (n + pre.length) false =
+      gateValue g xs := by
+    rw [hwires, wires_input _ _ _ (by simp [hx])]
+    rw [← hx]
+    simp
+  have hwirep : (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD p false =
+      xs.getD p false := by
+    rw [hwires, wires_input _ _ _ (by simp [hx]; omega)]
+    exact List.getD_append _ _ _ _ (by omega)
+  have hcopy' : gateValue g xs = xs.getD p false := by
+    rw [hgate, hwirep] at hcopy
+    exact hcopy
+  have hnew : (erase n pre post p o).wires (List.ofFn x) =
+      Circuit.wires ⟨post.map (renamed (n + pre.length) p), 0⟩ xs := by
+    simp [erase, Circuit.wires, List.foldl_append, xs]
+  rw [hnew, hgate, hwires]
+  apply wires_renamed_true_count (n + pre.length) p post xs (xs ++ [gateValue g xs])
+  · simp
+  · simp [hx]
+  · exact hp
+  · rw [← hx]
+    exact initial_agree xs p _ hcopy'
+  · cases gateValue g xs <;> simp [List.countP_append]
+
+end AliasPruning
+
+namespace AliasPruning
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma redirect_lt_after_delete (k p i m : ℕ) (hp : p < k) (hkm : k ≤ m)
+    (hi : i < m + 1) : redirect k p i < m := by
+  by_cases hik : i = k
+  · subst i
+    simpa only [redirect, ite_true] using lt_of_lt_of_le hp hkm
+  · simp only [redirect, ite_eq_right hik, LivePruning.down]
+    split <;> omega
+
+lemma erase_output_bound (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length) (ho : o < n + (pre ++ g :: post).length) :
+    (erase n pre post p o).output < n + (erase n pre post p o).gates.length := by
+  have hi : o < (n + pre.length + post.length) + 1 := by
+    simp only [List.length_append, List.length_cons] at ho
+    omega
+  have hh := redirect_lt_after_delete (n + pre.length) p o
+    (n + pre.length + post.length) hp (by omega) hi
+  simpa only [erase, List.length_append, List.length_map, Nat.add_assoc] using hh
+
+lemma erase_monotone (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hmono : Monotone2 (Circuit.mk (pre ++ g :: post) o)) :
+    Monotone2 (erase n pre post p o) := by
+  intro q hq
+  change q ∈ pre ++ post.map (renamed (n + pre.length) p) at hq
+  rcases List.mem_append.mp hq with hq | hq
+  · exact hmono q (by simp [hq])
+  · obtain ⟨r, hr, rfl⟩ := List.mem_map.mp hq
+    simpa only [renamed, List.length_map] using hmono r (by simp [hr])
+
+lemma erase_strict_back (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length)
+    (back : ∀ j q, (pre ++ g :: post)[j]? = some q → ∀ i ∈ q.inputs, i < n + j) :
+    ∀ j q, (erase n pre post p o).gates[j]? = some q → ∀ i ∈ q.inputs, i < n + j := by
+  intro j q hq
+  change (pre ++ post.map (renamed (n + pre.length) p))[j]? = some q at hq
+  by_cases hj : j < pre.length
+  · have hpre : pre[j]? = some q := by
+      rwa [List.getElem?_append_left hj] at hq
+    apply back j q
+    rw [List.getElem?_append_left hj]
+    exact hpre
+  · rw [List.getElem?_append_right (by omega), List.getElem?_map] at hq
+    cases hr : post[j - pre.length]? with
+    | none => simp [hr] at hq
+    | some r =>
+      have hqr : renamed (n + pre.length) p r = q := by simpa [hr] using hq
+      subst q
+      intro i hi
+      obtain ⟨s, hs, rfl⟩ := List.mem_map.mp hi
+      apply redirect_lt_after_delete (n + pre.length) p s (n + j) hp (by omega)
+      have hsource : (pre ++ g :: post)[j + 1]? = some r := by
+        rw [List.getElem?_append_right (by omega)]
+        have he : j + 1 - pre.length = (j - pre.length) + 1 := by omega
+        rw [he]
+        simpa using hr
+      have hb := back (j + 1) r hsource s hs
+      simpa only [Nat.add_assoc] using hb
+
+end AliasPruning
+
+namespace SingleOrEnergy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+def original (pre post : List Gate) (a h out : ℕ) : Circuit :=
+  ⟨pre ++ ⟨.or, [a, h]⟩ :: post, out⟩
+
+def lifted (n : ℕ) (pre post : List Gate) (a h out : ℕ) : Circuit :=
+  let body := AliasPruning.erase n pre post a out
+  ⟨body.gates ++ [⟨.or, [body.output, h]⟩], n + body.size⟩
+
+lemma prefix_value (pre post : List Gate) (out : ℕ) (xs : List Bool) (i : ℕ)
+    (hi : i < xs.length + pre.length) :
+    ((Circuit.mk (pre ++ post) out).wires xs).getD i false =
+      (wiresFrom pre xs).getD i false := by
+  change (wiresFrom (pre ++ post) xs).getD i false = _
+  rw [wiresFrom_append, getD_wiresFrom _ _ _ (by simpa [length_wiresFrom] using hi)]
+
+lemma original_guard (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hh : h < n + pre.length) (x : Fin n → Bool) :
+    ((original pre post a h out).wires (List.ofFn x)).getD h false =
+      (wiresFrom pre (List.ofFn x)).getD h false := by
+  exact prefix_value pre _ out _ h (by simpa using hh)
+
+lemma body_guard (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hh : h < n + pre.length) (x : Fin n → Bool) :
+    ((AliasPruning.erase n pre post a out).wires (List.ofFn x)).getD h false =
+      (wiresFrom pre (List.ofFn x)).getD h false := by
+  exact prefix_value pre _ _ _ h (by simpa using hh)
+
+lemma original_gate_value (n : ℕ) (pre post : List Gate) (a h out : ℕ) (x : Fin n → Bool) :
+    ((original pre post a h out).wires (List.ofFn x)).getD (n + pre.length) false =
+      ((wiresFrom pre (List.ofFn x)).getD a false || (wiresFrom pre (List.ofFn x)).getD h false) := by
+  simpa [original, Circuit.wires, wiresFrom, GateOp.eval] using
+    positive_gate_output_value pre post ⟨.or, [a, h]⟩ (List.ofFn x)
+
+lemma original_gate_copy (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (x : Fin n → Bool)
+    (hz : (wiresFrom pre (List.ofFn x)).getD h false = false) :
+    ((original pre post a h out).wires (List.ofFn x)).getD (n + pre.length) false =
+      ((original pre post a h out).wires (List.ofFn x)).getD a false := by
+  rw [original_gate_value, hz, Bool.or_false]
+  exact (prefix_value pre _ out _ a (by simpa using ha)).symm
+
+lemma lifted_eval (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true →
+        (original pre post a h out).eval (List.ofFn x) = true) :
+    ∀ x : Fin n → Bool, (lifted n pre post a h out).eval (List.ofFn x) =
+      (original pre post a h out).eval (List.ofFn x) := by
+  intro x
+  rw [lifted, Circuit.size, positive_top_or_eval]
+  change ((AliasPruning.erase n pre post a out).eval (List.ofFn x) ||
+    ((AliasPruning.erase n pre post a out).wires (List.ofFn x)).getD h false) = _
+  rw [body_guard n pre post a h out hh x]
+  cases hz : (wiresFrom pre (List.ofFn x)).getD h false with
+  | false =>
+    simp only [Bool.or_false]
+    exact ResidualFirstAnd.alias_erase_eval_at n pre post ⟨.or, [a, h]⟩ a out ha x
+      (original_gate_copy n pre post a h out ha x hz)
+  | true => simp [hbelow x hz]
+
+lemma lifted_size (n : ℕ) (pre post : List Gate) (a h out : ℕ) :
+    (lifted n pre post a h out).size = (original pre post a h out).size := by
+  simp [lifted, original, AliasPruning.erase, Circuit.size]
+
+lemma lifted_fanin (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hfan : FanInTwo (original pre post a h out)) :
+    FanInTwo (lifted n pre post a h out) := by
+  have hbody := AliasPruning.erase_fanin n pre post ⟨.or, [a, h]⟩ a out hfan
+  intro g hg
+  change g ∈ (AliasPruning.erase n pre post a out).gates ++ [⟨.or, [_, h]⟩] at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hbody g hg
+  · obtain rfl := List.mem_singleton.mp hg
+    simp
+
+lemma lifted_op_count (n : ℕ) (pre post : List Gate) (a h out : ℕ) (P : GateOp → Bool) :
+    (lifted n pre post a h out).gates.countP (fun g => P g.op) =
+      (original pre post a h out).gates.countP (fun g => P g.op) := by
+  simp [lifted, original, AliasPruning.erase, AliasPruning.renamed, List.countP_map, List.countP_cons, Function.comp_def,
+    Nat.add_comm, Nat.add_left_comm]
+
+lemma lifted_first (n : ℕ) (pre post : List Gate) (a h out : ℕ) (hn : 0 < pre.length) :
+    (lifted n pre post a h out).gates[0]? = (original pre post a h out).gates[0]? := by
+  cases pre with
+  | nil => simp at hn
+  | cons g pre => simp [lifted, original, AliasPruning.erase]
+
+lemma lifted_normal (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hn : ∀ g ∈ (original pre post a h out).gates,
+      g.op = GateOp.not → g.inputs.length ≤ 1) :
+    ∀ g ∈ (lifted n pre post a h out).gates,
+      g.op = GateOp.not → g.inputs.length ≤ 1 := by
+  intro g hg
+  change g ∈ (pre ++ post.map (AliasPruning.renamed (n + pre.length) a)) ++ [⟨.or, [_, h]⟩] at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · rcases List.mem_append.mp hg with hg | hg
+    · exact hn g (List.mem_append_left _ hg)
+    · obtain ⟨q, hq, rfl⟩ := List.mem_map.mp hg
+      simpa [AliasPruning.renamed] using hn q (List.mem_append_right _ (List.mem_cons_of_mem _ hq))
+  · obtain rfl := List.mem_singleton.mp hg
+    simp
+
+lemma append_false_true_count (n : ℕ) (gs : List Gate) (g : Gate) (x : Fin n → Bool)
+    (hz : (Circuit.mk (gs ++ [g]) (n + gs.length)).eval (List.ofFn x) = false) :
+    ((Circuit.mk (gs ++ [g]) (n + gs.length)).wires (List.ofFn x)).countP id =
+      ((Circuit.mk gs 0).wires (List.ofFn x)).countP id := by
+  have he : (Circuit.mk (gs ++ [g]) (n + gs.length)).eval (List.ofFn x) =
+      g.op.eval (g.inputs.map fun i => (wiresFrom gs (List.ofFn x)).getD i false) := by
+    simpa [Circuit.eval, Circuit.wires, wiresFrom] using
+      positive_gate_output_value gs [] g (List.ofFn x)
+  have hg : g.op.eval (g.inputs.map fun i => (wiresFrom gs (List.ofFn x)).getD i false) = false := by
+    rw [← he, hz]
+  change (wiresFrom (gs ++ [g]) (List.ofFn x)).countP id =
+    (wiresFrom gs (List.ofFn x)).countP id
+  rw [wiresFrom_append]
+  change ((wiresFrom gs (List.ofFn x)) ++ [_]).countP id = _
+  rw [hg]
+  simp
+
+lemma guard_false_on_negative (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true →
+        (original pre post a h out).eval (List.ofFn x) = true)
+    (x : Fin n → Bool) (hz : (original pre post a h out).eval (List.ofFn x) = false) :
+    (wiresFrom pre (List.ofFn x)).getD h false = false := by
+  cases hh : (wiresFrom pre (List.ofFn x)).getD h false with
+  | false => rfl
+  | true => have he := hbelow x hh; rw [hz] at he; contradiction
+
+lemma lifted_true_count_on_negative (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true →
+        (original pre post a h out).eval (List.ofFn x) = true)
+    (x : Fin n → Bool) (hz : (original pre post a h out).eval (List.ofFn x) = false) :
+    ((lifted n pre post a h out).wires (List.ofFn x)).countP id +
+      Bool.toNat (((original pre post a h out).wires (List.ofFn x)).getD a false) =
+      ((original pre post a h out).wires (List.ofFn x)).countP id := by
+  have hguard := guard_false_on_negative n pre post a h out hbelow x hz
+  have hcopy := original_gate_copy n pre post a h out ha x hguard
+  have hb := AliasPruning.alias_erase_true_count_at n pre post ⟨.or, [a, h]⟩ a out ha x hcopy
+  change ((AliasPruning.erase n pre post a out).wires (List.ofFn x)).countP id +
+    Bool.toNat (((original pre post a h out).wires (List.ofFn x)).getD (n + pre.length) false) =
+    ((original pre post a h out).wires (List.ofFn x)).countP id at hb
+  rw [hcopy] at hb
+  have hnew : (lifted n pre post a h out).eval (List.ofFn x) = false := by
+    rw [lifted_eval n pre post a h out ha hh hbelow x, hz]
+  have hc := append_false_true_count n (AliasPruning.erase n pre post a out).gates
+    ⟨.or, [(AliasPruning.erase n pre post a out).output, h]⟩ x hnew
+  change ((lifted n pre post a h out).wires (List.ofFn x)).countP id =
+    ((AliasPruning.erase n pre post a out).wires (List.ofFn x)).countP id at hc
+  rw [hc]
+  exact hb
+
+def sampleEnergy {n : ℕ} (S : Finset (Fin n → Bool)) (C : Circuit) : ℕ :=
+  ∑ x ∈ S, (C.wires (List.ofFn x)).countP id
+
+lemma sample_energy_balance (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true →
+        (original pre post a h out).eval (List.ofFn x) = true)
+    (S : Finset (Fin n → Bool))
+    (hneg : ∀ x ∈ S, (original pre post a h out).eval (List.ofFn x) = false) :
+    sampleEnergy S (lifted n pre post a h out) +
+      (∑ x ∈ S, Bool.toNat (((original pre post a h out).wires (List.ofFn x)).getD a false)) =
+        sampleEnergy S (original pre post a h out) := by
+  unfold sampleEnergy
+  rw [← Finset.sum_add_distrib]
+  apply Finset.sum_congr rfl
+  intro x hx
+  exact lifted_true_count_on_negative n pre post a h out ha hh hbelow x (hneg x hx)
+
+lemma sample_energy_decreases (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true →
+        (original pre post a h out).eval (List.ofFn x) = true)
+    (S : Finset (Fin n → Bool))
+    (hneg : ∀ x ∈ S, (original pre post a h out).eval (List.ofFn x) = false)
+    (hunsafe : ∃ x ∈ S, ((original pre post a h out).wires (List.ofFn x)).getD a false = true) :
+    sampleEnergy S (lifted n pre post a h out) < sampleEnergy S (original pre post a h out) := by
+  obtain ⟨x, hx, ha1⟩ := hunsafe
+  have hsum := Finset.single_le_sum
+    (fun y (_ : y ∈ S) => Nat.zero_le (Bool.toNat
+      (((original pre post a h out).wires (List.ofFn y)).getD a false))) hx
+  rw [ha1] at hsum
+  have hbalance := sample_energy_balance n pre post a h out ha hh hbelow S hneg
+  simp only [Bool.toNat_true] at hsum
+  omega
+
+noncomputable def negativeSamples {n : ℕ} (F : (Fin n → Bool) → Bool) : Finset (Fin n → Bool) := by
+  classical
+  exact Finset.univ.filter fun x => F x = false
+
+noncomputable def negativeEnergy {n : ℕ} (F : (Fin n → Bool) → Bool) (C : Circuit) : ℕ :=
+  sampleEnergy (negativeSamples F) C
+
+lemma negativeSamples_mem {n : ℕ} (F : (Fin n → Bool) → Bool) (x : Fin n → Bool) :
+    x ∈ negativeSamples F ↔ F x = false := by
+  classical
+  simp [negativeSamples]
+
+lemma negative_energy_decreases (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (heval : ∀ x : Fin n → Bool, (original pre post a h out).eval (List.ofFn x) = F x)
+    (hbelow : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true → F x = true)
+    (hunsafe : ∃ x : Fin n → Bool, F x = false ∧
+      ((original pre post a h out).wires (List.ofFn x)).getD a false = true) :
+    negativeEnergy F (lifted n pre post a h out) < negativeEnergy F (original pre post a h out) := by
+  apply sample_energy_decreases n pre post a h out ha hh
+    (by intro x hx; rw [heval]; exact hbelow x hx) (negativeSamples F)
+  · intro x hx
+    rw [heval]
+    exact (negativeSamples_mem F x).mp hx
+  · obtain ⟨x, hx, hax⟩ := hunsafe
+    exact ⟨x, (negativeSamples_mem F x).mpr hx, hax⟩
+
+lemma exists_energy_minimum (n : ℕ) (F : (Fin n → Bool) → Bool) (Admissible : Circuit → Prop)
+    (hne : ∃ C, Admissible C) :
+    ∃ C, Admissible C ∧ ∀ D, Admissible D → negativeEnergy F C ≤ negativeEnergy F D := by
+  classical
+  have hex : ∃ k, ∃ C, Admissible C ∧ negativeEnergy F C = k := by
+    obtain ⟨C, hC⟩ := hne
+    exact ⟨negativeEnergy F C, C, hC, rfl⟩
+  obtain ⟨C, hC, hval⟩ := Nat.find_spec hex
+  refine ⟨C, hC, ?_⟩
+  intro D hD
+  have hmin := Nat.find_min' hex (show ∃ C, Admissible C ∧ negativeEnergy F C = negativeEnergy F D from
+    ⟨D, hD, rfl⟩)
+  simpa only [← hval] using hmin
+
+lemma minimum_energy_no_mixed_or (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (Admissible : Circuit → Prop) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (heval : ∀ x : Fin n → Bool, (original pre post a h out).eval (List.ofFn x) = F x)
+    (hminimum : ∀ D, Admissible D →
+      negativeEnergy F (original pre post a h out) ≤ negativeEnergy F D)
+    (hclosed : (∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true → F x = true) →
+        Admissible (lifted n pre post a h out))
+    (hunsafe : ∃ x : Fin n → Bool, F x = false ∧
+      ((original pre post a h out).wires (List.ofFn x)).getD a false = true) :
+    ∃ x : Fin n → Bool, F x = false ∧ (wiresFrom pre (List.ofFn x)).getD h false = true := by
+  classical
+  by_contra hn
+  have hsafe : ∀ x : Fin n → Bool,
+      (wiresFrom pre (List.ofFn x)).getD h false = true → F x = true := by
+    intro x hx
+    cases he : F x with
+    | false => exact False.elim (hn ⟨x, he, hx⟩)
+    | true => rfl
+  have hlt := negative_energy_decreases n F pre post a h out ha hh heval hsafe hunsafe
+  have hle := hminimum (lifted n pre post a h out) (hclosed hsafe)
+  omega
+
+lemma lifted_output_bound (n : ℕ) (pre post : List Gate) (a h out : ℕ) :
+    (lifted n pre post a h out).output < n + (lifted n pre post a h out).gates.length := by
+  simp [lifted, Circuit.size]
+
+lemma lifted_monotone (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (hmono : Monotone2 (original pre post a h out)) :
+    Monotone2 (lifted n pre post a h out) := by
+  have hb := AliasPruning.erase_monotone n pre post ⟨.or, [a, h]⟩ a out hmono
+  intro g hg
+  change g ∈ (AliasPruning.erase n pre post a out).gates ++ [⟨.or, [_, h]⟩] at hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hb g hg
+  · obtain rfl := List.mem_singleton.mp hg
+    simp
+
+lemma lifted_back (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (ha : a < n + pre.length) (hh : h < n + pre.length)
+    (ho : out < n + (pre ++ ⟨.or, [a, h]⟩ :: post).length)
+    (back : ∀ j g, (original pre post a h out).gates[j]? = some g →
+      ∀ i ∈ g.inputs, i < n + j) :
+    ∀ j g, (lifted n pre post a h out).gates[j]? = some g →
+      ∀ i ∈ g.inputs, i < n + j := by
+  let body := AliasPruning.erase n pre post a out
+  have hb := AliasPruning.erase_strict_back n pre post ⟨.or, [a, h]⟩ a out ha back
+  have hout := AliasPruning.erase_output_bound n pre post ⟨.or, [a, h]⟩ a out ha ho
+  have hguard : h < n + body.gates.length := by
+    simp only [body, AliasPruning.erase, List.length_append, List.length_map]
+    omega
+  intro j g hj i hi
+  change (body.gates ++ [⟨.or, [body.output, h]⟩])[j]? = some g at hj
+  by_cases hjlt : j < body.gates.length
+  · rw [List.getElem?_append_left hjlt] at hj
+    exact hb j g hj i hi
+  · have hjlen : j < (body.gates ++ [(⟨.or, [body.output, h]⟩ : Gate)]).length := by
+      by_contra hn
+      rw [List.getElem?_eq_none_iff.2 (by omega)] at hj
+      cases hj
+    have heq : j = body.gates.length := by simp only [List.length_append, List.length_singleton] at hjlen; omega
+    subst j
+    have hg : g = ⟨.or, [body.output, h]⟩ := by simpa using hj.symm
+    subst g
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl
+    · exact hout
+    · exact hguard
+
+def Candidate (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (C : Circuit) : Prop :=
+  FanInTwo C ∧ C.size = size ∧
+    (∀ x : Fin n → Bool, C.eval (List.ofFn x) = F x) ∧
+    C.gates[0]? = some first ∧
+    (∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1) ∧
+    (∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j) ∧
+    C.output < n + C.gates.length ∧
+    C.gates.countP isNot = nots ∧
+    (requireMono = true → Monotone2 C)
+
+lemma candidate_or_prefix_nonempty (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or)
+    (pre post : List Gate) (a h out : ℕ)
+    (hC : Candidate n F size nots requireMono first (original pre post a h out)) :
+    0 < pre.length := by
+  have hf := hC.2.2.2.1
+  cases pre with
+  | nil =>
+    have he : (⟨GateOp.or, [a, h]⟩ : Gate) = first := by simpa [original] using hf
+    have hop := congrArg Gate.op he
+    exact False.elim (hfirst hop.symm)
+  | cons g pre => simp
+
+lemma lifted_candidate (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or)
+    (pre post : List Gate) (a h out : ℕ)
+    (hC : Candidate n F size nots requireMono first (original pre post a h out))
+    (hsafe : ∀ x : Fin n → Bool, (wiresFrom pre (List.ofFn x)).getD h false = true → F x = true) :
+    Candidate n F size nots requireMono first (lifted n pre post a h out) := by
+  obtain ⟨hfan, hsize, heval, hf, hnormal, hback, hout, hnots, hmono⟩ := hC
+  have hlookup : (original pre post a h out).gates[pre.length]? = some ⟨.or, [a, h]⟩ := by simp [original]
+  have ha := hback pre.length _ hlookup a (by simp)
+  have hh := hback pre.length _ hlookup h (by simp)
+  have hpre : 0 < pre.length := candidate_or_prefix_nonempty n F size nots requireMono first hfirst
+    pre post a h out ⟨hfan, hsize, heval, hf, hnormal, hback, hout, hnots, hmono⟩
+  refine ⟨lifted_fanin n pre post a h out hfan, ?_, ?_, ?_,
+    lifted_normal n pre post a h out hnormal,
+    lifted_back n pre post a h out ha hh hout hback,
+    lifted_output_bound n pre post a h out, ?_, ?_⟩
+  · rw [lifted_size, hsize]
+  · intro x
+    rw [lifted_eval n pre post a h out ha hh (by intro y hy; rw [heval]; exact hsafe y hy), heval]
+  · rw [lifted_first n pre post a h out hpre, hf]
+  · have hc := lifted_op_count n pre post a h out
+      (fun op => match op with | GateOp.not => true | _ => false)
+    change (lifted n pre post a h out).gates.countP isNot =
+      (original pre post a h out).gates.countP isNot at hc
+    rw [hc, hnots]
+  · intro hm
+    exact lifted_monotone n pre post a h out (hmono hm)
+
+lemma exists_candidate_ordered_normal_form (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or)
+    (hne : ∃ C, Candidate n F size nots requireMono first C) :
+    ∃ C, Candidate n F size nots requireMono first C ∧
+      ∀ pre post a h out, C = original pre post a h out →
+        (∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD a false = true) →
+        ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD h false = true := by
+  obtain ⟨C, hC, hminimum⟩ := exists_energy_minimum n F (Candidate n F size nots requireMono first) hne
+  refine ⟨C, hC, ?_⟩
+  intro pre post a h out hsplit hunsafe
+  subst C
+  have hlookup : (original pre post a h out).gates[pre.length]? = some ⟨.or, [a, h]⟩ := by simp [original]
+  have hback := hC.2.2.2.2.2.1
+  have ha := hback pre.length _ hlookup a (by simp)
+  have hh := hback pre.length _ hlookup h (by simp)
+  obtain ⟨x, hx, hhx⟩ := minimum_energy_no_mixed_or n F (Candidate n F size nots requireMono first)
+    pre post a h out ha hh hC.2.2.1 hminimum
+    (lifted_candidate n F size nots requireMono first hfirst pre post a h out hC) hunsafe
+  refine ⟨x, hx, ?_⟩
+  rw [original_guard n pre post a h out hh x]
+  exact hhx
+
+end SingleOrEnergy
+
+namespace SingleOrEnergy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma original_swap_wires (pre post : List Gate) (a h out : ℕ) (xs : List Bool) :
+    (original pre post a h out).wires xs = (original pre post h a out).wires xs := by
+  simp [original, Circuit.wires, List.foldl_append, GateOp.eval, Bool.or_comm]
+
+lemma original_swap_eval (n : ℕ) (pre post : List Gate) (a h out : ℕ) (x : Fin n → Bool) :
+    (original pre post a h out).eval (List.ofFn x) =
+      (original pre post h a out).eval (List.ofFn x) := by
+  unfold Circuit.eval
+  rw [original_swap_wires]
+  rfl
+
+lemma original_swap_first (pre post : List Gate) (a h out : ℕ) (hpre : 0 < pre.length) :
+    (original pre post h a out).gates[0]? = (original pre post a h out).gates[0]? := by
+  cases pre with
+  | nil => simp at hpre
+  | cons g pre => rfl
+
+lemma original_swap_back (n : ℕ) (pre post : List Gate) (a h out : ℕ)
+    (back : ∀ j g, (original pre post a h out).gates[j]? = some g →
+      ∀ i ∈ g.inputs, i < n + j) :
+    ∀ j g, (original pre post h a out).gates[j]? = some g →
+      ∀ i ∈ g.inputs, i < n + j := by
+  intro j g hg
+  by_cases hj : j = pre.length
+  · have he : g = ⟨GateOp.or, [h, a]⟩ := by
+      simpa [original, hj] using hg.symm
+    subst g
+    intro i hi
+    apply back j ⟨GateOp.or, [a, h]⟩ (by simp [original, hj])
+    simpa [or_comm] using hi
+  · have hs : (original pre post h a out).gates[j]? =
+        (original pre post a h out).gates[j]? := by
+      change (pre ++ ⟨GateOp.or, [h, a]⟩ :: post)[j]? =
+        (pre ++ ⟨GateOp.or, [a, h]⟩ :: post)[j]?
+      by_cases hlt : j < pre.length
+      · rw [List.getElem?_append_left hlt, List.getElem?_append_left hlt]
+      · rw [List.getElem?_append_right (by omega), List.getElem?_append_right (by omega)]
+        cases hd : j - pre.length with
+        | zero => omega
+        | succ k => rfl
+    exact back j g (hs.symm.trans hg)
+
+lemma sampleEnergy_swap {n : ℕ} (S : Finset (Fin n → Bool))
+    (pre post : List Gate) (a h out : ℕ) :
+    sampleEnergy S (original pre post a h out) = sampleEnergy S (original pre post h a out) := by
+  unfold sampleEnergy
+  apply Finset.sum_congr rfl
+  intro x hx
+  rw [original_swap_wires]
+
+lemma negativeEnergy_swap {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (pre post : List Gate) (a h out : ℕ) :
+    negativeEnergy F (original pre post a h out) =
+      negativeEnergy F (original pre post h a out) := by
+  exact sampleEnergy_swap (negativeSamples F) pre post a h out
+
+lemma candidate_swap (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or)
+    (pre post : List Gate) (a h out : ℕ)
+    (hC : Candidate n F size nots requireMono first (original pre post a h out)) :
+    Candidate n F size nots requireMono first (original pre post h a out) := by
+  have hpre := candidate_or_prefix_nonempty n F size nots requireMono first hfirst
+    pre post a h out hC
+  obtain ⟨hfan, hsize, heval, hf, hnormal, hback, hout, hnots, hmono⟩ := hC
+  refine ⟨?_, ?_, ?_, ?_, ?_, original_swap_back n pre post a h out hback, ?_, ?_, ?_⟩
+  · intro q hq
+    simp only [original, List.mem_append, List.mem_cons] at hq
+    rcases hq with hq | rfl | hq
+    · exact hfan q (by simp [original, hq])
+    · simp
+    · exact hfan q (by simp [original, hq])
+  · simpa only [original, Circuit.size, List.length_append, List.length_cons] using hsize
+  · intro x
+    rw [original_swap_eval n pre post h a out x]
+    exact heval x
+  · rw [original_swap_first pre post a h out hpre, hf]
+  · intro q hq hqnot
+    simp only [original, List.mem_append, List.mem_cons] at hq
+    rcases hq with hq | rfl | hq
+    · exact hnormal q (by simp [original, hq]) hqnot
+    · cases hqnot
+    · exact hnormal q (by simp [original, hq]) hqnot
+  · simpa only [original, List.length_append, List.length_cons] using hout
+  · simpa [original, List.countP_append, List.countP_cons, isNot] using hnots
+  · intro hm q hq
+    have hmon := hmono hm
+    simp only [original, List.mem_append, List.mem_cons] at hq
+    rcases hq with hq | rfl | hq
+    · exact hmon q (by simp [original, hq])
+    · simp
+    · exact hmon q (by simp [original, hq])
+
+
+end SingleOrEnergy
+
+namespace SingleOrEnergy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+lemma candidate_energy_minimum_ordered_rule (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or) (C : Circuit)
+    (hC : Candidate n F size nots requireMono first C)
+    (hminimum : ∀ D, Candidate n F size nots requireMono first D → negativeEnergy F C ≤ negativeEnergy F D) :
+    ∀ pre post a h out, C = original pre post a h out →
+      (∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD a false = true) →
+      ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD h false = true := by
+  intro pre post a h out hsplit hunsafe
+  subst C
+  have hlookup : (original pre post a h out).gates[pre.length]? = some ⟨.or, [a, h]⟩ := by simp [original]
+  have hback := hC.2.2.2.2.2.1
+  have ha := hback pre.length _ hlookup a (by simp)
+  have hh := hback pre.length _ hlookup h (by simp)
+  obtain ⟨x, hx, hhx⟩ := minimum_energy_no_mixed_or n F (Candidate n F size nots requireMono first)
+    pre post a h out ha hh hC.2.2.1 hminimum
+    (lifted_candidate n F size nots requireMono first hfirst pre post a h out hC) hunsafe
+  refine ⟨x, hx, ?_⟩
+  rw [original_guard n pre post a h out hh x]
+  exact hhx
+
+lemma candidate_of_minimal (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (first : Gate) (requireMono : Bool) (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (heval : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = F x)
+    (hfirst : C.gates[0]? = some first)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (hmono : requireMono = true → Monotone2 C) :
+    Candidate n F C.size (C.gates.countP isNot) requireMono first C := by
+  have hpos : 0 < C.size := by
+    change 0 < C.gates.length
+    by_contra hn
+    rw [List.getElem?_eq_none_iff.2 (by omega)] at hfirst
+    cases hfirst
+  have hlast := LivePruning.minimal_output_last n C hfan hmin hpos
+  refine ⟨hfan, rfl, heval, hfirst, hnot, back, ?_, rfl, hmono⟩
+  change C.output < n + C.size
+  omega
+
+lemma candidate_inherits_minimum (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (first : Gate) (requireMono : Bool)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (heval : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = F x)
+    (D : Circuit) (hD : Candidate n F C.size (C.gates.countP isNot) requireMono first D) :
+    ∀ E : Circuit, FanInTwo E →
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) = D.eval (List.ofFn x)) → D.size ≤ E.size := by
+  intro E hE he
+  rw [hD.2.1]
+  apply hmin E hE
+  intro x
+  rw [he, hD.2.2.1, heval]
+
+lemma exists_minimal_candidate_energy (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (first : Gate) (requireMono : Bool) (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (heval : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = F x)
+    (hfirst : C.gates[0]? = some first)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (hmono : requireMono = true → Monotone2 C) :
+    ∃ D, Candidate n F C.size (C.gates.countP isNot) requireMono first D ∧
+      (∀ E : Circuit, FanInTwo E →
+        (∀ x : Fin n → Bool, E.eval (List.ofFn x) = D.eval (List.ofFn x)) → D.size ≤ E.size) ∧
+      (∀ E, Candidate n F C.size (C.gates.countP isNot) requireMono first E →
+        negativeEnergy F D ≤ negativeEnergy F E) := by
+  have hC := candidate_of_minimal n F C first requireMono hfan hmin heval hfirst hnot back hmono
+  obtain ⟨D, hD, henergy⟩ := exists_energy_minimum n F
+    (Candidate n F C.size (C.gates.countP isNot) requireMono first) ⟨C, hC⟩
+  exact ⟨D, hD, candidate_inherits_minimum n F C first requireMono hmin heval D hD, henergy⟩
+
+def NoMixedOr (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit) : Prop :=
+  ∀ pre post a h out, C = original pre post a h out →
+    ((∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD a false = true) ↔
+      ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD h false = true)
+
+lemma candidate_energy_minimum_no_mixed_or (n : ℕ) (F : (Fin n → Bool) → Bool) (size nots : ℕ)
+    (requireMono : Bool) (first : Gate) (hfirst : first.op ≠ GateOp.or) (C : Circuit)
+    (hC : Candidate n F size nots requireMono first C)
+    (hminimum : ∀ D, Candidate n F size nots requireMono first D → negativeEnergy F C ≤ negativeEnergy F D) :
+    NoMixedOr n F C := by
+  intro pre post a h out hsplit
+  constructor
+  · exact candidate_energy_minimum_ordered_rule n F size nots requireMono first hfirst C hC hminimum
+      pre post a h out hsplit
+  · intro hunsafe
+    subst C
+    have hswap := candidate_swap n F size nots requireMono first hfirst pre post a h out hC
+    have hminswap : ∀ D, Candidate n F size nots requireMono first D →
+        negativeEnergy F (original pre post h a out) ≤ negativeEnergy F D := by
+      intro D hD
+      rw [← negativeEnergy_swap F pre post a h out]
+      exact hminimum D hD
+    have hunsafeSwap : ∃ x : Fin n → Bool, F x = false ∧
+        ((original pre post h a out).wires (List.ofFn x)).getD h false = true := by
+      obtain ⟨x, hx, hw⟩ := hunsafe
+      refine ⟨x, hx, ?_⟩
+      rw [← original_swap_wires pre post a h out]
+      exact hw
+    obtain ⟨x, hx, hw⟩ := candidate_energy_minimum_ordered_rule n F size nots requireMono first hfirst
+      (original pre post h a out) hswap hminswap pre post h a out rfl hunsafeSwap
+    refine ⟨x, hx, ?_⟩
+    rw [original_swap_wires pre post a h out]
+    exact hw
+
+lemma exists_minimal_no_mixed_or (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (first : Gate) (hfirstop : first.op ≠ GateOp.or) (requireMono : Bool) (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (heval : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = F x)
+    (hfirst : C.gates[0]? = some first)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (hmono : requireMono = true → Monotone2 C) :
+    ∃ D, Candidate n F C.size (C.gates.countP isNot) requireMono first D ∧
+      (∀ E : Circuit, FanInTwo E →
+        (∀ x : Fin n → Bool, E.eval (List.ofFn x) = D.eval (List.ofFn x)) → D.size ≤ E.size) ∧
+      (∀ E, Candidate n F C.size (C.gates.countP isNot) requireMono first E →
+        negativeEnergy F D ≤ negativeEnergy F E) ∧
+      NoMixedOr n F D := by
+  obtain ⟨D, hD, hDmin, henergy⟩ := exists_minimal_candidate_energy n F C first requireMono
+    hfan hmin heval hfirst hnot back hmono
+  exact ⟨D, hD, hDmin, henergy,
+    candidate_energy_minimum_no_mixed_or n F C.size (C.gates.countP isNot)
+      requireMono first hfirstop D hD henergy⟩
+
+lemma raw_wire_unsafe (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit) (a : Fin n)
+    (hzero : F (fun i => decide (i = a)) = false) :
+    ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD a.val false = true := by
+  refine ⟨(fun i => decide (i = a)), hzero, ?_⟩
+  have hi : a.val < (List.ofFn (fun i : Fin n => decide (i = a))).length := by simp
+  change ((Circuit.mk C.gates 0).wires (List.ofFn (fun i : Fin n => decide (i = a)))).getD a.val false = true
+  rw [AliasPruning.wires_input C.gates _ a.val hi]
+  simp only [List.getD, List.getElem?_ofFn, dite_eq_left a.isLt, Option.getD_some]
+  simp
+
+lemma raw_or_partner_unsafe (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (hnormal : NoMixedOr n F C) (a : Fin n)
+    (hzero : F (fun i => decide (i = a)) = false)
+    (pre post : List Gate) (h out : ℕ)
+    (hshape : C = original pre post a.val h out) :
+    ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD h false = true := by
+  exact (hnormal pre post a.val h out hshape).mp (raw_wire_unsafe n F C a hzero)
+
+lemma raw_or_partner_unsafe_rev (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (hnormal : NoMixedOr n F C) (a : Fin n)
+    (hzero : F (fun i => decide (i = a)) = false)
+    (pre post : List Gate) (h out : ℕ)
+    (hshape : C = original pre post h a.val out) :
+    ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD h false = true := by
+  exact (hnormal pre post h a.val out hshape).mpr (raw_wire_unsafe n F C a hzero)
+
+end SingleOrEnergy
+
 end PEqualNP.Outside.L_meta_2373_aux
