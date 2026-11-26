@@ -1193,6 +1193,407 @@ lemma generated_subset_of_union_closed (required permitted : List Nat)
     (generated_of_proper_union_closed permitted (pairwise_of_strictlySorted permitted hsorted)
       hbound hclosed)
 
+lemma mem_insertMask (e x : Nat) (f : List Nat) :
+    x ∈ insertMask e f ↔ x = e ∨ x ∈ f := by
+  induction f with
+  | nil => simp [insertMask]
+  | cons a xs ih =>
+    by_cases h : e < a
+    · simp [insertMask, h]
+    · simp [insertMask, h, ih, or_left_comm]
+
+lemma pairwise_insertMask (e : Nat) (f : List Nat)
+    (hsorted : List.Pairwise (fun x y : Nat => x < y) f) (hne : e ∉ f) :
+    List.Pairwise (fun x y : Nat => x < y) (insertMask e f) := by
+  induction f with
+  | nil => simp [insertMask]
+  | cons a xs ih =>
+    have hs := List.pairwise_cons.mp hsorted
+    have hneA : e ≠ a := by
+      intro heq
+      exact hne (List.mem_cons.mpr (Or.inl heq))
+    have hneXs : e ∉ xs := by
+      intro he
+      exact hne (List.mem_cons_of_mem a he)
+    by_cases hea : e < a
+    · rw [insertMask, ite_eq_left hea]
+      apply List.pairwise_cons.mpr
+      refine ⟨?_, hsorted⟩
+      intro x hx
+      rcases List.mem_cons.mp hx with hx | hx
+      · subst x
+        exact hea
+      · exact Nat.lt_trans hea (hs.1 x hx)
+    · rw [insertMask, ite_eq_right hea]
+      apply List.pairwise_cons.mpr
+      refine ⟨?_, ih hs.2 hneXs⟩
+      intro x hx
+      rcases (mem_insertMask e x xs).mp hx with hx | hx
+      · subst x
+        omega
+      · exact hs.1 x hx
+
+lemma strictlySorted_of_pairwise (f : List Nat)
+    (h : List.Pairwise (fun x y : Nat => x < y) f) : strictlySorted f = true := by
+  induction f with
+  | nil => rfl
+  | cons a xs ih =>
+    cases xs with
+    | nil => rfl
+    | cons b xs =>
+      have hs := List.pairwise_cons.mp h
+      have hab := hs.1 b (by simp)
+      have htail := ih hs.2
+      change (decide (a < b) && strictlySorted (b :: xs)) = true
+      simp [hab, htail]
+
+lemma strictlySorted_insertMask (e : Nat) (f : List Nat)
+    (hsorted : strictlySorted f = true) (hne : e ∉ f) :
+    strictlySorted (insertMask e f) = true := by
+  exact strictlySorted_of_pairwise _
+    (pairwise_insertMask e f (pairwise_of_strictlySorted f hsorted) hne)
+
+lemma required_mem_addExtra (e : Nat) (f : List Nat) :
+    ∀ m ∈ f, m ∈ addExtra e f := by
+  intro m hm
+  unfold addExtra
+  split
+  · exact hm
+  · exact (mem_insertMask e m f).mpr (Or.inr hm)
+
+lemma strictlySorted_addExtra (e : Nat) (f : List Nat)
+    (hsorted : strictlySorted f = true) : strictlySorted (addExtra e f) = true := by
+  unfold addExtra
+  split
+  · exact hsorted
+  · rename_i hguard
+    apply strictlySorted_insertMask e f hsorted
+    intro he
+    simp [he] at hguard
+
+lemma bounded_addExtra (e : Fin 256) (f : List Nat)
+    (hbound : ∀ m ∈ f, m < 256) : ∀ m ∈ addExtra e.val f, m < 256 := by
+  intro m hm
+  unfold addExtra at hm
+  split at hm
+  · exact hbound m hm
+  · rcases (mem_insertMask e.val m f).mp hm with hm | hm
+    · subst m
+      exact e.isLt
+    · exact hbound m hm
+
+set_option maxRecDepth 8192 in
+lemma family_lengths : families.all (fun f => f.length == 4 || f.length == 5) = true := by
+  decide +kernel
+
+lemma family_spec (f : List Nat) (hf : f ∈ families) :
+    (f.length = 4 ∨ f.length = 5) ∧ strictlySorted f = true ∧
+    (∀ m ∈ f, m < 256) := by
+  have hlen := (List.all_eq_true.mp family_lengths) f hf
+  have hvalid := (List.all_eq_true.mp families_valid) f hf
+  have hl : f.length = 4 ∨ f.length = 5 := by
+    simpa only [Bool.or_eq_true, beq_iff_eq] using hlen
+  have hv : strictlySorted f = true ∧
+      f.all (fun m => m < 256 && m != 0 && !singleBit m) = true := by
+    simpa only [Bool.and_eq_true] using hvalid
+  refine ⟨hl, hv.1, ?_⟩
+  intro m hm
+  have hmask := (List.all_eq_true.mp hv.2) m hm
+  simp only [Bool.and_eq_true, decide_eq_true_eq] at hmask
+  exact hmask.1.1
+
+def permittedForFive (f : List Nat) (e : Fin 256) : List Nat :=
+  if f.length = 5 then f else addExtra e.val f
+
+lemma required_mem_permittedForFive (f : List Nat) (e : Fin 256) :
+    ∀ m ∈ f, m ∈ permittedForFive f e := by
+  unfold permittedForFive
+  split
+  · exact fun _ hm => hm
+  · exact required_mem_addExtra e.val f
+
+lemma permittedForFive_spec (f : List Nat) (hf : f ∈ families) (e : Fin 256) :
+    strictlySorted (permittedForFive f e) = true ∧
+    (∀ m ∈ permittedForFive f e, m < 256) := by
+  have hs := family_spec f hf
+  unfold permittedForFive
+  split
+  · exact ⟨hs.2.1, hs.2.2⟩
+  · exact ⟨strictlySorted_addExtra e.val f hs.2.1, bounded_addExtra e f hs.2.2⟩
+
+lemma family_generated_false (f : List Nat) (hf : f ∈ families) (e : Fin 256) :
+    generated f (permittedForFive f e) = false := by
+  have hn := (List.all_eq_true.mp no_five_or_construction) f hf
+  have hfalse : possibleWithFive f = false := by simpa using hn
+  rcases (family_spec f hf).1 with h4 | h5
+  · have hgen : generated f (addExtra e.val f) = false := by
+      cases hval : generated f (addExtra e.val f) with
+      | false => rfl
+      | true =>
+        have hex : (List.range 256).any (fun x => generated f (addExtra x f)) = true :=
+          List.any_eq_true.mpr ⟨e.val, List.mem_range.mpr e.isLt, hval⟩
+        have hp : possibleWithFive f = true := by
+          simpa [possibleWithFive, h4] using hex
+        rw [hfalse] at hp
+        cases hp
+    simpa [permittedForFive, h4] using hgen
+  · simpa [possibleWithFive, permittedForFive, h5] using hfalse
+
+def properUnionClosed (f : List Nat) : Prop :=
+  ∀ m ∈ f, ∃ a b, a < m ∧ b < m ∧ a ||| b = m ∧
+    (a ∈ singletonMasks ∨ a ∈ f) ∧ (b ∈ singletonMasks ∨ b ∈ f)
+
+lemma family_no_proper_union_closure (f : List Nat) (hf : f ∈ families) (e : Fin 256) :
+    ¬ properUnionClosed (permittedForFive f e) := by
+  intro hclosed
+  have hp := permittedForFive_spec f hf e
+  have hgen := generated_subset_of_union_closed f (permittedForFive f e)
+    (required_mem_permittedForFive f e) hp.1 hp.2 hclosed
+  rw [family_generated_false f hf e] at hgen
+  cases hgen
+
+lemma family_semantic_obstruction (f : List Nat) (hf : f ∈ families) (e : Fin 256) :
+    (∀ m ∈ f, m ∈ permittedForFive f e) ∧
+    strictlySorted (permittedForFive f e) = true ∧
+    (∀ m ∈ permittedForFive f e, m < 256) ∧
+    ¬ properUnionClosed (permittedForFive f e) := by
+  have hp := permittedForFive_spec f hf e
+  exact ⟨required_mem_permittedForFive f e, hp.1, hp.2,
+    family_no_proper_union_closure f hf e⟩
+
 end R3Family
+
+namespace BirthRectangle
+
+def crossed (a₀ b₀ a₁ b₁ : Bool) : Prop :=
+  (a₀ = true ∧ b₀ = false ∧ a₁ = false ∧ b₁ = true) ∨
+  (a₀ = false ∧ b₀ = true ∧ a₁ = true ∧ b₁ = false)
+
+lemma gateBool_distributes (op merge a₀ b₀ a₁ b₁ : Bool)
+    (h : op ≠ merge → ¬ crossed a₀ b₀ a₁ b₁) :
+    gateBool op (gateBool merge a₀ a₁) (gateBool merge b₀ b₁) =
+      gateBool merge (gateBool op a₀ b₀) (gateBool op a₁ b₁) := by
+  cases op <;> cases merge <;> cases a₀ <;> cases b₀ <;> cases a₁ <;> cases b₁ <;>
+    simp_all [gateBool, crossed]
+
+-- Unless a gate crosses the two rows, evaluation preserves their union or intersection.
+lemma causal_merge_agreement
+    {n k : Nat} (a b : Fin k → Nat) (op : Fin k → Bool) (merge : Bool)
+    (w₀ w₁ wm : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wm i = gateBool merge (w₀ i) (w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = gateBool (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = gateBool (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalm : ∀ j, wm (n + j.val) = gateBool (op j) (wm (a j)) (wm (b j)))
+    (hcross : ∀ j, op j ≠ merge → ¬ crossed (w₀ (a j)) (w₀ (b j)) (w₁ (a j)) (w₁ (b j))) :
+    ∀ i, i < n + k → wm i = gateBool merge (w₀ i) (w₁ i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi
+    by_cases hin : i < n
+    · exact hraw i hin
+    · let j : Fin k := ⟨i - n, by omega⟩
+      have hij : i = n + j.val := by dsimp [j]; omega
+      have hea := ih (a j) (by simpa [← hij] using ha j) (by have := ha j; omega)
+      have heb := ih (b j) (by simpa [← hij] using hb j) (by have := hb j; omega)
+      rw [hij, hevalm, heval₀, heval₁, hea, heb]
+      exact gateBool_distributes _ _ _ _ _ _ (hcross j)
+
+-- A union accepted above two rejected rows forces an AND crossing; the dual forces OR.
+lemma crossing_gate_exists
+    {n k out : Nat} (a b : Fin k → Nat) (op : Fin k → Bool) (merge : Bool)
+    (w₀ w₁ wm : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wm i = gateBool merge (w₀ i) (w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = gateBool (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = gateBool (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalm : ∀ j, wm (n + j.val) = gateBool (op j) (wm (a j)) (wm (b j)))
+    (hout : out < n + k) (hflip : wm out ≠ gateBool merge (w₀ out) (w₁ out)) :
+    ∃ j, op j ≠ merge ∧ crossed (w₀ (a j)) (w₀ (b j)) (w₁ (a j)) (w₁ (b j)) := by
+  by_contra h
+  apply hflip
+  apply causal_merge_agreement a b op merge w₀ w₁ wm ha hb hraw heval₀ heval₁ hevalm
+    (fun j hop hc => h ⟨j, hop, hc⟩) out hout
+
+lemma pair_positive_has_and_crossing
+    {n k out : Nat} (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w₀ w₁ wp : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wp i = (w₀ i || w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = gateBool (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = gateBool (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalp : ∀ j, wp (n + j.val) = gateBool (op j) (wp (a j)) (wp (b j)))
+    (hout : out < n + k)
+    (hp : wp out = true) (h₀ : w₀ out = false) (h₁ : w₁ out = false) :
+    ∃ j, op j = true ∧
+      ((w₀ (a j) = true ∧ w₁ (b j) = true) ∨
+       (w₁ (a j) = true ∧ w₀ (b j) = true)) := by
+  obtain ⟨j, hj, hc⟩ := crossing_gate_exists a b op false w₀ w₁ wp ha hb
+    (fun i hi => by simpa [gateBool] using hraw i hi) heval₀ heval₁ hevalp hout
+    (by simp [gateBool, hp, h₀, h₁])
+  have hop : op j = true := by
+    cases h : op j <;> simp_all
+  refine ⟨j, hop, ?_⟩
+  rcases hc with ⟨ha₀, _, _, hb₁⟩ | ⟨_, hb₀, ha₁, _⟩
+  · exact Or.inl ⟨ha₀, hb₁⟩
+  · exact Or.inr ⟨ha₁, hb₀⟩
+
+def inputSingletons {V : Type*} (single : V → Nat → Bool) (wire : Nat) : Set V :=
+  {v | single v wire = true}
+
+lemma and_input_singletons_disjoint
+    {V : Type*} {n k : Nat} (a b : Fin k → Nat) (op : Fin k → Bool)
+    (single : V → Nat → Bool) (j : Fin k)
+    (heval : ∀ v i, single v (n + i.val) =
+      gateBool (op i) (single v (a i)) (single v (b i)))
+    (hop : op j = true) (hzero : ∀ v, single v (n + j.val) = false) :
+    ∀ v, v ∈ inputSingletons single (a j) →
+      v ∈ inputSingletons single (b j) → False := by
+  intro v hl hr
+  change single v (a j) = true at hl
+  change single v (b j) = true at hr
+  have h := heval v j
+  rw [hzero v] at h
+  simp [gateBool, hop, hl, hr] at h
+
+lemma and_singleton_rectangles_cover
+    {V : Type*} {n k out : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool)
+    (single : V → Nat → Bool) (pair : V → V → Nat → Bool)
+    (edge : V → V → Prop)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ u v i, i < n → pair u v i = (single u i || single v i))
+    (hsingle : ∀ v j, single v (n + j.val) =
+      gateBool (op j) (single v (a j)) (single v (b j)))
+    (hpair : ∀ u v j, pair u v (n + j.val) =
+      gateBool (op j) (pair u v (a j)) (pair u v (b j)))
+    (handzero : ∀ v j, op j = true → single v (n + j.val) = false)
+    (hout : out < n + k) (houtzero : ∀ v, single v out = false)
+    (hedge : ∀ u v, edge u v → pair u v out = true) :
+    ∃ left right : {j : Fin k // op j = true} → Set V,
+      (∀ j v, v ∈ left j → v ∈ right j → False) ∧
+      ∀ u v, edge u v → ∃ j,
+        (u ∈ left j ∧ v ∈ right j) ∨ (v ∈ left j ∧ u ∈ right j) := by
+  refine ⟨(fun j => inputSingletons single (a j.val)),
+    (fun j => inputSingletons single (b j.val)), ?_, ?_⟩
+  · intro j
+    exact and_input_singletons_disjoint a b op single j.val hsingle j.property
+      (fun v => handzero v j.val j.property)
+  · intro u v huv
+    obtain ⟨j, hj, hc⟩ := pair_positive_has_and_crossing a b op
+      (single u) (single v) (pair u v) ha hb (hraw u v) (hsingle u) (hsingle v)
+      (hpair u v) hout (hedge u v huv) (houtzero u) (houtzero v)
+    exact ⟨⟨j, hj⟩, hc⟩
+
+lemma causal_pair_merge_before
+    {n k : Nat} (p : Fin k) (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w₀ w₁ wp : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wp i = (w₀ i || w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = gateBool (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = gateBool (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalp : ∀ j, wp (n + j.val) = gateBool (op j) (wp (a j)) (wp (b j)))
+    (hprior : ∀ j, j.val < p.val → op j = true →
+      wp (n + j.val) = false ∧ w₀ (n + j.val) = false ∧ w₁ (n + j.val) = false) :
+    ∀ wire, wire < n + p.val → wp wire = (w₀ wire || w₁ wire) := by
+  intro wire
+  induction wire using Nat.strong_induction_on with
+  | ind wire ih =>
+    intro hwire
+    by_cases hlow : wire < n
+    · exact hraw wire hlow
+    · let j : Fin k := ⟨wire - n, by have := p.isLt; omega⟩
+      have heq : wire = n + j.val := by dsimp [j]; omega
+      have hjp : j.val < p.val := by dsimp [j]; omega
+      cases hop : op j with
+      | true =>
+        obtain ⟨hp, h₀, h₁⟩ := hprior j hjp hop
+        rw [heq, hp, h₀, h₁]
+        rfl
+      | false =>
+        have hl := ih (a j) (by have := ha j; omega) (by have := ha j; omega)
+        have hr := ih (b j) (by have := hb j; omega) (by have := hb j; omega)
+        rw [heq, hevalp, heval₀, heval₁, hl, hr]
+        simpa [gateBool] using gateBool_distributes (op j) false
+          (w₀ (a j)) (w₀ (b j)) (w₁ (a j)) (w₁ (b j)) (by simp [hop])
+
+lemma crossed_of_and_or (a₀ b₀ a₁ b₁ : Bool)
+    (hp : ((a₀ || a₁) && (b₀ || b₁)) = true)
+    (h₀ : (a₀ && b₀) = false) (h₁ : (a₁ && b₁) = false) :
+    crossed a₀ b₀ a₁ b₁ := by
+  cases a₀ <;> cases b₀ <;> cases a₁ <;> cases b₁ <;> simp_all [crossed]
+
+lemma and_birth_at_crossed
+    {n k : Nat} (p : Fin k) (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w₀ w₁ wp : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wp i = (w₀ i || w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = gateBool (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = gateBool (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalp : ∀ j, wp (n + j.val) = gateBool (op j) (wp (a j)) (wp (b j)))
+    (hprior : ∀ j, j.val < p.val → op j = true →
+      wp (n + j.val) = false ∧ w₀ (n + j.val) = false ∧ w₁ (n + j.val) = false)
+    (hop : op p = true) (hp : wp (n + p.val) = true)
+    (h₀ : w₀ (n + p.val) = false) (h₁ : w₁ (n + p.val) = false) :
+    crossed (w₀ (a p)) (w₀ (b p)) (w₁ (a p)) (w₁ (b p)) := by
+  have hmerge := causal_pair_merge_before p a b op w₀ w₁ wp ha hb hraw
+    heval₀ heval₁ hevalp hprior
+  have hl := hmerge (a p) (ha p)
+  have hr := hmerge (b p) (hb p)
+  exact crossed_of_and_or _ _ _ _
+    (by simpa [gateBool, hop, hl, hr] using (hevalp p).symm.trans hp)
+    (by simpa [gateBool, hop] using (heval₀ p).symm.trans h₀)
+    (by simpa [gateBool, hop] using (heval₁ p).symm.trans h₁)
+
+end BirthRectangle
+
+namespace BirthRectangle
+
+def exclusiveInputSingletons {V : Type*} (single : V → Nat → Bool)
+    (wire other : Nat) : Set V :=
+  {v | single v wire = true ∧ single v other = false}
+
+lemma and_exclusive_singleton_rectangles_cover
+    {V : Type*} {n k out : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool)
+    (single : V → Nat → Bool) (pair : V → V → Nat → Bool)
+    (edge : V → V → Prop)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ u v i, i < n → pair u v i = (single u i || single v i))
+    (hsingle : ∀ v j, single v (n + j.val) =
+      gateBool (op j) (single v (a j)) (single v (b j)))
+    (hpair : ∀ u v j, pair u v (n + j.val) =
+      gateBool (op j) (pair u v (a j)) (pair u v (b j)))
+    (hout : out < n + k) (houtzero : ∀ v, single v out = false)
+    (hedge : ∀ u v, edge u v → pair u v out = true) :
+    ∃ left right : {j : Fin k // op j = true} → Set V,
+      (∀ j, left j = exclusiveInputSingletons single (a j.val) (b j.val) ∧
+        right j = exclusiveInputSingletons single (b j.val) (a j.val)) ∧
+      (∀ j v, v ∈ left j → v ∈ right j → False) ∧
+      ∀ u v, edge u v → ∃ j,
+        (u ∈ left j ∧ v ∈ right j) ∨ (v ∈ left j ∧ u ∈ right j) := by
+  refine ⟨(fun j => exclusiveInputSingletons single (a j.val) (b j.val)),
+    (fun j => exclusiveInputSingletons single (b j.val) (a j.val)),
+    (fun _ => ⟨rfl, rfl⟩), ?_, ?_⟩
+  · intro j v hl hr
+    change single v (a j.val) = true ∧ single v (b j.val) = false at hl
+    change single v (b j.val) = true ∧ single v (a j.val) = false at hr
+    have h : (true : Bool) = false := hl.1.symm.trans hr.2
+    cases h
+  · intro u v huv
+    obtain ⟨j, hj, hc⟩ := crossing_gate_exists a b op false
+      (single u) (single v) (pair u v) ha hb
+      (fun i hi => by simpa [gateBool] using hraw u v i hi)
+      (hsingle u) (hsingle v) (hpair u v) hout
+      (by simp [gateBool, hedge u v huv, houtzero u, houtzero v])
+    have hop : op j = true := by
+      cases h : op j <;> simp_all
+    refine ⟨⟨j, hop⟩, ?_⟩
+    rcases hc with ⟨ha₀, hb₀, ha₁, hb₁⟩ | ⟨ha₀, hb₀, ha₁, hb₁⟩
+    · exact Or.inl ⟨⟨ha₀, hb₀⟩, ⟨hb₁, ha₁⟩⟩
+    · exact Or.inr ⟨⟨ha₁, hb₁⟩, ⟨hb₀, ha₀⟩⟩
+
+end BirthRectangle
 
 end PEqualNP.Outside.L_meta_9033_aux
