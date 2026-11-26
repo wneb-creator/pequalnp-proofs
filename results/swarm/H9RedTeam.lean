@@ -1589,4 +1589,386 @@ lemma indexed_one_exceptional_or_cover
 
 end CutConstruction
 
+namespace ActualOneBad
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open CutPolicy PairFactorCover CrossRectangleCover
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun acc g => acc ++ [g.op.eval (g.inputs.map fun i => acc.getD i false)]) w
+
+lemma wiresFrom_append (gs₁ gs₂ : List Gate) (w : List Bool) :
+    wiresFrom (gs₁ ++ gs₂) w = wiresFrom gs₂ (wiresFrom gs₁ w) := by
+  simp [wiresFrom, List.foldl_append]
+
+lemma wiresFrom_ext (gs : List Gate) : ∀ w : List Bool,
+    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
+  | cons g gs ih =>
+    intro w
+    let v := g.op.eval (g.inputs.map fun i => w.getD i false)
+    obtain ⟨t, ht, hl⟩ := ih (w ++ [v])
+    refine ⟨v :: t, ?_, by simp [hl]⟩
+    have hstep : wiresFrom (g :: gs) w = wiresFrom gs (w ++ [v]) := rfl
+    rw [hstep, ht]
+    simp
+
+lemma length_wiresFrom (gs : List Gate) (w : List Bool) :
+    (wiresFrom gs w).length = w.length + gs.length := by
+  obtain ⟨t, ht, hl⟩ := wiresFrom_ext gs w
+  rw [ht, List.length_append, hl]
+
+lemma getD_wiresFrom_lt (gs : List Gate) (w : List Bool) (i : ℕ) (h : i < w.length) :
+    (wiresFrom gs w).getD i false = w.getD i false := by
+  obtain ⟨t, ht, _⟩ := wiresFrom_ext gs w
+  rw [ht, List.getD_append _ _ _ _ h]
+
+lemma getD_wiresFrom_take (gs : List Gate) (w : List Bool) (k i : ℕ) (hk : k ≤ gs.length) :
+    (wiresFrom (gs.take k) w).getD i false =
+      if i < w.length + k then (wiresFrom gs w).getD i false else false := by
+  have hlen : (wiresFrom (gs.take k) w).length = w.length + k := by
+    rw [length_wiresFrom, List.length_take, min_eq_left hk]
+  split_ifs with hi
+  · have hsplit : gs = gs.take k ++ gs.drop k := (List.take_append_drop k gs).symm
+    conv_rhs => rw [hsplit, wiresFrom_append]
+    exact (getD_wiresFrom_lt (gs.drop k) (wiresFrom (gs.take k) w) i (by omega)).symm
+  · rw [List.getD_eq_default]
+    omega
+
+lemma getD_snoc_eq (l : List Bool) (b : Bool) : (l ++ [b]).getD l.length false = b := by
+  simp
+
+lemma getD_wiresFrom_gate (gs : List Gate) (w : List Bool) (k : ℕ) (hk : k < gs.length) :
+    (wiresFrom gs w).getD (w.length + k) false =
+      (gs[k]).op.eval ((gs[k]).inputs.map fun i =>
+        if i < w.length + k then (wiresFrom gs w).getD i false else false) := by
+  have hsplit : gs = gs.take k ++ gs[k] :: gs.drop (k + 1) := by
+    have h1 := (List.take_append_drop k gs).symm
+    rw [List.drop_eq_getElem_cons hk] at h1
+    exact h1
+  have hlen : (wiresFrom (gs.take k) w).length = w.length + k := by
+    rw [length_wiresFrom, List.length_take, min_eq_left (Nat.le_of_lt hk)]
+  have heq : wiresFrom gs w =
+      wiresFrom (gs.drop (k + 1))
+        (wiresFrom (gs.take k) w ++
+          [(gs[k]).op.eval ((gs[k]).inputs.map fun i => (wiresFrom (gs.take k) w).getD i false)]) := by
+    conv_lhs => rw [hsplit, wiresFrom_append]
+    rfl
+  rw [heq, getD_wiresFrom_lt]
+  · conv_lhs => rw [← hlen, getD_snoc_eq]
+    congr 1
+    apply List.map_congr_left
+    intro i _
+    rw [getD_wiresFrom_take gs w k i (Nat.le_of_lt hk), heq]
+  · rw [List.length_append, hlen]; simp
+
+def wireFn (n : ℕ) (C : Circuit) (w : ℕ) (x : Fin n → Bool) : Bool :=
+  (C.wires (List.ofFn x)).getD w false
+
+lemma wireFn_input (n : ℕ) (C : Circuit) (w : ℕ) (hw : w < n) (x : Fin n → Bool) :
+    wireFn n C w x = x ⟨w, hw⟩ := by
+  unfold wireFn Circuit.wires
+  change (wiresFrom C.gates (List.ofFn x)).getD w false = _
+  rw [getD_wiresFrom_lt _ _ _ (by simpa using hw)]
+  rw [List.getD_eq_getElem _ _ (by simpa using hw)]
+  simp
+
+lemma gateAt_get (C : Circuit) (j : ℕ) (hj : j < C.gates.length) :
+    gateAt C j = C.gates[j] := by
+  simp [gateAt, hj]
+
+lemma binary_gate (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) :
+    ∃ a b, a < n + j ∧ b < n + j ∧
+      (gateAt C j).inputs = [a, b] ∧
+      ((gateAt C j).op = GateOp.and ∨ (gateAt C j).op = GateOp.or) ∧
+      ∀ x, wireFn n C (n + j) x =
+        (gateAt C j).op.eval [wireFn n C a x, wireFn n C b x] := by
+  have hmem : gateAt C j ∈ C.gates := by
+    rw [gateAt_get C j hj]
+    exact List.getElem_mem hj
+  have hlen := hC.2.2 _ hmem
+  obtain ⟨a, b, hab⟩ := List.length_eq_two.mp hlen
+  have ha : a < n + j := hC.2.1 j hj a (by simp [hab])
+  have hb : b < n + j := hC.2.1 j hj b (by simp [hab])
+  refine ⟨a, b, ha, hb, hab, hC.1 _ hmem, ?_⟩
+  intro x
+  unfold wireFn
+  change (wiresFrom C.gates (List.ofFn x)).getD (n + j) false = _
+  have he := getD_wiresFrom_gate C.gates (List.ofFn x) j hj
+  simp only [List.length_ofFn] at he
+  rw [he, ← gateAt_get C j hj, hab]
+  simp [ha, hb, wiresFrom, Circuit.wires]
+
+
+def leftWire (n : ℕ) (C : Circuit) (w : ℕ) : ℕ :=
+  (gateAt C (w - n)).inputs.getD 0 0
+
+def rightWire (n : ℕ) (C : Circuit) (w : ℕ) : ℕ :=
+  (gateAt C (w - n)).inputs.getD 1 0
+
+lemma binary_wire_data (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hge : n ≤ w) (hw : w < n + C.gates.length) :
+    leftWire n C w < w ∧ rightWire n C w < w ∧
+      ((gateAt C (w - n)).op = GateOp.and ∨ (gateAt C (w - n)).op = GateOp.or) ∧
+      ∀ x, wireFn n C w x = (gateAt C (w - n)).op.eval
+        [wireFn n C (leftWire n C w) x, wireFn n C (rightWire n C w) x] := by
+  have hj : w - n < C.gates.length := by omega
+  obtain ⟨a, b, ha, hb, hab, hop, hv⟩ := binary_gate n C hC (w - n) hj
+  have hsum : n + (w - n) = w := by omega
+  simpa [leftWire, rightWire, hab, hsum] using And.intro ha (And.intro hb (And.intro hop hv))
+
+def isAndWire (n : ℕ) (C : Circuit) (w : ℕ) : Bool :=
+  match (gateAt C (w - n)).op with
+  | GateOp.and => true
+  | _ => false
+
+lemma binary_wire_recurrence (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hge : n ≤ w) (hw : w < n + C.gates.length) :
+    leftWire n C w < w ∧ rightWire n C w < w ∧
+      ∀ x, wireFn n C w x =
+        if isAndWire n C w then wireFn n C (leftWire n C w) x && wireFn n C (rightWire n C w) x
+        else wireFn n C (leftWire n C w) x || wireFn n C (rightWire n C w) x := by
+  obtain ⟨ha,hb,hop,he⟩ := binary_wire_data n C hC w hge hw
+  refine ⟨ha,hb,?_⟩
+  intro x
+  rw [he]
+  rcases hop with hop | hop <;> simp [isAndWire,hop,GateOp.eval]
+
+lemma isAndWire_false_iff (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hge : n ≤ w) (hw : w < n + C.gates.length) :
+    isAndWire n C w = false ↔ (gateAt C (w - n)).op = GateOp.or := by
+  obtain ⟨_,_,hop,_⟩ := binary_wire_data n C hC w hge hw
+  rcases hop with hop | hop <;> simp [isAndWire,hop]
+
+-- A semantic condition on an actual OR gate: each operand accepts some singleton,
+-- and all singletons accepted by the gate have one colour.
+def ProductiveMonochrome (n : ℕ) (C : Circuit) (colour : Fin n → Bool) (j : ℕ) : Prop :=
+  (∃ i, wireFn n C (opnd C j 0) (single i) = true) ∧
+  (∃ i, wireFn n C (opnd C j 1) (single i) = true) ∧
+  ∀ i k, wireFn n C (n + j) (single i) = true →
+    wireFn n C (n + j) (single k) = true → colour i = colour k
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+-- An AO2 circuit with at most one OR failing the semantic productive-monochrome
+-- condition has a cross-pair output relation of vertex-cover number at most two,
+-- whenever that relation is C4-free. No syntactic two-colour count is assumed.
+lemma circuit_one_exceptional_or_cover
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (exception : ℕ) (hex : exception < C.gates.length)
+    (hexop : (gateAt C exception).op = GateOp.or)
+    (hgood : ∀ j, j < C.gates.length → j ≠ exception →
+      (gateAt C j).op = GateOp.or → ProductiveMonochrome n C colour j)
+    (hout : C.output < n + C.gates.length)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ C.eval (List.ofFn (pair (L i) (R j))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  have hg (w : ℕ) (hw : n ≤ w) (hn : w < n + C.gates.length)
+      (hc : w ≠ n + exception) (ho : isAndWire n C w = false) :
+      ProductiveMonochrome n C colour (w - n) := by
+    apply hgood (w - n) (by omega) (by omega)
+    exact (isAndWire_false_iff n C hC w hw hn).mp ho
+  apply CutConstruction.indexed_one_exceptional_or_cover
+    (n + C.gates.length) (n + exception) C.output (wireFn n C)
+    (leftWire n C) (rightWire n C) (isAndWire n C) colour
+    (wireFn_input n C) (binary_wire_recurrence n C hC)
+    (by
+      intro w hw hn hc ho
+      have h := hg w hw hn hc ho
+      exact ⟨by simpa [leftWire,opnd] using h.1,
+        by simpa [rightWire,opnd] using h.2.1⟩)
+    (by
+      intro w hw hn hc ho i j hi hj
+      have h := (hg w hw hn hc ho).2.2
+      have he : n + (w - n) = w := by omega
+      exact h i j (by simpa [he] using hi) (by simpa [he] using hj))
+    (by omega) (by omega) (by simp [isAndWire,hexop])
+    hout L R hL hR E hno hrel
+
+end ActualOneBad
+
+namespace ActualOneBad
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open CutPolicy PairFactorCover CrossRectangleCover
+
+lemma wireFn_invalid (n : ℕ) (C : Circuit) (w : ℕ) (hw : n + C.gates.length ≤ w)
+    (x : Fin n → Bool) : wireFn n C w x = false := by
+  unfold wireFn Circuit.wires
+  change (wiresFrom C.gates (List.ofFn x)).getD w false = false
+  apply List.getD_eq_default
+  simpa [length_wiresFrom] using hw
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+lemma circuit_one_exceptional_or_cover_total
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (exception : ℕ) (hex : exception < C.gates.length)
+    (hexop : (gateAt C exception).op = GateOp.or)
+    (hgood : ∀ j, j < C.gates.length → j ≠ exception →
+      (gateAt C j).op = GateOp.or → ProductiveMonochrome n C colour j)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ C.eval (List.ofFn (pair (L i) (R j))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  by_cases hout : C.output < n + C.gates.length
+  · exact circuit_one_exceptional_or_cover n C hC colour exception hex hexop hgood
+      hout L R hL hR E hno hrel
+  · refine ⟨∅,∅,?_,by simp⟩
+    intro i j hij
+    have he := (hrel i j).mp hij
+    change wireFn n C C.output (pair (L i) (R j)) = true at he
+    rw [wireFn_invalid n C C.output (by omega)] at he
+    cases he
+
+end ActualOneBad
+
+namespace ActualOneBad
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open CutPolicy PairFactorCover CrossRectangleCover
+
+lemma actual_good_plain_separated
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (hgood : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.or →
+      ProductiveMonochrome n C colour j)
+    (w : ℕ) (hw : w < n + C.gates.length) :
+    PlainSeparated colour false (wireFn n C w) := by
+  let N := n + C.gates.length
+  let a := leftWire n C
+  let b := rightWire n C
+  let op := isAndWire n C
+  have hN : n ≤ N := by dsimp [N]; omega
+  have hg (v : ℕ) (hv : n ≤ v) (hn : v < N) (ho : op v = false) :
+      ProductiveMonochrome n C colour (v - n) := by
+    apply hgood (v - n) (by dsimp [N] at hn; omega)
+    exact (isAndWire_false_iff n C hC v hv hn).mp ho
+  apply actual_plain_separated_before N N
+    (fun v x z => CutConstruction.cutValue n N a b op x z v)
+    (wireFn n C) a b op colour (wireFn n C N)
+    (CutConstruction.cutValue_input N a b op hN)
+    (CutConstruction.cutValue_cut N a b op)
+    (by
+      intro v hv hn hc
+      obtain ⟨ha,hb,_⟩ := binary_wire_recurrence n C hC v hv hn
+      exact ⟨ha,hb,CutConstruction.cutValue_gate N a b op v hv hc ha hb⟩)
+    (CutConstruction.cutValue_actual N N a b op (wireFn n C) hN
+      (wireFn_input n C) (binary_wire_recurrence n C hC))
+    (by
+      intro v hv hn hc ho
+      have h := hg v hv hn ho
+      exact ⟨by simpa [a,leftWire,opnd] using h.1,
+        by simpa [b,rightWire,opnd] using h.2.1⟩)
+    (by
+      intro v hv hn hc ho i j hi hj
+      have h := (hg v hv hn ho).2.2
+      have he : n + (v - n) = v := by omega
+      exact h i j (by simpa [he] using hi) (by simpa [he] using hj))
+    w hw hw
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+lemma circuit_productive_or_cover
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (hgood : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.or →
+      ProductiveMonochrome n C colour j)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ C.eval (List.ofFn (pair (L i) (R j))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 1 := by
+  by_cases hout : C.output < n + C.gates.length
+  · obtain ⟨g,h,hg,hh,he⟩ := actual_good_plain_separated n C hC colour hgood C.output hout
+    apply rectangle_pair_cover E hno (fun i => g (single (L i))) (fun j => h (single (R j)))
+    intro i j
+    calc
+      E i j ↔ wireFn n C C.output (pair (L i) (R j)) = true := hrel i j
+      _ ↔ (g (single (L i)) && h (single (R j))) = true := by
+        rw [he,pure_pair_left colour L R hR g hg i j,pure_pair_right colour L R hL h hh i j]
+  · refine ⟨∅,∅,?_,by simp⟩
+    intro i j hij
+    have he := (hrel i j).mp hij
+    change wireFn n C C.output (pair (L i) (R j)) = true at he
+    rw [wireFn_invalid n C C.output (by omega)] at he
+    cases he
+
+lemma circuit_at_most_one_exceptional_or_cover
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (exception : ℕ)
+    (hgood : ∀ j, j < C.gates.length → j ≠ exception →
+      (gateAt C j).op = GateOp.or → ProductiveMonochrome n C colour j)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ C.eval (List.ofFn (pair (L i) (R j))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  by_cases hex : exception < C.gates.length ∧ (gateAt C exception).op = GateOp.or
+  · exact circuit_one_exceptional_or_cover_total n C hC colour exception hex.1 hex.2 hgood
+      L R hL hR E hno hrel
+  · have hg : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.or →
+        ProductiveMonochrome n C colour j := by
+      intro j hj hop
+      apply hgood j hj _ hop
+      intro he
+      subst j
+      exact hex ⟨hj,hop⟩
+    obtain ⟨P,Q,hcover,hcard⟩ := circuit_productive_or_cover n C hC colour hg L R hL hR E hno hrel
+    exact ⟨P,Q,hcover,by omega⟩
+
+end ActualOneBad
+
+namespace ActualOneBad
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open CutPolicy PairFactorCover CrossRectangleCover
+
+noncomputable def badOrGates (n : ℕ) (C : Circuit) (colour : Fin n → Bool) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j =>
+    (gateAt C j).op = GateOp.or ∧ ¬ ProductiveMonochrome n C colour j
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+lemma circuit_bad_or_count_cover
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (colour : Fin n → Bool)
+    (hcount : (badOrGates n C colour).card ≤ 1)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ C.eval (List.ofFn (pair (L i) (R j))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧
+      P.card + Q.card ≤ (badOrGates n C colour).card + 1 := by
+  classical
+  by_cases hne : (badOrGates n C colour).Nonempty
+  · obtain ⟨k,hk⟩ := hne
+    have hg : ∀ j, j < C.gates.length → j ≠ k →
+        (gateAt C j).op = GateOp.or → ProductiveMonochrome n C colour j := by
+      intro j hj hneq hop
+      by_contra hbad
+      have hm : j ∈ badOrGates n C colour := by simp [badOrGates,hj,hop,hbad]
+      exact hneq ((Finset.card_le_one.mp hcount) _ hm _ hk)
+    obtain ⟨P,Q,hcover,hcard⟩ := circuit_at_most_one_exceptional_or_cover
+      n C hC colour k hg L R hL hR E hno hrel
+    have hpos : 0 < (badOrGates n C colour).card := Finset.card_pos.mpr ⟨k,hk⟩
+    exact ⟨P,Q,hcover,by omega⟩
+  · have hg : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.or →
+        ProductiveMonochrome n C colour j := by
+      intro j hj hop
+      by_contra hbad
+      exact hne ⟨j,by simp [badOrGates,hj,hop,hbad]⟩
+    obtain ⟨P,Q,hcover,hcard⟩ := circuit_productive_or_cover n C hC colour hg L R hL hR E hno hrel
+    exact ⟨P,Q,hcover,by omega⟩
+
+end ActualOneBad
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
