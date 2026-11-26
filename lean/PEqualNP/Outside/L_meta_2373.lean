@@ -556,6 +556,28 @@ lemma rawOr_positive_boundary (S : Finset (Fin 10))
     rw [hv] at ht
     contradiction
 
+def maskPair (a b c : Fin 10) (t u : Bool) (i : Fin 10) : Bool :=
+  if i = a then u else if i = b then t else decide (i = c)
+
+set_option maxRecDepth 10000 in
+lemma conditional_essential_samples : ∀ a b : Fin 10, a ≠ b → ∀ t : Bool,
+    ∃ c : Fin 10, c ≠ a ∧ c ≠ b ∧
+      edge (maskPair a b c t false) = false ∧ edge (maskPair a b c t true) = true := by
+  decide +kernel
+
+lemma essential_with_other_fixed (a b : Fin 10) (hab : a ≠ b) (t : Bool) :
+    ∃ x : Fin 10 → Bool, x a = false ∧ x b = t ∧ edge x = false ∧
+      edge (Function.update x a true) = true := by
+  obtain ⟨c, hca, hcb, hfalse, htrue⟩ := conditional_essential_samples a b hab t
+  refine ⟨maskPair a b c t false, ?_, ?_, hfalse, ?_⟩
+  · simp [maskPair]
+  · simp [maskPair, hab.symm]
+  · have he : Function.update (maskPair a b c t false) a true = maskPair a b c t true := by
+      funext i
+      by_cases hi : i = a <;> simp [Function.update, maskPair, hi]
+    rw [he]
+    exact htrue
+
 end Boundary
 
 
@@ -2059,6 +2081,409 @@ lemma and_and_not_lower_bound (n lower : ℕ) (C : Circuit) (gs : List Gate)
     pand pread qand qread rnot
   have bound := hlower E hE computes
   omega
+
+
+lemma and_constant_consumer_four_saving (n k : ℕ) (gs : List Gate)
+    (acc : List Stat × List Gate) (p q r : Fin gs.length)
+    (normal : ∀ g ∈ gs, NOk g)
+    (back : ∀ j g, gs[j]? = some g → ∀ a ∈ g.inputs, a < acc.1.length + j)
+    (hk : k < acc.1.length) (hkfalse : acc.1.getD k (Sum.inl false) = Sum.inl false)
+    (pand : (gs.get p).op = GateOp.and) (pread : k ∈ (gs.get p).inputs)
+    (qread : acc.1.length + p.val ∈ (gs.get q).inputs) (qavoids : k ∉ (gs.get q).inputs)
+    (qconstant : ∃ b, (elim n gs acc).1.getD (acc.1.length + q.val) (Sum.inl false) = Sum.inl b)
+    (rread : k ∈ (gs.get r).inputs) (hpr : p ≠ r)
+    (live : ∀ i : Fin gs.length,
+      (∃ b, (elim n gs acc).1.getD (acc.1.length + i.val) (Sum.inl false) = Sum.inl b) →
+      ∃ j : Fin gs.length, acc.1.length + i.val ∈ (gs.get j).inputs) :
+    (elim n gs acc).2.length + 4 ≤ acc.2.length + gs.length := by
+  have hkfinal : (elim n gs acc).1.getD k (Sum.inl false) = Sum.inl false := by
+    rw [elim_getD n k _ gs acc hk, hkfalse]
+  have hpgood := normal (gs.get p) (List.get_mem gs p)
+  have hpfalse := final_and_false n k gs acc p pand hpgood.1.2 pread (by omega) hkfinal
+  have hpq : p.val < q.val := by
+    have hb := back q.val (gs.get q) (by simp) (acc.1.length + p.val) qread
+    omega
+  obtain ⟨b, hqb⟩ := qconstant
+  obtain ⟨s, sread⟩ := live q ⟨b, hqb⟩
+  have hqs : q.val < s.val := by
+    have hb := back s.val (gs.get s) (by simp) (acc.1.length + q.val) sread
+    omega
+  have hqr : q ≠ r := by intro heq; subst r; exact qavoids rread
+  by_cases hsr : s = r
+  · subst s
+    have hrgood := normal (gs.get r) (List.get_mem gs r)
+    have hins := Consumer.two_inputs_of_distinct (gs.get r).inputs k (acc.1.length + q.val)
+      (by omega) hrgood.1.2 rread sread
+    have hrop : (gs.get r).op = GateOp.and ∨ (gs.get r).op = GateOp.or := by
+      rcases hrgood.1.1 with hop | hop | hop
+      · exact Or.inl hop
+      · exact Or.inr hop
+      · have hlen := hrgood.2 hop
+        rcases hins with hins | hins <;> rw [hins] at hlen <;> simp at hlen
+    obtain ⟨c, hrc⟩ := final_two_constants n k (acc.1.length + q.val) gs acc r hrop
+      hrgood.1.2 (by omega) rread sread (by omega) (by omega) false b hkfinal hqb
+    obtain ⟨t, tread⟩ := live r ⟨c, hrc⟩
+    have hrt : r.val < t.val := by
+      have hb := back t.val (gs.get t) (by simp) (acc.1.length + r.val) tread
+      omega
+    let K : Finset ℕ := {k, acc.1.length + p.val, acc.1.length + q.val, acc.1.length + r.val}
+    have hc : ∀ a ∈ K, ∃ c, (elim n gs acc).1.getD a (Sum.inl false) = Sum.inl c := by
+      intro a ha
+      simp only [K, Finset.mem_insert, Finset.mem_singleton] at ha
+      rcases ha with rfl | rfl | rfl | rfl
+      · exact ⟨false, hkfinal⟩
+      · exact ⟨false, hpfalse⟩
+      · exact ⟨b, hqb⟩
+      · exact ⟨c, hrc⟩
+    have count := four_readers_le K gs p q r t
+      (by omega) (by omega) (by omega) (by omega) (by omega) (by omega) (by
+        intro i hi
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+        rcases hi with rfl | rfl | rfl | rfl
+        · exact ⟨k, pread, by simp [K]⟩
+        · exact ⟨acc.1.length + p.val, qread, by simp [K]⟩
+        · exact ⟨k, rread, by simp [K]⟩
+        · exact ⟨acc.1.length + r.val, tread, by simp [K]⟩)
+    have budget := elim_len_final_constants n K gs acc normal back hc
+    omega
+  · let K : Finset ℕ := {k, acc.1.length + p.val, acc.1.length + q.val}
+    have hc : ∀ a ∈ K, ∃ c, (elim n gs acc).1.getD a (Sum.inl false) = Sum.inl c := by
+      intro a ha
+      simp only [K, Finset.mem_insert, Finset.mem_singleton] at ha
+      rcases ha with rfl | rfl | rfl
+      · exact ⟨false, hkfinal⟩
+      · exact ⟨false, hpfalse⟩
+      · exact ⟨b, hqb⟩
+    have count := four_readers_le K gs p q r s
+      (by omega) hpr (by omega) hqr (by omega) (Ne.symm hsr) (by
+        intro i hi
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+        rcases hi with rfl | rfl | rfl | rfl
+        · exact ⟨k, pread, by simp [K]⟩
+        · exact ⟨acc.1.length + p.val, qread, by simp [K]⟩
+        · exact ⟨k, rread, by simp [K]⟩
+        · exact ⟨acc.1.length + q.val, sread, by simp [K]⟩)
+    have budget := elim_len_final_constants n K gs acc normal back hc
+    omega
+
+lemma and_and_four_saving (n k : ℕ) (gs : List Gate) (acc : List Stat × List Gate)
+    (p q r : Fin gs.length)
+    (normal : ∀ g ∈ gs, NOk g)
+    (back : ∀ j g, gs[j]? = some g → ∀ a ∈ g.inputs, a < acc.1.length + j)
+    (hk : k < acc.1.length) (hkfalse : acc.1.getD k (Sum.inl false) = Sum.inl false)
+    (pand : (gs.get p).op = GateOp.and) (pread : k ∈ (gs.get p).inputs)
+    (qand : (gs.get q).op = GateOp.and) (qread : acc.1.length + p.val ∈ (gs.get q).inputs)
+    (qavoids : k ∉ (gs.get q).inputs) (rread : k ∈ (gs.get r).inputs) (hpr : p ≠ r)
+    (live : ∀ i : Fin gs.length,
+      (∃ b, (elim n gs acc).1.getD (acc.1.length + i.val) (Sum.inl false) = Sum.inl b) →
+      ∃ j : Fin gs.length, acc.1.length + i.val ∈ (gs.get j).inputs) :
+    (elim n gs acc).2.length + 4 ≤ acc.2.length + gs.length := by
+  have hkfinal : (elim n gs acc).1.getD k (Sum.inl false) = Sum.inl false := by
+    rw [elim_getD n k _ gs acc hk, hkfalse]
+  have hpgood := normal (gs.get p) (List.get_mem gs p)
+  have hqgood := normal (gs.get q) (List.get_mem gs q)
+  have hpq := back q.val (gs.get q) (by simp) (acc.1.length + p.val) qread
+  have hpfalse := final_and_false n k gs acc p pand hpgood.1.2 pread (by omega) hkfinal
+  have hqfalse := final_and_false n (acc.1.length + p.val) gs acc q qand hqgood.1.2 qread hpq hpfalse
+  exact and_constant_consumer_four_saving n k gs acc p q r normal back hk hkfalse pand pread
+    qread qavoids ⟨false, hqfalse⟩ rread hpr live
+
+lemma two_and_consumers_four_saving (n k : ℕ) (gs : List Gate) (acc : List Stat × List Gate)
+    (p q r s : Fin gs.length)
+    (normal : ∀ g ∈ gs, NOk g)
+    (back : ∀ j g, gs[j]? = some g → ∀ a ∈ g.inputs, a < acc.1.length + j)
+    (hk : k < acc.1.length) (hkfalse : acc.1.getD k (Sum.inl false) = Sum.inl false)
+    (pand : (gs.get p).op = GateOp.and) (pread : k ∈ (gs.get p).inputs)
+    (qread : acc.1.length + p.val ∈ (gs.get q).inputs) (qavoids : k ∉ (gs.get q).inputs)
+    (sread : acc.1.length + p.val ∈ (gs.get s).inputs) (savoids : k ∉ (gs.get s).inputs)
+    (rread : k ∈ (gs.get r).inputs) (hpr : p ≠ r) (hqs : q ≠ s) :
+    (elim n gs acc).2.length + 4 ≤ acc.2.length + gs.length := by
+  let K : Finset ℕ := {k, acc.1.length + p.val}
+  have hkfinal : (elim n gs acc).1.getD k (Sum.inl false) = Sum.inl false := by
+    rw [elim_getD n k _ gs acc hk, hkfalse]
+  have hpgood := normal (gs.get p) (List.get_mem gs p)
+  have hpfalse := final_and_false n k gs acc p pand hpgood.1.2 pread (by omega) hkfinal
+  have hpq := back q.val (gs.get q) (by simp) (acc.1.length + p.val) qread
+  have hps := back s.val (gs.get s) (by simp) (acc.1.length + p.val) sread
+  have hqr : q ≠ r := by intro heq; subst r; exact qavoids rread
+  have hrs : r ≠ s := by intro heq; subst r; exact savoids rread
+  have hc : ∀ a ∈ K, ∃ b, (elim n gs acc).1.getD a (Sum.inl false) = Sum.inl b := by
+    intro a ha
+    simp only [K, Finset.mem_insert, Finset.mem_singleton] at ha
+    rcases ha with rfl | rfl
+    · exact ⟨false, hkfinal⟩
+    · exact ⟨false, hpfalse⟩
+  have count := four_readers_le K gs p q r s (by omega) hpr (by omega) hqr hqs hrs (by
+    intro i hi
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
+    rcases hi with rfl | rfl | rfl | rfl
+    · exact ⟨k, pread, by simp [K]⟩
+    · exact ⟨acc.1.length + p.val, qread, by simp [K]⟩
+    · exact ⟨k, rread, by simp [K]⟩
+    · exact ⟨acc.1.length + p.val, sread, by simp [K]⟩)
+  have budget := elim_len_final_constants n K gs acc normal back hc
+  omega
+
+def normalizationIsNot : GateOp → Bool
+  | GateOp.not => true
+  | _ => false
+
+def normalizationNotCount (gs : List Gate) : ℕ :=
+  gs.countP (fun g => normalizationIsNot g.op)
+
+lemma normalizationNotCount_eq (C : Circuit) :
+    normalizationNotCount C.gates = PEqualNP.NotBracket.notCount C := by
+  unfold normalizationNotCount PEqualNP.NotBracket.notCount
+  rw [List.countP_eq_length_filter]
+  congr 2
+  funext g
+  cases g.op <;> rfl
+
+lemma normalizationNotCount_append (gs hs : List Gate) :
+    normalizationNotCount (gs ++ hs) = normalizationNotCount gs + normalizationNotCount hs := by
+  simp [normalizationNotCount]
+
+lemma simplify_notCount_le (op : GateOp) (m : ℕ) (ins : List Stat) :
+    normalizationNotCount (simplify op m ins).1.toList ≤ if normalizationIsNot op then 1 else 0 := by
+  cases op <;> simp only [simplify]
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpAnd, normalizationNotCount, normalizationIsNot]
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpOr, normalizationNotCount, normalizationIsNot]
+  · rcases ins with _ | ⟨a, l⟩ <;> (try cases a) <;> simp [simpNot, normalizationNotCount, normalizationIsNot]
+  · simp [normalizationNotCount, normalizationIsNot]
+  · simp [normalizationNotCount, normalizationIsNot]
+
+lemma elim_notCount_le (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
+    normalizationNotCount (elim n gs acc).2 ≤ normalizationNotCount acc.2 + normalizationNotCount gs := by
+  induction gs with
+  | nil => intro acc; simp [elim, normalizationNotCount]
+  | cons g gs ih =>
+    intro acc
+    have hi := ih (elimStep n acc g)
+    have hs : normalizationNotCount (elimStep n acc g).2 ≤
+        normalizationNotCount acc.2 + if normalizationIsNot g.op then 1 else 0 := by
+      change normalizationNotCount (acc.2 ++ _ ) ≤ _
+      rw [normalizationNotCount_append]
+      exact Nat.add_le_add_left (simplify_notCount_le g.op _ _) _
+    have hc : normalizationNotCount (g :: gs) =
+        (if normalizationIsNot g.op then 1 else 0) + normalizationNotCount gs := by
+      simp [normalizationNotCount, List.countP_cons, Nat.add_comm]
+    change normalizationNotCount (elim n gs (elimStep n acc g)).2 ≤ _
+    rw [hc]
+    omega
+
+lemma exists_strict_equivalent_count (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y)) :
+    ∃ E : Circuit, FanInTwo E ∧ E.size ≤ C.size ∧
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+      (∀ g ∈ E.gates, g.op = GateOp.not → g.inputs.length ≤ 1) ∧
+      (∀ j g, E.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j) ∧
+      PEqualNP.NotBracket.notCount E ≤ PEqualNP.NotBracket.notCount C := by
+  let acc := elim n C.gates (identityStats n, [])
+  have hinv (x : Fin n → Bool) :
+      Inv n (List.ofFn x) (wiresFrom C.gates (List.ofFn x)) acc :=
+    inv_elim n _ (by simp) C.gates _ _ hfan (inv_identity n x)
+  have hval (x : Fin n → Bool) :
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) =
+        C.eval (List.ofFn x) := (hinv x).2 C.output |>.2
+  cases hst : acc.1.getD C.output (Sum.inl false) with
+  | inl c =>
+    exfalso
+    obtain ⟨x, y, hxy⟩ := hnc
+    apply hxy
+    rw [← hval x, ← hval y, hst]
+    rfl
+  | inr j =>
+    have hnok : ∀ g ∈ acc.2, NOk g := elim_nok n C.gates _ (by simp)
+    have hback : Back n acc.2 := elim_back n (List.ofFn (fun _ : Fin n => false))
+      (by simp) C.gates _ _ hfan (inv_identity n _) trivial
+    refine ⟨⟨acc.2, j⟩, fun g hg => (hnok g hg).1, ?_, ?_,
+      fun g hg => (hnok g hg).2, back_lookup n acc.2 hback, ?_⟩
+    · have := elim_len n C.gates (identityStats n, [])
+      simpa [Circuit.size] using this
+    · intro x
+      have hv := hval x
+      rw [hst] at hv
+      exact hv
+    · have hc := elim_notCount_le n C.gates (identityStats n, [])
+      rw [← normalizationNotCount_eq, ← normalizationNotCount_eq]
+      change normalizationNotCount acc.2 ≤ normalizationNotCount C.gates
+      simpa [normalizationNotCount] using hc
+
+lemma minimum_not_strict_equivalent (n bound : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hsize : C.size ≤ bound)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y))
+    (hmin : ∀ D : Circuit, FanInTwo D → D.size ≤ bound →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) →
+      PEqualNP.NotBracket.notCount C ≤ PEqualNP.NotBracket.notCount D) :
+    ∃ E : Circuit, FanInTwo E ∧ E.size ≤ C.size ∧
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+      (∀ g ∈ E.gates, g.op = GateOp.not → g.inputs.length ≤ 1) ∧
+      (∀ j g, E.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j) ∧
+      PEqualNP.NotBracket.notCount E = PEqualNP.NotBracket.notCount C ∧
+      ∀ D : Circuit, FanInTwo D → D.size ≤ bound →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) = E.eval (List.ofFn x)) →
+        PEqualNP.NotBracket.notCount E ≤ PEqualNP.NotBracket.notCount D := by
+  obtain ⟨E, fan, size, computes, normal, back, count⟩ := exists_strict_equivalent_count n C hfan hnc
+  have heq : PEqualNP.NotBracket.notCount E = PEqualNP.NotBracket.notCount C :=
+    Nat.le_antisymm count (hmin E fan (size.trans hsize) computes)
+  refine ⟨E, fan, size, computes, normal, back, heq, ?_⟩
+  intro D dFan dSize dComputes
+  rw [heq]
+  apply hmin D dFan dSize
+  intro x
+  exact (dComputes x).trans (computes x)
+
+lemma simultaneous_minimal_strict_equivalent (n bound : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hsize : C.size ≤ bound)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y))
+    (hminSize : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hminNot : ∀ D : Circuit, FanInTwo D → D.size ≤ bound →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) →
+      PEqualNP.NotBracket.notCount C ≤ PEqualNP.NotBracket.notCount D) :
+    ∃ E : Circuit, FanInTwo E ∧ E.size = C.size ∧
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+      (∀ g ∈ E.gates, g.op = GateOp.not → g.inputs.length ≤ 1) ∧
+      (∀ j g, E.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j) ∧
+      PEqualNP.NotBracket.notCount E = PEqualNP.NotBracket.notCount C ∧
+      (∀ D : Circuit, FanInTwo D →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) = E.eval (List.ofFn x)) → E.size ≤ D.size) ∧
+      ∀ D : Circuit, FanInTwo D → D.size ≤ bound →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) = E.eval (List.ofFn x)) →
+        PEqualNP.NotBracket.notCount E ≤ PEqualNP.NotBracket.notCount D := by
+  obtain ⟨E, fan, size, computes, normal, back, count, leastNot⟩ :=
+    minimum_not_strict_equivalent n bound C hfan hsize hnc hminNot
+  have heq : E.size = C.size := Nat.le_antisymm size (hminSize E fan computes)
+  refine ⟨E, fan, heq, computes, normal, back, count, ?_, leastNot⟩
+  intro D dFan dComputes
+  rw [heq]
+  apply hminSize D dFan
+  intro x
+  exact (dComputes x).trans (computes x)
+
+lemma exists_minimum_size_then_not (n : ℕ) (C : Circuit) (hfan : FanInTwo C) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size ≤ C.size ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+      (∀ E : Circuit, FanInTwo E →
+        (∀ x : Fin n → Bool, E.eval (List.ofFn x) = D.eval (List.ofFn x)) → D.size ≤ E.size) ∧
+      ∀ E : Circuit, FanInTwo E → E.size ≤ D.size →
+        (∀ x : Fin n → Bool, E.eval (List.ofFn x) = D.eval (List.ofFn x)) →
+        PEqualNP.NotBracket.notCount D ≤ PEqualNP.NotBracket.notCount E := by
+  classical
+  let sizeGood (s : ℕ) : Prop := ∃ E : Circuit, FanInTwo E ∧ E.size = s ∧
+    ∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)
+  have hasSize : ∃ s, sizeGood s := ⟨C.size, C, hfan, rfl, fun _ => rfl⟩
+  obtain ⟨A, aFan, aSize, aCorrect⟩ := Nat.find_spec hasSize
+  have leastSize (E : Circuit) (eFan : FanInTwo E)
+      (eCorrect : ∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) :
+      A.size ≤ E.size := by
+    rw [aSize]
+    exact Nat.find_min' hasSize ⟨E, eFan, rfl, eCorrect⟩
+  let notGood (k : ℕ) : Prop := ∃ E : Circuit, FanInTwo E ∧ E.size ≤ A.size ∧
+    (∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+    PEqualNP.NotBracket.notCount E = k
+  have hasNot : ∃ k, notGood k :=
+    ⟨PEqualNP.NotBracket.notCount A, A, aFan, le_rfl, aCorrect, rfl⟩
+  obtain ⟨D, dFan, dBound, dCorrect, dCount⟩ := Nat.find_spec hasNot
+  have dSize : D.size = A.size := Nat.le_antisymm dBound (leastSize D dFan dCorrect)
+  refine ⟨D, dFan, dBound.trans (leastSize C hfan (fun _ => rfl)), dCorrect, ?_, ?_⟩
+  · intro E eFan eCorrect
+    rw [dSize]
+    exact leastSize E eFan (fun x => (eCorrect x).trans (dCorrect x))
+  · intro E eFan eSize eCorrect
+    rw [dCount]
+    exact Nat.find_min' hasNot ⟨E, eFan, eSize.trans dBound,
+      (fun x => (eCorrect x).trans (dCorrect x)), rfl⟩
+
+lemma exists_strict_lex_minimum (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y)) :
+    ∃ E : Circuit, FanInTwo E ∧ E.size ≤ C.size ∧
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x)) ∧
+      (∀ g ∈ E.gates, g.op = GateOp.not → g.inputs.length ≤ 1) ∧
+      (∀ j g, E.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j) ∧
+      (∀ D : Circuit, FanInTwo D →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) = E.eval (List.ofFn x)) → E.size ≤ D.size) ∧
+      ∀ D : Circuit, FanInTwo D → D.size ≤ E.size →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) = E.eval (List.ofFn x)) →
+        PEqualNP.NotBracket.notCount E ≤ PEqualNP.NotBracket.notCount D := by
+  obtain ⟨D, dFan, dBound, dCorrect, dLeastSize, dLeastNot⟩ := exists_minimum_size_then_not n C hfan
+  have dNonconstant : ∃ x y : Fin n → Bool, D.eval (List.ofFn x) ≠ D.eval (List.ofFn y) := by
+    obtain ⟨x, y, hxy⟩ := hnc
+    refine ⟨x, y, ?_⟩
+    simpa only [dCorrect] using hxy
+  obtain ⟨E, eFan, eSize, eCorrect, eNormal, eBack, _, eLeastSize, eLeastNot⟩ :=
+    simultaneous_minimal_strict_equivalent n D.size D dFan le_rfl dNonconstant dLeastSize dLeastNot
+  refine ⟨E, eFan, eSize.le.trans dBound, (fun x => (eCorrect x).trans (dCorrect x)),
+    eNormal, eBack, eLeastSize, ?_⟩
+  intro A aFan aSize aCorrect
+  exact eLeastNot A aFan (aSize.trans eSize.le) aCorrect
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma global_gate_value (n : ℕ) (gs : List Gate) (p : Fin gs.length)
+    (x : List Bool) (hlen : x.length = n)
+    (back : ∀ i ∈ (gs.get p).inputs, i < n + p.val) :
+    (wiresFrom gs x).getD (n + p.val) false =
+      (gs.get p).op.eval ((gs.get p).inputs.map fun i => (wiresFrom gs x).getD i false) := by
+  let w := wiresFrom (gs.take p.val) x
+  let b := (gs.get p).op.eval ((gs.get p).inputs.map fun i => w.getD i false)
+  have hw : w.length = n + p.val := by
+    simp [w, length_wiresFrom, hlen, Nat.le_of_lt p.isLt]
+  have hs : wiresFrom gs x = wiresFrom (gs.drop (p.val + 1)) (w ++ [b]) := by
+    conv_lhs => rw [gate_decomposition gs p]
+    rw [wiresFrom_append]
+    rfl
+  have hi (i : ℕ) (hlt : i < n + p.val) :
+      (wiresFrom gs x).getD i false = w.getD i false := by
+    rw [hs, getD_wiresFrom _ _ _ (by simp [hw]; omega)]
+    exact List.getD_append _ _ _ _ (by omega)
+  have ho : (wiresFrom gs x).getD (n + p.val) false = b := by
+    rw [hs, getD_wiresFrom _ _ _ (by simp [hw])]
+    exact getD_snoc_len w b false (n + p.val) hw
+  rw [ho]
+  apply congrArg (gs.get p).op.eval
+  apply List.map_congr_left
+  intro i hmem
+  exact (hi i (back i hmem)).symm
+
+lemma actual_consumer_avoids_raw_input (n : ℕ) (C : Circuit)
+    (p q : Fin C.gates.length) (v : ℕ) (hv : v < n) (hpq : p.val < q.val)
+    (fan : FanInTwo C)
+    (normal : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (pand : (C.gates.get p).op = GateOp.and) (pread : v ∈ (C.gates.get p).inputs)
+    (qread : n + p.val ∈ (C.gates.get q).inputs)
+    (noalias : ∀ j, j < n + q.val → ¬ ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD (n + q.val) false = (C.wires (List.ofFn x)).getD j false) :
+    v ∉ (C.gates.get q).inputs := by
+  apply Consumer.consumer_avoids_raw_input
+    (fun (x : Fin n → Bool) i => (C.wires (List.ofFn x)).getD i false)
+    (C.gates.get p) (C.gates.get q) n v p.val q.val hv hpq pand pread qread
+    (fan _ (List.get_mem _ q)).1 (fan _ (List.get_mem _ q)).2
+    (normal _ (List.get_mem _ q))
+  · intro x
+    exact global_gate_value n C.gates p (List.ofFn x) (by simp)
+      (back p.val (C.gates.get p) (by simp))
+  · intro x
+    exact global_gate_value n C.gates q (List.ofFn x) (by simp)
+      (back q.val (C.gates.get q) (by simp))
+  · exact noalias
+
+lemma normGate_eq_self (g : Gate) (hn : g.op = GateOp.not → g.inputs.length ≤ 1) :
+    normGate g = g := by
+  obtain ⟨op, ins⟩ := g
+  cases op <;> simp only [normGate]
+  rw [List.take_of_length_le (hn rfl)]
+
+lemma normal_map_eq (gs : List Gate)
+    (hn : ∀ g ∈ gs, g.op = GateOp.not → g.inputs.length ≤ 1) :
+    gs.map normGate = gs := by
+  calc
+    gs.map normGate = gs.map (fun g => g) :=
+      List.map_congr_left (fun g hg => normGate_eq_self g (hn g hg))
+    _ = gs := List.map_id' gs
 
 end NandRestriction
 
