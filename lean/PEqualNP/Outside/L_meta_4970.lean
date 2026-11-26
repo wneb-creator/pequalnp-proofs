@@ -6177,4 +6177,262 @@ lemma first_node_operand_classification {n : ℕ}
 
 end H8OrPatch
 
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma exists_global_private_minimum {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      PreservesPureOr n C D ∧ orCount D.gates ≤ orCount C.gates ∧
+      (∀ K : Circuit, PEqualNP.TopForm.IsAO2 n K →
+        (∀ x : Fin n → Bool, K.eval (List.ofFn x) = H8Active.dnf P x) →
+        PreservesPureOr n C K → orCount D.gates ≤ orCount K.gates) ∧
+      ∀ (pre post : List Gate) (u v : ℕ), D.gates = pre ++ [binary false u v] ++ post →
+        (∃ S ∈ Tests P, original n pre u (H8Active.assignmentOf S) = true ∧
+          original n pre v (H8Active.assignmentOf S) = false) ∧
+        (∃ S ∈ Tests P, original n pre v (H8Active.assignmentOf S) = true ∧
+          original n pre u (H8Active.assignmentOf S) = false) := by
+  classical
+  let Good : Circuit → Prop := fun D => PEqualNP.TopForm.IsAO2 n D ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧ PreservesPureOr n C D
+  have hgood : Good C := ⟨hC,hF,preserves_refl n C⟩
+  have hex : ∃ k : ℕ, ∃ D : Circuit, Good D ∧ orCount D.gates = k :=
+    ⟨orCount C.gates,C,hgood,rfl⟩
+  obtain ⟨D,hD,hcount⟩ := Nat.find_spec hex
+  have hmin (K : Circuit) (hK : Good K) : orCount D.gates ≤ orCount K.gates := by
+    rw [hcount]
+    exact Nat.find_min' hex ⟨K,hK,rfl⟩
+  refine ⟨D,hD.1,hD.2.1,hD.2.2,hmin C hgood,?_,?_⟩
+  · intro K hK hKF hKpure
+    exact hmin K ⟨hK,hKF,hKpure⟩
+  · intro pre post u v he
+    constructor
+    · by_contra hn
+      have hdom := dominates_of_no_private (Tests P)
+        (fun S => original n pre u (H8Active.assignmentOf S))
+        (fun S => original n pre v (H8Active.assignmentOf S)) hn
+      obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit D hD.1 P hD.2.1 pre post u v he hdom
+      have hk : orCount D.gates ≤ orCount K.gates :=
+        hmin K ⟨hK,hKF,preserves_trans hD.2.2 hKroots⟩
+      omega
+    · by_contra hn
+      have hdom := dominates_of_no_private (Tests P)
+        (fun S => original n pre v (H8Active.assignmentOf S))
+        (fun S => original n pre u (H8Active.assignmentOf S)) hn
+      obtain ⟨X,hXg,hX,hXF,hXcount,hXroots⟩ := swap_circuit D hD.1 P hD.2.1 pre post u v he
+      obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit X hX P hXF pre post v u hXg hdom
+      have hk : orCount D.gates ≤ orCount K.gates :=
+        hmin K ⟨hK,hKF,preserves_trans (preserves_trans hD.2.2 hXroots) hKroots⟩
+      omega
+
+end H8OrPatch
+
+namespace H8NormalizationCounts
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.Outside.L_meta_4970.H8TaggedCounts
+
+lemma tCount_constant_false (n : ℕ) (C : Circuit) :
+    PEqualNP.TwoColour.tCount n C (fun _ => false) = 0 := by
+  simp [PEqualNP.TwoColour.tCount,PEqualNP.TwoColour.twoColour,
+    PEqualNP.TwoColour.IsTwoColour]
+
+lemma normalize_top_without_colours {n : ℕ} (F : Test n)
+    (hsingle : ∀ a : Fin n, ¬ F (singleton a))
+    (C : Circuit) (hC : IsAO2 n C)
+    (hne : ∃ x, F x) (ho : W n C.gates C.output = F) :
+    ∃ D : Circuit, D.size ≤ C.size ∧
+      countAnd D.gates ≤ countAnd C.gates ∧ countOr D.gates ≤ countOr C.gates ∧
+      IsAO2 n D ∧ W n D.gates D.output = F ∧
+      (∀ i < D.gates.length, ∀ j < D.gates.length,
+        (gateAt D i).op = .and →
+        (∀ x : Fin n → Bool, gateVal n D i x = true → F x) →
+        (gateAt D j).op = .and → ¬ InCone n D i j) ∧
+      (∀ (Q : Finset (Fin n)), Q.Nonempty →
+        (∃ i < n + C.gates.length, W n C.gates i = OrOf Q) →
+        ∃ i < n + D.gates.length, W n D.gates i = OrOf Q) ∧
+      (∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+        (∃ i < n + C.gates.length, W n C.gates i = OrOf Q) →
+        ∃ (j : ℕ) (hj : j < D.gates.length),
+          D.gates[j].op = .or ∧ W n D.gates (n+j) = OrOf Q) := by
+  have hi : ∀ i < n, Dirty F (W n [] i) :=
+    H8PostedCounts.input_dirty_of_singleton_false F hsingle
+  obtain ⟨D,hsize,hA,hO,hD,hcol,hF,htop,hpure⟩ :=
+    normalize_top_preserving F (fun _ => false) hi hsingle C hC
+      (tCount_constant_false n C) hne ho
+  refine ⟨D,hsize,hA,hO,hD,hF,htop,hpure,?_⟩
+  intro Q hQ hw
+  apply H8RootsCounts.pure_or_root D.gates (layout_of hD) Q hQ
+  exact hpure Q (Finset.card_pos.mp (by omega)) hw
+
+end H8NormalizationCounts
+
+namespace H8AssemblyCounts
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.Outside.L_meta_4970.H8TaggedCounts
+
+lemma normalize_prefix_pure_without_colours {n : ℕ} (F : Test n)
+    (hsingle : ∀ a : Fin n, ¬ F (singleton a))
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hne : ∃ x, F x) (ho : W n C.gates C.output = F) :
+    ∃ (D : Circuit) (k : ℕ), k ≤ D.gates.length ∧ D.size ≤ C.size ∧
+      countAnd D.gates ≤ countAnd C.gates ∧ countOr D.gates ≤ countOr C.gates ∧
+      PEqualNP.TopForm.IsAO2 n D ∧
+      W n D.gates D.output = F ∧
+      AndBound n k D.gates ∧
+      (∀ i (hi : i < D.gates.length), i < k → D.gates[i].op = .and →
+        Dirty F (W n D.gates (n+i))) ∧
+      (∀ (Q : Finset (Fin n)), Q.Nonempty →
+        (∃ i < n + C.gates.length, W n C.gates i = OrOf Q) →
+        ∃ i < n + k, W n D.gates i = OrOf Q) ∧
+      (∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+        (∃ i < n + C.gates.length, W n C.gates i = OrOf Q) →
+        ∃ j < k, (gateAt D j).op = .or ∧ W n D.gates (n+j) = OrOf Q) := by
+  classical
+  let lin : ℕ → Bool := fun _ => false
+  have inputs : ∀ i < n, Dirty F (W n [] i) :=
+    H8PostedCounts.input_dirty_of_singleton_false F hsingle
+  have hcol : PEqualNP.TwoColour.tCount n C lin = 0 :=
+    H8NormalizationCounts.tCount_constant_false n C
+  obtain ⟨base,U,hbase,htbase,hclean,hb,hsafe,hcover,hsize,hsizeA,hsizeO,hpure⟩ :=
+    extract_pure_official F lin inputs hsingle C hC hcol hne ho
+  have hU : U.Nonempty := by
+    obtain ⟨x,hx⟩ := hne
+    obtain ⟨p,hp,-⟩ := hcover x hx
+    exact ⟨p,hp⟩
+  have hlist : U.toList ≠ [] := by simpa using hU.ne_empty
+  obtain ⟨gs,out,hprefix,hlen,hA,hO,hl,ht,hout,htrace,hand,hfun⟩ :=
+    assemble_nonempty (fun i : Fin n => lin i.val) base.gates (layout_of hbase)
+      ((tame_iff_tCount_zero base hbase lin).mpr htbase) U.toList hlist
+      (by simpa using hb)
+  obtain ⟨suffix,hsuffix⟩ := hprefix
+  have hbaselen : base.gates.length ≤ gs.length := by rw [← hsuffix]; simp
+  have hD : PEqualNP.TopForm.IsAO2 n (⟨gs,out⟩ : Circuit) := layout_ao hl
+  refine ⟨⟨gs,out⟩,base.gates.length,hbaselen,?_,?_,?_,hD,?_,hand,?_,?_,?_⟩
+  · simp only [Finset.length_toList] at hlen
+    change gs.length ≤ C.size
+    change base.gates.length + 2 * U.card ≤ C.size + 1 at hsize
+    omega
+  · change countAnd gs ≤ countAnd C.gates
+    simp only [Finset.length_toList] at hA
+    omega
+  · change countOr gs ≤ countOr C.gates
+    simp only [Finset.length_toList] at hO
+    omega
+  · funext x
+    apply propext
+    rw [hfun]
+    constructor
+    · rintro ⟨p,hp,h1,h2⟩
+      exact hsafe p (by simpa using hp) x h1 h2
+    · intro hx
+      obtain ⟨p,hp,h1,h2⟩ := hcover x hx
+      exact ⟨p,by simpa using hp,h1,h2⟩
+  · intro i hi hik hop
+    change i < gs.length at hi
+    have hopbase : base.gates[i].op = .and := by
+      simpa [← hsuffix,List.getElem_append_left hik] using hop
+    have hd := hclean i hik hopbase
+    change Dirty F (W n gs (n+i))
+    rw [← hsuffix,old_wire_append base.gates suffix (by omega)]
+    exact hd
+  · intro Q hQ hQold
+    obtain ⟨i,hi,he⟩ := hpure Q hQ hQold
+    refine ⟨i,hi,?_⟩
+    change W n gs i = OrOf Q
+    rw [← hsuffix,old_wire_append base.gates suffix hi]
+    exact he
+  · intro Q hQ hQold
+    obtain ⟨j,hj,hop,he⟩ := H8RootsCounts.pure_or_root base.gates (layout_of hbase) Q hQ
+      (hpure Q (Finset.card_pos.mp (by omega)) hQold)
+    refine ⟨j,hj,?_,?_⟩
+    · rw [H8TopBridgeCounts.gateAt_eq_getElem (⟨gs,out⟩ : Circuit) j (by change j < gs.length; omega)]
+      change gs[j].op = .or
+      simpa only [← hsuffix,List.getElem_append_left hj] using hop
+    · change W n gs (n+j) = OrOf Q
+      rw [← hsuffix,old_wire_append base.gates suffix (by omega)]
+      exact he
+
+end H8AssemblyCounts
+
+namespace H8OrPatch
+
+open PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma initial_minterm_term {n : ℕ} (gs : List Node) (Q : Finset (Fin n))
+    (x : Fin n → Bool) :
+    term n gs (Q.image Fin.val) x = decide (∀ a ∈ Q, x a = true) := by
+  unfold term conj
+  congr 1
+  apply propext
+  constructor
+  · intro h a ha
+    have ht := h a.val (Finset.mem_image_of_mem Fin.val ha)
+    simpa only [normal_wire_input n gs a.val a.isLt] using ht
+  · intro h i hi
+    obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp hi
+    change wire n gs a.val x = true
+    rw [normal_wire_input n gs a.val a.isLt]
+    exact h a ha
+
+lemma initial_minterm_term_le_dnf {n : ℕ} (gs : List Node)
+    (P : Finset (Finset (Fin n))) (Q : Finset (Fin n)) (hQ : Q ∈ P) :
+    ∀ x : Fin n → Bool, term n gs (Q.image Fin.val) x ≤ H8Active.dnf P x := by
+  intro x
+  apply Bool.le_iff_imp.mpr
+  intro ht
+  rw [initial_minterm_term] at ht
+  have htrue : ∀ a ∈ Q, x a = true := by
+    simpa only [decide_eq_true_eq] using ht
+  simp only [H8Active.dnf,decide_eq_true_eq]
+  exact ⟨Q,hQ,htrue⟩
+
+lemma positive_dirty_initial_term_singleton {n : ℕ}
+    (gs : List Node) (s : Finset ℕ) (P : Finset (Finset (Fin n)))
+    (hP : ∀ Q ∈ P, Q.card ≤ 2) (hs : s.Nonempty)
+    (hb : ∀ i ∈ s, i < n)
+    (ht : ∃ Q ∈ Tests P, term n gs s (H8Active.assignmentOf Q) = true)
+    (hdirty : ∃ x : Fin n → Bool, term n gs s x = true ∧ H8Active.dnf P x = false) :
+    ∃ a : Fin n, s = {a.val} := by
+  rcases positive_initial_term_classification gs s P hP hs hb ht with hsingle | hpair
+  · exact hsingle
+  · obtain ⟨Q,hQ,hcard,he⟩ := hpair
+    obtain ⟨x,ht,hf⟩ := hdirty
+    rw [he] at ht
+    have hh := Bool.le_iff_imp.mp (initial_minterm_term_le_dnf gs P Q hQ x) ht
+    rw [hf] at hh
+    cases hh
+
+lemma first_node_dirty_operands_singletons {n : ℕ}
+    (gs : List Node) (P : Finset (Finset (Fin n)))
+    (hP : ∀ Q ∈ P, Q.card ≤ 2)
+    (hv : Valid n gs) (hp : PrivateNormal n gs (TestInputs P))
+    (hgs : 0 < gs.length)
+    (hleft : ∃ x : Fin n → Bool,
+      term n gs gs[0].1 x = true ∧ H8Active.dnf P x = false)
+    (hright : ∃ x : Fin n → Bool,
+      term n gs gs[0].2 x = true ∧ H8Active.dnf P x = false) :
+    ∃ a b : Fin n, a ≠ b ∧ gs[0].1 = {a.val} ∧ gs[0].2 = {b.val} := by
+  obtain ⟨ha,hb,hba,hbb⟩ := hv 0 hgs
+  obtain ⟨⟨x,hx,hxa,hxb⟩,⟨y,hy,hyb,hya⟩⟩ := hp 0 hgs
+  obtain ⟨Q,hQ,hxQ⟩ := hx
+  obtain ⟨R,hR,hyR⟩ := hy
+  obtain ⟨a,hea⟩ := positive_dirty_initial_term_singleton gs gs[0].1 P hP ha
+    (by simpa only [Nat.add_zero] using hba) ⟨Q,hQ,hxQ ▸ hxa⟩ hleft
+  obtain ⟨b,heb⟩ := positive_dirty_initial_term_singleton gs gs[0].2 P hP hb
+    (by simpa only [Nat.add_zero] using hbb) ⟨R,hR,hyR ▸ hyb⟩ hright
+  refine ⟨a,b,?_,hea,heb⟩
+  intro he
+  subst b
+  have heq : term n gs gs[0].1 x = term n gs gs[0].2 x := by rw [hea,heb]
+  rw [heq] at hxa
+  rw [hxa] at hxb
+  cases hxb
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
