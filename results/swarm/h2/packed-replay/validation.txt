@@ -1,8 +1,7 @@
-Partial research certificate replay only.
-Named helper checkpoint2e7af2a8 has37 checked lemmas and independent source/axiom review; the posted theorem is absent.
-Frozen packed dependency36375ce3: all19 required modules compiled; selected source hashes matched.
-Accepted nodes1536..1667 inclusive:132. All supplied chunk builds exit0; stdout records only propext, Classical.choice, Quot.sound. Complete logs and source/object hashes are included.
-Independent chunk/range source review passed contiguous planned endpoints and no Fin.ofNat wraparound. Independent publication review PASS for source identity, complete logs, source/object hashes and exact accepted scope.
-This does not prove all5230 node checks, the18-gate certificate closure, or L-meta-2373.
+Assigned range1536..2303 (768 nodes): allseven kernel chunk builds PASS.
+H2IntervalBridge and aggregateH2Range build PASS; nine recursive axiom reports list only standardthree.
+Exact endpoint/static source reviews PASS; final expanded-bundle publication review PASS.
+Named helper remains37 checked lemmas, sourceSHA071172d778cf45fecfe68c1331daf3c33e2bab5f7a6e60036b7f08054d7c72e9.
+This is partial research toward L-meta-2373, not a full-gap proof or all5230-node closure.
 Sub-agents: setup, coverage, sat, constructive
-TIMING total=121 subagents=4
+TIMING total=136.2 subagents=4

@@ -1,15 +1,17 @@
 {
-  "scope": "Partial research replay only; not a proof of L-meta-2373 or of all5230 certificate nodes",
+  "scope": "All768 assigned nodes verified; not all5230 forest nodes or L-meta-2373",
   "frozen_certificate_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
   "certificate_path": "results/swarm/h8/certificate18",
   "lean_version": "4.36.0",
   "accepted_intervals": [
     [
       1536,
-      1667
+      2303
     ]
   ],
-  "accepted_count": 132,
+  "accepted_count": 768,
+  "aggregate_theorem": "H2PackedReplay.checked",
+  "aggregate_statement": "forall i : Fin5230,1536 <= i.val -> i.val <2304 -> Packed.checkNode i=true",
   "axioms": [
     "propext",
     "Classical.choice",
@@ -25,6 +27,16 @@
       "count": null,
       "source_sha256": "1d5fcf69af3d5bfeb5ffc23a5828c6f2ea7c3d46e65a465a8c99f6a408f7b3b8",
       "olean_sha256": "a7f8d80cd2bd6b5cabca769f2c41953c86cdade1dd76c5ec4cd81a56e8ad8286"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 7.845027421999475,
+      "max_rss_kib": 2970736,
+      "module": "H2IntervalBridge",
+      "start": null,
+      "count": null,
+      "source_sha256": "318d9f53bde57cea2e729f55be8e0846543d7023eea96c8cf7f87c2018580ec2",
+      "olean_sha256": "dd26366a7213ce4c395c65d05e7fc0ab37a2f1d53ce09fde8aa3a646882c35ee"
     },
     {
       "exit_code": 0,
@@ -45,6 +57,69 @@
       "count": 128,
       "source_sha256": "aa362dde178a3ff2ae1767f6fe7ef53e3b9f1ee0e1cae642045254726270d195",
       "olean_sha256": "076c5407efba983660642aa2b7e793156173d9f5b8c7b5ba33b688b41769f1c2"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 569.5395929650003,
+      "max_rss_kib": 5324604,
+      "module": "H2Nodes1668_1795",
+      "start": 1668,
+      "count": 128,
+      "source_sha256": "32ff34ed3048d6d16baa6badedfb90658b743bbc96e54c26d3bdfe3cce86470c",
+      "olean_sha256": "867ab1e7123a92cc9f21c4664d2133a595d0ca49a037789d8a175ead08884c51"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 419.16726287300025,
+      "max_rss_kib": 4983976,
+      "module": "H2Nodes1796_1923",
+      "start": 1796,
+      "count": 128,
+      "source_sha256": "b03c517e6b2a97f9e5857946530e638675d8029d7552e3476b9cc247e3e3926d",
+      "olean_sha256": "2b6b10633041ae65adc2904d9a50ecd0d57ff5ca2c65136a9d8e4c23907fd8f0"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 414.5734372929992,
+      "max_rss_kib": 5100940,
+      "module": "H2Tail1924_2051",
+      "start": 1924,
+      "count": 128,
+      "source_sha256": "7e0d96f70a250ea9ae0b0260407ffd92781fd996a020529735eeb45124b02722",
+      "olean_sha256": "2a64d019e59807515112d752335c1f8235ee2f8d82c5786da5bb0a5b25509565"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 406.52379794899934,
+      "max_rss_kib": 4655980,
+      "module": "H2Tail2052_2179",
+      "start": 2052,
+      "count": 128,
+      "source_sha256": "d8cbef744963fc484a122c6ffb0238ff2190e2f0d49273e88c8c5c7d70c9ea91",
+      "olean_sha256": "990b7d9976ab8cb28eb7a5b5b47615eeb29a08e41c875f1673450e468c4c8c67"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 347.4158778210003,
+      "max_rss_kib": 4286552,
+      "module": "H2Tail2180_2303",
+      "start": 2180,
+      "count": 124,
+      "source_sha256": "b72fed3ab0fe59f71d7fb31854eb9adeb2863391c1573916a4591e519a5e31dd",
+      "olean_sha256": "3d36632975101379e9e47389680a2539bb3c45bb59b868fd47dd732fce44ff56"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 3.1531841599990003,
+      "max_rss_kib": 2971332,
+      "module": "H2Range",
+      "start": null,
+      "count": null,
+      "source_sha256": "0ed2424c4edd03a25337986b84cbbccb31c5353371483509ad37d0e8de4f5812",
+      "olean_sha256": "9e4e19d77483ed8d9a0f9cf1287e5c78fee18797c0fac73934e2788f748ca576"
     }
-  ]
+  ],
+  "compute_policy": "Forward9GBcap and reverse6GBcap; redundant forward work stopped only after allseven distinct chunks succeeded",
+  "subagents": 4,
+  "total_minutes": 136.2
 }
