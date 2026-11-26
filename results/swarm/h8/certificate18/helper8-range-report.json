@@ -1,0 +1,75 @@
+{
+  "range": [
+    4608,
+    5230
+  ],
+  "interval": "half-open",
+  "started_utc": "2026-11-26T01:42:59.059636+00:00",
+  "status": "all_builds_passed",
+  "builds": [
+    {
+      "module": "H8Chunk4608",
+      "source_sha256": "6249994eec93b6ab2aa5a14c1cb0b7ef518719cbede1676194bd49092b52bb33",
+      "returncode": 0,
+      "wall_seconds": 196.9482386210002,
+      "maxrss_KiB": 4186404,
+      "user_seconds": 189.118948,
+      "system_seconds": 7.170814
+    },
+    {
+      "module": "H8Chunk4736",
+      "source_sha256": "11168ab1dd3014228992b983424cbd02401fd07b3009c541f5c12da8bd6e4d20",
+      "returncode": 0,
+      "wall_seconds": 200.14733528600027,
+      "maxrss_KiB": 4140884,
+      "user_seconds": 191.577755,
+      "system_seconds": 7.318318
+    },
+    {
+      "module": "H8Chunk4864",
+      "source_sha256": "4419ee45e4859caad988a51d8dc1970935f9e2e5330e24c18c330f59ff7a7c1e",
+      "returncode": 0,
+      "wall_seconds": 253.5749083569999,
+      "maxrss_KiB": 4049272,
+      "user_seconds": 160.117533,
+      "system_seconds": 5.895327
+    },
+    {
+      "module": "H8Chunk4992",
+      "source_sha256": "4cc25484bbb2849eb4c8f6b8d9bdb56d091115b70e13e4bb3cac58e01ba0912f",
+      "returncode": 0,
+      "wall_seconds": 1.5557980740004496,
+      "maxrss_KiB": 2896544,
+      "user_seconds": 0.9762919999999999,
+      "system_seconds": 0.504988
+    },
+    {
+      "module": "H8Chunk5120",
+      "source_sha256": "f27581ae4b3a585f1368cba75a621020f00c1d4b1a4ebc3f68a3dc265582510d",
+      "returncode": 0,
+      "wall_seconds": 1.6488211010000668,
+      "maxrss_KiB": 2897448,
+      "user_seconds": 1.260766,
+      "system_seconds": 0.383916
+    },
+    {
+      "module": "H8Range",
+      "source_sha256": "79ddb29b854a6e75eee95675e9e8cf65bdbbb11d07a00b38aeb258a27fdde924",
+      "returncode": 0,
+      "wall_seconds": 1.693365497000741,
+      "maxrss_KiB": 2914532,
+      "user_seconds": 1.21913,
+      "system_seconds": 0.46815199999999996
+    },
+    {
+      "module": "H8Axioms",
+      "source_sha256": "ecc25631822a45455b646981b2c146cfc676659743f8eb53d6cc7758a90be4c8",
+      "returncode": 0,
+      "wall_seconds": 1.577279082000132,
+      "maxrss_KiB": 2899980,
+      "user_seconds": 1.17017,
+      "system_seconds": 0.41248199999999996
+    }
+  ],
+  "finished_utc": "2026-11-26T01:53:56.214934+00:00"
+}

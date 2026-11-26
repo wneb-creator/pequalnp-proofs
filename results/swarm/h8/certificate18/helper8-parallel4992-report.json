@@ -1,0 +1,11 @@
+{
+  "module": "H8Parallel4992",
+  "range": [
+    4992,
+    5120
+  ],
+  "source_sha256": "8004476058cae1f78e346c03f9d1fd8dad00447f66a0ed9ca231308a6fd5f07c",
+  "returncode": 0,
+  "wall_seconds": 182.9278422719999,
+  "maxrss_KiB": 4169400
+}

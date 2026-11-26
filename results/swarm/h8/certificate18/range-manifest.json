@@ -1,0 +1,241 @@
+{
+  "status": "PASS: all622states andaggregatekernelverified; permittedaxiomsonly",
+  "interval": "4608\u2264i.val<5230",
+  "theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.checked",
+  "result": "\u2200i:Fin5230,4608\u2264i.val\u2192Replay.DirectMode.Packed.checkNode i=true",
+  "wall_seconds": 657.155298,
+  "maxrss_KiB": 4186404,
+  "build_order": [
+    "RangeAssembly",
+    "H8Chunk4608",
+    "H8Chunk4736",
+    "H8Chunk4864",
+    "H8Parallel4992",
+    "H8Chunk4992",
+    "H8Parallel5120",
+    "H8Chunk5120",
+    "H8Range",
+    "H8Axioms"
+  ],
+  "requires": "Frozen delivery-packed module stack; no productionchecker modifications",
+  "source_review": {
+    "reviewer": "lean_setup",
+    "verdict": "PASS for RangeAssembly/H8Range source",
+    "range_assembly_sha256": "d7f3e7ffd5234175c13fe5170e165196a94ce4885c70df4d6efbc816002f1195",
+    "h8_range_sha256": "79ddb29b854a6e75eee95675e9e8cf65bdbbb11d07a00b38aeb258a27fdde924"
+  },
+  "axioms": [
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.c4608",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.c4736",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.c4864",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.c4992",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.c5120",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.checked",
+      "propext, Classical.choice, Quot.sound"
+    ]
+  ],
+  "files": [
+    {
+      "file": "RangeAssembly.lean",
+      "bytes": 1110,
+      "sha256": "d7f3e7ffd5234175c13fe5170e165196a94ce4885c70df4d6efbc816002f1195"
+    },
+    {
+      "file": "H8Chunk4608.lean",
+      "bytes": 442,
+      "sha256": "6249994eec93b6ab2aa5a14c1cb0b7ef518719cbede1676194bd49092b52bb33"
+    },
+    {
+      "file": "H8Chunk4736.lean",
+      "bytes": 442,
+      "sha256": "11168ab1dd3014228992b983424cbd02401fd07b3009c541f5c12da8bd6e4d20"
+    },
+    {
+      "file": "H8Chunk4864.lean",
+      "bytes": 442,
+      "sha256": "4419ee45e4859caad988a51d8dc1970935f9e2e5330e24c18c330f59ff7a7c1e"
+    },
+    {
+      "file": "H8Parallel4992.lean",
+      "bytes": 442,
+      "sha256": "8004476058cae1f78e346c03f9d1fd8dad00447f66a0ed9ca231308a6fd5f07c"
+    },
+    {
+      "file": "H8Chunk4992.lean",
+      "bytes": 22,
+      "sha256": "4cc25484bbb2849eb4c8f6b8d9bdb56d091115b70e13e4bb3cac58e01ba0912f"
+    },
+    {
+      "file": "H8Parallel5120.lean",
+      "bytes": 442,
+      "sha256": "d062aa11aef1dd5ee5271a9902ac793c993b256234a52db880c39be5a36e5318"
+    },
+    {
+      "file": "H8Chunk5120.lean",
+      "bytes": 22,
+      "sha256": "f27581ae4b3a585f1368cba75a621020f00c1d4b1a4ebc3f68a3dc265582510d"
+    },
+    {
+      "file": "H8Range.lean",
+      "bytes": 677,
+      "sha256": "79ddb29b854a6e75eee95675e9e8cf65bdbbb11d07a00b38aeb258a27fdde924"
+    },
+    {
+      "file": "H8Axioms.lean",
+      "bytes": 426,
+      "sha256": "ecc25631822a45455b646981b2c146cfc676659743f8eb53d6cc7758a90be4c8"
+    },
+    {
+      "file": "run-helper8-range.py",
+      "bytes": 1907,
+      "sha256": "4c4734f9a9fb70248b57a57cd1a3d0bc949157ce651df38a9349492b37505405"
+    },
+    {
+      "file": "helper8-range-report.json",
+      "bytes": 2308,
+      "sha256": "da851b15a2edd92aeecb5b0bd9e3e7805f846983796e62c3e6deb7c4c2f549e1"
+    },
+    {
+      "file": "helper8-parallel4992-report.json",
+      "bytes": 238,
+      "sha256": "759491a2a1bfac1465bf791db5f39343d2f07f12f96e3e43d85d69253886b20d"
+    },
+    {
+      "file": "helper8-parallel5120-report.json",
+      "bytes": 239,
+      "sha256": "05320597a4fcc4b8380eb56334e53d5f104170034b84fc6955694a18b02678f7"
+    },
+    {
+      "file": "helper8-range-runner.stdout",
+      "bytes": 1712,
+      "sha256": "16292958a8d76b8687701734dbdd0311afe55a1331b355c819f01b906ea20bda"
+    },
+    {
+      "file": "helper8-range-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "range-assembly.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "range-assembly.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "H8Axioms.stderr",
+      "bytes": 257,
+      "sha256": "dae3d425fbe6d361af5dfe25539c0073047f4124b1442b63ed26581328659511"
+    },
+    {
+      "file": "H8Axioms.stdout",
+      "bytes": 692,
+      "sha256": "6ce5e6a2c0f841fe2576d5fa5bab70d8e1deeaa522bc5c14ce808477cc5b5101"
+    },
+    {
+      "file": "H8Chunk4608.stderr",
+      "bytes": 552,
+      "sha256": "2138fb47e58fcb190972e0f212c571739de42c2c112afc89818f8b4c4ee01f5c"
+    },
+    {
+      "file": "H8Chunk4608.stdout",
+      "bytes": 800,
+      "sha256": "e58fc4c9b7733351cb86591a2e2c96aa0d91d27f4a4d21bb02304c21f0966a21"
+    },
+    {
+      "file": "H8Chunk4736.stderr",
+      "bytes": 550,
+      "sha256": "5541557fb167fbd5d01547a469b385e49a68c2fd096e6f17c94299e440e112f9"
+    },
+    {
+      "file": "H8Chunk4736.stdout",
+      "bytes": 794,
+      "sha256": "31562b48e7c30078297123181bf7aff94c2576bdcd6bcd7ab1f1186ecf6983ff"
+    },
+    {
+      "file": "H8Chunk4864.stderr",
+      "bytes": 551,
+      "sha256": "b18d9101fc31a78770ce49fa578a98ba3a60ee5b3907d8120727253869acd96b"
+    },
+    {
+      "file": "H8Chunk4864.stdout",
+      "bytes": 798,
+      "sha256": "1f645e57d3320b79a85fafe5962c4d05a5cd4c6a5e5e7be5ca0f38926b91ae8c"
+    },
+    {
+      "file": "H8Chunk4992.stderr",
+      "bytes": 264,
+      "sha256": "c757697fa09a1cd2152c2113eed8c081b816afa33c8e38224b89b2e3cf6d154c"
+    },
+    {
+      "file": "H8Chunk4992.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "H8Chunk5120.stderr",
+      "bytes": 263,
+      "sha256": "669c233c5a4f07f3fd22944555be9f66e11ecf9c12e9af9861ab367bee7b5579"
+    },
+    {
+      "file": "H8Chunk5120.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "H8Parallel4992.stderr",
+      "bytes": 551,
+      "sha256": "37ecf4ba88937f892548f9c191e8dc3479e27b963dd615be7b0f2b3075c668ee"
+    },
+    {
+      "file": "H8Parallel4992.stdout",
+      "bytes": 797,
+      "sha256": "de97300756b7990caaa183c55ad01cae4cd214621c1bae49f1c0bd062766a69f"
+    },
+    {
+      "file": "H8Parallel5120.stderr",
+      "bytes": 554,
+      "sha256": "38f501ab282d51c64f53353796faff6555e1dfed85acb2e869dbf5ab4ce8defb"
+    },
+    {
+      "file": "H8Parallel5120.stdout",
+      "bytes": 794,
+      "sha256": "d1bdf91d97986713d2f10883b7275f33a2ab5082f9a9b06e149a998ed0f5aae3"
+    },
+    {
+      "file": "H8Range.stderr",
+      "bytes": 516,
+      "sha256": "42df15910b45802a714cd24a26a25298133a5997ce36e58d859382938eb77909"
+    },
+    {
+      "file": "H8Range.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "range-README.md",
+      "bytes": 1665,
+      "sha256": "738d97ece681ecbbcff00313e2c30c093241d19de5e3d00a5e45e37330d47e48"
+    }
+  ],
+  "path_note": "Log paths flattened; original README renamed range-README.md. Historical driver retains job-specific paths; use build.py with the exact build_order for portable reproduction."
+}

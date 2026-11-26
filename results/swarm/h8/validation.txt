@@ -81,7 +81,12 @@ transport, all419targetpairs, all20inputsignatures andconditionalclosure BUILD P
 Independent source review PASS; actualcompressednodes0/292/2000/4000/5229 PASS
 in8.99/4.59/3.60/4.07/2.44seconds. Completefamily remains unproved.
 
+Helper8 range COMPLETE:622nodes4608..5229 inclusive andaggregate theorem kernelPASS.
+Five bounded128/last110 blocks, all6axiomreports permitted standard3only.
+Total657.16s wall withup to2proofprocesses, peakindividualRSS4186404KiB.
+Full5230-node closure andexactgap remain unproved. Sources/logs:certificate18/range-manifest.json.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=105.8 subagents=8
+TIMING total=117.7 subagents=8

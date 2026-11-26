@@ -18,7 +18,7 @@ The following modules compiled successfully in this job:
   for symmetry links and Boolean set comparisons.
 - `Replay.lean`: the complete assembled checker and compact data, including
   all 120 automorphism checks and conditional closure soundness. It compiles;
-  the 5,230 individual node checks remain to be established.
+  the complete 5,230-node family remains to be established.
 - `CheckNode.lean`: the original Boolean entry point for individual nodes.
 - `BlockReplay.lean`, `DirectDecode.lean`, `DirectReplay.lean`: compiled block32
   projection-hint decoding and direct state decoding, with a conditional
@@ -174,3 +174,28 @@ This single comparison does not establish a general speedup. Source, complete
 logs and metrics are pinned by `lookup-manifest.json`. After the default build,
 use `--modules ArrayLookup ArrayDataLookup`, then choose one of
 `PackedLookupBaseline292`, `ArrayLookupNode292` or `ArrayDataLookupNode292`.
+
+## Verified helper range
+
+`H8Range.lean` now proves every packed node check from 4608 through 5229,
+inclusive: 622 nodes. All five bounded block proofs and the aggregate theorem
+built successfully and use only `propext`, `Classical.choice` and `Quot.sound`.
+The other nodes and the exact posted gap remain outside this result.
+
+The replay took 657.16 seconds wall time with up to two proof processes; the
+peak individual process RSS was 4,186,404 KiB. Full sources, logs, hashes and
+per-process timing receipts are pinned in `range-manifest.json`; see also
+`range-README.md`. The historical runner records job-specific scratch paths.
+For portable reproduction, first use the default builder, then:
+
+```sh
+python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo /path/to/pequalnp-proofs --output /tmp/cert18 --lean /path/to/lean --modules RangeAssembly H8Chunk4608 H8Chunk4736 H8Chunk4864 H8Parallel4992 H8Chunk4992 H8Parallel5120 H8Chunk5120 H8Range H8Axioms
+```
+
+The aggregate API is:
+
+```lean
+PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.checked
+  (i : Fin 5230) (lower : 4608 ≤ i.val) :
+  PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.checkNode i = true
+```
