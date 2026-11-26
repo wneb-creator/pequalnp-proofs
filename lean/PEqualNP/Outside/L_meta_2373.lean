@@ -480,4 +480,363 @@ lemma matching_free_signed_or_lower (n : ℕ)
   rw [independent3_false, augmented3_true]
   decide
 
+def matchingRestrictionAt (k : Fin 5) (x : Fin 6 → Bool) : Fin 10 → Bool :=
+  ![![false, x 1, false, x 0, x 3, x 4, x 2, x 5, false, false],
+    ![false, x 0, x 3, false, x 1, x 4, false, false, x 5, x 2],
+    ![x 0, false, x 1, false, x 3, false, x 4, x 2, x 5, false],
+    matchingRestriction x,
+    ![x 0, x 3, false, x 1, false, false, false, x 4, x 2, x 5]] k
+
+set_option maxRecDepth 20000 in
+lemma five_matching_restrictions : ∀ (k : Fin 5) (x : Fin 6 → Bool),
+    petersen (matchingRestrictionAt k x) = matching x := by
+  decide
+
+set_option maxRecDepth 20000 in
+lemma restriction_source_capacity : ∀ (k : Fin 5) (i : Fin 10),
+    (separated3 (fun x => matchingRestrictionAt k x i)).card ≤ 4 := by
+  decide
+
+namespace WeightedCapacity
+
+open PEqualNP.CircuitLowerBounds
+
+def gateFunction (L : List ((Fin 6 → Bool) → Bool)) (g : Gate) :
+    (Fin 6 → Bool) → Bool :=
+  fun x => g.op.eval (g.inputs.map fun i => L.getD i (fun _ => false) x)
+
+def functionWires (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool)) :
+    List ((Fin 6 → Bool) → Bool) :=
+  gs.foldl (fun L g => L ++ [gateFunction L g]) L
+
+def highCount : List Gate → List ((Fin 6 → Bool) → Bool) → ℕ
+  | [], _ => 0
+  | g :: gs, L =>
+      (if 4 < (separated3 (gateFunction L g)).card then 1 else 0) +
+        highCount gs (L ++ [gateFunction L g])
+
+def Budget (k : ℕ) (L : List ((Fin 6 → Bool) → Bool)) : Prop :=
+  ∀ W : Finset ℕ,
+    (W.biUnion fun j => separated3 (L.getD j (fun _ => false))).card ≤ 4 * (k + W.card)
+
+lemma separated_gate_subset (L : List ((Fin 6 → Bool) → Bool)) (g : Gate) :
+    separated3 (gateFunction L g) ⊆
+      g.inputs.toFinset.biUnion (fun j => separated3 (L.getD j (fun _ => false))) := by
+  classical
+  intro w hw
+  by_contra hnot
+  have hsame : ∀ j ∈ g.inputs,
+      L.getD j (fun _ => false) (independent3 w.1) =
+        L.getD j (fun _ => false) (augmented3 w.1 w.2) := by
+    intro j hj
+    by_contra hne
+    exact hnot (Finset.mem_biUnion.mpr
+      ⟨j, List.mem_toFinset.mpr hj, Finset.mem_filter.mpr ⟨Finset.mem_univ w, hne⟩⟩)
+  have hm : g.inputs.map (fun j => L.getD j (fun _ => false) (independent3 w.1)) =
+      g.inputs.map (fun j => L.getD j (fun _ => false) (augmented3 w.1 w.2)) :=
+    List.map_congr_left hsame
+  exact (Finset.mem_filter.mp hw).2 (congrArg g.op.eval hm)
+
+lemma budget_initial (L : List ((Fin 6 → Bool) → Bool))
+    (hL : ∀ q ∈ L, (separated3 q).card ≤ 4) : Budget 0 L := by
+  intro W
+  calc
+    (W.biUnion fun j => separated3 (L.getD j (fun _ => false))).card
+        ≤ ∑ j ∈ W, (separated3 (L.getD j (fun _ => false))).card := Finset.card_biUnion_le
+    _ ≤ ∑ _j ∈ W, 4 := by
+      apply Finset.sum_le_sum
+      intro j hj
+      by_cases hjl : j < L.length
+      · apply hL
+        simpa only [List.getD_eq_getElem L (fun _ => false) hjl] using (List.getElem_mem hjl)
+      · rw [List.getD_eq_default _ _ (by omega)]
+        simp [separated3]
+    _ = 4 * (0 + W.card) := by simp [Nat.mul_comm]
+
+lemma budget_low (k : ℕ) (L : List ((Fin 6 → Bool) → Bool))
+    (q : (Fin 6 → Bool) → Bool) (hq : (separated3 q).card ≤ 4)
+    (h : Budget k L) : Budget k (L ++ [q]) := by
+  classical
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => separated3 ((L ++ [q]).getD j (fun _ => false)))
+        ⊆ ((W.erase L.length).biUnion fun j => separated3 (L.getD j (fun _ => false)))
+          ∪ separated3 q := by
+      intro w hw
+      obtain ⟨j, hj, hwj⟩ := Finset.mem_biUnion.mp hw
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hwj
+        exact Finset.mem_union_right _ hwj
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hwj
+        exact Finset.mem_union_left _ (Finset.mem_biUnion.mpr
+          ⟨j, Finset.mem_erase.mpr ⟨hjl, hj⟩, hwj⟩)
+    have hcard := Finset.card_le_card hsub
+    have huni := Finset.card_union_le
+      ((W.erase L.length).biUnion fun j => separated3 (L.getD j (fun _ => false)))
+      (separated3 q)
+    have hold := h (W.erase L.length)
+    have he := Finset.card_erase_of_mem hW
+    have hpos : 1 ≤ W.card := Finset.card_pos.mpr ⟨_, hW⟩
+    omega
+  · have heq : (W.biUnion fun j => separated3 ((L ++ [q]).getD j (fun _ => false))) =
+        W.biUnion fun j => separated3 (L.getD j (fun _ => false)) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      rw [getD_snoc_ne _ _ _ _ (fun he => hW (he ▸ hj))]
+    rw [heq]
+    exact h W
+
+lemma budget_high (k : ℕ) (L : List ((Fin 6 → Bool) → Bool))
+    (g : Gate) (hg : g.inputs.length ≤ 2)
+    (h : Budget k L) : Budget (k + 1) (L ++ [gateFunction L g]) := by
+  classical
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => separated3
+        ((L ++ [gateFunction L g]).getD j (fun _ => false)))
+        ⊆ ((W.erase L.length ∪ g.inputs.toFinset).biUnion
+          fun j => separated3 (L.getD j (fun _ => false))) := by
+      intro w hw
+      obtain ⟨j, hj, hwj⟩ := Finset.mem_biUnion.mp hw
+      by_cases hjl : j = L.length
+      · subst hjl
+        rw [getD_snoc_eq] at hwj
+        obtain ⟨a, ha, hwa⟩ := Finset.mem_biUnion.mp (separated_gate_subset L g hwj)
+        exact Finset.mem_biUnion.mpr ⟨a, Finset.mem_union_right _ ha, hwa⟩
+      · rw [getD_snoc_ne _ _ _ _ hjl] at hwj
+        exact Finset.mem_biUnion.mpr
+          ⟨j, Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨hjl, hj⟩), hwj⟩
+    have hc1 : (W.erase L.length ∪ g.inputs.toFinset).card ≤ (W.card - 1) + 2 := by
+      refine le_trans (Finset.card_union_le _ _) ?_
+      rw [Finset.card_erase_of_mem hW]
+      exact Nat.add_le_add_left (le_trans (List.toFinset_card_le _) hg) _
+    have hpos : 1 ≤ W.card := Finset.card_pos.mpr ⟨_, hW⟩
+    have hold := h (W.erase L.length ∪ g.inputs.toFinset)
+    have hcard := Finset.card_le_card hsub
+    omega
+  · have heq : (W.biUnion fun j => separated3
+        ((L ++ [gateFunction L g]).getD j (fun _ => false))) =
+        W.biUnion fun j => separated3 (L.getD j (fun _ => false)) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      rw [getD_snoc_ne _ _ _ _ (fun he => hW (he ▸ hj))]
+    rw [heq]
+    have hold := h W
+    omega
+
+lemma budget_wires (gs : List Gate) :
+    ∀ (k : ℕ) (L : List ((Fin 6 → Bool) → Bool)),
+      (∀ g ∈ gs, g.inputs.length ≤ 2) → Budget k L →
+      Budget (k + highCount gs L) (functionWires gs L) := by
+  induction gs with
+  | nil => intro k L _ h; exact h
+  | cons g gs ih =>
+    intro k L hf h
+    have ht : ∀ a ∈ gs, a.inputs.length ≤ 2 := fun a ha => hf a (List.mem_cons_of_mem _ ha)
+    by_cases hq : 4 < (separated3 (gateFunction L g)).card
+    · have hs := budget_high k L g (hf g List.mem_cons_self) h
+      have hh := ih (k + 1) (L ++ [gateFunction L g]) ht hs
+      simpa only [highCount, ite_eq_left hq, functionWires, List.foldl_cons, Nat.add_assoc] using hh
+    · have hs := budget_low k L (gateFunction L g) (by omega) h
+      have hh := ih k (L ++ [gateFunction L g]) ht hs
+      simpa only [highCount, ite_eq_right hq, Nat.zero_add, functionWires, List.foldl_cons] using hh
+
+lemma map_apply_getD (L : List ((Fin 6 → Bool) → Bool)) (j : ℕ) (x : Fin 6 → Bool) :
+    (L.map (fun q => q x)).getD j false = L.getD j (fun _ => false) x := by
+  induction L generalizing j with
+  | nil => simp
+  | cons q L ih => cases j <;> simp_all
+
+lemma map_apply_wires (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool))
+    (x : Fin 6 → Bool) :
+    (functionWires gs L).map (fun q => q x) = wiresFrom gs (L.map fun q => q x) := by
+  induction gs generalizing L with
+  | nil => rfl
+  | cons g gs ih =>
+    change (functionWires gs (L ++ [gateFunction L g])).map (fun q => q x) =
+      wiresFrom gs (L.map (fun q => q x) ++
+        [g.op.eval (g.inputs.map fun j => (L.map (fun q => q x)).getD j false)])
+    rw [ih]
+    congr 1
+    simp only [List.map_append, List.map_cons, List.map_nil]
+    congr 2
+    unfold gateFunction
+    congr 1
+    apply List.map_congr_left
+    intro j _
+    exact (map_apply_getD L j x).symm
+
+lemma output_capacity_bound (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool))
+    (hfanin : ∀ g ∈ gs, g.inputs.length ≤ 2)
+    (hL : ∀ q ∈ L, (separated3 q).card ≤ 4) (o : ℕ) :
+    (separated3 ((functionWires gs L).getD o (fun _ => false))).card ≤
+      4 * (highCount gs L + 1) := by
+  have h := budget_wires gs 0 L hfanin (budget_initial L hL) {o}
+  simpa only [Finset.singleton_biUnion, Finset.card_singleton, Nat.zero_add] using h
+
+lemma highCount_lower (C : Circuit) (L : List ((Fin 6 → Bool) → Bool))
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hL : ∀ q ∈ L, (separated3 q).card ≤ 4)
+    (hcompute : ∀ x : Fin 6 → Bool,
+      C.eval (L.map fun q => q x) = matching x) :
+    5 ≤ highCount C.gates L := by
+  have hc := output_capacity_bound C.gates L hfanin hL C.output
+  have heq : (functionWires C.gates L).getD C.output (fun _ => false) = matching := by
+    funext x
+    rw [← map_apply_getD, map_apply_wires]
+    exact hcompute x
+  rw [heq] at hc
+  have hm : (separated3 matching).card = 24 := by
+    have he : separated3 matching = Finset.univ := by
+      ext w
+      simp [separated3, independent3_false, augmented3_true]
+    rw [he]
+    exact obligations3_card
+  rw [hm] at hc
+  omega
+
+lemma raw_highCount_lower (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hcompute : ∀ x : Fin 6 → Bool, C.eval (List.ofFn x) = matching x) :
+    5 ≤ highCount C.gates (List.ofFn fun v : Fin 6 => fun x : Fin 6 → Bool => x v) := by
+  apply highCount_lower C _ hfanin
+  · intro q hq
+    obtain ⟨v, hv⟩ := List.mem_ofFn.mp hq
+    subst q
+    have he : (fun x : Fin 6 → Bool => x v) = orSignal3 {v} := by
+      funext x
+      simp [orSignal3]
+    rw [he]
+    exact distinguished3_card_le {v}
+  · intro x
+    simpa only [List.map_ofFn, Function.comp_def] using hcompute x
+
+def generatedFunctions : List Gate → List ((Fin 6 → Bool) → Bool) →
+    List ((Fin 6 → Bool) → Bool)
+  | [], _ => []
+  | g :: gs, L => gateFunction L g :: generatedFunctions gs (L ++ [gateFunction L g])
+
+lemma generatedFunctions_length (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool)) :
+    (generatedFunctions gs L).length = gs.length := by
+  induction gs generalizing L with
+  | nil => rfl
+  | cons g gs ih => simp only [generatedFunctions, List.length_cons, ih]
+
+lemma functionWires_eq_append_generated (gs : List Gate)
+    (L : List ((Fin 6 → Bool) → Bool)) :
+    functionWires gs L = L ++ generatedFunctions gs L := by
+  induction gs generalizing L with
+  | nil => simp [functionWires, generatedFunctions]
+  | cons g gs ih =>
+    change functionWires gs (L ++ [gateFunction L g]) = _
+    rw [ih]
+    simp only [generatedFunctions, List.append_assoc, List.singleton_append]
+
+lemma highCount_eq_countP (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool)) :
+    highCount gs L = (generatedFunctions gs L).countP
+      (fun q => decide (4 < (separated3 q).card)) := by
+  induction gs generalizing L with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [highCount, generatedFunctions, List.countP_cons, ih, decide_eq_true_eq]
+    omega
+
+lemma highCount_le_length (gs : List Gate) (L : List ((Fin 6 → Bool) → Bool)) :
+    highCount gs L ≤ gs.length := by
+  rw [highCount_eq_countP]
+  exact (List.countP_le_length).trans (by rw [generatedFunctions_length])
+
+lemma highCount_cover_lower (C : Circuit) (L : List ((Fin 6 → Bool) → Bool))
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hL : ∀ q ∈ L, (separated3 q).card ≤ 4) (p q : ℕ)
+    (hcover : ∀ x : Fin 6 → Bool,
+      ((C.wires (L.map fun f => f x)).getD p false ||
+        (C.wires (L.map fun f => f x)).getD q false) = matching x) :
+    4 ≤ highCount C.gates L := by
+  let F := functionWires C.gates L
+  let W : Finset ℕ := {p, q}
+  have hW : W.card ≤ 2 := by
+    have h := Finset.card_insert_le p ({q} : Finset ℕ)
+    simpa only [Finset.card_singleton] using h
+  have hcov : ∀ x : Fin 6 → Bool,
+      (F.getD p (fun _ => false) x || F.getD q (fun _ => false) x) = matching x := by
+    intro x
+    rw [← map_apply_getD F p x, ← map_apply_getD F q x]
+    change (((functionWires C.gates L).map (fun f => f x)).getD p false ||
+      ((functionWires C.gates L).map (fun f => f x)).getD q false) = matching x
+    rw [map_apply_wires]
+    exact hcover x
+  have hsub : (Finset.univ : Finset ((Fin 3 → Bool) × Fin 3)) ⊆
+      W.biUnion (fun j => separated3 (F.getD j (fun _ => false))) := by
+    intro w _
+    by_contra hw
+    have he : ∀ j ∈ W, F.getD j (fun _ => false) (independent3 w.1) =
+        F.getD j (fun _ => false) (augmented3 w.1 w.2) := by
+      intro j hj
+      by_contra hne
+      exact hw (Finset.mem_biUnion.mpr
+        ⟨j, hj, Finset.mem_filter.mpr ⟨Finset.mem_univ w, hne⟩⟩)
+    have hp := he p (by simp [W])
+    have hq := he q (by simp [W])
+    have hi := hcov (independent3 w.1)
+    have ha := hcov (augmented3 w.1 w.2)
+    rw [independent3_false] at hi
+    rw [augmented3_true] at ha
+    rw [hp, hq, ha] at hi
+    cases hi
+  have hcard := Finset.card_le_card hsub
+  rw [obligations3_card] at hcard
+  have hb := budget_wires C.gates 0 L hfanin (budget_initial L hL) W
+  change (W.biUnion fun j => separated3 (F.getD j (fun _ => false))).card ≤
+    4 * (0 + highCount C.gates L + W.card) at hb
+  omega
+
+end WeightedCapacity
+
+def restrictionSources (k : Fin 5) : List ((Fin 6 → Bool) → Bool) :=
+  List.ofFn fun i : Fin 10 => fun x : Fin 6 → Bool => matchingRestrictionAt k x i
+
+lemma restriction_sources_capacity (k : Fin 5) :
+    ∀ q ∈ restrictionSources k, (separated3 q).card ≤ 4 := by
+  intro q hq
+  obtain ⟨i, hi⟩ := List.mem_ofFn.mp hq
+  subst q
+  exact restriction_source_capacity k i
+
+lemma petersen_high_count_lower (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hcompute : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x)
+    (k : Fin 5) :
+    5 ≤ WeightedCapacity.highCount C.gates (restrictionSources k) := by
+  apply WeightedCapacity.highCount_lower C (restrictionSources k) hfanin
+    (restriction_sources_capacity k)
+  intro x
+  simpa only [restrictionSources, List.map_ofFn, Function.comp_def,
+    five_matching_restrictions] using hcompute (matchingRestrictionAt k x)
+
+lemma petersen_cover_high_count_lower (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2) (p q : ℕ)
+    (hcover : ∀ x : Fin 10 → Bool,
+      ((C.wires (List.ofFn x)).getD p false ||
+        (C.wires (List.ofFn x)).getD q false) = petersen x)
+    (k : Fin 5) :
+    4 ≤ WeightedCapacity.highCount C.gates (restrictionSources k) := by
+  apply WeightedCapacity.highCount_cover_lower C (restrictionSources k) hfanin
+    (restriction_sources_capacity k) p q
+  intro x
+  simpa only [restrictionSources, List.map_ofFn, Function.comp_def,
+    five_matching_restrictions] using hcover (matchingRestrictionAt k x)
+
+lemma petersen_cover_high_count_sum (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2) (p q : ℕ)
+    (hcover : ∀ x : Fin 10 → Bool,
+      ((C.wires (List.ofFn x)).getD p false ||
+        (C.wires (List.ofFn x)).getD q false) = petersen x) :
+    20 ≤ ∑ k : Fin 5, WeightedCapacity.highCount C.gates (restrictionSources k) := by
+  calc
+    20 = ∑ _k : Fin 5, 4 := by decide
+    _ ≤ ∑ k : Fin 5, WeightedCapacity.highCount C.gates (restrictionSources k) :=
+      Finset.sum_le_sum (fun k _ => petersen_cover_high_count_lower C hfanin p q hcover k)
+
 end PEqualNP.Outside.L_meta_2373_aux
