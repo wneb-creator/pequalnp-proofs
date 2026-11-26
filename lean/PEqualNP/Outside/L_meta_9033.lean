@@ -1196,4 +1196,476 @@ lemma five_rectangle_budgets (a b d e f : Nat × Nat) (P : Finset Nat)
 
 end RectangleRequirements
 
+namespace RawPairClassification
+
+lemma earlier_and_false_of_classified_mates
+    (N : Nat) (selected : Fin 3 → Nat) (current : Fin 3)
+    (hcurrent : selected current < N)
+    (value : Nat → Fin 256 → Bool) (op : Nat → Bool)
+    (classes : ∀ i, 8 ≤ i → i < N → op i = true →
+      (∃ j : Fin 3, i = selected j) ∨ ∀ row ∈ negatives, value i row = false)
+    (separated : ∀ a b : Fin 3, a ≠ b → ∀ row ∈ negatives,
+      (value (selected a) row && value (selected b) row) = false) :
+    ∀ row ∈ negatives, value (selected current) row = true →
+      ∀ i, 8 ≤ i → i < selected current → op i = true → value i row = false := by
+  intro row hrow haccepted i hi8 hi hop
+  rcases classes i hi8 (Nat.lt_trans hi hcurrent) hop with ⟨j, rfl⟩ | hclean
+  · have hne : current ≠ j := by
+      intro heq
+      subst j
+      exact Nat.lt_irrefl _ hi
+    have hseparated := separated current j hne row hrow
+    simpa [haccepted] using hseparated
+  · exact hclean row hrow
+
+lemma operand_rows_have_earlier_and_false
+    (N : Nat) (selected : Fin 3 → Nat) (current : Fin 3)
+    (hcurrent : selected current < N) (p q : Nat)
+    (value : Nat → Fin 256 → Bool) (op : Nat → Bool)
+    (classes : ∀ i, 8 ≤ i → i < N → op i = true →
+      (∃ j : Fin 3, i = selected j) ∨ ∀ row ∈ negatives, value i row = false)
+    (separated : ∀ a b : Fin 3, a ≠ b → ∀ row ∈ negatives,
+      (value (selected a) row && value (selected b) row) = false)
+    (currentAnd : ∀ row, value (selected current) row = (value p row && value q row)) :
+    ∀ row ∈ negatives, (value p row && value q row) = true →
+      ∀ i, 8 ≤ i → i < selected current → op i = true → value i row = false := by
+  intro row hrow haccepted
+  apply earlier_and_false_of_classified_mates N selected current hcurrent
+    value op classes separated row hrow
+  exact (currentAnd row).trans haccepted
+
+lemma critical_pair_of_classified_mates
+    (v : Fin 3) (N : Nat) (selected : Fin 3 → Nat) (current : Fin 3)
+    (hcurrent : selected current < N) (p q : Nat)
+    (hp : p < selected current) (hq : q < selected current)
+    (value : Nat → Fin 256 → Bool) (op : Nat → Bool) (left right : Nat → Nat)
+    (rawValues : ∀ i, i < 8 → ∀ x, value i x = x.val.testBit i)
+    (orEarlier : ∀ i, 8 ≤ i → i < selected current → op i = false →
+      left i < i ∧ right i < i)
+    (orValues : ∀ i, 8 ≤ i → i < selected current → op i = false →
+      ∀ x, value i x = (value (left i) x || value (right i) x))
+    (classes : ∀ i, 8 ≤ i → i < N → op i = true →
+      (∃ j : Fin 3, i = selected j) ∨ ∀ row ∈ negatives, value i row = false)
+    (separated : ∀ a b : Fin 3, a ≠ b → ∀ row ∈ negatives,
+      (value (selected a) row && value (selected b) row) = false)
+    (currentAnd : ∀ row, value (selected current) row = (value p row && value q row))
+    (monoP : ∀ a b, submask a b → value p a = true → value p b = true)
+    (monoQ : ∀ a b, submask a b → value q a = true → value q b = true)
+    (negative : ∀ row ∈ negatives, (allowedNegatives v).contains row.val = false →
+      (value p row && value q row) = false)
+    (ownP : value p (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (ownQ : value q (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (dirty : ∃ row ∈ negatives, (value p row && value q row) = true) :
+    ∃ i j : Fin 8, value p (pairAssignment i i) = true ∧
+      value q (pairAssignment j j) = true ∧ pairMask i j ∈ criticalPairs v := by
+  exact critical_pair_of_causal_inputs v (selected current) p q hp hq value op left right
+    rawValues orEarlier orValues monoP monoQ negative ownP ownQ
+    (operand_rows_have_earlier_and_false N selected current hcurrent p q value op
+      classes separated currentAnd) dirty
+
+end RawPairClassification
+
+namespace GateMaskBudget
+
+lemma three_masks_injective : Function.Injective (fun v : Fin 3 => (2 : Nat) ^ v.val) := by
+  decide +kernel
+
+lemma three_masks_ne_zero : ∀ v : Fin 3, (2 : Nat) ^ v.val ≠ 0 := by
+  decide +kernel
+
+lemma three_masks_free : ∀ v : Fin 3, (2 : Nat) ^ v.val ∈ RectangleRequirements.baseMasks := by
+  decide +kernel
+
+lemma nine_free_gate_positions
+    (mask : Fin 14 → Nat) (op : Fin 14 → Bool)
+    (q : Fin 3 → Fin 14) (out : Fin 14)
+    (andCount : (Finset.univ.filter (fun i => op i = true)).card = 5)
+    (andZero : ∀ i, op i = true → mask i = 0)
+    (qMask : ∀ v, mask (q v) = (2 : Nat) ^ v.val)
+    (qOp : ∀ v, op (q v) = false)
+    (outMask : mask out = 0) (outOp : op out = false) :
+    9 ≤ (Finset.univ.filter (fun i => mask i ∈ RectangleRequirements.baseMasks)).card := by
+  have hqinj : Function.Injective q := by
+    intro a b hab
+    apply three_masks_injective
+    change (2 : Nat) ^ a.val = (2 : Nat) ^ b.val
+    rw [← qMask a, ← qMask b, hab]
+  have hout : out ∉ Finset.univ.image q := by
+    intro hm
+    obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hm
+    have hz := qMask v
+    rw [hv, outMask] at hz
+    exact three_masks_ne_zero v hz.symm
+  have hqcard : (Finset.univ.image q).card = 3 := by
+    rw [Finset.card_image_of_injective _ hqinj]
+    simp
+  have hbcard : (insert out (Finset.univ.image q)).card = 4 := by
+    rw [Finset.card_insert_of_notMem hout, hqcard]
+  have hd : Disjoint (Finset.univ.filter (fun i => op i = true))
+      (insert out (Finset.univ.image q)) := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hm
+    have ht := (Finset.mem_filter.mp hi).2
+    rcases Finset.mem_insert.mp hm with he | hm
+    · rw [he, outOp] at ht
+      contradiction
+    · obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hm
+      rw [← hv, qOp] at ht
+      contradiction
+  have hsub : (Finset.univ.filter (fun i => op i = true)) ∪
+      insert out (Finset.univ.image q) ⊆
+      Finset.univ.filter (fun i => mask i ∈ RectangleRequirements.baseMasks) := by
+    intro i hi
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_univ i, ?_⟩
+    rcases Finset.mem_union.mp hi with hi | hi
+    · rw [andZero i (Finset.mem_filter.mp hi).2]
+      decide +kernel
+    · rcases Finset.mem_insert.mp hi with he | hi
+      · rw [he, outMask]
+        decide +kernel
+      · obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hi
+        rw [← hv, qMask]
+        exact three_masks_free v
+  have hc := Finset.card_le_card hsub
+  rw [Finset.card_union_of_disjoint hd, andCount, hbcard] at hc
+  exact hc
+
+lemma paid_gate_masks_le_five
+    (mask : Fin 14 → Nat)
+    (hfree : 9 ≤ (Finset.univ.filter (fun i => mask i ∈ RectangleRequirements.baseMasks)).card) :
+    ((Finset.univ.image mask) \ RectangleRequirements.baseMasks).card ≤ 5 := by
+  let free := Finset.univ.filter (fun i => mask i ∈ RectangleRequirements.baseMasks)
+  have hsub : ((Finset.univ.image mask) \ RectangleRequirements.baseMasks) ⊆
+      (Finset.univ \ free).image mask := by
+    intro x hx
+    obtain ⟨hin, hout⟩ := Finset.mem_sdiff.mp hx
+    obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hin
+    apply Finset.mem_image.mpr
+    refine ⟨i, Finset.mem_sdiff.mpr ⟨Finset.mem_univ i, ?_⟩, hi⟩
+    intro hf
+    exact hout (hi ▸ (Finset.mem_filter.mp hf).2)
+  have hs : free ⊆ Finset.univ := Finset.subset_univ _
+  have hc := Finset.card_sdiff_add_card_eq_card hs
+  have hp := (Finset.card_le_card hsub).trans (Finset.card_image_le)
+  have hf : 9 ≤ free.card := hfree
+  have hu : (Finset.univ : Finset (Fin 14)).card = 14 := by simp
+  rw [hu] at hc
+  omega
+
+lemma five_paid_masks_of_distinguished_gates
+    (mask : Fin 14 → Nat) (op : Fin 14 → Bool)
+    (q : Fin 3 → Fin 14) (out : Fin 14)
+    (andCount : (Finset.univ.filter (fun i => op i = true)).card = 5)
+    (andZero : ∀ i, op i = true → mask i = 0)
+    (qMask : ∀ v, mask (q v) = (2 : Nat) ^ v.val)
+    (outMask : mask out = 0) (outOp : op out = false) :
+    ((Finset.univ.image mask) \ RectangleRequirements.baseMasks).card ≤ 5 := by
+  have qOp : ∀ v, op (q v) = false := by
+    intro v
+    cases ho : op (q v) with
+    | false => rfl
+    | true =>
+      have hz := andZero (q v) ho
+      rw [qMask] at hz
+      exact False.elim (three_masks_ne_zero v hz)
+  exact paid_gate_masks_le_five mask
+    (nine_free_gate_positions mask op q out andCount andZero qMask qOp outMask outOp)
+
+lemma eight_raw_masks_free : ∀ v : Fin 8, (2 : Nat) ^ v.val ∈ RectangleRequirements.baseMasks := by
+  decide +kernel
+
+lemma paid_wire_masks_subset_gate_masks (mask : Fin 22 → Nat)
+    (raw : ∀ i : Fin 8, mask ⟨i.val, by omega⟩ = (2 : Nat) ^ i.val) :
+    ((Finset.univ.image mask) \ RectangleRequirements.baseMasks) ⊆
+      ((Finset.univ.image (fun i : Fin 14 => mask ⟨8 + i.val, by omega⟩)) \
+        RectangleRequirements.baseMasks) := by
+  intro x hx
+  obtain ⟨hin, hout⟩ := Finset.mem_sdiff.mp hx
+  obtain ⟨i, _, hi⟩ := Finset.mem_image.mp hin
+  refine Finset.mem_sdiff.mpr ⟨?_, hout⟩
+  by_cases hil : i.val < 8
+  · have he := raw ⟨i.val, hil⟩
+    have hf := eight_raw_masks_free ⟨i.val, hil⟩
+    have heq : (⟨i.val, by omega⟩ : Fin 22) = i := by apply Fin.ext; rfl
+    rw [heq] at he
+    exact False.elim (hout (hi ▸ he.symm ▸ hf))
+  · have hig : i.val - 8 < 14 := by omega
+    apply Finset.mem_image.mpr
+    refine ⟨⟨i.val - 8, hig⟩, Finset.mem_univ _, ?_⟩
+    have heq : (⟨8 + (i.val - 8), by omega⟩ : Fin 22) = i := by
+      apply Fin.ext
+      change 8 + (i.val - 8) = i.val
+      omega
+    simpa only [heq] using hi
+
+lemma five_paid_wire_masks_of_distinguished_gates
+    (mask : Fin 22 → Nat) (op : Fin 14 → Bool)
+    (q : Fin 3 → Fin 14) (out : Fin 14)
+    (raw : ∀ i : Fin 8, mask ⟨i.val, by omega⟩ = (2 : Nat) ^ i.val)
+    (andCount : (Finset.univ.filter (fun i => op i = true)).card = 5)
+    (andZero : ∀ i, op i = true → mask ⟨8 + i.val, by omega⟩ = 0)
+    (qMask : ∀ v, mask ⟨8 + (q v).val, by omega⟩ = (2 : Nat) ^ v.val)
+    (outMask : mask ⟨8 + out.val, by omega⟩ = 0) (outOp : op out = false) :
+    ((Finset.univ.image mask) \ RectangleRequirements.baseMasks).card ≤ 5 := by
+  exact (Finset.card_le_card (paid_wire_masks_subset_gate_masks mask raw)).trans
+    (five_paid_masks_of_distinguished_gates
+      (fun i : Fin 14 => mask ⟨8 + i.val, by omega⟩) op q out
+      andCount andZero qMask outMask outOp)
+
+end GateMaskBudget
+
+namespace RectangleAdjacencyBridge
+
+abbrev Rect := Nat × Nat
+
+def edges : List Rect := [(0,6),(0,7),(1,3),(1,5),(2,4),(2,7),(3,5),(3,7),(4,5),(4,6),(5,6)]
+
+def filled (v : Nat) : List Rect :=
+  if v == 0 then [(3,4),(2,5)] else
+  if v == 1 then [(4,7),(6,7)] else
+  if v == 2 then [(0,5),(3,6)] else []
+
+def edgePresent (es : List Rect) (u v : Nat) : Bool :=
+  es.any (fun e => (e.1 == u && e.2 == v) || (e.1 == v && e.2 == u))
+
+def allowedRows (v : Nat) : List Nat :=
+  if v == 0 then [192,40,176,178,108,94,49,13] else if v == 1 then [192,40,144,162,228,90,177,93] else
+  if v == 2 then [224,40,144,226,100,91,57,13] else [192,40,144,162,100,90,49,13]
+
+def commonRows : List Nat → Nat → Nat
+  | [], _ => 255
+  | m :: rest, a => (if a % 2 == 1 then m else 255) &&& commonRows rest (a / 2)
+
+def crossHas (es : List Rect) (a b : Nat) : Bool :=
+  es.any (fun e => (a.testBit e.1 && b.testBit e.2) || (a.testBit e.2 && b.testBit e.1))
+
+def validDirty (v available a b : Nat) : Bool :=
+  decide (0 < a ∧ a < b) && (a &&& b == 0) &&
+  ((a ||| b) &&& available == a ||| b) &&
+  (b &&& commonRows (allowedRows v) a == b) && crossHas (filled v) a b
+
+def validClean (a b : Nat) : Bool :=
+  decide (0 < a ∧ a < b) && (a &&& b == 0) &&
+    (b &&& commonRows (allowedRows 3) a == b)
+
+lemma fullMask_bit : ∀ j : Fin 8, (255 : Nat).testBit j.val = true := by
+  decide +kernel
+
+lemma commonRows_bit_of_rows (rows : List Nat) (a : Nat) (j : Fin 8)
+    (h : ∀ i, i < rows.length → a.testBit i = true →
+      (rows.getD i 0).testBit j.val = true) :
+    (commonRows rows a).testBit j.val = true := by
+  induction rows generalizing a with
+  | nil => exact fullMask_bit j
+  | cons m rows ih =>
+      rw [commonRows, Nat.testBit_and]
+      apply Bool.and_eq_true_iff.mpr
+      constructor
+      · by_cases hodd : a % 2 = 1
+        · have hh := h 0 (by simp) (by simp [Nat.testBit_zero, hodd])
+          simpa [hodd] using hh
+        · simp [hodd, fullMask_bit j]
+      · apply ih
+        intro i hi hbit
+        have hh := h (i + 1) (by simpa using Nat.succ_lt_succ hi)
+          (by simpa [Nat.testBit_div_two] using hbit)
+        simpa using hh
+
+lemma allowedRows_length : ∀ v : Fin 4, (allowedRows v.val).length = 8 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 1000000 in
+lemma adjacency_entry : ∀ (v : Fin 4) (i j : Fin 8),
+    ((allowedRows v.val).getD i.val 0).testBit j.val =
+      edgePresent (edges ++ filled v.val) i.val j.val := by
+  decide +kernel
+
+lemma commonRows_bit_of_pairwise (v : Fin 4) (a : Nat) (j : Fin 8)
+    (h : ∀ i : Fin 8, a.testBit i.val = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true) :
+    (commonRows (allowedRows v.val) a).testBit j.val = true := by
+  apply commonRows_bit_of_rows
+  intro i hi hbit
+  have hi' : i < 8 := by simpa [allowedRows_length v] using hi
+  have he := adjacency_entry v ⟨i, hi'⟩ j
+  exact he.trans (h ⟨i, hi'⟩ hbit)
+
+lemma high_bit_false (mask : Fin 256) (i : Nat) (hi : 8 ≤ i) :
+    mask.val.testBit i = false := by
+  have hp : 2 ^ 8 ≤ 2 ^ i := Nat.pow_le_pow_right (by decide) hi
+  exact Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le mask.isLt hp)
+
+lemma submask_of_bits (mask : Fin 256) (available : Nat)
+    (h : ∀ i : Fin 8, mask.val.testBit i.val = true → available.testBit i.val = true) :
+    mask.val &&& available = mask.val := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_and]
+  by_cases hi : i < 8
+  · cases hm : mask.val.testBit i with
+    | false => rfl
+    | true => rw [h ⟨i, hi⟩ hm]; rfl
+  · rw [high_bit_false mask i (Nat.le_of_not_lt hi)]
+    rfl
+
+lemma commonRows_submask_of_pairwise (v : Fin 4) (a b : Fin 256)
+    (h : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true) :
+    b.val &&& commonRows (allowedRows v.val) a.val = b.val := by
+  apply submask_of_bits
+  intro j hj
+  apply commonRows_bit_of_pairwise
+  intro i hi
+  exact h i j hi hj
+
+lemma crossHas_of_edgePresent (es : List Rect) (a b u v : Nat)
+    (hu : a.testBit u = true) (hv : b.testBit v = true)
+    (he : edgePresent es u v = true) : crossHas es a b = true := by
+  simp only [edgePresent, List.any_eq_true, Bool.or_eq_true,
+    Bool.and_eq_true, beq_iff_eq] at he
+  obtain ⟨e, hem, hp⟩ := he
+  apply List.any_eq_true.mpr
+  refine ⟨e, hem, ?_⟩
+  rcases hp with ⟨h1, h2⟩ | ⟨h1, h2⟩
+  · simp [h1, h2, hu, hv]
+  · simp [h1, h2, hu, hv]
+
+lemma validDirty_of_pairwise (v : Fin 4) (available : Nat) (a b : Fin 256)
+    (hpos : 0 < a.val) (horder : a.val < b.val)
+    (hdisjoint : a.val &&& b.val = 0)
+    (havailable : (a.val ||| b.val) &&& available = a.val ||| b.val)
+    (hcross : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true)
+    (hcritical : ∃ i j : Fin 8, a.val.testBit i.val = true ∧ b.val.testBit j.val = true ∧
+      edgePresent (filled v.val) i.val j.val = true) :
+    validDirty v.val available a.val b.val = true := by
+  have hm := commonRows_submask_of_pairwise v a b hcross
+  obtain ⟨i, j, hi, hj, he⟩ := hcritical
+  have hc := crossHas_of_edgePresent (filled v.val) a.val b.val i.val j.val hi hj he
+  simp [validDirty, hpos, horder, hdisjoint, havailable, hm, hc]
+
+lemma validClean_of_pairwise (a b : Fin 256)
+    (hpos : 0 < a.val) (horder : a.val < b.val)
+    (hdisjoint : a.val &&& b.val = 0)
+    (hcross : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent edges i.val j.val = true) :
+    validClean a.val b.val = true := by
+  have hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent (edges ++ filled (3 : Fin 4).val) i.val j.val = true := by
+    intro i j hi hj
+    simpa [filled] using hcross i j hi hj
+  have hm := commonRows_submask_of_pairwise (3 : Fin 4) a b hc
+  change b.val &&& commonRows (allowedRows 3) a.val = b.val at hm
+  simpa [validClean, hpos, horder, hdisjoint] using hm
+
+lemma edgePresent_comm (es : List Rect) (u v : Nat) :
+    edgePresent es u v = edgePresent es v u := by
+  unfold edgePresent
+  congr 1
+  funext e
+  exact Bool.or_comm _ _
+
+lemma validClean_or_reverse (a b : Fin 256)
+    (ha : 0 < a.val) (hb : 0 < b.val) (hd : a.val &&& b.val = 0)
+    (hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent edges i.val j.val = true) :
+    validClean a.val b.val = true ∨ validClean b.val a.val = true := by
+  have hne : a.val ≠ b.val := by
+    intro heq
+    have hz : a.val = 0 := by simpa [← heq] using hd
+    omega
+  rcases lt_or_gt_of_ne hne with hab | hba
+  · exact Or.inl (validClean_of_pairwise a b ha hab hd hc)
+  · apply Or.inr
+    apply validClean_of_pairwise b a hb hba
+    · simpa only [Nat.and_comm] using hd
+    · intro i j hi hj
+      exact (edgePresent_comm edges i.val j.val).trans (hc j i hj hi)
+
+def weightedEdges : List (Rect × Nat) := [((0,6),1),((0,7),2),((1,3),4),((1,5),8),((2,4),16),((2,7),32),((3,5),64),((3,7),128),((4,5),256),((4,6),512),((5,6),1024)]
+
+def coverageAux : List (Rect × Nat) → Rect → Nat
+  | [], _ => 0
+  | (e,w) :: rest, r =>
+      (if (r.1.testBit e.1 && r.2.testBit e.2) ||
+          (r.1.testBit e.2 && r.2.testBit e.1) then w else 0) + coverageAux rest r
+
+def coverage (r : Rect) : Nat := coverageAux weightedEdges r
+
+def nontrivial (s : Nat) : Bool := s &&& (s - 1) != 0
+
+def insertMask (s : Nat) : List Nat → List Nat
+  | [] => [s]
+  | t :: ts => if s ≤ t then s :: t :: ts else t :: insertMask s ts
+
+def addMask (m : Nat) (targets : List Nat) : List Nat :=
+  if nontrivial m && !targets.contains m then insertMask m targets else targets
+
+def reqRect (r : Rect) : List Nat := addMask r.1 (addMask r.2 [])
+
+lemma coverageAux_comm (es : List (Rect × Nat)) (a b : Nat) :
+    coverageAux es (a, b) = coverageAux es (b, a) := by
+  induction es with
+  | nil => rfl
+  | cons e es ih =>
+      simp only [coverageAux, ih, Bool.and_comm, Bool.or_comm]
+
+lemma coverage_comm (a b : Nat) : coverage (a, b) = coverage (b, a) :=
+  coverageAux_comm weightedEdges a b
+
+lemma reqRect_comm (a b : Nat) : reqRect (a, b) = reqRect (b, a) := by
+  by_cases ha : nontrivial a = true
+  · by_cases hb : nontrivial b = true
+    · by_cases heq : a = b
+      · subst b
+        rfl
+      · have hne := Ne.symm heq
+        by_cases hle : a ≤ b
+        · have hnle : ¬b ≤ a := by omega
+          simp [reqRect, addMask, insertMask, ha, hb, heq, hne, hle, hnle]
+        · have hle' : b ≤ a := by omega
+          simp [reqRect, addMask, insertMask, ha, hb, heq, hne, hle, hle']
+    · simp [reqRect, addMask, insertMask, ha, hb]
+  · by_cases hb : nontrivial b = true <;> simp [reqRect, addMask, insertMask, ha, hb]
+
+lemma canonical_clean_nonempty (a b : Fin 256)
+    (ha : 0 < a.val) (hb : 0 < b.val) (hd : a.val &&& b.val = 0)
+    (hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent edges i.val j.val = true) :
+    ∃ r : Rect, (r = (a.val, b.val) ∨ r = (b.val, a.val)) ∧
+      validClean r.1 r.2 = true ∧ coverage r = coverage (a.val, b.val) ∧
+        reqRect r = reqRect (a.val, b.val) := by
+  rcases validClean_or_reverse a b ha hb hd hc with h | h
+  · exact ⟨(a.val, b.val), Or.inl rfl, h, rfl, rfl⟩
+  · exact ⟨(b.val, a.val), Or.inr rfl, h,
+      coverage_comm b.val a.val, reqRect_comm b.val a.val⟩
+
+lemma coverage_zero_left (b : Nat) : coverage (0, b) = 0 := by
+  simp [coverage, coverageAux, weightedEdges]
+
+lemma coverage_zero_right (a : Nat) : coverage (a, 0) = 0 := by
+  rw [coverage_comm, coverage_zero_left]
+
+lemma empty_clean_weaken (a b : Nat) (h : a = 0 ∨ b = 0) :
+    coverage (0, 0) = coverage (a, b) ∧ reqRect (0, 0) ⊆ reqRect (a, b) := by
+  constructor
+  · rcases h with rfl | rfl
+    · simp [coverage_zero_left]
+    · simp [coverage_zero_right]
+  · simp [reqRect, addMask, nontrivial]
+
+lemma graph_pairMask_iff : ∀ i j : Fin 8,
+    RawPairClassification.pairMask i j ∈ RawPairClassification.graphEdges ↔
+      edgePresent edges i.val j.val = true := by
+  decide +kernel
+
+lemma critical_pairMask_iff : ∀ (v : Fin 3) (i j : Fin 8),
+    RawPairClassification.pairMask i j ∈ RawPairClassification.criticalPairs v ↔
+      edgePresent (filled v.val) i.val j.val = true := by
+  decide +kernel
+
+end RectangleAdjacencyBridge
+
 end PEqualNP.Outside.L_meta_9033_aux
