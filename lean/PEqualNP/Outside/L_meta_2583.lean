@@ -8969,4 +8969,716 @@ lemma two_mixing_one_accepting_top
 end MissingCentreMixing
 
 
+
+
+namespace MissingCentreMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge CircuitLedger CircuitLedger.Budget FirstMixing
+
+lemma slack_two_nonempty_centreless
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n))
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (hb : X.card + (mixing G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = true).card +
+      (centreless G C).card ≤
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card)
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2)
+    (hz : centreless G C ≠ ∅) : (centreless G C).card = 1 ∧ mixing G C = ∅ := by
+  classical
+  have hzpos : 0 < (centreless G C).card :=
+    Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr hz)
+  by_cases htrue : ∃ j ∈ junk G C, gateVal n C j (pairInput p p) = true
+  · have htpos : 0 < ((junk G C).filter fun j => gateVal n C j (pairInput p p) = true).card := by
+      obtain ⟨j,hj,hjv⟩ := htrue
+      exact Finset.card_pos.mpr ⟨j,Finset.mem_filter.mpr ⟨hj,hjv⟩⟩
+    exact ⟨by omega,Finset.card_eq_zero.mp (by omega)⟩
+  · have hall : ∀ j ∈ junk G C, gateVal n C j (pairInput p p) = false := by
+      intro j hj
+      apply Bool.eq_false_of_not_eq_true
+      intro hjv
+      exact htrue ⟨j,hj,hjv⟩
+    have hf := all_false_residual_pencil_budget G C hL hT hfour p X hX hres hall
+    exact ⟨by omega,Finset.card_eq_zero.mp (by omega)⟩
+
+lemma zero_mixing_accepted_top_centreless
+    {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj] {C : Circuit}
+    (hAO : IsAO2 n C) (hT : TopForm G C) (p l : Fin n)
+    (color : Fin n → Bool) (hlcol : color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hmix : mixing G C = ∅) {a : ℕ} (ha : a ∈ tops G C)
+    (hv : gateVal n C a (pairInput p l) = true) : a ∈ centreless G C := by
+  classical
+  by_contra haz
+  let aa : {a // a ∈ tops G C \ centreless G C} := ⟨a,Finset.mem_sdiff.mpr ⟨ha,haz⟩⟩
+  have hcl : c aa ≠ l := by
+    intro he
+    exact hlcol (he ▸ hccol aa)
+  have bad (b : Fin 2) (hside : side (n := n) C a b = {c aa}) : False := by
+    obtain ⟨m,hm,_⟩ := singleton_operand_mixing hAO hT ha b hside (hcne aa) hcl hv
+    simpa only [hmix,Finset.notMem_empty] using hm
+  rcases hc aa with hside | hside
+  · exact bad 0 hside
+  · exact bad 1 hside
+
+/-- At penalty at most two above a missing residual pencil, one top accepts the entire pencil.
+  Both the no-centreless/two-mixing and one-centreless/no-mixing cases are included. -/
+lemma slack_two_one_accepting_top
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hcinj : Function.Injective c)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    ∃ a ∈ tops G C, ∀ l ∈ X, gateVal n C a (pairInput p l) = true := by
+  classical
+  have hb := missing_centre_all_mixing_penalty G C hL hT hfour p X hX hres
+    color hXcol c hc hccol hcne hno
+  by_cases hz : centreless G C = ∅
+  · have hzcard : (centreless G C).card = 0 := by rw [hz]; rfl
+    exact two_mixing_one_accepting_top G C hL hT hfour hz p X hXcard hX hres
+      color hbip hXcol c hc hccol hcne hcinj (by omega)
+  · obtain ⟨hzcard,hmix⟩ := slack_two_nonempty_centreless G C hL hT hfour p X hX hres hb hP hz
+    obtain ⟨l0,hl0⟩ := Finset.card_pos.mp (show 0 < X.card by omega)
+    obtain ⟨a,ha,hav⟩ := acceptedTop hL (hX l0 hl0)
+    have haz := zero_mixing_accepted_top_centreless hL.1 hT p l0 color (hXcol l0 hl0)
+      c hc hccol hcne hmix ha hav
+    refine ⟨a,ha,?_⟩
+    intro l hl
+    obtain ⟨a',ha',hav'⟩ := acceptedTop hL (hX l hl)
+    have haz' := zero_mixing_accepted_top_centreless hL.1 hT p l color (hXcol l hl)
+      c hc hccol hcne hmix ha' hav'
+    have he : a = a' := Finset.card_le_one.mp (by omega) a haz a' haz'
+    simpa only [he] using hav'
+
+end MissingCentreMixing
+
+
+namespace MissingCentreMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge CircuitLedger CircuitLedger.Budget FirstMixing
+
+lemma one_top_two_mixing_no_raw_point
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 2 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    {a : ℕ} (ha : a ∈ tops G C) (b : Fin 2) (c : Fin n)
+    (hside : side (n := n) C a b = {c}) (hcp : c ≠ p) (hccol : color c = color p)
+    (hleaf : (side (n := n) C a (1-b)).Nonempty)
+    (haccept : ∀ l ∈ X, gateVal n C a (pairInput p l) = true)
+    (hmix : (mixing G C).card ≤ 2) :
+    ∀ m ∈ mixing G C, p ∉ orIn n C (n+m) := by
+  classical
+  have hcadj : ∀ u ∈ side (n := n) C a (1-b), G.Adj c u := by
+    intro u hu
+    exact (SimpleGraph.deleteEdges_adj.mp (cleanAdj hAO ha b
+      (show c ∈ side (n := n) C a b by rw [hside]; simp) hu)).1
+  have hleafcol : ∀ u ∈ side (n := n) C a (1-b), color u ≠ color p := by
+    intro u hu he
+    exact hbip c u (hcadj u hu) (hccol.trans he.symm)
+  have hnsub : ¬ X ⊆ side (n := n) C a (1-b) := by
+    intro hsub
+    obtain ⟨u,v,hu,hv,huv⟩ := Finset.one_lt_card_iff.mp (show 1 < X.card by omega)
+    exact huv (common_neighbors_unique_of_card_le_one G hfour c p hcp u v
+      (hcadj u (hsub hu)) (hX u hu) (hcadj v (hsub hv)) (hX v hv))
+  obtain ⟨l,hlX,hlraw⟩ := Finset.not_subset.mp hnsub
+  have hcl : c ≠ l := by
+    intro he
+    exact hbip p l (hX l hlX) (hccol.symm.trans (congrArg color he))
+  obtain ⟨mp,hmp,hmpraw,hmpside,_⟩ :=
+    singleton_operand_mixing hAO hT ha b hside hcp hcl (haccept l hlX)
+  obtain ⟨hlen,hop,_⟩ := topData ha
+  have hvleaf := (andValOperands hAO hlen hop (pairInput p l)).mp (haccept l hlX) (1-b)
+  have hex : ∃ j ∈ junk G C, OrReaches n C (opnd C a (1-b)) j := by
+    rcases operandSupport hAO hT hlen hop hvleaf with ⟨u,hu,hup | hul⟩ | ⟨j,hj,hr,_⟩
+    · subst u
+      exact (hleafcol p hu rfl).elim
+    · subst u
+      exact (hlraw hu).elim
+    · exact ⟨j,hj,hr⟩
+  obtain ⟨j,hj,hr⟩ := hex
+  obtain ⟨ml,hml,hmlraw,hmlpath,_⟩ :=
+    first_mixing hAO hj _ hleaf (orReaches_reach j _ hr).1
+  have hmlcol : ∀ u ∈ orIn n C (n+ml), color u ≠ color p := by
+    intro u hu
+    exact hleafcol u (reach_mem_orIn u (hmlpath.trans (mem_orIn_reach u hu)))
+  have hneq : mp ≠ ml := by
+    intro he
+    obtain ⟨u,hu⟩ := hmpraw
+    exact hmlcol u (he ▸ hu) ((congrArg color (hmpside u hu)).trans hccol)
+  have hsub : ({mp,ml} : Finset ℕ) ⊆ mixing G C := by
+    intro m hm
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hm
+    rcases hm with rfl | rfl
+    · exact hmp
+    · exact hml
+  have heq : mixing G C = {mp,ml} :=
+    (Finset.eq_of_subset_of_card_le hsub (by simpa [hneq] using hmix)).symm
+  intro m hm hp
+  have hm' : m = mp ∨ m = ml := by simpa only [heq,Finset.mem_insert,Finset.mem_singleton] using hm
+  rcases hm' with rfl | rfl
+  · exact hcp (hmpside p hp).symm
+  · exact hmlcol p hp rfl
+
+/-- In the slack-two missing-centre regime, no mixing gate has a raw occurrence of the missing point. -/
+lemma slack_two_mixing_no_raw_point
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hcinj : Function.Injective c)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    ∀ m ∈ mixing G C, p ∉ orIn n C (n+m) := by
+  classical
+  have hb := missing_centre_all_mixing_penalty G C hL hT hfour p X hX hres
+    color hXcol c hc hccol hcne hno
+  by_cases hz : centreless G C = ∅
+  · have hzcard : (centreless G C).card = 0 := by rw [hz]; rfl
+    have hmix : (mixing G C).card ≤ 2 := by omega
+    obtain ⟨a,ha,haccept⟩ := slack_two_one_accepting_top G C hL hT hfour p X hXcard hX hres
+      color hbip hXcol c hc hccol hcne hcinj hno hP
+    let aa : {a // a ∈ tops G C \ centreless G C} :=
+      ⟨a,Finset.mem_sdiff.mpr ⟨ha,by simp [hz]⟩⟩
+    rcases hc aa with hside | hside
+    · exact one_top_two_mixing_no_raw_point G C hL.1 hT hfour p X (by omega) hX color hbip
+        ha 0 (c aa) hside (hcne aa) (hccol aa) (topSides hz ha (1-0)) haccept hmix
+    · exact one_top_two_mixing_no_raw_point G C hL.1 hT hfour p X (by omega) hX color hbip
+        ha 1 (c aa) hside (hcne aa) (hccol aa) (topSides hz ha (1-1)) haccept hmix
+  · obtain ⟨_,hmix⟩ := slack_two_nonempty_centreless G C hL hT hfour p X hX hres hb hP hz
+    intro m hm
+    simpa only [hmix,Finset.notMem_empty] using hm
+
+end MissingCentreMixing
+
+
+namespace MissingCentreMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge
+open CircuitLedger CircuitLedger.Budget FirstMixing
+
+/-- OR gates productive for the selected pencil; no condition is imposed on raw
+  vertices outside X. -/
+noncomputable def pencilProductive {n : ℕ} (C : Circuit) (X : Finset (Fin n)) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun k =>
+    2 ≤ (orIn n C (n+k) ∩ X).card ∧
+    (orIn n C (opnd C k 0) ∩ X).Nonempty ∧
+    (orIn n C (opnd C k 1) ∩ X).Nonempty
+
+lemma pencil_productive_forest_budget
+    {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (X : Finset (Fin n))
+    (R : Finset ℕ) (hR : R ⊆ Finset.range (n+C.size)) :
+    (R.biUnion (fun w => orIn n C w ∩ X)).card ≤ (pencilProductive C X).card + R.card := by
+  classical
+  let ss : ℕ → Finset (Fin n) := fun w => orIn n C w ∩ X
+  let a : ℕ → ℕ := fun k => opnd C k 0
+  let b : ℕ → ℕ := fun k => opnd C k 1
+  have hinput : ∀ i < n, (ss i).card ≤ 1 := by
+    intro i hi
+    exact (Finset.card_le_card Finset.inter_subset_left).trans (orIn_input C i hi)
+  have hstep : ∀ k < C.gates.length, ss (n+k) = ss (a k) ∪ ss (b k) ∨ ss (n+k) = ∅ := by
+    intro k hk
+    rcases orIn_binary hAO k hk with hu | hz
+    · left
+      simp only [ss,a,b,hu,Finset.union_inter_distrib_right]
+    · right
+      simp [ss,hz]
+  exact ProductiveBudget.productive_support_budget n C.gates.length ss a b hinput
+    (fun k hk => opndBound hAO hk 0) (fun k hk => opndBound hAO hk 1) hstep R hR
+
+lemma pencil_productive_subset_nonmix
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hX : ∀ x ∈ X, G.Adj p x)
+    (hstar : ∀ w ∈ X, s(p,w) ∈ Ustar G C) :
+    pencilProductive C X ⊆ (orN G C \ lam G C) \ mixing G C := by
+  classical
+  intro k hk
+  obtain ⟨hklen, hmany, hleft, hright⟩ := Finset.mem_filter.mp hk
+  have hklen' := Finset.mem_range.mp hklen
+  obtain ⟨u, v, hu, hv, huv⟩ := Finset.one_lt_card_iff.mp (show 1 < (orIn n C (n+k) ∩ X).card by omega)
+  obtain ⟨huraw, huX⟩ := Finset.mem_inter.mp hu
+  obtain ⟨hvraw, hvX⟩ := Finset.mem_inter.mp hv
+  have hop : (gateAt C k).op = GateOp.or := ((orIn_gate C k u).mp huraw).2.1
+  have hn : ¬ BelowF G C k := by
+    intro hbelow
+    have hg : gateVal n C k (pairInput u u) = true :=
+      Budget.reach_var_val (pairInput u u) (n+k) u (Budget.mem_orIn_reach u huraw)
+        (Budget.pairInput_left u u)
+    exact G.irrefl ((Budget.graphFun_pair G u u).mp (hbelow _ hg))
+  have hkn : k ∈ orN G C := by
+    simpa only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] using ⟨hklen', hop, hn⟩
+  have hnotlam : k ∉ lam G C := by
+    intro hlam
+    obtain ⟨_, _, _, g, hg, c, hsingle, hr⟩ := Finset.mem_filter.mp hlam
+    obtain ⟨t, ht⟩ := Finset.card_eq_one.mp hsingle
+    have htmem : t ∈ side (n := n) C g (1-c) := by simp [ht]
+    have rawside : ∀ x ∈ orIn n C (n+k), x ∈ side (n := n) C g c := by
+      intro x hx
+      exact Budget.reach_mem_orIn x
+        ((Budget.orReaches_reach k _ hr).1.trans (Budget.mem_orIn_reach x hx))
+    have htu := (Budget.cleanAdj hAO hg c (rawside u huraw) htmem).symm
+    have htv := (Budget.cleanAdj hAO hg c (rawside v hvraw) htmem).symm
+    have hpt : p ≠ t := by
+      intro heq
+      exact (SimpleGraph.deleteEdges_adj.mp htu).2 (heq ▸ hstar u huX)
+    exact huv (common_neighbors_unique_of_card_le_one G hfour p t hpt u v
+      (hX u huX) (SimpleGraph.deleteEdges_adj.mp htu).1
+      (hX v hvX) (SimpleGraph.deleteEdges_adj.mp htv).1)
+  have hnotmix : k ∉ mixing G C := by
+    intro hmix
+    have hx := (Finset.mem_filter.mp hmix).2
+    have hn0 : orIn n C (opnd C k 0) ≠ ∅ := by
+      obtain ⟨x, hx⟩ := hleft
+      exact Finset.nonempty_iff_ne_empty.mp ⟨x, (Finset.mem_inter.mp hx).1⟩
+    have hn1 : orIn n C (opnd C k 1) ≠ ∅ := by
+      obtain ⟨x, hx⟩ := hright
+      exact Finset.nonempty_iff_ne_empty.mp ⟨x, (Finset.mem_inter.mp hx).1⟩
+    exact hx (propext (iff_of_false hn0 hn1))
+  exact Finset.mem_sdiff.mpr ⟨Finset.mem_sdiff.mpr ⟨hkn, hnotlam⟩, hnotmix⟩
+
+lemma false_served_productive_budget
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (p : Fin n) (X : Finset (Fin n)) :
+    (falseServed G C p X).card ≤ (pencilProductive C X).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card := by
+  classical
+  have hcover : falseServed G C p X ⊆
+      (falseJunkRoots G C p).biUnion (fun w => orIn n C w ∩ X) := by
+    intro l hl
+    obtain ⟨hlX,hex⟩ := Finset.mem_filter.mp hl
+    obtain ⟨w,hw,hlw⟩ := Finset.mem_biUnion.mp (falseJunkRoots_cover hAO hT p l hex)
+    exact Finset.mem_biUnion.mpr ⟨w,hw,Finset.mem_inter.mpr ⟨hlw,hlX⟩⟩
+  have hforest := pencil_productive_forest_budget C hAO X
+    (falseJunkRoots G C p) (falseJunkRoots_bound hAO p)
+  have hroots := falseJunkRoots_card_le (G := G) (C := C) p
+  exact (Finset.card_le_card hcover).trans (hforest.trans (Nat.add_le_add_left hroots _))
+
+lemma tight_false_served_productive
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hX : ∀ l ∈ X, G.Adj p l)
+    (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (hserved : falseServed G C p X = X)
+    (hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card) :
+    pencilProductive C X = (orN G C \ lam G C) \ mixing G C := by
+  classical
+  have hsub := pencil_productive_subset_nonmix G C hAO hfour p X hX hres
+  have hbound := false_served_productive_budget G C hAO hT p X
+  rw [hserved] at hbound
+  have hsplit := Finset.card_sdiff_add_card_eq_card (mixing_subset_extra G C)
+  apply Finset.eq_of_subset_of_card_le hsub
+  omega
+
+lemma no_raw_gate_of_productive_saturation
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (p : Fin n) (X : Finset (Fin n)) (hpX : p ∉ X)
+    (hsat : pencilProductive C X = (orN G C \ lam G C) \ mixing G C)
+    (hlam : ∀ k ∈ lam G C, p ∉ orIn n C (n+k))
+    (hmix : ∀ k ∈ mixing G C, p ∉ orIn n C (n+k)) :
+    ∀ k, p ∉ orIn n C (n+k) := by
+  classical
+  have hpraw : p ∈ orIn n C p.val := reach_mem_orIn p Relation.ReflTransGen.refl
+  have hpx : orIn n C p.val ∩ X = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.mpr
+    intro u hu
+    obtain ⟨huraw,huX⟩ := Finset.mem_inter.mp hu
+    have hup : u = p := Finset.card_le_one.mp (orIn_input C p.val p.isLt) u huraw p hpraw
+    exact hpX (hup ▸ huX)
+  intro k hk
+  rcases Relation.ReflTransGen.cases_tail (mem_orIn_reach p hk) with he | ⟨w,_,hs⟩
+  · have := p.isLt
+    omega
+  · obtain ⟨j,hj,rfl,hop,hin,hlt⟩ := hs
+    have hjraw : p ∈ orIn n C (n+j) :=
+      (orIn_gate C j p).mpr ⟨hj,hop,p.val,hin,hlt,hpraw⟩
+    have hn : ¬ BelowF G C j := by
+      intro hbelow
+      have hg : gateVal n C j (pairInput p p) = true :=
+        reach_var_val (pairInput p p) (n+j) p (mem_orIn_reach p hjraw) (pairInput_left p p)
+      exact G.irrefl ((graphFun_pair G p p).mp (hbelow _ hg))
+    have hjor : j ∈ orN G C := by
+      simpa only [orN,gatesWhere,Finset.mem_filter,Finset.mem_range] using ⟨hj,hop,hn⟩
+    have hje : j ∈ (orN G C \ lam G C) \ mixing G C :=
+      Finset.mem_sdiff.mpr ⟨Finset.mem_sdiff.mpr ⟨hjor,fun h => hlam j h hjraw⟩,
+        fun h => hmix j h hjraw⟩
+    have hjprod : j ∈ pencilProductive C X := hsat.symm ▸ hje
+    obtain ⟨_,_,hleft,hright⟩ := Finset.mem_filter.mp hjprod
+    obtain ⟨b,hb⟩ := inputsAsOpnd hAO hj hin
+    have hempty : orIn n C (opnd C j b) ∩ X = ∅ := by rw [← hb]; exact hpx
+    fin_cases b
+    · change orIn n C (opnd C j 0) ∩ X = ∅ at hempty
+      rw [hempty] at hleft
+      exact Finset.not_nonempty_empty hleft
+    · change orIn n C (opnd C j 1) ∩ X = ∅ at hempty
+      rw [hempty] at hright
+      exact Finset.not_nonempty_empty hright
+
+lemma tight_false_served_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hX : ∀ l ∈ X, G.Adj p l)
+    (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (hserved : falseServed G C p X = X)
+    (hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card)
+    (hlam : ∀ k ∈ lam G C, p ∉ orIn n C (n+k))
+    (hmix : ∀ k ∈ mixing G C, p ∉ orIn n C (n+k)) :
+    ∀ k, p ∉ orIn n C (n+k) := by
+  have hpX : p ∉ X := fun hp => G.irrefl (hX p hp)
+  exact no_raw_gate_of_productive_saturation G C hAO p X hpX
+    (tight_false_served_productive G C hAO hT hfour p X hX hres hserved hbalance) hlam hmix
+
+end MissingCentreMixing
+
+
+namespace MissingCentreMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge CircuitLedger CircuitLedger.Budget FirstMixing
+
+lemma false_or_centreless_productive_budget
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (p : Fin n) (X : Finset (Fin n)) :
+    (falseServed G C p X ∪ centrelessServed G C p X).card ≤
+      (pencilProductive C X).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
+      (centreless G C).card := by
+  classical
+  let R := falseJunkRoots G C p ∪ centrelessFalseRoots G C p
+  have hR : R ⊆ Finset.range (n+C.size) :=
+    Finset.union_subset (falseJunkRoots_bound hAO p) (centrelessFalseRoots_bound hAO p)
+  have hcover := false_or_centreless_roots_cover hAO hT p X
+  have hforest := pencil_productive_forest_budget C hAO X R hR
+  have hroots := Finset.card_union_le (falseJunkRoots G C p) (centrelessFalseRoots G C p)
+  have hf := falseJunkRoots_card_le (G := G) (C := C) p
+  have hz := centrelessFalseRoots_card_le (G := G) (C := C) p
+  have hc := Finset.card_le_card hcover
+  dsimp only [R] at hforest
+  omega
+
+lemma tight_false_or_centreless_productive
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hX : ∀ l ∈ X, G.Adj p l)
+    (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (hserved : falseServed G C p X ∪ centrelessServed G C p X = X)
+    (hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
+      (centreless G C).card) :
+    pencilProductive C X = (orN G C \ lam G C) \ mixing G C := by
+  classical
+  have hsub := pencil_productive_subset_nonmix G C hAO hfour p X hX hres
+  have hbound := false_or_centreless_productive_budget G C hAO hT p X
+  rw [hserved] at hbound
+  have hsplit := Finset.card_sdiff_add_card_eq_card (mixing_subset_extra G C)
+  apply Finset.eq_of_subset_of_card_le hsub
+  omega
+
+lemma tight_false_or_centreless_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hAO : IsAO2 n C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hX : ∀ l ∈ X, G.Adj p l)
+    (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (hserved : falseServed G C p X ∪ centrelessServed G C p X = X)
+    (hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
+      (centreless G C).card)
+    (hlam : ∀ k ∈ lam G C, p ∉ orIn n C (n+k))
+    (hmix : ∀ k ∈ mixing G C, p ∉ orIn n C (n+k)) :
+    ∀ k, p ∉ orIn n C (n+k) := by
+  have hpX : p ∉ X := fun hp => G.irrefl (hX p hp)
+  exact no_raw_gate_of_productive_saturation G C hAO p X hpX
+    (tight_false_or_centreless_productive G C hAO hT hfour p X hX hres hserved hbalance) hlam hmix
+
+/-- The nonempty-centreless branch of the slack-two invariant needs no fixed junk count. -/
+lemma slack_two_nonempty_centreless_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n))
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2)
+    (hz : centreless G C ≠ ∅) : ∀ k, p ∉ orIn n C (n+k) := by
+  classical
+  have hb := missing_centre_all_mixing_penalty G C hL hT hfour p X hX hres
+    color hXcol c hc hccol hcne hno
+  obtain ⟨hzcard,hmix⟩ := slack_two_nonempty_centreless G C hL hT hfour p X hX hres hb hP hz
+  have hmixcard : (mixing G C).card = 0 := by rw [hmix]; rfl
+  have hfree := missing_centre_not_in_lambda G C hL.1 p color hbip c hc hccol hcne
+  have hmfree : ∀ k ∈ mixing G C, p ∉ orIn n C (n+k) := by
+    intro k hk
+    simp only [hmix,Finset.notMem_empty] at hk
+  let J := (junk G C).filter fun j => gateVal n C j (pairInput p p) = false
+  let T := (junk G C).filter fun j => gateVal n C j (pairInput p p) = true
+  have hpartition : J.card + T.card = (junk G C).card := by
+    have hsplit := Finset.card_sdiff_add_card_eq_card
+      (show J ⊆ junk G C from Finset.filter_subset _ _)
+    have heq : junk G C \ J = T := by
+      ext j
+      simp only [J,T,Finset.mem_sdiff,Finset.mem_filter]
+      cases gateVal n C j (pairInput p p) <;> simp
+    rw [heq] at hsplit
+    omega
+  by_cases ht : T.Nonempty
+  · have htpos := Finset.card_pos.mpr ht
+    have hserved := missing_centre_false_or_centreless_served_all G C hL hT hfour p X hres
+      color hXcol c hc hccol hcne hno
+    have hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+        ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
+          (centreless G C).card := by
+      change X.card + (mixing G C).card = (orN G C \ lam G C).card + J.card + (centreless G C).card
+      change X.card + (mixing G C).card + T.card + (centreless G C).card ≤ _ at hb
+      omega
+    exact tight_false_or_centreless_no_raw_gate G C hL.1 hT hfour p X hX hres hserved
+      hbalance hfree hmfree
+  · have hall : ∀ j ∈ junk G C, gateVal n C j (pairInput p p) = false := by
+      intro j hj
+      apply Bool.eq_false_of_not_eq_true
+      intro hv
+      exact ht ⟨j,Finset.mem_filter.mpr ⟨hj,hv⟩⟩
+    have hJ : J = junk G C := Finset.filter_eq_self.mpr hall
+    have hserved : falseServed G C p X = X := by
+      apply Finset.Subset.antisymm (Finset.filter_subset _ _)
+      intro l hl
+      obtain ⟨_,_,_,j,hj,_,_,hv⟩ := residualTrace hL hT (hres l hl)
+      exact Finset.mem_filter.mpr ⟨hl,j,hj,hall j hj,hv⟩
+    have hfalse := all_false_residual_pencil_budget G C hL hT hfour p X hX hres hall
+    have hbalance : X.card + (mixing G C).card = (orN G C \ lam G C).card +
+        ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card := by
+      change X.card + (mixing G C).card = (orN G C \ lam G C).card + J.card
+      rw [hJ]
+      omega
+    exact tight_false_served_no_raw_gate G C hL.1 hT hfour p X hX hres hserved
+      hbalance hfree hmfree
+
+end MissingCentreMixing
+
+
+namespace MissingCentreMixing
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge CircuitLedger CircuitLedger.Budget FirstMixing
+
+lemma slack_two_zero_centreless_balance
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (hz : centreless G C = ∅) (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    (mixing G C).card = 2 ∧
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = true).card = 0 ∧
+      X.card + (mixing G C).card = (orN G C \ lam G C).card +
+        ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card := by
+  classical
+  have hb := missing_centre_all_mixing_budget G C hL hT hfour hz p X hX hres
+    color hXcol c hc hccol hcne hno
+  have hzcard : (centreless G C).card = 0 := by rw [hz]; rfl
+  have hmle : (mixing G C).card ≤ 2 := by omega
+  obtain ⟨bad,hbad,u,hu,hucol⟩ := residual_pencil_bad_mixing_of_card_le_two G C hL hT hfour hz
+    p X hXcard hX hres color hbip hXcol c hc hccol hcne hmle
+  obtain ⟨l,hl⟩ := Finset.card_pos.mp (show 0 < X.card by omega)
+  obtain ⟨a,ha,hav⟩ := acceptedTop hL (hX l hl)
+  let aa : {a // a ∈ tops G C \ centreless G C} :=
+    ⟨a,Finset.mem_sdiff.mpr ⟨ha,by simp [hz]⟩⟩
+  have hcl : c aa ≠ l := by
+    intro he
+    exact hXcol l hl (he ▸ hccol aa)
+  have get (b : Fin 2) (hside : side (n := n) C a b = {c aa}) :
+      ∃ m ∈ mixing G C, ∀ v ∈ orIn n C (n+m), color v = color p := by
+    obtain ⟨m,hm,_,hraw,_⟩ := singleton_operand_mixing hL.1 hT ha b hside (hcne aa) hcl hav
+    exact ⟨m,hm,fun v hv => (congrArg color (hraw v hv)).trans (hccol aa)⟩
+  have hex : ∃ m ∈ mixing G C, ∀ v ∈ orIn n C (n+m), color v = color p := by
+    rcases hc aa with hs | hs
+    · exact get 0 hs
+    · exact get 1 hs
+  obtain ⟨mp,hmp,hmcol⟩ := hex
+  have hne : mp ≠ bad := by
+    intro he
+    subst mp
+    exact hucol (hmcol u hu)
+  have hsub : ({mp,bad} : Finset ℕ) ⊆ mixing G C := by
+    intro m hm
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hm
+    rcases hm with rfl | rfl
+    · exact hmp
+    · exact hbad
+  have hmge : 2 ≤ (mixing G C).card := by
+    simpa [hne] using Finset.card_le_card hsub
+  have hmcard : (mixing G C).card = 2 := by omega
+  have htcard : ((junk G C).filter fun j => gateVal n C j (pairInput p p) = true).card = 0 := by omega
+  let J := (junk G C).filter fun j => gateVal n C j (pairInput p p) = false
+  have hsplit := Finset.card_sdiff_add_card_eq_card
+    (show J ⊆ junk G C from Finset.filter_subset _ _)
+  have heq : junk G C \ J =
+      (junk G C).filter (fun j => gateVal n C j (pairInput p p) = true) := by
+    ext j
+    simp only [J,Finset.mem_sdiff,Finset.mem_filter]
+    cases gateVal n C j (pairInput p p) <;> simp
+  rw [heq] at hsplit
+  refine ⟨hmcard,htcard,?_⟩
+  change X.card + (mixing G C).card = (orN G C \ lam G C).card + J.card
+  omega
+
+/-- With no centreless tops, the slack-two missing-centre regime has no raw occurrence
+  of the missing point at the output of any gate. -/
+lemma slack_two_zero_centreless_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (hz : centreless G C = ∅) (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hcinj : Function.Injective c)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    ∀ k, p ∉ orIn n C (n+k) := by
+  have hserved := missing_centre_false_served_all G C hL hT hfour hz p X hres
+    color hXcol c hc hccol hcne hno
+  have hbalance := (slack_two_zero_centreless_balance G C hL hT hfour hz p X hXcard hX hres
+    color hbip hXcol c hc hccol hcne hno hP).2.2
+  have hlam := missing_centre_not_in_lambda G C hL.1 p color hbip c hc hccol hcne
+  have hmix := slack_two_mixing_no_raw_point G C hL hT hfour p X hXcard hX hres
+    color hbip hXcol c hc hccol hcne hcinj hno hP
+  exact tight_false_served_no_raw_gate G C hL.1 hT hfour p X hX hres hserved hbalance hlam hmix
+
+end MissingCentreMixing
+
+
+namespace MissingCentreMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.CleanedNonEdge
+open CircuitLedger CircuitLedger.Budget FirstMixing
+
+/-- Without a raw occurrence of p in a gate, a least circuit has no gate true on p alone. -/
+lemma least_singleton_false_of_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (p : Fin n) (hraw : ∀ k, p ∉ orIn n C (n+k)) :
+    ∀ k < C.gates.length, gateVal n C k (pairInput p p) = false := by
+  intro k
+  induction k using Nat.strong_induction_on with
+  | _ k ih =>
+    intro hk
+    apply Bool.eq_false_of_not_eq_true
+    intro hv
+    have input (w : ℕ) (hw : w < n+k)
+        (hwv : val C (List.ofFn (pairInput p p)) w = true) : w = p.val := by
+      by_cases hwn : w < n
+      · have hwt : pairInput p p ⟨w,hwn⟩ = true :=
+          (val_ofFn C (pairInput p p) ⟨w,hwn⟩).symm.trans hwv
+        have he : (⟨w,hwn⟩ : Fin n) = p := by
+          simpa only [pairInput_true,or_self] using hwt
+        exact congrArg Fin.val he
+      · let j := w-n
+        have he : w = n+j := by dsimp [j]; omega
+        have hjk : j < k := by omega
+        have hj : j < C.gates.length := by omega
+        have hfalse := ih j hjk hj
+        have htrue : gateVal n C j (pairInput p p) = true := by
+          change val C (List.ofFn (pairInput p p)) (n+j) = true
+          rw [← he]
+          exact hwv
+        exact False.elim (Bool.false_ne_true (hfalse.symm.trans htrue))
+    rcases hL.1.1 _ (gateAt_mem hk) with hop | hop
+    · apply IdentityErase.least_no_duplicate_and hL hk hop p
+      intro b
+      exact input _ (opndBound hL.1 hk b)
+        ((andValOperands hL.1 hk hop (pairInput p p)).mp hv b)
+    · obtain ⟨w,hw,hwb,hwv⟩ := (val_or (n := n) (by simp) hk hop).mp hv
+      have he := input w hwb hwv
+      have hin : p.val ∈ (gateAt C k).inputs := he ▸ hw
+      have hpraw : p ∈ orIn n C p.val := reach_mem_orIn p Relation.ReflTransGen.refl
+      exact hraw k ((orIn_gate C k p).mpr ⟨hk,hop,p.val,hin,by omega,hpraw⟩)
+
+/-- A residual pencil with penalty at most d+2 has no gate raw occurrence of its missing centre. -/
+lemma slack_two_no_raw_gate
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hcinj : Function.Injective c)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    ∀ k, p ∉ orIn n C (n+k) := by
+  classical
+  by_cases hz : centreless G C = ∅
+  · exact slack_two_zero_centreless_no_raw_gate G C hL hT hfour hz p X hXcard hX hres
+      color hbip hXcol c hc hccol hcne hcinj hno hP
+  · exact slack_two_nonempty_centreless_no_raw_gate G C hL hT hfour p X hX hres
+      color hbip hXcol c hc hccol hcne hno hP hz
+
+lemma slack_two_singleton_false
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hL : IsLeastAO G C) (hT : TopForm G C) (hfour : NoFourCycle G)
+    (p : Fin n) (X : Finset (Fin n)) (hXcard : 3 ≤ X.card)
+    (hX : ∀ l ∈ X, G.Adj p l) (hres : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (color : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → color u ≠ color v)
+    (hXcol : ∀ l ∈ X, color l ≠ color p)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a})
+    (hccol : ∀ a, color (c a) = color p) (hcne : ∀ a, c a ≠ p)
+    (hcinj : Function.Injective c)
+    (hno : ∀ a : {a // a ∈ tops G C \ centreless G C},
+      ¬ ((side (n := n) C a.val 0).card = 1 ∧ (side (n := n) C a.val 1).card = 1))
+    (hP : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card ≤ X.card + 2) :
+    ∀ k < C.gates.length, gateVal n C k (pairInput p p) = false :=
+  least_singleton_false_of_no_raw_gate G C hL p
+    (slack_two_no_raw_gate G C hL hT hfour p X hXcard hX hres color hbip hXcol
+      c hc hccol hcne hcinj hno hP)
+
+end MissingCentreMixing
+
+
 end PEqualNP.Outside.L_meta_2583
