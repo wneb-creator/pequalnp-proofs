@@ -5434,4 +5434,540 @@ lemma literal_pair_allowed_of_positive_test {n : ℕ}
 
 end H8OrPatch
 
+namespace H8AndFree
+
+lemma monotone_safe_of_outside {n : ℕ} (Q : Finset (Fin n))
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f)
+    (hz : f (fun a => decide (a ∉ Q)) = false) :
+    ∀ x, f x ≤ H8Active.disjunction Q x := by
+  intro x
+  apply Bool.le_iff_imp.mpr
+  intro hx
+  by_contra hd
+  have hnone : ¬ ∃ a ∈ Q, x a = true := by
+    simpa only [H8Active.disjunction,decide_eq_true_eq] using hd
+  have hxo : x ≤ fun a => decide (a ∉ Q) := by
+    intro a
+    apply Bool.le_iff_imp.mpr
+    intro hxa
+    have ha : a ∉ Q := fun haq => hnone ⟨a,haq,hxa⟩
+    simp [ha]
+  have ht := Bool.le_iff_imp.mp (hf hxo) hx
+  rw [hz] at ht
+  cases ht
+
+lemma safe_term_factor (n : ℕ) (gs : List Node) (A : Finset ℕ)
+    (Q : Finset (Fin n))
+    (hsafe : ∀ x, term n gs A x ≤ H8Active.disjunction Q x) :
+    ∃ i ∈ A, ∀ x, wire n gs i x ≤ H8Active.disjunction Q x := by
+  classical
+  let outside : Fin n → Bool := fun a => decide (a ∉ Q)
+  have hq : H8Active.disjunction Q outside = false := by
+    simp [H8Active.disjunction,outside]
+  have ht : term n gs A outside = false := by
+    have hh := hsafe outside
+    rw [hq] at hh
+    cases he : term n gs A outside with
+    | false => rfl
+    | true => exact False.elim ((by decide : ¬ ((true : Bool) ≤ false)) (he ▸ hh))
+  have hn : ¬ ∀ i ∈ A, wire n gs i outside = true := by
+    simpa only [term,conj,decide_eq_false_iff_not] using ht
+  push Not at hn
+  obtain ⟨i,hi,hif⟩ := hn
+  have hz : wire n gs i outside = false := by
+    cases he : wire n gs i outside with
+    | false => rfl
+    | true => exact (hif he).elim
+  exact ⟨i,hi,monotone_safe_of_outside Q (wire n gs i) (normal_wire_mono n gs i) hz⟩
+
+lemma pure_or_of_no_left_private {n : ℕ} (Q : Finset (Fin n))
+    (T : Set (Fin n → Bool)) (f g : (Fin n → Bool) → Bool)
+    (hg : Monotone g)
+    (hgsafe : ∀ x, g x ≤ H8Active.disjunction Q x)
+    (hwhole : ∀ x, (f x || g x) = H8Active.disjunction Q x)
+    (hT : ∀ a ∈ Q, H8Active.assignmentOf {a} ∈ T)
+    (hn : ¬ ∃ x ∈ T, f x = true ∧ g x = false) :
+    ∀ x, g x = H8Active.disjunction Q x := by
+  intro x
+  apply le_antisymm
+  · exact hgsafe x
+  · apply Bool.le_iff_imp.mpr
+    intro hx
+    obtain ⟨a,ha,hxa⟩ : ∃ a ∈ Q, x a = true := by
+      simpa only [H8Active.disjunction,decide_eq_true_eq] using hx
+    have ht : (f (H8Active.assignmentOf {a}) || g (H8Active.assignmentOf {a})) = true := by
+      rw [hwhole]
+      simp only [H8Active.disjunction,decide_eq_true_eq]
+      exact ⟨a,ha,by simp [H8Active.assignmentOf]⟩
+    have hga : g (H8Active.assignmentOf {a}) = true := by
+      rcases Bool.or_eq_true_iff.mp ht with hf | hg'
+      · cases he : g (H8Active.assignmentOf {a}) with
+        | false => exact (hn ⟨H8Active.assignmentOf {a},hT a ha,hf,he⟩).elim
+        | true => rfl
+      · exact hg'
+    have hax : H8Active.assignmentOf {a} ≤ x :=
+      H8Active.assignmentOf_le (by simpa using hxa)
+    exact Bool.le_iff_imp.mp (hg hax) hga
+
+lemma pure_or_private_or_alias {n : ℕ} (Q : Finset (Fin n))
+    (T : Set (Fin n → Bool)) (f g : (Fin n → Bool) → Bool)
+    (hf : Monotone f) (hg : Monotone g)
+    (hfsafe : ∀ x, f x ≤ H8Active.disjunction Q x)
+    (hgsafe : ∀ x, g x ≤ H8Active.disjunction Q x)
+    (hwhole : ∀ x, (f x || g x) = H8Active.disjunction Q x)
+    (hT : ∀ a ∈ Q, H8Active.assignmentOf {a} ∈ T) :
+    ((∃ x ∈ T, f x = true ∧ g x = false) ∧
+      (∃ x ∈ T, g x = true ∧ f x = false)) ∨
+      (∀ x, f x = H8Active.disjunction Q x) ∨
+      (∀ x, g x = H8Active.disjunction Q x) := by
+  classical
+  by_cases hl : ∃ x ∈ T, f x = true ∧ g x = false
+  · by_cases hr : ∃ x ∈ T, g x = true ∧ f x = false
+    · exact Or.inl ⟨hl,hr⟩
+    · right; left
+      exact pure_or_of_no_left_private Q T g f hf hfsafe
+        (fun x => by rw [Bool.or_comm]; exact hwhole x) hT hr
+  · right; right
+    exact pure_or_of_no_left_private Q T f g hg hgsafe hwhole hT hl
+
+lemma pure_terms_choose_sources (n : ℕ) (gs : List Node) (A B : Finset ℕ)
+    (Q : Finset (Fin n)) (T : Set (Fin n → Bool))
+    (hA : ∀ i ∈ A, i < n + gs.length) (hB : ∀ i ∈ B, i < n + gs.length)
+    (hwhole : ∀ x : Fin n → Bool,
+      (term n gs A x || term n gs B x) = H8Active.disjunction Q x)
+    (hT : ∀ a ∈ Q, H8Active.assignmentOf {a} ∈ T) :
+    ∃ i ∈ A, ∃ j ∈ B, i < n + gs.length ∧ j < n + gs.length ∧
+      (∀ x, wire n gs i x ≤ H8Active.disjunction Q x) ∧
+      (∀ x, wire n gs j x ≤ H8Active.disjunction Q x) ∧
+      (∀ x, (wire n gs i x || wire n gs j x) = H8Active.disjunction Q x) ∧
+      (((∃ x ∈ T, wire n gs i x = true ∧ wire n gs j x = false) ∧
+        (∃ x ∈ T, wire n gs j x = true ∧ wire n gs i x = false)) ∨
+        (∀ x, wire n gs i x = H8Active.disjunction Q x) ∨
+        (∀ x, wire n gs j x = H8Active.disjunction Q x)) := by
+  have ha : ∀ x, term n gs A x ≤ H8Active.disjunction Q x := by
+    intro x
+    rw [← hwhole x]
+    cases term n gs A x <;> cases term n gs B x <;> decide
+  have hb : ∀ x, term n gs B x ≤ H8Active.disjunction Q x := by
+    intro x
+    rw [← hwhole x]
+    cases term n gs A x <;> cases term n gs B x <;> decide
+  obtain ⟨i,hi,his⟩ := safe_term_factor n gs A Q ha
+  obtain ⟨j,hj,hjs⟩ := safe_term_factor n gs B Q hb
+  have ht : ∀ x, (wire n gs i x || wire n gs j x) = H8Active.disjunction Q x := by
+    intro x
+    apply le_antisymm
+    · apply Bool.le_iff_imp.mpr
+      intro hx
+      rcases Bool.or_eq_true_iff.mp hx with hi' | hj'
+      · exact Bool.le_iff_imp.mp (his x) hi'
+      · exact Bool.le_iff_imp.mp (hjs x) hj'
+    · apply Bool.le_iff_imp.mpr
+      intro hx
+      rw [← hwhole x] at hx
+      rcases Bool.or_eq_true_iff.mp hx with ha' | hb'
+      · have hall : ∀ k ∈ A, wire n gs k x = true := by
+          simpa only [term,conj,decide_eq_true_eq] using ha'
+        exact Bool.or_eq_true_iff.mpr (Or.inl (hall i hi))
+      · have hall : ∀ k ∈ B, wire n gs k x = true := by
+          simpa only [term,conj,decide_eq_true_eq] using hb'
+        exact Bool.or_eq_true_iff.mpr (Or.inr (hall j hj))
+  refine ⟨i,hi,j,hj,hA i hi,hB j hj,his,hjs,ht,?_⟩
+  exact pure_or_private_or_alias Q T (wire n gs i) (wire n gs j)
+    (normal_wire_mono n gs i) (normal_wire_mono n gs j) his hjs ht hT
+
+lemma private_pair_indices_ne {n : ℕ} (gs : List Node) (i j : ℕ)
+    (T : Set (Fin n → Bool))
+    (hp : ∃ x ∈ T, wire n gs i x = true ∧ wire n gs j x = false) : i ≠ j := by
+  intro he
+  subst j
+  obtain ⟨x,hx,ht,hf⟩ := hp
+  rw [ht] at hf
+  cases hf
+
+end H8AndFree
+
+namespace H8AndFree
+
+def FlatWitnesses (n : ℕ) (gs : List Node) : Prop :=
+  ∀ j (hj : j < gs.length) (Q : Finset (Fin n)), 2 ≤ Q.card →
+    (∀ x : Fin n → Bool, wire n gs (n+j) x = H8Active.disjunction Q x) →
+    gs[j].1.card = 1 ∧ gs[j].2.card = 1
+
+lemma flat_witnesses_append {n : ℕ} (gs : List Node) (a b : Finset ℕ)
+    (hp : FlatWitnesses n gs)
+    (hnew : ∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+      (∀ x : Fin n → Bool, (term n gs a x || term n gs b x) = H8Active.disjunction Q x) →
+      a.card = 1 ∧ b.card = 1) : FlatWitnesses n (gs ++ [(a,b)]) := by
+  intro j hj Q hQ hfn
+  by_cases hold : j < gs.length
+  · have he : ∀ x : Fin n → Bool, wire n gs (n+j) x = H8Active.disjunction Q x := by
+      intro x
+      simpa only [old_wire (by omega : n+j < n+gs.length)] using hfn x
+    simpa only [List.getElem_append_left hold] using hp j hold Q hQ he
+  · have hej : j = gs.length := by simp at hj; omega
+    subst j
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,List.getElem_cons_zero]
+    apply hnew Q hQ
+    intro x
+    simpa only [new_wire] using hfn x
+
+lemma append_refactored_simulation {n : ℕ} {gs hs : List Node} {m : ℕ → Finset ℕ}
+    (h : NormalSim n gs hs m) (g : Node) (a b c : Finset ℕ)
+    (hc : ∀ i ∈ c, i < n + hs.length)
+    (he : ∀ x : Fin n → Bool, (term n hs c x && (term n hs a x || term n hs b x)) =
+      (term n gs g.1 x || term n gs g.2 x)) :
+    ∃ mm : ℕ → Finset ℕ, NormalSim n (gs ++ [g]) (hs ++ [(a,b)]) mm := by
+  let mm : ℕ → Finset ℕ := fun i => if i = n + gs.length then c ∪ {n + hs.length} else m i
+  refine ⟨mm,?_⟩
+  intro i hi
+  by_cases hold : i < n + gs.length
+  · obtain ⟨hne,hb,hsem⟩ := h i hold
+    have hneq : i ≠ n + gs.length := Nat.ne_of_lt hold
+    simp only [mm,ite_eq_right hneq]
+    refine ⟨hne,?_,?_⟩
+    · intro j hj; have hh := hb j hj; simp; omega
+    · intro x
+      rw [old_term hb,old_wire hold]
+      exact hsem x
+  · have hej : i = n + gs.length := by simp at hi; omega
+    subst i
+    simp only [mm,ite_eq_left rfl]
+    refine ⟨(Finset.singleton_nonempty (n+hs.length)).mono Finset.subset_union_right,?_,?_⟩
+    · intro j hj
+      rcases Finset.mem_union.mp hj with hj | hj
+      · have hh := hc j hj; simp; omega
+      · have hh := Finset.mem_singleton.mp hj; simp; omega
+    · intro x
+      change conj (fun i => wire n (hs ++ [(a,b)]) i x) (c ∪ {n+hs.length}) = _
+      rw [conj_union,conj_singleton]
+      change (term n (hs ++ [(a,b)]) c x && wire n (hs ++ [(a,b)]) (n+hs.length) x) = _
+      rw [old_term hc,new_wire,new_wire]
+      exact he x
+
+lemma alias_refactored_simulation {n : ℕ} {gs hs : List Node} {m : ℕ → Finset ℕ}
+    (h : NormalSim n gs hs m) (g : Node) (c : Finset ℕ) (r : ℕ)
+    (hc : ∀ i ∈ c, i < n + hs.length) (hr : r < n + hs.length)
+    (he : ∀ x : Fin n → Bool, (term n hs c x && wire n hs r x) =
+      (term n gs g.1 x || term n gs g.2 x)) :
+    ∃ mm : ℕ → Finset ℕ, NormalSim n (gs ++ [g]) hs mm := by
+  let mm : ℕ → Finset ℕ := fun i => if i = n + gs.length then c ∪ {r} else m i
+  refine ⟨mm,?_⟩
+  intro i hi
+  by_cases hold : i < n + gs.length
+  · obtain ⟨hne,hb,hsem⟩ := h i hold
+    have hneq : i ≠ n + gs.length := Nat.ne_of_lt hold
+    simp only [mm,ite_eq_right hneq]
+    refine ⟨hne,hb,?_⟩
+    intro x
+    rw [old_wire hold]
+    exact hsem x
+  · have hej : i = n + gs.length := by simp at hi; omega
+    subst i
+    simp only [mm,ite_eq_left rfl]
+    refine ⟨(Finset.singleton_nonempty r).mono Finset.subset_union_right,?_,?_⟩
+    · intro j hj
+      rcases Finset.mem_union.mp hj with hj | hj
+      · exact hc j hj
+      · have hh := Finset.mem_singleton.mp hj; omega
+    · intro x
+      change conj (fun i => wire n hs i x) (c ∪ {r}) = _
+      rw [conj_union,conj_singleton,new_wire]
+      exact he x
+
+lemma exists_flat_private_simulation (n : ℕ) (gs : List Node)
+    (T : Set (Fin n → Bool)) (hT : ∀ a : Fin n, H8Active.assignmentOf {a} ∈ T)
+    (hv : Valid n gs) (hp : PrivateNormal n gs T) :
+    ∃ (hs : List Node) (m : ℕ → Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs T ∧ DisjointNormal hs ∧ FlatWitnesses n hs ∧
+      hs.length ≤ gs.length ∧ NormalSim n gs hs m := by
+  classical
+  induction gs using List.reverseRecOn with
+  | nil =>
+    refine ⟨[],fun i => {i},?_,?_,?_,?_,by simp,?_⟩
+    · intro j hj; simp at hj
+    · intro j hj; simp at hj
+    · intro j hj; simp at hj
+    · intro j hj; simp at hj
+    · intro i hi
+      refine ⟨Finset.singleton_nonempty _,?_,?_⟩
+      · intro j hj; simpa using Finset.mem_singleton.mp hj ▸ hi
+      · intro x; simp [term,conj_singleton]
+  | append_singleton gs g ih =>
+    have hvg : Valid n gs := by
+      intro j hj
+      have hh := hv j (by simp; omega)
+      rw [List.getElem_append_left hj] at hh
+      exact hh
+    have hpg := private_normal_prefix gs g T hvg hp
+    obtain ⟨hs,m,hvalid,hprivate,hdisjoint,hflat,hcount,hsim⟩ := ih hvg hpg
+    obtain ⟨hgane,hgbne,hga,hgb⟩ := hv gs.length (by simp)
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,List.getElem_cons_zero] at hgane hgbne hga hgb
+    have hA : ∀ i ∈ expand m g.1, i < n + hs.length :=
+      expand_bound m g.1 _ (fun i hi => (hsim i (hga i hi)).2.1)
+    have hB : ∀ i ∈ expand m g.2, i < n + hs.length :=
+      expand_bound m g.2 _ (fun i hi => (hsim i (hgb i hi)).2.1)
+    let A := expand m g.1
+    let B := expand m g.2
+    let RA := A \ B
+    let RB := B \ A
+    let C := A ∩ B
+    have hRA : ∀ i ∈ RA, i < n + hs.length := fun i hi => hA i (Finset.mem_sdiff.mp hi).1
+    have hRB : ∀ i ∈ RB, i < n + hs.length := fun i hi => hB i (Finset.mem_sdiff.mp hi).1
+    have hC : ∀ i ∈ C, i < n + hs.length := fun i hi => hA i (Finset.mem_inter.mp hi).1
+    have hnew : (∃ x ∈ T, term n hs RA x = true ∧ term n hs RB x = false) ∧
+        (∃ x ∈ T, term n hs RB x = true ∧ term n hs RA x = false) := by
+      have hh := hp gs.length (by simp)
+      simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,List.getElem_cons_zero,
+        old_term hga,old_term hgb] at hh
+      obtain ⟨⟨x,hx,ha,hb⟩,⟨y,hy,hb',ha'⟩⟩ := hh
+      have hxA : term n hs A x = true := (term_expand hsim g.1 hga x).trans ha
+      have hxB : term n hs B x = false := (term_expand hsim g.2 hgb x).trans hb
+      have hyB : term n hs B y = true := (term_expand hsim g.2 hgb y).trans hb'
+      have hyA : term n hs A y = false := (term_expand hsim g.1 hga y).trans ha'
+      exact ⟨⟨x,hx,residual_private _ A B hxA hxB⟩,⟨y,hy,residual_private _ B A hyB hyA⟩⟩
+    have hRAn : RA.Nonempty := by
+      obtain ⟨x,hx,hb,ha⟩ := hnew.2
+      exact term_nonempty_of_false hs RA x ha
+    have hRBn : RB.Nonempty := by
+      obtain ⟨x,hx,ha,hb⟩ := hnew.1
+      exact term_nonempty_of_false hs RB x hb
+    have hres : ∀ x : Fin n → Bool,
+        (term n hs C x && (term n hs RA x || term n hs RB x)) =
+        (term n gs g.1 x || term n gs g.2 x) := by
+      intro x
+      rw [← term_expand hsim g.1 hga x,← term_expand hsim g.2 hgb x]
+      exact factor_identity (fun i => wire n hs i x) A B
+    have add (a b : Finset ℕ) (ha : a.Nonempty) (hb : b.Nonempty)
+        (hba : ∀ i ∈ a, i < n+hs.length) (hbb : ∀ i ∈ b, i < n+hs.length)
+        (hpr : (∃ x ∈ T, term n hs a x = true ∧ term n hs b x = false) ∧
+          (∃ x ∈ T, term n hs b x = true ∧ term n hs a x = false))
+        (hdis : Disjoint a b)
+        (hfl : ∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+          (∀ x : Fin n → Bool, (term n hs a x || term n hs b x) = H8Active.disjunction Q x) →
+          a.card = 1 ∧ b.card = 1)
+        (hsem : ∀ x : Fin n → Bool, (term n hs C x && (term n hs a x || term n hs b x)) =
+          (term n gs g.1 x || term n gs g.2 x)) :
+        ∃ (ks : List Node) (mm : ℕ → Finset ℕ),
+          Valid n ks ∧ PrivateNormal n ks T ∧ DisjointNormal ks ∧ FlatWitnesses n ks ∧
+          ks.length ≤ (gs ++ [g]).length ∧ NormalSim n (gs ++ [g]) ks mm := by
+      obtain ⟨mm,hmm⟩ := append_refactored_simulation hsim g a b C hC hsem
+      exact ⟨hs ++ [(a,b)],mm,valid_append hvalid a b ha hb hba hbb,
+        private_normal_append T hvalid hprivate a b hba hbb hpr,
+        disjoint_normal_append hdisjoint (a,b) hdis,flat_witnesses_append hs a b hflat hfl,
+        by simp; omega,hmm⟩
+    have reuse (r : ℕ) (hr : r < n+hs.length)
+        (hrf : ∀ x : Fin n → Bool, wire n hs r x = (term n hs RA x || term n hs RB x)) :
+        ∃ (ks : List Node) (mm : ℕ → Finset ℕ),
+          Valid n ks ∧ PrivateNormal n ks T ∧ DisjointNormal ks ∧ FlatWitnesses n ks ∧
+          ks.length ≤ (gs ++ [g]).length ∧ NormalSim n (gs ++ [g]) ks mm := by
+      have hsem : ∀ x : Fin n → Bool, (term n hs C x && wire n hs r x) =
+          (term n gs g.1 x || term n gs g.2 x) := by intro x; rw [hrf]; exact hres x
+      obtain ⟨mm,hmm⟩ := alias_refactored_simulation hsim g C r hC hr hsem
+      exact ⟨hs,mm,hvalid,hprivate,hdisjoint,hflat,by simp; omega,hmm⟩
+    by_cases hex : ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧
+        ∀ x : Fin n → Bool, (term n hs RA x || term n hs RB x) = H8Active.disjunction Q x
+    · obtain ⟨Q,hQ,hfn⟩ := hex
+      obtain ⟨i,hi,j,hj,hib,hjb,his,hjs,hij,hchoice⟩ :=
+        pure_terms_choose_sources n hs RA RB Q T hRA hRB hfn (fun a _ => hT a)
+      rcases hchoice with hpv | hai | haj
+      · apply add {i} {j} (Finset.singleton_nonempty _) (Finset.singleton_nonempty _)
+          (by intro k hk; simpa only [Finset.mem_singleton.mp hk] using hib)
+          (by intro k hk; simpa only [Finset.mem_singleton.mp hk] using hjb)
+        · simpa only [term,conj_singleton] using hpv
+        · exact Finset.disjoint_singleton.mpr (private_pair_indices_ne hs i j T hpv.1)
+        · intro R hR hrf; simp
+        · intro x
+          have hh : (term n hs {i} x || term n hs {j} x) = (term n hs RA x || term n hs RB x) := by
+            simp only [term,conj_singleton]
+            exact (hij x).trans (hfn x).symm
+          rw [hh]
+          exact hres x
+      · exact reuse i hib (fun x => (hai x).trans (hfn x).symm)
+      · exact reuse j hjb (fun x => (haj x).trans (hfn x).symm)
+    · apply add RA RB hRAn hRBn hRA hRB hnew
+      · apply Finset.disjoint_left.mpr
+        intro i hiA hiB
+        exact (Finset.mem_sdiff.mp hiA).2 (Finset.mem_sdiff.mp hiB).1
+      · intro Q hQ hf
+        exact (hex ⟨Q,hQ,hf⟩).elim
+      · exact hres
+
+end H8AndFree
+
+namespace H8AndFree
+
+lemma private_flat_padding_tail {n : ℕ} (gs : List Node) (T : Set (Fin n → Bool))
+    (hv : Valid n gs) (hp : PrivateNormal n gs T) (hd : DisjointNormal gs)
+    (hf : FlatWitnesses n gs) (j : ℕ) (hj : j < gs.length)
+    (ha : gs[j].1.card = 1) (hb : gs[j].2.card = 1) :
+    ∀ d : ℕ, ∃ tail : List Node, tail.length = d ∧ Valid n (gs ++ tail) ∧
+      PrivateNormal n (gs ++ tail) T ∧ DisjointNormal (gs ++ tail) ∧
+      FlatWitnesses n (gs ++ tail) := by
+  intro d
+  induction d with
+  | zero =>
+    exact ⟨[],rfl,by simpa using hv,by simpa using hp,by simpa using hd,by simpa using hf⟩
+  | succ d ih =>
+    obtain ⟨tail,hlen,hv',hp',hd',hf'⟩ := ih
+    have hj' : j < (gs ++ tail).length := by simp; omega
+    have ha' : (gs ++ tail)[j].1.card = 1 := by
+      simpa only [List.getElem_append_left hj] using ha
+    have hb' : (gs ++ tail)[j].2.card = 1 := by
+      simpa only [List.getElem_append_left hj] using hb
+    let g := (gs ++ tail)[j]
+    obtain ⟨hvv,hpp,hdd⟩ := private_duplicate_node (gs ++ tail) T hv' hp' hd' j hj'
+    have hff : FlatWitnesses n ((gs ++ tail) ++ [(gs ++ tail)[j]]) :=
+      flat_witnesses_append (gs ++ tail) _ _ hf' (fun _ _ _ => ⟨ha',hb'⟩)
+    refine ⟨tail ++ [g],by simp [hlen],?_,?_,?_,?_⟩
+    · simpa only [List.append_assoc] using hvv
+    · simpa only [List.append_assoc] using hpp
+    · simpa only [List.append_assoc] using hdd
+    · simpa only [List.append_assoc] using hff
+
+lemma private_disjoint_flat_pad {n : ℕ} (gs : List Node) (T : Set (Fin n → Bool))
+    (hv : Valid n gs) (hp : PrivateNormal n gs T) (hd : DisjointNormal gs)
+    (hf : FlatWitnesses n gs) (j : ℕ) (hj : j < gs.length)
+    (ha : gs[j].1.card = 1) (hb : gs[j].2.card = 1)
+    (r : ℕ) (hr : gs.length ≤ r) :
+    ∃ hs : List Node, Valid n hs ∧ PrivateNormal n hs T ∧ DisjointNormal hs ∧
+      FlatWitnesses n hs ∧ hs.length = r ∧ (∃ tail : List Node, hs = gs ++ tail) ∧
+      (∀ i < n + gs.length, ∀ x : Fin n → Bool, wire n hs i x = wire n gs i x) ∧
+      (∀ s : Finset ℕ, (∀ i ∈ s, i < n + gs.length) → ∀ x : Fin n → Bool,
+        term n hs s x = term n gs s x) := by
+  obtain ⟨tail,hlen,hv',hp',hd',hf'⟩ :=
+    private_flat_padding_tail gs T hv hp hd hf j hj ha hb (r-gs.length)
+  refine ⟨gs ++ tail,hv',hp',hd',hf',?_,⟨tail,rfl⟩,?_,?_⟩
+  · simp only [List.length_append,hlen]
+    omega
+  · intro i hi x
+    exact normal_append_old gs tail i hi x
+  · intro s hs x
+    exact normal_append_term gs tail s hs x
+
+lemma pure_root_private_disjoint_flat_pad {n : ℕ} (gs : List Node)
+    (T : Set (Fin n → Bool)) (hv : Valid n gs) (hp : PrivateNormal n gs T)
+    (hd : DisjointNormal gs) (hf : FlatWitnesses n gs)
+    (hex : ∃ j < gs.length, ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧
+      ∀ x : Fin n → Bool, wire n gs (n+j) x = H8Active.disjunction Q x)
+    (r : ℕ) (hr : gs.length ≤ r) :
+    ∃ hs : List Node, Valid n hs ∧ PrivateNormal n hs T ∧ DisjointNormal hs ∧
+      FlatWitnesses n hs ∧ hs.length = r ∧ (∃ tail : List Node, hs = gs ++ tail) ∧
+      (∀ i < n + gs.length, ∀ x : Fin n → Bool, wire n hs i x = wire n gs i x) ∧
+      (∀ s : Finset ℕ, (∀ i ∈ s, i < n + gs.length) → ∀ x : Fin n → Bool,
+        term n hs s x = term n gs s x) := by
+  obtain ⟨j,hj,Q,hQ,he⟩ := hex
+  obtain ⟨ha,hb⟩ := hf j hj Q hQ he
+  exact private_disjoint_flat_pad gs T hv hp hd hf j hj ha hb r hr
+
+lemma pure_term_private_disjoint_flat_pad {n : ℕ} (gs : List Node)
+    (T : Set (Fin n → Bool)) (hv : Valid n gs) (hp : PrivateNormal n gs T)
+    (hd : DisjointNormal gs) (hf : FlatWitnesses n gs)
+    (s : Finset ℕ) (hs : ∀ i ∈ s, i < n + gs.length)
+    (Q : Finset (Fin n)) (hQ : 2 ≤ Q.card)
+    (he : ∀ x : Fin n → Bool, term n gs s x = H8Active.disjunction Q x)
+    (r : ℕ) (hr : gs.length ≤ r) :
+    ∃ ks : List Node, Valid n ks ∧ PrivateNormal n ks T ∧ DisjointNormal ks ∧
+      FlatWitnesses n ks ∧ ks.length = r ∧ (∃ tail : List Node, ks = gs ++ tail) ∧
+      (∀ i < n + gs.length, ∀ x : Fin n → Bool, wire n ks i x = wire n gs i x) ∧
+      (∀ t : Finset ℕ, (∀ i ∈ t, i < n + gs.length) → ∀ x : Fin n → Bool,
+        term n ks t x = term n gs t x) := by
+  obtain ⟨j,hj,hroot⟩ := normal_pure_term_root n gs s Q hQ hs he
+  exact pure_root_private_disjoint_flat_pad gs T hv hp hd hf ⟨j,hj,Q,hQ,hroot⟩ r hr
+
+end H8AndFree
+
+namespace H8AndFree
+
+lemma exists_flat_private_output {n : ℕ} (gs : List Node)
+    (T : Set (Fin n → Bool)) (hT : ∀ a : Fin n, H8Active.assignmentOf {a} ∈ T)
+    (hv : Valid n gs) (hp : PrivateNormal n gs T)
+    (s : Finset ℕ) (hs : s.Nonempty) (hb : ∀ i ∈ s, i < n + gs.length) :
+    ∃ (ks : List Node) (t : Finset ℕ),
+      Valid n ks ∧ PrivateNormal n ks T ∧ DisjointNormal ks ∧ FlatWitnesses n ks ∧
+      ks.length ≤ gs.length ∧ t.Nonempty ∧ (∀ i ∈ t, i < n + ks.length) ∧
+      (∀ x : Fin n → Bool, term n ks t x = term n gs s x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+        (∃ i < n + gs.length, ∀ x : Fin n → Bool, wire n gs i x = H8Active.disjunction Q x) →
+        ∃ j < ks.length, ∀ x : Fin n → Bool, wire n ks (n+j) x = H8Active.disjunction Q x := by
+  obtain ⟨ks,m,hvalid,hprivate,hdisjoint,hflat,hcount,hsim⟩ :=
+    exists_flat_private_simulation n gs T hT hv hp
+  refine ⟨ks,expand m s,hvalid,hprivate,hdisjoint,hflat,hcount,
+    expand_nonempty m s hs (fun i hi => (hsim i (hb i hi)).1),
+    expand_bound m s _ (fun i hi => (hsim i (hb i hi)).2.1),term_expand hsim s hb,?_⟩
+  intro Q hQ hroot
+  obtain ⟨i,hi,hiQ⟩ := hroot
+  apply normal_pure_term_root n ks (m i) Q hQ (hsim i hi).2.1
+  intro x
+  exact ((hsim i hi).2.2 x).trans (hiQ x)
+
+end H8AndFree
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma singleton_mem_test_inputs {n : ℕ} (P : Finset (Finset (Fin n))) (a : Fin n) :
+    H8Active.assignmentOf {a} ∈ TestInputs P := by
+  classical
+  refine ⟨{a},?_,rfl⟩
+  exact Finset.mem_union_right _ (Finset.mem_image.mpr ⟨a,Finset.mem_univ _,rfl⟩)
+
+lemma exists_flat_private_normalization {n : ℕ}
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs (TestInputs P) ∧ DisjointNormal hs ∧ FlatWitnesses n hs ∧
+      hs.length ≤ orCount C.gates ∧ s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = H8Active.dnf P x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card → HasPureOr n C Q →
+        ∃ j < hs.length, ∀ x : Fin n → Bool, wire n hs (n+j) x = H8Active.disjunction Q x := by
+  obtain ⟨gs,t,hvalid,hprivate,hcount,ht,hb,hout,hroots⟩ :=
+    exists_private_normalization C hC P hF hpos
+  obtain ⟨hs,s,hsvalid,hsprivate,hsdisjoint,hsflat,hscount,hsne,hsb,hsout,hsroots⟩ :=
+    exists_flat_private_output gs (TestInputs P) (singleton_mem_test_inputs P) hvalid hprivate t ht hb
+  refine ⟨hs,s,hsvalid,hsprivate,hsdisjoint,hsflat,hscount.trans hcount,hsne,hsb,?_,?_⟩
+  · intro x
+    exact (hsout x).trans (hout x)
+  · intro Q hQ hQC
+    obtain ⟨j,hj,hjQ⟩ := hroots Q hQ hQC
+    exact hsroots Q hQ ⟨n+j,by omega,hjQ⟩
+
+lemma exists_exact_flat_private_normalization {n : ℕ}
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true)
+    (hwitness : ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧ HasPureOr n C Q)
+    (r : ℕ) (hr : orCount C.gates ≤ r) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs (TestInputs P) ∧ DisjointNormal hs ∧ FlatWitnesses n hs ∧
+      hs.length = r ∧ s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = H8Active.dnf P x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card → HasPureOr n C Q →
+        ∃ j < hs.length, ∀ x : Fin n → Bool, wire n hs (n+j) x = H8Active.disjunction Q x := by
+  obtain ⟨gs,s,hv,hp,hd,hf,hcnt,hs,hb,hout,hroots⟩ :=
+    exists_flat_private_normalization C hC P hF hpos
+  have hgr : gs.length ≤ r := hcnt.trans hr
+  have hgw : ∃ j < gs.length, ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧
+      ∀ x : Fin n → Bool, wire n gs (n+j) x = H8Active.disjunction Q x := by
+    obtain ⟨Q,hQ,hQC⟩ := hwitness
+    obtain ⟨j,hj,hjQ⟩ := hroots Q hQ hQC
+    exact ⟨j,hj,Q,hQ,hjQ⟩
+  obtain ⟨ks,hkv,hkp,hkd,hkf,hkcnt,hprefix,hkw,hkt⟩ :=
+    pure_root_private_disjoint_flat_pad gs (TestInputs P) hv hp hd hf hgw r hgr
+  refine ⟨ks,s,hkv,hkp,hkd,hkf,hkcnt,hs,?_,?_,?_⟩
+  · intro i hi
+    have hh := hb i hi
+    omega
+  · intro x
+    exact (hkt s hb x).trans (hout x)
+  · intro Q hQ hQC
+    obtain ⟨j,hj,hjQ⟩ := hroots Q hQ hQC
+    refine ⟨j,by omega,?_⟩
+    intro x
+    exact (hkw (n+j) (by omega) x).trans (hjQ x)
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
