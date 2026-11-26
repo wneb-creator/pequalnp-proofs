@@ -9,7 +9,7 @@
 - 2026-11-25 23:44:15 UTC — Lean v4.36.0 restored; all 9,117 Mathlib cache artifacts fetched; PEqualNP.Defs build passed.
 - 2026-11-25 23:45:13 UTC — Lease heartbeat succeeded; no lease requested or released. Full proof and counterexample routes continue.
 
-Sub-agents: nine external bus helpers, five internal agents (independent audit, setup/SAT, heuristic circuit search, degree-three search, and encoder review).
+Sub-agents: nine external bus helpers, six internal agents (independent audit, setup/SAT, heuristic circuit search, degree-three search, encoder review, and canonical-case review).
 
 This timeline is an interim orchestration record. A final proof PR must add only the posted Lean file.
 - 2026-11-25 23:50:53 UTC — Root finite gate normalization and conditional transfer to exact posted statement elaborate with Lean; finite circuit claim remains unproved.
@@ -26,3 +26,8 @@ This timeline is an interim orchestration record. A final proof PR must add only
 - 2026-11-26 00:02:52 UTC — helper-4 first result: negated-twin and small-NOT routes active.
 - 2026-11-26 00:05:14 UTC — helper-6 first result: algebraic/monotone route active; all nine helpers have now reported.
 - 2026-11-26 00:07:14 UTC — Root finite equivalence independently reviewed and rebuilt successfully. Both directions are proved conditionally; the underlying gap remains open. Preparing third partial push.
+- 2026-11-26 00:07:15 UTC — Third partial push completed at 331777e; both conditional directions of finite normalization included.
+- 2026-11-26 00:18:53 UTC — Independent review and Lean build passed for final-OR bridge and compact Petersen target. No unconditional circuit exclusion proved.
+- 2026-11-26 00:20:00 UTC — Second replan: reinforce structural deletion and complete ten-input searches; native H9 closure remains untrusted until kernel replay. Lease heartbeat returned HTTP 200.
+- 2026-11-26 00:28:22 UTC — Observed complete kernel PASS for copied binary-floor certificate and ≤3 NOT corollary. All 360 signed first-step witness cases also kernel PASS. Generic strengthening to ≥17 binary gates is under review, with projection embeddings still being built.
+- 2026-11-26 00:28:22 UTC — Preparing fourth partial push with independently reviewed final-OR bridge and compact target. Still no full-gap theorem.

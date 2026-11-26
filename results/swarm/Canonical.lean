@@ -248,4 +248,89 @@ lemma finite_necessary (h : ∀ (x1 : PEqualNP.CircuitLowerBounds.Gate) (x2 : PE
     (fun x hx => ⟨(values x _).trans (off x hx).1, (values x _).trans (off x hx).2⟩)
   exact ⟨x, hx, (values x _).symm.trans hy, (values x _).symm.trans hz⟩
 
+
+def codedCircuit (m : Fin 19 → Code) : Circuit :=
+  ⟨(List.ofFn m).map decode, 28⟩
+
+def extendModel (m : Fin 18 → Code) (a b : Fin 18) : Fin 19 → Code :=
+  Fin.lastCases (1, ⟨10 + a.val, by omega⟩, ⟨10 + b.val, by omega⟩) m
+
+lemma extend_gates (m : Fin 18 → Code) (a b : Fin 18) :
+    (codedCircuit (extendModel m a b)).gates =
+      (List.ofFn m).map decode ++ [⟨.or, [10 + a.val, 10 + b.val]⟩] := by
+  unfold codedCircuit
+  rw [List.ofFn_succ']
+  simp only [extendModel, Fin.lastCases_castSucc, Fin.lastCases_last, List.concat_eq_append,
+    List.map_append, List.map_cons, List.map_nil]
+  rfl
+
+lemma append_eval (gs : List Gate) (g : Gate) (xs : List Bool) :
+    Circuit.eval ⟨gs ++ [g], xs.length + gs.length⟩ xs =
+      g.op.eval (g.inputs.map fun i => (Circuit.wires ⟨gs, 0⟩ xs).getD i false) := by
+  let w := Circuit.wires ⟨gs, 0⟩ xs
+  have hl : w.length = xs.length + gs.length := wires_length gs xs
+  simp only [Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons, List.foldl_nil]
+  change (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]).getD
+    (xs.length + gs.length) false = _
+  rw [← hl, List.getD_eq_getElem _ _ (by simp)]
+  simp
+  rfl
+
+lemma append_or_eval (gs : List Gate) (xs : List Bool) (a b : ℕ) :
+    Circuit.eval ⟨gs ++ [⟨.or, [a, b]⟩], xs.length + gs.length⟩ xs =
+      ((Circuit.wires ⟨gs, 0⟩ xs).getD a false || (Circuit.wires ⟨gs, 0⟩ xs).getD b false) := by
+  rw [append_eval]
+  simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil,
+    id_eq, Bool.or_false]
+
+lemma named_final (D : Circuit) (gs : List Gate) (xs : List Bool) (a b : ℕ)
+    (hg : D.gates = gs ++ [⟨.or, [a, b]⟩]) (ho : D.output = xs.length + gs.length) :
+    D.eval xs = ((Circuit.wires ⟨gs, 0⟩ xs).getD a false || (Circuit.wires ⟨gs, 0⟩ xs).getD b false) := by
+  cases D with
+  | mk gates output =>
+    dsimp only at hg ho
+    subst gates
+    subst output
+    exact append_or_eval gs xs a b
+
+lemma extend_eval (m : Fin 18 → Code) (a b : Fin 18) (x : Fin 10 → Bool) :
+    (codedCircuit (extendModel m a b)).eval (List.ofFn x) =
+      (modelWires m x (10 + a.val) || modelWires m x (10 + b.val)) := by
+  exact named_final (codedCircuit (extendModel m a b)) ((List.ofFn m).map decode)
+    (List.ofFn x) (10 + a.val) (10 + b.val) (extend_gates m a b)
+    (by simp only [codedCircuit, List.length_map, List.length_ofFn])
+
+
+def NoSmallOR : Prop :=
+  ∀ m : Fin 19 → Code, (m 18).1 = 1 →
+    ∃ x : Fin 10 → Bool, (codedCircuit m).eval (List.ofFn x) ≠ target x
+
+lemma noSmallOR_suffices (h : NoSmallOR) : FiniteClaim := by
+  intro m a b ha hb off
+  obtain ⟨x, hx⟩ := h (extendModel m a b) (by
+    change (extendModel m a b (Fin.last 18)).1 = 1
+    simp only [extendModel, Fin.lastCases_last])
+  rw [extend_eval] at hx
+  have hp : target x = true := by
+    cases hf : target x
+    · obtain ⟨hl, hr⟩ := off x hf
+      simp only [hl, hr, Bool.false_or, hf, ne_eq, not_true_eq_false] at hx
+    · rfl
+  refine ⟨x, hp, ?_⟩
+  cases hl : modelWires m x (10 + a.val) <;>
+    cases hr : modelWires m x (10 + b.val) <;>
+      simp_all
+
+
+def compactTarget (x : Fin 10 → Bool) : Bool :=
+  (List.finRange 5).any fun i =>
+    (x (Fin.castAdd 5 i) && x (Fin.castAdd 5 (i + 1))) ||
+    (x (Fin.castAdd 5 i) && x (Fin.natAdd 5 i)) ||
+    (x (Fin.natAdd 5 i) && x (Fin.natAdd 5 (i + 2)))
+
+lemma compactTarget_eq (x : Fin 10 → Bool) : compactTarget x = target x := by
+  change (((x 0 && x 1) || (x 0 && x 5) || (x 5 && x 7)) || (((x 1 && x 2) || (x 1 && x 6) || (x 6 && x 8)) || (((x 2 && x 3) || (x 2 && x 7) || (x 7 && x 9)) || (((x 3 && x 4) || (x 3 && x 8) || (x 8 && x 5)) || (((x 4 && x 0) || (x 4 && x 9) || (x 9 && x 6)) || (false)))))) = ((x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 4 && x 9) || (x 5 && x 7) || (x 7 && x 9) || (x 9 && x 6) || (x 6 && x 8) || (x 8 && x 5))
+  simp only [Bool.or_false]
+  ac_rfl
+
 end PEqualNP.Outside.L_meta_2373_aux
