@@ -1,0 +1,295 @@
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.live_width' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.live_proper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.erase_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.kept_fin_word' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.enum_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.nodeCheck_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.collisionCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.forest_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.bit_zero' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.masked_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.masked_zero' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.masked_one' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.availableB_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.allowedB_ok' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.pay_choice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.makePool_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.count_constants' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.build_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.valid_exclude' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.scalarPoolCut_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.materialize_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Projection.cutCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_zero' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_bin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_rename' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.observe_rename' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.rename_bin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.rename_inj' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.rename_constants' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.live_rename' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_shift' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bool_mux' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_mux' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_move' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_moved' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.moved_eq_rename' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.bit_coordinate' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.agree_coordinates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.composed_id' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.live_moved' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.impossible_link' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.bit_doubleWord' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.row_permutation' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.bit_fastLiftWord' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.row_roundtrip' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.target_rows' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.pin_rows' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.pin_vanishes' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.target_embedding' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.pin_projection' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.domain_embedding' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.pin_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.restricted_input' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.lift_slice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.column_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.column_checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.column_raw' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.column_slice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.whole_slice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Cofactor.source_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.hintPool_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.poolList_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.replayOracle_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.child_flip' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.child_flip_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.nodeCheckHalf_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.essential_checked' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.initial_required' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.atLeastEighteen' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.fastCoordinate_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.fastSwapMove_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.fastSwapWords_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Automorphism.impossible_preimage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.prepareLinks_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.preparedLinkCheck_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.preparedOracle_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.sameSetB_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.nodupB_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.nodupB_eq_decide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.cutCheckFast_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.preparedLinkCheckFast_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.preparedOracleFast_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.identityLinks_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.autoMoves_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.linkOfCode_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.close_forest' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.allLinks_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.oracleOf_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.closedOf' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.closedPrefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.BlockPools.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.decodeStateBy_unpack' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.identityLinks_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.allLinks_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.oracle_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.fastLiftWord_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.liftDomain_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.source_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.hintPool_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.poolList_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.oracleOf_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.check_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.CollisionProfile.prepare_valid' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.CollisionProfile.cut_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.CollisionProfile.check_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.preparedOracleProfile_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast.oracle_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast.checkNode_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast.profileOracle_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast.profileClosed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.map_read' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.applyCode_live' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.liveStep_map' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.decodeStateBy_live' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.decodeLiveFrom_map' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.mapped_decodeStateBy' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.moved_decodeStateBy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.map_readWith' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.liveStepWith_word' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.liveStepWith_map' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.decodeLiveFromWith_map' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.decodeStateBy_liveWith' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.mapped_decodeStateByWith' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.ofRows_bit' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.ofRows_bin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.signature_bin' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.signature_zero' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.lookup_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.read_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.read_fun_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.coverage_agree' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.missingBit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.coverage_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.check_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.lookup_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.readCached_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedCollision.checkCached_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows.target_different' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows.seed_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows.signals_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows.zip_map_valid' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows.cache_valid' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.oracle_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

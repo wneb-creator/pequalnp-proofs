@@ -1,0 +1,21 @@
+{
+  "Checker": true,
+  "Half": true,
+  "Initial": true,
+  "Coordinates": true,
+  "PreparedLinks": true,
+  "SameSet": true,
+  "Replay": true,
+  "CheckNode": true,
+  "BlockReplay": true,
+  "DirectDecode": true,
+  "DirectReplay": true,
+  "FastCofactorPools": true,
+  "CollisionProfiles": true,
+  "FastDirect": true,
+  "DecodeHom": true,
+  "GenericDecodeHom": true,
+  "PackedCollision": true,
+  "PackedRows": true,
+  "PackedDirect": true
+}

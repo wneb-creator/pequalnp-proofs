@@ -1,0 +1,75 @@
+[
+  {
+    "module": "H4Aggregate2304_2339",
+    "first": 2304,
+    "last": 2339,
+    "source": "sources/H4Aggregate2304_2339.lean",
+    "source_sha256": "ae995019807ad46ea7f9a0fdbe8ecfde1a1a401b8e172055033112f79e830f6a",
+    "olean_sha256": "731e8430c837add617e2f27fca8c68b474ad9601f1e1a4540c4322e09aa89193",
+    "compiler_resources": {
+      "exit": 0,
+      "wall_seconds": 8.141876761000276,
+      "user_seconds": 4.000074,
+      "system_seconds": 2.56036,
+      "maxrss_kib": 2973880
+    },
+    "memory_limit_mb": 3500,
+    "compiler_stdout": "logs/H4Aggregate2304_2339.stdout",
+    "compiler_stderr": "logs/H4Aggregate2304_2339.stderr",
+    "axioms": {
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.range_checked": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2339": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "axiom_stdout": "logs/AuditDelivery.stdout",
+    "axiom_stderr": "logs/AuditDelivery.stderr",
+    "audit_resources": {
+      "exit": 0,
+      "wall_seconds": 9.909179465999841,
+      "user_seconds": 5.462836,
+      "system_seconds": 4.22088,
+      "maxrss_kib": 2961904
+    }
+  },
+  {
+    "module": "H4Aggregate2304_2595",
+    "first": 2304,
+    "last": 2595,
+    "source": "sources/H4Aggregate2304_2595.lean",
+    "source_sha256": "2dd30c4f2331c1cf6ec6adefbe57900ce8f9595a1f554eeaf7b5b80ddec1b423",
+    "olean_sha256": "eae12e42fe082483155aa95c299a2243c56e645ab09bb20fc990a0af04d60f50",
+    "compiler_resources": {
+      "exit": 0,
+      "wall_seconds": 13.50940365599945,
+      "user_seconds": 9.709241,
+      "system_seconds": 3.685895,
+      "maxrss_kib": 2970456
+    },
+    "memory_limit_mb": 3500,
+    "compiler_stdout": "logs/H4Aggregate2304_2595.stdout",
+    "compiler_stderr": "logs/H4Aggregate2304_2595.stderr",
+    "axioms": {
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2595": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "axiom_stdout": "logs/AuditDelivery.stdout",
+    "axiom_stderr": "logs/AuditDelivery.stderr",
+    "audit_resources": {
+      "exit": 0,
+      "wall_seconds": 9.909179465999841,
+      "user_seconds": 5.462836,
+      "system_seconds": 4.22088,
+      "maxrss_kib": 2961904
+    }
+  }
+]
