@@ -3927,4 +3927,455 @@ lemma no_safe_and_ancestor : ∀ i < circuit.gates.length, ∀ j < circuit.gates
 
 end TopComponentObstruction
 
+
+namespace AugmentedHallObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+def edges : Finset (Fin 1 × Fin 6) := Finset.univ
+
+def circuit : Circuit :=
+  ⟨[⟨.and,[0,0]⟩,⟨.or,[1,2]⟩,⟨.and,[7,8]⟩,
+    ⟨.or,[3,4]⟩,⟨.and,[7,10]⟩,⟨.or,[5,6]⟩,
+    ⟨.and,[7,12]⟩,⟨.or,[9,11]⟩,⟨.or,[14,13]⟩],15⟩
+
+def value (j : ℕ) (x : Fin 7 → Bool) : Bool :=
+  (circuit.wires (List.ofFn x)).getD (7+j) false
+
+def singleton (i : Fin 7) : Fin 7 → Bool := fun k => decide (k = i)
+
+def lineStar (Q : Finset (Fin 6)) (x : Fin 7 → Bool) : Bool :=
+  decide (∃ b ∈ Q, x (Fin.natAdd 1 b) = true)
+
+def label (b : Fin 6) : Fin 3 := ⟨b.val / 2, by omega⟩
+
+def pairSet (k : Fin 3) : Finset (Fin 6) :=
+  {⟨2*k.val,by omega⟩,⟨2*k.val+1,by omega⟩}
+
+def pairRoot (k : Fin 3) : ℕ := 1 + 2*k.val
+
+def rightSupport (j : ℕ) : Finset (Fin 6) :=
+  Finset.univ.filter fun b => value j (singleton (Fin.natAdd 1 b)) = true
+
+def operand (j : Fin 9) (s : Fin 2) : ℕ :=
+  (gateAt circuit j).inputs.getD s 0
+
+noncomputable def pointSlots : Finset (Fin 9 × Fin 2) := by
+  classical
+  exact Finset.univ.filter fun s => (gateAt circuit s.1).op = .and ∧
+    (0 : Fin 7) ∈ orIn 7 circuit (operand s.1 s.2)
+
+lemma is_ao2 : IsAO2 7 circuit := by decide +kernel
+
+lemma no_four_cycle : ∀ a a' : Fin 1, ∀ b b' : Fin 6, a ≠ a' → b ≠ b' →
+    ¬ ((a,b) ∈ edges ∧ (a,b') ∈ edges ∧ (a',b) ∈ edges ∧ (a',b') ∈ edges) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma computes : ∀ x : Fin 7 → Bool, circuitFun 7 circuit x =
+    decide (∃ a b, (a,b) ∈ edges ∧ x (Fin.castAdd 6 a) = true ∧
+      x (Fin.natAdd 1 b) = true) := by
+  decide +kernel
+
+lemma t_zero : PEqualNP.TwoColour.tCount 7 circuit (fun i => decide (1 ≤ i)) = 0 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma pair_semantics : ∀ k : Fin 3, ∀ x : Fin 7 → Bool,
+    value (pairRoot k) x = lineStar (pairSet k) x := by
+  intro k x
+  fin_cases k <;>
+    simp [value,pairRoot,pairSet,lineStar,circuit,Circuit.wires,GateOp.eval,List.ofFn_succ]
+
+lemma pair_facts : ∀ a : Fin 1, ∀ b : Fin 6, (a,b) ∈ edges →
+    pairRoot (label b) < circuit.gates.length ∧
+    (gateAt circuit (pairRoot (label b))).op = .or ∧
+    2 ≤ (pairSet (label b)).card ∧ b ∈ pairSet (label b) ∧
+    ∀ b' ∈ pairSet (label b), (a,b') ∈ edges := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma served_right : ∀ a : Fin 1, ∀ b : Fin 6, (a,b) ∈ edges →
+    ∃ j : ℕ, ∃ Q : Finset (Fin 6), j < circuit.gates.length ∧
+      (gateAt circuit j).op = .or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧
+      (∀ b' ∈ Q, (a,b') ∈ edges) ∧ ∀ x : Fin 7 → Bool,
+        value j x = decide (∃ b' ∈ Q, x (Fin.natAdd 1 b') = true) := by
+  intro a b he
+  obtain ⟨hj,hop,hcard,hb,hrow⟩ := pair_facts a b he
+  exact ⟨pairRoot (label b),pairSet (label b),hj,hop,hcard,hb,hrow,pair_semantics (label b)⟩
+
+lemma right_support_of_pure (j : ℕ) (Q : Finset (Fin 6))
+    (h : ∀ x : Fin 7 → Bool, value j x = lineStar Q x) : rightSupport j = Q := by
+  ext b
+  simp only [rightSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+  rw [h]
+  simp only [lineStar,singleton,decide_eq_true_eq]
+  constructor
+  · rintro ⟨b',hb',he⟩
+    have he' : b' = b := Fin.natAdd_injective _ _ he
+    simpa [he'] using hb'
+  · intro hb
+    exact ⟨b,hb,rfl⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma support_label_constant : ∀ j : Fin 9, (gateAt circuit j).op = .or →
+    ∀ b ∈ rightSupport j, ∀ b' ∈ rightSupport j, label b = label b' := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma every_right_star_label_constant (j : Fin 9)
+    (hop : (gateAt circuit j).op = .or) (Q : Finset (Fin 6))
+    (hpure : ∀ x : Fin 7 → Bool, value j x = lineStar Q x) :
+    ∀ b ∈ Q, ∀ b' ∈ Q, label b = label b' := by
+  have hs := right_support_of_pure j Q hpure
+  simpa only [hs] using support_label_constant j hop
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma raw_slot_label_constant : ∀ j : Fin 9, (gateAt circuit j).op = .and →
+    ∀ s : Fin 2, ∀ b b' : Fin 6,
+      Fin.natAdd 1 b ∈ orIn 7 circuit (operand j s) →
+      Fin.natAdd 1 b' ∈ orIn 7 circuit (operand j s) → label b = label b' := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma raw_wire_label_constant : ∀ w : Fin 16, ∀ b b' : Fin 6,
+    Fin.natAdd 1 b ∈ orIn 7 circuit w →
+    Fin.natAdd 1 b' ∈ orIn 7 circuit w → label b = label b' := by
+  decide +kernel
+
+lemma no_left_nonsingleton : ∀ P : Finset (Fin 1), ¬ 2 ≤ P.card := by
+  intro P h
+  have hc := Finset.card_le_card (Finset.subset_univ P)
+  simp only [Finset.card_univ,Fintype.card_fin] at hc
+  omega
+
+lemma all_three_labels_represented : ∀ k : Fin 3, ∃ a : Fin 1, ∃ b : Fin 6,
+    (a,b) ∈ edges ∧ label b = k := by
+  decide +kernel
+
+lemma and_count_four :
+    (circuit.gates.filter fun g => match g.op with | .and => true | _ => false).length = 4 := by
+  rfl
+
+lemma point_slots_eq : pointSlots = {(0,0),(0,1)} := by
+  ext s
+  simp only [pointSlots,Finset.mem_filter,Finset.mem_univ,true_and,
+    Finset.mem_insert,Finset.mem_singleton]
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma point_slots_card : pointSlots.card = 2 := by
+  rw [point_slots_eq]
+  decide
+
+lemma no_three_point_trace_injection :
+    ¬ ∃ f : Fin 3 → Fin 9 × Fin 2, Function.Injective f ∧
+      ∀ k, f k ∈ pointSlots := by
+  classical
+  rintro ⟨f,hf,hmem⟩
+  let g : Fin 3 → {s // s ∈ pointSlots} := fun k => ⟨f k,hmem k⟩
+  have hg : Function.Injective g := by
+    intro x y h
+    exact hf (congrArg Subtype.val h)
+  have hc := Fintype.card_le_of_injective g hg
+  simp only [Fintype.card_fin,Fintype.card_coe,point_slots_card] at hc
+  omega
+
+end AugmentedHallObstruction
+
+namespace AugmentedBadObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+def edges : Finset (Fin 2 × Fin 10) :=
+  Finset.univ.filter fun e => (e.1 = 0 ∧ e.2.val < 8) ∨ (e.1 = 1 ∧ 8 ≤ e.2.val)
+
+def circuit : Circuit :=
+  ⟨[⟨.and,[1,1]⟩,
+    ⟨.or,[12,2]⟩,
+    ⟨.or,[13,3]⟩,
+    ⟨.or,[14,4]⟩,
+    ⟨.or,[15,5]⟩,
+    ⟨.or,[16,6]⟩,
+    ⟨.or,[17,7]⟩,
+    ⟨.or,[18,8]⟩,
+    ⟨.or,[19,9]⟩,
+    ⟨.or,[10,2]⟩,
+    ⟨.or,[21,3]⟩,
+    ⟨.or,[22,4]⟩,
+    ⟨.or,[23,5]⟩,
+    ⟨.or,[24,6]⟩,
+    ⟨.or,[25,7]⟩,
+    ⟨.or,[26,8]⟩,
+    ⟨.or,[27,9]⟩,
+    ⟨.and,[20,28]⟩,
+    ⟨.and,[0,29]⟩,
+    ⟨.or,[10,11]⟩,
+    ⟨.and,[1,31]⟩,
+    ⟨.or,[30,32]⟩,
+    ⟨.or,[2,3]⟩,
+    ⟨.or,[4,5]⟩,
+    ⟨.or,[6,7]⟩,
+    ⟨.or,[8,9]⟩],33⟩
+
+def value (j : ℕ) (x : Fin 12 → Bool) : Bool :=
+  (circuit.wires (List.ofFn x)).getD (12+j) false
+
+def graphValue (x : Fin 12 → Bool) : Bool :=
+  decide (∃ a b, (a,b) ∈ edges ∧ x (Fin.castAdd 10 a) = true ∧
+    x (Fin.natAdd 2 b) = true)
+
+def singleton (i : Fin 12) : Fin 12 → Bool := fun k => decide (k = i)
+
+def lineStar (Q : Finset (Fin 10)) (x : Fin 12 → Bool) : Bool :=
+  decide (∃ b ∈ Q, x (Fin.natAdd 2 b) = true)
+
+def pointStar (P : Finset (Fin 2)) (x : Fin 12 → Bool) : Bool :=
+  decide (∃ a ∈ P, x (Fin.castAdd 10 a) = true)
+
+def label (b : Fin 10) : Fin 5 := ⟨b.val / 2, by omega⟩
+
+def pairSet (k : Fin 5) : Finset (Fin 10) :=
+  {⟨2*k.val,by omega⟩,⟨2*k.val+1,by omega⟩}
+
+def pairRoot (k : Fin 5) : ℕ := if k = 4 then 19 else 22 + k.val
+
+def rightSupport (j : ℕ) : Finset (Fin 10) :=
+  Finset.univ.filter fun b => value j (singleton (Fin.natAdd 2 b)) = true
+
+def leftSupport (j : ℕ) : Finset (Fin 2) :=
+  Finset.univ.filter fun a => value j (singleton (Fin.castAdd 10 a)) = true
+
+def anchorInput : Fin 12 → Bool := singleton 1
+
+def eligibleRight (j : Fin 26) : Prop :=
+  (gateAt circuit j).op = .or ∧ 2 ≤ (rightSupport j).card ∧
+    (∃ a : Fin 2, ∀ b ∈ rightSupport j, (a,b) ∈ edges) ∧
+    value j anchorInput = lineStar (rightSupport j) anchorInput
+
+lemma absorb (a c d e r : Bool) :
+    ((a && ((c || r) && (d || r))) || (c && (d || e))) =
+      ((a && r) || (c && (d || e))) := by
+  cases a <;> cases c <;> cases d <;> cases e <;> cases r <;> rfl
+
+lemma distribute (a b c : Bool) :
+    (a && (b || c)) = ((a && b) || (a && c)) := by
+  cases a <;> cases b <;> cases c <;> rfl
+
+lemma eval_formula (x : Fin 12 → Bool) :
+    circuitFun 12 circuit x =
+      ((x 0 && (x 2 || x 3 || x 4 || x 5 || x 6 || x 7 || x 8 || x 9)) ||
+        (x 1 && (x 10 || x 11))) := by
+  simp [circuitFun,Circuit.eval,Circuit.wires,circuit,GateOp.eval,List.ofFn_succ]
+  simpa only [Bool.or_assoc] using
+    absorb (x 0) (x 1) (x 10) (x 11) (x 2 || x 3 || x 4 || x 5 || x 6 || x 7 || x 8 || x 9)
+
+lemma graph_formula (x : Fin 12 → Bool) :
+    graphValue x =
+      ((x 0 && (x 2 || x 3 || x 4 || x 5 || x 6 || x 7 || x 8 || x 9)) ||
+        (x 1 && (x 10 || x 11))) := by
+  simp [graphValue,edges,Fin.exists_fin_succ,distribute,Bool.or_assoc]
+
+lemma is_ao2 : IsAO2 12 circuit := by decide +kernel
+
+lemma no_four_cycle : ∀ a a' : Fin 2, ∀ b b' : Fin 10, a ≠ a' → b ≠ b' →
+    ¬ ((a,b) ∈ edges ∧ (a,b') ∈ edges ∧ (a',b) ∈ edges ∧ (a',b') ∈ edges) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma computes : ∀ x : Fin 12 → Bool, circuitFun 12 circuit x = graphValue x := by
+  intro x
+  exact (eval_formula x).trans (graph_formula x).symm
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma t_zero : PEqualNP.TwoColour.tCount 12 circuit (fun i => decide (2 ≤ i)) = 0 := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma pair_semantics : ∀ k : Fin 5, ∀ x : Fin 12 → Bool,
+    value (pairRoot k) x = lineStar (pairSet k) x := by
+  intro k x
+  fin_cases k <;>
+    simp [value,pairRoot,pairSet,lineStar,circuit,Circuit.wires,GateOp.eval,
+      List.ofFn_succ]
+
+
+lemma pair_facts : ∀ a : Fin 2, ∀ b : Fin 10, (a,b) ∈ edges →
+    pairRoot (label b) < circuit.gates.length ∧
+    (gateAt circuit (pairRoot (label b))).op = .or ∧
+    2 ≤ (pairSet (label b)).card ∧ b ∈ pairSet (label b) ∧
+    ∀ b' ∈ pairSet (label b), (a,b') ∈ edges := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma served_right : ∀ a : Fin 2, ∀ b : Fin 10, (a,b) ∈ edges →
+    ∃ j : ℕ, ∃ Q : Finset (Fin 10), j < circuit.gates.length ∧
+      (gateAt circuit j).op = .or ∧ 2 ≤ Q.card ∧ b ∈ Q ∧
+      (∀ b' ∈ Q, (a,b') ∈ edges) ∧ ∀ x : Fin 12 → Bool,
+        value j x = decide (∃ b' ∈ Q, x (Fin.natAdd 2 b') = true) := by
+  intro a b he
+  obtain ⟨hj,hop,hcard,hb,hrow⟩ := pair_facts a b he
+  exact ⟨pairRoot (label b),pairSet (label b),hj,hop,hcard,hb,hrow,pair_semantics (label b)⟩
+
+lemma right_support_of_pure (j : ℕ) (Q : Finset (Fin 10))
+    (h : ∀ x : Fin 12 → Bool, value j x = lineStar Q x) : rightSupport j = Q := by
+  ext b
+  simp only [rightSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+  rw [h]
+  simp only [lineStar,singleton,decide_eq_true_eq]
+  constructor
+  · rintro ⟨b',hb',he⟩
+    have he' : b' = b := Fin.natAdd_injective _ _ he
+    simpa [he'] using hb'
+  · intro hb
+    exact ⟨b,hb,rfl⟩
+
+lemma left_support_of_pure (j : ℕ) (P : Finset (Fin 2))
+    (h : ∀ x : Fin 12 → Bool, value j x = pointStar P x) : leftSupport j = P := by
+  ext a
+  simp only [leftSupport,Finset.mem_filter,Finset.mem_univ,true_and]
+  rw [h]
+  simp [pointStar,singleton,(Fin.castAdd_injective 2 10).eq_iff]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma eligible_right_label_constant : ∀ j : Fin 26, eligibleRight j →
+    ∀ b ∈ rightSupport j, ∀ b' ∈ rightSupport j, label b = label b' := by
+  let : DecidableEq GateOp := gateOpDecEq
+  unfold eligibleRight
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma left_support_small : ∀ j : Fin 26, (gateAt circuit j).op = .or →
+    (leftSupport j).card ≤ 1 := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma every_right_star_label_constant (j : ℕ) (hj : j < circuit.gates.length)
+    (hop : (gateAt circuit j).op = .or) (Q : Finset (Fin 10)) (hQ : 2 ≤ Q.card)
+    (hpure : ∀ x : Fin 12 → Bool, value j x = lineStar Q x)
+    (a : Fin 2) (hN : ∀ b ∈ Q, (a,b) ∈ edges) :
+    ∀ b ∈ Q, ∀ b' ∈ Q, label b = label b' := by
+  have hs := right_support_of_pure j Q hpure
+  let k : Fin 26 := ⟨j,by simpa [circuit] using hj⟩
+  have he : eligibleRight k := ⟨hop,by simpa [k,hs] using hQ,⟨a,by simpa [k,hs] using hN⟩,by simpa [k,hs] using hpure anchorInput⟩
+  simpa only [k,hs] using eligible_right_label_constant k he
+
+lemma no_left_star (j : ℕ) (hj : j < circuit.gates.length)
+    (hop : (gateAt circuit j).op = .or) (P : Finset (Fin 2)) (hP : 2 ≤ P.card) :
+    ¬ ∀ x : Fin 12 → Bool, value j x = pointStar P x := by
+  intro hpure
+  have hs := left_support_of_pure j P hpure
+  have hsmall := left_support_small ⟨j,by simpa [circuit] using hj⟩ hop
+  rw [hs] at hsmall
+  omega
+
+lemma all_five_labels_represented : ∀ k : Fin 5, ∃ a : Fin 2, ∃ b : Fin 10,
+    (a,b) ∈ edges ∧ label b = k := by
+  decide +kernel
+
+lemma and_count_four :
+    (circuit.gates.filter fun g => match g.op with | .and => true | _ => false).length = 4 := by
+  rfl
+
+lemma and_indices : ∀ j : Fin 26, (gateAt circuit j).op = .and →
+    j = 0 ∨ j = 17 ∨ j = 18 ∨ j = 20 := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+lemma dirty_first : value 0 (singleton 1) = true ∧ graphValue (singleton 1) = false := by
+  decide +kernel
+
+def dirtyInput : Fin 12 → Bool := singleton 2
+
+lemma dirty_second : value 17 dirtyInput = true ∧ graphValue dirtyInput = false := by
+  decide +kernel
+
+lemma last_and_not_ancestors : ∀ i j : Fin 26, (i = 18 ∨ i = 20) →
+    (gateAt circuit j).op = .and → ¬ PEqualNP.EdgeOwnership.InCone 12 circuit i j := by
+  let : DecidableEq GateOp := gateOpDecEq
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma no_safe_and_ancestor : ∀ i < circuit.gates.length, ∀ j < circuit.gates.length,
+    (gateAt circuit i).op = .and →
+    (∀ x : Fin 12 → Bool, value i x = true → graphValue x = true) →
+    (gateAt circuit j).op = .and → ¬ PEqualNP.EdgeOwnership.InCone 12 circuit i j := by
+  intro i hi j hj hop hsafe hjop
+  have hi' : i < 26 := by simpa [circuit] using hi
+  have hj' : j < 26 := by simpa [circuit] using hj
+  have hcases := and_indices ⟨i,hi'⟩ hop
+  rcases hcases with h | h | h | h
+  · have he : i = 0 := congrArg Fin.val h
+    subst i
+    have hh := hsafe _ dirty_first.1
+    exact Bool.noConfusion (dirty_first.2.symm.trans hh)
+  · have he : i = 17 := congrArg Fin.val h
+    subst i
+    have hh := hsafe _ dirty_second.1
+    exact Bool.noConfusion (dirty_second.2.symm.trans hh)
+  · exact last_and_not_ancestors ⟨i,hi'⟩ ⟨j,hj'⟩ (Or.inl h) hjop
+  · exact last_and_not_ancestors ⟨i,hi'⟩ ⟨j,hj'⟩ (Or.inr h) hjop
+
+def wireValue (w : ℕ) (x : Fin 12 → Bool) : Bool :=
+  (circuit.wires (List.ofFn x)).getD w false
+
+def semanticSingletons (w : ℕ) : Finset (Fin 12) :=
+  Finset.univ.filter fun i => wireValue w (singleton i) = true
+
+def bad (j : Fin 26) : Prop :=
+  semanticSingletons ((gateAt circuit j).inputs.getD 0 0) = ∅ ∨
+  semanticSingletons ((gateAt circuit j).inputs.getD 1 0) = ∅ ∨
+  ∃ a : Fin 2, ∃ b : Fin 10,
+    Fin.castAdd 10 a ∈ semanticSingletons (12+j) ∧
+    Fin.natAdd 2 b ∈ semanticSingletons (12+j)
+
+def rawServes (a : Fin 2) (w : ℕ) : Prop :=
+  ∀ i ∈ orIn 12 circuit w, ∃ b : Fin 10, (a,b) ∈ edges ∧ i = Fin.natAdd 2 b
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma good_raw_label_constant : ∀ j : Fin 26, (gateAt circuit j).op = .or →
+    ¬ bad j → ∀ a : Fin 2, rawServes a (12+j) →
+    ∀ b b' : Fin 10, Fin.natAdd 2 b ∈ orIn 12 circuit (12+j) →
+      Fin.natAdd 2 b' ∈ orIn 12 circuit (12+j) → label b = label b' := by
+  let : DecidableEq GateOp := gateOpDecEq
+  unfold bad rawServes
+  apply of_decide_eq_true
+  decide +kernel +revert
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma primary_raw_full : orIn 12 circuit 20 =
+    Finset.univ.filter (fun i : Fin 12 => 2 ≤ i.val ∧ i.val < 10) := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 10000000 in
+lemma primary_growth_bad : ∀ j : Fin 26, 1 ≤ j.val → j.val ≤ 8 → bad j := by
+  unfold bad
+  decide +kernel
+
+end AugmentedBadObstruction
+
 end PEqualNP.Outside.L_meta_4970
