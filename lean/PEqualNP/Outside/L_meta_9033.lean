@@ -288,6 +288,187 @@ theorem no_six_mask_budget (p q : Fin 32) (u w : Fin 64)
     rw [hl, hr, hsing, hp, hq] at hbudget <;>
     exact absurd hbudget (by decide +kernel)
 
+theorem no_six_shared_reader_mask_budget (p q : Fin 32) (u w : Fin 64)
+    (hbelow : rawAnd p.val q.val &&& upperTarget = rawAnd p.val q.val)
+    (hedge : (rawAnd p.val q.val).testBit 10 = true)
+    (hnonzero : singletonMask (rawAnd p.val q.val) ≠ 0)
+    (htarget : (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) &&& upperTarget = coreTarget)
+    (hzero : singletonMask (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) = 0)
+    (hbudget : (({p.val, q.val, singletonMask (coreUnion u.val (rawAnd p.val q.val)),
+        singletonMask (coreUnion w.val (rawAnd p.val q.val)), 5, 22, 28} : Finset Nat) \
+      {0, 1, 2, 4, 8, 16, 32, singletonMask (rawAnd p.val q.val)}).card ≤ 6) : False := by
+  have hgmem := raw_and_seven_shapes p q hbelow hedge hnonzero
+  obtain ⟨hg, hports⟩ := h_classification (rawAnd p.val q.val) hgmem u w htarget hzero
+  have hraw := exceptionalF_raw_ports p q hg
+  have hsing : singletonMask (rawAnd p.val q.val) = 4 := by
+    rw [hg]
+    decide +kernel
+  rcases hraw with ⟨hp, hq⟩ | ⟨hp, hq⟩ <;>
+    rcases hports with ⟨hl, hr⟩ | ⟨hl, hr⟩ <;>
+    rw [hl, hr, hsing, hp, hq] at hbudget <;>
+    exact absurd hbudget (by decide +kernel)
+
 end BcofactorClassification
+
+namespace ACcofactorClassification
+
+def coreUnion (s g : Nat) : Nat :=
+  (if s.testBit 0 then 2863311530 else 0) |||
+  (if s.testBit 1 then 3435973836 else 0) |||
+  (if s.testBit 2 then 4042322160 else 0) |||
+  (if s.testBit 3 then 4278255360 else 0) |||
+  (if s.testBit 4 then 4294901760 else 0) |||
+  (if s.testBit 5 then g else 0)
+
+def singletonMask (value : Nat) : Nat :=
+  (if value.testBit 1 then 1 else 0) |||
+  (if value.testBit 2 then 2 else 0) |||
+  (if value.testBit 4 then 4 else 0) |||
+  (if value.testBit 8 then 8 else 0) |||
+  (if value.testBit 16 then 16 else 0)
+
+def coreTarget : Nat := 4276813024
+
+def rawAnd (p q : Nat) : Nat := coreUnion p 0 &&& coreUnion q 0
+
+def HImpossible (upper g : Nat) : Prop := ∀ p q : Fin 64,
+  let l := coreUnion p.val g
+  let r := coreUnion q.val g
+  (l &&& r) &&& upper = coreTarget →
+  singletonMask (l &&& r) = 0 → False
+
+def upperA : Nat := 4294967264
+
+def shapesA : List Nat :=
+  [4292935648, 4293853152, 4293984224, 4294959328, 4294962912, 4294963424, 4294967264]
+
+theorem raw_and_shapes_A : ∀ p q : Fin 32,
+    rawAnd p.val q.val &&& upperA = rawAnd p.val q.val →
+    (rawAnd p.val q.val).testBit 5 = true →
+    (rawAnd p.val q.val).testBit 6 = true →
+    singletonMask (rawAnd p.val q.val) ≠ 0 →
+    rawAnd p.val q.val ∈ shapesA := by
+  decide +kernel
+
+theorem h_impossible_A_0 : HImpossible upperA 4292935648 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_1 : HImpossible upperA 4293853152 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_2 : HImpossible upperA 4293984224 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_3 : HImpossible upperA 4294959328 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_4 : HImpossible upperA 4294962912 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_5 : HImpossible upperA 4294963424 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A_6 : HImpossible upperA 4294967264 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_A (g : Nat) (hg : g ∈ shapesA) :
+    HImpossible upperA g := by
+  simp [shapesA] at hg
+  rcases hg with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact h_impossible_A_0
+  · exact h_impossible_A_1
+  · exact h_impossible_A_2
+  · exact h_impossible_A_3
+  · exact h_impossible_A_4
+  · exact h_impossible_A_5
+  · exact h_impossible_A_6
+
+theorem no_A_gfirst (p q : Fin 32) (u w : Fin 64)
+    (hbelow : rawAnd p.val q.val &&& upperA = rawAnd p.val q.val)
+    (hedge1 : (rawAnd p.val q.val).testBit 5 = true)
+    (hedge2 : (rawAnd p.val q.val).testBit 6 = true)
+    (hnonzero : singletonMask (rawAnd p.val q.val) ≠ 0)
+    (htarget : (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) &&& upperA = coreTarget)
+    (hzero : singletonMask (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) = 0) : False := by
+  have hmem := raw_and_shapes_A p q hbelow hedge1 hedge2 hnonzero
+  exact h_impossible_A (rawAnd p.val q.val) hmem u w htarget hzero
+
+def upperC : Nat := 4294966508
+
+def shapesC : List Nat :=
+  [4243389676, 4244438252, 4293852396, 4294963360, 4294963424, 4294966440, 4294966508]
+
+theorem raw_and_shapes_C : ∀ p q : Fin 32,
+    rawAnd p.val q.val &&& upperC = rawAnd p.val q.val →
+    (rawAnd p.val q.val).testBit 5 = true →
+    (rawAnd p.val q.val).testBit 12 = true →
+    singletonMask (rawAnd p.val q.val) ≠ 0 →
+    rawAnd p.val q.val ∈ shapesC := by
+  decide +kernel
+
+theorem h_impossible_C_0 : HImpossible upperC 4243389676 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_1 : HImpossible upperC 4244438252 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_2 : HImpossible upperC 4293852396 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_3 : HImpossible upperC 4294963360 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_4 : HImpossible upperC 4294963424 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_5 : HImpossible upperC 4294966440 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C_6 : HImpossible upperC 4294966508 := by
+  unfold HImpossible
+  decide +kernel
+
+theorem h_impossible_C (g : Nat) (hg : g ∈ shapesC) :
+    HImpossible upperC g := by
+  simp [shapesC] at hg
+  rcases hg with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact h_impossible_C_0
+  · exact h_impossible_C_1
+  · exact h_impossible_C_2
+  · exact h_impossible_C_3
+  · exact h_impossible_C_4
+  · exact h_impossible_C_5
+  · exact h_impossible_C_6
+
+theorem no_C_gfirst (p q : Fin 32) (u w : Fin 64)
+    (hbelow : rawAnd p.val q.val &&& upperC = rawAnd p.val q.val)
+    (hedge1 : (rawAnd p.val q.val).testBit 5 = true)
+    (hedge2 : (rawAnd p.val q.val).testBit 12 = true)
+    (hnonzero : singletonMask (rawAnd p.val q.val) ≠ 0)
+    (htarget : (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) &&& upperC = coreTarget)
+    (hzero : singletonMask (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) = 0) : False := by
+  have hmem := raw_and_shapes_C p q hbelow hedge1 hedge2 hnonzero
+  exact h_impossible_C (rawAnd p.val q.val) hmem u w htarget hzero
+
+end ACcofactorClassification
 
 end PEqualNP.Outside.L_meta_9033_aux
