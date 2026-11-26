@@ -8860,3 +8860,160 @@ lemma sixteen_edges_four_cover_small_has_dirty_and {n : ℕ} (G : SimpleGraph (F
   omega
 
 end PEqualNP.Outside.L_meta_2583.CleanBudget
+
+namespace PEqualNP.Outside.L_meta_2583.SharedRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.CircuitMoves PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma minimum_gate_has_reader {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k < C.gates.length)
+    (hout : C.output ≠ n + k) :
+    ∃ r < C.gates.length, n + k ∈ (gateAt C r).inputs := by
+  classical
+  by_contra hnone
+  have hread : ∀ r < C.gates.length, n + k ∉ (gateAt C r).inputs :=
+    fun r hr hin => hnone ⟨r, hr, hin⟩
+  obtain ⟨p, q, hpq⟩ := Frontier.binaryInputs hmin.1 hk
+  have hp : p < n + k := hmin.1.2.1 k hk p (by simp [hpq])
+  have hD := erase_isAO2 n C k p hk hp hmin.1
+  have hfun := (DeadSet.erase_unread_circuit hmin.1 hk hp hread hout).trans hmin.2.1
+  have hle := hmin.2.2 _ hD hfun
+  have hsize := erase_size n C k p hk
+  omega
+
+lemma least_unsafe_has_reader {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k < C.gates.length)
+    (hunsafe : ¬ BelowF G C k) :
+    ∃ r < C.gates.length, n + k ∈ (gateAt C r).inputs := by
+  apply minimum_gate_has_reader hmin hk
+  intro heq
+  apply hunsafe
+  intro x hx
+  rw [← hmin.2.1]
+  change val C (List.ofFn x) C.output = true
+  rw [heq]
+  exact hx
+
+lemma least_unsafe_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k < C.gates.length)
+    (hunsafe : ¬ BelowF G C k) :
+    ∃ a < C.gates.length, (gateAt C a).op = GateOp.and ∧ InCone n C k a := by
+  have aux : ∀ m : ℕ, ∀ k : ℕ, C.gates.length - k = m → k < C.gates.length →
+      ¬ BelowF G C k →
+      ∃ a < C.gates.length, (gateAt C a).op = GateOp.and ∧ InCone n C k a := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro k hmeasure hk hunsafe
+      obtain ⟨r, hr, hin⟩ := least_unsafe_has_reader hmin hk hunsafe
+      have hbound : n + k < n + r := hmin.1.2.1 r hr (n + k) hin
+      have hkr : k < r := by omega
+      have hcone : InCone n C k r := (Frontier.inCone_iff n C k r).mpr
+        ⟨hr, k, hkr, hin, Or.inl rfl⟩
+      rcases hmin.1.1 _ (gateAt_mem hr) with hand | hor
+      · exact ⟨r, hr, hand, hcone⟩
+      · have hunsafeR : ¬ BelowF G C r := by
+          intro hbelow
+          apply hunsafe
+          intro x hx
+          apply hbelow x
+          change Frontier.val C (List.ofFn x) (n + r) = true
+          apply (Frontier.val_or (by simp) hr hor).mpr
+          exact ⟨n + k, hin, hbound, hx⟩
+        obtain ⟨a, ha, hopa, hra⟩ := ih (C.gates.length - r) (by omega) r rfl hr hunsafeR
+        exact ⟨a, ha, hopa, CleanBudget.inCone_trans n C k r hcone a hra⟩
+  exact aux (C.gates.length - k) k rfl hk hunsafe
+
+lemma least_orN_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k ∈ orN G C) :
+    ∃ a < C.gates.length, (gateAt C a).op = GateOp.and ∧ InCone n C k a := by
+  have hdata : k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧ ¬ BelowF G C k := by
+    simpa only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] using hk
+  exact least_unsafe_has_and_ancestor hmin hdata.1 hdata.2.2
+
+lemma least_orN_or_boundaries_dirty {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C : Circuit} (hmin : IsLeastAO G C) (hTop : TopForm G C)
+    {k : ℕ} (hk : k ∈ orN G C) :
+    ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      OrReaches n C (n + k) j → Repair.dirty G C j := by
+  obtain ⟨a, ha, hopa, hka⟩ := least_orN_has_and_ancestor hmin hk
+  exact and_ancestor_or_boundaries_dirty hmin.1 hTop ha hopa hka
+
+end PEqualNP.Outside.L_meta_2583.SharedRepair
+
+
+namespace PEqualNP.Outside.L_meta_2583.SharedRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma tops_or_live_of_readers {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsAO2 n C) (hTop : TopForm G C)
+    (hreader : ∀ g < C.gates.length, C.output ≠ n + g →
+      ∃ k < C.gates.length, n + g ∈ (gateAt C k).inputs) :
+    ∀ a ∈ tops G C, OrReaches n C C.output a := by
+  intro a ha
+  obtain ⟨haLt, haOp, haBelow⟩ := Frontier.topData ha
+  have follow : ∀ d g : ℕ, C.gates.length - g = d → g < C.gates.length →
+      OrReaches n C (n + g) a → OrReaches n C C.output a := by
+    intro d
+    induction d using Nat.strong_induction_on with
+    | _ d ih =>
+      intro g hd hg hga
+      by_cases hout : C.output = n + g
+      · rw [hout]
+        exact hga
+      obtain ⟨k, hk, hread⟩ := hreader g hg hout
+      have hlt : n + g < n + k := hC.2.1 k hk _ hread
+      have hpath := (Frontier.orReaches_reach a (n + g) hga).1
+      have hcone : InCone n C a k := Frontier.operand_cone hk hread hlt hpath
+      rcases hC.1 (gateAt C k) (gateAt_mem hk) with hand | hor
+      · exact False.elim (hTop a haLt k hk haOp haBelow hand hcone)
+      · have hka : OrReaches n C (n + k) a :=
+          (Frontier.orReaches_iff n C k a).mpr
+            ⟨hk, Or.inr ⟨hor, n + g, hread, hlt, hga⟩⟩
+        exact ih (C.gates.length - k) (by omega) k rfl hk hka
+  exact follow (C.gates.length - a) a rfl haLt
+    ((Frontier.orReaches_iff n C a a).mpr ⟨haLt, Or.inl rfl⟩)
+
+end PEqualNP.Outside.L_meta_2583.SharedRepair
+
+
+namespace PEqualNP.Outside.L_meta_2583.SharedRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma least_tops_or_live {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hmin : IsLeastAO G C) (hTop : TopForm G C) :
+    ∀ a ∈ tops G C, OrReaches n C C.output a := by
+  apply tops_or_live_of_readers G C hmin.1 hTop
+  intro g hg hout
+  exact minimum_gate_has_reader hmin hg hout
+
+lemma minimum_shared_collapse_all_orN {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (B C : Circuit) (hmin : IsLeastAO G C) (hTop : TopForm G C)
+    (hB : IsAO2 n B) (hBo : B.output < n + B.gates.length)
+    (hBsafe : ∀ x, circuitFun n B x = true → graphFun G ∅ x = true)
+    (hBclean : ∀ j < B.gates.length, (gateAt B j).op = GateOp.and → BelowF G B j)
+    (hU : ∀ u v : Fin n, s(u, v) ∈ Ustar G C → circuitFun n B (pairInput u v) = true)
+    (K : Finset ℕ) (hK : ∀ k ∈ K, k ∈ tops G C)
+    (hcross : ∀ k ∈ K, ∀ u ∈ side (n := n) C k 0, ∀ v ∈ side (n := n) C k 1,
+      circuitFun n B (pairInput u v) = true) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j) ∧
+      D.size + (junk G C).card + K.card + (orN G C).card =
+        B.size + C.size +
+          (((orN G C).filter fun k => 1 < (orIn n C (n + k)).card).image
+            fun k => orIn n C (n + k)).card + 1 := by
+  apply shared_collapse_or_raw_absorb G B C hB hmin.1 hTop hBo hBsafe hmin.2.1 hBclean
+    (least_tops_or_live hmin hTop) hU K hK hcross (orN G C)
+  · intro k hk
+    have hdata : k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧ ¬ BelowF G C k := by
+      simpa only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] using hk
+    exact ⟨hdata.1, hdata.2.1⟩
+  · intro k hk
+    exact least_orN_or_boundaries_dirty hmin hTop hk
+
+end PEqualNP.Outside.L_meta_2583.SharedRepair
