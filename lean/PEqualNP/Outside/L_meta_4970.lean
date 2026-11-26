@@ -4282,4 +4282,658 @@ lemma realize_output {n : ℕ} (hs : List Node) (hv : Valid n hs)
 
 end H8AndFree
 
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma getD_le {a b : List Bool} (h : List.Forall₂ (· ≤ ·) a b) (i : ℕ) :
+    a.getD i false ≤ b.getD i false := by
+  induction h generalizing i with
+  | nil => simp
+  | @cons a b xs ys hab hxy ih =>
+    cases i with
+    | zero => simpa [List.getD] using hab
+    | succ i => simpa [List.getD] using ih i
+
+lemma bool_and_le {a b c d : Bool} (h1 : a ≤ c) (h2 : b ≤ d) :
+    (a && b) ≤ (c && d) := by
+  apply Bool.le_iff_imp.mpr
+  intro h
+  obtain ⟨ha,hb⟩ := Bool.and_eq_true_iff.mp h
+  exact Bool.and_eq_true_iff.mpr ⟨Bool.le_iff_imp.mp h1 ha,Bool.le_iff_imp.mp h2 hb⟩
+
+lemma bool_or_le {a b c d : Bool} (h1 : a ≤ c) (h2 : b ≤ d) :
+    (a || b) ≤ (c || d) := by
+  apply Bool.le_iff_imp.mpr
+  intro h
+  rcases Bool.or_eq_true_iff.mp h with ha | hb
+  · exact Bool.or_eq_true_iff.mpr (Or.inl (Bool.le_iff_imp.mp h1 ha))
+  · exact Bool.or_eq_true_iff.mpr (Or.inr (Bool.le_iff_imp.mp h2 hb))
+
+lemma step_binary (w : List Bool) (b : Bool) (u v : ℕ) :
+    originalStep w (binary b u v) = w ++
+      [if b then w.getD u false && w.getD v false else w.getD u false || w.getD v false] := by
+  cases b <;> simp [originalStep,binary,GateOp.eval]
+
+lemma step_mono {w z : List Bool} (h : List.Forall₂ (· ≤ ·) w z)
+    (b : Bool) (u v : ℕ) :
+    List.Forall₂ (· ≤ ·) (originalStep w (binary b u v)) (originalStep z (binary b u v)) := by
+  rw [step_binary,step_binary]
+  apply List.rel_append h
+  apply List.Forall₂.cons
+  · cases b
+    · exact bool_or_le (getD_le h u) (getD_le h v)
+    · exact bool_and_le (getD_le h u) (getD_le h v)
+  · exact List.Forall₂.nil
+
+lemma fold_mono (gs : List Gate)
+    (hg : ∀ g ∈ gs, ∃ b u v, g = binary b u v)
+    {w z : List Bool} (h : List.Forall₂ (· ≤ ·) w z) :
+    List.Forall₂ (· ≤ ·) (gs.foldl originalStep w) (gs.foldl originalStep z) := by
+  induction gs generalizing w z with
+  | nil => exact h
+  | cons g gs ih =>
+    obtain ⟨b,u,v,rfl⟩ := hg g (by simp)
+    apply ih (fun g hm => hg g (by simp [hm]))
+    exact step_mono h b u v
+
+lemma replace_step_le (w : List Bool) (u v : ℕ) :
+    List.Forall₂ (· ≤ ·) (originalStep w (binary true v v))
+      (originalStep w (binary false u v)) := by
+  rw [step_binary,step_binary]
+  apply List.rel_append (List.forall₂_refl w)
+  apply List.Forall₂.cons
+  · cases hu : w.getD u false <;> cases hv : w.getD v false <;> decide
+  · exact List.Forall₂.nil
+
+lemma replace_step_eq (w : List Bool) (u v : ℕ)
+    (h : w.getD u false ≤ w.getD v false) :
+    originalStep w (binary true v v) = originalStep w (binary false u v) := by
+  rw [step_binary,step_binary]
+  cases hu : w.getD u false <;> cases hv : w.getD v false <;> simp_all [Bool.le_iff_imp]
+
+lemma patch_le (n : ℕ) (pre post : List Gate) (u v i : ℕ)
+    (hp : ∀ g ∈ post, ∃ b a c, g = binary b a c) (x : Fin n → Bool) :
+    original n (pre ++ [binary true v v] ++ post) i x ≤
+      original n (pre ++ [binary false u v] ++ post) i x := by
+  have h := getD_le (fold_mono post hp
+    (replace_step_le (pre.foldl originalStep (List.ofFn x)) u v)) i
+  simpa only [original,List.foldl_append,List.foldl_cons,List.foldl_nil] using h
+
+lemma patch_eq_on (n : ℕ) (pre post : List Gate) (u v i : ℕ) (x : Fin n → Bool)
+    (h : original n pre u x ≤ original n pre v x) :
+    original n (pre ++ [binary true v v] ++ post) i x =
+      original n (pre ++ [binary false u v] ++ post) i x := by
+  have he := replace_step_eq (pre.foldl originalStep (List.ofFn x)) u v h
+  simp only [original,List.foldl_append,List.foldl_cons,List.foldl_nil]
+  rw [he]
+
+lemma patch_count (pre post : List Gate) (u v : ℕ) :
+    orCount (pre ++ [binary true v v] ++ post) + 1 =
+      orCount (pre ++ [binary false u v] ++ post) := by
+  simp [orCount,List.countP_append,binary]
+  omega
+
+lemma binary_only_of_layout {n : ℕ} {gs : List Gate} (hl : Layout n gs) :
+    ∀ g ∈ gs, ∃ b u v, g = binary b u v := by
+  intro g hg
+  obtain ⟨i,hi,rfl⟩ := List.getElem_of_mem hg
+  obtain ⟨b,u,v,he,hu,hv⟩ := hl i hi
+  exact ⟨b,u,v,he⟩
+
+lemma original_mono {n : ℕ} (gs : List Gate)
+    (hg : ∀ g ∈ gs, ∃ b u v, g = binary b u v) (i : ℕ) :
+    Monotone (fun x : Fin n → Bool => original n gs i x) := by
+  intro x y hxy
+  have hinit : List.Forall₂ (· ≤ ·) (List.ofFn x) (List.ofFn y) := by
+    apply List.forall₂_of_length_eq_of_get (by simp)
+    intro j hj hj'
+    have hjn : j < n := by simpa using hj
+    simpa using hxy ⟨j,hjn⟩
+  exact getD_le (fold_mono gs hg hinit) i
+
+lemma layout_prefix {n : ℕ} (pre tail : List Gate)
+    (h : Layout n (pre ++ tail)) : Layout n pre := by
+  intro i hi
+  obtain ⟨b,u,v,he,hu,hv⟩ := h i (by simp; omega)
+  exact ⟨b,u,v,(List.getElem_append_left hi).symm.trans he,hu,hv⟩
+
+lemma layout_replace_prefix {n : ℕ} (old new tail : List Gate)
+    (hlen : old.length = new.length)
+    (hold : Layout n (old ++ tail)) (hnew : Layout n new) :
+    Layout n (new ++ tail) := by
+  intro i hi
+  by_cases hsmall : i < new.length
+  · obtain ⟨b,u,v,he,hu,hv⟩ := hnew i hsmall
+    exact ⟨b,u,v,by simpa [List.getElem_append_left hsmall] using he,hu,hv⟩
+  · have hiold : i < (old ++ tail).length := by simpa [List.length_append,hlen] using hi
+    have hbignew : new.length ≤ i := by omega
+    have hbigold : old.length ≤ i := by omega
+    have hgate : (new ++ tail)[i] = (old ++ tail)[i] := by
+      rw [List.getElem_append_right hbignew,List.getElem_append_right hbigold]
+      simp only [hlen]
+    obtain ⟨b,u,v,he,hu,hv⟩ := hold i hiold
+    exact ⟨b,u,v,hgate.trans he,hu,hv⟩
+
+lemma patch_layout {n : ℕ} (pre post : List Gate) (u v : ℕ)
+    (h : Layout n (pre ++ [binary false u v] ++ post))
+    (hv : v < n + pre.length) :
+    Layout n (pre ++ [binary true v v] ++ post) := by
+  apply layout_replace_prefix (pre ++ [binary false u v]) (pre ++ [binary true v v]) post
+    (by simp) h
+  apply layout_append (layout_prefix pre ([binary false u v] ++ post) (by simpa [List.append_assoc] using h))
+  · exact hv
+  · exact hv
+
+lemma patch_preserves_dnf_and_pure_roots {n : ℕ}
+    (pre post : List Gate) (u v out : ℕ)
+    (h : Layout n (pre ++ [binary false u v] ++ post))
+    (hv : v < n + pre.length) (P : Finset (Finset (Fin n)))
+    (hdnf : ∀ x : Fin n → Bool,
+      original n (pre ++ [binary false u v] ++ post) out x = H8Active.dnf P x)
+    (hdom : ∀ S ∈ P, original n pre u (H8Active.assignmentOf S) ≤
+      original n pre v (H8Active.assignmentOf S))
+    (hsing : ∀ a : Fin n, original n pre u (H8Active.assignmentOf {a}) ≤
+      original n pre v (H8Active.assignmentOf {a})) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧
+      D.size = (pre ++ [binary false u v] ++ post).length ∧
+      orCount D.gates + 1 = orCount (pre ++ [binary false u v] ++ post) ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card →
+        (∃ i < n + (pre ++ [binary false u v] ++ post).length,
+          ∀ x : Fin n → Bool, original n (pre ++ [binary false u v] ++ post) i x =
+            H8Active.disjunction Q x) →
+        ∃ j < D.gates.length, (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = .or ∧
+          ∀ x : Fin n → Bool, (D.wires (List.ofFn x)).getD (n+j) false =
+            H8Active.disjunction Q x := by
+  let old := pre ++ [binary false u v] ++ post
+  let neu := pre ++ [binary true v v] ++ post
+  have hn : Layout n neu := patch_layout pre post u v h hv
+  have hp : ∀ g ∈ post, ∃ b a c, g = binary b a c := by
+    intro g hg
+    apply binary_only_of_layout h g
+    simp [hg]
+  have hm (i : ℕ) : Monotone (fun x : Fin n → Bool => original n neu i x) :=
+    original_mono neu (binary_only_of_layout hn) i
+  have hle (i : ℕ) (x : Fin n → Bool) : original n neu i x ≤ original n old i x :=
+    patch_le n pre post u v i hp x
+  have he (i : ℕ) (x : Fin n → Bool) (hd : original n pre u x ≤ original n pre v x) :
+      original n neu i x = original n old i x := patch_eq_on n pre post u v i x hd
+  let D : Circuit := ⟨neu,out⟩
+  have hD : PEqualNP.TopForm.IsAO2 n D := layout_isAO2 out hn
+  refine ⟨D,hD,?_,patch_count pre post u v,?_,?_⟩
+  · simp [D,neu,Circuit.size]
+  · have ho := H8Active.dnf_preserved P (original n old out) (original n neu out)
+      (hm out) (hle out) (fun S hS => he out _ (hdom S hS)) hdnf
+    exact ho
+  · intro Q hQ hw
+    obtain ⟨i,hi,hiQ⟩ := hw
+    have hpure := H8Active.pure_disjunction_preserved Q (original n old i) (original n neu i)
+      (hm i) (hle i) (fun a _ => he i _ (hsing a)) hiQ
+    have hib : i < n + D.gates.length := by simpa [D,neu] using hi
+    have hfun : H8Tagged.W n D.gates i = H8Tagged.OrOf Q := by
+      funext x
+      apply propext
+      change original n neu i x = true ↔ _
+      rw [hpure]
+      simp [H8Active.disjunction,H8Tagged.OrOf]
+    obtain ⟨j,hj,hop,hroot⟩ := H8Roots.pure_or_root D.gates (H8Tagged.layout_of hD) Q hQ ⟨i,hib,hfun⟩
+    refine ⟨j,hj,?_,?_⟩
+    · simpa [PEqualNP.MetaComplexity.NestedCover.gateAt,List.getD,hj] using hop
+    · intro x
+      have hr := Iff.of_eq (congrFun hroot x)
+      change ((D.wires (List.ofFn x)).getD (n+j) false = true) ↔ (∃ a ∈ Q, x a = true) at hr
+      have hb : ((D.wires (List.ofFn x)).getD (n+j) false = true) ↔
+          H8Active.disjunction Q x = true := by
+        simpa only [H8Active.disjunction,decide_eq_true_eq] using hr
+      exact le_antisymm (Bool.le_iff_imp.mpr hb.mp) (Bool.le_iff_imp.mpr hb.mpr)
+
+end H8OrPatch
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970.H8AndFree
+
+def HasPureOr (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) : Prop :=
+  ∃ j < C.gates.length, (gateAt C j).op = .or ∧
+    ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD (n+j) false = H8Active.disjunction Q x
+
+def PreservesPureOr (n : ℕ) (C D : Circuit) : Prop :=
+  ∀ Q : Finset (Fin n), 2 ≤ Q.card → HasPureOr n C Q → HasPureOr n D Q
+
+def Tests {n : ℕ} (P : Finset (Finset (Fin n))) : Finset (Finset (Fin n)) :=
+  P ∪ Finset.univ.image (fun a : Fin n => {a})
+
+lemma preserves_refl (n : ℕ) (C : Circuit) : PreservesPureOr n C C := by
+  intro Q hQ hh
+  exact hh
+
+lemma preserves_trans {n : ℕ} {C D K : Circuit}
+    (h1 : PreservesPureOr n C D) (h2 : PreservesPureOr n D K) : PreservesPureOr n C K := by
+  intro Q hQ hh
+  exact h2 Q hQ (h1 Q hQ hh)
+
+lemma hasPureOr_of_wire {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (Q : Finset (Fin n)) (hQ : 2 ≤ Q.card) (i : ℕ) (hi : i < n + C.gates.length)
+    (hfun : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD i false = H8Active.disjunction Q x) :
+    HasPureOr n C Q := by
+  have hp : H8Tagged.W n C.gates i = H8Tagged.OrOf Q := by
+    funext x
+    apply propext
+    change ((C.wires (List.ofFn x)).getD i false = true) ↔ _
+    rw [hfun]
+    simp [H8Active.disjunction,H8Tagged.OrOf]
+  obtain ⟨j,hj,hop,hroot⟩ := H8Roots.pure_or_root C.gates (H8Tagged.layout_of hC) Q hQ ⟨i,hi,hp⟩
+  refine ⟨j,hj,?_,?_⟩
+  · simpa [gateAt,List.getD,hj] using hop
+  · intro x
+    have hr := Iff.of_eq (congrFun hroot x)
+    change ((C.wires (List.ofFn x)).getD (n+j) false = true) ↔ (∃ a ∈ Q, x a = true) at hr
+    have hb : ((C.wires (List.ofFn x)).getD (n+j) false = true) ↔
+        H8Active.disjunction Q x = true := by
+      simpa only [H8Active.disjunction,decide_eq_true_eq] using hr
+    exact le_antisymm (Bool.le_iff_imp.mpr hb.mp) (Bool.le_iff_imp.mpr hb.mpr)
+
+lemma layout_binary_bounds {n : ℕ} (pre post : List Gate) (b : Bool) (u v : ℕ)
+    (h : Layout n (pre ++ [binary b u v] ++ post)) : u < n + pre.length ∧ v < n + pre.length := by
+  obtain ⟨b',a,c,he,ha,hc⟩ := h pre.length (by simp)
+  have hh : binary b u v = binary b' a c := by simpa using he
+  have hinputs := congrArg Gate.inputs hh
+  have hpair : u = a ∧ v = c := by simpa [binary] using hinputs
+  rcases hpair with ⟨rfl,rfl⟩
+  exact ⟨ha,hc⟩
+
+lemma patch_circuit {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (pre post : List Gate) (u v : ℕ) (he : C.gates = pre ++ [binary false u v] ++ post)
+    (hdom : ∀ S ∈ Tests P, original n pre u (H8Active.assignmentOf S) ≤
+      original n pre v (H8Active.assignmentOf S)) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      orCount D.gates + 1 = orCount C.gates ∧ PreservesPureOr n C D := by
+  have hl : Layout n (pre ++ [binary false u v] ++ post) := by rw [← he]; exact layout_of hC
+  have hv := (layout_binary_bounds pre post false u v hl).2
+  have hd : ∀ x : Fin n → Bool,
+      original n (pre ++ [binary false u v] ++ post) C.output x = H8Active.dnf P x := by
+    intro x
+    rw [← he]
+    exact hF x
+  obtain ⟨D,hD,hsize,hcount,hout,hroots⟩ := patch_preserves_dnf_and_pure_roots pre post u v C.output hl hv P hd
+    (fun S hS => hdom S (Finset.mem_union_left _ hS))
+    (fun a => hdom {a} (Finset.mem_union_right _ (Finset.mem_image_of_mem _ (Finset.mem_univ a))))
+  refine ⟨D,hD,hout,?_,?_⟩
+  · simpa [he] using hcount
+  · intro Q hQ hh
+    obtain ⟨j,hj,hop,hjQ⟩ := hh
+    apply hroots Q hQ
+    refine ⟨n+j,by rw [← he]; omega,?_⟩
+    intro x
+    rw [← he]
+    exact hjQ x
+
+lemma swap_original (n : ℕ) (pre post : List Gate) (u v i : ℕ) (x : Fin n → Bool) :
+    original n (pre ++ [binary false u v] ++ post) i x =
+      original n (pre ++ [binary false v u] ++ post) i x := by
+  simp only [original,List.foldl_append,List.foldl_cons,List.foldl_nil,step_binary]
+  simp only [Bool.false_eq_true,↓reduceIte,Bool.or_comm]
+
+lemma swap_circuit {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (pre post : List Gate) (u v : ℕ) (he : C.gates = pre ++ [binary false u v] ++ post) :
+    ∃ D : Circuit, D.gates = pre ++ [binary false v u] ++ post ∧
+      PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      orCount D.gates = orCount C.gates ∧ PreservesPureOr n C D := by
+  have hl : Layout n (pre ++ [binary false u v] ++ post) := by rw [← he]; exact layout_of hC
+  obtain ⟨hu,hv⟩ := layout_binary_bounds pre post false u v hl
+  have hn : Layout n (pre ++ [binary false v u] ++ post) := by
+    apply layout_replace_prefix (pre ++ [binary false u v]) (pre ++ [binary false v u]) post (by simp) hl
+    exact layout_append (layout_prefix pre ([binary false u v] ++ post) (by simpa [List.append_assoc] using hl)) false v u hv hu
+  let D : Circuit := ⟨pre ++ [binary false v u] ++ post,C.output⟩
+  have hD : PEqualNP.TopForm.IsAO2 n D := layout_isAO2 C.output hn
+  have hw (i : ℕ) (x : Fin n → Bool) :
+      (D.wires (List.ofFn x)).getD i false = (C.wires (List.ofFn x)).getD i false := by
+    change original n (pre ++ [binary false v u] ++ post) i x = original n C.gates i x
+    rw [he]
+    exact swap_original n pre post v u i x
+  refine ⟨D,rfl,hD,?_,?_,?_⟩
+  · intro x
+    change (D.wires (List.ofFn x)).getD C.output false = _
+    rw [hw]
+    exact hF x
+  · simp [D,he,orCount,List.countP_append,binary]
+  · intro Q hQ hh
+    obtain ⟨j,hj,hop,hjQ⟩ := hh
+    apply hasPureOr_of_wire D hD Q hQ (n+j)
+    · simp [D,he] at hj ⊢
+      omega
+    · intro x
+      rw [hw]
+      exact hjQ x
+
+lemma dominates_of_no_private {α : Type*} (T : Finset α) (f g : α → Bool)
+    (h : ¬ ∃ a ∈ T, f a = true ∧ g a = false) : ∀ a ∈ T, f a ≤ g a := by
+  intro a ha
+  apply Bool.le_iff_imp.mpr
+  intro hf
+  cases hg : g a with
+  | false => exact (h ⟨a,ha,hf,hg⟩).elim
+  | true => rfl
+
+lemma exists_private_minimum {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      PreservesPureOr n C D ∧ orCount D.gates ≤ orCount C.gates ∧
+      ∀ (pre post : List Gate) (u v : ℕ), D.gates = pre ++ [binary false u v] ++ post →
+        (∃ S ∈ Tests P, original n pre u (H8Active.assignmentOf S) = true ∧
+          original n pre v (H8Active.assignmentOf S) = false) ∧
+        (∃ S ∈ Tests P, original n pre v (H8Active.assignmentOf S) = true ∧
+          original n pre u (H8Active.assignmentOf S) = false) := by
+  classical
+  let Good : Circuit → Prop := fun D => PEqualNP.TopForm.IsAO2 n D ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧ PreservesPureOr n C D
+  have hgood : Good C := ⟨hC,hF,preserves_refl n C⟩
+  have hex : ∃ k : ℕ, ∃ D : Circuit, Good D ∧ orCount D.gates = k :=
+    ⟨orCount C.gates,C,hgood,rfl⟩
+  obtain ⟨D,hD,hcount⟩ := Nat.find_spec hex
+  have hmin (K : Circuit) (hK : Good K) : orCount D.gates ≤ orCount K.gates := by
+    rw [hcount]
+    exact Nat.find_min' hex ⟨K,hK,rfl⟩
+  refine ⟨D,hD.1,hD.2.1,hD.2.2,hmin C hgood,?_⟩
+  intro pre post u v he
+  constructor
+  · by_contra hn
+    have hdom := dominates_of_no_private (Tests P)
+      (fun S => original n pre u (H8Active.assignmentOf S))
+      (fun S => original n pre v (H8Active.assignmentOf S)) hn
+    obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit D hD.1 P hD.2.1 pre post u v he hdom
+    have hk : orCount D.gates ≤ orCount K.gates :=
+      hmin K ⟨hK,hKF,preserves_trans hD.2.2 hKroots⟩
+    omega
+  · by_contra hn
+    have hdom := dominates_of_no_private (Tests P)
+      (fun S => original n pre v (H8Active.assignmentOf S))
+      (fun S => original n pre u (H8Active.assignmentOf S)) hn
+    obtain ⟨X,hXg,hX,hXF,hXcount,hXroots⟩ := swap_circuit D hD.1 P hD.2.1 pre post u v he
+    obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit X hX P hXF pre post v u hXg hdom
+    have hk : orCount D.gates ≤ orCount K.gates :=
+      hmin K ⟨hK,hKF,preserves_trans (preserves_trans hD.2.2 hXroots) hKroots⟩
+    omega
+
+end H8OrPatch
+
+namespace H8AndFree
+
+open PEqualNP.CircuitLowerBounds
+
+def PrivateOriginal (n : ℕ) (gs : List Gate) (T : Set (Fin n → Bool)) : Prop :=
+  ∀ j (hj : j < gs.length) u v, gs[j] = binary false u v →
+    u < n+j → v < n+j →
+    (∃ x ∈ T, original n gs u x = true ∧ original n gs v x = false) ∧
+    (∃ x ∈ T, original n gs v x = true ∧ original n gs u x = false)
+
+def PrivateNormal (n : ℕ) (gs : List Node) (T : Set (Fin n → Bool)) : Prop :=
+  ∀ j (hj : j < gs.length),
+    (∃ x ∈ T, term n gs gs[j].1 x = true ∧ term n gs gs[j].2 x = false) ∧
+    (∃ x ∈ T, term n gs gs[j].2 x = true ∧ term n gs gs[j].1 x = false)
+
+lemma private_original_prefix {n : ℕ} {gs : List Gate} (g : Gate)
+    (T : Set (Fin n → Bool)) (hp : PrivateOriginal n (gs ++ [g]) T) :
+    PrivateOriginal n gs T := by
+  intro j hj u v he hu hv
+  have hj' : j < (gs ++ [g]).length := by simp; omega
+  have hej : (gs ++ [g])[j] = binary false u v := by
+    simpa only [List.getElem_append_left hj] using he
+  have hu' : u < n + gs.length := by omega
+  have hv' : v < n + gs.length := by omega
+  simpa only [old_original hu',old_original hv'] using
+    hp j (by simp; omega) u v hej hu hv
+
+lemma private_normal_append {n : ℕ} {gs : List Node}
+    (T : Set (Fin n → Bool)) (hv : Valid n gs) (hp : PrivateNormal n gs T)
+    (a b : Finset ℕ)
+    (ha : ∀ i ∈ a, i < n + gs.length) (hb : ∀ i ∈ b, i < n + gs.length)
+    (hnew : (∃ x ∈ T, term n gs a x = true ∧ term n gs b x = false) ∧
+      (∃ x ∈ T, term n gs b x = true ∧ term n gs a x = false)) :
+    PrivateNormal n (gs ++ [(a,b)]) T := by
+  intro j hj
+  by_cases hold : j < gs.length
+  · have ha' : ∀ i ∈ gs[j].1, i < n + gs.length := by
+      intro i hi
+      have hh := (hv j hold).2.2.1 i hi
+      omega
+    have hb' : ∀ i ∈ gs[j].2, i < n + gs.length := by
+      intro i hi
+      have hh := (hv j hold).2.2.2 i hi
+      omega
+    simpa only [List.getElem_append_left hold,old_term ha',old_term hb'] using hp j hold
+  · have he : j = gs.length := by simp at hj; omega
+    subst j
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,List.getElem_cons_zero]
+    change (∃ x ∈ T, term n (gs ++ [(a,b)]) a x = true ∧
+      term n (gs ++ [(a,b)]) b x = false) ∧
+      (∃ x ∈ T, term n (gs ++ [(a,b)]) b x = true ∧
+      term n (gs ++ [(a,b)]) a x = false)
+    simpa only [old_term ha,old_term hb] using hnew
+
+lemma exists_normalform_private (n : ℕ) (gs : List Gate) (T : Set (Fin n → Bool))
+    (hl : Layout n gs) (hpriv : PrivateOriginal n gs T) :
+    ∃ (hs : List Node) (m : ℕ → Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs T ∧ hs.length = orCount gs ∧ Sim n gs hs m ∧
+      ∀ j (hj : j < gs.length), gs[j].op = .or →
+        ∃ k < hs.length, m (n+j) = {n+k} := by
+  induction gs using List.reverseRecOn with
+  | nil =>
+    refine ⟨[], fun i => {i}, ?_, ?_, rfl, ?_, ?_⟩
+    · intro j hj; simp at hj
+    · intro j hj; simp at hj
+    · intro i hi
+      have hi' : i < n := by simpa using hi
+      refine ⟨Finset.singleton_nonempty _, ?_, ?_⟩
+      · intro j hj; simpa using Finset.mem_singleton.mp hj ▸ hi'
+      · intro x
+        simp [term,conj_singleton,wire,values,original]
+    · intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    have hp : Layout n gs := by
+      intro j hj
+      obtain ⟨b,u,v,he,hu,hv⟩ := hl j (by simp; omega)
+      exact ⟨b,u,v,(List.getElem_append_left hj).symm.trans he,hu,hv⟩
+    have hpp := private_original_prefix g T hpriv
+    obtain ⟨hs,m,hvalid,hprivate,hcount,hsim,hroots⟩ := ih hp hpp
+    obtain ⟨b,u,v,he,hu,hv⟩ := hl gs.length (by simp)
+    simp only [List.getElem_append_right (Nat.le_refl _),Nat.sub_self,
+      List.getElem_cons_zero] at he
+    subst g
+    obtain ⟨hune,hub,husim⟩ := hsim u hu
+    obtain ⟨hvne,hvb,hvsim⟩ := hsim v hv
+    cases b
+    · let mm : ℕ → Finset ℕ := fun i =>
+        if i = n + gs.length then {n + hs.length} else m i
+      have hnew : (∃ x ∈ T, term n hs (m u) x = true ∧ term n hs (m v) x = false) ∧
+          (∃ x ∈ T, term n hs (m v) x = true ∧ term n hs (m u) x = false) := by
+        simpa only [husim,hvsim,old_original hu,old_original hv] using
+          hpriv gs.length (by simp) u v (by simp) hu hv
+      refine ⟨hs ++ [(m u,m v)], mm, valid_append hvalid _ _ hune hvne hub hvb,
+        private_normal_append T hvalid hprivate _ _ hub hvb hnew, ?_, ?_, ?_⟩
+      · simp [orCount,List.countP_append,binary] at hcount ⊢
+        omega
+      · intro i hi
+        by_cases hold : i < n + gs.length
+        · have hne : i ≠ n + gs.length := Nat.ne_of_lt hold
+          obtain ⟨hne',hb,heq⟩ := hsim i hold
+          simp only [mm,ite_eq_right hne]
+          refine ⟨hne', ?_, ?_⟩
+          · intro j hj; have hh := hb j hj; simp; omega
+          · intro x
+            rw [old_term hb,old_original hold]
+            exact heq x
+        · have hei : i = n + gs.length := by simp at hi; omega
+          subst i
+          simp only [mm,ite_eq_left rfl]
+          refine ⟨Finset.singleton_nonempty _, ?_, ?_⟩
+          · intro j hj
+            have heq := Finset.mem_singleton.mp hj
+            simp; omega
+          · intro x
+            simp only [term,conj_singleton]
+            rw [new_wire,new_original]
+            simp only [Bool.false_eq_true, ↓reduceIte]
+            rw [husim,hvsim]
+      · intro j hj hor
+        by_cases hold : j < gs.length
+        · have hop : gs[j].op = .or := by simpa [List.getElem_append_left hold] using hor
+          obtain ⟨k,hk,hm⟩ := hroots j hold hop
+          refine ⟨k, by simp; omega, ?_⟩
+          have hne : n+j ≠ n+gs.length := by omega
+          simpa only [mm,ite_eq_right hne] using hm
+        · have hei : j = gs.length := by simp at hj; omega
+          subst j
+          exact ⟨hs.length,by simp,by simp [mm]⟩
+    · let mm : ℕ → Finset ℕ := fun i =>
+        if i = n + gs.length then m u ∪ m v else m i
+      refine ⟨hs,mm,hvalid,hprivate,?_,?_,?_⟩
+      · simpa [orCount,List.countP_append,binary] using hcount
+      · intro i hi
+        by_cases hold : i < n + gs.length
+        · have hne : i ≠ n + gs.length := Nat.ne_of_lt hold
+          obtain ⟨hne',hb,heq⟩ := hsim i hold
+          simp only [mm,ite_eq_right hne]
+          refine ⟨hne',hb,?_⟩
+          intro x
+          rw [old_original hold]
+          exact heq x
+        · have hei : i = n + gs.length := by simp at hi; omega
+          subst i
+          simp only [mm,ite_eq_left rfl]
+          refine ⟨hune.mono Finset.subset_union_left,?_,?_⟩
+          · intro j hj
+            rcases Finset.mem_union.mp hj with hj | hj
+            · exact hub j hj
+            · exact hvb j hj
+          · intro x
+            simp only [term,conj_union]
+            rw [new_original]
+            simp only [↓reduceIte]
+            exact congrArg₂ (fun a b : Bool => a && b) (husim x) (hvsim x)
+      · intro j hj hor
+        have hold : j < gs.length := by
+          by_contra hn
+          have hei : j = gs.length := by simp at hj; omega
+          subst j
+          simp [binary] at hor
+        have hop : gs[j].op = .or := by simpa [List.getElem_append_left hold] using hor
+        obtain ⟨k,hk,hm⟩ := hroots j hold hop
+        refine ⟨k,hk,?_⟩
+        have hne : n+j ≠ n+gs.length := by omega
+        simpa only [mm,ite_eq_right hne] using hm
+
+lemma ao2_flatten_output_private {n : ℕ} (C : Circuit)
+    (T : Set (Fin n → Bool)) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true)
+    (hpriv : PrivateOriginal n C.gates T) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs T ∧ hs.length = orCount C.gates ∧
+      s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = C.eval (List.ofFn x)) ∧
+      ∀ j < C.gates.length,
+        (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = .or →
+        ∃ k < hs.length, ∀ x : Fin n → Bool,
+          wire n hs (n+k) x = (C.wires (List.ofFn x)).getD (n+j) false := by
+  obtain ⟨hs,m,hvalid,hprivate,hcount,hsim,hroots⟩ :=
+    exists_normalform_private n C.gates T (layout_of hC) hpriv
+  obtain ⟨hne,hb,he⟩ := hsim C.output (output_bound_of_true hpos)
+  refine ⟨hs,m C.output,hvalid,hprivate,hcount,hne,hb,he,?_⟩
+  intro j hj hop
+  have hat : PEqualNP.MetaComplexity.NestedCover.gateAt C j = C.gates[j] := by
+    simp [PEqualNP.MetaComplexity.NestedCover.gateAt,List.getD,hj]
+  rw [hat] at hop
+  obtain ⟨k,hk,hm⟩ := hroots j hj hop
+  refine ⟨k,hk,?_⟩
+  intro x
+  have he := (hsim (n+j) (by omega)).2.2 x
+  rw [hm] at he
+  calc
+    wire n hs (n+k) x = original n C.gates (n+j) x := by
+      simpa only [term,conj_singleton] using he
+    _ = (C.wires (List.ofFn x)).getD (n+j) false := rfl
+
+lemma private_original_of_decomposition {n : ℕ} (gs : List Gate)
+    (T : Set (Fin n → Bool))
+    (hp : ∀ (pre post : List Gate) (u v : ℕ),
+      gs = pre ++ [binary false u v] ++ post → u < n + pre.length → v < n + pre.length →
+      (∃ x ∈ T, original n pre u x = true ∧ original n pre v x = false) ∧
+      (∃ x ∈ T, original n pre v x = true ∧ original n pre u x = false)) :
+    PrivateOriginal n gs T := by
+  intro j hj u v hgate hu hv
+  let pre := gs.take j
+  let post := gs.drop (j+1)
+  have hlen : pre.length = j := by
+    simp [pre,List.length_take,Nat.min_eq_left (Nat.le_of_lt hj)]
+  have he : gs = pre ++ [binary false u v] ++ post := by
+    calc
+      gs = gs.take j ++ gs.drop j := (List.take_append_drop j gs).symm
+      _ = pre ++ [binary false u v] ++ post := by
+        rw [List.drop_eq_getElem_cons hj,hgate]
+        simp [pre,post]
+  have hup : u < n + pre.length := by simpa only [hlen] using hu
+  have hvp : v < n + pre.length := by simpa only [hlen] using hv
+  have hou : ∀ x : Fin n → Bool, original n gs u x = original n pre u x := by
+    intro x
+    rw [he,List.append_assoc]
+    exact original_append_old pre ([binary false u v] ++ post) u hup x
+  have hov : ∀ x : Fin n → Bool, original n gs v x = original n pre v x := by
+    intro x
+    rw [he,List.append_assoc]
+    exact original_append_old pre ([binary false u v] ++ post) v hvp x
+  simpa only [hou,hov] using hp pre post u v he hup hvp
+
+end H8AndFree
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+def TestInputs {n : ℕ} (P : Finset (Finset (Fin n))) : Set (Fin n → Bool) :=
+  {x | ∃ S ∈ Tests P, x = H8Active.assignmentOf S}
+
+lemma exists_private_normalization {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs (TestInputs P) ∧ hs.length ≤ orCount C.gates ∧
+      s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = H8Active.dnf P x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card → HasPureOr n C Q →
+        ∃ j < hs.length, ∀ x : Fin n → Bool, wire n hs (n+j) x = H8Active.disjunction Q x := by
+  obtain ⟨D,hD,hDF,hDR,hcount,hprivate⟩ := exists_private_minimum C hC P hF
+  have hposD : ∃ x : Fin n → Bool, D.eval (List.ofFn x) = true := by
+    obtain ⟨x,hx⟩ := hpos
+    refine ⟨x,?_⟩
+    rw [hDF,← hF]
+    exact hx
+  have hprivD : PrivateOriginal n D.gates (TestInputs P) := by
+    apply private_original_of_decomposition
+    intro pre post u v he hu hv
+    obtain ⟨⟨S,hS,huS,hvS⟩,⟨R,hR,hvR,huR⟩⟩ := hprivate pre post u v he
+    exact ⟨⟨H8Active.assignmentOf S,⟨S,hS,rfl⟩,huS,hvS⟩,
+      ⟨H8Active.assignmentOf R,⟨R,hR,rfl⟩,hvR,huR⟩⟩
+  obtain ⟨hs,s,hvalid,hpriv,hcnt,hne,hb,hout,hroots⟩ :=
+    ao2_flatten_output_private D (TestInputs P) hD hposD hprivD
+  refine ⟨hs,s,hvalid,hpriv,hcnt.trans_le hcount,hne,hb,?_,?_⟩
+  · intro x
+    exact (hout x).trans (hDF x)
+  · intro Q hQ hQC
+    obtain ⟨j,hj,hjop,hjQ⟩ := hDR Q hQ hQC
+    obtain ⟨k,hk,hkQ⟩ := hroots j hj hjop
+    exact ⟨k,hk,fun x => (hkQ x).trans (hjQ x)⟩
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
