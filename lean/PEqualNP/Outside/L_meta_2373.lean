@@ -7780,4 +7780,71 @@ lemma last_and_reader_bound (C : Circuit) (hC : FanInTwo C) (hsize : C.size ≤ 
 
 end Graph2373
 
+namespace Residual
+def rowLE (r s : Fin 1024) : Prop := r.val &&& s.val = r.val
+def Fminus (r : Fin 1024) : Bool :=
+ let x := fun i : Nat => r.val.testBit i
+ (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) ||
+ (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) ||
+ (x 4 && x 9) || (x 5 && x 7) || (x 7 && x 9) || (x 9 && x 6) ||
+ (x 6 && x 8) || (x 8 && x 5)
+def F (r : Fin 1024) : Bool :=
+ Fminus r || (r.val.testBit 0 && r.val.testBit 1)
+def rows : Fin 9 → Fin 1024 := ![3,11,131,139,259,387,515,523,771]
+def masks : List Nat :=
+ [0,8,32,40,44,128,136,138,160,168,170,172,174,
+  256,264,288,296,300,304,312,316,384,392,394,416,
+  424,426,428,430,432,440,442,444,446,448,456,458,
+  480,488,490,492,494,496,504,506,508,510]
+def bits (m : Nat) (i : Fin 9) : Bool := m.testBit i.val
+def admissible (fill : Fin 9 → Bool) : Prop :=
+ fill 0 = false ∧ ∀ i j : Fin 9, rowLE (rows i) (rows j) →
+   fill i = true → fill j = true
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma exceptions : ∀ r : Fin 1024,
+   F r = true → Fminus r = false → ∃ i : Fin 9, rows i = r := by
+ decide +kernel
+set_option maxHeartbeats 0 in
+set_option maxRecDepth 100000 in
+lemma finite_classification : ∀ fill : Fin 9 → Bool,
+   admissible fill → fill ∈ masks.map bits := by
+ unfold admissible rowLE
+ decide +kernel
+lemma masks_length : masks.length = 47 := by decide +kernel
+lemma masks_nodup : masks.Nodup := by decide +kernel
+def target (m : Nat) (r : Fin 1024) : Bool :=
+ decide (Fminus r = true ∨ ∃ i : Fin 9, rows i = r ∧ bits m i = true)
+lemma classification (H : Fin 1024 → Bool)
+   (hmono : ∀ r s, rowLE r s → H r = true → H s = true)
+   (hlower : ∀ r, Fminus r = true → H r = true)
+   (hupper : ∀ r, H r = true → F r = true)
+   (hzero : H 3 = false) :
+   ∃ m ∈ masks, H = target m := by
+ have ha : admissible (fun i => H (rows i)) := by
+   constructor
+   · exact hzero
+   · intro i j hij hi
+     exact hmono _ _ hij hi
+ obtain ⟨m, hm, hfill⟩ := List.mem_map.mp (finite_classification _ ha)
+ refine ⟨m, hm, ?_⟩
+ funext r
+ have hbits (i : Fin 9) : bits m i = H (rows i) := congrFun hfill i
+ have heq : H r = true ↔ Fminus r = true ∨
+     ∃ i : Fin 9, rows i = r ∧ bits m i = true := by
+   constructor
+   · intro hr
+     cases hf : Fminus r with
+     | false =>
+       obtain ⟨i, hi⟩ := exceptions r (hupper r hr) hf
+       exact Or.inr ⟨i, hi, by rw [hbits, hi]; exact hr⟩
+     | true => exact Or.inl rfl
+   · intro hr
+     rcases hr with hminus | ⟨i, hi, hbit⟩
+     · exact hlower r hminus
+     · rw [hbits, hi] at hbit
+       exact hbit
+ apply Bool.eq_iff_iff.mpr
+ simpa [target] using heq
+end Residual
 end PEqualNP.Outside.L_meta_2373
