@@ -321,4 +321,140 @@ lemma delete_copy_gate {σ α : Type} (n m p q out : Nat)
   · exact fun s => deleteGate_equations n m p q run a b (v s) hp hq (heval s) (hcopy s)
   · exact fun s => deleteGate_output n p q out (v s) hq (hcopy s)
 
+namespace FirstDirty
+
+def allMasks : List (Fin 32) :=
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+
+def rectangular (l r : Fin 32) : Bool :=
+  decide (0 < l.val ∧ l.val < r.val ∧ l.val &&& r.val = 0)
+
+def rectangles : List (Fin 32 × Fin 32) :=
+  allMasks.flatMap fun l => (allMasks.filter (rectangular l)).map fun r => (l, r)
+
+def crossCode (l r : Fin 32) : Nat :=
+  (if (l.val.testBit 0 && r.val.testBit 1) || (l.val.testBit 1 && r.val.testBit 0) then 1 else 0) +
+  (if (l.val.testBit 0 && r.val.testBit 2) || (l.val.testBit 2 && r.val.testBit 0) then 2 else 0) +
+  (if (l.val.testBit 0 && r.val.testBit 3) || (l.val.testBit 3 && r.val.testBit 0) then 4 else 0) +
+  (if (l.val.testBit 0 && r.val.testBit 4) || (l.val.testBit 4 && r.val.testBit 0) then 8 else 0) +
+  (if (l.val.testBit 1 && r.val.testBit 2) || (l.val.testBit 2 && r.val.testBit 1) then 16 else 0) +
+  (if (l.val.testBit 1 && r.val.testBit 3) || (l.val.testBit 3 && r.val.testBit 1) then 32 else 0) +
+  (if (l.val.testBit 1 && r.val.testBit 4) || (l.val.testBit 4 && r.val.testBit 1) then 64 else 0) +
+  (if (l.val.testBit 2 && r.val.testBit 3) || (l.val.testBit 3 && r.val.testBit 2) then 128 else 0) +
+  (if (l.val.testBit 2 && r.val.testBit 4) || (l.val.testBit 4 && r.val.testBit 2) then 256 else 0) +
+  (if (l.val.testBit 3 && r.val.testBit 4) || (l.val.testBit 4 && r.val.testBit 3) then 512 else 0)
+
+def allowed (permitted extra : Nat) (p : Fin 32 × Fin 32) : Bool :=
+  decide (crossCode p.1 p.2 &&& permitted = crossCode p.1 p.2 ∧
+    crossCode p.1 p.2 &&& extra ≠ 0)
+
+def maskSize (s : Fin 32) : Nat :=
+  ([0, 1, 2, 3, 4] : List Nat).countP fun i => s.val.testBit i
+
+def rectCost (p : Fin 32 × Fin 32) : Nat :=
+  maskSize p.1 + maskSize p.2 - 2
+
+def classA : List (Fin 32 × Fin 32) :=
+  [(1, 2), (1, 6), (1, 18), (1, 22), (2, 5), (2, 9), (2, 13), (6, 9)]
+
+def classB : List (Fin 32 × Fin 32) :=
+  [(2, 16), (2, 20), (2, 24), (2, 28), (3, 16), (3, 20), (8, 16), (8, 18), (8, 20), (8, 22), (9, 16), (9, 20), (10, 16), (10, 20), (11, 16), (11, 20)]
+
+def classC : List (Fin 32 × Fin 32) :=
+  [(1, 8), (1, 12), (1, 24), (1, 28), (3, 8), (3, 12), (5, 8), (7, 8)]
+
+def swapEG (s : Fin 32) : Fin 32 :=
+  ⟨((if s.val.testBit 0 then 1 else 0) +
+    (if s.val.testBit 1 then 8 else 0) +
+    (if s.val.testBit 2 then 4 else 0) +
+    (if s.val.testBit 3 then 2 else 0) +
+    (if s.val.testBit 4 then 16 else 0)) % 32, Nat.mod_lt _ (by decide)⟩
+
+def swapRectangle (p : Fin 32 × Fin 32) : Fin 32 × Fin 32 :=
+  let l := swapEG p.1
+  let r := swapEG p.2
+  if l.val < r.val then (l, r) else (r, l)
+
+lemma allMasks_complete : ∀ i : Fin 32, i ∈ allMasks := by
+  decide +kernel
+
+lemma rectangle_census : rectangles.length = 90 := by
+  decide +kernel
+
+lemma mem_rectangles_iff (l r : Fin 32) :
+    (l, r) ∈ rectangles ↔ rectangular l r = true := by
+  simp only [rectangles, List.mem_flatMap, List.mem_map, List.mem_filter]
+  constructor
+  · rintro ⟨l', _, r', ⟨_, hrect⟩, heq⟩
+    have hl : l' = l := congrArg Prod.fst heq
+    have hr : r' = r := congrArg Prod.snd heq
+    simpa [hl, hr] using hrect
+  · intro hrect
+    exact ⟨l, allMasks_complete l, r, ⟨allMasks_complete r, hrect⟩, rfl⟩
+
+lemma classificationA : rectangles.filter (allowed 187 1) = classA := by
+  decide +kernel
+
+lemma costsA : classA.map rectCost = [0, 1, 1, 2, 1, 1, 2, 2] := by
+  decide +kernel
+
+lemma classificationB : rectangles.filter (allowed 762 576) = classB := by
+  decide +kernel
+
+lemma costsB : classB.map rectCost = [0, 1, 1, 2, 1, 2, 0, 1, 1, 2, 1, 2, 1, 2, 2, 3] := by
+  decide +kernel
+
+lemma classificationC : rectangles.filter (allowed 190 4) = classC := by
+  decide +kernel
+
+lemma costsC : classC.map rectCost = [0, 1, 1, 2, 1, 2, 1, 2] := by
+  decide +kernel
+
+lemma classA_classC_symmetry : (classA.map swapRectangle).Perm classC := by
+  decide +kernel
+
+lemma classA_swap_cost : (classA.map swapRectangle).map rectCost = classA.map rectCost := by
+  decide +kernel
+
+def positiveHit (p : Fin 32 × Fin 32) : Bool :=
+  decide (crossCode p.1 p.2 &&& 186 ≠ 0)
+
+def positiveA : List (Fin 32 × Fin 32) :=
+  [(1, 6), (1, 18), (1, 22), (2, 5), (2, 9), (2, 13), (6, 9)]
+
+lemma positive_classificationA : classA.filter positiveHit = positiveA := by
+  decide +kernel
+
+lemma positive_costsA : positiveA.map rectCost = [1, 1, 2, 1, 1, 2, 2] := by
+  decide +kernel
+
+def positiveB : List (Fin 32 × Fin 32) :=
+  [(2, 20), (2, 24), (2, 28), (3, 16), (3, 20), (8, 18), (8, 20), (8, 22), (9, 16), (9, 20), (10, 20), (11, 16), (11, 20)]
+
+lemma positive_classificationB : classB.filter positiveHit = positiveB := by
+  decide +kernel
+
+lemma positive_costsB : positiveB.map rectCost = [1, 1, 2, 1, 2, 1, 1, 2, 1, 2, 2, 2, 3] := by
+  decide +kernel
+
+def positiveC : List (Fin 32 × Fin 32) :=
+  [(1, 12), (1, 24), (1, 28), (3, 8), (3, 12), (5, 8), (7, 8)]
+
+lemma positive_classificationC : classC.filter positiveHit = positiveC := by
+  decide +kernel
+
+lemma positive_costsC : positiveC.map rectCost = [1, 1, 2, 1, 2, 1, 2] := by
+  decide +kernel
+
+lemma class_counts : classA.length = 8 ∧ classB.length = 16 ∧ classC.length = 8 := by
+  decide +kernel
+
+lemma positive_counts : positiveA.length = 7 ∧ positiveB.length = 13 ∧ positiveC.length = 7 := by
+  decide +kernel
+
+lemma positive_symmetry : (positiveA.map swapRectangle).Perm positiveC := by
+  decide +kernel
+
+end FirstDirty
+
 end PEqualNP.Outside.L_meta_9033_aux
