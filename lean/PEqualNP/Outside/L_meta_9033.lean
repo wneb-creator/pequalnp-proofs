@@ -529,6 +529,16 @@ set_option maxHeartbeats 2000000 in
 lemma checkedCatalog_proof : checkedCatalog :=
   ⟨family4_0_obstruction, family4_1_obstruction, family4_2_obstruction, family4_3_obstruction, family4_4_obstruction, family4_5_obstruction, family4_6_obstruction, family4_7_obstruction, family4_8_obstruction, family4_9_obstruction, family4_10_obstruction, family4_11_obstruction, family4_12_obstruction, family4_13_obstruction, family4_14_obstruction, family4_15_obstruction, family4_16_obstruction, family4_17_obstruction, family4_18_obstruction, family4_19_obstruction, family4_20_obstruction, family4_21_obstruction, five_families_obstruction⟩
 
+
+lemma locallyConstructible_iff (family : List Nat) (extra : Nat) :
+    locallyConstructible family extra = true ↔
+      ∀ target ∈ family ++ [extra], target ∈ bases ∨
+        ∃ a ∈ bases ++ family ++ [extra], a < target ∧
+          ∃ b ∈ bases ++ family ++ [extra], b < target ∧ Nat.lor a b = target := by
+  simp only [locallyConstructible, List.all_eq_true, Bool.or_eq_true,
+    List.contains_iff_mem, List.any_eq_true, Bool.and_eq_true,
+    decide_eq_true_eq, beq_iff_eq]
+
 end UnionCatalog
 
 namespace PreservedMaskBudget
@@ -574,5 +584,89 @@ lemma distinct_values_le_eligible {α : Type} [DecidableEq α]
 
 end PreservedMaskBudget
 
+
+namespace CleanRectangle
+
+def adjacent (a b : Fin 8) : Bool :=
+  (edges.map Fin.val).contains (Nat.lor (2 ^ a.val) (2 ^ b.val))
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma no_complete_two_by_two : ∀ a b c d : Fin 8,
+    a ≠ b → c ≠ d →
+      ¬(adjacent a c = true ∧ adjacent a d = true ∧ adjacent b c = true ∧ adjacent b d = true) := by
+  decide +kernel
+
+lemma rectangle_star (S T : Finset (Fin 8))
+    (cross : ∀ a ∈ S, ∀ b ∈ T, adjacent a b = true) :
+    S.card ≤ 1 ∨ T.card ≤ 1 := by
+  by_contra h
+  have hs : 1 < S.card := Nat.lt_of_not_ge (fun hS => h (Or.inl hS))
+  have ht : 1 < T.card := Nat.lt_of_not_ge (fun hT => h (Or.inr hT))
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp hs
+  obtain ⟨c, hc, d, hd, hcd⟩ := Finset.one_lt_card.mp ht
+  exact no_complete_two_by_two a b c d hab hcd
+    ⟨cross a ha c hc, cross a ha d hd, cross b hb c hc, cross b hb d hd⟩
+
+end CleanRectangle
+
+namespace RawPairClassification
+
+def graphEdges : List Nat := edges.map Fin.val
+
+def maximalIndependent : List Nat := negatives.map Fin.val
+
+def allowedNegatives (v : Fin 3) : List Nat :=
+  [[25, 37], [146, 194], [37, 76]].getD v.val []
+
+def criticalPairs (v : Fin 3) : List Nat :=
+  [[24, 36], [144, 192], [33, 72]].getD v.val []
+
+def pairMask (i j : Fin 8) : Nat := Nat.lor (1 <<< i.val) (1 <<< j.val)
+
+lemma pairMask_lt : ∀ i j : Fin 8, pairMask i j < 256 := by
+  decide +kernel
+
+def pairAssignment (i j : Fin 8) : Fin 256 := ⟨pairMask i j, pairMask_lt i j⟩
+
+def hitsForbidden (v : Fin 3) (p : Nat) : Bool :=
+  maximalIndependent.any fun n =>
+    !(allowedNegatives v).contains n && (p &&& n == p)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma outside_pair_characterization : ∀ (v : Fin 3) (i j : Fin 8),
+    i ≠ j → i.val ≠ v.val → j.val ≠ v.val →
+    (hitsForbidden v (pairMask i j) = false ↔
+      pairMask i j ∈ graphEdges ∨ pairMask i j ∈ criticalPairs v) := by
+  decide +kernel
+
+
+lemma permitted_pair_of_monotone (v : Fin 3) (q : Fin 256 → Bool)
+    (mono : ∀ a b, submask a b → q a = true → q b = true)
+    (negative : ∀ n ∈ negatives, (allowedNegatives v).contains n.val = false →
+      q n = false)
+    (i j : Fin 8) (hij : i ≠ j) (hiv : i.val ≠ v.val) (hjv : j.val ≠ v.val)
+    (accepted : q (pairAssignment i j) = true) :
+    pairMask i j ∈ graphEdges ∨ pairMask i j ∈ criticalPairs v := by
+  apply (outside_pair_characterization v i j hij hiv hjv).mp
+  cases hh : hitsForbidden v (pairMask i j) with
+  | false => rfl
+  | true =>
+    exfalso
+    change (maximalIndependent.any fun n =>
+      !(allowedNegatives v).contains n && (pairMask i j &&& n == pairMask i j)) = true at hh
+    obtain ⟨n, hn, h⟩ := List.any_eq_true.mp hh
+    simp only [Bool.and_eq_true] at h
+    obtain ⟨ha, hm⟩ := h
+    have hblocked : (allowedNegatives v).contains n = false := by simpa using ha
+    have hsub : pairMask i j &&& n = pairMask i j := beq_iff_eq.mp hm
+    change n ∈ negatives.map Fin.val at hn
+    obtain ⟨N, hN, rfl⟩ := List.mem_map.mp hn
+    have htrue := mono (pairAssignment i j) N hsub accepted
+    rw [negative N hN hblocked] at htrue
+    contradiction
+
+end RawPairClassification
 
 end PEqualNP.Outside.L_meta_9033_aux
