@@ -4883,4 +4883,114 @@ lemma matching_neighborhood_union_bound {p l : ℕ}
 
 end GraphUnionBound
 
+namespace MinimalCovers
+
+def IsCover {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Finset (Fin p) × Finset (Fin l)) : Prop :=
+  ∀ a b, (a, b) ∈ E → a ∈ C.1 ∨ b ∈ C.2
+
+def IsMinimalCover {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Finset (Fin p) × Finset (Fin l)) : Prop :=
+  IsCover E C ∧ ∀ D : Finset (Fin p) × Finset (Fin l),
+    D.1 ⊆ C.1 → D.2 ⊆ C.2 → IsCover E D → C = D
+
+noncomputable def minimalCovers {p l : ℕ} (E : Finset (Fin p × Fin l)) :
+    Finset (Finset (Fin p) × Finset (Fin l)) := by
+  classical
+  exact (Finset.univ.powerset.product Finset.univ.powerset).filter (IsMinimalCover E)
+
+noncomputable def neighbors {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (A : Finset (Fin p)) : Finset (Fin l) := by
+  classical
+  exact Finset.univ.filter fun b => ∃ a ∈ A, (a, b) ∈ E
+
+noncomputable def canonicalCover {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (A : Finset (Fin p)) : Finset (Fin p) × Finset (Fin l) := by
+  classical
+  exact (Finset.univ.filter (fun a => ∃ b, (a, b) ∈ E ∧ b ∉ neighbors E A),
+    neighbors E A)
+
+lemma canonical_is_minimal {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (A : Finset (Fin p)) : IsMinimalCover E (canonicalCover E A) := by
+  classical
+  constructor
+  · intro a b hab
+    by_cases hb : b ∈ neighbors E A
+    · exact Or.inr hb
+    · exact Or.inl (Finset.mem_filter.mpr ⟨Finset.mem_univ _, b, hab, hb⟩)
+  · intro D hDL hDR hD
+    apply Prod.ext
+    · apply Finset.Subset.antisymm ?_ hDL
+      intro a ha
+      obtain ⟨b, hab, hbn⟩ := (Finset.mem_filter.mp ha).2
+      rcases hD a b hab with had | hbd
+      · exact had
+      · exact (hbn (hDR hbd)).elim
+    · apply Finset.Subset.antisymm ?_ hDR
+      intro b hb
+      obtain ⟨a, haA, hab⟩ := (Finset.mem_filter.mp hb).2
+      rcases hD a b hab with had | hbd
+      · obtain ⟨c, hac, hcn⟩ := (Finset.mem_filter.mp (hDL had)).2
+        exact (hcn (Finset.mem_filter.mpr ⟨Finset.mem_univ _, a, haA, hac⟩)).elim
+      · exact hbd
+
+lemma canonical_mem {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (A : Finset (Fin p)) : canonicalCover E A ∈ minimalCovers E := by
+  classical
+  apply Finset.mem_filter.mpr
+  exact ⟨by simp, canonical_is_minimal E A⟩
+
+noncomputable def matchingProjection {p l : ℕ}
+    (M : Finset (Fin p × Fin l)) (R : Finset (Fin l)) :
+    Finset {e // e ∈ M} := by
+  classical
+  exact Finset.univ.filter fun e => e.val.2 ∈ R
+
+lemma projection_canonical {p l : ℕ} (E M : Finset (Fin p × Fin l))
+    (I : Finset {e // e ∈ M}) :
+    matchingProjection M (canonicalCover E (I.image (fun e => e.val.1))).2 =
+      I.biUnion (GraphUnionBound.row E M) := by
+  classical
+  ext f
+  simp only [matchingProjection, canonicalCover, neighbors, GraphUnionBound.row,
+    Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_image, Finset.mem_biUnion]
+  constructor
+  · rintro ⟨a, ⟨e, he, rfl⟩, hef⟩
+    exact ⟨e, he, hef⟩
+  · rintro ⟨e, he, hef⟩
+    exact ⟨e.val.1, ⟨e, he, rfl⟩, hef⟩
+
+lemma matching_union_card_le_minimal_cover_card {p l : ℕ}
+    (E M : Finset (Fin p × Fin l)) :
+    (UnionClosure.closure Finset.univ (GraphUnionBound.row E M)).card ≤
+      (minimalCovers E).card := by
+  classical
+  have hsub : UnionClosure.closure Finset.univ (GraphUnionBound.row E M) ⊆
+      (minimalCovers E).image (fun C => matchingProjection M C.2) := by
+    intro U hU
+    obtain ⟨I, _, rfl⟩ := (UnionClosure.mem_closure _ _ _).mp hU
+    let A : Finset (Fin p) := I.image (fun e => e.val.1)
+    have hmem : canonicalCover E A ∈ minimalCovers E := canonical_mem E A
+    have heq : matchingProjection M (canonicalCover E A).2 =
+        I.biUnion (GraphUnionBound.row E M) := projection_canonical E M I
+    exact Finset.mem_image.mpr ⟨canonicalCover E A, hmem, heq⟩
+  have hcard : ((minimalCovers E).image
+      (fun C : Finset (Fin p) × Finset (Fin l) => matchingProjection M C.2)).card ≤
+      (minimalCovers E).card := Finset.card_image_le
+  exact (Finset.card_le_card hsub).trans hcard
+
+lemma matching_minimal_vertex_cover_bound {p l : ℕ}
+    (E M : Finset (Fin p × Fin l))
+    (hc4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f) :
+    2 * M.card ≤ (minimalCovers E).card + 1 := by
+  have hbound := GraphUnionBound.matching_neighborhood_union_bound E M hc4 hME hleft hright
+  have hcard := matching_union_card_le_minimal_cover_card E M
+  omega
+
+end MinimalCovers
+
 end PEqualNP.Outside.L_meta_4970
