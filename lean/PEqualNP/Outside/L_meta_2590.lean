@@ -8606,3 +8606,922 @@ lemma petersen_three_ineligible_exclusion {D : H2.Dag} (h : H2.StrictLive 10 D)
   exact H2.n0_neighborhood_impossible h' hc' hi' (by omega)
 
 end PEqualNP.Outside.L_meta_2590_aux
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Ledger
+open H2
+
+def mask (m : Nat) : Finset V := Finset.univ.filter (fun x => m.testBit x.val = true)
+
+def target (t : Fin 7) : Finset V := mask (([0,4,64,68,8,512,520] : List Nat).getD t.val 0)
+
+def side (t : Fin 7) (positive : Bool) (i : Fin 12) : Finset V :=
+  ([mask 1,mask 50,mask 2,mask 68 \ target t,mask 16,mask 520 \ target t,
+    mask 32,mask 384,(if positive then mask 50 else mask 18),
+    (if positive then mask 32 ∪ target t else target t),mask 200,mask 772] :
+    List (Finset V)).getD i.val ∅
+
+def opposite (i : Fin 12) : Fin 12 :=
+  ⟨(([1,0,3,2,5,4,7,6,9,8,11,10] : List Nat).getD i.val 0) % 12,
+    Nat.mod_lt _ (by decide)⟩
+
+def exitSide (t : Fin 7) (positive : Bool) (i : Fin 12) : Finset V :=
+  side t positive i \ side t positive (opposite i)
+
+def incidence (x : V) : Nat :=
+  ([1,3,2,2,3,2,2,2,2,2] : List Nat).getD x.val 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma profile_incidence : ∀ t : Fin 7, ∀ positive : Bool, ∀ x : V,
+    (Finset.univ.filter (fun i : Fin 12 => x ∈ exitSide t positive i)).card = incidence x := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma indexed_intersections : ∀ t : Fin 7, ∀ positive : Bool, ∀ i : Fin 12,
+    side t positive i ∩ side t positive (opposite i) =
+      if positive = true ∧ (i = 8 ∨ i = 9) then {5} else ∅ := by
+  decide +kernel
+
+def known (t : Fin 7) (positive : Bool) (r : Fin 12 → Nat × Bool) (x : V) : Finset (Nat × Bool) :=
+  (Finset.univ.filter (fun i : Fin 12 => x ∈ exitSide t positive i)).image r
+
+lemma known_card (t : Fin 7) (positive : Bool) (r : Fin 12 → Nat × Bool)
+    (inj : Function.Injective r) (x : V) : (known t positive r x).card = incidence x := by
+  rw [known,Finset.card_image_of_injective _ inj,profile_incidence]
+
+lemma output_support {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i) (i : Fin 12) :
+    supp 10 D (10+(r i).1) = side t positive i ∩ side t positive (opposite i) := by
+  have ha := source i
+  have hb := source (opposite i)
+  rw [paired i] at hb
+  rw [sem_supp_and h (valid i).1 (valid i).2]
+  cases hs : (r i).2
+  · have a : supp 10 D (opA D (r i).1) = side t positive i := by simpa [src,hs] using ha
+    have b : supp 10 D (opB D (r i).1) = side t positive (opposite i) := by simpa [src,sem_bar,hs] using hb
+    rw [a,b]
+  · have a : supp 10 D (opB D (r i).1) = side t positive i := by simpa [src,hs] using ha
+    have b : supp 10 D (opA D (r i).1) = side t positive (opposite i) := by simpa [src,sem_bar,hs] using hb
+    rw [a,b,Finset.inter_comm]
+
+lemma known_subset {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i) (x : V) :
+    known t positive r x ⊆ sem_W 10 D x := by
+  intro a ha
+  obtain ⟨i,hi,rfl⟩ := Finset.mem_image.mp ha
+  have hx := Finset.mem_sdiff.mp ((Finset.mem_filter.mp hi).2 : x ∈ exitSide t positive i)
+  apply sem_mem_W.mpr
+  refine ⟨(valid i).1,?_,?_⟩
+  · rw [source i]
+    exact hx.1
+  · rw [output_support h t positive r valid paired source i]
+    intro hout
+    exact hx.2 (Finset.mem_inter.mp hout).2
+
+lemma upper_counts_cover {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x) :
+    ∀ x : V, sem_W 10 D x = known t positive r x := by
+  intro x
+  apply (Finset.eq_of_subset_of_card_le (known_subset h t positive r valid paired source x) ?_).symm
+  rw [known_card t positive r inj x]
+  exact upper x
+
+lemma nonindexed_inputs_empty {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    {g : Nat} (hg : g < D.length) (hout : supp 10 D (10+g) = ∅)
+    (nonindexed : ∀ i : Fin 12, (r i).1 ≠ g) :
+    supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅ := by
+  have allCover := upper_counts_cover h t positive r inj valid paired source upper
+  have arcEmpty (s : Bool) : supp 10 D (src D (g,s)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro x hx
+    have he : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hx,by rw [hout]; simp⟩
+    rw [allCover x] at he
+    obtain ⟨i,_,eq⟩ := Finset.mem_image.mp he
+    exact nonindexed i (congrArg Prod.fst eq)
+  exact ⟨by simpa only [sb_src_false] using arcEmpty false,
+    by simpa only [sb_src_true] using arcEmpty true⟩
+
+lemma conditional_ledger {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    (extraEmpty : ∀ g, g < D.length → tag D g = true →
+      (∀ i : Fin 12, (r i).1 ≠ g) → supp 10 D (10+g) = ∅) :
+    (∀ x : V, sem_W 10 D x = known t positive r x) ∧
+    (∀ g, g < D.length → tag D g = true → (∀ i : Fin 12, (r i).1 ≠ g) →
+      supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅) := by
+  refine ⟨upper_counts_cover h t positive r inj valid paired source upper,?_⟩
+  intro g hg ht hn
+  exact nonindexed_inputs_empty h t positive r inj valid paired source upper hg (extraEmpty g hg ht hn) hn
+
+lemma target_injective : Function.Injective target := by decide +kernel
+
+lemma target_choices (T : Finset V)
+    (hT : T ∈ ({mask 0,mask 4,mask 64,mask 68,mask 8,mask 512,mask 520} : Finset (Finset V))) :
+    ∃ t : Fin 7, T = target t := by
+  simp only [Finset.mem_insert,Finset.mem_singleton] at hT
+  rcases hT with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨0,rfl⟩
+  · exact ⟨1,rfl⟩
+  · exact ⟨2,rfl⟩
+  · exact ⟨3,rfl⟩
+  · exact ⟨4,rfl⟩
+  · exact ⟨5,rfl⟩
+  · exact ⟨6,rfl⟩
+
+lemma ledger_of_noncommon_outputs_empty {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    (otherEmpty : ∀ g, g < D.length → tag D g = true → g ≠ (r 8).1 →
+      supp 10 D (10+g) = ∅) :
+    (∀ x : V, sem_W 10 D x = known t positive r x) ∧
+    (∀ g, g < D.length → tag D g = true → (∀ i : Fin 12, (r i).1 ≠ g) →
+      supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅) := by
+  apply conditional_ledger h t positive r inj valid paired source upper
+  intro g hg ht hn
+  exact otherEmpty g hg ht (Ne.symm (hn 8))
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Ledger
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Positive
+
+abbrev State := Nat × List Nat × List Nat
+
+def values (bits : Nat) : List Nat := (List.range 64).filter bits.testBit
+
+def pairMasks (op : Nat → Nat → Nat) (a b : Nat) : Nat :=
+  (values a).foldl (fun acc x =>
+    (values b).foldl (fun acc y => acc ||| (1 <<< op x y)) acc) 0
+
+def mergePools (a b : Nat) : Nat := pairMasks (· ||| ·) a b
+
+def addCarrier (pool k : Nat) : Nat := pool ||| mergePools pool (1 <<< k)
+
+def rows : List Nat := [68,520,384,12,320,640]
+
+def classes (_T : Nat) : List Nat := [1,2,16,32,68,520,384]
+
+def side (T g : Nat) (right : Bool) : Nat :=
+  if g = 0 then if right then 50 else 1
+  else if g = 1 then if right then 32 ||| T else 50
+  else if g = 2 then if right then 68 - (68 &&& T) else 2
+  else if g = 3 then if right then 520 - (520 &&& T) else 16
+  else if right then 384 else 32
+
+def rawMask (A : Nat) : Nat :=
+  (List.range 6).foldl (fun acc i =>
+    if (rows.getD i 0 &&& A) = 0 then acc else acc ||| (1 <<< i)) 0
+
+def positivePool (T : Nat) (ps : List Nat) (g : Nat) (right : Bool) : Nat :=
+  let A := side T g right
+  let pool := (List.range (classes T).length).foldl (fun acc i =>
+    if (classes T).getD i 0 &&& A = 0 then acc
+    else mergePools acc (ps.getD i 1)) 1
+  pairMasks (· ||| ·) pool (1 <<< rawMask A)
+
+def live (T used loc : Nat) : Bool :=
+  (List.range 5).any fun g => !used.testBit g &&
+    decide ((classes T).getD loc 0 &&& (side T g false ||| side T g true) ≠ 0)
+
+def sortedInsert (k : Nat) : List Nat → List Nat
+  | [] => [k]
+  | x :: xs => if k ≤ x then k :: x :: xs else x :: sortedInsert k xs
+
+def zeroSort : List Nat → List Nat
+  | [] => []
+  | x :: xs => sortedInsert x (zeroSort xs)
+
+def prune (T : Nat) (s : State) : State :=
+  (s.1, (List.range (classes T).length).map (fun i =>
+    if live T s.1 i then s.2.1.getD i 1 else 1),
+    zeroSort (s.2.2.filter fun k => k != 0))
+
+def insertZero (k : Nat) (zs : List Nat) : List Nat := zeroSort (k :: zs)
+
+def fire (T g k : Nat) (s : State) (rest : List Nat) : State :=
+  if g = 1 then
+    prune T (s.1 ||| (1 <<< g),
+      s.2.1.set 3 (addCarrier (s.2.1.getD 3 1) k), rest)
+  else prune T (s.1 ||| (1 <<< g), s.2.1, insertZero k rest)
+
+def groupNext (T : Nat) (s : State) : List State :=
+  (List.range 5).flatMap fun g =>
+    if s.1.testBit g then [] else
+    if side T g false ≠ 0 ∧ side T g true ≠ 0 then
+      (values (pairMasks (· &&& ·) (positivePool T s.2.1 g false)
+        (positivePool T s.2.1 g true))).filterMap fun k =>
+          if k = 0 then none else
+          some (fire T g k s s.2.2)
+    else
+      s.2.2.flatMap fun z =>
+        (values (positivePool T s.2.1 g (decide (side T g false = 0)))).filterMap fun p =>
+          let k := z &&& p
+          if k = 0 then none else
+          some (fire T g k s (s.2.2.erase z))
+
+def liftNext (T : Nat) (s : State) : List State :=
+  s.2.2.flatMap fun k => (List.range (classes T).length).filterMap fun loc =>
+    if live T s.1 loc then
+      let old := s.2.1.getD loc 1
+      let new := addCarrier old k
+      some (prune T (s.1, s.2.1.set loc new, s.2.2.erase k))
+    else none
+
+def discardNext (T : Nat) (s : State) : List State :=
+  s.2.2.map fun k => prune T (s.1, s.2.1, s.2.2.erase k)
+
+def combineNext (T : Nat) (s : State) : List State :=
+  s.2.2.flatMap fun a => (s.2.2.erase a).flatMap fun b =>
+    [a &&& b, a ||| b].filterMap fun k => if k = 0 then none else
+      some (prune T (s.1, s.2.1, insertZero k ((s.2.2.erase a).erase b)))
+
+def successors (T : Nat) (s : State) : List State :=
+  groupNext T s ++ liftNext T s ++ discardNext T s ++ combineNext T s
+
+def initial (T : Nat) : State := (0, List.replicate (classes T).length 1, [63])
+
+def listLess : List Nat → List Nat → Bool
+  | [], [] => false
+  | [], _ :: _ => true
+  | _ :: _, [] => false
+  | a :: as, b :: bs => if a = b then listLess as bs else decide (a < b)
+
+def stateLess (a b : State) : Bool :=
+  if a.1 ≠ b.1 then decide (a.1 < b.1)
+  else if a.2.1 ≠ b.2.1 then listLess a.2.1 b.2.1
+  else listLess a.2.2 b.2.2
+
+def safe (s : State) : Bool := !s.2.2.contains 56
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Positive
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Positive.Certificate
+
+lemma reachable_mem {α : Type} (states : List α) (next : α → List α)
+    (contains : α → Bool)
+    (hcontains : ∀ s, contains s = true → s ∈ states)
+    (hclosed : states.all (fun s => (next s).all contains) = true)
+    {start finish : α} (hstart : contains start = true)
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ next a) start finish) :
+    finish ∈ states := by
+  have step : ∀ a ∈ states, ∀ b ∈ next a, b ∈ states := by
+    intro a ha b hb
+    exact hcontains b (List.all_eq_true.mp (List.all_eq_true.mp hclosed a ha) b hb)
+  induction hreach with
+  | refl => exact hcontains start hstart
+  | @tail b c hab hbc ih => exact step b ih c hbc
+
+lemma reachable_safe {α : Type} (states : List α) (next : α → List α)
+    (contains safe : α → Bool)
+    (hcontains : ∀ s, contains s = true → s ∈ states)
+    (hclosed : states.all (fun s => (next s).all contains) = true)
+    (hsafe : states.all safe = true)
+    {start finish : α} (hstart : contains start = true)
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ next a) start finish) :
+    safe finish = true := by
+  exact List.all_eq_true.mp hsafe finish
+    (reachable_mem states next contains hcontains hclosed hstart hreach)
+
+def searchIndex {α : Type} [BEq α] (lt : α → α → Bool)
+    (get : Nat → α) (bound : Nat) (needle : α) : Nat → Nat → Nat → Bool
+  | 0, _, _ => false
+  | fuel + 1, lo, hi =>
+      if lo < hi then
+        let mid := (lo + hi) / 2
+        if mid < bound then
+          if get mid == needle then true
+          else if lt needle (get mid) then
+            searchIndex lt get bound needle fuel lo mid
+          else searchIndex lt get bound needle fuel (mid + 1) hi
+        else false
+      else false
+
+lemma searchIndex_sound {α : Type} [BEq α] [LawfulBEq α]
+    (lt : α → α → Bool) (get : Nat → α) (bound : Nat)
+    (needle : α) (fuel lo hi : Nat)
+    (hsearch : searchIndex lt get bound needle fuel lo hi = true) :
+    ∃ i < bound, get i = needle := by
+  induction fuel generalizing lo hi with
+  | zero => simp [searchIndex] at hsearch
+  | succ fuel ih =>
+      simp only [searchIndex] at hsearch
+      split at hsearch
+      next hlt =>
+        split at hsearch
+        next hmid =>
+          split at hsearch
+          next heq => exact ⟨(lo + hi) / 2, hmid, eq_of_beq heq⟩
+          next hne =>
+            split at hsearch
+            next => exact ih _ _ hsearch
+            next => exact ih _ _ hsearch
+        next => cases hsearch
+      next => cases hsearch
+
+lemma index_reachable_safe {α : Type} (get : Nat → α) (bound : Nat)
+    (next : α → List α) (contains safe : α → Bool)
+    (hcontains : ∀ s, contains s = true → ∃ i < bound, get i = s)
+    (hclosed : (List.range bound).all
+      (fun i => (next (get i)).all contains) = true)
+    (hsafe : (List.range bound).all (fun i => safe (get i)) = true)
+    {start finish : α} (hstart : contains start = true)
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ next a) start finish) :
+    safe finish = true := by
+  apply reachable_safe ((List.range bound).map get) next contains safe ?_
+      ?_ ?_ hstart hreach
+  · intro s hs
+    obtain ⟨i, hi, heq⟩ := hcontains s hs
+    exact List.mem_map.mpr ⟨i, List.mem_range.mpr hi, heq⟩
+  · simpa only [List.all_map, Function.comp_def] using hclosed
+  · simpa only [List.all_map, Function.comp_def] using hsafe
+
+lemma chunked_all (checked : Nat → Bool) (bound width count : Nat)
+    (hwidth : 0 < width) (hbound : bound ≤ count * width)
+    (hchunks : ∀ k < count, (List.range width).all
+      (fun j => if k * width + j < bound then checked (k * width + j) else true) = true) :
+    (List.range bound).all checked = true := by
+  apply List.all_eq_true.mpr
+  intro i hi
+  have hibound : i < bound := List.mem_range.mp hi
+  have hk : i / width < count :=
+    (Nat.div_lt_iff_lt_mul hwidth).mpr (Nat.lt_of_lt_of_le hibound hbound)
+  have hj : i % width < width := Nat.mod_lt _ hwidth
+  have hsum : i / width * width + i % width = i := by
+    rw [Nat.mul_comm, Nat.div_add_mod]
+  have h := List.all_eq_true.mp (hchunks (i / width) hk)
+    (i % width) (List.mem_range.mpr hj)
+  simpa only [hsum, ite_eq_left hibound] using h
+
+lemma all_and_parts {α : Type} (xs : List α) (p q : α → Bool)
+    (h : xs.all (fun a => p a && q a) = true) :
+    xs.all p = true ∧ xs.all q = true := by
+  constructor
+  · apply List.all_eq_true.mpr
+    intro a ha
+    exact (Bool.and_eq_true_iff.mp (List.all_eq_true.mp h a ha)).1
+  · apply List.all_eq_true.mpr
+    intro a ha
+    exact (Bool.and_eq_true_iff.mp (List.all_eq_true.mp h a ha)).2
+
+lemma chunked_index_reachable_safe {α : Type}
+    (get : Nat → α) (bound width count : Nat)
+    (next : α → List α) (contains safe : α → Bool)
+    (hwidth : 0 < width) (hbound : bound ≤ count * width)
+    (hcontains : ∀ s, contains s = true → ∃ i < bound, get i = s)
+    (hchunks : ∀ k < count, (List.range width).all (fun j =>
+      if k * width + j < bound then
+        safe (get (k * width + j)) && (next (get (k * width + j))).all contains
+      else true) = true)
+    {start finish : α} (hstart : contains start = true)
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ next a) start finish) :
+    safe finish = true := by
+  have hall := chunked_all (fun i => safe (get i) && (next (get i)).all contains)
+    bound width count hwidth hbound hchunks
+  obtain ⟨hsafe, hclosed⟩ := all_and_parts (List.range bound)
+    (fun i => safe (get i)) (fun i => (next (get i)).all contains) hall
+  exact index_reachable_safe get bound next contains safe hcontains hclosed hsafe hstart hreach
+
+lemma chunked_searchIndex_reachable_safe {α : Type} [BEq α] [LawfulBEq α]
+    (lt : α → α → Bool) (get : Nat → α) (bound width count fuel : Nat)
+    (next : α → List α) (safe : α → Bool)
+    (hwidth : 0 < width) (hbound : bound ≤ count * width)
+    (hchunks : ∀ k < count, (List.range width).all (fun j =>
+      if k * width + j < bound then
+        safe (get (k * width + j)) && (next (get (k * width + j))).all
+          (fun s => searchIndex lt get bound s fuel 0 bound)
+      else true) = true)
+    {start finish : α}
+    (hstart : searchIndex lt get bound start fuel 0 bound = true)
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ next a) start finish) :
+    safe finish = true := by
+  exact chunked_index_reachable_safe get bound width count next
+    (fun s => searchIndex lt get bound s fuel 0 bound) safe hwidth hbound
+    (fun s hs => searchIndex_sound lt get bound s fuel 0 bound hs)
+    hchunks hstart hreach
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Positive.Certificate
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Positive.T4
+
+def poolData : Nat := 0xa010000000000201a010000000000001a0000000000000018010000100000001801000000001000180100000000000018000040000000001800002010000020180000201000000018000020000000001800000010000000180000000020102018000000002010001800000000200000180000000000200018000000000010001800000000000020180000000000001018000000000000003800000000000000100100001000000010010000000010001001000000000000100000e010000020100000e010000000100000e000000000100000c010000000100000c000000020100000c000000000100000801000000010000080000000001000005010000010100000501000000010000050000000001000004010000000100000400000001010000040000000001000000010000000100000000020302010000000002030001000000000202020100000000020200010000000002010001000000000200000100000000000300030000000000030001000000000002000300000000000200010000000000010001000000000000030100000000000002030000000000000201000000000000010100000000000000030000000000000001
+
+def poolLookup (i : Nat) : Nat := (poolData >>> (64 * i)) &&& 18446744073709551615
+
+def vectorBlock0 : Nat := 0x23880000000ce0000000471800000000c6000000002f800000000ba000000046d800000011b2000000002c8000000119a00000000268000000118e00000000238000000000200000000031c00000000470000000001800000000c1000000000040000000d80000000035000000020d000000000310000000209800000200260000000009800000008230000008008c00000000230000000006c000000001a00000001260000000001300000000048000000000e00000000034000000000b0000000002000000000070000000001400000000040000000120c00000000830000001c00c00000010030000120000c00001c00030000020000c00000400030000000000c00000000020000000000400000008c00000000200000000005000000000120000000004400000000020000000230000000008000000000060000000000400000008c0000000000000000000
+
+def vectorBlock1 : Nat := 0x200000000e34800000028d2000000023480000003012000000080480000018b110000006e344000001a8d10000006634400004988d10000006234400000148d10000004e34400000128d1000000c6044000002c8110000009a04400000238110000120004400000000110000000e3080000003002000000000080000003c000000000b0000000000c000000006ec00000001ab0000001262c000000014b000000004ec000000012b000000000e500000001f8c00000007a300000045d8c000000072300000045b8c00000006e300000045a8c00000006a30000004998c00000146230000004988c00000005e30000000168c00000115630000000148c00000114e30000000138c00000114a30000000128c00000001630000004838c00000020e30004800038c00000000e30000004808c00120000230000000008c0000000c6200000002c8800000009a2000
+
+def vectorBlock2 : Nat := 0x1028000000000a0000000e0270000003409c000000b0270000002409c00000080270000001c09c00000030240000000c78c00000011e30000000078c000000e1a30000003468c000000b1a30000002468c00000081a30000001c68c00000030630000004008c000000f0230001803808c000000e0230001803408c000000d0230000003008c000600b0230000002c08c000000a0230000002408c00060080230000002008c00001870230001801c08c00000070230000001008c00070030230000400c08c01c00030230000000c08c00001c00230001c00008c01c00000230000000008c00000310210000009c08400000260210000008c08400000311a00000009c68000000261a00000008c6800000032020000180c40800000031020000000ac080000002a020000000a408000000270200001809808000000260200000068c08000060230200000008c0800
+
+def vectorBlock3 : Nat := 0x230000260008000008c00200000038c04800000230120000188d14400006e301100001a8c04400126230110000138c04400004a30110000318004400009a00110000238004400000c08c70000000231c00003808c600000d0231800002c08c60000080231800001c08c60000310201800009808060000230201800000e30020000030230400000c0a00
+
+def vectorBlockLookup (k : Nat) : Nat := (if k < 2 then (if k < 1 then vectorBlock0 else vectorBlock1) else (if k < 3 then vectorBlock2 else vectorBlock3))
+
+def vectorLookup (i : Nat) : Nat :=
+  (vectorBlockLookup (i / 64) >>> (42 * (i % 64))) &&& 4398046511103
+
+def zeroData : Nat := 0x7fd3560a34244180
+
+def zeroLookup (i : Nat) : Nat := (zeroData >>> (7 * i)) &&& 127
+
+def codeBlock0 : Nat := 0x444321a010d0062703038171c074e038701b380d1c064e02e701438099c044e01e740e38871c038e01870cc3060182fcc16c60b530549829cc14860a0304e9826cc1326498304c182f8a168509d284b94258a12a5494284a1432c817c40b4204e9025c812c4095224a102508130204610130808c41b4009400218008c0016000500008200000000
+
+def codeBlock1 : Nat := 0x726901348096404927239011c8202206710298812c40922e471023886c40202006700298012c00920e470023803dac1e960d2b0225810ac081603eb01e580c2c059602ab01258082d839641cb00e5806ac35d40fca07d5033a819940b0a0565029a81354096a0495023a9919408ca07c4832a412d208a90444b21a410d21ac807c4032a012d008a8
+
+def codeBlock2 : Nat := 0x8bb04558e26c1136088b043d821ac10b6084b1c1d820ec1036380b040582e2a15d50a2a84fd427aa73b509da84854232a10b5082a840d4e02a10150c6a061d02e2815d40a2a04fd027a873b409da04850232810b4082a040d0e028101407f98194c02a6009370098004c36641b120899041c8202407920359019c80b24057202a9014c80a2404f2
+
+def codeBlock3 : Nat := 0x533c019e00bee05b7003b8015cc02e2017000b86558326c19160c7b06358316c18960c3b060d82f6c17960bbb05d582e6c17160b7b059d82cac16360b0b057d82bac15b60acb055d82aac75360a9b05458e9ec14f60a6b052d8e92c14960a3b05158286c74160a0b04f58e76c13b609cb04d58662c1316093b04958246c121608fb04758236c1196
+
+def codeBlock4 : Nat := 0x57d2ab6815b40aba054d2a9e814f40a5a051d0286813f409da54dd026e81334a97a04bd02568123448da046d021681074081a03fd01f680f74a79a03cd01de80eb4073a038d01be80db4a6ba035d01a694cf4067a071c836e417f209f904ccaa5e412f207f9037c81a654cf206790d0c066e01c700db805fc027e01330a97804bc01fe00df00698
+
+def codeBlock5 : Nat := 0x500f8007c357c0f3e076f2ba781d3c0d9b06bd8346c0276a11b008d803ec01b6a01b200d8006c35341a7a0d2d068e8343419fa0ced066e830b40f1a077d03ae81cf40e5a071d038681bf40dda06dd0356819340c7a062d030e818340bfa05ed02ee817340b7a05ad02ce956340b1a
+
+def codeBlockLookup (k : Nat) : Nat := (if k < 3 then (if k < 1 then codeBlock0 else (if k < 2 then codeBlock1 else codeBlock2)) else (if k < 4 then codeBlock3 else (if k < 5 then codeBlock4 else codeBlock5)))
+
+def codeLookup (i : Nat) : Nat :=
+  (codeBlockLookup (i / 64) >>> (17 * (i % 64))) &&& 131071
+
+def getState (i : Nat) : State :=
+  let c := codeLookup i
+  let p := vectorLookup ((c >>> 5) &&& 255)
+  let z := zeroLookup ((c >>> 13) &&& 15)
+  (c &&& 31, (List.range 7).map (fun j => poolLookup ((p >>> (6 * j)) &&& 63)),
+    (List.range (z &&& 1)).map (fun j => (z >>> (1 + 6 * j)) &&& 63))
+
+def contains (s : State) : Bool :=
+  Certificate.searchIndex stateLess getState 372 s 11 0 372
+
+def checked (i : Nat) : Bool := safe (getState i) && (successors 4 (getState i)).all contains
+
+def chunkCheck (k : Nat) : Bool :=
+  (List.range 8).all (fun j => if k * 8 + j < 372 then checked (k * 8 + j) else true)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk0_closed : chunkCheck 0 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk1_closed : chunkCheck 1 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk2_closed : chunkCheck 2 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk3_closed : chunkCheck 3 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk4_closed : chunkCheck 4 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk5_closed : chunkCheck 5 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk6_closed : chunkCheck 6 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk7_closed : chunkCheck 7 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk8_closed : chunkCheck 8 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk9_closed : chunkCheck 9 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk10_closed : chunkCheck 10 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk11_closed : chunkCheck 11 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk12_closed : chunkCheck 12 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk13_closed : chunkCheck 13 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk14_closed : chunkCheck 14 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk15_closed : chunkCheck 15 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk16_closed : chunkCheck 16 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk17_closed : chunkCheck 17 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk18_closed : chunkCheck 18 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk19_closed : chunkCheck 19 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk20_closed : chunkCheck 20 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk21_closed : chunkCheck 21 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk22_closed : chunkCheck 22 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk23_closed : chunkCheck 23 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk24_closed : chunkCheck 24 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk25_closed : chunkCheck 25 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk26_closed : chunkCheck 26 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk27_closed : chunkCheck 27 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk28_closed : chunkCheck 28 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk29_closed : chunkCheck 29 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk30_closed : chunkCheck 30 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk31_closed : chunkCheck 31 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk32_closed : chunkCheck 32 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk33_closed : chunkCheck 33 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk34_closed : chunkCheck 34 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk35_closed : chunkCheck 35 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk36_closed : chunkCheck 36 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk37_closed : chunkCheck 37 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk38_closed : chunkCheck 38 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk39_closed : chunkCheck 39 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk40_closed : chunkCheck 40 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk41_closed : chunkCheck 41 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk42_closed : chunkCheck 42 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk43_closed : chunkCheck 43 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk44_closed : chunkCheck 44 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk45_closed : chunkCheck 45 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk46_closed : chunkCheck 46 = true := by decide +kernel
+
+lemma all_chunks_checked : (List.range 47).all chunkCheck = true := by
+  change ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46] : List Nat).all chunkCheck = true
+  simp only [List.all_cons, List.all_nil, chunk0_closed, chunk1_closed, chunk2_closed, chunk3_closed, chunk4_closed, chunk5_closed, chunk6_closed, chunk7_closed, chunk8_closed, chunk9_closed, chunk10_closed, chunk11_closed, chunk12_closed, chunk13_closed, chunk14_closed, chunk15_closed, chunk16_closed, chunk17_closed, chunk18_closed, chunk19_closed, chunk20_closed, chunk21_closed, chunk22_closed, chunk23_closed, chunk24_closed, chunk25_closed, chunk26_closed, chunk27_closed, chunk28_closed, chunk29_closed, chunk30_closed, chunk31_closed, chunk32_closed, chunk33_closed, chunk34_closed, chunk35_closed, chunk36_closed, chunk37_closed, chunk38_closed, chunk39_closed, chunk40_closed, chunk41_closed, chunk42_closed, chunk43_closed, chunk44_closed, chunk45_closed, chunk46_closed, Bool.and_self]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma initial_contains : contains (initial 4) = true := by decide +kernel
+
+lemma reachable_safe {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors 4 a) (initial 4) finish) :
+    safe finish = true := by
+  apply Certificate.chunked_searchIndex_reachable_safe stateLess getState
+    372 8 47 11 (successors 4) safe (by decide) (by decide) ?_ initial_contains hreach
+  intro k hk
+  change chunkCheck k = true
+  exact List.all_eq_true.mp all_chunks_checked k (List.mem_range.mpr hk)
+
+lemma reachable_no_target {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors 4 a) (initial 4) finish) :
+    56 ∉ finish.2.2 := by
+  simpa [safe] using reachable_safe hreach
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Positive.T4
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Positive.T68
+
+def poolData : Nat := 0xa010000002000001a010000000000001a0000000000000018400040000010001840000000000000182000001020000018200000100000001820000000000000180100001000000018010000000010001801000000000000180010001000100018001000100000001800100000000000180000400000000018000000100000001800000000201000180000000020000018000000001000001800000000001000180000000000000010e010400020000010c010400000000010c000400020100010c000000020000010a000401020000010a000401000000010a0004000000000108010000000000010800040100000001080004000200000108000400000000010800000000000001040004000001000104000000000000010010000100000001001000000000000100010000000000010000050100000101000005010000000100000500000000010000040100000001000004000000010100000400000000010000000100000001000000000300000100000000020100010000000002000101000000000200000100000000010101010000000001000001000000000001000100000000000001010000000000000001
+
+def poolLookup (i : Nat) : Nat := (poolData >>> (64 * i)) &&& 18446744073709551615
+
+def vectorBlock0 : Nat := 0xe84000000036100000000c8400000002e100000024a8400000002a10000000088400000001e100000200584000a00016100000000584000000a02100000200084000a000021000000000840000000ad2000000026480000000912000000022480000000852000000030440000000bd100000002e440000000b5100000002b440000000a91000000029440000000a11000000026440000000911000000022440000009851000000021440000000011000000024080000000002000000035000000000d00000000033000000000b0000000002b0000000009400000110240000000809000000000240000000118400000110210000000008400000000170000000005800000000150000000002c000000000a000000000180000280005000001000140000000005000000000040000000840000000840000000011000000000080000000840000000000000000000
+
+def vectorBlock1 : Nat := 0x1685000000056140000000001000000016228000000784a00000016128000000184a00000002128000000500a00000004028000000000a0000005e124000001684900000032124000000b8490000002a124000002b4490000009912400000244490000008912400000214490000000002400000000040000001610c0000000003000000167080000017842000000161080000000842000000900080000000002000000140040000000001000000172000000005c400000005e8000000016a000000005680000000079c00000001670000000019c00000000270000000179800000005a600000000c9800000002e600000000a98000000016300000001788000000016200000000088000000082100000001f8400000007a100000001d84000000072100000001b8400000006a10000000198400000006210000000178400000005a10000000158400000003e1000
+
+def vectorBlock2 : Nat := 0x210000058405000001610130000240004400008400110000178404000005a101000001584040000016108a0000058802800001e100a00000584028000002100a0000178402400005a100900000b8402400002a100900002b4402400009110090000224402400008510090000058400c000014084200000584a0800001670020000178400800001610020000240000800001408800000000220000001428400000000a10000001c08400020050210000001408400020000210000000008400000058540000000005000000058530000000004c000002b0110000009004400000220110000008404400000000110000005e1400
+
+def vectorBlockLookup (k : Nat) : Nat := (if k < 1 then vectorBlock0 else (if k < 2 then vectorBlock1 else vectorBlock2))
+
+def vectorLookup (i : Nat) : Nat :=
+  (vectorBlockLookup (i / 64) >>> (42 * (i % 64))) &&& 4398046511103
+
+def zeroData : Nat := 0x3f40e903440c102a40810186a4201050220084000
+
+def zeroLookup (i : Nat) : Nat := (zeroData >>> (14 * i)) &&& 16383
+
+def codeBlock0 : Nat := 0xaa80414007e002f00128008c244200210077583b2c181601eb00e5806ac0316016b00a5804ac0216e0eb1075803ac0196146a07a503ca816140aea0435021281054078a03a501b29cd5406aa078482b240e9206890324b98a40c521448078402b200e9006880324398a00c501182035100988040415c008a001880040000a0004000082c0000000
+
+def codeBlock1 : Nat := 0x38a98454c20660c730619826cc0ce66633031980f4c072600730029c804cc02600130ab90554826241292093904948242411d208d91c648232410b20849041c820a40c920629027480e2406f2335901ac809e40452021900fc80764037201a900cc8062402f2016900ac8052522723139009c80465221201090414407e202f10128808c644220211
+
+def codeBlock2 : Nat := 0x435d19ae80d74061a02fd017680b74059a02bd015680a74051a627d013e809b404ba024d011e988b4045a621d010e987f403fa070c835e4147207b903bcb1d640eb20599023c8106587f203f909ec04d601c300d78051c01ee00ef0c75803ac0166008f0041861fc00fe0072e0057300b8005c262c1256090b04758236c719608cb048cc23e61173
+
+def codeBlock3 : Nat := 0x74d039e81cb40e3a070d037e81bb40dba06cd035e81a340cda065d3b26819340bda05dd02e6816f40b5a059d1ac6816340aba054d029e814b40a3a050d027e9d3b409da04cd025e812b4093a048d023e811b408ba044d421e990f4687a043d4216990b4085a841d020e8103407fa03ed01ee98f34079a63ad01d680e74e71a038d51ae9cd74a6ba
+
+def codeBlock4 : Nat := 0x88d8436c1f766ebb075d8356c1a760cfb761d8b0ec18766bfb05fdd006e0036e01b600da806d0036601b200d8806c003615ba0acd054e82a3414fa0a6d052e82934747a0a3d050e8283413fa09ed04ee82734137a09ad04ce825f412da095d3ca682534113a087d040681ff40fda07cd03de8deb40f5a
+
+def codeBlockLookup (k : Nat) : Nat := (if k < 2 then (if k < 1 then codeBlock0 else codeBlock1) else (if k < 3 then codeBlock2 else (if k < 4 then codeBlock3 else codeBlock4)))
+
+def codeLookup (i : Nat) : Nat :=
+  (codeBlockLookup (i / 64) >>> (17 * (i % 64))) &&& 131071
+
+def getState (i : Nat) : State :=
+  let c := codeLookup i
+  let p := vectorLookup ((c >>> 5) &&& 255)
+  let z := zeroLookup ((c >>> 13) &&& 15)
+  (c &&& 31, (List.range 7).map (fun j => poolLookup ((p >>> (6 * j)) &&& 63)),
+    (List.range (z &&& 3)).map (fun j => (z >>> (2 + 6 * j)) &&& 63))
+
+def contains (s : State) : Bool :=
+  Certificate.searchIndex stateLess getState 312 s 11 0 312
+
+def checked (i : Nat) : Bool := safe (getState i) && (successors 68 (getState i)).all contains
+
+def chunkCheck (k : Nat) : Bool :=
+  (List.range 8).all (fun j => if k * 8 + j < 312 then checked (k * 8 + j) else true)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk0_closed : chunkCheck 0 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk1_closed : chunkCheck 1 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk2_closed : chunkCheck 2 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk3_closed : chunkCheck 3 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk4_closed : chunkCheck 4 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk5_closed : chunkCheck 5 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk6_closed : chunkCheck 6 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk7_closed : chunkCheck 7 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk8_closed : chunkCheck 8 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk9_closed : chunkCheck 9 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk10_closed : chunkCheck 10 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk11_closed : chunkCheck 11 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk12_closed : chunkCheck 12 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk13_closed : chunkCheck 13 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk14_closed : chunkCheck 14 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk15_closed : chunkCheck 15 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk16_closed : chunkCheck 16 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk17_closed : chunkCheck 17 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk18_closed : chunkCheck 18 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk19_closed : chunkCheck 19 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk20_closed : chunkCheck 20 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk21_closed : chunkCheck 21 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk22_closed : chunkCheck 22 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk23_closed : chunkCheck 23 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk24_closed : chunkCheck 24 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk25_closed : chunkCheck 25 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk26_closed : chunkCheck 26 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk27_closed : chunkCheck 27 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk28_closed : chunkCheck 28 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk29_closed : chunkCheck 29 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk30_closed : chunkCheck 30 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk31_closed : chunkCheck 31 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk32_closed : chunkCheck 32 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk33_closed : chunkCheck 33 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk34_closed : chunkCheck 34 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk35_closed : chunkCheck 35 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk36_closed : chunkCheck 36 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk37_closed : chunkCheck 37 = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma chunk38_closed : chunkCheck 38 = true := by decide +kernel
+
+lemma all_chunks_checked : (List.range 39).all chunkCheck = true := by
+  change ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38] : List Nat).all chunkCheck = true
+  simp only [List.all_cons, List.all_nil, chunk0_closed, chunk1_closed, chunk2_closed, chunk3_closed, chunk4_closed, chunk5_closed, chunk6_closed, chunk7_closed, chunk8_closed, chunk9_closed, chunk10_closed, chunk11_closed, chunk12_closed, chunk13_closed, chunk14_closed, chunk15_closed, chunk16_closed, chunk17_closed, chunk18_closed, chunk19_closed, chunk20_closed, chunk21_closed, chunk22_closed, chunk23_closed, chunk24_closed, chunk25_closed, chunk26_closed, chunk27_closed, chunk28_closed, chunk29_closed, chunk30_closed, chunk31_closed, chunk32_closed, chunk33_closed, chunk34_closed, chunk35_closed, chunk36_closed, chunk37_closed, chunk38_closed, Bool.and_self]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma initial_contains : contains (initial 68) = true := by decide +kernel
+
+lemma reachable_safe {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors 68 a) (initial 68) finish) :
+    safe finish = true := by
+  apply Certificate.chunked_searchIndex_reachable_safe stateLess getState
+    312 8 39 11 (successors 68) safe (by decide) (by decide) ?_ initial_contains hreach
+  intro k hk
+  change chunkCheck k = true
+  exact List.all_eq_true.mp all_chunks_checked k (List.mem_range.mpr hk)
+
+lemma reachable_no_target {finish : State}
+    (hreach : Relation.ReflTransGen (fun a b => b ∈ successors 68 a) (initial 68) finish) :
+    56 ∉ finish.2.2 := by
+  simpa [safe] using reachable_safe hreach
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Positive.T68
