@@ -5214,3 +5214,39 @@ lemma matching_card_le_terminal_frontier_of_positive_hulls {p l : ℕ}
     A B G f hfmono hlo hpos (fun V => V.Nonempty) hmono hfull).1
 
 end PEqualNP.Outside.L_meta_4970.CircuitAtomInputs
+
+namespace PEqualNP.Outside.L_meta_4970.P6RawDecoder
+
+/-- Six-variable P6 computation from the independently checked actual AO2 example. -/
+def compute (a c e b d f : Bool) : Bool :=
+  (a && (b || d)) || ((c || e) && (f || ((a || c) && (b || f))))
+
+def target (a c e b d f : Bool) : Bool :=
+  (a && b) || (a && d) || (c && b) || (c && f) || (e && f)
+
+/-- The three raw AND-birth rectangles, in chronological order. -/
+def rawAtoms (a c e b d f : Bool) : Bool × Bool × Bool :=
+  (a && (b || d), (a || c) && (b || f), (c || e) && f)
+
+lemma compute_eq_target (a c e b d f : Bool) : compute a c e b d f = target a c e b d f := by
+  cases a <;> cases c <;> cases e <;> cases b <;> cases d <;> cases f <;> rfl
+
+lemma raw_atom_collision :
+    rawAtoms false true false true false false = rawAtoms true false false false false true := rfl
+
+lemma output_differs_on_collision :
+    compute false true false true false false = true ∧
+      compute true false false false false true = false := ⟨rfl,rfl⟩
+
+/-- Even a nonmonotone decoder of the three raw rectangles cannot recover this computation. -/
+lemma no_raw_atom_decoder :
+    ¬ ∃ D : (Bool × Bool × Bool) → Bool,
+      ∀ a c e b d f, D (rawAtoms a c e b d f) = compute a c e b d f := by
+  rintro ⟨D,h⟩
+  have hp := h false true false true false false
+  have hn := h true false false false false true
+  rw [raw_atom_collision] at hp
+  rw [hn] at hp
+  cases hp
+
+end PEqualNP.Outside.L_meta_4970.P6RawDecoder
