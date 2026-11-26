@@ -8755,4 +8755,371 @@ lemma col_controller_keep {μ κ τ : Type*}
 
 end H5SingletonFactor
 
+namespace H5OwnerThinCards
+
+def keptColor {κ γ : Type*} (color : κ → γ) (keep : γ → Prop)
+    (k : {k // keep (color k)}) : {c // keep c} :=
+  ⟨color k.val, k.property⟩
+
+lemma card_retained {κ γ : Type*} [Fintype κ] [Fintype γ]
+    (color : κ → γ) (keep : γ → Prop) [DecidablePred keep]
+    (hremoved : ∀ c, ¬ keep c → ∃! k, color k = c) :
+    Fintype.card κ + Fintype.card {c // keep c} =
+      Fintype.card γ + Fintype.card {k // keep (color k)} := by
+  classical
+  let f : {k // ¬ keep (color k)} → {c // ¬ keep c} := keptColor color (fun c => ¬ keep c)
+  have hf : Function.Bijective f := by
+    constructor
+    · intro k l h
+      have hc : color k.val = color l.val := congrArg Subtype.val h
+      obtain ⟨k₀, _, huniq⟩ := hremoved (color k.val) k.property
+      apply Subtype.ext
+      exact (huniq k.val rfl).trans (huniq l.val hc.symm).symm
+    · intro c
+      obtain ⟨k, hk, _⟩ := hremoved c.val c.property
+      refine ⟨⟨k, ?_⟩, ?_⟩
+      · rw [hk]
+        exact c.property
+      · exact Subtype.ext hk
+  have hcard := Fintype.card_of_bijective hf
+  rw [Fintype.card_subtype_compl, Fintype.card_subtype_compl] at hcard
+  have hk := Fintype.card_subtype_le (fun k : κ => keep (color k))
+  have hc := Fintype.card_subtype_le keep
+  omega
+
+lemma kept_fiber_card {κ γ : Type*} [Fintype κ] [Fintype γ]
+    [DecidableEq κ] [DecidableEq γ]
+    (color : κ → γ) (keep : γ → Prop) [DecidablePred keep]
+    (c : {c // keep c}) :
+    (Finset.univ.filter (fun k : {k // keep (color k)} => keptColor color keep k = c)).card =
+      (Finset.univ.filter (fun k : κ => color k = c.val)).card := by
+  apply Finset.card_bij (fun k _ => k.val)
+  · intro k hk
+    apply Finset.mem_filter.mpr
+    refine ⟨Finset.mem_univ _, ?_⟩
+    exact congrArg Subtype.val (Finset.mem_filter.mp hk).2
+  · intro k _ l _ hkl
+    exact Subtype.ext hkl
+  · intro k hk
+    have hk' : color k = c.val := (Finset.mem_filter.mp hk).2
+    refine ⟨⟨k, ?_⟩, ?_, rfl⟩
+    · rw [hk']
+      exact c.property
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, Subtype.ext hk'⟩
+
+end H5OwnerThinCards
+
+namespace H5ThinOwners
+
+lemma row_of_singleton_universal {μ κ γ : Type*}
+    (E : μ → μ → Prop) (hdiag : ∀ i, E i i)
+    (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (rp : μ → κ) (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (i : μ) (hunique : ∃! k, color k = color (rp i)) : ∀ j, E i j := by
+  obtain ⟨K,hK,hKunique⟩ := hunique
+  intro j
+  obtain ⟨L,hL,_,hj⟩ := hcover (color (rp i)) j j (hdiag j)
+  have heq : L = rp i := (hKunique L hL).trans (hKunique (rp i) rfl).symm
+  exact hrControl i j (by simpa only [heq] using hj)
+
+lemma col_of_singleton_universal {μ κ γ : Type*}
+    (E : μ → μ → Prop) (hdiag : ∀ i, E i i)
+    (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (cp : μ → κ) (hcControl : ∀ i j, j ∈ rows (cp i) → E j i)
+    (i : μ) (hunique : ∃! k, color k = color (cp i)) : ∀ j, E j i := by
+  obtain ⟨K,hK,hKunique⟩ := hunique
+  intro j
+  obtain ⟨L,hL,hj,_⟩ := hcover (color (cp i)) j j (hdiag j)
+  have heq : L = cp i := (hKunique L hL).trans (hKunique (cp i) rfl).symm
+  exact hcControl i j (by simpa only [heq] using hj)
+
+lemma row_owner_keep {μ κ γ : Type*}
+    (E : μ → μ → Prop) (hdiag : ∀ i, E i i)
+    (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (keep : γ → Prop) (hremoved : ∀ c, ¬ keep c → ∃! k, color k = c)
+    (hsome : ∃ c, keep c) (rp : μ → κ)
+    (hrA : ∀ i, i ∈ rows (rp i)) (hrB : ∀ i, i ∈ cols (rp i))
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j) :
+    ∀ i, ∃ k, keep (color k) ∧ i ∈ rows k ∧ i ∈ cols k ∧ ∀ j, j ∈ cols k → E i j := by
+  classical
+  intro i
+  by_cases hk : keep (color (rp i))
+  · exact ⟨rp i,hk,hrA i,hrB i,hrControl i⟩
+  · have hall := row_of_singleton_universal E hdiag rows cols color hcover rp hrControl i
+      (hremoved _ hk)
+    obtain ⟨c,hc⟩ := hsome
+    obtain ⟨k,hkc,hki,hik⟩ := hcover c i i (hdiag i)
+    exact ⟨k,by simpa only [hkc] using hc,hki,hik,fun j _ => hall j⟩
+
+lemma col_owner_keep {μ κ γ : Type*}
+    (E : μ → μ → Prop) (hdiag : ∀ i, E i i)
+    (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (keep : γ → Prop) (hremoved : ∀ c, ¬ keep c → ∃! k, color k = c)
+    (hsome : ∃ c, keep c) (cp : μ → κ)
+    (hcA : ∀ i, i ∈ rows (cp i)) (hcB : ∀ i, i ∈ cols (cp i))
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i) :
+    ∀ i, ∃ k, keep (color k) ∧ i ∈ rows k ∧ i ∈ cols k ∧ ∀ j, j ∈ rows k → E j i := by
+  classical
+  intro i
+  by_cases hk : keep (color (cp i))
+  · exact ⟨cp i,hk,hcA i,hcB i,hcControl i⟩
+  · have hall := col_of_singleton_universal E hdiag rows cols color hcover cp hcControl i
+      (hremoved _ hk)
+    obtain ⟨c,hc⟩ := hsome
+    obtain ⟨k,hkc,hki,hik⟩ := hcover c i i (hdiag i)
+    exact ⟨k,by simpa only [hkc] using hc,hki,hik,fun j _ => hall j⟩
+
+lemma many_factor_nonempty_owner_bound {μ κ γ : Type*}
+    [Fintype μ] [Fintype κ] [Fintype γ] [DecidableEq μ] [DecidableEq κ] [DecidableEq γ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (hdiag : ∀ i, E i i) (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (hsize : ∀ c, 1 ≤ (Finset.univ.filter (fun k => color k = c)).card)
+    (rp cp : μ → κ)
+    (hrA : ∀ i, i ∈ rows (rp i)) (hrB : ∀ i, i ∈ cols (rp i))
+    (hcA : ∀ i, i ∈ rows (cp i)) (hcB : ∀ i, i ∈ cols (cp i))
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i) :
+    Fintype.card μ + Fintype.card γ ≤ Fintype.card κ + 1 := by
+  classical
+  let keep := fun c => 2 ≤ (Finset.univ.filter (fun k => color k = c)).card
+  have hremoved : ∀ c, ¬ keep c → ∃! k, color k = c := by
+    intro c hc
+    have hcard : (Finset.univ.filter (fun k => color k = c)).card = 1 := by
+      have := hsize c
+      change ¬2 ≤ (Finset.univ.filter (fun k => color k = c)).card at hc
+      omega
+    obtain ⟨K,hK⟩ := Finset.card_eq_one.mp hcard
+    have hcolK : color K = c := by
+      have hm : K ∈ Finset.univ.filter (fun k => color k = c) := by rw [hK]; simp
+      exact (Finset.mem_filter.mp hm).2
+    refine ⟨K,hcolK,?_⟩
+    intro k hk
+    have hm : k ∈ Finset.univ.filter (fun k => color k = c) := by simp [hk]
+    rw [hK] at hm
+    exact Finset.mem_singleton.mp hm
+  have hcards := H5OwnerThinCards.card_retained color keep hremoved
+  by_cases hsome : ∃ c, keep c
+  · let K' := {k : κ // keep (color k)}
+    let G' := {c : γ // keep c}
+    let color' : K' → G' := H5OwnerThinCards.keptColor color keep
+    let rows' : K' → Finset μ := fun k => rows k.val
+    let cols' : K' → Finset μ := fun k => cols k.val
+    have hrow : ∀ i, ∃ k : K', i ∈ rows' k ∧ i ∈ cols' k ∧ ∀ j, j ∈ cols' k → E i j := by
+      intro i
+      obtain ⟨k,hk,hri,hci,hctrl⟩ :=
+        row_owner_keep E hdiag rows cols color hcover keep hremoved hsome rp hrA hrB hrControl i
+      exact ⟨⟨k,hk⟩,hri,hci,hctrl⟩
+    have hcol : ∀ i, ∃ k : K', i ∈ rows' k ∧ i ∈ cols' k ∧ ∀ j, j ∈ rows' k → E j i := by
+      intro i
+      obtain ⟨k,hk,hri,hci,hctrl⟩ :=
+        col_owner_keep E hdiag rows cols color hcover keep hremoved hsome cp hcA hcB hcControl i
+      exact ⟨⟨k,hk⟩,hri,hci,hctrl⟩
+    choose rp' hrA' hrB' hrControl' using hrow
+    choose cp' hcA' hcB' hcControl' using hcol
+    have hcover' : ∀ c : G', ∀ i j, E i j → ∃ k : K', color' k = c ∧ i ∈ rows' k ∧ j ∈ cols' k := by
+      intro c i j hij
+      obtain ⟨k,hkc,hri,hci⟩ := hcover c.val i j hij
+      have hk : keep (color k) := by rw [hkc]; exact c.property
+      refine ⟨⟨k,hk⟩,?_,hri,hci⟩
+      exact Subtype.ext hkc
+    have hsize' : ∀ c : G', 2 ≤ (Finset.univ.filter (fun k : K' => color' k = c)).card := by
+      intro c
+      rw [H5OwnerThinCards.kept_fiber_card color keep c]
+      exact c.property
+    have hmain := H5ManyOwners.many_factor_owner_bound E hfour hdiag rows' cols' color'
+      hcover' hsize' rp' cp' hrA' hrB' hcA' hcB' hrControl' hcControl'
+    change Fintype.card κ + Fintype.card G' = Fintype.card γ + Fintype.card K' at hcards
+    omega
+  · have hall : ∀ i j, E i j := by
+      intro i
+      apply row_of_singleton_universal E hdiag rows cols color hcover rp hrControl i
+      exact hremoved _ (fun hk => hsome ⟨_,hk⟩)
+    have hm : Fintype.card μ ≤ 1 := by
+      have hcard : (Finset.univ : Finset μ).card ≤ 1 := by
+        apply Finset.card_le_one.mpr
+        intro i _ j _
+        by_contra hij
+        exact hfour i j i j hij hij ⟨hall i i,hall i j,hall j i,hall j j⟩
+      simpa using hcard
+    let : IsEmpty {c : γ // keep c} := ⟨fun c => hsome ⟨c.val,c.property⟩⟩
+    let : IsEmpty {k : κ // keep (color k)} := ⟨fun k => hsome ⟨color k.val,k.property⟩⟩
+    have hN : Fintype.card κ = Fintype.card γ := by simpa using hcards
+    omega
+
+end H5ThinOwners
+
+-- Cleanliness is simultaneous for all AND gates and includes pairs with repeated vertices.
+namespace H5PairSafety
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm H5Pruning
+
+lemma singleton_trace_before_true_and (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x : Fin n → Bool) (limit : ℕ) (hlimit : limit ≤ C.gates.length)
+    (hnone : ∀ j < limit, (gateAt C j).op = .and → wireFn n C (n+j) x = false) :
+    ∀ w, w < n+limit → wireFn n C w x = true →
+      ∃ a : Fin n, x a = true ∧ wireFn n C w (singletonInput a) = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hx
+    by_cases hin : w < n
+    · refine ⟨⟨w,hin⟩,?_,?_⟩
+      · simpa only [wireFn_input n C w hin] using hx
+      · rw [wireFn_input n C w hin]
+        simp [singletonInput]
+    · let j := w-n
+      have hj : j < limit := by dsimp [j]; omega
+      have hjlen : j < C.gates.length := by omega
+      have hjw : n+j = w := by dsimp [j]; omega
+      obtain ⟨u,v,hu,hv,hinp,hop,hval⟩ := binary_gate n C hC j hjlen
+      rcases hop with hop | hop
+      · have hz := hnone j hj hop
+        rw [hjw,hx] at hz
+        contradiction
+      · have hparts : wireFn n C u x = true ∨ wireFn n C v x = true := by
+          have h := hval x
+          rw [hjw,hx,hop] at h
+          simpa [GateOp.eval] using h.symm
+        rcases hparts with htu | htv
+        · obtain ⟨a,ha,hua⟩ := ih u (by omega) (by omega) htu
+          refine ⟨a,ha,?_⟩
+          rw [←hjw,hval,hop]
+          simp [GateOp.eval,hua]
+        · obtain ⟨a,ha,hva⟩ := ih v (by omega) (by omega) htv
+          refine ⟨a,ha,?_⟩
+          rw [←hjw,hval,hop]
+          simp [GateOp.eval,hva]
+
+lemma true_and_pair_witness (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x : Fin n → Bool) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (hx : wireFn n C (n+j) x = true) :
+    ∃ k, k ≤ j ∧ k < C.gates.length ∧ (gateAt C k).op = .and ∧
+      ∃ a b : Fin n, x a = true ∧ x b = true ∧
+        wireFn n C (n+k) (pairInput a b) = true := by
+  classical
+  let P := fun k => k < C.gates.length ∧ (gateAt C k).op = .and ∧
+    wireFn n C (n+k) x = true
+  have hex : ∃ k, P k := ⟨j,hj,hop,hx⟩
+  let k := Nat.find hex
+  have hk : P k := Nat.find_spec hex
+  have hkj : k ≤ j := Nat.find_min' hex ⟨hj,hop,hx⟩
+  have hnone : ∀ q < k, (gateAt C q).op = .and → wireFn n C (n+q) x = false := by
+    intro q hq hqop
+    cases hval : wireFn n C (n+q) x with
+    | false => rfl
+    | true =>
+      have hqmin : k ≤ q := Nat.find_min' hex ⟨by omega,hqop,hval⟩
+      omega
+  obtain ⟨u,v,hu,hv,hinp,hopk,hval⟩ := binary_gate n C hC k hk.1
+  have hparts : wireFn n C u x = true ∧ wireFn n C v x = true := by
+    have h := (hval x).symm.trans hk.2.2
+    simpa [hk.2.1,GateOp.eval] using h
+  obtain ⟨a,ha,hua⟩ := singleton_trace_before_true_and n C hC x k (by omega) hnone u hu hparts.1
+  obtain ⟨b,hb,hvb⟩ := singleton_trace_before_true_and n C hC x k (by omega) hnone v hv hparts.2
+  have hup : wireFn n C u (pairInput a b) = true :=
+    Bool.le_iff_imp.mp (wireFn_mono n C hC u
+      (singletonInput_le a (pairInput a b) (by simp [pairInput]))) hua
+  have hvp : wireFn n C v (pairInput a b) = true :=
+    Bool.le_iff_imp.mp (wireFn_mono n C hC v
+      (singletonInput_le b (pairInput a b) (by simp [pairInput]))) hvb
+  refine ⟨k,hkj,hk.1,hk.2.1,a,b,ha,hb,?_⟩
+  rw [hval,hk.2.1]
+  simp [GateOp.eval,hup,hvp]
+
+def allAndPairClean (n : ℕ) (C : Circuit) (F : (Fin n → Bool) → Bool) : Prop :=
+  ∀ j < C.gates.length, (gateAt C j).op = .and → ∀ a b : Fin n,
+    F (pairInput a b) = false → wireFn n C (n+j) (pairInput a b) = false
+
+def allAndSafe (n : ℕ) (C : Circuit) (F : (Fin n → Bool) → Bool) : Prop :=
+  ∀ j < C.gates.length, (gateAt C j).op = .and → ∀ x,
+    wireFn n C (n+j) x = true → F x = true
+
+lemma allAndPairClean_iff_allAndSafe (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (F : (Fin n → Bool) → Bool) (hF : Monotone F) :
+    allAndPairClean n C F ↔ allAndSafe n C F := by
+  constructor
+  · intro hclean j hj hop x hx
+    cases hfx : F x with
+    | true => rfl
+    | false =>
+      obtain ⟨k,hkj,hk,hkop,a,b,ha,hb,hpair⟩ := true_and_pair_witness n C hC x j hj hop hx
+      have hfp : F (pairInput a b) = false := by
+        have hle := hF (pairInput_le a b x ha hb)
+        rw [hfx] at hle
+        exact le_antisymm hle (by cases F (pairInput a b) <;> decide)
+      have hz := hclean k hk hkop a b hfp
+      rw [hpair] at hz
+      contradiction
+  · intro hsafe j hj hop a b hf
+    cases hp : wireFn n C (n+j) (pairInput a b) with
+    | false => rfl
+    | true =>
+      have ht := hsafe j hj hop (pairInput a b) hp
+      rw [hf] at ht
+      contradiction
+
+lemma simpleGraph_true_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) :
+    PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = true ↔
+      ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true := by
+  simp [PEqualNP.MetaComplexity.NestedCover.graphFun]
+
+lemma simpleGraph_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] :
+    Monotone (PEqualNP.MetaComplexity.NestedCover.graphFun G ∅) := by
+  intro x y hxy
+  apply Bool.le_iff_imp.mpr
+  intro hx
+  obtain ⟨a,b,hab,ha,hb⟩ := (simpleGraph_true_iff G x).mp hx
+  exact (simpleGraph_true_iff G y).mpr ⟨a,b,hab,
+    Bool.le_iff_imp.mp (hxy a) ha,Bool.le_iff_imp.mp (hxy b) hb⟩
+
+lemma simpleGraph_pair_false_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a b : Fin n) :
+    PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ (pairInput a b) = false ↔
+      ¬ G.Adj a b := by
+  constructor
+  · intro hf hab
+    have ht := (simpleGraph_true_iff G (pairInput a b)).mpr
+      ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+    rw [hf] at ht
+    contradiction
+  · intro hnon
+    cases hf : PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ (pairInput a b) with
+    | false => rfl
+    | true =>
+      obtain ⟨u,v,huv,hu,hv⟩ := (simpleGraph_true_iff G (pairInput a b)).mp hf
+      have hu' : u = a ∨ u = b := of_decide_eq_true hu
+      have hv' : v = a ∨ v = b := of_decide_eq_true hv
+      rcases hu' with rfl | rfl <;> rcases hv' with rfl | rfl
+      · exact False.elim (G.loopless.irrefl _ huv)
+      · exact False.elim (hnon huv)
+      · exact False.elim (hnon huv.symm)
+      · exact False.elim (G.loopless.irrefl _ huv)
+
+lemma simpleGraph_pairClean_iff_safe (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsAO2 n C) :
+    (∀ j < C.gates.length, (gateAt C j).op = .and → ∀ a b : Fin n,
+      ¬ G.Adj a b → PEqualNP.EdgeOwnership.gateVal n C j
+        (PEqualNP.EdgeOwnership.pairInput a b) = false) ↔
+    (∀ j < C.gates.length, (gateAt C j).op = .and → ∀ x,
+      PEqualNP.EdgeOwnership.gateVal n C j x = true →
+        PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = true) := by
+  change (∀ j < C.gates.length, (gateAt C j).op = .and → ∀ a b : Fin n,
+      ¬ G.Adj a b → wireFn n C (n+j) (pairInput a b) = false) ↔
+    allAndSafe n C (PEqualNP.MetaComplexity.NestedCover.graphFun G ∅)
+  rw [← allAndPairClean_iff_allAndSafe n C hC _ (simpleGraph_mono G)]
+  constructor
+  · intro h j hj hop a b hf
+    exact h j hj hop a b ((simpleGraph_pair_false_iff G a b).mp hf)
+  · intro h j hj hop a b hnon
+    exact h j hj hop a b ((simpleGraph_pair_false_iff G a b).mpr hnon)
+
+end H5PairSafety
+
 end PEqualNP.Outside.L_meta_4970_aux
