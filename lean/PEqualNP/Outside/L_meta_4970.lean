@@ -2191,4 +2191,33 @@ lemma or_forall_imp_distrib {γ : Type*} (P : Prop) (N Y : γ → Prop) :
       · exact False.elim (hP hP')
       · exact hY
 
+lemma matrix_complement_cross_of_two_neighbours {α β : Type*}
+    (I : α → β → Prop)
+    (hno4 : ∀ a c d e, a ≠ c → d ≠ e →
+      I a d → I a e → I c d → I c e → False)
+    (htwo : ∀ c, ∃ d e, d ≠ e ∧ I c d ∧ I c e)
+    (hother : ∀ a b, ¬ I a b → ∃ c, c ≠ a ∧ ¬ I c b) :
+    ∀ a b, ¬ I a b → ∃ c d, I c d ∧ ¬ I c b ∧ ¬ I a d := by
+  classical
+  intro a b hab
+  obtain ⟨c, hca, hcb⟩ := hother a b hab
+  obtain ⟨d, e, hde, hcd, hce⟩ := htwo c
+  by_cases had : I a d
+  · exact ⟨c, e, hce, hcb,
+      fun hae => hno4 a c d e hca.symm hde had hae hcd hce⟩
+  · exact ⟨c, d, hcd, hcb, had⟩
+
+lemma matrix_complement_exactness_of_two_neighbours {α β : Type*}
+    (I : α → β → Prop)
+    (hno4 : ∀ a c d e, a ≠ c → d ≠ e →
+      I a d → I a e → I c d → I c e → False)
+    (htwo : ∀ c, ∃ d e, d ≠ e ∧ I c d ∧ I c e)
+    (hother : ∀ a b, ¬ I a b → ∃ c, c ≠ a ∧ ¬ I c b)
+    (X : α → Prop) (Y : β → Prop) :
+    ((∃ a, X a ∧ ((∃ b, I a b ∧ Y b) ∨ (∀ b, ¬ I a b → Y b))) ∧
+      (∃ b, Y b ∧ ((∃ a, I a b ∧ X a) ∨ (∀ a, ¬ I a b → X a)))) ↔
+      ∃ a b, I a b ∧ X a ∧ Y b :=
+  matrix_complement_exactness I
+    (matrix_complement_cross_of_two_neighbours I hno4 htwo hother) X Y
+
 end PEqualNP.Outside.L_meta_4970_aux
