@@ -1953,4 +1953,37 @@ lemma coverage_five_full (r₁ r₂ r₃ r₄ r₅ : Rect)
 
 end RectangleAdjacencyBridge
 
+namespace RectangleAdjacencyBridge
+
+lemma missing_and_of_full_or (n a b : Nat)
+    (hfull : a ||| b = 2 ^ n - 1) :
+    (2 ^ n - 1 - a) &&& b = 2 ^ n - 1 - a := by
+  have hle : a ≤ 2 ^ n - 1 := by
+    simpa only [hfull] using (Nat.left_le_or : a ≤ a ||| b)
+  have hpos := Nat.two_pow_pos n
+  have hlt : a < 2 ^ n := by omega
+  have hsub : 2 ^ n - 1 - a = 2 ^ n - (a + 1) := by omega
+  apply Nat.eq_of_testBit_eq
+  intro i
+  simp only [Nat.testBit_and, hsub, Nat.testBit_two_pow_sub_succ hlt]
+  have hi := congrArg (fun x : Nat => x.testBit i) hfull
+  simp only [Nat.testBit_or, Nat.testBit_two_pow_sub_one] at hi
+  cases ha : a.testBit i <;> cases hb : b.testBit i <;>
+    cases hn : decide (i < n) <;> simp_all
+
+lemma missing_2047_and_of_full_or (a b : Nat) (hfull : a ||| b = 2047) :
+    (2047 - a) &&& b = 2047 - a := by
+  exact missing_and_of_full_or 11 a b hfull
+
+lemma missing_coverage_of_full_or (r₁ r₂ r₃ r₄ r₅ : Rect)
+    (hfull : coverage r₁ ||| coverage r₂ ||| coverage r₃ |||
+      coverage r₄ ||| coverage r₅ = 2047) :
+    (2047 - (coverage r₁ ||| coverage r₂ ||| coverage r₃)) &&&
+      (coverage r₄ ||| coverage r₅) =
+        2047 - (coverage r₁ ||| coverage r₂ ||| coverage r₃) := by
+  apply missing_2047_and_of_full_or
+  simpa only [Nat.or_assoc] using hfull
+
+end RectangleAdjacencyBridge
+
 end PEqualNP.Outside.L_meta_9033_aux
