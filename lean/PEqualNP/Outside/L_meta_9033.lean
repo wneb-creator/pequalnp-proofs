@@ -1668,4 +1668,243 @@ lemma critical_pairMask_iff : ∀ (v : Fin 3) (i j : Fin 8),
 
 end RectangleAdjacencyBridge
 
+namespace RectangleAdjacencyBridge
+
+lemma adjacent_graph_edges : ∀ i j : Fin 8,
+    CleanRectangle.adjacent i j = true ↔
+      RawPairClassification.pairMask i j ∈ RawPairClassification.graphEdges := by
+  decide +kernel
+
+lemma edges_irreflexive : ∀ i : Fin 8, edgePresent edges i.val i.val = false := by
+  decide +kernel
+
+lemma clean_cross_of_semantics
+    (f g : Fin 256 → Bool) (a b : Fin 256)
+    (mf : ∀ x y, submask x y → f x = true → f y = true)
+    (mg : ∀ x y, submask x y → g x = true → g y = true)
+    (negative : ∀ n ∈ negatives, (f n && g n) = false)
+    (ha : ∀ i : Fin 8, a.val.testBit i.val = f (RawPairClassification.pairAssignment i i))
+    (hb : ∀ i : Fin 8, b.val.testBit i.val = g (RawPairClassification.pairAssignment i i)) :
+    ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent edges i.val j.val = true := by
+  intro i j hi hj
+  have hfi := (ha i).symm.trans hi
+  have hgj := (hb j).symm.trans hj
+  have hf := mf _ _ (CleanRectangle.pair_submask i j).1 hfi
+  have hg := mg _ _ (CleanRectangle.pair_submask i j).2 hgj
+  have hm : ∀ x y, submask x y → (f x && g x) = true → (f y && g y) = true := by
+    intro x y hxy h
+    simp only [Bool.and_eq_true] at h ⊢
+    exact ⟨mf x y hxy h.1, mg x y hxy h.2⟩
+  have he := CleanRectangle.clean_function_below_graph (fun x => f x && g x) hm negative
+    (RawPairClassification.pairAssignment i j) (by simp [hf, hg])
+  have hadj := (CleanRectangle.pair_graph i j).symm.trans he
+  exact (graph_pairMask_iff i j).mp ((adjacent_graph_edges i j).mp hadj)
+
+lemma clean_disjoint_of_cross (a b : Fin 256)
+    (hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent edges i.val j.val = true) : a.val &&& b.val = 0 := by
+  apply SingletonMaskBridge.disjoint_of_bits
+  intro i
+  cases ha : a.val.testBit i.val with
+  | false => rfl
+  | true =>
+    cases hb : b.val.testBit i.val with
+    | false => rfl
+    | true =>
+      have h := hc i i ha hb
+      rw [edges_irreflexive] at h
+      contradiction
+
+lemma canonical_clean_of_semantics
+    (f g : Fin 256 → Bool) (a b : Fin 256)
+    (mf : ∀ x y, submask x y → f x = true → f y = true)
+    (mg : ∀ x y, submask x y → g x = true → g y = true)
+    (negative : ∀ n ∈ negatives, (f n && g n) = false)
+    (ha : ∀ i : Fin 8, a.val.testBit i.val = f (RawPairClassification.pairAssignment i i))
+    (hb : ∀ i : Fin 8, b.val.testBit i.val = g (RawPairClassification.pairAssignment i i)) :
+    ∃ r : Rect, r.1 < 256 ∧ r.2 < 256 ∧ (r = (0, 0) ∨ validClean r.1 r.2 = true) ∧
+      coverage r = coverage (a.val, b.val) ∧ reqRect r ⊆ reqRect (a.val, b.val) := by
+  have hc := clean_cross_of_semantics f g a b mf mg negative ha hb
+  have hd := clean_disjoint_of_cross a b hc
+  by_cases hzero : a.val = 0 ∨ b.val = 0
+  · exact ⟨(0, 0), by decide, by decide, Or.inl rfl, empty_clean_weaken a.val b.val hzero⟩
+  · have hapos : 0 < a.val := by omega
+    have hbpos : 0 < b.val := by omega
+    obtain ⟨r, horient, hr, hcover, hreq⟩ := canonical_clean_nonempty a b hapos hbpos hd hc
+    have hbounds : r.1 < 256 ∧ r.2 < 256 := by
+      rcases horient with rfl | rfl
+      · exact ⟨a.isLt, b.isLt⟩
+      · exact ⟨b.isLt, a.isLt⟩
+    exact ⟨r, hbounds.1, hbounds.2, Or.inr hr, hcover, hreq ▸ List.Subset.refl _⟩
+
+end RectangleAdjacencyBridge
+
+namespace RectangleAdjacencyBridge
+
+open RawPairClassification
+
+lemma dirty_cross_adjacency
+    (v : Fin 3) (f g : Fin 256 → Bool)
+    (mf : ∀ a b, submask a b → f a = true → f b = true)
+    (mg : ∀ a b, submask a b → g a = true → g b = true)
+    (negative : ∀ n ∈ negatives, (allowedNegatives v).contains n.val = false →
+      (f n && g n) = false)
+    (ownF : f (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (ownG : g (pairAssignment (ownVariable v) (ownVariable v)) = false) :
+    ∀ i j : Fin 8, f (pairAssignment i i) = true →
+      g (pairAssignment j j) = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true := by
+  have monoAnd : ∀ a b, submask a b →
+      (f a && g a) = true → (f b && g b) = true := by
+    intro a b hab h
+    simp only [Bool.and_eq_true] at h ⊢
+    exact ⟨mf a b hab h.1, mg a b hab h.2⟩
+  intro i j hfi hgj
+  have hiv : i.val ≠ v.val := by
+    intro he
+    have hi : i = ownVariable v := Fin.ext he
+    rw [hi, ownF] at hfi
+    contradiction
+  have hjv : j.val ≠ v.val := by
+    intro he
+    have hj : j = ownVariable v := Fin.ext he
+    rw [hj, ownG] at hgj
+    contradiction
+  have hij : i ≠ j := by
+    intro he
+    subst j
+    have hfalse := singleton_false_of_monotone v (fun x => f x && g x)
+      monoAnd negative i
+    simp only [hfi, hgj, Bool.and_self] at hfalse
+    contradiction
+  have accepted : (f (pairAssignment i j) && g (pairAssignment i j)) = true := by
+    have hf := mf _ _ (CleanRectangle.pair_submask i j).1 hfi
+    have hg := mg _ _ (CleanRectangle.pair_submask i j).2 hgj
+    simp only [hf, hg, Bool.and_self]
+  rcases permitted_pair_of_monotone v (fun x => f x && g x) monoAnd negative
+      i j hij hiv hjv accepted with hgraph | hcritical
+  · have he := (graph_pairMask_iff i j).mp hgraph
+    simp only [edgePresent, List.any_append, Bool.or_eq_true] at he ⊢
+    exact Or.inl he
+  · have he := (critical_pairMask_iff v i j).mp hcritical
+    simp only [edgePresent, List.any_append, Bool.or_eq_true] at he ⊢
+    exact Or.inr he
+
+lemma encoded_dirty_rectangle
+    (v : Fin 3) (f g : Fin 256 → Bool) (a b : Fin 256)
+    (ha : ∀ i : Fin 8, a.val.testBit i.val = f (pairAssignment i i))
+    (hb : ∀ i : Fin 8, b.val.testBit i.val = g (pairAssignment i i))
+    (mf : ∀ x y, submask x y → f x = true → f y = true)
+    (mg : ∀ x y, submask x y → g x = true → g y = true)
+    (negative : ∀ n ∈ negatives, (allowedNegatives v).contains n.val = false →
+      (f n && g n) = false)
+    (ownF : f (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (ownG : g (pairAssignment (ownVariable v) (ownVariable v)) = false) :
+    a.val &&& b.val = 0 ∧
+      ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+        edgePresent (edges ++ filled v.val) i.val j.val = true := by
+  constructor
+  · apply SingletonMaskBridge.disjoint_of_encoded_singletons f g a b ha hb
+    apply singleton_false_of_monotone v (fun x => f x && g x)
+    · intro x y hxy h
+      simp only [Bool.and_eq_true] at h ⊢
+      exact ⟨mf x y hxy h.1, mg x y hxy h.2⟩
+    · exact negative
+  · intro i j hi hj
+    exact dirty_cross_adjacency v f g mf mg negative ownF ownG i j
+      ((ha i).symm.trans hi) ((hb j).symm.trans hj)
+
+end RectangleAdjacencyBridge
+
+namespace RectangleAdjacencyBridge
+
+lemma validDirty_or_reverse (v : Fin 4) (available : Nat) (a b : Fin 256)
+    (hd : a.val &&& b.val = 0)
+    (ha : (a.val ||| b.val) &&& available = a.val ||| b.val)
+    (hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true)
+    (hcritical : ∃ i j : Fin 8, a.val.testBit i.val = true ∧ b.val.testBit j.val = true ∧
+      edgePresent (filled v.val) i.val j.val = true) :
+    validDirty v.val available a.val b.val = true ∨
+      validDirty v.val available b.val a.val = true := by
+  obtain ⟨i, j, hi, hj, he⟩ := hcritical
+  have hapos : 0 < a.val := by
+    have hne : a.val ≠ 0 := by
+      intro hz
+      simp [hz] at hi
+    omega
+  have hbpos : 0 < b.val := by
+    have hne : b.val ≠ 0 := by
+      intro hz
+      simp [hz] at hj
+    omega
+  have hne : a.val ≠ b.val := by
+    intro heq
+    have hz : a.val = 0 := by simpa [← heq] using hd
+    omega
+  rcases lt_or_gt_of_ne hne with hab | hba
+  · exact Or.inl (validDirty_of_pairwise v available a b hapos hab hd ha hc
+      ⟨i, j, hi, hj, he⟩)
+  · apply Or.inr
+    apply validDirty_of_pairwise v available b a hbpos hba
+    · simpa only [Nat.and_comm] using hd
+    · simpa only [Nat.or_comm] using ha
+    · intro u w hu hw
+      exact (edgePresent_comm (edges ++ filled v.val) u.val w.val).trans (hc w u hw hu)
+    · exact ⟨j, i, hj, hi, (edgePresent_comm (filled v.val) j.val i.val).trans he⟩
+
+lemma canonical_dirty (v : Fin 4) (available : Nat) (a b : Fin 256)
+    (hd : a.val &&& b.val = 0)
+    (ha : (a.val ||| b.val) &&& available = a.val ||| b.val)
+    (hc : ∀ i j : Fin 8, a.val.testBit i.val = true → b.val.testBit j.val = true →
+      edgePresent (edges ++ filled v.val) i.val j.val = true)
+    (hcritical : ∃ i j : Fin 8, a.val.testBit i.val = true ∧ b.val.testBit j.val = true ∧
+      edgePresent (filled v.val) i.val j.val = true) :
+    ∃ r : Rect, (r = (a.val, b.val) ∨ r = (b.val, a.val)) ∧
+      validDirty v.val available r.1 r.2 = true ∧
+        coverage r = coverage (a.val, b.val) ∧ reqRect r = reqRect (a.val, b.val) := by
+  rcases validDirty_or_reverse v available a b hd ha hc hcritical with h | h
+  · exact ⟨(a.val, b.val), Or.inl rfl, h, rfl, rfl⟩
+  · exact ⟨(b.val, a.val), Or.inr rfl, h,
+      coverage_comm b.val a.val, reqRect_comm b.val a.val⟩
+
+lemma canonical_dirty_of_semantics
+    (v : Fin 3) (available : Nat) (f g : Fin 256 → Bool) (a b : Fin 256)
+    (ha : ∀ i : Fin 8, a.val.testBit i.val = f (RawPairClassification.pairAssignment i i))
+    (hb : ∀ i : Fin 8, b.val.testBit i.val = g (RawPairClassification.pairAssignment i i))
+    (mf : ∀ x y, submask x y → f x = true → f y = true)
+    (mg : ∀ x y, submask x y → g x = true → g y = true)
+    (negative : ∀ n ∈ negatives,
+      (RawPairClassification.allowedNegatives v).contains n.val = false →
+        (f n && g n) = false)
+    (ownF : f (RawPairClassification.pairAssignment
+      (RawPairClassification.ownVariable v) (RawPairClassification.ownVariable v)) = false)
+    (ownG : g (RawPairClassification.pairAssignment
+      (RawPairClassification.ownVariable v) (RawPairClassification.ownVariable v)) = false)
+    (havailable : (a.val ||| b.val) &&& available = a.val ||| b.val)
+    (hcritical : ∃ i j : Fin 8,
+      f (RawPairClassification.pairAssignment i i) = true ∧
+      g (RawPairClassification.pairAssignment j j) = true ∧
+      RawPairClassification.pairMask i j ∈ RawPairClassification.criticalPairs v) :
+    ∃ r : Rect, (r = (a.val, b.val) ∨ r = (b.val, a.val)) ∧
+      r.1 < 256 ∧ r.2 < 256 ∧ validDirty v.val available r.1 r.2 = true ∧
+        coverage r = coverage (a.val, b.val) ∧ reqRect r = reqRect (a.val, b.val) := by
+  obtain ⟨hd, hc⟩ := encoded_dirty_rectangle v f g a b ha hb mf mg negative ownF ownG
+  let v4 : Fin 4 := ⟨v.val, Nat.lt_trans v.isLt (by decide)⟩
+  have hcrit : ∃ i j : Fin 8, a.val.testBit i.val = true ∧ b.val.testBit j.val = true ∧
+      edgePresent (filled v4.val) i.val j.val = true := by
+    obtain ⟨i, j, hi, hj, he⟩ := hcritical
+    exact ⟨i, j, (ha i).trans hi, (hb j).trans hj, (critical_pairMask_iff v i j).mp he⟩
+  obtain ⟨r, hr, hv, hcov, hreq⟩ := canonical_dirty v4 available a b hd havailable hc hcrit
+  refine ⟨r, hr, ?_, ?_, hv, hcov, hreq⟩
+  · rcases hr with rfl | rfl
+    · exact a.isLt
+    · exact b.isLt
+  · rcases hr with rfl | rfl
+    · exact b.isLt
+    · exact a.isLt
+
+end RectangleAdjacencyBridge
+
 end PEqualNP.Outside.L_meta_9033_aux
