@@ -4756,3 +4756,461 @@ lemma matching_card_le_atoms_and_full_saturation {p l : ℕ} {ι : Type*}
   exact (hfull X Y).mp ((hdecode _ hsub).mpr hnonempty)
 
 end PEqualNP.Outside.L_meta_4970.RectangleHull
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleHull
+
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+open PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+/-- Inscribed rectangle hulls need cover atom truth only on target-edge pairs. -/
+lemma positive_pair_hull_reduction {p l : ℕ} {ι : Type*}
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι)
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop)
+    (hfmono : ∀ g ∈ G, ∀ X Y X' Y', X ⊆ X' → Y ⊆ Y' → f g X Y → f g X' Y')
+    (hlo : ∀ g ∈ G, ∀ a ∈ A g, ∀ b ∈ B g, f g {a} {b})
+    (hpos : ∀ g ∈ G, ∀ a b, (a,b) ∈ E → f g {a} {b} → a ∈ A g ∧ b ∈ B g)
+    (D : Finset ι → Prop) (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (actualSet f G X Y) ↔ EdgeAccept E X Y) :
+    ∀ X Y, D (atomSet A B G X Y) ↔ EdgeAccept E X Y := by
+  classical
+  have hle : ∀ X Y, atomSet A B G X Y ⊆ actualSet f G X Y := by
+    intro X Y g hg
+    obtain ⟨hgG,i,hi,a,ha,b,hb,hax,hby⟩ := (mem_atomSet A B G X Y g).mp hg
+    have hig : i = g := Finset.mem_singleton.mp hi
+    subst i
+    have hp : f g {a} {b} := hlo g hgG a ha b hb
+    exact (mem_actualSet f G X Y g).mpr ⟨hgG,
+      hfmono g hgG {a} {b} X Y (Finset.singleton_subset_iff.mpr hax)
+        (Finset.singleton_subset_iff.mpr hby) hp⟩
+  have hpeq : ∀ a b, (a,b) ∈ E →
+      actualSet f G {a} {b} = atomSet A B G {a} {b} := by
+    intro a b hab
+    apply Finset.ext
+    intro g
+    rw [mem_actualSet,mem_atomSet_singletons]
+    constructor
+    · rintro ⟨hg,hf⟩
+      exact ⟨hg,hpos g hg a b hab hf⟩
+    · rintro ⟨hg,ha,hb⟩
+      exact ⟨hg,hlo g hg a ha b hb⟩
+  intro X Y
+  constructor
+  · intro hd
+    exact (hfull X Y).mp (hmono _ _ (hle X Y) hd)
+  · rintro ⟨a,ha,b,hb,hab⟩
+    have hd : D (actualSet f G {a} {b}) := (hfull {a} {b}).mpr
+      ⟨a,by simp,b,by simp,hab⟩
+    rw [hpeq a b hab] at hd
+    apply hmono _ _ _ hd
+    intro g hg
+    obtain ⟨hgG,hag,hbg⟩ := (mem_atomSet_singletons A B G a b g).mp hg
+    exact (mem_atomSet A B G X Y g).mpr ⟨hgG,g,by simp,a,hag,b,hbg,ha,hb⟩
+
+/-- Positive-edge agreement suffices for the matching bound and full-atom safety at saturation. -/
+lemma matching_card_le_atoms_of_positive_hulls {p l : ℕ} {ι : Type*}
+    (E M : Finset (Fin p × Fin l)) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ d ∈ M, e.1 = d.1 → e = d)
+    (hright : ∀ e ∈ M, ∀ d ∈ M, e.2 = d.2 → e = d)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (G : Finset ι)
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop)
+    (hfmono : ∀ g ∈ G, ∀ X Y X' Y', X ⊆ X' → Y ⊆ Y' → f g X Y → f g X' Y')
+    (hlo : ∀ g ∈ G, ∀ a ∈ A g, ∀ b ∈ B g, f g {a} {b})
+    (hpos : ∀ g ∈ G, ∀ a b, (a,b) ∈ E → f g {a} {b} → a ∈ A g ∧ b ∈ B g)
+    (D : Finset ι → Prop) (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (actualSet f G X Y) ↔ EdgeAccept E X Y) :
+    M.card ≤ G.card ∧ (M.card = G.card →
+      (∀ V, V ⊆ G → (D V ↔ V.Nonempty)) ∧
+      (∀ g ∈ G, ∀ X Y, f g X Y → EdgeAccept E X Y)) := by
+  classical
+  have hhull := positive_pair_hull_reduction E A B G f hfmono hlo hpos D hmono hfull
+  obtain ⟨hle,hsat⟩ := matching_card_le_atoms_and_saturation E M hME hleft hright
+    hC4 A B G D hmono hhull
+  refine ⟨hle,?_⟩
+  intro heq
+  obtain ⟨hdecode,_⟩ := hsat heq
+  refine ⟨hdecode,?_⟩
+  intro g hg X Y hf
+  have hsub : actualSet f G X Y ⊆ G := by
+    intro i hi
+    exact ((mem_actualSet f G X Y i).mp hi).1
+  have hnonempty : (actualSet f G X Y).Nonempty :=
+    ⟨g,(mem_actualSet f G X Y g).mpr ⟨hg,hf⟩⟩
+  exact (hfull X Y).mp ((hdecode _ hsub).mpr hnonempty)
+
+end PEqualNP.Outside.L_meta_4970.RectangleHull
+
+namespace PEqualNP.Outside.L_meta_4970.CircuitAtomInputs
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_4970_aux
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+open PEqualNP.Outside.L_meta_4970.RectangleHull
+
+def inputOfSets {p l : ℕ} (X : Finset (Fin p)) (Y : Finset (Fin l)) : Fin (p+l) → Bool :=
+  Fin.addCases (fun a => decide (a ∈ X)) (fun b => decide (b ∈ Y))
+
+lemma inputOfSets_left {p l : ℕ} (X : Finset (Fin p)) (Y : Finset (Fin l)) (a : Fin p) :
+    inputOfSets X Y (Fin.castAdd l a) = decide (a ∈ X) := by simp [inputOfSets]
+
+lemma inputOfSets_right {p l : ℕ} (X : Finset (Fin p)) (Y : Finset (Fin l)) (b : Fin l) :
+    inputOfSets X Y (Fin.natAdd p b) = decide (b ∈ Y) := by simp [inputOfSets]
+
+lemma inputOfSets_mono {p l : ℕ} (X X' : Finset (Fin p)) (Y Y' : Finset (Fin l))
+    (hX : X ⊆ X') (hY : Y ⊆ Y') : inputOfSets X Y ≤ inputOfSets X' Y' := by
+  intro i
+  refine Fin.addCases (fun a => ?_) (fun b => ?_) i
+  · rw [inputOfSets_left,inputOfSets_left]
+    apply Bool.le_iff_imp.mpr
+    simp only [decide_eq_true_eq]
+    exact fun h => hX h
+  · rw [inputOfSets_right,inputOfSets_right]
+    apply Bool.le_iff_imp.mpr
+    simp only [decide_eq_true_eq]
+    exact fun h => hY h
+
+lemma wireFn_sets_mono {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (w : ℕ) (X X' : Finset (Fin p)) (Y Y' : Finset (Fin l))
+    (hX : X ⊆ X') (hY : Y ⊆ Y')
+    (h : wireFn (p+l) C w (inputOfSets X Y) = true) :
+    wireFn (p+l) C w (inputOfSets X' Y') = true := by
+  exact Bool.le_iff_imp.mp ((wireFn_mono (p+l) C hC w) (inputOfSets_mono X X' Y Y' hX hY)) h
+
+lemma full_graph_on_sets {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hF : ∀ x : Fin (p+l) → Bool, circuitFun (p+l) C x =
+      decide (∃ a b, (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) :
+    ∀ X Y, circuitFun (p+l) C (inputOfSets X Y) = true ↔ EdgeAccept E X Y := by
+  intro X Y
+  rw [hF]
+  simp only [decide_eq_true_eq,inputOfSets_left,inputOfSets_right]
+  constructor
+  · rintro ⟨a,b,he,ha,hb⟩
+    exact ⟨a,ha,b,hb,he⟩
+  · rintro ⟨a,ha,b,hb,he⟩
+    exact ⟨a,b,he,ha,hb⟩
+
+end PEqualNP.Outside.L_meta_4970.CircuitAtomInputs
+
+namespace PEqualNP.Outside.L_meta_4970.OrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open PEqualNP.EdgeOwnership PEqualNP.Outside.L_meta_4970_aux
+open PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+/-- AND gates reached by following only OR gates backwards from a wire. -/
+noncomputable def terminalAnds (n : ℕ) (C : Circuit) (w : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j =>
+    (gateAt C j).op = GateOp.and ∧ OrReaches n C w j
+
+lemma mem_terminalAnds (n : ℕ) (C : Circuit) (w j : ℕ) :
+    j ∈ terminalAnds n C w ↔ j < C.gates.length ∧
+      (gateAt C j).op = GateOp.and ∧ OrReaches n C w j := by
+  classical
+  simp [terminalAnds]
+
+lemma terminalAnds_input (n : ℕ) (C : Circuit) (w : ℕ) (hw : w < n) :
+    terminalAnds n C w = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro j hj
+  have hr := ((mem_terminalAnds n C w j).mp hj).2.2
+  have hn := (zqreach_bound n C w j hr).1
+  omega
+
+lemma terminalAnds_and (n : ℕ) (C : Circuit) (k : ℕ) (hk : k < C.gates.length)
+    (hand : (gateAt C k).op = GateOp.and) : terminalAnds n C (n+k) = {k} := by
+  classical
+  ext j
+  rw [mem_terminalAnds, Finset.mem_singleton]
+  constructor
+  · rintro ⟨_,_,hr⟩
+    rcases (zqreach_iff n C k j hk).mp hr with he | ⟨hor,_⟩
+    · exact he
+    · rw [hand] at hor
+      cases hor
+  · intro he
+    subst j
+    exact ⟨hk,hand,zqreach_self n C k hk⟩
+
+lemma terminalAnds_or (n : ℕ) (C : Circuit) (k a b : ℕ)
+    (hk : k < C.gates.length) (hor : (gateAt C k).op = GateOp.or)
+    (hab : (gateAt C k).inputs = [a,b]) (ha : a < n+k) (hb : b < n+k) :
+    terminalAnds n C (n+k) = terminalAnds n C a ∪ terminalAnds n C b := by
+  classical
+  ext j
+  rw [mem_terminalAnds, Finset.mem_union, mem_terminalAnds, mem_terminalAnds]
+  constructor
+  · rintro ⟨hj,hand,hr⟩
+    rcases (zqreach_iff n C k j hk).mp hr with he | ⟨_,w,hw,_,hrw⟩
+    · subst j
+      rw [hor] at hand
+      cases hand
+    · rw [hab, List.mem_cons, List.mem_singleton] at hw
+      rcases hw with rfl | rfl
+      · exact Or.inl ⟨hj,hand,hrw⟩
+      · exact Or.inr ⟨hj,hand,hrw⟩
+  · rintro (⟨hj,hand,hr⟩ | ⟨hj,hand,hr⟩)
+    · refine ⟨hj,hand,(zqreach_iff n C k j hk).mpr (Or.inr ⟨hor,a,?_,ha,hr⟩)⟩
+      simp [hab]
+    · refine ⟨hj,hand,(zqreach_iff n C k j hk).mpr (Or.inr ⟨hor,b,?_,hb,hr⟩)⟩
+      simp [hab]
+
+/-- Every positive wire evaluation is witnessed by a raw input or a terminal AND. -/
+lemma wireFn_true_iff_raw_or_terminal (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x : Fin n → Bool) :
+    ∀ w, w < n + C.gates.length →
+      (wireFn n C w x = true ↔
+        (∃ i ∈ orIn n C w, x i = true) ∨
+        ∃ j ∈ terminalAnds n C w, wireFn n C (n+j) x = true) := by
+  classical
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hin : w < n
+    · rw [wireFn_input n C w hin x, raw_input n C w hin,
+        terminalAnds_input n C w hin]
+      simp
+    · obtain ⟨k,rfl⟩ : ∃ k, w = n+k := ⟨w-n,by omega⟩
+      have hk : k < C.gates.length := by omega
+      obtain ⟨a,b,ha,hb,hab,hand | hor,heval⟩ := binary_gate n C hC k hk
+      · have hraw : orIn n C (n+k) = ∅ :=
+          raw_and_empty n C (n+k) (by omega) (by simpa using hand)
+        rw [hraw,terminalAnds_and n C k hk hand]
+        simp
+      · have hval : wireFn n C (n+k) x = true ↔
+            wireFn n C a x = true ∨ wireFn n C b x = true := by
+          rw [heval x,hor]
+          simp [GateOp.eval]
+        have hraw : orIn n C (n+k) = orIn n C a ∪ orIn n C b :=
+          zqorIn_or n C k a b hk hor hab ha hb
+        rw [hval,ih a ha (ha.trans hw),ih b hb (hb.trans hw),hraw,
+          terminalAnds_or n C k a b hk hor hab ha hb]
+        simp only [Finset.mem_union, or_and_right, exists_or]
+        constructor
+        · rintro ((ha | ha) | (hb | hb))
+          · exact Or.inl (Or.inl ha)
+          · exact Or.inr (Or.inl ha)
+          · exact Or.inl (Or.inr hb)
+          · exact Or.inr (Or.inr hb)
+        · rintro ((ha | hb) | (ha | hb))
+          · exact Or.inl (Or.inl ha)
+          · exact Or.inr (Or.inl hb)
+          · exact Or.inl (Or.inr ha)
+          · exact Or.inr (Or.inr hb)
+
+lemma wireFn_true_iff_raw_or_reached_and (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length) (x : Fin n → Bool) :
+    wireFn n C w x = true ↔
+      (∃ i ∈ orIn n C w, x i = true) ∨
+      ∃ j, j < C.gates.length ∧ (gateAt C j).op = GateOp.and ∧
+        OrReaches n C w j ∧ wireFn n C (n+j) x = true := by
+  rw [wireFn_true_iff_raw_or_terminal n C hC x w hw]
+  simp only [mem_terminalAnds, and_assoc]
+
+lemma wireFn_true_iff_terminal_of_raw_empty (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length) (hraw : orIn n C w = ∅)
+    (x : Fin n → Bool) :
+    wireFn n C w x = true ↔
+      ∃ j ∈ terminalAnds n C w, wireFn n C (n+j) x = true := by
+  simpa [hraw] using wireFn_true_iff_raw_or_terminal n C hC x w hw
+
+lemma raw_empty_of_singletonSupport_empty (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length)
+    (hss : singletonSupport n C w = ∅) : orIn n C w = ∅ := by
+  have hs := raw_subset_singletonSupport n C hC w hw
+  rw [hss] at hs
+  exact Finset.subset_empty.mp hs
+
+lemma wireFn_true_iff_terminal_of_singletonSupport_empty
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length)
+    (hss : singletonSupport n C w = ∅) (x : Fin n → Bool) :
+    wireFn n C w x = true ↔
+      ∃ j ∈ terminalAnds n C w, wireFn n C (n+j) x = true := by
+  exact wireFn_true_iff_terminal_of_raw_empty n C hC w hw
+    (raw_empty_of_singletonSupport_empty n C hC w hw hss) x
+
+lemma wireFn_eq_terminal_or_of_singletonSupport_empty
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length)
+    (hss : singletonSupport n C w = ∅) (x : Fin n → Bool) :
+    wireFn n C w x =
+      decide (∃ j ∈ terminalAnds n C w, wireFn n C (n+j) x = true) := by
+  classical
+  have he := wireFn_true_iff_terminal_of_singletonSupport_empty n C hC w hw hss x
+  cases hv : wireFn n C w x with
+  | false =>
+    have hn : ¬ ∃ j ∈ terminalAnds n C w, wireFn n C (n+j) x = true := by
+      intro h
+      have ht := he.mpr h
+      rw [hv] at ht
+      cases ht
+    simp [hn]
+  | true => simp [he.mp hv]
+
+end PEqualNP.Outside.L_meta_4970.OrFrontier
+
+
+namespace PEqualNP.Outside.L_meta_4970.OrFrontier
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+/-- Official OR reachability never moves to a later gate wire. -/
+lemma reached_index_le_wire (n : ℕ) (C : Circuit) :
+    ∀ w j, OrReaches n C w j → n+j ≤ w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro j hr
+    have hb := zqreach_bound n C w j hr
+    obtain ⟨k,rfl⟩ : ∃ k, w = n+k := ⟨w-n,by omega⟩
+    have hk : k < C.gates.length := by simpa using hb.2
+    rcases (zqreach_iff n C k j hk).mp hr with he | ⟨_,v,_,hv,hrv⟩
+    · subst j
+      exact Nat.le_refl _
+    · exact (ih v hv j hrv).trans (Nat.le_of_lt hv)
+
+lemma terminal_index_le_wire (n : ℕ) (C : Circuit) (w j : ℕ)
+    (hj : j ∈ terminalAnds n C w) : n+j ≤ w := by
+  exact reached_index_le_wire n C w j ((mem_terminalAnds n C w j).mp hj).2.2
+
+/-- A terminal AND contributes positively along its OR-only path to a valid wire. -/
+lemma terminal_true_implies_wire_true (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n + C.gates.length) (j : ℕ)
+    (hj : j ∈ terminalAnds n C w) (x : Fin n → Bool)
+    (ht : wireFn n C (n+j) x = true) : wireFn n C w x = true := by
+  exact (wireFn_true_iff_raw_or_terminal n C hC x w hw).mpr
+    (Or.inr ⟨j,hj,ht⟩)
+
+/-- An exact bipartite edge function is false on every singleton assignment. -/
+lemma output_singletonSupport_empty_of_edge_function {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hF : ∀ x : Fin (p+l) → Bool,
+      wireFn (p+l) C C.output x = decide (∃ (a : Fin p) (b : Fin l),
+        (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) :
+    singletonSupport (p+l) C C.output = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro i hi
+  have ht := (mem_singletonSupport (p+l) C C.output i).mp hi
+  rw [hF, decide_eq_true_eq] at ht
+  obtain ⟨a,b,_,ha,hb⟩ := ht
+  have hai : Fin.castAdd l a = i := by simpa using ha
+  have hbi : Fin.natAdd p b = i := by simpa using hb
+  exact castAdd_ne_natAdd a b (hai.trans hbi.symm)
+
+/-- Every output terminal AND semantically implies the target edge function. -/
+lemma terminal_true_implies_edge_function {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hF : ∀ x : Fin (p+l) → Bool,
+      wireFn (p+l) C C.output x = decide (∃ (a : Fin p) (b : Fin l),
+        (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (j : ℕ) (hj : j ∈ terminalAnds (p+l) C C.output)
+    (x : Fin (p+l) → Bool) (ht : wireFn (p+l) C (p+l+j) x = true) :
+    ∃ (a : Fin p) (b : Fin l),
+      (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true := by
+  have hb := zqreach_bound (p+l) C C.output j
+    ((mem_terminalAnds (p+l) C C.output j).mp hj).2.2
+  have hw : C.output < p+l+C.gates.length := by omega
+  have ho := terminal_true_implies_wire_true (p+l) C hC C.output hw j hj x ht
+  rw [hF, decide_eq_true_eq] at ho
+  exact ho
+
+/-- A nonzero exact edge output is the OR of its terminal AND frontier. -/
+lemma output_eq_terminal_or_of_edge_function {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hF : ∀ x : Fin (p+l) → Bool,
+      wireFn (p+l) C C.output x = decide (∃ (a : Fin p) (b : Fin l),
+        (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hE : E.Nonempty) (x : Fin (p+l) → Bool) :
+    wireFn (p+l) C C.output x =
+      decide (∃ j ∈ terminalAnds (p+l) C C.output,
+        wireFn (p+l) C (p+l+j) x = true) := by
+  exact wireFn_eq_terminal_or_of_singletonSupport_empty (p+l) C hC C.output
+    (output_valid_of_edge E C hF hE)
+    (output_singletonSupport_empty_of_edge_function E C hF) x
+
+lemma edge_function_iff_output_terminal {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hF : ∀ x : Fin (p+l) → Bool,
+      wireFn (p+l) C C.output x = decide (∃ (a : Fin p) (b : Fin l),
+        (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hE : E.Nonempty) (x : Fin (p+l) → Bool) :
+    (∃ (a : Fin p) (b : Fin l),
+      (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true) ↔
+    ∃ j ∈ terminalAnds (p+l) C C.output, wireFn (p+l) C (p+l+j) x = true := by
+  have h := wireFn_true_iff_terminal_of_singletonSupport_empty (p+l) C hC C.output
+    (output_valid_of_edge E C hF hE)
+    (output_singletonSupport_empty_of_edge_function E C hF) x
+  simpa only [hF, decide_eq_true_eq] using h
+
+end PEqualNP.Outside.L_meta_4970.OrFrontier
+
+namespace PEqualNP.Outside.L_meta_4970.CircuitAtomInputs
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_4970_aux
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+open PEqualNP.Outside.L_meta_4970.RectangleHull
+open PEqualNP.Outside.L_meta_4970.OrFrontier
+
+/-- Actual-circuit application of the hull bound. The inscribed rectangular hulls are explicit
+extra hypotheses; they do not follow merely from AO2, T0, served witnesses, or empty singletons. -/
+lemma matching_card_le_terminal_frontier_of_positive_hulls {p l : ℕ}
+    (E M : Finset (Fin p × Fin l)) (hE : E.Nonempty) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ d ∈ M, e.1 = d.1 → e = d)
+    (hright : ∀ e ∈ M, ∀ d ∈ M, e.2 = d.2 → e = d)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hF : ∀ x : Fin (p+l) → Bool, circuitFun (p+l) C x =
+      decide (∃ a b, (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (A : ℕ → Finset (Fin p)) (B : ℕ → Finset (Fin l))
+    (hlo : ∀ j ∈ terminalAnds (p+l) C C.output,
+      ∀ a ∈ A j, ∀ b ∈ B j,
+        wireFn (p+l) C (p+l+j) (inputOfSets {a} {b}) = true)
+    (hpos : ∀ j ∈ terminalAnds (p+l) C C.output,
+      ∀ a b, (a,b) ∈ E →
+        wireFn (p+l) C (p+l+j) (inputOfSets {a} {b}) = true → a ∈ A j ∧ b ∈ B j) :
+    M.card ≤ (terminalAnds (p+l) C C.output).card := by
+  classical
+  let G := terminalAnds (p+l) C C.output
+  let f : ℕ → Finset (Fin p) → Finset (Fin l) → Prop :=
+    fun j X Y => wireFn (p+l) C (p+l+j) (inputOfSets X Y) = true
+  have hfmono : ∀ j ∈ G, ∀ X Y X' Y', X ⊆ X' → Y ⊆ Y' → f j X Y → f j X' Y' := by
+    intro j _ X Y X' Y' hX hY hh
+    exact wireFn_sets_mono C hC (p+l+j) X X' Y Y' hX hY hh
+  have hF' : ∀ x : Fin (p+l) → Bool,
+      wireFn (p+l) C C.output x = decide (∃ a b,
+        (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true) := by
+    intro x
+    change circuitFun (p+l) C x = _
+    exact hF x
+  have hfull : ∀ X Y, (actualSet f G X Y).Nonempty ↔ EdgeAccept E X Y := by
+    intro X Y
+    have hout : circuitFun (p+l) C (inputOfSets X Y) = true ↔
+        ∃ j ∈ G, f j X Y := by
+      have hh := output_eq_terminal_or_of_edge_function E C hC hF' hE (inputOfSets X Y)
+      change circuitFun (p+l) C (inputOfSets X Y) = decide (∃ j ∈ G, f j X Y) at hh
+      rw [hh,decide_eq_true_eq]
+    have htarget := full_graph_on_sets E C hF X Y
+    constructor
+    · rintro ⟨j,hj⟩
+      obtain ⟨hg,hf⟩ := (mem_actualSet f G X Y j).mp hj
+      exact htarget.mp (hout.mpr ⟨j,hg,hf⟩)
+    · intro he
+      obtain ⟨j,hg,hf⟩ := hout.mp (htarget.mpr he)
+      exact ⟨j,(mem_actualSet f G X Y j).mpr ⟨hg,hf⟩⟩
+  have hmono : ∀ U V : Finset ℕ, U ⊆ V → U.Nonempty → V.Nonempty := by
+    intro U V hUV hU
+    obtain ⟨j,hj⟩ := hU
+    exact ⟨j,hUV hj⟩
+  exact (matching_card_le_atoms_of_positive_hulls E M hME hleft hright hC4
+    A B G f hfmono hlo hpos (fun V => V.Nonempty) hmono hfull).1
+
+end PEqualNP.Outside.L_meta_4970.CircuitAtomInputs
