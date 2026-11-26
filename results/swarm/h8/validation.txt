@@ -2,10 +2,10 @@ gap: L-meta-2373
 Scope: helper-only proof and research artifacts. The exact posted statement remains unproved.
 No PR opened; no desk lease requested or held.
 
-Lean validation: lake build PEqualNP.Outside.L_meta_2373 PASS (named target 7.7s).
-All 42 helper lemmas audited: only propext, Classical.choice, Quot.sound.
+Lean validation: lake build PEqualNP.Outside.L_meta_2373 PASS (fresh canonical build 9.80s).
+All 44 helper lemmas audited (42 original statements unchanged): only propext, Classical.choice, Quot.sound.
 Independent semantic, plain-file, optimized-checker, native-source, and portability reviews PASS.
-Proof source: 48761aebcbd437cd82624bfdfd8ea05d6a83a905aa5cd43f5a90fac82c37390f, 20999 bytes.
+Proof source: 885781ab5da7853c4cfd04cf95f73049af3589b1f94bcd0e0752db8788f8f86e, 21255 bytes.
 No Mathlib source build. Official cache fetched and independently checked before builds.
 
 Checked helper: the explicit 18-gate near-miss cannot compute Petersen after any <=3
@@ -46,7 +46,15 @@ preserve saved frontiers and wire equations byte-for-byte. Cap18 remains in prog
 Certificate18 work is separate and incomplete. Generic one-step, collision, paidpool,
 projection, and symmetry transport proofs compile and pass independent review;
 no assembled finite certificate or unconditional18binary floor is claimed here.
-The named Lean helper file is unchanged from the prior successful build and axiom audit.
+The named helper preserves all42 original statements; two local reflexive lemmas
+remove imported lazy-equation exports. Fresh canonical build and44-lemma axiom audit PASS.
+Actual module-data audit:116kerneldeclarations, ZEROforeignkerneldeclarations.
+The142compiler-onlyextra names are recorded separately, includinglibrary-prefixed
+specializations attributed tolocaldefinitions.
+Complete namespace/build evidence is in export-audit/.
+Ride-along refactor: local reflexive equations avoid redundant lazy equation exports;
+normal full-proof checking already handles identical imported theorem duplicates.
+This cleanup is not evidence of an earlier full-proof checker rejection.
 Frozen native snapshots retain their exact reviewed hashes; git diff --check reports
 three cosmetic whitespace warnings in those snapshots (two trailing spaces, one final blank line).
 
@@ -76,4 +84,4 @@ in8.99/4.59/3.60/4.07/2.44seconds. Completefamily remains unproved.
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=94.7 subagents=8
+TIMING total=105.8 subagents=8

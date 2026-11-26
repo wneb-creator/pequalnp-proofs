@@ -1,0 +1,14 @@
+[
+  {
+    "audit": "exports",
+    "exit_code": 0,
+    "seconds": 2.071931475999918,
+    "peak_rss_kib": 3292504
+  },
+  {
+    "audit": "axioms",
+    "exit_code": 0,
+    "seconds": 1.566744949999702,
+    "peak_rss_kib": 3292504
+  }
+]

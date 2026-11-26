@@ -1,0 +1,11 @@
+{
+  "old_lemmas": 42,
+  "new_lemmas": [
+    "PEqualNP.Outside.L_meta_2373_aux.Repair.not_eval",
+    "PEqualNP.Outside.L_meta_2373_aux.Repair.fanInTwo_iff"
+  ],
+  "changed_original_statements": [],
+  "before_sha256": "48761aebcbd437cd82624bfdfd8ea05d6a83a905aa5cd43f5a90fac82c37390f",
+  "after_sha256": "885781ab5da7853c4cfd04cf95f73049af3589b1f94bcd0e0752db8788f8f86e",
+  "new_lemma_count": 44
+}
