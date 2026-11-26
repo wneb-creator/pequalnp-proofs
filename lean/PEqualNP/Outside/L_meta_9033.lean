@@ -179,4 +179,115 @@ theorem core_two_avoiding_negatives_exclusions : ∀ support : Fin 256,
     support.val ≠ 120 ∧ support.val ≠ 248 := by
   decide +kernel
 
+namespace BcofactorClassification
+
+def coreUnion (s g : Nat) : Nat :=
+  (if s.testBit 0 then 2863311530 else 0) |||
+  (if s.testBit 1 then 3435973836 else 0) |||
+  (if s.testBit 2 then 4042322160 else 0) |||
+  (if s.testBit 3 then 4278255360 else 0) |||
+  (if s.testBit 4 then 4294901760 else 0) |||
+  (if s.testBit 5 then g else 0)
+
+def singletonMask (value : Nat) : Nat :=
+  (if value.testBit 1 then 1 else 0) |||
+  (if value.testBit 2 then 2 else 0) |||
+  (if value.testBit 4 then 4 else 0) |||
+  (if value.testBit 8 then 8 else 0) |||
+  (if value.testBit 16 then 16 else 0)
+
+def upperTarget : Nat := 4277862138
+def coreTarget : Nat := 4276813024
+def exceptionalF : Nat := 4243651824
+
+def sevenShapes : List Nat :=
+  [4004179626, 4008373994, 4243651824, 4244176120,
+    4272619178, 4277206768, 4277862138]
+
+def rawAnd (p q : Nat) : Nat := coreUnion p 0 &&& coreUnion q 0
+
+theorem raw_and_seven_shapes : ∀ p q : Fin 32,
+    rawAnd p.val q.val &&& upperTarget = rawAnd p.val q.val →
+    (rawAnd p.val q.val).testBit 10 = true →
+    singletonMask (rawAnd p.val q.val) ≠ 0 →
+    rawAnd p.val q.val ∈ sevenShapes := by
+  decide +kernel
+
+def HClassification (g : Nat) : Prop := ∀ p q : Fin 64,
+  let l := coreUnion p.val g
+  let r := coreUnion q.val g
+  (l &&& r) &&& upperTarget = coreTarget →
+  singletonMask (l &&& r) = 0 →
+  g = exceptionalF ∧
+    ((singletonMask l = 11 ∧ singletonMask r = 20) ∨
+      (singletonMask l = 20 ∧ singletonMask r = 11))
+
+theorem h_classification_0 : HClassification 4004179626 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_1 : HClassification 4008373994 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_2 : HClassification 4243651824 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_3 : HClassification 4244176120 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_4 : HClassification 4272619178 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_5 : HClassification 4277206768 := by
+  unfold HClassification
+  decide +kernel
+theorem h_classification_6 : HClassification 4277862138 := by
+  unfold HClassification
+  decide +kernel
+
+theorem h_classification (g : Nat) (hg : g ∈ sevenShapes) : HClassification g := by
+  simp [sevenShapes] at hg
+  rcases hg with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact h_classification_0
+  · exact h_classification_1
+  · exact h_classification_2
+  · exact h_classification_3
+  · exact h_classification_4
+  · exact h_classification_5
+  · exact h_classification_6
+
+theorem exceptionalF_raw_ports : ∀ p q : Fin 32,
+    rawAnd p.val q.val = exceptionalF →
+    (p.val = 6 ∧ q.val = 12) ∨ (p.val = 12 ∧ q.val = 6) := by
+  decide +kernel
+
+theorem seven_required_nonatom_masks :
+    ({5, 6, 11, 12, 18, 20, 24} : Finset Nat).card = 7 ∧
+    Disjoint ({5, 6, 11, 12, 18, 20, 24} : Finset Nat)
+      ({0, 1, 2, 4, 8, 16, 32} : Finset Nat) := by
+  decide +kernel
+
+theorem no_six_mask_budget (p q : Fin 32) (u w : Fin 64)
+    (hbelow : rawAnd p.val q.val &&& upperTarget = rawAnd p.val q.val)
+    (hedge : (rawAnd p.val q.val).testBit 10 = true)
+    (hnonzero : singletonMask (rawAnd p.val q.val) ≠ 0)
+    (htarget : (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) &&& upperTarget = coreTarget)
+    (hzero : singletonMask (coreUnion u.val (rawAnd p.val q.val) &&&
+      coreUnion w.val (rawAnd p.val q.val)) = 0)
+    (hbudget : (({p.val, q.val, singletonMask (coreUnion u.val (rawAnd p.val q.val)),
+        singletonMask (coreUnion w.val (rawAnd p.val q.val)), 5, 18, 24} : Finset Nat) \
+      {0, 1, 2, 4, 8, 16, 32, singletonMask (rawAnd p.val q.val)}).card ≤ 6) : False := by
+  have hgmem := raw_and_seven_shapes p q hbelow hedge hnonzero
+  obtain ⟨hg, hports⟩ := h_classification (rawAnd p.val q.val) hgmem u w htarget hzero
+  have hraw := exceptionalF_raw_ports p q hg
+  have hsing : singletonMask (rawAnd p.val q.val) = 4 := by
+    rw [hg]
+    decide +kernel
+  rcases hraw with ⟨hp, hq⟩ | ⟨hp, hq⟩ <;>
+    rcases hports with ⟨hl, hr⟩ | ⟨hl, hr⟩ <;>
+    rw [hl, hr, hsing, hp, hq] at hbudget <;>
+    exact absurd hbudget (by decide +kernel)
+
+end BcofactorClassification
+
 end PEqualNP.Outside.L_meta_9033_aux
