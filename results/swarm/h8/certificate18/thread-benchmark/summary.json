@@ -1,0 +1,124 @@
+{
+  "status": "PASS both fresh-process proof checks; no observed speedup from -j4",
+  "nodes": [
+    4992,
+    4993,
+    4994,
+    4995,
+    4996,
+    4997,
+    4998,
+    4999,
+    5000,
+    5001,
+    5002,
+    5003,
+    5004,
+    5005,
+    5006,
+    5007
+  ],
+  "independent_lemmas": 4,
+  "nodes_per_lemma": 4,
+  "import": "PackedDirect only; no previously proved range module imported",
+  "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+  "packed_direct_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+  "runs": [
+    {
+      "threads": 1,
+      "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+      "packed_direct_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+      "command": [
+        "python3",
+        "/tmp/oec/pnp-swarm-2373-8/lean-run.py",
+        "-j1",
+        "-M7500",
+        "--profile",
+        "/tmp/oec/pnp-swarm-2373-8/fullprobe/thread-benchmark/ThreadBench.lean"
+      ],
+      "started_utc": "2026-11-26T02:16:03.502767+00:00",
+      "wall_seconds": 19.548808310999448,
+      "user_seconds": 18.041673,
+      "system_seconds": 1.199397,
+      "peak_rss_KiB": 3645768,
+      "exit_code": 0,
+      "stopped_for_memory": false,
+      "memory_before": {
+        "current": 7257657344,
+        "limit": 17179869184,
+        "anon": 65462272,
+        "file": 6791315456,
+        "kernel": 400080896,
+        "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+      },
+      "memory_after": {
+        "current": 7187480576,
+        "limit": 17179869184,
+        "anon": 65536000,
+        "file": 6721601536,
+        "kernel": 399618048,
+        "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+      },
+      "peak_sampled_cgroup_bytes": 8292306944,
+      "cpu_quota": "400000 100000",
+      "other_lean_processes_before": "  20997     0    4970 lean\n  28540     0     497 lean\n",
+      "output_artifacts": "None; no -o was supplied. Proofs checked in a fresh process."
+    },
+    {
+      "threads": 4,
+      "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+      "packed_direct_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+      "command": [
+        "python3",
+        "/tmp/oec/pnp-swarm-2373-8/lean-run.py",
+        "-j4",
+        "-M7500",
+        "--profile",
+        "/tmp/oec/pnp-swarm-2373-8/fullprobe/thread-benchmark/ThreadBench.lean"
+      ],
+      "started_utc": "2026-11-26T02:16:40.753898+00:00",
+      "wall_seconds": 19.80021117999968,
+      "user_seconds": 18.278604,
+      "system_seconds": 1.323458,
+      "peak_rss_KiB": 3651120,
+      "exit_code": 0,
+      "stopped_for_memory": false,
+      "memory_before": {
+        "current": 7107334144,
+        "limit": 17179869184,
+        "anon": 65466368,
+        "file": 6641823744,
+        "kernel": 399290368,
+        "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+      },
+      "memory_after": {
+        "current": 7107444736,
+        "limit": 17179869184,
+        "anon": 65626112,
+        "file": 6641840128,
+        "kernel": 399331328,
+        "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+      },
+      "peak_sampled_cgroup_bytes": 8154112000,
+      "cpu_quota": "400000 100000",
+      "other_lean_processes_before": "  20997     0    5007 lean\n  28540     0     535 lean\n",
+      "output_artifacts": "None; no -o was supplied. Proofs checked in a fresh process."
+    }
+  ],
+  "j1_wall_over_j4_wall": 0.9873030208256478,
+  "average_cpu_equivalents": [
+    0.9842579503515673,
+    0.9899925723923677
+  ],
+  "conclusion": "This single paired sample shows essentially equal wall time and approximately one CPU equivalent for both settings. It does not support a claim that -j4 accelerates these independent decide +kernel declarations.",
+  "limitations": [
+    "One sequential pair only; no statistical speedup claim.",
+    "Driver samples completion every0.25 seconds, so recorded wall time includes up to one polling interval.",
+    "Host runs inside a four-CPU quota and16-GiB cgroup; imported files were already cached.",
+    "Earlier Lean workers ended before either measured launch; receipts contain only zero-RSS zombie entries. No active concurrent Lean worker was observed during these two samples.",
+    "No general statement about other Lean code or parallelization strategies follows."
+  ],
+  "no_new_memory_events": true,
+  "no_olean_output": true,
+  "production_changes": false
+}

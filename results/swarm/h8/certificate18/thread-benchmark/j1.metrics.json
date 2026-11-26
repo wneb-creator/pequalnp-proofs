@@ -1,0 +1,40 @@
+{
+  "threads": 1,
+  "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+  "packed_direct_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+  "command": [
+    "python3",
+    "/tmp/oec/pnp-swarm-2373-8/lean-run.py",
+    "-j1",
+    "-M7500",
+    "--profile",
+    "/tmp/oec/pnp-swarm-2373-8/fullprobe/thread-benchmark/ThreadBench.lean"
+  ],
+  "started_utc": "2026-11-26T02:16:03.502767+00:00",
+  "wall_seconds": 19.548808310999448,
+  "user_seconds": 18.041673,
+  "system_seconds": 1.199397,
+  "peak_rss_KiB": 3645768,
+  "exit_code": 0,
+  "stopped_for_memory": false,
+  "memory_before": {
+    "current": 7257657344,
+    "limit": 17179869184,
+    "anon": 65462272,
+    "file": 6791315456,
+    "kernel": 400080896,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+  },
+  "memory_after": {
+    "current": 7187480576,
+    "limit": 17179869184,
+    "anon": 65536000,
+    "file": 6721601536,
+    "kernel": 399618048,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0"
+  },
+  "peak_sampled_cgroup_bytes": 8292306944,
+  "cpu_quota": "400000 100000",
+  "other_lean_processes_before": "  20997     0    4970 lean\n  28540     0     497 lean\n",
+  "output_artifacts": "None; no -o was supplied. Proofs checked in a fresh process."
+}

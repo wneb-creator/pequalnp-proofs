@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "reviewer": "independent lean_setup agent",
+  "reviewed_utc": "2026-11-26T02:29:56.793642+00:00",
+  "failures": [],
+  "scope": "optional thread benchmark publication, source findings and limits",
+  "payload_files": 18,
+  "package_bytes_identical_to_scratch": true,
+  "review_files_identical_to_scratch": true,
+  "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+  "paired_samples": 1,
+  "wall_seconds": [
+    19.548808310999448,
+    19.80021117999968
+  ],
+  "cpu_equivalents": [
+    0.9842579503515673,
+    0.9899925723923677
+  ],
+  "source_reference_hashes_checked": 12,
+  "recursive_checksums": [
+    {
+      "file": "results/swarm/h8/certificate18/SHA256SUMS",
+      "entries": 281
+    },
+    {
+      "file": "results/swarm/h8/certificate18/collision-audit/SHA256SUMS",
+      "entries": 11
+    },
+    {
+      "file": "results/swarm/h8/certificate18/thread-benchmark/SHA256SUMS",
+      "entries": 18
+    },
+    {
+      "file": "results/swarm/h8/export-audit/SHA256SUMS",
+      "entries": 20
+    },
+    {
+      "file": "results/swarm/h8/full-signed/SHA256SUMS",
+      "entries": 191
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/SHA256SUMS",
+      "entries": 107
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/compact/SHA256SUMS",
+      "entries": 23
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/hash/SHA256SUMS",
+      "entries": 22
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-result/SHA256SUMS",
+      "entries": 11
+    }
+  ],
+  "verified_qualifications": [
+    "one paired sample only; no observed speedup, no general slowdown conclusion",
+    "other Lean worker observation only at launch, not continuous",
+    "completion polling contributes up to one polling interval",
+    "installed Decide invokes synchronous auxiliary kernel check",
+    "CheckLemma replays project constants; installed Replay serially visits declarations and calls addDeclCore",
+    "check-lean wrapper supplies its verifier invocation a separate30-minute timeout",
+    "no complete single-file runtime or timeout result claimed"
+  ],
+  "source_inspected": [
+    "Lean/Elab/Tactic/Decide.lean117-130",
+    "Lean/Meta/Tactic/AuxLemma.lean43-64",
+    "Lean/Replay.lean59-62,74-98,138-140,176-190",
+    "lean/CheckLemma.lean408-419",
+    "tools/check-lean.mjs58,147-153,205"
+  ],
+  "limitation": "No Lean process or performance measurement was run during this independent publication review."
+}

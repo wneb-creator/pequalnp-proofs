@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS with launch-only worker observation caveat",
+  "reviewer": "root; experiment authored by full_probe",
+  "hashes_checked": 18,
+  "source_sha256": "68ac44b8a80f48efd73636ec06b725dda00c99ba80f5f21f2a3f877c44b9533a",
+  "source_review": "Four independent four-node kernel checks; only PackedDirect imported; no previously proved range imported.",
+  "metrics_review": "Both fresh sequential launches exit0; identical source and arguments except threads; complete streams; CPU and RSS from wait4; wall includes <=0.25s polling. Memory event counters unchanged.",
+  "scope": "One paired sample, no observed speedup, not a general slowdown claim. Worker-state evidence is sampled at launch, not continuously.",
+  "kernel_scheduling_review": "Root independently inspected cited Decide.lean, CheckLemma.lean, Replay.lean and check-lean.mjs lines. The verifier sequentially rechecks project constants under its own 30 minute timeout. No whole-file timeout experiment claimed.",
+  "files": [
+    "README.md",
+    "ThreadBench.lean",
+    "j1-driver.stderr",
+    "j1-driver.stdout",
+    "j1.memory.json",
+    "j1.metrics.json",
+    "j1.stderr",
+    "j1.stdout",
+    "j4-driver.stderr",
+    "j4-driver.stdout",
+    "j4.memory.json",
+    "j4.metrics.json",
+    "j4.stderr",
+    "j4.stdout",
+    "lean-help.stderr",
+    "lean-help.stdout",
+    "run_one.py",
+    "summary.json"
+  ]
+}

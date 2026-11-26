@@ -1,0 +1,146 @@
+{
+  "conclusion": "No source-backed plain-file threading fix identified. The all5230-node single-file30-minute checker budget remains materially unresolved.",
+  "findings": [
+    {
+      "topic": "Theorem scheduling",
+      "detail": "Installed MutualDef already launches eligible independent theorem bodies as tasks when Elab.async is enabled; CLI defaults that option to true. Simply adding threads therefore does not introduce a missing scheduling feature."
+    },
+    {
+      "topic": "Dominant kernel work",
+      "detail": "decide +kernel creates a checked auxiliary theorem under Elab.async=false. Kernel environments enforce linear declaration addition and force predecessor tasks on access. This explains why concurrent body elaboration does not overlap the dominant kernel reductions in the measured module."
+    },
+    {
+      "topic": "Parallel subgoals",
+      "detail": "all_goals loops sequentially. TacticM.par exists as a metaprogramming task API but returns saved branch states and restores the initial state; its task machinery replaces rather than merges states. It is not an automatic independent-goal proof/environment merger. Environment.replayConsts safely merges by sending declarations back through the kernel."
+    },
+    {
+      "topic": "Plain-file restrictions",
+      "detail": "New elab/syntax/macro commands and changing Elab.async as a file option are outside the documented plain-file rules. No existing compliant parallel-subgoal tactic that removes kernel replay cost was identified. This is not a claim that every conceivable custom metaprogram is impossible."
+    },
+    {
+      "topic": "Verifier replay",
+      "detail": "CheckLemma explicitly replays all project constants on a pinned environment. Installed Kernel.Environment.replay invokes addDeclCore sequentially, recursively visiting dependencies in one state. The wrapper gives the verifier its own30-minute timeout. Compiled auxiliary proof caches do not eliminate this fresh replay."
+    },
+    {
+      "topic": "Measured evidence",
+      "detail": "Identical16-node/four-lemma module: -j1 wall19.55s versus -j4 wall19.80s, CPU/wall0.984/0.990. Both passed. This supports no observed benefit for this workload, not a theorem that every5230-node implementation must exceed the timeout."
+    }
+  ],
+  "references": [
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Elab/Tactic/Decide.lean",
+      "lines": [
+        117,
+        129,
+        130
+      ],
+      "sha256": "6773f54ca73ee7405a91c5ffb3b827db4ecdbb22b28a494cf5e2fe8ac224c4b3"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Meta/Tactic/AuxLemma.lean",
+      "lines": [
+        43,
+        60,
+        64
+      ],
+      "sha256": "a48e1a8c42503bf86f0edc9682ab95eb628f6f5608fcb3a3a80abb9b8e6c3c88"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Elab/MutualDef.lean",
+      "lines": [
+        1237,
+        1317,
+        1338
+      ],
+      "sha256": "4a7931aa49ff563b97d5a062bb3e8202c56f411cec97b456e5ffe734e6afbce8"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Environment.lean",
+      "lines": [
+        35,
+        47,
+        731,
+        2907,
+        2971
+      ],
+      "sha256": "e7b97a029388b84c3f69c58e8df9e30064415e34a863781e1843e8c6c15e0e8f"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/AddDecl.lean",
+      "lines": [
+        181,
+        184,
+        189,
+        200
+      ],
+      "sha256": "3f2b3533d8cb6bf37ec3d8de79cc0b187c1aa12742aaad1903d231429fe8b676"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Elab/Tactic/BuiltinTactic.lean",
+      "lines": [
+        229,
+        233
+      ],
+      "sha256": "282dd39ef01c6134c92cf2bf1065ab76a825e57e76db6db22bc1c12d01ac8c78"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Elab/Parallel.lean",
+      "lines": [
+        601,
+        611,
+        613,
+        624
+      ],
+      "sha256": "3420e8f0a844f1678398e58685a179566ff8c84801e246bb96eab6d9637a3382"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Elab/Task.lean",
+      "lines": [
+        48,
+        62,
+        125
+      ],
+      "sha256": "52c9646dfc92d6dac6f626ca6bad8dd4f4c19a88058232ebde5af6d1202e5cae"
+    },
+    {
+      "file": "/tmp/oec/pnp-swarm-2373-8/lean-4.36.0-linux/src/lean/Lean/Replay.lean",
+      "lines": [
+        59,
+        97,
+        138,
+        176,
+        186
+      ],
+      "sha256": "251ed00e1cedd95c5d1fc4104ac191beb1de618abbc2fc49319ff0e37d139329"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/lean/CheckLemma.lean",
+      "lines": [
+        408,
+        413,
+        417
+      ],
+      "sha256": "86997b026ef2b80d738df77f4c214166cf5b0b2ea8cc98d4bd3c8b5e420dbdd5"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/tools/check-lean.mjs",
+      "lines": [
+        58,
+        147,
+        153,
+        205
+      ],
+      "sha256": "c8fc4b209e678f76adc3cf4e988be55675ef9384e44cd388203c95c6afb68846"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/CONTRIBUTING.md",
+      "lines": [
+        50,
+        54,
+        62
+      ],
+      "sha256": "a9746119eae5d543b52fabcb19110e77a661957a827ae2fc21de0f5a0274da40"
+    }
+  ],
+  "scope": "Read-only installed source inspection; no experiments, production edits, new dependencies or network calls."
+}

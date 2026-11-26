@@ -1,0 +1,704 @@
+[
+  {
+    "current": 7257825280,
+    "limit": 17179869184,
+    "anon": 65499136,
+    "file": 6791315456,
+    "kernel": 400269312,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 0.0005550040004891343
+  },
+  {
+    "current": 7298838528,
+    "limit": 17179869184,
+    "anon": 82968576,
+    "file": 6791434240,
+    "kernel": 423669760,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 0.2509362170003442
+  },
+  {
+    "current": 7341801472,
+    "limit": 17179869184,
+    "anon": 86843392,
+    "file": 6791434240,
+    "kernel": 462974976,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 0.5013852120009687
+  },
+  {
+    "current": 7408910336,
+    "limit": 17179869184,
+    "anon": 130891776,
+    "file": 6791434240,
+    "kernel": 486047744,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 0.7518165199999203
+  },
+  {
+    "current": 7444824064,
+    "limit": 17179869184,
+    "anon": 166547456,
+    "file": 6791434240,
+    "kernel": 486313984,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 1.002261097999508
+  },
+  {
+    "current": 7455137792,
+    "limit": 17179869184,
+    "anon": 176582656,
+    "file": 6791434240,
+    "kernel": 486379520,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 1.2526925559996016
+  },
+  {
+    "current": 7482400768,
+    "limit": 17179869184,
+    "anon": 203866112,
+    "file": 6791434240,
+    "kernel": 486436864,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 1.5031289520011342
+  },
+  {
+    "current": 7522246656,
+    "limit": 17179869184,
+    "anon": 243724288,
+    "file": 6791438336,
+    "kernel": 486514688,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 1.753545507999661
+  },
+  {
+    "current": 7598006272,
+    "limit": 17179869184,
+    "anon": 319242240,
+    "file": 6791438336,
+    "kernel": 486653952,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 2.0039693849994364
+  },
+  {
+    "current": 7663280128,
+    "limit": 17179869184,
+    "anon": 382824448,
+    "file": 6791438336,
+    "kernel": 486789120,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 2.254381615000966
+  },
+  {
+    "current": 7726194688,
+    "limit": 17179869184,
+    "anon": 445747200,
+    "file": 6791438336,
+    "kernel": 486912000,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 2.504797139999937
+  },
+  {
+    "current": 7787274240,
+    "limit": 17179869184,
+    "anon": 506572800,
+    "file": 6791438336,
+    "kernel": 487030784,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 2.755227019999438
+  },
+  {
+    "current": 7843897344,
+    "limit": 17179869184,
+    "anon": 563200000,
+    "file": 6791438336,
+    "kernel": 487141376,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 3.005640031000439
+  },
+  {
+    "current": 7913365504,
+    "limit": 17179869184,
+    "anon": 632414208,
+    "file": 6791438336,
+    "kernel": 487276544,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 3.256066963000194
+  },
+  {
+    "current": 7951114240,
+    "limit": 17179869184,
+    "anon": 670167040,
+    "file": 6791438336,
+    "kernel": 487350272,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 3.506503017999421
+  },
+  {
+    "current": 8012193792,
+    "limit": 17179869184,
+    "anon": 730996736,
+    "file": 6791438336,
+    "kernel": 487469056,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 3.7569156310000835
+  },
+  {
+    "current": 8073011200,
+    "limit": 17179869184,
+    "anon": 791822336,
+    "file": 6791438336,
+    "kernel": 487591936,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 4.007378479000181
+  },
+  {
+    "current": 8129896448,
+    "limit": 17179869184,
+    "anon": 848453632,
+    "file": 6791438336,
+    "kernel": 487702528,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 4.257801858000676
+  },
+  {
+    "current": 8186519552,
+    "limit": 17179869184,
+    "anon": 905080832,
+    "file": 6791438336,
+    "kernel": 487813120,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 4.508237271000326
+  },
+  {
+    "current": 8241307648,
+    "limit": 17179869184,
+    "anon": 959700992,
+    "file": 6791438336,
+    "kernel": 487919616,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 4.758675651999511
+  },
+  {
+    "current": 8245501952,
+    "limit": 17179869184,
+    "anon": 963907584,
+    "file": 6791438336,
+    "kernel": 487927808,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 5.0091039540002384
+  },
+  {
+    "current": 8245501952,
+    "limit": 17179869184,
+    "anon": 963907584,
+    "file": 6791438336,
+    "kernel": 487927808,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 5.2595588700005464
+  },
+  {
+    "current": 8245501952,
+    "limit": 17179869184,
+    "anon": 963907584,
+    "file": 6791438336,
+    "kernel": 487927808,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 5.509979509999539
+  },
+  {
+    "current": 8245501952,
+    "limit": 17179869184,
+    "anon": 960237568,
+    "file": 6791438336,
+    "kernel": 487923712,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 5.76044029500008
+  },
+  {
+    "current": 8256249856,
+    "limit": 17179869184,
+    "anon": 970940416,
+    "file": 6791438336,
+    "kernel": 488067072,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 6.010870034000618
+  },
+  {
+    "current": 8259919872,
+    "limit": 17179869184,
+    "anon": 974483456,
+    "file": 6791438336,
+    "kernel": 488071168,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 6.261319482000545
+  },
+  {
+    "current": 8259919872,
+    "limit": 17179869184,
+    "anon": 974487552,
+    "file": 6791438336,
+    "kernel": 488062976,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 6.511764834000132
+  },
+  {
+    "current": 7773495296,
+    "limit": 17179869184,
+    "anon": 489586688,
+    "file": 6791438336,
+    "kernel": 487145472,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 6.762197517000459
+  },
+  {
+    "current": 7832477696,
+    "limit": 17179869184,
+    "anon": 548306944,
+    "file": 6791438336,
+    "kernel": 487260160,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 7.012624901999516
+  },
+  {
+    "current": 7887003648,
+    "limit": 17179869184,
+    "anon": 602832896,
+    "file": 6791438336,
+    "kernel": 487366656,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 7.263076363000437
+  },
+  {
+    "current": 7931043840,
+    "limit": 17179869184,
+    "anon": 646873088,
+    "file": 6791438336,
+    "kernel": 487452672,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 7.5135480940007255
+  },
+  {
+    "current": 7990026240,
+    "limit": 17179869184,
+    "anon": 705593344,
+    "file": 6791438336,
+    "kernel": 487563264,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 7.763970357000289
+  },
+  {
+    "current": 8044552192,
+    "limit": 17179869184,
+    "anon": 760123392,
+    "file": 6791438336,
+    "kernel": 487669760,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 8.014435303000937
+  },
+  {
+    "current": 8103534592,
+    "limit": 17179869184,
+    "anon": 818843648,
+    "file": 6791438336,
+    "kernel": 487784448,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 8.264920143999916
+  },
+  {
+    "current": 8153866240,
+    "limit": 17179869184,
+    "anon": 869175296,
+    "file": 6791438336,
+    "kernel": 487874560,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 8.515395029000501
+  },
+  {
+    "current": 8206295040,
+    "limit": 17179869184,
+    "anon": 921604096,
+    "file": 6791438336,
+    "kernel": 487972864,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 8.765834923000511
+  },
+  {
+    "current": 8259248128,
+    "limit": 17179869184,
+    "anon": 974426112,
+    "file": 6791438336,
+    "kernel": 488071168,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 9.016263990999505
+  },
+  {
+    "current": 8263966720,
+    "limit": 17179869184,
+    "anon": 978968576,
+    "file": 6791438336,
+    "kernel": 488079360,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 9.266830623000715
+  },
+  {
+    "current": 8263966720,
+    "limit": 17179869184,
+    "anon": 978968576,
+    "file": 6791438336,
+    "kernel": 488079360,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 9.517253190000702
+  },
+  {
+    "current": 8263835648,
+    "limit": 17179869184,
+    "anon": 978968576,
+    "file": 6791438336,
+    "kernel": 488079360,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 9.767705542999465
+  },
+  {
+    "current": 8261738496,
+    "limit": 17179869184,
+    "anon": 975233024,
+    "file": 6791438336,
+    "kernel": 488046592,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 10.018132987999707
+  },
+  {
+    "current": 8292044800,
+    "limit": 17179869184,
+    "anon": 1005682688,
+    "file": 6791438336,
+    "kernel": 488103936,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 10.268663306000235
+  },
+  {
+    "current": 8292306944,
+    "limit": 17179869184,
+    "anon": 1005682688,
+    "file": 6791438336,
+    "kernel": 488103936,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 10.519104983000943
+  },
+  {
+    "current": 8292306944,
+    "limit": 17179869184,
+    "anon": 1005850624,
+    "file": 6791438336,
+    "kernel": 488095744,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 10.769549963999452
+  },
+  {
+    "current": 7770193920,
+    "limit": 17179869184,
+    "anon": 486068224,
+    "file": 6791438336,
+    "kernel": 487124992,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 11.019992712001113
+  },
+  {
+    "current": 7829176320,
+    "limit": 17179869184,
+    "anon": 544907264,
+    "file": 6791438336,
+    "kernel": 487239680,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 11.270463642000323
+  },
+  {
+    "current": 7883964416,
+    "limit": 17179869184,
+    "anon": 599543808,
+    "file": 6791438336,
+    "kernel": 487346176,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 11.520895423000184
+  },
+  {
+    "current": 7931674624,
+    "limit": 17179869184,
+    "anon": 647188480,
+    "file": 6791438336,
+    "kernel": 487432192,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 11.771432030000142
+  },
+  {
+    "current": 7988559872,
+    "limit": 17179869184,
+    "anon": 701779968,
+    "file": 6791438336,
+    "kernel": 487534592,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 12.021853758000361
+  },
+  {
+    "current": 8037056512,
+    "limit": 17179869184,
+    "anon": 752234496,
+    "file": 6791438336,
+    "kernel": 487632896,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 12.273063695000019
+  },
+  {
+    "current": 8096038912,
+    "limit": 17179869184,
+    "anon": 811155456,
+    "file": 6791438336,
+    "kernel": 487747584,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 12.523512772000686
+  },
+  {
+    "current": 8152662016,
+    "limit": 17179869184,
+    "anon": 867811328,
+    "file": 6791438336,
+    "kernel": 487841792,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 12.773932956000863
+  },
+  {
+    "current": 8196964352,
+    "limit": 17179869184,
+    "anon": 911863808,
+    "file": 6791438336,
+    "kernel": 487919616,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 13.024438528000246
+  },
+  {
+    "current": 8249655296,
+    "limit": 17179869184,
+    "anon": 964472832,
+    "file": 6791438336,
+    "kernel": 488022016,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 13.274906243001169
+  },
+  {
+    "current": 8266432512,
+    "limit": 17179869184,
+    "anon": 981307392,
+    "file": 6791438336,
+    "kernel": 488050688,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 13.527523108999958
+  },
+  {
+    "current": 8266432512,
+    "limit": 17179869184,
+    "anon": 981307392,
+    "file": 6791438336,
+    "kernel": 488050688,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 13.777913588999581
+  },
+  {
+    "current": 8266903552,
+    "limit": 17179869184,
+    "anon": 981377024,
+    "file": 6791438336,
+    "kernel": 488222720,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 14.02833570599978
+  },
+  {
+    "current": 8266903552,
+    "limit": 17179869184,
+    "anon": 977838080,
+    "file": 6791438336,
+    "kernel": 488050688,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 14.278732376000335
+  },
+  {
+    "current": 8273379328,
+    "limit": 17179869184,
+    "anon": 984317952,
+    "file": 6791438336,
+    "kernel": 488058880,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 14.529322603000765
+  },
+  {
+    "current": 8275738624,
+    "limit": 17179869184,
+    "anon": 986603520,
+    "file": 6791438336,
+    "kernel": 488054784,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 14.779727114000707
+  },
+  {
+    "current": 8275738624,
+    "limit": 17179869184,
+    "anon": 986603520,
+    "file": 6791438336,
+    "kernel": 488054784,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 15.030181760001142
+  },
+  {
+    "current": 7743049728,
+    "limit": 17179869184,
+    "anon": 458821632,
+    "file": 6791438336,
+    "kernel": 487084032,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 15.280627883999841
+  },
+  {
+    "current": 7803604992,
+    "limit": 17179869184,
+    "anon": 519286784,
+    "file": 6791438336,
+    "kernel": 487194624,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 15.531082765000974
+  },
+  {
+    "current": 7862587392,
+    "limit": 17179869184,
+    "anon": 578174976,
+    "file": 6791438336,
+    "kernel": 487309312,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 15.781532668001091
+  },
+  {
+    "current": 7913181184,
+    "limit": 17179869184,
+    "anon": 628596736,
+    "file": 6791438336,
+    "kernel": 487407616,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 16.03197988300053
+  },
+  {
+    "current": 7963774976,
+    "limit": 17179869184,
+    "anon": 679084032,
+    "file": 6791438336,
+    "kernel": 487505920,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 16.28244274499957
+  },
+  {
+    "current": 8018563072,
+    "limit": 17179869184,
+    "anon": 733736960,
+    "file": 6791438336,
+    "kernel": 487608320,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 16.532862989999558
+  },
+  {
+    "current": 7985934336,
+    "limit": 17179869184,
+    "anon": 769454080,
+    "file": 6721593344,
+    "kernel": 487223296,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 16.78334716900099
+  },
+  {
+    "current": 8038625280,
+    "limit": 17179869184,
+    "anon": 824127488,
+    "file": 6721593344,
+    "kernel": 487329792,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 17.03377691700007
+  },
+  {
+    "current": 8093863936,
+    "limit": 17179869184,
+    "anon": 879054848,
+    "file": 6721593344,
+    "kernel": 487428096,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 17.284201233000204
+  },
+  {
+    "current": 8123224064,
+    "limit": 17179869184,
+    "anon": 908546048,
+    "file": 6721593344,
+    "kernel": 487469056,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 17.53868827900078
+  },
+  {
+    "current": 8171646976,
+    "limit": 17179869184,
+    "anon": 956923904,
+    "file": 6721593344,
+    "kernel": 487550976,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 17.78912913000022
+  },
+  {
+    "current": 8207298560,
+    "limit": 17179869184,
+    "anon": 992677888,
+    "file": 6721593344,
+    "kernel": 487620608,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 18.039624189999813
+  },
+  {
+    "current": 8207298560,
+    "limit": 17179869184,
+    "anon": 992677888,
+    "file": 6721593344,
+    "kernel": 487620608,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 18.290475949999745
+  },
+  {
+    "current": 8207298560,
+    "limit": 17179869184,
+    "anon": 992677888,
+    "file": 6721593344,
+    "kernel": 487620608,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 18.54149488300027
+  },
+  {
+    "current": 8207298560,
+    "limit": 17179869184,
+    "anon": 992677888,
+    "file": 6721593344,
+    "kernel": 487620608,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 18.792322888000854
+  },
+  {
+    "current": 8205201408,
+    "limit": 17179869184,
+    "anon": 989073408,
+    "file": 6721593344,
+    "kernel": 487616512,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 19.04286008100098
+  },
+  {
+    "current": 7266021376,
+    "limit": 17179869184,
+    "anon": 65536000,
+    "file": 6721597440,
+    "kernel": 478265344,
+    "memory_events": "low 0\nhigh 0\nmax 148787\noom 3\noom_kill 1\noom_group_kill 0",
+    "seconds": 19.29333202199996
+  }
+]

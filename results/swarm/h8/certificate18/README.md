@@ -254,3 +254,19 @@ python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo 
 
 This package contains verified ranges, not a theorem establishing the complete
 5,230-state forest or the posted gap.
+
+## Thread and verifier timing limits
+
+`thread-benchmark/` preserves one fresh-process comparison on the same 16
+nodes, using four independent four-node lemmas. One thread took 19.55 seconds;
+four threads took 19.80 seconds, both using approximately one CPU equivalent.
+Both proofs passed. This single pair shows no observed speedup; it does not
+establish a general slowdown or a bound for the complete forest.
+
+The complete streams, source, metrics and checksums are retained. The launch
+receipts show no other active Lean worker; worker presence was not sampled
+continuously. Completion polling contributes up to 0.25 seconds to wall time.
+`thread-experiment-review.json` records these qualifications and the independent
+checks. `thread-scheduling-review.json` pins the inspected Lean and checker
+sources: the verifier replays project declarations sequentially under its
+own 30-minute timeout. The complete single-file runtime remains untested.

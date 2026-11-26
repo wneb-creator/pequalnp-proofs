@@ -106,7 +106,13 @@ alsoPASS for4352<=i.val inFin5230, covering878late states. With512earlystates,
 H8totalcoverage1390. Tail267.77s,peak3985880KiB; combinedbuild/audit3.27s.
 Fullsource/log/hash receipt:certificate18/tail-range-manifest.json.
 
+Thread experiment: identical16-node source passes at-j1(19.5488s) and-j4(19.8002s),
+approximatelyoneCPU inboth. Noobservedspeedup; singlepairedsampleonly. Complete18-file
+hashauditPASS; workerstate isrecordedatlaunch, notcontinuously. Independentprimary
+sourceinspectionconfirmssequentialkernelreplayunderseparate30-minuteverifiertimeout.
+No whole5230-node single-file runtime established. Evidence:certificate18/thread-benchmark/.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=147.0 subagents=8
+TIMING total=151.6 subagents=8
