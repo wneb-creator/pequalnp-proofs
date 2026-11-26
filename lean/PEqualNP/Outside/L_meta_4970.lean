@@ -1182,6 +1182,138 @@ lemma certificate_sample_or_budget_all {n m : ℕ} (C : Circuit) (hao : IsAO2 n 
     exact Finset.mem_filter.mpr ⟨hh.1,hh.2.1,hh.2.2.1⟩
   exact hbound.trans (Nat.add_le_add_left (Finset.card_le_card hsub) 1)
 
+noncomputable def sampleHazard {n m : ℕ} (C : Circuit)
+    (sample : Fin m → Fin n → Bool) (forbidden : Finset ℕ) (w : ℕ) : Bool := by
+  classical
+  exact if (sampleSupport C sample w).card ≤ 1 then false
+    else if w ∈ forbidden then true
+    else if n ≤ w then
+      (gateAt C (w-n)).op.eval ((gateAt C (w-n)).inputs.map fun u =>
+        if h : u < w then sampleHazard C sample forbidden u else false)
+    else false
+termination_by w
+
+lemma sampleHazard_false_not_forbidden {n m : ℕ} (C : Circuit)
+    (sample : Fin m → Fin n → Bool) (forbidden : Finset ℕ) (w : ℕ)
+    (hh : sampleHazard C sample forbidden w = false)
+    (hs : 2 ≤ (sampleSupport C sample w).card) : w ∉ forbidden := by
+  classical
+  intro hf
+  have hsmall : ¬ (sampleSupport C sample w).card ≤ 1 := by omega
+  rw [sampleHazard, ite_eq_right hsmall, ite_eq_left hf] at hh
+  contradiction
+
+lemma sampleHazard_gate {n m : ℕ} (C : Circuit)
+    (sample : Fin m → Fin n → Bool) (forbidden : Finset ℕ)
+    (j a d : ℕ) (b : Bool)
+    (hg : gateAt C j = binary b a d) (ha : a < n+j) (hd : d < n+j)
+    (hs : 2 ≤ (sampleSupport C sample (n+j)).card)
+    (hf : n+j ∉ forbidden) :
+    sampleHazard C sample forbidden (n+j) =
+      if b then sampleHazard C sample forbidden a && sampleHazard C sample forbidden d
+      else sampleHazard C sample forbidden a || sampleHazard C sample forbidden d := by
+  classical
+  have hsmall : ¬ (sampleSupport C sample (n+j)).card ≤ 1 := by omega
+  rw [sampleHazard, ite_eq_right hsmall, ite_eq_right hf, ite_eq_left (by omega : n ≤ n+j)]
+  cases b <;> simp [hg,binary,GateOp.eval,ha,hd]
+
+lemma wires_zero {n : ℕ} (C : Circuit) (hao : IsAO2 n C) :
+    ∀ w < n+C.gates.length,
+      (C.wires (List.ofFn (fun _ : Fin n => false))).getD w false = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hn : w < n
+    · have hh := congrFun (input_wire C.gates w hn) (fun _ => false)
+      change ((C.wires (List.ofFn (fun _ : Fin n => false))).getD w false = true) = (false = true) at hh
+      cases he : (C.wires (List.ofFn (fun _ : Fin n => false))).getD w false <;> simp_all
+    · obtain ⟨j,b,a,d,hj,hwj,hgate,ha,hd,hsem⟩ :=
+        wire_decompose C.gates (layout_of hao) w (by omega) hw
+      have hea := ih a ha (by omega)
+      have hed := ih d hd (by omega)
+      have hh := congrFun hsem (fun _ => false)
+      change ((C.wires (List.ofFn (fun _ : Fin n => false))).getD w false = true) = _ at hh
+      change _ = (if b then
+        (C.wires (List.ofFn (fun _ : Fin n => false))).getD a false = true ∧
+        (C.wires (List.ofFn (fun _ : Fin n => false))).getD d false = true else
+        (C.wires (List.ofFn (fun _ : Fin n => false))).getD a false = true ∨
+        (C.wires (List.ofFn (fun _ : Fin n => false))).getD d false = true) at hh
+      cases b <;> cases he : (C.wires (List.ofFn (fun _ : Fin n => false))).getD w false <;>
+        simp_all
+
+noncomputable def hazardCertificate {n m : ℕ} (C : Circuit)
+    (sample : Fin m → Fin n → Bool) (forbidden : Finset ℕ) : Finset ℕ :=
+  (Finset.range (n+C.gates.length)).filter fun w => sampleHazard C sample forbidden w = false
+
+lemma hazard_certificate_budget {n m : ℕ} (C : Circuit) (hao : IsAO2 n C)
+    (sample : Fin m → Fin n → Bool)
+    (hinput : ∀ i : Fin n, (Finset.univ.filter fun q => sample q i = true).card ≤ 1)
+    (forbidden : Finset ℕ) (w : ℕ) (hw : w < n+C.gates.length)
+    (hh : sampleHazard C sample forbidden w = false)
+    (hsample : ∀ q, (C.wires (List.ofFn (sample q))).getD w false = true) :
+    m ≤ 1 + (certificateSampleOr C sample (hazardCertificate C sample forbidden)).card ∧
+    Disjoint (certificateSampleOr C sample (hazardCertificate C sample forbidden)) forbidden := by
+  classical
+  let cert := hazardCertificate C sample forbidden
+  have hmem (v : ℕ) : v ∈ cert ↔ v < n+C.gates.length ∧
+      sampleHazard C sample forbidden v = false := by
+    simp [cert,hazardCertificate]
+  have hvalid : ∀ v ∈ cert, v < n+C.gates.length := fun v hv => ((hmem v).mp hv).1
+  have hfalse : ∀ v ∈ cert,
+      (C.wires (List.ofFn (fun _ : Fin n => false))).getD v false = false :=
+    fun v hv => wires_zero C hao v (hvalid v hv)
+  have hgate : ∀ j < C.gates.length, n+j ∈ cert →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∃ b a d, gateAt C j = binary b a d ∧ a < n+j ∧ d < n+j ∧
+        (if b then sampleHazard C sample forbidden a && sampleHazard C sample forbidden d
+         else sampleHazard C sample forbidden a || sampleHazard C sample forbidden d) = false := by
+    intro j hj hjc hs
+    obtain ⟨b,a,d,hg,ha,hd⟩ := layout_of hao j hj
+    have hg' : gateAt C j = binary b a d := by simp [gateAt,List.getD,hj,hg]
+    have hh' := ((hmem (n+j)).mp hjc).2
+    have hf := sampleHazard_false_not_forbidden C sample forbidden (n+j) hh' hs
+    refine ⟨b,a,d,hg',ha,hd,?_⟩
+    rw [← sampleHazard_gate C sample forbidden j a d b hg' ha hd hs hf]
+    exact hh'
+  have hor : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .or →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∀ u ∈ (gateAt C j).inputs, u ∈ cert := by
+    intro j hj hjc ho hs
+    obtain ⟨b,a,d,hg,ha,hd,hval⟩ := hgate j hj hjc hs
+    cases b
+    · have hav : sampleHazard C sample forbidden a = false ∧
+          sampleHazard C sample forbidden d = false := by simpa using hval
+      intro u hu
+      have hu' : u = a ∨ u = d := by simpa [hg,binary] using hu
+      rcases hu' with hu' | hu'
+      · subst u
+        exact (hmem a).mpr ⟨by omega,hav.1⟩
+      · subst u
+        exact (hmem d).mpr ⟨by omega,hav.2⟩
+    · simp [hg,binary] at ho
+  have hand : ∀ j < C.gates.length, n+j ∈ cert → (gateAt C j).op = .and →
+      2 ≤ (sampleSupport C sample (n+j)).card →
+      ∃ u ∈ (gateAt C j).inputs, u ∈ cert := by
+    intro j hj hjc ho hs
+    obtain ⟨b,a,d,hg,ha,hd,hval⟩ := hgate j hj hjc hs
+    cases b
+    · simp [hg,binary] at ho
+    · have hav : sampleHazard C sample forbidden a = false ∨
+          sampleHazard C sample forbidden d = false := by
+        cases ha' : sampleHazard C sample forbidden a <;>
+          cases hd' : sampleHazard C sample forbidden d <;> simp_all
+      rcases hav with hav | hdv
+      · exact ⟨a,by simp [hg,binary],(hmem a).mpr ⟨by omega,hav⟩⟩
+      · exact ⟨d,by simp [hg,binary],(hmem d).mpr ⟨by omega,hdv⟩⟩
+  constructor
+  · exact certificate_sample_or_budget C hao (fun _ => false) sample (fun i _ => hinput i)
+      cert hvalid hfalse hor hand w ((hmem w).mpr ⟨hw,hh⟩) hsample
+  · apply Finset.disjoint_left.mpr
+    intro v hv hf
+    have hv' := Finset.mem_filter.mp hv
+    exact sampleHazard_false_not_forbidden C sample forbidden v
+      ((hmem v).mp hv'.1).2 hv'.2.2.2 hf
 end Kernel
 
 namespace Boundary
