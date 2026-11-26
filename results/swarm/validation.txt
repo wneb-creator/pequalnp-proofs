@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 124 helper lemmas compile and pass an axiom audit.
+All 126 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -72,6 +72,10 @@ conjunction of two graph-existence functions, its edge relation is their
 intersection and the two neighborhoods are nested at every row and column.
 The proof uses assignments with two vertices on one side and one on the other.
 It does not assume arbitrary circuit factors are graph-existence functions.
+The row and column controller lemmas additionally handle arbitrary families of
+monotone factors: exact conjunction equality selects one factor that agrees
+with the whole neighborhood cofactor on every assignment of the other side.
+The selected factor may depend on the fixed vertex.
 
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
@@ -86,4 +90,4 @@ limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=82.0 subagents=2
+TIMING total=88.0 subagents=2

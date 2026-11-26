@@ -2043,4 +2043,60 @@ lemma full_intersection_rows_nested (R S : α → β → Prop)
 
 end FullProductNesting
 
+namespace FullProductNesting
+
+variable {α β ι : Type*}
+
+lemma exists_column_controller (E : α → β → Prop)
+    (f : ι → (α → Prop) → (β → Prop) → Prop)
+    (hmono : ∀ i X X' Y, (∀ a, X a → X' a) → f i X Y → f i X' Y)
+    (hfull : ∀ X Y, HasEdge E X Y ↔ ∀ i, f i X Y) (b : β) :
+    ∃ i, ∀ X, f i X (fun j => j = b) ↔ ∃ a, E a b ∧ X a := by
+  classical
+  have hneg : ¬ ∀ i, f i (fun a => ¬ E a b) (fun j => j = b) := by
+    intro hf
+    obtain ⟨a,j,he,ha,hj⟩ := (hfull _ _).mpr hf
+    subst j
+    exact ha he
+  push Not at hneg
+  obtain ⟨i,hi⟩ := hneg
+  refine ⟨i,?_⟩
+  intro X
+  constructor
+  · intro hx
+    by_contra hnone
+    have hsub : ∀ a, X a → ¬ E a b := by
+      intro a ha he
+      exact hnone ⟨a,he,ha⟩
+    exact hi (hmono i X (fun a => ¬ E a b) (fun j => j = b) hsub hx)
+  · rintro ⟨a,he,ha⟩
+    exact (hfull X (fun j => j = b)).mp ⟨a,b,he,ha,rfl⟩ i
+
+lemma exists_row_controller (E : α → β → Prop)
+    (f : ι → (α → Prop) → (β → Prop) → Prop)
+    (hmono : ∀ i X Y Y', (∀ b, Y b → Y' b) → f i X Y → f i X Y')
+    (hfull : ∀ X Y, HasEdge E X Y ↔ ∀ i, f i X Y) (a : α) :
+    ∃ i, ∀ Y, f i (fun j => j = a) Y ↔ ∃ b, E a b ∧ Y b := by
+  classical
+  have hneg : ¬ ∀ i, f i (fun j => j = a) (fun b => ¬ E a b) := by
+    intro hf
+    obtain ⟨j,b,he,hj,hb⟩ := (hfull _ _).mpr hf
+    subst j
+    exact hb he
+  push Not at hneg
+  obtain ⟨i,hi⟩ := hneg
+  refine ⟨i,?_⟩
+  intro Y
+  constructor
+  · intro hy
+    by_contra hnone
+    have hsub : ∀ b, Y b → ¬ E a b := by
+      intro b hb he
+      exact hnone ⟨b,he,hb⟩
+    exact hi (hmono i (fun j => j = a) Y (fun b => ¬ E a b) hsub hy)
+  · rintro ⟨b,he,hb⟩
+    exact (hfull (fun j => j = a) Y).mp ⟨a,b,he,rfl,hb⟩ i
+
+end FullProductNesting
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
