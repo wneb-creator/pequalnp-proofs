@@ -202,4 +202,50 @@ lemma finite_suffices (h : FiniteClaim) : ∀ (x1 : PEqualNP.CircuitLowerBounds.
   simpa only [hma, hmb] using h model aa bb (by simpa only [hma, hmb] using ha)
     (by simpa only [hma, hmb] using hb) (by simpa only [hma, hmb] using off)
 
+
+lemma finite_necessary (h : ∀ (x1 : PEqualNP.CircuitLowerBounds.Gate) (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 x4 : ℕ),   PEqualNP.MetaComplexity.FanInTwo { gates := [x1], output := (0 : ℕ) : PEqualNP.CircuitLowerBounds.Circuit } →     PEqualNP.MetaComplexity.FanInTwo x2 →       x2.size ≤ (17 : ℕ) →         have x8 : (Fin (10 : ℕ) → Bool) → Bool := fun (x8 : Fin (10 : ℕ) → Bool) => x8 (0 : Fin (10 : ℕ)) && x8 (1 : Fin (10 : ℕ)) || x8 (1 : Fin (10 : ℕ)) && x8 (2 : Fin (10 : ℕ)) || x8 (2 : Fin (10 : ℕ)) && x8 (3 : Fin (10 : ℕ)) || x8 (3 : Fin (10 : ℕ)) && x8 (4 : Fin (10 : ℕ)) || x8 (4 : Fin (10 : ℕ)) && x8 (0 : Fin (10 : ℕ)) || x8 (0 : Fin (10 : ℕ)) && x8 (5 : Fin (10 : ℕ)) || x8 (1 : Fin (10 : ℕ)) && x8 (6 : Fin (10 : ℕ)) || x8 (2 : Fin (10 : ℕ)) && x8 (7 : Fin (10 : ℕ)) || x8 (3 : Fin (10 : ℕ)) && x8 (8 : Fin (10 : ℕ)) || x8 (4 : Fin (10 : ℕ)) && x8 (9 : Fin (10 : ℕ)) || x8 (5 : Fin (10 : ℕ)) && x8 (7 : Fin (10 : ℕ)) || x8 (7 : Fin (10 : ℕ)) && x8 (9 : Fin (10 : ℕ)) || x8 (9 : Fin (10 : ℕ)) && x8 (6 : Fin (10 : ℕ)) || x8 (6 : Fin (10 : ℕ)) && x8 (8 : Fin (10 : ℕ)) || x8 (8 : Fin (10 : ℕ)) && x8 (5 : Fin (10 : ℕ));         have x9 : (Fin (10 : ℕ) → Bool) → ℕ → Bool := fun (x9 : Fin (10 : ℕ) → Bool) (x10 : ℕ) => (x2.wires ({ gates := [x1], output := (0 : ℕ) : PEqualNP.CircuitLowerBounds.Circuit }.wires (List.ofFn x9))).getD x10 Bool.false;         (∃ (x10 : Fin (10 : ℕ) → Bool), x9 x10 x3 = Bool.true ∧ x9 x10 x4 = Bool.false) → (∃ (x11 : Fin (10 : ℕ) → Bool), x9 x11 x3 = Bool.false ∧ x9 x11 x4 = Bool.true) → (∀ (x12 : Fin (10 : ℕ) → Bool), x8 x12 = Bool.false → x9 x12 x3 = Bool.false ∧ x9 x12 x4 = Bool.false) → ∃ (x13 : Fin (10 : ℕ) → Bool), x8 x13 = Bool.true ∧ x9 x13 x3 = Bool.false ∧ x9 x13 x4 = Bool.false) : FiniteClaim := by
+  intro model a b
+  let g := decode (model 0)
+  let C : Circuit := ⟨List.ofFn (fun i : Fin 17 => decode (model i.succ)), 0⟩
+  have hg : FanInTwo ⟨[g], 0⟩ := by
+    intro q hq
+    simp only [List.mem_singleton] at hq
+    subst q
+    exact decode_fan (model 0)
+  have hC : FanInTwo C := by
+    intro q hq
+    change q ∈ List.ofFn (fun i : Fin 17 => decode (model i.succ)) at hq
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hq
+    exact decode_fan (model i.succ)
+  have hs : C.size ≤ 17 := by simp [C, Circuit.size]
+  have split : (List.ofFn model).map decode = g :: C.gates := by
+    rw [List.ofFn_succ, List.map_cons]
+    congr 1
+  have consw (q : Gate) (qs : List Gate) (xs : List Bool) :
+      Circuit.wires ⟨q :: qs, 0⟩ xs =
+        Circuit.wires ⟨qs, 0⟩ (Circuit.wires ⟨[q], 0⟩ xs) := rfl
+  have wireseq (x : Fin 10 → Bool) :
+      C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x)) =
+        Circuit.wires ⟨(List.ofFn model).map decode, 0⟩ (List.ofFn x) := by
+    calc
+      _ = Circuit.wires ⟨C.gates, 0⟩ (Circuit.wires ⟨[g], 0⟩ (List.ofFn x)) := rfl
+      _ = Circuit.wires ⟨g :: C.gates, 0⟩ (List.ofFn x) := (consw g C.gates (List.ofFn x)).symm
+      _ = _ := congrArg (fun qs : List Gate => Circuit.wires ⟨qs, 0⟩ (List.ofFn x)) split.symm
+  have values (x : Fin 10 → Bool) (i : ℕ) :
+      (C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x))).getD i false =
+        modelWires model x i :=
+    congrArg (fun w : List Bool => w.getD i false) (wireseq x)
+  intro ha hb off
+  have ha' : ∃ x : Fin 10 → Bool, (C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x))).getD (10 + a.val) false = true ∧
+      (C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x))).getD (10 + b.val) false = false := by
+    obtain ⟨x, hx, hy⟩ := ha
+    exact ⟨x, (values x _).trans hx, (values x _).trans hy⟩
+  have hb' : ∃ x : Fin 10 → Bool, (C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x))).getD (10 + a.val) false = false ∧
+      (C.wires ((⟨[g], 0⟩ : Circuit).wires (List.ofFn x))).getD (10 + b.val) false = true := by
+    obtain ⟨x, hx, hy⟩ := hb
+    exact ⟨x, (values x _).trans hx, (values x _).trans hy⟩
+  obtain ⟨x, hx, hy, hz⟩ := h g C (10 + a.val) (10 + b.val) hg hC hs ha' hb'
+    (fun x hx => ⟨(values x _).trans (off x hx).1, (values x _).trans (off x hx).2⟩)
+  exact ⟨x, hx, (values x _).symm.trans hy, (values x _).symm.trans hz⟩
+
 end PEqualNP.Outside.L_meta_2373_aux

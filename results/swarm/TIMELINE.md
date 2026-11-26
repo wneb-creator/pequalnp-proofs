@@ -14,3 +14,15 @@ Sub-agents: nine external bus helpers, five internal agents (independent audit, 
 This timeline is an interim orchestration record. A final proof PR must add only the posted Lean file.
 - 2026-11-25 23:50:53 UTC — Root finite gate normalization and conditional transfer to exact posted statement elaborate with Lean; finite circuit claim remains unproved.
 - 2026-11-25 23:53:35 UTC — Independent source review passed for Canonical.lean: semantic normalization and conditional transfer only; no proof of FiniteClaim or full gap claimed. Preparing second partial push.
+- 2026-11-25 23:53:37 UTC — Second partial push completed at fcbf2810; contains reviewed finite normalization and timeline, not a full proof.
+- 2026-11-25 23:54:07 UTC — helper-5 first result: gate-elimination route active; restores missing Lean setup.
+- 2026-11-25 23:55:10 UTC — helper-5 finds both cofactor lower bounds already checked; the structural restriction lemma remains.
+- 2026-11-25 23:58:15 UTC — helper-7 first result: independent semantic audit active.
+- 2026-11-25 23:59:16 UTC — helper-8 first result: computational/certificate route active.
+- 2026-11-25 23:59:22 UTC — First replan: reinforce restriction, finite certificate, and concrete counterexample routes; no complete proof found.
+- 2026-11-25 23:59:22 UTC — helper-9 first result: independent review active.
+- 2026-11-26 00:00:14 UTC — helper-2 first result: exact synthesis active.
+- 2026-11-26 00:02:17 UTC — helper-3 first result: decomposition and K4-sharing route active.
+- 2026-11-26 00:02:52 UTC — helper-4 first result: negated-twin and small-NOT routes active.
+- 2026-11-26 00:05:14 UTC — helper-6 first result: algebraic/monotone route active; all nine helpers have now reported.
+- 2026-11-26 00:07:14 UTC — Root finite equivalence independently reviewed and rebuilt successfully. Both directions are proved conditionally; the underlying gap remains open. Preparing third partial push.
