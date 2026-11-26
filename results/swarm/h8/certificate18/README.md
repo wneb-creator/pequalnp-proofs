@@ -126,3 +126,35 @@ set_option maxRecDepth 32768 in
 set_option maxHeartbeats 0 in
 example : profileCheckNode 292 = true := by decide +kernel
 ```
+
+## Packed collision signatures
+
+The latest default checker adds `GenericDecodeHom.lean`, `PackedCollision.lean`,
+`PackedRows.lean` and `PackedDirect.lean`. It evaluates collision coverage with
+two 419-bit signatures per wire and replays those signatures from ten literal
+input pairs. Lean verifies every target row pair and every literal input
+signature. The generic proofs preserve the default reads and indexed removal
+of the original state decoder; the child checker validates its new gate value.
+
+`packed-manifest.json` pins this source and all build/benchmark logs. Five
+individual compressed-data checks passed:
+
+| Node | Wall time (seconds) |
+| --- | ---: |
+| 0 | 8.99 |
+| 292 | 4.59 |
+| 2000 | 3.60 |
+| 4000 | 4.07 |
+| 5229 | 2.44 |
+
+The complete 5,230-node family remains unproved. The conditional theorem
+`Packed.closed` requires that entire family. After the default build,
+`--modules PackedDirect292` repeats the measured node check. The entry point is:
+
+```lean
+import PackedDirect
+open PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+example : checkNode 292 = true := by decide +kernel
+```

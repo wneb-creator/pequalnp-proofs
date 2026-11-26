@@ -1,0 +1,181 @@
+{
+  "status": "Generic packed collision checker and finite419-pair/input-signature contracts build; representative nodes0,292,2000,4000,5229 kernel verified. Full5230-node closure NOT yet verified.",
+  "requires": "Existing direct-state/block32 and fast-cofactor modules; build DecodeHom before GenericDecodeHom.",
+  "build_order": [
+    "DecodeHom",
+    "GenericDecodeHom",
+    "PackedCollision",
+    "PackedRows",
+    "PackedDirect"
+  ],
+  "api": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.checkNode",
+  "closure": "Packed.closed requires all5230 checkNode=true",
+  "files": [
+    {
+      "file": "GenericDecodeHom.lean",
+      "bytes": 3561,
+      "sha256": "7c42146f49351d239e71192f53482fe57b8074966a890d5943e3f3cee4527961"
+    },
+    {
+      "file": "PackedCollision.lean",
+      "bytes": 7605,
+      "sha256": "056185048a685877a00694a3647f520143d66857c857e40156f81cb754346b64"
+    },
+    {
+      "file": "PackedRows.lean",
+      "bytes": 4198,
+      "sha256": "a769d41333a49643350156765fc2d37e6d03d32b8771945f834cbca846af89b7"
+    },
+    {
+      "file": "PackedDirect.lean",
+      "bytes": 1915,
+      "sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7"
+    },
+    {
+      "file": "packed-collision.stdout",
+      "bytes": 1140,
+      "sha256": "366c523c506bdd140187f1720901cb0bcf10b35cef6cd08cc88dc5e7a8f1f1ea"
+    },
+    {
+      "file": "packed-collision.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "packed-rows.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "packed-rows.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "packed-direct.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "packed-direct.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "PackedDirect0.lean",
+      "bytes": 295,
+      "sha256": "8e643ed7cfca1ba5daec0100614d6df7acd61dcd598233cf47c7c12a223fe7e4"
+    },
+    {
+      "file": "packed-direct0.stdout",
+      "bytes": 25,
+      "sha256": "45796a0ba4e57b9b9e095adad6e7485dbf1f0dab8bc20dc274099c2fe69edbde"
+    },
+    {
+      "file": "packed-direct0.stderr",
+      "bytes": 520,
+      "sha256": "16de93f5464a5b4ab1a25d8dbe4a3d8ba14be35df67fb99cc0702f85554e3bd5"
+    },
+    {
+      "file": "packed-direct0.time.json",
+      "bytes": 108,
+      "sha256": "b2f88b003a61cfcfa2e6f780176229f69e5a2647337f7d87f1549d337cbbe413"
+    },
+    {
+      "file": "PackedDirect292.lean",
+      "bytes": 302,
+      "sha256": "7e7b1eaee8f15485b64fc285414afbd6924e0a009a896759ada59f88d2bb3d81"
+    },
+    {
+      "file": "packed-direct292.stdout",
+      "bytes": 25,
+      "sha256": "3ecc8080bc2c0472c5e3dff7e60bd2f9f9897d46ccbbf1732da8445c38d7697c"
+    },
+    {
+      "file": "packed-direct292.stderr",
+      "bytes": 522,
+      "sha256": "771c92130ebce55f6fa3a31c6dd0b16f66eb75bdc98f9af4e21cc96e5a4eafc8"
+    },
+    {
+      "file": "packed-direct292.time.json",
+      "bytes": 84,
+      "sha256": "4df8262a113e49399b92f1d709a94a40411dca8fa85f2e7ed0e7d7467d0662e5"
+    },
+    {
+      "file": "PackedDirect2000.lean",
+      "bytes": 304,
+      "sha256": "d54b8797f8417df4e5e118c6cca863ca95469af6fb902b03c8a95e3faa34b47d"
+    },
+    {
+      "file": "packed-direct2000.stdout",
+      "bytes": 25,
+      "sha256": "97568dc4a69aab802c2e999757cbd5b38094d41d036a2da758615ed9484f77cc"
+    },
+    {
+      "file": "packed-direct2000.stderr",
+      "bytes": 522,
+      "sha256": "828dbb6d18b449481ddb69c2544ef6afc6bae17d317cdaf14b97d564722a733f"
+    },
+    {
+      "file": "packed-direct2000.time.json",
+      "bytes": 112,
+      "sha256": "333e3ef27917988ed319f64a7cce6dc037fda9af4df2b26b076adc84e1f5410e"
+    },
+    {
+      "file": "PackedDirect4000.lean",
+      "bytes": 304,
+      "sha256": "6b25b5795777a0b8565883591bcf250f8a1ed2690274726e5f6682022920c214"
+    },
+    {
+      "file": "packed-direct4000.stdout",
+      "bytes": 25,
+      "sha256": "a560037d01543117ab3d18343ab80b80561c94711f5bd7e99316c8c0dc7443cb"
+    },
+    {
+      "file": "packed-direct4000.stderr",
+      "bytes": 526,
+      "sha256": "a0c4a5d512b8fedfd35d686ea6535b6f38659ea5c5faf40cc47dfa29d95befd0"
+    },
+    {
+      "file": "packed-direct4000.time.json",
+      "bytes": 111,
+      "sha256": "5cc007c70175d1bbc1094de24e6853dc6716a367428ecd5fa66dee019565f9fe"
+    },
+    {
+      "file": "PackedDirect5229.lean",
+      "bytes": 304,
+      "sha256": "6f24408e5d69d35af5c48a6ec6458d278f77d454edfa5e2fa454d0b59cc81cfa"
+    },
+    {
+      "file": "packed-direct5229.stdout",
+      "bytes": 25,
+      "sha256": "bf322d5b99a9c60c2e669323d2c3cdca2df07a89752bad0b8b273b7a58b0854a"
+    },
+    {
+      "file": "packed-direct5229.stderr",
+      "bytes": 524,
+      "sha256": "ee56b88af1ea33f43abe42e09565992a7adc2ff724a153ffc5fb8e0cab678e66"
+    },
+    {
+      "file": "packed-direct5229.time.json",
+      "bytes": 111,
+      "sha256": "b45afef97cbdc7418686a922d0beca16fab4a3f87b6ba50f75e5abb8ba13397b"
+    },
+    {
+      "file": "generic-decode-hom.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "generic-decode-hom.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "generic-decode-hom-metrics.json",
+      "bytes": 89,
+      "sha256": "c448996032fa8224ac830742f07e41b93c3bc4d5037fc0dc490890bfba8f0c74"
+    }
+  ],
+  "path_note": "Probe files are flattened into this directory for build.py --modules reproduction."
+}

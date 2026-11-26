@@ -68,7 +68,12 @@ collisionprofilesPASS17.15s/5075116KiB; actualrootnode0PASS27.87s/5576916KiB.
 Allthreegenericoptimizationmodules compiled and independentlysource-reviewedPASS.
 The closure theorem still assumes all5230nodechecks, which remain unproved.
 
+Packed419-bit collision signatures: generic soundness, arbitrary-algebra decoder
+transport, all419targetpairs, all20inputsignatures andconditionalclosure BUILD PASS.
+Independent source review PASS; actualcompressednodes0/292/2000/4000/5229 PASS
+in8.99/4.59/3.60/4.07/2.44seconds. Completefamily remains unproved.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=91.7 subagents=8
+TIMING total=94.7 subagents=8

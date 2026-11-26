@@ -1,0 +1,64 @@
+import Replay
+import PackedCollision
+import GenericDecodeHom
+
+namespace PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows
+open PEqualNP.Outside.L_meta_6581
+open PackedCollision
+
+def positive (i : Fin 419) : Extended.Row :=
+  Fin.ofNat 1024 (Replay.collisionPairCodes >>> (20*i.val))
+def negative (i : Fin 419) : Extended.Row :=
+  Fin.ofNat 1024 (Replay.collisionPairCodes >>> (20*i.val+10))
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma target_different : ∀ i, Extended.bit (positive i) Extended.target ≠
+    Extended.bit (negative i) Extended.target := by decide +kernel
+
+def seed : List (Signals 419) := [
+  (0x230526a5400019c30ec61e10958a0000d980d0bc4884242b0e81001410413008a220480191ae656d84c60a70d19b4042c2dea130b,0x33800404000011c20ee41f10950a0000d980409c489420230c80001410013048a2604801818c6477b5820871d19b004042cca120b),
+  (0x3097a0b882a2898c28a1469141193201b640380128c8ce1082a03942240801100169e2a41180808447a81060680a2c26ab0118,0x1083a0b882a281018000420145192200bb0018002848ce0082a03802242821100169e2041000808447280060080a2802210110),
+  (0x10f711c1e8545502a725b50aca40188c1654019023080021006080240108e9f04fe508c70ea6fd36fd0800090a707c080090c0244,0x107211c1e04455022725bd0aca40080c1614419425182023026080040109a948e6e108011ea25932540a000148707c080010c0044),
+  (0x128c0050ec5ae0464b106625250e4000a12224600241468ca88366816e0a13751ada7828a559e6c6b138814c00402324300a51a60,0x478408000c0880c448984225250e4000212024200201468c288146807e021234180a70088151a6cca1a0896800000320200a11a20),
+  (0x8280200142140100000004052c0873b46b192413103c811d8602ba38960e809e13434203c9201004a911414419808e2301102882,0x8380200102140180100200842c0861b0611924134028810d06029238140c001411404203c0209004a11140400000882101100080),
+  (0x40423001100005811001402aa8219078101c2621e388f172430d4441c08711025d8ad335c12010400403242090015200a4254d401,0x40401001122404051000402a28209070001434212308c1c043094443418401005d889334402012000001000000005200a02148400),
+  (0x4704c1b0321000e44043983848822454e000536163649507504ddb22691240190d1441800018501002040800404a4d1092430010,0xc7004011421c40644047d01808822415200052602144910110455b02495a40184f16100800085809020001110042441010420000),
+  (0x6f80958414cc9ef02cb8011832b7ac11ca44288a08a30318b036522c81060025000e0240400400300000270628a28e08008004404,0x2f80040c048988904898001111972401e841000a00a30018b0163a2888120625000600480004004000102706048a8000408004000),
+  (0x3030460a2002ba0c116150f5524741caad4a4a55d46c1087109a91406008460a44018180004e028102058140090011050e0008020,0x3000000e20803a18216100d05241018a8c4a4ad0d4601003007280080008408a00000c81108e0001020440000900000c0e0000000),
+  (0x6f48882483ad2371625c82c60c787fa601a909082948b6400450045802b0995420000002002000044260900220410010014102080,0x4000180023042361324082e62c2059a401a80800094836640680004412201952220880124131200420488080a0610110004002000)]
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma seed_eq : seed = Extended.initial.map (signature positive negative) := by decide +kernel
+
+def signals (getCode : Nat → Nat) (fuel i : Nat) : List (Signals 419) :=
+  decodeLiveFromWith (0,0) gate getCode seed fuel i
+
+lemma signals_eq (getCode : Nat → Nat) (fuel i : Nat) :
+    signals getCode fuel i =
+      (decodeStateBy getCode fuel i).live.map (signature positive negative) := by
+  rw [signals,seed_eq]
+  exact (mapped_decodeStateByWith (0,0) gate (signature positive negative)
+    (signature_zero positive negative) (signature_bin positive negative) getCode fuel i).symm
+
+lemma zip_map_valid {α : Type} (f : Word → α) (ws : List Word) :
+    ∀ p ∈ ws.zip (ws.map f), p.2 = f p.1 := by
+  induction ws with
+  | nil => simp
+  | cons w ws ih =>
+    intro p hp
+    simp only [List.map_cons,List.zip_cons_cons,List.mem_cons] at hp
+    rcases hp with rfl | h
+    · rfl
+    · exact ih p h
+
+def cache (getCode : Nat → Nat) (fuel i : Nat) : List (Word × Signals 419) :=
+  (decodeStateBy getCode fuel i).live.zip (signals getCode fuel i)
+
+lemma cache_valid (getCode : Nat → Nat) (fuel i : Nat) :
+    ∀ p ∈ cache getCode fuel i, p.2 = signature positive negative p.1 := by
+  rw [cache,signals_eq]
+  exact zip_map_valid _ _
+
+end PEqualNP.Outside.L_meta_2373_aux.Cert18.PackedRows

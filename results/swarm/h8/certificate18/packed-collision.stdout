@@ -1,0 +1,28 @@
+/tmp/oec/pnp-swarm-2373-8/cert18/PackedCollision.lean:84:27: warning: This simp argument is unused:
+  BitVec.getLsbD_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coverage, BitVec.getLsbD_xor]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pnp-swarm-2373-8/cert18/PackedCollision.lean:84:45: warning: This simp argument is unused:
+  BitVec.getLsbD_xor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all [coverage, BitVec.getLsbD_or]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pnp-swarm-2373-8/cert18/PackedCollision.lean:101:10: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [BitVec.getLsbD_allOnes, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pnp-swarm-2373-8/cert18/PackedCollision.lean:101:13: warning: This simp argument is unused:
+  BitVec.getLsbD_allOnes
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
