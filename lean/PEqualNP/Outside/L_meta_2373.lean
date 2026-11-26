@@ -124,6 +124,12 @@ lemma constant_profiles_available : 0 ∈ base ∧ 127 ∈ base := by decide
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
+lemma not_eval (l : List Bool) : GateOp.not.eval l = !(l.headD false) := rfl
+
+lemma fanInTwo_iff (C : Circuit) : FanInTwo C ↔
+    ∀ g ∈ C.gates, g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp) ∧
+      g.inputs.length ≤ 2 := Iff.rfl
+
 def profileOp (op : GateOp) (l : List Nat) : Nat :=
   match op with
   | .and => l.foldr (· &&& ·) 127
@@ -162,7 +168,7 @@ lemma profile_op_correct (op : GateOp) (l : List Nat) (r : Fin 7)
   rcases hop with rfl | rfl | rfl
   · exact profile_and l r
   · exact profile_or l r
-  · cases l <;> simp [profileOp, GateOp.eval, Nat.testBit_xor, true_profile]
+  · cases l <;> simp [profileOp, not_eval, Nat.testBit_xor, true_profile]
 
 lemma profile_step_correct (s : List Nat) (g : Gate) (r : Fin 7)
     (hop : g.op = .and ∨ g.op = .or ∨ g.op = .not) :
@@ -414,7 +420,7 @@ def nearMiss : Circuit :=
     ⟨.and, [21, 16]⟩, ⟨.or, [25, 24]⟩, ⟨.or, [26, 23]⟩], 27⟩
 
 lemma nearMiss_fanInTwo : FanInTwo nearMiss := by
-  simp [FanInTwo, nearMiss]
+  simp [fanInTwo_iff, nearMiss]
 
 lemma nearMiss_size : nearMiss.size = 18 := by decide
 
