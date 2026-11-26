@@ -3064,6 +3064,156 @@ lemma positive_reader_bound (C : Circuit) (p : Fin C.gates.length)
   exact safe_or_bound (zeroWire 9 C p) (zeroWire_monotone 9 C p fan back notRaw)
     (positive_reader_safe C p fan back notRaw positiveOnly zeroCorrect oneCorrect)
 
+lemma before_positive_reader_reverse (n : ℕ) (C : Circuit) (p : Fin C.gates.length)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + 1 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = n :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      n ∈ (C.gates.get q).inputs → q = p)
+    (i : ℕ) (hi : i < n + 1 + p.val) (hin : i ≠ n) :
+    ∀ y : Fin n → Bool, (C.wires (List.ofFn y ++ [true])).getD i false = true →
+      (C.wires (List.ofFn y ++ [false])).getD i false = true := by
+  intro y hai
+  let pre := C.gates.take p.val
+  have hlen : pre.length = p.val := List.length_take_of_le (Nat.le_of_lt p.isLt)
+  let embed (q : Fin pre.length) : Fin C.gates.length := ⟨q.val, by
+    have := q.isLt
+    omega⟩
+  have hget (q : Fin pre.length) : pre.get q = C.gates.get (embed q) := by
+    simp [pre, embed, List.get_eq_getElem]
+  let A (j : ℕ) := (C.wires (List.ofFn y ++ [true])).getD j false
+  let B (j : ℕ) := (C.wires (List.ofFn y ++ [false])).getD j false
+  have ainput (j : ℕ) (hj : j < n + 1) : A j = (List.ofFn y ++ [true]).getD j false :=
+    NandRestriction.getD_wiresFrom C.gates _ j (by simp; omega)
+  have binput (j : ℕ) (hj : j < n + 1) : B j = (List.ofFn y ++ [false]).getD j false :=
+    NandRestriction.getD_wiresFrom C.gates _ j (by simp; omega)
+  have order := semantic_order_except (n + 1) n pre A B
+    (by
+      intro j hj hjn haj
+      have hjlt : j < n := by omega
+      rw [ainput j hj, snoc_read_before y true j hjlt] at haj
+      rw [binput j hj, snoc_read_before y false j hjlt]
+      exact haj)
+    (by rw [binput n (by omega), snoc_read_last]; intro h; contradiction)
+    (by intro q; rw [hget]; exact (fan _ (List.get_mem _ (embed q))).1)
+    (by
+      intro q j hj
+      rw [hget] at hj
+      exact back (embed q).val (C.gates.get (embed q)) (by simp) j hj)
+    (by
+      intro q
+      rw [hget]
+      exact NandRestriction.global_gate_value (n + 1) C.gates (embed q) _ (by simp)
+        (back (embed q).val (C.gates.get (embed q)) (by simp)))
+    (by
+      intro q
+      rw [hget]
+      exact NandRestriction.global_gate_value (n + 1) C.gates (embed q) _ (by simp)
+        (back (embed q).val (C.gates.get (embed q)) (by simp)))
+    (by intro q hop; rw [hget] at hop ⊢; exact notRaw _ (List.get_mem _ (embed q)) hop)
+    (by
+      intro q hop hread _ _
+      rw [hget] at hop hread
+      have eq := positiveOnly (embed q) hop hread
+      have same : q.val = p.val := congrArg Fin.val eq
+      have less := q.isLt
+      omega)
+  exact order i (by simpa only [hlen] using hi) hin hai
+
+lemma earlier_source_sound_on_slices (C : Circuit) (p : Fin C.gates.length) (i : ℕ)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ a ∈ g.inputs, a < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (hi : i < 10 + p.val) (hin : i ≠ 9)
+    (zeroSourceSound : ∀ y : Fin 9 → Bool,
+      (C.wires (List.ofFn y ++ [false])).getD i false = true → h9 y = true)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ (y : Fin 9 → Bool) (b : Bool),
+      (C.wires (List.ofFn y ++ [b])).getD i false = true → C.eval (List.ofFn y ++ [b]) = true := by
+  intro y b h
+  cases b with
+  | false => rw [zeroCorrect]; exact zeroSourceSound y h
+  | true =>
+    have hz := before_positive_reader_reverse 9 C p fan back notRaw positiveOnly i hi hin y h
+    rw [oneCorrect, zeroSourceSound y hz, Bool.true_or]
+
+lemma earlier_source_sound (C : Circuit) (p : Fin C.gates.length) (i : ℕ)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ a ∈ g.inputs, a < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (hi : i < 10 + p.val) (hin : i ≠ 9)
+    (zeroSourceSound : ∀ y : Fin 9 → Bool,
+      (C.wires (List.ofFn y ++ [false])).getD i false = true → h9 y = true)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ x : Fin 10 → Bool, (C.wires (List.ofFn x)).getD i false = true → C.eval (List.ofFn x) = true := by
+  intro x hx
+  let y : Fin 9 → Bool := fun j => x j.castSucc
+  have he : List.ofFn x = List.ofFn y ++ [x 9] := by rw [List.ofFn_succ']; rfl
+  rw [he] at hx ⊢
+  exact earlier_source_sound_on_slices C p i fan back notRaw positiveOnly hi hin zeroSourceSound
+    zeroCorrect oneCorrect y (x 9) hx
+
+lemma or_source_sound_of_zero_reader_sound (C : Circuit) (p : Fin C.gates.length) (i : ℕ)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ a ∈ g.inputs, a < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (por : (C.gates.get p).op = GateOp.or) (pread : i ∈ (C.gates.get p).inputs)
+    (hin : i ≠ 9)
+    (zeroReaderSound : ∀ y : Fin 9 → Bool, zeroWire 9 C p y = true → h9 y = true)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ x : Fin 10 → Bool, (C.wires (List.ofFn x)).getD i false = true → C.eval (List.ofFn x) = true := by
+  apply earlier_source_sound C p i fan back notRaw positiveOnly
+    (back p.val (C.gates.get p) (by simp) i pread) hin _ zeroCorrect oneCorrect
+  intro y hy
+  apply zeroReaderSound y
+  unfold zeroWire
+  change (NandRestriction.wiresFrom C.gates (List.ofFn y ++ [false])).getD (10 + p.val) false = true
+  rw [NandRestriction.global_gate_value 10 C.gates p _ (by simp)
+    (back p.val (C.gates.get p) (by simp)), por]
+  simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+  exact ⟨true, ⟨i, pread, hy⟩, rfl⟩
+
+lemma unsafe_or_source_hits_seed (C : Circuit) (p : Fin C.gates.length) (i : ℕ)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ a ∈ g.inputs, a < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (por : (C.gates.get p).op = GateOp.or) (pread : i ∈ (C.gates.get p).inputs)
+    (hin : i ≠ 9)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y))
+    (unsafeSource : ∃ x : Fin 10 → Bool,
+      (C.wires (List.ofFn x)).getD i false = true ∧ C.eval (List.ofFn x) = false) :
+    zeroWire 9 C p evenSeed = true ∨ zeroWire 9 C p oddSeed = true := by
+  classical
+  by_contra hseeds
+  have safe : ∀ y : Fin 9 → Bool, zeroWire 9 C p y = true → h9 y = true := by
+    intro y hy
+    cases hh : h9 y with
+    | true => rfl
+    | false =>
+      have cls := positive_reader_false_positives C p fan back notRaw positiveOnly
+        zeroCorrect oneCorrect y hh hy
+      rcases cls with rfl | rfl
+      · exact False.elim (hseeds (Or.inl hy))
+      · exact False.elim (hseeds (Or.inr hy))
+  have sound := or_source_sound_of_zero_reader_sound C p i fan back notRaw positiveOnly
+    por pread hin safe zeroCorrect oneCorrect
+  obtain ⟨x, hx, hfalse⟩ := unsafeSource
+  have htrue := sound x hx
+  rw [hfalse] at htrue
+  contradiction
+
 end SafeOr
 
 end PEqualNP.Outside.L_meta_2373_aux
