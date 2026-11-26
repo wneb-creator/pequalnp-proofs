@@ -1,0 +1,32 @@
+Independent extra-range publication review: PASS
+Reviewer: /root/setup/coverage
+Bundle: /workspace/pequalnp-proofs/results/swarm/h2/packed-extra
+Method: static proof/source review, complete receipts and axiom-output checks, byte comparison, hashes, local commit-source comparison. No Lean execution or rebuild.
+
+All 16 files are regular, non-executable UTF-8 files without symlinks. SHA256SUMS covers exactly the other 15 filenames with no omissions/duplicates, and all hashes match. All 12 supplied source/stdout/stderr/measurement artifacts are byte-identical to completed scratch artifacts. All three source hashes and three compiled-object hashes match the manifest. All three receipts have exit_code 0; all stderr files are empty. All three complete theorem-axiom outputs contain exactly propext, Classical.choice, Quot.sound. No credential content was observed; known token/private-key/authenticated-URL pattern checks found no matches.
+
+The chunk statements are blockCheck 2852 110 = true and blockCheck 2962 110 = true. These cover exactly the adjacent half-open intervals [2852,2962) and [2962,3072), or 220 nodes2852..3071 inclusive. No gap, overlap or Fin.ofNat wraparound occurs. H2PackedReplay.extra_checked uses both concrete chunk lemmas and the reviewed exact-index bridge, with only i : Fin 5230 and bounds2852 <= i.val <3072. H2ChunkDefs and H2IntervalBridge match their source bytes in support commit719980203c78afd915e81c72cc9c4d481af9b504. Thus the predicate matches the frozen Packed.checkNode dependency chain already reviewed.
+
+Receipts: first110-node chunk284.57725721300085 seconds/4188996 KiB; second110-node chunk306.4756792549997 seconds/4328832 KiB; aggregate7.15781373199934 seconds/2969332 KiB. Runtime figures are per-invocation local measurements only.
+
+README, validation and manifest consistently claim only the additional220-node interval, clearly distinguish research imports/diagnostics from single-file submission, and disclaim all5230 nodes and L-meta-2373. Combining this interval with the separately reviewed1536..2303 interval gives exactly988 distinct nodes. The reassignment coordination itself was not independently rechecked; the arithmetic and compiled statements do not depend on that claim.
+
+No blocking correction found. This PASS approves publication of the partial research result, not acceptance of the posted gap by the desk checker. The validation publication-review-pending line may now be changed to PASS and checksums refreshed; adding this report requires refreshing the census/checksum file. No original768-node bundle file was modified by this review.
+
+Reviewed file hashes:
+e4f3f703589d42f32ba3bdd4d4df685c7c06b311783bfba621fbfc86d54722b0  H2Extra2852_2961.lean
+c34209753c67eb65e7df5f799d0367bbcbd8102b0152ae35bce447b24fd16024  H2Extra2852_2961.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2Extra2852_2961.lean.stderr
+4c335daf514b8c8f5ea0e0ea916aa09e6f9953dbc314680384a6d2ed71278eea  H2Extra2852_2961.lean.stdout
+606839fb2eb646ca98ea8885eb08d88345387e13f2a0244c92e3831ca53da270  H2Extra2962_3071.lean
+eb937c24c122467320fc7607490a137dbdea41e827aaa832af5c18abd2dd8fec  H2Extra2962_3071.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2Extra2962_3071.lean.stderr
+f244cbd35846dc8fdeb96396ef44747d122f01fd12408fbfa87da50f1ca59ed1  H2Extra2962_3071.lean.stdout
+934359bfdfd64b08c53f547659e113bfdfdb2a992f7dfc8aa152e4a94e1d05e2  H2ExtraRange.lean
+b6f1e5a6079fbe4f728a99bc197af43026d474203020bce94ecac447a117bace  H2ExtraRange.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2ExtraRange.lean.stderr
+eab8ef645b34bfe56a7fd5b05a56b87961cac599b83751f4d81bba81851b6383  H2ExtraRange.lean.stdout
+0f7de4529a9f3c4eff420965a083e3609cd83977b4ac6865febc13dc96f53918  README.md
+aee447ebe118c9f45ea9eb29c42ff6916a68a26b3c1e38115f181728bdc7443b  SHA256SUMS
+acf43237cf21241d4c1d9e0719535b3a0571b7b8851beb75aaa2808eefe61c79  manifest.json
+6a7480785dbad338170790df0c0f1ebbef543057d6c448d1b230a55e408bfb75  validation.txt

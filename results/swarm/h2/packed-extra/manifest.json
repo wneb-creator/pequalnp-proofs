@@ -1,0 +1,53 @@
+{
+  "scope": "Reassigned220-node interval only; no all5230 closure or L-meta-2373 proof",
+  "frozen_certificate_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "support_commit": "719980203c78afd915e81c72cc9c4d481af9b504",
+  "support_path": "results/swarm/h2/packed-replay",
+  "accepted_intervals": [
+    [
+      2852,
+      3071
+    ]
+  ],
+  "accepted_count": 220,
+  "aggregate_theorem": "H2PackedReplay.extra_checked",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "measurements": [
+    {
+      "exit_code": 0,
+      "wall_seconds": 284.57725721300085,
+      "max_rss_kib": 4188996,
+      "module": "H2Extra2852_2961",
+      "start": 2852,
+      "count": 110,
+      "source_sha256": "e4f3f703589d42f32ba3bdd4d4df685c7c06b311783bfba621fbfc86d54722b0",
+      "olean_sha256": "269b659908de81bcc333126f525dc78465e6f88ad0bde661d279e95b8628be20"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 306.4756792549997,
+      "max_rss_kib": 4328832,
+      "module": "H2Extra2962_3071",
+      "start": 2962,
+      "count": 110,
+      "source_sha256": "606839fb2eb646ca98ea8885eb08d88345387e13f2a0244c92e3831ca53da270",
+      "olean_sha256": "012db3fbfb296cc6c8f5a0c49c730186ae3339251090f082f6289650f1360add"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 7.15781373199934,
+      "max_rss_kib": 2969332,
+      "module": "H2ExtraRange",
+      "start": null,
+      "count": null,
+      "source_sha256": "934359bfdfd64b08c53f547659e113bfdfdb2a992f7dfc8aa152e4a94e1d05e2",
+      "olean_sha256": "62d0cb454b99b71a0400c7bb258d3f7b1268c4619aea0fc808b1f38db09df262"
+    }
+  ],
+  "subagents": 4,
+  "total_minutes": 143.4
+}
