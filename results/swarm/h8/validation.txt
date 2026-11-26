@@ -1,0 +1,30 @@
+gap: L-meta-2373
+Scope: helper-only proof and research artifacts. The exact posted statement remains unproved.
+No PR opened; no desk lease requested or held.
+
+Lean validation: lake build PEqualNP.Outside.L_meta_2373 PASS (named target 7.7s).
+All 42 helper lemmas audited: only propext, Classical.choice, Quot.sound.
+Independent semantic, plain-file, optimized-checker, native-source, and portability reviews PASS.
+Proof source: 48761aebcbd437cd82624bfdfd8ea05d6a83a905aa5cd43f5a90fac82c37390f, 20999 bytes.
+No Mathlib source build. Official cache fetched and independently checked before builds.
+
+Checked helper: the explicit 18-gate near-miss cannot compute Petersen after any <=3
+appended FanInTwo gates, with arbitrary outputs, NOT, empty gates, and default/forward reads.
+This does not exclude rewiring or prove the posted gap.
+Generic kernel Horn/parity core checker and eight-variable checked example included.
+
+Native research: monotone cap15 and signed cap14 searches from all ten live H9 signatures
+(x0..x8 plus x4 OR x6) close. These closures are NOT complete Lean certificates.
+All 18324 monotone factor cuts independently replayed in Python; prior state decoding,
+automorphisms, projection rules and signed-only bounds reviewed. Final portable replays
+with immediate generated-target guards PASS in both modes. Complete native stdout included.
+Transfer from Live claims to arbitrary forced-first-OR circuits remains to be proved.
+Full ten-input exploration continues separately; no result is claimed here.
+
+Performance: original finite helper 33.57s, observed memory high-water 5027752KiB.
+Optimized helper 8.30s, peak3575604KiB; imports alone 2.65s, peak2979812KiB.
+See performance.json for exact metrics and measurement scope.
+
+Sub-agents: five total (four direct: setup/review, certificate audit, repair proof,
+full ten-input search; one nested: cofactor embedding audit).
+TIMING total=21.6 subagents=5

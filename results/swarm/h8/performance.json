@@ -1,0 +1,29 @@
+{
+  "source": "RepairFast.lean",
+  "source_bytes": 18672,
+  "source_lines": 461,
+  "sha256": "b16b6043ff540e45155b2a954bde92e57d865b75e29b824d311375c3024d4789",
+  "claim": "The explicit 18-gate nearMiss prefix cannot be repaired into Petersen by appending at most 3 FanInTwo gates, allowing arbitrary output, NOT, empty gates, default-false and forward references. This excludes appended repairs only; it is not the gap statement.",
+  "metrics": {
+    "final-metrics.json": {
+      "wall_seconds": 33.57153448000008,
+      "exit_code": 0
+    },
+    "local2-metrics.json": {
+      "wall_seconds": 74.38004832499996,
+      "exit_code": 0,
+      "peak_rss_kib": 3217484
+    },
+    "fast-final-metrics.json": {
+      "wall_seconds": 8.299593186000038,
+      "exit_code": 0,
+      "peak_rss_kib": 3575604
+    },
+    "import-only-metrics.json": {
+      "wall_seconds": 2.6489561289999983,
+      "exit_code": 0,
+      "peak_rss_kib": 2979812
+    }
+  },
+  "original_observed_memory_high_water_kib": 5027752
+}
