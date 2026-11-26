@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T23:50:11Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T23:58:36Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -57,8 +57,16 @@ exact-inverse review. This uses research imports, not an allowed final file.
 OneIneligibleCensus is exact h3 f06c5b441 (474126 bytes), independently rebuilt
 with three exact-type/standard-axiom audits and semantic/source review. Its
 actual r1 assumptions yield precisely the three remaining saturated supports;
-it does not exclude those supports. The omitted old r0 adapter and arbitrary
-one-ineligible-to-0 relabel connection are being restored separately.
+it does not exclude those supports. The old r0 adapter is now restored and
+kernel-checked, with a fresh h8 resource build and exact h3 namespace relocation.
+RemainingThree connects arbitrary-one-ineligible canonicalization, the restored
+r0 exclusion, and the actual r1 census to the original hypothetical circuit.
+Its full imported kernel check, exact final type, standard-three-axiom audit,
+and independent source review passed. No extra case assumptions remain; the
+three canonical exclusions remain open in this assembled result.
+The eight-module preparation recipe was executed and reproduced every checked
+proof source exactly. Python/Bash syntax checks passed; the complete build
+recipe was not rerun as an additional duplicate full build.
 The one-ineligible case and whole-file size cap remain unresolved.
 
 Earlier independently rebuilt helper snapshots (additional merged checks above):
@@ -85,4 +93,4 @@ single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
 Sub-agents: nine external helper jobs (helper-1 through helper-9), plus four local workers (setup/review, assembly-review, dead-gate pruning, and one nested neighborhood-glue worker); 13 counted agents. External helpers own nested workers are excluded from this root-job count.
-TIMING total=162 subagents=13
+TIMING total=171 subagents=13
