@@ -1220,4 +1220,344 @@ lemma exists_deleted_counted_circuit (n : Nat) (v : Fin (n + 1))
 
 end CofactorDeletedInputBridge
 
+namespace CleanWirePinAppend
+
+open CofactorSimplification CofactorProjectBridge CofactorCountBridge
+open CofactorWeightedCount CofactorOperationBridge
+
+def reads (h : Nat) (g : Gate) : Bool := (g.2.1 == h) || (g.2.2 == h)
+
+lemma survivors_reader_savings (gs : List Gate) (k m h : Nat) (rho : Nat → Nat)
+    (hh : h < k) (hz : rho h = 0) :
+    survivors gs k m rho + gs.countP (reads h) ≤ gs.length := by
+  induction gs generalizing k m rho with
+  | nil => simp [survivors]
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · have hn : rho g.2.1 ≠ 0 ∧ rho g.2.2 ≠ 0 ∧ rho g.2.1 ≠ rho g.2.2 := by
+        simpa [Keep] using hk
+      have ha : g.2.1 ≠ h := by
+        intro he
+        exact hn.1 (he ▸ hz)
+      have hb : g.2.2 ≠ h := by
+        intro he
+        exact hn.2.1 (he ▸ hz)
+      have hr : reads h g = false := by simp [reads, ha, hb]
+      have hz' : Function.update rho k m h = 0 := by
+        simpa [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      have hi := ih (k + 1) (m + 1) (Function.update rho k m) (by omega) hz'
+      simp only [survivors, hk, ite_true, List.countP_cons, hr, Bool.false_eq_true,
+        ite_false, Nat.zero_add, List.length_cons]
+      omega
+    · let r := replacement g.1 (rho g.2.1) (rho g.2.2)
+      have hz' : Function.update rho k r h = 0 := by
+        simpa [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      have hi := ih (k + 1) m (Function.update rho k r) (by omega) hz'
+      cases hr : reads h g <;>
+        simp only [survivors, hk, Bool.false_eq_true, ite_false, List.countP_cons,
+          hr, ite_true, Nat.zero_add, List.length_cons]
+      all_goals dsimp [r] at hi
+      all_goals omega
+
+lemma compile_reader_savings (gs : List Gate) (k m h : Nat) (rho : Nat → Nat)
+    (hh : h < k) (hz : rho h = 0) :
+    (compile gs k m rho).1.length + gs.countP (reads h) ≤ gs.length := by
+  rw [compile_length]
+  exact survivors_reader_savings gs k m h rho hh hz
+
+lemma cofactor_reader_savings (n h : Nat) (gs : List Gate) (hh : h < n) :
+    (cofactor n h gs).1.length + gs.countP (reads h) ≤ gs.length := by
+  exact compile_reader_savings gs n (n + 1) h (initialMap n h) hh (by simp [initialMap, hh])
+
+lemma compile_weighted_le (w : Bool → Nat) (gs : List Gate) (k m : Nat) (rho : Nat → Nat) :
+    weightedCount w (compile gs k m rho).1 ≤ weightedCount w gs := by
+  induction gs generalizing k m rho with
+  | nil => simp [compile, weightedCount]
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [compile, hk, ite_true, weightedCount, mapped]
+      exact Nat.add_le_add_left (ih (k + 1) (m + 1) (Function.update rho k m)) _
+    · simp only [compile, hk, Bool.false_eq_true, ite_false, weightedCount]
+      have hi := ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2)))
+      omega
+
+lemma cofactor_opCount_le (n h : Nat) (gs : List Gate) (wanted : Bool) :
+    ((cofactor n h gs).1.filter (fun g => g.1 == wanted)).length ≤
+      (gs.filter (fun g => g.1 == wanted)).length := by
+  rw [← weightedCount_eq_filter, ← weightedCount_eq_filter]
+  exact compile_weighted_le _ gs n (n + 1) (initialMap n h)
+
+lemma weightedCount_append (w : Bool → Nat) (gs hs : List Gate) :
+    weightedCount w (gs ++ hs) = weightedCount w gs + weightedCount w hs := by
+  induction gs with
+  | nil => simp [weightedCount]
+  | cons g gs ih => simp [weightedCount, ih, Nat.add_assoc]
+
+lemma weightedCount_promote (w : Bool → Nat) (gs : List Gate) :
+    weightedCount w (gs.map promote) = weightedCount w gs := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih => simp [weightedCount, promote, ih]
+
+def appendGate (h rep : Nat) : Gate :=
+  (false, h + 1, if rep = 0 then h + 1 else rep)
+
+def pinGates (n : Nat) (pre suffix : List Gate) (h output : Nat) : List Gate :=
+  let cr := cofactor (n + pre.length) h suffix
+  pre.map promote ++ cr.1 ++ [appendGate h (cr.2 output)]
+
+def pinAndAppend (n : Nat) (pre suffix : List Gate) (h output : Nat) : PCircuit :=
+  projectCircuit n (pinGates n pre suffix h output)
+    (n + pre.length + (cofactor (n + pre.length) h suffix).1.length + 1)
+
+lemma pinGates_positive (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    Positive (pinGates n pre suffix h output) := by
+  intro g hg
+  simp only [pinGates, List.mem_append, List.mem_singleton] at hg
+  rcases hg with (hp | hs) | rfl
+  · exact promote_positive pre g hp
+  · exact compile_positive suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) g hs
+  · simp only [appendGate]
+    split_ifs <;> omega
+
+lemma pinAndAppend_mono (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    PEqualNP.MetaComplexity.Monotone2 (pinAndAppend n pre suffix h output) :=
+  projectCircuit_mono _ _ _
+
+lemma pinAndAppend_size (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    (pinAndAppend n pre suffix h output).size =
+      pre.length + (cofactor (n + pre.length) h suffix).1.length + 1 := by
+  rw [pinAndAppend, projectCircuit_size]
+  simp [pinGates, Nat.add_assoc]
+
+lemma pinAndAppend_size_savings (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) :
+    (pinAndAppend n pre suffix h output).size + suffix.countP (reads h) ≤
+      (pre ++ suffix).length + 1 := by
+  rw [pinAndAppend_size, List.length_append]
+  have hs := cofactor_reader_savings (n + pre.length) h suffix hh
+  omega
+
+lemma pinAndAppend_andCount (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    ((pinAndAppend n pre suffix h output).gates.filter (hasOperation true)).length ≤
+      ((pre ++ suffix).filter (fun g => g.1 == true)).length := by
+  rw [pinAndAppend, projectCircuit_opCount, ← weightedCount_eq_filter,
+    ← weightedCount_eq_filter]
+  simp only [pinGates, weightedCount_append, weightedCount_promote, weightedCount,
+    appendGate, Bool.false_eq_true, ite_false, Nat.zero_add, Nat.add_zero]
+  exact Nat.add_le_add_left (compile_weighted_le _ suffix (n + pre.length)
+    (n + pre.length + 1) (initialMap (n + pre.length) h)) _
+
+lemma run_append (gs hs : List Gate) (k : Nat) (s : Nat → Bool) :
+    run (gs ++ hs) k s = run hs (k + gs.length) (run gs k s) := by
+  induction gs generalizing k s with
+  | nil => simp [run]
+  | cons g gs ih => simp [run, ih, Nat.add_assoc, Nat.add_left_comm, Nat.add_comm]
+
+lemma run_below (gs : List Gate) (k i : Nat) (s : Nat → Bool) (hi : i < k) :
+    run gs k s i = s i := by
+  induction gs generalizing k s with
+  | nil => rfl
+  | cons g gs ih =>
+    rw [run, ih (k + 1) _ (by omega)]
+    exact Function.update_of_ne (Nat.ne_of_lt hi) _ _
+
+lemma projectRun_append (gs hs : List Gate) (w : List Bool) :
+    projectRun (gs ++ hs) w = projectRun hs (projectRun gs w) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih => exact ih _
+
+lemma pinnedState_eq_getD (w : List Bool) (h : Nat) (hz : w.getD h false = false) :
+    pinnedState w.length h (fun i => w.getD i false) = fun i => w.getD i false := by
+  funext i
+  by_cases hi : i < w.length
+  · by_cases he : i = h
+    · subst i; simp only [pinnedState, hi, ite_true]; exact hz.symm
+    · simp [pinnedState, hi, he]
+  · simp [pinnedState, hi, List.getD_eq_default _ _ (Nat.le_of_not_gt hi)]
+
+lemma appendGate_eval (h rep : Nat) (s : Nat → Bool) (hz : s 0 = false) :
+    evalGate (appendGate h rep) s = (s (h + 1) || s rep) := by
+  by_cases hr : rep = 0
+  · subst rep; simp [evalGate, appendGate, hz]
+  · simp [evalGate, appendGate, hr]
+
+lemma pinAndAppend_eval (pre suffix : List Gate) (h output : Nat) (w : List Bool)
+    (hh : h < w.length + pre.length) :
+    (pinAndAppend w.length pre suffix h output).eval w =
+      ((projectRun (pre.map promote) w).getD h false ||
+      (cofactorCircuit (w.length + pre.length) h suffix output).eval
+        (projectRun (pre.map promote) w)) := by
+  let cr := cofactor (w.length + pre.length) h suffix
+  let sp := run (pre.map promote) (w.length + 1) (wireView w)
+  let st := run cr.1 (w.length + pre.length + 1) sp
+  have he : (pinAndAppend w.length pre suffix h output).eval w =
+      evalGate (appendGate h (cr.2 output)) st := by
+    rw [pinAndAppend, projectCircuit_eval _ _ _ (pinGates_positive _ _ _ _ _)]
+    simp only [pinGates, run_append, List.length_append, List.length_map,
+      List.length_singleton, run]
+    have hn : w.length + 1 + (pre.length + (cofactor (w.length + pre.length) h suffix).1.length) =
+        w.length + pre.length + (cofactor (w.length + pre.length) h suffix).1.length + 1 := by omega
+    have hm : w.length + 1 + pre.length = w.length + pre.length + 1 := by omega
+    simp only [hn, hm]
+    exact Function.update_self _ _ _
+  have hsp : sp = wireView (projectRun (pre.map promote) w) :=
+    (wireView_projectRun _ _ (promote_positive pre)).symm
+  have hzero : st 0 = false := by
+    rw [show st 0 = sp 0 from run_below _ _ _ _ (by omega), hsp]
+    simp [wireView]
+  have hwire : st (h + 1) = (projectRun (pre.map promote) w).getD h false := by
+    rw [show st (h + 1) = sp (h + 1) from run_below _ _ _ _ (by omega), hsp]
+    simp [wireView]
+  have hc : (cofactorCircuit (w.length + pre.length) h suffix output).eval
+      (projectRun (pre.map promote) w) = st (cr.2 output) := by
+    unfold cofactorCircuit
+    have ht := projectCircuit_eval cr.1 (projectRun (pre.map promote) w)
+      (cr.2 output) (compile_positive suffix (w.length + pre.length)
+        (w.length + pre.length + 1) (initialMap (w.length + pre.length) h))
+    simp only [projectRun_length, List.length_map] at ht
+    rw [← hsp] at ht
+    exact ht
+  rw [he, appendGate_eval _ _ _ hzero, hwire, hc]
+
+lemma rawCircuit_split (pre suffix : List Gate) (output : Nat) (w : List Bool) :
+    (rawCircuit w.length (pre ++ suffix) output).eval w =
+      (rawCircuit (w.length + pre.length) suffix output).eval
+        (projectRun (pre.map promote) w) := by
+  have hs := rawCircuit_eval suffix output (projectRun (pre.map promote) w)
+  simp only [projectRun_length, List.length_map] at hs
+  rw [hs, rawCircuit_eval, run_append]
+  congr 2
+  funext i
+  have hp := promote_run pre w.length (fun j => w.getD j false) (wireView w)
+    (by intro j; simp [wireView]) i
+  rw [← wireView_projectRun _ _ (promote_positive pre)] at hp
+  simpa [wireView] using hp
+
+lemma pinAndAppend_correct (pre suffix : List Gate) (h output : Nat) (w : List Bool)
+    (hh : h < w.length + pre.length)
+    (hclean : (projectRun (pre.map promote) w).getD h false = true →
+      (rawCircuit w.length (pre ++ suffix) output).eval w = true) :
+    (pinAndAppend w.length pre suffix h output).eval w =
+      (rawCircuit w.length (pre ++ suffix) output).eval w := by
+  rw [pinAndAppend_eval _ _ _ _ _ hh]
+  cases hv : (projectRun (pre.map promote) w).getD h false with
+  | true => simp [hclean hv]
+  | false =>
+    simp only [Bool.false_or]
+    rw [rawCircuit_split]
+    have hc := (cofactorCircuit_correct h suffix output (projectRun (pre.map promote) w)).2.2
+    rw [pinnedState_eq_getD _ _ hv] at hc
+    have hr := rawCircuit_eval suffix output (projectRun (pre.map promote) w)
+    simp only [projectRun_length, List.length_map] at hc hr
+    exact hc.trans hr.symm
+
+lemma cofactor_map_bound (n h : Nat) (gs : List Gate) (i : Nat) :
+    (cofactor n h gs).2 i < n + 1 + (cofactor n h gs).1.length := by
+  exact (compile_correct gs n (n + 1) (initialMap n h)
+    (pinnedState n h (fun _ => false)) (zeroState n (fun _ => false))
+    (by omega) (by simp [zeroState]) (initialMap_bound n h)
+    (initialMap_sound n h (fun _ => false))).1 i
+
+lemma projectCircuit_wireView (n : Nat) (gs : List Gate) (rep : Nat)
+    (w : List Bool) (hp : Positive gs) :
+    wireView ((projectCircuit n gs rep).wires w) =
+      run gs (w.length + 1) (wireView w) := by
+  unfold projectCircuit PEqualNP.CircuitLowerBounds.Circuit.wires
+  rw [← projectRun_fold, wireView_projectRun _ _ hp]
+
+lemma pinAndAppend_rep_eq_cofactor (pre suffix : List Gate) (h output i : Nat)
+    (w : List Bool) (hr : 0 < (cofactor (w.length + pre.length) h suffix).2 i) :
+    ((pinAndAppend w.length pre suffix h output).wires w).getD
+      ((cofactor (w.length + pre.length) h suffix).2 i - 1) false =
+      (cofactorCircuit (w.length + pre.length) h suffix i).eval
+        (projectRun (pre.map promote) w) := by
+  let cr := cofactor (w.length + pre.length) h suffix
+  let sp := run (pre.map promote) (w.length + 1) (wireView w)
+  let st := run cr.1 (w.length + pre.length + 1) sp
+  have hsp : sp = wireView (projectRun (pre.map promote) w) :=
+    (wireView_projectRun _ _ (promote_positive pre)).symm
+  have hrep := cofactor_map_bound (w.length + pre.length) h suffix i
+  have he : wireView ((pinAndAppend w.length pre suffix h output).wires w) (cr.2 i) =
+      st (cr.2 i) := by
+    rw [pinAndAppend, projectCircuit_wireView _ _ _ _ (pinGates_positive _ _ _ _ _)]
+    simp only [pinGates, run_append, List.length_append, List.length_map, run]
+    have hm : w.length + 1 + pre.length = w.length + pre.length + 1 := by omega
+    rw [hm, Function.update_of_ne (by dsimp [cr]; omega)]
+  have hc : (cofactorCircuit (w.length + pre.length) h suffix i).eval
+      (projectRun (pre.map promote) w) = st (cr.2 i) := by
+    unfold cofactorCircuit
+    have ht := projectCircuit_eval cr.1 (projectRun (pre.map promote) w)
+      (cr.2 i) (compile_positive suffix (w.length + pre.length)
+        (w.length + pre.length + 1) (initialMap (w.length + pre.length) h))
+    simp only [projectRun_length, List.length_map] at ht
+    rw [← hsp] at ht
+    exact ht
+  rw [wireView, if_neg (Nat.ne_of_gt hr)] at he
+  exact he.trans hc.symm
+
+lemma cofactor_suffix_zero_row (pre suffix : List Gate) (h i : Nat) (w : List Bool)
+    (hz : (projectRun (pre.map promote) w).getD h false = false) :
+    (cofactorCircuit (w.length + pre.length) h suffix i).eval
+      (projectRun (pre.map promote) w) =
+      (rawCircuit w.length (pre ++ suffix) i).eval w := by
+  rw [rawCircuit_split]
+  have hc := (cofactorCircuit_correct h suffix i (projectRun (pre.map promote) w)).2.2
+  rw [pinnedState_eq_getD _ _ hz] at hc
+  have hr := rawCircuit_eval suffix i (projectRun (pre.map promote) w)
+  simp only [projectRun_length, List.length_map] at hc hr
+  exact hc.trans hr.symm
+
+lemma pinAndAppend_retained_wire (pre suffix : List Gate) (h output i : Nat)
+    (w : List Bool) (hz : (projectRun (pre.map promote) w).getD h false = false)
+    (hr : 0 < (cofactor (w.length + pre.length) h suffix).2 i) :
+    ((pinAndAppend w.length pre suffix h output).wires w).getD
+      ((cofactor (w.length + pre.length) h suffix).2 i - 1) false =
+      (rawCircuit w.length (pre ++ suffix) i).eval w := by
+  rw [pinAndAppend_rep_eq_cofactor _ _ _ _ _ _ hr]
+  exact cofactor_suffix_zero_row pre suffix h i w hz
+
+lemma pinAndAppend_high_row (pre suffix : List Gate) (h output i : Nat)
+    (w : List Bool) (target : Bool)
+    (hclean : (projectRun (pre.map promote) w).getD h false = true → target = true)
+    (hn : target = false)
+    (hr : 0 < (cofactor (w.length + pre.length) h suffix).2 i) :
+    ((pinAndAppend w.length pre suffix h output).wires w).getD
+      ((cofactor (w.length + pre.length) h suffix).2 i - 1) false =
+      (rawCircuit w.length (pre ++ suffix) i).eval w := by
+  apply pinAndAppend_retained_wire _ _ _ _ _ _ _ hr
+  cases hv : (projectRun (pre.map promote) w).getD h false
+  · rfl
+  · have := hclean hv
+    simp_all
+
+lemma exists_pinAndAppend (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length)
+    (hclean : ∀ x : Fin n → Bool,
+      (projectRun (pre.map promote) (List.ofFn x)).getD h false = true →
+        (rawCircuit n (pre ++ suffix) output).eval (List.ofFn x) = true) :
+    ∃ D : PCircuit, PEqualNP.MetaComplexity.Monotone2 D ∧
+      D.size + suffix.countP (reads h) ≤ (pre ++ suffix).length + 1 ∧
+      (D.gates.filter (hasOperation true)).length ≤
+        ((pre ++ suffix).filter (fun g => g.1 == true)).length ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+        (rawCircuit n (pre ++ suffix) output).eval (List.ofFn x) := by
+  refine ⟨pinAndAppend n pre suffix h output, pinAndAppend_mono _ _ _ _ _,
+    pinAndAppend_size_savings _ _ _ _ _ hh, pinAndAppend_andCount _ _ _ _ _, ?_⟩
+  intro x
+  simpa only [List.length_ofFn] using pinAndAppend_correct pre suffix h output
+    (List.ofFn x) (by simpa only [List.length_ofFn] using hh)
+    (by simpa only [List.length_ofFn] using hclean x)
+
+lemma pinAndAppend_smaller (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : 2 ≤ suffix.countP (reads h)) :
+    (pinAndAppend n pre suffix h output).size < (pre ++ suffix).length := by
+  have hs := pinAndAppend_size_savings n pre suffix h output hh
+  omega
+
+end CleanWirePinAppend
+
 end PEqualNP.Outside.L_meta_9033_aux
