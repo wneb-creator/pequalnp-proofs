@@ -1,0 +1,10 @@
+{
+  "module": "H5PackedRange4032",
+  "sha256": "e6a2004362d77c084e0201114abee569201cb1fa449eefc3435ff551734f75cd",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 137.10284560299988,
+  "max_rss_kib": 4373372,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

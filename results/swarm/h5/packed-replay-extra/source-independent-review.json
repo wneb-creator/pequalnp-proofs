@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS source/manifest/reused-receipt review; final aggregate and audit builds pending",
+  "range": {
+    "start": 3840,
+    "end_exclusive": 4352,
+    "count": 512
+  },
+  "checker_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "manifest_first8_exact_original_entries": true,
+  "all8_sources_exact_previously_checked_template": true,
+  "aggregate_seven_splits_exact_no_gaps_or_overlap": true,
+  "checkedExtraRange_fin_ofNat_cancellation_correct": true,
+  "audit_expected_types_roots_modules_and_range_correct": true,
+  "unique_public_names": [
+    "rangeExtra",
+    "checkedExtraRange"
+  ],
+  "reviewed_source_hashes": {
+    "aggregate": "df5bf20b00a0176b9cf8d39b36405d18b87e02a022b15428fefc581d754ad0f9",
+    "audit": "b068be2196a79aa59478ec8aac2e365713138dbdcce2c5de0977e8748a49dacf"
+  },
+  "verified_completed_receipts": [
+    {
+      "module": "H5PackedRange3840",
+      "source_sha256": "29fe36f95cfdc1b1925493487e390cbc1cc36a3c34e7dff8a6b90f6c4a1dced2",
+      "exit_code": 0,
+      "reused_success": true
+    },
+    {
+      "module": "H5PackedRange3904",
+      "source_sha256": "6810e2339187272dcd5b4a3f6b7982ebce61114a2499e71964baf0422bcc67d7",
+      "exit_code": 0,
+      "reused_success": true
+    },
+    {
+      "module": "H5PackedRange3968",
+      "source_sha256": "7827b532e3a3bc2175e215747c42da8310a6d71674ede1ddd694a1ce4661a425",
+      "exit_code": 0,
+      "reused_success": true
+    }
+  ],
+  "omitted_scratch_source_warning": "Old4352..4607 sources remain in scratch for provenance; publish only active8manifest entries, not a directory glob",
+  "lean_processes_started": 0
+}

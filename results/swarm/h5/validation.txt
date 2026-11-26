@@ -11,7 +11,7 @@ The helper proves counted restriction/renaming, cofactor bounds, input-reader bo
 
 Symmetry reduction: kernel-checked delta and standalone source; five stated theorem types and recursive axiom reports PASS. All 47 classified targets are represented by the listed 14 targets under eight explicit edge stabilizers. This is coverage, not a proof of orbit minimality, circuit extraction, or any new unconditional lower bound. Standalone and delta+main are alternative import routes.
 
-Packed replay: completed interval and receipt are recorded in packed-replay/manifest.json. The checker is frozen at 36375ce3bb56c227c81ecae98f6641800006b8c2. Every reported completed block uses kernel decide with four-node leaves; no native_decide or custom axiom. The aggregate must pass its exact-type, recursive-axiom, namespace and module-ownership audit before publication. The whole 5230-node closure and original gap require additional results.
+Packed replay: PASS for 1280 distinct nodes in [3072,4352). The original768-node interval [3072,3840) and extra512-node interval [3840,4352) each have an independently reviewed aggregate with exact type, recursive axiom, namespace and module-ownership audit PASS. Receipt manifests are in packed-replay/ and packed-replay-extra/. Every block uses decide +kernel with four-node leaves; no native_decide or custom axiom. Checker frozen at36375ce3bb56c227c81ecae98f6641800006b8c2. Original block time sum1515.209263s, peak4486248KiB; extra sum1122.315803s, peak4751168KiB. Aggregate/audit builds also pass. The whole5230-node closure, single-file runtime/format constraints, and original gap still require additional results.
 
 Coordinate optimization: exact-equality wrappers for cofactor pools and DirectMode were kernel checked and shared with the orchestrator. Node292 direct replay improved from35.151s to24.587s in serial local measurements. These timings are measurements, not guaranteed performance or packed-node substitutes.
 
@@ -21,6 +21,8 @@ Environment: Lean4.36.0; cached Mathlib obtained before builds; actual cgroup me
 
 Independent review: named helper source and theorem statements, packed checker provenance, interval coverage, arithmetic, axiom dependencies, artifact hashes and final diff reviewed by other agents. Research files are helper artifacts, not a final one-file submission.
 
+Publication: the named helper source was successfully pushed at cc06910dad6d57c83b639802d4c71034de91063f, and the first research packet was pushed at ef9cd263b6a0bbc349d3546843aaec790370ac8a. An initial authentication failure (VENDOR-LIMITATION git-auth-401) was preserved. The installed retry_ladder.py permits safe reads only; its read confirmed the remote branch was still exactly cc06910d. The brief separately permits writes fenced by an expected old SHA, so one retry of the identical ef9cd263 commit used an exact cc06910d lease and succeeded. No credentials or URLs were changed. The extra512-node packet accompanies this later validation commit on the same helper branch. Exact source bundles were also shared through the authorized bus in messages7739 and7949. No PR was opened, as required by the helper role. Orchestrator FINAL message7984 was observed after all assigned proof jobs finished; no further research was started.
+
 Checker verdict: helper builds/audits PASS; full-gap proof not obtained; no official full-gap acceptance claimed.
 Sub-agents: toolchain, dependency_prune, restriction_math, and nested cnf_review (4 total).
-TIMING total=143.3 subagents=4
+TIMING total=161 subagents=4

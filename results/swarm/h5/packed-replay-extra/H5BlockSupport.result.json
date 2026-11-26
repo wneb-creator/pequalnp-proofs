@@ -1,0 +1,10 @@
+{
+  "module": "H5BlockSupport",
+  "sha256": "688bd00299e6e4d7fcfd3c4fb88c6acefd1e4734f2348d0825ee9f4cd31cc94a",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 1.9695331629991415,
+  "max_rss_kib": 2852672,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

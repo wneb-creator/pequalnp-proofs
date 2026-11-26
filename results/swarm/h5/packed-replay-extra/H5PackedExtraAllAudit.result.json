@@ -1,0 +1,10 @@
+{
+  "module": "H5PackedExtraAllAudit",
+  "sha256": "b068be2196a79aa59478ec8aac2e365713138dbdcce2c5de0977e8748a49dacf",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 3.0763700990009966,
+  "max_rss_kib": 3306560,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}
