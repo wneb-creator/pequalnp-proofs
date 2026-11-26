@@ -179,4 +179,3 @@ theorem PEqualNP.Outside.R_meta_2373_983 :
     · exact h2 gs a b legal small left_only right_only h
   obtain ⟨x, hx⟩ := mismatch
   exact hx (congrFun exact_compact x)
-
