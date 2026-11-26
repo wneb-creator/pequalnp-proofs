@@ -782,4 +782,169 @@ lemma live_consumer_avoids_raw_input {A : Type} (F : A → ℕ → Bool)
 
 end Consumer
 
+namespace InputRename
+
+def wire {n : ℕ} (s : Equiv.Perm (Fin n)) (i : ℕ) : ℕ :=
+  if h : i < n then s ⟨i, h⟩ else i
+
+def gate {n : ℕ} (s : Equiv.Perm (Fin n)) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map (wire s)⟩
+
+def circuit {n : ℕ} (s : Equiv.Perm (Fin n)) (C : Circuit) : Circuit :=
+  ⟨C.gates.map (gate s), wire s C.output⟩
+
+lemma wire_ge {n : ℕ} (s : Equiv.Perm (Fin n)) {i : ℕ} (hi : n ≤ i) :
+    wire s i = i := by simp [wire, Nat.not_lt.mpr hi]
+
+lemma wire_ne_ge {n : ℕ} (s : Equiv.Perm (Fin n)) {i j : ℕ}
+    (hj : n ≤ j) (hne : i ≠ j) : wire s i ≠ j := by
+  by_cases hi : i < n
+  · have hlt := (s ⟨i, hi⟩).isLt
+    simp only [wire, dif_pos hi]
+    omega
+  · simpa [wire, hi] using hne
+
+lemma wires_relation {n : ℕ} (s : Equiv.Perm (Fin n)) (gs : List Gate) :
+    ∀ w w' : List Bool, w'.length = w.length → n ≤ w.length →
+      (∀ i, w'.getD (wire s i) false = w.getD i false) →
+      ∀ i, (wiresFrom (gs.map (gate s)) w').getD (wire s i) false =
+        (wiresFrom gs w).getD i false := by
+  induction gs with
+  | nil => intro w w' _ _ h; exact h
+  | cons g gs ih =>
+    intro w w' hlen hn hrel
+    have hv : (gate s g).op.eval ((gate s g).inputs.map fun i => w'.getD i false) =
+        g.op.eval (g.inputs.map fun i => w.getD i false) := by
+      unfold gate
+      simp only [List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      exact hrel i
+    change ∀ i,
+      (wiresFrom (gs.map (gate s))
+        (w' ++ [(gate s g).op.eval ((gate s g).inputs.map fun j => w'.getD j false)])).getD
+          (wire s i) false =
+      (wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun j => w.getD j false)])).getD i false
+    rw [hv]
+    apply ih
+    · simp [hlen]
+    · simp; omega
+    · intro i
+      by_cases hi : i = w.length
+      · subst i
+        rw [wire_ge s hn, getD_snoc_eq, ← hlen, getD_snoc_eq]
+      · rw [getD_snoc_ne _ _ _ _ hi,
+          getD_snoc_ne _ _ _ _ (by rw [hlen]; exact wire_ne_ge s hn hi)]
+        exact hrel i
+
+lemma eval {n : ℕ} (s : Equiv.Perm (Fin n)) (C : Circuit) (x : Fin n → Bool) :
+    (circuit s C).eval (List.ofFn (x ∘ s.symm)) = C.eval (List.ofFn x) := by
+  apply wires_relation s C.gates (List.ofFn x) (List.ofFn (x ∘ s.symm))
+    (by simp) (by simp) _ C.output
+  intro i
+  by_cases hi : i < n
+  · simp [wire, hi, Function.comp_def]
+  · have he : wire s i = i := wire_ge s (by omega)
+    rw [he, List.getD_eq_default _ _ (by simpa using Nat.le_of_not_gt hi),
+      List.getD_eq_default _ _ (by simpa using Nat.le_of_not_gt hi)]
+
+lemma size {n : ℕ} (s : Equiv.Perm (Fin n)) (C : Circuit) :
+    (circuit s C).size = C.size := by simp [circuit, Circuit.size]
+
+lemma fanInTwo {n : ℕ} (s : Equiv.Perm (Fin n)) (C : Circuit) (hC : FanInTwo C) :
+    FanInTwo (circuit s C) := by
+  intro g hg
+  obtain ⟨g0, hg0, rfl⟩ := List.mem_map.mp hg
+  obtain ⟨hop, hlen⟩ := hC g0 hg0
+  exact ⟨hop, by simpa [gate] using hlen⟩
+
+lemma wire_preimage {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n) (k : ℕ) :
+    wire s k = i ↔ k = (s.symm i : ℕ) := by
+  by_cases hk : k < n
+  · constructor
+    · intro h
+      have he : s ⟨k, hk⟩ = i := Fin.ext (by simpa [wire, hk] using h)
+      have := congrArg (fun j : Fin n => (s.symm j : ℕ)) he
+      simpa using this
+    · intro h
+      subst k
+      simp [wire]
+  · have hi := i.isLt
+    have hsi := (s.symm i).isLt
+    simp only [wire, dif_neg hk]
+    constructor <;> intro h <;> omega
+
+lemma norm_gate {n : ℕ} (s : Equiv.Perm (Fin n)) (g : Gate) :
+    normGate (gate s g) = gate s (normGate g) := by
+  obtain ⟨op, ins⟩ := g
+  cases op <;> simp [normGate, gate, List.map_take]
+
+lemma readerCount_map {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n) (gs : List Gate) :
+    readerCount i (gs.map (gate s)) = readerCount (s.symm i) gs := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    have hm : (i : ℕ) ∈ (gate s g).inputs ↔ (s.symm i : ℕ) ∈ g.inputs := by
+      change (i : ℕ) ∈ g.inputs.map (wire s) ↔ _
+      simp only [List.mem_map, wire_preimage]
+      constructor
+      · rintro ⟨j, hj, he⟩
+        simpa only [he] using hj
+      · intro hi
+        exact ⟨s.symm i, hi, rfl⟩
+    simp only [List.map_cons, readerCount, hm, ih]
+
+lemma effective_readers {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n) (C : Circuit) :
+    readerCount i ((circuit s C).gates.map normGate) =
+      readerCount (s.symm i) (C.gates.map normGate) := by
+  have he : (circuit s C).gates.map normGate = (C.gates.map normGate).map (gate s) := by
+    simp only [circuit, List.map_map]
+    apply List.map_congr_left
+    intro g _
+    exact norm_gate s g
+  rw [he, readerCount_map]
+
+lemma eval_relabel {n : ℕ} (s : Equiv.Perm (Fin n)) (C : Circuit) (y : Fin n → Bool) :
+    (circuit s C).eval (List.ofFn y) = C.eval (List.ofFn (y ∘ s)) := by
+  simpa [Function.comp_def] using eval s C (y ∘ s)
+
+end InputRename
+
+lemma fix_input_counted (n : ℕ) (v : Fin (n + 1)) (b : Bool) (C : Circuit)
+    (hC : FanInTwo C)
+    (hnc : ∃ y y' : Fin n → Bool,
+      C.eval (List.ofFn (Fin.snoc y b ∘ Equiv.swap v (Fin.last n))) ≠
+        C.eval (List.ofFn (Fin.snoc y' b ∘ Equiv.swap v (Fin.last n)))) :
+    ∃ E : Circuit, FanInTwo E ∧
+      E.size + readerCount v (C.gates.map normGate) ≤ C.size ∧
+      ∀ y : Fin n → Bool, E.eval (List.ofFn y) =
+        C.eval (List.ofFn (Fin.snoc y b ∘ Equiv.swap v (Fin.last n))) := by
+  let s := Equiv.swap v (Fin.last n)
+  let D := InputRename.circuit s C
+  have hD : FanInTwo D := InputRename.fanInTwo s C hC
+  have hncD : ∃ y y' : Fin n → Bool,
+      D.eval (List.ofFn (Fin.snoc y b)) ≠ D.eval (List.ofFn (Fin.snoc y' b)) := by
+    simpa only [D, InputRename.eval_relabel] using hnc
+  obtain ⟨E, hE, hbound, hev⟩ := fix_last_counted n b D hD hncD
+  have hr : readerCount n (D.gates.map normGate) = readerCount v (C.gates.map normGate) := by
+    simpa [s, D] using InputRename.effective_readers s (Fin.last n) C
+  rw [hr, InputRename.size] at hbound
+  refine ⟨E, hE, hbound, ?_⟩
+  intro y
+  exact (hev y).trans (InputRename.eval_relabel s C _)
+
+lemma input_readers_le_of_cofactor_lower (n q s : ℕ) (v : Fin (n + 1)) (b : Bool)
+    (C : Circuit) (hC : FanInTwo C) (hsize : C.size ≤ s)
+    (hnc : ∃ y y' : Fin n → Bool,
+      C.eval (List.ofFn (Fin.snoc y b ∘ Equiv.swap v (Fin.last n))) ≠
+        C.eval (List.ofFn (Fin.snoc y' b ∘ Equiv.swap v (Fin.last n))))
+    (hlower : ∀ E : Circuit, FanInTwo E →
+      (∀ y : Fin n → Bool, E.eval (List.ofFn y) =
+        C.eval (List.ofFn (Fin.snoc y b ∘ Equiv.swap v (Fin.last n)))) → q ≤ E.size) :
+    q + readerCount v (C.gates.map normGate) ≤ s := by
+  obtain ⟨E, hE, hbound, hev⟩ := fix_input_counted n v b C hC hnc
+  have := hlower E hE hev
+  omega
+
 end PEqualNP.Outside.L_meta_2373
