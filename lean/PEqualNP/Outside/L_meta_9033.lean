@@ -837,4 +837,110 @@ lemma binary_forest_count {ι : Type} [DecidableEq ι]
 
 end CleanForestCount
 
+namespace RawPairClassification
+
+def ownVariable (v : Fin 3) : Fin 8 := ⟨v.val, by omega⟩
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma pair_in_negative_not_graph : ∀ n ∈ negatives, ∀ i j : Fin 8,
+    submask (pairAssignment i i) n → submask (pairAssignment j j) n →
+      pairMask i j ∉ graphEdges := by
+  decide +kernel
+
+lemma critical_pair_of_negative_linear (v : Fin 3) (f g : Fin 256 → Bool)
+    (mf : ∀ a b, submask a b → f a = true → f b = true)
+    (mg : ∀ a b, submask a b → g a = true → g b = true)
+    (negative : ∀ n ∈ negatives,
+      (allowedNegatives v).contains n.val = false → (f n && g n) = false)
+    (ownF : f (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (ownG : g (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (linearF : ∀ n ∈ negatives, (f n && g n) = true →
+      ∃ i : Fin 8, submask (pairAssignment i i) n ∧ f (pairAssignment i i) = true)
+    (linearG : ∀ n ∈ negatives, (f n && g n) = true →
+      ∃ j : Fin 8, submask (pairAssignment j j) n ∧ g (pairAssignment j j) = true)
+    (dirty : ∃ n ∈ negatives, (f n && g n) = true) :
+    ∃ i j : Fin 8, f (pairAssignment i i) = true ∧
+      g (pairAssignment j j) = true ∧ pairMask i j ∈ criticalPairs v := by
+  have monoAnd : ∀ a b, submask a b →
+      (f a && g a) = true → (f b && g b) = true := by
+    intro a b hab h
+    simp only [Bool.and_eq_true] at h ⊢
+    exact ⟨mf a b hab h.1, mg a b hab h.2⟩
+  obtain ⟨n, hn, hdirty⟩ := dirty
+  obtain ⟨i, hsubi, hfi⟩ := linearF n hn hdirty
+  obtain ⟨j, hsubj, hgj⟩ := linearG n hn hdirty
+  have hiv : i.val ≠ v.val := by
+    intro he
+    have hi : i = ownVariable v := Fin.ext he
+    rw [hi, ownF] at hfi
+    contradiction
+  have hjv : j.val ≠ v.val := by
+    intro he
+    have hj : j = ownVariable v := Fin.ext he
+    rw [hj, ownG] at hgj
+    contradiction
+  have hij : i ≠ j := by
+    intro he
+    subst j
+    have hfalse := singleton_false_of_monotone v (fun x => f x && g x)
+      monoAnd negative i
+    simp only [hfi, hgj, Bool.and_self] at hfalse
+    contradiction
+  have accepted : (f (pairAssignment i j) && g (pairAssignment i j)) = true := by
+    have hf := mf _ _ (CleanRectangle.pair_submask i j).1 hfi
+    have hg := mg _ _ (CleanRectangle.pair_submask i j).2 hgj
+    simp only [hf, hg, Bool.and_self]
+  rcases permitted_pair_of_monotone v (fun x => f x && g x) monoAnd negative
+    i j hij hiv hjv accepted with hgraph | hcritical
+  · exact False.elim ((pair_in_negative_not_graph n hn i j hsubi hsubj) hgraph)
+  · exact ⟨i, j, hfi, hgj, hcritical⟩
+
+end RawPairClassification
+
+namespace SingletonMaskBridge
+
+lemma high_bit_false (mask : Fin 256) (i : Nat) (hi : 8 ≤ i) :
+    mask.val.testBit i = false := by
+  have hp : 2 ^ 8 ≤ 2 ^ i := Nat.pow_le_pow_right (by decide) hi
+  exact Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le mask.isLt hp)
+
+lemma disjoint_of_bits (left right : Fin 256)
+    (h : ∀ i : Fin 8, (left.val.testBit i.val && right.val.testBit i.val) = false) :
+    left.val &&& right.val = 0 := by
+  apply Nat.zero_of_testBit_eq_false
+  intro i
+  rw [Nat.testBit_and]
+  by_cases hi : i < 8
+  · exact h ⟨i, hi⟩
+  · rw [high_bit_false left i (Nat.le_of_not_lt hi)]
+    rfl
+
+lemma submask_of_bits (mask : Fin 256) (available : Nat)
+    (h : ∀ i : Fin 8, mask.val.testBit i.val = true → available.testBit i.val = true) :
+    mask.val &&& available = mask.val := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_and]
+  by_cases hi : i < 8
+  · cases hm : mask.val.testBit i with
+    | false => rfl
+    | true => rw [h ⟨i, hi⟩ hm]; rfl
+  · rw [high_bit_false mask i (Nat.le_of_not_lt hi)]
+    rfl
+
+lemma disjoint_of_encoded_singletons (f g : Fin 256 → Bool) (left right : Fin 256)
+    (hl : ∀ i : Fin 8, left.val.testBit i.val = f (RawPairClassification.pairAssignment i i))
+    (hr : ∀ i : Fin 8, right.val.testBit i.val = g (RawPairClassification.pairAssignment i i))
+    (hz : ∀ i : Fin 8,
+      (f (RawPairClassification.pairAssignment i i) &&
+        g (RawPairClassification.pairAssignment i i)) = false) :
+    left.val &&& right.val = 0 := by
+  apply disjoint_of_bits
+  intro i
+  rw [hl i, hr i]
+  exact hz i
+
+end SingletonMaskBridge
+
 end PEqualNP.Outside.L_meta_9033_aux
