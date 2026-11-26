@@ -3,7 +3,9 @@ import Mathlib.Data.List.Induction
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.List.Basic
 import Mathlib.Data.Tree.Basic
-import Mathlib.Tactic
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.Fintype.Powerset
+import Mathlib.Tactic.FinCases
 
 namespace PEqualNP.Outside.L_meta_9033
 
@@ -799,6 +801,1535 @@ lemma port_cover_of_wire_budget {α : Type} [DecidableEq α] {m budget : Nat}
         (∃ j, j < i ∧ values (ports j) = values (ports i)) ∨ i ∈ representatives := by
   exact port_cover_complete (atomWires.image values) (fun i => values (ports i))
     (port_functions_budget atomWires paidWires ports values hpaid hports)
+
+def r2FrontierMask (S : Finset (Fin 3)) : Nat :=
+  S.sum (fun i => 1 <<< i.val)
+
+def r2CleanAllocations : List (Nat × Nat) :=
+  [(1, 2), (1, 4), (1, 6), (2, 1), (2, 4), (2, 5),
+    (3, 4), (4, 1), (4, 2), (4, 3), (5, 2), (6, 1)]
+
+def r2Allocation (i : Fin 12) : Nat × Nat :=
+  r2CleanAllocations.getD i.val (0, 0)
+
+def r2Ready (mask : Nat) : Nat :=
+  if mask &&& 4 ≠ 0 then 2 else if mask &&& 2 ≠ 0 then 1 else 0
+
+lemma r2_frontier_mask_membership : ∀ (S : Finset (Fin 3)) (i : Fin 3),
+    (r2FrontierMask S).testBit i.val = true ↔ i ∈ S := by
+  decide +kernel
+
+lemma r2_allocation_count : r2CleanAllocations.length = 12 := by rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 20000000 in
+lemma r2_allocation_complete : ∀ (S T : Finset (Fin 3)),
+    S.Nonempty → T.Nonempty → Disjoint S T →
+    ∃ i : Fin 12, r2Allocation i = (r2FrontierMask S, r2FrontierMask T) := by
+  decide +kernel
+
+lemma r2_allocation_ready_distinct : ∀ i : Fin 12,
+    r2Ready (r2Allocation i).1 ≠ r2Ready (r2Allocation i).2 := by
+  decide +kernel
+
+lemma frontiers_AC_disjoint {α : Type} (S T : Finset α) (negatives : Finset Nat)
+    (value : α → Nat → Bool)
+    (hdirty : ∀ wire ∈ S, ∃ row ∈ negatives, value wire row = true)
+    (hA : ∀ wire ∈ S, ∀ row ∈ negatives,
+      value wire row = true → row = 25 ∨ row = 37)
+    (hC : ∀ wire ∈ T, ∀ row ∈ negatives,
+      value wire row = true → row = 37 ∨ row = 76)
+    (hpin : ∀ wire ∈ S, wire ∈ T → value wire 37 = value wire 32)
+    (hzero : ∀ wire ∈ S, value wire 32 = false) : Disjoint S T := by
+  apply Finset.disjoint_left.mpr
+  intro wire hs ht
+  obtain ⟨row, hrow, hv⟩ := hdirty wire hs
+  have ha := hA wire hs row hrow hv
+  have hc := hC wire ht row hrow hv
+  have hr : row = 37 := by omega
+  subst row
+  rw [hpin wire hs ht, hzero wire hs] at hv
+  cases hv
+
+lemma frontiers_disjoint_of_disjoint_support {α β : Type}
+    (S T : Finset α) (negatives allowedS allowedT : Finset β)
+    (value : α → β → Bool) (hallowed : Disjoint allowedS allowedT)
+    (hdirty : ∀ wire ∈ S, ∃ row ∈ negatives, value wire row = true)
+    (hS : ∀ wire ∈ S, ∀ row ∈ negatives, value wire row = true → row ∈ allowedS)
+    (hT : ∀ wire ∈ T, ∀ row ∈ negatives, value wire row = true → row ∈ allowedT) :
+    Disjoint S T := by
+  apply Finset.disjoint_left.mpr
+  intro wire hs ht
+  obtain ⟨row, hrow, hv⟩ := hdirty wire hs
+  exact Finset.disjoint_left.mp hallowed (hS wire hs row hrow hv) (hT wire ht row hrow hv)
+
+def bcUnionAtoms : Finset Nat := {0, 1, 2, 4, 8, 16, 32, 64, 128}
+
+def bcUnionDecomposable (S : Finset Nat) (m : Nat) : Prop :=
+  ∃ a ∈ S ∪ bcUnionAtoms, ∃ b ∈ S ∪ bcUnionAtoms,
+    a < m ∧ b < m ∧ a ||| b = m
+
+def bcUnionClosed (S : Finset Nat) : Prop :=
+  ∀ m ∈ S, m ∈ bcUnionAtoms ∨ bcUnionDecomposable S m
+
+def bcIndexedPorts (a c : Fin 8) (t : Fin 23) : List Nat :=
+  bcCoverPorts (bcRawAMasks.getD a.val 0) (bcRawCMasks.getD c.val 0)
+    (bcCoverTriples.getD t.val (0, 0, 0))
+
+def bcRequiredFamily (ports : List Nat) : Finset Nat := ports.toFinset \ bcUnionAtoms
+
+def bcFamily (a c : Fin 8) (t : Fin 23) : Finset Nat :=
+  bcRequiredFamily (bcIndexedPorts a c t)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma bc_union_positive_control : bcUnionClosed {5, 40, 41, 44, 48} := by
+  unfold bcUnionClosed bcUnionDecomposable bcUnionAtoms
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma bc_family_cardinality : ∀ (a c : Fin 8) (t : Fin 23),
+    (bcFamily a c t).card = 4 ∨ (bcFamily a c t).card = 5 ∨
+      (bcFamily a c t).card = 6 := by
+  decide +kernel
+
+def bcUnionAtomList : List Nat := [0, 1, 2, 4, 8, 16, 32, 64, 128]
+
+lemma bc_union_atom_list_eq : bcUnionAtomList.toFinset = bcUnionAtoms := by
+  decide +kernel
+
+def bcUnionCheck (L : List Nat) : Bool :=
+  L.all (fun m => bcUnionAtomList.contains m ||
+    (L ++ bcUnionAtomList).any (fun a =>
+      (L ++ bcUnionAtomList).any (fun b => decide (a < m ∧ b < m ∧ a ||| b = m))))
+
+lemma bc_union_check_spec (L : List Nat) :
+    bcUnionCheck L = true ↔ bcUnionClosed L.toFinset := by
+  simp only [bcUnionCheck, bcUnionClosed, bcUnionDecomposable,
+    ← bc_union_atom_list_eq, List.all_eq_true, List.any_eq_true,
+    Bool.or_eq_true, List.contains_iff_mem, decide_eq_true_eq,
+    List.mem_append, Finset.mem_union, List.mem_toFinset]
+
+def bcRequiredList (ports : List Nat) : List Nat :=
+  ports.filter (fun m => !(bcUnionAtomList.contains m))
+
+lemma bc_required_list_eq (ports : List Nat) :
+    (bcRequiredList ports).toFinset = bcRequiredFamily ports := by
+  ext m
+  simp [bcRequiredList, bcRequiredFamily, ← bc_union_atom_list_eq]
+
+lemma bc_union_bool_positive_control : bcUnionCheck [5, 40, 41, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_0 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 0 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 0 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_1 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 1 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 1 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_2 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 2 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 2 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_3 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 3 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 3 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_4 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 4 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 4 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_5 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 5 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 5 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_6 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 6 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 6 c t)) = false := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_small_family_check_7 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 7 c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts 7 c t)) = false := by
+  decide +kernel
+
+lemma bc_small_family_check : ∀ (a c : Fin 8) (t : Fin 23),
+    (bcFamily a c t).card ≤ 5 →
+      bcUnionCheck (bcRequiredList (bcIndexedPorts a c t)) = false := by
+  intro a
+  fin_cases a
+  · exact bc_small_family_check_0
+  · exact bc_small_family_check_1
+  · exact bc_small_family_check_2
+  · exact bc_small_family_check_3
+  · exact bc_small_family_check_4
+  · exact bc_small_family_check_5
+  · exact bc_small_family_check_6
+  · exact bc_small_family_check_7
+
+lemma bc_small_family_not_closed (a c : Fin 8) (t : Fin 23)
+    (hc : (bcFamily a c t).card ≤ 5) : ¬ bcUnionClosed (bcFamily a c t) := by
+  intro hclosed
+  have htrue : bcUnionCheck (bcRequiredList (bcIndexedPorts a c t)) = true := by
+    apply (bc_union_check_spec _).mpr
+    rw [bc_required_list_eq]
+    exact hclosed
+  rw [bc_small_family_check a c t hc] at htrue
+  cases htrue
+
+def bcFourMasks : List (List Nat) :=
+  [[5, 41, 44, 48], [5, 41, 44, 50], [5, 41, 44, 52], [5, 41, 44, 54], [5, 41, 44, 56], [5, 41, 44, 58], [5, 41, 44, 60], [5, 41, 44, 62], [7, 33, 44, 48], [7, 33, 44, 50], [7, 33, 44, 52], [7, 33, 44, 54], [7, 33, 44, 56], [7, 33, 44, 58], [7, 33, 44, 60], [7, 33, 44, 62], [7, 41, 44, 48], [7, 41, 44, 50], [7, 41, 44, 52], [7, 41, 44, 54], [7, 41, 44, 56], [7, 41, 44, 58], [7, 41, 44, 60], [7, 41, 44, 62], [10, 22, 40, 52], [10, 22, 40, 54], [10, 22, 40, 60], [10, 22, 40, 62], [17, 36, 41, 56], [17, 38, 41, 56], [17, 41, 44, 56], [17, 41, 46, 56], [17, 41, 52, 56], [17, 41, 54, 56], [17, 41, 56, 60], [17, 41, 56, 62], [19, 33, 36, 56], [19, 33, 38, 56], [19, 33, 44, 56], [19, 33, 46, 56], [19, 33, 52, 56], [19, 33, 54, 56], [19, 33, 56, 60], [19, 33, 56, 62], [19, 36, 41, 56], [19, 38, 41, 56], [19, 41, 44, 56], [19, 41, 46, 56], [19, 41, 52, 56], [19, 41, 54, 56], [19, 41, 56, 60], [19, 41, 56, 62], [21, 36, 41, 48], [21, 36, 41, 50], [21, 36, 41, 52], [21, 36, 41, 54], [21, 36, 41, 56], [21, 36, 41, 58], [21, 36, 41, 60], [21, 36, 41, 62], [21, 38, 41, 48], [21, 38, 41, 56], [21, 41, 44, 48], [21, 41, 44, 50], [21, 41, 44, 52], [21, 41, 44, 54], [21, 41, 44, 56], [21, 41, 44, 58], [21, 41, 44, 60], [21, 41, 44, 62], [21, 41, 46, 48], [21, 41, 46, 56], [21, 41, 48, 52], [21, 41, 48, 54], [21, 41, 48, 60], [21, 41, 48, 62], [21, 41, 52, 56], [21, 41, 54, 56], [21, 41, 56, 60], [21, 41, 56, 62], [23, 33, 36, 48], [23, 33, 36, 50], [23, 33, 36, 52], [23, 33, 36, 54], [23, 33, 36, 56], [23, 33, 36, 58], [23, 33, 36, 60], [23, 33, 36, 62], [23, 33, 38, 48], [23, 33, 38, 56], [23, 33, 44, 48], [23, 33, 44, 50], [23, 33, 44, 52], [23, 33, 44, 54], [23, 33, 44, 56], [23, 33, 44, 58], [23, 33, 44, 60], [23, 33, 44, 62], [23, 33, 46, 48], [23, 33, 46, 56], [23, 33, 48, 52], [23, 33, 48, 54], [23, 33, 48, 60], [23, 33, 48, 62], [23, 33, 52, 56], [23, 33, 54, 56], [23, 33, 56, 60], [23, 33, 56, 62], [23, 36, 41, 48], [23, 36, 41, 50], [23, 36, 41, 52], [23, 36, 41, 54], [23, 36, 41, 56], [23, 36, 41, 58], [23, 36, 41, 60], [23, 36, 41, 62], [23, 38, 41, 48], [23, 38, 41, 56], [23, 41, 44, 48], [23, 41, 44, 50], [23, 41, 44, 52], [23, 41, 44, 54], [23, 41, 44, 56], [23, 41, 44, 58], [23, 41, 44, 60], [23, 41, 44, 62], [23, 41, 46, 48], [23, 41, 46, 56], [23, 41, 48, 52], [23, 41, 48, 54], [23, 41, 48, 60], [23, 41, 48, 62], [23, 41, 52, 56], [23, 41, 54, 56], [23, 41, 56, 60], [23, 41, 56, 62]]
+
+def bcFourIndexTable : List (List (List Nat)) :=
+  [[[80, 52, 108, 0, 0, 0, 0, 0, 0, 0, 80, 52, 108, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [88, 60, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [90, 62, 118, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 90, 0, 16, 62, 118, 0, 0, 0, 0], [98, 70, 126, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [100, 72, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [101, 73, 129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [102, 74, 130, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [103, 75, 131, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 81, 53, 109, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 91, 1, 17, 63, 119, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 82, 54, 110, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 92, 2, 18, 64, 120, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [100, 72, 128, 40, 104, 32, 48, 76, 132, 0, 82, 54, 110, 10, 92, 2, 18, 64, 120, 0, 24, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 83, 55, 111, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 93, 3, 19, 65, 121, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [101, 73, 129, 41, 105, 33, 49, 77, 133, 0, 83, 55, 111, 11, 93, 3, 19, 65, 121, 0, 25, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 36, 84, 28, 44, 56, 112, 0, 84, 56, 112, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 37, 89, 29, 45, 61, 117, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 38, 94, 30, 46, 66, 122, 0, 0, 0, 0, 12, 94, 4, 20, 66, 122, 0, 0, 0, 0], [0, 0, 0, 39, 99, 31, 47, 71, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 40, 104, 32, 48, 76, 132, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 41, 105, 33, 49, 77, 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 42, 106, 34, 50, 78, 134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 43, 107, 35, 51, 79, 135, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 57, 113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 95, 5, 21, 67, 123, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 86, 58, 114, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 96, 6, 22, 68, 124, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [102, 74, 130, 42, 106, 34, 50, 78, 134, 0, 86, 58, 114, 14, 96, 6, 22, 68, 124, 0, 26, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 87, 59, 115, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 97, 7, 23, 69, 125, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [103, 75, 131, 43, 107, 35, 51, 79, 135, 0, 87, 59, 115, 15, 97, 7, 23, 69, 125, 0, 27, 0, 0]]]
+
+def bcSurvivorFamilyIndices : List Nat := [0, 4, 6, 24, 25, 26, 27, 28, 30, 34]
+
+def bcSurvivorCovers : List (List Nat) :=
+  [[48, 44, 16, 44, 2, 41, 5, 8], [52, 52, 22, 40, 1, 10, 4, 16], [54, 54, 22, 40, 1, 10, 4, 16], [56, 36, 4, 56, 2, 41, 8, 17], [56, 44, 4, 56, 2, 41, 8, 17], [56, 44, 16, 44, 2, 41, 5, 8], [56, 60, 4, 56, 2, 41, 8, 17], [60, 44, 16, 44, 2, 41, 5, 8], [60, 60, 4, 56, 2, 41, 8, 17], [60, 60, 16, 44, 2, 41, 5, 8], [60, 60, 22, 40, 1, 10, 4, 16], [62, 62, 22, 40, 1, 10, 4, 16]]
+
+def bcFourIndex (a c : Fin 8) (t : Fin 23) : Nat :=
+  (((bcFourIndexTable.getD a.val []).getD c.val []).getD t.val 0)
+
+def bcFourMaskAt (i : Fin 136) : List Nat := bcFourMasks.getD i.val []
+
+lemma bc_four_masks_count : bcFourMasks.length = 136 := by rfl
+lemma bc_survivor_covers_count : bcSurvivorCovers.length = 12 := by rfl
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_0 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 0 c t).card = 4 → bcFourIndex 0 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 0 c t) []).toFinset = bcFamily 0 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_1 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 1 c t).card = 4 → bcFourIndex 1 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 1 c t) []).toFinset = bcFamily 1 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_2 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 2 c t).card = 4 → bcFourIndex 2 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 2 c t) []).toFinset = bcFamily 2 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_3 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 3 c t).card = 4 → bcFourIndex 3 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 3 c t) []).toFinset = bcFamily 3 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_4 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 4 c t).card = 4 → bcFourIndex 4 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 4 c t) []).toFinset = bcFamily 4 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_5 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 5 c t).card = 4 → bcFourIndex 5 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 5 c t) []).toFinset = bcFamily 5 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_6 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 6 c t).card = 4 → bcFourIndex 6 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 6 c t) []).toFinset = bcFamily 6 c t := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_family_lookup_7 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 7 c t).card = 4 → bcFourIndex 7 c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex 7 c t) []).toFinset = bcFamily 7 c t := by
+  decide +kernel
+
+lemma bc_four_family_lookup : ∀ (a c : Fin 8) (t : Fin 23),
+    (bcFamily a c t).card = 4 → bcFourIndex a c t < 136 ∧
+      (bcFourMasks.getD (bcFourIndex a c t) []).toFinset = bcFamily a c t := by
+  intro a
+  fin_cases a
+  · exact bc_four_family_lookup_0
+  · exact bc_four_family_lookup_1
+  · exact bc_four_family_lookup_2
+  · exact bc_four_family_lookup_3
+  · exact bc_four_family_lookup_4
+  · exact bc_four_family_lookup_5
+  · exact bc_four_family_lookup_6
+  · exact bc_four_family_lookup_7
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_0 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 0 c t).card = 4 →
+      bcFourIndex 0 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 0 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_1 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 1 c t).card = 4 →
+      bcFourIndex 1 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 1 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_2 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 2 c t).card = 4 →
+      bcFourIndex 2 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 2 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_3 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 3 c t).card = 4 →
+      bcFourIndex 3 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 3 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_4 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 4 c t).card = 4 →
+      bcFourIndex 4 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 4 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_5 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 5 c t).card = 4 →
+      bcFourIndex 5 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 5 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_6 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 6 c t).card = 4 →
+      bcFourIndex 6 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 6 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_survivor_cover_lookup_7 : ∀ (c : Fin 8) (t : Fin 23),
+    (bcFamily 7 c t).card = 4 →
+      bcFourIndex 7 c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts 7 c t ∈ bcSurvivorCovers := by
+  decide +kernel
+
+lemma bc_survivor_cover_lookup : ∀ (a c : Fin 8) (t : Fin 23),
+    (bcFamily a c t).card = 4 → bcFourIndex a c t ∈ bcSurvivorFamilyIndices →
+      bcIndexedPorts a c t ∈ bcSurvivorCovers := by
+  intro a
+  fin_cases a
+  · exact bc_survivor_cover_lookup_0
+  · exact bc_survivor_cover_lookup_1
+  · exact bc_survivor_cover_lookup_2
+  · exact bc_survivor_cover_lookup_3
+  · exact bc_survivor_cover_lookup_4
+  · exact bc_survivor_cover_lookup_5
+  · exact bc_survivor_cover_lookup_6
+  · exact bc_survivor_cover_lookup_7
+
+def bcNoSmallUnionExtension (L : List Nat) : Bool :=
+  (List.range 64).all (fun extra => !(bcUnionCheck (extra :: L)))
+
+lemma bc_no_small_union_extension_spec (L : List Nat) :
+    bcNoSmallUnionExtension L = true ↔
+      ∀ extra : Fin 64, bcUnionCheck (extra.val :: L) = false := by
+  constructor
+  · intro h extra
+    have hx := List.all_eq_true.mp h extra.val (List.mem_range.mpr extra.isLt)
+    simpa using hx
+  · intro h
+    apply List.all_eq_true.mpr
+    intro extra hx
+    have he := h ⟨extra, List.mem_range.mp hx⟩
+    simpa using he
+
+lemma bc_union_closed_remove_large (S : Finset Nat) (extra : Nat)
+    (hbound : ∀ m ∈ S, m ≤ extra)
+    (hclosed : bcUnionClosed (insert extra S)) : bcUnionClosed S := by
+  intro m hm
+  rcases hclosed m (Finset.mem_insert_of_mem hm) with hatom | hdec
+  · exact Or.inl hatom
+  · right
+    obtain ⟨a, ha, b, hb, ham, hbm, heq⟩ := hdec
+    refine ⟨a, ?_, b, ?_, ham, hbm, heq⟩
+    · rcases Finset.mem_union.mp ha with ha | ha
+      · rcases Finset.mem_insert.mp ha with rfl | ha
+        · have := hbound m hm
+          omega
+        · exact Finset.mem_union.mpr (Or.inl ha)
+      · exact Finset.mem_union.mpr (Or.inr ha)
+    · rcases Finset.mem_union.mp hb with hb | hb
+      · rcases Finset.mem_insert.mp hb with rfl | hb
+        · have := hbound m hm
+          omega
+        · exact Finset.mem_union.mpr (Or.inl hb)
+      · exact Finset.mem_union.mpr (Or.inr hb)
+
+lemma bc_extra_below_64 (S : Finset Nat) (extra : Nat)
+    (hbound : ∀ m ∈ S, m < 64) (hnot : ¬ bcUnionClosed S)
+    (hclosed : bcUnionClosed (insert extra S)) : extra < 64 := by
+  by_contra hn
+  apply hnot
+  apply bc_union_closed_remove_large S extra ?_ hclosed
+  intro m hm
+  have := hbound m hm
+  omega
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma bc_indexed_ports_bound : ∀ (a c : Fin 8) (t : Fin 23),
+    (bcIndexedPorts a c t).all (fun m => decide (m < 64)) = true := by
+  decide +kernel
+
+lemma bc_family_masks_bound (a c : Fin 8) (t : Fin 23) :
+    ∀ m ∈ bcFamily a c t, m < 64 := by
+  intro m hm
+  have hm' : m ∈ bcIndexedPorts a c t :=
+    List.mem_toFinset.mp (Finset.mem_sdiff.mp hm).1
+  exact of_decide_eq_true (List.all_eq_true.mp (bc_indexed_ports_bound a c t) m hm')
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_001 : bcNoSmallUnionExtension [5, 41, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_002 : bcNoSmallUnionExtension [5, 41, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_003 : bcNoSmallUnionExtension [5, 41, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_005 : bcNoSmallUnionExtension [5, 41, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_007 : bcNoSmallUnionExtension [5, 41, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_008 : bcNoSmallUnionExtension [7, 33, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_009 : bcNoSmallUnionExtension [7, 33, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_010 : bcNoSmallUnionExtension [7, 33, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_011 : bcNoSmallUnionExtension [7, 33, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_012 : bcNoSmallUnionExtension [7, 33, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_013 : bcNoSmallUnionExtension [7, 33, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_014 : bcNoSmallUnionExtension [7, 33, 44, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_015 : bcNoSmallUnionExtension [7, 33, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_016 : bcNoSmallUnionExtension [7, 41, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_017 : bcNoSmallUnionExtension [7, 41, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_018 : bcNoSmallUnionExtension [7, 41, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_019 : bcNoSmallUnionExtension [7, 41, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_020 : bcNoSmallUnionExtension [7, 41, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_021 : bcNoSmallUnionExtension [7, 41, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_022 : bcNoSmallUnionExtension [7, 41, 44, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_023 : bcNoSmallUnionExtension [7, 41, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_029 : bcNoSmallUnionExtension [17, 38, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_031 : bcNoSmallUnionExtension [17, 41, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_032 : bcNoSmallUnionExtension [17, 41, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_033 : bcNoSmallUnionExtension [17, 41, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_035 : bcNoSmallUnionExtension [17, 41, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_036 : bcNoSmallUnionExtension [19, 33, 36, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_037 : bcNoSmallUnionExtension [19, 33, 38, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_038 : bcNoSmallUnionExtension [19, 33, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_039 : bcNoSmallUnionExtension [19, 33, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_040 : bcNoSmallUnionExtension [19, 33, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_041 : bcNoSmallUnionExtension [19, 33, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_042 : bcNoSmallUnionExtension [19, 33, 56, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_043 : bcNoSmallUnionExtension [19, 33, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_044 : bcNoSmallUnionExtension [19, 36, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_045 : bcNoSmallUnionExtension [19, 38, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_046 : bcNoSmallUnionExtension [19, 41, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_047 : bcNoSmallUnionExtension [19, 41, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_048 : bcNoSmallUnionExtension [19, 41, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_049 : bcNoSmallUnionExtension [19, 41, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_050 : bcNoSmallUnionExtension [19, 41, 56, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_051 : bcNoSmallUnionExtension [19, 41, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_052 : bcNoSmallUnionExtension [21, 36, 41, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_053 : bcNoSmallUnionExtension [21, 36, 41, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_054 : bcNoSmallUnionExtension [21, 36, 41, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_055 : bcNoSmallUnionExtension [21, 36, 41, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_056 : bcNoSmallUnionExtension [21, 36, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_057 : bcNoSmallUnionExtension [21, 36, 41, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_058 : bcNoSmallUnionExtension [21, 36, 41, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_059 : bcNoSmallUnionExtension [21, 36, 41, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_060 : bcNoSmallUnionExtension [21, 38, 41, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_061 : bcNoSmallUnionExtension [21, 38, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_062 : bcNoSmallUnionExtension [21, 41, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_063 : bcNoSmallUnionExtension [21, 41, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_064 : bcNoSmallUnionExtension [21, 41, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_065 : bcNoSmallUnionExtension [21, 41, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_066 : bcNoSmallUnionExtension [21, 41, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_067 : bcNoSmallUnionExtension [21, 41, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_068 : bcNoSmallUnionExtension [21, 41, 44, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_069 : bcNoSmallUnionExtension [21, 41, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_070 : bcNoSmallUnionExtension [21, 41, 46, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_071 : bcNoSmallUnionExtension [21, 41, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_072 : bcNoSmallUnionExtension [21, 41, 48, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_073 : bcNoSmallUnionExtension [21, 41, 48, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_074 : bcNoSmallUnionExtension [21, 41, 48, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_075 : bcNoSmallUnionExtension [21, 41, 48, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_076 : bcNoSmallUnionExtension [21, 41, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_077 : bcNoSmallUnionExtension [21, 41, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_078 : bcNoSmallUnionExtension [21, 41, 56, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_079 : bcNoSmallUnionExtension [21, 41, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_080 : bcNoSmallUnionExtension [23, 33, 36, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_081 : bcNoSmallUnionExtension [23, 33, 36, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_082 : bcNoSmallUnionExtension [23, 33, 36, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_083 : bcNoSmallUnionExtension [23, 33, 36, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_084 : bcNoSmallUnionExtension [23, 33, 36, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_085 : bcNoSmallUnionExtension [23, 33, 36, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_086 : bcNoSmallUnionExtension [23, 33, 36, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_087 : bcNoSmallUnionExtension [23, 33, 36, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_088 : bcNoSmallUnionExtension [23, 33, 38, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_089 : bcNoSmallUnionExtension [23, 33, 38, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_090 : bcNoSmallUnionExtension [23, 33, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_091 : bcNoSmallUnionExtension [23, 33, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_092 : bcNoSmallUnionExtension [23, 33, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_093 : bcNoSmallUnionExtension [23, 33, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_094 : bcNoSmallUnionExtension [23, 33, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_095 : bcNoSmallUnionExtension [23, 33, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_096 : bcNoSmallUnionExtension [23, 33, 44, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_097 : bcNoSmallUnionExtension [23, 33, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_098 : bcNoSmallUnionExtension [23, 33, 46, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_099 : bcNoSmallUnionExtension [23, 33, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_100 : bcNoSmallUnionExtension [23, 33, 48, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_101 : bcNoSmallUnionExtension [23, 33, 48, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_102 : bcNoSmallUnionExtension [23, 33, 48, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_103 : bcNoSmallUnionExtension [23, 33, 48, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_104 : bcNoSmallUnionExtension [23, 33, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_105 : bcNoSmallUnionExtension [23, 33, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_106 : bcNoSmallUnionExtension [23, 33, 56, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_107 : bcNoSmallUnionExtension [23, 33, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_108 : bcNoSmallUnionExtension [23, 36, 41, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_109 : bcNoSmallUnionExtension [23, 36, 41, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_110 : bcNoSmallUnionExtension [23, 36, 41, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_111 : bcNoSmallUnionExtension [23, 36, 41, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_112 : bcNoSmallUnionExtension [23, 36, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_113 : bcNoSmallUnionExtension [23, 36, 41, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_114 : bcNoSmallUnionExtension [23, 36, 41, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_115 : bcNoSmallUnionExtension [23, 36, 41, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_116 : bcNoSmallUnionExtension [23, 38, 41, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_117 : bcNoSmallUnionExtension [23, 38, 41, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_118 : bcNoSmallUnionExtension [23, 41, 44, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_119 : bcNoSmallUnionExtension [23, 41, 44, 50] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_120 : bcNoSmallUnionExtension [23, 41, 44, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_121 : bcNoSmallUnionExtension [23, 41, 44, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_122 : bcNoSmallUnionExtension [23, 41, 44, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_123 : bcNoSmallUnionExtension [23, 41, 44, 58] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_124 : bcNoSmallUnionExtension [23, 41, 44, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_125 : bcNoSmallUnionExtension [23, 41, 44, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_126 : bcNoSmallUnionExtension [23, 41, 46, 48] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_127 : bcNoSmallUnionExtension [23, 41, 46, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_128 : bcNoSmallUnionExtension [23, 41, 48, 52] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_129 : bcNoSmallUnionExtension [23, 41, 48, 54] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_130 : bcNoSmallUnionExtension [23, 41, 48, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_131 : bcNoSmallUnionExtension [23, 41, 48, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_132 : bcNoSmallUnionExtension [23, 41, 52, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_133 : bcNoSmallUnionExtension [23, 41, 54, 56] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_134 : bcNoSmallUnionExtension [23, 41, 56, 60] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_reject_135 : bcNoSmallUnionExtension [23, 41, 56, 62] = true := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_four_extra_cases (i : Fin 136) :
+    i.val ∈ bcSurvivorFamilyIndices ∨
+      ∀ extra : Fin 64, bcUnionCheck (extra.val :: bcFourMaskAt i) = false := by
+  fin_cases i
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_001
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_002
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_003
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_005
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_007
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_008
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_009
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_010
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_011
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_012
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_013
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_014
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_015
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_016
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_017
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_018
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_019
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_020
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_021
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_022
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_023
+  · left
+    decide +kernel
+  · left
+    decide +kernel
+  · left
+    decide +kernel
+  · left
+    decide +kernel
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_029
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_031
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_032
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_033
+  · left
+    decide +kernel
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_035
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_036
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_037
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_038
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_039
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_040
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_041
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_042
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_043
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_044
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_045
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_046
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_047
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_048
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_049
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_050
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_051
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_052
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_053
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_054
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_055
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_056
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_057
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_058
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_059
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_060
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_061
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_062
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_063
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_064
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_065
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_066
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_067
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_068
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_069
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_070
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_071
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_072
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_073
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_074
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_075
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_076
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_077
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_078
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_079
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_080
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_081
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_082
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_083
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_084
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_085
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_086
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_087
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_088
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_089
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_090
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_091
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_092
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_093
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_094
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_095
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_096
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_097
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_098
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_099
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_100
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_101
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_102
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_103
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_104
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_105
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_106
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_107
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_108
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_109
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_110
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_111
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_112
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_113
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_114
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_115
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_116
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_117
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_118
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_119
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_120
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_121
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_122
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_123
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_124
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_125
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_126
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_127
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_128
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_129
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_130
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_131
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_132
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_133
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_134
+  · right
+    exact (bc_no_small_union_extension_spec _).mp bc_four_extra_reject_135
+
+lemma bc_card_four_extension_cover (a c : Fin 8) (t : Fin 23)
+    (hcard : (bcFamily a c t).card = 4) (extra : Fin 256)
+    (hclosed : bcUnionClosed (insert extra.val (bcFamily a c t))) :
+    bcIndexedPorts a c t ∈ bcSurvivorCovers := by
+  have hextra := bc_extra_below_64 (bcFamily a c t) extra.val
+    (bc_family_masks_bound a c t)
+    (bc_small_family_not_closed a c t (by omega)) hclosed
+  let smallExtra : Fin 64 := ⟨extra.val, hextra⟩
+  obtain ⟨hbound, heq⟩ := bc_four_family_lookup a c t hcard
+  let i : Fin 136 := ⟨bcFourIndex a c t, hbound⟩
+  have hi : (bcFourMaskAt i).toFinset = bcFamily a c t := heq
+  have htrue : bcUnionCheck (smallExtra.val :: bcFourMaskAt i) = true := by
+    apply (bc_union_check_spec _).mpr
+    rw [List.toFinset_cons, hi]
+    exact hclosed
+  rcases bc_four_extra_cases i with hsurv | hbad
+  · exact bc_survivor_cover_lookup a c t hcard hsurv
+  · rw [hbad smallExtra] at htrue
+    cases htrue
+
+
+lemma bc_subset_one_extra (F S : Finset Nat) (hsub : F ⊆ S)
+    (hcard : S.card ≤ F.card + 1) : ∃ extra, S ⊆ insert extra F := by
+  have hdiff : (S \ F).card ≤ 1 := by
+    rw [Finset.card_sdiff_of_subset hsub]
+    omega
+  by_cases hnonempty : (S \ F).Nonempty
+  · obtain ⟨extra, hextra⟩ := hnonempty
+    refine ⟨extra, ?_⟩
+    intro x hx
+    by_cases hxf : x ∈ F
+    · exact Finset.mem_insert_of_mem hxf
+    · have hxs : x ∈ S \ F := Finset.mem_sdiff.mpr ⟨hx, hxf⟩
+      exact Finset.mem_insert.mpr (Or.inl ((Finset.card_le_one.mp hdiff) x hxs extra hextra))
+  · refine ⟨0, ?_⟩
+    intro x hx
+    have hxf : x ∈ F := by
+      by_contra hxf
+      exact hnonempty ⟨x, Finset.mem_sdiff.mpr ⟨hx, hxf⟩⟩
+    exact Finset.mem_insert_of_mem hxf
+
+lemma bc_subset_equal_at_budget (F S : Finset Nat) (hsub : F ⊆ S)
+    (hcard : S.card ≤ F.card) : S = F :=
+  (Finset.eq_of_subset_of_card_le hsub hcard).symm
+
+lemma bc_equal_one_extra (F S : Finset Nat) (hsub : F ⊆ S)
+    (hF : F.Nonempty) (hcard : S.card ≤ F.card + 1) :
+    ∃ extra ∈ S, S = insert extra F := by
+  obtain ⟨extra, hext⟩ := bc_subset_one_extra F S hsub hcard
+  by_cases he : extra ∈ S
+  · exact ⟨extra, he, Finset.Subset.antisymm hext (Finset.insert_subset he hsub)⟩
+  · have hSF : S ⊆ F := by
+      intro x hx
+      rcases Finset.mem_insert.mp (hext hx) with rfl | hxf
+      · exact False.elim (he hx)
+      · exact hxf
+    obtain ⟨f, hf⟩ := hF
+    refine ⟨f, hsub hf, ?_⟩
+    simpa only [Finset.insert_eq_of_mem hf] using Finset.Subset.antisymm hSF hsub
+
+
+lemma bc_closed_production_classification (a c : Fin 8) (t : Fin 23)
+    (S : Finset Nat) (hsub : bcFamily a c t ⊆ S) (hcard : S.card ≤ 5)
+    (hbound : ∀ m ∈ S, m < 256) (hclosed : bcUnionClosed S) :
+    bcIndexedPorts a c t ∈ bcSurvivorCovers := by
+  rcases bc_family_cardinality a c t with hfour | hfive | hsix
+  · have hnonempty : (bcFamily a c t).Nonempty := Finset.card_pos.mp (by omega)
+    obtain ⟨extra, hextra, heq⟩ := bc_equal_one_extra (bcFamily a c t) S hsub
+      hnonempty (by omega)
+    apply bc_card_four_extension_cover a c t hfour ⟨extra, hbound extra hextra⟩
+    rw [← heq]
+    exact hclosed
+  · have heq : S = bcFamily a c t :=
+      bc_subset_equal_at_budget (bcFamily a c t) S hsub (by omega)
+    exact False.elim (bc_small_family_not_closed a c t (by omega) (heq ▸ hclosed))
+  · have hle := Finset.card_le_card hsub
+    omega
+
+lemma bc_all_cover_index (ports : List Nat) (hp : ports ∈ bcAllCovers) :
+    ∃ (a c : Fin 8) (t : Fin 23), bcIndexedPorts a c t = ports := by
+  simp only [bcAllCovers, List.mem_flatMap, List.mem_map] at hp
+  obtain ⟨ta, hta, tc, htc, tr, htr, heq⟩ := hp
+  obtain ⟨a, ha⟩ := bc_index_of_mem (n := 8) (by rfl) 0 ta hta
+  obtain ⟨c, hc⟩ := bc_index_of_mem (n := 8) (by rfl) 0 tc htc
+  obtain ⟨t, ht⟩ := bc_index_of_mem (n := 23) (by rfl) (0, 0, 0) tr htr
+  refine ⟨a, c, t, ?_⟩
+  unfold bcIndexedPorts
+  rw [ha, hc, ht]
+  exact heq
+
+lemma bc_all_cover_closed_production (ports : List Nat) (hp : ports ∈ bcAllCovers)
+    (S : Finset Nat) (hsub : bcRequiredFamily ports ⊆ S) (hcard : S.card ≤ 5)
+    (hbound : ∀ m ∈ S, m < 256) (hclosed : bcUnionClosed S) :
+    ports ∈ bcSurvivorCovers := by
+  obtain ⟨a, c, t, rfl⟩ := bc_all_cover_index ports hp
+  exact bc_closed_production_classification a c t S hsub hcard hbound hclosed
+
+def bcCofactorPort (mask row : Nat) (h : Bool) : Bool :=
+  decide (row &&& mask ≠ 0) || (decide (mask &&& 1 ≠ 0) && h)
+
+def bcCofactorOutput (ports : List Nat) (row : Nat) : Bool :=
+  let h := decide (row &&& ports.getD 2 0 ≠ 0) &&
+    decide (row &&& ports.getD 3 0 ≠ 0)
+  (bcCofactorPort (ports.getD 4 0) row h &&
+    bcCofactorPort (ports.getD 5 0) row h) ||
+  (bcCofactorPort (ports.getD 6 0) row h &&
+    bcCofactorPort (ports.getD 7 0) row h)
+
+def bcMiddleCovers : List (List Nat) :=
+  [[52, 52, 22, 40, 1, 10, 4, 16],
+   [54, 54, 22, 40, 1, 10, 4, 16],
+   [60, 60, 22, 40, 1, 10, 4, 16],
+   [62, 62, 22, 40, 1, 10, 4, 16]]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma bc_survivor_cofactor_classification : ∀ ports ∈ bcSurvivorCovers,
+    bcCofactorOutput ports 20 = true → ports ∈ bcMiddleCovers := by
+  decide +kernel
+
+lemma bc_middle_cover_shape (ports : List Nat) (hp : ports ∈ bcMiddleCovers) :
+    ∃ W ∈ [52, 54, 60, 62], ports = [W, W, 22, 40, 1, 10, 4, 16] := by
+  simp only [bcMiddleCovers, List.mem_cons, List.not_mem_nil, or_false] at hp
+  rcases hp with rfl | rfl | rfl | rfl
+  · exact ⟨52, by simp, rfl⟩
+  · exact ⟨54, by simp, rfl⟩
+  · exact ⟨60, by simp, rfl⟩
+  · exact ⟨62, by simp, rfl⟩
+
+lemma bc_required_family_clean_swap (ta tc hL hR a b c d : Nat) :
+    bcRequiredFamily [ta, tc, hL, hR, a, b, c, d] =
+      bcRequiredFamily [ta, tc, hL, hR, c, d, a, b] := by
+  ext m
+  simp only [bcRequiredFamily, Finset.mem_sdiff, List.mem_toFinset,
+    List.mem_cons, List.not_mem_nil, or_false]
+  simp only [or_assoc, or_left_comm, or_comm]
+
+lemma bc_geometric_closed_production
+    (ta tc hL hR : Fin 32) (a b c d : Fin 64)
+    (hta : ta.val &&& 24 = 24) (htc : tc.val &&& 18 = 18)
+    (hh : bcHRectValid hL hR)
+    (hab : bcCleanRectValid a b) (hcd : bcCleanRectValid c d)
+    (hcover : bcResidualEdges (2 * hL.val) (2 * hR.val) |||
+      bcResidualEdges a.val b.val ||| bcResidualEdges c.val d.val = 127)
+    (S : Finset Nat)
+    (hsub : bcRequiredFamily [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] ⊆ S)
+    (hcard : S.card ≤ 5) (hbound : ∀ m ∈ S, m < 256)
+    (hclosed : bcUnionClosed S) :
+    [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] ∈ bcSurvivorCovers ∨
+      [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+        c.val, d.val, a.val, b.val] ∈ bcSurvivorCovers := by
+  rcases bc_geometric_cover_complete ta tc hL hR a b c d hta htc hh hab hcd hcover
+    with hp | hp
+  · exact Or.inl (bc_all_cover_closed_production _ hp S hsub hcard hbound hclosed)
+  · right
+    apply bc_all_cover_closed_production _ hp S ?_ hcard hbound hclosed
+    rw [← bc_required_family_clean_swap]
+    exact hsub
+
+lemma bc_cofactor_clean_swap (ta tc hL hR a b c d row : Nat) :
+    bcCofactorOutput [ta, tc, hL, hR, a, b, c, d] row =
+      bcCofactorOutput [ta, tc, hL, hR, c, d, a, b] row := by
+  simp [bcCofactorOutput, Bool.or_comm]
+
+lemma bc_geometric_closed_cofactor
+    (ta tc hL hR : Fin 32) (a b c d : Fin 64)
+    (hta : ta.val &&& 24 = 24) (htc : tc.val &&& 18 = 18)
+    (hh : bcHRectValid hL hR)
+    (hab : bcCleanRectValid a b) (hcd : bcCleanRectValid c d)
+    (hcover : bcResidualEdges (2 * hL.val) (2 * hR.val) |||
+      bcResidualEdges a.val b.val ||| bcResidualEdges c.val d.val = 127)
+    (S : Finset Nat)
+    (hsub : bcRequiredFamily [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] ⊆ S)
+    (hcard : S.card ≤ 5) (hbound : ∀ m ∈ S, m < 256)
+    (hclosed : bcUnionClosed S)
+    (hEG : bcCofactorOutput [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] 20 = true) :
+    [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] ∈ bcMiddleCovers ∨
+      [2 * ta.val, 2 * tc.val, 2 * hL.val, 2 * hR.val,
+        c.val, d.val, a.val, b.val] ∈ bcMiddleCovers := by
+  rcases bc_geometric_closed_production ta tc hL hR a b c d hta htc hh hab hcd hcover
+    S hsub hcard hbound hclosed with hp | hp
+  · exact Or.inl (bc_survivor_cofactor_classification _ hp hEG)
+  · right
+    apply bc_survivor_cofactor_classification _ hp
+    rw [← bc_cofactor_clean_swap]
+    exact hEG
 
 namespace R2CleanKernel
 
@@ -1906,6 +3437,92 @@ set_option maxRecDepth 100000 in
 set_option maxHeartbeats 0 in
 lemma unsatC11 : ¬ FormulaSat cC11.originalFormula :=
   cC11.unsat (by decide +kernel)
+
+-- v=0,1,2 selects A,B,C; a=0,...,11 selects the retained-case index.
+def certificateAt (v : Fin 3) (a : Fin 12) : Certificate :=
+  match v.val, a.val with
+  | 0, 0 => cA00
+  | 0, 1 => cA01
+  | 0, 2 => cA02
+  | 0, 3 => cA03
+  | 0, 4 => cA04
+  | 0, 5 => cA05
+  | 0, 6 => cA06
+  | 0, 7 => cA07
+  | 0, 8 => cA08
+  | 0, 9 => cA09
+  | 0, 10 => cA10
+  | 0, 11 => cA11
+  | 1, 0 => cB00
+  | 1, 1 => cB01
+  | 1, 2 => cB02
+  | 1, 3 => cB03
+  | 1, 4 => cB04
+  | 1, 5 => cB05
+  | 1, 6 => cB06
+  | 1, 7 => cB07
+  | 1, 8 => cB08
+  | 1, 9 => cB09
+  | 1, 10 => cB10
+  | 1, 11 => cB11
+  | 2, 0 => cC00
+  | 2, 1 => cC01
+  | 2, 2 => cC02
+  | 2, 3 => cC03
+  | 2, 4 => cC04
+  | 2, 5 => cC05
+  | 2, 6 => cC06
+  | 2, 7 => cC07
+  | 2, 8 => cC08
+  | 2, 9 => cC09
+  | 2, 10 => cC10
+  | 2, 11 => cC11
+  | _, _ => cA00
+
+lemma certificateAt_unsat (v : Fin 3) (a : Fin 12) :
+    ¬ FormulaSat (certificateAt v a).originalFormula := by
+  have hv : v.val = 0 ∨ v.val = 1 ∨ v.val = 2 := by omega
+  have ha : a.val = 0 ∨ a.val = 1 ∨ a.val = 2 ∨ a.val = 3 ∨ a.val = 4 ∨ a.val = 5 ∨ a.val = 6 ∨ a.val = 7 ∨ a.val = 8 ∨ a.val = 9 ∨ a.val = 10 ∨ a.val = 11 := by omega
+  rcases hv with hv | hv | hv
+  · rcases ha with ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha
+    · simpa only [certificateAt, hv, ha] using unsatA00
+    · simpa only [certificateAt, hv, ha] using unsatA01
+    · simpa only [certificateAt, hv, ha] using unsatA02
+    · simpa only [certificateAt, hv, ha] using unsatA03
+    · simpa only [certificateAt, hv, ha] using unsatA04
+    · simpa only [certificateAt, hv, ha] using unsatA05
+    · simpa only [certificateAt, hv, ha] using unsatA06
+    · simpa only [certificateAt, hv, ha] using unsatA07
+    · simpa only [certificateAt, hv, ha] using unsatA08
+    · simpa only [certificateAt, hv, ha] using unsatA09
+    · simpa only [certificateAt, hv, ha] using unsatA10
+    · simpa only [certificateAt, hv, ha] using unsatA11
+  · rcases ha with ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha
+    · simpa only [certificateAt, hv, ha] using unsatB00
+    · simpa only [certificateAt, hv, ha] using unsatB01
+    · simpa only [certificateAt, hv, ha] using unsatB02
+    · simpa only [certificateAt, hv, ha] using unsatB03
+    · simpa only [certificateAt, hv, ha] using unsatB04
+    · simpa only [certificateAt, hv, ha] using unsatB05
+    · simpa only [certificateAt, hv, ha] using unsatB06
+    · simpa only [certificateAt, hv, ha] using unsatB07
+    · simpa only [certificateAt, hv, ha] using unsatB08
+    · simpa only [certificateAt, hv, ha] using unsatB09
+    · simpa only [certificateAt, hv, ha] using unsatB10
+    · simpa only [certificateAt, hv, ha] using unsatB11
+  · rcases ha with ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha | ha
+    · simpa only [certificateAt, hv, ha] using unsatC00
+    · simpa only [certificateAt, hv, ha] using unsatC01
+    · simpa only [certificateAt, hv, ha] using unsatC02
+    · simpa only [certificateAt, hv, ha] using unsatC03
+    · simpa only [certificateAt, hv, ha] using unsatC04
+    · simpa only [certificateAt, hv, ha] using unsatC05
+    · simpa only [certificateAt, hv, ha] using unsatC06
+    · simpa only [certificateAt, hv, ha] using unsatC07
+    · simpa only [certificateAt, hv, ha] using unsatC08
+    · simpa only [certificateAt, hv, ha] using unsatC09
+    · simpa only [certificateAt, hv, ha] using unsatC10
+    · simpa only [certificateAt, hv, ha] using unsatC11
 
 end R2CleanKernel
 
