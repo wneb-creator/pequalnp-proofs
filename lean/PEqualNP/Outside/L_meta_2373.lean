@@ -6413,4 +6413,388 @@ lemma petersen_first_and_sparse_readers_any (C : Circuit) (a b : Fin 10) (post :
 
 end FirstAndClassification
 
+
+namespace FirstAndClassification
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2373_aux.Restriction
+
+lemma minimal_or_reader_two_distinct_inputs (n : ℕ) (C : Circuit)
+    (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (j h : ℕ) (q : Gate) (hj : C.gates[j]? = some q)
+    (hop : q.op = GateOp.or) (hread : h ∈ q.inputs) :
+    ∃ t, t ≠ h ∧ t < n + j ∧ (q.inputs = [h, t] ∨ q.inputs = [t, h]) := by
+  have hlen := (hfan q (List.mem_of_getElem? hj)).2
+  have hlt : j < C.size := (List.getElem?_eq_some_iff.mp hj).1
+  have hh := back j q hj h hread
+  have hno := AliasPruning.minimal_no_alias_index n C hfan hmin j hlt h hh
+  have hvalue := full_gate_value_index n C back j q hj
+  rcases hins : q.inputs with _ | ⟨a, _ | ⟨b, _ | ⟨c, tail⟩⟩⟩
+  · simp [hins] at hread
+  · have he : h = a := by simpa [hins] using hread
+    subst a
+    exfalso
+    apply hno
+    intro x
+    rw [hvalue x, hop, hins]
+    simp [GateOp.eval]
+  · have he : h = a ∨ h = b := by simpa [hins] using hread
+    rcases he with rfl | rfl
+    · by_cases hb : b = h
+      · subst b
+        exfalso
+        apply hno
+        intro x
+        rw [hvalue x, hop, hins]
+        simp [GateOp.eval]
+      · exact ⟨b, hb, back j q hj b (by simp [hins]), Or.inl rfl⟩
+    · by_cases ha : a = h
+      · subst a
+        exfalso
+        apply hno
+        intro x
+        rw [hvalue x, hop, hins]
+        simp [GateOp.eval]
+      · exact ⟨a, ha, back j q hj a (by simp [hins]), Or.inr rfl⟩
+  · simp [hins] at hlen
+
+lemma unique_reader_split_avoids (h : ℕ) (pre post : List Gate) (q : Gate)
+    (hcount : readerCount h (pre ++ q :: post) = 1) (hread : h ∈ q.inputs) :
+    (∀ g ∈ pre, h ∉ g.inputs) ∧ ∀ g ∈ post, h ∉ g.inputs := by
+  have he : readerCount h pre + (1 + readerCount h post) = 1 := by
+    simpa only [readerCount_append, readerCount, ite_eq_left hread] using hcount
+  have hp : readerCount h pre = 0 := by omega
+  have ht : readerCount h post = 0 := by omega
+  constructor
+  · intro g hg hr
+    have hz := (readerCount_pos_iff h pre).mpr ⟨g, hg, hr⟩
+    omega
+  · intro g hg hr
+    have hz := (readerCount_pos_iff h post).mpr ⟨g, hg, hr⟩
+    omega
+
+
+end FirstAndClassification
+
+namespace ResidualFirstAnd
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+lemma alias_erase_eval_at (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length) (x : Fin n → Bool)
+    (hcopy : (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD (n + pre.length) false =
+      (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD p false) :
+    (AliasPruning.erase n pre post p o).eval (List.ofFn x) =
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) := by
+  let xs := Circuit.wires ⟨pre, 0⟩ (List.ofFn x)
+  have hx : xs.length = n + pre.length := by
+    unfold xs
+    rw [LivePruning.wires_length, List.length_ofFn]
+  have hcopy' : LivePruning.gateValue g xs = xs.getD p false := by
+    have h := hcopy
+    simp only [Circuit.wires, List.foldl_append, List.foldl_cons] at h
+    change (Circuit.wires ⟨post, 0⟩ (xs ++ [LivePruning.gateValue g xs])).getD (n + pre.length) false =
+      (Circuit.wires ⟨post, 0⟩ (xs ++ [LivePruning.gateValue g xs])).getD p false at h
+    rw [AliasPruning.wires_input _ _ _ (by simp [hx]),
+      AliasPruning.wires_input _ _ _ (by simp [hx]; omega)] at h
+    rw [List.getD_append xs [LivePruning.gateValue g xs] false p (by omega), ← hx] at h
+    simpa [List.getD_eq_getElem?_getD] using h
+  simp only [AliasPruning.erase, Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons]
+  change (Circuit.wires ⟨post.map (AliasPruning.renamed (n + pre.length) p), 0⟩ xs).getD
+      (AliasPruning.redirect (n + pre.length) p o) false =
+    (Circuit.wires ⟨post, 0⟩ (xs ++ [LivePruning.gateValue g xs])).getD o false
+  apply AliasPruning.wires_renamed _ _ _ _ _ (by simp) (by simp [hx]) hp _ o
+  rw [← hx]
+  exact AliasPruning.initial_agree xs p _ hcopy'
+
+lemma redirect_avoids_earlier (h k t i : ℕ) (hhk : h < k) (ht : t ≠ h) (hi : i ≠ h) :
+    AliasPruning.redirect k t i ≠ h := by
+  by_cases hik : i = k
+  · simpa [AliasPruning.redirect, hik] using ht
+  · simp only [AliasPruning.redirect, ite_eq_right hik, LivePruning.down]
+    split <;> omega
+
+lemma renamed_avoids_earlier (h k t : ℕ) (g : Gate)
+    (hhk : h < k) (ht : t ≠ h) (hg : h ∉ g.inputs) :
+    h ∉ (AliasPruning.renamed k t g).inputs := by
+  intro hr
+  obtain ⟨i, hi, he⟩ := List.mem_map.mp hr
+  exact redirect_avoids_earlier h k t i hhk ht (by intro h; subst i; exact hg hi) he
+
+def circuit (n : ℕ) (pre post : List Gate) (t o : ℕ) : Circuit :=
+  LivePruning.erase n []
+    (pre ++ post.map (AliasPruning.renamed (n + (pre.length + 1)) t))
+    (AliasPruning.redirect (n + (pre.length + 1)) t o)
+
+lemma circuit_size (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ) :
+    (circuit n pre post t o).size + 2 = (Circuit.mk (g :: (pre ++ q :: post)) o).size := by
+  simp [circuit, LivePruning.erase, Circuit.size]
+  omega
+
+lemma circuit_fanin (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ)
+    (hfan : FanInTwo (Circuit.mk (g :: (pre ++ q :: post)) o)) :
+    FanInTwo (circuit n pre post t o) := by
+  have halias := AliasPruning.erase_fanin n (g :: pre) post q t o (by simpa using hfan)
+  exact LivePruning.erase_fanin n []
+    (pre ++ post.map (AliasPruning.renamed (n + (pre.length + 1)) t)) g
+    (AliasPruning.redirect (n + (pre.length + 1)) t o) halias
+
+lemma circuit_eval_of_first_false (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ)
+    (hq : q.op = GateOp.or) (hinputs : q.inputs = [n, t] ∨ q.inputs = [t, n])
+    (ht : t < n + (pre.length + 1)) (htn : t ≠ n)
+    (hpre : ∀ r ∈ pre, n ∉ r.inputs) (hpost : ∀ r ∈ post, n ∉ r.inputs)
+    (ho : o ≠ n) (x : Fin n → Bool)
+    (hzero : (Circuit.wires ⟨g :: (pre ++ q :: post), o⟩ (List.ofFn x)).getD n false = false) :
+    (circuit n pre post t o).eval (List.ofFn x) =
+      (Circuit.mk (g :: (pre ++ q :: post)) o).eval (List.ofFn x) := by
+  have hcut : n < n + (pre.length + 1) := by omega
+  have hqback : ∀ i ∈ q.inputs, i < n + (g :: pre).length := by
+    rcases hinputs with hinputs | hinputs <;> simp only [hinputs, List.mem_cons,
+      List.not_mem_nil, or_false, List.length_cons] <;> intro i hi <;>
+      rcases hi with rfl | rfl <;> omega
+  have hqval := FirstAndClassification.full_gate_value n
+    (Circuit.mk (g :: (pre ++ q :: post)) o) (g :: pre) post q
+    (by simp) hqback x
+  have hcopy : (Circuit.wires ⟨(g :: pre) ++ q :: post, o⟩ (List.ofFn x)).getD
+      (n + (g :: pre).length) false =
+      (Circuit.wires ⟨(g :: pre) ++ q :: post, o⟩ (List.ofFn x)).getD t false := by
+    simpa only [List.cons_append] using (show
+      (Circuit.wires ⟨g :: (pre ++ q :: post), o⟩ (List.ofFn x)).getD
+        (n + (g :: pre).length) false =
+        (Circuit.wires ⟨g :: (pre ++ q :: post), o⟩ (List.ofFn x)).getD t false from by
+      rw [hqval, hq]
+      rcases hinputs with hi | hi <;> rw [hi] <;>
+        simp only [List.map_cons, List.map_nil, GateOp.eval, List.any_cons, List.any_nil] <;>
+        rw [hzero] <;> simp)
+  have halias := alias_erase_eval_at n (g :: pre) post q t o ht x hcopy
+  have hun : ∀ r ∈ pre ++ post.map (AliasPruning.renamed (n + (pre.length + 1)) t),
+      n + ([] : List Gate).length ∉ LivePruning.effective r := by
+    intro r hr hn
+    have hin : n ∈ r.inputs := cofactor_effective_mem_inputs r n (by simpa using hn)
+    rcases List.mem_append.mp hr with hr | hr
+    · exact hpre r hr hin
+    · obtain ⟨s, hs, rfl⟩ := List.mem_map.mp hr
+      exact renamed_avoids_earlier n _ t s hcut htn (hpost s hs) hin
+  have houtput : AliasPruning.redirect (n + (pre.length + 1)) t o ≠ n + ([] : List Gate).length := by
+    simpa using redirect_avoids_earlier n _ t o hcut htn ho
+  have herase := LivePruning.erase_eval n []
+    (pre ++ post.map (AliasPruning.renamed (n + (pre.length + 1)) t)) g
+    (AliasPruning.redirect (n + (pre.length + 1)) t o) hun houtput x
+  exact herase.trans halias
+
+lemma exists_residual_of_minimal_unique_or (n : ℕ) (C : Circuit) (g : Gate) (tail : List Gate)
+    (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (back : ∀ j q, C.gates[j]? = some q → ∀ i ∈ q.inputs, i < n + j)
+    (hgs : C.gates = g :: tail) (hcount : readerCount n tail = 1)
+    (hor : ∀ q ∈ tail, n ∈ q.inputs → q.op = GateOp.or) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 2 = C.size ∧
+      ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD n false = false →
+        D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨q, hq, hqread⟩ := (readerCount_pos_iff n tail).mp (by omega)
+  obtain ⟨pre, post, htail⟩ := List.mem_iff_append.mp hq
+  have hsplit : C.gates = g :: (pre ++ q :: post) := by rw [hgs, htail]
+  have hqindex : C.gates[pre.length + 1]? = some q := by simp [hsplit]
+  obtain ⟨t, htn, ht, hinputs⟩ := FirstAndClassification.minimal_or_reader_two_distinct_inputs
+    n C hfan hmin back (pre.length + 1) n q hqindex (hor q hq hqread) hqread
+  have havoids := FirstAndClassification.unique_reader_split_avoids n pre post q
+    (by rw [← htail]; exact hcount) hqread
+  have hsize : 2 ≤ C.size := by
+    simp [Circuit.size, hsplit]
+    omega
+  have hout := LivePruning.minimal_output_last n C hfan hmin (by omega)
+  have houtput : C.output ≠ n := by omega
+  have hC : C = ⟨g :: (pre ++ q :: post), C.output⟩ := by cases C; simp_all
+  refine ⟨circuit n pre post t C.output, ?_, ?_, ?_⟩
+  · exact circuit_fanin n pre post g q t C.output (by simpa only [← hC] using hfan)
+  · simpa only [← hC] using circuit_size n pre post g q t C.output
+  · intro x hzero
+    simpa only [← hC] using circuit_eval_of_first_false n pre post g q t C.output
+      (hor q hq hqread) hinputs ht htn havoids.1 havoids.2 houtput x
+      (by simpa only [← hC] using hzero)
+
+lemma petersen_first_and_residual_seventeen (C : Circuit) (a b : Fin 10) (tail : List Gate)
+    (hab : a ≠ b) (hfan : FanInTwo C) (hsize : C.size ≤ 19)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (hgs : C.gates = ⟨GateOp.and, [a.val, b.val]⟩ :: tail)
+    (hev : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x)
+    (hlower : ∀ E : Circuit, FanInTwo E →
+      (∀ y : Fin 9 → Bool, E.eval (List.ofFn y) = petersen (Fin.snoc y false)) →
+      16 ≤ E.size) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 2 = C.size ∧ D.size ≤ 17 ∧
+      ∀ x : Fin 10 → Bool, (x a && x b) = false → D.eval (List.ofFn x) = petersen x := by
+  have hreaders := FirstAndClassification.petersen_first_and_unique_or_consumer_any
+    C a b tail hab hfan hsize hmin hnot back hgs hev hlower
+  obtain ⟨D, hD, hDsize, hDeval⟩ := exists_residual_of_minimal_unique_or 10 C _ tail
+    hfan hmin back hgs hreaders.1 hreaders.2
+  refine ⟨D, hD, hDsize, by omega, ?_⟩
+  intro x hxab
+  have hgindex : C.gates[0]? = some ⟨GateOp.and, [a.val, b.val]⟩ := by simp [hgs]
+  have hfirst := FirstAndClassification.full_gate_value_index 10 C back 0
+    ⟨GateOp.and, [a.val, b.val]⟩ hgindex x
+  have hzero : (C.wires (List.ofFn x)).getD 10 false = false := by
+    simp only [Nat.add_zero] at hfirst
+    rw [hfirst]
+    simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, Bool.and_true]
+    rw [Wires.wires_input C _ a.val (by simp), Wires.wires_input C _ b.val (by simp)]
+    simpa only [getD_ofFn_val, id_eq] using hxab
+  rw [hDeval x hzero, hev x]
+
+
+end ResidualFirstAnd
+
+namespace ResidualFirstAnd
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+lemma circuit_gate_ops (n : ℕ) (pre post : List Gate) (t o : ℕ) :
+    (circuit n pre post t o).gates.map Gate.op =
+      pre.map Gate.op ++ post.map Gate.op := by
+  simp [circuit, LivePruning.erase, LivePruning.rename, AliasPruning.renamed,
+    List.map_append, List.map_map, Function.comp_def]
+
+lemma circuit_monotone (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ)
+    (hmono : Monotone2 (Circuit.mk (g :: (pre ++ q :: post)) o)) :
+    Monotone2 (circuit n pre post t o) := by
+  intro r hr
+  change r ∈ (pre ++ post.map (AliasPruning.renamed (n + (pre.length + 1)) t)).map
+    (LivePruning.rename n) at hr
+  obtain ⟨s, hs, rfl⟩ := List.mem_map.mp hr
+  have hsm : s.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ s.inputs.length ≤ 2 := by
+    rcases List.mem_append.mp hs with hs | hs
+    · exact hmono s (by simp [hs])
+    · obtain ⟨u, hu, rfl⟩ := List.mem_map.mp hs
+      simpa only [AliasPruning.renamed, List.length_map] using hmono u (by simp [hu])
+  simpa only [LivePruning.rename, List.length_map] using hsm
+
+lemma notCount_eq_filter_isNot (C : Circuit) :
+    PEqualNP.NotBracket.notCount C = (C.gates.filter isNot).length := by
+  unfold PEqualNP.NotBracket.notCount
+  congr 1
+  apply List.filter_congr
+  intro g hg
+  rcases g with ⟨op, inputs⟩
+  cases op <;> rfl
+
+lemma circuit_notCount (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ)
+    (hg : g.op = GateOp.and) (hq : q.op = GateOp.or) :
+    PEqualNP.NotBracket.notCount (circuit n pre post t o) =
+      PEqualNP.NotBracket.notCount (Circuit.mk (g :: (pre ++ q :: post)) o) := by
+  simp [PEqualNP.NotBracket.notCount, circuit, LivePruning.erase,
+    LivePruning.rename, AliasPruning.renamed, List.filter_map, Function.comp_def, hg, hq]
+  rfl
+
+lemma circuit_isNot_count (n : ℕ) (pre post : List Gate) (g q : Gate) (t o : ℕ)
+    (hg : g.op = GateOp.and) (hq : q.op = GateOp.or) :
+    ((circuit n pre post t o).gates.filter isNot).length =
+      ((Circuit.mk (g :: (pre ++ q :: post)) o).gates.filter isNot).length := by
+  rw [← notCount_eq_filter_isNot, ← notCount_eq_filter_isNot]
+  exact circuit_notCount n pre post g q t o hg hq
+
+lemma exists_residual_of_minimal_unique_or_kinds (n : ℕ) (C : Circuit) (g : Gate) (tail : List Gate)
+    (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (back : ∀ j q, C.gates[j]? = some q → ∀ i ∈ q.inputs, i < n + j)
+    (hgs : C.gates = g :: tail) (hg : g.op = GateOp.and) (hcount : readerCount n tail = 1)
+    (hor : ∀ q ∈ tail, n ∈ q.inputs → q.op = GateOp.or) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 2 = C.size ∧
+      PEqualNP.NotBracket.notCount D = PEqualNP.NotBracket.notCount C ∧
+      (Monotone2 C → Monotone2 D) ∧
+      ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD n false = false →
+        D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨q, hq, hqread⟩ := (readerCount_pos_iff n tail).mp (by omega)
+  obtain ⟨pre, post, htail⟩ := List.mem_iff_append.mp hq
+  have hsplit : C.gates = g :: (pre ++ q :: post) := by rw [hgs, htail]
+  have hqindex : C.gates[pre.length + 1]? = some q := by simp [hsplit]
+  obtain ⟨t, htn, ht, hinputs⟩ := FirstAndClassification.minimal_or_reader_two_distinct_inputs
+    n C hfan hmin back (pre.length + 1) n q hqindex (hor q hq hqread) hqread
+  have havoids := FirstAndClassification.unique_reader_split_avoids n pre post q
+    (by rw [← htail]; exact hcount) hqread
+  have hsize : 2 ≤ C.size := by
+    simp [Circuit.size, hsplit]
+    omega
+  have hout := LivePruning.minimal_output_last n C hfan hmin (by omega)
+  have houtput : C.output ≠ n := by omega
+  have hC : C = ⟨g :: (pre ++ q :: post), C.output⟩ := by cases C; simp_all
+  refine ⟨circuit n pre post t C.output, ?_, ?_, ?_, ?_, ?_⟩
+  · exact circuit_fanin n pre post g q t C.output (by simpa only [← hC] using hfan)
+  · simpa only [← hC] using circuit_size n pre post g q t C.output
+  · simpa only [← hC] using circuit_notCount n pre post g q t C.output hg (hor q hq hqread)
+  · intro hmono
+    exact circuit_monotone n pre post g q t C.output (by simpa only [← hC] using hmono)
+  · intro x hzero
+    simpa only [← hC] using circuit_eval_of_first_false n pre post g q t C.output
+      (hor q hq hqread) hinputs ht htn havoids.1 havoids.2 houtput x
+      (by simpa only [← hC] using hzero)
+
+lemma petersen_first_and_residual_seventeen_kinds (C : Circuit) (a b : Fin 10) (tail : List Gate)
+    (hab : a ≠ b) (hfan : FanInTwo C) (hsize : C.size ≤ 19)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (hgs : C.gates = ⟨GateOp.and, [a.val, b.val]⟩ :: tail)
+    (hev : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x)
+    (hlower : ∀ E : Circuit, FanInTwo E →
+      (∀ y : Fin 9 → Bool, E.eval (List.ofFn y) = petersen (Fin.snoc y false)) →
+      16 ≤ E.size) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 2 = C.size ∧ D.size ≤ 17 ∧
+      PEqualNP.NotBracket.notCount D = PEqualNP.NotBracket.notCount C ∧
+      (Monotone2 C → Monotone2 D) ∧
+      ∀ x : Fin 10 → Bool, (x a && x b) = false → D.eval (List.ofFn x) = petersen x := by
+  have hreaders := FirstAndClassification.petersen_first_and_unique_or_consumer_any
+    C a b tail hab hfan hsize hmin hnot back hgs hev hlower
+  obtain ⟨D, hD, hDsize, hDnot, hDmono, hDeval⟩ := exists_residual_of_minimal_unique_or_kinds 10 C _ tail
+    hfan hmin back hgs rfl hreaders.1 hreaders.2
+  refine ⟨D, hD, hDsize, by omega, hDnot, hDmono, ?_⟩
+  intro x hxab
+  have hgindex : C.gates[0]? = some ⟨GateOp.and, [a.val, b.val]⟩ := by simp [hgs]
+  have hfirst := FirstAndClassification.full_gate_value_index 10 C back 0
+    ⟨GateOp.and, [a.val, b.val]⟩ hgindex x
+  have hzero : (C.wires (List.ofFn x)).getD 10 false = false := by
+    simp only [Nat.add_zero] at hfirst
+    rw [hfirst]
+    simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil, Bool.and_true]
+    rw [Wires.wires_input C _ a.val (by simp), Wires.wires_input C _ b.val (by simp)]
+    simpa only [getD_ofFn_val, id_eq] using hxab
+  rw [hDeval x hzero, hev x]
+
+
+lemma petersen_first_and_residual_seventeen_with_not_bound
+    (C : Circuit) (a b : Fin 10) (tail : List Gate) (k : ℕ)
+    (hab : a ≠ b) (hfan : FanInTwo C) (hsize : C.size ≤ 19)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hnot : ∀ g ∈ C.gates, g.op = GateOp.not → g.inputs.length ≤ 1)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (hgs : C.gates = ⟨GateOp.and, [a.val, b.val]⟩ :: tail)
+    (hev : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x)
+    (hlower : ∀ E : Circuit, FanInTwo E →
+      (∀ y : Fin 9 → Bool, E.eval (List.ofFn y) = petersen (Fin.snoc y false)) →
+      16 ≤ E.size)
+    (hbudget : PEqualNP.NotBracket.notCount C ≤ k) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 2 = C.size ∧ D.size ≤ 17 ∧
+      PEqualNP.NotBracket.notCount D ≤ k ∧ (Monotone2 C → Monotone2 D) ∧
+      ∀ x : Fin 10 → Bool, (x a && x b) = false → D.eval (List.ofFn x) = petersen x := by
+  obtain ⟨D, hD, hDsize, hseventeen, hnotcount, hmono, heval⟩ :=
+    petersen_first_and_residual_seventeen_kinds C a b tail hab hfan hsize hmin hnot
+      back hgs hev hlower
+  exact ⟨D, hD, hDsize, hseventeen, hnotcount ▸ hbudget, hmono, heval⟩
+
+
+end ResidualFirstAnd
+
 end PEqualNP.Outside.L_meta_2373_aux
