@@ -4497,4 +4497,109 @@ lemma positive_Bzero_center_exits_le_three {D : Dag}
 
 end N0ActualCode
 
+namespace VertexToZero
+
+def Adj (u v : Fin 10) : Prop :=
+  (u.val, v.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)] ∨
+  (v.val, u.val) ∈ [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),
+    (3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)]
+
+def move (v x : Fin 10) : Fin 10 :=
+  ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 0, 4, 3, 2, 6, 5, 9, 8, 7, 2, 1, 0, 4, 3, 7, 6, 5, 9, 8, 3, 2, 1, 0, 4, 8, 7, 6, 5, 9, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 5, 7, 2, 3, 8, 0, 9, 1, 4, 6, 6, 1, 2, 3, 8, 9, 0, 7, 4, 5, 7, 2, 1, 6, 9, 5, 3, 0, 8, 4, 8, 3, 2, 1, 6, 5, 4, 7, 0, 9, 9, 6, 8, 3, 4, 7, 1, 5, 2, 0] : List (Fin 10)).getD (10 * v.val + x.val) 0
+
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+set_option synthInstance.maxSize 8192 in
+lemma move_involutive : ∀ v x, move v (move v x) = x := by decide +kernel
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+set_option synthInstance.maxSize 8192 in
+lemma move_center : ∀ v, move v v = 0 := by decide +kernel
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+set_option synthInstance.maxSize 8192 in
+lemma move_graph : ∀ v a b, Adj (move v a) (move v b) ↔ Adj a b := by unfold Adj; decide +kernel
+
+def permutation (v : Fin 10) : Equiv.Perm (Fin 10) where
+  toFun := move v
+  invFun := move v
+  left_inv := move_involutive v
+  right_inv := move_involutive v
+
+lemma exists_to_zero (v : Fin 10) : ∃ σ : Equiv.Perm (Fin 10),
+    σ v = 0 ∧ ∀ a b, Adj (σ a) (σ b) ↔ Adj a b :=
+  ⟨permutation v, move_center v, move_graph v⟩
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 8000000 in
+set_option synthInstance.maxSize 8192 in
+lemma adj_mask : ∀ a b : Fin 10, Adj a b ↔
+    (([50,69,138,276,521,385,770,548,104,208] : List Nat).getD a.val 0).testBit b.val = true := by
+  unfold Adj
+  decide +kernel
+
+end VertexToZero
+
+namespace VertexToZero
+open C6.DagTools
+
+lemma relabel_eligSet {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) :
+    eligSet n (relabel σ D) = (eligSet n D).image σ := by
+  ext v
+  simp only [eligSet, Finset.mem_biUnion, Finset.mem_image, branchW, Finset.mem_filter,
+    Finset.mem_range]
+  constructor
+  · rintro ⟨w', ⟨hw', hf⟩, hv⟩
+    obtain ⟨w, rfl⟩ : ∃ w, w' = liftP σ w := ⟨liftP σ⁻¹ w', (tr_liftP_inv' σ w').symm⟩
+    rw [relabel_supp σ hS, Finset.mem_image] at hv
+    obtain ⟨a, ha, rfl⟩ := hv
+    rw [relabel_fanout] at hf
+    rw [relabel_length, tr_liftP_lt_iff σ (Nat.le_add_right _ _)] at hw'
+    exact ⟨a, ⟨w, ⟨hw', hf⟩, ha⟩, rfl⟩
+  · rintro ⟨a, ⟨w, ⟨hw, hf⟩, ha⟩, rfl⟩
+    refine ⟨liftP σ w, ⟨?_, ?_⟩, ?_⟩
+    · rw [relabel_length]; exact (tr_liftP_lt_iff σ (Nat.le_add_right _ _) w).mpr hw
+    · rw [relabel_fanout]; exact hf
+    · rw [relabel_supp σ hS]; exact Finset.mem_image_of_mem _ ha
+
+lemma relabel_ineligSet {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) :
+    ineligSet n (relabel σ D) = (ineligSet n D).image σ := by
+  ext v
+  simp only [ineligSet, relabel_eligSet σ hS, Finset.mem_sdiff, Finset.mem_univ, true_and,
+    Finset.mem_image]
+  constructor
+  · intro h
+    exact ⟨σ⁻¹ v, fun hm => h ⟨σ⁻¹ v, hm, by simp⟩, by simp⟩
+  · rintro ⟨a, ha, rfl⟩ ⟨b, hb, hab⟩
+    exact ha (σ.injective hab ▸ hb)
+
+lemma h3_relabel_comp {n : Nat} (σ : Equiv.Perm (Fin n))
+    {G : Fin n → Fin n → Prop} {D : Dag} (h : StrictLive n D)
+    (hC : sem_Comp n G D) (hG : ∀ a b, G (σ a) (σ b) ↔ G a b) :
+    sem_Comp n G (relabel σ D) := by
+  intro x
+  rw [relabel_out σ h.1 h.2.2, hC]
+  constructor
+  · rintro ⟨a,b,hab,ha,hb⟩
+    exact ⟨σ a,σ b,(hG a b).mpr hab,ha,hb⟩
+  · rintro ⟨a,b,hab,ha,hb⟩
+    obtain ⟨a,rfl⟩ := σ.surjective a
+    obtain ⟨b,rfl⟩ := σ.surjective b
+    exact ⟨a,b,(hG a b).mp hab,ha,hb⟩
+
+
+lemma singleton_ineligible_centered {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 Adj D) (hi : (ineligSet 10 D).card = 1) :
+    ∃ E : Dag, StrictLive 10 E ∧ sem_Comp 10 Adj E ∧ E.length = D.length ∧
+      ineligSet 10 E = {0} := by
+  obtain ⟨v,hv⟩ := Finset.card_eq_one.mp hi
+  obtain ⟨σ,hσ0,hσG⟩ := exists_to_zero v
+  refine ⟨relabel σ D, relabel_strictLive σ h, h3_relabel_comp σ h hc hσG,
+    relabel_length σ D, ?_⟩
+  rw [relabel_ineligSet σ h.1, hv, Finset.image_singleton, hσ0]
+
+end VertexToZero
+
 end PEqualNP.Outside.L_meta_2590_aux
