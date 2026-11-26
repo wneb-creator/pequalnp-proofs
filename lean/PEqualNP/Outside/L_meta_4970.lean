@@ -5970,4 +5970,147 @@ lemma exists_exact_flat_private_normalization {n : ℕ}
 
 end H8OrPatch
 
+namespace H8AndFree
+
+def Before (a b : Finset ℕ) : Prop :=
+  ∀ j ∈ b, ∃ i ∈ a, i < j
+
+noncomputable def orientNode (g : Node) : Node := by
+  classical
+  exact if Before g.1 g.2 then g else (g.2,g.1)
+
+def Oriented (gs : List Node) : Prop :=
+  ∀ j (hj : j < gs.length), Before gs[j].1 gs[j].2
+
+lemma before_or_reverse (a b : Finset ℕ) (ha : a.Nonempty) (hb : b.Nonempty)
+    (hd : Disjoint a b) : Before a b ∨ Before b a := by
+  have hne : a.min' ha ≠ b.min' hb := by
+    intro he
+    exact Finset.disjoint_left.mp hd (Finset.min'_mem a ha)
+      (he ▸ Finset.min'_mem b hb)
+  rcases lt_or_gt_of_ne hne with h | h
+  · left
+    intro j hj
+    exact ⟨a.min' ha,Finset.min'_mem a ha,lt_of_lt_of_le h (Finset.min'_le b j hj)⟩
+  · right
+    intro i hi
+    exact ⟨b.min' hb,Finset.min'_mem b hb,lt_of_lt_of_le h (Finset.min'_le a i hi)⟩
+
+lemma orientNode_cases (g : Node) : orientNode g = g ∨ orientNode g = (g.2,g.1) := by
+  classical
+  unfold orientNode
+  split_ifs <;> simp
+
+lemma orientNode_before (g : Node) (ha : g.1.Nonempty) (hb : g.2.Nonempty)
+    (hd : Disjoint g.1 g.2) : Before (orientNode g).1 (orientNode g).2 := by
+  classical
+  unfold orientNode
+  split_ifs with h
+  · exact h
+  · exact (before_or_reverse g.1 g.2 ha hb hd).resolve_left h
+
+lemma step_orientNode (w : List Bool) (g : Node) : step w (orientNode g) = step w g := by
+  rcases orientNode_cases g with h | h
+  · rw [h]
+  · simp [h,step,Bool.or_comm]
+
+lemma fold_orientNode (gs : List Node) (w : List Bool) :
+    (gs.map orientNode).foldl step w = gs.foldl step w := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih => simp only [List.map_cons,List.foldl_cons,step_orientNode,ih]
+
+lemma wire_orientNode (n : ℕ) (gs : List Node) (i : ℕ) (x : Fin n → Bool) :
+    wire n (gs.map orientNode) i x = wire n gs i x := by
+  simp [wire,values,fold_orientNode]
+
+lemma term_orientNode (n : ℕ) (gs : List Node) (s : Finset ℕ) (x : Fin n → Bool) :
+    term n (gs.map orientNode) s x = term n gs s x := by
+  unfold term
+  exact conj_congr (fun _ _ => wire_orientNode n gs _ x)
+
+lemma valid_orientNode {n : ℕ} (gs : List Node) (hv : Valid n gs) :
+    Valid n (gs.map orientNode) := by
+  intro j hj
+  have hj' : j < gs.length := by simpa using hj
+  simp only [List.getElem_map]
+  rcases orientNode_cases gs[j] with h | h
+  · simpa only [h] using hv j hj'
+  · obtain ⟨ha,hb,hba,hbb⟩ := hv j hj'
+    simpa only [h] using And.intro hb (And.intro ha (And.intro hbb hba))
+
+lemma private_orientNode {n : ℕ} (gs : List Node) (T : Set (Fin n → Bool))
+    (hp : PrivateNormal n gs T) : PrivateNormal n (gs.map orientNode) T := by
+  intro j hj
+  have hj' : j < gs.length := by simpa using hj
+  simp only [List.getElem_map,term_orientNode]
+  rcases orientNode_cases gs[j] with h | h
+  · simpa only [h] using hp j hj'
+  · simpa only [h] using (hp j hj').symm
+
+lemma disjoint_orientNode (gs : List Node) (hd : DisjointNormal gs) :
+    DisjointNormal (gs.map orientNode) := by
+  intro j hj
+  have hj' : j < gs.length := by simpa using hj
+  simp only [List.getElem_map]
+  rcases orientNode_cases gs[j] with h | h
+  · simpa only [h] using hd j hj'
+  · simpa only [h] using (hd j hj').symm
+
+lemma oriented_orientNode {n : ℕ} (gs : List Node) (hv : Valid n gs)
+    (hd : DisjointNormal gs) : Oriented (gs.map orientNode) := by
+  intro j hj
+  have hj' : j < gs.length := by simpa using hj
+  simpa only [List.getElem_map] using
+    orientNode_before gs[j] (hv j hj').1 (hv j hj').2.1 (hd j hj')
+
+lemma flat_orientNode {n : ℕ} (gs : List Node) (hf : FlatWitnesses n gs) :
+    FlatWitnesses n (gs.map orientNode) := by
+  intro j hj Q hQ hfun
+  have hj' : j < gs.length := by simpa using hj
+  have hh : ∀ x : Fin n → Bool, wire n gs (n+j) x = H8Active.disjunction Q x := by
+    intro x
+    simpa only [wire_orientNode] using hfun x
+  have h := hf j hj' Q hQ hh
+  simp only [List.getElem_map]
+  rcases orientNode_cases gs[j] with he | he
+  · simpa only [he] using h
+  · simpa only [he] using h.symm
+
+end H8AndFree
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma exists_exact_oriented_flat_private_normalization {n : ℕ}
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hpos : ∃ x : Fin n → Bool, C.eval (List.ofFn x) = true)
+    (hwitness : ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧ HasPureOr n C Q)
+    (r : ℕ) (hr : orCount C.gates ≤ r) :
+    ∃ (hs : List Node) (s : Finset ℕ),
+      Valid n hs ∧ PrivateNormal n hs (TestInputs P) ∧ DisjointNormal hs ∧
+      FlatWitnesses n hs ∧ Oriented hs ∧ hs.length = r ∧
+      s.Nonempty ∧ (∀ i ∈ s, i < n + hs.length) ∧
+      (∀ x : Fin n → Bool, term n hs s x = H8Active.dnf P x) ∧
+      ∀ (Q : Finset (Fin n)), 2 ≤ Q.card → HasPureOr n C Q →
+        ∃ j < hs.length, ∀ x : Fin n → Bool, wire n hs (n+j) x = H8Active.disjunction Q x := by
+  obtain ⟨gs,s,hv,hp,hd,hf,hcnt,hs,hb,hout,hroots⟩ :=
+    exists_exact_flat_private_normalization C hC P hF hpos hwitness r hr
+  refine ⟨gs.map orientNode,s,valid_orientNode gs hv,
+    private_orientNode gs _ hp,disjoint_orientNode gs hd,flat_orientNode gs hf,
+    oriented_orientNode gs hv hd,?_,hs,?_,?_,?_⟩
+  · simpa only [List.length_map] using hcnt
+  · simpa only [List.length_map] using hb
+  · intro x
+    exact (term_orientNode n gs s x).trans (hout x)
+  · intro Q hQ hQC
+    obtain ⟨j,hj,hjQ⟩ := hroots Q hQ hQC
+    refine ⟨j,by simpa using hj,?_⟩
+    intro x
+    exact (wire_orientNode n gs (n+j) x).trans (hjQ x)
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
