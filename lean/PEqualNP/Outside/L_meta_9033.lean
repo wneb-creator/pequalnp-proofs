@@ -3526,4 +3526,1084 @@ lemma certificateAt_unsat (v : Fin 3) (a : Fin 12) :
 
 end R2CleanKernel
 
+
+lemma before_AC_readers_agree {k : Nat}
+    (pA pC : Fin k) (a b : Fin k → Nat) (op : Fin k → Bool)
+    (value : Nat → Fin 256 → Bool)
+    (ha : ∀ j, a j < 8 + j.val) (hb : ∀ j, b j < 8 + j.val)
+    (hraw : ∀ (i : Fin 8) (row : Fin 256), value i.val row = row.val.testBit i.val)
+    (heval : ∀ row j, value (8 + j.val) row =
+      boolGate (op j) (value (a j) row) (value (b j) row))
+    (hsoleA : ∀ j, j ≠ pA → a j ≠ 0 ∧ b j ≠ 0)
+    (hsoleC : ∀ j, j ≠ pC → a j ≠ 2 ∧ b j ≠ 2)
+    (wire : Nat) (hcomputed : 8 ≤ wire)
+    (hbeforeA : wire < 8 + pA.val) (hbeforeC : wire < 8 + pC.val) :
+    value wire 37 = value wire 32 := by
+  have hbitsA : ∀ i : Fin 8, i.val ≠ 0 →
+      (37 : Nat).testBit i.val = (36 : Nat).testBit i.val := by decide +kernel
+  have hbitsC : ∀ i : Fin 8, i.val ≠ 2 →
+      (36 : Nat).testBit i.val = (32 : Nat).testBit i.val := by decide +kernel
+  have hrawA : ∀ i, i < 8 → i ≠ 0 → value i 37 = value i 36 := by
+    intro i hi hne
+    rw [hraw ⟨i, hi⟩ 37, hraw ⟨i, hi⟩ 36]
+    exact hbitsA ⟨i, hi⟩ hne
+  have hrawC : ∀ i, i < 8 → i ≠ 2 → value i 36 = value i 32 := by
+    intro i hi hne
+    rw [hraw ⟨i, hi⟩ 36, hraw ⟨i, hi⟩ 32]
+    exact hbitsC ⟨i, hi⟩ hne
+  have hwire : wire < 8 + k := by have := pA.isLt; omega
+  calc
+    value wire 37 = value wire 36 :=
+      sole_reader_agreement pA a b op (fun i => value i 37) (fun i => value i 36)
+        ha hb hrawA hsoleA (heval 37) (heval 36) wire hwire (by omega)
+        (fun h => by omega)
+    _ = value wire 32 :=
+      sole_reader_agreement pC a b op (fun i => value i 36) (fun i => value i 32)
+        ha hb hrawC hsoleC (heval 36) (heval 32) wire hwire (by omega)
+        (fun h => by omega)
+
+lemma causal_AC_frontiers_disjoint {k : Nat}
+    (pA pC : Fin k) (a b : Fin k → Nat) (op : Fin k → Bool)
+    (value : Nat → Fin 256 → Bool)
+    (ha : ∀ j, a j < 8 + j.val) (hb : ∀ j, b j < 8 + j.val)
+    (hraw : ∀ (i : Fin 8) (row : Fin 256), value i.val row = row.val.testBit i.val)
+    (heval : ∀ row j, value (8 + j.val) row =
+      boolGate (op j) (value (a j) row) (value (b j) row))
+    (hsoleA : ∀ j, j ≠ pA → a j ≠ 0 ∧ b j ≠ 0)
+    (hsoleC : ∀ j, j ≠ pC → a j ≠ 2 ∧ b j ≠ 2)
+    (S T : Finset Nat) (negatives : Finset (Fin 256))
+    (hcomputed : ∀ wire ∈ S, 8 ≤ wire)
+    (hbeforeA : ∀ wire ∈ S, wire < 8 + pA.val)
+    (hbeforeC : ∀ wire ∈ T, wire < 8 + pC.val)
+    (hdirty : ∀ wire ∈ S, ∃ row ∈ negatives, value wire row = true)
+    (hA : ∀ wire ∈ S, ∀ row ∈ negatives,
+      value wire row = true → row.val = 25 ∨ row.val = 37)
+    (hC : ∀ wire ∈ T, ∀ row ∈ negatives,
+      value wire row = true → row.val = 37 ∨ row.val = 76)
+    (hzero : ∀ wire ∈ S, value wire 32 = false) : Disjoint S T := by
+  apply Finset.disjoint_left.mpr
+  intro wire hs ht
+  obtain ⟨row, hrow, hv⟩ := hdirty wire hs
+  have haRow := hA wire hs row hrow hv
+  have hcRow := hC wire ht row hrow hv
+  have hr : row = (37 : Fin 256) := Fin.ext (by change row.val = 37; omega)
+  subst row
+  have hp := before_AC_readers_agree pA pC a b op value ha hb hraw heval hsoleA hsoleC
+    wire (hcomputed wire hs) (hbeforeA wire hs) (hbeforeC wire ht)
+  rw [hp, hzero wire hs] at hv
+  cases hv
+
+/-- Delete the A and C coordinates from an eight-bit mask. -/
+def bcCompact (x : Nat) : Nat :=
+  ((x >>> 3) <<< 1) ||| ((x >>> 1) &&& 1)
+
+/-- Insert zero A and C coordinates into a six-bit mask. -/
+def bcExpand (y : Nat) : Nat :=
+  ((y >>> 1) <<< 3) ||| ((y &&& 1) <<< 1)
+
+lemma bc_compact_or (x y : Nat) :
+    bcCompact (x ||| y) = bcCompact x ||| bcCompact y := by
+  simp only [bcCompact, Nat.shiftRight_or_distrib,
+    Nat.shiftLeft_or_distrib, Nat.and_or_distrib_right]
+  ac_rfl
+
+lemma bc_expand_or (x y : Nat) :
+    bcExpand (x ||| y) = bcExpand x ||| bcExpand y := by
+  simp only [bcExpand, Nat.shiftRight_or_distrib,
+    Nat.shiftLeft_or_distrib, Nat.and_or_distrib_right]
+  ac_rfl
+
+lemma bc_compact_bounds : ∀ x : Fin 256, bcCompact x.val < 64 := by
+  decide +kernel
+
+lemma bc_expand_bounds : ∀ y : Fin 64, bcExpand y.val < 256 := by
+  decide +kernel
+
+lemma bc_expand_avoids_ac : ∀ y : Fin 64, bcExpand y.val &&& 5 = 0 := by
+  decide +kernel
+
+lemma bc_expand_compact : ∀ x : Fin 256,
+    x.val &&& 5 = 0 → bcExpand (bcCompact x.val) = x.val := by
+  decide +kernel
+
+lemma bc_compact_expand : ∀ y : Fin 64,
+    bcCompact (bcExpand y.val) = y.val := by
+  decide +kernel
+
+lemma bc_compact_arithmetic : ∀ x : Fin 256,
+    bcCompact x.val = (x.val >>> 3) * 2 + ((x.val >>> 1) &&& 1) := by
+  decide +kernel
+
+lemma bc_expand_arithmetic : ∀ y : Fin 64,
+    bcExpand y.val = (y.val >>> 1) * 8 + (y.val &&& 1) * 2 := by
+  decide +kernel
+
+lemma bc_compact_singletons : ∀ i : Fin 8,
+    bcCompact (2 ^ i.val) = [0, 1, 0, 2, 4, 8, 16, 32].getD i.val 0 := by
+  decide +kernel
+
+lemma bc_expand_singletons : ∀ i : Fin 6,
+    bcExpand (2 ^ i.val) = [2, 8, 16, 32, 64, 128].getD i.val 0 := by
+  decide +kernel
+
+lemma bc_compact_injective (x y : Fin 256)
+    (hx : x.val &&& 5 = 0) (hy : y.val &&& 5 = 0)
+    (heq : bcCompact x.val = bcCompact y.val) : x = y := by
+  apply Fin.ext
+  calc
+    x.val = bcExpand (bcCompact x.val) := (bc_expand_compact x hx).symm
+    _ = bcExpand (bcCompact y.val) := congrArg bcExpand heq
+    _ = y.val := bc_expand_compact y hy
+
+def bcTraceMasks (N : Nat) (mask : Nat → Nat) : Finset Nat :=
+  (Finset.range N).image mask \ bcUnionAtoms
+
+lemma bc_trace_mask_mem (N : Nat) (mask : Nat → Nat)
+    (i : Nat) (hi : i < N) :
+    mask i ∈ bcTraceMasks N mask ∪ bcUnionAtoms := by
+  by_cases ha : mask i ∈ bcUnionAtoms
+  · exact Finset.mem_union.mpr (Or.inr ha)
+  · apply Finset.mem_union.mpr
+    left
+    exact Finset.mem_sdiff.mpr
+      ⟨Finset.mem_image.mpr ⟨i, Finset.mem_range.mpr hi, rfl⟩, ha⟩
+
+lemma bc_union_closed_of_causal_trace
+    (N : Nat) (mask : Nat → Nat)
+    (hcausal : ∀ i < N, mask i ∉ bcUnionAtoms →
+      ∃ a b, a < i ∧ b < i ∧ mask a ||| mask b = mask i) :
+    bcUnionClosed (bcTraceMasks N mask) := by
+  intro m hm
+  have hmem := Finset.mem_sdiff.mp hm
+  obtain ⟨i, hi, hmi⟩ := Finset.mem_image.mp hmem.1
+  have hex : ∃ i : Nat, i < N ∧ mask i = m :=
+    ⟨i, Finset.mem_range.mp hi, hmi⟩
+  let first := Nat.find hex
+  have hfirst : first < N ∧ mask first = m := Nat.find_spec hex
+  have hnonatom : mask first ∉ bcUnionAtoms := by
+    rw [hfirst.2]
+    exact hmem.2
+  obtain ⟨a, b, ha, hb, hab⟩ := hcausal first hfirst.1 hnonatom
+  have haN : a < N := Nat.lt_trans ha hfirst.1
+  have hbN : b < N := Nat.lt_trans hb hfirst.1
+  have hane : mask a ≠ m := by
+    intro heq
+    exact Nat.find_min hex ha ⟨haN, heq⟩
+  have hbne : mask b ≠ m := by
+    intro heq
+    exact Nat.find_min hex hb ⟨hbN, heq⟩
+  have hor : mask a ||| mask b = m := hab.trans hfirst.2
+  have hal : mask a ≤ m := by
+    rw [← hor]
+    exact Nat.left_le_or
+  have hbl : mask b ≤ m := by
+    rw [← hor]
+    exact Nat.right_le_or
+  right
+  refine ⟨mask a, bc_trace_mask_mem N mask a haN,
+    mask b, bc_trace_mask_mem N mask b hbN, ?_, ?_, hor⟩
+  · omega
+  · omega
+
+
+lemma bc_union_closed_of_raw_causal_trace
+    (N raw : Nat) (mask : Nat → Nat)
+    (hraw : ∀ i < raw, mask i ∈ bcUnionAtoms)
+    (hcomputed : ∀ i < N, raw ≤ i → mask i ∉ bcUnionAtoms →
+      ∃ a b, a < i ∧ b < i ∧ mask a ||| mask b = mask i) :
+    bcUnionClosed (bcTraceMasks N mask) := by
+  apply bc_union_closed_of_causal_trace
+  intro i hi hnonatom
+  by_cases hiraw : i < raw
+  · exact (hnonatom (hraw i hiraw)).elim
+  · exact hcomputed i hi (Nat.le_of_not_gt hiraw) hnonatom
+
+lemma bc_trace_masks_bound (N bound : Nat) (mask : Nat → Nat)
+    (hbound : ∀ i < N, mask i < bound) :
+    ∀ m ∈ bcTraceMasks N mask, m < bound := by
+  intro m hm
+  obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hm).1
+  exact hbound i (Finset.mem_range.mp hi)
+
+lemma bc_required_family_subset_trace (ports : List Nat)
+    (N : Nat) (mask : Nat → Nat)
+    (hports : ∀ m ∈ ports, ∃ i < N, mask i = m) :
+    bcRequiredFamily ports ⊆ bcTraceMasks N mask := by
+  intro m hm
+  have hmem := Finset.mem_sdiff.mp hm
+  obtain ⟨i, hi, rfl⟩ := hports m (List.mem_toFinset.mp hmem.1)
+  exact Finset.mem_sdiff.mpr
+    ⟨Finset.mem_image.mpr ⟨i, Finset.mem_range.mpr hi, rfl⟩, hmem.2⟩
+
+lemma bc_all_cover_causal_production
+    (ports : List Nat) (hp : ports ∈ bcAllCovers)
+    (N : Nat) (mask : Nat → Nat)
+    (hcausal : ∀ i < N, mask i ∉ bcUnionAtoms →
+      ∃ a b, a < i ∧ b < i ∧ mask a ||| mask b = mask i)
+    (hports : ∀ m ∈ ports, ∃ i < N, mask i = m)
+    (hcard : (bcTraceMasks N mask).card ≤ 5)
+    (hbound : ∀ i < N, mask i < 256) :
+    ports ∈ bcSurvivorCovers := by
+  exact bc_all_cover_closed_production ports hp (bcTraceMasks N mask)
+    (bc_required_family_subset_trace ports N mask hports) hcard
+    (bc_trace_masks_bound N 256 mask hbound)
+    (bc_union_closed_of_causal_trace N mask hcausal)
+
+def bcBroadRawA : List Nat := [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+def bcBroadRawC : List Nat := [36, 37, 38, 39, 44, 45, 46, 47, 52, 53, 54, 55, 60, 61, 62, 63]
+def bcEGTriples : List (Nat × Nat × Nat) :=
+  [(5, 2, 24), (11, 2, 12), (15, 2, 11), (15, 2, 12), (15, 2, 24)]
+
+def bcBroadCoverPorts (ta tc : Nat) (tr : Nat × Nat × Nat) : List Nat :=
+  let h := bcHRectangles.getD tr.1 (0, 0)
+  let c₁ := bcCleanNonemptyRectangles.getD tr.2.1 (0, 0)
+  let c₂ := bcCleanNonemptyRectangles.getD tr.2.2 (0, 0)
+  [ta, tc, 2 * h.1, 2 * h.2, c₁.1, c₁.2, c₂.1, c₂.2]
+
+def bcBroadIndexedPorts (a c : Fin 16) (t : Fin 5) : List Nat :=
+  bcBroadCoverPorts (bcBroadRawA.getD a.val 0) (bcBroadRawC.getD c.val 0)
+    (bcEGTriples.getD t.val (0, 0, 0))
+
+def bcBroadFourCovers : List (List Nat) :=
+  [52, 53, 54, 55, 60, 61, 62, 63].map (fun W => [W, W, 22, 40, 1, 10, 4, 16])
+
+def bcBroadCaseSummary (a c : Fin 16) (t : Fin 5) : Prop :=
+  let ports := bcBroadIndexedPorts a c t
+  let R := bcRequiredFamily ports
+  (R.card = 4 ∧ ports ∈ bcBroadFourCovers) ∨
+  (R.card = 5 ∧ bcUnionCheck (bcRequiredList ports) = false) ∨ 6 ≤ R.card
+
+lemma bc_broad_raw_a_complete : ∀ a : Fin 64,
+    a.val &&& 48 = 48 → a.val ∈ bcBroadRawA := by
+  decide +kernel
+
+lemma bc_broad_raw_c_complete : ∀ c : Fin 64,
+    c.val &&& 36 = 36 → c.val ∈ bcBroadRawC := by
+  decide +kernel
+
+lemma bc_broad_cofactor_raw_independent (ta tc : Nat) (tr : Nat × Nat × Nat) (row : Nat) :
+    bcCofactorOutput (bcBroadCoverPorts ta tc tr) row =
+      bcCofactorOutput (bcBroadCoverPorts 0 0 tr) row := by
+  rfl
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 20000000 in
+lemma bc_eg_triples_complete : ∀ tr ∈ bcCoverTriples,
+    bcCofactorOutput (bcBroadCoverPorts 0 0 tr) 20 = true → tr ∈ bcEGTriples := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_0 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 0 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_1 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 1 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_2 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 2 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_3 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 3 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_4 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 4 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_5 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 5 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_6 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 6 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_7 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 7 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_8 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 8 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_9 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 9 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_10 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 10 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_11 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 11 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_12 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 12 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_13 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 13 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_14 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 14 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_case_summary_15 : ∀ (c : Fin 16) (t : Fin 5),
+    bcBroadCaseSummary 15 c t := by
+  unfold bcBroadCaseSummary
+  decide +kernel
+
+lemma bc_broad_case_summary (a c : Fin 16) (t : Fin 5) :
+    bcBroadCaseSummary a c t := by
+  fin_cases a
+  · exact bc_broad_case_summary_0 c t
+  · exact bc_broad_case_summary_1 c t
+  · exact bc_broad_case_summary_2 c t
+  · exact bc_broad_case_summary_3 c t
+  · exact bc_broad_case_summary_4 c t
+  · exact bc_broad_case_summary_5 c t
+  · exact bc_broad_case_summary_6 c t
+  · exact bc_broad_case_summary_7 c t
+  · exact bc_broad_case_summary_8 c t
+  · exact bc_broad_case_summary_9 c t
+  · exact bc_broad_case_summary_10 c t
+  · exact bc_broad_case_summary_11 c t
+  · exact bc_broad_case_summary_12 c t
+  · exact bc_broad_case_summary_13 c t
+  · exact bc_broad_case_summary_14 c t
+  · exact bc_broad_case_summary_15 c t
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 50000000 in
+lemma bc_broad_four_summary : ∀ ports ∈ bcBroadFourCovers,
+    bcUnionCheck (bcRequiredList ports) = false ∧
+    (ports ∈ bcMiddleCovers ∨ bcNoSmallUnionExtension (bcRequiredList ports) = true) ∧
+    ports.all (fun m => decide (m < 64)) = true := by
+  decide +kernel
+
+set_option maxHeartbeats 5000000 in
+lemma bc_broad_indexed_classification (a c : Fin 16) (t : Fin 5)
+    (S : Finset Nat)
+    (hsub : bcRequiredFamily (bcBroadIndexedPorts a c t) ⊆ S)
+    (hcard : S.card ≤ 5) (hclosed : bcUnionClosed S) :
+    bcBroadIndexedPorts a c t ∈ bcMiddleCovers := by
+  have hsummary := bc_broad_case_summary a c t
+  change (_ ∧ _) ∨ (_ ∧ _) ∨ _ at hsummary
+  have hle := Finset.card_le_card hsub
+  rcases hsummary with ⟨hfour, hshape⟩ | ⟨hfive, hnot⟩ | hsix
+  · obtain ⟨hnot, hcases, hbound⟩ := bc_broad_four_summary _ hshape
+    have hnclosed : ¬ bcUnionClosed (bcRequiredFamily (bcBroadIndexedPorts a c t)) := by
+      intro hc
+      have ht := (bc_union_check_spec (bcRequiredList (bcBroadIndexedPorts a c t))).mpr
+        (by simpa only [bc_required_list_eq] using hc)
+      rw [hnot] at ht
+      exact Bool.noConfusion ht
+    have hnonempty : (bcRequiredFamily (bcBroadIndexedPorts a c t)).Nonempty := by
+      apply Finset.card_pos.mp
+      omega
+    obtain ⟨extra, _, heq⟩ := bc_equal_one_extra _ _ hsub hnonempty (by omega)
+    rw [heq] at hclosed
+    have hextra : extra < 64 := by
+      apply bc_extra_below_64 _ extra ?_ hnclosed hclosed
+      intro m hm
+      have hmports : m ∈ bcBroadIndexedPorts a c t :=
+        List.mem_toFinset.mp (Finset.mem_sdiff.mp hm).1
+      exact of_decide_eq_true (List.all_eq_true.mp hbound m hmports)
+    rcases hcases with hmiddle | hreject
+    · exact hmiddle
+    · have hr := (bc_no_small_union_extension_spec _).mp hreject ⟨extra, hextra⟩
+      have hc := (bc_union_check_spec
+        (extra :: bcRequiredList (bcBroadIndexedPorts a c t))).mpr
+        (by simpa only [List.toFinset_cons, bc_required_list_eq] using hclosed)
+      change bcUnionCheck (extra :: bcRequiredList (bcBroadIndexedPorts a c t)) = false at hr
+      rw [hr] at hc
+      exact Bool.noConfusion hc
+  · have heq : S = bcRequiredFamily (bcBroadIndexedPorts a c t) :=
+      (Finset.eq_of_subset_of_card_le hsub (by omega)).symm
+    rw [heq] at hclosed
+    have hc := (bc_union_check_spec (bcRequiredList (bcBroadIndexedPorts a c t))).mpr
+      (by simpa only [bc_required_list_eq] using hclosed)
+    rw [hnot] at hc
+    exact Bool.noConfusion hc
+  · omega
+
+lemma bc_broad_cover_classification (ta tc : Fin 64) (tr : Nat × Nat × Nat)
+    (hta : ta.val &&& 48 = 48) (htc : tc.val &&& 36 = 36)
+    (htr : tr ∈ bcCoverTriples)
+    (S : Finset Nat) (hsub : bcRequiredFamily (bcBroadCoverPorts ta.val tc.val tr) ⊆ S)
+    (hcard : S.card ≤ 5) (hclosed : bcUnionClosed S)
+    (hEG : bcCofactorOutput (bcBroadCoverPorts ta.val tc.val tr) 20 = true) :
+    bcBroadCoverPorts ta.val tc.val tr ∈ bcMiddleCovers := by
+  have htrEG : tr ∈ bcEGTriples := by
+    apply bc_eg_triples_complete tr htr
+    rw [← bc_broad_cofactor_raw_independent ta.val tc.val tr 20]
+    exact hEG
+  obtain ⟨a, ha⟩ := bc_index_of_mem (n := 16) (by rfl) 0 ta.val
+    (bc_broad_raw_a_complete ta hta)
+  obtain ⟨c, hc⟩ := bc_index_of_mem (n := 16) (by rfl) 0 tc.val
+    (bc_broad_raw_c_complete tc htc)
+  obtain ⟨t, ht⟩ := bc_index_of_mem (n := 5) (by rfl) (0, 0, 0) tr htrEG
+  have heq : bcBroadIndexedPorts a c t = bcBroadCoverPorts ta.val tc.val tr := by
+    unfold bcBroadIndexedPorts
+    rw [ha, hc, ht]
+  have hresult := bc_broad_indexed_classification a c t S
+    (by simpa only [heq] using hsub) hcard hclosed
+  simpa only [heq] using hresult
+
+lemma bc_broad_geometric_closed_cofactor
+    (ta tc : Fin 64) (hL hR : Fin 32) (a b c d : Fin 64)
+    (hta : ta.val &&& 48 = 48) (htc : tc.val &&& 36 = 36)
+    (hh : bcHRectValid hL hR)
+    (hab : bcCleanRectValid a b) (hcd : bcCleanRectValid c d)
+    (hcover : bcResidualEdges (2 * hL.val) (2 * hR.val) |||
+      bcResidualEdges a.val b.val ||| bcResidualEdges c.val d.val = 127)
+    (S : Finset Nat)
+    (hsub : bcRequiredFamily [ta.val, tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] ⊆ S)
+    (hcard : S.card ≤ 5) (hclosed : bcUnionClosed S)
+    (hEG : bcCofactorOutput [ta.val, tc.val, 2 * hL.val, 2 * hR.val,
+      a.val, b.val, c.val, d.val] 20 = true) :
+    [ta.val, tc.val, 2 * hL.val, 2 * hR.val, a.val, b.val, c.val, d.val] ∈ bcMiddleCovers ∨
+    [ta.val, tc.val, 2 * hL.val, 2 * hR.val, c.val, d.val, a.val, b.val] ∈ bcMiddleCovers := by
+  obtain ⟨i, hi⟩ := bc_index_of_mem (n := 16) (by rfl) (0, 0) (hL.val, hR.val)
+    (bc_h_rectangle_complete hL hR hh)
+  obtain ⟨j, hj⟩ := bc_index_of_mem (n := 89) (by rfl) (0, 0) (a.val, b.val)
+    (bc_clean_rectangle_complete a b hab)
+  obtain ⟨k, hk⟩ := bc_index_of_mem (n := 89) (by rfl) (0, 0) (c.val, d.val)
+    (bc_clean_rectangle_complete c d hcd)
+  change bcHAt i = (hL.val, hR.val) at hi
+  change bcCleanAt j = (a.val, b.val) at hj
+  change bcCleanAt k = (c.val, d.val) at hk
+  have hidx : bcHEdges i ||| bcCleanEdges j ||| bcCleanEdges k = 127 := by
+    rw [← bc_h_edges_correct i, ← bc_clean_edges_correct j, ← bc_clean_edges_correct k,
+      hi, hj, hk]
+    exact hcover
+  obtain ⟨hjne, hkne⟩ := bc_covering_clean_nonempty i j k hidx
+  obtain ⟨j', hj'⟩ := bc_nonempty_clean_index j hjne
+  obtain ⟨k', hk'⟩ := bc_nonempty_clean_index k hkne
+  have hnj : bcNonemptyAt j' = (a.val, b.val) := hj'.trans hj
+  have hnk : bcNonemptyAt k' = (c.val, d.val) := hk'.trans hk
+  have hncover : bcHEdges i ||| bcNonemptyEdges j' ||| bcNonemptyEdges k' = 127 := by
+    rw [← bc_h_edges_correct i, ← bc_nonempty_edges_correct j',
+      ← bc_nonempty_edges_correct k', hi, hnj, hnk]
+    exact hcover
+  rcases bc_covering_triples_complete i j' k' hncover with ht | ht
+  · have hports : bcBroadCoverPorts ta.val tc.val (i.val, j'.val, k'.val) =
+        [ta.val, tc.val, 2 * hL.val, 2 * hR.val, a.val, b.val, c.val, d.val] := by
+      change [ta.val, tc.val, 2 * (bcHAt i).1, 2 * (bcHAt i).2,
+        (bcNonemptyAt j').1, (bcNonemptyAt j').2,
+        (bcNonemptyAt k').1, (bcNonemptyAt k').2] = _
+      simp only [hi, hnj, hnk]
+    left
+    have hresult := bc_broad_cover_classification ta tc (i.val, j'.val, k'.val)
+      hta htc ht S (by simpa only [hports] using hsub) hcard hclosed
+      (by simpa only [hports] using hEG)
+    simpa only [hports] using hresult
+  · have hports : bcBroadCoverPorts ta.val tc.val (i.val, k'.val, j'.val) =
+        [ta.val, tc.val, 2 * hL.val, 2 * hR.val, c.val, d.val, a.val, b.val] := by
+      change [ta.val, tc.val, 2 * (bcHAt i).1, 2 * (bcHAt i).2,
+        (bcNonemptyAt k').1, (bcNonemptyAt k').2,
+        (bcNonemptyAt j').1, (bcNonemptyAt j').2] = _
+      simp only [hi, hnj, hnk]
+    have hsub' : bcRequiredFamily [ta.val, tc.val, 2 * hL.val, 2 * hR.val,
+        c.val, d.val, a.val, b.val] ⊆ S := by
+      rw [← bc_required_family_clean_swap]
+      exact hsub
+    have hEG' : bcCofactorOutput [ta.val, tc.val, 2 * hL.val, 2 * hR.val,
+        c.val, d.val, a.val, b.val] 20 = true := by
+      rw [← bc_cofactor_clean_swap]
+      exact hEG
+    right
+    have hresult := bc_broad_cover_classification ta tc (i.val, k'.val, j'.val)
+      hta htc ht S (by simpa only [hports] using hsub') hcard hclosed
+      (by simpa only [hports] using hEG')
+    simpa only [hports] using hresult
+
+namespace CnfTransport
+
+abbrev Literal := Nat × Bool
+abbrev Clause := List Literal
+abbrev CNF := List Clause
+abbrev Valuation := Nat → Bool
+
+def ClauseHolds (w : Valuation) (c : Clause) : Prop :=
+  ∃ literal ∈ c, w literal.1 = literal.2
+
+def CNFHolds (w : Valuation) (f : CNF) : Prop :=
+  ∀ clause ∈ f, ClauseHolds w clause
+
+lemma clause_nil (w : Valuation) : ¬ ClauseHolds w [] := by
+  simp [ClauseHolds]
+
+lemma clause_cons (w : Valuation) (literal : Literal) (rest : Clause) :
+    ClauseHolds w (literal :: rest) ↔
+      w literal.1 = literal.2 ∨ ClauseHolds w rest := by
+  constructor
+  · rintro ⟨item, hi, hv⟩
+    rcases List.mem_cons.mp hi with hi | hi
+    · subst item; exact Or.inl hv
+    · exact Or.inr ⟨item, hi, hv⟩
+  · rintro (hv | ⟨item, hi, hv⟩)
+    · exact ⟨literal, List.mem_cons_self, hv⟩
+    · exact ⟨item, List.mem_cons_of_mem _ hi, hv⟩
+
+-- Tags: free input, constant, copy, AND, list OR, pref equality.
+-- The remaining product fields are value, left, right, optional pref, sources.
+abbrev Definition := Fin 6 × Bool × Nat × Nat × Option Nat × List Nat
+
+def inputs (d : Definition) : List Nat :=
+  match d with
+  | (tag, _, a, b, pref, sources) =>
+    match tag.val with
+    | 2 => [a]
+    | 3 => [a, b]
+    | 4 => sources
+    | 5 => a :: b :: pref.toList
+    | _ => []
+
+def evaluate (d : Definition) (w : Valuation) : Bool :=
+  match d with
+  | (tag, value, a, b, pref, sources) =>
+    match tag.val with
+    | 2 => w a
+    | 3 => w a && w b
+    | 4 => sources.any w
+    | 5 => (pref.map w).getD true && (w a == w b)
+    | _ => value
+
+def andClauses (out a b : Nat) : CNF :=
+  [[(out, false), (a, true)], [(out, false), (b, true)],
+    [(out, true), (a, false), (b, false)]]
+
+def orClauses (out : Nat) (sources : List Nat) : CNF :=
+  sources.map (fun a => [(a, false), (out, true)]) ++
+    [[(out, false)] ++ sources.map (fun a => (a, true))]
+
+def copyClauses (out a : Nat) : CNF :=
+  [[(out, false), (a, true)], [(out, true), (a, false)]]
+
+def prefixClauses (out a b : Nat) (pref : Option Nat) : CNF :=
+  (pref.toList.map (fun p => [(out, false), (p, true)])) ++
+  [[(out, false), (a, false), (b, true)],
+   [(out, false), (a, true), (b, false)],
+   pref.toList.map (fun p => (p, false)) ++ [(a, false), (b, false), (out, true)],
+   pref.toList.map (fun p => (p, false)) ++ [(a, true), (b, true), (out, true)]]
+
+def definitionClauses (out : Nat) (d : Definition) : CNF :=
+  match d with
+  | (tag, value, a, b, pref, sources) =>
+    match tag.val with
+    | 0 => []
+    | 1 => [[(out, value)]]
+    | 2 => copyClauses out a
+    | 3 => andClauses out a b
+    | 4 => orClauses out sources
+    | 5 => prefixClauses out a b pref
+    | _ => []
+
+lemma andClauses_holds (w : Valuation) (out a b : Nat)
+    (h : w out = (w a && w b)) : CNFHolds w (andClauses out a b) := by
+  cases ha : w a <;> cases hb : w b <;>
+    simp_all [CNFHolds, clause_cons, clause_nil, andClauses]
+
+lemma copyClauses_holds (w : Valuation) (out a : Nat)
+    (h : w out = w a) : CNFHolds w (copyClauses out a) := by
+  cases ha : w a <;> simp_all [CNFHolds, clause_cons, clause_nil, copyClauses]
+
+lemma orClauses_holds (w : Valuation) (out : Nat) (sources : List Nat)
+    (h : w out = sources.any w) : CNFHolds w (orClauses out sources) := by
+  intro clause hc
+  rcases List.mem_append.mp hc with hc | hc
+  · obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hc
+    cases hva : w a with
+    | false => exact ⟨(a, false), by simp, hva⟩
+    | true =>
+      have hout : w out = true := h.trans (List.any_eq_true.mpr ⟨a, ha, hva⟩)
+      exact ⟨(out, true), by simp, hout⟩
+  · have heq := List.mem_singleton.mp hc
+    subst clause
+    cases hout : w out with
+    | false => exact ⟨(out, false), by simp, hout⟩
+    | true =>
+      obtain ⟨a, ha, hva⟩ := List.any_eq_true.mp (h.symm.trans hout)
+      refine ⟨(a, true), ?_, hva⟩
+      simp only [List.singleton_append, List.mem_cons, List.mem_map, Prod.mk.injEq,
+        and_true]
+      exact Or.inr ⟨a, ha, rfl⟩
+
+lemma prefixClauses_holds (w : Valuation) (out a b : Nat) (pref : Option Nat)
+    (h : w out = ((pref.map w).getD true && (w a == w b))) :
+    CNFHolds w (prefixClauses out a b pref) := by
+  cases pref with
+  | none =>
+    cases ha : w a <;> cases hb : w b <;>
+      simp_all [CNFHolds, clause_cons, clause_nil, prefixClauses]
+  | some p =>
+    cases hp : w p <;> cases ha : w a <;> cases hb : w b <;>
+      simp_all [CNFHolds, clause_cons, clause_nil, prefixClauses]
+
+lemma definitionClauses_holds (w : Valuation) (out : Nat) (d : Definition)
+    (h : w out = evaluate d w) : CNFHolds w (definitionClauses out d) := by
+  rcases d with ⟨tag, value, a, b, pref, sources⟩
+  fin_cases tag
+  · simp [definitionClauses, CNFHolds]
+  · simpa [definitionClauses, CNFHolds, clause_cons, clause_nil, evaluate] using h
+  · exact copyClauses_holds w out a h
+  · exact andClauses_holds w out a b h
+  · exact orClauses_holds w out sources h
+  · exact prefixClauses_holds w out a b pref h
+
+lemma evaluate_congr (d : Definition) (w z : Valuation)
+    (h : ∀ i ∈ inputs d, w i = z i) : evaluate d w = evaluate d z := by
+  have hlist : ∀ sources : List Nat, (∀ i ∈ sources, w i = z i) →
+      sources.any w = sources.any z := by
+    intro sources
+    induction sources with
+    | nil => intro _; rfl
+    | cons a sources ih =>
+      intro hs
+      simp only [List.any_cons]
+      rw [hs a (by simp), ih (fun i hi => hs i (by simp [hi]))]
+  rcases d with ⟨tag, value, a, b, pref, sources⟩
+  fin_cases tag
+  · rfl
+  · rfl
+  · exact h a (by simp [inputs])
+  · simp only [evaluate]
+    rw [h a (by simp [inputs]), h b (by simp [inputs])]
+  · exact hlist sources (by simpa [inputs] using h)
+  · cases pref with
+    | none =>
+      simp only [evaluate, Option.map_none, Option.getD_none]
+      rw [h a (by simp [inputs]), h b (by simp [inputs])]
+    | some p =>
+      simp only [evaluate, Option.map_some, Option.getD_some]
+      rw [h a (by simp [inputs]), h b (by simp [inputs]), h p (by simp [inputs])]
+
+def run (start : Nat) (w : Valuation) : List Definition → Valuation
+  | [] => w
+  | d :: rest => run (start + 1) (Function.update w start (evaluate d w)) rest
+
+def Bounded (start : Nat) : List Definition → Prop
+  | [] => True
+  | d :: rest => (∀ i ∈ inputs d, i < start) ∧ Bounded (start + 1) rest
+
+def Realizes (w : Valuation) (start : Nat) : List Definition → Prop
+  | [] => True
+  | d :: rest => w start = evaluate d w ∧ Realizes w (start + 1) rest
+
+def compiled (start : Nat) : List Definition → CNF
+  | [] => []
+  | d :: rest => definitionClauses start d ++ compiled (start + 1) rest
+
+lemma run_preserves_before (defs : List Definition) (start : Nat) (w : Valuation) :
+    ∀ i, i < start → run start w defs i = w i := by
+  induction defs generalizing start w with
+  | nil => intro i hi; rfl
+  | cons d rest ih =>
+    intro i hi
+    change run (start + 1) (Function.update w start (evaluate d w)) rest i = w i
+    rw [ih (start + 1) _ i (by omega)]
+    simp [Function.update, Nat.ne_of_lt hi]
+
+lemma run_realizes (defs : List Definition) (start : Nat) (w : Valuation)
+    (h : Bounded start defs) : Realizes (run start w defs) start defs := by
+  induction defs generalizing start w with
+  | nil => trivial
+  | cons d rest ih =>
+    obtain ⟨hhead, hrest⟩ := h
+    constructor
+    · have hprior : ∀ i ∈ inputs d, run start w (d :: rest) i = w i := by
+        intro i hi
+        exact run_preserves_before (d :: rest) start w i (hhead i hi)
+      have hval : run start w (d :: rest) start = evaluate d w := by
+        change run (start + 1) (Function.update w start (evaluate d w)) rest start = _
+        rw [run_preserves_before rest (start + 1) _ start (by omega)]
+        simp
+      exact hval.trans (evaluate_congr d _ _ hprior).symm
+    · exact ih (start + 1) (Function.update w start (evaluate d w)) hrest
+
+lemma compiled_holds_of_realizes (defs : List Definition) (start : Nat)
+    (w : Valuation) (h : Realizes w start defs) : CNFHolds w (compiled start defs) := by
+  induction defs generalizing start with
+  | nil => simp [compiled, CNFHolds]
+  | cons d rest ih =>
+    obtain ⟨hhead, hrest⟩ := h
+    intro clause hc
+    rcases List.mem_append.mp hc with hc | hc
+    · exact definitionClauses_holds w start d hhead clause hc
+    · exact ih (start + 1) hrest clause hc
+
+lemma acyclic_definitions_extend (defs : List Definition) (start : Nat)
+    (w : Valuation) (h : Bounded start defs) :
+    ∃ z : Valuation, (∀ i, i < start → z i = w i) ∧
+      Realizes z start defs ∧ CNFHolds z (compiled start defs) := by
+  refine ⟨run start w defs, run_preserves_before defs start w, ?_, ?_⟩
+  · exact run_realizes defs start w h
+  · exact compiled_holds_of_realizes defs start _ (run_realizes defs start w h)
+
+lemma boundaryClauses_holds (w : Valuation) (a b : Nat) (target : Bool)
+    (h : (w a || w b) = target) :
+    CNFHolds w (if target then [[(a, true), (b, true)]] else
+      [[(a, false)], [(b, false)]]) := by
+  cases ha : w a <;> cases hb : w b <;> cases target <;>
+    simp_all [CNFHolds, clause_cons, clause_nil]
+
+lemma guardedEquality_holds (w : Valuation) (guard a b : Nat)
+    (h : w guard = true → w a = w b) :
+    CNFHolds w [[(guard, false), (a, false), (b, true)],
+      [(guard, false), (a, true), (b, false)]] := by
+  cases hg : w guard <;> cases ha : w a <;> cases hb : w b <;>
+    simp_all [CNFHolds, clause_cons, clause_nil]
+
+-- The remaining clauses state semantic side conditions, rather than defining wires.
+lemma mappedClause_holds_iff (w : Valuation) (sources : List Nat) (sign : Bool) :
+    ClauseHolds w (sources.map (fun i => (i, sign))) ↔
+      ∃ i ∈ sources, w i = sign := by
+  constructor
+  · rintro ⟨literal, hl, hv⟩
+    obtain ⟨i, hi, rfl⟩ := List.mem_map.mp hl
+    exact ⟨i, hi, hv⟩
+  · rintro ⟨i, hi, hv⟩
+    exact ⟨(i, sign), List.mem_map.mpr ⟨i, hi, rfl⟩, hv⟩
+
+lemma witnessClause_holds (w : Valuation) (sources : List Nat)
+    (h : ∃ i ∈ sources, w i = true) :
+    ClauseHolds w (sources.map (fun i => (i, true))) :=
+  (mappedClause_holds_iff w sources true).mpr h
+
+lemma unitClauses_holds (w : Valuation) (sources : List Nat) (sign : Bool)
+    (h : ∀ i ∈ sources, w i = sign) :
+    CNFHolds w (sources.map (fun i => [(i, sign)])) := by
+  intro clause hc
+  obtain ⟨i, hi, rfl⟩ := List.mem_map.mp hc
+  exact ⟨(i, sign), by simp, h i hi⟩
+
+lemma guardedConstant_holds (w : Valuation) (guard a : Nat) (value : Bool)
+    (h : w guard = true → w a = value) :
+    ClauseHolds w [(guard, false), (a, value)] := by
+  cases hg : w guard with
+  | false => exact ⟨(guard, false), by simp, hg⟩
+  | true => exact ⟨(a, value), by simp, h hg⟩
+
+lemma orderedBitClause_holds (w : Valuation) (a b : Nat) (pref : Option Nat)
+    (h : (pref.map w).getD true = true → w a = true → w b = true) :
+    ClauseHolds w (pref.toList.map (fun p => (p, false)) ++
+      [(a, false), (b, true)]) := by
+  cases pref with
+  | none =>
+    cases ha : w a <;> cases hb : w b <;>
+      simp_all [clause_cons, clause_nil]
+  | some p =>
+    cases hp : w p <;> cases ha : w a <;> cases hb : w b <;>
+      simp_all [clause_cons, clause_nil]
+
+lemma capClause_holds (w : Valuation) (allFlags : Finset Nat)
+    (chosen : List Nat) (budget : Nat) (hnodup : chosen.Nodup)
+    (hsub : ∀ i ∈ chosen, i ∈ allFlags) (hsize : budget < chosen.length)
+    (hbudget : (allFlags.filter (fun i => w i = true)).card ≤ budget) :
+    ClauseHolds w (chosen.map (fun i => (i, false))) := by
+  classical
+  apply (mappedClause_holds_iff w chosen false).mpr
+  by_contra hn
+  have hall : ∀ i ∈ chosen, w i = true := by
+    intro i hi
+    cases hv : w i with
+    | false => exact False.elim (hn ⟨i, hi, hv⟩)
+    | true => rfl
+  have hsubset : chosen.toFinset ⊆ allFlags.filter (fun i => w i = true) := by
+    intro i hi
+    have himem := List.mem_toFinset.mp hi
+    exact Finset.mem_filter.mpr ⟨hsub i himem, hall i himem⟩
+  have hcard := Finset.card_le_card hsubset
+  have heq : chosen.toFinset.card = chosen.length := List.toFinset_card_of_nodup hnodup
+  omega
+
+lemma cnf_append_holds (w : Valuation) (first second : CNF)
+    (hfirst : CNFHolds w first) (hsecond : CNFHolds w second) :
+    CNFHolds w (first ++ second) := by
+  intro clause hc
+  rcases List.mem_append.mp hc with hc | hc
+  · exact hfirst clause hc
+  · exact hsecond clause hc
+
+-- This is the positive-even/negative-odd literal convention of the kernel checker.
+def encodeLiteral (literal : Literal) : Nat :=
+  2 * literal.1 + if literal.2 then 0 else 1
+
+def encodeCNF (formula : CNF) : List (List Nat) :=
+  formula.map (fun clause => clause.map encodeLiteral)
+
+lemma encodeLiteral_holds (w : Valuation) (literal : Literal) :
+    (w (encodeLiteral literal / 2) == (encodeLiteral literal % 2 == 0)) = true ↔
+      w literal.1 = literal.2 := by
+  rcases literal with ⟨i, sign⟩
+  cases sign <;> simp [encodeLiteral, Nat.add_div, Nat.add_mod, Nat.mul_mod]
+
+lemma encoded_cnf_holds (w : Valuation) (formula : CNF)
+    (h : CNFHolds w formula) :
+    ∀ clause ∈ encodeCNF formula, ∃ literal ∈ clause,
+      (w (literal / 2) == (literal % 2 == 0)) = true := by
+  intro clause hc
+  obtain ⟨source, hs, rfl⟩ := List.mem_map.mp hc
+  obtain ⟨literal, hl, hv⟩ := h source hs
+  exact ⟨encodeLiteral literal, List.mem_map.mpr ⟨literal, hl, rfl⟩,
+    (encodeLiteral_holds w literal).mpr hv⟩
+
+lemma acyclic_definitions_have_encoded_model (defs : List Definition) (start : Nat)
+    (w : Valuation) (h : Bounded start defs) :
+    ∃ z : Valuation, (∀ i, i < start → z i = w i) ∧
+      ∀ clause ∈ encodeCNF (compiled start defs), ∃ literal ∈ clause,
+        (z (literal / 2) == (literal % 2 == 0)) = true := by
+  obtain ⟨z, hpreserve, _, hcnf⟩ := acyclic_definitions_extend defs start w h
+  exact ⟨z, hpreserve, encoded_cnf_holds z _ hcnf⟩
+
+end CnfTransport
+
+
+
+
+namespace CnfTransport
+
+-- Boundary, witness, unit, guarded equality, guarded constant, ordered bit, cap.
+abbrev Requirement := Fin 7 × Nat × Nat × Nat × Bool × Option Nat × List Nat
+
+def requirementHolds (flags : Finset Nat) (budget : Nat) (w : Valuation)
+    (r : Requirement) : Prop :=
+  match r with
+  | (tag, a, b, guard, value, pref, sources) =>
+    match tag.val with
+    | 0 => (w a || w b) = value
+    | 1 => ∃ i ∈ sources, w i = true
+    | 2 => w a = value
+    | 3 => w guard = true → w a = w b
+    | 4 => w guard = true → w a = value
+    | 5 => (pref.map w).getD true = true → w a = true → w b = true
+    | 6 => sources.Nodup ∧ (∀ i ∈ sources, i ∈ flags) ∧
+        budget < sources.length ∧ (flags.filter (fun i => w i = true)).card ≤ budget
+    | _ => False
+
+def requirementClauses (r : Requirement) : CNF :=
+  match r with
+  | (tag, a, b, guard, value, pref, sources) =>
+    match tag.val with
+    | 0 => if value then [[(a, true), (b, true)]] else [[(a, false)], [(b, false)]]
+    | 1 => [sources.map (fun i => (i, true))]
+    | 2 => [[(a, value)]]
+    | 3 => [[(guard, false), (a, false), (b, true)],
+        [(guard, false), (a, true), (b, false)]]
+    | 4 => [[(guard, false), (a, value)]]
+    | 5 => [pref.toList.map (fun p => (p, false)) ++ [(a, false), (b, true)]]
+    | 6 => [sources.map (fun i => (i, false))]
+    | _ => []
+
+lemma requirementClauses_holds (flags : Finset Nat) (budget : Nat) (w : Valuation)
+    (r : Requirement) (h : requirementHolds flags budget w r) :
+    CNFHolds w (requirementClauses r) := by
+  rcases r with ⟨tag, a, b, guard, value, pref, sources⟩
+  fin_cases tag
+  · exact boundaryClauses_holds w a b value h
+  · intro clause hc
+    have hc' : clause = sources.map (fun i => (i, true)) := List.mem_singleton.mp hc
+    subst clause
+    exact witnessClause_holds w sources h
+  · intro clause hc
+    have hc' : clause = [(a, value)] := List.mem_singleton.mp hc
+    subst clause
+    exact ⟨(a, value), by simp, h⟩
+  · exact guardedEquality_holds w guard a b h
+  · intro clause hc
+    have hc' : clause = [(guard, false), (a, value)] := List.mem_singleton.mp hc
+    subst clause
+    exact guardedConstant_holds w guard a value h
+  · intro clause hc
+    have hc' : clause = pref.toList.map (fun p => (p, false)) ++
+        [(a, false), (b, true)] := List.mem_singleton.mp hc
+    subst clause
+    exact orderedBitClause_holds w a b pref h
+  · intro clause hc
+    have hc' : clause = sources.map (fun i => (i, false)) := List.mem_singleton.mp hc
+    subst clause
+    exact capClause_holds w flags sources budget h.1 h.2.1 h.2.2.1 h.2.2.2
+
+def definitionCatalog (start : Nat) : List Definition → List CNF
+  | [] => []
+  | d :: rest => definitionClauses start d :: definitionCatalog (start + 1) rest
+
+lemma definitionCatalog_holds (defs : List Definition) (start : Nat) (w : Valuation)
+    (h : Realizes w start defs) :
+    ∀ formula ∈ definitionCatalog start defs, CNFHolds w formula := by
+  induction defs generalizing start with
+  | nil => simp [definitionCatalog]
+  | cons d rest ih =>
+    intro formula hf
+    rcases List.mem_cons.mp hf with rfl | hf
+    · exact definitionClauses_holds w start d h.1
+    · exact ih (start + 1) h.2 formula hf
+
+def specializeDefinition (value : Bool) (d : Definition) : Definition :=
+  match d with
+  | (tag, oldValue, a, b, pref, sources) =>
+    (tag, if tag = 0 then value else oldValue, a, b, pref, sources)
+
+lemma specialized_inputs (value : Bool) (d : Definition) :
+    inputs (specializeDefinition value d) = inputs d := by
+  rcases d with ⟨tag, oldValue, a, b, pref, sources⟩
+  fin_cases tag <;> rfl
+
+lemma specialized_clauses (value : Bool) (d : Definition) (out : Nat) :
+    definitionClauses out (specializeDefinition value d) = definitionClauses out d := by
+  rcases d with ⟨tag, oldValue, a, b, pref, sources⟩
+  fin_cases tag <;> rfl
+
+def specialize (start : Nat) (free : Valuation) : List Definition → List Definition
+  | [] => []
+  | d :: rest => specializeDefinition (free start) d :: specialize (start + 1) free rest
+
+lemma specialized_bounded (defs : List Definition) (start : Nat) (free : Valuation)
+    (h : Bounded start defs) : Bounded start (specialize start free defs) := by
+  induction defs generalizing start with
+  | nil => trivial
+  | cons d rest ih =>
+    exact ⟨by simpa [specialized_inputs] using h.1, ih (start + 1) h.2⟩
+
+lemma specialized_catalog (defs : List Definition) (start : Nat) (free : Valuation) :
+    definitionCatalog start (specialize start free defs) = definitionCatalog start defs := by
+  induction defs generalizing start with
+  | nil => rfl
+  | cons d rest ih =>
+    simp only [specialize, definitionCatalog, specialized_clauses, ih]
+
+def candidateValue (defs : List Definition) (free : Valuation) : Valuation :=
+  run 1 (fun _ => false) (specialize 1 free defs)
+
+def fullCatalog (defs : List Definition) (requirements : List Requirement) : List CNF :=
+  definitionCatalog 1 defs ++ requirements.map requirementClauses
+
+lemma candidate_catalog_holds (defs : List Definition) (free : Valuation)
+    (requirements : List Requirement) (flags : Finset Nat) (budget : Nat)
+    (hbound : Bounded 1 defs)
+    (hside : ∀ r ∈ requirements, requirementHolds flags budget (candidateValue defs free) r) :
+    ∀ formula ∈ fullCatalog defs requirements, CNFHolds (candidateValue defs free) formula := by
+  intro formula hf
+  rcases List.mem_append.mp hf with hf | hf
+  · have hr := run_realizes (specialize 1 free defs) 1 (fun _ => false)
+      (specialized_bounded defs 1 free hbound)
+    apply definitionCatalog_holds (specialize 1 free defs) 1 _ hr formula
+    simpa [specialized_catalog] using hf
+  · obtain ⟨r, hr, rfl⟩ := List.mem_map.mp hf
+    exact requirementClauses_holds flags budget _ r (hside r hr)
+
+abbrev Reference := Nat × Nat
+
+def referenceValid (catalog : List CNF) (ref : Reference) : Prop :=
+  ref.1 < catalog.length ∧ ref.2 < (catalog[ref.1]?.getD []).length
+
+def referenceClause (catalog : List CNF) (ref : Reference) : Clause :=
+  ((catalog[ref.1]?.getD [])[ref.2]?).getD []
+
+def selectedClauses (catalog : List CNF) (refs : List Reference) : CNF :=
+  refs.map (referenceClause catalog)
+
+lemma getD_mem_of_lt {α : Type} (xs : List α) (i : Nat) (default : α)
+    (h : i < xs.length) : xs[i]?.getD default ∈ xs := by
+  rw [List.getElem?_eq_getElem h]
+  exact List.getElem_mem h
+
+lemma referenceClause_holds (catalog : List CNF) (ref : Reference) (w : Valuation)
+    (hvalid : referenceValid catalog ref)
+    (hall : ∀ formula ∈ catalog, CNFHolds w formula) :
+    ClauseHolds w (referenceClause catalog ref) := by
+  exact hall (catalog[ref.1]?.getD []) (getD_mem_of_lt catalog ref.1 [] hvalid.1)
+    (referenceClause catalog ref)
+    (getD_mem_of_lt (catalog[ref.1]?.getD []) ref.2 [] hvalid.2)
+
+lemma candidate_selected_holds (defs : List Definition) (free : Valuation)
+    (requirements : List Requirement) (flags : Finset Nat) (budget : Nat)
+    (refs : List Reference) (hbound : Bounded 1 defs)
+    (hvalid : ∀ ref ∈ refs, referenceValid (fullCatalog defs requirements) ref)
+    (hside : ∀ r ∈ requirements, requirementHolds flags budget (candidateValue defs free) r) :
+    CNFHolds (candidateValue defs free) (selectedClauses (fullCatalog defs requirements) refs) := by
+  intro clause hc
+  obtain ⟨ref, hr, rfl⟩ := List.mem_map.mp hc
+  exact referenceClause_holds _ ref _ (hvalid ref hr)
+    (candidate_catalog_holds defs free requirements flags budget hbound hside)
+
+
+def boundedCheck (start : Nat) : List Definition → Bool
+  | [] => true
+  | d :: rest => (inputs d).all (fun i => decide (i < start)) && boundedCheck (start + 1) rest
+
+lemma boundedCheck_spec (defs : List Definition) (start : Nat) :
+    boundedCheck start defs = true ↔ Bounded start defs := by
+  induction defs generalizing start with
+  | nil => simp [boundedCheck, Bounded]
+  | cons d rest ih => simp [boundedCheck, Bounded, Bool.and_eq_true, List.all_eq_true, ih]
+
+def referencesCheck (catalog : List CNF) (refs : List Reference) : Bool :=
+  refs.all (fun ref => decide (ref.1 < catalog.length) &&
+    decide (ref.2 < (catalog[ref.1]?.getD []).length))
+
+lemma referencesCheck_spec (catalog : List CNF) (refs : List Reference) :
+    referencesCheck catalog refs = true ↔ ∀ ref ∈ refs, referenceValid catalog ref := by
+  simp [referencesCheck, referenceValid, List.all_eq_true, Bool.and_eq_true]
+
+lemma encoded_selected_flatten (catalog : List CNF) (chunks : List (List Reference)) :
+    encodeCNF (selectedClauses catalog chunks.flatten) =
+      (chunks.map (fun refs => encodeCNF (selectedClauses catalog refs))).flatten := by
+  simp [encodeCNF, selectedClauses, List.map_flatten, List.map_map]
+
+end CnfTransport
+
 end PEqualNP.Outside.L_meta_9033
