@@ -1596,4 +1596,370 @@ lemma and_exclusive_singleton_rectangles_cover
 
 end BirthRectangle
 
+namespace Diamond
+
+def newOp (a b h : Nat) (op : Nat → Bool) (i : Nat) : Bool :=
+  if i = a then true else if i = b then true else if i = h then false else op i
+
+def newLeft (a b h q u : Nat) (left : Nat → Nat) (i : Nat) : Nat :=
+  if i = a then q else if i = b then u else if i = h then q else left i
+
+def newRight (n a b h q w : Nat) (right : Nat → Nat) (i : Nat) : Nat :=
+  if i = a then q else if i = b then w else if i = h then n + b else right i
+
+lemma bool_identity (q u w : Bool) : ((q || u) && (q || w)) = (q || (u && w)) := by
+  cases q <;> cases u <;> cases w <;> rfl
+
+lemma rewrite_causal (n k a b h q u w : Nat) (left right : Nat → Nat)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : left a = q ∧ right a = u)
+    (hb : left b = q ∧ right b = w) :
+    ∀ i < k,
+      newLeft a b h q u left i < n + i ∧
+      newRight n a b h q w right i < n + i := by
+  have hca := hcausal a (by omega)
+  have hcb := hcausal b (by omega)
+  rw [ha.1, ha.2] at hca
+  rw [hb.1, hb.2] at hcb
+  intro i hi
+  by_cases hia : i = a
+  · subst i
+    simp only [newLeft, newRight, ite_true]
+    exact ⟨hca.1, hca.1⟩
+  · by_cases hib : i = b
+    · subst i
+      simp only [newLeft, newRight, hia, ite_false, ite_true]
+      exact ⟨by omega, hcb.2⟩
+    · by_cases hih : i = h
+      · subst i
+        simp only [newLeft, newRight, hia, hib, ite_false, ite_true]
+        exact ⟨by omega, by omega⟩
+      · simp only [newLeft, newRight, hia, hib, hih, ite_false]
+        exact hcausal i hi
+
+lemma agreement (n k a b h q u w : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x y : Nat → Bool)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ left a = q ∧ right a = u)
+    (hb : op b = false ∧ left b = q ∧ right b = w)
+    (hd : op h = true ∧ left h = n + a ∧ right h = n + b)
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateBool (op i) (x (left i)) (x (right i)))
+    (hy : ∀ i < k, y (n + i) =
+      gateBool (newOp a b h op i)
+        (y (newLeft a b h q u left i)) (y (newRight n a b h q w right i)))
+    (hraw : ∀ j < n, x j = y j) :
+    ∀ j < n + k, j ≠ n + a → j ≠ n + b → x j = y j := by
+  have hak : a < k := by omega
+  have hbk : b < k := by omega
+  have hba : b ≠ a := by omega
+  have hha : h ≠ a := by omega
+  have hhb : h ≠ b := by omega
+  have hca := hcausal a hak
+  have hcb := hcausal b hbk
+  rw [ha.2.1, ha.2.2] at hca
+  rw [hb.2.1, hb.2.2] at hcb
+  have hwA : w ≠ n + a := by
+    have hpriv := (hprivate b hbk (by omega)).2.1
+    rwa [hb.2.2] at hpriv
+  intro j
+  induction j using Nat.strong_induction_on with
+  | ind j ih =>
+    intro hj hjA hjB
+    by_cases hjraw : j < n
+    · exact hraw j hjraw
+    · have hi : j - n < k := by omega
+      have heq : n + (j - n) = j := by omega
+      have hia : j - n ≠ a := by omega
+      have hib : j - n ≠ b := by omega
+      by_cases hih : j - n = h
+      · have hjh : j = n + h := by omega
+        have hq : x q = y q := ih q (by omega) (by omega) (by omega) (by omega)
+        have hu : x u = y u := ih u (by omega) (by omega) (by omega) (by omega)
+        have hw : x w = y w := ih w (by omega) (by omega) hwA (by omega)
+        have hxa : x (n + a) = (x q || x u) := by
+          simpa only [ha.1, ha.2.1, ha.2.2, gateBool, Bool.false_eq_true, ite_false] using hx a hak
+        have hxb : x (n + b) = (x q || x w) := by
+          simpa only [hb.1, hb.2.1, hb.2.2, gateBool, Bool.false_eq_true, ite_false] using hx b hbk
+        have hxh : x (n + h) = (x (n + a) && x (n + b)) := by
+          simpa only [hd.1, hd.2.1, hd.2.2, gateBool, ite_true] using hx h hh
+        have hyb : y (n + b) = (y u && y w) := by
+          simpa only [newOp, newLeft, newRight, hba, ite_false, ite_true, gateBool] using hy b hbk
+        have hyh : y (n + h) = (y q || y (n + b)) := by
+          simpa only [newOp, newLeft, newRight, hha, hhb, ite_false, ite_true,
+            gateBool, Bool.false_eq_true] using hy h hh
+        rw [hjh, hxh, hxa, hxb, hq, hu, hw, bool_identity, hyh, hyb]
+      · have hp := hprivate (j - n) hi hih
+        have hc := hcausal (j - n) hi
+        have hleft : x (left (j - n)) = y (left (j - n)) :=
+          ih _ (by omega) (by omega) hp.1.1 hp.1.2
+        have hright : x (right (j - n)) = y (right (j - n)) :=
+          ih _ (by omega) (by omega) hp.2.1 hp.2.2
+        have hxe := hx (j - n) hi
+        have hye := hy (j - n) hi
+        simp only [newOp, newLeft, newRight, hia, hib, hih, ite_false] at hye
+        rw [heq] at hxe hye
+        rw [hxe, hye, hleft, hright]
+
+lemma output_agreement (n k a b h q u w out : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x y : Nat → Bool)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ left a = q ∧ right a = u)
+    (hb : op b = false ∧ left b = q ∧ right b = w)
+    (hd : op h = true ∧ left h = n + a ∧ right h = n + b)
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateBool (op i) (x (left i)) (x (right i)))
+    (hy : ∀ i < k, y (n + i) =
+      gateBool (newOp a b h op i)
+        (y (newLeft a b h q u left i)) (y (newRight n a b h q w right i)))
+    (hraw : ∀ j < n, x j = y j)
+    (hout : out < n + k) (houtA : out ≠ n + a) (houtB : out ≠ n + b) : x out = y out := by
+  exact agreement n k a b h q u w op left right x y hab hbh hh hcausal ha hb hd
+    hprivate hx hy hraw out hout houtA houtB
+
+def gateNat (op : Bool) (x y : Nat) : Nat :=
+  if op then x &&& y else x ||| y
+
+lemma testBit_gateNat (op : Bool) (x y bit : Nat) :
+    (gateNat op x y).testBit bit = gateBool op (x.testBit bit) (y.testBit bit) := by
+  cases op <;> simp [gateNat, gateBool, Nat.testBit_and, Nat.testBit_or]
+
+lemma nat_identity (q u w : Nat) :
+    ((q ||| u) &&& (q ||| w)) = (q ||| (u &&& w)) := by
+  exact (Nat.or_and_distrib_left q u w).symm
+
+lemma nat_agreement (n k a b h q u w : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x y : Nat → Nat)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ left a = q ∧ right a = u)
+    (hb : op b = false ∧ left b = q ∧ right b = w)
+    (hd : op h = true ∧ left h = n + a ∧ right h = n + b)
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateNat (op i) (x (left i)) (x (right i)))
+    (hy : ∀ i < k, y (n + i) =
+      gateNat (newOp a b h op i)
+        (y (newLeft a b h q u left i)) (y (newRight n a b h q w right i)))
+    (hraw : ∀ j < n, x j = y j) :
+    ∀ j < n + k, j ≠ n + a → j ≠ n + b → x j = y j := by
+  intro j hj hjA hjB
+  apply Nat.eq_of_testBit_eq
+  intro bit
+  apply agreement n k a b h q u w op left right
+    (fun i => (x i).testBit bit) (fun i => (y i).testBit bit)
+    hab hbh hh hcausal ha hb hd hprivate _ _ _ j hj hjA hjB
+  · intro i hi
+    rw [hx i hi, testBit_gateNat]
+  · intro i hi
+    rw [hy i hi, testBit_gateNat]
+  · intro i hi
+    rw [hraw i hi]
+
+lemma rewrite_sources_preserve (n k a b h q u w : Nat) (left right : Nat → Nat)
+    (P : Nat → Prop) (hak : a < k) (hbk : b < k)
+    (ha : left a = q ∧ right a = u) (hb : right b = w)
+    (hold : ∀ i < k, P (left i) ∧ P (right i)) (hnewB : P (n + b)) :
+    ∀ i < k, P (newLeft a b h q u left i) ∧ P (newRight n a b h q w right i) := by
+  have hq : P q := by rw [← ha.1]; exact (hold a hak).1
+  have hu : P u := by rw [← ha.2]; exact (hold a hak).2
+  have hw : P w := by rw [← hb]; exact (hold b hbk).2
+  intro i hi
+  by_cases hia : i = a
+  · subst i
+    simp only [newLeft, newRight, ite_true]
+    exact ⟨hq, hq⟩
+  · by_cases hib : i = b
+    · subst i
+      simp only [newLeft, newRight, hia, ite_false, ite_true]
+      exact ⟨hu, hw⟩
+    · by_cases hih : i = h
+      · subst i
+        simp only [newLeft, newRight, hia, hib, ite_false, ite_true]
+        exact ⟨hq, hnewB⟩
+      · simp only [newLeft, newRight, hia, hib, hih, ite_false]
+        exact hold i hi
+
+lemma rewrite_allowed_raw (n k a b h q u w : Nat) (left right : Nat → Nat)
+    (allowed : Nat → Prop) (hak : a < k) (hbk : b < k)
+    (ha : left a = q ∧ right a = u) (hb : right b = w)
+    (hold : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i))) :
+    ∀ i < k,
+      (newLeft a b h q u left i < n → allowed (newLeft a b h q u left i)) ∧
+      (newRight n a b h q w right i < n → allowed (newRight n a b h q w right i)) := by
+  apply rewrite_sources_preserve n k a b h q u w left right
+    (fun v => v < n → allowed v) hak hbk ha hb hold
+  intro hbad
+  omega
+
+
+def andCount (op : Nat → Bool) (k : Nat) : Nat :=
+  (List.range k).countP op
+
+def orCount (op : Nat → Bool) (k : Nat) : Nat :=
+  (List.range k).countP (fun i => !op i)
+
+lemma countP_range_update (p : Nat → Bool) (x k : Nat) (v : Bool) (hx : x < k) :
+    (List.range k).countP (fun i => if i = x then v else p i) +
+      (if p x then 1 else 0) =
+    (List.range k).countP p + (if v then 1 else 0) := by
+  induction k with
+  | zero => omega
+  | succ k ih =>
+    by_cases hxeq : x = k
+    · subst x
+      have heq : (List.range k).countP (fun i => if i = k then v else p i) =
+          (List.range k).countP p := by
+        apply List.countP_congr
+        intro i hi
+        have hne : i ≠ k := Nat.ne_of_lt (List.mem_range.mp hi)
+        simp [hne]
+      simp only [List.range_succ, List.countP_append, List.countP_cons, List.countP_nil]
+      simp [heq]
+      omega
+    · have hlt : x < k := by omega
+      have hbal := ih hlt
+      have hneq : k ≠ x := Ne.symm hxeq
+      simp only [List.range_succ, List.countP_append, List.countP_cons, List.countP_nil]
+      simp only [hneq, ite_false]
+      omega
+
+lemma countP_complement (p : Nat → Bool) (xs : List Nat) :
+    xs.countP p + xs.countP (fun i => !p i) = xs.length := by
+  induction xs with
+  | nil => simp
+  | cons x xs ih =>
+    simp only [List.countP_cons, List.length_cons]
+    cases h : p x <;> simp <;> omega
+
+lemma andCount_add_orCount (op : Nat → Bool) (k : Nat) :
+    andCount op k + orCount op k = k := by
+  simpa [andCount, orCount] using countP_complement op (List.range k)
+
+lemma rewrite_andCount (op : Nat → Bool) (a b h k : Nat)
+    (hab : a < b) (hbh : b < h) (hhk : h < k)
+    (hoa : op a = false) (hob : op b = false) (hoh : op h = true) :
+    andCount (newOp a b h op) k = andCount op k + 1 := by
+  let p₁ : Nat → Bool := fun i => if i = h then false else op i
+  let p₂ : Nat → Bool := fun i => if i = b then true else p₁ i
+  have ha : a < k := by omega
+  have hb : b < k := by omega
+  have hah : a ≠ h := by omega
+  have habn : a ≠ b := by omega
+  have hbhn : b ≠ h := by omega
+  have h₁ := countP_range_update op h k false hhk
+  have h₂ := countP_range_update p₁ b k true hb
+  have h₃ := countP_range_update p₂ a k true ha
+  have hp₁b : p₁ b = false := by simp [p₁, hbhn, hob]
+  have hp₂a : p₂ a = false := by simp [p₂, p₁, habn, hah, hoa]
+  simp only [hoh, hp₁b, hp₂a, Bool.false_eq_true, ↓reduceIte,
+    Nat.add_zero] at h₁ h₂ h₃
+  change andCount (newOp a b h op) k = andCount op k + 1
+  have hnew : (fun i => if i = a then true else p₂ i) = newOp a b h op := rfl
+  rw [hnew] at h₃
+  change andCount p₁ k + 1 = andCount op k at h₁
+  change andCount p₂ k = andCount p₁ k + 1 at h₂
+  change andCount (newOp a b h op) k = andCount p₂ k + 1 at h₃
+  omega
+
+lemma rewrite_orCount (op : Nat → Bool) (a b h k : Nat)
+    (hab : a < b) (hbh : b < h) (hhk : h < k)
+    (hoa : op a = false) (hob : op b = false) (hoh : op h = true) :
+    orCount (newOp a b h op) k + 1 = orCount op k := by
+  have h₁ := rewrite_andCount op a b h k hab hbh hhk hoa hob hoh
+  have h₂ := andCount_add_orCount op k
+  have h₃ := andCount_add_orCount (newOp a b h op) k
+  omega
+
+end Diamond
+
+namespace ConsumerFrontier
+
+lemma first_false_on_path (w : Nat → Bool) (path : Nat → Nat) (length : Nat)
+    (hstart : w (path 0) = true) (hend : w (path length) = false) :
+    ∃ i, i < length ∧ (∀ t, t ≤ i → w (path t) = true) ∧
+      w (path (i + 1)) = false := by
+  have hscan : ∀ l : Nat,
+      (∀ t, t ≤ l → w (path t) = true) ∨
+      ∃ i, i < l ∧ (∀ t, t ≤ i → w (path t) = true) ∧
+        w (path (i + 1)) = false := by
+    intro l
+    induction l with
+    | zero =>
+      left
+      intro t ht
+      have htzero : t = 0 := by omega
+      simpa only [htzero] using hstart
+    | succ l ih =>
+      rcases ih with hbefore | hfound
+      · cases hnext : w (path (l + 1)) with
+        | false => exact Or.inr ⟨l, by omega, hbefore, hnext⟩
+        | true =>
+          left
+          intro t ht
+          by_cases heq : t = l + 1
+          · simpa only [heq] using hnext
+          · exact hbefore t (by omega)
+      · obtain ⟨i, hi, hbefore, hfalse⟩ := hfound
+        exact Or.inr ⟨i, by omega, hbefore, hfalse⟩
+  rcases hscan length with hbefore | hfound
+  · have hbad : (true : Bool) = false :=
+      (hbefore length (Nat.le_refl length)).symm.trans hend
+    cases hbad
+  · exact hfound
+
+lemma false_gate_with_true_input (op x y : Bool)
+    (hgate : gateBool op x y = false) (hinput : x = true ∨ y = true) :
+    op = true := by
+  cases op <;> cases x <;> cases y <;> simp_all [gateBool]
+
+lemma consumer_path_and_frontier {n k : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (heval : ∀ j, w (n + j.val) = gateBool (op j) (w (a j)) (w (b j)))
+    (path : Nat → Nat) (length : Nat)
+    (hstep : ∀ i, i < length → ∃ j : Fin k,
+      path (i + 1) = n + j.val ∧ (path i = a j ∨ path i = b j))
+    (hstart : w (path 0) = true) (hend : w (path length) = false) :
+    ∃ i, i < length ∧ (∀ t, t ≤ i → w (path t) = true) ∧
+      ∃ j : Fin k, path (i + 1) = n + j.val ∧ op j = true ∧
+        w (n + j.val) = false ∧ (w (a j) = true ∨ w (b j) = true) := by
+  obtain ⟨i, hi, hbefore, hfalse⟩ := first_false_on_path w path length hstart hend
+  obtain ⟨j, hj, hparent⟩ := hstep i hi
+  have hzero : w (n + j.val) = false := hj ▸ hfalse
+  have hinput : w (a j) = true ∨ w (b j) = true := by
+    rcases hparent with ha | hb
+    · exact Or.inl (ha ▸ hbefore i (Nat.le_refl i))
+    · exact Or.inr (hb ▸ hbefore i (Nat.le_refl i))
+  have hop : op j = true := false_gate_with_true_input _ _ _
+    ((heval j).symm.trans hzero) hinput
+  exact ⟨i, hi, hbefore, j, hj, hop, hzero, hinput⟩
+
+lemma consumer_path_and_frontier_outside {n k : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (heval : ∀ j, w (n + j.val) = gateBool (op j) (w (a j)) (w (b j)))
+    (path : Nat → Nat) (length : Nat)
+    (hstep : ∀ i, i < length → ∃ j : Fin k,
+      path (i + 1) = n + j.val ∧ (path i = a j ∨ path i = b j))
+    (hstart : w (path 0) = true) (hend : w (path length) = false)
+    (trueGates : Set (Fin k)) (htrue : ∀ j ∈ trueGates, w (n + j.val) = true) :
+    ∃ j : Fin k, op j = true ∧ w (n + j.val) = false ∧
+      (w (a j) = true ∨ w (b j) = true) ∧ j ∉ trueGates := by
+  obtain ⟨_, _, _, j, _, hop, hzero, hinput⟩ :=
+    consumer_path_and_frontier a b op w heval path length hstep hstart hend
+  refine ⟨j, hop, hzero, hinput, ?_⟩
+  intro hjtrue
+  have hbad : (true : Bool) = false := (htrue j hjtrue).symm.trans hzero
+  cases hbad
+
+end ConsumerFrontier
+
 end PEqualNP.Outside.L_meta_9033_aux
