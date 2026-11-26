@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_0992_1023' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_0992_1023' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

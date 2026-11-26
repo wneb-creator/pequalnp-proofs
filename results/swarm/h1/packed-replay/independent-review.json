@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "manifest_sha256": "c96dc9d66d35129cb43a32bb6a347d42f1e337f30ad57d8d593a9b82b24ef98f",
+  "script_sha256": "ab98f3a73ef57d26fa2202bbcefba6399d2c70c3814b07b9d662958047853ce4",
+  "readme_sha256": "040cd42b3d4a864601173128b4fc54803b04370e8a93cce0c63238b954a6732f",
+  "accepted_range_inclusive": [
+    768,
+    1023
+  ],
+  "verified_nodes": 256,
+  "batches": 8,
+  "axiom_reports": 17,
+  "checker_source_pins": 19,
+  "repository_source_pins": 91,
+  "compiled_dependency_observations": 21,
+  "checkpoint_hash_entries": 130,
+  "scope": "Read-only exact source/receipt/provenance review; no new Lean build; partial node interval only."
+}
