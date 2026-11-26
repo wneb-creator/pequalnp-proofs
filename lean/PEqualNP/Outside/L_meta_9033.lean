@@ -2110,4 +2110,115 @@ lemma differing_target_has_consumer_path {α : Type} {n k : Nat}
 
 end ConsumerFrontier
 
+namespace Diamond
+
+lemma no_private_diamond_of_or_lower_bound
+    (n k a b h q u w out bound : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) (allowed : Nat → Prop)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ left a = q ∧ right a = u)
+    (hb : op b = false ∧ left b = q ∧ right b = w)
+    (hd : op h = true ∧ left h = n + a ∧ right h = n + b)
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateNat (op i) (x (left i)) (x (right i)))
+    (hallowed : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i)))
+    (hout : out < n + k) (houtA : out ≠ n + a) (houtB : out ≠ n + b)
+    (hcount : orCount op k ≤ bound)
+    (hlower : ∀ (op' : Nat → Bool) (left' right' : Nat → Nat) (y : Nat → Nat),
+      (∀ i < k, left' i < n + i ∧ right' i < n + i) →
+      (∀ i < k,
+        (left' i < n → allowed (left' i)) ∧ (right' i < n → allowed (right' i))) →
+      (∀ j < n, y j = x j) →
+      (∀ i < k, y (n + i) = gateNat (op' i) (y (left' i)) (y (right' i))) →
+      y out = x out → bound ≤ orCount op' k) : False := by
+  obtain ⟨y, hyraw, hyeval, hagree, hcnew, hanew, _, hdelta⟩ :=
+    exists_nat_rewrite n k a b h q u w op left right x allowed hab hbh hh
+      hcausal ha hb hd hprivate hx hallowed
+  have hyout : y out = x out := (hagree out hout houtA houtB).symm
+  have hbound := hlower (newOp a b h op) (newLeft a b h q u left)
+    (newRight n a b h q w right) y hcnew hanew hyraw hyeval hyout
+  omega
+
+end Diamond
+
+namespace ConsumerFrontier
+
+def flipAt (op : Nat → Bool) (p i : Nat) : Bool :=
+  if i = p then !(op p) else op i
+
+lemma flipAt_breaks_simultaneous_bounds (op : Nat → Bool) (p k : Nat) (hp : p < k) :
+    ¬ (Diamond.andCount op k ≤ Diamond.andCount (flipAt op p) k ∧
+      Diamond.orCount op k ≤ Diamond.orCount (flipAt op p) k) := by
+  intro hbounds
+  have hold := Diamond.andCount_add_orCount op k
+  have hnew := Diamond.andCount_add_orCount (flipAt op p) k
+  have heq : Diamond.andCount (flipAt op p) k = Diamond.andCount op k := by omega
+  have hchange := Diamond.countP_range_update op p k (!(op p)) hp
+  change Diamond.andCount (flipAt op p) k + (if op p then 1 else 0) =
+    Diamond.andCount op k + (if !(op p) then 1 else 0) at hchange
+  rw [heq] at hchange
+  cases hop : op p <;> simp [hop] at hchange
+
+def fixedParentsOperationMinimal (n k out : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) : Prop :=
+  ∀ (op' : Nat → Bool) (y : Nat → Nat),
+    (∀ j < n, y j = x j) →
+    (∀ i < k, y (n + i) = Diamond.gateNat (op' i) (y (left i)) (y (right i))) →
+    y out = x out →
+    Diamond.andCount op k ≤ Diamond.andCount op' k ∧
+      Diamond.orCount op k ≤ Diamond.orCount op' k
+
+lemma operation_minimal_gate_reachable (n k out : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (hx : ∀ i < k, x (n + i) = Diamond.gateNat (op i) (x (left i)) (x (right i)))
+    (hout : out < n + k)
+    (hminimal : fixedParentsOperationMinimal n k out op left right x)
+    (p : Fin k) :
+    consumerReachable n (fun j : Fin k => left j.val) (fun j : Fin k => right j.val)
+      (n + p.val) out := by
+  obtain ⟨y, hyraw, hyeval⟩ := Diamond.causal_nat_evaluation_exists n k
+    (flipAt op p.val) left right x hcausal
+  have hdiff : x out ≠ y out := by
+    intro heq
+    exact flipAt_breaks_simultaneous_bounds op p.val k p.isLt
+      (hminimal (flipAt op p.val) y hyraw hyeval heq.symm)
+  apply differing_target_has_consumer_path
+    (fun j : Fin k => left j.val) (fun j : Fin k => right j.val)
+    (fun j : Fin k => Diamond.gateNat (op j.val)) p x y
+    (fun j => (hcausal j.val j.isLt).1) (fun j => (hcausal j.val j.isLt).2)
+    (fun i hi => (hyraw i hi).symm) _ _ out hout hdiff
+  · intro j _
+    exact hx j.val j.isLt
+  · intro j hne
+    have hvals : j.val ≠ p.val := by
+      intro heq
+      exact hne (Fin.ext heq)
+    simpa only [flipAt, hvals, ite_false] using hyeval j.val j.isLt
+
+lemma operation_minimal_true_gate_frontier_outside
+    (n k out : Nat) (op : Nat → Bool) (left right : Nat → Nat) (x : Nat → Nat)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (hx : ∀ i < k, x (n + i) = Diamond.gateNat (op i) (x (left i)) (x (right i)))
+    (hout : out < n + k)
+    (hminimal : fixedParentsOperationMinimal n k out op left right x)
+    (w : Nat → Bool)
+    (hw : ∀ i < k, w (n + i) = gateBool (op i) (w (left i)) (w (right i)))
+    (hwout : w out = false) (p : Fin k) (hp : w (n + p.val) = true)
+    (trueGates : Set (Fin k)) (htrue : ∀ j ∈ trueGates, w (n + j.val) = true) :
+    ∃ j : Fin k, op j.val = true ∧ w (n + j.val) = false ∧
+      (w (left j.val) = true ∨ w (right j.val) = true) ∧ j ∉ trueGates := by
+  obtain ⟨length, path, hfirst, hlast, hstep⟩ :=
+    operation_minimal_gate_reachable n k out op left right x hcausal hx hout hminimal p
+  exact consumer_path_and_frontier_outside
+    (fun j : Fin k => left j.val) (fun j : Fin k => right j.val)
+    (fun j : Fin k => op j.val) w (fun j => hw j.val j.isLt) path length hstep
+    (by rw [hfirst]; exact hp) (by rw [hlast]; exact hwout) trueGates htrue
+
+end ConsumerFrontier
+
 end PEqualNP.Outside.L_meta_9033_aux
