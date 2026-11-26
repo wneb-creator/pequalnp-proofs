@@ -58,7 +58,12 @@ The full5230-node forest remains unverified; no unconditional18binary bound is c
 Prepared inverse links, literal coordinates and Boolean set checks all compile and passed
 independent semantic review. Sources/build instructions are in certificate18/.
 
+Direct-state/block32 checkpoint: all11defaultmodules compile; independent native
+preflights match all5230state/hint rows. Actualcompressedroot FullDataBlock0 kernel
+PASS49skernel using block32hints and originalstatecodec. No fullforest claim.
+Optional symmetry-prefix replay modules compile but show no measured node speed gain.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=69.0 subagents=8
+TIMING total=87.9 subagents=8

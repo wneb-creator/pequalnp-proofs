@@ -19,7 +19,14 @@ The following modules compiled successfully in this job:
 - `Replay.lean`: the complete assembled checker and compact data, including
   all 120 automorphism checks and conditional closure soundness. It compiles;
   the 5,230 individual node checks remain to be established.
-- `CheckNode.lean`: a stable Boolean entry point for checking individual nodes.
+- `CheckNode.lean`: the original Boolean entry point for individual nodes.
+- `BlockReplay.lean`, `DirectDecode.lean`, `DirectReplay.lean`: compiled block32
+  projection-hint decoding and direct state decoding, with a conditional
+  closure theorem for the resulting checker.
+- `FullDataBlock0.lean`: an actual kernel proof of the root node using block32
+  hints and the original state decoder.
+- `DecodeHom.lean`, `LinkedReplay.lean`, `PreparedReplayLinks.lean`: optional
+  proved symmetry-link replay tools. One measured node showed no speed gain.
 - `Probe16.lean`: an actual kernel check of all first moves at budget 16.
   It is a smaller sanity check, not the budget-17 certificate.
 
@@ -30,7 +37,8 @@ separate from accepting every forest node. Data and hints are untrusted inputs:
 the generic proofs require the resulting Boolean checks to return true.
 
 The original `manifest.json` pins the frozen, built core and its full logs.
-The additional data and optimization files are listed in `SHA256SUMS`.
+`optimized-manifest.json` pins the subsequent direct-state/block32 modules and
+complete build logs. All published files are listed in `SHA256SUMS`.
 Large native traces and compiled libraries are deliberately absent.
 
 ## Reproduce the modular builds
@@ -53,7 +61,9 @@ The builder invokes Lean directly using the existing library directories and
 saves complete stdout/stderr per module. It serializes builds and defaults to
 an 11,000 MB Lean limit because this job's container has 16 GiB total memory.
 `--modules Probe16` reruns the smaller finite sanity check after the default
-modules have been built in that same scratch directory.
+modules have been built in that same scratch directory. `--modules FullDataBlock0`
+checks the compressed root. The optional symmetry modules must be built in order:
+`--modules DecodeHom LinkedReplay PreparedReplayLinks`.
 
 These are research modules: they import an existing Outside file and currently
 use a small `State` structure. A final submission must inline its dependencies,
@@ -65,11 +75,24 @@ and prove the exact posted statement in the required single file.
 After building the modules, create a small Lean file in the scratch directory:
 
 ```lean
-import CheckNode
-open PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay
+import DirectReplay
+open PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode
 set_option maxRecDepth 32768 in
 set_option maxHeartbeats 0 in
 example : checkNode 0 = true := by decide +kernel
+```
+
+All 5,230 directly decoded states and block32 hint rows match the native source
+data in independent preflights. This is data validation, not a forest proof.
+The actual compressed root check in `FullDataBlock0.lean` passed with about
+49 seconds of kernel time. The direct-state checker compiles, but its complete
+finite node family has not been proved.
+
+Save the example as `/tmp/cert18/Node0.lean`. From the repository `lean/`
+directory, run it with both library locations available:
+
+```sh
+lake env sh -c 'LEAN_PATH="/tmp/cert18:$LEAN_PATH" lean -M 11000 /tmp/cert18/Node0.lean' > /tmp/cert18/Node0.stdout 2> /tmp/cert18/Node0.stderr
 ```
 
 A separate root-node check with literal projection hints and links passed in

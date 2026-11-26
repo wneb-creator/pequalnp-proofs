@@ -1,0 +1,6 @@
+/tmp/oec/pnp-swarm-2373-8/cert18/DecodeHom.lean:25:83: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pnp-swarm-2373-8/cert18/DecodeHom.lean:25:83: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
