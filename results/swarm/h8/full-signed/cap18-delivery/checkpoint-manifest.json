@@ -1,0 +1,139 @@
+{
+  "frozen_utc": "2026-11-26T01:56:29.920889+00:00",
+  "scope": "Native signed free-complement binary research only; no Lean lower-bound claim.",
+  "cap18_closed": false,
+  "latest_complete_depth": 7,
+  "latest_complete_frontier": 222594,
+  "live_directory_at_freeze": "cap18-hash",
+  "live_layer_at_freeze": 8,
+  "source_sha256": {
+    "signed-child.cpp": "3fd4e7a9d0d8324f9e19b6bbded733ee271942ba8dc46ff9efda38c9ae46302b",
+    "signed-resume.cpp": "0df1535911372468b795956a11ca1f899fe07f3a44534cf227ec7be94e26e911",
+    "signed-compact.cpp": "d4829cf080e20fcf851421f9da818520d04d2f087ef8e0bf25768d7f88de6499",
+    "signed-hash.cpp": "6b40580589a22854163d6d6b5144b920acad4d96543e0bd83b0b9c9441e4ad9b",
+    "cached-collision.hpp": "6de738a60db99b7f56b1ee234891c415f160d9d0e3e6b84c16878070149e0b0e",
+    "signed_data.py": "2400eefe2297570d3f512c600de0ab061dcfda513a2eccd8e1d0bb4f72de3770"
+  },
+  "checkpoint_records": [
+    {
+      "depth": 0,
+      "source_directory": "cap18",
+      "states": 1,
+      "wires": 10,
+      "frontier_bytes": 64,
+      "frontier_sha256": "4931747fd21e83b3214348e85ff9e4270f83e24d8c53e43abbc144b97e22c070",
+      "wire_prefix_bytes": 1440,
+      "wire_prefix_sha256": "7a37171b04a166f96c4d616a7852d77e0b72b88922c10e04d0f2938c38deb2d5",
+      "framing_checked": true
+    },
+    {
+      "depth": 1,
+      "source_directory": "cap18",
+      "states": 6,
+      "wires": 190,
+      "frontier_bytes": 400,
+      "frontier_sha256": "8fca6056d2fa8b0ac063ae133815333fa791f6c55245032b183fdb859d7885a3",
+      "wire_prefix_bytes": 27360,
+      "wire_prefix_sha256": "d5c6753c3ff7a3be6ce17826cbad86da623a345640c8917e7b2bb86c3b8c61f2",
+      "framing_checked": true
+    },
+    {
+      "depth": 2,
+      "source_directory": "cap18",
+      "states": 159,
+      "wires": 2548,
+      "frontier_bytes": 12580,
+      "frontier_sha256": "4059eaa42190da7411f77a142bf95ee347db9658704e9d4d080d27bce3c4e723",
+      "wire_prefix_bytes": 366912,
+      "wire_prefix_sha256": "58dafd489098a5d551a4cfedd20104ecad709cfb64a16be5c2797367600ecfcb",
+      "framing_checked": true
+    },
+    {
+      "depth": 3,
+      "source_directory": "cap18",
+      "states": 4189,
+      "wires": 32353,
+      "frontier_bytes": 391060,
+      "frontier_sha256": "875ad494f0e4d84576d54cbabec446c85a5023fc55a196b23bf522d39690315a",
+      "wire_prefix_bytes": 4658832,
+      "wire_prefix_sha256": "5c30ac8b8a5b0b92a2608215be9c587be6068c66d9accfb12b6024c456e07ebe",
+      "framing_checked": true
+    },
+    {
+      "depth": 4,
+      "source_directory": "cap18",
+      "states": 75766,
+      "wires": 324523,
+      "frontier_bytes": 8091364,
+      "frontier_sha256": "980a6ea94b4efe28153bc39f7744fccc3e64d6da091d22e6744b67904ae997b7",
+      "wire_prefix_bytes": 46731312,
+      "wire_prefix_sha256": "23aa445f065a7050a8fb52bcc2e5addf8773b1830067029d7536228bebe1b4d3",
+      "framing_checked": true
+    },
+    {
+      "depth": 5,
+      "source_directory": "cap18",
+      "states": 560141,
+      "wires": 2559729,
+      "frontier_bytes": 66813852,
+      "frontier_sha256": "d41e3de9bf4328765a4c7e7d2ffac72c001729ee519343876d2292f3c7d6f524",
+      "wire_prefix_bytes": 368600976,
+      "wire_prefix_sha256": "b5bf8ac86cb697e898ce89354a475dd099aaeb882956c85bc4ee0dce92f39e96",
+      "framing_checked": true
+    },
+    {
+      "depth": 6,
+      "source_directory": "cap18-fast",
+      "states": 965585,
+      "wires": 6356809,
+      "frontier_bytes": 125550144,
+      "frontier_sha256": "28165f86cc95b21be93c527e09c4fe55a2b4932a3ae23bd56447508158922f40",
+      "wire_prefix_bytes": 915380496,
+      "wire_prefix_sha256": "9b72fbf4307c7c40b38f4c2d2b84ee0a876b7ffee2b1da69dbb84a5e385bd3fd",
+      "framing_checked": true
+    },
+    {
+      "depth": 7,
+      "source_directory": "cap18-compact",
+      "states": 222594,
+      "wires": 9483628,
+      "frontier_bytes": 30997860,
+      "frontier_sha256": "61c5de1a0e48c583fe6c24e3cdab31fa0b8d8d17e7dd6bf8e37085446357c865",
+      "wire_prefix_bytes": 1365642432,
+      "wire_prefix_sha256": "4703ad21f594a2e32d4028546880149604d65b694a5e84f4c58fd1a118fd43fc",
+      "framing_checked": true
+    }
+  ],
+  "restart_checks": [
+    {
+      "depth": 5,
+      "source": "cap18",
+      "destination": "cap18-fast",
+      "frontier_identical": true,
+      "wire_prefix_identical": true
+    },
+    {
+      "depth": 6,
+      "source": "cap18-fast",
+      "destination": "cap18-compact",
+      "frontier_identical": true,
+      "wire_prefix_identical": true
+    },
+    {
+      "depth": 7,
+      "source": "cap18-compact",
+      "destination": "cap18-hash",
+      "frontier_identical": true,
+      "wire_prefix_identical": true
+    }
+  ],
+  "pool_count": 1185,
+  "pools_sha256": "f350a4b13d7c05ec8fbf7ebe82e2c30d633a970875b69e2034378def61899e2c",
+  "post_restart_memory": {
+    "rss_kib": 2076216,
+    "peak_rss_kib": 3244932
+  },
+  "review_scope": "Independent source reviews plus owner-run exact comparisons and forced-collision tests; no kernel replay of this cap18 search.",
+  "log_scope": "Complete streams through freeze time. Earlier workers were deliberately stopped after their last complete checkpoint; later partial progress is retained in stderr. Times are cumulative within each executable invocation and include its restart work.",
+  "wire_hash_scope": "Only the exact 144*wireCount byte prefix committed by each frontier is hashed; later appended wire records are outside that checkpoint."
+}

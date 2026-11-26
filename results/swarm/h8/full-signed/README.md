@@ -229,3 +229,24 @@ Independent review checked the pool transport, signed operations, paid-bank
 construction, canonicalization, collision rule, child-check optimization, and
 phase optimizer algebra. Those reviews and native runs remain distinct from
 Lean kernel checking. `SHA256SUMS` records the frozen package files.
+
+
+## Cap-18 performance checkpoint
+
+`cap18-delivery/` freezes the reviewed current implementation, exact collision cache,
+compact projection banks and full-equality hash index, with reproduction
+commands and complete checkpoint receipts through depth 7. The search is
+still ongoing at this snapshot: 222,594 states remain at depth 7. This is
+native research, not a closed cap-18 search or a Lean lower bound. The package
+records post-restart memory use and the earlier paired cap-17 optimization tests.
+The final package review is in `cap18-package-review.json`; it distinguishes
+independently checked frontier hashes from the owner's wire-prefix hashes.
+
+
+The follow-up `cap18-result/` records completion: the native budget-18 signed
+search exhausted its frontier first at depth 11, with no target found. It
+retained 1,837,200 states, enumerated 2,126,363,024 moves and created
+10,087,412 wire records. Complete logs and all 19 frontier hashes are included.
+`cap18-completion-review.json` independently verifies those records and the
+committed final wire prefixes. This remains native computational evidence,
+not a Lean proof of a 19-binary-gate lower bound or the posted gap.

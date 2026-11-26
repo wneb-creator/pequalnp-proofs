@@ -1,0 +1,86 @@
+{
+  "README.md": {
+    "bytes": 3921,
+    "sha256": "58fd2a2b1f0febf9b9a1cff031ac9131aa8689ecfcf5af6a3cf0ae24ef09f6c7"
+  },
+  "bench1000.stderr": {
+    "bytes": 250,
+    "sha256": "d173221724164b867c984156006a58d47f0b527f3e480b722ac87f0191f4aff6"
+  },
+  "bench1000.stdout": {
+    "bytes": 181,
+    "sha256": "8aae9088d3dc5a3dd2dacdc1a6f90161b5e156ae14879d79cc5f9837a681da7b"
+  },
+  "bench200.stderr": {
+    "bytes": 49,
+    "sha256": "6e599b0c3905089b3c29fc445063ccd646bd0ac4a915a6cbc3a2f137d8e7d30d"
+  },
+  "bench200.stdout": {
+    "bytes": 183,
+    "sha256": "becad1bb80f01955e804e09d098a6259a5f799df7ffb0aca6ea3fbcec1e2da4e"
+  },
+  "benchmark.cpp": {
+    "bytes": 4743,
+    "sha256": "cc81042f47dd991637096ad6290fb965b4de6b10872ec622265622c9837279b6"
+  },
+  "cached-collision.hpp": {
+    "bytes": 1763,
+    "sha256": "6de738a60db99b7f56b1ee234891c415f160d9d0e3e6b84c16878070149e0b0e"
+  },
+  "cap17-byte-identity.json": {
+    "bytes": 2808,
+    "sha256": "1eb5479554b17ad38c53c68bfdd4df003c28f56193ea03bee9d8a630b7d61014"
+  },
+  "cap17-search.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cap17-search.stdout": {
+    "bytes": 2488,
+    "sha256": "e51d9bc5a5d0f28243638dee8c961d66fc42a12526916ab3dd81c8653a35542a"
+  },
+  "exhaustive100.stderr": {
+    "bytes": 26,
+    "sha256": "5025321c1302e3ae7de017c342b03484f8699444e9a76439f0f9aebbe87c4eb2"
+  },
+  "exhaustive100.stdout": {
+    "bytes": 182,
+    "sha256": "770c12a0e1e3464ca4d9fd8009b2ae2125717d6c9fb34794a1f767fab8a4bd90"
+  },
+  "known-sanity.cpp": {
+    "bytes": 3049,
+    "sha256": "e788f4e32ab3b2c94b7df2ee2b8c098ecd1872506e054a424cdfac4ec5c3ba6f"
+  },
+  "profile-collision.hpp": {
+    "bytes": 3859,
+    "sha256": "461474a7f2f8992f2d6578db76a64e729d38ae7b5b48d767018b118a9ce011f7"
+  },
+  "sanity.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "sanity.stdout": {
+    "bytes": 247,
+    "sha256": "2f3ac10473a66272fe0f602f23589f72c6c37a013e8e5301496e65da8342cde6"
+  },
+  "signed-cached.cpp": {
+    "bytes": 15706,
+    "sha256": "93b6c1a7a55618fb31cc1018d541573529a753ac6b3ea430f8f12ab402a73cb8"
+  },
+  "signed-source.cpp": {
+    "bytes": 15631,
+    "sha256": "0df1535911372468b795956a11ca1f899fe07f3a44534cf227ec7be94e26e911"
+  },
+  "synthetic.cpp": {
+    "bytes": 1749,
+    "sha256": "10e9abb1064c816e58ef07c5a03f0954805493d98ce4706939bfdcd8be5fbcc2"
+  },
+  "synthetic.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "synthetic.stdout": {
+    "bytes": 100,
+    "sha256": "16e4c8dff23e19973d8d9dacf7e825f4ed829988c796211a82a61dd9fbf7ff01"
+  }
+}

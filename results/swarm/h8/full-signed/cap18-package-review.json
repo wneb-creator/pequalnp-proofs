@@ -1,0 +1,76 @@
+{
+  "verdict": "APPROVED consolidated package framing, source identity, reproducibility instructions, frozen evidence and partial-search scope",
+  "package": "/tmp/oec/pnp-swarm-2373-8/signedfull/cap18-delivery",
+  "SHA256SUMS_sha256": "fa1c2d70f277415daec9512c873b2c287074c225eedd7d4d2786d492e8e1aae3",
+  "package_files_verified": 107,
+  "package_total_bytes": 341027,
+  "source_sha256": {
+    "signed-child.cpp": "3fd4e7a9d0d8324f9e19b6bbded733ee271942ba8dc46ff9efda38c9ae46302b",
+    "signed-resume.cpp": "0df1535911372468b795956a11ca1f899fe07f3a44534cf227ec7be94e26e911",
+    "signed-compact.cpp": "d4829cf080e20fcf851421f9da818520d04d2f087ef8e0bf25768d7f88de6499",
+    "signed-hash.cpp": "6b40580589a22854163d6d6b5144b920acad4d96543e0bd83b0b9c9441e4ad9b",
+    "cached-collision.hpp": "6de738a60db99b7f56b1ee234891c415f160d9d0e3e6b84c16878070149e0b0e",
+    "signed_data.py": "2400eefe2297570d3f512c600de0ab061dcfda513a2eccd8e1d0bb4f72de3770"
+  },
+  "checkpoint_manifest_sha256": "f3a64b3af10a27c665732b9ab75b10f4bac70730aa522c03b0119fac9c2bfa58",
+  "readme_sha256": "94600bb168732ccdabd57fa6657e8a07f41530500fae38850ded5844d8bfad31",
+  "cap18_closed": false,
+  "latest_complete_depth": 7,
+  "latest_complete_frontier": 222594,
+  "frontier_headers_and_hashes_verified": [
+    {
+      "depth": 0,
+      "states": 1,
+      "wires": 10,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 1,
+      "states": 6,
+      "wires": 190,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 2,
+      "states": 159,
+      "wires": 2548,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 3,
+      "states": 4189,
+      "wires": 32353,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 4,
+      "states": 75766,
+      "wires": 324523,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 5,
+      "states": 560141,
+      "wires": 2559729,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 6,
+      "states": 965585,
+      "wires": 6356809,
+      "frontier_sha256_verified": true
+    },
+    {
+      "depth": 7,
+      "states": 222594,
+      "wires": 9483628,
+      "frontier_sha256_verified": true
+    }
+  ],
+  "three_restarted_frontiers_hash_identical": true,
+  "wire_prefix_audit_scope": "Manifest contains owner-verified committed-prefix hashes and restart identity. This final package review checked byte-count arithmetic and existence/size, but did not independently rehash multigigabyte wire prefixes or rerun semantic loader validation.",
+  "evidence_review": "Source review reports bind the exact current hash, compact and restart sources. Included complete native test logs and receipts support stated cap17 identity, forced-zero-hash and known20 tests; no heavy tests repeated.",
+  "reproducibility_review": "Data generator arguments, C++20 include locations, forced collision macro, test assertion requirement, separate output-directory rule, checkpoint format and separate phase reconstruction are documented and consistent with sources. Large binaries are explicitly local-only.",
+  "scope_qualification": "Ongoing native signed free-complement binary search; complete layers 0\u20137 only. No cap18 closure, Lean proof, checker acceptance or posted-gap result claimed. Explicit NOT cost requires separate reconstruction.",
+  "minor_packaging_item_resolved": "Root SHA256SUMS was initially absent; owner supplied final file and all 107 entries now pass. No edits were made to the delivery."
+}

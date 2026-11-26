@@ -1,0 +1,6 @@
+{"node": 0, "width": 10, "cap": 17, "parent_profile_pairs": 407, "eligible_ordered_children": 1440, "matching_collision_cuts": 1080, "noncuts": 360, "gate_signature_checks": 400, "rejected": {"same": 160, "constant": 0, "present": 0, "length": 0}}
+{"node": 52, "width": 13, "cap": 14, "parent_profile_pairs": 311, "eligible_ordered_children": 2328, "matching_collision_cuts": 1376, "noncuts": 952, "gate_signature_checks": 676, "rejected": {"same": 208, "constant": 48, "present": 120, "length": 0}}
+{"node": 292, "width": 10, "cap": 13, "parent_profile_pairs": 391, "eligible_ordered_children": 1440, "matching_collision_cuts": 1058, "noncuts": 382, "gate_signature_checks": 400, "rejected": {"same": 160, "constant": 0, "present": 0, "length": 0}}
+{"node": 522, "width": 13, "cap": 13, "parent_profile_pairs": 320, "eligible_ordered_children": 1770, "matching_collision_cuts": 1412, "noncuts": 358, "gate_signature_checks": 676, "rejected": {"same": 208, "constant": 40, "present": 96, "length": 590}}
+{"node": 5229, "width": 10, "cap": 9, "parent_profile_pairs": 341, "eligible_ordered_children": 360, "matching_collision_cuts": 358, "noncuts": 2, "gate_signature_checks": 400, "rejected": {"same": 160, "constant": 0, "present": 0, "length": 1080}}
+{"PASS": true, "eligible": 7338, "cuts": 5284, "seconds": 2.965281894999862}

@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS independent source review; no blocking issue found",
+  "source": "/tmp/oec/pnp-swarm-2373-8/signedfull/signed-hash.cpp",
+  "source_sha256": "6b40580589a22854163d6d6b5144b920acad4d96543e0bd83b0b9c9441e4ad9b",
+  "baseline_sha256": "d4829cf080e20fcf851421f9da818520d04d2f087ef8e0bf25768d7f88de6499",
+  "scope": "Hash-only candidate index replacing duplicate full-Word map keys; reviewed exact identity and all three consumers. No live source mutation or deployment.",
+  "findings": [
+    "lookupWire enumerates every entry with the requested hash using equal_range and returns an ID only after exact equality of the complete 16-word truth table. A hash collision therefore cannot identify distinct functions.",
+    "wireHash is a pure function of the complete Word; equal Words have equal keys. Under FORCE_WIRE_HASH_COLLISIONS every key is zero, while exact truth-table comparison remains active.",
+    "intern first searches exact equality, returns the existing ID if found, and otherwise appends the identical Wire record at the next sequential ID before indexing that ID. Inductively this preserves unique function IDs and wire ordering.",
+    "The index stores integer IDs rather than references into the wire vector, so vector reallocation does not invalidate indexed records. lookupWire does not mutate the index while iterating a candidate range.",
+    "The aggregate Wire passed to push_back copies the input Word and computes coverage before any vector reallocation, including when the input Word aliases existing storage.",
+    "Target emission and resume-prefix reconstruction both use the same exact lookup helper and preserve their missing-result rejection. No old wireIds use or additional unconverted consumer remains.",
+    "Both vector/index insertion paths can terminate on allocation failure; no recovery path silently continues with a partially inserted record. This matches the fail-stop nature of the surrounding research executable."
+  ],
+  "test_status": "Cap17 byte identity and forced-collision known20 tests were being run by the owner at review time; this report is an independent source review, not a claim to have rerun those tests."
+}

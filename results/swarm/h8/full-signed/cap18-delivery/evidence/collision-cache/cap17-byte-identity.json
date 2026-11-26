@@ -1,0 +1,86 @@
+{
+  "verdict": "PASS",
+  "baseline": "/tmp/oec/pnp-swarm-2373-8/signedfull/child17",
+  "compared": {
+    "frontier-0.bin": {
+      "bytes": 64,
+      "sha256": "4931747fd21e83b3214348e85ff9e4270f83e24d8c53e43abbc144b97e22c070"
+    },
+    "frontier-1.bin": {
+      "bytes": 144,
+      "sha256": "5f25c559b3618d7179d0e4f50cddda397f3983d2570281cc10c9caefc2bcaaa6"
+    },
+    "frontier-2.bin": {
+      "bytes": 1896,
+      "sha256": "b1694df05fb0257bc9d01abdc33de395ca439244782abc8fa45ccf5cc489874e"
+    },
+    "frontier-3.bin": {
+      "bytes": 24504,
+      "sha256": "26b1572948bd111f0b28a6de86a1355e8fdec6db8fbca55e8d7c73999f560031"
+    },
+    "frontier-4.bin": {
+      "bytes": 171900,
+      "sha256": "5d7fa8524c95c7a3f91dc40cfdb4561d21e51b95e28e2268eb02d40fbc03c521"
+    },
+    "frontier-5.bin": {
+      "bytes": 305300,
+      "sha256": "5f80f64c75cdc4f6b3bdcdeec0d27295f380bec5ef2b5ac7c50c59e5eae1c8fb"
+    },
+    "frontier-6.bin": {
+      "bytes": 75664,
+      "sha256": "cc91ea5b41db4f04f074cc2da87f89450fa0c938ede7f5bf84be7052dc46ab6b"
+    },
+    "frontier-7.bin": {
+      "bytes": 6264,
+      "sha256": "bb05b91f808c4e920bc2f26461575a63997df468af85aa94e60ee43654592c7f"
+    },
+    "frontier-8.bin": {
+      "bytes": 304,
+      "sha256": "92787012a211242407e7b9935f505cee01a3c93f70116fb2254b97f2257d8b2b"
+    },
+    "frontier-9.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-10.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-11.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-12.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-13.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-14.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-15.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-16.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "frontier-17.bin": {
+      "bytes": 16,
+      "sha256": "61e978656136e9f58aaa5cb42005c5dab16090da4b145afd1b25571bbeb6ff86"
+    },
+    "wires.bin": {
+      "bytes": 9211968,
+      "sha256": "89f433775bab3c038080c4e389a68af9fc81244698ce90d8989702cccc582990"
+    },
+    "signed-collision-pairs.txt": {
+      "bytes": 9634,
+      "sha256": "fb6fdb61e6568d21a2b28a03947dcb35013432572cec6d314c6169a8766b9f87"
+    }
+  }
+}

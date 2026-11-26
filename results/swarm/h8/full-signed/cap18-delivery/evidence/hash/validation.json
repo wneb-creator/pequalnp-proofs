@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "source_sha256": "6b40580589a22854163d6d6b5144b920acad4d96543e0bd83b0b9c9441e4ad9b",
+  "all_cap17_frontiers_identical": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "wire_table_identical": true,
+  "collision_histogram_identical": true,
+  "forced_hash_value": 0,
+  "forced_known20_circuits": 2,
+  "forced_unit_distinct_words": 2000,
+  "forced_unit_checks": [
+    "distinct and repeated intern",
+    "present and absent lookup",
+    "vector growth",
+    "known20 target DAG emission",
+    "all1024row phase reconstruction"
+  ],
+  "baseline_usage": {
+    "exit_code": 0,
+    "seconds": 10.282701201000236,
+    "maxrss_kib": 40716,
+    "cpu_seconds": 10.259126
+  },
+  "hash_usage": {
+    "exit_code": 0,
+    "seconds": 9.708918571999675,
+    "maxrss_kib": 32052,
+    "cpu_seconds": 9.698358
+  },
+  "scope": "Exact native indexing change. Full truth-table equality always determines identity; not a Lean proof."
+}

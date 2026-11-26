@@ -41,7 +41,7 @@ Using only1078L6581pools, nonemptyfrontiers includingroot are
 1,2,24,265,1634,2621,634,47,2 (5230states). Complete sources/logs/audits: full-signed/.
 Independent source reviews cover signed-only pools, projections, automorphisms,
 collision rules, phase optimizer, and new fast/resume code. Fastcap17 and resumedcap17
-preserve saved frontiers and wire equations byte-for-byte. Cap18 remains in progress.
+preserve saved frontiers and wire equations byte-for-byte. Cap18 later completed natively; see the completion record below.
 
 Certificate18 work is separate and incomplete. Generic one-step, collision, paidpool,
 projection, and symmetry transport proofs compile and pass independent review;
@@ -86,7 +86,15 @@ Five bounded128/last110 blocks, all6axiomreports permitted standard3only.
 Total657.16s wall withup to2proofprocesses, peakindividualRSS4186404KiB.
 Full5230-node closure andexactgap remain unproved. Sources/logs:certificate18/range-manifest.json.
 
+Native signed cap18 CLOSED: firstemptydepth11,1837200retainedstates,2126363024moves,
+10087412wirerecords. All19frontierhashes andfinalwireprefixes independentlyverified;
+fullsources/logs/receipts in full-signed/cap18-delivery andcap18-result. Nativeonly,
+NOTaLeanbinary19bound orfullgap proof. Staged whitespace check reports three
+trailing spaces in the frozen cap18 signed_data.py copies; exact reviewed hashes
+are intentionally preserved. Portablepackedcollisionaudit independently
+reproduces7338eligiblechildren/5284cuts/2552signatures withallfixtureprovenancechecked.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=117.7 subagents=8
+TIMING total=130.5 subagents=8

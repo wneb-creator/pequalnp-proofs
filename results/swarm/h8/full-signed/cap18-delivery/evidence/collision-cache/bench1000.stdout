@@ -1,0 +1,1 @@
+PASS states=1000 queries=94089 collisions=87600 pair_groups=44912 specs=831647 specs_sec=1.64718 old_sec=1.46283 profile_build_sec=0.0191447 cached_sec=0.083471 paired_sec=0.193435

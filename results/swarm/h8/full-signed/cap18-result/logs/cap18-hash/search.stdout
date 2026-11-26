@@ -1,0 +1,11 @@
+level=8 states=222594 moves=227786752 length=152684620 sep=1390991 fullsep=5073314 redundant=2212572 projection=66381497 links=0 factor=0 open=43758 distinct=8617 wires=10077281 sec=680.829
+level=9 states=8617 moves=7482368 length=5386080 sep=123344 fullsep=120780 redundant=42636 projection=1808760 links=0 factor=0 open=768 distinct=140 wires=10087240 sec=720.943
+level=10 states=140 moves=99792 length=72828 sep=3938 fullsep=1113 redundant=340 projection=21565 links=0 factor=0 open=8 distinct=2 wires=10087408 sec=721.868
+level=11 states=2 moves=1152 length=864 sep=139 fullsep=7 redundant=4 projection=138 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.884
+level=12 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.884
+level=13 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.884
+level=14 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.884
+level=15 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.884
+level=16 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.885
+level=17 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.885
+level=18 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=10087412 sec=721.885

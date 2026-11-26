@@ -199,3 +199,13 @@ PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8.checked
   (i : Fin 5230) (lower : 4608 ≤ i.val) :
   PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.checkNode i = true
 ```
+
+## Portable collision comparison
+
+`collision-audit/` contains a standalone Python audit with a small fixture,
+provenance, complete logs and its own checksums. It reproduces all 7,338
+eligible ordered children on five representative nodes, including 5,284
+collision cuts and 2,552 direct signature comparisons. An independent review
+reconstructed every fixture row and bank value and repeated the enumeration;
+its report is `collision-fixture-review.json`. This finite native comparison
+is separate from the generic Lean proof and the verified node range.

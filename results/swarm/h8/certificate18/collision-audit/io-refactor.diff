@@ -1,0 +1,50 @@
+--- original/audit_packed_collision.py
++++ portable/audit_packed_collision.py
+@@ -1,11 +1,22 @@
+ from pathlib import Path
+-import json,re,time,hashlib
+-P=Path('/tmp/oec/pnp-swarm-2373-8/cert18/emitter');D=P/'supported';C=P/'compression/supported';start=time.monotonic()
+-source=(C/'GlobalCollisionData.lean').read_text();packed=int(re.search(r'def collisionPairCodes : Nat := (0x[0-9a-fA-F]+)',source).group(1),0);pairs=[((packed>>(20*i))&1023,(packed>>(20*i+10))&1023)for i in range(419)]
+-header=Path('/tmp/oec/pnp-swarm-2373-8/signedfull/no670/probe-data.hpp').read_text();targethex=re.search(r'const Word target=\{\{(.*?)\}\};',header).group(1);targetwords=[int(x,16)for x in re.findall(r'0x([0-9a-fA-F]+)',targethex)];assert len(targetwords)==16;target=sum(w<<(64*i)for i,w in enumerate(targetwords));slots=[9,7,5,8,6,4,2,0,3,1];standard_to_extended=[sum(((r>>i)&1)<<slots[i]for i in range(10))for r in range(1024)];assert sorted(standard_to_extended)==list(range(1024))
+-def ext(w):return sum(((w>>r)&1)<<standard_to_extended[r]for r in range(1024))
+-target=ext(target);assert all(((target>>r)^(target>>s))&1 for r,s in pairs)
+-raw=(D/'wires.bin').read_bytes();native=[int.from_bytes(raw[i:i+128],'little')for i in range(0,len(raw),144)];states=json.loads((D/'states.json').read_text());mask1024=(1<<1024)-1;mask419=(1<<419)-1
++import argparse,json,time,hashlib
++
++parser=argparse.ArgumentParser(description="Compare packed collision signatures with scalar row checks on a portable fixture.")
++parser.add_argument('--fixture',type=Path,required=True)
++parser.add_argument('--output',type=Path,required=True,help="Output JSON report filename")
++args=parser.parse_args()
++start=time.monotonic()
++fixture_bytes=args.fixture.read_bytes()
++fixture=json.loads(fixture_bytes)
++assert fixture['schema']=='packed-collision-fixture-v1'
++assert fixture['word_bits']==1024 and fixture['signature_bits']==419
++pairs=[tuple(p)for p in fixture['pairs_extended']]
++assert len(pairs)==419 and all(0<=r<1024 and 0<=s<1024 for r,s in pairs)
++target=int(fixture['target_extended_hex'],16)
++assert 0<=target<(1<<1024)
++assert all(((target>>r)^(target>>s))&1 for r,s in pairs)
++assert [n['node']for n in fixture['nodes']]==[0,52,292,522,5229]
++mask1024=(1<<1024)-1;mask419=(1<<419)-1
+ # The operation ordering is exactly Extended.bin / native signed engine.
+ def binary(d,a,b,mask):
+  if d==0:return a&b
+@@ -18,8 +29,8 @@
+   if ((target>>r)^(target>>s))&1 and all(((w>>r)&1)==((w>>s)&1)for w in child):return True
+  return False
+ results=[]
+-for ni in [0,52,292,522,5229]:
+- ws=[ext(native[w])for w in states[ni]['ws']];assert len(set(ws))==len(ws);cap=17-states[ni]['depth'];cache=[sig(w)for w in ws];profiles=[(r,s)for r,s in pairs if sum(((w>>r)^(w>>s))&1 for w in ws)<=2];eligible=cuts=gate_signature_checks=0;rejected={'same':0,'constant':0,'present':0,'length':0}
++for fixture_node in fixture['nodes']:
++ ni=fixture_node['node'];ws=[int(w,16)for w in fixture_node['bank_extended_hex']];assert len(set(ws))==len(ws);cap=fixture_node['cap'];assert all(0<=w<=mask1024 for w in ws);cache=[sig(w)for w in ws];profiles=[(r,s)for r,s in pairs if sum(((w>>r)^(w>>s))&1 for w in ws)<=2];eligible=cuts=gate_signature_checks=0;rejected={'same':0,'constant':0,'present':0,'length':0}
+  for ai,a in enumerate(ws):
+   for bi,b in enumerate(ws):
+    for d in range(4):
+@@ -46,4 +57,5 @@
+  result={'node':ni,'width':len(ws),'cap':cap,'parent_profile_pairs':len(profiles),'eligible_ordered_children':eligible,'matching_collision_cuts':cuts,'noncuts':eligible-cuts,'gate_signature_checks':gate_signature_checks,'rejected':rejected};results.append(result);print(json.dumps(result),flush=True)
+ # Invalid pair dictionaries violate the explicit finite good-pairs contract and are rejected.
+ bad=list(pairs);bad[0]=(bad[0][0],bad[0][0]);assert not all(((target>>r)^(target>>s))&1 for r,s in bad)
+-report={'nodes':results,'valid_target_difference_pairs':419,'invalid_pair_contract_rejected':True,'packed_all419_matches_old_profiled_scalar_for_every_eligible_child':True,'all_newgate_signatures_match_direct_rows':True,'elapsed_seconds':time.monotonic()-start,'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()};(D/'packed-collision-native-audit.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'PASS':True,'eligible':sum(x['eligible_ordered_children']for x in results),'cuts':sum(x['matching_collision_cuts']for x in results),'seconds':report['elapsed_seconds']}),flush=True)
++assert results==fixture['expected_node_results']
++report={'nodes':results,'valid_target_difference_pairs':419,'invalid_pair_contract_rejected':True,'packed_all419_matches_old_profiled_scalar_for_every_eligible_child':True,'all_newgate_signatures_match_direct_rows':True,'elapsed_seconds':time.monotonic()-start,'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'fixture_sha256':hashlib.sha256(fixture_bytes).hexdigest(),'fixture_provenance':fixture['provenance']};args.output.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'PASS':True,'eligible':sum(x['eligible_ordered_children']for x in results),'cuts':sum(x['matching_collision_cuts']for x in results),'seconds':report['elapsed_seconds']}),flush=True)

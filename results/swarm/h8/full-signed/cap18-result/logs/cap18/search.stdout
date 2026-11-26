@@ -1,0 +1,5 @@
+level=1 states=1 moves=720 length=0 sep=0 fullsep=540 redundant=0 projection=0 links=0 factor=0 open=180 distinct=6 wires=190 sec=0.126147
+level=2 states=6 moves=5280 length=0 sep=0 fullsep=2631 redundant=168 projection=1739 links=0 factor=0 open=742 distinct=159 wires=2548 sec=0.394195
+level=3 states=159 moves=161104 length=0 sep=18 fullsep=54858 redundant=7828 projection=84093 links=0 factor=0 open=14307 distinct=4189 wires=32353 sec=4.59213
+level=4 states=4189 moves=4702736 length=0 sep=1492 fullsep=1074377 redundant=276084 projection=3107396 links=0 factor=0 open=243387 distinct=75766 wires=324523 sec=50.7285
+level=5 states=75766 moves=90402912 length=4085900 sep=46263 fullsep=12288883 redundant=5187780 projection=66873351 links=0 factor=0 open=1920735 distinct=560141 wires=2559729 sec=454.718

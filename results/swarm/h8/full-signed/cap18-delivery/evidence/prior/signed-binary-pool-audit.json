@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "binary_pools": 1185,
+  "source_columns": 321,
+  "whole_signed_H9_bounds": 10,
+  "bytes": 2432140,
+  "sha256": "f350a4b13d7c05ec8fbf7ebe82e2c30d633a970875b69e2034378def61899e2c",
+  "metadata_sha256": "02c4564a655cab38a0f5011cfd88a7b5148fbd77dd856aae49320972685d1d4b"
+}

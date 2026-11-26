@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "source_sha256": "d4829cf080e20fcf851421f9da818520d04d2f087ef8e0bf25768d7f88de6499",
+  "cap17": {
+    "frontier_levels": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "wire_table_identical": true,
+    "collision_histogram_identical": true,
+    "comparison_directory": "child17"
+  },
+  "bank_comparison": {
+    "states": 1001,
+    "specifications": 832145,
+    "metadata_identical": true,
+    "expanded_word_vectors_identical": true,
+    "old_words": 15483108,
+    "compact_words": 1727588,
+    "old_seconds": 1.4863,
+    "compact_seconds": 1.13036
+  },
+  "whole_engine_sample": {
+    "states": 201,
+    "moves": 243568,
+    "next_states": 1268,
+    "frontier_bytes_identical": true,
+    "original_cpu_seconds": 0.698996,
+    "cached_cpu_seconds": 0.486629,
+    "compact_cpu_seconds": 0.388308
+  },
+  "known20_circuits": 2,
+  "scope": "Native exact optimizations, not a Lean proof."
+}

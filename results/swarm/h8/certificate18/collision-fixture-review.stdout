@@ -1,0 +1,20 @@
+{
+  "PASS": true,
+  "fixture_sha256": "86b7fead6df8554097e34be64af526690eba3d7d6d70ad51176756a24e479914",
+  "all_source_hashes_match": true,
+  "pairs": 419,
+  "row_mapping_entries": 1024,
+  "fixture_bank_entries": 56,
+  "validated_wire_ancestors": 21,
+  "validated_state_ancestors": 13,
+  "eligible": 7338,
+  "cuts": 5284,
+  "noncuts": 2054,
+  "gate_signatures": 2552,
+  "algorithm_ast_hashes": {
+    "binary": "aa033db387e920cd380805602b3acf444314f25a2c374c7b226397a6fc86755b",
+    "sig": "3d689989912f832aa4d292fbbbb8b1f76c8e3ff19dd7325eba0db7e405d5165c",
+    "cut_profiled": "d4c4c834aa7240f30375f02c8c5e79a365bd5a77e6701b30a4af83448ea4e294",
+    "enumeration": "cd06c802038cbb417ff8afb2116136211d898ed96fb4b379d768d2c41e84c024"
+  }
+}

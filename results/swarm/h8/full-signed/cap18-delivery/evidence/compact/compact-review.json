@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS independent source review; no blocking issue found",
+  "source": "/tmp/oec/pnp-swarm-2373-8/signedfull/signed-compact.cpp",
+  "source_sha256": "d4829cf080e20fcf851421f9da818520d04d2f087ef8e0bf25768d7f88de6499",
+  "baseline": "/tmp/oec/pnp-swarm-2373-8/fullprobe/signed-profile/delivery/signed-cached.cpp",
+  "baseline_sha256": "93b6c1a7a55618fb31cc1018d541573529a753ac6b3ea430f8f12ab402a73cb8",
+  "review_scope": "Exactly four changed sites keeping fixed pool root words implicit in paid banks and Specs. No engine implementation or source mutation performed.",
+  "representation_invariant": "For corresponding banks at every prefix step, the old vector is exactly pool.wires concatenated with the new extras vector, with the same paid count and bank ordering.",
+  "findings": [
+    "Initialization establishes the invariant: old bank is pool.wires, new extras are empty.",
+    "Prefix extension tests each operand against roots OR extras, and requires the proposed result to be absent from both. These are exactly membership/nonmembership in the old concatenated vector.",
+    "Each allowed extension copies the same extras and appends the identical result and, in signed mode, masked complement. Thus bank creation order and paid counts remain equal, including any duplicate complement behavior.",
+    "The unavailable mask tests absence from both roots and extras, exactly preserving every live-wire membership bit. Pool index, paid count, constant count, constant mask and accepted Spec ordering are unchanged.",
+    "The sole child consumer of Spec.values includes pool.wires in its availability predicate. Constant handling and the scalar pruning inequality are unchanged.",
+    "Pool roots are immutable and selected by the same Spec pool index; no other Spec.values consumer or bank-membership site was left with the old representation assumption."
+  ],
+  "execution_evidence": "Owner reports all832145 Specs over1001 states match after expansion, cap17 traces match bytewise, and known20 paths pass. Benchmark and known20 logs were read; those runs were not independently repeated in this source review."
+}

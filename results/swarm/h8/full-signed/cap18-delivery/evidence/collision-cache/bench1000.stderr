@@ -1,0 +1,10 @@
+sample=100 queries=9996
+sample=200 queries=19304
+sample=300 queries=29857
+sample=400 queries=38628
+sample=500 queries=48515
+sample=600 queries=58639
+sample=700 queries=67575
+sample=800 queries=75732
+sample=900 queries=85238
+sample=1000 queries=94089

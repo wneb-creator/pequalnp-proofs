@@ -1,0 +1,11 @@
+{
+  "algorithm_ast_unchanged": true,
+  "ast_sha256": {
+    "binary": "aa033db387e920cd380805602b3acf444314f25a2c374c7b226397a6fc86755b",
+    "sig": "3d689989912f832aa4d292fbbbb8b1f76c8e3ff19dd7325eba0db7e405d5165c",
+    "cut_profiled": "d4c4c834aa7240f30375f02c8c5e79a365bd5a77e6701b30a4af83448ea4e294",
+    "entire_ordered_gate_keep_loop": "cd06c802038cbb417ff8afb2116136211d898ed96fb4b379d768d2c41e84c024"
+  },
+  "original_source_sha256": "d424eec5d28e896204f79324a9515a8cb3d7f7bf8f5f4e3e850bc173a3132f21",
+  "portable_source_sha256": "ad02134f6cd35661190c5d6ba443d8b8c43920dcc5a8a2497742ac2175c693ad"
+}
