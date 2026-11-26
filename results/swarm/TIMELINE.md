@@ -40,3 +40,6 @@
 - 2026-11-26 00:39:01 UTC — Kernel checked a generic five-union family extension lemma and a concrete blocked family. All original external UNSAT certificates now have independently reviewed strict-RUP evidence; complete Lean theorem remains open. Random witness searches stopped after no exact candidate.
 
 - 2026-11-26 00:55:36 UTC — Integrated and minified exact ABC OR-reader existence. Actual target lake build PASS;447650bytes after merging23 repeated outer namespace pairs. Independent literal-premise/reader-injection/source-inverse review PASS; minified fullbuild/six axiom audits standard3. Partial only: posted theorem absent.
+
+- 2026-11-26 01:34:12 UTC — Literal normalization checkpoint target lake build PASS (135s);490323bytes, only import PEqualNP.Defs. Independent exact tracked diff/reindexing/high-bit/minification review PASS; six export axiom audits standard3. Posted witness normalizes with both dirty ANDs preserved; full posted negation still absent.
+- 2026-11-26 01:34:12 UTC — Actual normalized three-OR-reader frontier, exact-three dirty AND representatives, all-AND singleton-zero consequence, and dirty rectangle eligibility now kernel checked in scratch. Other structural cases remain incomplete.
