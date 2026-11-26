@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 120 helper lemmas compile and pass an axiom audit.
+All 124 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -67,6 +67,12 @@ two BAD ORs is false: its pair relation is a four-edge matching, but its full
 truth table also accepts 18 unwanted higher-weight assignments. It is not a
 counterexample to an exact graph-function theorem or to the posted gap.
 
+FullProductNesting proves that if one graph-existence function is exactly the
+conjunction of two graph-existence functions, its edge relation is their
+intersection and the two neighborhoods are nested at every row and column.
+The proof uses assignments with two vertices on one side and one on the other.
+It does not assume arbitrary circuit factors are graph-existence functions.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -80,4 +86,4 @@ limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=68.0 subagents=2
+TIMING total=82.0 subagents=2

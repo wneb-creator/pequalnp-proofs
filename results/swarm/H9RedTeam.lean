@@ -1971,4 +1971,76 @@ lemma circuit_bad_or_count_cover
 
 end ActualOneBad
 
+
+namespace FullProductNesting
+
+variable {α β : Type*}
+
+def HasEdge (R : α → β → Prop) (X : α → Prop) (Y : β → Prop) : Prop :=
+  ∃ a b, R a b ∧ X a ∧ Y b
+
+def FullIntersection (R S : α → β → Prop) : Prop :=
+  ∀ X Y, HasEdge (fun a b => R a b ∧ S a b) X Y ↔ HasEdge R X Y ∧ HasEdge S X Y
+
+lemma full_product_pair_relation (E R S : α → β → Prop)
+    (hfull : ∀ X Y, HasEdge E X Y ↔ HasEdge R X Y ∧ HasEdge S X Y) :
+    ∀ a b, E a b ↔ R a b ∧ S a b := by
+  intro a b
+  simpa [HasEdge] using hfull (fun i => i = a) (fun j => j = b)
+
+lemma full_product_intersection (E R S : α → β → Prop)
+    (hfull : ∀ X Y, HasEdge E X Y ↔ HasEdge R X Y ∧ HasEdge S X Y) :
+    FullIntersection R S := by
+  have hp := full_product_pair_relation E R S hfull
+  intro X Y
+  simpa only [HasEdge, hp] using hfull X Y
+
+lemma full_intersection_columns_nested (R S : α → β → Prop)
+    (hfull : FullIntersection R S) (b : β) :
+    (∀ a, R a b → S a b) ∨ (∀ a, S a b → R a b) := by
+  classical
+  by_cases hsub : ∀ a, R a b → S a b
+  · exact Or.inl hsub
+  · right
+    push Not at hsub
+    obtain ⟨a,ha,has⟩ := hsub
+    intro c hcs
+    by_contra hcr
+    have hh : HasEdge (fun i j => R i j ∧ S i j)
+        (fun i => i = a ∨ i = c) (fun j => j = b) := by
+      apply (hfull _ _).mpr
+      exact ⟨⟨a,b,ha,Or.inl rfl,rfl⟩,⟨c,b,hcs,Or.inr rfl,rfl⟩⟩
+    obtain ⟨i,j,⟨hir,his⟩,hi,hj⟩ := hh
+    subst j
+    rcases hi with hi | hi
+    · subst i
+      exact has his
+    · subst i
+      exact hcr hir
+
+lemma full_intersection_rows_nested (R S : α → β → Prop)
+    (hfull : FullIntersection R S) (a : α) :
+    (∀ b, R a b → S a b) ∨ (∀ b, S a b → R a b) := by
+  classical
+  by_cases hsub : ∀ b, R a b → S a b
+  · exact Or.inl hsub
+  · right
+    push Not at hsub
+    obtain ⟨b,hb,hbs⟩ := hsub
+    intro c hcs
+    by_contra hcr
+    have hh : HasEdge (fun i j => R i j ∧ S i j)
+        (fun i => i = a) (fun j => j = b ∨ j = c) := by
+      apply (hfull _ _).mpr
+      exact ⟨⟨a,b,hb,rfl,Or.inl rfl⟩,⟨a,c,hcs,rfl,Or.inr rfl⟩⟩
+    obtain ⟨i,j,⟨hir,his⟩,hi,hj⟩ := hh
+    subst i
+    rcases hj with hj | hj
+    · subst j
+      exact hbs his
+    · subst j
+      exact hcr hir
+
+end FullProductNesting
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
