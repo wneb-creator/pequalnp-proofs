@@ -8326,4 +8326,240 @@ lemma raw_or_partner_unsafe_rev (n : ℕ) (F : (Fin n → Bool) → Bool) (C : C
 
 end SingleOrEnergy
 
+
+namespace SingleOrEnergy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+def WirePositive (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit) (i : ℕ) : Prop :=
+  ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD i false = true → F x = true
+
+lemma wire_positive_iff_not_unsafe (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (C : Circuit) (i : ℕ) : WirePositive n F C i ↔
+      ¬ ∃ x : Fin n → Bool, F x = false ∧ (C.wires (List.ofFn x)).getD i false = true := by
+  constructor
+  · rintro hp ⟨x, hx, hw⟩
+    have := hp x hw
+    simp_all
+  · intro hn x hx
+    cases hf : F x with
+    | false => exact False.elim (hn ⟨x, hf, hx⟩)
+    | true => rfl
+
+lemma no_mixed_or_positive_iff (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (C : Circuit) (hnormal : NoMixedOr n F C) (pre post : List Gate) (a h out : ℕ)
+    (hshape : C = original pre post a h out) :
+    WirePositive n F C a ↔ WirePositive n F C h := by
+  rw [wire_positive_iff_not_unsafe, wire_positive_iff_not_unsafe]
+  exact not_congr (hnormal pre post a h out hshape)
+
+lemma minimum_positive_consumer_output (n : ℕ) (F : (Fin n → Bool) → Bool)
+    (pre post : List Gate) (g : Gate) (out h : ℕ)
+    (hn : n ≤ h) (hh : h < n + pre.length)
+    (hfanin : FanInTwo ({gates := pre ++ g :: post, output := out} : Circuit))
+    (heval : ∀ x : Fin n → Bool,
+      ({gates := pre ++ g :: post, output := out} : Circuit).eval (List.ofFn x) = F x)
+    (hpositive : WirePositive n F ⟨pre ++ g :: post, out⟩ h)
+    (hmin : ∀ E : Circuit, FanInTwo E →
+      (∀ x : Fin n → Bool, E.eval (List.ofFn x) =
+        ({gates := pre ++ g :: post, output := out} : Circuit).eval (List.ofFn x)) →
+      ({gates := pre ++ g :: post, output := out} : Circuit).size ≤ E.size)
+    (hread : h ∈ effectiveInputs g)
+    (hback : ∀ i ∈ g.inputs, i < n + pre.length)
+    (hnormal : NoMixedOr n F ⟨pre ++ g :: post, out⟩) :
+    g.op = GateOp.or ∧ WirePositive n F ⟨pre ++ g :: post, out⟩ (n + pre.length) := by
+  have hkeep (x : Fin n → Bool) :
+      (({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD h false =
+        (wiresFrom pre (List.ofFn x)).getD h false := by
+    change (wiresFrom (pre ++ g :: post) (List.ofFn x)).getD h false = _
+    rw [wiresFrom_append, getD_wiresFrom]
+    simpa [length_wiresFrom] using hh
+  have hop : g.op = GateOp.or := by
+    apply minimum_positive_internal_readers_are_or n pre [] post g out h hn hh hfanin
+    · intro x hx
+      change ({gates := pre ++ g :: post, output := out} : Circuit).eval (List.ofFn x) = true
+      rw [heval]
+      apply hpositive x
+      rw [hkeep]
+      exact hx
+    · exact hmin
+    · exact hread
+  refine ⟨hop, ?_⟩
+  have hlen := (hfanin g (by simp)).2
+  have hin : h ∈ g.inputs := by simpa [effectiveInputs, hop] using hread
+  have hv (x : Fin n → Bool) := FirstAndClassification.full_gate_value n
+    ⟨pre ++ g :: post, out⟩ pre post g rfl hback x
+  cases hg : g.inputs with
+  | nil => simp [hg] at hin
+  | cons a rest =>
+    cases rest with
+    | nil =>
+      have hha : h = a := by simpa [hg] using hin
+      intro x hx
+      apply hpositive x
+      simpa [hop, hg, GateOp.eval, hha] using (hv x).symm.trans hx
+    | cons b tail =>
+      have ht : tail = [] := by simp only [hg, List.length_cons] at hlen; simpa using (show tail.length = 0 by omega)
+      subst tail
+      have hgate : g = ⟨.or, [a,b]⟩ := by cases g; simp_all
+      have hshape : ({gates := pre ++ g :: post, output := out} : Circuit) =
+          original pre post a b out := by simp [original, hgate]
+      have hab := no_mixed_or_positive_iff n F _ hnormal pre post a b out hshape
+      have hpa : WirePositive n F ⟨pre ++ g :: post, out⟩ a := by
+        rcases (show h = a ∨ h = b by simpa [hg] using hin) with rfl | rfl
+        · exact hpositive
+        · exact hab.mpr hpositive
+      have hpb := hab.mp hpa
+      intro x hx
+      have hx' :
+          ((({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD a false ||
+            (({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD b false) = true := by
+        simpa [hop, hg, GateOp.eval] using (hv x).symm.trans hx
+      by_cases ha : (({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD a false = true
+      · exact hpa x ha
+      · apply hpb x
+        have hd :
+            (({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD a false = true ∨
+            (({gates := pre ++ g :: post, output := out} : Circuit).wires (List.ofFn x)).getD b false = true := by
+          simpa using hx'
+        exact hd.resolve_left ha
+
+lemma positive_wire_not_raw (n : ℕ) (F : (Fin n → Bool) → Bool) (C : Circuit)
+    (hsingle : ∀ a : Fin n, F (fun i => decide (i = a)) = false)
+    (i : ℕ) (hp : WirePositive n F C i) : n ≤ i := by
+  by_contra hn
+  have hi : i < n := by omega
+  have hnunsafe := (wire_positive_iff_not_unsafe n F C i).mp hp
+  exact hnunsafe (raw_wire_unsafe n F C ⟨i, hi⟩ (hsingle ⟨i, hi⟩))
+
+end SingleOrEnergy
+
+namespace ConstantPruning
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open Restriction
+
+def initStats (m : ℕ) (b : Bool) : List Stat :=
+  List.ofFn (fun i : Fin (m + 1) => if i.val = m then Sum.inl b else Sum.inr i.val)
+
+lemma init_inv (n : ℕ) (pre : List Gate) (b : Bool) (x : Fin n → Bool) :
+    Inv n (List.ofFn x) (wiresFrom pre (List.ofFn x) ++ [b])
+      (initStats (n + pre.length) b, pre) := by
+  have hl : (wiresFrom pre (List.ofFn x)).length = n + pre.length := by
+    simp [length_wiresFrom]
+  refine ⟨by simp [initStats, hl], ?_⟩
+  intro i
+  by_cases hi : i < n + pre.length + 1
+  · have hs : (initStats (n + pre.length) b).getD i (Sum.inl false) =
+        if i = n + pre.length then Sum.inl b else Sum.inr i := by
+      simp only [initStats, List.getD, List.getElem?_ofFn, dite_eq_left hi, Option.getD_some]
+    rw [hs]
+    by_cases he : i = n + pre.length
+    · subst i
+      simp only [↓reduceIte]
+      refine ⟨trivial, ?_⟩
+      change b = _
+      rw [← hl, getD_snoc_eq]
+    · rw [ite_eq_right he]
+      refine ⟨?_, ?_⟩
+      · change i < n + pre.length
+        omega
+      change (wiresFrom pre (List.ofFn x)).getD i false = (wiresFrom pre (List.ofFn x) ++ [b]).getD i false
+      rw [List.getD_append _ _ _ _ (by omega)]
+  · have hs : (initStats (n + pre.length) b).getD i (Sum.inl false) = Sum.inl false := by
+      apply List.getD_eq_default
+      simp only [initStats, List.length_ofFn]
+      omega
+    rw [hs]
+    refine ⟨trivial, ?_⟩
+    change false = _
+    symm
+    apply List.getD_eq_default
+    simp only [List.length_append, List.length_singleton, hl]
+    omega
+
+lemma delete_constant_gate (n : ℕ) (C : Circuit) (pre post : List Gate) (g : Gate)
+    (hshape : C.gates = pre ++ g :: post) (hfan : FanInTwo C) (b : Bool)
+    (hconstant : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD (n + pre.length) false = b)
+    (hnonconstant : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y)) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size + 1 ≤ C.size ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  have hpre : ∀ q ∈ pre, Ok q := by
+    intro q hq
+    apply hfan q
+    rw [hshape]
+    exact List.mem_append_left _ hq
+  have hpost : ∀ q ∈ post, Ok q := by
+    intro q hq
+    apply hfan q
+    rw [hshape]
+    exact List.mem_append_right _ (List.mem_cons_of_mem _ hq)
+  let acc := elim n post (initStats (n + pre.length) b, pre)
+  have hcount : acc.2.length ≤ pre.length + post.length := elim_len n post _
+  have hok : ∀ q ∈ acc.2, Ok q := elim_ok n post _ hpre
+  have hprefix (x : Fin n → Bool) :
+      wiresFrom (pre ++ [g]) (List.ofFn x) = wiresFrom pre (List.ofFn x) ++ [b] := by
+    have hv := hconstant x
+    change (wiresFrom C.gates (List.ofFn x)).getD (n + pre.length) false = b at hv
+    rw [hshape, wiresFrom_append] at hv
+    change (wiresFrom post (wiresFrom pre (List.ofFn x) ++ [_])).getD _ false = b at hv
+    rw [getD_wiresFrom] at hv
+    · have hl : (wiresFrom pre (List.ofFn x)).length = n + pre.length := by simp [length_wiresFrom]
+      rw [← hl, getD_snoc_eq] at hv
+      rw [wiresFrom_append]
+      change wiresFrom pre (List.ofFn x) ++ [_] = _
+      rw [hv]
+    · simp [length_wiresFrom]
+  have hval (x : Fin n → Bool) :
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) = C.eval (List.ofFn x) := by
+    have hinv := inv_elim n (List.ofFn x) (by simp) post
+      (wiresFrom pre (List.ofFn x) ++ [b]) (initStats (n + pre.length) b, pre)
+      hpost (init_inv n pre b x)
+    have hv := (hinv.2 C.output).2
+    change (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) = _ at hv
+    rw [← hprefix x] at hv
+    rw [← wiresFrom_append] at hv
+    simpa [Circuit.eval, Circuit.wires, wiresFrom, hshape, List.append_assoc] using hv
+  cases hs : acc.1.getD C.output (Sum.inl false) with
+  | inl c =>
+    obtain ⟨x, y, hxy⟩ := hnonconstant
+    have hx := hval x
+    have hy := hval y
+    rw [hs] at hx hy
+    exact False.elim (hxy (hx.symm.trans hy))
+  | inr j =>
+    refine ⟨⟨acc.2, j⟩, hok, ?_, ?_⟩
+    · simp only [Circuit.size, hshape, List.length_append, List.length_cons]
+      omega
+    · intro x
+      have hv := hval x
+      rw [hs] at hv
+      exact hv
+
+lemma minimal_no_constant_gate (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hnonconstant : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y))
+    (pre post : List Gate) (g : Gate) (hshape : C.gates = pre ++ g :: post) :
+    ¬ ∃ b : Bool, ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD (n + pre.length) false = b := by
+  rintro ⟨b, hb⟩
+  obtain ⟨D, hD, hsize, heval⟩ := delete_constant_gate n C pre post g hshape hfan b hb hnonconstant
+  have hbound := hmin D hD heval
+  omega
+
+lemma minimal_no_constant_index (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
+    (hmin : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (hnonconstant : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y))
+    (j : ℕ) (hj : j < C.size) :
+    ¬ ∃ b : Bool, ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD (n + j) false = b := by
+  have hlt : j < C.gates.length := hj
+  have hshape : C.gates = C.gates.take j ++ C.gates[j] :: C.gates.drop (j + 1) := by
+    rw [List.getElem_cons_drop hlt, List.take_append_drop]
+  have hl : (C.gates.take j).length = j := by simp; omega
+  simpa only [hl] using minimal_no_constant_gate n C hfan hmin hnonconstant _ _ _ hshape
+
+end ConstantPruning
+
 end PEqualNP.Outside.L_meta_2373_aux
