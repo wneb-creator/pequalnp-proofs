@@ -1962,4 +1962,152 @@ lemma consumer_path_and_frontier_outside {n k : Nat}
 
 end ConsumerFrontier
 
+namespace Diamond
+
+lemma causal_nat_evaluation_exists (n k : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (init : Nat → Nat)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i) :
+    ∃ v : Nat → Nat, (∀ j < n, v j = init j) ∧
+      ∀ i < k, v (n + i) = gateNat (op i) (v (left i)) (v (right i)) := by
+  induction k with
+  | zero =>
+    exact ⟨init, fun _ _ => rfl, fun i hi => (Nat.not_lt_zero i hi).elim⟩
+  | succ k ih =>
+    obtain ⟨v, hraw, heval⟩ := ih (fun i hi => hcausal i (by omega))
+    let value := gateNat (op k) (v (left k)) (v (right k))
+    let next : Nat → Nat := fun j => if j = n + k then value else v j
+    refine ⟨next, ?_, ?_⟩
+    · intro j hj
+      have hne : j ≠ n + k := by omega
+      simpa only [next, hne, ite_false] using hraw j hj
+    · intro i hi
+      by_cases hik : i = k
+      · subst i
+        have hc := hcausal k (by omega)
+        have hl : left k ≠ n + k := by omega
+        have hr : right k ≠ n + k := by omega
+        simp only [next, hl, hr, ite_false, ite_true, value]
+      · have hik' : i < k := by omega
+        have hc := hcausal i (by omega)
+        have hw : n + i ≠ n + k := by omega
+        have hl : left i ≠ n + k := by omega
+        have hr : right i ≠ n + k := by omega
+        simpa only [next, hw, hl, hr, ite_false] using heval i hik'
+
+lemma exists_nat_rewrite (n k a b h q u w : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) (allowed : Nat → Prop)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ left a = q ∧ right a = u)
+    (hb : op b = false ∧ left b = q ∧ right b = w)
+    (hd : op h = true ∧ left h = n + a ∧ right h = n + b)
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateNat (op i) (x (left i)) (x (right i)))
+    (hallowed : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i))) :
+    ∃ y : Nat → Nat,
+      (∀ j < n, y j = x j) ∧
+      (∀ i < k, y (n + i) = gateNat (newOp a b h op i)
+        (y (newLeft a b h q u left i)) (y (newRight n a b h q w right i))) ∧
+      (∀ j < n + k, j ≠ n + a → j ≠ n + b → x j = y j) ∧
+      (∀ i < k, newLeft a b h q u left i < n + i ∧
+        newRight n a b h q w right i < n + i) ∧
+      (∀ i < k,
+        (newLeft a b h q u left i < n → allowed (newLeft a b h q u left i)) ∧
+        (newRight n a b h q w right i < n → allowed (newRight n a b h q w right i))) ∧
+      andCount (newOp a b h op) k = andCount op k + 1 ∧
+      orCount (newOp a b h op) k + 1 = orCount op k := by
+  have hcnew := rewrite_causal n k a b h q u w left right hab hbh hh hcausal ha.2 hb.2
+  obtain ⟨y, hyraw, hyeval⟩ := causal_nat_evaluation_exists n k (newOp a b h op)
+    (newLeft a b h q u left) (newRight n a b h q w right) x hcnew
+  refine ⟨y, hyraw, hyeval, ?_, hcnew, ?_, ?_, ?_⟩
+  · exact nat_agreement n k a b h q u w op left right x y hab hbh hh hcausal
+      ha hb hd hprivate hx hyeval (fun j hj => (hyraw j hj).symm)
+  · exact rewrite_allowed_raw n k a b h q u w left right allowed (by omega) (by omega)
+      ha.2 hb.2.2 hallowed
+  · exact rewrite_andCount op a b h k hab hbh hh ha.1 hb.1 hd.1
+  · exact rewrite_orCount op a b h k hab hbh hh ha.1 hb.1 hd.1
+
+end Diamond
+
+namespace ConsumerFrontier
+
+def consumerReachable {k : Nat} (n : Nat) (a b : Fin k → Nat)
+    (source target : Nat) : Prop :=
+  ∃ length : Nat, ∃ path : Nat → Nat,
+    path 0 = source ∧ path length = target ∧
+    ∀ i, i < length → ∃ j : Fin k,
+      path (i + 1) = n + j.val ∧ (path i = a j ∨ path i = b j)
+
+lemma consumerReachable_refl {k : Nat} (n : Nat) (a b : Fin k → Nat) (wire : Nat) :
+    consumerReachable n a b wire wire := by
+  refine ⟨0, fun _ => wire, rfl, rfl, ?_⟩
+  intro i hi
+  omega
+
+lemma consumerReachable_extend {n k : Nat} (a b : Fin k → Nat)
+    (source wire : Nat) (j : Fin k)
+    (hpath : consumerReachable n a b source wire)
+    (hparent : wire = a j ∨ wire = b j) :
+    consumerReachable n a b source (n + j.val) := by
+  obtain ⟨length, path, hfirst, hlast, hstep⟩ := hpath
+  refine ⟨length + 1, (fun t => if t ≤ length then path t else n + j.val), ?_, ?_, ?_⟩
+  · simpa only [show 0 ≤ length by omega, ite_true] using hfirst
+  · simp only [show ¬length + 1 ≤ length by omega, ite_false]
+  · intro i hi
+    by_cases hbefore : i < length
+    · obtain ⟨q, hq, hparentq⟩ := hstep i hbefore
+      refine ⟨q, ?_, ?_⟩
+      · simpa only [show i + 1 ≤ length by omega, ite_true] using hq
+      · simpa only [show i ≤ length by omega, ite_true] using hparentq
+    · have heq : i = length := by omega
+      subst i
+      refine ⟨j, ?_, ?_⟩
+      · simp only [show ¬length + 1 ≤ length by omega, ite_false]
+      · simpa only [Nat.le_refl, ite_true, hlast] using hparent
+
+lemma differing_target_has_consumer_path {α : Type} {n k : Nat}
+    (a b : Fin k → Nat) (run : Fin k → α → α → α) (p : Fin k)
+    (x y : Nat → α)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → x i = y i)
+    (hx : ∀ j, j ≠ p → x (n + j.val) = run j (x (a j)) (x (b j)))
+    (hy : ∀ j, j ≠ p → y (n + j.val) = run j (y (a j)) (y (b j))) :
+    ∀ out, out < n + k → x out ≠ y out →
+      consumerReachable n a b (n + p.val) out := by
+  classical
+  intro out
+  induction out using Nat.strong_induction_on with
+  | ind out ih =>
+    intro hout hdiff
+    by_cases hrawout : out < n
+    · exact False.elim (hdiff (hraw out hrawout))
+    by_cases hcut : out = n + p.val
+    · subst out
+      exact consumerReachable_refl n a b (n + p.val)
+    let j : Fin k := ⟨out - n, by omega⟩
+    have houtj : out = n + j.val := by dsimp [j]; omega
+    have hne : j ≠ p := by
+      intro heq
+      have hval := congrArg Fin.val heq
+      dsimp [j] at hval
+      omega
+    have hca := ha j
+    have hcb := hb j
+    by_cases hleft : x (a j) = y (a j)
+    · have hright : x (b j) ≠ y (b j) := by
+        intro heq
+        apply hdiff
+        rw [houtj, hx j hne, hy j hne, hleft, heq]
+      have hpath := ih (b j) (by omega) (by omega) hright
+      rw [houtj]
+      exact consumerReachable_extend a b (n + p.val) (b j) j hpath (Or.inr rfl)
+    · have hpath := ih (a j) (by omega) (by omega) hleft
+      rw [houtj]
+      exact consumerReachable_extend a b (n + p.val) (a j) j hpath (Or.inl rfl)
+
+end ConsumerFrontier
+
 end PEqualNP.Outside.L_meta_9033_aux
