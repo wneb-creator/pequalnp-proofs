@@ -1,0 +1,210 @@
+{
+  "bundle": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "endpoint_convention": "inclusive; List.range' first count; count=last-first+1; all indices<5230",
+  "ranges": [
+    {
+      "first": 2304,
+      "last": 2307,
+      "count": 4,
+      "module": "H4Range2304_2307",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2304_2307",
+      "source": "sources/H4Range2304_2307.lean",
+      "source_sha256": "05cabe5751848554e501c046792af38a76808e6940295ad4bc3371350309e07b",
+      "olean_sha256": "65741406727e2fe8944894791325ba3583e71a2ddf2beb17761dca1921058ec6",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 11.354372847999912,
+        "user_seconds": 9.864775999999999,
+        "system_seconds": 1.459537,
+        "maxrss_kib": 3820816
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 3.6234136089997264,
+        "user_seconds": 1.9340199999999999,
+        "system_seconds": 1.6689479999999999,
+        "maxrss_kib": 2944372
+      },
+      "compiler_stdout": "logs/H4Range2304_2307.stdout",
+      "compiler_stderr": "logs/H4Range2304_2307.stderr",
+      "axiom_stdout": "logs/AuditH4Pilot.stdout",
+      "axiom_stderr": "logs/AuditH4Pilot.stderr",
+      "memory_limit_mb": 9000
+    },
+    {
+      "first": 2308,
+      "last": 2339,
+      "count": 32,
+      "module": "H4Range2308_2339",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2308_2339",
+      "source": "sources/H4Range2308_2339.lean",
+      "source_sha256": "b83ea17f2d594ce1bdc943d06f1d351256becb3ff53a2e33fece67196c1e2f93",
+      "olean_sha256": "2f3d4651d314cdfcc67f6ef4f112e79fcdc28f503223a02332026ac08557a83b",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 101.63317656399977,
+        "user_seconds": 95.116558,
+        "system_seconds": 6.224104,
+        "maxrss_kib": 4060872
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 8.52083563799988,
+        "user_seconds": 5.7859929999999995,
+        "system_seconds": 2.229881,
+        "maxrss_kib": 2961556
+      },
+      "memory_limit_mb": 9000,
+      "compiler_stdout": "logs/H4Range2308_2339.stdout",
+      "compiler_stderr": "logs/H4Range2308_2339.stderr",
+      "axiom_stdout": "logs/AuditH4Compact.stdout",
+      "axiom_stderr": "logs/AuditH4Compact.stderr"
+    },
+    {
+      "first": 2340,
+      "last": 2467,
+      "count": 128,
+      "source_sha256": "6282947610dc781a902daa0ff1b5c911d2df6e75e73b572b37201df1fb9fdc88",
+      "module": "H4Range2340_2467",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2340_2467",
+      "source": "sources/H4Range2340_2467.lean",
+      "olean_sha256": "b55f24828002cf9d62713233b5bc4c4b8a1f010a343848e4b9b8d2e1b9009146",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 636.0967703809993,
+        "user_seconds": 596.524921,
+        "system_seconds": 37.308282,
+        "maxrss_kib": 4264328
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 5.908542041000146,
+        "user_seconds": 3.125558,
+        "system_seconds": 2.686662,
+        "maxrss_kib": 2960192
+      },
+      "memory_limit_mb": 6000,
+      "compiler_stdout": "logs/H4Range2340_2467.stdout",
+      "compiler_stderr": "logs/H4Range2340_2467.stderr",
+      "axiom_stdout": "logs/AuditH4Range2340_2467.stdout",
+      "axiom_stderr": "logs/AuditH4Range2340_2467.stderr"
+    },
+    {
+      "first": 2468,
+      "last": 2595,
+      "count": 128,
+      "source_sha256": "2cf930e481ae686faf69e2e82f2d0243ed0f54acc2e9cdcc65e5ea25ad4b8421",
+      "module": "H4Range2468_2595",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2468_2595",
+      "source": "sources/H4Range2468_2595.lean",
+      "olean_sha256": "8d5cdc21d686d74b46759705c70e44720d8960ec6707bb55cf7ededfd2ed02d4",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 726.9696204829997,
+        "user_seconds": 662.693554,
+        "system_seconds": 62.772117,
+        "maxrss_kib": 4846276
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 10.173420698999507,
+        "user_seconds": 4.693996,
+        "system_seconds": 3.366308,
+        "maxrss_kib": 2961784
+      },
+      "memory_limit_mb": 6000,
+      "compiler_stdout": "logs/H4Range2468_2595.stdout",
+      "compiler_stderr": "logs/H4Range2468_2595.stderr",
+      "axiom_stdout": "logs/AuditH4Range2468_2595.stdout",
+      "axiom_stderr": "logs/AuditH4Range2468_2595.stderr"
+    },
+    {
+      "first": 2596,
+      "last": 2723,
+      "count": 128,
+      "source_sha256": "fb81dbf0a412974561ac4f6ae53b70b109882ce0a29ef397bed8293b75fbde57",
+      "module": "H4Range2596_2723",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2596_2723",
+      "source": "sources/H4Range2596_2723.lean",
+      "olean_sha256": "7f9238b542c9239b10c473dcd430642f49fd572a5e96b64f63b5a59861ad6811",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 803.4804789469999,
+        "user_seconds": 703.089182,
+        "system_seconds": 91.829147,
+        "maxrss_kib": 4474816
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 5.843760587998986,
+        "user_seconds": 3.591301,
+        "system_seconds": 1.7144840000000001,
+        "maxrss_kib": 2901384
+      },
+      "memory_limit_mb": 6000,
+      "compiler_stdout": "logs/H4Range2596_2723.stdout",
+      "compiler_stderr": "logs/H4Range2596_2723.stderr",
+      "axiom_stdout": "logs/AuditH4Range2596_2723.stdout",
+      "axiom_stderr": "logs/AuditH4Range2596_2723.stderr"
+    },
+    {
+      "first": 2724,
+      "last": 2851,
+      "count": 128,
+      "source_sha256": "a334a3ccb9de9f525fc7a4e21cf47ab8876a0e34e1480c7698f3ae0d2cfd2714",
+      "module": "H4Range2724_2851",
+      "declaration": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2724_2851",
+      "source": "sources/H4Range2724_2851.lean",
+      "olean_sha256": "799d702ea81213dbf0005382f6db7bf671bac4d36289593c466333acf7b87aaf",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "compiler_resources": {
+        "exit": 0,
+        "wall_seconds": 639.3823934819993,
+        "user_seconds": 579.723557,
+        "system_seconds": 51.935494,
+        "maxrss_kib": 4343796
+      },
+      "audit_resources": {
+        "exit": 0,
+        "wall_seconds": 6.979542241000672,
+        "user_seconds": 4.713255,
+        "system_seconds": 2.207747,
+        "maxrss_kib": 2957924
+      },
+      "memory_limit_mb": 6000,
+      "compiler_stdout": "logs/H4Range2724_2851.stdout",
+      "compiler_stderr": "logs/H4Range2724_2851.stderr",
+      "axiom_stdout": "logs/AuditH4Range2724_2851.stdout",
+      "axiom_stderr": "logs/AuditH4Range2724_2851.stderr"
+    }
+  ]
+}

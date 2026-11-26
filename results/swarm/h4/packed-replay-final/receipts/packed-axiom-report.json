@@ -1,0 +1,9 @@
+{
+  "expected": 149,
+  "reported": 149,
+  "missing": [],
+  "unexpected_axioms": {},
+  "empty_axiom_count": 0,
+  "compiler_log_error_lines": [],
+  "stderr_bytes": 0
+}

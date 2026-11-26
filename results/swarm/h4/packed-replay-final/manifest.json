@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "scope": "Partial packed forest replay; not a complete gap proof",
+  "checker_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "first": 2304,
+  "last": 2851,
+  "accepted_node_count": 548,
+  "forest_node_count": 5230,
+  "aggregate": "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2851",
+  "build_order": [
+    "H4Range2304_2307",
+    "H4Range2308_2339",
+    "H4Range2340_2467",
+    "H4Range2468_2595",
+    "H4Range2596_2723",
+    "H4Range2724_2851",
+    "H4Aggregate2304_2339",
+    "H4Aggregate2304_2595",
+    "H4Aggregate2304_2851",
+    "AuditDelivery",
+    "AuditDelivery548"
+  ],
+  "source_sha256": {
+    "H4Range2304_2307": "05cabe5751848554e501c046792af38a76808e6940295ad4bc3371350309e07b",
+    "H4Range2308_2339": "b83ea17f2d594ce1bdc943d06f1d351256becb3ff53a2e33fece67196c1e2f93",
+    "H4Range2340_2467": "6282947610dc781a902daa0ff1b5c911d2df6e75e73b572b37201df1fb9fdc88",
+    "H4Range2468_2595": "2cf930e481ae686faf69e2e82f2d0243ed0f54acc2e9cdcc65e5ea25ad4b8421",
+    "H4Range2596_2723": "fb81dbf0a412974561ac4f6ae53b70b109882ce0a29ef397bed8293b75fbde57",
+    "H4Range2724_2851": "a334a3ccb9de9f525fc7a4e21cf47ab8876a0e34e1480c7698f3ae0d2cfd2714",
+    "H4Aggregate2304_2339": "ae995019807ad46ea7f9a0fdbe8ecfde1a1a401b8e172055033112f79e830f6a",
+    "H4Aggregate2304_2595": "2dd30c4f2331c1cf6ec6adefbe57900ce8f9595a1f554eeaf7b5b80ddec1b423",
+    "H4Aggregate2304_2851": "917ac593af1f01e3c9823fec70bca0f5678dcc3a25d8dc2d83d3049f25fcb792",
+    "AuditDelivery": "5a3778b33459a216841f49f5505b3976c3d684a17b6793fba464201994eaf5f9",
+    "AuditDelivery548": "3d58a7fbcb48d1d0d43f39e0998a02f298ec67261552f2667b86dbe52b81d41c"
+  },
+  "declarations": [
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2304_2307",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2308_2339",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2340_2467",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2468_2595",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2596_2723",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.h4_2724_2851",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.range_checked",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2339",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2595",
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.H4Replay.checked_2304_2851"
+  ],
+  "metadata_excluded_from_artifact_hashes": [
+    "validation.txt"
+  ]
+}

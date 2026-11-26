@@ -1,0 +1,36 @@
+gap: L-meta-2373
+helper: 4
+kit-message-id: msg-39a8c0747c0f7f18e430353f
+branch: pnp/swarm-L-meta-2373-h4
+Named helper commit: 097db3c9045a9bd9267b15d6359dbfd8b46f2367
+Named file: lean/PEqualNP/Outside/L_meta_2373.lean
+Named source SHA256: 4d3cc49c8c4dce68577159333708988aab3c26d04036599cd30e7715b03f10ae
+Named source size: 202639 bytes,4290 lines
+Named lake build: PASS (target134s; complete log retained in job scratch)
+Named lemma axioms: all233 distinct lemmas checked; only propext,Classical.choice,Quot.sound
+Original224 theorem statements: preserved byte-for-byte, independently reviewed
+Compiled export cleanup:638 kernel declarations,zero foreign after private-name normalization; two independent audits agree
+Checker scope correction: foreign lazy equation copies alone do not demonstrate full-L rejection; CheckLemma.lean permits identical theorem duplicates. Blanket extra-declaration rejection applies only to reductions.
+Ride-along refactor: separate commit097db3c9,131 changed lines, local proof unfolding equalities
+Full-gap checker: not submitted; exact gap theorem is absent
+PR: none, as required by helper instructions
+
+Replay checker: frozen36375ce3bb56c227c81ecae98f6641800006b8c2
+Published accepted interval:2304..2851 inclusive,548 nodes; final548 aggregate and all10 audited declarations PASS
+Original assignment:2304..3071; root reassigned2852..3071 toH2 at02:15UTC, so H4 now stops at2851
+In-flight unpublished intervals:none; all owned proof and search processes finished
+Published proof and actual axiom audits: PASS; permitted standard3 only
+All83 immutable artifact checksums, frozen import closure, endpoints and no-wrap argument: independently reviewed PASS
+Portable verifier,source check and audit-only smoke: PASS
+Partial forest replay only:548 of5230 nodes are proved by this packet; no full-gap proof or refutation is claimed
+Source dependencies and complete compiler/audit stdout,stderr,resource receipts: see manifest.json,checker-import-hashes.json,logs/,receipts/
+OriginalL6581 prerequisite build: PASS,2002.66s wall,958.18s user+120.57s system,4726064KiB peak
+Packed19-module basis: PASS,434.86s wall,390.40s user+60.41s system,8669880KiB peak; all149 lemma axioms permitted
+
+Search status: all10 main scoped synthesis queries ended UNKNOWN; no exact Petersen19-gate counterexample found. Complete scopes,controls,CPU/wall times,pause intervals and cleanup inventory are retained in job scratch. All owned search processes are cleaned up. No UNSAT result is asserted for the gap.
+Optional parent-decoder prototype: scalar data agreement only; no completed speed comparison or checker change. Final new-getter trial stopped at60.002s wall, exit-9,59.952CPU seconds; failed/capped diagnostics retained.
+Sub-agents:6 distinct total (4 direct:setup,negated_analysis,small_not_search,constant_pruning;2 nested:sat_audit,small_enum). Repeated review turns reuse those agents.
+TIMING total=148.2 subagents=6
+Additional checked support: results/swarm/h4/matching-cnf/MatchingCNF.lean, sourcec239a68d3d8184cf564be9ca9f8aab67de2e22cc4813907549543ed74ca888e9, generic matching-clause count; independent review and permitted-axiom audit PASS. No circuit normalization claim.
+Final548 replay: six chunks; peak4846276KiB; summed CPU2898.54s. Summed wall2918.92s is not elapsed time because batches ran in pairs.
+Conclusion: checked helper proof infrastructure, generic matching support, and548-node partial forest replay; full gap unresolved.
