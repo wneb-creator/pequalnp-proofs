@@ -1,0 +1,82 @@
+{
+  "scope": "Optional exact-equality lookup variants; not part of the frozen distributed replay protocol. One serial paired node292 comparison only.",
+  "build_order": [
+    "ArrayLookup",
+    "ArrayDataLookup"
+  ],
+  "prerequisite": "Default nineteen-module PackedDirect build",
+  "files": {
+    "ArrayLookup.lean": {
+      "bytes": 2579,
+      "sha256": "75dfb2dd3333ee33d69d88b17cdb8e8ff05d5ef94ee99de0fe1149d77c701509"
+    },
+    "ArrayDataLookup.lean": {
+      "bytes": 5887,
+      "sha256": "772bd53e3b1cb0d1c06b10c0b323d788ecaf05d23686925e0903d57bafddf788"
+    },
+    "arraylookup.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "arraylookup.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "arraydatalookup.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "arraydatalookup.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PackedLookupBaseline292.lean": {
+      "bytes": 204,
+      "sha256": "cf8b6d766cfc092bfd98b11a206604317fa9e823d338d506e2fbab2a742a66ec"
+    },
+    "PackedLookupBaseline292.stdout": {
+      "bytes": 25,
+      "sha256": "034d74c9eb72f362f59f03fe696fa3d9ffba32eaba060392fd34a7bf25f0534a"
+    },
+    "PackedLookupBaseline292.stderr": {
+      "bytes": 460,
+      "sha256": "7300f79677b966402324cd75a3555a8917ddf9f674e3991f85b14deb00bec93c"
+    },
+    "PackedLookupBaseline292.json": {
+      "bytes": 78,
+      "sha256": "be062b08da2b0a392a4b71326bf73a45c970ffb33d1c15c38594d9eb41ad458d"
+    },
+    "ArrayLookupNode292.lean": {
+      "bytes": 197,
+      "sha256": "40e4afa7734feb5ca8efb6cd46b4ab0d5fd469821dd0c21cb9961c6f826be166"
+    },
+    "ArrayLookupNode292.stdout": {
+      "bytes": 24,
+      "sha256": "d18bfb28403fd182428eaa63cc38abf413337dd2cf9f3cfba7b95fa8f14697ae"
+    },
+    "ArrayLookupNode292.stderr": {
+      "bytes": 461,
+      "sha256": "5e417b2ec76dcfa2aec9632a02c33f1ef09e430897c96209b6517c2e1350dd25"
+    },
+    "ArrayLookupNode292.json": {
+      "bytes": 78,
+      "sha256": "f0e4eabeb9917dd0279d7b3297d913a6da02999371afdb7ebf66b35d59770e61"
+    },
+    "ArrayDataLookupNode292.lean": {
+      "bytes": 205,
+      "sha256": "6dd6d3dff18c2b1088a9ed2781ec0431ce066492a903f7b9dc5fadcf6ba2f821"
+    },
+    "ArrayDataLookupNode292.stdout": {
+      "bytes": 25,
+      "sha256": "517a386b76599526571263492f4f3be3c48497dc61c076307ed5d524c2c65616"
+    },
+    "ArrayDataLookupNode292.stderr": {
+      "bytes": 461,
+      "sha256": "720b7858dd621e03ca0a7453d7851c8102e7ecc3a1a26566e7fa2a0da650a468"
+    },
+    "ArrayDataLookupNode292.json": {
+      "bytes": 78,
+      "sha256": "2f91a6a0ec312adddb2ad166b5e3602312e3836b3cf824679a76bee4bd973d74"
+    }
+  }
+}

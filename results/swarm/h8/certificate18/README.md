@@ -158,3 +158,19 @@ set_option maxRecDepth 32768 in
 set_option maxHeartbeats 0 in
 example : checkNode 292 = true := by decide +kernel
 ```
+
+## Optional lookup experiment
+
+`ArrayLookup.lean` and `ArrayDataLookup.lean` prove that list-based reads of
+existing arrays preserve the packed checker exactly, including out-of-range
+defaults. The latter covers pool block/row reads and parent block reads as well
+as links. The pool atom dictionary already uses a packed integer and is
+unchanged. These variants are optional; distributed replay uses the frozen
+`PackedDirect` checker above.
+
+One serialized comparison on node 292 measured 4.53 seconds for the baseline,
+4.24 seconds for link lookups, and 4.19 seconds for all covered lookups.
+This single comparison does not establish a general speedup. Source, complete
+logs and metrics are pinned by `lookup-manifest.json`. After the default build,
+use `--modules ArrayLookup ArrayDataLookup`, then choose one of
+`PackedLookupBaseline292`, `ArrayLookupNode292` or `ArrayDataLookupNode292`.
