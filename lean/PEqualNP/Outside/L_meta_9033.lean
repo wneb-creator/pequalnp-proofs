@@ -2221,4 +2221,1283 @@ lemma operation_minimal_true_gate_frontier_outside
 
 end ConsumerFrontier
 
+namespace CopyElimination
+
+lemma countP_range_succ (op : Nat → Bool) (m : Nat) :
+    (List.range (m + 1)).countP op =
+      (List.range m).countP op + (if op m then 1 else 0) := by
+  simp [List.range_succ]
+
+lemma countP_range_skipIndex (op : Nat → Bool) (m p : Nat) (hp : p < m) :
+    (List.range (m - 1)).countP (fun i => op (skipIndex p i)) +
+      (if op p then 1 else 0) = (List.range m).countP op := by
+  induction m generalizing p with
+  | zero => omega
+  | succ m ih =>
+    by_cases hpm : p < m
+    · have hm : m - 1 + 1 = m := by omega
+      have hskip : skipIndex p (m - 1) = m := by
+        unfold skipIndex
+        split <;> omega
+      have hstep := countP_range_succ (fun i => op (skipIndex p i)) (m - 1)
+      rw [hm, hskip] at hstep
+      have hprevious := ih p hpm
+      simp only [Nat.succ_sub_one]
+      rw [hstep, countP_range_succ]
+      omega
+    · have hp' : p = m := by omega
+      subst p
+      have hsame : (List.range m).countP (fun i => op (skipIndex m i)) =
+          (List.range m).countP op := by
+        apply List.countP_congr
+        intro i hi
+        have hlt := List.mem_range.mp hi
+        simp [skipIndex, hlt]
+      simp only [Nat.succ_sub_one]
+      rw [hsame, countP_range_succ]
+
+lemma and_count_delete_balance (op : Nat → Bool) (m p : Nat) (hp : p < m) :
+    (List.range (m - 1)).countP (fun i => op (skipIndex p i)) +
+      (if op p then 1 else 0) = (List.range m).countP op :=
+  countP_range_skipIndex op m p hp
+
+lemma or_count_delete_balance (op : Nat → Bool) (m p : Nat) (hp : p < m) :
+    (List.range (m - 1)).countP (fun i => !(op (skipIndex p i))) +
+      (if !(op p) then 1 else 0) = (List.range m).countP (fun i => !(op i)) :=
+  countP_range_skipIndex (fun i => !(op i)) m p hp
+
+lemma and_count_delete_of_true (op : Nat → Bool) (m p : Nat)
+    (hp : p < m) (hop : op p = true) :
+    (List.range (m - 1)).countP (fun i => op (skipIndex p i)) + 1 =
+      (List.range m).countP op := by
+  simpa [hop] using and_count_delete_balance op m p hp
+
+lemma and_count_delete_of_false (op : Nat → Bool) (m p : Nat)
+    (hp : p < m) (hop : op p = false) :
+    (List.range (m - 1)).countP (fun i => op (skipIndex p i)) =
+      (List.range m).countP op := by
+  simpa [hop] using and_count_delete_balance op m p hp
+
+lemma or_count_delete_of_true (op : Nat → Bool) (m p : Nat)
+    (hp : p < m) (hop : op p = true) :
+    (List.range (m - 1)).countP (fun i => !(op (skipIndex p i))) =
+      (List.range m).countP (fun i => !(op i)) := by
+  simpa [hop] using or_count_delete_balance op m p hp
+
+lemma or_count_delete_of_false (op : Nat → Bool) (m p : Nat)
+    (hp : p < m) (hop : op p = false) :
+    (List.range (m - 1)).countP (fun i => !(op (skipIndex p i))) + 1 =
+      (List.range m).countP (fun i => !(op i)) := by
+  simpa [hop] using or_count_delete_balance op m p hp
+
+lemma countP_partition {α : Type*} (l : List α) (op marked : α → Bool) :
+    l.countP op = l.countP (fun i => op i && !(marked i)) +
+      l.countP (fun i => op i && marked i) := by
+  induction l with
+  | nil => simp
+  | cons a l ih =>
+    simp only [List.countP_cons]
+    cases op a <;> cases marked a <;> simp <;> omega
+
+lemma countP_range_partition (m : Nat) (op marked : Nat → Bool) :
+    (List.range m).countP op =
+      (List.range m).countP (fun i => op i && !(marked i)) +
+      (List.range m).countP (fun i => op i && marked i) :=
+  countP_partition (List.range m) op marked
+
+lemma or_count_range_partition (m : Nat) (op marked : Nat → Bool) :
+    (List.range m).countP (fun i => !(op i)) =
+      (List.range m).countP (fun i => !(op i) && !(marked i)) +
+      (List.range m).countP (fun i => !(op i) && marked i) :=
+  countP_partition (List.range m) (fun i => !(op i)) marked
+
+end CopyElimination
+
+namespace PinOne
+
+lemma causal_true_transport {σ : Type*}
+    (n k : Nat) (op : Nat → Bool) (a b : Nat → Nat)
+    (w : Nat → Bool) (v : σ → Nat → Bool)
+    (hcausal : ∀ i < k, a i < n + i ∧ b i < n + i)
+    (hw : ∀ i < k, w (n + i) = gateBool (op i) (w (a i)) (w (b i)))
+    (hv : ∀ s i, i < k → v s (n + i) =
+      gateBool (op i) (v s (a i)) (v s (b i)))
+    (hraw : ∀ s i, i < n → w i = true → v s i = true) :
+    ∀ s wire, wire < n + k → w wire = true → v s wire = true := by
+  intro s wire
+  induction wire using Nat.strong_induction_on with
+  | ind wire ih =>
+    intro hwire hvalue
+    by_cases hlow : wire < n
+    · exact hraw s wire hlow hvalue
+    · have hi : wire - n < k := by omega
+      have heq : n + (wire - n) = wire := by omega
+      have hleft : a (wire - n) < wire := by
+        have h := (hcausal (wire - n) hi).1
+        omega
+      have hright : b (wire - n) < wire := by
+        have h := (hcausal (wire - n) hi).2
+        omega
+      have hwe := hw (wire - n) hi
+      have hve := hv s (wire - n) hi
+      rw [heq] at hwe hve
+      rw [hwe] at hvalue
+      rw [hve]
+      exact gateBool_mono _ _ _ _ _
+        (ih _ hleft (by omega)) (ih _ hright (by omega)) hvalue
+
+lemma causal_pin_copy_certificates {σ : Type*}
+    (n k x : Nat) (op : Nat → Bool) (a b : Nat → Nat)
+    (w : Nat → Bool) (v : σ → Nat → Bool)
+    (hx : x < n) (hpinned : ∀ s, v s x = true)
+    (hcausal : ∀ i < k, a i < n + i ∧ b i < n + i)
+    (hw : ∀ i < k, w (n + i) = gateBool (op i) (w (a i)) (w (b i)))
+    (hv : ∀ s i, i < k → v s (n + i) =
+      gateBool (op i) (v s (a i)) (v s (b i)))
+    (hraw : ∀ s i, i < n → w i = true → v s i = true) :
+    (∀ p, p < k → w (n + p) = true →
+      x < n + p ∧ ∀ s, v s (n + p) = v s x) ∧
+    (∀ p, p < k → op p = true → w (a p) = true →
+      b p < n + p ∧ ∀ s, v s (n + p) = v s (b p)) ∧
+    (∀ p, p < k → op p = true → w (b p) = true →
+      a p < n + p ∧ ∀ s, v s (n + p) = v s (a p)) := by
+  have htransfer := causal_true_transport n k op a b w v hcausal hw hv hraw
+  refine ⟨?_, ?_, ?_⟩
+  · intro p hp hvalue
+    refine ⟨by omega, ?_⟩
+    intro s
+    exact (htransfer s (n + p) (by omega) hvalue).trans (hpinned s).symm
+  · intro p hp hop hleft
+    refine ⟨(hcausal p hp).2, ?_⟩
+    intro s
+    have hs : v s (a p) = true :=
+      htransfer s (a p) (by have h := (hcausal p hp).1; omega) hleft
+    rw [hv s p hp]
+    simp [gateBool, hop, hs]
+  · intro p hp hop hright
+    refine ⟨(hcausal p hp).1, ?_⟩
+    intro s
+    have hs : v s (b p) = true :=
+      htransfer s (b p) (by have h := (hcausal p hp).2; omega) hright
+    rw [hv s p hp]
+    simp [gateBool, hop, hs]
+
+lemma raw_implication_of_pinned_singleton {σ : Type*}
+    (n x : Nat) (w : Nat → Bool) (v : σ → Nat → Bool)
+    (hraw : ∀ i, i < n → w i = true → i = x)
+    (hpinned : ∀ s, v s x = true) :
+    ∀ s i, i < n → w i = true → v s i = true := by
+  intro s i hi htrue
+  rw [hraw i hi htrue]
+  exact hpinned s
+
+end PinOne
+
+namespace CopyElimination
+
+lemma eliminate_marked_copies {σ : Type} (reference : σ) (n m out : Nat)
+    (op : Nat → Bool) (left right : Nat → Nat) (v : σ → Nat → Bool)
+    (marked : Nat → Bool) (source : Nat → Nat)
+    (hout : out < n + m)
+    (hcausal : ∀ i < m, left i < n + i ∧ right i < n + i)
+    (heval : ∀ s i, i < m →
+      v s (n + i) = gateBool (op i) (v s (left i)) (v s (right i)))
+    (hsource : ∀ i < m, marked i = true → source i < n + i)
+    (hcopy : ∀ s i, i < m → marked i = true → v s (n + i) = v s (source i))
+    (hclean : ∀ i < m, marked i = false →
+      v reference (left i) = false ∧ v reference (right i) = false) :
+    ∃ (m' : Nat) (op' : Nat → Bool) (left' right' : Nat → Nat)
+        (out' : Nat) (v' : σ → Nat → Bool),
+      m' ≤ m ∧ out' < n + m' ∧
+      (∀ i < m', left' i < n + i ∧ right' i < n + i) ∧
+      (∀ s j, j < n → v' s j = v s j) ∧
+      (∀ s i, i < m' →
+        v' s (n + i) = gateBool (op' i) (v' s (left' i)) (v' s (right' i))) ∧
+      (∀ s, v' s out' = v s out) ∧
+      (List.range m').countP op' =
+        (List.range m).countP (fun i => op i && !(marked i)) ∧
+      (List.range m').countP (fun i => !(op' i)) =
+        (List.range m).countP (fun i => !(op i) && !(marked i)) ∧
+      (∀ i < m', v' reference (left' i) = false ∧ v' reference (right' i) = false) := by
+  classical
+  induction m using Nat.strong_induction_on generalizing out op left right v marked source with
+  | ind m ih =>
+    by_cases hsome : ∃ p, p < m ∧ marked p = true
+    · obtain ⟨p, hp, hmarked⟩ := hsome
+      let q := source p
+      have hq : q < n + p := hsource p hp hmarked
+      let op₁ := fun i => op (skipIndex p i)
+      let left₁ := fun i => routeIndex (n + p) q (left (skipIndex p i))
+      let right₁ := fun i => routeIndex (n + p) q (right (skipIndex p i))
+      let out₁ := routeIndex (n + p) q out
+      let v₁ := fun s j => v s (skipIndex (n + p) j)
+      let marked₁ := fun i => marked (skipIndex p i)
+      let source₁ := fun i => routeIndex (n + p) q (source (skipIndex p i))
+      have hcopyq : ∀ s, v s (n + p) = v s q := fun s => hcopy s p hp hmarked
+      have hout₁ : out₁ < n + (m - 1) := routeIndex_output_lt n m p q out hp hq hout
+      have hcausal₁ : ∀ i < m - 1, left₁ i < n + i ∧ right₁ i < n + i :=
+        deleteGate_causal n m p q left right hp hq hcausal
+      have heval₁ : ∀ s i, i < m - 1 →
+          v₁ s (n + i) = gateBool (op₁ i) (v₁ s (left₁ i)) (v₁ s (right₁ i)) := by
+        intro s
+        exact deleteGate_equations n m p q (fun i => gateBool (op i)) left right
+          (v s) hp hq (fun i hi _ => heval s i hi) (hcopyq s)
+      have hsource₁ : ∀ i < m - 1, marked₁ i = true → source₁ i < n + i := by
+        intro i hi hm
+        apply routeIndex_lt_skip (n + p) q _ (n + i) hq
+        rw [skipIndex_add]
+        exact hsource (skipIndex p i) (skipIndex_lt m p i hp hi) hm
+      have hcopy₁ : ∀ s i, i < m - 1 → marked₁ i = true →
+          v₁ s (n + i) = v₁ s (source₁ i) := by
+        intro s i hi hm
+        change v s (skipIndex (n + p) (n + i)) =
+          v s (skipIndex (n + p) (routeIndex (n + p) q (source (skipIndex p i))))
+        rw [skipIndex_add, skip_route_eval (n + p) q (v s) hq (hcopyq s)]
+        exact hcopy s (skipIndex p i) (skipIndex_lt m p i hp hi) hm
+      have hclean₁ : ∀ i < m - 1, marked₁ i = false →
+          v₁ reference (left₁ i) = false ∧ v₁ reference (right₁ i) = false := by
+        intro i hi hm
+        change v reference (skipIndex (n + p) (routeIndex (n + p) q (left (skipIndex p i)))) = false ∧
+          v reference (skipIndex (n + p) (routeIndex (n + p) q (right (skipIndex p i)))) = false
+        rw [skip_route_eval (n + p) q (v reference) hq (hcopyq reference),
+          skip_route_eval (n + p) q (v reference) hq (hcopyq reference)]
+        exact hclean (skipIndex p i) (skipIndex_lt m p i hp hi) hm
+      obtain ⟨m', op', left', right', out', v', hm', hout', hc', hr', he', ho', ha', hor', hcl'⟩ :=
+        ih (m - 1) (by omega) out₁ op₁ left₁ right₁ v₁ marked₁ source₁
+          hout₁ hcausal₁ heval₁ hsource₁ hcopy₁ hclean₁
+      refine ⟨m', op', left', right', out', v', by omega, hout', hc', ?_, he', ?_, ?_, ?_, hcl'⟩
+      · intro s j hj
+        exact (hr' s j hj).trans (deleteGate_raw n p (v s) j hj)
+      · intro s
+        exact (ho' s).trans (deleteGate_output n p q out (v s) hq (hcopyq s))
+      · rw [ha']
+        have hh := countP_range_skipIndex (fun i => op i && !(marked i)) m p hp
+        simpa only [hmarked, Bool.not_true, Bool.and_false, Bool.false_eq_true,
+          ite_false, Nat.add_zero] using hh
+      · rw [hor']
+        have hh := countP_range_skipIndex (fun i => !(op i) && !(marked i)) m p hp
+        simpa only [hmarked, Bool.not_true, Bool.and_false, Bool.false_eq_true,
+          ite_false, Nat.add_zero] using hh
+    · have hmfalse : ∀ i < m, marked i = false := by
+        intro i hi
+        cases heq : marked i with
+        | false => rfl
+        | true => exact False.elim (hsome ⟨i, hi, heq⟩)
+      refine ⟨m, op, left, right, out, v, Nat.le_refl m, hout, hcausal,
+        fun _ _ _ => rfl, heval, fun _ => rfl, ?_, ?_, ?_⟩
+      · apply List.countP_congr
+        intro i hi
+        simp only [hmfalse i (List.mem_range.mp hi), Bool.not_false, Bool.and_true]
+      · apply List.countP_congr
+        intro i hi
+        simp only [hmfalse i (List.mem_range.mp hi), Bool.not_false, Bool.and_true]
+      · intro i hi
+        exact hclean i hi (hmfalse i hi)
+
+end CopyElimination
+
+namespace CopyElimination
+
+def pinMarked (w : Nat → Bool) (left right : Nat → Nat) (i : Nat) : Bool :=
+  w (left i) || w (right i)
+
+def pinCopySource (x : Nat) (op : Nat → Bool) (w : Nat → Bool)
+    (left right : Nat → Nat) (i : Nat) : Nat :=
+  if op i then if w (left i) then right i else left i else x
+
+lemma pin_marked_copy_certificates {σ : Type} (reference : σ) (n m x : Nat)
+    (op : Nat → Bool) (left right : Nat → Nat) (v : σ → Nat → Bool)
+    (hx : x < n) (hpinned : ∀ s, v s x = true)
+    (hcausal : ∀ i < m, left i < n + i ∧ right i < n + i)
+    (heval : ∀ s i, i < m →
+      v s (n + i) = gateBool (op i) (v s (left i)) (v s (right i)))
+    (hraw : ∀ i, i < n → v reference i = true → i = x) :
+    (∀ i < m, pinMarked (v reference) left right i = true →
+      pinCopySource x op (v reference) left right i < n + i) ∧
+    (∀ s i, i < m → pinMarked (v reference) left right i = true →
+      v s (n + i) = v s (pinCopySource x op (v reference) left right i)) ∧
+    (∀ i < m, pinMarked (v reference) left right i = false →
+      v reference (left i) = false ∧ v reference (right i) = false) := by
+  have cert := PinOne.causal_pin_copy_certificates n m x op left right
+    (v reference) v hx hpinned hcausal (heval reference) heval
+    (PinOne.raw_implication_of_pinned_singleton n x (v reference) v hraw hpinned)
+  have hboth : ∀ i, i < m → pinMarked (v reference) left right i = true →
+      pinCopySource x op (v reference) left right i < n + i ∧
+      ∀ s, v s (n + i) = v s (pinCopySource x op (v reference) left right i) := by
+    intro i hi hm
+    cases hop : op i with
+    | false =>
+      have ht : v reference (n + i) = true := by
+        rw [heval reference i hi]
+        simpa only [gateBool, hop, Bool.false_eq_true, ite_false, pinMarked] using hm
+      simpa only [pinCopySource, hop, Bool.false_eq_true, ite_false] using cert.1 i hi ht
+    | true =>
+      cases hl : v reference (left i) with
+      | false =>
+        have hr : v reference (right i) = true := by simpa [pinMarked, hl] using hm
+        simpa only [pinCopySource, hop, hl, ite_true, Bool.false_eq_true, ite_false]
+          using cert.2.2 i hi hop hr
+      | true =>
+        simpa only [pinCopySource, hop, hl, ite_true] using cert.2.1 i hi hop hl
+  refine ⟨fun i hi hm => (hboth i hi hm).1,
+    fun s i hi hm => (hboth i hi hm).2 s, ?_⟩
+  intro i _ hm
+  cases hl : v reference (left i) <;> cases hr : v reference (right i) <;>
+    simp_all [pinMarked]
+
+lemma pin_one_operation_caps {σ : Type} (reference : σ) (n m x out : Nat)
+    (op : Nat → Bool) (left right : Nat → Nat) (v : σ → Nat → Bool)
+    (hx : x < n) (hpinned : ∀ s, v s x = true)
+    (hout : out < n + m) (hzero : v reference out = false)
+    (hcausal : ∀ i < m, left i < n + i ∧ right i < n + i)
+    (heval : ∀ s i, i < m →
+      v s (n + i) = gateBool (op i) (v s (left i)) (v s (right i)))
+    (hraw : ∀ i, i < n → v reference i = true → i = x)
+    (hfive : (List.range m).countP op = 5)
+    (hnine : (List.range m).countP (fun i => !(op i)) = 9)
+    (hlower : ∀ (m' : Nat) (op' : Nat → Bool) (left' right' : Nat → Nat)
+        (out' : Nat) (v' : σ → Nat → Bool),
+      out' < n + m' →
+      (∀ i < m', left' i < n + i ∧ right' i < n + i) →
+      (∀ s j, j < n → v' s j = v s j) →
+      (∀ s i, i < m' →
+        v' s (n + i) = gateBool (op' i) (v' s (left' i)) (v' s (right' i))) →
+      (∀ s, v' s out' = v s out) →
+      (∀ i < m', left' i ≠ x ∧ right' i ≠ x) → out' ≠ x →
+      3 ≤ (List.range m').countP op' ∧
+      6 ≤ (List.range m').countP (fun i => !(op' i))) :
+    (List.range m).countP (fun i => op i && pinMarked (v reference) left right i) ≤ 2 ∧
+    (List.range m).countP (fun i => !(op i) && v reference (n + i)) ≤ 3 := by
+  let marked := pinMarked (v reference) left right
+  obtain ⟨hs, hcopy, hclean⟩ :=
+    pin_marked_copy_certificates reference n m x op left right v hx hpinned hcausal heval hraw
+  obtain ⟨m', op', left', right', out', v', _, hout', hc', hr', he', ho', ha', hor', hcl'⟩ :=
+    eliminate_marked_copies reference n m out op left right v marked
+      (pinCopySource x op (v reference) left right) hout hcausal heval hs hcopy hclean
+  have hrawtrue : v' reference x = true := (hr' reference x hx).trans (hpinned reference)
+  have havoid : ∀ i < m', left' i ≠ x ∧ right' i ≠ x := by
+    intro i hi
+    have hc := hcl' i hi
+    constructor
+    · intro heq
+      have hbad : (true : Bool) = false := hrawtrue.symm.trans (heq ▸ hc.1)
+      cases hbad
+    · intro heq
+      have hbad : (true : Bool) = false := hrawtrue.symm.trans (heq ▸ hc.2)
+      cases hbad
+  have houtavoid : out' ≠ x := by
+    intro heq
+    have hz : v' reference out' = false := (ho' reference).trans hzero
+    have hbad : (true : Bool) = false := hrawtrue.symm.trans (heq ▸ hz)
+    cases hbad
+  obtain ⟨hla, hlo⟩ := hlower m' op' left' right' out' v' hout' hc' hr' he' ho' havoid houtavoid
+  rw [ha'] at hla
+  rw [hor'] at hlo
+  have hpa := countP_range_partition m op marked
+  have hpo := countP_range_partition m (fun i => !(op i)) marked
+  have hor_eq : (List.range m).countP (fun i => !(op i) && v reference (n + i)) =
+      (List.range m).countP (fun i => !(op i) && marked i) := by
+    apply List.countP_congr
+    intro i hi
+    rw [heval reference i (List.mem_range.mp hi)]
+    cases hop : op i <;> simp [gateBool, marked, pinMarked]
+  constructor
+  · change (List.range m).countP (fun i => op i && marked i) ≤ 2
+    omega
+  · rw [hor_eq]
+    omega
+
+end CopyElimination
+
+namespace ConsumerFrontier
+
+def activeAND {k : Nat} (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w : Nat → Bool) (j : Fin k) : Prop :=
+  op j = true ∧ (w (a j) = true ∨ w (b j) = true)
+
+lemma activeAND_of_output_true {n k : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (heval : ∀ j, w (n + j.val) = gateBool (op j) (w (a j)) (w (b j)))
+    (h : Fin k) (hop : op h = true) (htrue : w (n + h.val) = true) :
+    activeAND a b op w h := by
+  have hinputs : w (a h) = true ∧ w (b h) = true := by
+    simpa [gateBool, hop] using (heval h).symm.trans htrue
+  exact ⟨hop, Or.inl hinputs.1⟩
+
+lemma true_gate_has_false_active_frontier {n k out : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (heval : ∀ j, w (n + j.val) = gateBool (op j) (w (a j)) (w (b j)))
+    (h : Fin k) (htrue : w (n + h.val) = true)
+    (hpath : consumerReachable n a b (n + h.val) out) (hout : w out = false) :
+    ∃ f : Fin k, activeAND a b op w f ∧ w (n + f.val) = false ∧ f ≠ h := by
+  obtain ⟨length, path, hfirst, hlast, hstep⟩ := hpath
+  obtain ⟨i, hi, hbefore, f, hfwire, hfop, hfalse, hfinput⟩ :=
+    consumer_path_and_frontier a b op w heval path length hstep
+      (by simpa only [hfirst] using htrue) (by simpa only [hlast] using hout)
+  refine ⟨f, ⟨hfop, hfinput⟩, hfalse, ?_⟩
+  intro heq
+  subst f
+  have hbad : (true : Bool) = false := htrue.symm.trans hfalse
+  cases hbad
+
+lemma unique_true_and_of_active_cap {n k out : Nat}
+    (a b : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (heval : ∀ j, w (n + j.val) = gateBool (op j) (w (a j)) (w (b j)))
+    (hcap : ∀ i j t : Fin k, activeAND a b op w i → activeAND a b op w j →
+      activeAND a b op w t → i = j ∨ i = t ∨ j = t)
+    (h : Fin k) (hop : op h = true) (htrue : w (n + h.val) = true)
+    (hpath : consumerReachable n a b (n + h.val) out) (hout : w out = false) :
+    ∃ f : Fin k, activeAND a b op w f ∧ w (n + f.val) = false ∧ f ≠ h ∧
+      (∀ j, activeAND a b op w j → j = h ∨ j = f) ∧
+      (∀ j, op j = true → w (n + j.val) = true → j = h) := by
+  have hhactive := activeAND_of_output_true a b op w heval h hop htrue
+  obtain ⟨f, hfactive, hfalse, hfne⟩ :=
+    true_gate_has_false_active_frontier a b op w heval h htrue hpath hout
+  have hclassification : ∀ j, activeAND a b op w j → j = h ∨ j = f := by
+    intro j hj
+    rcases hcap h f j hhactive hfactive hj with heq | heq | heq
+    · exact False.elim (hfne heq.symm)
+    · exact Or.inl heq.symm
+    · exact Or.inr heq.symm
+  refine ⟨f, hfactive, hfalse, hfne, hclassification, ?_⟩
+  intro j hjop hjtrue
+  rcases hclassification j (activeAND_of_output_true a b op w heval j hjop hjtrue) with hjh | hjf
+  · exact hjh
+  · subst j
+    have hbad : (true : Bool) = false := hjtrue.symm.trans hfalse
+    cases hbad
+
+end ConsumerFrontier
+
+namespace ConsumerFrontier
+
+def consumes {k : Nat} (left right : Fin k → Nat) (j : Fin k) (wire : Nat) : Prop :=
+  left j = wire ∨ right j = wire
+
+lemma live_true_has_direct_frontier {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (h f : Fin k) (out : Nat)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hpath : consumerReachable n left right (n + h.val) out)
+    (htrue : w (n + h.val) = true) (hout : w out = false)
+    (hnoOR : ∀ j, op j = false → ¬consumes left right j (n + h.val))
+    (hactive : ∀ j, op j = true →
+      (w (left j) = true ∨ w (right j) = true) → j = h ∨ j = f) :
+    consumes left right f (n + h.val) := by
+  obtain ⟨length, path, hfirst, hlast, hstep⟩ := hpath
+  have hlen : 0 < length := by
+    by_contra hz
+    have heq : length = 0 := by omega
+    subst length
+    have hbad : (true : Bool) = false := htrue.symm.trans (hfirst ▸ (hlast ▸ hout))
+    cases hbad
+  obtain ⟨j, _, hparent⟩ := hstep 0 hlen
+  have hj : consumes left right j (n + h.val) := by
+    rcases hparent with hl | hr
+    · exact Or.inl (hl.symm.trans hfirst)
+    · exact Or.inr (hr.symm.trans hfirst)
+  have hop : op j = true := by
+    cases heq : op j with
+    | false => exact False.elim (hnoOR j heq hj)
+    | true => rfl
+  have hin : w (left j) = true ∨ w (right j) = true := by
+    rcases hj with hl | hr
+    · exact Or.inl (hl ▸ htrue)
+    · exact Or.inr (hr ▸ htrue)
+  rcases hactive j hop hin with heq | heq
+  · subst j
+    have hc := hcausal h
+    rcases hj with hl | hr <;> omega
+  · simpa only [heq] using hj
+
+lemma false_gate_cannot_consume_two_true {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (f : Fin k) (u v : Nat) (hne : u ≠ v)
+    (hu : w u = true) (hv : w v = true)
+    (heval : w (n + f.val) = gateBool (op f) (w (left f)) (w (right f)))
+    (hfalse : w (n + f.val) = false)
+    (hreadu : consumes left right f u) :
+    ¬consumes left right f v := by
+  intro hreadv
+  have hgate : gateBool (op f) (w (left f)) (w (right f)) = false :=
+    heval.symm.trans hfalse
+  rcases hreadu with hlu | hru <;> rcases hreadv with hlv | hrv
+  · exact hne (hlu.symm.trans hlv)
+  · rw [hlu, hrv, hu, hv] at hgate
+    cases op f <;> simp [gateBool] at hgate
+  · rw [hlv, hru, hv, hu] at hgate
+    cases op f <;> simp [gateBool] at hgate
+  · exact hne (hru.symm.trans hrv)
+
+lemma true_input_private_to_true_gate {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (h f : Fin k) (wire : Nat) (hne : n + h.val ≠ wire)
+    (hh : w (n + h.val) = true) (hwire : w wire = true)
+    (heval : w (n + f.val) = gateBool (op f) (w (left f)) (w (right f)))
+    (hfalse : w (n + f.val) = false)
+    (hread : consumes left right f (n + h.val))
+    (hnoOR : ∀ j, op j = false → ¬consumes left right j wire)
+    (hactive : ∀ j, op j = true →
+      (w (left j) = true ∨ w (right j) = true) → j = h ∨ j = f) :
+    ∀ j, j ≠ h → ¬consumes left right j wire := by
+  intro j hj hconsume
+  have hop : op j = true := by
+    cases heq : op j with
+    | false => exact False.elim (hnoOR j heq hconsume)
+    | true => rfl
+  have hin : w (left j) = true ∨ w (right j) = true := by
+    rcases hconsume with hl | hr
+    · exact Or.inl (hl ▸ hwire)
+    · exact Or.inr (hr ▸ hwire)
+  rcases hactive j hop hin with heq | heq
+  · exact hj heq
+  · subst j
+    exact false_gate_cannot_consume_two_true left right op w f
+      (n + h.val) wire hne hh hwire heval hfalse hread hconsume
+
+end ConsumerFrontier
+
+namespace SingletonWire
+
+def profileLe {Bit : Type} (profile : Nat → Bit → Bool) (a b : Nat) : Prop :=
+  ∀ bit, profile a bit = true → profile b bit = true
+
+def trueOr {k : Nat} (n : Nat) (op : Fin k → Bool) (w : Nat → Bool) (j : Fin k) : Prop :=
+  op j = false ∧ w (n + j.val) = true
+
+def trueAnd {k : Nat} (n : Nat) (op : Fin k → Bool) (w : Nat → Bool) (j : Fin k) : Prop :=
+  op j = true ∧ w (n + j.val) = true
+
+lemma reader_precedes_and_dominates {Bit : Type} {n k v : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (profile : Nat → Bit → Bool) (q : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j, j ≠ q → left j ≠ v ∧ right j ≠ v)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hp : ∀ j bit, profile (n + j.val) bit =
+      gateBool (op j) (profile (left j) bit) (profile (right j) bit)) :
+    ∀ j : Fin k, w (n + j.val) = true →
+      q.val ≤ j.val ∧ profileLe profile (n + q.val) (n + j.val) := by
+  have hmain : ∀ z, z < n + k → n ≤ z → w z = true →
+      n + q.val ≤ z ∧ profileLe profile (n + q.val) z := by
+    intro z
+    induction z using Nat.strong_induction_on with
+    | ind z ih =>
+      intro hz hn htrue
+      let j : Fin k := ⟨z - n, by omega⟩
+      have heq : n + j.val = z := by dsimp [j]; omega
+      by_cases hjq : j = q
+      · have hzq : z = n + q.val := by rw [← heq, hjq]
+        rw [hzq]
+        exact ⟨Nat.le_refl _, fun _ h => h⟩
+      · have hc := hcausal j
+        have hs := hsole j hjq
+        have hleft : w (left j) = true →
+            n + q.val ≤ left j ∧ profileLe profile (n + q.val) (left j) := by
+          intro hval
+          have hnleft : n ≤ left j := by
+            by_contra hbad
+            exact hs.1 (hraw (left j) (by omega) hval)
+          exact ih (left j) (by omega) (by omega) hnleft hval
+        have hright : w (right j) = true →
+            n + q.val ≤ right j ∧ profileLe profile (n + q.val) (right j) := by
+          intro hval
+          have hnright : n ≤ right j := by
+            by_contra hbad
+            exact hs.2 (hraw (right j) (by omega) hval)
+          exact ih (right j) (by omega) (by omega) hnright hval
+        have hgate : gateBool (op j) (w (left j)) (w (right j)) = true := by
+          rw [← hw j, heq]
+          exact htrue
+        cases ho : op j with
+        | false =>
+          have hv : w (left j) = true ∨ w (right j) = true := by
+            simpa [gateBool, ho] using hgate
+          rcases hv with hl | hr
+          · have hd := hleft hl
+            refine ⟨by omega, ?_⟩
+            intro bit hbit
+            have hval := hd.2 bit hbit
+            have hout : profile (n + j.val) bit = true := by
+              simpa [gateBool, ho, hval] using hp j bit
+            simpa only [heq] using hout
+          · have hd := hright hr
+            refine ⟨by omega, ?_⟩
+            intro bit hbit
+            have hval := hd.2 bit hbit
+            have hout : profile (n + j.val) bit = true := by
+              simpa [gateBool, ho, hval] using hp j bit
+            simpa only [heq] using hout
+        | true =>
+          have hv : w (left j) = true ∧ w (right j) = true := by
+            simpa [gateBool, ho] using hgate
+          have hl := hleft hv.1
+          have hr := hright hv.2
+          refine ⟨by omega, ?_⟩
+          intro bit hbit
+          have hpl := hl.2 bit hbit
+          have hpr := hr.2 bit hbit
+          have hout : profile (n + j.val) bit = true := by
+            simpa [gateBool, ho, hpl, hpr] using hp j bit
+          simpa only [heq] using hout
+  intro j hj
+  have hm := hmain (n + j.val) (by omega) (by omega) hj
+  exact ⟨by omega, hm.2⟩
+
+lemma true_source_is_gate {n k v : Nat} (left right : Fin k → Nat)
+    (w : Nat → Bool) (q i : Fin k) (source : Nat)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j, j ≠ q → left j ≠ v ∧ right j ≠ v)
+    (hiq : i ≠ q) (hsource : source = left i ∨ source = right i)
+    (htrue : w source = true) :
+    ∃ j : Fin k, source = n + j.val ∧ j.val < i.val ∧ w (n + j.val) = true := by
+  have hs : source < n + i.val := by
+    rcases hsource with h | h
+    · rw [h]; exact (hcausal i).1
+    · rw [h]; exact (hcausal i).2
+  have hn : n ≤ source := by
+    by_contra hbad
+    have hv := hraw source (by omega) htrue
+    rcases hsource with h | h
+    · exact (hsole i hiq).1 (h.symm.trans hv)
+    · exact (hsole i hiq).2 (h.symm.trans hv)
+  let j : Fin k := ⟨source - n, by omega⟩
+  have heq : source = n + j.val := by dsimp [j]; omega
+  exact ⟨j, heq, by dsimp [j]; omega, heq ▸ htrue⟩
+
+lemma true_and_has_two_other_ors {Bit : Type} {n k v : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (profile : Nat → Bit → Bool) (q h : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j, j ≠ q → left j ≠ v ∧ right j ≠ v)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hq : op q = false) (hh : trueAnd n op w h)
+    (hunique : ∀ j, trueAnd n op w j → j = h)
+    (hfront : ∀ j : Fin k, w (n + j.val) = true →
+      q.val ≤ j.val ∧ profileLe profile (n + q.val) (n + j.val))
+    (hinc : ¬ profileLe profile (left h) (right h) ∧
+      ¬ profileLe profile (right h) (left h)) :
+    ∃ a b : Fin k, left h = n + a.val ∧ right h = n + b.val ∧
+      a.val < h.val ∧ b.val < h.val ∧ trueOr n op w a ∧ trueOr n op w b ∧
+      a ≠ b ∧ a ≠ q ∧ b ≠ q ∧ q.val < a.val ∧ q.val < b.val := by
+  have hhq : h ≠ q := by
+    intro heq
+    have hop := hh.1
+    rw [heq, hq] at hop
+    cases hop
+  have hins : w (left h) = true ∧ w (right h) = true := by
+    have he := (hw h).symm.trans hh.2
+    simpa [gateBool, hh.1] using he
+  obtain ⟨a, hla, hah, hwa⟩ := true_source_is_gate left right w q h (left h)
+    hcausal hraw hsole hhq (Or.inl rfl) hins.1
+  obtain ⟨b, hrb, hbh, hwb⟩ := true_source_is_gate left right w q h (right h)
+    hcausal hraw hsole hhq (Or.inr rfl) hins.2
+  have hoa : op a = false := by
+    cases ho : op a with
+    | false => rfl
+    | true =>
+      have he := hunique a ⟨ho, hwa⟩
+      have hv := congrArg Fin.val he
+      omega
+  have hob : op b = false := by
+    cases ho : op b with
+    | false => rfl
+    | true =>
+      have he := hunique b ⟨ho, hwb⟩
+      have hv := congrArg Fin.val he
+      omega
+  have hab : a ≠ b := by
+    intro heq
+    apply hinc.1
+    rw [hla, hrb, heq]
+    exact fun _ hbit => hbit
+  have haq : a ≠ q := by
+    intro heq
+    apply hinc.1
+    rw [hla, hrb, heq]
+    exact (hfront b hwb).2
+  have hbq : b ≠ q := by
+    intro heq
+    apply hinc.2
+    rw [hla, hrb, heq]
+    exact (hfront a hwa).2
+  have hqa : q.val < a.val := by
+    have hle := (hfront a hwa).1
+    have hne : a.val ≠ q.val := fun h => haq (Fin.ext h)
+    omega
+  have hqb : q.val < b.val := by
+    have hle := (hfront b hwb).1
+    have hne : b.val ≠ q.val := fun h => hbq (Fin.ext h)
+    omega
+  exact ⟨a, b, hla, hrb, hah, hbh, ⟨hoa, hwa⟩, ⟨hob, hwb⟩,
+    hab, haq, hbq, hqa, hqb⟩
+
+
+lemma three_true_ors_exhaust {n k : Nat} (op : Fin k → Bool) (w : Nat → Bool)
+    (q a b : Fin k) (hq : trueOr n op w q) (ha : trueOr n op w a)
+    (hb : trueOr n op w b) (hqa : q ≠ a) (hqb : q ≠ b) (hab : a ≠ b)
+    (hcap : ∀ i j l t : Fin k, trueOr n op w i → trueOr n op w j →
+      trueOr n op w l → trueOr n op w t → i ≠ j → i ≠ l → j ≠ l →
+      t ≠ i → t ≠ j → t ≠ l → False) :
+    ∀ t, trueOr n op w t → t = q ∨ t = a ∨ t = b := by
+  intro t ht
+  by_cases htq : t = q
+  · exact Or.inl htq
+  by_cases hta : t = a
+  · exact Or.inr (Or.inl hta)
+  by_cases htb : t = b
+  · exact Or.inr (Or.inr htb)
+  exact False.elim (hcap q a b t hq ha hb ht hqa hqb hab htq hta htb)
+
+lemma or_consumer_true_and_profile {Bit : Type} {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (profile : Nat → Bit → Bool) (i : Fin k) (source : Nat)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hp : ∀ j bit, profile (n + j.val) bit =
+      gateBool (op j) (profile (left j) bit) (profile (right j) bit))
+    (hoi : op i = false) (hsource : source = left i ∨ source = right i)
+    (htrue : w source = true) :
+    trueOr n op w i ∧ profileLe profile source (n + i.val) := by
+  rcases hsource with hs | hs
+  · have hv : w (left i) = true := hs ▸ htrue
+    refine ⟨⟨hoi, by simpa [gateBool, hoi, hv] using hw i⟩, ?_⟩
+    intro bit hbit
+    have hb : profile (left i) bit = true := hs ▸ hbit
+    simpa [gateBool, hoi, hb] using hp i bit
+  · have hv : w (right i) = true := hs ▸ htrue
+    refine ⟨⟨hoi, by simpa [gateBool, hoi, hv] using hw i⟩, ?_⟩
+    intro bit hbit
+    have hb : profile (right i) bit = true := hs ▸ hbit
+    simpa [gateBool, hoi, hb] using hp i bit
+
+lemma no_or_consumer_of_incomparable_triple {Bit : Type} {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (profile : Nat → Bit → Bool) (q a b : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hp : ∀ j bit, profile (n + j.val) bit =
+      gateBool (op j) (profile (left j) bit) (profile (right j) bit))
+    (hwa : w (n + a.val) = true) (hqa : q.val < a.val)
+    (hexhaust : ∀ j, trueOr n op w j → j = q ∨ j = a ∨ j = b)
+    (hinc : ¬ profileLe profile (n + a.val) (n + b.val)) :
+    ∀ i, op i = false → left i ≠ n + a.val ∧ right i ≠ n + a.val := by
+  intro i hoi
+  have hnot : ¬ (n + a.val = left i ∨ n + a.val = right i) := by
+    intro hs
+    have hi := or_consumer_true_and_profile left right op w profile i (n + a.val)
+      hw hp hoi hs hwa
+    have hai : a.val < i.val := by
+      rcases hs with hl | hr
+      · have hc := (hcausal i).1; omega
+      · have hc := (hcausal i).2; omega
+    rcases hexhaust i hi.1 with heq | heq | heq
+    · have hv := congrArg Fin.val heq; omega
+    · have hv := congrArg Fin.val heq; omega
+    · apply hinc
+      simpa only [heq] using hi.2
+  exact ⟨fun he => hnot (Or.inl he.symm), fun he => hnot (Or.inr he.symm)⟩
+
+lemma true_or_reads_common_reader {n k v : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (q a b h i : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j, j ≠ q → left j ≠ v ∧ right j ≠ v)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hunique : ∀ j, trueAnd n op w j → j = h)
+    (hexhaust : ∀ j, trueOr n op w j → j = q ∨ j = a ∨ j = b)
+    (hnoa : ∀ j, op j = false → left j ≠ n + a.val ∧ right j ≠ n + a.val)
+    (hnob : ∀ j, op j = false → left j ≠ n + b.val ∧ right j ≠ n + b.val)
+    (hi : trueOr n op w i) (hiq : i ≠ q) (hih : i.val < h.val) :
+    left i = n + q.val ∨ right i = n + q.val := by
+  have hport : w (left i) = true ∨ w (right i) = true := by
+    have he := (hw i).symm.trans hi.2
+    simpa [gateBool, hi.1] using he
+  have hsource : ∀ source, (source = left i ∨ source = right i) →
+      w source = true → source = n + q.val := by
+    intro source hs ht
+    obtain ⟨j, heq, hji, hjw⟩ := true_source_is_gate left right w q i source
+      hcausal hraw hsole hiq hs ht
+    have hoj : op j = false := by
+      cases ho : op j with
+      | false => rfl
+      | true =>
+        have hje := hunique j ⟨ho, hjw⟩
+        have hv := congrArg Fin.val hje
+        omega
+    rcases hexhaust j ⟨hoj, hjw⟩ with hjq | hja | hjb
+    · simpa only [hjq] using heq
+    · have he : source = n + a.val := by simpa only [hja] using heq
+      rcases hs with hl | hr
+      · exact False.elim ((hnoa i hi.1).1 (hl.symm.trans he))
+      · exact False.elim ((hnoa i hi.1).2 (hr.symm.trans he))
+    · have he : source = n + b.val := by simpa only [hjb] using heq
+      rcases hs with hl | hr
+      · exact False.elim ((hnob i hi.1).1 (hl.symm.trans he))
+      · exact False.elim ((hnob i hi.1).2 (hr.symm.trans he))
+  rcases hport with hl | hr
+  · exact Or.inl (hsource (left i) (Or.inl rfl) hl)
+  · exact Or.inr (hsource (right i) (Or.inr rfl) hr)
+
+lemma no_or_consumer_after_true_ors {n k : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool) (h : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (htrue : w (n + h.val) = true)
+    (hbefore : ∀ j, trueOr n op w j → j.val < h.val) :
+    ∀ i, op i = false → left i ≠ n + h.val ∧ right i ≠ n + h.val := by
+  intro i hoi
+  have hnot : ¬ (left i = n + h.val ∨ right i = n + h.val) := by
+    intro hs
+    have hwi : w (n + i.val) = true := by
+      rcases hs with hl | hr
+      · simpa [gateBool, hoi, hl, htrue] using hw i
+      · simpa [gateBool, hoi, hr, htrue] using hw i
+    have hib := hbefore i ⟨hoi, hwi⟩
+    rcases hs with hl | hr
+    · have hc := (hcausal i).1; omega
+    · have hc := (hcausal i).2; omega
+  exact ⟨fun he => hnot (Or.inl he), fun he => hnot (Or.inr he)⟩
+
+end SingletonWire
+
+
+namespace SingletonWire
+
+lemma singleton_true_and_forces_private_diamond {Bit : Type} {n k v out : Nat}
+    (left right : Fin k → Nat) (op : Fin k → Bool) (w : Nat → Bool)
+    (profile : Nat → Bit → Bool) (q h : Fin k)
+    (hcausal : ∀ j, left j < n + j.val ∧ right j < n + j.val)
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j, j ≠ q → left j ≠ v ∧ right j ≠ v)
+    (hw : ∀ j : Fin k, w (n + j.val) = gateBool (op j) (w (left j)) (w (right j)))
+    (hp : ∀ j bit, profile (n + j.val) bit =
+      gateBool (op j) (profile (left j) bit) (profile (right j) bit))
+    (hq : trueOr n op w q) (hh : trueAnd n op w h)
+    (hinc : ¬ profileLe profile (left h) (right h) ∧
+      ¬ profileLe profile (right h) (left h))
+    (hORcap : ∀ i j l t : Fin k, trueOr n op w i → trueOr n op w j →
+      trueOr n op w l → trueOr n op w t → i ≠ j → i ≠ l → j ≠ l →
+      t ≠ i → t ≠ j → t ≠ l → False)
+    (hANDcap : ∀ i j t : Fin k, ConsumerFrontier.activeAND left right op w i →
+      ConsumerFrontier.activeAND left right op w j →
+      ConsumerFrontier.activeAND left right op w t → i = j ∨ i = t ∨ j = t)
+    (hpath : ConsumerFrontier.consumerReachable n left right (n + h.val) out)
+    (hout : w out = false) :
+    ∃ a b : Fin k, left h = n + a.val ∧ right h = n + b.val ∧
+      q.val < a.val ∧ q.val < b.val ∧ a.val < h.val ∧ b.val < h.val ∧
+      a ≠ b ∧ trueOr n op w a ∧ trueOr n op w b ∧
+      (left a = n + q.val ∨ right a = n + q.val) ∧
+      (left b = n + q.val ∨ right b = n + q.val) ∧
+      (∀ i, i ≠ h → left i ≠ n + a.val ∧ right i ≠ n + a.val ∧
+        left i ≠ n + b.val ∧ right i ≠ n + b.val) ∧
+      out ≠ n + a.val ∧ out ≠ n + b.val := by
+  obtain ⟨f, _, hffalse, _, hactive, huniq⟩ :=
+    ConsumerFrontier.unique_true_and_of_active_cap left right op w hw hANDcap
+      h hh.1 hh.2 hpath hout
+  have hunique : ∀ j, trueAnd n op w j → j = h := by
+    intro j hj
+    exact huniq j hj.1 hj.2
+  have hfront := reader_precedes_and_dominates left right op w profile q
+    hcausal hraw hsole hw hp
+  obtain ⟨a, b, hla, hrb, hah, hbh, ha, hb, hab, haq, hbq, hqa, hqb⟩ :=
+    true_and_has_two_other_ors left right op w profile q h hcausal hraw hsole
+      hw hq.1 hh hunique hfront hinc
+  have hexhaust := three_true_ors_exhaust op w q a b hq ha hb
+    (Ne.symm haq) (Ne.symm hbq) hab hORcap
+  have hexhaust' : ∀ j, trueOr n op w j → j = q ∨ j = b ∨ j = a := by
+    intro j hj
+    rcases hexhaust j hj with hq | ha | hb
+    · exact Or.inl hq
+    · exact Or.inr (Or.inr ha)
+    · exact Or.inr (Or.inl hb)
+  have hincab : ¬ profileLe profile (n + a.val) (n + b.val) := by
+    simpa only [hla, hrb] using hinc.1
+  have hincba : ¬ profileLe profile (n + b.val) (n + a.val) := by
+    simpa only [hla, hrb] using hinc.2
+  have hnoa := no_or_consumer_of_incomparable_triple left right op w profile q a b
+    hcausal hw hp ha.2 hqa hexhaust hincab
+  have hnob := no_or_consumer_of_incomparable_triple left right op w profile q b a
+    hcausal hw hp hb.2 hqb hexhaust' hincba
+  have haqread := true_or_reads_common_reader left right op w q a b h a
+    hcausal hraw hsole hw hunique hexhaust hnoa hnob ha haq hah
+  have hbqread := true_or_reads_common_reader left right op w q a b h b
+    hcausal hraw hsole hw hunique hexhaust hnoa hnob hb hbq hbh
+  have hbefore : ∀ j, trueOr n op w j → j.val < h.val := by
+    intro j hj
+    rcases hexhaust j hj with hjq | hja | hjb
+    · have hv := congrArg Fin.val hjq; omega
+    · simpa only [hja] using hah
+    · simpa only [hjb] using hbh
+  have hnoh := no_or_consumer_after_true_ors left right op w h hcausal hw hh.2 hbefore
+  have hactive' : ∀ j, op j = true →
+      (w (left j) = true ∨ w (right j) = true) → j = h ∨ j = f := by
+    intro j hop hin
+    exact hactive j ⟨hop, hin⟩
+  have hread := ConsumerFrontier.live_true_has_direct_frontier left right op w h f out
+    hcausal hpath hh.2 hout (by
+      intro j hoj hc
+      rcases hc with hl | hr
+      · exact (hnoh j hoj).1 hl
+      · exact (hnoh j hoj).2 hr) hactive'
+  have hprivatea := ConsumerFrontier.true_input_private_to_true_gate left right op w h f
+    (n + a.val) (by omega) hh.2 ha.2 (hw f) hffalse hread (by
+      intro j hoj hc
+      rcases hc with hl | hr
+      · exact (hnoa j hoj).1 hl
+      · exact (hnoa j hoj).2 hr) hactive'
+  have hprivateb := ConsumerFrontier.true_input_private_to_true_gate left right op w h f
+    (n + b.val) (by omega) hh.2 hb.2 (hw f) hffalse hread (by
+      intro j hoj hc
+      rcases hc with hl | hr
+      · exact (hnob j hoj).1 hl
+      · exact (hnob j hoj).2 hr) hactive'
+  refine ⟨a, b, hla, hrb, hqa, hqb, hah, hbh, hab, ha, hb, haqread, hbqread, ?_, ?_, ?_⟩
+  · intro i hih
+    exact ⟨fun he => hprivatea i hih (Or.inl he),
+      fun he => hprivatea i hih (Or.inr he),
+      fun he => hprivateb i hih (Or.inl he),
+      fun he => hprivateb i hih (Or.inr he)⟩
+  · intro he
+    have hbad : (true : Bool) = false := ha.2.symm.trans (he ▸ hout)
+    cases hbad
+  · intro he
+    have hbad : (true : Bool) = false := hb.2.symm.trans (he ▸ hout)
+    cases hbad
+
+end SingletonWire
+
+namespace Diamond
+
+def orientLeft (wanted left right : Nat → Nat) (i : Nat) : Nat :=
+  if left i = wanted i then left i else right i
+
+def orientRight (wanted left right : Nat → Nat) (i : Nat) : Nat :=
+  if left i = wanted i then right i else left i
+
+lemma orient_causal (n k : Nat) (wanted left right : Nat → Nat)
+    (hc : ∀ i < k, left i < n + i ∧ right i < n + i) :
+    ∀ i < k, orientLeft wanted left right i < n + i ∧
+      orientRight wanted left right i < n + i := by
+  intro i hi
+  by_cases he : left i = wanted i
+  · simpa [orientLeft, orientRight, he] using hc i hi
+  · simpa [orientLeft, orientRight, he, and_comm] using hc i hi
+
+lemma orient_preserves_sources (k : Nat) (wanted left right : Nat → Nat)
+    (P : Nat → Prop) (hp : ∀ i < k, P (left i) ∧ P (right i)) :
+    ∀ i < k, P (orientLeft wanted left right i) ∧ P (orientRight wanted left right i) := by
+  intro i hi
+  by_cases he : left i = wanted i
+  · simpa [orientLeft, orientRight, he] using hp i hi
+  · simpa [orientLeft, orientRight, he, and_comm] using hp i hi
+
+lemma orient_eval (n k : Nat) (wanted left right : Nat → Nat)
+    (op : Nat → Bool) (x : Nat → Nat)
+    (hx : ∀ i < k, x (n + i) = gateNat (op i) (x (left i)) (x (right i))) :
+    ∀ i < k, x (n + i) = gateNat (op i)
+      (x (orientLeft wanted left right i)) (x (orientRight wanted left right i)) := by
+  intro i hi
+  by_cases he : left i = wanted i
+  · simpa [orientLeft, orientRight, he] using hx i hi
+  · have hcomm : gateNat (op i) (x (left i)) (x (right i)) =
+        gateNat (op i) (x (right i)) (x (left i)) := by
+      cases op i <;> simp [gateNat, Nat.and_comm, Nat.or_comm]
+    simpa [orientLeft, orientRight, he] using (hx i hi).trans hcomm
+
+lemma orient_private (n k a b h : Nat) (wanted left right : Nat → Nat)
+    (hp : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b)) :
+    ∀ i < k, i ≠ h →
+      (orientLeft wanted left right i ≠ n + a ∧ orientLeft wanted left right i ≠ n + b) ∧
+      (orientRight wanted left right i ≠ n + a ∧ orientRight wanted left right i ≠ n + b) := by
+  intro i hi hih
+  by_cases he : left i = wanted i
+  · simpa [orientLeft, orientRight, he] using hp i hi hih
+  · simpa [orientLeft, orientRight, he, and_comm] using hp i hi hih
+
+lemma no_private_unordered_diamond_of_or_lower_bound
+    (n k a b h q out bound : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) (allowed : Nat → Prop)
+    (hab : a < b) (hbh : b < h) (hh : h < k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (ha : op a = false ∧ (left a = q ∨ right a = q))
+    (hb : op b = false ∧ (left b = q ∨ right b = q))
+    (hd : op h = true ∧
+      ((left h = n + a ∧ right h = n + b) ∨ (left h = n + b ∧ right h = n + a)))
+    (hprivate : ∀ i < k, i ≠ h →
+      (left i ≠ n + a ∧ left i ≠ n + b) ∧
+      (right i ≠ n + a ∧ right i ≠ n + b))
+    (hx : ∀ i < k, x (n + i) = gateNat (op i) (x (left i)) (x (right i)))
+    (hallowed : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i)))
+    (hout : out < n + k) (houtA : out ≠ n + a) (houtB : out ≠ n + b)
+    (hcount : orCount op k ≤ bound)
+    (hlower : ∀ (op' : Nat → Bool) (left' right' : Nat → Nat) (y : Nat → Nat),
+      (∀ i < k, left' i < n + i ∧ right' i < n + i) →
+      (∀ i < k,
+        (left' i < n → allowed (left' i)) ∧ (right' i < n → allowed (right' i))) →
+      (∀ j < n, y j = x j) →
+      (∀ i < k, y (n + i) = gateNat (op' i) (y (left' i)) (y (right' i))) →
+      y out = x out → bound ≤ orCount op' k) : False := by
+  let wanted : Nat → Nat := fun i => if i = h then n + a else q
+  let l := orientLeft wanted left right
+  let r := orientRight wanted left right
+  have hah : a ≠ h := by omega
+  have hbhne : b ≠ h := by omega
+  have hla : l a = q := by
+    change (if left a = wanted a then left a else right a) = q
+    have hw : wanted a = q := by simp [wanted, hah]
+    rw [hw]
+    rcases ha.2 with hl | hr
+    · simp [hl]
+    · by_cases hl : left a = q <;> simp [hl, hr]
+  have hlb : l b = q := by
+    change (if left b = wanted b then left b else right b) = q
+    have hw : wanted b = q := by simp [wanted, hbhne]
+    rw [hw]
+    rcases hb.2 with hl | hr
+    · simp [hl]
+    · by_cases hl : left b = q <;> simp [hl, hr]
+  have hlh : l h = n + a ∧ r h = n + b := by
+    change (if left h = wanted h then left h else right h) = n + a ∧
+      (if left h = wanted h then right h else left h) = n + b
+    have hw : wanted h = n + a := by simp [wanted]
+    rw [hw]
+    rcases hd.2 with hports | hports
+    · simp [hports.1, hports.2]
+    · have hne : b ≠ a := by omega
+      simp [hports.1, hports.2, hne]
+  exact no_private_diamond_of_or_lower_bound n k a b h q (r a) (r b) out bound
+    op l r x allowed hab hbh hh (orient_causal n k wanted left right hcausal)
+    ⟨ha.1, hla, rfl⟩ ⟨hb.1, hlb, rfl⟩ ⟨hd.1, hlh⟩
+    (orient_private n k a b h wanted left right hprivate)
+    (orient_eval n k wanted left right op x hx)
+    (orient_preserves_sources k wanted left right (fun j => j < n → allowed j) hallowed)
+    hout houtA houtB hcount hlower
+
+end Diamond
+
+namespace CountCaps
+
+lemma witnesses_le_count (m : Nat) (p : Nat → Bool) (witnesses : List Nat)
+    (hnd : witnesses.Nodup) (hb : ∀ i ∈ witnesses, i < m)
+    (hp : ∀ i ∈ witnesses, p i = true) :
+    witnesses.length ≤ (List.range m).countP p := by
+  rw [List.countP_eq_length_filter]
+  apply hnd.length_le_of_subset
+  intro i hi
+  exact List.mem_filter.mpr ⟨List.mem_range.mpr (hb i hi), hp i hi⟩
+
+lemma three_of_count_le_two {m : Nat} (p : Nat → Bool)
+    (hcount : (List.range m).countP p ≤ 2)
+    (i j t : Fin m) (hi : p i.val = true) (hj : p j.val = true) (ht : p t.val = true) :
+    i = j ∨ i = t ∨ j = t := by
+  by_cases hij : i = j
+  · exact Or.inl hij
+  by_cases hit : i = t
+  · exact Or.inr (Or.inl hit)
+  by_cases hjt : j = t
+  · exact Or.inr (Or.inr hjt)
+  have hijv : i.val ≠ j.val := fun he => hij (Fin.ext he)
+  have hitv : i.val ≠ t.val := fun he => hit (Fin.ext he)
+  have hjtv : j.val ≠ t.val := fun he => hjt (Fin.ext he)
+  have hw := witnesses_le_count m p [i.val, j.val, t.val]
+    (by simp [hijv, hitv, hjtv]) (by
+      intro x hx
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
+      rcases hx with h | h | h <;> subst x
+      · exact i.isLt
+      · exact j.isLt
+      · exact t.isLt) (by
+      intro x hx
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
+      rcases hx with h | h | h <;> subst x
+      · exact hi
+      · exact hj
+      · exact ht)
+  simp only [List.length_cons, List.length_nil] at hw
+  omega
+
+lemma four_impossible_of_count_le_three {m : Nat} (p : Nat → Bool)
+    (hcount : (List.range m).countP p ≤ 3)
+    (i j l t : Fin m) (hi : p i.val = true) (hj : p j.val = true)
+    (hl : p l.val = true) (ht : p t.val = true)
+    (hij : i ≠ j) (hil : i ≠ l) (hjl : j ≠ l)
+    (hti : t ≠ i) (htj : t ≠ j) (htl : t ≠ l) : False := by
+  have hijv : i.val ≠ j.val := fun he => hij (Fin.ext he)
+  have hilv : i.val ≠ l.val := fun he => hil (Fin.ext he)
+  have hjlv : j.val ≠ l.val := fun he => hjl (Fin.ext he)
+  have hitv : i.val ≠ t.val := fun he => hti (Fin.ext he.symm)
+  have hjtv : j.val ≠ t.val := fun he => htj (Fin.ext he.symm)
+  have hltv : l.val ≠ t.val := fun he => htl (Fin.ext he.symm)
+  have hw := witnesses_le_count m p [i.val, j.val, l.val, t.val]
+    (by simp [hijv, hilv, hjlv, hitv, hjtv, hltv]) (by
+      intro x hx
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
+      rcases hx with h | h | h | h <;> subst x
+      · exact i.isLt
+      · exact j.isLt
+      · exact l.isLt
+      · exact t.isLt) (by
+      intro x hx
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
+      rcases hx with h | h | h | h <;> subst x
+      · exact hi
+      · exact hj
+      · exact hl
+      · exact ht)
+  simp only [List.length_cons, List.length_nil] at hw
+  omega
+
+end CountCaps
+
+namespace SingletonWire
+
+lemma no_singleton_true_and_of_caps_and_or_lower_bound
+    {Bit : Type} (n k v out bound : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) (allowed : Nat → Prop)
+    (w : Nat → Bool) (profile : Nat → Bit → Bool) (q h : Fin k)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (hx : ∀ i < k, x (n + i) = Diamond.gateNat (op i) (x (left i)) (x (right i)))
+    (hallowed : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i)))
+    (hraw : ∀ j < n, w j = true → j = v)
+    (hsole : ∀ j : Fin k, j ≠ q → left j.val ≠ v ∧ right j.val ≠ v)
+    (hw : ∀ j : Fin k, w (n + j.val) =
+      gateBool (op j.val) (w (left j.val)) (w (right j.val)))
+    (hp : ∀ (j : Fin k) bit, profile (n + j.val) bit =
+      gateBool (op j.val) (profile (left j.val) bit) (profile (right j.val) bit))
+    (hq : trueOr n (fun j : Fin k => op j.val) w q)
+    (hh : trueAnd n (fun j : Fin k => op j.val) w h)
+    (hinc : ¬ profileLe profile (left h.val) (right h.val) ∧
+      ¬ profileLe profile (right h.val) (left h.val))
+    (hORcount : (List.range k).countP (fun i => !(op i) && w (n + i)) ≤ 3)
+    (hANDcount : (List.range k).countP
+      (fun i => op i && (w (left i) || w (right i))) ≤ 2)
+    (hpath : ConsumerFrontier.consumerReachable n (fun j : Fin k => left j.val)
+      (fun j : Fin k => right j.val) (n + h.val) out)
+    (houtfalse : w out = false) (hout : out < n + k)
+    (hcount : Diamond.orCount op k ≤ bound)
+    (hlower : ∀ (op' : Nat → Bool) (left' right' : Nat → Nat) (y : Nat → Nat),
+      (∀ i < k, left' i < n + i ∧ right' i < n + i) →
+      (∀ i < k,
+        (left' i < n → allowed (left' i)) ∧ (right' i < n → allowed (right' i))) →
+      (∀ j < n, y j = x j) →
+      (∀ i < k, y (n + i) = Diamond.gateNat (op' i) (y (left' i)) (y (right' i))) →
+      y out = x out → bound ≤ Diamond.orCount op' k) : False := by
+  have hORcap : ∀ i j l t : Fin k, trueOr n (fun j : Fin k => op j.val) w i →
+      trueOr n (fun j : Fin k => op j.val) w j →
+      trueOr n (fun j : Fin k => op j.val) w l →
+      trueOr n (fun j : Fin k => op j.val) w t →
+      i ≠ j → i ≠ l → j ≠ l → t ≠ i → t ≠ j → t ≠ l → False := by
+    intro i j l t hi hj hl ht hij hil hjl hti htj htl
+    exact CountCaps.four_impossible_of_count_le_three
+      (fun z => !(op z) && w (n + z)) hORcount i j l t
+      (by simp [hi.1, hi.2]) (by simp [hj.1, hj.2])
+      (by simp [hl.1, hl.2]) (by simp [ht.1, ht.2])
+      hij hil hjl hti htj htl
+  have hANDcap : ∀ i j t : Fin k,
+      ConsumerFrontier.activeAND (fun j : Fin k => left j.val)
+        (fun j : Fin k => right j.val) (fun j : Fin k => op j.val) w i →
+      ConsumerFrontier.activeAND (fun j : Fin k => left j.val)
+        (fun j : Fin k => right j.val) (fun j : Fin k => op j.val) w j →
+      ConsumerFrontier.activeAND (fun j : Fin k => left j.val)
+        (fun j : Fin k => right j.val) (fun j : Fin k => op j.val) w t →
+      i = j ∨ i = t ∨ j = t := by
+    intro i j t hi hj ht
+    exact CountCaps.three_of_count_le_two
+      (fun z => op z && (w (left z) || w (right z))) hANDcount i j t
+      (by simpa only [hi.1, Bool.true_and, Bool.or_eq_true] using hi.2)
+      (by simpa only [hj.1, Bool.true_and, Bool.or_eq_true] using hj.2)
+      (by simpa only [ht.1, Bool.true_and, Bool.or_eq_true] using ht.2)
+  obtain ⟨a, b, hla, hrb, _, _, hah, hbh, hab, ha, hb, haq, hbq, hpriv, hoxa, hoxb⟩ :=
+    singleton_true_and_forces_private_diamond
+      (fun j : Fin k => left j.val) (fun j : Fin k => right j.val)
+      (fun j : Fin k => op j.val) w profile q h (fun j => hcausal j.val j.isLt)
+      hraw hsole hw hp hq hh hinc hORcap hANDcap hpath houtfalse
+  have hprivate : ∀ i < k, i ≠ h.val →
+      (left i ≠ n + a.val ∧ left i ≠ n + b.val) ∧
+      (right i ≠ n + a.val ∧ right i ≠ n + b.val) := by
+    intro i hi hih
+    have hp := hpriv ⟨i, hi⟩ (fun he => hih (congrArg Fin.val he))
+    exact ⟨⟨hp.1, hp.2.2.1⟩, ⟨hp.2.1, hp.2.2.2⟩⟩
+  by_cases hablt : a.val < b.val
+  · exact Diamond.no_private_unordered_diamond_of_or_lower_bound
+      n k a.val b.val h.val (n + q.val) out bound op left right x allowed
+      hablt hbh h.isLt hcausal ⟨ha.1, haq⟩ ⟨hb.1, hbq⟩
+      ⟨hh.1, Or.inl ⟨hla, hrb⟩⟩ hprivate hx hallowed hout hoxa hoxb hcount hlower
+  · have habne : a.val ≠ b.val := fun he => hab (Fin.ext he)
+    have hbalt : b.val < a.val := by omega
+    have hprivate' : ∀ i < k, i ≠ h.val →
+        (left i ≠ n + b.val ∧ left i ≠ n + a.val) ∧
+        (right i ≠ n + b.val ∧ right i ≠ n + a.val) := by
+      intro i hi hih
+      have hp := hprivate i hi hih
+      exact ⟨⟨hp.1.2, hp.1.1⟩, ⟨hp.2.2, hp.2.1⟩⟩
+    exact Diamond.no_private_unordered_diamond_of_or_lower_bound
+      n k b.val a.val h.val (n + q.val) out bound op left right x allowed
+      hbalt hah h.isLt hcausal ⟨hb.1, hbq⟩ ⟨ha.1, haq⟩
+      ⟨hh.1, Or.inr ⟨hla, hrb⟩⟩ hprivate' hx hallowed hout hoxb hoxa hcount hlower
+
+end SingletonWire
+
+namespace SingletonWire
+
+lemma no_singleton_true_and_from_five_nine_and_cofactor_bounds
+    {σ Bit : Type} (reference : σ) (n k v out : Nat) (op : Nat → Bool)
+    (left right : Nat → Nat) (x : Nat → Nat) (allowed : Nat → Prop)
+    (V : σ → Nat → Bool) (profile : Nat → Bit → Bool) (q h : Fin k)
+    (hv : v < n) (hpinned : ∀ s, V s v = true)
+    (hcausal : ∀ i < k, left i < n + i ∧ right i < n + i)
+    (hx : ∀ i < k, x (n + i) = Diamond.gateNat (op i) (x (left i)) (x (right i)))
+    (hallowed : ∀ i < k,
+      (left i < n → allowed (left i)) ∧ (right i < n → allowed (right i)))
+    (hV : ∀ s i, i < k → V s (n + i) = gateBool (op i) (V s (left i)) (V s (right i)))
+    (hraw : ∀ j < n, V reference j = true → j = v)
+    (hsole : ∀ j : Fin k, j ≠ q → left j.val ≠ v ∧ right j.val ≠ v)
+    (hp : ∀ (j : Fin k) bit, profile (n + j.val) bit =
+      gateBool (op j.val) (profile (left j.val) bit) (profile (right j.val) bit))
+    (hq : trueOr n (fun j : Fin k => op j.val) (V reference) q)
+    (hh : trueAnd n (fun j : Fin k => op j.val) (V reference) h)
+    (hinc : ¬ profileLe profile (left h.val) (right h.val) ∧
+      ¬ profileLe profile (right h.val) (left h.val))
+    (houtfalse : V reference out = false) (hout : out < n + k)
+    (hfive : (List.range k).countP op = 5)
+    (hnine : (List.range k).countP (fun i => !(op i)) = 9)
+    (hminimal : ConsumerFrontier.fixedParentsOperationMinimal n k out op left right x)
+    (hcofactor : ∀ (m' : Nat) (op' : Nat → Bool) (left' right' : Nat → Nat)
+        (out' : Nat) (V' : σ → Nat → Bool),
+      out' < n + m' →
+      (∀ i < m', left' i < n + i ∧ right' i < n + i) →
+      (∀ s j, j < n → V' s j = V s j) →
+      (∀ s i, i < m' →
+        V' s (n + i) = gateBool (op' i) (V' s (left' i)) (V' s (right' i))) →
+      (∀ s, V' s out' = V s out) →
+      (∀ i < m', left' i ≠ v ∧ right' i ≠ v) → out' ≠ v →
+      3 ≤ (List.range m').countP op' ∧
+      6 ≤ (List.range m').countP (fun i => !(op' i)))
+    (hlower : ∀ (op' : Nat → Bool) (left' right' : Nat → Nat) (y : Nat → Nat),
+      (∀ i < k, left' i < n + i ∧ right' i < n + i) →
+      (∀ i < k,
+        (left' i < n → allowed (left' i)) ∧ (right' i < n → allowed (right' i))) →
+      (∀ j < n, y j = x j) →
+      (∀ i < k, y (n + i) = Diamond.gateNat (op' i) (y (left' i)) (y (right' i))) →
+      y out = x out → 9 ≤ Diamond.orCount op' k) : False := by
+  have hcaps := CopyElimination.pin_one_operation_caps reference n k v out op left right V
+    hv hpinned hout houtfalse hcausal hV hraw hfive hnine hcofactor
+  have hpath := ConsumerFrontier.operation_minimal_gate_reachable n k out op left right x
+    hcausal hx hout hminimal h
+  exact no_singleton_true_and_of_caps_and_or_lower_bound n k v out 9 op left right x allowed
+    (V reference) profile q h hcausal hx hallowed hraw hsole
+    (fun j => hV reference j.val j.isLt) hp hq hh hinc hcaps.2
+    (by simpa only [CopyElimination.pinMarked] using hcaps.1) hpath houtfalse hout
+    (by change (List.range k).countP (fun i => !(op i)) ≤ 9; omega) hlower
+
+end SingletonWire
+
 end PEqualNP.Outside.L_meta_9033_aux
