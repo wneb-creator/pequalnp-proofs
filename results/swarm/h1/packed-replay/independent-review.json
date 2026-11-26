@@ -1,20 +1,26 @@
 {
   "verdict": "PASS",
-  "manifest_sha256": "8130d9b0568a900951f7d86c7be661e55fc0f81cda1977fc55169051e8c9a0e8",
+  "manifest_sha256": "ccdd27d6dada5d97c8f1ccbf2b878bf79b431568134eab84a785a659aac7221e",
   "script_sha256": "ab98f3a73ef57d26fa2202bbcefba6399d2c70c3814b07b9d662958047853ce4",
-  "readme_sha256": "040cd42b3d4a864601173128b4fc54803b04370e8a93cce0c63238b954a6732f",
-  "previous_publication_commit": "d53432e",
+  "readme_sha256": "c3addc6b0dc12e0b15e05851f8511903aafae7dc64460377580174654734c48e",
+  "previous_publication_commit": "552c6bd",
   "previous_records_and_provenance_unchanged": true,
   "accepted_range_inclusive": [
     768,
-    1279
+    1535
   ],
-  "verified_nodes": 512,
-  "batches": 16,
-  "axiom_reports": 33,
+  "verified_nodes": 768,
+  "batches": 24,
+  "axiom_reports": 50,
   "checker_source_pins": 19,
   "repository_source_pins": 91,
   "compiled_dependency_observations": 21,
   "checkpoint_hash_entries": 130,
+  "aggregate_source_sha256": "db6c54e9eaa8d3deb491af36b778d1bdf2e33373dba723b6cb120601be78e968",
+  "aggregate_exact_interval": [
+    768,
+    1535
+  ],
+  "aggregate_std3_verified": true,
   "scope": "Read-only exact source/receipt/provenance review; no new Lean build; partial node interval only."
 }

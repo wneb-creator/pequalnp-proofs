@@ -1,0 +1,5 @@
+PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.Aggregate.checked (i : Fin 5230) (lo : 768 ≤ ↑i)
+  (hi : ↑i < 1536) : checkNode i = true
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.Aggregate.checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

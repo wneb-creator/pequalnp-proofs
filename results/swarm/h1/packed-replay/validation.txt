@@ -1,17 +1,21 @@
 Job: pnp-swarm-2373-1
 Acknowledged: msg-f0f5a888a4dfb901290f21d2
 Gap: L-meta-2373
-Artifact: helper-only lean/PEqualNP/Outside/L_meta_2373.lean
-Main helper source commit: 63a6c362ce628f2776e8c23fd665d69f213e59b8
-Source SHA256: c41cceb745b2e3e00b578cf3d38a9c361884e2f7b413c5ee376a536e3a5ddbfa
-Build: lake build PEqualNP.Outside.L_meta_2373 PASS
-Independent proof review: PASS; new declarations use only permitted axioms.
-Actual compiled export audit: PASS, 1371 declarations, zero foreign names after private-name normalization. Local rfl equality lemmas preserve every original statement. No official gap-checker acceptance.
-Main results: all-endpoint first-AND sparse OR-reader classification; actual residual circuit of at most17 gates; arbitrary earlier-wire boundary dominance; blocker triples; negative-energy minimum representative with no mixed safe/unsafe binary OR operands. Constant-gate deletion and positive-consumer closure also checked. Raw-NOT normal form now yields a guard active on seed028 or135 under explicit architecture premises. Concrete first-NOT energy-minimum seed representative, one-edge and star guard restrictions, and automatic singleton conditions now checked. Explicit H9 total-gate floor16 remains. Main proof remains open.
-Gap status: no full proof or refutation. No main theorem, no PR, no desk lease.
-Packed replay checkpoint: nodes768..1279 inclusive (512/5230) accepted by kernel; complete per-chunk stdout/stderr, source hashes, axiom reports and dependency pins in this directory. Full forest closure remains unproved here.
+Role: helper-1; no desk lease and no PR.
+Main helper: lean/PEqualNP/Outside/L_meta_2373.lean
+Main helper source commit: b659c27fa4fffc11d507f1a488e9f9a7f66a7376
+Main helper source bytes: 519732 (under512KiB)
+Main helper source SHA256: b74b3c65312988ecd8ffa3914b5d6beff7ab0701f9c67e9b27cc824ece825af8
+Named build: lake build PEqualNP.Outside.L_meta_2373 PASS.
+Independent final source review: exact518669-byte prior source preserved, plus the reviewed matching_clause_count proof; Defs-only import unchanged.
+Compiled final audit: PASS,1372 module declarations, zero foreign names after private-name normalization. New theorem has the exact n,m,l,covers,separates=>2^n<=m type and only propext/Classical.choice/Quot.sound. The successful audit used5GB after the3GB attempt reached its memory limit; no source/proof error was reported.
+Main results: structural first-AND classification/residual circuit; boundary-dominance obstructions; negative-energy minimum representative with no mixed OR; constant-gate deletion; concrete first-NOT seed representative under explicit H9>=16 floor; one-edge/star guard restrictions; generic matching clause-count lower bound. Full gap remains open.
 Packed checker source pin: 36375ce3bb56c227c81ecae98f6641800006b8c2.
-Published manifest SHA256: 8130d9b0568a900951f7d86c7be661e55fc0f81cda1977fc55169051e8c9a0e8.
-Portable replay script: independent source review, Python syntax/help, and actual --verify-only provenance check PASS. Full rebuild command is supplied; the newly packaged script has not re-run the already accepted chunks.
+Replay: all768 assigned states768..1535 accepted by kernel,24serial32-node chunks, no failed chunk. Aggregate theorem Helper1Chunks.Aggregate.checked proves checkNode i=true for768<=i.val<1536, i:Fin5230.
+Replay audits:50 standard-three-axiom reports; exact sources, complete stdout/stderr, observed object hashes and19checker/91repository source pins independently verified. Portable --verify-only PASS for24chunks.
+Replay manifest SHA256: ccdd27d6dada5d97c8f1ccbf2b878bf79b431568134eab84a785a659aac7221e
+Replay resource receipts: chunk time2587.64seconds, maximum chunk RSS6088016KiB; aggregate2.19seconds/RSS2864684KiB. Shared dependency build used9000MB with peakRSS unmeasured; chunk caps were9000MB initially then7000MB, serial on8GiB/2CPU.
+Scope: interval proof only; complete5230-state forest closure and final single-file runtime are not established by this helper. No official full-gap checker acceptance; no proof or refutation of the posted gap.
+Conditional theory note: ../matching-case-theory-review.md; SHA256205f440fcc55fafa6ccd00000970b4f10a1047986f9ec9b1dd043b110ea55000. Independently reviewed paper argument under exact matching-case assumptions; not Lean formalized or a general normalization theorem.
 Sub-agents: direct_analysis; toolchain_recovery; structural_search; first_and_classification; toolchain_recovery/swap_obstruction; structural_search/bounded_review; direct_analysis/girth_five_claim; structural_search/h9_probe_review
-TIMING total=155.7 subagents=8
+TIMING total=173.8 subagents=8

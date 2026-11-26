@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS",
+  "target_sha256": "b74b3c65312988ecd8ffa3914b5d6beff7ab0701f9c67e9b27cc824ece825af8",
+  "target_bytes": 519732,
+  "baseline_commit": "552c6bd2673cd66456363e31db2f76d97cf870bd",
+  "baseline_bytes_unchanged": 518669,
+  "delta_exact_frozen_import_stripped_block": true,
+  "only_import": "PEqualNP.Defs",
+  "below_512KiB": true,
+  "compiled_actual_module_declarations": 1372,
+  "foreign_declarations": 0,
+  "new_theorem": "PEqualNP.Outside.L_meta_2373_aux.matching_clause_count",
+  "recursive_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "compiled_audit_exit_code": 0,
+  "compiled_audit_memory_limit_mb": 5000,
+  "compiled_audit_log_sha256": "864ffb47efab3d09259b96cee5faf248483c99b59dd6124435e0afe272841c33",
+  "prior_attempt": "Explicit3GB memory cap exceeded; complete failed log retained in assembled15-independent-type-axiom-export.log"
+}

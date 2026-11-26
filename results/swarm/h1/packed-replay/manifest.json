@@ -12,8 +12,8 @@
   "lean_version": "4.36.0",
   "memory_limit_mb": 7000,
   "status": "published_source_snapshot",
-  "elapsed_seconds": 1368.704281628001,
-  "verified_nodes": 512,
+  "elapsed_seconds": 2226.8085447449994,
+  "verified_nodes": 768,
   "batches": [
     {
       "start": 768,
@@ -686,14 +686,350 @@
       "compiled_outputs": {
         "PackedH1_1248_1279.olean": "729821950ea0c7ab961c923f5e3be63b88cae3317554da1dd535efc042b00b2b"
       }
+    },
+    {
+      "start": 1280,
+      "end_inclusive": 1311,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1280_1311",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 122.70500197500041,
+      "maxrss_kib": 5700756,
+      "source_sha256": "26460ddc3013446149d0bce80f13b96b28c477a549aff7ce07c0dfda5464a270",
+      "stdout_sha256": "a3932e69b425a61bc0c154a6778b5cf6380c834aa81f17a5c23ce8d942c2b9db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1280_1311": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1280_1311": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "5ca704ff4833ae52cf989f95ec647016c48e7f8a93aae684ed85b6e4f9efa3fd",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1280_1311.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1280_1311.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1280_1311.olean": "5ca704ff4833ae52cf989f95ec647016c48e7f8a93aae684ed85b6e4f9efa3fd"
+      }
+    },
+    {
+      "start": 1312,
+      "end_inclusive": 1343,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1312_1343",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 93.93160416899991,
+      "maxrss_kib": 5260908,
+      "source_sha256": "6419d53b6e71c75c4ecf1499e821197f7c5b87cb52ffbfa51d7563da0035cf76",
+      "stdout_sha256": "862c182b6b2495b5bf20af65b998f89c7d7c310a7d82f73b6f037e0676f761ed",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1312_1343": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1312_1343": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "7af9c915a35272f5beaf22b80848277afed1385088dab2ec71d0702da9bd87e9",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1312_1343.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1312_1343.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1312_1343.olean": "7af9c915a35272f5beaf22b80848277afed1385088dab2ec71d0702da9bd87e9"
+      }
+    },
+    {
+      "start": 1344,
+      "end_inclusive": 1375,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1344_1375",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 95.74274422099916,
+      "maxrss_kib": 4829992,
+      "source_sha256": "3b28c266d7a449432165b6b7abc9de96f9a608129e3c2cd32279184c302648d7",
+      "stdout_sha256": "a5bf05af54343298c44b21da2535c9d7a5a801aea3ec70f53212689a51b084b7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1344_1375": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1344_1375": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "5343b49c077b56c66c67802c73400a65da1bac4ab60c123a59fcdceed3d3a343",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1344_1375.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1344_1375.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1344_1375.olean": "5343b49c077b56c66c67802c73400a65da1bac4ab60c123a59fcdceed3d3a343"
+      }
+    },
+    {
+      "start": 1376,
+      "end_inclusive": 1407,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1376_1407",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 111.27224621000096,
+      "maxrss_kib": 5770160,
+      "source_sha256": "d629dc3457521ac2d6fabfffa68ec9ad1578509c8486dcfa5851befbf8992dc3",
+      "stdout_sha256": "e77de0792ea1fad3e9ab25e4cffcc9609bac5c989045b48279ae92ba2705dd70",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1376_1407": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1376_1407": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "df3f829414fc386aa17a371b47bf2fe4b9499ec0d331b5e243d6cd461576f514",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1376_1407.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1376_1407.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1376_1407.olean": "df3f829414fc386aa17a371b47bf2fe4b9499ec0d331b5e243d6cd461576f514"
+      }
+    },
+    {
+      "start": 1408,
+      "end_inclusive": 1439,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1408_1439",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 117.60150744800012,
+      "maxrss_kib": 5225844,
+      "source_sha256": "f32913a65e7872e9fb4617ed51cbccde9178deab8b1c7e9d89281d17354a84ac",
+      "stdout_sha256": "1cfe0f8bf301fba6a2285f9a93fa89819ee06e6b3aeaca73e2f1d87b06253979",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1408_1439": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1408_1439": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "471cb0269e3f30f23135285675a697c0e05b156b20153fbed26274ed053d715c",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1408_1439.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1408_1439.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1408_1439.olean": "471cb0269e3f30f23135285675a697c0e05b156b20153fbed26274ed053d715c"
+      }
+    },
+    {
+      "start": 1440,
+      "end_inclusive": 1471,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1440_1471",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 101.70018911400075,
+      "maxrss_kib": 5668092,
+      "source_sha256": "de4e4127f04c87d2274f6fbd856180a6bd3119af5b5914890a43bd55199ee1f7",
+      "stdout_sha256": "4ddeb7946d7f135956488b86a2c35fbe980e3081d06217f605ed89c6381f5e59",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1440_1471": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1440_1471": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "1b7cdf974dd0ccfa2dee70dbbf713671746c0d511fcf629347445bcce1828bc4",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1440_1471.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1440_1471.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1440_1471.olean": "1b7cdf974dd0ccfa2dee70dbbf713671746c0d511fcf629347445bcce1828bc4"
+      }
+    },
+    {
+      "start": 1472,
+      "end_inclusive": 1503,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1472_1503",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 120.77548905900039,
+      "maxrss_kib": 5511048,
+      "source_sha256": "dc90216484bcb8b10ac043ebccaa5a089f35d4d73c697bfb6026706d0758ca83",
+      "stdout_sha256": "a34a0e2eb5db4bfed13d8294af9b38a11a6f83f6fcae5cc4ba19f5d65541208e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1472_1503": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1472_1503": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "a474f7b452abaa4b23d7714efd08bd8fe14be5893f1916f62ba804b676809028",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1472_1503.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1472_1503.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1472_1503.olean": "a474f7b452abaa4b23d7714efd08bd8fe14be5893f1916f62ba804b676809028"
+      }
+    },
+    {
+      "start": 1504,
+      "end_inclusive": 1535,
+      "count": 32,
+      "split_depth": 3,
+      "module": "PackedH1_1504_1535",
+      "exit_code": 0,
+      "verified": true,
+      "memory_limit_mb": 7000,
+      "elapsed_seconds": 94.34897243699925,
+      "maxrss_kib": 5266012,
+      "source_sha256": "a9c869915b98d2bdf0799da47802d4359cf650a8514464ff7180370c425b2122",
+      "stdout_sha256": "b2acad09a21060457709ca50d97cfffb5cab8bd2fa958432b899d085794996c1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axioms": {
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.raw_1504_1535": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.checked_1504_1535": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "olean_sha256": "294199530e7ff3df161d6ac86c545784f5a2355d85672725a1aa4e20442218ec",
+      "command": [
+        "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+        "-j",
+        "1",
+        "-M",
+        "7000",
+        "-o",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1504_1535.olean",
+        "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1_1504_1535.lean"
+      ],
+      "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+      "compiled_outputs": {
+        "PackedH1_1504_1535.olean": "294199530e7ff3df161d6ac86c545784f5a2355d85672725a1aa4e20442218ec"
+      }
     }
   ],
   "scope": "Only the recorded contiguous forest-node interval is checked here. Full forest closure requires all 5230 nodes.",
-  "snapshot_created_utc": "2026-11-26T02:14:57.615148+00:00",
-  "worker_verified_nodes_at_snapshot": 512,
+  "snapshot_created_utc": "2026-11-26T02:27:55.304787+00:00",
+  "worker_verified_nodes_at_snapshot": 768,
   "accepted_range_inclusive": [
     768,
-    1279
+    1535
   ],
   "range_wrapper": {
     "module": "PackedChunkTools",
@@ -1264,5 +1600,78 @@
     "version": "4.36.0",
     "commit": "611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9",
     "lean_binary_sha256": "db7f559d05795e7af52e42bc966c90240a39dcb9712161c54c97afa546e20c00"
+  },
+  "aggregate": {
+    "module": "PackedH1Aggregate",
+    "namespace": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.Aggregate",
+    "range_inclusive": [
+      768,
+      1535
+    ],
+    "qualified_name": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.Aggregate.checked",
+    "statement": "(i : Fin 5230) (lo : 768 \u2264 i.val) (hi : i.val < 1536) : PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Packed.checkNode i = true",
+    "imported_chunk_modules": [
+      "PackedH1_0768_0799",
+      "PackedH1_0800_0831",
+      "PackedH1_0832_0863",
+      "PackedH1_0864_0895",
+      "PackedH1_0896_0927",
+      "PackedH1_0928_0959",
+      "PackedH1_0960_0991",
+      "PackedH1_0992_1023",
+      "PackedH1_1024_1055",
+      "PackedH1_1056_1087",
+      "PackedH1_1088_1119",
+      "PackedH1_1120_1151",
+      "PackedH1_1152_1183",
+      "PackedH1_1184_1215",
+      "PackedH1_1216_1247",
+      "PackedH1_1248_1279",
+      "PackedH1_1280_1311",
+      "PackedH1_1312_1343",
+      "PackedH1_1344_1375",
+      "PackedH1_1376_1407",
+      "PackedH1_1408_1439",
+      "PackedH1_1440_1471",
+      "PackedH1_1472_1503",
+      "PackedH1_1504_1535"
+    ],
+    "checkpoint_snapshot": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+    "source_sha256": "db6c54e9eaa8d3deb491af36b778d1bdf2e33373dba723b6cb120601be78e968",
+    "status": "verified",
+    "exit_code": 0,
+    "verified": true,
+    "elapsed_seconds": 2.191215046999787,
+    "maxrss_kib": 2864684,
+    "memory_limit_mb": 7000,
+    "command": [
+      "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin/lean",
+      "-j",
+      "1",
+      "-M",
+      "7000",
+      "-o",
+      "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1Aggregate.olean",
+      "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build/PackedH1Aggregate.lean"
+    ],
+    "cwd": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build",
+    "environment": {
+      "LEAN_PATH": "/tmp/oec/pnp-swarm-2373-1/certificate18-packed-build:/workspace/pequalnp-proofs/lean/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/Qq/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/aesop/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/plausible/.lake/build/lib/lean:/workspace/pequalnp-proofs/lean/.lake/packages/proofwidgets/.lake/build/lib/lean",
+      "PATH": "/tmp/oec/pnp-swarm-2373-1/lean-4.36.0-linux/bin"
+    },
+    "axioms": {
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper1Chunks.Aggregate.checked": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "stdout_sha256": "7b3fc913a14d1ca89797d3f44649b827aeac65b072284cfb76fcf36739320005",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "completed_utc": "2026-11-26T02:27:36.496549+00:00",
+    "olean_sha256": "51145c64cebdaa3c53035d83af9b3674a8f22dd019748bc11884ee334eb46508",
+    "compiled_outputs": {
+      "PackedH1Aggregate.olean": "51145c64cebdaa3c53035d83af9b3674a8f22dd019748bc11884ee334eb46508"
+    }
   }
 }
