@@ -1,0 +1,17 @@
+level=1 states=1 moves=720 length=0 sep=0 fullsep=360 redundant=0 projection=315 links=0 factor=0 open=45 distinct=2 wires=190 sec=0.0246988
+level=2 states=2 moves=1760 length=0 sep=0 fullsep=574 redundant=56 projection=1033 links=0 factor=0 open=97 distinct=24 wires=591 sec=0.0407254
+level=3 states=24 moves=23584 length=0 sep=6 fullsep=5537 redundant=1096 projection=15948 links=0 factor=0 open=997 distinct=265 wires=3636 sec=0.175626
+level=4 states=265 moves=285760 length=0 sep=200 fullsep=39170 redundant=16508 projection=224040 links=0 factor=0 open=5842 distinct=1634 wires=25454 sec=1.24318
+level=5 states=1634 moves=1825456 length=292344 sep=1562 fullsep=127252 redundant=77154 projection=1316504 links=0 factor=0 open=10640 distinct=2594 wires=45997 sec=5.86859
+level=6 states=2594 moves=2950896 length=1454568 sep=4147 fullsep=101883 redundant=68392 projection=1319136 links=0 factor=0 open=2770 distinct=594 wires=62079 sec=13.0796
+level=7 states=594 moves=610368 length=415536 sep=3687 fullsep=12107 redundant=6983 projection=171761 links=0 factor=0 open=294 distinct=46 wires=63966 sec=15.6186
+level=8 states=46 moves=40160 length=29400 sep=267 fullsep=421 redundant=253 projection=9808 links=0 factor=0 open=11 distinct=2 wires=63972 sec=15.9176
+level=9 states=2 moves=1440 length=1080 sep=6 fullsep=7 redundant=0 projection=347 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9512
+level=10 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=11 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=12 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=13 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=14 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=15 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9515
+level=16 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9516
+level=17 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=63972 sec=15.9517

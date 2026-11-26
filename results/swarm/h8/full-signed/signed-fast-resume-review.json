@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS independent source review of optimization and resume/I/O changes after source-output guard repair",
+  "files": {
+    "signed-child.cpp": "3fd4e7a9d0d8324f9e19b6bbded733ee271942ba8dc46ff9efda38c9ae46302b",
+    "signed-fast.cpp": "e0562138a9ee65011ff52adb00b5e85fd1dd85a232ff07f883ba45d9f6337efb",
+    "signed-resume.cpp": "0df1535911372468b795956a11ca1f899fe07f3a44534cf227ec7be94e26e911"
+  },
+  "findings": [
+    "Sampled rows are all in a nonempty domain. Disagreement certifies nonconstancy; agreement can only overestimate true projected constant count. A skipped pool therefore has exact maxPaid<0.",
+    "Input wire and frontier reads are checked before origin/ID use; wire expression equations, unique interning, causal prefix operands, live membership and absence of duplicate/constant live outputs are checked.",
+    "Initial source=output truncation hazard was reported and repaired: source canonicalization and equal-directory rejection now precede output opens, covering symlink aliases.",
+    "All nonempty binary trace writes are flushed/closed and stream status checked; target JSON and collision summary also close and check. The unused factor output is closed and checked immediately.",
+    "Search transitions and pruning formulas are unchanged by resume support. Loader validation alone does not establish frontier provenance/completeness; use retained exact trace inputs."
+  ],
+  "scope": "Source review only. Owner runs malformed-input and byte-identity regressions separately. Does not constitute a Lean proof or complete algorithm verification."
+}

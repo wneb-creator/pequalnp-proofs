@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "cases": [
+    {
+      "case": "completed-factor-resume",
+      "returncode": 0
+    },
+    {
+      "case": "factor-write-full",
+      "returncode": -6
+    }
+  ]
+}

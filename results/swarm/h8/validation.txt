@@ -19,12 +19,38 @@ All 18324 monotone factor cuts independently replayed in Python; prior state dec
 automorphisms, projection rules and signed-only bounds reviewed. Final portable replays
 with immediate generated-target guards PASS in both modes. Complete native stdout included.
 Transfer from Live claims to arbitrary forced-first-OR circuits remains to be proved.
-Full ten-input exploration continues separately; no result is claimed here.
+Full ten-input results are recorded below; none is a complete Lean certificate.
 
 Performance: original finite helper 33.57s, observed memory high-water 5027752KiB.
 Optimized helper 8.30s, peak3575604KiB; imports alone 2.65s, peak2979812KiB.
 See performance.json for exact metrics and measurement scope.
 
-Sub-agents: five total (four direct: setup/review, certificate audit, repair proof,
-full ten-input search; one nested: cofactor embedding audit).
-TIMING total=21.6 subagents=5
+Full Petersen monotone cap19: native closure at level13 using only checked-source
+projection bounds. Staged frontier sizes: 4,71,1515,27350,229477,484350,162401,
+10997,476,73,11,1,0. All628741factorcuts independently replayed in Python: PASS.
+Strict framing, exact wire equations/topology, live NoDup/properness, and all225
+boundary-pair separation checks alsoPASS. This validates factor leaves, not frontier
+completeness or other pruning. Portable auditor, hashes, summary and complete logs
+are in factor-audit/.
+Final1072127wireDAG equations independentlyPASS. Full native source, pool transport,
+known20survival, optimized predicate equivalence, and hardened I/O reviewsPASS.
+Complete logs and reproducible sources: full-monotone/. No kernel replay claimed.
+
+Full Petersen signed cap17: native closure also holds after dropping every L670 pool.
+Using only1078L6581pools, nonemptyfrontiers includingroot are
+1,2,24,265,1634,2621,634,47,2 (5230states). Complete sources/logs/audits: full-signed/.
+Independent source reviews cover signed-only pools, projections, automorphisms,
+collision rules, phase optimizer, and new fast/resume code. Fastcap17 and resumedcap17
+preserve saved frontiers and wire equations byte-for-byte. Cap18 remains in progress.
+
+Certificate18 work is separate and incomplete. Generic one-step, collision, paidpool,
+projection, and symmetry transport proofs compile and pass independent review;
+no assembled finite certificate or unconditional18binary floor is claimed here.
+The named Lean helper file is unchanged from the prior successful build and axiom audit.
+Frozen native snapshots retain their exact reviewed hashes; git diff --check reports
+three cosmetic whitespace warnings in those snapshots (two trailing spaces, one final blank line).
+
+Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
+full monotone search, full signed search; three nested: embedding audit,
+source review, collision-hint compression).
+TIMING total=47.9 subagents=8

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "reviewer": "/root/full_probe/embedding_audit",
+  "recorded_by": "/root/signed_full_probe",
+  "provenance": "Transcribed from the independent reviewer message; reviewer finished before this report was saved.",
+  "reviewed_files": {
+    "signed.cpp": "f8502e322b39e21bce0793b6d25866210b6d47fc703a4b971fb75fc08753dbf1",
+    "signed-child.cpp": "3fd4e7a9d0d8324f9e19b6bbded733ee271942ba8dc46ff9efda38c9ae46302b",
+    "phase_optimize.py": "af8031cc49b664885887eab2140e66fda4025b11962d136fe5c268ad0dcb48b1"
+  },
+  "findings": [
+    "Signed operations 0 through 3 and complement-closed paid banks match the checked normalized signed model.",
+    "The 120 graph automorphisms preserve the target. Canonical deduplication retains an actual original state and prefix.",
+    "Exact live-profile row collisions soundly exclude arbitrary signed continuations.",
+    "The stamped collision table handles early returns and uint32 wrap; child collision changes only exclusion timing.",
+    "Known L584 and L587 20-gate paths survive signed projection and full collision checks.",
+    "All 120 DAG images match row permutation on all 1024 rows.",
+    "The phase optimizer algebraically minimizes explicit NOT count for a fixed signed DAG and checks scalar equivalence."
+  ],
+  "limitations": [
+    "Native closure is not a Lean proof.",
+    "Phase optimum is specific to the supplied DAG and includes dead gates.",
+    "A signed binary witness does not by itself establish a total AND/OR/NOT gate count.",
+    "This review predates new fast and resume variants; those are not covered here."
+  ]
+}

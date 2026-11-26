@@ -1,0 +1,51 @@
+WIRE_DAG_PASS 794909 sha256 3728600dcee9a2303b15018641201f91e49fb459e521f6f90e1148d654a10cd8 origins {'input': 10, 'and': 249755, 'or': 545144} seconds 1.6276539670002421
+BOUNDARY_PASS positive [3, 6, 12, 17, 24, 33, 66, 132, 160, 264, 288, 320, 528, 576, 640] negative [50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773] pairs 225
+FACTOR_PROGRESS baseline-level6.bin 10000 of 91125 seconds 10.064071771000272
+FACTOR_PROGRESS baseline-level6.bin 20000 of 91125 seconds 19.34718270500025
+FACTOR_PROGRESS baseline-level6.bin 30000 of 91125 seconds 27.80002744000012
+FACTOR_PROGRESS baseline-level6.bin 40000 of 91125 seconds 35.62418488200001
+FACTOR_PROGRESS baseline-level6.bin 50000 of 91125 seconds 43.889884388000155
+FACTOR_PROGRESS baseline-level6.bin 60000 of 91125 seconds 51.53409478100002
+FACTOR_PROGRESS baseline-level6.bin 70000 of 91125 seconds 61.591771689000325
+FACTOR_PROGRESS baseline-level6.bin 80000 of 91125 seconds 70.72294811200027
+FACTOR_PROGRESS baseline-level6.bin 90000 of 91125 seconds 79.06171702700021
+FACTOR_FILE_PASS {"file": "baseline-level6.bin", "bytes": 5897628, "sha256": "05f9719e09c411fbcfb614f156695af280ad25ce2ddb6d2f31b7c7587d6ee2ef", "records": 91125, "cap": 14, "max_wire_id": 255749, "kinds": {"factor": 39587, "parity": 35131, "cross": 16407}, "widths": {"14": 74718, "15": 16407}, "seconds": 79.85305536900023, "verdict": "PASS"}
+FACTOR_PROGRESS checked-level7.bin 10000 of 377261 seconds 7.592992747000153
+FACTOR_PROGRESS checked-level7.bin 20000 of 377261 seconds 15.588088723000055
+FACTOR_PROGRESS checked-level7.bin 30000 of 377261 seconds 23.066904639999848
+FACTOR_PROGRESS checked-level7.bin 40000 of 377261 seconds 31.66526655000007
+FACTOR_PROGRESS checked-level7.bin 50000 of 377261 seconds 39.68694146000007
+FACTOR_PROGRESS checked-level7.bin 60000 of 377261 seconds 47.98986029100024
+FACTOR_PROGRESS checked-level7.bin 70000 of 377261 seconds 57.28492033200018
+FACTOR_PROGRESS checked-level7.bin 80000 of 377261 seconds 64.74360776999993
+FACTOR_PROGRESS checked-level7.bin 90000 of 377261 seconds 72.52761508799995
+FACTOR_PROGRESS checked-level7.bin 100000 of 377261 seconds 82.036306685
+FACTOR_PROGRESS checked-level7.bin 110000 of 377261 seconds 91.53116520499998
+FACTOR_PROGRESS checked-level7.bin 120000 of 377261 seconds 99.45955831900028
+FACTOR_PROGRESS checked-level7.bin 130000 of 377261 seconds 106.69348522400014
+FACTOR_PROGRESS checked-level7.bin 140000 of 377261 seconds 113.89740822300018
+FACTOR_PROGRESS checked-level7.bin 150000 of 377261 seconds 120.96355405600025
+FACTOR_PROGRESS checked-level7.bin 160000 of 377261 seconds 128.0212719189999
+FACTOR_PROGRESS checked-level7.bin 170000 of 377261 seconds 135.28803792999997
+FACTOR_PROGRESS checked-level7.bin 180000 of 377261 seconds 142.73959557099988
+FACTOR_PROGRESS checked-level7.bin 190000 of 377261 seconds 149.81963115100007
+FACTOR_PROGRESS checked-level7.bin 200000 of 377261 seconds 158.63226495100025
+FACTOR_PROGRESS checked-level7.bin 210000 of 377261 seconds 166.70149497700004
+FACTOR_PROGRESS checked-level7.bin 220000 of 377261 seconds 178.00246491899998
+FACTOR_PROGRESS checked-level7.bin 230000 of 377261 seconds 187.38672424900005
+FACTOR_PROGRESS checked-level7.bin 240000 of 377261 seconds 203.79478426800006
+FACTOR_PROGRESS checked-level7.bin 250000 of 377261 seconds 216.71662759399987
+FACTOR_PROGRESS checked-level7.bin 260000 of 377261 seconds 229.41448277000018
+FACTOR_PROGRESS checked-level7.bin 270000 of 377261 seconds 240.7259376320003
+FACTOR_PROGRESS checked-level7.bin 280000 of 377261 seconds 250.76446693900016
+FACTOR_PROGRESS checked-level7.bin 290000 of 377261 seconds 262.0352401350001
+FACTOR_PROGRESS checked-level7.bin 300000 of 377261 seconds 274.8306191720003
+FACTOR_PROGRESS checked-level7.bin 310000 of 377261 seconds 284.6720794940002
+FACTOR_PROGRESS checked-level7.bin 320000 of 377261 seconds 293.61574578
+FACTOR_PROGRESS checked-level7.bin 330000 of 377261 seconds 301.7511769810003
+FACTOR_PROGRESS checked-level7.bin 340000 of 377261 seconds 309.38237613
+FACTOR_PROGRESS checked-level7.bin 350000 of 377261 seconds 318.20025829899987
+FACTOR_PROGRESS checked-level7.bin 360000 of 377261 seconds 325.9440279300002
+FACTOR_PROGRESS checked-level7.bin 370000 of 377261 seconds 332.99103608899986
+FACTOR_FILE_PASS {"file": "checked-level7.bin", "bytes": 23235308, "sha256": "bcbda7ad9e5a0e4af219beb7c7f1503b860c3ec3cac3caa6f62ab38ab30fcf00", "records": 377261, "cap": 13, "max_wire_id": 794274, "kinds": {"factor": 77856, "parity": 149493, "cross": 149912}, "widths": {"13": 227349, "14": 149912}, "seconds": 338.3052473490002, "verdict": "PASS"}
+ALL_FROZEN_LEAVES_PASS {"verdict": "PASS", "scope": "Only the two complete frozen factor-leaf snapshots named below; not frontier completeness, all native pruning, arbitrary circuits, or a Lean proof.", "wire_file": "/tmp/oec/pnp-swarm-2373-8/fullprobe/wires.bin", "wire_sha256": "3728600dcee9a2303b15018641201f91e49fb459e521f6f90e1148d654a10cd8", "wire_records": 794909, "wire_origins": {"input": 10, "and": 249755, "or": 545144}, "positive_rows": [3, 6, 12, 17, 24, 33, 66, 132, 160, 264, 288, 320, 528, 576, 640], "negative_rows": [50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773], "boundary_pairs": 225, "factor_files": [{"file": "baseline-level6.bin", "bytes": 5897628, "sha256": "05f9719e09c411fbcfb614f156695af280ad25ce2ddb6d2f31b7c7587d6ee2ef", "records": 91125, "cap": 14, "max_wire_id": 255749, "kinds": {"factor": 39587, "parity": 35131, "cross": 16407}, "widths": {"14": 74718, "15": 16407}, "seconds": 79.85305536900023, "verdict": "PASS"}, {"file": "checked-level7.bin", "bytes": 23235308, "sha256": "bcbda7ad9e5a0e4af219beb7c7f1503b860c3ec3cac3caa6f62ab38ab30fcf00", "records": 377261, "cap": 13, "max_wire_id": 794274, "kinds": {"factor": 77856, "parity": 149493, "cross": 149912}, "widths": {"13": 227349, "14": 149912}, "seconds": 338.3052473490002, "verdict": "PASS"}], "total_factor_records": 468386, "seconds": 420.251969205}

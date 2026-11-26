@@ -63,3 +63,21 @@ The Lean helper's seven-row result is separate: an explicit 18-gate near-miss
 prefix cannot be repaired by any three appended fan-in-two AND/OR/NOT gates,
 even with arbitrary output selection, constants, and forward/default reads.
 It does not exclude rewiring the prefix.
+
+## Full Petersen searches
+
+`full-monotone/` contains the full ten-input monotone search, its complete
+closure logs, source hashes, reproduction instructions, and independent
+source and pool audits. The 19-operation search exhausted its frontier after
+13 levels using only bounds from existing checked Lean files. This is a native
+computational result; its complete state traversal has not been replayed in Lean.
+
+`full-signed/` contains the signed search, where binary AND, OR, AND-NOT and
+NOT-AND cost one operation and complements are free. Both budgets 16 and 17
+close. The latter still closes after removing every L670-based pool, leaving
+5,230 retained states and only the L6581 basis. A compact Lean replay is being
+prepared separately. The larger budget-18 experiment is ongoing.
+
+Neither native closure proves the posted gap. In particular, the signed
+budget-17 result would establish a binary-gate floor of 18 only after the
+complete certificate and circuit-to-live bridge have passed Lean checking.

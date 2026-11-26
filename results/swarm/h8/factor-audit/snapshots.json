@@ -1,0 +1,36 @@
+{
+  "wire_records": 1072127,
+  "wire_sha256": "14e554a685ad07666ba9d7a9164e67befae31de349aa44f2e37f40bc0a6a2d4e",
+  "factor_records": 628741,
+  "factor_files": [
+    {
+      "file": "baseline-level6.bin",
+      "records": 91125,
+      "sha256": "05f9719e09c411fbcfb614f156695af280ad25ce2ddb6d2f31b7c7587d6ee2ef",
+      "counts_by_cap": {
+        "14": 91125
+      }
+    },
+    {
+      "file": "checked-level7.bin",
+      "records": 377261,
+      "sha256": "bcbda7ad9e5a0e4af219beb7c7f1503b860c3ec3cac3caa6f62ab38ab30fcf00",
+      "counts_by_cap": {
+        "13": 377261
+      }
+    },
+    {
+      "file": "checked-level8plus.bin",
+      "records": 160355,
+      "sha256": "347f8707cc9f938fac3d205bbe38b1124c681b9319b57e652f0ceb72e7dd6055",
+      "counts_by_cap": {
+        "12": 149427,
+        "11": 10428,
+        "10": 423,
+        "9": 66,
+        "8": 10,
+        "7": 1
+      }
+    }
+  ]
+}

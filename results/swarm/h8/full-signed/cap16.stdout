@@ -1,0 +1,16 @@
+level=1 states=1 moves=720 length=0 sep=0 fullsep=0 redundant=0 projection=675 links=0 factor=0 open=45 distinct=2 wires=190 sec=0.00370227
+level=2 states=2 moves=0 length=0 sep=0 fullsep=2 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00395375
+level=3 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00401875
+level=4 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00403952
+level=5 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00405964
+level=6 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00414764
+level=7 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00418048
+level=8 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00421833
+level=9 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00424848
+level=10 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00428459
+level=11 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00430353
+level=12 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00437146
+level=13 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.0044136
+level=14 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00443378
+level=15 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00450995
+level=16 states=0 moves=0 length=0 sep=0 fullsep=0 redundant=0 projection=0 links=0 factor=0 open=0 distinct=0 wires=190 sec=0.00452874

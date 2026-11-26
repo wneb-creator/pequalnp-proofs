@@ -1,0 +1,64 @@
+L_meta_6581.lean audit, 2026-11-26
+
+The file is 284540 bytes and 4555 lines. Its certificate engine is the
+nine-variable Petersen-minus-vertex graph, using BitVec 512 signatures.
+The ten-variable Extended wrapper derives a non-NOT gate lower bound of 16
+by restricting one essential input to zero and applying the signed H9
+lower bound 15. It is not a full ten-variable enumeration certificate.
+
+Relevant declarations:
+  rootSCols, line 3784: 215 signed H9 slice columns.
+  col_sound, line 1433: semantic soundness of each column.
+  valid383, line 3773: signed lower bounds for smaller induced graphs.
+  rootSGeom, line 3934: kernel checks all root geometry and columns.
+  rootSImpossible, line 3960: no signed H9 live computation in 14 gates.
+  nineFloor, line 4496: signed H9 lower bound 15.
+  atLeastSixteen, line 4505: full Petersen lower bound 16 non-NOT gates.
+
+Each rootSCols tuple is (z,o,q,s,L). All z are below 512. The slice domain
+is the set of rows with row & z = 0 and row & o = o; its free roots are
+the nine original inputs restricted to that domain, plus constants.
+Unlike L670, s also packs witness-neighbor indices. The columns therefore
+must not be supplied directly to L670.colCheck. Their semantic pools are
+compatible with the native search after discarding q and s.
+
+Inputs and graph truth-table constants in L6581 and L670 are identical.
+Transporting all 215 columns through the ten existing vertex-deletion
+isomorphisms produces 1068 distinct domain/root pools. Compared with the
+2997-pool baseline full probe, exactly 232 pools are new and no existing
+bound increases: bounds 5,6,7,8 occur 17,166,39,10 times respectively.
+Their independent export is 6581-extra-pools.json.
+
+Source-size breakdown:
+  lines 1--3329, generic machinery and batched checker: 168832 bytes.
+  lines 3330--3449, transition to checked smaller graphs: 5885 bytes.
+  lines 3450--3773, smaller signed graph certificates: 35175 bytes.
+  lines 3774--3987, H9 root certificate: 43413 bytes.
+  lines 3988--4542, Extended ten-variable wrapper: 29510 bytes.
+The H9 prefix totals 253305 bytes. This is a useful compact base, but it
+omits the 279 augmented-root monotone columns used by L670. Reuse for a
+monotone closure requires either retaining those prerequisites or rerunning
+with the plain signed columns and the monotone factor cuts.
+
+Encoding caveat: decodeBank/readNode use four-bit operand indices and
+ten bits per stored gate. Native paths longer than six or seven prefix
+gates can refer beyond bank index 15. Such paths require reconstruction
+with fewer gates or a five-bit operand/twelve-bit gate encoding update.
+The existing hash indexes recheck actual signal-set equality, so hash
+fingerprints are accelerators rather than trusted identities.
+
+Independent first-step full-Petersen signed16 audit:
+All 720 moves (45 unordered input pairs, four signed binary operations,
+four keep/delete choices) close using only the ten whole-H9 signed15
+zero-cofactor pools. Exactly 675 have a constant front wire on a suitable
+cofactor while every projected signal is freely available. The remaining
+45 are OR gates consuming both operands and have explicit swapped-input
+rows with different target values and identical remaining wire values.
+This is a computational audit, not a Lean proof of the stronger 17 floor.
+
+Finite data exports:
+  fullP16-first-swap-witnesses.json: 45 standard-coordinate row pairs.
+  fullP16-extended-swap-witnesses.json: the same pairs in L6581 coordinates.
+  L6581-cofactor-rowmaps.json: ten cofactor maps and ten essential row pairs.
+The cofactor maps were independently checked on all 5120 target rows and
+51200 input projections against the exact L6581 BitVec constants.

@@ -1,0 +1,18 @@
+REMAINING_WIRE_DAG_PASS 1072127 sha256 14e554a685ad07666ba9d7a9164e67befae31de349aa44f2e37f40bc0a6a2d4e origins {'input': 10, 'and': 374666, 'or': 697451}
+REMAINING_PROGRESS 10000 of 160355 seconds 9.916873569000018
+REMAINING_PROGRESS 20000 of 160355 seconds 16.973361832000137
+REMAINING_PROGRESS 30000 of 160355 seconds 24.305782242000078
+REMAINING_PROGRESS 40000 of 160355 seconds 31.686923062000005
+REMAINING_PROGRESS 50000 of 160355 seconds 39.031223540000155
+REMAINING_PROGRESS 60000 of 160355 seconds 46.49404134699989
+REMAINING_PROGRESS 70000 of 160355 seconds 54.13684673099988
+REMAINING_PROGRESS 80000 of 160355 seconds 62.52992141899995
+REMAINING_PROGRESS 90000 of 160355 seconds 70.53545072999987
+REMAINING_PROGRESS 100000 of 160355 seconds 81.37617989699993
+REMAINING_PROGRESS 110000 of 160355 seconds 90.60576693199982
+REMAINING_PROGRESS 120000 of 160355 seconds 99.43240855400018
+REMAINING_PROGRESS 130000 of 160355 seconds 110.68747027200016
+REMAINING_PROGRESS 140000 of 160355 seconds 119.65762471100015
+REMAINING_PROGRESS 150000 of 160355 seconds 129.38390297700016
+REMAINING_PROGRESS 160000 of 160355 seconds 146.73118689300009
+REMAINING_FROZEN_LEAVES_PASS {"verdict": "PASS", "scope": "All160355 complete frozen remaining factor leaves; native closure/frontier completeness and Lean formalization not established by this audit.", "wire_file": "/tmp/oec/pnp-swarm-2373-8/fullprobe/compact-stronger/wires.bin", "wire_records": 1072127, "wire_sha256": "14e554a685ad07666ba9d7a9164e67befae31de349aa44f2e37f40bc0a6a2d4e", "wire_origins": {"input": 10, "and": 374666, "or": 697451}, "factor_file": "/tmp/oec/pnp-swarm-2373-8/fullprobe/audit/frozen/checked-level8plus.bin", "factor_sha256": "347f8707cc9f938fac3d205bbe38b1124c681b9319b57e652f0ceb72e7dd6055", "records": 160355, "counts_by_cap": {"12": 149427, "11": 10428, "10": 423, "9": 66, "8": 10, "7": 1}, "max_wire_id": 1071575, "kinds": {"parity": 66707, "cross": 69803, "factor": 23845}, "widths": {"12": 88638, "13": 65197, "11": 6185, "10": 284, "9": 46, "8": 5}, "whole_factor_records": 537616, "whole_factor_sha256": "203ce0784d26cb74a57fbeb71ab4dd73157c0ee7d1e3c4d9f935aebdfea058a8", "whole_trace_is_exact_previous_prefix_plus_remaining_suffix": true, "seconds": 147.85726574499995}

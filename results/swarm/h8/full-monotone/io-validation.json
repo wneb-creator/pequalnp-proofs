@@ -1,0 +1,59 @@
+{
+  "result": "PASS",
+  "source_frontier_wire_count": 955,
+  "source_frontier_state_count": 71,
+  "resumed_frontier_sha256": "c1c3a810f8520d2abcddf29c3e0c11d4efafd62c53cdb46155fb5592d5fe8ea5",
+  "cases": [
+    {
+      "case": "normal",
+      "returncode": 0,
+      "expected": 0
+    },
+    {
+      "case": "wire-table-short",
+      "returncode": -6,
+      "expected": "truncated wire table"
+    },
+    {
+      "case": "wire-origin-short",
+      "returncode": -6,
+      "expected": "truncated wire origin"
+    },
+    {
+      "case": "front-header-short",
+      "returncode": -6,
+      "expected": "badfrontierheader"
+    },
+    {
+      "case": "state-header-short",
+      "returncode": -6,
+      "expected": "truncated state header"
+    },
+    {
+      "case": "state-payload-short",
+      "returncode": -6,
+      "expected": "truncated state payload"
+    },
+    {
+      "case": "pool-short",
+      "returncode": -6,
+      "expected": "ios"
+    },
+    {
+      "case": "wire-output-full",
+      "returncode": -6,
+      "expected": "ios"
+    },
+    {
+      "case": "frontier-output-full",
+      "returncode": -6,
+      "expected": "ios"
+    },
+    {
+      "case": "factor-output-full",
+      "returncode": 0,
+      "expected": 0
+    }
+  ],
+  "note": "Empty factor stream performs no writes; /dev/full factor case succeeds at depth3. Every nonempty output uses throwing streams."
+}

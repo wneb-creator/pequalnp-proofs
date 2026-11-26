@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "same-directory",
+      "returncode": -6,
+      "source_preserved": true,
+      "diagnostic": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  resume source and output directory must differ\n"
+    },
+    {
+      "case": "symlink-alias",
+      "returncode": -6,
+      "source_preserved": true,
+      "diagnostic": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  resume source and output directory must differ\n"
+    },
+    {
+      "case": "short-wire",
+      "returncode": -6,
+      "source_preserved": true,
+      "diagnostic": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  truncated resume wire record\n"
+    },
+    {
+      "case": "short-state-header",
+      "returncode": -6,
+      "source_preserved": true,
+      "diagnostic": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  truncated resume state header\n"
+    },
+    {
+      "case": "duplicate-live",
+      "returncode": -6,
+      "source_preserved": true,
+      "diagnostic": "terminate called after throwing an instance of 'std::runtime_error'\n  what():  duplicate, unavailable or constant resume live wire\n"
+    }
+  ]
+}
