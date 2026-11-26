@@ -46,3 +46,7 @@
 
 - 2026-11-26 01:35:01 UTC — Normalization checkpoint d7b8fa7e0 push confirmed to origin/pnp/swarm-L-meta-9033-orch; no FINAL posted.
 - 2026-11-26 01:42:34 UTC — Structural checkpoint target lake build PASS;500585bytes, seven export axiom audits standard3 or subsets. Exact literal witness now yields sorted normalized witness, injective ABC readers on left inputs, five ANDs, nine ORs, and an ABC OR reader. Independent exact source/diff review PASS; still no full posted negation.
+
+- 2026-11-26 01:43:54 UTC — Structural checkpoint a3efe2d5c push confirmed to origin/pnp/swarm-L-meta-9033-orch.
+- 2026-11-26 01:47:28 UTC — Project checker returned REJECTED (no-theorem): no theorem named PEqualNP.Outside.L_meta_9033. The published file contains checked helpers, not a complete posted proof/refutation; no PR or FINAL was opened/posted.
+- 2026-11-26 01:53:07 UTC — All250-family union obstruction and exact catalog mapping kernel checked after two small proof fixes; compiled axiom audit uses only standard3. Actual R3/k2 component lemmas pass; final combined case wrapper remains under assembly.
