@@ -66,3 +66,9 @@ Four-line canonical control: every16384input,185887clauses,38output-bypass witne
 Nine helper research checkpoint commits verified present in the local clone. Latest helper checks are attributed in helper-checkpoints.json; this does not claim root rebuilt every latest checkpoint. All helpers still report full target open.
 Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents across recovery (67 total).
 TIMING total=174.1 subagents=67
+
+2026-11-26T00:38:38.763694+00:00 deadline snapshot
+Full target remains unproved and unrefuted. No concrete candidate reached the orchestrator before the three-hour deadline. All seven root post-restart queries are UNKNOWN; no global nonexistence claim. The final bus read through cursor6048 confirms helper2 also reports every remaining query terminal UNKNOWN and no candidate. These are helper-reported outcomes; no full target UNSAT claim. Mathematical checker ACCEPTED (reduce); desk eligibility REFUSED. Result:none. No PR, FINAL, or lease release.
+Independent final actual archive review PASS. Correction: raw solver logs intentionally retain original whitespace; all2520whole-archive whitespace reports are confined to those9byte-identical raw logs. Non-raw document/code whitespace checks PASS. Final review text corrected accordingly.
+Sub-agents: 9 external helpers, 55 reported helper descendants, 3 local support/audit agents (67 total).
+TIMING total=180.2 subagents=67

@@ -3,7 +3,7 @@ Final independent research archive review
 UTC: 2026-11-26T00:33:45.431817+00:00
 Verdict: PASS for the current research-only diff.
 
-Actual scope:3modified docs plus20new files, all in results/swarm (including9complete solver logs). No proof target, definitions, checker, toolchain, or frozenencoder change. git diff --check PASS.
+Actual scope:3modified docs plus20new files, all in results/swarm (including9complete solver logs). No proof target, definitions, checker, toolchain, or frozenencoder change. The original git diff --check PASS was scoped to the then-tracked document diffs; it did not inspect untracked raw solver logs. The complete staged/committed archive check reports 2520 trailing-whitespace occurrences, all confined to the nine raw solver logs. Their bytes are intentionally preserved exactly; the complete archive is not claimed whitespace-clean.
 
 Read the actual three document diffs, HANDOFF, four-line proof note, helpercheckpoint manifest, final statusJSON, eligibility refusal, and new script. All copied script/audit files and all9solver logs byte-match scratch originals; final statusJSON byte-equals this reviewer's finished seven-search monitor; final desk row byte-equals the fetched gap-live-row-final.json; refusal byte-equals the original exact gap-guard log. FrozenencoderSHA remains85052b974b15013629aabef9b268397d8891061813a5711b8372b449b9e9118b.
 
@@ -20,3 +20,5 @@ All9cited helper checkpoint commits exist in the clone. Per-helper validation ex
 All20new files are plain nonexecutables and their complete text passed credential-pattern checks without reading any environment credentials. Modifieddocs were read in full diff and contain no credential material. These are research artifacts, not an eligible one-file submission.
 
 No edits, commits, pushes, newagents, or solver launches performed during review. Later timing/helper-outcome or push-receipt addenda require their own small review.
+
+Whitespace correction 2026-11-26T00:35:15.607883+00:00: independently ran git show --format= --check on archive commit de8553d918fb6556518b8b8c5669caf6c7ac9811. Its 2520 reported issues exactly match the retained staging-check log and all are trailing whitespace in results/swarm/search-logs/*.log. Every raw log remains byte-identical to scratch. No solver log was normalized or edited. Only this review text was corrected; research verdict remains PASS with the stated whitespace scope.
