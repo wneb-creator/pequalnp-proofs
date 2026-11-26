@@ -24,3 +24,9 @@
 - 2026-11-25 23:50:52: Second replanning: independent OR>=9 audits leave exact five-AND/nine-OR case. Direct OR>=10 certificate extension and equality-case restrictions underway.
 - 2026-11-25 23:53:08: Partial helper module lake build passed; independent partial-diff review PASS from local OR-bound reviewer. No posted-theorem claim or PR yet.
 - 2026-11-25 23:53:08: Unrestricted OR>=10 route rejected by independently replayed nine-OR/seven-AND circuit; searches remain focused on exact five-AND/nine-OR.
+- 2026-11-26 00:00:47: Partial AND-count checkpoint 0277a9f3 push confirmed.
+- 2026-11-26 00:00:47: Combined exact-witness AND=5 and OR=9 helper compiled in scratch; copied into target module and merged repeated outer namespace blocks for repository format. Still no posted theorem.
+- 2026-11-26 00:00:47: helper-4 reports one of three clean-terminal-AND normal-form cases UNSAT with DRAT; external certificate check pending. This is not a full gap result.
+- 2026-11-26 00:04:44: Exact-count helper module lake build PASS; independent source/statement/axiom review PASS, axioms exactly propext, Classical.choice, Quot.sound. Still no final posted theorem.
+- 2026-11-26 00:04:44: Sub-agents: nine external bus helpers and four local helpers (including one nested helper), 13 total so far.
+- 2026-11-26 00:04:44: helper-4 clean-case k=3 externally checked UNSAT (DRAT and LRAT); remaining k=1,2 cases open. Certificate too large for direct final-file inclusion.
