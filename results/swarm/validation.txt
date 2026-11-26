@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 130 helper lemmas compile and pass an axiom audit.
+All 138 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -90,6 +90,16 @@ factors that each have a doubly owned rectangle and at most one exceptional
 rectangle with a row or column owner. This is the combinatorial core of the
 many-factor deficit argument; a full arbitrary-circuit bound is not claimed.
 
+The complete many-factor owner bound is also checked: for a nonempty matching
+index type, its size plus the number of factor tags is at most the number of
+rectangle terms plus one. All tag sizes are handled; singleton factors are
+removed by redirecting universal owned rows and columns and recursing on the
+number of tags. IndependentFactors.many_factor_matching_bound applies this to
+arbitrary monotone factors with exact graph-function conjunction and rectangular
+pair terms. No full graph-function assumption is imposed on individual factors.
+This still requires the factor/rectangle representation; converting arbitrary
+shared circuit signals to that representation at the required cost is open.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -112,4 +122,4 @@ mathematical review; no general source-cost ledger is established.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=99.0 subagents=2
+TIMING total=105.0 subagents=2

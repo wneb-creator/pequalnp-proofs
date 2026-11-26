@@ -2335,4 +2335,362 @@ lemma four_thin_impossible
 
 end OwnerStrictness
 
+namespace OwnerStrictness
+
+variable {M K I : Type*} [Fintype M] [Fintype K] [Fintype I]
+
+noncomputable def missingOwners (tag : K → I) (o : M → K) (i : I) : Finset K := by
+  classical
+  exact Finset.univ.filter fun k => tag k = i ∧ k ∉ Finset.univ.image o
+
+noncomputable def ownerDeficit (tag : K → I) (r c : M → K) (i : I) : ℕ :=
+  (missingOwners tag r i).card + (missingOwners tag c i).card
+
+lemma not_missing_iff (tag : K → I) (o : M → K) (i : I) (k : K) (hk : tag k = i) :
+    k ∉ missingOwners tag o i ↔ ∃ p, o p = k := by
+  classical
+  simp [missingOwners,hk]
+
+lemma zero_deficit_double (tag : K → I) (r c : M → K) (i : I)
+    (hi : ownerDeficit tag r c i = 0) : ∀ k, tag k = i → DoubleOwned r c k := by
+  classical
+  have hr : missingOwners tag r i = ∅ := Finset.card_eq_zero.mp (by
+    have h := hi; unfold ownerDeficit at h; omega)
+  have hc : missingOwners tag c i = ∅ := Finset.card_eq_zero.mp (by
+    have h := hi; unfold ownerDeficit at h; omega)
+  intro k hk
+  obtain ⟨p,hp⟩ := (not_missing_iff tag r i k hk).mp (by simp [hr])
+  obtain ⟨q,hq⟩ := (not_missing_iff tag c i k hk).mp (by simp [hc])
+  exact ⟨p,q,hp,hq⟩
+
+lemma one_deficit_data [DecidableEq I] (tag : K → I) (r c : M → K) (i : I)
+    (hsize : 2 ≤ (Finset.univ.filter fun k => tag k = i).card)
+    (hi : ownerDeficit tag r c i = 1) :
+    ∃ s d : K, ∃ o : Bool, tag s = i ∧ tag d = i ∧ DoubleOwned r c d ∧
+      (o = false → ∃ p, r p = s) ∧ (o = true → ∃ q, c q = s) ∧
+      ∀ k, tag k = i → k ≠ s → DoubleOwned r c k := by
+  classical
+  have hsum : (missingOwners tag r i).card + (missingOwners tag c i).card = 1 := hi
+  have hfinish (s : K) (o : Bool) (hs : tag s = i)
+      (hrow : o = false → ∃ p, r p = s) (hcol : o = true → ∃ q, c q = s)
+      (hother : ∀ k, tag k = i → k ≠ s → DoubleOwned r c k) :
+      ∃ s d : K, ∃ o : Bool, tag s = i ∧ tag d = i ∧ DoubleOwned r c d ∧
+        (o = false → ∃ p, r p = s) ∧ (o = true → ∃ q, c q = s) ∧
+        ∀ k, tag k = i → k ≠ s → DoubleOwned r c k := by
+    obtain ⟨u,hu,v,hv,huv⟩ := Finset.one_lt_card.mp (show 1 < (Finset.univ.filter fun k => tag k = i).card by omega)
+    have hu' : tag u = i := (Finset.mem_filter.mp hu).2
+    have hv' : tag v = i := (Finset.mem_filter.mp hv).2
+    by_cases hus : u = s
+    · have hvs : v ≠ s := by intro he; apply huv; rw [hus,he]
+      exact ⟨s,v,o,hs,hv',hother v hv' hvs,hrow,hcol,hother⟩
+    · exact ⟨s,u,o,hs,hu',hother u hu' hus,hrow,hcol,hother⟩
+  by_cases hr : (missingOwners tag r i).card = 0
+  · have hc : (missingOwners tag c i).card = 1 := by omega
+    have hre : missingOwners tag r i = ∅ := Finset.card_eq_zero.mp hr
+    obtain ⟨s,hse⟩ := Finset.card_eq_one.mp hc
+    have hsm : s ∈ missingOwners tag c i := by rw [hse]; simp
+    have hs : tag s = i := by
+      simp only [missingOwners,Finset.mem_filter,Finset.mem_univ,true_and] at hsm
+      exact hsm.1
+    apply hfinish s false hs
+    · intro _; exact (not_missing_iff tag r i s hs).mp (by simp [hre])
+    · simp
+    · intro k hk hks
+      obtain ⟨p,hp⟩ := (not_missing_iff tag r i k hk).mp (by simp [hre])
+      obtain ⟨q,hq⟩ := (not_missing_iff tag c i k hk).mp (by simp [hse,hks])
+      exact ⟨p,q,hp,hq⟩
+  · have hrc : (missingOwners tag r i).card = 1 := by omega
+    have hc : (missingOwners tag c i).card = 0 := by omega
+    have hce : missingOwners tag c i = ∅ := Finset.card_eq_zero.mp hc
+    obtain ⟨s,hse⟩ := Finset.card_eq_one.mp hrc
+    have hsm : s ∈ missingOwners tag r i := by rw [hse]; simp
+    have hs : tag s = i := by
+      simp only [missingOwners,Finset.mem_filter,Finset.mem_univ,true_and] at hsm
+      exact hsm.1
+    apply hfinish s true hs
+    · simp
+    · intro _; exact (not_missing_iff tag c i s hs).mp (by simp [hce])
+    · intro k hk hks
+      obtain ⟨p,hp⟩ := (not_missing_iff tag r i k hk).mp (by simp [hse,hks])
+      obtain ⟨q,hq⟩ := (not_missing_iff tag c i k hk).mp (by simp [hce])
+      exact ⟨p,q,hp,hq⟩
+
+lemma deficit_budget (d : I → ℕ) (m k : ℕ)
+    (htotal : (∑ i, d i) + 2 * m = 2 * k)
+    (hzero : ∀ i, d i = 0 → ∀ j, j ≠ i → 2 ≤ d j)
+    (hthin : (Finset.univ.filter fun i => d i = 1).card ≤ 3) :
+    m + Fintype.card I ≤ k + 1 := by
+  classical
+  by_cases hz : ∃ z, d z = 0
+  · obtain ⟨z,hz⟩ := hz
+    have hi (i : I) : 2 ≤ d i + (if i = z then 2 else 0) := by
+      by_cases he : i = z
+      · simp [he]
+      · simpa [he] using hzero z hz i he
+    have hs := Finset.sum_le_sum (s := (Finset.univ : Finset I)) (fun i _ => hi i)
+    have he : 2 * Fintype.card I ≤ (∑ i, d i) + 2 := by
+      simpa [Finset.sum_add_distrib,Nat.mul_comm] using hs
+    omega
+  · have hi (i : I) : 2 ≤ d i + (if d i = 1 then 1 else 0) := by
+      have hp : d i ≠ 0 := fun h => hz ⟨i,h⟩
+      split_ifs <;> omega
+    have hs := Finset.sum_le_sum (s := (Finset.univ : Finset I)) (fun i _ => hi i)
+    have he : 2 * Fintype.card I ≤ (∑ i, d i) + (Finset.univ.filter fun i => d i = 1).card := by
+      simpa [Finset.sum_add_distrib,Nat.mul_comm] using hs
+    omega
+
+end OwnerStrictness
+
+namespace OwnerStrictness
+
+variable {M K I : Type*} [Fintype M] [Fintype K] [Fintype I]
+
+lemma missing_sum (tag : K → I) (o : M → K) (ho : Function.Injective o) :
+    (∑ i, (missingOwners tag o i).card) + Fintype.card M = Fintype.card K := by
+  classical
+  let S : Finset K := Finset.univ \ Finset.univ.image o
+  have hf (i : I) : S.filter (fun k => tag k = i) = missingOwners tag o i := by
+    ext k
+    simp [S,missingOwners,and_comm]
+  have hs : (∑ i, (missingOwners tag o i).card) = S.card := by
+    simpa only [hf,Finset.mem_univ,Finset.filter_true] using
+      Finset.sum_card_fiberwise_eq_card_filter S Finset.univ tag
+  rw [hs]
+  have he := Finset.card_sdiff_add_card_eq_card
+    (show Finset.univ.image o ⊆ (Finset.univ : Finset K) from Finset.subset_univ _)
+  simpa [S,Finset.card_image_of_injective _ ho] using he
+
+lemma owner_many_tags_of_large_classes [DecidableEq I]
+    (A B : K → M → Prop) (E : M → M → Prop) (tag : K → I) (r c : M → K)
+    (hrowMem : ∀ p, A (r p) p ∧ B (r p) p)
+    (hcolMem : ∀ p, A (c p) p ∧ B (c p) p)
+    (hrowCtrl : ∀ p q, A (r p) p → B (r p) q → E p q)
+    (hcolCtrl : ∀ p q, A (c q) p → B (c q) q → E p q)
+    (hcover : ∀ p q, E p q → ∀ t : I, ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b))
+    (hsize : ∀ i, 2 ≤ (Finset.univ.filter fun k => tag k = i).card) :
+    Fintype.card M + Fintype.card I ≤ Fintype.card K + 1 := by
+  classical
+  have hr : Function.Injective r := by
+    intro p q he
+    by_contra hpq
+    exact hno p q p q hpq hpq
+      ⟨hrowCtrl p p (hrowMem p).1 (hrowMem p).2,
+        hrowCtrl p q (hrowMem p).1 (by rw [he]; exact (hrowMem q).2),
+        hrowCtrl q p (hrowMem q).1 (by rw [← he]; exact (hrowMem p).2),
+        hrowCtrl q q (hrowMem q).1 (hrowMem q).2⟩
+  have hc : Function.Injective c := by
+    intro p q he
+    by_contra hpq
+    exact hno p q p q hpq hpq
+      ⟨hcolCtrl p p (hcolMem p).1 (hcolMem p).2,
+        hcolCtrl p q (by rw [← he]; exact (hcolMem p).1) (hcolMem q).2,
+        hcolCtrl q p (by rw [he]; exact (hcolMem q).1) (hcolMem p).2,
+        hcolCtrl q q (hcolMem q).1 (hcolMem q).2⟩
+  have htotal : (∑ i, ownerDeficit tag r c i) + 2 * Fintype.card M = 2 * Fintype.card K := by
+    have hR := missing_sum tag r hr
+    have hC := missing_sum tag c hc
+    simp only [ownerDeficit,Finset.sum_add_distrib]
+    omega
+  apply deficit_budget (ownerDeficit tag r c) (Fintype.card M) (Fintype.card K) htotal
+  · intro i hi j hji
+    have hn : ∀ k, tag k = j → ¬ DoubleOwned r c k := by
+      intro k hkj hk
+      obtain ⟨p,q,hp,hq⟩ := hk
+      have epq := hrowCtrl p q (hrowMem p).1 (by rw [hp,← hq]; exact (hcolMem q).2)
+      obtain ⟨l,hli,hlp,hlq⟩ := hcover p q epq i
+      have hkl : k ≠ l := by intro he; apply hji; rw [← hkj,he,hli]
+      exact double_center_not_covered A B E r c hrowMem hcolMem hrowCtrl hcolCtrl hno
+        k l hkl p q hp hq (zero_deficit_double tag r c i hi l hli) hlp hlq
+    have hsub : (Finset.univ.filter fun k => tag k = j) ⊆
+        missingOwners tag r j ∪ missingOwners tag c j := by
+      intro k hk
+      have hkj : tag k = j := (Finset.mem_filter.mp hk).2
+      by_contra hmiss
+      have hm : k ∉ missingOwners tag r j ∧ k ∉ missingOwners tag c j := by simpa using hmiss
+      obtain ⟨p,hp⟩ := (not_missing_iff tag r j k hkj).mp hm.1
+      obtain ⟨q,hq⟩ := (not_missing_iff tag c j k hkj).mp hm.2
+      exact hn k hkj ⟨p,q,hp,hq⟩
+    have hcard := (Finset.card_le_card hsub).trans (Finset.card_union_le _ _)
+    exact (hsize j).trans hcard
+  · let T : Finset I := Finset.univ.filter fun i => ownerDeficit tag r c i = 1
+    change T.card ≤ 3
+    by_contra hlarge
+    have hfour : Fintype.card (Fin 4) ≤ T.card := by simpa using (show 4 ≤ T.card by omega)
+    obtain ⟨factor,hfactorRange⟩ := Function.Embedding.exists_of_card_le_finset hfour
+    have hf (i : Fin 4) : ownerDeficit tag r c (factor i) = 1 := by
+      exact (Finset.mem_filter.mp (hfactorRange ⟨i,rfl⟩)).2
+    have hdata (i : Fin 4) := one_deficit_data tag r c (factor i) (hsize _) (hf i)
+    choose single double orient hsTag hdTag hdOwned hsRow hsCol hothers using hdata
+    exact four_thin_impossible A B E tag r c hrowMem hcolMem hrowCtrl hcolCtrl hcover hno
+      factor factor.injective single double orient hsTag hdTag hdOwned hsRow hsCol hothers
+
+end OwnerStrictness
+
+namespace OwnerStrictness
+
+variable {M : Type*} [Fintype M] [Nonempty M]
+
+lemma owner_many_tags {K I : Type*} [Fintype K] [Fintype I]
+    (A B : K → M → Prop) (E : M → M → Prop) (tag : K → I) (r c : M → K)
+    (hrowMem : ∀ p, A (r p) p ∧ B (r p) p)
+    (hcolMem : ∀ p, A (c p) p ∧ B (c p) p)
+    (hrowCtrl : ∀ p q, A (r p) p → B (r p) q → E p q)
+    (hcolCtrl : ∀ p q, A (c q) p → B (c q) q → E p q)
+    (hcover : ∀ p q, E p q → ∀ t : I, ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b)) :
+    Fintype.card M + Fintype.card I ≤ Fintype.card K + 1 := by
+  classical
+  have hr : Function.Injective r := by
+    intro p q he
+    by_contra hpq
+    exact hno p q p q hpq hpq
+      ⟨hrowCtrl p p (hrowMem p).1 (hrowMem p).2,
+        hrowCtrl p q (hrowMem p).1 (by rw [he]; exact (hrowMem q).2),
+        hrowCtrl q p (hrowMem q).1 (by rw [← he]; exact (hrowMem p).2),
+        hrowCtrl q q (hrowMem q).1 (hrowMem q).2⟩
+  have hle := Fintype.card_le_of_injective r hr
+  have hmpos : 0 < Fintype.card M := Fintype.card_pos
+  by_cases hsmall : Fintype.card I ≤ 1
+  · omega
+  by_cases hlarge : ∀ i, 2 ≤ (Finset.univ.filter fun k => tag k = i).card
+  · exact owner_many_tags_of_large_classes A B E tag r c hrowMem hcolMem
+      hrowCtrl hcolCtrl hcover hno hlarge
+  push Not at hlarge
+  obtain ⟨i,hi⟩ := hlarge
+  have hdiag (p : M) : E p p := hrowCtrl p p (hrowMem p).1 (hrowMem p).2
+  obtain ⟨k,hki,_,_⟩ := hcover (Classical.arbitrary M) (Classical.arbitrary M)
+    (hdiag _) i
+  have hpos : 0 < (Finset.univ.filter fun k => tag k = i).card := by
+    exact Finset.card_pos.mpr ⟨k,by simp [hki]⟩
+  have hone : (Finset.univ.filter fun k => tag k = i).card = 1 := by omega
+  obtain ⟨k₀,hfiber⟩ := Finset.card_eq_one.mp hone
+  have huniq : ∀ k, tag k = i → k = k₀ := by
+    intro k hk
+    have hm : k ∈ Finset.univ.filter (fun k => tag k = i) := by simp [hk]
+    simpa [hfiber] using hm
+  have hwhole : ∀ p, A k₀ p ∧ B k₀ p := by
+    intro p
+    obtain ⟨k,hk,hA,hB⟩ := hcover p p (hdiag p) i
+    simpa [huniq k hk] using And.intro hA hB
+  have hj : ∃ j : I, j ≠ i := by
+    by_contra hn
+    have hall : ∀ j : I, j = i := by simpa using hn
+    have hc : Fintype.card I ≤ 1 := by
+      rw [← Finset.card_univ]
+      exact Finset.card_le_one.mpr (fun a _ b _ => (hall a).trans (hall b).symm)
+    exact hsmall hc
+  obtain ⟨j,hji⟩ := hj
+  have halt : ∀ p, ∃ k, tag k = j ∧ A k p ∧ B k p := by
+    intro p
+    exact hcover p p (hdiag p) j
+  choose alt hAltTag hAltA hAltB using halt
+  let K' := {k : K // tag k ≠ i}
+  let I' := {t : I // t ≠ i}
+  let tag' : K' → I' := fun k => ⟨tag k.val,k.property⟩
+  let alt' : M → K' := fun p => ⟨alt p,by rw [hAltTag]; exact hji⟩
+  let r' : M → K' := fun p => if h : tag (r p) = i then alt' p else ⟨r p,h⟩
+  let c' : M → K' := fun p => if h : tag (c p) = i then alt' p else ⟨c p,h⟩
+  let A' : K' → M → Prop := fun k => A k.val
+  let B' : K' → M → Prop := fun k => B k.val
+  have hrMem : ∀ p, A' (r' p) p ∧ B' (r' p) p := by
+    intro p
+    by_cases h : tag (r p) = i
+    · simpa [A',B',r',alt',h] using And.intro (hAltA p) (hAltB p)
+    · simpa [A',B',r',h] using hrowMem p
+  have hcMem : ∀ p, A' (c' p) p ∧ B' (c' p) p := by
+    intro p
+    by_cases h : tag (c p) = i
+    · simpa [A',B',c',alt',h] using And.intro (hAltA p) (hAltB p)
+    · simpa [A',B',c',h] using hcolMem p
+  have hrCtrl : ∀ p q, A' (r' p) p → B' (r' p) q → E p q := by
+    intro p q hp hq
+    by_cases h : tag (r p) = i
+    · exact hrowCtrl p q (hrowMem p).1 (by rw [huniq (r p) h]; exact (hwhole q).2)
+    · exact hrowCtrl p q (hrowMem p).1 (by simpa [B',r',h] using hq)
+  have hcCtrl : ∀ p q, A' (c' q) p → B' (c' q) q → E p q := by
+    intro p q hp hq
+    by_cases h : tag (c q) = i
+    · exact hcolCtrl p q (by rw [huniq (c q) h]; exact (hwhole p).1) (hcolMem q).2
+    · exact hcolCtrl p q (by simpa [A',c',h] using hp) (hcolMem q).2
+  have hcover' : ∀ p q, E p q → ∀ t : I', ∃ k, tag' k = t ∧ A' k p ∧ B' k q := by
+    intro p q he t
+    obtain ⟨k,hkt,hkp,hkq⟩ := hcover p q he t.val
+    have hk : tag k ≠ i := by rw [hkt]; exact t.property
+    exact ⟨⟨k,hk⟩,Subtype.ext hkt,hkp,hkq⟩
+  have hrec := owner_many_tags (K := K') (I := I')
+    A' B' E tag' r' c' hrMem hcMem hrCtrl hcCtrl hcover' hno
+  have hI : Fintype.card I' = Fintype.card I - 1 := by
+    dsimp [I']
+    rw [Fintype.card_subtype_compl]
+    simp
+  have hK : Fintype.card K' = Fintype.card K - 1 := by
+    dsimp [K']
+    rw [Fintype.card_subtype_compl,Fintype.card_subtype]
+    rw [hone]
+  rw [hI,hK] at hrec
+  omega
+termination_by Fintype.card I
+decreasing_by
+  classical
+  exact Fintype.card_subtype_lt (x := i) (by simp)
+
+end OwnerStrictness
+
+namespace IndependentFactors
+
+open FullProductNesting
+
+variable {M K I : Type*} [Fintype M] [Fintype K] [Fintype I] [Nonempty M]
+
+-- Only pair restrictions of the terms must be rectangles.
+lemma many_factor_matching_bound
+    (E : M → M → Prop)
+    (f : I → (M → Prop) → (M → Prop) → Prop)
+    (A B : K → M → Prop) (tag : K → I)
+    (hmonoX : ∀ t X X' Y, (∀ p, X p → X' p) → f t X Y → f t X' Y)
+    (hmonoY : ∀ t X Y Y', (∀ q, Y q → Y' q) → f t X Y → f t X Y')
+    (hfull : ∀ X Y, HasEdge E X Y ↔ ∀ t, f t X Y)
+    (hpair : ∀ t p q, f t (fun x => x = p) (fun y => y = q) ↔
+      ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hdiag : ∀ p, E p p)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b)) :
+    Fintype.card M + Fintype.card I ≤ Fintype.card K + 1 := by
+  classical
+  have hrow : ∀ p, ∃ k, (A k p ∧ B k p) ∧ ∀ q, B k q → E p q := by
+    intro p
+    obtain ⟨t,ht⟩ := exists_row_controller E f hmonoY hfull p
+    have hf : f t (fun x => x = p) (fun y => y = p) :=
+      (ht _).mpr ⟨p,hdiag p,rfl⟩
+    obtain ⟨k,hkt,hkp,hkq⟩ := (hpair t p p).mp hf
+    refine ⟨k,⟨hkp,hkq⟩,?_⟩
+    intro q hq
+    have hfq := (hpair t p q).mpr ⟨k,hkt,hkp,hq⟩
+    obtain ⟨b,heb,hb⟩ := (ht _).mp hfq
+    simpa only [hb] using heb
+  have hcol : ∀ q, ∃ k, (A k q ∧ B k q) ∧ ∀ p, A k p → E p q := by
+    intro q
+    obtain ⟨t,ht⟩ := exists_column_controller E f hmonoX hfull q
+    have hf : f t (fun x => x = q) (fun y => y = q) :=
+      (ht _).mpr ⟨q,hdiag q,rfl⟩
+    obtain ⟨k,hkt,hkp,hkq⟩ := (hpair t q q).mp hf
+    refine ⟨k,⟨hkp,hkq⟩,?_⟩
+    intro p hp
+    have hfp := (hpair t p q).mpr ⟨k,hkt,hp,hkq⟩
+    obtain ⟨a,hea,ha⟩ := (ht _).mp hfp
+    simpa only [ha] using hea
+  choose r hrMem hrCtrl using hrow
+  choose c hcMem hcCtrl using hcol
+  apply OwnerStrictness.owner_many_tags A B E tag r c hrMem hcMem
+  · intro p q _ hq
+    exact hrCtrl p q hq
+  · intro p q hp _
+    exact hcCtrl q p hp
+  · intro p q he t
+    exact (hpair t p q).mp
+      ((hfull (fun x => x = p) (fun y => y = q)).mp ⟨p,q,he,rfl,rfl⟩ t)
+  · exact hno
+
+end IndependentFactors
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
