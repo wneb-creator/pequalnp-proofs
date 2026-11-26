@@ -3501,4 +3501,470 @@ lemma monotone_and_lower (C : Circuit) (hm : Monotone2 C)
 end AndLower
 
 
+
+namespace Factoring
+
+lemma edge_orientation_unique : ∀ a b : Fin 10,
+    (a, b) ∈ edges → (b, a) ∉ edges := by decide
+
+def otherEndpoint (c : Fin 10) (e : Fin 10 × Fin 10) : Fin 10 :=
+  if e.1 = c then e.2 else e.1
+
+def starEdges (c : Fin 10) (S : Finset (Fin 10)) : Finset (Fin 10 × Fin 10) :=
+  edges.filter fun e => (e.1 = c ∧ e.2 ∈ S) ∨ (e.2 = c ∧ e.1 ∈ S)
+
+lemma otherEndpoint_form (c : Fin 10) (e : Fin 10 × Fin 10)
+    (hc : e.1 = c ∨ e.2 = c) :
+    e = (c, otherEndpoint c e) ∨ e = (otherEndpoint c e, c) := by
+  obtain ⟨a, b⟩ := e
+  change a = c ∨ b = c at hc
+  rcases hc with hc | hc
+  · subst a
+    exact Or.inl (by simp [otherEndpoint])
+  · subst b
+    by_cases ha : a = c
+    · subst a
+      exact Or.inl (by simp [otherEndpoint])
+    · exact Or.inr (by simp [otherEndpoint, ha])
+
+lemma starEdges_card (c : Fin 10) (S : Finset (Fin 10)) :
+    (starEdges c S).card ≤ S.card := by
+  apply Finset.card_le_card_of_injOn (otherEndpoint c)
+  · intro e he
+    obtain ⟨he, hs⟩ := Finset.mem_filter.mp he
+    obtain ⟨a, b⟩ := e
+    change (a = c ∧ b ∈ S) ∨ (b = c ∧ a ∈ S) at hs
+    rcases hs with ⟨hc, hb⟩ | ⟨hc, ha⟩
+    · subst a
+      simpa [otherEndpoint] using hb
+    · subst b
+      by_cases heq : a = c
+      · subst a
+        simpa [otherEndpoint] using ha
+      · simpa [otherEndpoint, heq] using ha
+  · intro e he f hf hsame
+    obtain ⟨he, hce⟩ := Finset.mem_filter.mp he
+    obtain ⟨hf, hcf⟩ := Finset.mem_filter.mp hf
+    have hfe := otherEndpoint_form c e (hce.elim (fun h => Or.inl h.1) (fun h => Or.inr h.1))
+    have hff := otherEndpoint_form c f (hcf.elim (fun h => Or.inl h.1) (fun h => Or.inr h.1))
+    rw [← hsame] at hff
+    rcases hfe with hfe | hfe <;> rcases hff with hff | hff
+    · exact hfe.trans hff.symm
+    · exfalso
+      have he' : (c, otherEndpoint c e) ∈ edges := hfe ▸ he
+      have hf' : (otherEndpoint c e, c) ∈ edges := hff ▸ hf
+      exact edge_orientation_unique _ _ he' hf'
+    · exfalso
+      have he' : (otherEndpoint c e, c) ∈ edges := hfe ▸ he
+      have hf' : (c, otherEndpoint c e) ∈ edges := hff ▸ hf
+      exact edge_orientation_unique _ _ he' hf'
+    · exact hfe.trans hff.symm
+
+lemma star_cover_support_sum {k : ℕ} (c : Fin k → Fin 10)
+    (S : Fin k → Finset (Fin 10))
+    (hcover : ∀ e ∈ edges, ∃ i,
+      (e.1 = c i ∧ e.2 ∈ S i) ∨ (e.2 = c i ∧ e.1 ∈ S i)) :
+    15 ≤ ∑ i, (S i).card := by
+  have hs : edges ⊆ Finset.univ.biUnion (fun i => starEdges (c i) (S i)) := by
+    intro e he
+    obtain ⟨i, hi⟩ := hcover e he
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_univ i, Finset.mem_filter.mpr ⟨he, hi⟩⟩
+  calc
+    15 = edges.card := edges_card.symm
+    _ ≤ (Finset.univ.biUnion (fun i => starEdges (c i) (S i))).card := Finset.card_le_card hs
+    _ ≤ ∑ i, (starEdges (c i) (S i)).card := Finset.card_biUnion_le
+    _ ≤ ∑ i, (S i).card := Finset.sum_le_sum (fun i _ => starEdges_card (c i) (S i))
+
+lemma star_cover_count {k : ℕ} (c : Fin k → Fin 10)
+    (S : Fin k → Finset (Fin 10))
+    (hcover : ∀ e ∈ edges, ∃ i,
+      (e.1 = c i ∧ e.2 ∈ S i) ∨ (e.2 = c i ∧ e.1 ∈ S i)) :
+    6 ≤ k := by
+  have hc : Cover (Finset.univ.image c) := by
+    intro e he
+    obtain ⟨i, hi⟩ := hcover e he
+    have hm : c i ∈ Finset.univ.image c := Finset.mem_image.mpr ⟨i, Finset.mem_univ i, rfl⟩
+    rcases hi with ⟨h, _⟩ | ⟨h, _⟩
+    · exact Or.inl (h ▸ hm)
+    · exact Or.inr (h ▸ hm)
+  calc
+    6 ≤ (Finset.univ.image c).card := cover_card _ hc
+    _ ≤ (Finset.univ : Finset (Fin k)).card := Finset.card_image_le
+    _ = k := by simp
+
+lemma star_support_intersections {k : ℕ} (c : Fin k → Fin 10)
+    (S : Fin k → Finset (Fin 10)) (hcenters : Function.Injective c)
+    (hneighbors : ∀ i, ∀ v ∈ S i, Adj (c i) v) :
+    ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1 := by
+  intro i j hij
+  by_contra hcard
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (by omega : 1 < (S i ∩ S j).card)
+  obtain ⟨hai, haj⟩ := Finset.mem_inter.mp ha
+  obtain ⟨hbi, hbj⟩ := Finset.mem_inter.mp hb
+  exact no_four_cycle (c i) (c j) a b (fun h => hij (hcenters h)) hab
+    (hneighbors i a hai) (hneighbors i b hbi)
+    (hneighbors j a haj) (hneighbors j b hbj)
+
+lemma or_all_cost (k : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate) (out : ℕ)
+    (hop : ∀ g ∈ gs, g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ g.inputs.length ≤ 2)
+    (hout : ∀ x : Fin k → Bool,
+      ({ gates := gs, output := out } : PEqualNP.CircuitLowerBounds.Circuit).eval
+        (List.ofFn x) = orValue x Finset.univ) :
+    k - 1 ≤ gs.length := by
+  have h := or_fanin_two_family_cost ({0} : Finset (Fin 1))
+    (fun _ => (Finset.univ : Finset (Fin k))) gs (fun _ => out) hop
+    (by
+      intro i hi j hj hij
+      have hi0 : i = 0 := Finset.mem_singleton.mp hi
+      have hj0 : j = 0 := Finset.mem_singleton.mp hj
+      exact False.elim (hij (hi0.trans hj0.symm)))
+    (by intro i hi x; exact hout x)
+  simpa using h
+
+lemma layered_star_lower {k : ℕ} (c : Fin k → Fin 10)
+    (S : Fin k → Finset (Fin 10))
+    (prep merge : List PEqualNP.CircuitLowerBounds.Gate)
+    (prepOut : Fin k → ℕ) (mergeOut : ℕ)
+    (hcenters : Function.Injective c)
+    (hne : ∀ i, (S i).Nonempty)
+    (hneighbors : ∀ i, ∀ v ∈ S i, Adj (c i) v)
+    (hcover : ∀ e ∈ edges, ∃ i,
+      (e.1 = c i ∧ e.2 ∈ S i) ∨ (e.2 = c i ∧ e.1 ∈ S i))
+    (hprep : ∀ g ∈ prep, g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ g.inputs.length ≤ 2)
+    (hmerge : ∀ g ∈ merge, g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∧ g.inputs.length ≤ 2)
+    (hprepEval : ∀ i, ∀ x : Fin 10 → Bool,
+      ({ gates := prep, output := prepOut i } : PEqualNP.CircuitLowerBounds.Circuit).eval
+        (List.ofFn x) = orValue x (S i))
+    (hmergeEval : ∀ x : Fin k → Bool,
+      ({ gates := merge, output := mergeOut } : PEqualNP.CircuitLowerBounds.Circuit).eval
+        (List.ofFn x) = orValue x Finset.univ) :
+    20 ≤ prep.length + k + merge.length := by
+  have hp := or_fanin_two_family_cost (Finset.univ : Finset (Fin k)) S prep prepOut hprep
+    (fun i _ j _ hij => star_support_intersections c S hcenters hneighbors i j hij)
+    (fun i _ => hprepEval i)
+  have hm := or_all_cost k merge mergeOut hmerge hmergeEval
+  have hk := star_cover_count c S hcover
+  have hs := star_cover_support_sum c S hcover
+  have hsum : (∑ i : Fin k, ((S i).card - 1)) + k = ∑ i : Fin k, (S i).card := by
+    calc
+      (∑ i : Fin k, ((S i).card - 1)) + k = ∑ i : Fin k, ((S i).card - 1 + 1) := by
+        simp [Finset.sum_add_distrib]
+      _ = ∑ i : Fin k, (S i).card := by
+        apply Finset.sum_congr rfl
+        intro i hi
+        have h := Finset.one_le_card.mpr (hne i)
+        omega
+  omega
+
+end Factoring
+
+namespace UnsafeSixIrredundant
+
+open PEqualNP.AndCount
+
+def graph : SimpleGraph (Fin 10) :=
+  SimpleGraph.fromRel fun a b : Fin 10 =>
+    (a.val, b.val) ∈ ([(0, 1), (1, 2), (2, 3), (3, 4), (4, 0),
+      (0, 5), (1, 6), (2, 7), (3, 8), (4, 9),
+      (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)] : List (ℕ × ℕ))
+
+def circuit : AndCountCircuit 10 where
+  size := 6
+  leftVars := ![{0, 7, 8}, ∅, {2}, {3}, {6}, {9}]
+  rightVars := ![{5, 1, 4}, {0, 5}, {1, 7, 3}, {4, 8}, {1, 8, 9}, {4, 7}]
+  leftGates := ![∅, {0}, ∅, ∅, ∅, ∅]
+  rightGates := ![∅, ∅, ∅, ∅, ∅, ∅]
+  outVars := ∅
+  outGates := {1, 2, 3, 4, 5}
+
+lemma wellFormed : circuit.WellFormed := by
+  unfold AndCountCircuit.WellFormed
+  decide
+
+lemma size_six : circuit.size = 6 := rfl
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_false : ∀ (v : Fin 10) (i : Fin circuit.size),
+    circuit.gateVal {v} i = false := by decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma computes : circuit.Computes graph := by
+  unfold AndCountCircuit.Computes graph
+  decide +kernel
+
+lemma independent_pair : ∀ a ∈ ({1, 7} : Finset (Fin 10)),
+    ∀ b ∈ ({1, 7} : Finset (Fin 10)), ¬ graph.Adj a b := by
+  unfold graph
+  decide
+
+lemma unsafe_pair : circuit.gateVal {1, 7} ⟨0, by decide⟩ = true := by decide
+
+def edgeRows : Fin 15 → Finset (Fin 10) :=
+  ![{0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 0}, {0, 5}, {1, 6}, {2, 7},
+    {3, 8}, {4, 9}, {5, 7}, {7, 9}, {9, 6}, {6, 8}, {8, 5}]
+
+lemma edge_rows_true : ∀ r : Fin 15, circuit.eval (edgeRows r) = true := by decide
+
+def cutLeftVar (i : Fin 6) (v : Fin 10) : AndCountCircuit 10 :=
+  { circuit with leftVars := fun j : Fin 6 =>
+      if j.val = i.val then (circuit.leftVars j).erase v else circuit.leftVars j }
+
+def cutRightVar (i : Fin 6) (v : Fin 10) : AndCountCircuit 10 :=
+  { circuit with rightVars := fun j : Fin 6 =>
+      if j.val = i.val then (circuit.rightVars j).erase v else circuit.rightVars j }
+
+def cutLeftGate (i k : Fin 6) : AndCountCircuit 10 :=
+  { circuit with leftGates := fun j : Fin 6 =>
+      if j.val = i.val then (circuit.leftGates j).erase k else circuit.leftGates j }
+
+def cutRightGate (i k : Fin 6) : AndCountCircuit 10 :=
+  { circuit with rightGates := fun j : Fin 6 =>
+      if j.val = i.val then (circuit.rightGates j).erase k else circuit.rightGates j }
+
+def cutOutput (i : Fin 6) : AndCountCircuit 10 :=
+  { circuit with outGates := circuit.outGates.erase i }
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma left_var_essential : ∀ (i : Fin 6) (v : Fin 10), v ∈ circuit.leftVars i →
+    ∃ r : Fin 15, (cutLeftVar i v).eval (edgeRows r) = false := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma right_var_essential : ∀ (i : Fin 6) (v : Fin 10), v ∈ circuit.rightVars i →
+    ∃ r : Fin 15, (cutRightVar i v).eval (edgeRows r) = false := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma left_gate_essential : ∀ (i k : Fin 6), k ∈ circuit.leftGates i →
+    ∃ r : Fin 15, (cutLeftGate i k).eval (edgeRows r) = false := by
+  unfold circuit
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma right_gate_essential : ∀ (i k : Fin 6), k ∈ circuit.rightGates i →
+    ∃ r : Fin 15, (cutRightGate i k).eval (edgeRows r) = false := by
+  unfold circuit
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 100000 in
+lemma output_essential : ∀ i : Fin 6, i ∈ circuit.outGates →
+    ∃ r : Fin 15, (cutOutput i).eval (edgeRows r) = false := by
+  unfold circuit
+  decide +kernel
+
+end UnsafeSixIrredundant
+
+namespace BoundaryTransport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun acc g => acc ++ [g.op.eval (g.inputs.map fun i => acc.getD i false)]) w
+lemma getD_snoc_eq (l : List Bool) (b : Bool) : (l ++ [b]).getD l.length false = b := by simp
+lemma gateOp_eval_mono (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (l₁ l₂ : List Bool) (hlen : l₁.length = l₂.length)
+    (hle : ∀ i, l₁.getD i false = true → l₂.getD i false = true) :
+    op.eval l₁ = true → op.eval l₂ = true := by
+  rcases hop with rfl | rfl
+  · change l₁.all id = true → l₂.all id = true
+    simp only [List.all_eq_true, id_eq]
+    intro h b hb
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hb
+    have h1 : l₁.getD i false = true := by
+      have hi1 : i < l₁.length := by omega
+      rw [List.getD_eq_getElem _ _ hi1]
+      exact h _ (List.getElem_mem hi1)
+    have h2 := hle i h1
+    rwa [List.getD_eq_getElem _ _ hi] at h2
+  · change l₁.any id = true → l₂.any id = true
+    simp only [List.any_eq_true, id_eq]
+    rintro ⟨b, hb, rfl⟩
+    obtain ⟨i, hi, hbi⟩ := List.getElem_of_mem hb
+    have h1 : l₁.getD i false = true := by
+      rw [List.getD_eq_getElem _ _ hi]; exact hbi
+    have h2 := hle i h1
+    have hi2 : i < l₂.length := by omega
+    rw [List.getD_eq_getElem _ _ hi2] at h2
+    exact ⟨l₂[i], List.getElem_mem hi2, h2⟩
+lemma wiresFrom_mono (gs : List Gate)
+    (hmono : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    ∀ (w₁ w₂ : List Bool), w₁.length = w₂.length →
+      (∀ i, w₁.getD i false = true → w₂.getD i false = true) →
+      ∀ i, (wiresFrom gs w₁).getD i false = true → (wiresFrom gs w₂).getD i false = true := by
+  induction gs with
+  | nil =>
+    intro w₁ w₂ _ hle i hi
+    exact hle i hi
+  | cons g gs ih =>
+    intro w₁ w₂ hlen hle i hi
+    have hstep1 : wiresFrom (g :: gs) w₁ =
+        wiresFrom gs (w₁ ++ [g.op.eval (g.inputs.map fun j => w₁.getD j false)]) := rfl
+    have hstep2 : wiresFrom (g :: gs) w₂ =
+        wiresFrom gs (w₂ ++ [g.op.eval (g.inputs.map fun j => w₂.getD j false)]) := rfl
+    rw [hstep1] at hi
+    rw [hstep2]
+    apply ih (fun g' hg' => hmono g' (List.mem_cons_of_mem g hg')) _ _ (by simp [hlen]) _ i hi
+    intro j hj
+    by_cases hlt : j < w₁.length
+    · rw [List.getD_append _ _ _ _ hlt] at hj
+      rw [List.getD_append _ _ _ _ (by omega)]
+      exact hle j hj
+    · by_cases heq : j = w₁.length
+      · subst heq
+        rw [getD_snoc_eq] at hj
+        rw [hlen, getD_snoc_eq]
+        exact gateOp_eval_mono g.op (hmono g List.mem_cons_self)
+          (g.inputs.map fun k => w₁.getD k false) (g.inputs.map fun k => w₂.getD k false)
+          (by simp) (by
+            intro t ht
+            by_cases ht_lt : t < g.inputs.length
+            · rw [List.getD_eq_getElem _ _ (by simpa using ht_lt)] at ht
+              rw [List.getD_eq_getElem _ _ (by simpa using ht_lt)]
+              simp only [List.getElem_map] at ht ⊢
+              exact hle _ ht
+            · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_lt ht_lt)] at ht
+              exact Bool.noConfusion ht) hj
+      · rw [List.getD_eq_default _ _ (by simp; omega)] at hj
+        exact Bool.noConfusion hj
+def rows : List ℕ := [3, 6, 12, 17, 24, 33, 50, 66, 69, 104, 116, 132, 138, 160, 201, 208, 264, 276, 288, 320, 385, 402, 521, 528, 548, 554, 576, 640, 770, 773]
+def pos : List ℕ := [3, 6, 12, 17, 24, 33, 66, 132, 160, 264, 288, 320, 528, 576, 640]
+def neg : List ℕ := [50, 69, 104, 116, 138, 201, 208, 276, 385, 402, 521, 548, 554, 770, 773]
+def bits (r : ℕ) (i : Fin 10) := r.testBit i.val
+def edge (x : Fin 10 → Bool) : Bool :=
+  (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 4 && x 9) || (x 5 && x 7) || (x 7 && x 9) || (x 9 && x 6) || (x 6 && x 8) || (x 8 && x 5)
+def below (a b : Fin 10 → Bool) : Bool := (List.finRange 10).all fun i => !(a i) || b i
+lemma below_elim {a b} (h : below a b = true) {i : Fin 10} (hi : a i = true) : b i = true := by
+  have hh := List.all_eq_true.mp h i (by simp)
+  simpa [hi] using hh
+set_option maxRecDepth 20000 in
+lemma endpoints : ∀ r : Fin 1024,
+    (if edge (bits r) then pos.any (fun q => below (bits q) (bits r))
+     else neg.any (fun q => below (bits r) (bits q))) = true := by decide +kernel
+lemma liftRows (f : (Fin 10 → Bool) → Bool)
+    (hm : ∀ a b : Fin 10 → Bool, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hr : ∀ q ∈ rows, f (bits q) = decide (q ∈ pos)) : ∀ x, f x = edge x := by
+  intro x
+  let w := BitVec.ofBoolListLE (List.ofFn x)
+  have hw : w.toNat < 1024 := by
+    have h := w.isLt
+    simpa [w] using h
+  let r : Fin 1024 := ⟨w.toNat, hw⟩
+  have eqx : bits r = x := by
+    funext i
+    change w.getLsbD i.val = x i
+    rw [BitVec.getLsbD_ofBoolListLE, List.getD_eq_getElem _ _ (by simp), List.getElem_ofFn]
+  have coverage := endpoints r
+  rw [eqx] at coverage
+  have hpRows : ∀ q ∈ pos, q ∈ rows := by decide +kernel
+  have hnRows : ∀ q ∈ neg, q ∈ rows ∧ q ∉ pos := by decide +kernel
+  cases he : edge x with
+  | false =>
+    rw [he] at coverage
+    obtain ⟨q, hq, hle⟩ := List.any_eq_true.mp coverage
+    have hn := hnRows q hq
+    have hval := hr q hn.1
+    rw [decide_eq_false hn.2] at hval
+    cases hf : f x with
+    | false => rfl
+    | true =>
+      have := hm x (bits q) (fun _ hi => below_elim hle hi) hf
+      rw [hval] at this
+      contradiction
+  | true =>
+    rw [he] at coverage
+    obtain ⟨q, hq, hle⟩ := List.any_eq_true.mp coverage
+    exact hm (bits q) x (fun _ hi => below_elim hle hi) (by simpa [hq] using hr q (hpRows q hq))
+lemma eval_mono (C : Circuit) (hm : Monotone2 C) (x y : List Bool) (len : x.length=y.length)
+    (hle : ∀ i, x.getD i false = true → y.getD i false = true) :
+    C.eval x = true → C.eval y = true := by
+  exact wiresFrom_mono C.gates (fun g hg => by simpa using (hm g hg).1) x y len hle C.output
+lemma boundary_size : rows.length = 30 ∧ pos.length = 15 ∧ neg.length = 15 := by
+  decide +kernel
+
+lemma boundary_values : ∀ r ∈ rows, edge (bits r) = decide (r ∈ pos) := by
+  decide +kernel
+
+def InputMono (f : (Fin 10 → Bool) → Bool) : Prop :=
+  ∀ a b : Fin 10 → Bool, (∀ i, a i = true → b i = true) → f a = true → f b = true
+
+def bankEval {n : ℕ} (C : Circuit) (A : Fin n → (Fin 10 → Bool) → Bool)
+    (x : Fin 10 → Bool) : Bool :=
+  C.eval (List.ofFn (fun i => A i x))
+
+lemma bankEval_mono {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A : Fin n → (Fin 10 → Bool) → Bool) (hA : ∀ i, InputMono (A i)) :
+    InputMono (bankEval C A) := by
+  intro a b hab
+  apply eval_mono C hm _ _ (by simp)
+  intro j hj
+  by_cases hlt : j < n
+  · have ha : j < (List.ofFn (fun i => A i a)).length := by simpa using hlt
+    have hb : j < (List.ofFn (fun i => A i b)).length := by simpa using hlt
+    rw [List.getD_eq_getElem _ _ ha, List.getElem_ofFn] at hj
+    rw [List.getD_eq_getElem _ _ hb, List.getElem_ofFn]
+    exact hA ⟨j, hlt⟩ a b hab hj
+  · rw [List.getD_eq_default _ _ (by simp; omega)] at hj
+    contradiction
+
+lemma bankEval_congr {n : ℕ} (C : Circuit)
+    (A B : Fin n → (Fin 10 → Bool) → Bool) (x : Fin 10 → Bool)
+    (h : ∀ i, A i x = B i x) : bankEval C A x = bankEval C B x := by
+  unfold bankEval
+  congr 2
+  exact funext h
+
+lemma bank_boundary_iff {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A : Fin n → (Fin 10 → Bool) → Bool) (hA : ∀ i, InputMono (A i)) :
+    (∀ r ∈ rows, bankEval C A (bits r) = decide (r ∈ pos)) ↔
+      ∀ x : Fin 10 → Bool, bankEval C A x = edge x := by
+  constructor
+  · exact liftRows (bankEval C A) (bankEval_mono C hm A hA)
+  · intro h r hr
+    exact (h (bits r)).trans (boundary_values r hr)
+
+lemma bank_boundary_transport {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A B : Fin n → (Fin 10 → Bool) → Bool)
+    (hB : ∀ i, InputMono (B i))
+    (hrows : ∀ i, ∀ r ∈ rows, A i (bits r) = B i (bits r))
+    (hAexact : ∀ x : Fin 10 → Bool, bankEval C A x = edge x) :
+    ∀ x : Fin 10 → Bool, bankEval C B x = edge x := by
+  apply (bank_boundary_iff C hm B hB).mp
+  intro r hr
+  calc
+    bankEval C B (bits r) = bankEval C A (bits r) :=
+      bankEval_congr C B A (bits r) (fun i => (hrows i r hr).symm)
+    _ = edge (bits r) := hAexact (bits r)
+    _ = decide (r ∈ pos) := boundary_values r hr
+
+lemma bank_boundary_transport_iff {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A B : Fin n → (Fin 10 → Bool) → Bool)
+    (hA : ∀ i, InputMono (A i)) (hB : ∀ i, InputMono (B i))
+    (hrows : ∀ i, ∀ r ∈ rows, A i (bits r) = B i (bits r)) :
+    (∀ x : Fin 10 → Bool, bankEval C A x = edge x) ↔
+      ∀ x : Fin 10 → Bool, bankEval C B x = edge x := by
+  constructor
+  · exact bank_boundary_transport C hm A B hB hrows
+  · exact bank_boundary_transport C hm B A hA (fun i r hr => (hrows i r hr).symm)
+
+lemma bank_boundary_transport_reindex {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A B : Fin n → (Fin 10 → Bool) → Bool) (e : Fin n ≃ Fin n)
+    (hB : ∀ i, InputMono (B i))
+    (hrows : ∀ i, ∀ r ∈ rows, A i (bits r) = B (e i) (bits r))
+    (hAexact : ∀ x : Fin 10 → Bool, bankEval C A x = edge x) :
+    ∀ x : Fin 10 → Bool, bankEval C (fun i => B (e i)) x = edge x :=
+  bank_boundary_transport C hm A (fun i => B (e i)) (fun i => hB (e i)) hrows hAexact
+
+end BoundaryTransport
+
 end PEqualNP.Outside.L_meta_2373
