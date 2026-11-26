@@ -7451,4 +7451,520 @@ lemma leftOnly_collision {p l : ℕ} (E : Finset (Fin p × Fin l))
 
 end H5PaletteSlots
 
+-- Saturation and negative cofinality force every AND gate below the output.
+namespace H5AndCount
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm H5Pruning
+
+lemma conditional_signature_join_false (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x y : Fin n → Bool)
+    (hs : ∀ j : ↥(andGates C),
+      wireFn n C (n+j.val.val) x = false → wireFn n C (n+j.val.val) y = false →
+      signature n C x j = signature n C y j) :
+    ∀ w, wireFn n C w x = false → wireFn n C w y = false →
+      wireFn n C w (fun i => x i || y i) = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hx hy
+    by_cases hinput : w < n
+    · rw [wireFn_input n C w hinput] at hx hy ⊢
+      simp [hx, hy]
+    by_cases hvalid : w < n + C.gates.length
+    · let j := w - n
+      have hj : j < C.gates.length := by dsimp [j]; omega
+      have hjw : n + j = w := by dsimp [j]; omega
+      obtain ⟨a, b, ha, hb, hab, hop, he⟩ := binary_gate n C hC j hj
+      have ha' : a < w := by omega
+      have hb' : b < w := by omega
+      rcases hop with hop | hop
+      · have hmem : (⟨j, hj⟩ : Fin C.gates.length) ∈ andGates C :=
+          (mem_andGates C ⟨j, hj⟩).mpr hop
+        have hs' := hs ⟨⟨j, hj⟩, hmem⟩ (by simpa [hjw] using hx) (by simpa [hjw] using hy)
+        change wireFn n C (opnd C j 0) x = wireFn n C (opnd C j 0) y at hs'
+        have hopnd : opnd C j 0 = a := by simp [opnd, hab]
+        rw [hopnd] at hs'
+        have hx' : (wireFn n C a x && wireFn n C b x) = false := by
+          have h := he x
+          rw [hjw, hx, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hy' : (wireFn n C a y && wireFn n C b y) = false := by
+          have h := he y
+          rw [hjw, hy, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hout := he (fun i => x i || y i)
+        rw [hjw, hop] at hout
+        cases hax : wireFn n C a x with
+        | false =>
+          have hay : wireFn n C a y = false := hs'.symm.trans hax
+          have haz := ih a ha' hax hay
+          simpa [GateOp.eval, haz] using hout
+        | true =>
+          have hay : wireFn n C a y = true := hs'.symm.trans hax
+          have hbx : wireFn n C b x = false := by simpa [hax] using hx'
+          have hby : wireFn n C b y = false := by simpa [hay] using hy'
+          have hbz := ih b hb' hbx hby
+          simpa [GateOp.eval, hbz] using hout
+      · have hx' : wireFn n C a x = false ∧ wireFn n C b x = false := by
+          have h := he x
+          rw [hjw, hx, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have hy' : wireFn n C a y = false ∧ wireFn n C b y = false := by
+          have h := he y
+          rw [hjw, hy, hop] at h
+          simpa [GateOp.eval] using h.symm
+        have haz := ih a ha' hx'.1 hy'.1
+        have hbz := ih b hb' hx'.2 hy'.2
+        have hout := he (fun i => x i || y i)
+        rw [hjw, hop] at hout
+        simpa [GateOp.eval, haz, hbz] using hout
+    · exact wireFn_ge n C w (by omega) _
+
+
+lemma surjective_signature_forces_and_false (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true)
+    (hsurj : Function.Surjective (fun i => signature n C (inputs i))) :
+    ∀ i, ∀ q : ↥(andGates C), wireFn n C (n+q.val.val) (inputs i) = false := by
+  classical
+  intro i q
+  cases hq : wireFn n C (n+q.val.val) (inputs i) with
+  | false => rfl
+  | true =>
+    let flipped : ↥(andGates C) → Bool :=
+      fun j => if j = q then !(signature n C (inputs i) j) else signature n C (inputs i) j
+    obtain ⟨l, hl⟩ := hsurj flipped
+    have hne : i ≠ l := by
+      intro heq
+      subst l
+      have h := congrFun hl q
+      simp [flipped] at h
+    have hc : ∀ j : ↥(andGates C),
+        wireFn n C (n+j.val.val) (inputs i) = false →
+        wireFn n C (n+j.val.val) (inputs l) = false →
+        signature n C (inputs i) j = signature n C (inputs l) j := by
+      intro j hi hj
+      by_cases heq : j = q
+      · subst j
+        rw [hq] at hi
+        contradiction
+      · have h := congrFun hl j
+        simpa [flipped, heq] using h.symm
+    have hz := conditional_signature_join_false n C hC (inputs i) (inputs l) hc
+      C.output (hfalse i) (hfalse l)
+    have ht := hjoin i l hne
+    rw [hz] at ht
+    contradiction
+
+lemma saturated_false_family_and_false (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true)
+    (hcard : m = 2 ^ (andGates C).card) :
+    ∀ i, ∀ q : ↥(andGates C), wireFn n C (n+q.val.val) (inputs i) = false := by
+  classical
+  have hinj : Function.Injective (fun i => signature n C (inputs i)) := by
+    intro i j hs
+    by_contra hij
+    have hz := same_signature_join_false n C hC (inputs i) (inputs j) hs
+      C.output (hfalse i) (hfalse j)
+    have ht := hjoin i j hij
+    rw [hz] at ht
+    contradiction
+  have hcards : Fintype.card (Fin m) = Fintype.card (↥(andGates C) → Bool) := by
+    simpa using hcard
+  have hsurj := ((Fintype.bijective_iff_injective_and_card
+    (fun i => signature n C (inputs i))).mpr ⟨hinj, hcards⟩).2
+  exact surjective_signature_forces_and_false n m C hC inputs hfalse hjoin hsurj
+
+lemma false_family_and_bound_strict (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true)
+    (hOffOutput : ∃ i, ∃ q : ↥(andGates C), wireFn n C (n+q.val.val) (inputs i) = true) :
+    m < 2 ^ (andGates C).card := by
+  have hle := false_family_and_bound n m C hC inputs hfalse hjoin
+  by_contra hlt
+  have heq : m = 2 ^ (andGates C).card := by omega
+  obtain ⟨i,q,hq⟩ := hOffOutput
+  have hz := saturated_false_family_and_false n m C hC inputs hfalse hjoin heq i q
+  rw [hq] at hz
+  contradiction
+
+lemma saturated_cover_forces_and_safe (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true)
+    (hcard : m = 2 ^ (andGates C).card)
+    (hcover : ∀ x, wireFn n C C.output x = false → ∃ i, x ≤ inputs i) :
+    ∀ q : ↥(andGates C), ∀ x, wireFn n C (n+q.val.val) x = true →
+      wireFn n C C.output x = true := by
+  intro q x hx
+  cases ho : wireFn n C C.output x with
+  | true => rfl
+  | false =>
+    obtain ⟨i,hi⟩ := hcover x ho
+    have hg := Bool.le_iff_imp.mp (wireFn_mono n C hC (n+q.val.val) hi) hx
+    have hz := saturated_false_family_and_false n m C hC inputs hfalse hjoin hcard i q
+    rw [hz] at hg
+    contradiction
+
+end H5AndCount
+
+-- Disjoint signature cubes give a weighted AND-gate counting bound.
+namespace H5AndCount
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm H5Pruning
+
+noncomputable def trueAnds (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
+    Finset ↥(andGates C) := by
+  classical
+  exact Finset.univ.filter fun j => wireFn n C (n+j.val.val) x = true
+
+lemma mem_trueAnds (n : ℕ) (C : Circuit) (x : Fin n → Bool) (j : ↥(andGates C)) :
+    j ∈ trueAnds n C x ↔ wireFn n C (n+j.val.val) x = true := by
+  classical
+  simp [trueAnds]
+
+noncomputable def signatureExtension (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (bits : ↥(trueAnds n C x) → Bool) : ↥(andGates C) → Bool := by
+  classical
+  exact fun j => if h : j ∈ trueAnds n C x then bits ⟨j,h⟩ else signature n C x j
+
+lemma signatureExtension_false (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (bits : ↥(trueAnds n C x) → Bool) (j : ↥(andGates C))
+    (hj : wireFn n C (n+j.val.val) x = false) :
+    signatureExtension n C x bits j = signature n C x j := by
+  classical
+  have hn : j ∉ trueAnds n C x := by simp [mem_trueAnds, hj]
+  simp [signatureExtension, hn]
+
+lemma signatureExtension_true (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (bits : ↥(trueAnds n C x) → Bool) (j : ↥(trueAnds n C x)) :
+    signatureExtension n C x bits j.val = bits j := by
+  classical
+  simp [signatureExtension, j.property]
+
+lemma false_family_weighted_and_bound (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true) :
+    (Finset.univ.sum fun i : Fin m => 2 ^ (trueAnds n C (inputs i)).card) ≤
+      2 ^ (andGates C).card := by
+  classical
+  let f : (Σ i : Fin m, ↥(trueAnds n C (inputs i)) → Bool) → (↥(andGates C) → Bool) :=
+    fun t => signatureExtension n C (inputs t.1) t.2
+  have hinj : Function.Injective f := by
+    rintro ⟨i,s⟩ ⟨j,t⟩ hst
+    have hij : i = j := by
+      by_contra hne
+      have hc : ∀ q : ↥(andGates C),
+          wireFn n C (n+q.val.val) (inputs i) = false →
+          wireFn n C (n+q.val.val) (inputs j) = false →
+          signature n C (inputs i) q = signature n C (inputs j) q := by
+        intro q hi hj
+        have h := congrFun hst q
+        change signatureExtension n C (inputs i) s q =
+          signatureExtension n C (inputs j) t q at h
+        rw [signatureExtension_false n C (inputs i) s q hi,
+          signatureExtension_false n C (inputs j) t q hj] at h
+        exact h
+      have hz := conditional_signature_join_false n C hC (inputs i) (inputs j) hc
+        C.output (hfalse i) (hfalse j)
+      have ht := hjoin i j hne
+      rw [hz] at ht
+      contradiction
+    subst j
+    have hbits : s = t := by
+      funext q
+      have h := congrFun hst q.val
+      change signatureExtension n C (inputs i) s q.val =
+        signatureExtension n C (inputs i) t q.val at h
+      simpa only [signatureExtension_true] using h
+    subst t
+    rfl
+  have hc := Fintype.card_le_of_injective f hinj
+  simpa using hc
+
+lemma one_add_le_two_pow (t : ℕ) : 1+t ≤ 2^t := by
+  induction t with
+  | zero => decide
+  | succ t ih =>
+    rw [pow_succ]
+    have hp : 0 < (2 : ℕ)^t := by positivity
+    omega
+
+noncomputable def sampledOffOutputAnds (n m : ℕ) (C : Circuit)
+    (inputs : Fin m → Fin n → Bool) : Finset ↥(andGates C) := by
+  classical
+  exact Finset.univ.biUnion fun i => trueAnds n C (inputs i)
+
+lemma false_family_sampled_off_output_bound (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true) :
+    m + (sampledOffOutputAnds n m C inputs).card ≤ 2 ^ (andGates C).card := by
+  classical
+  have hw := false_family_weighted_and_bound n m C hC inputs hfalse hjoin
+  have hl : (Finset.univ.sum fun i : Fin m => 1 + (trueAnds n C (inputs i)).card) ≤
+      Finset.univ.sum (fun i : Fin m => 2 ^ (trueAnds n C (inputs i)).card) :=
+    Finset.sum_le_sum fun i _ => one_add_le_two_pow _
+  have he : (Finset.univ.sum fun i : Fin m => 1 + (trueAnds n C (inputs i)).card) =
+      m + Finset.univ.sum (fun i : Fin m => (trueAnds n C (inputs i)).card) := by
+    simp [Finset.sum_add_distrib]
+  have hu : (sampledOffOutputAnds n m C inputs).card ≤
+      Finset.univ.sum (fun i : Fin m => (trueAnds n C (inputs i)).card) := by
+    exact Finset.card_biUnion_le
+  omega
+
+noncomputable def offOutputAnds (n : ℕ) (C : Circuit) : Finset ↥(andGates C) := by
+  classical
+  exact Finset.univ.filter fun q => ∃ x, wireFn n C C.output x = false ∧
+    wireFn n C (n+q.val.val) x = true
+
+lemma sampledOffOutputAnds_eq_offOutput (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hcover : ∀ x, wireFn n C C.output x = false → ∃ i, x ≤ inputs i) :
+    sampledOffOutputAnds n m C inputs = offOutputAnds n C := by
+  classical
+  ext q
+  simp only [sampledOffOutputAnds, Finset.mem_biUnion, Finset.mem_univ, true_and,
+    offOutputAnds, Finset.mem_filter, mem_trueAnds]
+  constructor
+  · rintro ⟨i,hi⟩
+    exact ⟨inputs i,hfalse i,hi⟩
+  · rintro ⟨x,hx,hq⟩
+    obtain ⟨i,hi⟩ := hcover x hx
+    exact ⟨i,Bool.le_iff_imp.mp (wireFn_mono n C hC (n+q.val.val) hi) hq⟩
+
+lemma false_family_global_off_output_bound (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (hfalse : ∀ i, wireFn n C C.output (inputs i) = false)
+    (hjoin : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k || inputs j k) = true)
+    (hcover : ∀ x, wireFn n C C.output x = false → ∃ i, x ≤ inputs i) :
+    m + (offOutputAnds n C).card ≤ 2 ^ (andGates C).card := by
+  rw [← sampledOffOutputAnds_eq_offOutput n m C hC inputs hfalse hcover]
+  exact false_family_sampled_off_output_bound n m C hC inputs hfalse hjoin
+
+end H5AndCount
+
+namespace H5DualWeighted
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open H5Pruning H5AndCount
+
+def swap : GateOp → GateOp
+  | .and => .or
+  | .or => .and
+  | op => op
+
+def dualGate (g : Gate) : Gate := ⟨swap g.op, g.inputs⟩
+
+def dual (C : Circuit) : Circuit := ⟨C.gates.map dualGate, C.output⟩
+
+lemma dual_length (C : Circuit) : (dual C).gates.length = C.gates.length := by simp [dual]
+
+lemma swap_eq_and (op : GateOp) : swap op = .and ↔ op = .or := by
+  cases op <;> simp [swap]
+
+lemma dual_gateAt (C : Circuit) (j : ℕ) (hj : j < C.gates.length) :
+    gateAt (dual C) j = dualGate (gateAt C j) := by
+  rw [gateAt_get (dual C) j (by simpa [dual] using hj), gateAt_get C j hj]
+  simp [dual]
+
+lemma dual_good (n : ℕ) (C : Circuit) (hC : IsAO2 n C) : IsAO2 n (dual C) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+    rcases hC.1 a ha with h | h
+    · exact Or.inr (by simp [dualGate, swap, h])
+    · exact Or.inl (by simp [dualGate, swap, h])
+  · intro j hj w hw
+    have hj' : j < C.gates.length := by simpa [dual] using hj
+    rw [dual_gateAt C j hj'] at hw
+    exact hC.2.1 j hj' w hw
+  · intro g hg
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+    exact hC.2.2 a ha
+
+lemma wire_complement (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (w : ℕ) (hw : w < n+C.gates.length) (x : Fin n → Bool) :
+    wireFn n (dual C) w (fun i => !(x i)) = !(wireFn n C w x) := by
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hin : w < n
+    · rw [wireFn_input n (dual C) w hin, wireFn_input n C w hin]
+    · let j := w-n
+      have hj : j < C.gates.length := by omega
+      have he : n+j = w := by omega
+      obtain ⟨a,b,ha,hb,hab,hop,hval⟩ := binary_gate n C hC j hj
+      rw [← he, H5LiftGlue.wireFn_gate n (dual C) (dual_good n C hC).2.1 j
+        (by simpa [dual] using hj), dual_gateAt C j hj]
+      simp only [dualGate, hab, List.map_cons, List.map_nil]
+      rw [ih a (by omega) (by omega), ih b (by omega) (by omega), hval x]
+      rcases hop with hop | hop <;> simp [hop,swap,GateOp.eval]
+
+noncomputable def orGates (C : Circuit) : Finset ℕ := by
+  classical
+  exact (Finset.range C.gates.length).filter fun j => (gateAt C j).op = .or
+
+noncomputable def falseOrs (n : ℕ) (C : Circuit) (x : Fin n → Bool) : Finset ℕ := by
+  classical
+  exact (orGates C).filter fun j => wireFn n C (n+j) x = false
+
+lemma dual_and_card (C : Circuit) : (andGates (dual C)).card = (orGates C).card := by
+  classical
+  rw [andGates_card_nat]
+  congr 1
+  ext j
+  rw [mem_andNatGates]
+  simp only [orGates, Finset.mem_filter, Finset.mem_range, dual_length]
+  constructor
+  · rintro ⟨hj,hop⟩
+    rw [dual_gateAt C j hj] at hop
+    exact ⟨hj, (swap_eq_and _).mp hop⟩
+  · rintro ⟨hj,hop⟩
+    refine ⟨hj,?_⟩
+    rw [dual_gateAt C j hj]
+    exact (swap_eq_and _).mpr hop
+
+lemma dual_trueAnds_card (n : ℕ) (C : Circuit) (hC : IsAO2 n C) (x : Fin n → Bool) :
+    (trueAnds n (dual C) (fun i => !(x i))).card = (falseOrs n C x).card := by
+  classical
+  have himage : (trueAnds n (dual C) (fun i => !(x i))).image (fun j => j.val.val) =
+      falseOrs n C x := by
+    ext k
+    simp only [Finset.mem_image, falseOrs, Finset.mem_filter, orGates, Finset.mem_range]
+    constructor
+    · rintro ⟨j,hj,rfl⟩
+      have hlen : j.val.val < C.gates.length := by simpa [dual] using j.val.isLt
+      have hop := (mem_andGates (dual C) j.val).mp j.property
+      rw [dual_gateAt C j.val.val hlen] at hop
+      have ht := (mem_trueAnds n (dual C) _ j).mp hj
+      rw [wire_complement n C hC _ (by omega)] at ht
+      exact ⟨⟨hlen, (swap_eq_and _).mp hop⟩, by simpa using ht⟩
+    · rintro ⟨⟨hk,hop⟩,hfalse⟩
+      let j : Fin (dual C).gates.length := ⟨k, by simpa [dual] using hk⟩
+      have hj : j ∈ andGates (dual C) := by
+        apply (mem_andGates (dual C) j).mpr
+        rw [dual_gateAt C k hk]
+        exact (swap_eq_and _).mpr hop
+      refine ⟨⟨j,hj⟩,?_,rfl⟩
+      rw [mem_trueAnds]
+      change wireFn n (dual C) (n+k) (fun i => !(x i)) = true
+      rw [wire_complement n C hC _ (by omega), hfalse]
+      rfl
+  rw [← himage]
+  apply (Finset.card_image_of_injective _ ?_).symm
+  intro a b h
+  apply Subtype.ext
+  exact Fin.ext h
+
+lemma positive_family_weighted_or_bound (n m : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (inputs : Fin m → Fin n → Bool)
+    (htrue : ∀ i, wireFn n C C.output (inputs i) = true)
+    (hmeet : ∀ i j, i ≠ j →
+      wireFn n C C.output (fun k => inputs i k && inputs j k) = false) :
+    (Finset.univ.sum fun i : Fin m => 2 ^ (falseOrs n C (inputs i)).card) ≤
+      2 ^ (orGates C).card := by
+  classical
+  by_cases hm : m = 0
+  · subst m
+    simp
+  have hout : C.output < n+C.gates.length := by
+    by_contra ho
+    have h := htrue ⟨0, by omega⟩
+    rw [wireFn_ge n C C.output (by omega)] at h
+    cases h
+  have hfalse : ∀ i : Fin m,
+      wireFn n (dual C) (dual C).output (fun k => !(inputs i k)) = false := by
+    intro i
+    change wireFn n (dual C) C.output _ = false
+    rw [wire_complement n C hC C.output hout, htrue i]
+    rfl
+  have hjoin : ∀ i j : Fin m, i ≠ j → wireFn n (dual C) (dual C).output
+      (fun k => !(inputs i k) || !(inputs j k)) = true := by
+    intro i j hij
+    have he : (fun k => !(inputs i k) || !(inputs j k)) =
+        (fun k => !(inputs i k && inputs j k)) := by
+      funext k
+      cases inputs i k <;> cases inputs j k <;> rfl
+    change wireFn n (dual C) C.output _ = true
+    rw [he,wire_complement n C hC C.output hout,hmeet i j hij]
+    rfl
+  have h := false_family_weighted_and_bound n m (dual C) (dual_good n C hC)
+    (fun i k => !(inputs i k)) hfalse hjoin
+  simpa only [dual_trueAnds_card n C hC, dual_and_card] using h
+
+lemma edge_family_weighted_or_bound {p l m : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x)
+    (edges : Fin m → Fin p × Fin l) (hinj : Function.Injective edges)
+    (hedges : ∀ i, edges i ∈ E) :
+    (Finset.univ.sum fun i : Fin m =>
+      2 ^ (falseOrs (p+l) C (pairInput (Fin.castAdd l (edges i).1)
+        (Fin.natAdd p (edges i).2))).card) ≤ 2 ^ (orGates C).card := by
+  apply positive_family_weighted_or_bound (p+l) m C hC
+    (fun i => pairInput (Fin.castAdd l (edges i).1) (Fin.natAdd p (edges i).2))
+  · intro i
+    rw [hspec,graphFun_bipartite]
+    exact decide_eq_true ⟨(edges i).1,(edges i).2,hedges i,
+      by simp [pairInput],by simp [pairInput]⟩
+  · intro i j hij
+    rw [hspec,graphFun_bipartite]
+    apply decide_eq_false
+    rintro ⟨a,b,_,ha,hb⟩
+    have left_eval : ∀ (a : Fin p) (b : Fin l) (u : Fin p),
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) (Fin.castAdd l u) = true → u = a := by
+      intro a b u h
+      rcases (of_decide_eq_true h : Fin.castAdd l u = Fin.castAdd l a ∨
+          Fin.castAdd l u = Fin.natAdd p b) with h | h
+      · exact H5Owners.left_injective h
+      · exact False.elim (H5Owners.left_right_distinct u b h)
+    have right_eval : ∀ (a : Fin p) (b : Fin l) (u : Fin l),
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) (Fin.natAdd p u) = true → u = b := by
+      intro a b u h
+      rcases (of_decide_eq_true h : Fin.natAdd p u = Fin.castAdd l a ∨
+          Fin.natAdd p u = Fin.natAdd p b) with h | h
+      · exact False.elim (H5Owners.left_right_distinct a u h.symm)
+      · exact H5Owners.right_injective h
+    have ha' : pairInput (Fin.castAdd l (edges i).1) (Fin.natAdd p (edges i).2) (Fin.castAdd l a) = true ∧
+        pairInput (Fin.castAdd l (edges j).1) (Fin.natAdd p (edges j).2) (Fin.castAdd l a) = true := by
+      simpa using ha
+    have hb' : pairInput (Fin.castAdd l (edges i).1) (Fin.natAdd p (edges i).2) (Fin.natAdd p b) = true ∧
+        pairInput (Fin.castAdd l (edges j).1) (Fin.natAdd p (edges j).2) (Fin.natAdd p b) = true := by
+      simpa using hb
+    apply hij
+    apply hinj
+    exact Prod.ext ((left_eval _ _ _ ha'.1).symm.trans (left_eval _ _ _ ha'.2))
+      ((right_eval _ _ _ hb'.1).symm.trans (right_eval _ _ _ hb'.2))
+
+lemma all_edges_weighted_or_bound {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x) :
+    (Finset.univ.sum fun e : ↥E =>
+      2 ^ (falseOrs (p+l) C (pairInput (Fin.castAdd l e.val.1)
+        (Fin.natAdd p e.val.2))).card) ≤ 2 ^ (orGates C).card := by
+  classical
+  let equiv : Fin (Fintype.card ↥E) ≃ ↥E := (Fintype.equivFin ↥E).symm
+  let weight : ↥E → ℕ := fun e => 2 ^ (falseOrs (p+l) C
+    (pairInput (Fin.castAdd l e.val.1) (Fin.natAdd p e.val.2))).card
+  have h := edge_family_weighted_or_bound E C hC hspec (fun i => (equiv i).val)
+    (fun i j hij => equiv.injective (Subtype.ext hij)) (fun i => (equiv i).property)
+  change (Finset.univ.sum fun i => weight (equiv i)) ≤ 2 ^ (orGates C).card at h
+  change Finset.univ.sum weight ≤ 2 ^ (orGates C).card
+  rw [Fintype.sum_equiv equiv (fun i => weight (equiv i)) weight (fun _ => rfl)] at h
+  exact h
+
+end H5DualWeighted
+
 end PEqualNP.Outside.L_meta_4970_aux
