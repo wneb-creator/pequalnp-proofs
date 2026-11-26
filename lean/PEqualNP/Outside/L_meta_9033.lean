@@ -472,3 +472,524 @@ theorem no_C_gfirst (p q : Fin 32) (u w : Fin 64)
 end ACcofactorClassification
 
 end PEqualNP.Outside.L_meta_9033_aux
+
+
+namespace PEqualNP.Outside.L_meta_9033_aux.HFirst
+
+def raw (p x : Fin 32) : Bool := p.val &&& x.val != 0
+
+def core (x : Fin 32) : Bool := (4276813024 : Nat).testBit x.val
+
+def neighbors (v : Fin 3) : Fin 32 :=
+  if v.val = 0 then 24 else if v.val = 1 then 5 else 18
+
+def upper (v : Fin 3) (x : Fin 32) : Bool := raw (neighbors v) x || core x
+
+def unit (i : Fin 5) : Fin 32 := ⟨2 ^ i.val, by
+  have h : ∀ j : Fin 5, 2 ^ j.val < 32 := by decide +kernel
+  exact h i⟩
+
+def pair (i j : Fin 5) : Fin 32 := ⟨(unit i).val ||| (unit j).val, by
+  have h : ∀ a b : Fin 5, (unit a).val ||| (unit b).val < 32 := by decide +kernel
+  exact h i j⟩
+
+theorem raw_zero : ∀ p : Fin 32, raw p 0 = false := by decide +kernel
+
+theorem zero_raw : ∀ x : Fin 32, raw 0 x = false := by decide +kernel
+
+theorem core_zero : core 0 = false := by decide +kernel
+
+theorem raw_unit : ∀ (p : Fin 32) (i : Fin 5),
+    raw p (unit i) = p.val.testBit i.val := by decide +kernel
+
+theorem raw_pair : ∀ (p : Fin 32) (i j : Fin 5),
+    raw p (pair i j) = (raw p (unit i) || raw p (unit j)) := by decide +kernel
+
+theorem unit_raw : ∀ (i : Fin 5) (x : Fin 32),
+    raw (unit i) x = x.val.testBit i.val := by decide +kernel
+
+theorem unit_self : ∀ i : Fin 5, raw (unit i) (unit i) = true := by decide +kernel
+
+theorem raw_singleton_force : ∀ (p x : Fin 32) (i : Fin 5),
+    raw p (unit i) = true → raw (unit i) x = true → raw p x = true := by
+  decide +kernel
+
+theorem raw_singleton_inclusion : ∀ p q : Fin 32,
+    (∀ i : Fin 5, raw p (unit i) = true → raw q (unit i) = true) →
+    ∀ x : Fin 32, raw p x = true → raw q x = true := by decide +kernel
+
+theorem core_unit : ∀ i : Fin 5, core (unit i) = false := by decide +kernel
+
+theorem upper_zero : ∀ v : Fin 3, upper v 0 = false := by decide +kernel
+
+theorem upper_unit : ∀ (v : Fin 3) (i : Fin 5),
+    upper v (unit i) = raw (neighbors v) (unit i) := by decide +kernel
+
+theorem core_le_upper : ∀ (v : Fin 3) (x : Fin 32),
+    core x = true → upper v x = true := by decide +kernel
+
+theorem raw_le_upper_neighbors (v : Fin 3) (p : Fin 32)
+    (h : ∀ x : Fin 32, raw p x = true → upper v x = true) :
+    ∀ x : Fin 32, raw p x = true → raw (neighbors v) x = true := by
+  apply raw_singleton_inclusion p (neighbors v)
+  intro i hi
+  have hx := h (unit i) hi
+  rw [upper_unit] at hx
+  exact hx
+
+theorem core_outside_neighbors : ∀ v : Fin 3, ∃ i j : Fin 5,
+    i ≠ j ∧ core (pair i j) = true ∧ raw (neighbors v) (pair i j) = false := by
+  decide +kernel
+
+theorem raw_ne_upper : ∀ (v : Fin 3) (p : Fin 32),
+    ¬ (∀ x : Fin 32, raw p x = upper v x) := by decide +kernel
+
+theorem raw_or_not_upper : ∀ (v : Fin 3) (p q : Fin 32),
+    ¬ (∀ x : Fin 32, (raw p x || raw q x) = upper v x) := by decide +kernel
+
+theorem no_common_core_neighbor : ∀ (v : Fin 3) (z : Fin 5), ∃ n : Fin 5,
+    raw (neighbors v) (unit n) = true ∧ core (pair z n) = false := by
+  decide +kernel
+
+theorem common_neighbor_counterexample : ∀ (v : Fin 3) (z : Fin 5), ∃ x : Fin 32,
+    raw (unit z) x = true ∧ raw (neighbors v) x = true ∧ core x = false := by
+  decide +kernel
+
+theorem raw_extras_zero : ∀ (v : Fin 3) (p : Fin 32),
+    (∀ x : Fin 32, (upper v x && raw p x) = true → core x = true) → p = 0 := by
+  decide +kernel
+
+theorem raw_addition_forbidden (v : Fin 3) (p : Fin 32)
+    (h : ∀ x : Fin 32, (upper v x && raw p x) = true → core x = true) :
+    ∀ x : Fin 32, raw p x = false := by
+  have hp := raw_extras_zero v p h
+  subst p
+  exact zero_raw
+
+theorem raw_and_no_triangle : ∀ p q : Fin 32,
+    (∀ i : Fin 5, (raw p (unit i) && raw q (unit i)) = false) →
+    ¬ ((raw p 6 && raw q 6) = true ∧
+      (raw p 10 && raw q 10) = true ∧ (raw p 12 && raw q 12) = true) := by
+  decide +kernel
+
+theorem raw_and_not_cover_core : ∀ p q : Fin 32,
+    (∀ i : Fin 5, (raw p (unit i) && raw q (unit i)) = false) →
+    ¬ (∀ x : Fin 32, core x = true → (raw p x && raw q x) = true) := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_9033_aux.HFirst
+
+namespace PEqualNP.Outside.L_meta_9033_aux.HFirst
+
+lemma and_true_parts {a b : Bool} (h : (a && b) = true) : a = true ∧ b = true := by
+  cases a <;> cases b <;> simp_all
+
+def first (p q : Fin 32) (x : Fin 32) : Bool := raw p x && raw q x
+
+def side (p : Fin 32) (takeH takeQ : Bool)
+    (h : Fin 32 → Bool) (q : Bool) (x : Fin 32) : Bool :=
+  raw p x || (takeH && h x) || (takeQ && q)
+
+def secondZero (lp rp : Fin 32) (lh lq rh rq : Bool)
+    (h : Fin 32 → Bool) (x : Fin 32) : Bool :=
+  side lp lh lq h (h x) x && side rp rh rq h (h x) x
+
+def secondOne (lp rp : Fin 32) (lh lq rh rq : Bool)
+    (h : Fin 32 → Bool) (x : Fin 32) : Bool :=
+  side lp lh lq h true x && side rp rh rq h true x
+
+theorem canonical_hfirst_impossible
+    (v : Fin 3) (hp hq lp rp xp yp : Fin 32) (lh lq rh rq : Bool)
+    (hzero : ∀ i : Fin 5, first hp hq (unit i) = false)
+    (hdirty : ∃ x : Fin 32, first hp hq x = true ∧ core x = false)
+    (hat0 : ∀ x : Fin 32,
+      ((secondZero lp rp lh lq rh rq (first hp hq) x || raw xp x) &&
+        (first hp hq x || raw yp x)) = core x)
+    (hat1 : ∀ x : Fin 32,
+      (secondOne lp rp lh lq rh rq (first hp hq) x || raw xp x) = upper v x) : False := by
+  cases lq <;> cases rq
+  · have hleft : ∀ x : Fin 32,
+        (secondZero lp rp lh false rh false (first hp hq) x || raw xp x) = upper v x := by
+      intro x
+      simpa [secondZero, secondOne, side] using hat1 x
+    have hyfalse : ∀ x : Fin 32, raw yp x = false := by
+      apply raw_addition_forbidden v yp
+      intro x hx
+      obtain ⟨hu, hy⟩ := and_true_parts hx
+      have ht := hat0 x
+      rw [hleft x, hu, hy] at ht
+      simpa using ht.symm
+    apply raw_and_not_cover_core hp hq hzero
+    intro x hx
+    have ht := hat0 x
+    simp only [hyfalse x, Bool.or_false, hx] at ht
+    exact (and_true_parts ht).2
+  · cases lh
+    · apply raw_or_not_upper v lp xp
+      intro x
+      simpa [secondOne, side] using hat1 x
+    · obtain ⟨x, hx, hn⟩ := hdirty
+      have ht := hat0 x
+      simp [secondZero, side, hx, hn] at ht
+  · cases rh
+    · apply raw_or_not_upper v rp xp
+      intro x
+      simpa [secondOne, side] using hat1 x
+    · obtain ⟨x, hx, hn⟩ := hdirty
+      have ht := hat0 x
+      simp [secondZero, side, hx, hn] at ht
+  · have ht := hat1 0
+    simp [secondOne, side, upper_zero] at ht
+
+def finalSide (p : Fin 32) (takeH takeG takeQ : Bool)
+    (h g q : Bool) (x : Fin 32) : Bool :=
+  raw p x || (takeH && h) || (takeG && g) || (takeQ && q)
+
+lemma second_v_dominance (lp rp : Fin 32) (lh lq rh rq : Bool)
+    (h : Fin 32 → Bool) (hz : h 0 = false)
+    (hv : secondOne lp rp lh lq rh rq h 0 = true) :
+    (∀ x, secondOne lp rp lh lq rh rq h x = true) ∧
+    (∀ x, h x = true → secondZero lp rp lh lq rh rq h x = true) := by
+  have hq : (lq && rq) = true := by
+    simpa [secondOne, side, raw_zero, hz] using hv
+  obtain ⟨hl, hr⟩ := and_true_parts hq
+  constructor
+  · intro x
+    simp [secondOne, side, hl, hr]
+  · intro x hx
+    simp [secondZero, side, hl, hr, hx]
+
+lemma second_core_dominance (lp rp : Fin 32) (lh lq rh rq : Bool)
+    (h : Fin 32 → Bool) (hz : ∀ i : Fin 5, h (unit i) = false)
+    (i : Fin 5) (x : Fin 32)
+    (hi : secondZero lp rp lh lq rh rq h (unit i) = true)
+    (hx : raw (unit i) x = true) : secondZero lp rp lh lq rh rq h x = true := by
+  have hr : (raw lp (unit i) && raw rp (unit i)) = true := by
+    simpa [secondZero, side, hz i] using hi
+  obtain ⟨hl, hr⟩ := and_true_parts hr
+  have hlx := raw_singleton_force lp x i hl hx
+  have hrx := raw_singleton_force rp x i hr hx
+  simp [secondZero, side, hlx, hrx]
+
+theorem oriented_final_ports (v : Fin 3) (xp yp : Fin 32)
+    (lh lq rh rq : Bool) (h g0 g1 : Fin 32 → Bool)
+    (hz : h 0 = false) (hs : ∀ i : Fin 5, h (unit i) = false)
+    (hd : ∃ x, h x = true ∧ core x = false)
+    (gs : (∃ i : Fin 5, g0 (unit i) = true) ∨ g1 0 = true)
+    (gv : g1 0 = true → (∀ x, g1 x = true) ∧ (∀ x, h x = true → g0 x = true))
+    (gc : ∀ (i : Fin 5) (x : Fin 32),
+      g0 (unit i) = true → raw (unit i) x = true → g0 x = true)
+    (out0 : ∀ x, (finalSide xp lh true lq (h x) (g0 x) (h x) x &&
+      finalSide yp rh false rq (h x) (g0 x) (h x) x) = core x)
+    (out1 : ∀ x, (finalSide xp lh true lq (h x) (g1 x) true x &&
+      finalSide yp rh false rq (h x) (g1 x) true x) = upper v x) :
+    (∀ x, ((g0 x || raw xp x) && (h x || raw yp x)) = core x) ∧
+    (∀ x, (g1 x || raw xp x) = upper v x) := by
+  have hgv : g1 0 = false := by
+    cases hv : g1 0
+    · rfl
+    · exfalso
+      obtain ⟨gall, gh⟩ := gv hv
+      have hrq : rq = false := by
+        have ht := out1 0
+        simpa [finalSide, raw_zero, hz, hv, upper_zero] using ht
+      cases rh
+      · apply raw_ne_upper v yp
+        intro x
+        simpa [finalSide, gall x, hrq] using out1 x
+      · obtain ⟨x, hx, hn⟩ := hd
+        have ht := out0 x
+        simp [finalSide, hx, gh x hx, hn, hrq] at ht
+  obtain ⟨i, hi⟩ : ∃ i : Fin 5, g0 (unit i) = true := by
+    rcases gs with hcore | hv
+    · exact hcore
+    · simp [hgv] at hv
+  have hrq : rq = true := by
+    cases he : rq
+    · exfalso
+      have cover : ∀ j : Fin 5,
+          raw (neighbors v) (unit j) = true → raw yp (unit j) = true := by
+        intro j hj
+        have hu : upper v (unit j) = true := (upper_unit v j).trans hj
+        have ht := (and_true_parts ((out1 (unit j)).trans hu)).2
+        simpa [finalSide, he, hs j] using ht
+      have includeRaw := raw_singleton_inclusion (neighbors v) yp cover
+      obtain ⟨x, hx, hnbr, hn⟩ := common_neighbor_counterexample v i
+      have hgx := gc i x hi hx
+      have hyp := includeRaw x hnbr
+      have ht := out0 x
+      simp [finalSide, hgx, hyp, hn] at ht
+    · rfl
+  have hlq : lq = false := by
+    have ht := out1 0
+    simpa [finalSide, raw_zero, hz, hgv, hrq, upper_zero] using ht
+  have hlh : lh = false := by
+    cases he : lh
+    · rfl
+    · exfalso
+      obtain ⟨x, hx, hn⟩ := hd
+      have ht := out0 x
+      simp [finalSide, he, hrq, hx, hn] at ht
+  constructor
+  · intro x
+    have ht := out0 x
+    cases rh <;>
+      simpa [finalSide, hlh, hlq, hrq, Bool.or_comm, Bool.or_assoc] using ht
+  · intro x
+    have ht := out1 x
+    cases rh <;>
+      simpa [finalSide, hlh, hlq, hrq, Bool.or_comm, Bool.or_assoc] using ht
+
+lemma upper_has_singleton : ∀ v : Fin 3, ∃ i : Fin 5, upper v (unit i) = true := by
+  decide +kernel
+
+theorem no_g_final_ports (v : Fin 3) (xp yp : Fin 32)
+    (lh lq rh rq : Bool) (h : Fin 32 → Bool)
+    (hd : ∃ x, h x = true ∧ core x = false)
+    (out0 : ∀ x, (side xp lh lq h (h x) x && side yp rh rq h (h x) x) = core x)
+    (out1 : ∀ x, (side xp lh lq h true x && side yp rh rq h true x) = upper v x) : False := by
+  cases lq <;> cases rq
+  · obtain ⟨i, hi⟩ := upper_has_singleton v
+    have he : core (unit i) = upper v (unit i) :=
+      (out0 (unit i)).symm.trans (by simpa [side] using out1 (unit i))
+    simp [core_unit, hi] at he
+  · cases lh
+    · apply raw_ne_upper v xp
+      intro x
+      simpa [side] using out1 x
+    · obtain ⟨x, hx, hn⟩ := hd
+      have ht := out0 x
+      simp [side, hx, hn] at ht
+  · cases rh
+    · apply raw_ne_upper v yp
+      intro x
+      simpa [side] using out1 x
+    · obtain ⟨x, hx, hn⟩ := hd
+      have ht := out0 x
+      simp [side, hx, hn] at ht
+  · have ht := out1 0
+    simp [side, upper_zero] at ht
+
+theorem hfirst_model_impossible
+    (v : Fin 3) (hp hq lp rp xp yp : Fin 32)
+    (lh lq rh rq xh xg xq yh yg yq : Bool) :
+    let h := first hp hq
+    let g0 := secondZero lp rp lh lq rh rq h
+    let g1 := secondOne lp rp lh lq rh rq h
+    (∀ i : Fin 5, h (unit i) = false) →
+    ((∃ x, h x = true ∧ core x = false) ∨
+      (∃ x, h x = true ∧ upper v x = false)) →
+    ((∃ i : Fin 5, g0 (unit i) = true) ∨ g1 0 = true) →
+    ((∃ x, g0 x = true ∧ core x = false) ∨
+      (∃ x, g1 x = true ∧ upper v x = false)) →
+    (∀ x, (finalSide xp xh xg xq (h x) (g0 x) (h x) x &&
+      finalSide yp yh yg yq (h x) (g0 x) (h x) x) = core x) →
+    (∀ x, (finalSide xp xh xg xq (h x) (g1 x) true x &&
+      finalSide yp yh yg yq (h x) (g1 x) true x) = upper v x) → False := by
+  dsimp only
+  intro hs hdirty gs gd out0 out1
+  have hd : ∃ x, first hp hq x = true ∧ core x = false := by
+    rcases hdirty with hd | ⟨x, hx, hn⟩
+    · exact hd
+    · refine ⟨x, hx, ?_⟩
+      cases hc : core x
+      · rfl
+      · have hu := core_le_upper v x hc
+        simp [hu] at hn
+  have hz : first hp hq 0 = false := by simp [first, raw_zero]
+  have gv := second_v_dominance lp rp lh lq rh rq (first hp hq) hz
+  have gc := second_core_dominance lp rp lh lq rh rq (first hp hq) hs
+  cases xg <;> cases yg
+  · apply no_g_final_ports v xp yp xh xq yh yq (first hp hq) hd
+    · intro x
+      simpa [finalSide, side] using out0 x
+    · intro x
+      simpa [finalSide, side] using out1 x
+  · have hr := oriented_final_ports v yp xp yh yq xh xq (first hp hq)
+      (secondZero lp rp lh lq rh rq (first hp hq))
+      (secondOne lp rp lh lq rh rq (first hp hq)) hz hs hd gs gv gc
+      (fun x => by simpa only [Bool.and_comm] using out0 x)
+      (fun x => by simpa only [Bool.and_comm] using out1 x)
+    exact canonical_hfirst_impossible v hp hq lp rp yp xp lh lq rh rq hs hd hr.1 hr.2
+  · have hr := oriented_final_ports v xp yp xh xq yh yq (first hp hq)
+      (secondZero lp rp lh lq rh rq (first hp hq))
+      (secondOne lp rp lh lq rh rq (first hp hq)) hz hs hd gs gv gc out0 out1
+    exact canonical_hfirst_impossible v hp hq lp rp xp yp lh lq rh rq hs hd hr.1 hr.2
+  · rcases gd with ⟨x, hx, hn⟩ | ⟨x, hx, hn⟩
+    · have ht := out0 x
+      simp [finalSide, hx, hn] at ht
+    · have ht := out1 x
+      simp [finalSide, hx, hn] at ht
+
+end PEqualNP.Outside.L_meta_9033_aux.HFirst
+namespace PEqualNP.Outside.L_meta_9033_aux.GFirst
+
+open PEqualNP.Outside.L_meta_9033_aux.HFirst
+
+def port (p : Fin 32) (useH useG useQ : Bool)
+    (h g : Fin 32 → Bool) (b : Bool) (x : Fin 32) : Bool :=
+  raw p x || (useH && h x) || (useG && g x) || (useQ && (b || h x))
+
+def target (v : Fin 3) (b : Bool) (x : Fin 32) : Bool :=
+  (b && raw (neighbors v) x) || core x
+
+theorem neighbors_nonempty : ∀ v : Fin 3, ∃ i : Fin 5,
+    raw (neighbors v) (unit i) = true := by
+  decide +kernel
+
+theorem canonical_qleft (v : Fin 3) (l r : Fin 32)
+    (lh lg rh rg : Bool) (h g : Fin 32 → Bool)
+    (hdirty : ∃ x, h x = true ∧ core x = false)
+    (gnonzero : ∃ i : Fin 5, g (unit i) = true)
+    (htarget : ∀ b x,
+      (port l lh lg true h g b x && port r rh rg false h g b x) = target v b x) :
+    l = 0 ∧ lg = false ∧ rh = false ∧ rg = true ∧
+    (∀ x, (raw r x || g x) = upper v x) ∧
+    (∀ b x, port l lh lg true h g b x = (b || h x)) := by
+  have right_upper (b : Bool) (x : Fin 32) :
+      port r rh rg false h g b x = upper v x := by
+    have hx := htarget true x
+    simpa [port, target, upper] using hx
+  have hrh : rh = false := by
+    cases heq : rh
+    · rfl
+    · obtain ⟨x, hx, hc⟩ := hdirty
+      have bad := htarget false x
+      simp [port, target, heq, hx, hc] at bad
+  have hrg : rg = true := by
+    cases heq : rg
+    · exfalso
+      apply raw_ne_upper v r
+      intro x
+      simpa [port, hrh, heq] using right_upper false x
+    · rfl
+  have hlg : lg = false := by
+    cases heq : lg
+    · rfl
+    · obtain ⟨i, hi⟩ := gnonzero
+      have bad := htarget false (unit i)
+      simp [port, target, heq, hrg, hi, core_unit] at bad
+  have hrawzero : l = 0 := by
+    apply raw_extras_zero v l
+    intro x hx
+    have hu : upper v x = true := by
+      cases heq : upper v x
+      · simp [heq] at hx
+      · rfl
+    have hl : raw l x = true := by
+      cases heq : raw l x
+      · simp [heq] at hx
+      · rfl
+    have hp : port l lh lg true h g false x = true := by simp [port, hl]
+    have hq : port r rh rg false h g false x = true := by
+      rw [right_upper false x]
+      exact hu
+    have heq := htarget false x
+    simpa [target, hp, hq] using heq.symm
+  refine ⟨hrawzero, hlg, hrh, hrg, ?_, ?_⟩
+  · intro x
+    simpa [port, hrh, hrg] using right_upper false x
+  · intro b x
+    rw [hrawzero, hlg]
+    cases lh <;> cases b <;> cases hh : h x <;> simp [port, zero_raw, hh]
+
+def Canonical (v : Fin 3) (h g : Fin 32 → Bool)
+    (left right : Bool → Fin 32 → Bool) : Prop :=
+  ∃ y : Fin 32, (∀ x, (raw y x || g x) = upper v x) ∧
+    (((∀ b x, left b x = (b || h x)) ∧
+      (∀ b x, right b x = (raw y x || g x))) ∨
+     ((∀ b x, right b x = (b || h x)) ∧
+      (∀ b x, left b x = (raw y x || g x))))
+
+theorem canonical_final_ports (v : Fin 3) (l r : Fin 32)
+    (lh lg lq rh rg rq : Bool) (h g : Fin 32 → Bool)
+    (hdirty : ∃ x, h x = true ∧ core x = false)
+    (gnonzero : ∃ i : Fin 5, g (unit i) = true)
+    (htarget : ∀ b x,
+      (port l lh lg lq h g b x && port r rh rg rq h g b x) = target v b x) :
+    Canonical v h g (port l lh lg lq h g) (port r rh rg rq h g) := by
+  cases hlq : lq <;> cases hrq : rq
+  · obtain ⟨i, hi⟩ := neighbors_nonempty v
+    have hfalse : (port l lh lg false h g false (unit i) &&
+        port r rh rg false h g false (unit i)) = false := by
+      simpa only [hlq, hrq, target, Bool.false_and, Bool.false_or, core_unit]
+        using htarget false (unit i)
+    have htrue : (port l lh lg false h g false (unit i) &&
+        port r rh rg false h g false (unit i)) = true := by
+      simpa only [hlq, hrq, port, target, Bool.false_and, Bool.or_false,
+        Bool.true_and, hi, Bool.true_or] using htarget true (unit i)
+    rw [hfalse] at htrue
+    contradiction
+  · have hswap : ∀ b x,
+        (port r rh rg true h g b x && port l lh lg false h g b x) = target v b x := by
+      intro b x
+      simpa [hlq, hrq, Bool.and_comm] using htarget b x
+    obtain ⟨_, hrg, hlh, hlg, hup, hexact⟩ :=
+      canonical_qleft v r l rh rg lh lg h g hdirty gnonzero hswap
+    refine ⟨l, hup, Or.inr ⟨?_, ?_⟩⟩
+    · simpa [hlq, hrq] using hexact
+    · intro b x
+      simp [port, hlh, hlg]
+  · have hstraight : ∀ b x,
+        (port l lh lg true h g b x && port r rh rg false h g b x) = target v b x := by
+      intro b x
+      simpa [hlq, hrq] using htarget b x
+    obtain ⟨_, hlg, hrh, hrg, hup, hexact⟩ :=
+      canonical_qleft v l r lh lg rh rg h g hdirty gnonzero hstraight
+    refine ⟨r, hup, Or.inl ⟨?_, ?_⟩⟩
+    · simpa [hlq, hrq] using hexact
+    · intro b x
+      simp [port, hrh, hrg]
+  · have bad := htarget true 0
+    simp [port, target, hlq, hrq, raw_zero, core_zero] at bad
+
+theorem canonical_consequences (v : Fin 3) (h g : Fin 32 → Bool)
+    (left right : Bool → Fin 32 → Bool)
+    (hcanonical : Canonical v h g left right)
+    (htarget : ∀ b x, (left b x && right b x) = target v b x) :
+    (∀ x, (h x && upper v x) = core x) ∧
+    (∀ x, g x = true → upper v x = true) ∧
+    (∀ x, core x = true → raw (neighbors v) x = false → g x = true) := by
+  obtain ⟨y, hupper, horient⟩ := hcanonical
+  have hbelow (x : Fin 32) : g x = true → upper v x = true := by
+    intro hg
+    rw [← hupper x]
+    simp [hg]
+  have hrawbelow : ∀ x, raw y x = true → raw (neighbors v) x = true := by
+    apply raw_le_upper_neighbors v y
+    intro x hy
+    rw [← hupper x]
+    simp [hy]
+  have hedge (x : Fin 32) (hc : core x = true)
+      (hn : raw (neighbors v) x = false) : g x = true := by
+    have hu := core_le_upper v x hc
+    have hy : raw y x = false := by
+      cases heq : raw y x
+      · rfl
+      · have bad := hrawbelow x heq
+        simp [hn] at bad
+    rw [← hupper x, hy] at hu
+    simpa using hu
+  refine ⟨?_, hbelow, hedge⟩
+  intro x
+  have ht := htarget false x
+  rcases horient with ⟨hl, hr⟩ | ⟨hr, hl⟩
+  · rw [hl, hr, hupper] at ht
+    simpa [target] using ht
+  · rw [hr, hl, hupper] at ht
+    simpa [target, Bool.and_comm] using ht
+
+theorem gfirst_final_consequences (v : Fin 3) (l r : Fin 32)
+    (lh lg lq rh rg rq : Bool) (h g : Fin 32 → Bool)
+    (hdirty : ∃ x, h x = true ∧ core x = false)
+    (gnonzero : ∃ i : Fin 5, g (unit i) = true)
+    (htarget : ∀ b x,
+      (port l lh lg lq h g b x && port r rh rg rq h g b x) = target v b x) :
+    (∀ x, (h x && upper v x) = core x) ∧
+    (∀ x, g x = true → upper v x = true) ∧
+    (∀ x, core x = true → raw (neighbors v) x = false → g x = true) := by
+  apply canonical_consequences v h g (port l lh lg lq h g) (port r rh rg rq h g)
+  · exact canonical_final_ports v l r lh lg lq rh rg rq h g hdirty gnonzero htarget
+  · exact htarget
+
+end PEqualNP.Outside.L_meta_9033_aux.GFirst
