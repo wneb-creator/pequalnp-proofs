@@ -3289,4 +3289,1353 @@ lemma gap_negative_dominated :
 
 end NegativeRowReduction
 
+namespace R3Finite
+
+def atoms : List Nat := [1,2,4,8,16,32,64,128]
+
+def constructAux : List Nat → List Nat → Bool
+  | [], _ => true
+  | s :: rest, available =>
+      available.any (fun a => available.any (fun b => a ||| b == s)) &&
+        constructAux rest (s :: available)
+
+def insertMask (s : Nat) : List Nat → List Nat
+  | [] => [s]
+  | t :: ts => if s ≤ t then s :: t :: ts else t :: insertMask s ts
+
+def sortMasks : List Nat → List Nat
+  | [] => []
+  | s :: rest => insertMask s (sortMasks rest)
+
+def construct (targets : List Nat) : Bool :=
+  constructAux (sortMasks targets) atoms
+
+def nontrivial (s : Nat) : Bool := s &&& (s - 1) != 0
+
+def usefulExtras (targets : List Nat) : List Nat :=
+  (List.range 256).filter (fun s => nontrivial s && !targets.contains s &&
+    targets.any (fun t => s &&& t == s))
+
+def familyImpossible (targets : List Nat) : Bool :=
+  decide (4 ≤ targets.length ∧ targets.length ≤ 5) && !construct targets &&
+    (targets.length != 4 || (usefulExtras targets).all (fun s => !construct (s :: targets)))
+
+def families : List (List Nat) := [
+  [5,40,41,176,228],
+  [5,40,44,177,224],
+  [5,40,57,164,176],
+  [5,40,57,176,228],
+  [5,40,108,161,224],
+  [5,40,108,177,224],
+  [9,18,40,144,224],
+  [9,18,40,176,224],
+  [9,18,66,144,224],
+  [9,18,74,144,224],
+  [9,18,82,144,224],
+  [9,18,90,144,192],
+  [9,18,90,144,224],
+  [9,18,144,176,224],
+  [9,40,68,144,224],
+  [9,40,144,160,177],
+  [9,40,144,176,224],
+  [9,40,144,177,224],
+  [9,50,66,144,224],
+  [9,50,74,144,224],
+  [9,50,82,144,192],
+  [9,50,82,144,224],
+  [9,50,90,144,192],
+  [9,50,90,144,224],
+  [9,66,144,146,224],
+  [9,66,144,178,224],
+  [9,68,82,144,224],
+  [9,68,90,144,192],
+  [9,68,90,144,224],
+  [9,74,144,146,224],
+  [9,74,144,178,224],
+  [9,82,144,146,224],
+  [9,82,144,178,192],
+  [9,82,144,178,224],
+  [9,90,144,146,192],
+  [9,90,144,146,224],
+  [9,90,144,178,192],
+  [9,90,144,178,224],
+  [12,17,40,176,192],
+  [12,17,82,176,192],
+  [12,17,90,144,192],
+  [12,17,90,176,192],
+  [12,18,66,176,192],
+  [12,18,98,176,192],
+  [12,18,176,192,194],
+  [12,18,176,192,226],
+  [12,26,66,176,192],
+  [12,26,98,176,192],
+  [12,26,176,192,194],
+  [12,26,176,192,226],
+  [12,40,66,176,192],
+  [12,40,66,176,224],
+  [12,40,160,192,228],
+  [12,40,176,192,224],
+  [12,40,176,192,228],
+  [12,66,82,176,192],
+  [12,66,90,144,192],
+  [12,66,90,176,192],
+  [12,66,176,192,224],
+  [12,82,98,144,192],
+  [12,82,98,176,192],
+  [12,82,144,192,226],
+  [12,82,176,192,194],
+  [12,82,176,192,226],
+  [12,90,98,144,192],
+  [12,90,98,176,192],
+  [12,90,144,192,194],
+  [12,90,144,192,226],
+  [12,90,176,192,194],
+  [12,90,176,192,226],
+  [13,40,41,48,228],
+  [13,40,41,176,228],
+  [13,40,44,96,177],
+  [13,40,44,177,224],
+  [13,40,48,57,164],
+  [13,40,48,57,228],
+  [13,40,57,164,176],
+  [13,40,57,176,228],
+  [13,40,96,108,161],
+  [13,40,96,108,177],
+  [13,40,108,161,224],
+  [13,40,108,177,224],
+  [17,34,82,176,192],
+  [17,34,83,144,192],
+  [17,34,90,176,192],
+  [17,34,91,144,192],
+  [17,40,88,176,192],
+  [17,40,89,144,192],
+  [17,40,90,176,192],
+  [17,40,91,144,192],
+  [17,40,92,144,192],
+  [17,66,90,144,192],
+  [17,82,98,144,192],
+  [17,82,144,192,226],
+  [17,82,162,176,192],
+  [17,82,176,192,224],
+  [17,83,144,162,192],
+  [17,83,144,176,192],
+  [17,90,98,144,192],
+  [17,90,130,176,192],
+  [17,90,144,192,194],
+  [17,90,144,192,226],
+  [17,90,162,176,192],
+  [17,90,176,192],
+  [17,90,176,192,224],
+  [17,91,130,144,192],
+  [17,91,144,162,192],
+  [17,91,144,176,192],
+  [17,91,144,192],
+  [18,68,90,144,192],
+  [18,144,176,178,224],
+  [18,176,192,226],
+  [19,144,176,178,192],
+  [21,33,40,108,224],
+  [21,36,40,57,176],
+  [21,40,41,100,176],
+  [21,40,44,49,224],
+  [21,40,49,108,224],
+  [21,40,57,100,176],
+  [22,144,176,192,226],
+  [26,144,146,176,224],
+  [26,144,176,178,224],
+  [26,176,192,194],
+  [26,176,192,226],
+  [27,144,146,176,192],
+  [27,144,176,178,192],
+  [29,33,40,96,108],
+  [29,33,40,108,224],
+  [29,36,40,48,57],
+  [29,36,40,57,176],
+  [29,40,41,48,100],
+  [29,40,41,100,176],
+  [29,40,44,49,96],
+  [29,40,44,49,224],
+  [29,40,48,57,100],
+  [29,40,49,96,108],
+  [29,40,49,108,224],
+  [29,40,57,100,176],
+  [30,144,176,192,194],
+  [30,144,176,192,226],
+  [33,40,69,108,224],
+  [33,40,77,96,108],
+  [33,40,77,108,224],
+  [33,40,85,108,224],
+  [33,40,93,96,108],
+  [33,40,93,108,224],
+  [34,68,82,144,224],
+  [34,68,86,144,192],
+  [34,68,90,144,224],
+  [34,68,94,144,192],
+  [36,40,48,57,77],
+  [36,40,48,57,93],
+  [36,40,57,69,176],
+  [36,40,57,77,176],
+  [36,40,57,85,176],
+  [36,40,57,93,176],
+  [40,41,48,77,100],
+  [40,41,48,93,100],
+  [40,41,69,100,176],
+  [40,41,77,100,176],
+  [40,41,85,100,176],
+  [40,41,93,100,176],
+  [40,44,49,69,224],
+  [40,44,49,77,96],
+  [40,44,49,77,224],
+  [40,44,49,85,224],
+  [40,44,49,93,96],
+  [40,44,49,93,224],
+  [40,48,57,77,100],
+  [40,48,57,93,100],
+  [40,49,69,108,224],
+  [40,49,77,96,108],
+  [40,49,77,108,224],
+  [40,49,85,108,224],
+  [40,49,93,96,108],
+  [40,49,93,108,224],
+  [40,57,69,100,176],
+  [40,57,77,100,176],
+  [40,57,85,100,176],
+  [40,57,93,100,176],
+  [40,68,88,144,224],
+  [40,68,89,144,192],
+  [40,68,90,144,224],
+  [40,68,92,144,192],
+  [40,68,94,144,192],
+  [50,68,82,144,192],
+  [50,68,90,144,192],
+  [66,144,178,224],
+  [66,176,192,224,226],
+  [67,144,178,192,224],
+  [68,82,144,162,224],
+  [68,82,144,176,224],
+  [68,82,144,178,192],
+  [68,86,144,162,192],
+  [68,86,144,192,224],
+  [68,90,130,144,224],
+  [68,90,144,146,192],
+  [68,90,144,162,224],
+  [68,90,144,176,224],
+  [68,90,144,178,192],
+  [68,90,144,224],
+  [68,94,130,144,192],
+  [68,94,144,162,192],
+  [68,94,144,192],
+  [68,94,144,192,224],
+  [70,144,192,224,226],
+  [74,144,146,224],
+  [74,144,178,224],
+  [74,176,192,194,224],
+  [74,176,192,224,226],
+  [75,144,146,192,224],
+  [75,144,178,192,224],
+  [78,144,192,194,224],
+  [78,144,192,224,226],
+  [82,144,176,178,224],
+  [82,144,176,192,226],
+  [82,144,178,192,224],
+  [82,144,178,224],
+  [82,176,192,224,226],
+  [82,176,192,226],
+  [83,144,176,178,192],
+  [83,144,178,192],
+  [83,144,178,192,224],
+  [86,144,176,192,226],
+  [86,144,192,224,226],
+  [86,144,192,226],
+  [90,144,146,176,224],
+  [90,144,146,192,224],
+  [90,144,146,224],
+  [90,144,176,178,224],
+  [90,144,176,192,194],
+  [90,144,176,192,226],
+  [90,144,178,192,224],
+  [90,144,178,224],
+  [90,176,192,194],
+  [90,176,192,194,224],
+  [90,176,192,224,226],
+  [90,176,192,226],
+  [91,144,146,176,192],
+  [91,144,146,192],
+  [91,144,146,192,224],
+  [91,144,176,178,192],
+  [91,144,178,192],
+  [91,144,178,192,224],
+  [94,144,176,192,194],
+  [94,144,176,192,226],
+  [94,144,192,194],
+  [94,144,192,194,224],
+  [94,144,192,224,226],
+  [94,144,192,226]
+]
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma families_impossible : families.all familyImpossible = true := by
+  decide +kernel
+
+
+abbrev Rect := Nat × Nat
+
+def edges : List Rect := [(0,6),(0,7),(1,3),(1,5),(2,4),(2,7),(3,5),(3,7),(4,5),(4,6),(5,6)]
+
+def filled (v : Nat) : List Rect :=
+  if v == 0 then [(3,4),(2,5)] else
+  if v == 1 then [(4,7),(6,7)] else
+  if v == 2 then [(0,5),(3,6)] else []
+
+def edgePresent (es : List Rect) (u v : Nat) : Bool :=
+  es.any (fun e => (e.1 == u && e.2 == v) || (e.1 == v && e.2 == u))
+
+def allowedRows (v : Nat) : List Nat :=
+  if v == 0 then [192,40,176,178,108,94,49,13] else if v == 1 then [192,40,144,162,228,90,177,93] else
+  if v == 2 then [224,40,144,226,100,91,57,13] else [192,40,144,162,100,90,49,13]
+
+def adjacencyCheck : Bool :=
+  (List.range 4).all (fun v => (List.range 8).all (fun u => (List.range 8).all (fun w =>
+    ((allowedRows v).getD u 0).testBit w == edgePresent (edges ++ filled v) u w)))
+
+def commonRows : List Nat → Nat → Nat
+  | [], _ => 255
+  | m :: rest, a => (if a % 2 == 1 then m else 255) &&& commonRows rest (a / 2)
+
+def crossHas (es : List Rect) (a b : Nat) : Bool :=
+  es.any (fun e => (a.testBit e.1 && b.testBit e.2) || (a.testBit e.2 && b.testBit e.1))
+
+def validDirty (v available a b : Nat) : Bool :=
+  decide (0 < a ∧ a < b) && (a &&& b == 0) &&
+  ((a ||| b) &&& available == a ||| b) &&
+  (b &&& commonRows (allowedRows v) a == b) && crossHas (filled v) a b
+
+def validClean (a b : Nat) : Bool :=
+  decide (0 < a ∧ a < b) && (a &&& b == 0) &&
+    (b &&& commonRows (allowedRows 3) a == b)
+
+def dirtyData : List (Nat × Nat × List Rect) := [(0,248,[(8,16),(8,48),(8,144),(8,176),(16,40),(16,72),(16,104),(48,72)]),(0,250,[(8,16),(8,18),(8,48),(8,50),(8,144),(8,146),(8,176),(8,178),(16,40),(16,72),(16,104),(18,40),(48,72)]),(0,252,[(4,32),(4,48),(4,160),(4,176),(8,16),(8,48),(8,144),(8,176),(12,16),(12,32),(12,48),(12,144),(12,160),(12,176),(16,40),(16,44),(16,72),(16,76),(16,104),(16,108),(20,32),(28,32),(32,68),(32,76),(32,84),(32,92),(48,68),(48,72),(48,76)]),(0,254,[(4,32),(4,48),(4,160),(4,176),(6,32),(8,16),(8,18),(8,48),(8,50),(8,144),(8,146),(8,176),(8,178),(12,16),(12,32),(12,48),(12,144),(12,160),(12,176),(14,32),(16,40),(16,44),(16,72),(16,76),(16,104),(16,108),(18,40),(20,32),(22,32),(28,32),(30,32),(32,68),(32,70),(32,76),(32,78),(32,84),(32,86),(32,92),(32,94),(48,68),(48,72),(48,76)]),(1,248,[(16,128),(16,160),(16,192),(16,224),(24,128),(24,160),(64,128),(64,144),(64,160),(64,176),(72,128),(72,160),(80,128),(80,160),(88,128),(88,160)]),(1,249,[(16,128),(16,160),(16,192),(16,224),(17,128),(17,192),(24,128),(24,160),(25,128),(64,128),(64,129),(64,144),(64,145),(64,160),(64,161),(64,176),(64,177),(65,128),(72,128),(72,160),(73,128),(80,128),(80,160),(81,128),(88,128),(88,160),(89,128)]),(1,252,[(16,128),(16,132),(16,160),(16,164),(16,192),(16,196),(16,224),(16,228),(20,128),(24,128),(24,160),(28,128),(64,128),(64,144),(64,160),(64,176),(68,128),(68,144),(72,128),(72,160),(76,128),(80,128),(80,160),(84,128),(88,128),(88,160),(92,128)]),(1,253,[(16,128),(16,132),(16,160),(16,164),(16,192),(16,196),(16,224),(16,228),(17,128),(17,192),(20,128),(21,128),(24,128),(24,160),(25,128),(28,128),(29,128),(64,128),(64,129),(64,144),(64,145),(64,160),(64,161),(64,176),(64,177),(65,128),(68,128),(68,144),(69,128),(72,128),(72,160),(73,128),(76,128),(77,128),(80,128),(80,160),(81,128),(84,128),(85,128),(88,128),(88,160),(89,128),(92,128),(93,128)]),(2,248,[(8,64),(8,96),(8,192),(8,224),(24,64),(24,96),(40,64),(56,64)]),(2,249,[(1,32),(1,96),(1,160),(1,224),(8,64),(8,96),(8,192),(8,224),(9,32),(9,64),(9,96),(9,160),(9,192),(9,224),(17,32),(17,96),(24,64),(24,96),(25,32),(25,64),(25,96),(32,65),(32,73),(32,81),(32,89),(40,64),(41,64),(56,64),(57,64)]),(2,250,[(8,64),(8,66),(8,96),(8,98),(8,192),(8,194),(8,224),(8,226),(24,64),(24,96),(40,64),(40,66),(56,64)]),(2,251,[(1,32),(1,96),(1,160),(1,224),(3,32),(8,64),(8,66),(8,96),(8,98),(8,192),(8,194),(8,224),(8,226),(9,32),(9,64),(9,96),(9,160),(9,192),(9,224),(11,32),(17,32),(17,96),(19,32),(24,64),(24,96),(25,32),(25,64),(25,96),(27,32),(32,65),(32,67),(32,73),(32,75),(32,81),(32,83),(32,89),(32,91),(40,64),(40,66),(41,64),(56,64),(57,64)])]
+
+def dirtyFor (d : Nat × Nat × List Rect) : Bool :=
+  (List.range 256).all (fun a => (List.range 256).all (fun b =>
+    !validDirty d.1 d.2.1 a b || d.2.2.contains (a,b)))
+
+def dirtyComplete : Bool := dirtyData.all dirtyFor
+
+def cleanRects : List Rect := [(0,0),(1,64),(1,128),(1,192),(2,8),(2,32),(2,40),(4,16),(4,128),(4,144),(5,128),(8,32),(8,34),(8,128),(8,130),(8,160),(8,162),(9,128),(10,32),(12,128),(13,128),(16,32),(16,36),(16,64),(16,68),(16,96),(16,100),(17,64),(18,32),(24,32),(26,32),(32,64),(32,66),(32,72),(32,74),(32,80),(32,82),(32,88),(32,90),(33,64),(48,64),(49,64)]
+
+def cleanComplete : Bool :=
+  cleanRects.contains (0,0) && (List.range 256).all (fun a => (List.range 256).all (fun b =>
+    !validClean a b || cleanRects.contains (a,b)))
+
+def weightedEdges : List (Rect × Nat) := [((0,6),1),((0,7),2),((1,3),4),((1,5),8),((2,4),16),((2,7),32),((3,5),64),((3,7),128),((4,5),256),((4,6),512),((5,6),1024)]
+
+def coverageAux : List (Rect × Nat) → Rect → Nat
+  | [], _ => 0
+  | (e,w) :: rest, r =>
+      (if (r.1.testBit e.1 && r.2.testBit e.2) ||
+          (r.1.testBit e.2 && r.2.testBit e.1) then w else 0) + coverageAux rest r
+
+def coverage (r : Rect) : Nat := coverageAux weightedEdges r
+
+def addMask (m : Nat) (targets : List Nat) : List Nat :=
+  if nontrivial m && !targets.contains m then insertMask m targets else targets
+
+def reqRect (r : Rect) : List Nat := addMask r.1 (addMask r.2 [])
+
+def mergeReq (xs ys : List Nat) : List Nat := xs.foldl (fun acc s => addMask s acc) ys
+
+set_option maxHeartbeats 0 in
+def cleanCoverTable (n : Nat) : List (List Nat) := (if n < 1024 then (if n < 512 then (if n < 256 then (if n < 128 then (if n < 64 then (if n < 32 then (if n < 16 then (if n < 8 then (if n < 4 then (if n < 2 then [] else (if n < 3 then [] else [[],[5],[5,17],[5,33],[5,49],[5,192],[9],[9,17],[9,33],[9,49],[9,192],[10,192],[12,192],[13],[13,17],[13,33],[13,49],[13,192],[17],[17,192],[18,192],[24,192],[26,192],[33],[33,192],[34,192],[36,192],[40,192],[48,192],[49],[49,192],[66,192],[68,192],[72,192],[74,192],[80,192],[82,192],[88,192],[90,192],[96,192],[100,192],[130,192],[144,192],[160,192],[162,192],[192]])) else (if n < 6 then [] else (if n < 7 then [] else [[34,192],[40,192],[130,192],[162,192],[192]]))) else (if n < 12 then [] else (if n < 14 then (if n < 13 then [] else [[17,40],[33,40],[40],[40,49],[40,192]]) else (if n < 15 then [[5,40],[9,40],[13,40],[40],[40,192]] else [[40,192]])))) else (if n < 24 then (if n < 20 then (if n < 18 then [] else (if n < 19 then [] else [[36,192],[68,192],[100,192],[144,192],[192]])) else []) else (if n < 28 then [] else (if n < 30 then (if n < 29 then [[36,40],[40],[40,68],[40,100],[40,144]] else []) else [])))) else (if n < 48 then (if n < 40 then (if n < 36 then (if n < 34 then [] else (if n < 35 then [] else [[5],[5,17],[5,33],[5,49],[5,192],[12,192],[13],[13,17],[13,33],[13,49],[13,192],[144,192],[192]])) else []) else (if n < 44 then [] else (if n < 46 then (if n < 45 then [[5,40],[12,40],[13,40],[40],[40,144]] else []) else (if n < 47 then [[5,40],[13,40]] else [])))) else (if n < 56 then (if n < 52 then (if n < 50 then (if n < 49 then [[],[5],[5,36],[5,68],[5,100],[5,144],[9,144],[10,144],[12],[12,36],[12,68],[12,100],[12,144],[13],[13,36],[13,68],[13,100],[13,144],[17,144],[18,144],[24,144],[26,144],[33,144],[34,144],[36],[36,144],[40,144],[48,144],[49,144],[66,144],[68],[68,144],[72,144],[74,144],[80,144],[82,144],[88,144],[90,144],[96,144],[100],[100,144],[130,144],[144],[144,160],[144,162],[144,192]] else [[17,144],[33,144],[49,144],[144],[144,192]]) else (if n < 51 then [[5],[5,36],[5,68],[5,100],[5,144],[9,144],[13],[13,36],[13,68],[13,100],[13,144],[144],[144,192]] else [[144,192]])) else (if n < 54 then (if n < 53 then [[34,144],[40,144],[130,144],[144],[144,162]] else []) else [])) else (if n < 60 then [] else (if n < 62 then (if n < 61 then [[40,144]] else []) else []))))) else (if n < 96 then (if n < 80 then (if n < 72 then (if n < 68 then (if n < 66 then [] else (if n < 67 then [] else [[10,192],[24,192],[26,192],[34,192],[72,192],[74,192],[88,192],[90,192],[160,192],[162,192],[192]])) else (if n < 70 then [] else (if n < 71 then [] else [[34,192],[162,192]]))) else []) else []) else (if n < 112 then [] else (if n < 120 then (if n < 116 then (if n < 114 then (if n < 113 then [[10,144],[24,144],[26,144],[34,144],[72,144],[74,144],[88,144],[90,144],[144],[144,160],[144,162]] else []) else []) else (if n < 118 then (if n < 117 then [[34,144],[144,162]] else []) else [])) else [])))) else (if n < 192 then (if n < 160 then (if n < 144 then (if n < 136 then (if n < 132 then [] else (if n < 134 then [] else (if n < 135 then [] else [[130,192],[162,192]]))) else (if n < 140 then [] else (if n < 142 then [] else (if n < 143 then [[9,40],[13,40]] else [])))) else []) else (if n < 176 then (if n < 168 then (if n < 164 then (if n < 162 then [] else (if n < 163 then [] else [[12,192],[13],[13,17],[13,33],[13,49],[13,192]])) else []) else (if n < 172 then [] else (if n < 174 then (if n < 173 then [[12,40],[13,40]] else []) else (if n < 175 then [[13,40]] else [])))) else (if n < 184 then (if n < 180 then (if n < 178 then [] else (if n < 179 then [[9,144],[13],[13,36],[13,68],[13,100],[13,144]] else [])) else (if n < 182 then (if n < 181 then [[130,144],[144,162]] else []) else [])) else []))) else (if n < 224 then (if n < 208 then (if n < 200 then (if n < 196 then (if n < 194 then [] else (if n < 195 then [] else [[160,192],[162,192]])) else (if n < 198 then [] else (if n < 199 then [] else [[162,192]]))) else []) else []) else (if n < 240 then [] else (if n < 248 then (if n < 244 then (if n < 242 then (if n < 241 then [[144,160],[144,162]] else []) else []) else (if n < 246 then (if n < 245 then [[144,162]] else []) else [])) else []))))) else (if n < 384 then (if n < 320 then (if n < 288 then (if n < 272 then (if n < 264 then (if n < 260 then (if n < 258 then [] else (if n < 259 then [] else [[18,192],[24,192],[26,192],[36,192],[80,192],[82,192],[88,192],[90,192],[96,192],[100,192],[192]])) else []) else (if n < 268 then (if n < 266 then [] else (if n < 267 then [] else [[18,192],[26,192],[82,192],[90,192]])) else (if n < 270 then (if n < 269 then [[18],[18,34],[18,40],[18,130],[18,162],[24,40],[26],[26,34],[26,40],[26,130],[26,162],[34,82],[34,90],[36,40],[40],[40,80],[40,82],[40,88],[40,90],[40,96],[40,100],[82],[82,130],[82,162],[90],[90,130],[90,162]] else []) else []))) else (if n < 280 then (if n < 276 then (if n < 274 then [] else (if n < 275 then [] else [[36,192],[100,192]])) else []) else (if n < 284 then [] else (if n < 286 then (if n < 285 then [[36,40],[40,100]] else []) else [])))) else (if n < 304 then [] else (if n < 312 then (if n < 308 then (if n < 306 then (if n < 305 then [[5,36],[5,100],[12,36],[12,100],[13,36],[13,100],[18,144],[24,144],[26,144],[36],[36,144],[80,144],[82,144],[88,144],[90,144],[96,144],[100],[100,144],[144]] else []) else (if n < 307 then [[5,36],[5,100],[13,36],[13,100]] else [])) else []) else (if n < 316 then (if n < 314 then (if n < 313 then [[18,144],[26,144],[82,144],[90,144]] else []) else []) else [])))) else (if n < 352 then (if n < 336 then (if n < 328 then (if n < 324 then (if n < 322 then [] else (if n < 323 then [] else [[24,192],[26,192],[88,192],[90,192]])) else []) else (if n < 332 then (if n < 330 then [] else (if n < 331 then [] else [[26,192],[90,192]])) else (if n < 334 then (if n < 333 then [[18,34],[18,162],[24,40],[26],[26,34],[26,40],[26,130],[26,162],[34,82],[34,90],[40,88],[40,90],[82,162],[90],[90,130],[90,162]] else []) else []))) else []) else (if n < 368 then [] else (if n < 376 then (if n < 372 then (if n < 370 then (if n < 369 then [[24,144],[26,144],[88,144],[90,144]] else []) else []) else []) else (if n < 380 then (if n < 378 then (if n < 377 then [[26,144],[90,144]] else []) else []) else []))))) else (if n < 448 then (if n < 416 then (if n < 400 then (if n < 392 then [] else (if n < 396 then [] else (if n < 398 then (if n < 397 then [[18,130],[18,162],[26,130],[26,162],[82,130],[82,162],[90,130],[90,162]] else []) else []))) else []) else (if n < 432 then [] else (if n < 440 then (if n < 436 then (if n < 434 then (if n < 433 then [[12,36],[12,100],[13,36],[13,100]] else []) else (if n < 435 then [[13,36],[13,100]] else [])) else []) else []))) else (if n < 480 then (if n < 464 then (if n < 456 then [] else (if n < 460 then [] else (if n < 462 then (if n < 461 then [[18,162],[26,130],[26,162],[82,162],[90,130],[90,162]] else []) else []))) else []) else [])))) else (if n < 768 then (if n < 640 then (if n < 576 then (if n < 544 then (if n < 528 then (if n < 520 then (if n < 516 then (if n < 514 then [] else (if n < 515 then [] else [[5,17],[5,49],[9,17],[9,49],[13,17],[13,49],[17],[17,192],[48,192],[49],[49,192],[68,192],[96,192],[100,192],[192]])) else []) else []) else (if n < 536 then (if n < 532 then (if n < 530 then [] else (if n < 531 then [] else [[68,192],[100,192]])) else []) else [])) else (if n < 560 then (if n < 552 then (if n < 548 then (if n < 546 then [] else (if n < 547 then [] else [[5,17],[5,49],[13,17],[13,49]])) else []) else []) else (if n < 568 then (if n < 564 then (if n < 562 then (if n < 561 then [[5,68],[5,100],[12,68],[12,100],[13,68],[13,100],[17,144],[48,144],[49,144],[68],[68,144],[96,144],[100],[100,144],[144]] else [[17,144],[49,144]]) else (if n < 563 then [[5,68],[5,100],[13,68],[13,100]] else [])) else []) else []))) else []) else (if n < 704 then (if n < 672 then [] else (if n < 688 then (if n < 680 then (if n < 676 then (if n < 674 then [] else (if n < 675 then [] else [[13,17],[13,49]])) else []) else []) else (if n < 696 then (if n < 692 then (if n < 690 then [] else (if n < 691 then [[13,68],[13,100]] else [])) else []) else []))) else [])) else (if n < 896 then (if n < 832 then (if n < 800 then (if n < 784 then (if n < 776 then (if n < 772 then (if n < 770 then [] else (if n < 771 then [] else [[96,192],[100,192]])) else []) else []) else (if n < 792 then (if n < 788 then (if n < 786 then [] else (if n < 787 then [] else [[100,192]])) else []) else (if n < 796 then [] else (if n < 798 then (if n < 797 then [[40,100]] else []) else [])))) else (if n < 816 then [] else (if n < 824 then (if n < 820 then (if n < 818 then [] else (if n < 819 then [[5,100],[13,100]] else [])) else []) else []))) else []) else (if n < 960 then (if n < 928 then [] else (if n < 944 then [] else (if n < 952 then (if n < 948 then (if n < 946 then [] else (if n < 947 then [[13,100]] else [])) else []) else []))) else [])))) else (if n < 1536 then (if n < 1280 then (if n < 1152 then (if n < 1088 then (if n < 1056 then (if n < 1040 then (if n < 1032 then (if n < 1028 then (if n < 1026 then [] else (if n < 1027 then [] else [[5,33],[5,49],[9,33],[9,49],[13,33],[13,49],[33],[33,192],[48,192],[49],[49,192],[66,192],[72,192],[74,192],[80,192],[82,192],[88,192],[90,192],[192]])) else []) else (if n < 1036 then (if n < 1034 then [] else (if n < 1035 then [] else [[66,192],[74,192],[82,192],[90,192]])) else (if n < 1038 then (if n < 1037 then [[33,40],[34,66],[34,74],[34,82],[34,90],[40],[40,48],[40,49],[40,66],[40,72],[40,74],[40,80],[40,82],[40,88],[40,90],[66],[66,130],[66,162],[74],[74,130],[74,162],[82],[82,130],[82,162],[90],[90,130],[90,162]] else [[33,40],[40,49]]) else []))) else []) else (if n < 1072 then (if n < 1064 then (if n < 1060 then (if n < 1058 then [] else (if n < 1059 then [] else [[5,33],[5,49],[13,33],[13,49]])) else []) else []) else (if n < 1080 then (if n < 1076 then (if n < 1074 then (if n < 1073 then [[33,144],[48,144],[49,144],[66,144],[72,144],[74,144],[80,144],[82,144],[88,144],[90,144],[144]] else [[33,144],[49,144]]) else []) else []) else (if n < 1084 then (if n < 1082 then (if n < 1081 then [[66,144],[74,144],[82,144],[90,144]] else []) else []) else [])))) else (if n < 1120 then (if n < 1104 then (if n < 1096 then (if n < 1092 then (if n < 1090 then [] else (if n < 1091 then [] else [[72,192],[74,192],[88,192],[90,192]])) else []) else (if n < 1100 then (if n < 1098 then [] else (if n < 1099 then [] else [[74,192],[90,192]])) else (if n < 1102 then (if n < 1101 then [[34,66],[34,74],[34,82],[34,90],[40,72],[40,74],[40,88],[40,90],[66,162],[74],[74,130],[74,162],[82,162],[90],[90,130],[90,162]] else []) else []))) else []) else (if n < 1136 then [] else (if n < 1144 then (if n < 1140 then (if n < 1138 then (if n < 1137 then [[72,144],[74,144],[88,144],[90,144]] else []) else []) else []) else (if n < 1148 then (if n < 1146 then (if n < 1145 then [[74,144],[90,144]] else []) else []) else []))))) else (if n < 1216 then (if n < 1184 then (if n < 1168 then (if n < 1160 then (if n < 1156 then (if n < 1154 then [] else (if n < 1155 then [] else [[9,33],[9,49],[13,33],[13,49]])) else []) else (if n < 1164 then [] else (if n < 1166 then (if n < 1165 then [[66,130],[66,162],[74,130],[74,162],[82,130],[82,162],[90,130],[90,162]] else []) else []))) else []) else (if n < 1200 then (if n < 1192 then (if n < 1188 then (if n < 1186 then [] else (if n < 1187 then [] else [[13,33],[13,49]])) else []) else []) else [])) else (if n < 1248 then (if n < 1232 then (if n < 1224 then [] else (if n < 1228 then [] else (if n < 1230 then (if n < 1229 then [[66,162],[74,130],[74,162],[82,162],[90,130],[90,162]] else []) else []))) else []) else []))) else (if n < 1408 then (if n < 1344 then (if n < 1312 then (if n < 1296 then (if n < 1288 then [] else (if n < 1292 then (if n < 1290 then [] else (if n < 1291 then [] else [[82,192],[90,192]])) else (if n < 1294 then (if n < 1293 then [[34,82],[34,90],[40,80],[40,82],[40,88],[40,90],[82],[82,130],[82,162],[90],[90,130],[90,162]] else []) else []))) else []) else (if n < 1328 then [] else (if n < 1336 then [] else (if n < 1340 then (if n < 1338 then (if n < 1337 then [[82,144],[90,144]] else []) else []) else [])))) else (if n < 1376 then (if n < 1360 then (if n < 1352 then [] else (if n < 1356 then (if n < 1354 then [] else (if n < 1355 then [] else [[90,192]])) else (if n < 1358 then (if n < 1357 then [[34,82],[34,90],[40,88],[40,90],[82,162],[90],[90,130],[90,162]] else []) else []))) else []) else (if n < 1392 then [] else (if n < 1400 then [] else (if n < 1404 then (if n < 1402 then (if n < 1401 then [[90,144]] else []) else []) else []))))) else (if n < 1472 then (if n < 1440 then (if n < 1424 then (if n < 1416 then [] else (if n < 1420 then [] else (if n < 1422 then (if n < 1421 then [[82,130],[82,162],[90,130],[90,162]] else []) else []))) else []) else []) else (if n < 1504 then (if n < 1488 then (if n < 1480 then [] else (if n < 1484 then [] else (if n < 1486 then (if n < 1485 then [[82,162],[90,130],[90,162]] else []) else []))) else []) else [])))) else (if n < 1792 then (if n < 1664 then (if n < 1600 then (if n < 1568 then (if n < 1552 then (if n < 1544 then [] else (if n < 1548 then [] else (if n < 1550 then (if n < 1549 then [] else [[40,49]]) else []))) else []) else (if n < 1584 then (if n < 1576 then (if n < 1572 then (if n < 1570 then [] else (if n < 1571 then [] else [[5,49],[13,49]])) else []) else []) else (if n < 1592 then (if n < 1588 then (if n < 1586 then (if n < 1585 then [[48,144],[49,144]] else [[49,144]]) else []) else []) else []))) else []) else (if n < 1728 then (if n < 1696 then [] else (if n < 1712 then (if n < 1704 then (if n < 1700 then (if n < 1698 then [] else (if n < 1699 then [] else [[13,49]])) else []) else []) else [])) else [])) else [])))
+
+def reachableMissing (n : Nat) : Bool := if n < 2048 then ((if n / 64 < 16 then (if n / 64 < 8 then (if n / 64 < 4 then (if n / 64 < 2 then (if n / 64 < 1 then 18230563083653800072 else 18230545491467739272) else (if n / 64 < 3 then 18229718658723143808 else 18230563083653800072)) else (if n / 64 < 6 then (if n / 64 < 5 then 18446735865901807752 else 18446735865901283464) else (if n / 64 < 7 then 18446735865901283456 else 18446735865901807752))) else (if n / 64 < 12 then (if n / 64 < 10 then (if n / 64 < 9 then 18442179488374097928 else 18442214674088372232) else (if n / 64 < 11 then 18441335063443441664 else 18442214674088372232)) else (if n / 64 < 14 then 18441933199111677960 else (if n / 64 < 15 then 18441933199111153664 else 18441933199111677960)))) else (if n / 64 < 24 then (if n / 64 < 20 then (if n / 64 < 18 then (if n / 64 < 17 then 18446735865901807752 else 18446172915948386440) else (if n / 64 < 19 then 18445891440971675784 else 18446735865901807752)) else 18444765506704570496) else (if n / 64 < 28 then (if n / 64 < 26 then 18442232266274416640 else (if n / 64 < 27 then 18441387841344284672 else 18442232266274416640)) else 18440261907077195776))) : Nat).testBit (n % 64) else false
+
+def cleanCoverFor (a : Rect) : Bool :=
+  cleanRects.all (fun b => (List.range 2048).all (fun need =>
+    !reachableMissing need || need &&& (coverage a ||| coverage b) != need ||
+      (cleanCoverTable need).contains (mergeReq (reqRect a) (reqRect b))))
+
+def cleanCoverComplete : Bool := cleanRects.all cleanCoverFor
+
+def orders : List (Nat × Nat × Nat) := [(0,1,2),(0,2,1),(1,0,2),(1,2,0),(2,0,1),(2,1,0)]
+
+def caseIndices : List (Nat × Nat × Nat) := [(0,5,11),(0,9,7),(4,1,11),(4,10,3),(8,2,7),(8,6,3)]
+
+def orderComplete : Bool :=
+  (List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c =>
+    !decide (a ≠ b ∧ a ≠ c ∧ b ≠ c) || orders.contains (a,b,c))))
+
+def getData (i : Nat) : Nat × Nat × List Rect := dirtyData.getD i (0,0,[])
+
+def casesCorrect : Bool :=
+  orders.length == caseIndices.length &&
+  (orders.zip caseIndices).all (fun p =>
+    let o := p.1
+    let c := p.2
+    let a := getData c.1
+    let b := getData c.2.1
+    let d := getData c.2.2
+    a.1 == o.1 && a.2.1 == 248 &&
+    b.1 == o.2.1 && b.2.1 == (248 ||| (1 <<< o.1)) &&
+    d.1 == o.2.2 && d.2.1 == (248 ||| (1 <<< o.1) ||| (1 <<< o.2.1)))
+
+def caseCovered (c : Nat × Nat × Nat) : Bool :=
+  (getData c.1).2.2.all (fun a => (getData c.2.1).2.2.all (fun b =>
+    (getData c.2.2).2.2.all (fun d =>
+      let required := mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))
+      let need := 2047 - (coverage a ||| coverage b ||| coverage d)
+      decide (5 < required.length) ||
+      (reachableMissing need && (cleanCoverTable need).all (fun extra =>
+        let r := mergeReq required extra
+        decide (5 < r.length) || families.contains r)))))
+
+def coverageCheck : Bool := caseIndices.all caseCovered
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma adjacency_checked : adjacencyCheck = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_0 : dirtyFor (0,248,[(8,16),(8,48),(8,144),(8,176),(16,40),(16,72),(16,104),(48,72)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_1 : dirtyFor (0,250,[(8,16),(8,18),(8,48),(8,50),(8,144),(8,146),(8,176),(8,178),(16,40),(16,72),(16,104),(18,40),(48,72)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_2 : dirtyFor (0,252,[(4,32),(4,48),(4,160),(4,176),(8,16),(8,48),(8,144),(8,176),(12,16),(12,32),(12,48),(12,144),(12,160),(12,176),(16,40),(16,44),(16,72),(16,76),(16,104),(16,108),(20,32),(28,32),(32,68),(32,76),(32,84),(32,92),(48,68),(48,72),(48,76)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_3 : dirtyFor (0,254,[(4,32),(4,48),(4,160),(4,176),(6,32),(8,16),(8,18),(8,48),(8,50),(8,144),(8,146),(8,176),(8,178),(12,16),(12,32),(12,48),(12,144),(12,160),(12,176),(14,32),(16,40),(16,44),(16,72),(16,76),(16,104),(16,108),(18,40),(20,32),(22,32),(28,32),(30,32),(32,68),(32,70),(32,76),(32,78),(32,84),(32,86),(32,92),(32,94),(48,68),(48,72),(48,76)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_4 : dirtyFor (1,248,[(16,128),(16,160),(16,192),(16,224),(24,128),(24,160),(64,128),(64,144),(64,160),(64,176),(72,128),(72,160),(80,128),(80,160),(88,128),(88,160)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_5 : dirtyFor (1,249,[(16,128),(16,160),(16,192),(16,224),(17,128),(17,192),(24,128),(24,160),(25,128),(64,128),(64,129),(64,144),(64,145),(64,160),(64,161),(64,176),(64,177),(65,128),(72,128),(72,160),(73,128),(80,128),(80,160),(81,128),(88,128),(88,160),(89,128)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_6 : dirtyFor (1,252,[(16,128),(16,132),(16,160),(16,164),(16,192),(16,196),(16,224),(16,228),(20,128),(24,128),(24,160),(28,128),(64,128),(64,144),(64,160),(64,176),(68,128),(68,144),(72,128),(72,160),(76,128),(80,128),(80,160),(84,128),(88,128),(88,160),(92,128)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_7 : dirtyFor (1,253,[(16,128),(16,132),(16,160),(16,164),(16,192),(16,196),(16,224),(16,228),(17,128),(17,192),(20,128),(21,128),(24,128),(24,160),(25,128),(28,128),(29,128),(64,128),(64,129),(64,144),(64,145),(64,160),(64,161),(64,176),(64,177),(65,128),(68,128),(68,144),(69,128),(72,128),(72,160),(73,128),(76,128),(77,128),(80,128),(80,160),(81,128),(84,128),(85,128),(88,128),(88,160),(89,128),(92,128),(93,128)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_8 : dirtyFor (2,248,[(8,64),(8,96),(8,192),(8,224),(24,64),(24,96),(40,64),(56,64)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_9 : dirtyFor (2,249,[(1,32),(1,96),(1,160),(1,224),(8,64),(8,96),(8,192),(8,224),(9,32),(9,64),(9,96),(9,160),(9,192),(9,224),(17,32),(17,96),(24,64),(24,96),(25,32),(25,64),(25,96),(32,65),(32,73),(32,81),(32,89),(40,64),(41,64),(56,64),(57,64)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_10 : dirtyFor (2,250,[(8,64),(8,66),(8,96),(8,98),(8,192),(8,194),(8,224),(8,226),(24,64),(24,96),(40,64),(40,66),(56,64)]) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma dirty_11 : dirtyFor (2,251,[(1,32),(1,96),(1,160),(1,224),(3,32),(8,64),(8,66),(8,96),(8,98),(8,192),(8,194),(8,224),(8,226),(9,32),(9,64),(9,96),(9,160),(9,192),(9,224),(11,32),(17,32),(17,96),(19,32),(24,64),(24,96),(25,32),(25,64),(25,96),(27,32),(32,65),(32,67),(32,73),(32,75),(32,81),(32,83),(32,89),(32,91),(40,64),(40,66),(41,64),(56,64),(57,64)]) = true := by decide +kernel
+
+lemma dirty_complete_checked : dirtyComplete = true := by
+  simp only [dirtyComplete, dirtyData, List.all_cons, List.all_nil,
+    dirty_0, dirty_1, dirty_2, dirty_3, dirty_4, dirty_5, dirty_6, dirty_7, dirty_8, dirty_9, dirty_10, dirty_11, Bool.and_true]
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_complete_checked : cleanComplete = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_0 : cleanCoverFor (0,0) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_1 : cleanCoverFor (1,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_2 : cleanCoverFor (1,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_3 : cleanCoverFor (1,192) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_4 : cleanCoverFor (2,8) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_5 : cleanCoverFor (2,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_6 : cleanCoverFor (2,40) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_7 : cleanCoverFor (4,16) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_8 : cleanCoverFor (4,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_9 : cleanCoverFor (4,144) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_10 : cleanCoverFor (5,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_11 : cleanCoverFor (8,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_12 : cleanCoverFor (8,34) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_13 : cleanCoverFor (8,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_14 : cleanCoverFor (8,130) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_15 : cleanCoverFor (8,160) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_16 : cleanCoverFor (8,162) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_17 : cleanCoverFor (9,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_18 : cleanCoverFor (10,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_19 : cleanCoverFor (12,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_20 : cleanCoverFor (13,128) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_21 : cleanCoverFor (16,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_22 : cleanCoverFor (16,36) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_23 : cleanCoverFor (16,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_24 : cleanCoverFor (16,68) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_25 : cleanCoverFor (16,96) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_26 : cleanCoverFor (16,100) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_27 : cleanCoverFor (17,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_28 : cleanCoverFor (18,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_29 : cleanCoverFor (24,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_30 : cleanCoverFor (26,32) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_31 : cleanCoverFor (32,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_32 : cleanCoverFor (32,66) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_33 : cleanCoverFor (32,72) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_34 : cleanCoverFor (32,74) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_35 : cleanCoverFor (32,80) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_36 : cleanCoverFor (32,82) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_37 : cleanCoverFor (32,88) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_38 : cleanCoverFor (32,90) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_39 : cleanCoverFor (33,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_40 : cleanCoverFor (48,64) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma clean_cover_41 : cleanCoverFor (49,64) = true := by decide +kernel
+
+lemma clean_cover_complete_checked : cleanCoverComplete = true := by
+  simp only [cleanCoverComplete, cleanRects, List.all_cons, List.all_nil,
+    clean_cover_0, clean_cover_1, clean_cover_2, clean_cover_3, clean_cover_4, clean_cover_5, clean_cover_6, clean_cover_7, clean_cover_8, clean_cover_9, clean_cover_10, clean_cover_11, clean_cover_12, clean_cover_13, clean_cover_14, clean_cover_15, clean_cover_16, clean_cover_17, clean_cover_18, clean_cover_19, clean_cover_20, clean_cover_21, clean_cover_22, clean_cover_23, clean_cover_24, clean_cover_25, clean_cover_26, clean_cover_27, clean_cover_28, clean_cover_29, clean_cover_30, clean_cover_31, clean_cover_32, clean_cover_33, clean_cover_34, clean_cover_35, clean_cover_36, clean_cover_37, clean_cover_38, clean_cover_39, clean_cover_40, clean_cover_41, Bool.and_true]
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma orders_checked : orderComplete = true ∧ casesCorrect = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_0 : caseCovered (0,5,11) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_1 : caseCovered (0,9,7) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_2 : caseCovered (4,1,11) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_3 : caseCovered (4,10,3) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_4 : caseCovered (8,2,7) = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma coverage_5 : caseCovered (8,6,3) = true := by decide +kernel
+
+lemma coverage_checked : coverageCheck = true := by
+  simp only [coverageCheck, caseIndices, List.all_cons, List.all_nil, coverage_0, coverage_1, coverage_2, coverage_3, coverage_4, coverage_5, Bool.and_true]
+
+lemma finite_certificate :
+    adjacencyCheck = true ∧ dirtyComplete = true ∧ cleanComplete = true ∧
+    cleanCoverComplete = true ∧ orderComplete = true ∧ casesCorrect = true ∧
+    coverageCheck = true ∧ families.all familyImpossible = true := by
+  exact ⟨adjacency_checked, dirty_complete_checked, clean_complete_checked,
+    clean_cover_complete_checked, orders_checked.1, orders_checked.2,
+    coverage_checked, families_impossible⟩
+
+end R3Finite
+
+
+namespace R3Local
+
+def atoms : List Nat := [1,2,4,8,16,32,64,128]
+
+def distinct : List Nat → Bool
+  | [] => true
+  | v :: rest => !rest.contains v && distinct rest
+
+def properSplit (paid : List Nat) (v : Nat) : Bool :=
+  let available := atoms ++ paid
+  available.any (fun a => a != v &&
+    available.any (fun b => b != v && a ||| b == v))
+
+def helps (required : List Nat) (v extra : Nat) : Bool :=
+  !required.contains extra && extra != v &&
+    (atoms ++ required).any (fun t => t != v && extra ||| t == v)
+
+def certificateCheck (d : List Nat × Nat × Nat) : Bool :=
+  let required := d.1
+  let pivot := d.2.1
+  let other := d.2.2
+  distinct required &&
+  required.all (fun v => decide (v < 256) && (v &&& (v - 1) != 0)) &&
+  required.contains pivot && !properSplit required pivot &&
+  (if required.length == 5 then other == 0 else
+    required.length == 4 &&
+    (if other == 0 then
+      (List.range 256).all (fun extra =>
+        !helps required pivot extra || !properSplit required extra)
+    else
+      required.contains other && !properSplit required other &&
+      (List.range 256).all (fun extra =>
+        !helps required pivot extra || !helps required other extra)))
+
+def certificates : List (List Nat × Nat × Nat) := [
+  ([5,40,41,176,228],176,0),
+  ([5,40,44,177,224],177,0),
+  ([5,40,57,164,176],57,0),
+  ([5,40,57,176,228],57,0),
+  ([5,40,108,161,224],108,0),
+  ([5,40,108,177,224],108,0),
+  ([9,18,40,144,224],224,0),
+  ([9,18,40,176,224],176,0),
+  ([9,18,66,144,224],224,0),
+  ([9,18,74,144,224],74,0),
+  ([9,18,82,144,224],224,0),
+  ([9,18,90,144,192],90,0),
+  ([9,18,90,144,224],90,0),
+  ([9,18,144,176,224],224,0),
+  ([9,40,68,144,224],224,0),
+  ([9,40,144,160,177],177,0),
+  ([9,40,144,176,224],224,0),
+  ([9,40,144,177,224],177,0),
+  ([9,50,66,144,224],50,0),
+  ([9,50,74,144,224],50,0),
+  ([9,50,82,144,192],50,0),
+  ([9,50,82,144,224],50,0),
+  ([9,50,90,144,192],50,0),
+  ([9,50,90,144,224],50,0),
+  ([9,66,144,146,224],224,0),
+  ([9,66,144,178,224],178,0),
+  ([9,68,82,144,224],82,0),
+  ([9,68,90,144,192],90,0),
+  ([9,68,90,144,224],90,0),
+  ([9,74,144,146,224],74,0),
+  ([9,74,144,178,224],74,0),
+  ([9,82,144,146,224],82,0),
+  ([9,82,144,178,192],82,0),
+  ([9,82,144,178,224],82,0),
+  ([9,90,144,146,192],90,0),
+  ([9,90,144,146,224],90,0),
+  ([9,90,144,178,192],90,0),
+  ([9,90,144,178,224],90,0),
+  ([12,17,40,176,192],176,0),
+  ([12,17,82,176,192],82,0),
+  ([12,17,90,144,192],90,0),
+  ([12,17,90,176,192],90,0),
+  ([12,18,66,176,192],176,0),
+  ([12,18,98,176,192],98,0),
+  ([12,18,176,192,194],176,0),
+  ([12,18,176,192,226],176,0),
+  ([12,26,66,176,192],26,0),
+  ([12,26,98,176,192],26,0),
+  ([12,26,176,192,194],26,0),
+  ([12,26,176,192,226],26,0),
+  ([12,40,66,176,192],176,0),
+  ([12,40,66,176,224],176,0),
+  ([12,40,160,192,228],228,0),
+  ([12,40,176,192,224],176,0),
+  ([12,40,176,192,228],176,0),
+  ([12,66,82,176,192],176,0),
+  ([12,66,90,144,192],90,0),
+  ([12,66,90,176,192],90,0),
+  ([12,66,176,192,224],176,0),
+  ([12,82,98,144,192],82,0),
+  ([12,82,98,176,192],82,0),
+  ([12,82,144,192,226],82,0),
+  ([12,82,176,192,194],82,0),
+  ([12,82,176,192,226],82,0),
+  ([12,90,98,144,192],90,0),
+  ([12,90,98,176,192],90,0),
+  ([12,90,144,192,194],90,0),
+  ([12,90,144,192,226],90,0),
+  ([12,90,176,192,194],90,0),
+  ([12,90,176,192,226],90,0),
+  ([13,40,41,48,228],13,0),
+  ([13,40,41,176,228],13,0),
+  ([13,40,44,96,177],13,0),
+  ([13,40,44,177,224],13,0),
+  ([13,40,48,57,164],13,0),
+  ([13,40,48,57,228],13,0),
+  ([13,40,57,164,176],13,0),
+  ([13,40,57,176,228],13,0),
+  ([13,40,96,108,161],13,0),
+  ([13,40,96,108,177],13,0),
+  ([13,40,108,161,224],13,0),
+  ([13,40,108,177,224],13,0),
+  ([17,34,82,176,192],82,0),
+  ([17,34,83,144,192],83,0),
+  ([17,34,90,176,192],90,0),
+  ([17,34,91,144,192],91,0),
+  ([17,40,88,176,192],88,0),
+  ([17,40,89,144,192],89,0),
+  ([17,40,90,176,192],90,0),
+  ([17,40,91,144,192],91,0),
+  ([17,40,92,144,192],92,0),
+  ([17,66,90,144,192],90,0),
+  ([17,82,98,144,192],82,0),
+  ([17,82,144,192,226],82,0),
+  ([17,82,162,176,192],82,0),
+  ([17,82,176,192,224],82,0),
+  ([17,83,144,162,192],83,0),
+  ([17,83,144,176,192],83,0),
+  ([17,90,98,144,192],90,0),
+  ([17,90,130,176,192],90,0),
+  ([17,90,144,192,194],90,0),
+  ([17,90,144,192,226],90,0),
+  ([17,90,162,176,192],90,0),
+  ([17,90,176,192],90,176),
+  ([17,90,176,192,224],90,0),
+  ([17,91,130,144,192],91,0),
+  ([17,91,144,162,192],91,0),
+  ([17,91,144,176,192],91,0),
+  ([17,91,144,192],91,0),
+  ([18,68,90,144,192],90,0),
+  ([18,144,176,178,224],224,0),
+  ([18,176,192,226],176,226),
+  ([19,144,176,178,192],19,0),
+  ([21,33,40,108,224],21,0),
+  ([21,36,40,57,176],21,0),
+  ([21,40,41,100,176],21,0),
+  ([21,40,44,49,224],21,0),
+  ([21,40,49,108,224],21,0),
+  ([21,40,57,100,176],21,0),
+  ([22,144,176,192,226],22,0),
+  ([26,144,146,176,224],26,0),
+  ([26,144,176,178,224],26,0),
+  ([26,176,192,194],26,176),
+  ([26,176,192,226],26,176),
+  ([27,144,146,176,192],27,0),
+  ([27,144,176,178,192],27,0),
+  ([29,33,40,96,108],29,0),
+  ([29,33,40,108,224],29,0),
+  ([29,36,40,48,57],29,0),
+  ([29,36,40,57,176],29,0),
+  ([29,40,41,48,100],29,0),
+  ([29,40,41,100,176],29,0),
+  ([29,40,44,49,96],29,0),
+  ([29,40,44,49,224],29,0),
+  ([29,40,48,57,100],29,0),
+  ([29,40,49,96,108],29,0),
+  ([29,40,49,108,224],29,0),
+  ([29,40,57,100,176],29,0),
+  ([30,144,176,192,194],30,0),
+  ([30,144,176,192,226],30,0),
+  ([33,40,69,108,224],69,0),
+  ([33,40,77,96,108],77,0),
+  ([33,40,77,108,224],77,0),
+  ([33,40,85,108,224],85,0),
+  ([33,40,93,96,108],93,0),
+  ([33,40,93,108,224],93,0),
+  ([34,68,82,144,224],82,0),
+  ([34,68,86,144,192],86,0),
+  ([34,68,90,144,224],90,0),
+  ([34,68,94,144,192],94,0),
+  ([36,40,48,57,77],57,0),
+  ([36,40,48,57,93],57,0),
+  ([36,40,57,69,176],57,0),
+  ([36,40,57,77,176],57,0),
+  ([36,40,57,85,176],57,0),
+  ([36,40,57,93,176],57,0),
+  ([40,41,48,77,100],77,0),
+  ([40,41,48,93,100],93,0),
+  ([40,41,69,100,176],69,0),
+  ([40,41,77,100,176],77,0),
+  ([40,41,85,100,176],85,0),
+  ([40,41,93,100,176],93,0),
+  ([40,44,49,69,224],49,0),
+  ([40,44,49,77,96],49,0),
+  ([40,44,49,77,224],49,0),
+  ([40,44,49,85,224],49,0),
+  ([40,44,49,93,96],49,0),
+  ([40,44,49,93,224],49,0),
+  ([40,48,57,77,100],57,0),
+  ([40,48,57,93,100],57,0),
+  ([40,49,69,108,224],49,0),
+  ([40,49,77,96,108],49,0),
+  ([40,49,77,108,224],49,0),
+  ([40,49,85,108,224],49,0),
+  ([40,49,93,96,108],49,0),
+  ([40,49,93,108,224],49,0),
+  ([40,57,69,100,176],57,0),
+  ([40,57,77,100,176],57,0),
+  ([40,57,85,100,176],57,0),
+  ([40,57,93,100,176],57,0),
+  ([40,68,88,144,224],88,0),
+  ([40,68,89,144,192],89,0),
+  ([40,68,90,144,224],90,0),
+  ([40,68,92,144,192],92,0),
+  ([40,68,94,144,192],94,0),
+  ([50,68,82,144,192],50,0),
+  ([50,68,90,144,192],50,0),
+  ([66,144,178,224],178,224),
+  ([66,176,192,224,226],176,0),
+  ([67,144,178,192,224],67,0),
+  ([68,82,144,162,224],82,0),
+  ([68,82,144,176,224],82,0),
+  ([68,82,144,178,192],82,0),
+  ([68,86,144,162,192],86,0),
+  ([68,86,144,192,224],86,0),
+  ([68,90,130,144,224],90,0),
+  ([68,90,144,146,192],90,0),
+  ([68,90,144,162,224],90,0),
+  ([68,90,144,176,224],90,0),
+  ([68,90,144,178,192],90,0),
+  ([68,90,144,224],90,224),
+  ([68,94,130,144,192],94,0),
+  ([68,94,144,162,192],94,0),
+  ([68,94,144,192],94,0),
+  ([68,94,144,192,224],94,0),
+  ([70,144,192,224,226],70,0),
+  ([74,144,146,224],74,224),
+  ([74,144,178,224],74,178),
+  ([74,176,192,194,224],74,0),
+  ([74,176,192,224,226],74,0),
+  ([75,144,146,192,224],75,0),
+  ([75,144,178,192,224],75,0),
+  ([78,144,192,194,224],78,0),
+  ([78,144,192,224,226],78,0),
+  ([82,144,176,178,224],82,0),
+  ([82,144,176,192,226],82,0),
+  ([82,144,178,192,224],82,0),
+  ([82,144,178,224],82,178),
+  ([82,176,192,224,226],82,0),
+  ([82,176,192,226],82,176),
+  ([83,144,176,178,192],83,0),
+  ([83,144,178,192],83,178),
+  ([83,144,178,192,224],83,0),
+  ([86,144,176,192,226],86,0),
+  ([86,144,192,224,226],86,0),
+  ([86,144,192,226],86,226),
+  ([90,144,146,176,224],90,0),
+  ([90,144,146,192,224],90,0),
+  ([90,144,146,224],90,224),
+  ([90,144,176,178,224],90,0),
+  ([90,144,176,192,194],90,0),
+  ([90,144,176,192,226],90,0),
+  ([90,144,178,192,224],90,0),
+  ([90,144,178,224],90,178),
+  ([90,176,192,194],90,176),
+  ([90,176,192,194,224],90,0),
+  ([90,176,192,224,226],90,0),
+  ([90,176,192,226],90,176),
+  ([91,144,146,176,192],91,0),
+  ([91,144,146,192],91,0),
+  ([91,144,146,192,224],91,0),
+  ([91,144,176,178,192],91,0),
+  ([91,144,178,192],91,178),
+  ([91,144,178,192,224],91,0),
+  ([94,144,176,192,194],94,0),
+  ([94,144,176,192,226],94,0),
+  ([94,144,192,194],94,0),
+  ([94,144,192,194,224],94,0),
+  ([94,144,192,224,226],94,0),
+  ([94,144,192,226],94,226)
+]
+
+def allChecked : Bool := certificates.all certificateCheck
+
+def covers (families : List (List Nat)) : Bool :=
+  families.all (fun required => certificates.any (fun d => d.1 == required))
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma all_checked : allChecked = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma covers_r3 : covers R3Finite.families = true := by decide +kernel
+
+set_option maxRecDepth 1000000 in
+set_option maxHeartbeats 0 in
+lemma exact_families : certificates.map Prod.fst = R3Finite.families := by decide +kernel
+
+end R3Local
+
+namespace R3Finite
+lemma covered_family_impossible
+    (hcoverage : coverageCheck = true)
+    (hfamilies : families.all familyImpossible = true)
+    {c : Nat × Nat × Nat} {a b d : Rect} {extra : List Nat}
+    (hc : c ∈ caseIndices)
+    (ha : a ∈ (getData c.1).2.2)
+    (hb : b ∈ (getData c.2.1).2.2)
+    (hd : d ∈ (getData c.2.2).2.2)
+    (hsmall : (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5)
+    (hextra : extra ∈ cleanCoverTable (2047 - (coverage a ||| coverage b ||| coverage d)))
+    (hfull : (mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))) extra).length ≤ 5) :
+    familyImpossible (mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))) extra) = true := by
+  have hcase := (List.all_eq_true.mp hcoverage) c hc
+  unfold caseCovered at hcase
+  have hrect := (List.all_eq_true.mp ((List.all_eq_true.mp
+    ((List.all_eq_true.mp hcase) a ha)) b hb)) d hd
+  dsimp only at hrect
+  have hs : decide (5 < (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length) = false := by
+    simp [Nat.not_lt_of_ge hsmall]
+  rw [hs, Bool.false_or] at hrect
+  have hex := (List.all_eq_true.mp (Bool.and_eq_true_iff.mp hrect).2) extra hextra
+  have hf : decide (5 < (mergeReq (mergeReq (reqRect a)
+      (mergeReq (reqRect b) (reqRect d))) extra).length) = false := by
+    simp [Nat.not_lt_of_ge hfull]
+  rw [hf, Bool.false_or] at hex
+  exact (List.all_eq_true.mp hfamilies) _ (List.contains_iff_mem.mp hex)
+
+end R3Finite
+
+
+namespace R3LocalSoundness
+
+open SingletonUnionTransport
+
+lemma properSplit_iff (required : List Nat) (v : Nat) :
+    R3Local.properSplit required v = true ↔
+      ProperUnion (R3Local.atoms.toFinset ∪ required.toFinset) v := by
+  simp only [R3Local.properSplit, List.any_eq_true, Bool.and_eq_true_iff,
+    bne_iff_ne, beq_iff_eq, List.mem_append]
+  constructor
+  · rintro ⟨a, ha, hav, b, hb, hbv, he⟩
+    exact ⟨a, by simpa using ha, b, by simpa using hb, hav, hbv, he.symm⟩
+  · rintro ⟨a, ha, b, hb, hav, hbv, he⟩
+    exact ⟨a, by simpa using ha, hav, b, by simpa using hb, hbv, he.symm⟩
+
+lemma helps_iff (required : List Nat) (v extra : Nat) :
+    R3Local.helps required v extra = true ↔
+      extra ∉ required ∧ extra ≠ v ∧
+        ∃ t ∈ R3Local.atoms.toFinset ∪ required.toFinset,
+          t ≠ v ∧ v = extra ||| t := by
+  simp only [R3Local.helps, Bool.and_eq_true_iff,
+    bne_iff_ne, List.any_eq_true, beq_iff_eq,
+    List.mem_append]
+  constructor
+  · rintro ⟨⟨hs, hsv⟩, t, ht, htv, he⟩
+    exact ⟨by simpa using hs, hsv, t, by simpa using ht, htv, he.symm⟩
+  · rintro ⟨hs, hsv, t, ht, htv, he⟩
+    exact ⟨⟨by simpa using hs, hsv⟩, t, by simpa using ht, htv, he.symm⟩
+
+lemma distinct_nodup (required : List Nat)
+    (h : R3Local.distinct required = true) : required.Nodup := by
+  induction required with
+  | nil => simp
+  | cons v rest ih =>
+    simp only [R3Local.distinct, Bool.and_eq_true_iff] at h
+    exact List.nodup_cons.mpr ⟨by simpa using h.1, ih h.2⟩
+
+lemma helps_of_proper_insert (required : List Nat) (v extra : Nat)
+    (hv : v ∈ required) (hextra : extra ∉ required)
+    (hblocked : ¬ ProperUnion (R3Local.atoms.toFinset ∪ required.toFinset) v)
+    (hproper : ProperUnion (R3Local.atoms.toFinset ∪ insert extra required.toFinset) v) :
+    R3Local.helps required v extra = true := by
+  have hne : extra ≠ v := by
+    intro he
+    exact hextra (he ▸ hv)
+  have hm : ∀ x ∈ R3Local.atoms.toFinset ∪ insert extra required.toFinset,
+      x = extra ∨ x ∈ R3Local.atoms.toFinset ∪ required.toFinset := by
+    intro x hx
+    rcases Finset.mem_union.mp hx with ha | hp
+    · exact Or.inr (Finset.mem_union_left _ ha)
+    · rcases Finset.mem_insert.mp hp with he | hr
+      · exact Or.inl he
+      · exact Or.inr (Finset.mem_union_right _ hr)
+  obtain ⟨a, ha, b, hb, hav, hbv, he⟩ := hproper
+  rcases hm a ha with hae | ha
+  · subst a
+    rcases hm b hb with hbe | hb
+    · subst b
+      have hve : v = extra := by simpa using he
+      exact False.elim (hav hve.symm)
+    · exact (helps_iff required v extra).mpr ⟨hextra, hne, b, hb, hbv, he⟩
+  · rcases hm b hb with hbe | hb
+    · subst b
+      apply (helps_iff required v extra).mpr
+      exact ⟨hextra, hne, a, ha, hav, by simpa only [Nat.or_comm] using he⟩
+    · exact False.elim (hblocked ⟨a, ha, b, hb, hav, hbv, he⟩)
+
+lemma helps_bound (required : List Nat) (v extra : Nat)
+    (h : R3Local.helps required v extra = true) (hv : v < 256) : extra < 256 := by
+  obtain ⟨_, _, t, _, _, he⟩ := (helps_iff required v extra).mp h
+  have hle : extra ≤ v := he ▸ Nat.left_le_or
+  exact hle.trans_lt hv
+
+lemma proper_extra_remove (required : List Nat) (extra : Nat)
+    (h : ProperUnion (R3Local.atoms.toFinset ∪ insert extra required.toFinset) extra) :
+    ProperUnion (R3Local.atoms.toFinset ∪ required.toFinset) extra := by
+  obtain ⟨a, ha, b, hb, hav, hbv, he⟩ := h
+  have hm : ∀ x, x ≠ extra →
+      x ∈ R3Local.atoms.toFinset ∪ insert extra required.toFinset →
+      x ∈ R3Local.atoms.toFinset ∪ required.toFinset := by
+    intro x hne hx
+    simpa [hne] using hx
+  exact ⟨a, hm a hav ha, b, hm b hbv hb, hav, hbv, he⟩
+
+lemma eq_or_one_extra (required values : Finset Nat)
+    (hsub : required ⊆ values) (hcard : values.card ≤ required.card + 1) :
+    values = required ∨ ∃ extra, extra ∉ required ∧ values = insert extra required := by
+  classical
+  by_cases hs : values ⊆ required
+  · exact Or.inl (Finset.Subset.antisymm hs hsub)
+  · change ¬ ∀ v, v ∈ values → v ∈ required at hs
+    obtain ⟨extra, he⟩ := not_forall.mp hs
+    obtain ⟨hem, hen⟩ := not_imp.mp he
+    have hi : insert extra required ⊆ values := by
+      intro v hm
+      rcases Finset.mem_insert.mp hm with rfl | hm
+      · exact hem
+      · exact hsub hm
+    have hc : values.card ≤ (insert extra required).card := by
+      simpa only [Finset.card_insert_of_notMem hen] using hcard
+    exact Or.inr ⟨extra, hen, (Finset.eq_of_subset_of_card_le hi hc).symm⟩
+
+lemma not_proper_of_false (required : List Nat) (v : Nat)
+    (h : R3Local.properSplit required v = false) :
+    ¬ ProperUnion (R3Local.atoms.toFinset ∪ required.toFinset) v := by
+  intro hp
+  have ht := (properSplit_iff required v).mpr hp
+  simp [h] at ht
+
+lemma certificate_sound {d : List Nat × Nat × Nat}
+    (hc : R3Local.certificateCheck d = true) (P : Finset Nat)
+    (hr : d.1.toFinset ⊆ P) (hcard : P.card ≤ 5)
+    (hproper : ∀ v ∈ P, ProperUnion (R3Local.atoms.toFinset ∪ P) v) : False := by
+  classical
+  rcases d with ⟨required, pivot, other⟩
+  change required.toFinset ⊆ P at hr
+  simp only [R3Local.certificateCheck, Bool.and_eq_true_iff] at hc
+  rcases hc with ⟨⟨⟨⟨hdis, hbound⟩, hpivot⟩, hblocked⟩, hcases⟩
+  have hp : pivot ∈ required := List.contains_iff_mem.mp hpivot
+  have hbf : R3Local.properSplit required pivot = false := by simpa using hblocked
+  have hbp := not_proper_of_false required pivot hbf
+  have hnd := distinct_nodup required hdis
+  have hrcard : required.toFinset.card = required.length :=
+    List.toFinset_card_of_nodup hnd
+  have hpP : pivot ∈ P := hr (List.mem_toFinset.mpr hp)
+  have hpbound : pivot < 256 := by
+    have hb := (List.all_eq_true.mp hbound) pivot hp
+    exact of_decide_eq_true (Bool.and_eq_true_iff.mp hb).1
+  by_cases h5 : required.length = 5
+  · have heP : P = required.toFinset :=
+      (Finset.eq_of_subset_of_card_le hr (by omega)).symm
+    apply hbp
+    simpa only [heP] using hproper pivot hpP
+  · have h4 : required.length = 4 := by
+      by_cases h4 : required.length = 4
+      · exact h4
+      · simp [h5, h4] at hcases
+    rcases eq_or_one_extra required.toFinset P hr (by omega) with heP | ⟨extra, hen, heP⟩
+    · apply hbp
+      simpa only [heP] using hproper pivot hpP
+    · have henList : extra ∉ required := by simpa using hen
+      have hpInsert : ProperUnion
+          (R3Local.atoms.toFinset ∪ insert extra required.toFinset) pivot := by
+        simpa only [heP] using hproper pivot hpP
+      have hhelp := helps_of_proper_insert required pivot extra hp henList hbp hpInsert
+      have hextraBound := helps_bound required pivot extra hhelp hpbound
+      by_cases hother : other = 0
+      · have hall : (List.range 256).all (fun s =>
+            !R3Local.helps required pivot s || !R3Local.properSplit required s) = true := by
+          simpa [h5, h4, hother] using hcases
+        have heval := (List.all_eq_true.mp hall) extra (List.mem_range.mpr hextraBound)
+        have hesplit : R3Local.properSplit required extra = false := by
+          simpa [hhelp] using heval
+        have heMem : extra ∈ P := by simp [heP]
+        have heInsert : ProperUnion
+            (R3Local.atoms.toFinset ∪ insert extra required.toFinset) extra := by
+          simpa only [heP] using hproper extra heMem
+        exact not_proper_of_false required extra hesplit
+          (proper_extra_remove required extra heInsert)
+      · have hbranch : (required.contains other && !R3Local.properSplit required other &&
+            (List.range 256).all (fun s =>
+              !R3Local.helps required pivot s || !R3Local.helps required other s)) = true := by
+          simpa [h5, h4, hother] using hcases
+        have hb := Bool.and_eq_true_iff.mp hbranch
+        have ho := Bool.and_eq_true_iff.mp hb.1
+        have hom : other ∈ required := List.contains_iff_mem.mp ho.1
+        have hosplit : R3Local.properSplit required other = false := by simpa using ho.2
+        have hob := not_proper_of_false required other hosplit
+        have hoInsert : ProperUnion
+            (R3Local.atoms.toFinset ∪ insert extra required.toFinset) other := by
+          simpa only [heP] using hproper other (hr (List.mem_toFinset.mpr hom))
+        have hohelp := helps_of_proper_insert required other extra hom henList hob hoInsert
+        have heval := (List.all_eq_true.mp hb.2) extra (List.mem_range.mpr hextraBound)
+        simp [hhelp, hohelp] at heval
+
+end R3LocalSoundness
+
+
+namespace R3NoUnion
+
+open SingletonUnionTransport
+
+def freeAtoms : Finset Nat := insert 0 R3Local.atoms.toFinset
+
+lemma proper_without_zero {s : Finset Nat} {v : Nat}
+    (h : ProperUnion (insert 0 s) v) : ProperUnion s v := by
+  obtain ⟨a, ha, b, hb, hav, hbv, he⟩ := h
+  have ha0 : a ≠ 0 := by
+    intro hz
+    subst a
+    exact hbv (by simpa using he.symm)
+  have hb0 : b ≠ 0 := by
+    intro hz
+    subst b
+    exact hav (by simpa using he.symm)
+  exact ⟨a, (Finset.mem_insert.mp ha).resolve_left ha0,
+    b, (Finset.mem_insert.mp hb).resolve_left hb0, hav, hbv, he⟩
+
+lemma trace_paid_proper {n : Nat} (out : Fin n → Nat)
+    (ht : UnionTrace freeAtoms out) (v : Nat) (hv : v ∈ paid freeAtoms out) :
+    ProperUnion (R3Local.atoms.toFinset ∪ paid freeAtoms out) v := by
+  apply proper_without_zero
+  simpa only [freeAtoms, Finset.insert_union] using paid_proper_union freeAtoms out ht v hv
+
+lemma family_certificate {required : List Nat} (hr : required ∈ R3Finite.families) :
+    ∃ pivot other, R3Local.certificateCheck (required, pivot, other) = true := by
+  have hm : required ∈ R3Local.certificates.map Prod.fst := by
+    rw [R3Local.exact_families]
+    exact hr
+  obtain ⟨d, hd, he⟩ := List.mem_map.mp hm
+  rcases d with ⟨r, pivot, other⟩
+  change r = required at he
+  subst required
+  exact ⟨pivot, other, (List.all_eq_true.mp R3Local.all_checked) _ hd⟩
+
+end R3NoUnion
+
+namespace R3Finite
+
+lemma covered_family_mem
+    (hcoverage : coverageCheck = true)
+    {c : Nat × Nat × Nat} {a b d : Rect} {extra : List Nat}
+    (hc : c ∈ caseIndices)
+    (ha : a ∈ (getData c.1).2.2)
+    (hb : b ∈ (getData c.2.1).2.2)
+    (hd : d ∈ (getData c.2.2).2.2)
+    (hsmall : (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5)
+    (hextra : extra ∈ cleanCoverTable (2047 - (coverage a ||| coverage b ||| coverage d)))
+    (hfull : (mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))) extra).length ≤ 5) :
+    mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))) extra ∈ families := by
+  have hcase := (List.all_eq_true.mp hcoverage) c hc
+  unfold caseCovered at hcase
+  have hrect := (List.all_eq_true.mp ((List.all_eq_true.mp
+    ((List.all_eq_true.mp hcase) a ha)) b hb)) d hd
+  dsimp only at hrect
+  have hs : decide (5 < (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length) = false := by
+    simp [Nat.not_lt_of_ge hsmall]
+  rw [hs, Bool.false_or] at hrect
+  have hex := (List.all_eq_true.mp (Bool.and_eq_true_iff.mp hrect).2) extra hextra
+  have hf : decide (5 < (mergeReq (mergeReq (reqRect a)
+      (mergeReq (reqRect b) (reqRect d))) extra).length) = false := by
+    simp [Nat.not_lt_of_ge hfull]
+  rw [hf, Bool.false_or] at hex
+  exact List.contains_iff_mem.mp hex
+
+lemma reachable_of_dirty {c : Nat × Nat × Nat} {a b d : Rect}
+    (hc : c ∈ caseIndices)
+    (ha : a ∈ (getData c.1).2.2)
+    (hb : b ∈ (getData c.2.1).2.2)
+    (hd : d ∈ (getData c.2.2).2.2)
+    (hsmall : (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5) :
+    reachableMissing (2047 - (coverage a ||| coverage b ||| coverage d)) = true := by
+  have hcase := (List.all_eq_true.mp coverage_checked) c hc
+  unfold caseCovered at hcase
+  have hrect := (List.all_eq_true.mp ((List.all_eq_true.mp
+    ((List.all_eq_true.mp hcase) a ha)) b hb)) d hd
+  dsimp only at hrect
+  have hs : decide (5 < (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length) = false := by
+    simp [Nat.not_lt_of_ge hsmall]
+  rw [hs, Bool.false_or] at hrect
+  exact (Bool.and_eq_true_iff.mp hrect).1
+
+lemma clean_table_mem {a b : Rect} {need : Nat}
+    (ha : a ∈ cleanRects) (hb : b ∈ cleanRects) (hn : need < 2048)
+    (hr : reachableMissing need = true)
+    (hcover : need &&& (coverage a ||| coverage b) = need) :
+    mergeReq (reqRect a) (reqRect b) ∈ cleanCoverTable need := by
+  have ha' := (List.all_eq_true.mp clean_cover_complete_checked) a ha
+  unfold cleanCoverFor at ha'
+  have hn' := (List.all_eq_true.mp ((List.all_eq_true.mp ha') b hb)) need (List.mem_range.mpr hn)
+  have hmem : (cleanCoverTable need).contains (mergeReq (reqRect a) (reqRect b)) = true := by
+    simpa [hr, hcover] using hn'
+  exact List.contains_iff_mem.mp hmem
+
+lemma rectangle_family_mem {c : Nat × Nat × Nat} {a b d e f : Rect}
+    (hc : c ∈ caseIndices)
+    (ha : a ∈ (getData c.1).2.2)
+    (hb : b ∈ (getData c.2.1).2.2)
+    (hd : d ∈ (getData c.2.2).2.2)
+    (he : e ∈ cleanRects) (hf : f ∈ cleanRects)
+    (hsmall : (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5)
+    (hcover : (2047 - (coverage a ||| coverage b ||| coverage d)) &&&
+      (coverage e ||| coverage f) = 2047 - (coverage a ||| coverage b ||| coverage d))
+    (hfull : (mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d)))
+      (mergeReq (reqRect e) (reqRect f))).length ≤ 5) :
+    mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d)))
+      (mergeReq (reqRect e) (reqRect f)) ∈ families := by
+  apply covered_family_mem coverage_checked hc ha hb hd hsmall _ hfull
+  apply clean_table_mem he hf _ (reachable_of_dirty hc ha hb hd hsmall) hcover
+  exact Nat.lt_succ_of_le (Nat.sub_le _ _)
+
+end R3Finite
+
+
+namespace R3NoUnion
+
+open SingletonUnionTransport
+
+lemma family_no_trace {n : Nat} (out : Fin n → Nat) {required : List Nat}
+    (hr : required ∈ R3Finite.families) (hn : n ≤ 5)
+    (ht : UnionTrace freeAtoms out) (hp : required.toFinset ⊆ paid freeAtoms out) : False := by
+  obtain ⟨pivot, other, hc⟩ := family_certificate hr
+  apply R3LocalSoundness.certificate_sound hc (paid freeAtoms out) hp
+  · exact (paid_card_le_length freeAtoms out).trans hn
+  · exact trace_paid_proper out ht
+
+lemma no_union_trace_for_family {required : List Nat} (hr : required ∈ R3Finite.families) :
+    ¬ ∃ (n : Nat) (out : Fin n → Nat), n ≤ 5 ∧ UnionTrace freeAtoms out ∧
+      required.toFinset ⊆ paid freeAtoms out := by
+  rintro ⟨n, out, hn, ht, hp⟩
+  exact family_no_trace out hr hn ht hp
+
+lemma rectangle_no_trace {c : Nat × Nat × Nat} {a b d e f : R3Finite.Rect}
+    (hc : c ∈ R3Finite.caseIndices)
+    (ha : a ∈ (R3Finite.getData c.1).2.2)
+    (hb : b ∈ (R3Finite.getData c.2.1).2.2)
+    (hd : d ∈ (R3Finite.getData c.2.2).2.2)
+    (he : e ∈ R3Finite.cleanRects) (hf : f ∈ R3Finite.cleanRects)
+    (hsmall : (R3Finite.mergeReq (R3Finite.reqRect a)
+      (R3Finite.mergeReq (R3Finite.reqRect b) (R3Finite.reqRect d))).length ≤ 5)
+    (hcover : (2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d)) &&&
+      (R3Finite.coverage e ||| R3Finite.coverage f) =
+        2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d))
+    (hfull : (R3Finite.mergeReq (R3Finite.mergeReq (R3Finite.reqRect a)
+      (R3Finite.mergeReq (R3Finite.reqRect b) (R3Finite.reqRect d)))
+        (R3Finite.mergeReq (R3Finite.reqRect e) (R3Finite.reqRect f))).length ≤ 5) :
+    ¬ ∃ (n : Nat) (out : Fin n → Nat), n ≤ 5 ∧ UnionTrace freeAtoms out ∧
+      (R3Finite.mergeReq (R3Finite.mergeReq (R3Finite.reqRect a)
+        (R3Finite.mergeReq (R3Finite.reqRect b) (R3Finite.reqRect d)))
+          (R3Finite.mergeReq (R3Finite.reqRect e) (R3Finite.reqRect f))).toFinset ⊆ paid freeAtoms out := by
+  apply no_union_trace_for_family
+  exact R3Finite.rectangle_family_mem hc ha hb hd he hf hsmall hcover hfull
+
+end R3NoUnion
+
 end PEqualNP.Outside.L_meta_9033_aux
