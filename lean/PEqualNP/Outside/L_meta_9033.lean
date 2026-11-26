@@ -2189,4 +2189,1104 @@ lemma minimal_single_or_reader_two_physical_dirty (n : Nat) (pre suffix : List G
 
 end CleanWireDirtyRetention
 
+namespace CleanWireCrossings
+
+open CofactorSimplification CofactorProjectBridge CleanWirePinAppend CleanWireExactRetention
+
+abbrev TableState := Nat → Fin 40 → Bool
+
+def NegMapped (target : Fin 40 → Bool) (s t : TableState) (rho : Nat → Nat) : Prop :=
+  ∀ i r, target r = false → s i r = t (rho i) r
+
+noncomputable def crossings (target : Fin 40 → Bool) (s : TableState) (g : Gate) : Nat := by
+  classical
+  exact if Normalization.Clean target (Normalization.gate g s) then 0 else
+    (if Normalization.Clean target (s g.2.1) then 1 else 0) +
+    (if Normalization.Clean target (s g.2.2) then 1 else 0)
+
+noncomputable def crossCount (target : Fin 40 → Bool) : List Gate → Nat → TableState → Nat
+  | [], _, _ => 0
+  | g :: gs, k, s => crossings target s g +
+      crossCount target gs (k + 1) (Function.update s k (Normalization.gate g s))
+
+noncomputable def droppedCrossCount (target : Fin 40 → Bool) :
+    List Gate → Nat → Nat → (Nat → Nat) → TableState → Nat
+  | [], _, _, _, _ => 0
+  | g :: gs, k, m, rho, s =>
+    if Keep (rho g.2.1) (rho g.2.2) then
+      droppedCrossCount target gs (k + 1) (m + 1) (Function.update rho k m)
+        (Function.update s k (Normalization.gate g s))
+    else crossings target s g +
+      droppedCrossCount target gs (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2)))
+        (Function.update s k (Normalization.gate g s))
+
+lemma clean_congr_neg (target a b : Fin 40 → Bool)
+    (h : ∀ r, target r = false → a r = b r) :
+    Normalization.Clean target a ↔ Normalization.Clean target b := by
+  constructor
+  · intro ha r hr
+    rw [← h r hr]
+    exact ha r hr
+  · intro hb r hr
+    rw [h r hr]
+    exact hb r hr
+
+lemma mapped_gate_neg (target : Fin 40 → Bool) (s t : TableState) (rho : Nat → Nat)
+    (h : NegMapped target s t rho) (g : Gate) (r : Fin 40) (hr : target r = false) :
+    Normalization.gate g s r = Normalization.gate (mapped rho g) t r := by
+  exact mapped_sound rho g (fun i => s i r) (fun i => t i r) (fun i => h i r hr)
+
+lemma crossings_mapped (target : Fin 40 → Bool) (s t : TableState) (rho : Nat → Nat)
+    (h : NegMapped target s t rho) (g : Gate) :
+    crossings target s g = crossings target t (mapped rho g) := by
+  classical
+  have hg := clean_congr_neg target (Normalization.gate g s)
+    (Normalization.gate (mapped rho g) t) (mapped_gate_neg target s t rho h g)
+  have ha := clean_congr_neg target (s g.2.1) (t (rho g.2.1)) (h g.2.1)
+  have hb := clean_congr_neg target (s g.2.2) (t (rho g.2.2)) (h g.2.2)
+  simp only [crossings, mapped, hg, ha, hb]
+  rfl
+
+lemma negMapped_fresh (target : Fin 40 → Bool) (s t : TableState) (rho : Nat → Nat)
+    (k m : Nat) (g : Gate) (h : NegMapped target s t rho) (hb : ∀ i, rho i < m) :
+    NegMapped target (Function.update s k (Normalization.gate g s))
+      (Function.update t m (Normalization.gate (mapped rho g) t))
+      (Function.update rho k m) := by
+  intro i r hr
+  by_cases hi : i = k
+  · subst i
+    simp only [Function.update_self]
+    exact mapped_gate_neg target s t rho h g r hr
+  · simp only [Function.update_of_ne hi,
+      Function.update_of_ne (Nat.ne_of_lt (hb i))]
+    exact h i r hr
+
+lemma negMapped_drop (target : Fin 40 → Bool) (s t : TableState) (rho : Nat → Nat)
+    (k : Nat) (g : Gate) (h : NegMapped target s t rho)
+    (hz : ∀ r, target r = false → t 0 r = false)
+    (hk : ¬ Keep (rho g.2.1) (rho g.2.2)) :
+    NegMapped target (Function.update s k (Normalization.gate g s)) t
+      (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) := by
+  intro i r hr
+  by_cases hi : i = k
+  · subst i
+    simp only [Function.update_self]
+    rw [mapped_gate_neg target s t rho h g r hr]
+    exact (replacement_sound g.1 (rho g.2.1) (rho g.2.2) (fun i => t i r) (hz r hr) hk).symm
+  · simpa only [Function.update_of_ne hi] using h i r hr
+
+lemma compile_crossings_balance (target : Fin 40 → Bool) (gs : List Gate)
+    (k m : Nat) (rho : Nat → Nat) (s t : TableState)
+    (hm : 0 < m) (hb : ∀ i, rho i < m)
+    (hz : ∀ r, target r = false → t 0 r = false) (h : NegMapped target s t rho) :
+    crossCount target (compile gs k m rho).1 m t +
+      droppedCrossCount target gs k m rho s = crossCount target gs k s := by
+  induction gs generalizing k m rho s t with
+  | nil => rfl
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · have hb' : ∀ i, Function.update rho k m i < m + 1 := by
+        intro i
+        by_cases hi : i = k
+        · subst i; simp
+        · simpa [Function.update_of_ne hi] using Nat.lt_succ_of_lt (hb i)
+      have hz' : ∀ r, target r = false →
+          Function.update t m (Normalization.gate (mapped rho g) t) 0 r = false := by
+        intro r hr
+        simpa [Function.update_of_ne (Nat.ne_of_lt hm)] using hz r hr
+      have hi := ih (k + 1) (m + 1) (Function.update rho k m)
+        (Function.update s k (Normalization.gate g s))
+        (Function.update t m (Normalization.gate (mapped rho g) t))
+        (by omega) hb' hz' (negMapped_fresh target s t rho k m g h hb)
+      have hg := crossings_mapped target s t rho h g
+      simp only [compile, hk, ite_true, crossCount, droppedCrossCount]
+      omega
+    · let z := replacement g.1 (rho g.2.1) (rho g.2.2)
+      have hb' : ∀ i, Function.update rho k z i < m := by
+        intro i
+        by_cases hi : i = k
+        · subst i; simpa [z] using replacement_lt g.1 (rho g.2.1) (rho g.2.2) m hm
+            (hb g.2.1) (hb g.2.2)
+        · simpa [Function.update_of_ne hi] using hb i
+      have hi := ih (k + 1) m (Function.update rho k z)
+        (Function.update s k (Normalization.gate g s)) t hm hb' hz
+        (negMapped_drop target s t rho k g h hz hk)
+      simp only [compile, hk, Bool.false_eq_true, ite_false, crossCount, droppedCrossCount]
+      dsimp [z] at hi
+      omega
+
+lemma clean_or_iff (target : Fin 40 → Bool) (s : TableState) (g : Gate)
+    (hop : g.1 = false) :
+    Normalization.Clean target (Normalization.gate g s) ↔
+      Normalization.Clean target (s g.2.1) ∧ Normalization.Clean target (s g.2.2) := by
+  constructor
+  · intro hc
+    constructor
+    · intro r hr
+      have hv := hc r hr
+      cases ha : s g.2.1 r <;> cases hb : s g.2.2 r <;>
+        simp_all [Normalization.gate]
+    · intro r hr
+      have hv := hc r hr
+      cases ha : s g.2.1 r <;> cases hb : s g.2.2 r <;>
+        simp_all [Normalization.gate]
+  · rintro ⟨ha, hb⟩ r hr
+    simp [Normalization.gate, hop, ha r hr, hb r hr]
+
+lemma crossings_reader_or_one (target : Fin 40 → Bool) (s : TableState)
+    (g : Gate) (h : Nat) (hc : Normalization.Clean target (s h))
+    (hr : reads h g = true) (hop : g.1 = false)
+    (hd : ¬ Normalization.Clean target (Normalization.gate g s)) :
+    crossings target s g = 1 := by
+  classical
+  have hr' : g.2.1 = h ∨ g.2.2 = h := by simpa [reads] using hr
+  rcases hr' with ha | hb
+  · have hca : Normalization.Clean target (s g.2.1) := by simpa [ha] using hc
+    have hnb : ¬ Normalization.Clean target (s g.2.2) :=
+      fun hcb => hd ((clean_or_iff target s g hop).mpr ⟨hca, hcb⟩)
+    simp [crossings, hd, hca, hnb]
+  · have hcb : Normalization.Clean target (s g.2.2) := by simpa [hb] using hc
+    have hna : ¬ Normalization.Clean target (s g.2.1) :=
+      fun hca => hd ((clean_or_iff target s g hop).mpr ⟨hca, hcb⟩)
+    simp [crossings, hd, hcb, hna]
+
+def ReadersDirty (target : Fin 40 → Bool) (h : Nat) : List Gate → Nat → TableState → Prop
+  | [], _, _ => True
+  | g :: gs, k, s =>
+    (reads h g = true → ¬ Normalization.Clean target (Normalization.gate g s)) ∧
+    ReadersDirty target h gs (k + 1) (Function.update s k (Normalization.gate g s))
+
+lemma droppedCrossCount_eq_readers (target : Fin 40 → Bool) (gs : List Gate)
+    (k m h : Nat) (rho : Nat → Nat) (s : TableState)
+    (hh : h < k) (hz : rho h = 0) (hc : Normalization.Clean target (s h))
+    (ho : ∀ g ∈ gs, reads h g = true → g.1 = false)
+    (hd : ReadersDirty target h gs k s) (he : OnlyReaderDrops gs k m rho h) :
+    droppedCrossCount target gs k m rho s = gs.countP (reads h) := by
+  induction gs generalizing k m rho s with
+  | nil => rfl
+  | cons g gs ih =>
+    obtain ⟨hdg, hdt⟩ := hd
+    obtain ⟨heg, het⟩ := he
+    have hc' : Normalization.Clean target (Function.update s k (Normalization.gate g s) h) := by
+      simpa only [Function.update_of_ne (Nat.ne_of_lt hh)] using hc
+    have hot : ∀ z ∈ gs, reads h z = true → z.1 = false :=
+      fun z hz => ho z (List.mem_cons_of_mem g hz)
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · have hr := keep_not_reader g h rho hz hk
+      have hz' : Function.update rho k m h = 0 := by
+        simpa only [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      simp only [hk, ite_true] at het
+      have hi := ih (k + 1) (m + 1) (Function.update rho k m)
+        (Function.update s k (Normalization.gate g s)) (by omega) hz' hc' hot hdt het
+      simpa only [droppedCrossCount, hk, ite_true, List.countP_cons, hr,
+        Bool.false_eq_true, ite_false, Nat.add_zero] using hi
+    · have hr := heg hk
+      have hcg := crossings_reader_or_one target s g h hc hr
+        (ho g List.mem_cons_self hr) (hdg hr)
+      let z := replacement g.1 (rho g.2.1) (rho g.2.2)
+      have hz' : Function.update rho k z h = 0 := by
+        simpa only [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      simp only [hk, Bool.false_eq_true, ite_false] at het
+      have hi := ih (k + 1) m (Function.update rho k z)
+        (Function.update s k (Normalization.gate g s)) (by omega) hz' hc' hot hdt het
+      simp only [droppedCrossCount, hk, Bool.false_eq_true, ite_false, List.countP_cons,
+        hr, ite_true, hcg]
+      rw [hi]
+      omega
+
+lemma compile_reader_crossings (target : Fin 40 → Bool) (gs : List Gate)
+    (k m h : Nat) (rho : Nat → Nat) (s t : TableState)
+    (hm : 0 < m) (hb : ∀ i, rho i < m)
+    (ht : ∀ r, target r = false → t 0 r = false) (hmap : NegMapped target s t rho)
+    (hh : h < k) (hz : rho h = 0) (hc : Normalization.Clean target (s h))
+    (ho : ∀ g ∈ gs, reads h g = true → g.1 = false)
+    (hd : ReadersDirty target h gs k s) (he : OnlyReaderDrops gs k m rho h) :
+    crossCount target (compile gs k m rho).1 m t + gs.countP (reads h) =
+      crossCount target gs k s := by
+  rw [← droppedCrossCount_eq_readers target gs k m h rho s hh hz hc ho hd he]
+  exact compile_crossings_balance target gs k m rho s t hm hb ht hmap
+
+lemma table_run_apply (gs : List Gate) (k : Nat) (s : TableState) (i : Nat) (r : Fin 40) :
+    Normalization.run gs k s i r = run gs k (fun j => s j r) i := by
+  induction gs generalizing k s with
+  | nil => rfl
+  | cons g gs ih =>
+    rw [Normalization.run, ih, run]
+    congr 2
+    funext j
+    by_cases hj : j = k
+    · subst j; simp only [Function.update_self]; rfl
+    · simp [Function.update_of_ne hj]
+
+lemma table_run_below (gs : List Gate) (k i : Nat) (s : TableState) (hi : i < k) :
+    Normalization.run gs k s i = s i := by
+  funext r
+  rw [table_run_apply, run_below _ _ _ _ hi]
+
+lemma compile_neg_correct (target : Fin 40 → Bool) (gs : List Gate)
+    (k m : Nat) (rho : Nat → Nat) (s t : TableState)
+    (hm : 0 < m) (hb : ∀ i, rho i < m)
+    (ht : ∀ r, target r = false → t 0 r = false) (hmap : NegMapped target s t rho) :
+    NegMapped target (Normalization.run gs k s)
+      (Normalization.run (compile gs k m rho).1 m t) (compile gs k m rho).2 := by
+  intro i r hr
+  rw [table_run_apply, table_run_apply]
+  exact (compile_correct gs k m rho (fun j => s j r) (fun j => t j r)
+    hm (ht r hr) hb (fun j => hmap j r hr)).2 i
+
+lemma crossCount_append (target : Fin 40 → Bool) (gs hs : List Gate)
+    (k : Nat) (s : TableState) :
+    crossCount target (gs ++ hs) k s = crossCount target gs k s +
+      crossCount target hs (k + gs.length) (Normalization.run gs k s) := by
+  induction gs generalizing k s with
+  | nil => simp [crossCount, Normalization.run]
+  | cons g gs ih =>
+    simp [crossCount, Normalization.run, ih, Nat.add_assoc, Nat.add_left_comm, Nat.add_comm]
+
+lemma appendGate_clean (target : Fin 40 → Bool) (s : TableState) (h rep : Nat)
+    (hh : Normalization.Clean target (s (h + 1)))
+    (hr : Normalization.Clean target (s rep)) :
+    Normalization.Clean target (Normalization.gate (appendGate h rep) s) := by
+  apply (clean_or_iff target s (appendGate h rep) rfl).mpr
+  refine ⟨hh, ?_⟩
+  simp only [appendGate]
+  split_ifs
+  · exact hh
+  · exact hr
+
+lemma compiled_suffix_sink_crossings (target : Fin 40 → Bool) (gs : List Gate)
+    (k h output : Nat) (s t : TableState)
+    (hmap : NegMapped target s t (initialMap k h))
+    (ht : ∀ r, target r = false → t 0 r = false)
+    (hh : h < k) (hc : Normalization.Clean target (s h))
+    (hcopy : Normalization.Clean target (t (h + 1)))
+    (hout : Normalization.Clean target (Normalization.run gs k s output))
+    (ho : ∀ g ∈ gs, reads h g = true → g.1 = false)
+    (hd : ReadersDirty target h gs k s)
+    (he : OnlyReaderDrops gs k (k + 1) (initialMap k h) h) :
+    crossCount target ((cofactor k h gs).1 ++ [appendGate h ((cofactor k h gs).2 output)])
+        (k + 1) t + gs.countP (reads h) = crossCount target gs k s := by
+  have hcpr := compile_reader_crossings target gs k (k + 1) h (initialMap k h) s t
+    (by omega) (initialMap_bound k h) ht hmap hh (by simp [initialMap, hh]) hc ho hd he
+  change crossCount target (cofactor k h gs).1 (k + 1) t + _ = _ at hcpr
+  have hfinal := compile_neg_correct target gs k (k + 1) (initialMap k h) s t
+    (by omega) (initialMap_bound k h) ht hmap
+  have hrep : Normalization.Clean target
+      (Normalization.run (cofactor k h gs).1 (k + 1) t ((cofactor k h gs).2 output)) :=
+    (clean_congr_neg target _ _ (hfinal output)).mp hout
+  have hkeep : Normalization.Clean target
+      (Normalization.run (cofactor k h gs).1 (k + 1) t (h + 1)) := by
+    rw [table_run_below _ _ _ _ (by omega)]
+    exact hcopy
+  have hg := appendGate_clean target (Normalization.run (cofactor k h gs).1 (k + 1) t)
+    h ((cofactor k h gs).2 output) hkeep hrep
+  rw [crossCount_append]
+  simp only [crossCount, crossings, hg, ite_true, Nat.add_zero, Nat.zero_add]
+  exact hcpr
+
+lemma minimal_single_or_reader_crossings (target : Fin 40 → Bool)
+    (n : Nat) (pre suffix : List Gate) (h output : Nat) (s t : TableState)
+    (hmap : NegMapped target s t (initialMap (n + pre.length) h))
+    (ht : ∀ r, target r = false → t 0 r = false)
+    (hh : h < n + pre.length) (hc : Normalization.Clean target (s h))
+    (hcopy : Normalization.Clean target (t (h + 1)))
+    (hout : Normalization.Clean target (Normalization.run suffix (n + pre.length) s output))
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (ho : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hd : ReadersDirty target h suffix (n + pre.length) s) :
+    crossCount target ((cofactor (n + pre.length) h suffix).1 ++
+        [appendGate h ((cofactor (n + pre.length) h suffix).2 output)])
+        (n + pre.length + 1) t + 1 = crossCount target suffix (n + pre.length) s := by
+  simpa only [hr] using compiled_suffix_sink_crossings target suffix (n + pre.length) h output
+    s t hmap ht hh hc hcopy hout ho hd
+    (minimal_single_reader_only_drops n pre suffix h output hh hr hmin)
+
+lemma crossCount_promote (target : Fin 40 → Bool) (gs : List Gate) (k : Nat)
+    (s t : TableState) (h : NegMapped target s t (fun i => i + 1)) :
+    crossCount target gs k s = crossCount target (gs.map promote) (k + 1) t := by
+  induction gs generalizing k s t with
+  | nil => rfl
+  | cons g gs ih =>
+    have hm : mapped (fun i => i + 1) g = promote g := rfl
+    have hg := crossings_mapped target s t (fun i => i + 1) h g
+    rw [hm] at hg
+    have ht : NegMapped target (Function.update s k (Normalization.gate g s))
+        (Function.update t (k + 1) (Normalization.gate (promote g) t)) (fun i => i + 1) := by
+      intro i r hr
+      by_cases hi : i = k
+      · subst i
+        simp only [Function.update_self]
+        exact mapped_gate_neg target s t (fun i => i + 1) h g r hr
+      · have hi' : i + 1 ≠ k + 1 := by omega
+        simp only [Function.update_of_ne hi, Function.update_of_ne hi']
+        exact h i r hr
+    simp only [crossCount, List.map_cons]
+    rw [hg, ih (k + 1) _ _ ht]
+
+def inputTable (n : Nat) (rows : Fin 40 → Fin n → Bool) : TableState :=
+  fun i r => (List.ofFn (rows r)).getD i false
+
+def inputOneTable (n : Nat) (rows : Fin 40 → Fin n → Bool) : TableState :=
+  fun i r => wireView (List.ofFn (rows r)) i
+
+def prefixTable (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool) : TableState :=
+  fun i r => (projectRun (pre.map promote) (List.ofFn (rows r))).getD i false
+
+def prefixOneTable (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool) : TableState :=
+  fun i r => wireView (projectRun (pre.map promote) (List.ofFn (rows r))) i
+
+lemma prefixTable_eq_run (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool) :
+    prefixTable n pre rows = Normalization.run pre n (inputTable n rows) := by
+  funext i r
+  rw [table_run_apply]
+  have hp := promote_run pre n (fun j => (List.ofFn (rows r)).getD j false)
+    (wireView (List.ofFn (rows r))) (by intro j; simp [wireView]) i
+  have hw := wireView_projectRun (pre.map promote) (List.ofFn (rows r)) (promote_positive pre)
+  simp only [List.length_ofFn] at hw
+  rw [← hw] at hp
+  simpa [prefixTable, inputTable, wireView] using hp.symm
+
+lemma prefixOneTable_eq_run (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool) :
+    prefixOneTable n pre rows = Normalization.run (pre.map promote) (n + 1) (inputOneTable n rows) := by
+  funext i r
+  rw [table_run_apply]
+  have hw := wireView_projectRun (pre.map promote) (List.ofFn (rows r)) (promote_positive pre)
+  simp only [List.length_ofFn] at hw
+  exact congrFun hw i
+
+lemma prefixOneTable_zero (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool) (r : Fin 40) :
+    prefixOneTable n pre rows 0 r = false := by simp [prefixOneTable, wireView]
+
+lemma prefixOneTable_copy (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool)
+    (i : Nat) : prefixOneTable n pre rows (i + 1) = prefixTable n pre rows i := by
+  funext r
+  simp [prefixOneTable, prefixTable, wireView]
+
+lemma prefixTable_outside (n : Nat) (pre : List Gate) (rows : Fin 40 → Fin n → Bool)
+    (i : Nat) (hi : n + pre.length ≤ i) (r : Fin 40) : prefixTable n pre rows i r = false := by
+  apply List.getD_eq_default
+  simpa only [projectRun_length, List.length_map, List.length_ofFn] using hi
+
+lemma prefix_initial_negMapped (target : Fin 40 → Bool) (n : Nat) (pre : List Gate)
+    (rows : Fin 40 → Fin n → Bool) (h : Nat)
+    (hc : Normalization.Clean target (prefixTable n pre rows h)) :
+    NegMapped target (prefixTable n pre rows) (prefixOneTable n pre rows)
+      (initialMap (n + pre.length) h) := by
+  intro i r hr
+  by_cases hi : i < n + pre.length
+  · simp only [initialMap, hi, ite_true]
+    by_cases he : i = h
+    · subst i
+      simp only [ite_true, prefixOneTable_zero]
+      exact hc r hr
+    · simp only [he, ite_false, prefixOneTable_copy]
+  · simp only [initialMap, hi, ite_false, prefixOneTable_zero]
+    exact prefixTable_outside n pre rows i (Nat.le_of_not_gt hi) r
+
+lemma pinAndAppend_crossings (target : Fin 40 → Bool) (n : Nat) (pre suffix : List Gate)
+    (rows : Fin 40 → Fin n → Bool) (h output : Nat) (hh : h < n + pre.length)
+    (hc : Normalization.Clean target (prefixTable n pre rows h))
+    (hout : Normalization.Clean target
+      (Normalization.run suffix (n + pre.length) (prefixTable n pre rows) output))
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (ho : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hd : ReadersDirty target h suffix (n + pre.length) (prefixTable n pre rows)) :
+    crossCount target (pinGates n pre suffix h output) (n + 1) (inputOneTable n rows) + 1 =
+      crossCount target (pre ++ suffix) n (inputTable n rows) := by
+  have hs := minimal_single_or_reader_crossings target n pre suffix h output
+    (prefixTable n pre rows) (prefixOneTable n pre rows)
+    (prefix_initial_negMapped target n pre rows h hc)
+    (by intro r _; exact prefixOneTable_zero n pre rows r) hh hc
+    (by rw [prefixOneTable_copy]; exact hc) hout hr hmin ho hd
+  have hp := crossCount_promote target pre n (inputTable n rows) (inputOneTable n rows)
+    (by intro i r _; simp [inputTable, inputOneTable, wireView])
+  have hg : pinGates n pre suffix h output = pre.map promote ++
+      ((cofactor (n + pre.length) h suffix).1 ++
+        [appendGate h ((cofactor (n + pre.length) h suffix).2 output)]) := by
+    simp only [pinGates, List.append_assoc]
+  rw [hg, crossCount_append, crossCount_append target pre suffix]
+  rw [List.length_map, ← prefixOneTable_eq_run, ← prefixTable_eq_run]
+  have hm : n + 1 + pre.length = n + pre.length + 1 := by omega
+  rw [hm]
+  omega
+
+end CleanWireCrossings
+
+namespace CleanWireSinkStep
+
+open CofactorSimplification CofactorProjectBridge CofactorOperationBridge
+open CleanWirePinAppend CleanWireExactRetention CleanWireDirtyRetention CleanWireCrossings
+
+def demote (g : Gate) : Gate := (g.1, g.2.1 - 1, g.2.2 - 1)
+
+def liftedList (n : Nat) (pre suffix : List Gate) (h output : Nat) : List Gate :=
+  (pinGates n pre suffix h output).map demote
+
+def liftedOutput (n : Nat) (pre suffix : List Gate) (h : Nat) : Nat :=
+  n + pre.length + (cofactor (n + pre.length) h suffix).1.length
+
+lemma liftedCircuit_eq (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    rawCircuit n (liftedList n pre suffix h output) (liftedOutput n pre suffix h) =
+      pinAndAppend n pre suffix h output := by
+  rw [rawCircuit_description]
+  simp [liftedList, liftedOutput, pinAndAppend, projectCircuit, projectGate, demote,
+    List.map_map]
+
+lemma liftedList_length (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    (liftedList n pre suffix h output).length = (pinAndAppend n pre suffix h output).size := by
+  simp [liftedList, pinAndAppend, projectCircuit_size]
+
+lemma andOutputs_demote (gs : List Gate) (k : Nat) :
+    andOutputs (gs.map demote) k = (andOutputs gs (k + 1)).map (fun i => i - 1) := by
+  induction gs generalizing k with
+  | nil => rfl
+  | cons g gs ih =>
+    cases hop : g.1 <;> simp [andOutputs, demote, hop, ih]
+
+lemma raw_demote_wire (n : Nat) (gs : List Gate) (output wire : Nat) (w : List Bool) :
+    (rawCircuit n (gs.map demote) wire).eval w =
+      ((projectCircuit n gs output).wires w).getD wire false := by
+  rw [rawCircuit_description]
+  simp [PEqualNP.CircuitLowerBounds.Circuit.eval, PEqualNP.CircuitLowerBounds.Circuit.wires,
+    projectCircuit, projectGate, demote, List.map_map]
+  rfl
+
+lemma compiledDirty_lifted (n : Nat) (pre suffix : List Gate) (h output rep : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hd : CompiledDirty n pre suffix h output rows target P rep) :
+    OriginalDirty n [] (liftedList n pre suffix h output) rows target P (rep - 1) := by
+  obtain ⟨hm, r, hp, hn, hv⟩ := hd
+  refine ⟨?_, r, hp, hn, ?_⟩
+  · simp only [List.nil_append, liftedList, andOutputs_demote]
+    exact List.mem_map.mpr ⟨rep, hm, rfl⟩
+  · simp only [List.nil_append, liftedList]
+    rw [raw_demote_wire n (pinGates n pre suffix h output)
+      (n + pre.length + (cofactor (n + pre.length) h suffix).1.length + 1)]
+    exact hv
+
+lemma promote_demote (g : Gate) (ha : 0 < g.2.1) (hb : 0 < g.2.2) :
+    promote (demote g) = g := by
+  rcases g with ⟨op, a, b⟩
+  dsimp at ha hb
+  exact Prod.ext rfl (Prod.ext (by dsimp [promote, demote]; omega)
+    (by dsimp [promote, demote]; omega))
+
+lemma promote_demote_list (gs : List Gate) (hp : Positive gs) :
+    (gs.map demote).map promote = gs := by
+  induction gs with
+  | nil => rfl
+  | cons g gs ih =>
+    have hg := hp g List.mem_cons_self
+    simp only [List.map_cons, promote_demote g hg.1 hg.2]
+    rw [ih (fun z hz => hp z (List.mem_cons_of_mem g hz))]
+
+lemma wellFormed_append (gs hs : List Gate) (k : Nat) :
+    WellFormed (gs ++ hs) k ↔ WellFormed gs k ∧ WellFormed hs (k + gs.length) := by
+  induction gs generalizing k with
+  | nil => simp [WellFormed]
+  | cons g gs ih =>
+    simp only [List.cons_append, WellFormed, ih, List.length_cons]
+    have hk : k + (gs.length + 1) = k + 1 + gs.length := by omega
+    rw [hk]
+    tauto
+
+lemma wellFormed_promote (gs : List Gate) (k : Nat) (hw : WellFormed gs k) :
+    WellFormed (gs.map promote) (k + 1) := by
+  induction gs generalizing k with
+  | nil => trivial
+  | cons g gs ih =>
+    obtain ⟨ha, hb, ht⟩ := hw
+    exact ⟨by simpa [promote] using Nat.add_lt_add_right ha 1,
+      by simpa [promote] using Nat.add_lt_add_right hb 1, ih (k + 1) ht⟩
+
+lemma wellFormed_demote (gs : List Gate) (k : Nat)
+    (hp : Positive gs) (hw : WellFormed gs (k + 1)) : WellFormed (gs.map demote) k := by
+  induction gs generalizing k with
+  | nil => trivial
+  | cons g gs ih =>
+    obtain ⟨ha, hb, ht⟩ := hw
+    have hphead := hp g List.mem_cons_self
+    have hptail : Positive gs := fun z hz => hp z (List.mem_cons_of_mem g hz)
+    refine ⟨?_, ?_, ih (k + 1) hptail ht⟩ <;> dsimp [demote] <;> omega
+
+lemma pinGates_wellFormed (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hp : WellFormed pre n) (hh : h < n + pre.length) :
+    WellFormed (pinGates n pre suffix h output) (n + 1) := by
+  have hc := (cofactor_correct (n + pre.length) h suffix).1
+  have hb := cofactor_map_bound (n + pre.length) h suffix output
+  rw [pinGates, wellFormed_append, wellFormed_append]
+  refine ⟨⟨wellFormed_promote pre n hp, ?_⟩, ?_⟩
+  · simpa [List.length_map, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hc
+  · simp only [List.length_append, List.length_map, WellFormed, and_true, appendGate]
+    split_ifs <;> omega
+
+lemma liftedList_wellFormed (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hp : WellFormed pre n) (hh : h < n + pre.length) :
+    WellFormed (liftedList n pre suffix h output) n := by
+  exact wellFormed_demote _ _ (pinGates_positive _ _ _ _ _)
+    (pinGates_wellFormed n pre suffix h output hp hh)
+
+lemma liftedOutput_bound (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    liftedOutput n pre suffix h < n + (liftedList n pre suffix h output).length := by
+  simp only [liftedOutput, liftedList_length, pinAndAppend_size]
+  omega
+
+def ExactRows (n : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (gs : List Gate) (output : Nat) : Prop :=
+  ∀ r, (rawCircuit n gs output).eval (List.ofFn (rows r)) = target r
+
+def HasTwoDirty (n : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (P : Fin 40 → Prop) (gs : List Gate) : Prop :=
+  ∃ i j, i ≠ j ∧ OriginalDirty n [] gs rows target P i ∧
+    OriginalDirty n [] gs rows target P j
+
+def MinimalRows (n : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (N : Nat) : Prop :=
+  ∀ gs output, WellFormed gs n → ExactRows n rows target gs output → N ≤ gs.length
+
+lemma clean_implies_target (target signal : Fin 40 → Bool)
+    (hc : Normalization.Clean target signal) (r : Fin 40) (hv : signal r = true) :
+    target r = true := by
+  cases ht : target r
+  · have hf := hc r ht
+    simp_all
+  · rfl
+
+lemma lifted_exact (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (hh : h < n + pre.length) (hc : Normalization.Clean target (prefixTable n pre rows h))
+    (he : ExactRows n rows target (pre ++ suffix) output) :
+    ExactRows n rows target (liftedList n pre suffix h output) (liftedOutput n pre suffix h) := by
+  intro r
+  rw [liftedCircuit_eq]
+  have hv := pinAndAppend_correct pre suffix h output (List.ofFn (rows r))
+    (by simpa only [List.length_ofFn] using hh) (by
+      intro hhval
+      have ht := clean_implies_target target (prefixTable n pre rows h) hc r hhval
+      simpa only [List.length_ofFn] using (he r).trans ht)
+  simp only [List.length_ofFn] at hv
+  exact hv.trans (he r)
+
+lemma exact_suffix_output_clean (n : Nat) (pre suffix : List Gate) (output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (he : ExactRows n rows target (pre ++ suffix) output) :
+    Normalization.Clean target
+      (Normalization.run suffix (n + pre.length) (prefixTable n pre rows) output) := by
+  intro r hr
+  rw [table_run_apply]
+  have hs := rawCircuit_split pre suffix output (List.ofFn (rows r))
+  have hv := rawCircuit_eval suffix output (projectRun (pre.map promote) (List.ofFn (rows r)))
+  simp only [List.length_ofFn, projectRun_length, List.length_map] at hs hv
+  exact (hv.symm.trans (hs.symm.trans (he r))).trans hr
+
+lemma lifted_crossCount (target : Fin 40 → Bool) (n : Nat) (pre suffix : List Gate)
+    (rows : Fin 40 → Fin n → Bool) (h output : Nat) :
+    crossCount target (liftedList n pre suffix h output) n (inputTable n rows) =
+      crossCount target (pinGates n pre suffix h output) (n + 1) (inputOneTable n rows) := by
+  have hs := crossCount_promote target (liftedList n pre suffix h output) n
+    (inputTable n rows) (inputOneTable n rows)
+    (by intro i r _; simp [inputTable, inputOneTable, wireView])
+  rw [liftedList, promote_demote_list _ (pinGates_positive _ _ _ _ _)] at hs
+  exact hs
+
+lemma lifted_two_dirty (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hh : h < n + pre.length) (hc : Normalization.Clean target (prefixTable n pre rows h))
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (ho : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hd : HasTwoDirty n rows target P (pre ++ suffix)) :
+    HasTwoDirty n rows target P (liftedList n pre suffix h output) := by
+  obtain ⟨i, j, hij, hdi, hdj⟩ := hd
+  have hdip : OriginalDirty n pre suffix rows target P i := hdi
+  have hdjp : OriginalDirty n pre suffix rows target P j := hdj
+  obtain ⟨_, _, r, s, hrs, hdr, hds⟩ :=
+    minimal_single_or_reader_two_dirty n pre suffix h output i j rows target P hh hr hmin ho
+      (fun r hv => clean_implies_target target (prefixTable n pre rows h) hc r hv) hdip hdjp hij
+  refine ⟨r - 1, s - 1, ?_, compiledDirty_lifted n pre suffix h output r rows target P hdr,
+    compiledDirty_lifted n pre suffix h output s rows target P hds⟩
+  have hrb := (andOutputs_bounds (pinGates n pre suffix h output) (n + 1) r hdr.1).1
+  have hsb := (andOutputs_bounds (pinGates n pre suffix h output) (n + 1) s hds.1).1
+  omega
+
+lemma sink_step (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hp : WellFormed pre n) (hh : h < n + pre.length)
+    (he : ExactRows n rows target (pre ++ suffix) output)
+    (hc : Normalization.Clean target (prefixTable n pre rows h))
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : MinimalRows n rows target (pre ++ suffix).length)
+    (ho : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hcross : ReadersDirty target h suffix (n + pre.length) (prefixTable n pre rows))
+    (hd : HasTwoDirty n rows target P (pre ++ suffix)) :
+    ∃ gs out, WellFormed gs n ∧ out < n + gs.length ∧ ExactRows n rows target gs out ∧
+      gs.length = (pre ++ suffix).length ∧ HasTwoDirty n rows target P gs ∧
+      crossCount target gs n (inputTable n rows) + 1 =
+        crossCount target (pre ++ suffix) n (inputTable n rows) := by
+  have hw := liftedList_wellFormed n pre suffix h output hp hh
+  have hex := lifted_exact n pre suffix h output rows target hh hc he
+  have hm := hmin (liftedList n pre suffix h output) (liftedOutput n pre suffix h) hw hex
+  rw [liftedList_length] at hm
+  refine ⟨liftedList n pre suffix h output, liftedOutput n pre suffix h, hw,
+    liftedOutput_bound _ _ _ _ _, hex, ?_, lifted_two_dirty n pre suffix h output rows target P
+      hh hc hr hm ho hd, ?_⟩
+  · rw [liftedList_length]
+    exact minimal_single_reader_size n pre suffix h output hh hr hm
+  · rw [lifted_crossCount]
+    exact pinAndAppend_crossings target n pre suffix rows h output hh hc
+      (exact_suffix_output_clean n pre suffix output rows target he) hr hm ho hcross
+
+end CleanWireSinkStep
+
+namespace CleanWireIteration
+
+open CofactorSimplification CofactorProjectBridge CofactorOperationBridge
+open CleanWirePinAppend CleanWireExactRetention CleanWireDirtyRetention CleanWireCrossings
+open CleanWireSinkStep
+
+lemma crossCount_pos_split (target : Fin 40 → Bool) (gs : List Gate) (k : Nat)
+    (s : TableState) (hp : 0 < crossCount target gs k s) :
+    ∃ pre g suffix, gs = pre ++ g :: suffix ∧
+      0 < crossings target (Normalization.run pre k s) g := by
+  induction gs generalizing k s with
+  | nil => simp [crossCount] at hp
+  | cons g gs ih =>
+    by_cases hg : 0 < crossings target s g
+    · exact ⟨[], g, gs, rfl, hg⟩
+    · have ht : 0 < crossCount target gs (k + 1)
+          (Function.update s k (Normalization.gate g s)) := by
+        simp only [crossCount] at hp
+        omega
+      obtain ⟨pre, z, suffix, he, hz⟩ := ih (k + 1)
+        (Function.update s k (Normalization.gate g s)) ht
+      exact ⟨g :: pre, z, suffix, by simp [he], hz⟩
+
+lemma crossing_data (target : Fin 40 → Bool) (s : TableState) (g : Gate)
+    (hp : 0 < crossings target s g) :
+    g.1 = false ∧ ¬ Normalization.Clean target (Normalization.gate g s) ∧
+      ∃ h, reads h g = true ∧ Normalization.Clean target (s h) := by
+  classical
+  have hd : ¬ Normalization.Clean target (Normalization.gate g s) := by
+    intro hc
+    simp [crossings, hc] at hp
+  have hh : Normalization.Clean target (s g.2.1) ∨ Normalization.Clean target (s g.2.2) := by
+    by_cases ha : Normalization.Clean target (s g.2.1)
+    · exact Or.inl ha
+    · by_cases hb : Normalization.Clean target (s g.2.2)
+      · exact Or.inr hb
+      · simp [crossings, hd, ha, hb] at hp
+  have hop : g.1 = false := by
+    cases hg : g.1
+    · rfl
+    · exfalso
+      apply hd
+      intro r hr
+      rcases hh with ha | hb
+      · simp [Normalization.gate, hg, ha r hr]
+      · simp [Normalization.gate, hg, hb r hr]
+  refine ⟨hop, hd, ?_⟩
+  rcases hh with ha | hb
+  · exact ⟨g.2.1, by simp [reads], ha⟩
+  · exact ⟨g.2.2, by simp [reads], hb⟩
+
+lemma reads_bound (g : Gate) (h k : Nat) (ha : g.2.1 < k) (hb : g.2.2 < k)
+    (hr : reads h g = true) : h < k := by
+  have he : g.2.1 = h ∨ g.2.2 = h := by simpa [reads] using hr
+  rcases he with he | he <;> omega
+
+lemma no_readers_of_count_zero (gs : List Gate) (h : Nat) (hc : gs.countP (reads h) = 0) :
+    ∀ g ∈ gs, reads h g = false := by
+  induction gs with
+  | nil => simp
+  | cons g gs ih =>
+    simp only [List.countP_cons] at hc
+    have hg : reads h g = false := by cases hr : reads h g <;> simp_all
+    have ht : gs.countP (reads h) = 0 := by simp_all
+    intro z hz
+    rcases List.mem_cons.mp hz with rfl | hz
+    · exact hg
+    · exact ih ht z hz
+
+lemma readersDirty_of_none (target : Fin 40 → Bool) (gs : List Gate) (k h : Nat)
+    (s : TableState) (hn : ∀ g ∈ gs, reads h g = false) : ReadersDirty target h gs k s := by
+  induction gs generalizing k s with
+  | nil => trivial
+  | cons g gs ih =>
+    refine ⟨?_, ?_⟩
+    · simp [hn g List.mem_cons_self]
+    · exact ih (k + 1) _ (fun z hz => hn z (List.mem_cons_of_mem g hz))
+
+lemma crossing_head_unique (n : Nat) (pre : List Gate) (g : Gate) (suffix : List Gate)
+    (h output : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (hp : WellFormed pre n) (hh : h < n + pre.length)
+    (he : ExactRows n rows target (pre ++ g :: suffix) output)
+    (hc : Normalization.Clean target (prefixTable n pre rows h))
+    (hread : reads h g = true)
+    (hmin : MinimalRows n rows target (pre ++ g :: suffix).length) :
+    (g :: suffix).countP (reads h) = 1 := by
+  have hw := liftedList_wellFormed n pre (g :: suffix) h output hp hh
+  have hx := lifted_exact n pre (g :: suffix) h output rows target hh hc he
+  have hm := hmin _ _ hw hx
+  rw [liftedList_length] at hm
+  have hs := pinAndAppend_size_savings n pre (g :: suffix) h output hh
+  have hl : 1 ≤ (g :: suffix).countP (reads h) := by simp [List.countP_cons, hread]
+  omega
+
+lemma positive_sink_step (n : Nat) (gs : List Gate) (output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hw : WellFormed gs n) (he : ExactRows n rows target gs output)
+    (hmin : MinimalRows n rows target gs.length) (hd : HasTwoDirty n rows target P gs)
+    (hcpos : 0 < crossCount target gs n (inputTable n rows)) :
+    ∃ gs' out, WellFormed gs' n ∧ out < n + gs'.length ∧ ExactRows n rows target gs' out ∧
+      gs'.length = gs.length ∧ HasTwoDirty n rows target P gs' ∧
+      crossCount target gs' n (inputTable n rows) + 1 =
+        crossCount target gs n (inputTable n rows) := by
+  obtain ⟨pre, g, suffix, hgs, hp⟩ := crossCount_pos_split target gs n (inputTable n rows) hcpos
+  subst gs
+  rw [wellFormed_append] at hw
+  obtain ⟨hpre, ha, hb, htail⟩ := hw
+  rw [← prefixTable_eq_run] at hp
+  obtain ⟨hop, hgdirty, h, hread, hclean⟩ := crossing_data target (prefixTable n pre rows) g hp
+  have hh := reads_bound g h (n + pre.length) ha hb hread
+  have hr := crossing_head_unique n pre g suffix h output rows target hpre hh he hclean hread hmin
+  have htailcount : suffix.countP (reads h) = 0 := by
+    simp only [List.countP_cons, hread, ite_true] at hr
+    omega
+  have hnone := no_readers_of_count_zero suffix h htailcount
+  have hor : ∀ z ∈ g :: suffix, reads h z = true → z.1 = false := by
+    intro z hz hzr
+    rcases List.mem_cons.mp hz with rfl | hz
+    · exact hop
+    · have := hnone z hz
+      simp_all
+  have hcross : ReadersDirty target h (g :: suffix) (n + pre.length) (prefixTable n pre rows) :=
+    ⟨fun _ => hgdirty, readersDirty_of_none target suffix (n + pre.length + 1) h _ hnone⟩
+  exact sink_step n pre (g :: suffix) h output rows target P hpre hh he hclean hr hmin hor hcross hd
+
+lemma zero_crossings_exists (n : Nat) (gs : List Gate) (output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hw : WellFormed gs n) (he : ExactRows n rows target gs output)
+    (hmin : MinimalRows n rows target gs.length) (hd : HasTwoDirty n rows target P gs) :
+    ∃ gs' out, WellFormed gs' n ∧ ExactRows n rows target gs' out ∧
+      gs'.length = gs.length ∧ HasTwoDirty n rows target P gs' ∧
+      crossCount target gs' n (inputTable n rows) = 0 := by
+  have normalize : ∀ m : Nat, ∀ (xs : List Gate) (out : Nat),
+      crossCount target xs n (inputTable n rows) = m → WellFormed xs n →
+      ExactRows n rows target xs out → MinimalRows n rows target xs.length →
+      HasTwoDirty n rows target P xs →
+      ∃ ys yout, WellFormed ys n ∧ ExactRows n rows target ys yout ∧ ys.length = xs.length ∧
+        HasTwoDirty n rows target P ys ∧ crossCount target ys n (inputTable n rows) = 0 := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro xs out hm hxs hex hmx hdx
+      by_cases hz : m = 0
+      · exact ⟨xs, out, hxs, hex, rfl, hdx, hm.trans hz⟩
+      · have hp : 0 < crossCount target xs n (inputTable n rows) := by omega
+        obtain ⟨ys, yout, hys, _, hey, hlen, hdy, hdrop⟩ :=
+          positive_sink_step n xs out rows target P hxs hex hmx hdx hp
+        have hmny : MinimalRows n rows target ys.length := by rw [hlen]; exact hmx
+        have hlt : crossCount target ys n (inputTable n rows) < m := by omega
+        obtain ⟨zs, zout, hzs, hez, hzlen, hdz, hzero⟩ :=
+          ih (crossCount target ys n (inputTable n rows)) hlt ys yout rfl hys hey hmny hdy
+        exact ⟨zs, zout, hzs, hez, hzlen.trans hlen, hdz, hzero⟩
+  exact normalize _ gs output rfl hw he hmin hd
+
+end CleanWireIteration
+
+namespace FirstSplitWitness
+
+def gate (k a b : Bool) : Bool := if k then a && b else a || b
+
+def bad (a b c : Bool) : Prop := a = false ∧ b = false ∧ c = true
+
+lemma local_split (xa ya za xb yb zb k : Bool)
+    (ha : ¬bad xa ya za) (hb : ¬bad xb yb zb)
+    (hx : gate k xa xb = false) (hy : gate k ya yb = false)
+    (hz : gate k za zb = true) :
+    k = true ∧
+      ((xa = true ∧ ya = false ∧ xb = false ∧ yb = true) ∨
+       (xa = false ∧ ya = true ∧ xb = true ∧ yb = false)) := by
+  cases xa <;> cases ya <;> cases za <;> cases xb <;> cases yb <;>
+    cases zb <;> cases k <;> simp_all [bad, gate]
+
+lemma first_split
+    (raw output : Nat) (op : Nat → Bool) (left right : Nat → Nat)
+    (x y z : Nat → Bool)
+    (hraw : ∀ i, i < raw → z i = (x i || y i))
+    (hgate : ∀ i, raw ≤ i → i ≤ output →
+      left i < i ∧ right i < i ∧
+      x i = gate (op i) (x (left i)) (x (right i)) ∧
+      y i = gate (op i) (y (left i)) (y (right i)) ∧
+      z i = gate (op i) (z (left i)) (z (right i)))
+    (hout : bad (x output) (y output) (z output)) :
+    ∃ i, raw ≤ i ∧ i ≤ output ∧ op i = true ∧
+      ((x (left i) = true ∧ y (left i) = false ∧
+        x (right i) = false ∧ y (right i) = true) ∨
+       (x (left i) = false ∧ y (left i) = true ∧
+        x (right i) = true ∧ y (right i) = false)) := by
+  classical
+  let existsBad : ∃ i, i ≤ output ∧ bad (x i) (y i) (z i) :=
+    ⟨output, le_rfl, hout⟩
+  let i := Nat.find existsBad
+  have hi : i ≤ output ∧ bad (x i) (y i) (z i) := Nat.find_spec existsBad
+  have hbefore : ∀ j, j < i → ¬bad (x j) (y j) (z j) := by
+    intro j hj hbad
+    exact Nat.find_min' existsBad ⟨le_trans (Nat.le_of_lt hj) hi.1, hbad⟩ |>.not_gt hj
+  have hcomputed : raw ≤ i := by
+    by_contra h
+    have hinput := hraw i (Nat.lt_of_not_ge h)
+    rcases hi.2 with ⟨hx, hy, hz⟩
+    simp [hx, hy, hz] at hinput
+  rcases hgate i hcomputed hi.1 with ⟨hl, hr, hx, hy, hz⟩
+  have hlbad := hbefore (left i) hl
+  have hrbad := hbefore (right i) hr
+  rcases hi.2 with ⟨hix, hiy, hiz⟩
+  have hs := local_split (x (left i)) (y (left i)) (z (left i))
+    (x (right i)) (y (right i)) (z (right i)) (op i) hlbad hrbad
+    (hx.symm.trans hix) (hy.symm.trans hiy) (hz.symm.trans hiz)
+  exact ⟨i, hcomputed, hi.1, hs.1, hs.2⟩
+
+end FirstSplitWitness
+
+namespace SingletonUnionTransport
+
+def outputs {n : Nat} (out : Fin n → Nat) : Finset Nat := Finset.univ.image out
+
+def paid {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat) : Finset Nat :=
+  outputs out \ atoms
+
+def Available {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat)
+    (i : Fin n) (a : Nat) : Prop :=
+  a ∈ atoms ∨ ∃ j : Fin n, j < i ∧ out j = a
+
+def UnionTrace {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat) : Prop :=
+  ∀ i, ∃ a b, Available atoms out i a ∧ Available atoms out i b ∧ out i = a ||| b
+
+def ProperUnion (available : Finset Nat) (v : Nat) : Prop :=
+  ∃ a ∈ available, ∃ b ∈ available, a ≠ v ∧ b ≠ v ∧ v = a ||| b
+
+lemma first_occurrence {n : Nat} (out : Fin n → Nat) (v : Nat)
+    (hv : v ∈ outputs out) :
+    ∃ i : Fin n, out i = v ∧ ∀ j : Fin n, j < i → out j ≠ v := by
+  classical
+  obtain ⟨j, _, hj⟩ := Finset.mem_image.mp hv
+  let hits := Finset.univ.filter (fun i : Fin n => out i = v)
+  have hh : hits.Nonempty := ⟨j, by simp [hits, hj]⟩
+  let i := hits.min' hh
+  have hi : i ∈ hits := Finset.min'_mem hits hh
+  refine ⟨i, (Finset.mem_filter.mp hi).2, ?_⟩
+  intro k hk he
+  have hm : k ∈ hits := by simp [hits, he]
+  have hle : i ≤ k := Finset.min'_le hits k hm
+  exact (not_le_of_gt hk) hle
+
+lemma available_mem_union_paid {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat)
+    (i : Fin n) (a : Nat) (ha : Available atoms out i a) :
+    a ∈ atoms ∪ paid atoms out := by
+  rcases ha with ha | ⟨j, _, hj⟩
+  · exact Finset.mem_union_left _ ha
+  · by_cases ham : a ∈ atoms
+    · exact Finset.mem_union_left _ ham
+    · apply Finset.mem_union_right
+      exact Finset.mem_sdiff.mpr ⟨Finset.mem_image.mpr ⟨j, Finset.mem_univ j, hj⟩, ham⟩
+
+lemma paid_proper_union {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat)
+    (ht : UnionTrace atoms out) (v : Nat) (hv : v ∈ paid atoms out) :
+    ProperUnion (atoms ∪ paid atoms out) v := by
+  obtain ⟨hvo, hva⟩ := Finset.mem_sdiff.mp hv
+  obtain ⟨i, hi, hfirst⟩ := first_occurrence out v hvo
+  obtain ⟨a, b, ha, hb, he⟩ := ht i
+  have hne : ∀ x, Available atoms out i x → x ≠ v := by
+    intro x hx hxv
+    rcases hx with hx | ⟨j, hj, hjx⟩
+    · exact hva (hxv ▸ hx)
+    · exact hfirst j hj (hjx.trans hxv)
+  exact ⟨a, available_mem_union_paid atoms out i a ha,
+    b, available_mem_union_paid atoms out i b hb, hne a ha, hne b hb, hi.symm.trans he⟩
+
+lemma paid_card_le_length {n : Nat} (atoms : Finset Nat) (out : Fin n → Nat) :
+    (paid atoms out).card ≤ n := by
+  have hs : paid atoms out ⊆ outputs out := Finset.sdiff_subset
+  have hc : (outputs out).card ≤ (Finset.univ : Finset (Fin n)).card :=
+    Finset.card_image_le
+  exact (Finset.card_le_card hs).trans (by simpa using hc)
+
+lemma properUnion_mono {s t : Finset Nat} (hst : s ⊆ t) {v : Nat}
+    (hv : ProperUnion s v) : ProperUnion t v := by
+  obtain ⟨a, ha, b, hb, hav, hbv, he⟩ := hv
+  exact ⟨a, hst ha, b, hst hb, hav, hbv, he⟩
+
+lemma exact_budget {n : Nat} (atoms required : Finset Nat) (out : Fin n → Nat)
+    (ht : UnionTrace atoms out) (hr : required ⊆ paid atoms out)
+    (hc : (paid atoms out).card ≤ required.card) :
+    paid atoms out = required ∧ ∀ v ∈ required, ProperUnion (atoms ∪ required) v := by
+  have he : paid atoms out = required := (Finset.eq_of_subset_of_card_le hr hc).symm
+  refine ⟨he, ?_⟩
+  intro v hv
+  simpa only [he] using paid_proper_union atoms out ht v (hr hv)
+
+lemma one_extra_cover (required values : Finset Nat) (bound : Nat)
+    (hb : 0 < bound) (hr : required ⊆ values)
+    (hc : values.card ≤ required.card + 1)
+    (hv : ∀ v ∈ values, v < bound) :
+    ∃ extra, extra < bound ∧ values ⊆ insert extra required ∧
+      (extra ∈ values ∨ values = required) := by
+  classical
+  by_cases hs : values ⊆ required
+  · have he : values = required := Finset.Subset.antisymm hs hr
+    refine ⟨0, hb, ?_, Or.inr he⟩
+    intro v hmem
+    exact Finset.mem_insert_of_mem (hs hmem)
+  · change ¬ ∀ v, v ∈ values → v ∈ required at hs
+    obtain ⟨extra, he⟩ := not_forall.mp hs
+    obtain ⟨hem, hen⟩ := not_imp.mp he
+    have hi : insert extra required ⊆ values := by
+      intro v hm
+      rcases Finset.mem_insert.mp hm with rfl | hm
+      · exact hem
+      · exact hr hm
+    have hcard : values.card ≤ (insert extra required).card := by
+      simpa only [Finset.card_insert_of_notMem hen] using hc
+    have heq := Finset.eq_of_subset_of_card_le hi hcard
+    exact ⟨extra, hv extra hem, by rw [heq], Or.inl hem⟩
+
+lemma one_extra_budget {n : Nat} (atoms required : Finset Nat) (out : Fin n → Nat)
+    (ht : UnionTrace atoms out) (hr : required ⊆ paid atoms out)
+    (hc : (paid atoms out).card ≤ required.card + 1)
+    (bound : Nat) (hb : 0 < bound) (hv : ∀ i, out i < bound) :
+    ∃ extra, extra < bound ∧ paid atoms out ⊆ insert extra required ∧
+      (extra ∈ paid atoms out ∨ paid atoms out = required) ∧
+      (∀ v ∈ required, ProperUnion (atoms ∪ insert extra required) v) ∧
+      (extra ∈ paid atoms out → ProperUnion (atoms ∪ insert extra required) extra) := by
+  have hbound : ∀ v ∈ paid atoms out, v < bound := by
+    intro v hmem
+    obtain ⟨i, _, hi⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hmem).1
+    exact hi ▸ hv i
+  obtain ⟨extra, he, hcover, hactual⟩ :=
+    one_extra_cover required (paid atoms out) bound hb hr hc hbound
+  have hsub : atoms ∪ paid atoms out ⊆ atoms ∪ insert extra required := by
+    intro v hmem
+    rcases Finset.mem_union.mp hmem with ha | hp
+    · exact Finset.mem_union_left _ ha
+    · exact Finset.mem_union_right _ (hcover hp)
+  have hp : ∀ v ∈ paid atoms out, ProperUnion (atoms ∪ insert extra required) v :=
+    fun v hm => properUnion_mono hsub (paid_proper_union atoms out ht v hm)
+  exact ⟨extra, he, hcover, hactual, fun v hm => hp v (hr hm), hp extra⟩
+
+lemma five_required {n : Nat} (atoms required : Finset Nat) (out : Fin n → Nat)
+    (ht : UnionTrace atoms out) (hn : n ≤ 5) (hr : required ⊆ paid atoms out)
+    (hc : required.card = 5) :
+    paid atoms out = required ∧ ∀ v ∈ required, ProperUnion (atoms ∪ required) v := by
+  apply exact_budget atoms required out ht hr
+  have := paid_card_le_length atoms out
+  omega
+
+lemma four_required {n : Nat} (atoms required : Finset Nat) (out : Fin n → Nat)
+    (ht : UnionTrace atoms out) (hn : n ≤ 5) (hr : required ⊆ paid atoms out)
+    (hc : required.card = 4) (hv : ∀ i, out i < 256) :
+    ∃ extra, extra < 256 ∧ paid atoms out ⊆ insert extra required ∧
+      (extra ∈ paid atoms out ∨ paid atoms out = required) ∧
+      (∀ v ∈ required, ProperUnion (atoms ∪ insert extra required) v) ∧
+      (extra ∈ paid atoms out → ProperUnion (atoms ∪ insert extra required) extra) := by
+  apply one_extra_budget atoms required out ht hr _ 256 (by decide) hv
+  have := paid_card_le_length atoms out
+  omega
+
+end SingletonUnionTransport
+
+namespace NegativeRowReduction
+
+open CofactorSimplification CofactorProjectBridge CleanWireCrossings
+
+lemma evalGate_mono (g : Gate) (s t : Nat → Bool)
+    (h : ∀ i, s i = true → t i = true) : evalGate g s = true → evalGate g t = true := by
+  have ha := h g.2.1
+  have hb := h g.2.2
+  cases hop : g.1 <;> cases hsa : s g.2.1 <;> cases hsb : s g.2.2 <;>
+    cases hta : t g.2.1 <;> cases htb : t g.2.2 <;> simp_all [evalGate]
+
+lemma run_mono (gs : List Gate) (k : Nat) (s t : Nat → Bool)
+    (h : ∀ i, s i = true → t i = true) :
+    ∀ i, run gs k s i = true → run gs k t i = true := by
+  induction gs generalizing k s t with
+  | nil => exact h
+  | cons g gs ih =>
+    apply ih (k + 1)
+    intro i
+    by_cases hi : i = k
+    · subst i
+      simpa only [Function.update_self] using evalGate_mono g s t h
+    · simpa only [Function.update_of_ne hi] using h i
+
+lemma inputTable_mono (n : Nat) (rows : Fin 40 → Fin n → Bool) (r s : Fin 40)
+    (h : ∀ i, rows r i = true → rows s i = true) :
+    ∀ i, inputTable n rows i r = true → inputTable n rows i s = true := by
+  intro i
+  by_cases hi : i < n
+  · simpa [inputTable, hi] using h ⟨i, hi⟩
+  · simp [inputTable, hi]
+
+lemma row_eval_mono (n : Nat) (rows : Fin 40 → Fin n → Bool) (r s : Fin 40)
+    (h : ∀ i, rows r i = true → rows s i = true) (gs : List Gate) (output : Nat) :
+    (rawCircuit n gs output).eval (List.ofFn (rows r)) = true →
+      (rawCircuit n gs output).eval (List.ofFn (rows s)) = true := by
+  have hr := rawCircuit_eval gs output (List.ofFn (rows r))
+  have hs := rawCircuit_eval gs output (List.ofFn (rows s))
+  simp only [List.length_ofFn] at hr hs
+  rw [hr, hs]
+  exact run_mono gs n _ _ (inputTable_mono n rows r s h) output
+
+def NegativeDominated (n : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (P : Fin 40 → Prop) : Prop :=
+  ∀ r, target r = false → ∃ s, P s ∧ target s = false ∧
+    ∀ i, rows r i = true → rows s i = true
+
+lemma all_negative_iff_selected (n : Nat) (rows : Fin 40 → Fin n → Bool)
+    (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hd : NegativeDominated n rows target P) (gs : List Gate) (output : Nat) :
+    Normalization.Clean target (fun r => (rawCircuit n gs output).eval (List.ofFn (rows r))) ↔
+      ∀ r, P r → target r = false →
+        (rawCircuit n gs output).eval (List.ofFn (rows r)) = false := by
+  constructor
+  · intro hc r _ hr
+    exact hc r hr
+  · intro hc r hr
+    obtain ⟨s, hp, hs, hm⟩ := hd r hr
+    cases hv : (rawCircuit n gs output).eval (List.ofFn (rows r))
+    · exact hv
+    · have hst := row_eval_mono n rows r s hm gs output hv
+      have hsf := hc s hp hs
+      simp_all
+
+lemma negative_witness_to_selected (n : Nat) (rows : Fin 40 → Fin n → Bool)
+    (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hd : NegativeDominated n rows target P) (gs : List Gate) (output : Nat)
+    (r : Fin 40) (hr : target r = false)
+    (hv : (rawCircuit n gs output).eval (List.ofFn (rows r)) = true) :
+    ∃ s, P s ∧ target s = false ∧
+      (rawCircuit n gs output).eval (List.ofFn (rows s)) = true := by
+  obtain ⟨s, hp, hs, hm⟩ := hd r hr
+  exact ⟨s, hp, hs, row_eval_mono n rows r s hm gs output hv⟩
+
+def gapInputMasks : List Nat :=
+  [2147418115, 663661903884, 34144976944, 21653750532,
+    103293914128, 414195942664, 581968119809, 1065151898146]
+
+def gapRows (r : Fin 40) (i : Fin 8) : Bool := (gapInputMasks.getD i.val 0).testBit r.val
+
+def gapTarget (r : Fin 40) : Bool := (36671 : Nat).testBit r.val
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 4000000 in
+lemma gap_negative_dominated :
+    NegativeDominated 8 gapRows gapTarget (fun r => 16 ≤ r.val) := by
+  unfold NegativeDominated
+  decide
+
+end NegativeRowReduction
+
 end PEqualNP.Outside.L_meta_9033_aux
