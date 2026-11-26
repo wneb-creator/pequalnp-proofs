@@ -1,3 +1,5 @@
+import Mathlib.Algebra.BigOperators.Group.Finset.Piecewise
+import Mathlib.Algebra.BigOperators.Group.Finset.Sigma
 import Mathlib.Data.Finset.Card
 import Mathlib.Data.Finset.Range
 import Mathlib.Data.Nat.Bitwise
@@ -668,5 +670,171 @@ lemma permitted_pair_of_monotone (v : Fin 3) (q : Fin 256 → Bool)
     contradiction
 
 end RawPairClassification
+
+namespace RawPairClassification
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma singleton_forbidden_witness : ∀ (v : Fin 3) (i : Fin 8),
+    ∃ n ∈ negatives, (allowedNegatives v).contains n.val = false ∧
+      submask (pairAssignment i i) n := by
+  decide +kernel
+
+lemma singleton_false_of_monotone (v : Fin 3) (q : Fin 256 → Bool)
+    (mono : ∀ a b, submask a b → q a = true → q b = true)
+    (negative : ∀ n ∈ negatives,
+      (allowedNegatives v).contains n.val = false → q n = false)
+    (i : Fin 8) : q (pairAssignment i i) = false := by
+  obtain ⟨n, hn, hblocked, hsub⟩ := singleton_forbidden_witness v i
+  cases hq : q (pairAssignment i i) with
+  | false => rfl
+  | true =>
+      have htrue := mono (pairAssignment i i) n hsub hq
+      rw [negative n hn hblocked] at htrue
+      contradiction
+
+end RawPairClassification
+
+namespace CleanRectangle
+
+open RawPairClassification
+
+lemma pair_submask : ∀ i j : Fin 8,
+    submask (pairAssignment i i) (pairAssignment i j) ∧
+      submask (pairAssignment j j) (pairAssignment i j) := by
+  decide +kernel
+
+lemma pair_graph : ∀ i j : Fin 8,
+    edgeFunction (pairAssignment i j) = adjacent i j := by
+  decide +kernel
+
+lemma clean_function_below_graph (q : Fin 256 → Bool)
+    (mono : ∀ a b, submask a b → q a = true → q b = true)
+    (negative : ∀ n ∈ negatives, q n = false) :
+    ∀ x, q x = true → edgeFunction x = true := by
+  intro x hq
+  cases hx : edgeFunction x with
+  | true => rfl
+  | false =>
+    obtain ⟨n, hn, hxn⟩ := independent_covered x hx
+    have hqn := mono x n hxn hq
+    rw [negative n hn] at hqn
+    contradiction
+
+lemma clean_and_star (f g : Fin 256 → Bool)
+    (mf : ∀ a b, submask a b → f a = true → f b = true)
+    (mg : ∀ a b, submask a b → g a = true → g b = true)
+    (negative : ∀ n ∈ negatives, (f n && g n) = false) :
+    ((Finset.univ : Finset (Fin 8)).filter fun i => f (pairAssignment i i) = true).card ≤ 1 ∨
+      ((Finset.univ : Finset (Fin 8)).filter fun i => g (pairAssignment i i) = true).card ≤ 1 := by
+  apply rectangle_star
+  intro i hi j hj
+  have hfi := (Finset.mem_filter.mp hi).2
+  have hgj := (Finset.mem_filter.mp hj).2
+  have hf := mf _ _ (pair_submask i j).1 hfi
+  have hg := mg _ _ (pair_submask i j).2 hgj
+  have monoAnd : ∀ a b, submask a b →
+      (f a && g a) = true → (f b && g b) = true := by
+    intro a b hab h
+    simp only [Bool.and_eq_true] at h ⊢
+    exact ⟨mf a b hab h.1, mg a b hab h.2⟩
+  have he := clean_function_below_graph (fun x => f x && g x) monoAnd negative
+    (pairAssignment i j) (by simp only [hf, hg, Bool.and_self])
+  exact (pair_graph i j).symm.trans he
+
+end CleanRectangle
+
+namespace PreservedMaskBudget
+
+lemma proper_union_of_trace (n : Nat) (value : Nat → Nat) (base : Finset Nat)
+    (trace : ∀ i, i < n → value i ∈ base ∨
+      ∃ a b, a < i ∧ b < i ∧ (value a ||| value b) = value i) :
+    ∀ i, i < n → value i ∉ base →
+      ∃ a b, a < n ∧ b < n ∧ value a < value i ∧ value b < value i ∧
+        (value a ||| value b) = value i := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi hnon
+    rcases trace i hi with hb | ⟨a, b, hai, hbi, hab⟩
+    · exact False.elim (hnon hb)
+    · by_cases ha : value a = value i
+      · simpa only [ha] using ih a hai (Nat.lt_trans hai hi) (by simpa only [ha] using hnon)
+      by_cases hb : value b = value i
+      · simpa only [hb] using ih b hbi (Nat.lt_trans hbi hi) (by simpa only [hb] using hnon)
+      have hla : value a ≤ value i := hab ▸ Nat.left_le_or
+      have hlb : value b ≤ value i := hab ▸ Nat.right_le_or
+      exact ⟨a, b, Nat.lt_trans hai hi, Nat.lt_trans hbi hi, by omega, by omega, hab⟩
+
+lemma trace_nonbase_closed (n : Nat) (value : Nat → Nat) (base : Finset Nat)
+    (trace : ∀ i, i < n → value i ∈ base ∨
+      ∃ a b, a < i ∧ b < i ∧ (value a ||| value b) = value i) :
+    let S := (Finset.range n).image value \ base
+    ∀ x ∈ S, ∃ a ∈ S ∪ base, ∃ b ∈ S ∪ base,
+      a < x ∧ b < x ∧ (a ||| b) = x := by
+  intro S x hx
+  obtain ⟨hx, hxb⟩ := Finset.mem_sdiff.mp hx
+  obtain ⟨i, hi, hiv⟩ := Finset.mem_image.mp hx
+  obtain ⟨a, b, ha, hb, hax, hbx, hab⟩ :=
+    proper_union_of_trace n value base trace i (Finset.mem_range.mp hi)
+      (by simpa only [hiv] using hxb)
+  have member : ∀ j, j < n → value j ∈ S ∪ base := by
+    intro j hj
+    by_cases hbase : value j ∈ base
+    · exact Finset.mem_union_right S hbase
+    · exact Finset.mem_union_left base (Finset.mem_sdiff.mpr
+        ⟨Finset.mem_image.mpr ⟨j, Finset.mem_range.mpr hj, rfl⟩, hbase⟩)
+  exact ⟨value a, member a ha, value b, member b hb,
+    hiv ▸ hax, hiv ▸ hbx, hab.trans hiv⟩
+
+end PreservedMaskBudget
+
+namespace CleanForestCount
+
+lemma binary_forest_count {ι : Type} [DecidableEq ι]
+    (clean leaves : Finset ι) (hleaves : leaves ⊆ clean)
+    (out : ι) (hout : out ∈ clean) (reads : ι → ι → Nat)
+    (incoming : ∀ i ∈ clean, (∑ j ∈ clean, reads i j) =
+      if i ∈ leaves then 0 else 2)
+    (outgoing : ∀ j ∈ clean, (∑ i ∈ clean, reads i j) =
+      if j = out then 0 else 1) :
+    (clean \ leaves).card + 1 = leaves.card := by
+  have htotal : (∑ i ∈ clean, if i ∈ leaves then 0 else 2) =
+      ∑ j ∈ clean, if j = out then 0 else 1 := by
+    calc
+      _ = ∑ i ∈ clean, ∑ j ∈ clean, reads i j := by
+        apply Finset.sum_congr rfl
+        intro i hi
+        exact (incoming i hi).symm
+      _ = ∑ j ∈ clean, ∑ i ∈ clean, reads i j := Finset.sum_comm
+      _ = _ := by
+        apply Finset.sum_congr rfl
+        exact outgoing
+  have hrow : (∑ i ∈ clean, if i ∈ leaves then 0 else 2) =
+      (clean \ leaves).card * 2 := by
+    have hf : clean.filter (fun i => i ∉ leaves) = clean \ leaves := by
+      ext i
+      simp
+    calc
+      _ = ∑ i ∈ clean.filter (fun i => i ∉ leaves), 2 := by
+        rw [Finset.sum_filter]
+        simp
+      _ = _ := by rw [hf]; simp
+  have hcol : (∑ j ∈ clean, if j = out then 0 else 1) = clean.card - 1 := by
+    have hf : clean.filter (fun j => j ≠ out) = clean.erase out := by
+      ext j
+      simp [and_comm]
+    calc
+      _ = ∑ j ∈ clean.filter (fun j => j ≠ out), 1 := by
+        rw [Finset.sum_filter]
+        simp
+      _ = _ := by rw [hf]; simp [Finset.card_erase_of_mem hout]
+  rw [hrow, hcol] at htotal
+  have hd := Finset.card_sdiff_of_subset hleaves
+  have hp : 0 < clean.card := Finset.card_pos.mpr ⟨out, hout⟩
+  have hl := Finset.card_le_card hleaves
+  omega
+
+end CleanForestCount
 
 end PEqualNP.Outside.L_meta_9033_aux
