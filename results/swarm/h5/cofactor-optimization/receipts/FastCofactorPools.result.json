@@ -1,0 +1,10 @@
+{
+  "module": "FastCofactorPools",
+  "sha256": "50c7fd1c1c0ae1e4b6b03a3d333b38fbd0b48cb3910f89dd978039b12ef10c3c",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 4.5790015730008236,
+  "max_rss_kib": 2915460,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

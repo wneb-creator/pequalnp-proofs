@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS: exact source/hash/receipt/log/provenance/scope review and independent final packet review",
+  "sources_and_built_copies_and_receipts_match": true,
+  "runner_logs_match_receipts": true,
+  "all_module_builds_exit0": true,
+  "all_stderr_empty": true,
+  "pinned_dependency_blobs_verified": true,
+  "shared_L6581_verified": true,
+  "cofactor_change_from_prior_review": "only scoped maxRecDepth8192",
+  "checker_families_kept_separate": true,
+  "no_5229_baseline_claim": true,
+  "conditional_closed_premises_preserved": true,
+  "no_Packed_node_proof_claim": true,
+  "fresh_builds": false,
+  "current_independent_reviewer": "/root/restriction_math/cnf_review",
+  "current_independent_verdict": "PASS: all50files,49listed hashes,9source/built/receipt identities, full logs, audit types/axioms,21dependency entries at pinned commits, sharedL6581, laterPacked context, and documentation scope"
+}

@@ -1,0 +1,538 @@
+{
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_2373.lean",
+  "source_sha256": "87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6",
+  "count": 75,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations": [
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.wiresFrom_append",
+      "line": 10,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(gs gs' : List Gate) (w : List Bool)",
+      "expected_type": "wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.wiresFrom_prefix",
+      "line": 14,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(gs : List Gate)",
+      "expected_type": "\u2200 w : List Bool,\n    \u2203 t : List Bool, wiresFrom gs w = w ++ t \u2227 t.length = gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.length_wiresFrom",
+      "line": 26,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(gs : List Gate) (w : List Bool)",
+      "expected_type": "(wiresFrom gs w).length = w.length + gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.getD_wiresFrom",
+      "line": 31,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(gs : List Gate) (w : List Bool) (i : \u2115) (h : i < w.length)",
+      "expected_type": "(wiresFrom gs w).getD i false = w.getD i false"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.getD_snoc_ne",
+      "line": 43,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "{\u03b1 : Type} (L : List \u03b1) (S d : \u03b1) (j : \u2115) (h : j \u2260 L.length)",
+      "expected_type": "(L ++ [S]).getD j d = L.getD j d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.getD_snoc_eq",
+      "line": 49,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "{\u03b1 : Type} (L : List \u03b1) (S d : \u03b1)",
+      "expected_type": "(L ++ [S]).getD L.length d = S"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.simplify_ok",
+      "line": 100,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(op : GateOp) (m : \u2115) (ins : List Stat)",
+      "expected_type": "\u2200 g \u2208 (simplify op m ins).1, Ok g"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.simplify_count",
+      "line": 113,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(op : GateOp) (m : \u2115) (ins : List Stat)\n    (hop : op = GateOp.and \u2228 op = GateOp.or \u2228 op = GateOp.not) (hlen : ins.length \u2264 2)\n    (hnot : op = GateOp.not \u2192 ins.length \u2264 1) (hc : \u2203 c, Sum.inl c \u2208 ins)",
+      "expected_type": "(simplify op m ins).1 = none"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.simplify_sound",
+      "line": 126,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(op : GateOp) (hop : op = GateOp.and \u2228 op = GateOp.or \u2228 op = GateOp.not)\n    (w : List Bool) (ins : List Stat) (hlen : ins.length \u2264 2)\n    (hv : \u2200 s \u2208 ins, s.Valid w.length)",
+      "expected_type": "((simplify op w.length ins).2).Valid (w.length + (simplify op w.length ins).1.toList.length) \u2227\n    ((simplify op w.length ins).2).val (wiresFrom (simplify op w.length ins).1.toList w)\n      = op.eval (ins.map (Stat.val w))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.getD_snoc_len",
+      "line": 158,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "{\u03b1 : Type} (L : List \u03b1) (S d : \u03b1) (k : \u2115) (h : L.length = k)",
+      "expected_type": "(L ++ [S]).getD k d = S"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.toList_length_le",
+      "line": 162,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "{\u03b1 : Type} (o : Option \u03b1)",
+      "expected_type": "o.toList.length \u2264 1"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_ok",
+      "line": 165,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (gs : List Gate)",
+      "expected_type": "\u2200 acc : List Stat \u00d7 List Gate,\n    (\u2200 g \u2208 acc.2, Ok g) \u2192 \u2200 g \u2208 (elim n gs acc).2, Ok g"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_len",
+      "line": 177,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (gs : List Gate)",
+      "expected_type": "\u2200 acc : List Stat \u00d7 List Gate,\n    (elim n gs acc).2.length \u2264 acc.2.length + gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Stat.valid_mono",
+      "line": 192,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "{m m' : \u2115} (h : m \u2264 m')",
+      "expected_type": "\u2200 s : Stat, s.Valid m \u2192 s.Valid m'"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Stat.val_append",
+      "line": 196,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(w t : List Bool)",
+      "expected_type": "\u2200 s : Stat, s.Valid w.length \u2192\n    s.val (w ++ t) = s.val w"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.inv_elim",
+      "line": 206,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (y : List Bool) (hy : y.length = n) (gs : List Gate)",
+      "expected_type": "\u2200 (w : List Bool) (acc : List Stat \u00d7 List Gate), (\u2200 g \u2208 gs, Ok g) \u2192 Inv n y w acc \u2192\n      Inv n y (wiresFrom gs w) (elim n gs acc)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.normGate_eval",
+      "line": 255,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(g : Gate) (F : \u2115 \u2192 Bool)",
+      "expected_type": "(normGate g).op.eval ((normGate g).inputs.map F) = g.op.eval (g.inputs.map F)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.normGate_nok",
+      "line": 261,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(g : Gate) (h : Ok g)",
+      "expected_type": "NOk (normGate g)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.wiresFrom_norm",
+      "line": 273,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(gs : List Gate)",
+      "expected_type": "\u2200 w : List Bool,\n    wiresFrom (gs.map normGate) w = wiresFrom gs w"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.inv_init",
+      "line": 289,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (b : Bool) (y : Fin n \u2192 Bool)",
+      "expected_type": "Inv n (List.ofFn y) (List.ofFn y ++ [b]) (initStats n b, [])"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.ofFn_snoc",
+      "line": 307,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (y : Fin n \u2192 Bool) (b : Bool)",
+      "expected_type": "List.ofFn (Fin.snoc y b : Fin (n + 1) \u2192 Bool) = List.ofFn y ++ [b]"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_len_readers",
+      "line": 317,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n k : \u2115) (gs : List Gate)",
+      "expected_type": "\u2200 acc : List Stat \u00d7 List Gate,\n      (\u2200 g \u2208 gs, NOk g) \u2192 k < acc.1.length \u2192\n      (\u2203 c, acc.1.getD k (Sum.inl false) = Sum.inl c) \u2192\n      (elim n gs acc).2.length + readerCount k gs \u2264 acc.2.length + gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.fix_last_counted",
+      "line": 360,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (b : Bool) (C : Circuit)\n    (hC : FanInTwo C)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y b)) \u2260 C.eval (List.ofFn (Fin.snoc y' b)))",
+      "expected_type": "\u2203 E : Circuit, FanInTwo E \u2227\n      E.size + readerCount n (C.gates.map normGate) \u2264 C.size \u2227\n      \u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.readers_le_of_cofactor_lower",
+      "line": 406,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n q s : \u2115) (b : Bool) (C : Circuit)\n    (hC : FanInTwo C) (hsize : C.size \u2264 s)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y b)) \u2260 C.eval (List.ofFn (Fin.snoc y' b)))\n    (hlower : \u2200 E : Circuit, FanInTwo E \u2192\n      (\u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))) \u2192\n      q \u2264 E.size)",
+      "expected_type": "q + readerCount n (C.gates.map normGate) \u2264 s"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_len_setReaders",
+      "line": 422,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (K : Finset \u2115) (gs : List Gate)",
+      "expected_type": "\u2200 acc : List Stat \u00d7 List Gate,\n      (\u2200 g \u2208 gs, NOk g) \u2192\n      (\u2200 k \u2208 K, k < acc.1.length \u2227 \u2203 c, acc.1.getD k (Sum.inl false) = Sum.inl c) \u2192\n      (elim n gs acc).2.length + setReaderCount K gs \u2264 acc.2.length + gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_getD",
+      "line": 467,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n k : \u2115) (d : Stat) (gs : List Gate)",
+      "expected_type": "\u2200 acc : List Stat \u00d7 List Gate,\n    k < acc.1.length \u2192 (elim n gs acc).1.getD k d = acc.1.getD k d"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_status_length",
+      "line": 477,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (gs : List Gate) (acc : List Stat \u00d7 List Gate)",
+      "expected_type": "(elim n gs acc).1.length = acc.1.length + gs.length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.simplify_and_false",
+      "line": 486,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(m : \u2115) (ins : List Stat) (hlen : ins.length \u2264 2)\n    (hz : Sum.inl false \u2208 ins)",
+      "expected_type": "simplify GateOp.and m ins = (none, Sum.inl false)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_and_reader_bound",
+      "line": 493,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n k : \u2115) (pre post : List Gate) (g : Gate)\n    (acc : List Stat \u00d7 List Gate)\n    (hok : \u2200 h \u2208 pre ++ g :: post, NOk h)\n    (hk : k < acc.1.length) (hz : acc.1.getD k (Sum.inl false) = Sum.inl false)\n    (hg : g.op = GateOp.and) (hread : k \u2208 g.inputs)",
+      "expected_type": "(elim n (pre ++ g :: post) acc).2.length + readerCount k pre + 1 +\n        setReaderCount {k, acc.1.length + pre.length} post \u2264\n      acc.2.length + (pre ++ g :: post).length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.readerCount_append",
+      "line": 540,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(k : \u2115) (xs ys : List Gate)",
+      "expected_type": "readerCount k (xs ++ ys) = readerCount k xs + readerCount k ys"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.setReaderCount_pair_cons",
+      "line": 546,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(k l : \u2115) (g : Gate) (gs : List Gate)",
+      "expected_type": "setReaderCount {k, l} (g :: gs) =\n      (if k \u2208 g.inputs \u2228 l \u2208 g.inputs then 1 else 0) + setReaderCount {k, l} gs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.setReaderCount_pair_ge",
+      "line": 561,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(k l : \u2115) (gs : List Gate)",
+      "expected_type": "readerCount k gs \u2264 setReaderCount {k, l} gs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.setReaderCount_pair_extra",
+      "line": 570,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(k l : \u2115) (gs : List Gate)\n    (hx : \u2203 g \u2208 gs, l \u2208 g.inputs \u2227 k \u2209 g.inputs)",
+      "expected_type": "readerCount k gs + 1 \u2264 setReaderCount {k, l} gs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.elim_and_extra_saving",
+      "line": 586,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n k : \u2115) (pre post : List Gate) (g : Gate)\n    (acc : List Stat \u00d7 List Gate)\n    (hok : \u2200 h \u2208 pre ++ g :: post, NOk h)\n    (hk : k < acc.1.length) (hz : acc.1.getD k (Sum.inl false) = Sum.inl false)\n    (hg : g.op = GateOp.and) (hread : k \u2208 g.inputs)\n    (hconsumer : \u2203 h \u2208 post, acc.1.length + pre.length \u2208 h.inputs \u2227 k \u2209 h.inputs)",
+      "expected_type": "(elim n (pre ++ g :: post) acc).2.length +\n        readerCount k (pre ++ g :: post) + 1 \u2264\n      acc.2.length + (pre ++ g :: post).length"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.fix_last_with_savings",
+      "line": 601,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n q : \u2115) (b : Bool) (C : Circuit)\n    (hC : FanInTwo C)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y b)) \u2260 C.eval (List.ofFn (Fin.snoc y' b)))\n    (hbudget : (elim n (C.gates.map normGate) (initStats n b, [])).2.length + q \u2264 C.size)",
+      "expected_type": "\u2203 E : Circuit, FanInTwo E \u2227 E.size + q \u2264 C.size \u2227\n      \u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.fix_false_and_extra",
+      "line": 643,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (C : Circuit) (pre post : List Gate) (g : Gate)\n    (hC : FanInTwo C)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y false)) \u2260 C.eval (List.ofFn (Fin.snoc y' false)))\n    (hgs : C.gates.map normGate = pre ++ g :: post)\n    (hg : g.op = GateOp.and) (hread : n \u2208 g.inputs)\n    (hconsumer : \u2203 h \u2208 post, n + 1 + pre.length \u2208 h.inputs \u2227 n \u2209 h.inputs)",
+      "expected_type": "\u2203 E : Circuit, FanInTwo E \u2227\n      E.size + readerCount n (C.gates.map normGate) + 1 \u2264 C.size \u2227\n      \u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y false))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.and_readers_le_of_cofactor_lower",
+      "line": 671,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n q s : \u2115) (C : Circuit)\n    (pre post : List Gate) (g : Gate)\n    (hC : FanInTwo C) (hsize : C.size \u2264 s)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y false)) \u2260 C.eval (List.ofFn (Fin.snoc y' false)))\n    (hlower : \u2200 E : Circuit, FanInTwo E \u2192\n      (\u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y false))) \u2192\n      q \u2264 E.size)\n    (hgs : C.gates.map normGate = pre ++ g :: post)\n    (hg : g.op = GateOp.and) (hread : n \u2208 g.inputs)\n    (hconsumer : \u2203 h \u2208 post, n + 1 + pre.length \u2208 h.inputs \u2227 n \u2209 h.inputs)",
+      "expected_type": "q + readerCount n (C.gates.map normGate) + 1 \u2264 s"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Consumer.two_inputs_of_distinct",
+      "line": 692,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Consumer",
+      "expected_binders": "(l : List \u2115) (v w : \u2115) (hvw : v \u2260 w)\n    (hl : l.length \u2264 2) (hv : v \u2208 l) (hw : w \u2208 l)",
+      "expected_type": "l = [v, w] \u2228 l = [w, v]"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Consumer.and_value_implies_input",
+      "line": 707,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Consumer",
+      "expected_binders": "{A : Type} (F : A \u2192 \u2115 \u2192 Bool) (g : Gate) (v w : \u2115)\n    (hop : g.op = GateOp.and) (hv : v \u2208 g.inputs)\n    (heval : \u2200 a, F a w = g.op.eval (g.inputs.map (F a)))",
+      "expected_type": "\u2200 a, F a w = true \u2192 F a v = true"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Consumer.consumer_absorbs",
+      "line": 717,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Consumer",
+      "expected_binders": "{A : Type} (F : A \u2192 \u2115 \u2192 Bool) (g : Gate) (v w out : \u2115)\n    (hvw : v \u2260 w) (hv : v \u2208 g.inputs) (hw : w \u2208 g.inputs)\n    (hop : g.op = GateOp.and \u2228 g.op = GateOp.or \u2228 g.op = GateOp.not)\n    (hlen : g.inputs.length \u2264 2) (hnot : g.op = GateOp.not \u2192 g.inputs.length \u2264 1)\n    (heval : \u2200 a, F a out = g.op.eval (g.inputs.map (F a)))\n    (himp : \u2200 a, F a w = true \u2192 F a v = true)",
+      "expected_type": "(\u2200 a, F a out = F a w) \u2228 (\u2200 a, F a out = F a v)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Consumer.consumer_avoids_raw_input",
+      "line": 741,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Consumer",
+      "expected_binders": "{A : Type} (F : A \u2192 \u2115 \u2192 Bool)\n    (source consumer : Gate) (n v p q : \u2115) (hv : v < n) (hpq : p < q)\n    (hsource : source.op = GateOp.and) (hsourcev : v \u2208 source.inputs)\n    (hread : n + p \u2208 consumer.inputs)\n    (hop : consumer.op = GateOp.and \u2228 consumer.op = GateOp.or \u2228 consumer.op = GateOp.not)\n    (hlen : consumer.inputs.length \u2264 2)\n    (hnot : consumer.op = GateOp.not \u2192 consumer.inputs.length \u2264 1)\n    (hsourceval : \u2200 a, F a (n + p) = source.op.eval (source.inputs.map (F a)))\n    (hconsumerval : \u2200 a, F a (n + q) = consumer.op.eval (consumer.inputs.map (F a)))\n    (hnoalias : \u2200 j, j < n + q \u2192 \u00ac \u2200 a, F a (n + q) = F a j)",
+      "expected_type": "v \u2209 consumer.inputs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Consumer.live_consumer_avoids_raw_input",
+      "line": 759,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Consumer",
+      "expected_binders": "{A : Type} (F : A \u2192 \u2115 \u2192 Bool)\n    (gs : List Gate) (n v p : \u2115) (source : Gate) (hv : v < n)\n    (hsource : gs[p]? = some source) (hsourceop : source.op = GateOp.and)\n    (hsourcev : v \u2208 source.inputs)\n    (hnormal : \u2200 (q : \u2115) (g : Gate), gs[q]? = some g \u2192\n      (g.op = GateOp.and \u2228 g.op = GateOp.or \u2228 g.op = GateOp.not) \u2227\n      g.inputs.length \u2264 2 \u2227 (g.op = GateOp.not \u2192 g.inputs.length \u2264 1))\n    (hvalues : \u2200 (q : \u2115) (g : Gate), gs[q]? = some g \u2192\n      \u2200 a, F a (n + q) = g.op.eval (g.inputs.map (F a)))\n    (hnoalias : \u2200 q, q < gs.length \u2192 \u2200 j, j < n + q \u2192\n      \u00ac \u2200 a, F a (n + q) = F a j)\n    (hlive : \u2203 q, p < q \u2227 \u2203 g, gs[q]? = some g \u2227 n + p \u2208 g.inputs)",
+      "expected_type": "\u2203 q g, p < q \u2227 gs[q]? = some g \u2227 n + p \u2208 g.inputs \u2227 v \u2209 g.inputs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.wire_ge",
+      "line": 796,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) {i : \u2115} (hi : n \u2264 i)",
+      "expected_type": "wire s i = i"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.wire_ne_ge",
+      "line": 799,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) {i j : \u2115}\n    (hj : n \u2264 j) (hne : i \u2260 j)",
+      "expected_type": "wire s i \u2260 j"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.wires_relation",
+      "line": 807,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (gs : List Gate)",
+      "expected_type": "\u2200 w w' : List Bool, w'.length = w.length \u2192 n \u2264 w.length \u2192\n      (\u2200 i, w'.getD (wire s i) false = w.getD i false) \u2192\n      \u2200 i, (wiresFrom (gs.map (gate s)) w').getD (wire s i) false =\n        (wiresFrom gs w).getD i false"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.eval",
+      "line": 841,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (C : Circuit) (x : Fin n \u2192 Bool)",
+      "expected_type": "(circuit s C).eval (List.ofFn (x \u2218 s.symm)) = C.eval (List.ofFn x)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.size",
+      "line": 852,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (C : Circuit)",
+      "expected_type": "(circuit s C).size = C.size"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.fanInTwo",
+      "line": 855,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (C : Circuit) (hC : FanInTwo C)",
+      "expected_type": "FanInTwo (circuit s C)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.wire_preimage",
+      "line": 862,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (i : Fin n) (k : \u2115)",
+      "expected_type": "wire s k = i \u2194 k = (s.symm i : \u2115)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.norm_gate",
+      "line": 878,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (g : Gate)",
+      "expected_type": "normGate (gate s g) = gate s (normGate g)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.readerCount_map",
+      "line": 883,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (i : Fin n) (gs : List Gate)",
+      "expected_type": "readerCount i (gs.map (gate s)) = readerCount (s.symm i) gs"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.effective_readers",
+      "line": 898,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (i : Fin n) (C : Circuit)",
+      "expected_type": "readerCount i ((circuit s C).gates.map normGate) =\n      readerCount (s.symm i) (C.gates.map normGate)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.InputRename.eval_relabel",
+      "line": 908,
+      "namespace": "PEqualNP.Outside.L_meta_2373.InputRename",
+      "expected_binders": "{n : \u2115} (s : Equiv.Perm (Fin n)) (C : Circuit) (y : Fin n \u2192 Bool)",
+      "expected_type": "(circuit s C).eval (List.ofFn y) = C.eval (List.ofFn (y \u2218 s))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.fix_input_counted",
+      "line": 914,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n : \u2115) (v : Fin (n + 1)) (b : Bool) (C : Circuit)\n    (hC : FanInTwo C)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y b \u2218 Equiv.swap v (Fin.last n))) \u2260\n        C.eval (List.ofFn (Fin.snoc y' b \u2218 Equiv.swap v (Fin.last n))))",
+      "expected_type": "\u2203 E : Circuit, FanInTwo E \u2227\n      E.size + readerCount v (C.gates.map normGate) \u2264 C.size \u2227\n      \u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) =\n        C.eval (List.ofFn (Fin.snoc y b \u2218 Equiv.swap v (Fin.last n)))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.input_readers_le_of_cofactor_lower",
+      "line": 937,
+      "namespace": "PEqualNP.Outside.L_meta_2373",
+      "expected_binders": "(n q s : \u2115) (v : Fin (n + 1)) (b : Bool)\n    (C : Circuit) (hC : FanInTwo C) (hsize : C.size \u2264 s)\n    (hnc : \u2203 y y' : Fin n \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y b \u2218 Equiv.swap v (Fin.last n))) \u2260\n        C.eval (List.ofFn (Fin.snoc y' b \u2218 Equiv.swap v (Fin.last n))))\n    (hlower : \u2200 E : Circuit, FanInTwo E \u2192\n      (\u2200 y : Fin n \u2192 Bool, E.eval (List.ofFn y) =\n        C.eval (List.ofFn (Fin.snoc y b \u2218 Equiv.swap v (Fin.last n)))) \u2192 q \u2264 E.size)",
+      "expected_type": "q + readerCount v (C.gates.map normGate) \u2264 s"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.table_properties",
+      "line": 957,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "",
+      "expected_type": "\u2200 v : Fin 10, Function.Bijective (table v) \u2227\n    table v v = Fin.last 9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_at",
+      "line": 964,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(v : Fin 10)",
+      "expected_type": "symmetry v v = Fin.last 9"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.table_invariant",
+      "line": 969,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "",
+      "expected_type": "\u2200 (v : Fin 10) (x : Fin 10 \u2192 Bool),\n    f (x \u2218 table v) = f x"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_invariant",
+      "line": 973,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(v : Fin 10) (x : Fin 10 \u2192 Bool)",
+      "expected_type": "f (x \u2218 symmetry v) = f x"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_at",
+      "line": 979,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(v : Fin 10)",
+      "expected_type": "fromZero v 0 = v"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_invariant",
+      "line": 985,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(v : Fin 10) (x : Fin 10 \u2192 Bool)",
+      "expected_type": "f (x \u2218 fromZero v) = f x"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Cofactors.bound3819_nonNot",
+      "line": 7649,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Cofactors",
+      "expected_binders": "(C : Circuit) (h : FanInTwo C) (correct : \u2200 x, C.eval (List.ofFn x) = fn3819 x)",
+      "expected_type": "11 \u2264 C.gates.countP (fun g => !isNot g)"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Cofactors.bound3819",
+      "line": 7698,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Cofactors",
+      "expected_binders": "(C : Circuit) (h : FanInTwo C)\n   (correct : \u2200 x, C.eval (List.ofFn x) = fn3819 x)",
+      "expected_type": "11 \u2264 C.size"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Cofactors.zero_lower",
+      "line": 7701,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Cofactors",
+      "expected_binders": "",
+      "expected_type": "\u00ac PEqualNP.MetaComplexity.HasCircuitSize 9 (fun x : Fin 9 \u2192 Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) 15"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.last_zero",
+      "line": 7715,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(y : Fin 9 \u2192 Bool)",
+      "expected_type": "f (Fin.snoc y false) = fzero y"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.last_zero_nonconstant",
+      "line": 7723,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(C : Circuit)\n    (correct : \u2200 x : Fin 10 \u2192 Bool, C.eval (List.ofFn x) = f x)",
+      "expected_type": "\u2203 y y' : Fin 9 \u2192 Bool,\n      C.eval (List.ofFn (Fin.snoc y false)) \u2260 C.eval (List.ofFn (Fin.snoc y' false))"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.zero_lower_correct",
+      "line": 7731,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(C : Circuit) (hC : FanInTwo C)\n    (correct : \u2200 x : Fin 9 \u2192 Bool, C.eval (List.ofFn x) = fzero x)",
+      "expected_type": "16 \u2264 C.size"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.last_reader_bound",
+      "line": 7737,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(C : Circuit) (hC : FanInTwo C) (hsize : C.size \u2264 19)\n    (correct : \u2200 x : Fin 10 \u2192 Bool, C.eval (List.ofFn x) = f x)",
+      "expected_type": "readerCount 9 (C.gates.map normGate) \u2264 3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.all_input_readers_bound",
+      "line": 7748,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(C : Circuit) (hC : FanInTwo C) (hsize : C.size \u2264 19)\n    (correct : \u2200 x : Fin 10 \u2192 Bool, C.eval (List.ofFn x) = f x) (v : Fin 10)",
+      "expected_type": "readerCount v (C.gates.map normGate) \u2264 3"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Graph2373.last_and_reader_bound",
+      "line": 7767,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Graph2373",
+      "expected_binders": "(C : Circuit) (hC : FanInTwo C) (hsize : C.size \u2264 19)\n    (correct : \u2200 x : Fin 10 \u2192 Bool, C.eval (List.ofFn x) = f x)\n    (pre post : List Gate) (g : Gate) (hgs : C.gates.map normGate = pre ++ g :: post)\n    (hg : g.op = GateOp.and) (hread : 9 \u2208 g.inputs)\n    (hconsumer : \u2203 h \u2208 post, 10 + pre.length \u2208 h.inputs \u2227 9 \u2209 h.inputs)",
+      "expected_type": "readerCount 9 (C.gates.map normGate) \u2264 2"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Residual.exceptions",
+      "line": 7805,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Residual",
+      "expected_binders": "",
+      "expected_type": "\u2200 r : Fin 1024,\n   F r = true \u2192 Fminus r = false \u2192 \u2203 i : Fin 9, rows i = r"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Residual.finite_classification",
+      "line": 7810,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Residual",
+      "expected_binders": "",
+      "expected_type": "\u2200 fill : Fin 9 \u2192 Bool,\n   admissible fill \u2192 fill \u2208 masks.map bits"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Residual.masks_length",
+      "line": 7814,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Residual",
+      "expected_binders": "",
+      "expected_type": "masks.length = 47"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Residual.masks_nodup",
+      "line": 7815,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Residual",
+      "expected_binders": "",
+      "expected_type": "masks.Nodup"
+    },
+    {
+      "name": "PEqualNP.Outside.L_meta_2373.Residual.classification",
+      "line": 7818,
+      "namespace": "PEqualNP.Outside.L_meta_2373.Residual",
+      "expected_binders": "(H : Fin 1024 \u2192 Bool)\n   (hmono : \u2200 r s, rowLE r s \u2192 H r = true \u2192 H s = true)\n   (hlower : \u2200 r, Fminus r = true \u2192 H r = true)\n   (hupper : \u2200 r, H r = true \u2192 F r = true)\n   (hzero : H 3 = false)",
+      "expected_type": "\u2203 m \u2208 masks, H = target m"
+    }
+  ],
+  "audit_source_sha256": "4a85b06a70656d52bb6ddef2126a61cc7ebb7abfeab2f175fdd36a793507a411"
+}

@@ -1,0 +1,46 @@
+PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables : (∀ (g : Fin 8),
+    Function.Bijective (PEqualNP.Outside.L_meta_2373.Residual.Orbit.vertices g)) ∧
+  (∀ (g : Fin 8), Function.Bijective (PEqualNP.Outside.L_meta_2373.Residual.Orbit.actions g)) ∧
+    ∀ (g : Fin 8) (i : Fin 9),
+      PEqualNP.Outside.L_meta_2373.Residual.Orbit.permRow g (PEqualNP.Outside.L_meta_2373.Residual.rows i) =
+        PEqualNP.Outside.L_meta_2373.Residual.rows (PEqualNP.Outside.L_meta_2373.Residual.Orbit.actions g i)
+'PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties : ∀ (g : Fin 8) (r : Fin 1024),
+  have s := PEqualNP.Outside.L_meta_2373.Residual.Orbit.permRow g r;
+  PEqualNP.Outside.L_meta_2373.Residual.Fminus s = PEqualNP.Outside.L_meta_2373.Residual.Fminus r ∧
+    PEqualNP.Outside.L_meta_2373.Residual.F s = PEqualNP.Outside.L_meta_2373.Residual.F r ∧
+      PEqualNP.Outside.L_meta_2373.Residual.Orbit.permRow (PEqualNP.Outside.L_meta_2373.Residual.Orbit.inverse g) s =
+          r ∧
+        ∀ (i : Fin 10), (↑s).testBit ↑i = (↑r).testBit ↑(PEqualNP.Outside.L_meta_2373.Residual.Orbit.vertices g i)
+'PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover : ∀ m ∈ PEqualNP.Outside.L_meta_2373.Residual.masks,
+  ∃ k g,
+    ∀ (i : Fin 9),
+      PEqualNP.Outside.L_meta_2373.Residual.bits m i =
+        PEqualNP.Outside.L_meta_2373.Residual.bits (PEqualNP.Outside.L_meta_2373.Residual.Orbit.reps k)
+          (PEqualNP.Outside.L_meta_2373.Residual.Orbit.actions g i)
+'PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover' depends on axioms: [propext, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport : ∀ (m : ℕ) (k : Fin 14) (g : Fin 8),
+  (∀ (i : Fin 9),
+      PEqualNP.Outside.L_meta_2373.Residual.bits m i =
+        PEqualNP.Outside.L_meta_2373.Residual.bits (PEqualNP.Outside.L_meta_2373.Residual.Orbit.reps k)
+          (PEqualNP.Outside.L_meta_2373.Residual.Orbit.actions g i)) →
+    ∀ (r : Fin 1024),
+      PEqualNP.Outside.L_meta_2373.Residual.target m r =
+        PEqualNP.Outside.L_meta_2373.Residual.target (PEqualNP.Outside.L_meta_2373.Residual.Orbit.reps k)
+          (PEqualNP.Outside.L_meta_2373.Residual.Orbit.permRow g r)
+'PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets : ∀ (H : Fin 1024 → Bool),
+  (∀ (r s : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.rowLE r s → H r = true → H s = true) →
+    (∀ (r : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.Fminus r = true → H r = true) →
+      (∀ (r : Fin 1024), H r = true → PEqualNP.Outside.L_meta_2373.Residual.F r = true) →
+        H 3 = false →
+          ∃ k g,
+            H = fun r =>
+              PEqualNP.Outside.L_meta_2373.Residual.target (PEqualNP.Outside.L_meta_2373.Residual.Orbit.reps k)
+                (PEqualNP.Outside.L_meta_2373.Residual.Orbit.permRow g r)
+'PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,10 @@
+{
+  "module": "BaselineCofactorBenchmark292",
+  "sha256": "e00fcbe8f73ff91c9a5920a7f8586f9287bd7c1da6771a432a43fec689f1c5de",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 49.199734263999744,
+  "max_rss_kib": 7916436,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

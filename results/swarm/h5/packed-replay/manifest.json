@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "checker_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "range": {
+    "start": 3072,
+    "end_exclusive": 3840,
+    "count": 768
+  },
+  "modules": [
+    {
+      "module": "H5BlockSupport",
+      "source": "H5BlockSupport.lean",
+      "result": "H5BlockSupport.result.json",
+      "observed_olean_sha256": "86193fbe782e70b0737c04398227a34dbe0f9090c1ca9fd1101d9c103a0f4c95"
+    },
+    {
+      "module": "H5PackedRange3072",
+      "source": "H5PackedRange3072.lean",
+      "result": "H5PackedRange3072.result.json",
+      "observed_olean_sha256": "e6a787bcfe620a68621703da5a35de9a7e271096106e331a5bd8009752613f8b"
+    },
+    {
+      "module": "H5PackedRange3136",
+      "source": "H5PackedRange3136.lean",
+      "result": "H5PackedRange3136.result.json",
+      "observed_olean_sha256": "a9cd5e508407cd0deffe320fddd6191ea3589435ddf619160e75bbf3ff443f7d"
+    },
+    {
+      "module": "H5PackedRange3200",
+      "source": "H5PackedRange3200.lean",
+      "result": "H5PackedRange3200.result.json",
+      "observed_olean_sha256": "938edc90790136fa3c1c589f8b80b6928a8bfddd6ddd6a3c966f26ac12a0c8c7"
+    },
+    {
+      "module": "H5PackedRange3264",
+      "source": "H5PackedRange3264.lean",
+      "result": "H5PackedRange3264.result.json",
+      "observed_olean_sha256": "e6a84797e8771988c652990cbae5cd23508e8caac9dff2249979beff9c4b501d"
+    },
+    {
+      "module": "H5PackedRange3328",
+      "source": "H5PackedRange3328.lean",
+      "result": "H5PackedRange3328.result.json",
+      "observed_olean_sha256": "3a326fa92cdc356b7de806dbb704cf39eaeef3c6e4da76278f8cab90e2580d4a"
+    },
+    {
+      "module": "H5PackedRange3392",
+      "source": "H5PackedRange3392.lean",
+      "result": "H5PackedRange3392.result.json",
+      "observed_olean_sha256": "0b7e3d209405c5b3dd7556cab9f1cbef58c7d3ba509b359236b089e5299c00e0"
+    },
+    {
+      "module": "H5PackedRange3456",
+      "source": "H5PackedRange3456.lean",
+      "result": "H5PackedRange3456.result.json",
+      "observed_olean_sha256": "959ba278d39fce6bb3d142fb861c842143e1d31802be7cae6aff06cb6df42633"
+    },
+    {
+      "module": "H5PackedRange3520",
+      "source": "H5PackedRange3520.lean",
+      "result": "H5PackedRange3520.result.json",
+      "observed_olean_sha256": "2bc614e1a47112379088764956c7fd822838f088e1a471ebcbb6f94b37c35cd2"
+    },
+    {
+      "module": "H5PackedRange3584",
+      "source": "H5PackedRange3584.lean",
+      "result": "H5PackedRange3584.result.json",
+      "observed_olean_sha256": "2383bf25263946a5f730a93464d3765ef13a3eb096bf59d17d28e36c4c987455"
+    },
+    {
+      "module": "H5PackedRange3648",
+      "source": "H5PackedRange3648.lean",
+      "result": "H5PackedRange3648.result.json",
+      "observed_olean_sha256": "ab31573db7fd9d0b41758b2bc1b9d741c9a57335f9a293d43b68515ff1633104"
+    },
+    {
+      "module": "H5PackedRange3712",
+      "source": "H5PackedRange3712.lean",
+      "result": "H5PackedRange3712.result.json",
+      "observed_olean_sha256": "ed61e0b4ff283c8870fd4fa1e602ce8ca180a6c3dcb65efac422bcba4f81c80b"
+    },
+    {
+      "module": "H5PackedRange3776",
+      "source": "H5PackedRange3776.lean",
+      "result": "H5PackedRange3776.result.json",
+      "observed_olean_sha256": "b3c0f25217817d2cf233a445b412f2476faa6c0e46c7e4291ce37538f09e75e4"
+    },
+    {
+      "module": "H5PackedRangeAll",
+      "source": "H5PackedRangeAll.lean",
+      "result": "H5PackedRangeAll.result.json",
+      "observed_olean_sha256": "9758f8d5b856f07e81848342f1d6382c7066aaa4992fb0d4917632f746db7a31"
+    },
+    {
+      "module": "H5PackedRangeAllAudit",
+      "source": "H5PackedRangeAllAudit.lean",
+      "result": "H5PackedRangeAllAudit.result.json",
+      "observed_olean_sha256": "0037eea69490cb81bea55cc4ba51cb7fbc2ece1c093c7161887d1f0498ddd812"
+    }
+  ],
+  "files": {
+    "H5BlockSupport.lean": "688bd00299e6e4d7fcfd3c4fb88c6acefd1e4734f2348d0825ee9f4cd31cc94a",
+    "H5BlockSupport.result.json": "298a7871b1987ef928a6f41a1fb8b1eb419bad719926e041c72e0b8b5b2382f5",
+    "H5BlockSupport.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5BlockSupport.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3072.lean": "46a3af42e6cecdeeb3572fe35084174bb5141e508c5c0e8d1c0dfa35d755a5b5",
+    "H5PackedRange3072.result.json": "bd571177e32e0a24c60d8d1ba382d9edc08a3b174cd8ebf77f98900ed2c12845",
+    "H5PackedRange3072.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3072.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3136.lean": "9d2f251029031310c2028f9988e45186b1351ef4b06121badf3f6c855b6098b5",
+    "H5PackedRange3136.result.json": "d0c5591f28dd41d17eada3cc09e3b99dd804b7427f6ffbc2896dd530838e314d",
+    "H5PackedRange3136.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3136.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3200.lean": "a8a71045716d76121ee83a49ae1548eaf5eb9a1be91a434061e0ad51bd6bfea2",
+    "H5PackedRange3200.result.json": "6ec5b76ea627e6fcc96b3a338e36f78419d4e205b7e024ac8a861d65ead89238",
+    "H5PackedRange3200.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3200.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3264.lean": "aafe5ae3c9dccf4bf2ddbbec1cff649a43b1b76378a4048195ee1d7e96353746",
+    "H5PackedRange3264.result.json": "f7edac1ff35e03d028e77bc5ec624ed0310bce33a2164b5b787c5782cede198c",
+    "H5PackedRange3264.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3264.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3328.lean": "9d99d934a09df647bae1c27b3c1796ef4f03f19588078631eb6da795d99842c6",
+    "H5PackedRange3328.result.json": "ec611757b8d887107b334e9c7814b00b1a7bd591f3ffd806b71a43effbfd5020",
+    "H5PackedRange3328.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3328.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3392.lean": "996c44fdc33bae972270f15983c7dcbfb994c428dbed52577b232e5e806f1584",
+    "H5PackedRange3392.result.json": "a5bb033e0deb3779b6ba4fef997b056c4775ff6014b9489575d0a76c105a9ae8",
+    "H5PackedRange3392.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3392.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3456.lean": "ad8636b8fa3e8f88efa2de16ce746430b60a5ee9a0d8737c0cc27b29385922d1",
+    "H5PackedRange3456.result.json": "19018d2c253d0b221c0f84d29c974607b0d73f06ea84d45ba43b2a27ee47dc07",
+    "H5PackedRange3456.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3456.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3520.lean": "d4fd9cf128dc2b2c01d0bddac5b75cb6e9851db8b9ac6549783eb9ce70f0ccaa",
+    "H5PackedRange3520.result.json": "2500cb549ed2934b4920ff85fca2ec8b5b792fd21c37af4e2febd2d5200947d2",
+    "H5PackedRange3520.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3520.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3584.lean": "c1dd5da56479b27148e3018a15a97e45a8221e738dc64414d717d9c392b59fb5",
+    "H5PackedRange3584.result.json": "d67f6585ac551f79768b17f9800b1f06ef09907fbeb10d958a13358fa7441b64",
+    "H5PackedRange3584.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3584.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3648.lean": "686243d99a43fea19f28e5c92ae0aaf5c747b13a60b4c37b72995c6b1482cb94",
+    "H5PackedRange3648.result.json": "2e0137ea6a6c10d4becd410030f8985f4a89cdd172262536c364cd4baabfcaa8",
+    "H5PackedRange3648.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3648.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3712.lean": "29b6565131e128296befd0e20ac5b27b0fbfef0a868df235cf7bd46b3fdba562",
+    "H5PackedRange3712.result.json": "6928f3c044056c1b9873f985f3b81637c55a6c7693db8d535fa950405fef4ba4",
+    "H5PackedRange3712.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3712.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3776.lean": "a6ee2da3e872ff8182deae4ae5c1ecf17f5f04eb5b7418d362647b538908c269",
+    "H5PackedRange3776.result.json": "b88fd85fe2fc88b71e0884072520b0f9a05783ebd089ce15b47c0530682bf3cc",
+    "H5PackedRange3776.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRange3776.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRangeAll.lean": "2d2074d91f041c0005030c5560630bf9e52db2c916cb1270737cda17c9e216ed",
+    "H5PackedRangeAll.result.json": "3c22dfc90334c04a524a3173c6dc60fe3bdc4961839f1200476074f5c0b1a6c6",
+    "H5PackedRangeAll.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRangeAll.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRangeAllAudit.lean": "d7754e60cec8369ee563aa015519ae5e936d4f39d781729b667e849d686795e7",
+    "H5PackedRangeAllAudit.result.json": "1e555a6dbf5ddeb685caf7dacfd662eeeddeeac0d931040d7d9cbdf79b653fd9",
+    "H5PackedRangeAllAudit.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "H5PackedRangeAllAudit.stdout": "d4a2499ade1b657122182192c7ff833838d9afe6d06d7e73c98e4a6db9c09308",
+    "README.md": "5cff63590948bc9962acd47266d757ee5d1d308344c0183a29973154f776002c",
+    "aggregate-audit.json": "bd684f3b4e485fec302e017eb186ffd4d676bda8513ebf4a80ff752cebf79fa0",
+    "checker-dependencies.json": "38858eb28973910e6fe85fe0171c4777229cc44a1690b98ea50afb27f7bb6668",
+    "completion-independent-review.json": "b33fde8b04cc35afdf92bcb4a4a3173e8bada4e60856585567bff2ad08338227",
+    "range-manifest.json": "ecfb4dbb3d1b066ed50be415dd98134977c86aa5fabe31106c2d82e943d5b228",
+    "source-independent-review.json": "59171f8f00e37576ac5d4900b91e4bf76401bf3ee18bd452e7aaba633796ca79",
+    "verify.py": "266f6ca39e5b4338cb00d1c6dd455bd8ed3313cfdae93cd6b84a8df491c8ed4c"
+  },
+  "scope": "Partial certificate replay; no full-gap claim."
+}

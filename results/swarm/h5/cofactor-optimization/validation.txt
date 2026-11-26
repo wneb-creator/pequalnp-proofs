@@ -1,0 +1,9 @@
+PASS: both wrapper module builds, both type/axiom audits, and all five listed historical benchmark modules.
+All nine receipts: exit_code0, timed_outfalse, memory_cap_mb8000, threads1; source hashes match distributed sources, built copies, and runner logs.
+All nine stderr files are empty. Both audits contain the exact checker equality and conditional closure types; only propext, Classical.choice, Quot.sound occur recursively.
+Compressed-prefix checker pin: f59430f57ef1bacea1760fc2928a78526ac58ce7.
+DirectMode checker pin: 6577b13f206a0b4041e887813fb2f47584df3dd9.
+All required local checker sources match pinned git blobs and archived/built copies. Shared L_meta_6581 source matches both checker revisions and maincc06910d.
+Timings are historical single-run observations, not performance guarantees. DirectMode5229 has no supplied baseline comparison.
+Neither checker-family equation nor its historical sample checks certify Packed nodes at frozen36375ce3. No aggregate all-node check or unconditional lower bound is provided.
+Publication preparation used source/hash/log review only; no fresh Lean orSAT run and no tracked edit.

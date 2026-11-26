@@ -1,0 +1,11 @@
+PEqualNP.Outside.L_meta_2373.Residual.classification : ∀ (H : Fin 1024 → Bool),
+  (∀ (r s : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.rowLE r s → H r = true → H s = true) →
+    (∀ (r : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.Fminus r = true → H r = true) →
+      (∀ (r : Fin 1024), H r = true → PEqualNP.Outside.L_meta_2373.Residual.F r = true) →
+        H 3 = false →
+          ∃ m ∈ PEqualNP.Outside.L_meta_2373.Residual.masks, H = PEqualNP.Outside.L_meta_2373.Residual.target m
+'PEqualNP.Outside.L_meta_2373.Residual.exceptions' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.Residual.finite_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373.Residual.masks_length' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2373.Residual.masks_nodup' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2373.Residual.classification' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,1 @@
+{"module": "FastCofactorPoolsAudit", "sha256": "8a31106256aea74d805d68878282c01a9112b3b1b1eb593dab356a0b4d71bb11", "exit_code": 0, "timed_out": false, "elapsed_seconds": 1.9847542330007855, "max_rss_kib": 2888868, "memory_cap_mb": 8000, "threads": 1}

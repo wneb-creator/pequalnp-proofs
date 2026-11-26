@@ -1,0 +1,10 @@
+{
+  "module": "FastCofactorBenchmark292",
+  "sha256": "d4fa3ecb3d9aa1e1757ec49051484754eb4674f4e7477d6143eff86c1d1e6234",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 36.19321887299975,
+  "max_rss_kib": 7788624,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

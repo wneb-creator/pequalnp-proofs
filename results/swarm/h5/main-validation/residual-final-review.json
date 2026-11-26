@@ -1,0 +1,14 @@
+{
+  "source_sha256": "87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6",
+  "source_bytes": 524205,
+  "byte_limit": 524288,
+  "bytes_remaining": 83,
+  "exact_reviewed_insertion": true,
+  "unchanged_baseline": true,
+  "single_Defs_import": true,
+  "new_lemmas": 5,
+  "new_custom_datatypes_or_instances": false,
+  "global_options_added": false,
+  "gap_main_theorem_present": false,
+  "verdict": "PASS as helper payload, pending definitive named build and75-lemma audit"
+}

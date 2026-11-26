@@ -1,0 +1,110 @@
+{
+  "main-validation": {
+    "all_manifest_artifact_hashes_match": true,
+    "artifact_count": 5,
+    "source_matches_git_commit_and_current_file": true,
+    "source_bytes": 524205,
+    "audit_exact_type_example_count": 75,
+    "audit_distinct_recursive_axiom_reports": 75,
+    "axioms_used": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "complete_build_success_marker": true,
+    "build_log_bytes": 118165,
+    "logs_exact_scratch_originals": true
+  },
+  "residual-orbits": {
+    "all_manifest_artifact_hashes_match": true,
+    "artifact_count": 9,
+    "exact_audit_bodies_and_original_logs": true,
+    "five_recursive_axiom_reports_each": true,
+    "historical_exit_metadata_not_separate_receipt": true
+  },
+  "credential_pattern_scan": {
+    "files_scanned": 17,
+    "matches": 0,
+    "limitation": "Bounded common credential-pattern scan; no environment credentials read"
+  },
+  "verdict": "PASS independent publication source/hash/log/provenance/scope review; no new Lean run",
+  "packet_files": {
+    "main-validation/FinalPublicAudit.lean": {
+      "bytes": 29779,
+      "sha256": "4a85b06a70656d52bb6ddef2126a61cc7ebb7abfeab2f175fdd36a793507a411"
+    },
+    "main-validation/README.md": {
+      "bytes": 1662,
+      "sha256": "eee5013ee062bd1a91a6b813cc53193758f35bfc296eb035158bc497a7d16215"
+    },
+    "main-validation/build-with-residual-exclusive.log": {
+      "bytes": 118165,
+      "sha256": "1c5b1f07288adfe9b01260823ffc859f2da81eb8802784b44754835895690a4c"
+    },
+    "main-validation/final-public-audit-manifest.json": {
+      "bytes": 31714,
+      "sha256": "c73e6684d40f2de739e226623b76278e039af2d24b2796891a0948fe8480103d"
+    },
+    "main-validation/final75-public-audit.log": {
+      "bytes": 79191,
+      "sha256": "2a805230855b27a101b8ff6d2ae4e6a3cd567a2f9b643d2e2b64bf5a6a7f1e9d"
+    },
+    "main-validation/manifest.json": {
+      "bytes": 987,
+      "sha256": "85f09243aae4744a85a54d1846d090dfcbc97e7ac0a08707912c25f0ac3add66"
+    },
+    "main-validation/residual-final-review.json": {
+      "bytes": 485,
+      "sha256": "a6a0425502d8c77298b629860b24b0d04a3e13c8f24a7178e2eb24cc430a2962"
+    },
+    "residual-orbits/README.md": {
+      "bytes": 3694,
+      "sha256": "ea6f20ec7af48d0ddd9a7f307a3122efb10dec852958a88fc7bbee6db18097f9"
+    },
+    "residual-orbits/ResidualOrbitDelta.lean": {
+      "bytes": 6990,
+      "sha256": "66b6c5afac29a508fe161908c1b7d987d7b4fd9bc9833427f63f74466bc38eba"
+    },
+    "residual-orbits/ResidualOrbitsStandalone.lean": {
+      "bytes": 9746,
+      "sha256": "3695ea26c54d76e819038d4740fa5c204dc1adabb97147e07e2404c28fb416fc"
+    },
+    "residual-orbits/audit-commands.txt": {
+      "bytes": 684,
+      "sha256": "e36a593f69687df69d81fe2ccd521aaf65d75973c6e3359da40a762c054280fa"
+    },
+    "residual-orbits/manifest.json": {
+      "bytes": 4945,
+      "sha256": "9d58627f2c2b89e6ac7586e318b2731405d3332a754e35bad348b0a52ef2dda4"
+    },
+    "residual-orbits/residual-compact-final.log": {
+      "bytes": 1019,
+      "sha256": "5dbe5399635d95aabd760ed110c9e3b0ef0042f69758cfa581d641f73c422c2c"
+    },
+    "residual-orbits/residual-orbits-bounded.log": {
+      "bytes": 3332,
+      "sha256": "fd081efa72273d30b85aa0d6bc9ca2e428797d33c24e7d3253b265401f05f123"
+    },
+    "residual-orbits/residual-orbits-standalone-5500.log": {
+      "bytes": 3332,
+      "sha256": "fd081efa72273d30b85aa0d6bc9ca2e428797d33c24e7d3253b265401f05f123"
+    },
+    "residual-orbits/review.json": {
+      "bytes": 1429,
+      "sha256": "bf908f577dbf3fb941ad3e3b509eb5764de1d3db97349ee5db783f678e1a0692"
+    },
+    "residual-orbits/validation.txt": {
+      "bytes": 1245,
+      "sha256": "16389142b96ecd5800e1ba76beb42788acc40fd4493b64303b628d8e4bfe9ba1"
+    }
+  },
+  "claim_review": {
+    "no_full_gap_or_official_acceptance_claim": true,
+    "pending_source_review_followed_by_success_logs_explained": true,
+    "orbit_coverage_not_minimality_or_circuit_bound": true,
+    "mutually_exclusive_integration_modes_documented": true,
+    "imported_theorem_exception_claim_matches_CheckLemma_lines_88_116_395_403": true,
+    "reduce_only_extra_check_matches_CheckLemma_lines_309_316_475_479": true
+  },
+  "lean_processes_started": 0
+}

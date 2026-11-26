@@ -1,0 +1,10 @@
+{
+  "module": "FastDirectBenchmark5229",
+  "sha256": "45567c8a6aa27c9ab33a3e485b3bcde0f1849da6f800dd733b23d51a5332d846",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 4.142690630000288,
+  "max_rss_kib": 3241080,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

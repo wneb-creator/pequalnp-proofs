@@ -1,0 +1,27 @@
+{
+  "verdict": "PASS: source/hash/provenance/scope and independent final packet review",
+  "main_matches_pinned_commit": true,
+  "main_sha256": "87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6",
+  "proof_sources_unchanged": true,
+  "audit_bodies_match_sources": true,
+  "standalone_classifier_matches_pinned_main": true,
+  "standalone_orbit_matches_delta": true,
+  "all47_mask_coverage_not_minimality": true,
+  "pullback_direction_confirmed": true,
+  "namespace_collision_documented": true,
+  "fresh_Lean_or_SAT_runs": false,
+  "prior_independent_review": {
+    "verdict": "PASS, independent source and numerical review",
+    "delta_sha256": "66b6c5afac29a508fe161908c1b7d987d7b4fd9bc9833427f63f74466bc38eba",
+    "standalone_sha256": "3695ea26c54d76e819038d4740fa5c204dc1adabb97147e07e2404c28fb416fc",
+    "pack_order": "little endian: output bit i is x(i)",
+    "pullback": "new bit i = old bit vertices(g,i)",
+    "inverse_direction": "vertices(g, vertices(inverse(g),i)) = i",
+    "witnesses_checked": 47,
+    "rows_per_witness": 1024,
+    "standalone_is_compact_plus_delta": true,
+    "kernel_build": "not run by this reviewer"
+  },
+  "current_independent_reviewer": "/root/restriction_math/cnf_review",
+  "current_independent_verdict": "PASS: all files/hashes, pinned main, exact source/audit identities, type/axiom logs, representatives, pullback, namespace collision, and coverage-only scope verified"
+}

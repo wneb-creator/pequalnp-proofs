@@ -1,0 +1,284 @@
+{
+  "gap": "L-meta-2373",
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "checker_revisions": {
+    "compressed_prefix": "f59430f57ef1bacea1760fc2928a78526ac58ce7",
+    "direct_mode": "6577b13f206a0b4041e887813fb2f47584df3dd9"
+  },
+  "later_Packed_revision_context_only": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "namespace": "PEqualNP.Outside.L_meta_2373_aux.Cert18",
+  "recursive_axiom_reports": {
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.check_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.FastCofactorPools.closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.oracle_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.check_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "module_receipts": {
+    "FastCofactorPools": "receipts/FastCofactorPools.result.json",
+    "FastDirectCofactorPools": "receipts/FastDirectCofactorPools.result.json",
+    "FastCofactorPoolsAudit": "receipts/FastCofactorPoolsAudit.result.json",
+    "FastDirectCofactorPoolsAudit": "receipts/FastDirectCofactorPoolsAudit.result.json",
+    "BaselineCofactorBenchmark292": "receipts/BaselineCofactorBenchmark292.result.json",
+    "FastCofactorBenchmark292": "receipts/FastCofactorBenchmark292.result.json",
+    "DirectBaselineBenchmark292": "receipts/DirectBaselineBenchmark292.result.json",
+    "FastDirectBenchmark292": "receipts/FastDirectBenchmark292.result.json",
+    "FastDirectBenchmark5229": "receipts/FastDirectBenchmark5229.result.json"
+  },
+  "benchmark_observations": [
+    {
+      "family_and_node": "Compressed prefix292, baseline",
+      "module": "BaselineCofactorBenchmark292",
+      "checkpoint": "f59430",
+      "elapsed_seconds": 49.199734263999744,
+      "max_rss_kib": 7916436
+    },
+    {
+      "family_and_node": "Compressed prefix292, cofactor wrapper",
+      "module": "FastCofactorBenchmark292",
+      "checkpoint": "f59430",
+      "elapsed_seconds": 36.19321887299975,
+      "max_rss_kib": 7788624
+    },
+    {
+      "family_and_node": "DirectMode292, baseline",
+      "module": "DirectBaselineBenchmark292",
+      "checkpoint": "6577b13f",
+      "elapsed_seconds": 35.150999765999586,
+      "max_rss_kib": 7161888
+    },
+    {
+      "family_and_node": "DirectMode292, cofactor wrapper",
+      "module": "FastDirectBenchmark292",
+      "checkpoint": "6577b13f",
+      "elapsed_seconds": 24.58707407899965,
+      "max_rss_kib": 5919500
+    },
+    {
+      "family_and_node": "DirectMode5229, cofactor wrapper",
+      "module": "FastDirectBenchmark5229",
+      "checkpoint": "6577b13f",
+      "elapsed_seconds": 4.142690630000288,
+      "max_rss_kib": 3241080
+    }
+  ],
+  "scope": "exact prior-checker equalities and conditional closure, with historical sample checks; no Packed node or aggregate lower-bound proof",
+  "files": {
+    "BaselineCofactorBenchmark292.lean": {
+      "sha256": "e00fcbe8f73ff91c9a5920a7f8586f9287bd7c1da6771a432a43fec689f1c5de",
+      "bytes": 187
+    },
+    "DirectBaselineBenchmark292.lean": {
+      "sha256": "681ec6ddd08f1b9934683a308596512dbe71f4ea116bdedd24bf3d28a4ddc70d",
+      "bytes": 195
+    },
+    "FastCofactorBenchmark292.lean": {
+      "sha256": "d4fa3ecb3d9aa1e1757ec49051484754eb4674f4e7477d6143eff86c1d1e6234",
+      "bytes": 196
+    },
+    "FastCofactorPools.lean": {
+      "sha256": "50c7fd1c1c0ae1e4b6b03a3d333b38fbd0b48cb3910f89dd978039b12ef10c3c",
+      "bytes": 3060
+    },
+    "FastCofactorPoolsAudit.lean": {
+      "sha256": "8a31106256aea74d805d68878282c01a9112b3b1b1eb593dab356a0b4d71bb11",
+      "bytes": 333
+    },
+    "FastDirectBenchmark292.lean": {
+      "sha256": "d08f9909bc48e3a14a34fc76ec2d9a36aeac4f195990e0ee1d78a71b8464758d",
+      "bytes": 212
+    },
+    "FastDirectBenchmark5229.lean": {
+      "sha256": "45567c8a6aa27c9ab33a3e485b3bcde0f1849da6f800dd733b23d51a5332d846",
+      "bytes": 213
+    },
+    "FastDirectCofactorPools.lean": {
+      "sha256": "e063a96c12e29004c48bc6321ec59d4815a5b58913166b63a4761b3d2b872aeb",
+      "bytes": 1424
+    },
+    "FastDirectCofactorPoolsAudit.lean": {
+      "sha256": "403f36713a43140fe509ccb027807b07721d7ead142995fdb26f20ce3e1b7cd0",
+      "bytes": 533
+    },
+    "README.md": {
+      "sha256": "6014aee7400061a19f344cd1e630b1d7d516ee45ea8b1d51758275aadadbe29c",
+      "bytes": 4355
+    },
+    "dependency-provenance.json": {
+      "sha256": "cc71dda65aa4e71ff49e98db5babd569e882ff1e41c37b133635b92d7fc7f332",
+      "bytes": 7270
+    },
+    "logs/BaselineCofactorBenchmark292.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/BaselineCofactorBenchmark292.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/DirectBaselineBenchmark292.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/DirectBaselineBenchmark292.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorBenchmark292.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorBenchmark292.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorPools.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorPools.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorPoolsAudit.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastCofactorPoolsAudit.stdout": {
+      "sha256": "bbba63ed2e6aaecf9d0461700f2c29ab77803eda4d6a05058dab2d4ce2f42b9f",
+      "bytes": 899
+    },
+    "logs/FastDirectBenchmark292.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectBenchmark292.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectBenchmark5229.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectBenchmark5229.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectCofactorPools.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectCofactorPools.stdout": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectCofactorPoolsAudit.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/FastDirectCofactorPoolsAudit.stdout": {
+      "sha256": "308b52b523cb204e799f17852a5855197700676dbe032a99c2dd24aa9ac6456f",
+      "bytes": 1407
+    },
+    "logs/baseline-cofactor-benchmark292-run.log": {
+      "sha256": "3c6f35c6206715b50d92ba58ed69c2d851593889634887d02185db6e66b8854c",
+      "bytes": 257
+    },
+    "logs/direct-baseline-benchmark292-run.log": {
+      "sha256": "25ebed0d499832e6d45581153ef2ca7192a2f9c99956ac7e377eea5f73bd56b3",
+      "bytes": 255
+    },
+    "logs/fast-cofactor-audit-run.log": {
+      "sha256": "58188aa183f1a0abd0dbaff698bbe083466ca40c0ed79c4592c7eb3a85d4e68d",
+      "bytes": 251
+    },
+    "logs/fast-cofactor-benchmark292-run.log": {
+      "sha256": "b09189aa0618ec4859fe6cc0b56a21c4e658f102119c80cad1aef861d52c6667",
+      "bytes": 252
+    },
+    "logs/fast-cofactor-module-run2.log": {
+      "sha256": "1c4314d8c3f54c82c6c3f5b884b16b32f4850991e30a5a9e0809c89deaca2075",
+      "bytes": 246
+    },
+    "logs/fast-direct-audit-run.log": {
+      "sha256": "f9d7b702d3fd56f6cb690088c4bc18326b0a7063ae635371da05850c0d220271",
+      "bytes": 257
+    },
+    "logs/fast-direct-benchmark292-run.log": {
+      "sha256": "4bf105389e82f2e58483328ef86f478cfd534654fd04722ba5b3639d59787ae1",
+      "bytes": 250
+    },
+    "logs/fast-direct-benchmark5229-run.log": {
+      "sha256": "e7722360ea71da5b235bf72af35ff680af49b75a9ab6dbc58c7b414e618cd2fb",
+      "bytes": 251
+    },
+    "logs/fast-direct-module-run.log": {
+      "sha256": "69af7808289e15bd8f832bbc56d3d7477c6c2af54b4ecd92065f0de07c2b9ce6",
+      "bytes": 251
+    },
+    "receipts/BaselineCofactorBenchmark292.result.json": {
+      "sha256": "1ce3a48cd467fed70806282a5d7138381125abfdca89c3bf03205504179cf41a",
+      "bytes": 275
+    },
+    "receipts/DirectBaselineBenchmark292.result.json": {
+      "sha256": "8167823df29fa6ebff1e099d24fcbd217e438b6f1d4709f8518fda046e11eb9e",
+      "bytes": 273
+    },
+    "receipts/FastCofactorBenchmark292.result.json": {
+      "sha256": "cdbba87c6c1b6fe24771190e6e1c8710d44e523cd6a78bd81f6f198fa544a6ec",
+      "bytes": 270
+    },
+    "receipts/FastCofactorPools.result.json": {
+      "sha256": "d639000ac515835afd4f2452983747447d3a1959f70c2dc0d36f6f334277c50c",
+      "bytes": 264
+    },
+    "receipts/FastCofactorPoolsAudit.result.json": {
+      "sha256": "d5064b91abe4bd58b3488346cfbbff35ba6f344a1721fcfbab3cfdcc4a8978e0",
+      "bytes": 269
+    },
+    "receipts/FastDirectBenchmark292.result.json": {
+      "sha256": "c883aad1726ae19e771ef96ad8bd92ca61c5992c4f9fd2b3d9faf65be9acffcc",
+      "bytes": 268
+    },
+    "receipts/FastDirectBenchmark5229.result.json": {
+      "sha256": "1a6579674f70cc363b879c43880664cc0213a7e3a57a01f63ff1c8e9d6c7c98f",
+      "bytes": 269
+    },
+    "receipts/FastDirectCofactorPools.result.json": {
+      "sha256": "76cef9475ea318803cc83486928da41b6e18b2b14d555f7f1b35fb35298e9afa",
+      "bytes": 269
+    },
+    "receipts/FastDirectCofactorPoolsAudit.result.json": {
+      "sha256": "97d24dc4a03b5c47fb11e99bc40e765defbf8e1c2f8bb7ea5622dc0e3178339b",
+      "bytes": 275
+    },
+    "review.json": {
+      "sha256": "dac64d92e92cf7a8644818f7f49b21e85968948d43adb606c99966ba7dedfd32",
+      "bytes": 908
+    },
+    "validation.txt": {
+      "sha256": "9fa0aa5ac273220afc1ed08abf70e6f580ed268ed60cd578ec89b1c2d05d6b5c",
+      "bytes": 1134
+    }
+  }
+}

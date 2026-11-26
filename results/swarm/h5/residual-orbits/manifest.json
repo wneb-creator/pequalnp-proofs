@@ -1,0 +1,159 @@
+{
+  "gap": "L-meta-2373",
+  "main_commit": "cc06910dad6d57c83b639802d4c71034de91063f",
+  "main_source": "lean/PEqualNP/Outside/L_meta_2373.lean",
+  "main_source_sha256": "87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6",
+  "main_source_bytes": 524205,
+  "namespace": "PEqualNP.Outside.L_meta_2373.Residual.Orbit",
+  "export": "PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets",
+  "representatives": [
+    0,
+    8,
+    40,
+    44,
+    160,
+    168,
+    170,
+    174,
+    424,
+    426,
+    430,
+    442,
+    446,
+    510
+  ],
+  "exception_rows": [
+    3,
+    11,
+    131,
+    139,
+    259,
+    387,
+    515,
+    523,
+    771
+  ],
+  "listed_mask_count": 47,
+  "permutation_witness_count": 8,
+  "orientation": "H(r)=target(reps(k))(permRow(g,r)); newbit(i)=oldbit(vertices(g,i))",
+  "formal_minimum_orbit_count_claim": false,
+  "circuit_extraction_claim": false,
+  "lower_bound_claim": false,
+  "integration_modes_are_mutually_exclusive": true,
+  "builds": [
+    {
+      "source": "ResidualOrbitDelta.lean",
+      "audited_source_name": "ResidualOrbitsBounded.lean",
+      "audited_source_sha256": "6d8feb0807a291337505009d9b79d47d3f5e5d1090c978d94611771378778fae",
+      "audit_body_identical": true,
+      "log": "residual-orbits-bounded.log",
+      "recorded_exit_code": 0,
+      "recorded_memory_cap_MB": 3072,
+      "workers": 1,
+      "receipt_provenance": "original execution record and residual-orbits-handoff.json; no separate result JSON",
+      "exact_type_reports": 5,
+      "recursive_axiom_reports": {
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "source": "ResidualOrbitsStandalone.lean",
+      "audited_source_name": "ResidualOrbitsStandaloneCheck.lean",
+      "audited_source_sha256": "38bfbcad0677c2b80fdfba2b1f2c0d53e16b80a2c72c163437b09ce92ea2bc3d",
+      "audit_body_identical": true,
+      "log": "residual-orbits-standalone-5500.log",
+      "recorded_exit_code": 0,
+      "recorded_memory_cap_MB": 5500,
+      "workers": 1,
+      "receipt_provenance": "original execution record and residual-orbits-handoff.json; no separate result JSON",
+      "exact_type_reports": 5,
+      "recursive_axiom_reports": {
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover": [
+          "propext",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    }
+  ],
+  "files": {
+    "README.md": {
+      "sha256": "ea6f20ec7af48d0ddd9a7f307a3122efb10dec852958a88fc7bbee6db18097f9",
+      "bytes": 3694
+    },
+    "ResidualOrbitDelta.lean": {
+      "sha256": "66b6c5afac29a508fe161908c1b7d987d7b4fd9bc9833427f63f74466bc38eba",
+      "bytes": 6990
+    },
+    "ResidualOrbitsStandalone.lean": {
+      "sha256": "3695ea26c54d76e819038d4740fa5c204dc1adabb97147e07e2404c28fb416fc",
+      "bytes": 9746
+    },
+    "audit-commands.txt": {
+      "sha256": "e36a593f69687df69d81fe2ccd521aaf65d75973c6e3359da40a762c054280fa",
+      "bytes": 684
+    },
+    "residual-compact-final.log": {
+      "sha256": "5dbe5399635d95aabd760ed110c9e3b0ef0042f69758cfa581d641f73c422c2c",
+      "bytes": 1019
+    },
+    "residual-orbits-bounded.log": {
+      "sha256": "fd081efa72273d30b85aa0d6bc9ca2e428797d33c24e7d3253b265401f05f123",
+      "bytes": 3332
+    },
+    "residual-orbits-standalone-5500.log": {
+      "sha256": "fd081efa72273d30b85aa0d6bc9ca2e428797d33c24e7d3253b265401f05f123",
+      "bytes": 3332
+    },
+    "review.json": {
+      "sha256": "bf908f577dbf3fb941ad3e3b509eb5764de1d3db97349ee5db783f678e1a0692",
+      "bytes": 1429
+    },
+    "validation.txt": {
+      "sha256": "16389142b96ecd5800e1ba76beb42788acc40fd4493b64303b628d8e4bfe9ba1",
+      "bytes": 1245
+    }
+  }
+}

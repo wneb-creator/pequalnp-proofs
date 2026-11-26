@@ -1,0 +1,223 @@
+{
+  "checkpoints": [
+    {
+      "commit": "f59430f57ef1bacea1760fc2928a78526ac58ce7",
+      "source_root": "results/swarm/h8/certificate18/",
+      "files": {
+        "Checker.lean": {
+          "sha256": "353607a87c078be358deb1f2feabac8c3bbe53ea77df92fc67797d30ff5d07ec",
+          "bytes": 41464,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "PEqualNP.Outside.L_meta_6581"
+          ]
+        },
+        "Half.lean": {
+          "sha256": "1e6ea1b6a6d77e29c3b7090a9c35ad8ef84ffa5a5197b01b04d2bbadfd1bf002",
+          "bytes": 3066,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "Initial.lean": {
+          "sha256": "194cc86b4624d8fa6d63acd26dd7655afc82822ffb0a827deba9cd988d129905",
+          "bytes": 1795,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "Coordinates.lean": {
+          "sha256": "57a44e706030b5a89345fed05718164545913db05b7226624a4ec26407c6499e",
+          "bytes": 1122,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "PreparedLinks.lean": {
+          "sha256": "eba0cf577831eb76124d740a2c06f350a75a2f067366bd575e070e6512ade64b",
+          "bytes": 3818,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "SameSet.lean": {
+          "sha256": "94cd0b9bf9a3c681719d2e4b89ae481ef649ce30d78cb9c4d762c2df78f1d958",
+          "bytes": 3402,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "PreparedLinks"
+          ]
+        },
+        "ReadyData.lean": {
+          "sha256": "259e42c63375a498a30deab2782b8e357e1d5673d5c44ad85dbbe377c8261866",
+          "bytes": 180972,
+          "git_and_local_and_built_match": true,
+          "imports": []
+        },
+        "Replay.lean": {
+          "sha256": "90ad1f703dd3a3cdc82be669f6531d33218b88839245d616b3a86f823e1ff29d",
+          "bytes": 183100,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Half",
+            "SameSet",
+            "Coordinates"
+          ]
+        },
+        "CheckNode.lean": {
+          "sha256": "3ec5fe03cc4ed0d4de616d93018a30e6c076a77998ac2f283067fb003cee5eea",
+          "bytes": 663,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Replay"
+          ]
+        }
+      }
+    },
+    {
+      "commit": "6577b13f206a0b4041e887813fb2f47584df3dd9",
+      "source_root": "results/swarm/h8/certificate18/",
+      "files": {
+        "Checker.lean": {
+          "sha256": "353607a87c078be358deb1f2feabac8c3bbe53ea77df92fc67797d30ff5d07ec",
+          "bytes": 41464,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "PEqualNP.Outside.L_meta_6581"
+          ]
+        },
+        "Half.lean": {
+          "sha256": "1e6ea1b6a6d77e29c3b7090a9c35ad8ef84ffa5a5197b01b04d2bbadfd1bf002",
+          "bytes": 3066,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "Initial.lean": {
+          "sha256": "194cc86b4624d8fa6d63acd26dd7655afc82822ffb0a827deba9cd988d129905",
+          "bytes": 1795,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "Coordinates.lean": {
+          "sha256": "57a44e706030b5a89345fed05718164545913db05b7226624a4ec26407c6499e",
+          "bytes": 1122,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "PreparedLinks.lean": {
+          "sha256": "eba0cf577831eb76124d740a2c06f350a75a2f067366bd575e070e6512ade64b",
+          "bytes": 3818,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "SameSet.lean": {
+          "sha256": "94cd0b9bf9a3c681719d2e4b89ae481ef649ce30d78cb9c4d762c2df78f1d958",
+          "bytes": 3402,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "PreparedLinks"
+          ]
+        },
+        "ReadyData.lean": {
+          "sha256": "259e42c63375a498a30deab2782b8e357e1d5673d5c44ad85dbbe377c8261866",
+          "bytes": 180972,
+          "git_and_local_and_built_match": true,
+          "imports": []
+        },
+        "Replay.lean": {
+          "sha256": "90ad1f703dd3a3cdc82be669f6531d33218b88839245d616b3a86f823e1ff29d",
+          "bytes": 183100,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Half",
+            "SameSet",
+            "Coordinates"
+          ]
+        },
+        "CheckNode.lean": {
+          "sha256": "3ec5fe03cc4ed0d4de616d93018a30e6c076a77998ac2f283067fb003cee5eea",
+          "bytes": 663,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Replay"
+          ]
+        },
+        "BlockReplay.lean": {
+          "sha256": "2fb81a329d471102409465623af28ef2edfd5257c80abf909fb5f86fbe29f5da",
+          "bytes": 62711,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "CheckNode"
+          ]
+        },
+        "DirectDecode.lean": {
+          "sha256": "028988eef7c4301551f48728cf6e1a79a55c3dbddbe625990f9feb63a4df02e0",
+          "bytes": 29809,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "Checker"
+          ]
+        },
+        "DirectReplay.lean": {
+          "sha256": "3981dd9885e99ae31a9a9de51b543c1b41af55ccb9a459e32764ac14ecd06a62",
+          "bytes": 2780,
+          "git_and_local_and_built_match": true,
+          "imports": [
+            "BlockReplay",
+            "DirectDecode"
+          ]
+        }
+      }
+    }
+  ],
+  "shared_L_meta_6581": {
+    "path": "lean/PEqualNP/Outside/L_meta_6581.lean",
+    "bytes": 284540,
+    "revisions": {
+      "f59430f57ef1bacea1760fc2928a78526ac58ce7": {
+        "sha256": "23e7c375d8a73916110cf50ac5a91e715795ad57e5c665a35362ad935351e144",
+        "matches_current": true
+      },
+      "6577b13f206a0b4041e887813fb2f47584df3dd9": {
+        "sha256": "23e7c375d8a73916110cf50ac5a91e715795ad57e5c665a35362ad935351e144",
+        "matches_current": true
+      },
+      "cc06910dad6d57c83b639802d4c71034de91063f": {
+        "sha256": "23e7c375d8a73916110cf50ac5a91e715795ad57e5c665a35362ad935351e144",
+        "matches_current": true
+      }
+    }
+  },
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "prior_cofactor_review_delta": "only scoped maxRecDepth8192 before poolList_eq",
+  "later_packed_context": {
+    "commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+    "files": {
+      "FastCofactorPools.lean": {
+        "sha256": "50c7fd1c1c0ae1e4b6b03a3d333b38fbd0b48cb3910f89dd978039b12ef10c3c",
+        "bytes": 3060
+      },
+      "FastDirect.lean": {
+        "sha256": "54b6e983559c764aa6e8d3d4d049cff4767e4c7850550321f827e08332892448",
+        "bytes": 2335
+      },
+      "PackedDirect.lean": {
+        "sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+        "bytes": 1915
+      }
+    },
+    "these_wrappers_do_not_prove_Packed_nodes": true
+  }
+}

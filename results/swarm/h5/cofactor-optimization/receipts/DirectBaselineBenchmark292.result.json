@@ -1,0 +1,10 @@
+{
+  "module": "DirectBaselineBenchmark292",
+  "sha256": "681ec6ddd08f1b9934683a308596512dbe71f4ea116bdedd24bf3d28a4ddc70d",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 35.150999765999586,
+  "max_rss_kib": 7161888,
+  "memory_cap_mb": 8000,
+  "threads": 1
+}

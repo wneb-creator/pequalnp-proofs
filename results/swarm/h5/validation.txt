@@ -1,0 +1,26 @@
+Job: pnp-swarm-2373-5
+Kit message: msg-e7adb432e3994d45baf8a294
+Role: helper-5; no desk lease and no PR.
+Branch: pnp/swarm-L-meta-2373-h5; fork origin only.
+
+Main helper: cc06910dad6d57c83b639802d4c71034de91063f
+Source SHA256: 87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6
+Source size: 524205 bytes (83 bytes below 512 KiB).
+Named lake build: PASS. All 75 separately stated public theorem types and recursive axiom reports: PASS; only propext, Classical.choice, Quot.sound.
+The helper proves counted restriction/renaming, cofactor bounds, input-reader bounds, and a 47-function residual classifier. It does not contain a proof or refutation of the complete posted statement.
+
+Symmetry reduction: kernel-checked delta and standalone source; five stated theorem types and recursive axiom reports PASS. All 47 classified targets are represented by the listed 14 targets under eight explicit edge stabilizers. This is coverage, not a proof of orbit minimality, circuit extraction, or any new unconditional lower bound. Standalone and delta+main are alternative import routes.
+
+Packed replay: completed interval and receipt are recorded in packed-replay/manifest.json. The checker is frozen at 36375ce3bb56c227c81ecae98f6641800006b8c2. Every reported completed block uses kernel decide with four-node leaves; no native_decide or custom axiom. The aggregate must pass its exact-type, recursive-axiom, namespace and module-ownership audit before publication. The whole 5230-node closure and original gap require additional results.
+
+Coordinate optimization: exact-equality wrappers for cofactor pools and DirectMode were kernel checked and shared with the orchestrator. Node292 direct replay improved from35.151s to24.587s in serial local measurements. These timings are measurements, not guaranteed performance or packed-node substitutes.
+
+Search: all helper-5 broad and residual synthesis runs ended UNKNOWN. No SAT counterexample and no UNSAT lower-bound certificate were obtained. Native auxiliary-gate enumerations are exploratory findings, not Lean certificates.
+
+Environment: Lean4.36.0; cached Mathlib obtained before builds; actual cgroup memory limit8GiB and CPU quota2. Replay compiled serially. Earlier source-only or cap-failed attempts are not counted as successful builds. An earlier export-census concern was corrected: blanket reduction-extra rejection applies to REDUCTIONS, not every ordinary full-lemma payload.
+
+Independent review: named helper source and theorem statements, packed checker provenance, interval coverage, arithmetic, axiom dependencies, artifact hashes and final diff reviewed by other agents. Research files are helper artifacts, not a final one-file submission.
+
+Checker verdict: helper builds/audits PASS; full-gap proof not obtained; no official full-gap acceptance claimed.
+Sub-agents: toolchain, dependency_prune, restriction_math, and nested cnf_review (4 total).
+TIMING total=143.3 subagents=4

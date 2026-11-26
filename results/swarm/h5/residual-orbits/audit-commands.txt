@@ -1,0 +1,10 @@
+#check @PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables
+#print axioms PEqualNP.Outside.L_meta_2373.Residual.Orbit.tables
+#check @PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties
+#print axioms PEqualNP.Outside.L_meta_2373.Residual.Orbit.row_properties
+#check @PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover
+#print axioms PEqualNP.Outside.L_meta_2373.Residual.Orbit.mask_cover
+#check @PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport
+#print axioms PEqualNP.Outside.L_meta_2373.Residual.Orbit.target_transport
+#check @PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets
+#print axioms PEqualNP.Outside.L_meta_2373.Residual.Orbit.fourteen_targets

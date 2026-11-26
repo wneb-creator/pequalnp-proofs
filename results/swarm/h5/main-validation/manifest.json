@@ -1,0 +1,15 @@
+{
+  "status": "PASS named helper build and75 exact-type/recursive-axiom checks",
+  "source_path": "lean/PEqualNP/Outside/L_meta_2373.lean",
+  "source_commit": "cc06910dad6d57c83b639802d4c71034de91063f",
+  "source_sha256": "87b729f3c29a71fc24aab1fd9427b0422900ac16601d29a7cceacef2cd268ab6",
+  "source_bytes": 524205,
+  "artifacts": {
+    "build-with-residual-exclusive.log": "1c5b1f07288adfe9b01260823ffc859f2da81eb8802784b44754835895690a4c",
+    "final75-public-audit.log": "2a805230855b27a101b8ff6d2ae4e6a3cd567a2f9b643d2e2b64bf5a6a7f1e9d",
+    "final-public-audit-manifest.json": "c73e6684d40f2de739e226623b76278e039af2d24b2796891a0948fe8480103d",
+    "residual-final-review.json": "a6a0425502d8c77298b629860b24b0d04a3e13c8f24a7178e2eb24cc430a2962",
+    "FinalPublicAudit.lean": "4a85b06a70656d52bb6ddef2126a61cc7ebb7abfeab2f175fdd36a793507a411"
+  },
+  "scope": "Helper lemmas only. No theorem proving or refuting the full L-meta-2373 statement, and no official checker acceptance."
+}

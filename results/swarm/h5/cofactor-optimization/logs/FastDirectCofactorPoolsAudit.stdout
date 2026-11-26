@@ -1,0 +1,22 @@
+PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.oracle_eq : ∀
+  (i : PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Node),
+  PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.oracle i =
+    PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.oracle i
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.oracle_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.check_eq : ∀
+  (i : PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Node),
+  PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.checkNode i =
+    PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.checkNode i
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.check_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.closed : (∀
+    (i : PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Node),
+    PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.checkNode i = true) →
+  PEqualNP.Outside.L_meta_2373_aux.Cert18.Impossible PEqualNP.Outside.L_meta_6581.Extended.target 17
+    PEqualNP.Outside.L_meta_6581.Extended.initial
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.FastDirectCofactorPools.closed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

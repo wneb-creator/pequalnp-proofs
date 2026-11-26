@@ -1,0 +1,10 @@
+Historical validation: PASS for the exact two source hashes in manifest.json.
+Standalone: memory cap5500MB, one worker, recorded exit0; complete five-type/five-recursive-axiom log residual-orbits-standalone-5500.log.
+Delta: memory cap3072MB, one worker, recorded exit0; complete five-type/five-recursive-axiom log residual-orbits-bounded.log.
+Memory caps/exit codes are original execution/handoff metadata; no separate process-result JSON exists for these builds.
+Both audit-source bodies match the distributed proof sources exactly after removing only the audit-command trailer and trailing whitespace.
+Recursive axioms: propext, Classical.choice, Quot.sound only; mask_cover omits Classical.choice.
+Earlier compact classification audit: residual-compact-final.log.
+Prior independent source/scalar review: all47 witnesses checked on all1024 rows; eight graph/inverse actions checked on all1024 rows. Numerical review is supplementary to the kernel proofs.
+Publication preparation: source/hash/log/provenance checks only; no new Lean/SAT run and no tracked edit.
+Scope: coverage of all47 listed masks by14 representatives under the stated hypotheses. No formal minimal orbit count, complete-stabilizer claim, circuit extraction, or lower bound.

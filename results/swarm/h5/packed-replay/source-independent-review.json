@@ -1,0 +1,37 @@
+{
+  "reviewer": "toolchain",
+  "status": "SOURCE REVIEW PASS; publication pending final builds, aggregate audit, and packaging",
+  "frozen_checker_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "aggregate_source_sha256": "2d2074d91f041c0005030c5560630bf9e52db2c916cb1270737cda17c9e216ed",
+  "audit_source_sha256": "d7754e60cec8369ee563aa015519ae5e936d4f39d781729b667e849d686795e7",
+  "support_source_sha256": "688bd00299e6e4d7fcfd3c4fb88c6acefd1e4734f2348d0825ee9f4cd31cc94a",
+  "range": {
+    "start": 3072,
+    "end_exclusive": 3840,
+    "count": 768,
+    "fin_bound": 5230
+  },
+  "all12_sources_exact_template_instances": true,
+  "all18_local_transitive_checker_sources_match_git_commit": true,
+  "external_L6581_matches_git_commit": true,
+  "external_L6581_sha256": "23e7c375d8a73916110cf50ac5a91e715795ad57e5c665a35362ad935351e144",
+  "checks": [
+    "11 block_add calls assemble12 disjoint64-node intervals without gaps",
+    "checkedRange uses explicit lower/upper bounds to cancel Nat subtraction and Fin.ofNat modulo",
+    "Expected-type examples require no additional assumptions",
+    "collectAxioms examines recursive proof dependencies, including imported precomputed summaries",
+    "Actual moduleData kernel constants are checked for normalized namespace and ownership",
+    "Compiler-only extra names are reported separately",
+    "No false full-gap, lower-bound closure, acceptance, or PR claim"
+  ],
+  "publication_requirements": [
+    "Include exact H5BlockSupport.lean source in packet",
+    "Provide relative published source paths while retaining original observed build paths if desired",
+    "Require12 successful matching-source block receipts and successful aggregate/audit exit0",
+    "Hash actual artifacts/results/logs after completion; metadata checkerCommit alone is not source verification",
+    "Preserve complete stdout/stderr plus exit/timing/RSS evidence",
+    "Fill Sub-agents and TIMING measurement lines in validation.txt and final message",
+    "Keep research-only partial768-node scope explicit"
+  ],
+  "lean_processes_started": 0
+}

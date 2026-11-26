@@ -1,0 +1,1186 @@
+PEqualNP.Outside.L_meta_2373.wiresFrom_append : ∀ (gs gs' : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool),
+  PEqualNP.Outside.L_meta_2373.wiresFrom (gs ++ gs') w =
+    PEqualNP.Outside.L_meta_2373.wiresFrom gs' (PEqualNP.Outside.L_meta_2373.wiresFrom gs w)
+'PEqualNP.Outside.L_meta_2373.wiresFrom_append' depends on axioms: [propext, Quot.sound]
+PEqualNP.Outside.L_meta_2373.wiresFrom_prefix : ∀ (gs : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool),
+  ∃ t, PEqualNP.Outside.L_meta_2373.wiresFrom gs w = w ++ t ∧ t.length = gs.length
+'PEqualNP.Outside.L_meta_2373.wiresFrom_prefix' depends on axioms: [propext, Quot.sound]
+PEqualNP.Outside.L_meta_2373.length_wiresFrom : ∀ (gs : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool),
+  (PEqualNP.Outside.L_meta_2373.wiresFrom gs w).length = w.length + gs.length
+'PEqualNP.Outside.L_meta_2373.length_wiresFrom' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:28:54: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.getD_wiresFrom : ∀ (gs : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool),
+  ∀ i < w.length, (PEqualNP.Outside.L_meta_2373.wiresFrom gs w).getD i Bool.false = w.getD i Bool.false
+'PEqualNP.Outside.L_meta_2373.getD_wiresFrom' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:34:55: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.getD_snoc_ne : ∀ {α : Type} (L : List α) (S d : α) (j : ℕ),
+  j ≠ L.length → (L ++ [S]).getD j d = L.getD j d
+'PEqualNP.Outside.L_meta_2373.getD_snoc_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.getD_snoc_eq : ∀ {α : Type} (L : List α) (S d : α), (L ++ [S]).getD L.length d = S
+'PEqualNP.Outside.L_meta_2373.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.simplify_ok : ∀ (op : PEqualNP.CircuitLowerBounds.GateOp) (m : ℕ)
+  (ins : List PEqualNP.Outside.L_meta_2373.Stat),
+  ∀ g ∈ (PEqualNP.Outside.L_meta_2373.simplify op m ins).1, PEqualNP.Outside.L_meta_2373.Ok g
+'PEqualNP.Outside.L_meta_2373.simplify_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:53:5: warning: Variable name `hop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:53:64: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:54:5: warning: Variable name `hnot` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnot
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:54:47: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.simplify_count : ∀ (op : PEqualNP.CircuitLowerBounds.GateOp) (m : ℕ)
+  (ins : List PEqualNP.Outside.L_meta_2373.Stat),
+  op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+      op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ op = PEqualNP.CircuitLowerBounds.GateOp.not →
+    ins.length ≤ 2 →
+      (op = PEqualNP.CircuitLowerBounds.GateOp.not → ins.length ≤ 1) →
+        (∃ c, Sum.inl c ∈ ins) → (PEqualNP.Outside.L_meta_2373.simplify op m ins).1 = Option.none
+'PEqualNP.Outside.L_meta_2373.simplify_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:60:27: warning: Variable name `hop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:61:39: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:62:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.simplify_sound : ∀ (op : PEqualNP.CircuitLowerBounds.GateOp),
+  op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+      op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ op = PEqualNP.CircuitLowerBounds.GateOp.not →
+    ∀ (w : List Bool) (ins : List PEqualNP.Outside.L_meta_2373.Stat),
+      ins.length ≤ 2 →
+        (∀ s ∈ ins, PEqualNP.Outside.L_meta_2373.Stat.Valid w.length s) →
+          PEqualNP.Outside.L_meta_2373.Stat.Valid
+              (w.length + (PEqualNP.Outside.L_meta_2373.simplify op w.length ins).1.toList.length)
+              (PEqualNP.Outside.L_meta_2373.simplify op w.length ins).2 ∧
+            PEqualNP.Outside.L_meta_2373.Stat.val
+                (PEqualNP.Outside.L_meta_2373.wiresFrom (PEqualNP.Outside.L_meta_2373.simplify op w.length ins).1.toList
+                  w)
+                (PEqualNP.Outside.L_meta_2373.simplify op w.length ins).2 =
+              op.eval (List.map (PEqualNP.Outside.L_meta_2373.Stat.val w) ins)
+'PEqualNP.Outside.L_meta_2373.simplify_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:70:55: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.getD_snoc_len : ∀ {α : Type} (L : List α) (S d : α) (k : ℕ),
+  L.length = k → (L ++ [S]).getD k d = S
+'PEqualNP.Outside.L_meta_2373.getD_snoc_len' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.toList_length_le : ∀ {α : Type} (o : Option α), o.toList.length ≤ 1
+'PEqualNP.Outside.L_meta_2373.toList_length_le' depends on axioms: [propext]
+PEqualNP.Outside.L_meta_2373.elim_ok : ∀ (n : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (∀ g ∈ acc.2, PEqualNP.Outside.L_meta_2373.Ok g) →
+    ∀ g ∈ (PEqualNP.Outside.L_meta_2373.elim n gs acc).2, PEqualNP.Outside.L_meta_2373.Ok g
+'PEqualNP.Outside.L_meta_2373.elim_ok' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.elim_len : ∀ (n : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (PEqualNP.Outside.L_meta_2373.elim n gs acc).2.length ≤ acc.2.length + gs.length
+'PEqualNP.Outside.L_meta_2373.elim_len' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:96:24: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.Stat.valid_mono : ∀ {m m' : ℕ},
+  m ≤ m' →
+    ∀ (s : PEqualNP.Outside.L_meta_2373.Stat),
+      PEqualNP.Outside.L_meta_2373.Stat.Valid m s → PEqualNP.Outside.L_meta_2373.Stat.Valid m' s
+'PEqualNP.Outside.L_meta_2373.Stat.valid_mono' does not depend on any axioms
+PEqualNP.Outside.L_meta_2373.Stat.val_append : ∀ (w t : List Bool) (s : PEqualNP.Outside.L_meta_2373.Stat),
+  PEqualNP.Outside.L_meta_2373.Stat.Valid w.length s →
+    PEqualNP.Outside.L_meta_2373.Stat.val (w ++ t) s = PEqualNP.Outside.L_meta_2373.Stat.val w s
+'PEqualNP.Outside.L_meta_2373.Stat.val_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:109:37: warning: Variable name `hy` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hy
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.inv_elim : ∀ (n : ℕ) (y : List Bool),
+  y.length = n →
+    ∀ (gs : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool)
+      (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+      (∀ g ∈ gs, PEqualNP.Outside.L_meta_2373.Ok g) →
+        PEqualNP.Outside.L_meta_2373.Inv n y w acc →
+          PEqualNP.Outside.L_meta_2373.Inv n y (PEqualNP.Outside.L_meta_2373.wiresFrom gs w)
+            (PEqualNP.Outside.L_meta_2373.elim n gs acc)
+'PEqualNP.Outside.L_meta_2373.inv_elim' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.normGate_eval : ∀ (g : PEqualNP.CircuitLowerBounds.Gate) (F : ℕ → Bool),
+  (PEqualNP.Outside.L_meta_2373.normGate g).op.eval (List.map F (PEqualNP.Outside.L_meta_2373.normGate g).inputs) =
+    g.op.eval (List.map F g.inputs)
+'PEqualNP.Outside.L_meta_2373.normGate_eval' depends on axioms: [propext]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:122:24: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.normGate_nok : ∀ (g : PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.Ok g → PEqualNP.Outside.L_meta_2373.NOk (PEqualNP.Outside.L_meta_2373.normGate g)
+'PEqualNP.Outside.L_meta_2373.normGate_nok' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.wiresFrom_norm : ∀ (gs : List PEqualNP.CircuitLowerBounds.Gate) (w : List Bool),
+  PEqualNP.Outside.L_meta_2373.wiresFrom (List.map PEqualNP.Outside.L_meta_2373.normGate gs) w =
+    PEqualNP.Outside.L_meta_2373.wiresFrom gs w
+'PEqualNP.Outside.L_meta_2373.wiresFrom_norm' depends on axioms: [propext]
+PEqualNP.Outside.L_meta_2373.inv_init : ∀ (n : ℕ) (b : Bool) (y : Fin n → Bool),
+  PEqualNP.Outside.L_meta_2373.Inv n (List.ofFn y) (List.ofFn y ++ [b]) (PEqualNP.Outside.L_meta_2373.initStats n b, [])
+'PEqualNP.Outside.L_meta_2373.inv_init' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.ofFn_snoc : ∀ (n : ℕ) (y : Fin n → Bool) (b : Bool),
+  List.ofFn (Fin.snoc y b) = List.ofFn y ++ [b]
+'PEqualNP.Outside.L_meta_2373.ofFn_snoc' depends on axioms: [propext, Quot.sound]
+PEqualNP.Outside.L_meta_2373.elim_len_readers : ∀ (n k : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (∀ g ∈ gs, PEqualNP.Outside.L_meta_2373.NOk g) →
+    k < acc.1.length →
+      (∃ c, acc.1.getD k (Sum.inl Bool.false) = Sum.inl c) →
+        (PEqualNP.Outside.L_meta_2373.elim n gs acc).2.length + PEqualNP.Outside.L_meta_2373.readerCount k gs ≤
+          acc.2.length + gs.length
+'PEqualNP.Outside.L_meta_2373.elim_len_readers' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:157:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:158:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.fix_last_counted : ∀ (n : ℕ) (b : Bool) (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∃ y y', C.eval (List.ofFn (Fin.snoc y b)) ≠ C.eval (List.ofFn (Fin.snoc y' b))) →
+      ∃ E,
+        PEqualNP.MetaComplexity.FanInTwo E ∧
+          E.size + PEqualNP.Outside.L_meta_2373.readerCount n (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤
+              C.size ∧
+            ∀ (y : Fin n → Bool), E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))
+'PEqualNP.Outside.L_meta_2373.fix_last_counted' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:168:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:168:23: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:169:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:171:5: warning: Variable name `hlower` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlower
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.readers_le_of_cofactor_lower : ∀ (n q s : ℕ) (b : Bool)
+  (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ s →
+      (∃ y y', C.eval (List.ofFn (Fin.snoc y b)) ≠ C.eval (List.ofFn (Fin.snoc y' b))) →
+        (∀ (E : PEqualNP.CircuitLowerBounds.Circuit),
+            PEqualNP.MetaComplexity.FanInTwo E →
+              (∀ (y : Fin n → Bool), E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))) → q ≤ E.size) →
+          q + PEqualNP.Outside.L_meta_2373.readerCount n (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤ s
+'PEqualNP.Outside.L_meta_2373.readers_le_of_cofactor_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.elim_len_setReaders : ∀ (n : ℕ) (K : Finset ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (∀ g ∈ gs, PEqualNP.Outside.L_meta_2373.NOk g) →
+    (∀ k ∈ K, k < acc.1.length ∧ ∃ c, acc.1.getD k (Sum.inl Bool.false) = Sum.inl c) →
+      (PEqualNP.Outside.L_meta_2373.elim n gs acc).2.length + PEqualNP.Outside.L_meta_2373.setReaderCount K gs ≤
+        acc.2.length + gs.length
+'PEqualNP.Outside.L_meta_2373.elim_len_setReaders' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.elim_getD : ∀ (n k : ℕ) (d : PEqualNP.Outside.L_meta_2373.Stat)
+  (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  k < acc.1.length → (PEqualNP.Outside.L_meta_2373.elim n gs acc).1.getD k d = acc.1.getD k d
+'PEqualNP.Outside.L_meta_2373.elim_getD' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.elim_status_length : ∀ (n : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (PEqualNP.Outside.L_meta_2373.elim n gs acc).1.length = acc.1.length + gs.length
+'PEqualNP.Outside.L_meta_2373.elim_status_length' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:201:39: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:202:5: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.simplify_and_false : ∀ (m : ℕ) (ins : List PEqualNP.Outside.L_meta_2373.Stat),
+  ins.length ≤ 2 →
+    Sum.inl Bool.false ∈ ins →
+      PEqualNP.Outside.L_meta_2373.simplify PEqualNP.CircuitLowerBounds.GateOp.and m ins =
+        (Option.none, Sum.inl Bool.false)
+'PEqualNP.Outside.L_meta_2373.simplify_and_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:210:5: warning: Variable name `hok` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hok
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:211:5: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:211:29: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:212:5: warning: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:212:30: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.elim_and_reader_bound : ∀ (n k : ℕ) (pre post : List PEqualNP.CircuitLowerBounds.Gate)
+  (g : PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (∀ h ∈ pre ++ g :: post, PEqualNP.Outside.L_meta_2373.NOk h) →
+    k < acc.1.length →
+      acc.1.getD k (Sum.inl Bool.false) = Sum.inl Bool.false →
+        g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+          k ∈ g.inputs →
+            (PEqualNP.Outside.L_meta_2373.elim n (pre ++ g :: post) acc).2.length +
+                    PEqualNP.Outside.L_meta_2373.readerCount k pre +
+                  1 +
+                PEqualNP.Outside.L_meta_2373.setReaderCount {k, acc.1.length + pre.length} post ≤
+              acc.2.length + (pre ++ g :: post).length
+'PEqualNP.Outside.L_meta_2373.elim_and_reader_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.readerCount_append : ∀ (k : ℕ) (xs ys : List PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.readerCount k (xs ++ ys) =
+    PEqualNP.Outside.L_meta_2373.readerCount k xs + PEqualNP.Outside.L_meta_2373.readerCount k ys
+'PEqualNP.Outside.L_meta_2373.readerCount_append' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.setReaderCount_pair_cons : ∀ (k l : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate)
+  (gs : List PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.setReaderCount {k, l} (g :: gs) =
+    (if k ∈ g.inputs ∨ l ∈ g.inputs then 1 else 0) + PEqualNP.Outside.L_meta_2373.setReaderCount {k, l} gs
+'PEqualNP.Outside.L_meta_2373.setReaderCount_pair_cons' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.setReaderCount_pair_ge : ∀ (k l : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.readerCount k gs ≤ PEqualNP.Outside.L_meta_2373.setReaderCount {k, l} gs
+'PEqualNP.Outside.L_meta_2373.setReaderCount_pair_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:240:5: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.setReaderCount_pair_extra : ∀ (k l : ℕ) (gs : List PEqualNP.CircuitLowerBounds.Gate),
+  (∃ g ∈ gs, l ∈ g.inputs ∧ k ∉ g.inputs) →
+    PEqualNP.Outside.L_meta_2373.readerCount k gs + 1 ≤ PEqualNP.Outside.L_meta_2373.setReaderCount {k, l} gs
+'PEqualNP.Outside.L_meta_2373.setReaderCount_pair_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:248:5: warning: Variable name `hok` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hok
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:249:5: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:249:29: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:250:5: warning: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:250:30: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:251:5: warning: Variable name `hconsumer` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconsumer
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.elim_and_extra_saving : ∀ (n k : ℕ) (pre post : List PEqualNP.CircuitLowerBounds.Gate)
+  (g : PEqualNP.CircuitLowerBounds.Gate)
+  (acc : List PEqualNP.Outside.L_meta_2373.Stat × List PEqualNP.CircuitLowerBounds.Gate),
+  (∀ h ∈ pre ++ g :: post, PEqualNP.Outside.L_meta_2373.NOk h) →
+    k < acc.1.length →
+      acc.1.getD k (Sum.inl Bool.false) = Sum.inl Bool.false →
+        g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+          k ∈ g.inputs →
+            (∃ h ∈ post, acc.1.length + pre.length ∈ h.inputs ∧ k ∉ h.inputs) →
+              (PEqualNP.Outside.L_meta_2373.elim n (pre ++ g :: post) acc).2.length +
+                    PEqualNP.Outside.L_meta_2373.readerCount k (pre ++ g :: post) +
+                  1 ≤
+                acc.2.length + (pre ++ g :: post).length
+'PEqualNP.Outside.L_meta_2373.elim_and_extra_saving' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:260:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:261:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:263:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.fix_last_with_savings : ∀ (n q : ℕ) (b : Bool) (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∃ y y', C.eval (List.ofFn (Fin.snoc y b)) ≠ C.eval (List.ofFn (Fin.snoc y' b))) →
+      (PEqualNP.Outside.L_meta_2373.elim n (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates)
+                  (PEqualNP.Outside.L_meta_2373.initStats n b, [])).2.length +
+            q ≤
+          C.size →
+        ∃ E,
+          PEqualNP.MetaComplexity.FanInTwo E ∧
+            E.size + q ≤ C.size ∧ ∀ (y : Fin n → Bool), E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b))
+'PEqualNP.Outside.L_meta_2373.fix_last_with_savings' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:271:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:272:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:274:5: warning: Variable name `hgs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hgs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:275:5: warning: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:275:30: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:276:5: warning: Variable name `hconsumer` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconsumer
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.fix_false_and_extra : ∀ (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit)
+  (pre post : List PEqualNP.CircuitLowerBounds.Gate) (g : PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∃ y y', C.eval (List.ofFn (Fin.snoc y Bool.false)) ≠ C.eval (List.ofFn (Fin.snoc y' Bool.false))) →
+      List.map PEqualNP.Outside.L_meta_2373.normGate C.gates = pre ++ g :: post →
+        g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+          n ∈ g.inputs →
+            (∃ h ∈ post, n + 1 + pre.length ∈ h.inputs ∧ n ∉ h.inputs) →
+              ∃ E,
+                PEqualNP.MetaComplexity.FanInTwo E ∧
+                  E.size +
+                          PEqualNP.Outside.L_meta_2373.readerCount n
+                            (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) +
+                        1 ≤
+                      C.size ∧
+                    ∀ (y : Fin n → Bool), E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y Bool.false))
+'PEqualNP.Outside.L_meta_2373.fix_false_and_extra' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:286:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:286:23: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:287:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:289:5: warning: Variable name `hlower` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlower
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:292:5: warning: Variable name `hgs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hgs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:293:5: warning: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:293:30: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:294:5: warning: Variable name `hconsumer` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconsumer
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.and_readers_le_of_cofactor_lower : ∀ (n q s : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit)
+  (pre post : List PEqualNP.CircuitLowerBounds.Gate) (g : PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ s →
+      (∃ y y', C.eval (List.ofFn (Fin.snoc y Bool.false)) ≠ C.eval (List.ofFn (Fin.snoc y' Bool.false))) →
+        (∀ (E : PEqualNP.CircuitLowerBounds.Circuit),
+            PEqualNP.MetaComplexity.FanInTwo E →
+              (∀ (y : Fin n → Bool), E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y Bool.false))) → q ≤ E.size) →
+          List.map PEqualNP.Outside.L_meta_2373.normGate C.gates = pre ++ g :: post →
+            g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+              n ∈ g.inputs →
+                (∃ h ∈ post, n + 1 + pre.length ∈ h.inputs ∧ n ∉ h.inputs) →
+                  q +
+                        PEqualNP.Outside.L_meta_2373.readerCount n
+                          (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) +
+                      1 ≤
+                    s
+'PEqualNP.Outside.L_meta_2373.and_readers_le_of_cofactor_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:304:36: warning: Variable name `hvw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hvw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:305:5: warning: Variable name `hl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:305:25: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:305:38: warning: Variable name `hw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Consumer.two_inputs_of_distinct : ∀ (l : List ℕ) (v w : ℕ),
+  v ≠ w → l.length ≤ 2 → v ∈ l → w ∈ l → l = [v, w] ∨ l = [w, v]
+'PEqualNP.Outside.L_meta_2373.Consumer.two_inputs_of_distinct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:312:5: warning: Variable name `hop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:312:31: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:313:5: warning: Variable name `heval` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heval
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.Consumer.and_value_implies_input : ∀ {A : Type} (F : A → ℕ → Bool)
+  (g : PEqualNP.CircuitLowerBounds.Gate) (v w : ℕ),
+  g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+    v ∈ g.inputs →
+      (∀ (a : A), F a w = g.op.eval (List.map (F a) g.inputs)) → ∀ (a : A), F a w = Bool.true → F a v = Bool.true
+'PEqualNP.Outside.L_meta_2373.Consumer.and_value_implies_input' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:320:5: warning: Variable name `hvw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hvw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:320:19: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:320:39: warning: Variable name `hw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:321:5: warning: Variable name `hop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:322:5: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:322:34: warning: Variable name `hnot` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnot
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:323:5: warning: Variable name `heval` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heval
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:324:5: warning: Variable name `himp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _himp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.Consumer.consumer_absorbs : ∀ {A : Type} (F : A → ℕ → Bool)
+  (g : PEqualNP.CircuitLowerBounds.Gate) (v w out : ℕ),
+  v ≠ w →
+    v ∈ g.inputs →
+      w ∈ g.inputs →
+        g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+            g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not →
+          g.inputs.length ≤ 2 →
+            (g.op = PEqualNP.CircuitLowerBounds.GateOp.not → g.inputs.length ≤ 1) →
+              (∀ (a : A), F a out = g.op.eval (List.map (F a) g.inputs)) →
+                (∀ (a : A), F a w = Bool.true → F a v = Bool.true) →
+                  (∀ (a : A), F a out = F a w) ∨ ∀ (a : A), F a out = F a v
+'PEqualNP.Outside.L_meta_2373.Consumer.consumer_absorbs' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:331:44: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:331:57: warning: Variable name `hpq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:332:5: warning: Variable name `hsource` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsource
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:332:40: warning: Variable name `hsourcev` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsourcev
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:333:5: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:334:5: warning: Variable name `hop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:335:5: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:336:5: warning: Variable name `hnot` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnot
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:337:5: warning: Variable name `hsourceval` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsourceval
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:338:5: warning: Variable name `hconsumerval` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconsumerval
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:339:5: warning: Variable name `hnoalias` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnoalias
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.Consumer.consumer_avoids_raw_input : ∀ {A : Type} (F : A → ℕ → Bool)
+  (source consumer : PEqualNP.CircuitLowerBounds.Gate) (n v p q : ℕ),
+  v < n →
+    p < q →
+      source.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+        v ∈ source.inputs →
+          n + p ∈ consumer.inputs →
+            consumer.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+                consumer.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨
+                  consumer.op = PEqualNP.CircuitLowerBounds.GateOp.not →
+              consumer.inputs.length ≤ 2 →
+                (consumer.op = PEqualNP.CircuitLowerBounds.GateOp.not → consumer.inputs.length ≤ 1) →
+                  (∀ (a : A), F a (n + p) = source.op.eval (List.map (F a) source.inputs)) →
+                    (∀ (a : A), F a (n + q) = consumer.op.eval (List.map (F a) consumer.inputs)) →
+                      (∀ j < n + q, ¬∀ (a : A), F a (n + q) = F a j) → v ∉ consumer.inputs
+'PEqualNP.Outside.L_meta_2373.Consumer.consumer_avoids_raw_input' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:346:50: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:347:5: warning: Variable name `hsource` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsource
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:347:38: warning: Variable name `hsourceop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsourceop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:348:5: warning: Variable name `hsourcev` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsourcev
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:349:5: warning: Variable name `hnormal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnormal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:352:5: warning: Variable name `hvalues` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hvalues
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:354:5: warning: Variable name `hnoalias` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnoalias
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:356:5: warning: Variable name `hlive` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlive
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.Consumer.live_consumer_avoids_raw_input : ∀ {A : Type} (F : A → ℕ → Bool)
+  (gs : List PEqualNP.CircuitLowerBounds.Gate) (n v p : ℕ) (source : PEqualNP.CircuitLowerBounds.Gate),
+  v < n →
+    gs[p]? = Option.some source →
+      source.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+        v ∈ source.inputs →
+          (∀ (q : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate),
+              gs[q]? = Option.some g →
+                (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨
+                    g.op = PEqualNP.CircuitLowerBounds.GateOp.or ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∧
+                  g.inputs.length ≤ 2 ∧ (g.op = PEqualNP.CircuitLowerBounds.GateOp.not → g.inputs.length ≤ 1)) →
+            (∀ (q : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate),
+                gs[q]? = Option.some g → ∀ (a : A), F a (n + q) = g.op.eval (List.map (F a) g.inputs)) →
+              (∀ q < gs.length, ∀ j < n + q, ¬∀ (a : A), F a (n + q) = F a j) →
+                (∃ q, p < q ∧ ∃ g, gs[q]? = Option.some g ∧ n + p ∈ g.inputs) →
+                  ∃ q g, p < q ∧ gs[q]? = Option.some g ∧ n + p ∈ g.inputs ∧ v ∉ g.inputs
+'PEqualNP.Outside.L_meta_2373.Consumer.live_consumer_avoids_raw_input' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:366:54: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.InputRename.wire_ge : ∀ {n : ℕ} (s : Equiv.Perm (Fin n)) {i : ℕ},
+  n ≤ i → PEqualNP.Outside.L_meta_2373.InputRename.wire s i = i
+'PEqualNP.Outside.L_meta_2373.InputRename.wire_ge' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:373:5: warning: Variable name `hj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:373:18: warning: Variable name `hne` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hne
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.InputRename.wire_ne_ge : ∀ {n : ℕ} (s : Equiv.Perm (Fin n)) {i j : ℕ},
+  n ≤ j → i ≠ j → PEqualNP.Outside.L_meta_2373.InputRename.wire s i ≠ j
+'PEqualNP.Outside.L_meta_2373.InputRename.wire_ne_ge' depends on axioms: [propext, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.wires_relation : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (gs : List PEqualNP.CircuitLowerBounds.Gate) (w w' : List Bool),
+  w'.length = w.length →
+    n ≤ w.length →
+      (∀ (i : ℕ), w'.getD (PEqualNP.Outside.L_meta_2373.InputRename.wire s i) Bool.false = w.getD i Bool.false) →
+        ∀ (i : ℕ),
+          (PEqualNP.Outside.L_meta_2373.wiresFrom (List.map (PEqualNP.Outside.L_meta_2373.InputRename.gate s) gs)
+                  w').getD
+              (PEqualNP.Outside.L_meta_2373.InputRename.wire s i) Bool.false =
+            (PEqualNP.Outside.L_meta_2373.wiresFrom gs w).getD i Bool.false
+'PEqualNP.Outside.L_meta_2373.InputRename.wires_relation' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.eval : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (C : PEqualNP.CircuitLowerBounds.Circuit) (x : Fin n → Bool),
+  (PEqualNP.Outside.L_meta_2373.InputRename.circuit s C).eval (List.ofFn (x ∘ ⇑(Equiv.symm s))) = C.eval (List.ofFn x)
+'PEqualNP.Outside.L_meta_2373.InputRename.eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.size : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (C : PEqualNP.CircuitLowerBounds.Circuit), (PEqualNP.Outside.L_meta_2373.InputRename.circuit s C).size = C.size
+'PEqualNP.Outside.L_meta_2373.InputRename.size' depends on axioms: [propext, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:400:60: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+@PEqualNP.Outside.L_meta_2373.InputRename.fanInTwo : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    PEqualNP.MetaComplexity.FanInTwo (PEqualNP.Outside.L_meta_2373.InputRename.circuit s C)
+'PEqualNP.Outside.L_meta_2373.InputRename.fanInTwo' depends on axioms: [propext, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.wire_preimage : ∀ {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n) (k : ℕ),
+  PEqualNP.Outside.L_meta_2373.InputRename.wire s k = ↑i ↔ k = ↑((Equiv.symm s) i)
+'PEqualNP.Outside.L_meta_2373.InputRename.wire_preimage' depends on axioms: [propext, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.norm_gate : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (g : PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.normGate (PEqualNP.Outside.L_meta_2373.InputRename.gate s g) =
+    PEqualNP.Outside.L_meta_2373.InputRename.gate s (PEqualNP.Outside.L_meta_2373.normGate g)
+'PEqualNP.Outside.L_meta_2373.InputRename.norm_gate' depends on axioms: [propext, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.readerCount_map : ∀ {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n)
+  (gs : List PEqualNP.CircuitLowerBounds.Gate),
+  PEqualNP.Outside.L_meta_2373.readerCount (↑i) (List.map (PEqualNP.Outside.L_meta_2373.InputRename.gate s) gs) =
+    PEqualNP.Outside.L_meta_2373.readerCount (↑((Equiv.symm s) i)) gs
+'PEqualNP.Outside.L_meta_2373.InputRename.readerCount_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.effective_readers : ∀ {n : ℕ} (s : Equiv.Perm (Fin n)) (i : Fin n)
+  (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.Outside.L_meta_2373.readerCount (↑i)
+      (List.map PEqualNP.Outside.L_meta_2373.normGate (PEqualNP.Outside.L_meta_2373.InputRename.circuit s C).gates) =
+    PEqualNP.Outside.L_meta_2373.readerCount (↑((Equiv.symm s) i))
+      (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates)
+'PEqualNP.Outside.L_meta_2373.InputRename.effective_readers' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PEqualNP.Outside.L_meta_2373.InputRename.eval_relabel : ∀ {n : ℕ} (s : Equiv.Perm (Fin n))
+  (C : PEqualNP.CircuitLowerBounds.Circuit) (y : Fin n → Bool),
+  (PEqualNP.Outside.L_meta_2373.InputRename.circuit s C).eval (List.ofFn y) = C.eval (List.ofFn (y ∘ ⇑s))
+'PEqualNP.Outside.L_meta_2373.InputRename.eval_relabel' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:442:5: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:443:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.fix_input_counted : ∀ (n : ℕ) (v : Fin (n + 1)) (b : Bool)
+  (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∃ y y',
+        C.eval (List.ofFn (Fin.snoc y b ∘ ⇑(Equiv.swap v (Fin.last n)))) ≠
+          C.eval (List.ofFn (Fin.snoc y' b ∘ ⇑(Equiv.swap v (Fin.last n))))) →
+      ∃ E,
+        PEqualNP.MetaComplexity.FanInTwo E ∧
+          E.size +
+                PEqualNP.Outside.L_meta_2373.readerCount (↑v) (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤
+              C.size ∧
+            ∀ (y : Fin n → Bool),
+              E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b ∘ ⇑(Equiv.swap v (Fin.last n))))
+'PEqualNP.Outside.L_meta_2373.fix_input_counted' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:455:19: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:455:37: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:456:5: warning: Variable name `hnc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hnc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:459:5: warning: Variable name `hlower` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlower
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.input_readers_le_of_cofactor_lower : ∀ (n q s : ℕ) (v : Fin (n + 1)) (b : Bool)
+  (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ s →
+      (∃ y y',
+          C.eval (List.ofFn (Fin.snoc y b ∘ ⇑(Equiv.swap v (Fin.last n)))) ≠
+            C.eval (List.ofFn (Fin.snoc y' b ∘ ⇑(Equiv.swap v (Fin.last n))))) →
+        (∀ (E : PEqualNP.CircuitLowerBounds.Circuit),
+            PEqualNP.MetaComplexity.FanInTwo E →
+              (∀ (y : Fin n → Bool),
+                  E.eval (List.ofFn y) = C.eval (List.ofFn (Fin.snoc y b ∘ ⇑(Equiv.swap v (Fin.last n))))) →
+                q ≤ E.size) →
+          q + PEqualNP.Outside.L_meta_2373.readerCount (↑v) (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤ s
+'PEqualNP.Outside.L_meta_2373.input_readers_le_of_cofactor_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.table_properties : ∀ (v : Fin 10),
+  Function.Bijective (PEqualNP.Outside.L_meta_2373.Graph2373.table v) ∧
+    PEqualNP.Outside.L_meta_2373.Graph2373.table v v = Fin.last 9
+'PEqualNP.Outside.L_meta_2373.Graph2373.table_properties' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_at : ∀ (v : Fin 10),
+  (PEqualNP.Outside.L_meta_2373.Graph2373.symmetry v) v = Fin.last 9
+'PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.table_invariant : ∀ (v : Fin 10) (x : Fin 10 → Bool),
+  PEqualNP.Outside.L_meta_2373.Graph2373.f (x ∘ PEqualNP.Outside.L_meta_2373.Graph2373.table v) =
+    PEqualNP.Outside.L_meta_2373.Graph2373.f x
+'PEqualNP.Outside.L_meta_2373.Graph2373.table_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_invariant : ∀ (v : Fin 10) (x : Fin 10 → Bool),
+  PEqualNP.Outside.L_meta_2373.Graph2373.f (x ∘ ⇑(PEqualNP.Outside.L_meta_2373.Graph2373.symmetry v)) =
+    PEqualNP.Outside.L_meta_2373.Graph2373.f x
+'PEqualNP.Outside.L_meta_2373.Graph2373.symmetry_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_at : ∀ (v : Fin 10),
+  (PEqualNP.Outside.L_meta_2373.Graph2373.fromZero v) 0 = v
+'PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_invariant : ∀ (v : Fin 10) (x : Fin 10 → Bool),
+  PEqualNP.Outside.L_meta_2373.Graph2373.f (x ∘ ⇑(PEqualNP.Outside.L_meta_2373.Graph2373.fromZero v)) =
+    PEqualNP.Outside.L_meta_2373.Graph2373.f x
+'PEqualNP.Outside.L_meta_2373.Graph2373.fromZero_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:511:27: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:511:44: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Cofactors.bound3819_nonNot : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∀ (x : Fin 9 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Cofactors.fn3819 x) →
+      11 ≤ List.countP (fun g => !PEqualNP.Outside.L_meta_2373.Cofactors.isNot g) C.gates
+'PEqualNP.Outside.L_meta_2373.Cofactors.bound3819_nonNot' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:517:27: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:518:4: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Cofactors.bound3819 : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∀ (x : Fin 9 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Cofactors.fn3819 x) → 11 ≤ C.size
+'PEqualNP.Outside.L_meta_2373.Cofactors.bound3819' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Cofactors.zero_lower : ¬PEqualNP.MetaComplexity.HasCircuitSize 9
+    (fun x =>
+      x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 || x 0 && x 5 || x 1 && x 6 || x 2 && x 7 ||
+              x 3 && x 8 ||
+            x 5 && x 7 ||
+          x 6 && x 8 ||
+        x 8 && x 5)
+    15
+'PEqualNP.Outside.L_meta_2373.Cofactors.zero_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Graph2373.last_zero : ∀ (y : Fin 9 → Bool),
+  PEqualNP.Outside.L_meta_2373.Graph2373.f (Fin.snoc y Bool.false) = PEqualNP.Outside.L_meta_2373.Graph2373.fzero y
+'PEqualNP.Outside.L_meta_2373.Graph2373.last_zero' depends on axioms: [propext]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:540:5: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Graph2373.last_zero_nonconstant : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  (∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Graph2373.f x) →
+    ∃ y y', C.eval (List.ofFn (Fin.snoc y Bool.false)) ≠ C.eval (List.ofFn (Fin.snoc y' Bool.false))
+'PEqualNP.Outside.L_meta_2373.Graph2373.last_zero_nonconstant' depends on axioms: [propext]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:547:27: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:548:5: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Graph2373.zero_lower_correct : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    (∀ (x : Fin 9 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Graph2373.fzero x) → 16 ≤ C.size
+'PEqualNP.Outside.L_meta_2373.Graph2373.zero_lower_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:554:27: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:554:45: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:555:5: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Graph2373.last_reader_bound : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ 19 →
+      (∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Graph2373.f x) →
+        PEqualNP.Outside.L_meta_2373.readerCount 9 (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤ 3
+'PEqualNP.Outside.L_meta_2373.Graph2373.last_reader_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:561:27: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:561:45: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:562:5: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Graph2373.all_input_readers_bound : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ 19 →
+      (∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Graph2373.f x) →
+        ∀ (v : Fin 10),
+          PEqualNP.Outside.L_meta_2373.readerCount (↑v) (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤ 3
+'PEqualNP.Outside.L_meta_2373.Graph2373.all_input_readers_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:568:27: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:568:45: warning: Variable name `hsize` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsize
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:569:5: warning: Variable name `correct` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _correct
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:570:39: warning: Variable name `hgs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hgs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:571:5: warning: Variable name `hg` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hg
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:571:30: warning: Variable name `hread` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hread
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:572:5: warning: Variable name `hconsumer` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconsumer
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Graph2373.last_and_reader_bound : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit),
+  PEqualNP.MetaComplexity.FanInTwo C →
+    C.size ≤ 19 →
+      (∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = PEqualNP.Outside.L_meta_2373.Graph2373.f x) →
+        ∀ (pre post : List PEqualNP.CircuitLowerBounds.Gate) (g : PEqualNP.CircuitLowerBounds.Gate),
+          List.map PEqualNP.Outside.L_meta_2373.normGate C.gates = pre ++ g :: post →
+            g.op = PEqualNP.CircuitLowerBounds.GateOp.and →
+              9 ∈ g.inputs →
+                (∃ h ∈ post, 10 + pre.length ∈ h.inputs ∧ 9 ∉ h.inputs) →
+                  PEqualNP.Outside.L_meta_2373.readerCount 9 (List.map PEqualNP.Outside.L_meta_2373.normGate C.gates) ≤
+                    2
+'PEqualNP.Outside.L_meta_2373.Graph2373.last_and_reader_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.exceptions : ∀ (r : Fin 1024),
+  PEqualNP.Outside.L_meta_2373.Residual.F r = Bool.true →
+    PEqualNP.Outside.L_meta_2373.Residual.Fminus r = Bool.false → ∃ i, PEqualNP.Outside.L_meta_2373.Residual.rows i = r
+'PEqualNP.Outside.L_meta_2373.Residual.exceptions' depends on axioms: [propext, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.finite_classification : ∀ (fill : Fin 9 → Bool),
+  PEqualNP.Outside.L_meta_2373.Residual.admissible fill →
+    fill ∈ List.map PEqualNP.Outside.L_meta_2373.Residual.bits PEqualNP.Outside.L_meta_2373.Residual.masks
+'PEqualNP.Outside.L_meta_2373.Residual.finite_classification' depends on axioms: [propext, Classical.choice, Quot.sound]
+PEqualNP.Outside.L_meta_2373.Residual.masks_length : PEqualNP.Outside.L_meta_2373.Residual.masks.length = 47
+'PEqualNP.Outside.L_meta_2373.Residual.masks_length' does not depend on any axioms
+PEqualNP.Outside.L_meta_2373.Residual.masks_nodup : PEqualNP.Outside.L_meta_2373.Residual.masks.Nodup
+'PEqualNP.Outside.L_meta_2373.Residual.masks_nodup' does not depend on any axioms
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:609:4: warning: Variable name `hmono` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hmono
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:610:4: warning: Variable name `hlower` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlower
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:611:4: warning: Variable name `hupper` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hupper
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pnp-swarm-2373-5/FinalPublicAudit.lean:612:4: warning: Variable name `hzero` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hzero
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+PEqualNP.Outside.L_meta_2373.Residual.classification : ∀ (H : Fin 1024 → Bool),
+  (∀ (r s : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.rowLE r s → H r = Bool.true → H s = Bool.true) →
+    (∀ (r : Fin 1024), PEqualNP.Outside.L_meta_2373.Residual.Fminus r = Bool.true → H r = Bool.true) →
+      (∀ (r : Fin 1024), H r = Bool.true → PEqualNP.Outside.L_meta_2373.Residual.F r = Bool.true) →
+        H 3 = Bool.false →
+          ∃ m ∈ PEqualNP.Outside.L_meta_2373.Residual.masks, H = PEqualNP.Outside.L_meta_2373.Residual.target m
+'PEqualNP.Outside.L_meta_2373.Residual.classification' depends on axioms: [propext, Classical.choice, Quot.sound]
