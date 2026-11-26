@@ -2,16 +2,16 @@ Job: pnp-swarm-2373-1
 Acknowledged: msg-f0f5a888a4dfb901290f21d2
 Gap: L-meta-2373
 Artifact: helper-only lean/PEqualNP/Outside/L_meta_2373.lean
-Commit: 63a6c362ce628f2776e8c23fd665d69f213e59b8
+Main helper source commit: 63a6c362ce628f2776e8c23fd665d69f213e59b8
 Source SHA256: c41cceb745b2e3e00b578cf3d38a9c361884e2f7b413c5ee376a536e3a5ddbfa
 Build: lake build PEqualNP.Outside.L_meta_2373 PASS
 Independent proof review: PASS; new declarations use only permitted axioms.
 Actual compiled export audit: PASS, 1371 declarations, zero foreign names after private-name normalization. Local rfl equality lemmas preserve every original statement. No official gap-checker acceptance.
 Main results: all-endpoint first-AND sparse OR-reader classification; actual residual circuit of at most17 gates; arbitrary earlier-wire boundary dominance; blocker triples; negative-energy minimum representative with no mixed safe/unsafe binary OR operands. Constant-gate deletion and positive-consumer closure also checked. Raw-NOT normal form now yields a guard active on seed028 or135 under explicit architecture premises. Concrete first-NOT energy-minimum seed representative, one-edge and star guard restrictions, and automatic singleton conditions now checked. Explicit H9 total-gate floor16 remains. Main proof remains open.
 Gap status: no full proof or refutation. No main theorem, no PR, no desk lease.
-Packed replay checkpoint: nodes768..1023 inclusive (256/5230) accepted by kernel; complete per-chunk stdout/stderr, source hashes, axiom reports and dependency pins in this directory. Full forest closure remains unproved here.
+Packed replay checkpoint: nodes768..1279 inclusive (512/5230) accepted by kernel; complete per-chunk stdout/stderr, source hashes, axiom reports and dependency pins in this directory. Full forest closure remains unproved here.
 Packed checker source pin: 36375ce3bb56c227c81ecae98f6641800006b8c2.
-Published manifest SHA256: c96dc9d66d35129cb43a32bb6a347d42f1e337f30ad57d8d593a9b82b24ef98f.
+Published manifest SHA256: 8130d9b0568a900951f7d86c7be661e55fc0f81cda1977fc55169051e8c9a0e8.
 Portable replay script: independent source review, Python syntax/help, and actual --verify-only provenance check PASS. Full rebuild command is supplied; the newly packaged script has not re-run the already accepted chunks.
 Sub-agents: direct_analysis; toolchain_recovery; structural_search; first_and_classification; toolchain_recovery/swap_obstruction; structural_search/bounded_review; direct_analysis/girth_five_claim; structural_search/h9_probe_review
-TIMING total=141.5 subagents=8
+TIMING total=155.7 subagents=8
