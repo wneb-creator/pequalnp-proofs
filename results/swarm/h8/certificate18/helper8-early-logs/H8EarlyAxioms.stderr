@@ -1,0 +1,12 @@
+import took 2.24s
+cumulative profiling times:
+	.olean serialization 35.7ms
+	declTypeLinter 12.7ms
+	elaboration 4.31ms
+	import 2.24s
+	initialization 26.2ms
+	interpretation 587ms
+	linting 26.8ms
+	module linting 0.441ms
+	parsing 0.607ms
+	tacticAnalysis 36.6ms

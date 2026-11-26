@@ -1,0 +1,200 @@
+{
+  "status": "PASS",
+  "reviewer": "independent lean_setup agent",
+  "reviewed_utc": "2026-11-26T02:21:10.549105+00:00",
+  "scope": "early 512-node receipt and staged research publication; not full forest or posted gap",
+  "failures": [],
+  "source_manifest_sha256": "9d3a892ba95a33970e03b6fcc50fb1d8ee223ba0ca8ced5d086d2f5a57493f1f",
+  "publication_manifest_sha256": "664a42023eb369f2e45fc7a62ab756dcf2544e921ddabcf20670a830ba130ffa",
+  "manifest_files": 31,
+  "build_order": [
+    "RangeAssembly",
+    "H8Extra256",
+    "H8Extra384",
+    "H8ExtraRange",
+    "H8ExtraAxioms",
+    "H8Extra512",
+    "H8Extra640",
+    "H8EarlyRange",
+    "H8EarlyAxioms"
+  ],
+  "verified_interval_half_open": [
+    256,
+    768
+  ],
+  "verified_nodes": 512,
+  "previous_disjoint_nodes": 622,
+  "combined_distinct_nodes": 1134,
+  "main_theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.checked_early",
+  "main_aggregate_hypotheses": [
+    "i : Fin 5230",
+    "256 <= i.val",
+    "i.val < 768"
+  ],
+  "checker_frozen_commit": "36375ce3b",
+  "checker_source_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+  "checker_olean_sha256": "438691cebb5bc640b1b87dbf6f833ecf8b7bfe5ff59b51c3e1b33120e1e66f3e",
+  "frozen_source_dependency_modules": [
+    "BlockReplay",
+    "CheckNode",
+    "Checker",
+    "CollisionProfiles",
+    "Coordinates",
+    "DecodeHom",
+    "DirectDecode",
+    "DirectReplay",
+    "FastCofactorPools",
+    "FastDirect",
+    "GenericDecodeHom",
+    "Half",
+    "PackedCollision",
+    "PackedDirect",
+    "PackedRows",
+    "PreparedLinks",
+    "Replay",
+    "SameSet"
+  ],
+  "compiled_exports": {
+    "RangeAssembly": {
+      "kernel_declarations": 6,
+      "foreign": []
+    },
+    "H8Extra256": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8Extra384": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8ExtraRange": {
+      "kernel_declarations": 1,
+      "foreign": []
+    },
+    "H8ExtraAxioms": {
+      "kernel_declarations": 0,
+      "foreign": []
+    },
+    "H8Extra512": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8Extra640": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8EarlyRange": {
+      "kernel_declarations": 1,
+      "foreign": []
+    },
+    "H8EarlyAxioms": {
+      "kernel_declarations": 0,
+      "foreign": []
+    }
+  },
+  "axiom_receipts": {
+    "theorems": [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c256",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c384",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c512",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c640",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.checked",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.checked_early"
+    ],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "all_six_receipts_match": true
+  },
+  "timing": {
+    "wall_seconds": 1059.740729,
+    "maxrss_KiB": 4652124,
+    "individual_wall_is_completion_reap_interval": true
+  },
+  "recursive_checksums": [
+    {
+      "file": "results/swarm/h8/certificate18/SHA256SUMS",
+      "entries": 233
+    },
+    {
+      "file": "results/swarm/h8/certificate18/collision-audit/SHA256SUMS",
+      "entries": 11
+    },
+    {
+      "file": "results/swarm/h8/export-audit/SHA256SUMS",
+      "entries": 20
+    },
+    {
+      "file": "results/swarm/h8/full-signed/SHA256SUMS",
+      "entries": 191
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/SHA256SUMS",
+      "entries": 107
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/compact/SHA256SUMS",
+      "entries": 23
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/hash/SHA256SUMS",
+      "entries": 22
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-result/SHA256SUMS",
+      "entries": 11
+    }
+  ],
+  "staged_files": [
+    "results/swarm/h8/README.md",
+    "results/swarm/h8/certificate18/H8EarlyAxioms.lean",
+    "results/swarm/h8/certificate18/H8EarlyRange.lean",
+    "results/swarm/h8/certificate18/H8Extra256.lean",
+    "results/swarm/h8/certificate18/H8Extra384.lean",
+    "results/swarm/h8/certificate18/H8Extra512.lean",
+    "results/swarm/h8/certificate18/H8Extra640.lean",
+    "results/swarm/h8/certificate18/H8ExtraAxioms.lean",
+    "results/swarm/h8/certificate18/H8ExtraRange.lean",
+    "results/swarm/h8/certificate18/README.md",
+    "results/swarm/h8/certificate18/SHA256SUMS",
+    "results/swarm/h8/certificate18/early-range-README.md",
+    "results/swarm/h8/certificate18/early-range-manifest.json",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8EarlyAxioms.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8EarlyAxioms.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8EarlyRange.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8EarlyRange.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra256.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra256.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra384.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra384.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra512.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra512.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra640.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8Extra640.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8ExtraAxioms.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8ExtraAxioms.stdout",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8ExtraRange.stderr",
+    "results/swarm/h8/certificate18/helper8-early-logs/H8ExtraRange.stdout",
+    "results/swarm/h8/certificate18/helper8-early-report.json",
+    "results/swarm/h8/certificate18/helper8-early-runner.stderr",
+    "results/swarm/h8/certificate18/helper8-early-runner.stdout",
+    "results/swarm/h8/certificate18/helper8-extra256-receipt.json",
+    "results/swarm/h8/certificate18/run-helper8-early.py",
+    "results/swarm/h8/validation.txt"
+  ],
+  "review_method": [
+    "independent source semantics and interval arithmetic",
+    "manifest and all publication checksum verification",
+    "exact source dependency comparison against frozen packed commit",
+    "lightweight readModuleData of existing compiled objects; no finite proof replay",
+    "compiled theorem types and all kernel export names inspected",
+    "complete recorded build, axiom, stdout/stderr and timing receipts checked"
+  ],
+  "limitations": [
+    "Finite kernel proofs were not rerun during this review. Existing compiled objects and complete successful build receipts were inspected.",
+    "The 512-node aggregate is partial coverage; full 5230-node closure and exact posted gap remain unproved.",
+    "The historical parallel driver has job-specific scratch paths; the documented build.py module order is the portable reproduction route."
+  ]
+}

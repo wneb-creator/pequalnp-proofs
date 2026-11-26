@@ -1,0 +1,62 @@
+{
+  "range": [
+    256,
+    768
+  ],
+  "interval": "half-open",
+  "started_utc": "2026-11-26T01:58:01.717887+00:00",
+  "status": "running",
+  "builds": [
+    {
+      "module": "H8Extra256",
+      "pid": 28016,
+      "source_sha256": "6e1015f398bb90ce06bbfc8582bd4767dd9e50b0cab2761a89a2c2d8125a7920",
+      "returncode": 0,
+      "wall_seconds": 554.2207154260004,
+      "maxrss_KiB": 4652124,
+      "user_seconds": 530.535997,
+      "system_seconds": 22.803242
+    },
+    {
+      "module": "H8Extra384",
+      "pid": 28017,
+      "source_sha256": "aedaa04e942add455b72eb4dc6b5abeb61ee139ec33d34cef5de90b1d3240f16",
+      "returncode": 0,
+      "wall_seconds": 554.2210190269998,
+      "maxrss_KiB": 4339200,
+      "user_seconds": 485.31656,
+      "system_seconds": 19.857871
+    },
+    {
+      "module": "H8ExtraRange",
+      "pid": 28454,
+      "source_sha256": "e25273b5b53a1c3bded754ebcd4e0c39eacf603f7939806ce066f5ad3915cb59",
+      "returncode": 0,
+      "wall_seconds": 6.236357033999411,
+      "maxrss_KiB": 2904000,
+      "user_seconds": 2.1867039999999998,
+      "system_seconds": 1.681044
+    },
+    {
+      "module": "H8ExtraAxioms",
+      "pid": 28511,
+      "source_sha256": "18f3b1ed6e66a53ade1cc197a8dc1ed79b100dcd72c8f77390edfadf9b088ca6",
+      "returncode": 0,
+      "wall_seconds": 1.4830497869997998,
+      "maxrss_KiB": 2903048,
+      "user_seconds": 0.9831709999999999,
+      "system_seconds": 0.49082499999999996
+    }
+  ],
+  "running": [],
+  "receipts": [
+    {
+      "range": [
+        256,
+        512
+      ],
+      "theorem": "Helper8Extra.checked",
+      "completed_utc": "2026-11-26T02:07:23.661319+00:00"
+    }
+  ]
+}

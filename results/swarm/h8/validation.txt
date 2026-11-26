@@ -94,7 +94,13 @@ trailing spaces in the frozen cap18 signed_data.py copies; exact reviewed hashes
 are intentionally preserved. Portablepackedcollisionaudit independently
 reproduces7338eligiblechildren/5284cuts/2552signatures withallfixtureprovenancechecked.
 
+Helper8 additional early range COMPLETE:512nodes256..767 inclusive, four128-node
+proofs, bothaggregates andsixaxiomreports PASS withstandard3only. Total1059.74s,
+peak4652124KiB; individualwalltimes include in-ordercoordinatorwaiting.
+Combinedwithlate622 gives1134distinctverifiedstates. Complete receipt/source/logs:
+certificate18/early-range-manifest.json. Fullforest andpostedgap remain unproved.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=130.5 subagents=8
+TIMING total=139.0 subagents=8

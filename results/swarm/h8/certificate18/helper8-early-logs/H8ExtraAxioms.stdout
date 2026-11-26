@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c256' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.c384' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Extra.checked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

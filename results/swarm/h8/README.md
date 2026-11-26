@@ -76,12 +76,14 @@ computational result; its complete state traversal has not been replayed in Lean
 NOT-AND cost one operation and complements are free. Both budgets 16 and 17
 close. The latter still closes after removing every L670-based pool, leaving
 5,230 retained states and only the L6581 basis. A compact Lean replay is being
-prepared separately. The larger budget-18 experiment is ongoing.
+prepared separately. The budget-18 search also closed natively; its reviewed
+source, complete closure logs and independent hash audit are published here.
 
 Neither native closure proves the posted gap. In particular, the signed
 budget-17 result would establish a binary-gate floor of 18 only after the
 complete certificate and circuit-to-live bridge have passed Lean checking.
 
 `certificate18/` publishes the compiling conditional Lean replay, compact data,
-proofs for its optimizations, and a portable build helper. Two individual
-budget-17 nodes pass kernel checking; the complete forest is still unverified.
+proofs for its optimizations, and a portable build helper. This helper has
+proved 1,134 budget-17 nodes in Lean: 256–767 and 4608–5229. The complete
+forest is still unverified.

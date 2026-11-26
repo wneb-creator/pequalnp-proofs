@@ -2,7 +2,7 @@
 
 This modular research bundle does **not** prove L-meta-2373 or the unconditional
 18-binary-gate lower bound. The complete 5,230-node forest still needs kernel
-verification. The initial named helper file is separate and unchanged.
+verification. The named helper file is separate from this certificate.
 
 The following modules compiled successfully in this job:
 
@@ -99,8 +99,8 @@ lake env sh -c 'LEAN_PATH="/tmp/cert18:$LEAN_PATH" lean -M 11000 /tmp/cert18/Nod
 A separate root-node check with literal projection hints and links passed in
 52.97 seconds, with 8,324,364 KiB peak resident memory (about 7.94 GiB). This establishes one
 node only. Checks using the compressed data also include decoder costs, and
-large batches have not yet been benchmarked. Compile serially within a 16 GiB
-container until representative checks establish a safe batch size.
+later batch measurements are recorded below. Two-node leaf proofs bounded
+per-process memory in the verified early range; larger Boolean goals can use much more.
 
 ## Measured cofactor and collision optimizations
 
@@ -209,3 +209,24 @@ collision cuts and 2,552 direct signature comparisons. An independent review
 reconstructed every fixture row and bank value and repeated the enumeration;
 its report is `collision-fixture-review.json`. This finite native comparison
 is separate from the generic Lean proof and the verified node range.
+## Verified early range
+
+`H8EarlyRange.lean` additionally proves nodes 256 through 767, inclusive.
+Together with the late range above, this helper has verified 1,134 distinct
+states. The four 128-node proofs and both aggregate theorems use only the
+three permitted standard axioms. The full forest and exact gap remain unproved.
+
+The two-process schedule took 1,059.74 seconds overall, with peak individual
+RSS of 4,652,124 KiB. Individual wall receipts include in-order coordinator
+waiting; CPU and peak RSS are per-process measurements. The complete logs,
+sources and hashes are in `early-range-manifest.json`; the original receipt's
+README was renamed `early-range-README.md` for publication.
+
+After the default checker build, use:
+
+```sh
+python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo /path/to/pequalnp-proofs --output /tmp/cert18 --lean /path/to/lean --modules RangeAssembly H8Extra256 H8Extra384 H8ExtraRange H8ExtraAxioms H8Extra512 H8Extra640 H8EarlyRange H8EarlyAxioms
+```
+
+The aggregate API is `Helper8Extra.checked_early` in the same `Cert18`
+namespace, with hypotheses `256 ≤ i.val` and `i.val < 768`.
