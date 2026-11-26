@@ -993,3 +993,345 @@ theorem gfirst_final_consequences (v : Fin 3) (l r : Fin 32)
   · exact htarget
 
 end PEqualNP.Outside.L_meta_9033_aux.GFirst
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PackedCofactorBridge
+
+def low5 (s : Fin 64) : Fin 32 := ⟨s.val % 32, Nat.mod_lt _ (by decide)⟩
+
+def upperPacked (v : Fin 3) : Nat :=
+  if v.val = 0 then 4294967264 else if v.val = 1 then 4277862138 else 4294966508
+
+theorem coreUnion_split (s g : Nat) :
+    BcofactorClassification.coreUnion s g =
+      BcofactorClassification.coreUnion s 0 ||| (if s.testBit 5 then g else 0) := by
+  simp [BcofactorClassification.coreUnion]
+
+theorem rawMask_testBit : ∀ (p x : Fin 32),
+    (BcofactorClassification.coreUnion p.val 0).testBit x.val = HFirst.raw p x := by
+  decide +kernel
+
+theorem low5_testBit : ∀ (s : Fin 64) (x : Fin 32),
+    (BcofactorClassification.coreUnion s.val 0).testBit x.val = HFirst.raw (low5 s) x := by
+  decide +kernel
+
+theorem coreUnion_testBit (s : Fin 64) (g : Nat) (x : Fin 32) :
+    (BcofactorClassification.coreUnion s.val g).testBit x.val =
+      (HFirst.raw (low5 s) x || (s.val.testBit 5 && g.testBit x.val)) := by
+  rw [coreUnion_split, Nat.testBit_or, low5_testBit]
+  cases s.val.testBit 5 <;> simp
+
+theorem rawAnd_testBit (p q x : Fin 32) :
+    (BcofactorClassification.rawAnd p.val q.val).testBit x.val =
+      (HFirst.raw p x && HFirst.raw q x) := by
+  rw [BcofactorClassification.rawAnd, Nat.testBit_and, rawMask_testBit, rawMask_testBit]
+
+theorem ac_coreUnion_eq (s g : Nat) :
+    ACcofactorClassification.coreUnion s g = BcofactorClassification.coreUnion s g := rfl
+
+theorem ac_rawAnd_eq (p q : Nat) :
+    ACcofactorClassification.rawAnd p q = BcofactorClassification.rawAnd p q := rfl
+
+theorem ac_singletonMask_eq (g : Nat) :
+    ACcofactorClassification.singletonMask g = BcofactorClassification.singletonMask g := rfl
+
+theorem upperPacked_testBit : ∀ (v : Fin 3) (x : Fin 32),
+    (upperPacked v).testBit x.val = HFirst.upper v x := by decide +kernel
+
+theorem coreTarget_testBit (x : Fin 32) :
+    BcofactorClassification.coreTarget.testBit x.val = HFirst.core x := rfl
+
+theorem rawMask_bound : ∀ s : Fin 64,
+    BcofactorClassification.coreUnion s.val 0 < 2 ^ 32 := by decide +kernel
+
+theorem coreUnion_bound (s : Fin 64) (g : Nat) (hg : g < 2 ^ 32) :
+    BcofactorClassification.coreUnion s.val g < 2 ^ 32 := by
+  rw [coreUnion_split]
+  apply Nat.or_lt_two_pow (rawMask_bound s)
+  cases s.val.testBit 5 <;> simp [hg]
+
+theorem rawAnd_bound (p q : Fin 32) :
+    BcofactorClassification.rawAnd p.val q.val < 2 ^ 32 := by
+  have hp : BcofactorClassification.coreUnion p.val 0 < 2 ^ 32 :=
+    rawMask_bound ⟨p.val, by omega⟩
+  exact lt_of_le_of_lt Nat.and_le_left hp
+
+theorem hAnd_bound (p q : Fin 64) (g : Nat) (hg : g < 2 ^ 32) :
+    (BcofactorClassification.coreUnion p.val g &&&
+      BcofactorClassification.coreUnion q.val g) < 2 ^ 32 := by
+  exact lt_of_le_of_lt Nat.and_le_left (coreUnion_bound p g hg)
+
+theorem upperPacked_bound : ∀ v : Fin 3, upperPacked v < 2 ^ 32 := by decide +kernel
+
+theorem coreTarget_bound : BcofactorClassification.coreTarget < 2 ^ 32 := by decide +kernel
+
+theorem packed_eq_of_low_bits (a b : Nat) (ha : a < 2 ^ 32) (hb : b < 2 ^ 32)
+    (hbits : ∀ x : Fin 32, a.testBit x.val = b.testBit x.val) : a = b := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  by_cases hi : i < 32
+  · exact hbits ⟨i, hi⟩
+  · have hp : 2 ^ 32 ≤ 2 ^ i := Nat.pow_le_pow_right (by decide) (by omega)
+    rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le ha hp),
+      Nat.testBit_lt_two_pow (lt_of_lt_of_le hb hp)]
+
+theorem land_upper_eq_self (v : Fin 3) (g : Nat) (hg : g < 2 ^ 32)
+    (hbelow : ∀ x : Fin 32, g.testBit x.val = true → HFirst.upper v x = true) :
+    g &&& upperPacked v = g := by
+  apply packed_eq_of_low_bits _ _ (lt_of_le_of_lt Nat.and_le_left hg) hg
+  intro x
+  rw [Nat.testBit_and, upperPacked_testBit]
+  cases hx : g.testBit x.val <;> simp [hx, hbelow x]
+
+theorem land_upper_eq_core (v : Fin 3) (h : Nat)
+    (htarget : ∀ x : Fin 32, (h.testBit x.val && HFirst.upper v x) = HFirst.core x) :
+    h &&& upperPacked v = BcofactorClassification.coreTarget := by
+  apply packed_eq_of_low_bits _ _
+    (lt_of_le_of_lt Nat.and_le_right (upperPacked_bound v)) coreTarget_bound
+  intro x
+  rw [Nat.testBit_and, upperPacked_testBit, coreTarget_testBit]
+  exact htarget x
+
+theorem singletonMask_zero_iff (g : Nat) :
+    BcofactorClassification.singletonMask g = 0 ↔
+      g.testBit 1 = false ∧ g.testBit 2 = false ∧ g.testBit 4 = false ∧
+      g.testBit 8 = false ∧ g.testBit 16 = false := by
+  unfold BcofactorClassification.singletonMask
+  cases h0 : g.testBit 1 <;> cases h1 : g.testBit 2 <;>
+    cases h2 : g.testBit 4 <;> cases h3 : g.testBit 8 <;>
+    cases h4 : g.testBit 16 <;> simp
+
+theorem singletonMask_zero_iff_units (g : Nat) :
+    BcofactorClassification.singletonMask g = 0 ↔
+      ∀ i : Fin 5, g.testBit (HFirst.unit i).val = false := by
+  rw [singletonMask_zero_iff]
+  constructor
+  · rintro ⟨h0, h1, h2, h3, h4⟩ i
+    have hi : ∀ j : Fin 5, j = 0 ∨ j = 1 ∨ j = 2 ∨ j = 3 ∨ j = 4 := by decide +kernel
+    rcases hi i with rfl | rfl | rfl | rfl | rfl
+    · exact h0
+    · exact h1
+    · exact h2
+    · exact h3
+    · exact h4
+  · intro h
+    exact ⟨h 0, h 1, h 2, h 3, h 4⟩
+
+theorem singletonMask_nonzero_of_unit (g : Nat)
+    (h : ∃ i : Fin 5, g.testBit (HFirst.unit i).val = true) :
+    BcofactorClassification.singletonMask g ≠ 0 := by
+  intro hz
+  obtain ⟨i, hi⟩ := h
+  have hf := (singletonMask_zero_iff_units g).mp hz i
+  simp_all
+
+def sourceOr (s : Fin 64) (f : Fin 32 → Bool) (x : Fin 32) : Bool :=
+  HFirst.raw (low5 s) x || (s.val.testBit 5 && f x)
+
+def sourceAnd (s t : Fin 64) (f : Fin 32 → Bool) (x : Fin 32) : Bool :=
+  sourceOr s f x && sourceOr t f x
+
+theorem sourceOr_testBit (s : Fin 64) (g : Nat) (x : Fin 32) :
+    (BcofactorClassification.coreUnion s.val g).testBit x.val =
+      sourceOr s (fun y => g.testBit y.val) x := coreUnion_testBit s g x
+
+theorem sourceAnd_testBit (s t : Fin 64) (g : Nat) (x : Fin 32) :
+    (BcofactorClassification.coreUnion s.val g &&&
+      BcofactorClassification.coreUnion t.val g).testBit x.val =
+      sourceAnd s t (fun y => g.testBit y.val) x := by
+  rw [Nat.testBit_and, sourceOr_testBit, sourceOr_testBit]
+  rfl
+
+theorem sourceAnd_raw_testBit (p q : Fin 32) (s t : Fin 64) (x : Fin 32) :
+    (BcofactorClassification.coreUnion s.val (BcofactorClassification.rawAnd p.val q.val) &&&
+      BcofactorClassification.coreUnion t.val (BcofactorClassification.rawAnd p.val q.val)).testBit x.val =
+      sourceAnd s t (fun y => HFirst.raw p y && HFirst.raw q y) x := by
+  rw [sourceAnd_testBit]
+  simp only [sourceAnd, sourceOr, rawAnd_testBit]
+
+theorem rawAnd_below_upper (v : Fin 3) (p q : Fin 32)
+    (hbelow : ∀ x : Fin 32, (HFirst.raw p x && HFirst.raw q x) = true →
+      HFirst.upper v x = true) :
+    BcofactorClassification.rawAnd p.val q.val &&& upperPacked v =
+      BcofactorClassification.rawAnd p.val q.val := by
+  apply land_upper_eq_self v _ (rawAnd_bound p q)
+  intro x hx
+  rw [rawAnd_testBit] at hx
+  exact hbelow x hx
+
+theorem sourceAnd_raw_target (v : Fin 3) (p q : Fin 32) (s t : Fin 64)
+    (htarget : ∀ x : Fin 32,
+      (sourceAnd s t (fun y => HFirst.raw p y && HFirst.raw q y) x && HFirst.upper v x) =
+        HFirst.core x) :
+    (BcofactorClassification.coreUnion s.val (BcofactorClassification.rawAnd p.val q.val) &&&
+      BcofactorClassification.coreUnion t.val (BcofactorClassification.rawAnd p.val q.val)) &&&
+        upperPacked v = BcofactorClassification.coreTarget := by
+  apply land_upper_eq_core
+  intro x
+  rw [sourceAnd_raw_testBit]
+  exact htarget x
+
+theorem sourceAnd_raw_singletons_zero (p q : Fin 32) (s t : Fin 64)
+    (hzero : ∀ i : Fin 5,
+      sourceAnd s t (fun y => HFirst.raw p y && HFirst.raw q y) (HFirst.unit i) = false) :
+    BcofactorClassification.singletonMask
+      (BcofactorClassification.coreUnion s.val (BcofactorClassification.rawAnd p.val q.val) &&&
+        BcofactorClassification.coreUnion t.val (BcofactorClassification.rawAnd p.val q.val)) = 0 := by
+  apply (singletonMask_zero_iff_units _).mpr
+  intro i
+  rw [sourceAnd_raw_testBit]
+  exact hzero i
+
+theorem rawAnd_singletons_nonzero (p q : Fin 32)
+    (hnonzero : ∃ i : Fin 5, (HFirst.raw p (HFirst.unit i) && HFirst.raw q (HFirst.unit i)) = true) :
+    BcofactorClassification.singletonMask (BcofactorClassification.rawAnd p.val q.val) ≠ 0 := by
+  apply singletonMask_nonzero_of_unit
+  obtain ⟨i, hi⟩ := hnonzero
+  refine ⟨i, ?_⟩
+  rw [rawAnd_testBit]
+  exact hi
+
+theorem upperPacked_A : upperPacked 0 = ACcofactorClassification.upperA := rfl
+theorem upperPacked_B : upperPacked 1 = BcofactorClassification.upperTarget := rfl
+theorem upperPacked_C : upperPacked 2 = ACcofactorClassification.upperC := rfl
+theorem ac_coreTarget_eq : ACcofactorClassification.coreTarget = BcofactorClassification.coreTarget := rfl
+
+end PEqualNP.Outside.L_meta_9033_aux.PackedCofactorBridge
+
+namespace PEqualNP.Outside.L_meta_9033_aux.GFirstModel
+
+open PEqualNP.Outside.L_meta_9033_aux.HFirst
+open PEqualNP.Outside.L_meta_9033_aux.PackedCofactorBridge
+
+def gValue (p q : Fin 32) : Nat := BcofactorClassification.rawAnd p.val q.val
+
+def hValue (p q : Fin 32) (u w : Fin 64) : Nat :=
+  BcofactorClassification.coreUnion u.val (gValue p q) &&&
+    BcofactorClassification.coreUnion w.val (gValue p q)
+
+def maskCount (p q : Fin 32) (u w : Fin 64) (a b : Nat) : Nat :=
+  (({p.val, q.val,
+      BcofactorClassification.singletonMask (BcofactorClassification.coreUnion u.val (gValue p q)),
+      BcofactorClassification.singletonMask (BcofactorClassification.coreUnion w.val (gValue p q)),
+      5, a, b} : Finset Nat) \
+    {0, 1, 2, 4, 8, 16, 32, BcofactorClassification.singletonMask (gValue p q)}).card
+
+theorem gfirst_model_impossible (v : Fin 3)
+    (p q l r : Fin 32) (u w : Fin 64) (lh lg lq rh rg rq : Bool)
+    (hzero : ∀ i : Fin 5, (hValue p q u w).testBit (unit i).val = false)
+    (hdirty : (∃ x : Fin 32, (hValue p q u w).testBit x.val = true ∧ core x = false) ∨
+      (∃ x : Fin 32, (hValue p q u w).testBit x.val = true ∧ upper v x = false))
+    (gnonzero : ∃ i : Fin 5, (gValue p q).testBit (unit i).val = true)
+    (htarget : ∀ b x,
+      (GFirst.port l lh lg lq
+          (fun x => (hValue p q u w).testBit x.val) (fun x => (gValue p q).testBit x.val) b x &&
+        GFirst.port r rh rg rq
+          (fun x => (hValue p q u w).testBit x.val) (fun x => (gValue p q).testBit x.val) b x) =
+        GFirst.target v b x)
+    (hbudget : v.val = 1 → maskCount p q u w 18 24 ≤ 6 ∨ maskCount p q u w 22 28 ≤ 6) :
+    False := by
+  have hd : ∃ x : Fin 32, (hValue p q u w).testBit x.val = true ∧ core x = false := by
+    rcases hdirty with hd | ⟨x, hx, hn⟩
+    · exact hd
+    · refine ⟨x, hx, ?_⟩
+      cases hc : core x
+      · rfl
+      · have hu := core_le_upper v x hc
+        simp [hu] at hn
+  obtain ⟨ht, hb, he⟩ := GFirst.gfirst_final_consequences v l r lh lg lq rh rg rq
+    (fun x => (hValue p q u w).testBit x.val) (fun x => (gValue p q).testBit x.val)
+    hd gnonzero htarget
+  have hbelow := land_upper_eq_self v (gValue p q) (rawAnd_bound p q) hb
+  have hcore := land_upper_eq_core v (hValue p q u w) ht
+  have hz := (singletonMask_zero_iff_units (hValue p q u w)).mpr hzero
+  have hn := singletonMask_nonzero_of_unit (gValue p q) gnonzero
+  have cases_v : ∀ z : Fin 3, z = 0 ∨ z = 1 ∨ z = 2 := by decide +kernel
+  rcases cases_v v with rfl | rfl | rfl
+  · have he1 : (gValue p q).testBit 5 = true :=
+      he 5 (by decide +kernel) (by decide +kernel)
+    have he2 : (gValue p q).testBit 6 = true :=
+      he 6 (by decide +kernel) (by decide +kernel)
+    exact ACcofactorClassification.no_A_gfirst p q u w hbelow he1 he2 hn hcore hz
+  · have he1 : (gValue p q).testBit 10 = true :=
+      he 10 (by decide +kernel) (by decide +kernel)
+    rcases hbudget rfl with ho | hs
+    · exact BcofactorClassification.no_six_mask_budget p q u w hbelow he1 hn hcore hz ho
+    · exact BcofactorClassification.no_six_shared_reader_mask_budget p q u w hbelow he1 hn hcore hz hs
+  · have he1 : (gValue p q).testBit 5 = true :=
+      he 5 (by decide +kernel) (by decide +kernel)
+    have he2 : (gValue p q).testBit 12 = true :=
+      he 12 (by decide +kernel) (by decide +kernel)
+    exact ACcofactorClassification.no_C_gfirst p q u w hbelow he1 he2 hn hcore hz
+
+theorem gfirst_source_model_impossible (v : Fin 3)
+    (p q l r : Fin 32) (u w : Fin 64) (lh lg lq rh rg rq : Bool) :
+    let g : Fin 32 → Bool := fun x => raw p x && raw q x
+    let h : Fin 32 → Bool := sourceAnd u w g
+    (∀ i : Fin 5, h (unit i) = false) →
+    ((∃ x : Fin 32, h x = true ∧ core x = false) ∨
+      (∃ x : Fin 32, h x = true ∧ upper v x = false)) →
+    (∃ i : Fin 5, g (unit i) = true) →
+    (∀ b x, (GFirst.port l lh lg lq h g b x && GFirst.port r rh rg rq h g b x) =
+      GFirst.target v b x) →
+    (v.val = 1 → maskCount p q u w 18 24 ≤ 6 ∨ maskCount p q u w 22 28 ≤ 6) → False := by
+  dsimp only
+  intro hs hd gs ht budget
+  apply gfirst_model_impossible v p q l r u w lh lg lq rh rg rq
+  · simpa only [hValue, gValue, sourceAnd_raw_testBit] using hs
+  · simpa only [hValue, gValue, sourceAnd_raw_testBit] using hd
+  · simpa only [gValue, rawAnd_testBit] using gs
+  · simpa only [hValue, gValue, sourceAnd_raw_testBit, rawAnd_testBit] using ht
+  · exact budget
+
+end PEqualNP.Outside.L_meta_9033_aux.GFirstModel
+
+namespace PEqualNP.Outside.L_meta_9033_aux.ReaderCofactorBridge
+
+def abcIndex (i : Fin 3) : Fin 8 := ⟨i.val, by omega⟩
+def coreIndex (i : Fin 5) : Fin 8 := ⟨i.val + 3, by omega⟩
+
+def embed (v : Fin 3) (b : Bool) (x : Fin 32) (i : Fin 8) : Bool :=
+  if i.val < 3 then decide (i.val = v.val) && b
+  else x.val.testBit (i.val - 3)
+
+theorem embed_abc : ∀ (v : Fin 3) (b : Bool) (x : Fin 32) (i : Fin 3),
+    embed v b x (abcIndex i) = (decide (i = v) && b) := by
+  decide +kernel
+
+theorem embed_other_abc_zero : ∀ (v i : Fin 3) (b : Bool) (x : Fin 32),
+    i ≠ v → embed v b x (abcIndex i) = false := by
+  decide +kernel
+
+theorem embed_core : ∀ (v : Fin 3) (b : Bool) (x : Fin 32) (i : Fin 5),
+    embed v b x (coreIndex i) = x.val.testBit i.val := by
+  decide +kernel
+
+theorem embed_core_singleton : ∀ (v : Fin 3) (i : Fin 5) (j : Fin 8),
+    embed v false (HFirst.unit i) j = decide (j.val = i.val + 3) := by
+  decide +kernel
+
+theorem embed_distinguished_singleton : ∀ (v : Fin 3) (j : Fin 8),
+    embed v true 0 j = decide (j.val = v.val) := by
+  decide +kernel
+
+theorem core_formula : ∀ x : Fin 32,
+    HFirst.core x =
+      ((x.val.testBit 0 && x.val.testBit 2) ||
+       (x.val.testBit 0 && x.val.testBit 4) ||
+       (x.val.testBit 1 && x.val.testBit 2) ||
+       (x.val.testBit 1 && x.val.testBit 3) ||
+       (x.val.testBit 2 && x.val.testBit 3)) := by
+  decide +kernel
+
+theorem readerGraph_embed : ∀ (v : Fin 3) (b : Bool) (x : Fin 32),
+    readerGraph (embed v b x) = GFirst.target v b x := by
+  decide +kernel
+
+theorem readerGraph_pin_false (v : Fin 3) (x : Fin 32) :
+    readerGraph (embed v false x) = HFirst.core x := by
+  simpa [GFirst.target] using readerGraph_embed v false x
+
+theorem readerGraph_pin_true (v : Fin 3) (x : Fin 32) :
+    readerGraph (embed v true x) = HFirst.upper v x := by
+  simpa [GFirst.target, HFirst.upper] using readerGraph_embed v true x
+
+end PEqualNP.Outside.L_meta_9033_aux.ReaderCofactorBridge
