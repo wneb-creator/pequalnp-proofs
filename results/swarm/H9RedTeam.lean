@@ -2099,4 +2099,129 @@ lemma exists_row_controller (E : α → β → Prop)
 
 end FullProductNesting
 
+
+namespace OwnerStrictness
+
+variable {M K : Type*} [Fintype M] [Fintype K] [Nonempty M]
+
+lemma owner_strictness
+    (A B : K → M → Prop) (E : M → M → Prop) (tag : K → Bool) (r c : M → K)
+    (hrowMem : ∀ p, A (r p) p ∧ B (r p) p)
+    (hcolMem : ∀ p, A (c p) p ∧ B (c p) p)
+    (hrowCtrl : ∀ p q, A (r p) p → B (r p) q → E p q)
+    (hcolCtrl : ∀ p q, A (c q) p → B (c q) q → E p q)
+    (hcover : ∀ p q, E p q → ∀ t : Bool, ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b)) :
+    Fintype.card M + 1 ≤ Fintype.card K := by
+  classical
+  have hr : Function.Injective r := by
+    intro p q he
+    by_contra hpq
+    have epq : E p q := hrowCtrl p q (hrowMem p).1 (by rw [he]; exact (hrowMem q).2)
+    have eqp : E q p := hrowCtrl q p (hrowMem q).1 (by rw [← he]; exact (hrowMem p).2)
+    exact hno p q p q hpq hpq
+      ⟨hrowCtrl p p (hrowMem p).1 (hrowMem p).2,epq,eqp,
+        hrowCtrl q q (hrowMem q).1 (hrowMem q).2⟩
+  have hc : Function.Injective c := by
+    intro p q he
+    by_contra hpq
+    have epq : E p q := hcolCtrl p q (by rw [← he]; exact (hcolMem p).1) (hcolMem q).2
+    have eqp : E q p := hcolCtrl q p (by rw [he]; exact (hcolMem q).1) (hcolMem p).2
+    exact hno p q p q hpq hpq
+      ⟨hcolCtrl p p (hcolMem p).1 (hcolMem p).2,epq,eqp,
+        hcolCtrl q q (hcolMem q).1 (hcolMem q).2⟩
+  have hle := Fintype.card_le_of_injective r hr
+  by_contra hbound
+  have heq : Fintype.card M = Fintype.card K := by omega
+  have hrs : Function.Surjective r := by
+    by_contra hn
+    have ht := Fintype.card_lt_of_injective_not_surjective r hr hn
+    omega
+  have hcs : Function.Surjective c := by
+    by_contra hn
+    have ht := Fintype.card_lt_of_injective_not_surjective c hc hn
+    omega
+  let p : M := Classical.arbitrary M
+  obtain ⟨q,hq⟩ := hcs (r p)
+  have hpq : E p q := hrowCtrl p q (hrowMem p).1 (by
+    rw [← hq]
+    exact (hcolMem q).2)
+  obtain ⟨k,hkt,hkp,hkq⟩ := hcover p q hpq (!(tag (r p)))
+  have hktne : tag k ≠ tag (r p) := by
+    rw [hkt]
+    cases tag (r p) <;> decide
+  obtain ⟨a,ha⟩ := hrs k
+  obtain ⟨b,hb⟩ := hcs k
+  have hap : a ≠ p := by
+    intro he
+    apply hktne
+    rw [← ha,he]
+  have hbq : b ≠ q := by
+    intro he
+    apply hktne
+    rw [← hb,he,hq]
+  have haq : E a q := hrowCtrl a q (hrowMem a).1 (by rw [ha]; exact hkq)
+  have hab : E a b := hrowCtrl a b (hrowMem a).1 (by rw [ha,← hb]; exact (hcolMem b).2)
+  have hpb : E p b := hcolCtrl p b (by rw [hb]; exact hkp) (hcolMem b).2
+  exact hno p a q b (Ne.symm hap) (Ne.symm hbq) ⟨hpq,hpb,haq,hab⟩
+
+end OwnerStrictness
+
+namespace IndependentFactors
+
+open FullProductNesting
+
+variable {M K : Type*} [Fintype M] [Fintype K] [Nonempty M]
+
+-- Only the pair restrictions of the terms must be rectangles.
+-- The monotone factors have exact conjunction output.
+lemma two_factor_matching_bound
+    (E : M → M → Prop)
+    (f : Bool → (M → Prop) → (M → Prop) → Prop)
+    (A B : K → M → Prop) (tag : K → Bool)
+    (hmonoX : ∀ t X X' Y, (∀ p, X p → X' p) → f t X Y → f t X' Y)
+    (hmonoY : ∀ t X Y Y', (∀ q, Y q → Y' q) → f t X Y → f t X Y')
+    (hfull : ∀ X Y, HasEdge E X Y ↔ ∀ t, f t X Y)
+    (hpair : ∀ t p q, f t (fun x => x = p) (fun y => y = q) ↔
+      ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hdiag : ∀ p, E p p)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b)) :
+    Fintype.card M + 1 ≤ Fintype.card K := by
+  classical
+  have hrow : ∀ p, ∃ k, (A k p ∧ B k p) ∧ ∀ q, B k q → E p q := by
+    intro p
+    obtain ⟨t,ht⟩ := exists_row_controller E f hmonoY hfull p
+    have hf : f t (fun x => x = p) (fun y => y = p) :=
+      (ht _).mpr ⟨p,hdiag p,rfl⟩
+    obtain ⟨k,hkt,hkp,hkq⟩ := (hpair t p p).mp hf
+    refine ⟨k,⟨hkp,hkq⟩,?_⟩
+    intro q hq
+    have hfq := (hpair t p q).mpr ⟨k,hkt,hkp,hq⟩
+    obtain ⟨b,heb,hb⟩ := (ht _).mp hfq
+    simpa only [hb] using heb
+  have hcol : ∀ q, ∃ k, (A k q ∧ B k q) ∧ ∀ p, A k p → E p q := by
+    intro q
+    obtain ⟨t,ht⟩ := exists_column_controller E f hmonoX hfull q
+    have hf : f t (fun x => x = q) (fun y => y = q) :=
+      (ht _).mpr ⟨q,hdiag q,rfl⟩
+    obtain ⟨k,hkt,hkp,hkq⟩ := (hpair t q q).mp hf
+    refine ⟨k,⟨hkp,hkq⟩,?_⟩
+    intro p hp
+    have hfp := (hpair t p q).mpr ⟨k,hkt,hp,hkq⟩
+    obtain ⟨a,hea,ha⟩ := (ht _).mp hfp
+    simpa only [ha] using hea
+  choose r hrMem hrCtrl using hrow
+  choose c hcMem hcCtrl using hcol
+  apply OwnerStrictness.owner_strictness A B E tag r c hrMem hcMem
+  · intro p q _ hq
+    exact hrCtrl p q hq
+  · intro p q hp _
+    exact hcCtrl q p hp
+  · intro p q he t
+    exact (hpair t p q).mp
+      ((hfull (fun x => x = p) (fun y => y = q)).mp ⟨p,q,he,rfl,rfl⟩ t)
+  · exact hno
+
+end IndependentFactors
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam

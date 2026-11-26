@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 126 helper lemmas compile and pass an axiom audit.
+All 128 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -77,6 +77,13 @@ monotone factors: exact conjunction equality selects one factor that agrees
 with the whole neighborhood cofactor on every assignment of the other side.
 The selected factor may depend on the fixed vertex.
 
+OwnerStrictness and IndependentFactors prove a strict matching bound for two
+monotone factors with exact graph-function conjunction and rectangular pair
+terms: a nonempty diagonal matching has size at most the total tagged term
+count minus one. Individual factors need not be graph-existence functions.
+The C4 condition and full assignment equality are explicit. This does not
+count the cost of sharing or resolve arbitrary dependent exceptional OR gates.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -90,4 +97,4 @@ limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=88.0 subagents=2
+TIMING total=96.0 subagents=2
