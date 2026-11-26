@@ -83,4 +83,55 @@ lemma sole_reader_saturated
   rw [heval₀, heval₁, hleft, ← hu]
   cases hop : op p <;> cases huval : w₀ (b p) <;> simp_all [boolGate]
 
+def crossed (a₀ b₀ a₁ b₁ : Bool) : Prop :=
+  (a₀ = true ∧ b₀ = false ∧ a₁ = false ∧ b₁ = true) ∨
+  (a₀ = false ∧ b₀ = true ∧ a₁ = true ∧ b₁ = false)
+
+lemma boolGate_distributes (op merge a₀ b₀ a₁ b₁ : Bool)
+    (h : op ≠ merge → ¬ crossed a₀ b₀ a₁ b₁) :
+    boolGate op (boolGate merge a₀ a₁) (boolGate merge b₀ b₁) =
+      boolGate merge (boolGate op a₀ b₀) (boolGate op a₁ b₁) := by
+  cases op <;> cases merge <;> cases a₀ <;> cases b₀ <;> cases a₁ <;> cases b₁ <;>
+    simp_all [boolGate, crossed]
+
+-- Unless a gate crosses the two rows, evaluation preserves their union or intersection.
+lemma causal_merge_agreement
+    {n k : Nat} (a b : Fin k → Nat) (op : Fin k → Bool) (merge : Bool)
+    (w₀ w₁ wm : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wm i = boolGate merge (w₀ i) (w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = boolGate (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = boolGate (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalm : ∀ j, wm (n + j.val) = boolGate (op j) (wm (a j)) (wm (b j)))
+    (hcross : ∀ j, op j ≠ merge → ¬ crossed (w₀ (a j)) (w₀ (b j)) (w₁ (a j)) (w₁ (b j))) :
+    ∀ i, i < n + k → wm i = boolGate merge (w₀ i) (w₁ i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi
+    by_cases hin : i < n
+    · exact hraw i hin
+    · let j : Fin k := ⟨i - n, by omega⟩
+      have hij : i = n + j.val := by dsimp [j]; omega
+      have hea := ih (a j) (by simpa [← hij] using ha j) (by have := ha j; omega)
+      have heb := ih (b j) (by simpa [← hij] using hb j) (by have := hb j; omega)
+      rw [hij, hevalm, heval₀, heval₁, hea, heb]
+      exact boolGate_distributes _ _ _ _ _ _ (hcross j)
+
+-- A union accepted above two rejected rows forces an AND crossing; the dual forces OR.
+lemma crossing_gate_exists
+    {n k out : Nat} (a b : Fin k → Nat) (op : Fin k → Bool) (merge : Bool)
+    (w₀ w₁ wm : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → wm i = boolGate merge (w₀ i) (w₁ i))
+    (heval₀ : ∀ j, w₀ (n + j.val) = boolGate (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = boolGate (op j) (w₁ (a j)) (w₁ (b j)))
+    (hevalm : ∀ j, wm (n + j.val) = boolGate (op j) (wm (a j)) (wm (b j)))
+    (hout : out < n + k) (hflip : wm out ≠ boolGate merge (w₀ out) (w₁ out)) :
+    ∃ j, op j ≠ merge ∧ crossed (w₀ (a j)) (w₀ (b j)) (w₁ (a j)) (w₁ (b j)) := by
+  by_contra h
+  apply hflip
+  apply causal_merge_agreement a b op merge w₀ w₁ wm ha hb hraw heval₀ heval₁ hevalm
+    (fun j hop hc => h ⟨j, hop, hc⟩) out hout
+
 end PEqualNP.Outside.L_meta_9033
