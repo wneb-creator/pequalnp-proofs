@@ -5,7 +5,7 @@ Swarm L-meta-4970 timeline (UTC)
 - 2026-11-25T22:11:01Z: Updated fork checkout from upstream; confirmed canonical desk module PEqualNP.Outside.L_meta_4970. Build setup lacks promised Lean/cache; restoring while proof work continues.
 
 Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
-TIMING total=151.9 subagents=19
+TIMING total=173.1 subagents=19
 
 - 2026-11-25T22:11:14+00:00: helper-1 first result: reusable L_meta_4990 leaf-count machinery; semantic star witnesses may contain AND bypasses.
 - 2026-11-25T22:12:11+00:00: helper-2 first result: IsAO2 excludes malformed-gate shortcuts; T resets at AND; finite counterexample search in preparation.
@@ -44,3 +44,7 @@ TIMING total=151.9 subagents=19
 - 2026-11-26T00:35:14Z: Independent W(3,3) exact-output matrix obstruction audited and reproduced. It refutes intermediate matrix/BAD bounds, not the posted gap.
 - 2026-11-26T00:36:32Z: Final route review corrected the L7241 shortcut: its all-input-pair cleanliness includes diagonal and same-palette pairs and is equivalent to global safety of every AND gate. No weaker closing normalization was established.
 - 2026-11-26T00:41:11Z: Independent actual-diff/source/scope review PASS for matrix audit, search outcomes, and metadata; new matrix verifier and all four saved search candidates independently reproduced. Two documentation clarifications applied before commit.
+- 2026-11-26T00:42:37Z: Reviewed checkpoint056938ee6afc995f92f9ec121d30766dd2beb17f pushed. A generic initial remote rejection was followed by readback and one expected-old-SHA-fenced fast-forward retry, which succeeded. No authentication refusal occurred.
+- 2026-11-26T00:51:24Z: Final fixed-prefix actual26-gate Fano search returned UNKNOWN at120s. Independent source/prefix/control review passed; no candidate or exclusion.
+- 2026-11-26T00:54:34Z: Independent PG(2,5) exact-DNF construction refuted augmented-components<=AND for the stated nonminimal circuit; root source review and reproduction passed. Full gap remains unresolved.
+- 2026-11-26T01:02:18Z: Full-candidate window closed with no proof or refutation. All root search runs finished; final helper census is reported276/283, with seven unresolved finite classes. Independent closing six-file review PASS; official full-gap checker not run, no FINAL/PR/release. Closing partial publication is the remaining action.

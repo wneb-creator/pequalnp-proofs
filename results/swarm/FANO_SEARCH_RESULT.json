@@ -1,0 +1,15 @@
+{
+  "scope": "fixed-prefix actual26-gate Fano search only, no general exclusion",
+  "result": "UNKNOWN",
+  "limit_seconds": 120,
+  "variables": 4920,
+  "clauses": 144821,
+  "rows": 73,
+  "maximal_independent_sets": 37,
+  "prefix_ors": 11,
+  "prefix_covers_all_edges": true,
+  "positive_control_assignments": 16384,
+  "positive_control_clauses": 2831176,
+  "cnf_sha256": "a3a0be140563f434fb1e44e4727476c920e2f00f981d5df372aa14b477ef6106",
+  "encoder_sha256": "084eabf15e96eea72737fb725c4d8caec7cff06c2e82bb56df9774df2cfbd28d"
+}

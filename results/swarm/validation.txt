@@ -15,7 +15,7 @@ Official full-gap checker: not run, because no full candidate exists.
 Initial gap-list reduction guard: REFUSED, row lacks reductions:true.
 
 Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
-TIMING total=151.9 subagents=19
+TIMING total=173.1 subagents=19
 
 RootEdgeCount now also constructs a witness-center cover of size <= OR count; its full-bound closure has an explicit additional budget premise, not established universally.
 Helper3StarCountV2 connected-component and one-center toolkit: independent build and source review PASS.
@@ -47,3 +47,9 @@ Root K5-incidence and affine stochastic search controls PASS at sizes24 and35, w
 
 MatrixObstruction.py: independent construction and root source/reproduction audit PASS. The 14559-gate exact circuit has 160 edges, 80 forced witness components, active-matrix rank79, and78 semantic bad ORs. Only the output is below F; every actual gate is edge-active. Full-input equality follows from explicit CNF algebra and1440 checked complement rectangles, not an exhaustive2^80 truth table. This refutes intermediate bounds only; the posted inequality holds on this circuit.
 Live desk statement rechecked unchanged on2026-11-26. Heartbeat00:25UTC returned HTTP410; reported on bus5815. No lease requested or released.
+
+AugmentedObstruction.py: independent exact minimal-DNF audit and root source/reproduction PASS. PG(2,5) has186edges; the292-gate circuit has68AND,224OR,91 augmented witness components, T0/serving/edge-activity/stated-top-form properties. This refutes an intermediate component-vs-AND bound only. A216-gate ordinary-star simplification exists; no minimal-circuit or full-gap refutation is claimed.
+Final actual26-gate fixed-prefix Fano SAT search: UNKNOWN at120s,4920variables/144821clauses,73 exact monotone test rows. Root reviewed source/prefix coverage and reproduced the38-gate control: all16384inputs and2831176 generic encoding clauses PASS. This is neither SAT nor UNSAT evidence for the target. Free-AND fixed-prefix OR19 search also UNKNOWN at60s.
+
+Closing status at2026-11-26T01:02:18Z: no complete proof/refutation/reduction, no full candidate, official full-gap checker not run, no FINAL and no PR. Helper-2 reports final audited finite census276/283 eligible classes excluded; seven remain unresolved. Root did not rerun that entire external SAT census. These finite results do not prove the universal gap.
+Independent final actual-diff/source/scope review PASS for the six changed non-Lean files; augmented counterexample and its216-gate simplification independently reproduced, Fano UNKNOWN metadata/hashes/positive control verified. Timing and closing-status additions receive final metadata review before push.
