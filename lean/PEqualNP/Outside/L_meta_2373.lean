@@ -1373,4 +1373,70 @@ lemma two_or_partners_below_petersen
     hh0 hupper0 hh1 hupper1 hpre hpost0 hpost1 hev hmono x (by simp [hx0, hx1])
 
 
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma common_or_partner_strict_improvement
+    (pre mid post : List Gate) (out h : ℕ)
+    (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hother : ∀ g ∈ mid ++ post, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerSuffixReadShape 0 1 h g)
+    (hfanin : FanInTwo (doubleOrOriginal pre mid post 0 1 h out))
+    (hev : ∀ x : Fin 10 → Bool,
+      (doubleOrOriginal pre mid post 0 1 h out).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h)) :
+    ∃ D : Circuit, FanInTwo D ∧
+      D.size + 1 = (doubleOrOriginal pre mid post 0 1 h out).size ∧
+      ∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = petersen x := by
+  have hsuffix : ∀ g ∈ (⟨.or, [0, h]⟩ : Gate) :: (mid ++ ⟨.or, [1, h]⟩ :: post),
+      0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g → partnerSuffixReadShape 0 1 h g := by
+    intro g hg hr
+    rcases List.mem_cons.mp hg with rfl | hg
+    · simp [partnerSuffixReadShape]
+    · rcases List.mem_append.mp hg with hm | hg
+      · exact hother g (List.mem_append_left post hm) hr
+      · rcases List.mem_cons.mp hg with rfl | hp
+        · simp [partnerSuffixReadShape]
+        · exact hother g (List.mem_append_right mid hp) hr
+  have hpartner := common_or_partner_circuit_below_petersen pre
+    ((⟨.or, [0, h]⟩ : Gate) :: (mid ++ ⟨.or, [1, h]⟩ :: post)) out h
+    hh hupper hpre hsuffix hev hmono
+  have hbelow : ∀ x : Fin 10 → Bool,
+      ((doubleOrOriginal pre mid post 0 1 h out).wires (List.ofFn x)).getD h false = true →
+        (doubleOrOriginal pre mid post 0 1 h out).eval (List.ofFn x) = true := by
+    intro x hx
+    rw [hev]
+    apply hpartner x
+    change (liftRun pre (List.ofFn x)).getD h false = true
+    rw [← doubleOrOriginal_h 10 pre mid post 0 1 h out hupper x]
+    exact hx
+  obtain ⟨hD, hsize, heval⟩ := doubleOrLift_improves 10 pre mid post 0 1 h out
+    (by omega) (by omega) hupper hfanin hbelow
+  refine ⟨doubleOrLift 10 pre mid post 0 1 h out, hD, hsize, ?_⟩
+  intro x
+  rw [heval, hev]
+
+lemma common_or_partner_not_minimal
+    (pre mid post : List Gate) (out h : ℕ)
+    (hh : 10 ≤ h) (hupper : h < 10 + pre.length)
+    (hpre : ∀ g ∈ pre, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerAndReadShape 0 1 g)
+    (hother : ∀ g ∈ mid ++ post, 0 ∈ effectiveInputs g ∨ 1 ∈ effectiveInputs g →
+      partnerSuffixReadShape 0 1 h g)
+    (hfanin : FanInTwo (doubleOrOriginal pre mid post 0 1 h out))
+    (hev : ∀ x : Fin 10 → Bool,
+      (doubleOrOriginal pre mid post 0 1 h out).eval (List.ofFn x) = petersen x)
+    (hmono : Monotone (commonPartnerValue pre h))
+    (hminimal : ∀ D : Circuit, FanInTwo D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = petersen x) →
+      (doubleOrOriginal pre mid post 0 1 h out).size ≤ D.size) : False := by
+  obtain ⟨D, hD, hsize, heval⟩ := common_or_partner_strict_improvement pre mid post out h
+    hh hupper hpre hother hfanin hev hmono
+  have hmin := hminimal D hD heval
+  omega
+
+
 end PEqualNP.Outside.L_meta_2373_aux
