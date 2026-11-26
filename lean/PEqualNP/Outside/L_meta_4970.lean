@@ -9122,4 +9122,165 @@ lemma simpleGraph_pairClean_iff_safe (n : ℕ) (G : SimpleGraph (Fin n))
 
 end H5PairSafety
 
+namespace H5PrincipalEdge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open H5Pruning H5Bridge H5Owners
+
+lemma single_edge_and_pure {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E)
+    (hedges : ∀ u v, (u,v) ∈ E →
+      (wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) = true ↔
+        u = a ∧ v = b))
+    (hsingle : ∀ u : Fin (p+l), wireFn (p+l) C (p+l+j) (singletonInput u) = false) :
+    ∀ x, wireFn (p+l) C (p+l+j) x = (x (Fin.castAdd l a) && x (Fin.natAdd p b)) := by
+  have ha : a.val < p+l := by omega
+  have hb : p+b.val < p+l := by omega
+  have hval : ∀ x, H5AndProduct.product (p+l) C a.val (p+b.val) x =
+      (x (Fin.castAdd l a) && x (Fin.natAdd p b)) := by
+    intro x
+    simp only [H5AndProduct.product, wireFn_input (p+l) C a.val ha,
+      wireFn_input (p+l) C (p+b.val) hb]
+    rfl
+  have htrue : wireFn (p+l) C (p+l+j)
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := (hedges a b hab).mpr ⟨rfl,rfl⟩
+  have hle : ∀ x, H5AndProduct.product (p+l) C a.val (p+b.val) x ≤ wireFn (p+l) C (p+l+j) x := by
+    intro x
+    apply Bool.le_iff_imp.mpr
+    intro hx
+    rw [hval] at hx
+    have ⟨hxa,hxb⟩ : x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true := by
+      simpa only [Bool.and_eq_true] using hx
+    exact Bool.le_iff_imp.mp (wireFn_mono (p+l) C hC.1 (p+l+j)
+      (pairInput_le _ _ x hxa hxb)) htrue
+  have heq : ∀ u v, (u,v) ∈ E →
+      H5AndProduct.product (p+l) C a.val (p+b.val)
+        (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) =
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) := by
+    intro u v huv
+    apply Bool.eq_iff_iff.mpr
+    constructor
+    · exact Bool.le_iff_imp.mp (hle _)
+    · intro h
+      obtain ⟨rfl,rfl⟩ := (hedges u v huv).mp h
+      rw [hval]
+      simp [pairInput]
+  have hsing : ∀ u, H5AndProduct.product (p+l) C a.val (p+b.val) (singletonInput u) =
+      wireFn (p+l) C (p+l+j) (singletonInput u) := by
+    intro u
+    rw [hval,hsingle]
+    apply Bool.eq_false_iff.mpr
+    intro h
+    have ⟨hA,hB⟩ : singletonInput u (Fin.castAdd l a) = true ∧
+        singletonInput u (Fin.natAdd p b) = true := by
+      simpa only [Bool.and_eq_true] using h
+    have hAu : Fin.castAdd l a = u := by simpa [singletonInput] using hA
+    have hBu : Fin.natAdd p b = u := by simpa [singletonInput] using hB
+    exact left_right_distinct a b (hAu.trans hBu.symm)
+  intro x
+  have hfix := H5AndProduct.replacement_fixed E C hC hmin j hj a.val (p+b.val)
+    (by omega) (by omega) hop hle heq hsing x
+  exact hfix.trans (hval x)
+
+end H5PrincipalEdge
+
+namespace H5SingleEdge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open H5Pruning H5Bridge
+
+lemma zero_singleton_or_two_edges {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .or)
+    (hzero : ∀ q, wireFn (p+l) C (p+l+j) (singletonInput q) = false) :
+    ∃ e f : Fin p × Fin l, e ∈ E ∧ f ∈ E ∧ e ≠ f ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l e.1) (Fin.natAdd p e.2)) = true ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l f.1) (Fin.natAdd p f.2)) = true := by
+  obtain ⟨r,s,hr,hs,hinp,hops,hval⟩ := binary_gate (p+l) C hC.1 j hj
+  have hgate : ∀ x, wireFn (p+l) C (p+l+j) x =
+      (wireFn (p+l) C r x || wireFn (p+l) C s x) := by
+    intro x
+    rw [hval,hop]
+    simp [GateOp.eval]
+  have hleft : ∃ a b, (a,b) ∈ E ∧
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) C s (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+    rcases H5DeleteOr.or_operand_private_test E C hC hmin j r s hj hop (Or.inl hinp) with
+      ⟨q,hqr,_⟩ | he
+    · have hq := hzero q
+      rw [hgate,hqr] at hq
+      simp at hq
+    · exact he
+  have hright : ∃ a b, (a,b) ∈ E ∧
+      wireFn (p+l) C s (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+    rcases H5DeleteOr.or_operand_private_test E C hC hmin j s r hj hop (Or.inr hinp) with
+      ⟨q,hqs,_⟩ | he
+    · have hq := hzero q
+      rw [hgate,hqs] at hq
+      simp at hq
+    · exact he
+  obtain ⟨a,b,hab,har,has⟩ := hleft
+  obtain ⟨c,d,hcd,hcs,hcr⟩ := hright
+  refine ⟨(a,b),(c,d),hab,hcd,?_,?_,?_⟩
+  · intro heq
+    obtain ⟨hac,hbd⟩ := Prod.mk.inj heq
+    subst c
+    subst d
+    rw [har] at hcr
+    contradiction
+  · rw [hgate,har]
+    rfl
+  · rw [hgate,hcs]
+    simp
+
+lemma single_edge_wire_pure {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hsize : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (hscore : H5Owners.scoreMinimal E C) (w : ℕ)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E)
+    (hedges : ∀ u v, (u,v) ∈ E →
+      (wireFn (p+l) C w (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) = true ↔
+        u = a ∧ v = b))
+    (hsingle : ∀ q, wireFn (p+l) C w (singletonInput q) = false) :
+    ∀ x, wireFn (p+l) C w x = (x (Fin.castAdd l a) && x (Fin.natAdd p b)) := by
+  have hactive := (hedges a b hab).mpr ⟨rfl,rfl⟩
+  have hvalid : w < p+l+C.gates.length := by
+    by_contra hn
+    have hz := wireFn_ge (p+l) C w (by omega)
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b))
+    rw [hactive] at hz
+    contradiction
+  have hnotInput : p+l ≤ w := by
+    by_contra hn
+    have hw : w < p+l := by omega
+    have hz := hsingle ⟨w,hw⟩
+    rw [wireFn_input (p+l) C w hw] at hz
+    simp [singletonInput] at hz
+  let j := w-(p+l)
+  have hj : j < C.gates.length := by dsimp [j]; omega
+  have hjw : p+l+j = w := by dsimp [j]; omega
+  have hedges' : ∀ u v, (u,v) ∈ E →
+      (wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) = true ↔
+        u = a ∧ v = b) := by
+    simpa only [hjw] using hedges
+  have hsingle' : ∀ q, wireFn (p+l) C (p+l+j) (singletonInput q) = false := by
+    simpa only [hjw] using hsingle
+  obtain ⟨r,s,hr,hs,hinp,hop,hval⟩ := binary_gate (p+l) C hC.1 j hj
+  rcases hop with hand | hor
+  · intro x
+    rw [← hjw]
+    exact H5PrincipalEdge.single_edge_and_pure E C hC hscore j hj hand a b hab hedges' hsingle' x
+  · obtain ⟨e,f,he,hf,hne,het,hft⟩ := zero_singleton_or_two_edges E C hC hsize j hj hor hsingle'
+    have heab := (hedges' e.1 e.2 he).mp het
+    have hfab := (hedges' f.1 f.2 hf).mp hft
+    have heq : e = (a,b) := Prod.ext heab.1 heab.2
+    have hfq : f = (a,b) := Prod.ext hfab.1 hfab.2
+    exact False.elim (hne (heq.trans hfq.symm))
+
+end H5SingleEdge
+
 end PEqualNP.Outside.L_meta_4970_aux
