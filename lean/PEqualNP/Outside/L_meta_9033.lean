@@ -2287,3 +2287,401 @@ theorem global_cofactor_and_star_budget_to_maskCount
     (localMask_of_core_globalMask v b (truth 6) hstarB) hexceptional hbudget
 
 end PEqualNP.Outside.L_meta_9033_aux.GlobalMaskCostTransport
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalReaderOrder
+
+open PhysicalOrPorts
+
+theorem before_q_independent {m : Nat} (v : Fin 3)
+    (a b : Fin m → Nat) (op : Fin m → Bool) (q : Fin m)
+    (value : Nat → (Bool × Fin 32) → Bool)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q) :
+    ∀ w : Nat, w < 11 + q.val → usable v w →
+      ∀ x : Fin 32, value w (false, x) = value w (true, x) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hbound hw x
+    by_cases hsmall : w < 11
+    · have hslot : w ∈ rawSlots := by
+        rcases hw.2 with hlarge | hs
+        · omega
+        · exact hs
+      obtain ⟨r, hr⟩ := (rawSlots_iff ⟨w, hsmall⟩).mp hslot
+      have hvf := hraw r (false, x)
+      have hvt := hraw r (true, x)
+      rw [hr] at hvf hvt
+      rw [hvf, hvt]
+      by_cases habc : r.val < 3
+      · have hrv : r.val ≠ v.val := by
+          intro he
+          apply hw.1
+          have hridx : rawIndex r = r.val := by simp [rawIndex, habc]
+          exact hr.symm.trans (hridx.trans he)
+        simp [ReaderCofactorBridge.embed, habc, hrv]
+      · simp [ReaderCofactorBridge.embed, habc]
+    · let i : Fin m := ⟨w - 11, by have hqm := q.isLt; omega⟩
+      have hi : 11 + i.val = w := by dsimp [i]; omega
+      have hiq : i ≠ q := by
+        intro he
+        have hei := congrArg Fin.val he
+        dsimp [i] at hei
+        omega
+      have hpa : a i < w := by simpa only [hi] using ha i
+      have hpb : b i < w := by simpa only [hi] using hb i
+      have hga : usable v (a i) := by
+        refine ⟨?_, ?_⟩
+        · intro he
+          exact hiq (hsole i (Or.inl he))
+        · by_cases hl : 11 ≤ a i
+          · exact Or.inl hl
+          · exact Or.inr (hav i (by omega))
+      have hgb : usable v (b i) := by
+        refine ⟨?_, ?_⟩
+        · intro he
+          exact hiq (hsole i (Or.inr he))
+        · by_cases hl : 11 ≤ b i
+          · exact Or.inl hl
+          · exact Or.inr (hbv i (by omega))
+      have hea := ih (a i) hpa (by omega) hga x
+      have heb := ih (b i) hpb (by omega) hgb x
+      rw [← hi, hgate, hgate, hea, heb]
+
+theorem q_before_target_and {m : Nat} (v : Fin 3)
+    (a b : Fin m → Nat) (op : Fin m → Bool) (q j : Fin m)
+    (value : Nat → (Bool × Fin 32) → Bool)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q)
+    (hopq : op q = false) (hopj : op j = true)
+    (htarget : ∀ retained x, value (11 + j.val) (retained, x) =
+      GFirst.target v retained x) : q.val < j.val := by
+  have hne : j ≠ q := by
+    intro he
+    rw [he, hopq] at hopj
+    contradiction
+  by_contra hn
+  have hjq : j.val < q.val := by
+    have hnv : j.val ≠ q.val := fun he => hne (Fin.ext he)
+    omega
+  have husable : usable v (11 + j.val) := by
+    refine ⟨?_, Or.inl (by omega)⟩
+    have hv := v.isLt
+    omega
+  obtain ⟨i, hi⟩ := GFirst.neighbors_nonempty v
+  have he := before_q_independent v a b op q value ha hb hav hbv hraw hgate hsole
+    (11 + j.val) (by omega) husable (HFirst.unit i)
+  rw [htarget, htarget] at he
+  simp [GFirst.target, HFirst.core_unit, hi] at he
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalReaderOrder
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalHFirst
+
+open HFirst
+open PhysicalOrPorts
+
+theorem trace_hfirst_impossible {m : Nat} (v : Fin 3)
+    (a b : Fin m → Nat) (op : Fin m → Bool) (h g q j : Fin m)
+    (value : Nat → (Bool × Fin 32) → Bool)
+    (hhg : h.val < g.val) (hgj : g.val < j.val) (hhq : h.val < q.val)
+    (hopH : op h = true) (hopG : op g = true) (hopJ : op j = true) (hopQ : op q = false)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hand : ∀ i, i.val < j.val → op i = true →
+      i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false)
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q)
+    (hqvalue : ∀ s : Bool × Fin 32, value (11 + q.val) s =
+      (s.1 || value (11 + h.val) s))
+    (hzero : ∀ i : Fin 5, value (11 + h.val) (false, unit i) = false)
+    (hdirty : (∃ x, value (11 + h.val) (false, x) = true ∧ core x = false) ∨
+      (∃ x, value (11 + h.val) (true, x) = true ∧ upper v x = false))
+    (gnonzero : (∃ i : Fin 5, value (11 + g.val) (false, unit i) = true) ∨
+      value (11 + g.val) (true, 0) = true)
+    (gdirty : (∃ x, value (11 + g.val) (false, x) = true ∧ core x = false) ∨
+      (∃ x, value (11 + g.val) (true, x) = true ∧ upper v x = false))
+    (hout : ∀ retained x, value (11 + j.val) (retained, x) = GFirst.target v retained x) :
+    False := by
+  have compile (t : Fin m) (htj : t.val ≤ j.val) (htop : op t = true)
+      (wire : Nat) (hwire : wire = a t ∨ wire = b t) :
+      ∃ support : Finset (Fin 8), support ⊆ allowedSources h g q t.val ∧
+        ∀ s : Bool × Fin 32,
+          value wire s = finalSide (ConcreteOrPorts.supportRawMask support)
+            (decide (5 ∈ support)) (decide (6 ∈ support)) (decide (7 ∈ support))
+            (value (11 + h.val) s) (value (11 + g.val) s)
+            (value (11 + q.val) s) s.2 := by
+    have hbound : wire < 11 + t.val := by
+      rcases hwire with rfl | rfl
+      · exact ha t
+      · exact hb t
+    have htq : t ≠ q := by
+      intro he
+      rw [he, hopQ] at htop
+      contradiction
+    have hgood : usable v wire := by
+      constructor
+      · intro he
+        apply htq
+        apply hsole t
+        rcases hwire with hw | hw
+        · exact Or.inl (hw.symm.trans he)
+        · exact Or.inr (hw.symm.trans he)
+      · by_cases he : 11 ≤ wire
+        · exact Or.inl he
+        · right
+          rcases hwire with rfl | rfl
+          · exact hav t (by omega)
+          · exact hbv t (by omega)
+    have hroles : ∀ i, i.val < t.val → op i = true →
+        i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false := by
+      intro i hi hop
+      exact hand i (by omega) hop
+    exact trace_prefix_final_port v t.val (Nat.le_of_lt t.isLt) a b op h g q value
+      ha hb hav hbv hraw hgate hroles hsole ⟨wire, hbound⟩ hgood
+  have excluded (limit : Nat) (support : Finset (Fin 8))
+      (hs : support ⊆ allowedSources h g q limit) (c : Fin 8)
+      (hfuture : 11 + limit ≤ sourceIndex h g q c) : c ∉ support := by
+    intro hc
+    have ht := hs hc
+    change c ∈ basisLabels.filter (fun d => sourceIndex h g q d < 11 + limit) at ht
+    have hlt := (Finset.mem_filter.mp ht).2
+    omega
+  have first_excluded (support : Finset (Fin 8))
+      (hs : support ⊆ allowedSources h g q h.val) :
+      (5 : Fin 8) ∉ support ∧ (6 : Fin 8) ∉ support ∧ (7 : Fin 8) ∉ support := by
+    refine ⟨excluded h.val support hs 5 (by simp [sourceIndex]), ?_, ?_⟩
+    · apply excluded h.val support hs 6
+      simpa [sourceIndex] using Nat.add_le_add_left (Nat.le_of_lt hhg) 11
+    · apply excluded h.val support hs 7
+      simpa [sourceIndex] using Nat.add_le_add_left (Nat.le_of_lt hhq) 11
+  obtain ⟨sha, hsha, eha⟩ := compile h (by omega) hopH (a h) (Or.inl rfl)
+  obtain ⟨shb, hshb, ehb⟩ := compile h (by omega) hopH (b h) (Or.inr rfl)
+  obtain ⟨sga, hsga, ega⟩ := compile g (by omega) hopG (a g) (Or.inl rfl)
+  obtain ⟨sgb, hsgb, egb⟩ := compile g (by omega) hopG (b g) (Or.inr rfl)
+  obtain ⟨sja, hsja, eja⟩ := compile j (by omega) hopJ (a j) (Or.inl rfl)
+  obtain ⟨sjb, hsjb, ejb⟩ := compile j (by omega) hopJ (b j) (Or.inr rfl)
+  obtain ⟨ha5, ha6, ha7⟩ := first_excluded sha hsha
+  obtain ⟨hb5, hb6, hb7⟩ := first_excluded shb hshb
+  have ga6 : (6 : Fin 8) ∉ sga := excluded g.val sga hsga 6 (by simp [sourceIndex])
+  have gb6 : (6 : Fin 8) ∉ sgb := excluded g.val sgb hsgb 6 (by simp [sourceIndex])
+  let ph := ConcreteOrPorts.supportRawMask sha
+  let qh := ConcreteOrPorts.supportRawMask shb
+  let pg := ConcreteOrPorts.supportRawMask sga
+  let qg := ConcreteOrPorts.supportRawMask sgb
+  let pj := ConcreteOrPorts.supportRawMask sja
+  let qj := ConcreteOrPorts.supportRawMask sjb
+  let takeHL : Bool := decide ((5 : Fin 8) ∈ sga)
+  let takeQL : Bool := decide ((7 : Fin 8) ∈ sga)
+  let takeHR : Bool := decide ((5 : Fin 8) ∈ sgb)
+  let takeQR : Bool := decide ((7 : Fin 8) ∈ sgb)
+  let jHL : Bool := decide ((5 : Fin 8) ∈ sja)
+  let jGL : Bool := decide ((6 : Fin 8) ∈ sja)
+  let jQL : Bool := decide ((7 : Fin 8) ∈ sja)
+  let jHR : Bool := decide ((5 : Fin 8) ∈ sjb)
+  let jGR : Bool := decide ((6 : Fin 8) ∈ sjb)
+  let jQR : Bool := decide ((7 : Fin 8) ∈ sjb)
+  have evaluate_and (t : Fin m) (ht : op t = true)
+      (left right : (Bool × Fin 32) → Bool)
+      (hl : ∀ s, value (a t) s = left s) (hr : ∀ s, value (b t) s = right s) :
+      ∀ s, value (11 + t.val) s = (left s && right s) := by
+    intro s
+    calc
+      value (11 + t.val) s = (value (a t) s && value (b t) s) := by
+        simpa [ht] using hgate t s
+      _ = (left s && right s) := congrArg₂ (fun x y : Bool => x && y) (hl s) (hr s)
+  have eh := evaluate_and h hopH _ _ eha ehb
+  have eg := evaluate_and g hopG _ _ ega egb
+  have ej := evaluate_and j hopJ _ _ eja ejb
+  have h_eval (retained : Bool) (x : Fin 32) :
+      value (11 + h.val) (retained, x) = first ph qh x := by
+    simpa [finalSide, first, ha5, ha6, ha7, hb5, hb6, hb7, ph, qh] using eh (retained, x)
+  have gzero_eval (x : Fin 32) : value (11 + g.val) (false, x) =
+      secondZero pg qg takeHL takeQL takeHR takeQR (first ph qh) x := by
+    simpa [finalSide, secondZero, side, ga6, gb6, hqvalue, h_eval,
+      pg, qg, takeHL, takeQL, takeHR, takeQR] using eg (false, x)
+  have gone_eval (x : Fin 32) : value (11 + g.val) (true, x) =
+      secondOne pg qg takeHL takeQL takeHR takeQR (first ph qh) x := by
+    simpa [finalSide, secondOne, side, ga6, gb6, hqvalue, h_eval,
+      pg, qg, takeHL, takeQL, takeHR, takeQR] using eg (true, x)
+  apply hfirst_model_impossible v ph qh pg qg pj qj takeHL takeQL takeHR takeQR
+    jHL jGL jQL jHR jGR jQR
+  · simpa only [h_eval] using hzero
+  · simpa only [h_eval] using hdirty
+  · simpa only [gzero_eval, gone_eval] using gnonzero
+  · simpa only [gzero_eval, gone_eval] using gdirty
+  · intro x
+    have ht := (ej (false, x)).symm.trans (hout false x)
+    simpa [GFirst.target, hqvalue, h_eval, gzero_eval,
+      pj, qj, jHL, jGL, jQL, jHR, jGR, jQR] using ht
+  · intro x
+    have ht := (ej (true, x)).symm.trans (hout true x)
+    simpa [GFirst.target, upper, hqvalue, h_eval, gone_eval,
+      pj, qj, jHL, jGL, jQL, jHR, jGR, jQR] using ht
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalHFirst
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalHFirstReader
+
+open HFirst
+open PhysicalOrPorts
+
+theorem trace_hfirst_reader_impossible {m : Nat} (v : Fin 3)
+    (a b : Fin m → Nat) (op : Fin m → Bool) (h g q j : Fin m)
+    (value : Nat → (Bool × Fin 32) → Bool)
+    (hhg : h.val < g.val) (hgj : g.val < j.val)
+    (hopH : op h = true) (hopG : op g = true) (hopJ : op j = true) (hopQ : op q = false)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hand : ∀ i, i.val < j.val → op i = true →
+      i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false)
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q)
+    (haq : a q = v.val)
+    (hmateCore : ∀ i : Fin 5, value (b q) (false, unit i) = false)
+    (hmateRetained : value (b q) (true, 0) = false)
+    (hmatePositive : ∃ s : Bool × Fin 32, value (b q) s = true)
+    (hdirty : (∃ x, value (11 + h.val) (false, x) = true ∧ core x = false) ∨
+      (∃ x, value (11 + h.val) (true, x) = true ∧ upper v x = false))
+    (gnonzero : (∃ i : Fin 5, value (11 + g.val) (false, unit i) = true) ∨
+      value (11 + g.val) (true, 0) = true)
+    (gdirty : (∃ x, value (11 + g.val) (false, x) = true ∧ core x = false) ∨
+      (∃ x, value (11 + g.val) (true, x) = true ∧ upper v x = false))
+    (hout : ∀ retained x, value (11 + j.val) (retained, x) = GFirst.target v retained x) :
+    False := by
+  have hqj := PhysicalReaderOrder.q_before_target_and v a b op q j value
+    ha hb hav hbv hraw hgate hsole hopQ hopJ hout
+  have hroles : ∀ i, i.val < q.val → op i = true →
+      i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false := by
+    intro i hi hop
+    exact hand i (by omega) hop
+  obtain ⟨hhq, hmate, hqvalue⟩ := PhysicalQMateExtraction.sole_or_reader_exact_h
+    v a b op h g q value ha hb hav hbv hraw hgate hroles hsole
+    hopQ haq hmateCore hmateRetained gnonzero hmatePositive
+  have hzero : ∀ i : Fin 5, value (11 + h.val) (false, unit i) = false := by
+    intro i
+    rw [← hmate]
+    exact hmateCore i
+  exact PhysicalHFirst.trace_hfirst_impossible v a b op h g q j value hhg hgj hhq
+    hopH hopG hopJ hopQ ha hb hav hbv hraw hgate hand hsole hqvalue hzero
+    hdirty gnonzero gdirty hout
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalHFirstReader
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalMaskCostAdapter
+
+open MaskSignatureTransport
+open PhysicalOrPorts
+
+lemma raw_projection_mask : ∀ r : Fin 8,
+    globalMask (fun x : Fin 8 → Bool => x r) = 2 ^ r.val := by decide +kernel
+
+lemma raw_projection_atom : ∀ r : Fin 8,
+    2 ^ r.val ∈ MaskProjection.globalRawAtoms := by decide +kernel
+
+theorem raw_trace_mask (value : Nat → (Fin 8 → Bool) → Bool)
+    (hraw : ∀ (r : Fin 8) (x : Fin 8 → Bool), value (rawIndex r) x = x r)
+    (r : Fin 8) : globalMask (value (rawIndex r)) = 2 ^ r.val := by
+  have he : value (rawIndex r) = (fun x : Fin 8 → Bool => x r) := by
+    funext x
+    exact hraw r x
+  rw [he, raw_projection_mask]
+
+def computedMasks (m : Nat) (value : Nat → (Fin 8 → Bool) → Bool) : Finset Nat :=
+  (Finset.range m).image (fun j => globalMask (value (11 + j)))
+
+theorem required_nonatom_subset_computed {α : Type*} [DecidableEq α]
+    (m : Nat) (value : Nat → (Fin 8 → Bool) → Bool)
+    (hraw : ∀ (r : Fin 8) (x : Fin 8 → Bool), value (rawIndex r) x = x r)
+    (required : Finset α) (index : α → Nat) (exceptional : (Fin 8 → Bool) → Bool)
+    (hbound : ∀ i ∈ required, index i < 11 + m)
+    (hvalid : ∀ i ∈ required, index i < 11 → index i ∈ rawSlots) :
+    (required.image (fun i => globalMask (value (index i)))) \
+        insert (globalMask exceptional) MaskProjection.globalRawAtoms ⊆
+      computedMasks m value \ insert (globalMask exceptional) MaskProjection.globalRawAtoms := by
+  intro mask hm
+  obtain ⟨himage, hnonatom⟩ := Finset.mem_sdiff.mp hm
+  obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp himage
+  by_cases hsmall : index i < 11
+  · obtain ⟨r, hr⟩ := (rawSlots_iff ⟨index i, hsmall⟩).mp (hvalid i hi hsmall)
+    change rawIndex r = index i at hr
+    have hatom : globalMask (value (index i)) ∈ MaskProjection.globalRawAtoms := by
+      rw [← hr, raw_trace_mask value hraw r]
+      exact raw_projection_atom r
+    exact False.elim (hnonatom (Finset.mem_insert_of_mem hatom))
+  · apply Finset.mem_sdiff.mpr
+    refine ⟨?_, hnonatom⟩
+    apply Finset.mem_image.mpr
+    refine ⟨index i - 11, Finset.mem_range.mpr ?_, ?_⟩
+    · have hb := hbound i hi
+      omega
+    · have he : 11 + (index i - 11) = index i := by omega
+      rw [he]
+
+theorem required_budget_of_computed_budget {α : Type*} [DecidableEq α]
+    (m : Nat) (value : Nat → (Fin 8 → Bool) → Bool)
+    (hraw : ∀ (r : Fin 8) (x : Fin 8 → Bool), value (rawIndex r) x = x r)
+    (required : Finset α) (index : α → Nat) (exceptional : (Fin 8 → Bool) → Bool)
+    (hbound : ∀ i ∈ required, index i < 11 + m)
+    (hvalid : ∀ i ∈ required, index i < 11 → index i ∈ rawSlots)
+    (n : Nat)
+    (hbudget : (computedMasks m value \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ n) :
+    ((required.image (fun i => globalMask (value (index i)))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ n := by
+  exact (Finset.card_le_card
+    (required_nonatom_subset_computed m value hraw required index exceptional hbound hvalid)).trans hbudget
+
+theorem physical_gate_budget_to_maskCount
+    (m : Nat) (v : Fin 3) (p q : Fin 32) (u w : Fin 64) (a b : Fin 32)
+    (value : Nat → (Fin 8 → Bool) → Bool) (index : Fin 7 → Nat)
+    (exceptional : (Fin 8 → Bool) → Bool)
+    (hraw : ∀ (r : Fin 8) (x : Fin 8 → Bool), value (rawIndex r) x = x r)
+    (hbound : ∀ i, index i < 11 + m)
+    (hvalid : ∀ i, index i < 11 → index i ∈ rawSlots)
+    (hports : ∀ i, i.val < 5 → ∀ retained x,
+      value (index i) (ReaderCofactorBridge.embed v retained x) =
+        (GlobalMaskCostTransport.packedPort p q u w a b i).testBit x.val)
+    (hstarA : globalMask (value (index 5)) = 8 * a.val)
+    (hstarB : globalMask (value (index 6)) = 8 * b.val)
+    (hexceptional : ∀ retained x, exceptional (ReaderCofactorBridge.embed v retained x) =
+      (GFirstModel.gValue p q).testBit x.val)
+    (hbudget : (computedMasks m value \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ 6) :
+    GFirstModel.maskCount p q u w a.val b.val ≤ 6 := by
+  apply GlobalMaskCostTransport.global_cofactor_and_star_budget_to_maskCount
+    v p q u w a b (fun i => value (index i)) exceptional
+    hports hstarA hstarB hexceptional
+  exact required_budget_of_computed_budget m value hraw
+    GlobalMaskCostTransport.requiredLabels index exceptional
+    (fun i _ => hbound i) (fun i _ => hvalid i) 6 hbudget
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalMaskCostAdapter
