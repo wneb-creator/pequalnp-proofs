@@ -1560,4 +1560,633 @@ lemma pinAndAppend_smaller (n : Nat) (pre suffix : List Gate) (h output : Nat)
 
 end CleanWirePinAppend
 
+namespace CleanWireExactRetention
+
+open CofactorSimplification CofactorProjectBridge CofactorCountBridge
+open CofactorWeightedCount CofactorOperationBridge CleanWirePinAppend
+
+def OnlyReaderDrops : List Gate → Nat → Nat → (Nat → Nat) → Nat → Prop
+  | [], _, _, _, _ => True
+  | g :: gs, k, m, rho, h =>
+    (¬ Keep (rho g.2.1) (rho g.2.2) → reads h g = true) ∧
+    if Keep (rho g.2.1) (rho g.2.2) then
+      OnlyReaderDrops gs (k + 1) (m + 1) (Function.update rho k m) h
+    else
+      OnlyReaderDrops gs (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) h
+
+lemma keep_not_reader (g : Gate) (h : Nat) (rho : Nat → Nat) (hz : rho h = 0)
+    (hk : Keep (rho g.2.1) (rho g.2.2)) : reads h g = false := by
+  have hn : rho g.2.1 ≠ 0 ∧ rho g.2.2 ≠ 0 ∧ rho g.2.1 ≠ rho g.2.2 := by
+    simpa [Keep] using hk
+  have ha : g.2.1 ≠ h := by intro he; exact hn.1 (he ▸ hz)
+  have hb : g.2.2 ≠ h := by intro he; exact hn.2.1 (he ▸ hz)
+  simp [reads, ha, hb]
+
+lemma onlyReaderDrops_of_exact (gs : List Gate) (k m h : Nat) (rho : Nat → Nat)
+    (hh : h < k) (hz : rho h = 0)
+    (hex : survivors gs k m rho + gs.countP (reads h) = gs.length) :
+    OnlyReaderDrops gs k m rho h := by
+  induction gs generalizing k m rho with
+  | nil => trivial
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · have hr := keep_not_reader g h rho hz hk
+      have hz' : Function.update rho k m h = 0 := by
+        simpa [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      simp only [survivors, hk, ite_true, List.countP_cons, hr,
+        Bool.false_eq_true, ite_false, List.length_cons] at hex
+      refine ⟨by simp [hk], ?_⟩
+      simp only [hk, ite_true]
+      exact ih (k + 1) (m + 1) (Function.update rho k m) (by omega) hz' (by omega)
+    · let r := replacement g.1 (rho g.2.1) (rho g.2.2)
+      have hz' : Function.update rho k r h = 0 := by
+        simpa [Function.update_of_ne (Nat.ne_of_lt hh)] using hz
+      have hs := survivors_reader_savings gs (k + 1) m h (Function.update rho k r)
+        (by omega) hz'
+      have hr : reads h g = true := by
+        cases hg : reads h g
+        · simp only [survivors, hk, Bool.false_eq_true, ite_false, List.countP_cons,
+            hg, List.length_cons] at hex
+          dsimp [r] at hs
+          omega
+        · rfl
+      simp only [survivors, hk, Bool.false_eq_true, ite_false, List.countP_cons,
+        hr, ite_true, List.length_cons] at hex
+      refine ⟨fun _ => hr, ?_⟩
+      simp only [hk, Bool.false_eq_true, ite_false]
+      exact ih (k + 1) m (Function.update rho k r) (by omega) hz' (by dsimp [r]; omega)
+
+lemma minimal_single_reader_exact (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size) :
+    survivors suffix (n + pre.length) (n + pre.length + 1)
+        (initialMap (n + pre.length) h) + suffix.countP (reads h) = suffix.length := by
+  have hs := pinAndAppend_size_savings n pre suffix h output hh
+  rw [pinAndAppend_size, List.length_append] at hmin hs
+  have hc := compile_length suffix (n + pre.length) (n + pre.length + 1)
+    (initialMap (n + pre.length) h)
+  change (cofactor (n + pre.length) h suffix).1.length = _ at hc
+  omega
+
+lemma minimal_single_reader_only_drops (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size) :
+    OnlyReaderDrops suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) h := by
+  exact onlyReaderDrops_of_exact suffix _ _ h _ hh (by simp [initialMap, hh])
+    (minimal_single_reader_exact n pre suffix h output hh hr hmin)
+
+def AndsKept : List Gate → Nat → Nat → (Nat → Nat) → Prop
+  | [], _, _, _ => True
+  | g :: gs, k, m, rho =>
+    (g.1 = true → Keep (rho g.2.1) (rho g.2.2)) ∧
+    if Keep (rho g.2.1) (rho g.2.2) then
+      AndsKept gs (k + 1) (m + 1) (Function.update rho k m)
+    else
+      AndsKept gs (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2)))
+
+lemma andsKept_of_onlyReaderDrops (gs : List Gate) (k m h : Nat) (rho : Nat → Nat)
+    (hd : OnlyReaderDrops gs k m rho h)
+    (hor : ∀ g ∈ gs, reads h g = true → g.1 = false) : AndsKept gs k m rho := by
+  induction gs generalizing k m rho with
+  | nil => trivial
+  | cons g gs ih =>
+    obtain ⟨hhead, htail⟩ := hd
+    refine ⟨?_, ?_⟩
+    · intro hg
+      by_contra hk
+      have := hor g List.mem_cons_self (hhead hk)
+      simp_all
+    · have ht : ∀ g ∈ gs, reads h g = true → g.1 = false :=
+        fun z hz => hor z (List.mem_cons_of_mem g hz)
+      by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+      · simp only [hk, ite_true] at htail ⊢
+        exact ih _ _ _ htail ht
+      · simp only [hk, Bool.false_eq_true, ite_false] at htail ⊢
+        exact ih _ _ _ htail ht
+
+lemma compile_andCount_eq (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (ha : AndsKept gs k m rho) :
+    weightedCount (fun op => if op then 1 else 0) (compile gs k m rho).1 =
+      weightedCount (fun op => if op then 1 else 0) gs := by
+  induction gs generalizing k m rho with
+  | nil => rfl
+  | cons g gs ih =>
+    obtain ⟨hhead, htail⟩ := ha
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [hk, ite_true] at htail
+      simp only [compile, hk, ite_true, weightedCount, mapped]
+      rw [ih _ _ _ htail]
+    · have hg : g.1 = false := by
+        cases hop : g.1
+        · rfl
+        · exact False.elim (hk (hhead hop))
+      simp only [hk, Bool.false_eq_true, ite_false] at htail
+      simp only [compile, hk, Bool.false_eq_true, ite_false, weightedCount, hg,
+        Nat.zero_add]
+      simpa only [hg] using ih _ _ _ htail
+
+lemma minimal_single_or_reader_andsKept (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (hor : ∀ g ∈ suffix, reads h g = true → g.1 = false) :
+    AndsKept suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) := by
+  exact andsKept_of_onlyReaderDrops suffix _ _ h _
+    (minimal_single_reader_only_drops n pre suffix h output hh hr hmin) hor
+
+lemma minimal_single_reader_size (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size) :
+    (pinAndAppend n pre suffix h output).size = (pre ++ suffix).length := by
+  have hs := pinAndAppend_size_savings n pre suffix h output hh
+  omega
+
+lemma minimal_single_or_reader_andCount (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (hh : h < n + pre.length) (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (hor : ∀ g ∈ suffix, reads h g = true → g.1 = false) :
+    ((pinAndAppend n pre suffix h output).gates.filter (hasOperation true)).length =
+      ((pre ++ suffix).filter (fun g => g.1 == true)).length := by
+  have ha := minimal_single_or_reader_andsKept n pre suffix h output hh hr hmin hor
+  rw [pinAndAppend, projectCircuit_opCount, ← weightedCount_eq_filter,
+    ← weightedCount_eq_filter]
+  simp only [pinGates, weightedCount_append, weightedCount_promote, weightedCount,
+    appendGate, Bool.false_eq_true, ite_false, Nat.add_zero]
+  exact congrArg (fun a => weightedCount (fun op => if op = true then 1 else 0) pre + a)
+    (compile_andCount_eq suffix _ _ _ ha)
+
+lemma rawCircuit_andCount (n : Nat) (gs : List Gate) (output : Nat) :
+    ((rawCircuit n gs output).gates.filter (hasOperation true)).length =
+      (gs.filter (fun g => g.1 == true)).length := by
+  rw [rawCircuit, projectCircuit_opCount, ← weightedCount_eq_filter,
+    weightedCount_promote, weightedCount_eq_filter]
+
+def andOutputs : List Gate → Nat → List Nat
+  | [], _ => []
+  | g :: gs, k => if g.1 then k :: andOutputs gs (k + 1) else andOutputs gs (k + 1)
+
+lemma andOutputs_append (gs hs : List Gate) (k : Nat) :
+    andOutputs (gs ++ hs) k = andOutputs gs k ++ andOutputs hs (k + gs.length) := by
+  induction gs generalizing k with
+  | nil => simp [andOutputs]
+  | cons g gs ih =>
+    cases hop : g.1 <;>
+      simp [andOutputs, hop, ih, Nat.add_assoc, Nat.add_left_comm, Nat.add_comm]
+
+lemma andOutputs_bounds (gs : List Gate) (k i : Nat) (hi : i ∈ andOutputs gs k) :
+    k ≤ i ∧ i < k + gs.length := by
+  induction gs generalizing k with
+  | nil => simp [andOutputs] at hi
+  | cons g gs ih =>
+    cases hop : g.1
+    · simp only [andOutputs, hop, Bool.false_eq_true, ite_false] at hi
+      have hb := ih (k + 1) hi
+      simp only [List.length_cons]
+      omega
+    · simp only [andOutputs, hop, ite_true, List.mem_cons] at hi
+      rcases hi with rfl | hi
+      · simp
+      · have hb := ih (k + 1) hi
+        simp only [List.length_cons]
+        omega
+
+end CleanWireExactRetention
+
+namespace CompileEmissionTrace
+
+open CofactorSimplification
+
+def emissions : List Gate → Nat → Nat → (Nat → Nat) → List (Bool × Nat × Nat)
+  | [], _, _, _ => []
+  | g :: gs, k, m, rho =>
+    if Keep (rho g.2.1) (rho g.2.2) then
+      (g.1, k, m) :: emissions gs (k + 1) (m + 1) (Function.update rho k m)
+    else
+      emissions gs (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2)))
+
+lemma compile_map_below (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (i : Nat) (hi : i < k) : (compile gs k m rho).2 i = rho i := by
+  induction gs generalizing k m rho with
+  | nil => rfl
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [compile, hk, ite_true]
+      rw [ih (k + 1) (m + 1) (Function.update rho k m) (by omega)]
+      exact Function.update_of_ne (Nat.ne_of_lt hi) _ _
+    · simp only [compile, hk, Bool.false_eq_true, ite_false]
+      rw [ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) (by omega)]
+      exact Function.update_of_ne (Nat.ne_of_lt hi) _ _
+
+lemma emission_bounds (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (e : Bool × Nat × Nat) (he : e ∈ emissions gs k m rho) :
+    k ≤ e.2.1 ∧ m ≤ e.2.2 := by
+  induction gs generalizing k m rho with
+  | nil => simp [emissions] at he
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [emissions, hk, ite_true, List.mem_cons] at he
+      rcases he with rfl | he
+      · exact ⟨le_rfl, le_rfl⟩
+      · have hh := ih (k + 1) (m + 1) (Function.update rho k m) he
+        exact ⟨by omega, by omega⟩
+    · simp only [emissions, hk, Bool.false_eq_true, ite_false] at he
+      have hh := ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) he
+      exact ⟨by omega, hh.2⟩
+
+lemma emission_final_map (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (e : Bool × Nat × Nat) (he : e ∈ emissions gs k m rho) :
+    (compile gs k m rho).2 e.2.1 = e.2.2 := by
+  induction gs generalizing k m rho with
+  | nil => simp [emissions] at he
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [emissions, hk, ite_true, List.mem_cons] at he
+      simp only [compile, hk, ite_true]
+      rcases he with rfl | he
+      · rw [compile_map_below gs (k + 1) (m + 1) (Function.update rho k m) k (by omega)]
+        simp
+      · exact ih (k + 1) (m + 1) (Function.update rho k m) he
+    · simp only [emissions, hk, Bool.false_eq_true, ite_false] at he
+      simp only [compile, hk, Bool.false_eq_true, ite_false]
+      exact ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) he
+
+lemma emission_new_injective (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (e f : Bool × Nat × Nat) (he : e ∈ emissions gs k m rho)
+    (hf : f ∈ emissions gs k m rho) (h : e.2.2 = f.2.2) : e.2.1 = f.2.1 := by
+  induction gs generalizing k m rho with
+  | nil => simp [emissions] at he
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [emissions, hk, ite_true, List.mem_cons] at he hf
+      rcases he with rfl | he <;> rcases hf with rfl | hf
+      · rfl
+      · have hb := (emission_bounds gs (k + 1) (m + 1) (Function.update rho k m) f hf).2
+        simp only at h
+        omega
+      · have hb := (emission_bounds gs (k + 1) (m + 1) (Function.update rho k m) e he).2
+        simp only at h
+        omega
+      · exact ih (k + 1) (m + 1) (Function.update rho k m) he hf
+    · simp only [emissions, hk, Bool.false_eq_true, ite_false] at he hf
+      exact ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) he hf
+
+lemma emission_compiled_lookup (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (e : Bool × Nat × Nat) (he : e ∈ emissions gs k m rho) :
+    ∃ g, (compile gs k m rho).1[e.2.2 - m]? = some g ∧ g.1 = e.1 := by
+  induction gs generalizing k m rho with
+  | nil => simp [emissions] at he
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [emissions, hk, ite_true, List.mem_cons] at he
+      simp only [compile, hk, ite_true]
+      rcases he with rfl | he
+      · exact ⟨mapped rho g, by simp, rfl⟩
+      · obtain ⟨g', hg', hop⟩ := ih (k + 1) (m + 1) (Function.update rho k m) he
+        have hb := (emission_bounds gs (k + 1) (m + 1) (Function.update rho k m) e he).2
+        have hoff : e.2.2 - m = (e.2.2 - (m + 1)) + 1 := by omega
+        refine ⟨g', ?_, hop⟩
+        simpa [hoff] using hg'
+    · simp only [emissions, hk, Bool.false_eq_true, ite_false] at he
+      simpa only [compile, hk, Bool.false_eq_true, ite_false] using ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) he
+
+lemma emissions_operations (gs : List Gate) (k m : Nat) (rho : Nat → Nat) :
+    (emissions gs k m rho).map Prod.fst = (compile gs k m rho).1.map Prod.fst := by
+  induction gs generalizing k m rho with
+  | nil => rfl
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp [emissions, compile, mapped, hk, ih]
+    · simp [emissions, compile, hk, ih]
+
+end CompileEmissionTrace
+
+namespace CleanWireDirtyRetention
+
+open CofactorSimplification CofactorProjectBridge CofactorCountBridge
+open CofactorWeightedCount CofactorOperationBridge CleanWirePinAppend CleanWireExactRetention
+open CompileEmissionTrace
+
+lemma rawCircuit_pre_wire (pre suffix : List Gate) (w : List Bool) (i : Nat)
+    (hi : i < w.length + pre.length) :
+    (rawCircuit w.length (pre ++ suffix) i).eval w =
+      (projectRun (pre.map promote) w).getD i false := by
+  rw [rawCircuit_split]
+  have hr := rawCircuit_eval suffix i (projectRun (pre.map promote) w)
+  simp only [projectRun_length, List.length_map] at hr
+  rw [hr, run_below _ _ _ _ hi]
+
+lemma dirty_wire_ne_clean (pre suffix : List Gate) (h i : Nat) (w : List Bool)
+    (target : Bool) (hh : h < w.length + pre.length)
+    (hclean : (projectRun (pre.map promote) w).getD h false = true → target = true)
+    (hn : target = false) (hd : (rawCircuit w.length (pre ++ suffix) i).eval w = true) :
+    i ≠ h := by
+  intro he
+  subst i
+  rw [rawCircuit_pre_wire _ _ _ _ hh] at hd
+  have := hclean hd
+  simp_all
+
+lemma andOutputs_promote (gs : List Gate) (k : Nat) :
+    andOutputs (gs.map promote) (k + 1) = (andOutputs gs k).map (fun i => i + 1) := by
+  induction gs generalizing k with
+  | nil => rfl
+  | cons g gs ih =>
+    cases hop : g.1 <;> simp [andOutputs, promote, hop, ih]
+
+lemma pinGates_andOutputs (n : Nat) (pre suffix : List Gate) (h output : Nat) :
+    andOutputs (pinGates n pre suffix h output) (n + 1) =
+      (andOutputs pre n).map (fun i => i + 1) ++
+        andOutputs (cofactor (n + pre.length) h suffix).1 (n + pre.length + 1) := by
+  simp only [pinGates, andOutputs_append, List.length_append, List.length_map,
+    andOutputs_promote, andOutputs, appendGate, Bool.false_eq_true, ite_false,
+    List.append_nil]
+  congr 2
+  omega
+
+lemma andsKept_emitted (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (ha : AndsKept gs k m rho) (i : Nat) (hi : i ∈ andOutputs gs k) :
+    ∃ r, (true, i, r) ∈ emissions gs k m rho := by
+  induction gs generalizing k m rho with
+  | nil => simp [andOutputs] at hi
+  | cons g gs ih =>
+    obtain ⟨hhead, htail⟩ := ha
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [hk, ite_true] at htail
+      simp only [emissions, hk, ite_true]
+      cases hop : g.1
+      · simp only [andOutputs, hop, Bool.false_eq_true, ite_false] at hi
+        obtain ⟨r, hr⟩ := ih (k + 1) (m + 1) (Function.update rho k m) htail hi
+        exact ⟨r, List.mem_cons_of_mem _ hr⟩
+      · simp only [andOutputs, hop, ite_true, List.mem_cons] at hi
+        rcases hi with rfl | hi
+        · exact ⟨m, by simp [hop]⟩
+        · obtain ⟨r, hr⟩ := ih (k + 1) (m + 1) (Function.update rho k m) htail hi
+          exact ⟨r, List.mem_cons_of_mem _ hr⟩
+    · have hop : g.1 = false := by
+        cases hg : g.1
+        · rfl
+        · exact False.elim (hk (hhead hg))
+      simp only [hk, Bool.false_eq_true, ite_false] at htail
+      simp only [andOutputs, hop, Bool.false_eq_true, ite_false] at hi
+      simpa only [emissions, hk, Bool.false_eq_true, ite_false] using
+        ih (k + 1) m (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2)))
+          htail hi
+
+lemma emission_andOutput (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (e : Bool × Nat × Nat) (he : e ∈ emissions gs k m rho) (hop : e.1 = true) :
+    e.2.2 ∈ andOutputs (compile gs k m rho).1 m := by
+  induction gs generalizing k m rho with
+  | nil => simp [emissions] at he
+  | cons g gs ih =>
+    by_cases hk : Keep (rho g.2.1) (rho g.2.2)
+    · simp only [emissions, hk, ite_true, List.mem_cons] at he
+      simp only [compile, hk, ite_true, andOutputs, mapped]
+      rcases he with rfl | he
+      · simp only at hop
+        simp [hop]
+      · have hh := ih (k + 1) (m + 1) (Function.update rho k m) he
+        split_ifs
+        · exact List.mem_cons_of_mem _ hh
+        · exact hh
+    · simp only [emissions, hk, Bool.false_eq_true, ite_false] at he
+      simp only [compile, hk, Bool.false_eq_true, ite_false]
+      exact ih (k + 1) m
+        (Function.update rho k (replacement g.1 (rho g.2.1) (rho g.2.2))) he
+
+lemma and_rep_member (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (ha : AndsKept gs k m rho) (i : Nat) (hi : i ∈ andOutputs gs k) :
+    (compile gs k m rho).2 i ∈ andOutputs (compile gs k m rho).1 m ∧
+      m ≤ (compile gs k m rho).2 i := by
+  obtain ⟨r, hr⟩ := andsKept_emitted gs k m rho ha i hi
+  have hf := emission_final_map gs k m rho (true, i, r) hr
+  simp only at hf
+  rw [hf]
+  exact ⟨emission_andOutput gs k m rho (true, i, r) hr rfl,
+    (emission_bounds gs k m rho (true, i, r) hr).2⟩
+
+lemma and_rep_injective (gs : List Gate) (k m : Nat) (rho : Nat → Nat)
+    (ha : AndsKept gs k m rho) (i j : Nat)
+    (hi : i ∈ andOutputs gs k) (hj : j ∈ andOutputs gs k)
+    (heq : (compile gs k m rho).2 i = (compile gs k m rho).2 j) : i = j := by
+  obtain ⟨r, hr⟩ := andsKept_emitted gs k m rho ha i hi
+  obtain ⟨s, hs⟩ := andsKept_emitted gs k m rho ha j hj
+  have hir := emission_final_map gs k m rho (true, i, r) hr
+  have hjs := emission_final_map gs k m rho (true, j, s) hs
+  apply emission_new_injective gs k m rho (true, i, r) (true, j, s) hr hs
+  exact hir.symm.trans (heq.trans hjs)
+
+lemma cofactor_prefix_rep (n h : Nat) (gs : List Gate) (i : Nat)
+    (hi : i < n) (hne : i ≠ h) : (cofactor n h gs).2 i = i + 1 := by
+  unfold cofactor
+  rw [compile_map_below _ _ _ _ _ hi]
+  simp [initialMap, hi, hne]
+
+lemma full_and_rep_member (n : Nat) (pre suffix : List Gate) (h output i : Nat)
+    (ha : AndsKept suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h))
+    (hi : i ∈ andOutputs (pre ++ suffix) n) (hne : i ≠ h) :
+    (cofactor (n + pre.length) h suffix).2 i ∈
+      andOutputs (pinGates n pre suffix h output) (n + 1) ∧
+      0 < (cofactor (n + pre.length) h suffix).2 i := by
+  rw [andOutputs_append, List.mem_append] at hi
+  rw [pinGates_andOutputs]
+  rcases hi with hi | hi
+  · have hb := andOutputs_bounds pre n i hi
+    rw [cofactor_prefix_rep _ _ _ _ hb.2 hne]
+    exact ⟨List.mem_append_left _ (List.mem_map.mpr ⟨i, hi, rfl⟩), by omega⟩
+  · have hr := and_rep_member suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) ha i hi
+    exact ⟨List.mem_append_right _ hr.1, lt_of_lt_of_le (by omega) hr.2⟩
+
+lemma full_and_rep_injective (n : Nat) (pre suffix : List Gate) (h i j : Nat)
+    (ha : AndsKept suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h))
+    (hi : i ∈ andOutputs (pre ++ suffix) n) (hj : j ∈ andOutputs (pre ++ suffix) n)
+    (hne : i ≠ h) (hne' : j ≠ h)
+    (heq : (cofactor (n + pre.length) h suffix).2 i =
+      (cofactor (n + pre.length) h suffix).2 j) : i = j := by
+  rw [andOutputs_append, List.mem_append] at hi hj
+  rcases hi with hi | hi <;> rcases hj with hj | hj
+  · have hib := andOutputs_bounds pre n i hi
+    have hjb := andOutputs_bounds pre n j hj
+    rw [cofactor_prefix_rep _ _ _ _ hib.2 hne,
+      cofactor_prefix_rep _ _ _ _ hjb.2 hne'] at heq
+    omega
+  · have hib := andOutputs_bounds pre n i hi
+    have hjb := (and_rep_member suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) ha j hj).2
+    rw [cofactor_prefix_rep _ _ _ _ hib.2 hne] at heq
+    change n + pre.length + 1 ≤ (cofactor (n + pre.length) h suffix).2 j at hjb
+    omega
+  · have hjb := andOutputs_bounds pre n j hj
+    have hib := (and_rep_member suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h) ha i hi).2
+    rw [cofactor_prefix_rep _ _ _ _ hjb.2 hne'] at heq
+    change n + pre.length + 1 ≤ (cofactor (n + pre.length) h suffix).2 i at hib
+    omega
+  · exact and_rep_injective suffix _ _ _ ha i j hi hj heq
+
+def OriginalDirty (n : Nat) (pre suffix : List Gate) (rows : Fin 40 → Fin n → Bool)
+    (target : Fin 40 → Bool) (P : Fin 40 → Prop) (i : Nat) : Prop :=
+  i ∈ andOutputs (pre ++ suffix) n ∧ ∃ r, P r ∧ target r = false ∧
+    (rawCircuit n (pre ++ suffix) i).eval (List.ofFn (rows r)) = true
+
+def CompiledDirty (n : Nat) (pre suffix : List Gate) (h output : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (rep : Nat) : Prop :=
+  rep ∈ andOutputs (pinGates n pre suffix h output) (n + 1) ∧
+    ∃ r, P r ∧ target r = false ∧
+      ((pinAndAppend n pre suffix h output).wires (List.ofFn (rows r))).getD
+        (rep - 1) false = true
+
+lemma originalDirty_ne_clean (n : Nat) (pre suffix : List Gate) (h i : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hh : h < n + pre.length)
+    (hclean : ∀ r, (projectRun (pre.map promote) (List.ofFn (rows r))).getD h false = true →
+      target r = true) (hd : OriginalDirty n pre suffix rows target P i) : i ≠ h := by
+  obtain ⟨_, r, _, hn, hv⟩ := hd
+  exact dirty_wire_ne_clean pre suffix h i (List.ofFn (rows r)) (target r)
+    (by simpa only [List.length_ofFn] using hh) (hclean r) hn
+    (by simpa only [List.length_ofFn] using hv)
+
+lemma dirty_rep_preserved (n : Nat) (pre suffix : List Gate) (h output i : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hh : h < n + pre.length)
+    (hclean : ∀ r, (projectRun (pre.map promote) (List.ofFn (rows r))).getD h false = true →
+      target r = true)
+    (ha : AndsKept suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h))
+    (hd : OriginalDirty n pre suffix rows target P i) :
+    CompiledDirty n pre suffix h output rows target P
+      ((cofactor (n + pre.length) h suffix).2 i) := by
+  have hne := originalDirty_ne_clean n pre suffix h i rows target P hh hclean hd
+  have hm := full_and_rep_member n pre suffix h output i ha hd.1 hne
+  obtain ⟨_, r, hp, hn, hv⟩ := hd
+  refine ⟨hm.1, r, hp, hn, ?_⟩
+  have hc := pinAndAppend_high_row pre suffix h output i (List.ofFn (rows r))
+    (target r) (hclean r) hn (by simpa only [List.length_ofFn] using hm.2)
+  simp only [List.length_ofFn] at hc
+  exact hc.trans hv
+
+lemma two_dirty_reps_preserved (n : Nat) (pre suffix : List Gate) (h output i j : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hh : h < n + pre.length)
+    (hclean : ∀ r, (projectRun (pre.map promote) (List.ofFn (rows r))).getD h false = true →
+      target r = true)
+    (ha : AndsKept suffix (n + pre.length) (n + pre.length + 1)
+      (initialMap (n + pre.length) h))
+    (hdi : OriginalDirty n pre suffix rows target P i)
+    (hdj : OriginalDirty n pre suffix rows target P j) (hne : i ≠ j) :
+    ∃ r s, r ≠ s ∧ CompiledDirty n pre suffix h output rows target P r ∧
+      CompiledDirty n pre suffix h output rows target P s := by
+  refine ⟨(cofactor (n + pre.length) h suffix).2 i,
+    (cofactor (n + pre.length) h suffix).2 j, ?_,
+    dirty_rep_preserved n pre suffix h output i rows target P hh hclean ha hdi,
+    dirty_rep_preserved n pre suffix h output j rows target P hh hclean ha hdj⟩
+  intro he
+  apply hne
+  exact full_and_rep_injective n pre suffix h i j ha hdi.1 hdj.1
+    (originalDirty_ne_clean n pre suffix h i rows target P hh hclean hdi)
+    (originalDirty_ne_clean n pre suffix h j rows target P hh hclean hdj) he
+
+lemma minimal_single_or_reader_two_dirty (n : Nat) (pre suffix : List Gate)
+    (h output i j : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (P : Fin 40 → Prop) (hh : h < n + pre.length)
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (hor : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hclean : ∀ r, (projectRun (pre.map promote) (List.ofFn (rows r))).getD h false = true →
+      target r = true)
+    (hdi : OriginalDirty n pre suffix rows target P i)
+    (hdj : OriginalDirty n pre suffix rows target P j) (hne : i ≠ j) :
+    (pinAndAppend n pre suffix h output).size = (pre ++ suffix).length ∧
+    ((pinAndAppend n pre suffix h output).gates.filter (hasOperation true)).length =
+      ((pre ++ suffix).filter (fun g => g.1 == true)).length ∧
+    ∃ r s, r ≠ s ∧ CompiledDirty n pre suffix h output rows target P r ∧
+      CompiledDirty n pre suffix h output rows target P s := by
+  refine ⟨minimal_single_reader_size n pre suffix h output hh hr hmin,
+    minimal_single_or_reader_andCount n pre suffix h output hh hr hmin hor, ?_⟩
+  exact two_dirty_reps_preserved n pre suffix h output i j rows target P hh hclean
+    (minimal_single_or_reader_andsKept n pre suffix h output hh hr hmin hor) hdi hdj hne
+
+lemma andOutputs_lookup (gs : List Gate) (k i : Nat) (hi : i ∈ andOutputs gs k) :
+    ∃ g, gs[i - k]? = some g ∧ g.1 = true := by
+  induction gs generalizing k with
+  | nil => simp [andOutputs] at hi
+  | cons g gs ih =>
+    cases hop : g.1
+    · simp only [andOutputs, hop, Bool.false_eq_true, ite_false] at hi
+      have hb := (andOutputs_bounds gs (k + 1) i hi).1
+      have hoff : i - k = (i - (k + 1)) + 1 := by omega
+      obtain ⟨z, hz, hzop⟩ := ih (k + 1) hi
+      exact ⟨z, by simpa [hoff] using hz, hzop⟩
+    · simp only [andOutputs, hop, ite_true, List.mem_cons] at hi
+      rcases hi with rfl | hi
+      · exact ⟨g, by simp, hop⟩
+      · have hb := (andOutputs_bounds gs (k + 1) i hi).1
+        have hoff : i - k = (i - (k + 1)) + 1 := by omega
+        obtain ⟨z, hz, hzop⟩ := ih (k + 1) hi
+        exact ⟨z, by simpa [hoff] using hz, hzop⟩
+
+lemma andOutputs_project_gate (n : Nat) (gs : List Gate) (output rep : Nat)
+    (hr : rep ∈ andOutputs gs (n + 1)) :
+    n ≤ rep - 1 ∧ ∃ g : PGate,
+      (projectCircuit n gs output).gates[rep - 1 - n]? = some g ∧ g.op = .and := by
+  have hb := (andOutputs_bounds gs (n + 1) rep hr).1
+  obtain ⟨g, hg, hop⟩ := andOutputs_lookup gs (n + 1) rep hr
+  refine ⟨by omega, projectGate g, ?_, ?_⟩
+  · change (gs.map projectGate)[rep - 1 - n]? = _
+    have hoff : rep - 1 - n = rep - (n + 1) := by omega
+    simp [hoff, hg]
+  · simp [projectGate, hop]
+
+def PhysicalDirty (n : Nat) (D : PCircuit) (rows : Fin 40 → Fin n → Bool)
+    (target : Fin 40 → Bool) (P : Fin 40 → Prop) (wire : Nat) : Prop :=
+  n ≤ wire ∧ (∃ g : PGate, D.gates[wire - n]? = some g ∧ g.op = .and) ∧
+    ∃ r, P r ∧ target r = false ∧ (D.wires (List.ofFn (rows r))).getD wire false = true
+
+lemma compiledDirty_physical (n : Nat) (pre suffix : List Gate) (h output rep : Nat)
+    (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool) (P : Fin 40 → Prop)
+    (hd : CompiledDirty n pre suffix h output rows target P rep) :
+    PhysicalDirty n (pinAndAppend n pre suffix h output) rows target P (rep - 1) := by
+  have hg := andOutputs_project_gate n (pinGates n pre suffix h output)
+    (n + pre.length + (cofactor (n + pre.length) h suffix).1.length + 1) rep hd.1
+  exact ⟨hg.1, hg.2, hd.2⟩
+
+lemma minimal_single_or_reader_two_physical_dirty (n : Nat) (pre suffix : List Gate)
+    (h output i j : Nat) (rows : Fin 40 → Fin n → Bool) (target : Fin 40 → Bool)
+    (P : Fin 40 → Prop) (hh : h < n + pre.length)
+    (hr : suffix.countP (reads h) = 1)
+    (hmin : (pre ++ suffix).length ≤ (pinAndAppend n pre suffix h output).size)
+    (hor : ∀ g ∈ suffix, reads h g = true → g.1 = false)
+    (hclean : ∀ r, (projectRun (pre.map promote) (List.ofFn (rows r))).getD h false = true →
+      target r = true)
+    (hdi : OriginalDirty n pre suffix rows target P i)
+    (hdj : OriginalDirty n pre suffix rows target P j) (hne : i ≠ j) :
+    (pinAndAppend n pre suffix h output).size = (pre ++ suffix).length ∧
+    ((pinAndAppend n pre suffix h output).gates.filter (hasOperation true)).length =
+      ((pre ++ suffix).filter (fun g => g.1 == true)).length ∧
+    ∃ u v, u ≠ v ∧ PhysicalDirty n (pinAndAppend n pre suffix h output) rows target P u ∧
+      PhysicalDirty n (pinAndAppend n pre suffix h output) rows target P v := by
+  obtain ⟨hs, ha, r, s, hrs, hdr, hds⟩ :=
+    minimal_single_or_reader_two_dirty n pre suffix h output i j rows target P
+      hh hr hmin hor hclean hdi hdj hne
+  refine ⟨hs, ha, r - 1, s - 1, ?_,
+    compiledDirty_physical n pre suffix h output r rows target P hdr,
+    compiledDirty_physical n pre suffix h output s rows target P hds⟩
+  have hrb := (andOutputs_bounds (pinGates n pre suffix h output) (n + 1) r hdr.1).1
+  have hsb := (andOutputs_bounds (pinGates n pre suffix h output) (n + 1) s hds.1).1
+  omega
+
+end CleanWireDirtyRetention
+
 end PEqualNP.Outside.L_meta_9033_aux
