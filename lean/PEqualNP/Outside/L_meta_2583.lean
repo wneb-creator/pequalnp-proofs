@@ -9408,4 +9408,221 @@ lemma no_allowed_source : letI := graphDecidable; ¬NearColorCases.BAllowed grap
 
 end StarFourObstruction
 
+
+namespace StarManyMissingClause
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma valid_missing_leaf_source {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (S : Fin k → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, x a = true →
+      (∀ j, ∃ u ∈ S j, x u = true) → graphFun G ∅ x = true) :
+    ∃ j : Fin k, a ∉ S j ∧ ∀ u ∈ S j, side u ≠ side a → G.Adj a u := by
+  classical
+  by_contra hnone
+  push Not at hnone
+  let x : Fin n → Bool := fun u => decide (u = a ∨ (side u ≠ side a ∧ ¬G.Adj a u))
+  have hxa : x a = true := by simp [x]
+  have hhits : ∀ j, ∃ u ∈ S j, x u = true := by
+    intro j
+    by_cases ha : a ∈ S j
+    · exact ⟨a, ha, hxa⟩
+    · obtain ⟨u, hu, hop, hnot⟩ := hnone j ha
+      exact ⟨u, hu, by simp [x, hop, hnot]⟩
+  have hg := hsafe x hxa hhits
+  have hedge : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    simpa [graphFun] using hg
+  obtain ⟨u, v, huv, hxu, hxv⟩ := hedge
+  have hu : u = a ∨ (side u ≠ side a ∧ ¬G.Adj a u) := by
+    simpa only [x, decide_eq_true_eq] using hxu
+  have hv : v = a ∨ (side v ≠ side a ∧ ¬G.Adj a v) := by
+    simpa only [x, decide_eq_true_eq] using hxv
+  rcases hu with rfl | hu
+  · rcases hv with rfl | hv
+    · exact (G.ne_of_adj huv) rfl
+    · exact hv.2 huv
+  · rcases hv with rfl | hv
+    · exact hu.2 huv.symm
+    · have heq : side u = side v := by
+        cases h1 : side u <;> cases h2 : side v <;> cases h3 : side a <;> simp_all
+      exact hproper u v huv heq
+
+end StarManyMissingClause
+
+
+namespace OneColorStarResidual
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership PEqualNP.BlindGate CProjectionCharges
+
+lemma one_color_charge_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool) (color : Bool)
+    (K S : Finset (Fin n)) (hcolor : ∀ c ∈ K, side c = color) :
+    (chargeSet G side K S).card ≤ if 2 ≤ S.card then 1 else 0 := by
+  classical
+  split_ifs with hlarge
+  · apply Finset.card_le_one.mpr
+    intro c hc d hd
+    exact same_color_unique G hfour side K S c d hc hd
+      ((hcolor c (Finset.mem_filter.mp hc).1).trans (hcolor d (Finset.mem_filter.mp hd).1).symm)
+  · rw [charge_zero_of_small G side K S (by omega)]
+
+lemma one_color_projected_budget {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool) (color : Bool)
+    (C : Circuit) (hAO : IsAO2 n C) (K : Finset (Fin n)) (T : Fin n → Finset ℕ)
+    (hcolor : ∀ c ∈ K, side c = color)
+    (hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size))
+    (hTN : ∀ c ∈ K, ∀ w ∈ T c, ∀ u ∈ leaf side c (orIn n C w), G.Adj c u) :
+    (∑ c ∈ K, ((T c).biUnion (fun w => leaf side c (orIn n C w))).card) ≤
+      ((Finset.range C.gates.length).filter fun j => 2 ≤ (orIn n C (n + j)).card).card +
+        ∑ c ∈ K, (T c).card := by
+  have hbase := circuit_projected_source_budget G side C hAO K T hT hTN
+  have hcount : (∑ j ∈ Finset.range C.gates.length, (chargeSet G side K (orIn n C (n + j))).card) ≤
+      ((Finset.range C.gates.length).filter fun j => 2 ≤ (orIn n C (n + j)).card).card := by
+    calc
+      _ ≤ ∑ j ∈ Finset.range C.gates.length, if 2 ≤ (orIn n C (n + j)).card then 1 else 0 := by
+        apply Finset.sum_le_sum
+        intro j hj
+        exact one_color_charge_card G hfour side color K _ hcolor
+      _ = _ := by simp
+  omega
+
+lemma star_family_budget {n m k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (w : Fin m → Fin k → ℕ)
+    (hw : ∀ i j, w i j < n + C.size) (color : Bool) (hcolor : ∀ i, side (a i) = color)
+    (hsafe : ∀ i x, x (a i) = true →
+      (∀ j, ∃ u ∈ orIn n C (w i j), x u = true) → graphFun G ∅ x = true) :
+    (∑ v : Fin n, (FewMissingRootFamily.centerLeaves C a w v).card) ≤
+      ((Finset.range C.gates.length).filter fun j => 2 ≤ (orIn n C (n + j)).card).card + m := by
+  classical
+  have hselect := fun i => StarManyMissingClause.valid_missing_leaf_source G side hproper
+    (a i) (fun j => orIn n C (w i j)) (hsafe i)
+  choose j hmissing hvalid using hselect
+  let source : Fin m → ℕ := fun i => w i (j i)
+  let T := StarRootFamily.rootPool a source
+  let K : Finset (Fin n) := Finset.univ.image a
+  let H := FewMissingRootFamily.centerLeaves C a w
+  have hKcolor : ∀ c ∈ K, side c = color := by
+    intro c hc
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hc
+    exact hcolor i
+  have hT : ∀ c ∈ K, T c ⊆ Finset.range (n + C.size) := by
+    intro c hc t ht
+    obtain ⟨i, _, rfl⟩ := (StarRootFamily.root_pool_mem a source c t).mp ht
+    exact Finset.mem_range.mpr (hw i (j i))
+  have hTN : ∀ c ∈ K, ∀ t ∈ T c, ∀ u ∈ leaf side c (orIn n C t), G.Adj c u := by
+    intro c hc t ht
+    obtain ⟨i, hiv, rfl⟩ := (StarRootFamily.root_pool_mem a source c t).mp ht
+    rw [← hiv]
+    intro u hu
+    exact hvalid i u (Finset.mem_filter.mp hu).1 (Finset.mem_filter.mp hu).2
+  have hHsubset : ∀ c, H c ⊆ (T c).biUnion (fun t => leaf side c (orIn n C t)) := by
+    intro c u hu
+    obtain ⟨i, hic, hhits⟩ := (FewMissingRootFamily.mem_centerLeaves_iff_hits C a w c u).mp hu
+    have hau : G.Adj (a i) u := by
+      apply (WmaxMatching.graph_pair G (a i) u).mp
+      apply hsafe i (pairInput (a i) u) (by simp [pairInput])
+      intro d
+      rcases hhits d with ha | hu
+      · exact ⟨a i, ha, by simp [pairInput]⟩
+      · exact ⟨u, hu, by simp [pairInput]⟩
+    have hum : u ∈ leaf side (a i) (orIn n C (source i)) :=
+      Finset.mem_filter.mpr ⟨(hhits (j i)).resolve_left (hmissing i), (hproper _ _ hau).symm⟩
+    rw [hic] at hum
+    exact Finset.mem_biUnion.mpr ⟨source i,
+      (StarRootFamily.root_pool_mem a source c (source i)).mpr ⟨i, hic, rfl⟩, hum⟩
+  have hHoutside : ∀ c, c ∉ K → H c = ∅ := by
+    intro c hc
+    apply Finset.eq_empty_iff_forall_notMem.mpr
+    intro u hu
+    obtain ⟨i, hic, _⟩ := (FewMissingRootFamily.mem_centerLeaves_iff_hits C a w c u).mp hu
+    exact hc (Finset.mem_image.mpr ⟨i, Finset.mem_univ _, hic⟩)
+  have hHsum : (∑ c ∈ K, (H c).card) = ∑ c : Fin n, (H c).card := by
+    apply Finset.sum_subset (Finset.subset_univ K)
+    intro c hc hcK
+    simp only [hHoutside c hcK, Finset.card_empty]
+  have hTsum : (∑ c ∈ K, (T c).card) ≤ m := by
+    apply le_trans ?_ (StarRootFamily.root_pool_card_bound a source)
+    exact Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ K) (by intros; exact Nat.zero_le _)
+  have hb := one_color_projected_budget G hfour side color C hAO K T hKcolor hT hTN
+  have hh : (∑ c ∈ K, (H c).card) ≤
+      ∑ c ∈ K, ((T c).biUnion (fun t => leaf side c (orIn n C t))).card := by
+    apply Finset.sum_le_sum
+    intro c hc
+    exact Finset.card_le_card (hHsubset c)
+  rw [hHsum] at hh
+  exact hh.trans (hb.trans (Nat.add_le_add_left hTsum _))
+
+lemma monochromatic_star_cover {n m k p l : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hfour : NoFourCycle G)
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (w : Fin m → Fin k → ℕ)
+    (hw : ∀ i j, w i j < n + C.size) (color : Bool) (hcolor : ∀ i, side (a i) = color)
+    (hF : ∀ x, graphFun G ∅ x = true ↔ ∃ i : Fin m, x (a i) = true ∧
+      ∀ j, ∃ u ∈ orIn n C (w i j), x u = true)
+    (P : Fin p → Fin n) (L : Fin l → Fin n)
+    (hP : Function.Injective P) (hL : Function.Injective L) (hPL : ∀ u v, P u ≠ L v)
+    (E : Finset (Fin p × Fin l)) (hE : ∀ e ∈ E, G.Adj (P e.1) (L e.2)) :
+    ∃ A : Finset (Fin p), ∃ D : Finset (Fin l),
+      (∀ e ∈ E, e.1 ∈ A ∨ e.2 ∈ D) ∧ E.card + A.card + D.card ≤ C.size + 2 * m := by
+  classical
+  let H := FewMissingRootFamily.centerLeaves C a w
+  let central : Fin 0 → Fin p × Fin l := Fin.elim0
+  have hcentral : ∀ i, central i ∈ E ∧ L (central i).2 ∈ H (P (central i).1) ∧
+      P (central i).1 ∈ H (L (central i).2) := fun i => Fin.elim0 i
+  have hcover : ∀ e ∈ E,
+      ((∃ i, (central i).1 = e.1) ∨ (∃ i, a i = P e.1)) ∧ L e.2 ∈ H (P e.1) ∨
+      ((∃ i, (central i).2 = e.2) ∨ (∃ i, a i = L e.2)) ∧ P e.1 ∈ H (L e.2) := by
+    intro e he
+    obtain ⟨i, hai, hclauses⟩ := (hF (pairInput (P e.1) (L e.2))).mp
+      ((WmaxMatching.graph_pair G _ _).mpr (hE e he))
+    have hhits : ∀ j, P e.1 ∈ orIn n C (w i j) ∨ L e.2 ∈ orIn n C (w i j) := by
+      intro j
+      obtain ⟨u, hu, hv⟩ := hclauses j
+      have huv : u = P e.1 ∨ u = L e.2 := by simpa [pairInput] using hv
+      exact huv.elim (fun h => Or.inl (h ▸ hu)) (fun h => Or.inr (h ▸ hu))
+    have ha : a i = P e.1 ∨ a i = L e.2 := by simpa [pairInput] using hai
+    rcases ha with ha | ha
+    · left
+      refine ⟨Or.inr ⟨i, ha⟩, ?_⟩
+      apply (FewMissingRootFamily.mem_centerLeaves_iff_hits C a w _ _).mpr
+      exact ⟨i, ha, by simpa only [ha] using hhits⟩
+    · right
+      refine ⟨Or.inr ⟨i, ha⟩, ?_⟩
+      apply (FewMissingRootFamily.mem_centerLeaves_iff_hits C a w _ _).mpr
+      exact ⟨i, ha, by simpa only [ha] using (fun j => (hhits j).symm)⟩
+  obtain ⟨A, D, hAD, _, hbound⟩ := NonstarResidual.assigned_center_cover P L hP hL hPL
+    H E central a hcentral hcover
+  have hb := star_family_budget G hfour side hproper C hAO a w hw color hcolor
+    (fun i x ha hs => (hF x).mpr ⟨i, ha, hs⟩)
+  have hcount : ((Finset.range C.gates.length).filter fun j => 2 ≤ (orIn n C (n + j)).card).card ≤
+      C.size := by
+    exact (Finset.card_filter_le _ _).trans_eq (by simp [Circuit.size])
+  dsimp only [H] at hbound
+  exact ⟨A, D, hAD, by omega⟩
+
+lemma actual_monochromatic_star_cover {n m k p l : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hfour : NoFourCycle G)
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (b : Fin m → ℕ)
+    (w : Fin m → Fin k → ℕ) (hw : ∀ i j, w i j < n + C.size)
+    (color : Bool) (hcolor : ∀ i, side (a i) = color)
+    (heval : ∀ i x, wireValue C n x (b i) = true ↔
+      ∀ j, ∃ u ∈ orIn n C (w i j), x u = true)
+    (hF : ∀ x, graphFun G ∅ x = true ↔ ∃ i : Fin m,
+      x (a i) = true ∧ wireValue C n x (b i) = true)
+    (P : Fin p → Fin n) (L : Fin l → Fin n)
+    (hP : Function.Injective P) (hL : Function.Injective L) (hPL : ∀ u v, P u ≠ L v)
+    (E : Finset (Fin p × Fin l)) (hE : ∀ e ∈ E, G.Adj (P e.1) (L e.2)) :
+    ∃ A : Finset (Fin p), ∃ D : Finset (Fin l),
+      (∀ e ∈ E, e.1 ∈ A ∨ e.2 ∈ D) ∧ E.card + A.card + D.card ≤ C.size + 2 * m := by
+  apply monochromatic_star_cover G hfour side hproper C hAO a w hw color hcolor ?_ P L hP hL hPL E hE
+  intro x
+  simpa only [heval] using hF x
+
+end OneColorStarResidual
+
 end PEqualNP.Outside.L_meta_2583
