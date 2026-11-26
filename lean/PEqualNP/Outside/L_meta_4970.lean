@@ -7967,4 +7967,365 @@ lemma all_edges_weighted_or_bound {p l : ℕ} (E : Finset (Fin p × Fin l))
 
 end H5DualWeighted
 
+namespace H5AndProduct
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.TwoColour
+open H5Pruning H5Bridge H5Stars H5Reach
+
+def replace (C : Circuit) (j a b : ℕ) : Circuit :=
+  ⟨C.gates.take j ++ ⟨.and,[a,b]⟩ :: C.gates.drop (j+1), C.output⟩
+
+def product (n : ℕ) (C : Circuit) (a b : ℕ) (x : Fin n → Bool) : Bool :=
+  wireFn n C a x && wireFn n C b x
+
+lemma replace_length (C : Circuit) (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) :
+    (replace C j a b).gates.length = C.gates.length := by
+  change (C.gates.take j ++ ⟨.and,[a,b]⟩ :: C.gates.drop (j+1)).length = _
+  rw [take_cons_drop_set C.gates j _ hj, List.length_set]
+
+lemma replace_gateAt (C : Circuit) (j : ℕ) (hj : j < C.gates.length) (a b k : ℕ) :
+    gateAt (replace C j a b) k = if k = j then ⟨.and,[a,b]⟩ else gateAt C k := by
+  have hs : (replace C j a b).gates = C.gates.set j ⟨.and,[a,b]⟩ :=
+    take_cons_drop_set C.gates j _ hj
+  by_cases hk : k = j
+  · subst k
+    simp [gateAt, hs, hj]
+  · simp only [hk, ↓reduceIte]
+    unfold gateAt
+    rw [hs]
+    by_cases hkl : k < C.gates.length
+    · rw [List.getD_eq_getElem _ _ (by simpa using hkl), List.getD_eq_getElem _ _ hkl]
+      exact List.getElem_set_ne (Ne.symm hk) _
+    · rw [List.getD_eq_default _ _ (by simpa using Nat.le_of_not_lt hkl),
+        List.getD_eq_default _ _ (Nat.le_of_not_lt hkl)]
+
+lemma replace_op (C : Circuit) (j : ℕ) (hj : j < C.gates.length) (a b : ℕ)
+    (hop : (gateAt C j).op = .and) (k : ℕ) :
+    (gateAt (replace C j a b) k).op = (gateAt C k).op := by
+  rw [replace_gateAt C j hj a b k]
+  split_ifs with hk
+  · subst k
+    exact hop.symm
+  · rfl
+
+lemma replace_good (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < n+j) (hb : b < n+j) :
+    IsAO2 n (replace C j a b) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [replace, List.mem_append, List.mem_cons] at hg
+    rcases hg with hg | rfl | hg
+    · exact hC.1 g (List.mem_of_mem_take hg)
+    · exact Or.inl rfl
+    · exact hC.1 g (List.mem_of_mem_drop hg)
+  · intro k hk w hw
+    have hk' : k < C.gates.length := by simpa [replace_length C j hj a b] using hk
+    rw [replace_gateAt C j hj a b k] at hw
+    split_ifs at hw with hkj
+    · subst k
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl
+      · exact ha
+      · exact hb
+    · exact hC.2.1 k hk' w hw
+  · intro g hg
+    simp only [replace, List.mem_append, List.mem_cons] at hg
+    rcases hg with hg | rfl | hg
+    · exact hC.2.2 g (List.mem_of_mem_take hg)
+    · rfl
+    · exact hC.2.2 g (List.mem_of_mem_drop hg)
+
+lemma replace_andCount (C : Circuit) (j : ℕ) (hj : j < C.gates.length) (a b : ℕ)
+    (hop : (gateAt C j).op = .and) :
+    H5Count.andCount (replace C j a b).gates = H5Count.andCount C.gates := by
+  rw [← H5Count.indexed_andCount_eq, ← H5Count.indexed_andCount_eq]
+  unfold H5OrLift.andCount
+  rw [replace_length C j hj a b]
+  congr 1
+  apply Finset.filter_congr
+  intro k _
+  rw [replace_op C j hj a b hop k]
+
+lemma replace_andIndexSum (C : Circuit) (j : ℕ) (hj : j < C.gates.length) (a b : ℕ)
+    (hop : (gateAt C j).op = .and) :
+    H5OrLift.andIndexSum (replace C j a b) = H5OrLift.andIndexSum C := by
+  unfold H5OrLift.andIndexSum
+  rw [replace_length C j hj a b]
+  congr 1
+  apply Finset.filter_congr
+  intro k _
+  rw [replace_op C j hj a b hop k]
+
+lemma replace_reachValues (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (a b : ℕ) (hop : (gateAt C j).op = .and) :
+    reachValues n (replace C j a b).gates = reachValues n C.gates := by
+  classical
+  have hs : C.gates = C.gates.take j ++ C.gates[j] :: C.gates.drop (j+1) := by
+    have h := (List.take_append_drop j C.gates).symm
+    rw [List.drop_eq_getElem_cons hj] at h
+    exact h
+  have hop' : (C.gates[j]).op = .and := by simpa [gateAt,hj] using hop
+  unfold reachValues
+  change reachFrom (C.gates.take j ++ ⟨.and,[a,b]⟩ :: C.gates.drop (j+1)) _ = _
+  conv_rhs => rw [hs]
+  rw [reachFrom_append,reachFrom_append]
+  simp only [reachFrom,List.foldl_cons,hop',reduceCtorEq,↓reduceIte]
+
+lemma replace_orIn (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < n+j) (hb : b < n+j)
+    (hop : (gateAt C j).op = .and) (w : ℕ) :
+    orIn n (replace C j a b) w = orIn n C w := by
+  rw [← reachValues_eq_orIn n (replace C j a b) (replace_good n C hC j hj a b ha hb).2.1 w,
+    ← reachValues_eq_orIn n C hC.2.1 w,replace_reachValues n C j hj a b hop]
+
+lemma replace_tCount (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < n+j) (hb : b < n+j)
+    (hop : (gateAt C j).op = .and) (lin : ℕ → Bool) :
+    tCount n (replace C j a b) lin = tCount n C lin := by
+  unfold tCount twoColour
+  rw [replace_length C j hj a b]
+  congr 1
+  apply Finset.filter_congr
+  intro k _
+  unfold IsTwoColour
+  rw [replace_length C j hj a b,replace_op C j hj a b hop k,
+    replace_orIn n C hC j hj a b ha hb hop (n+k)]
+
+lemma replace_wires (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (a b : ℕ) (ha : a < n+j) (hb : b < n+j) (x : Fin n → Bool) :
+    (replace C j a b).wires (List.ofFn x) = wiresFrom (C.gates.drop (j+1))
+      (wiresFrom (C.gates.take j) (List.ofFn x) ++ [product n C a b x]) := by
+  change wiresFrom (C.gates.take j ++ ⟨.and,[a,b]⟩ :: C.gates.drop (j+1)) (List.ofFn x) = _
+  rw [wiresFrom_append]
+  change wiresFrom (C.gates.drop (j+1))
+      (wiresFrom (C.gates.take j) (List.ofFn x) ++
+        [GateOp.and.eval ([a,b].map fun k => (wiresFrom (C.gates.take j) (List.ofFn x)).getD k false)]) = _
+  simp only [List.map_cons,List.map_nil,GateOp.eval,List.all_cons,List.all_nil,id_eq,Bool.and_true]
+  rw [H5AndReplace.prefix_value n C j hj a ha x,H5AndReplace.prefix_value n C j hj b hb x]
+  rfl
+
+lemma replace_wire_self (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (a b : ℕ) (ha : a < n+j) (hb : b < n+j) (x : Fin n → Bool) :
+    wireFn n (replace C j a b) (n+j) x = product n C a b x := by
+  unfold wireFn
+  rw [replace_wires n C j hj a b ha hb x,getD_wiresFrom_lt]
+  · have hlen : (wiresFrom (C.gates.take j) (List.ofFn x)).length = n+j := by
+      simp [length_wiresFrom,Nat.min_eq_left (Nat.le_of_lt hj)]
+    rw [← hlen,getD_snoc_eq]
+  · simp [length_wiresFrom,Nat.min_eq_left (Nat.le_of_lt hj)]
+
+lemma replace_wire_eq_at (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (a b : ℕ) (ha : a < n+j) (hb : b < n+j) (x : Fin n → Bool)
+    (heq : product n C a b x = wireFn n C (n+j) x) (w : ℕ) :
+    wireFn n (replace C j a b) w x = wireFn n C w x := by
+  unfold wireFn
+  rw [replace_wires n C j hj a b ha hb x,H5AndReplace.original_wires_split n C j hj x,heq]
+
+lemma replace_wire_le (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < n+j) (hb : b < n+j)
+    (hle : ∀ x, product n C a b x ≤ wireFn n C (n+j) x) (w : ℕ) (x : Fin n → Bool) :
+    wireFn n (replace C j a b) w x ≤ wireFn n C w x := by
+  apply Bool.le_iff_imp.mpr
+  unfold wireFn
+  rw [replace_wires n C j hj a b ha hb x,H5AndReplace.original_wires_split n C j hj x]
+  apply wiresFrom_mono (C.gates.drop (j+1))
+    (fun g hg => hC.1 g (List.mem_of_mem_drop hg)) _ _ (by simp)
+  intro k hk
+  let pre := wiresFrom (C.gates.take j) (List.ofFn x)
+  change (pre ++ [product n C a b x]).getD k false = true at hk
+  change (pre ++ [wireFn n C (n+j) x]).getD k false = true
+  by_cases hklt : k < pre.length
+  · rw [List.getD_append _ _ _ _ hklt] at hk
+    rw [List.getD_append _ _ _ _ hklt]
+    exact hk
+  · by_cases hkeq : k = pre.length
+    · subst k
+      rw [getD_snoc_eq] at hk
+      rw [getD_snoc_eq]
+      exact Bool.le_iff_imp.mp (hle x) hk
+    · rw [List.getD_eq_default _ _ (by simp; omega)] at hk
+      cases hk
+
+lemma replace_keepsStars (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < n+j) (hb : b < n+j)
+    (hle : ∀ x, product n C a b x ≤ wireFn n C (n+j) x)
+    (heq : ∀ u, product n C a b (singletonInput u) = wireFn n C (n+j) (singletonInput u)) :
+    KeepsStars n C (replace C j a b) := by
+  have hD := replace_good n C hC j hj a b ha hb
+  intro Q w _ hstar
+  refine ⟨w,?_⟩
+  intro x
+  cases hx : starFun Q x with
+  | false =>
+      have h := replace_wire_le n C hC j hj a b ha hb hle w x
+      rw [hstar,hx] at h
+      exact le_antisymm h (by cases wireFn n (replace C j a b) w x <;> decide)
+  | true =>
+      obtain ⟨u,hu,hux⟩ := (of_decide_eq_true hx : ∃ u ∈ Q, x u = true)
+      have hnew : wireFn n (replace C j a b) w (singletonInput u) = true := by
+        rw [replace_wire_eq_at n C j hj a b ha hb _ (heq u) w,hstar]
+        exact decide_eq_true ⟨u,hu,by simp [singletonInput]⟩
+      exact Bool.le_iff_imp.mp (wireFn_mono n _ hD w (singletonInput_le u x hux)) hnew
+
+lemma replace_admissible {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (j : ℕ) (hj : j < C.gates.length)
+    (a b : ℕ) (ha : a < p+l+j) (hb : b < p+l+j) (hop : (gateAt C j).op = .and)
+    (hle : ∀ x, product (p+l) C a b x ≤ wireFn (p+l) C (p+l+j) x)
+    (hedge : ∀ u v, (u,v) ∈ E →
+      product (p+l) C a b (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) =
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l u) (Fin.natAdd p v)))
+    (hsingle : ∀ u, product (p+l) C a b (singletonInput u) =
+      wireFn (p+l) C (p+l+j) (singletonInput u)) : admissible p l E (replace C j a b) := by
+  have hD := replace_good (p+l) C hC.1 j hj a b ha hb
+  have hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    intro x
+    rw [graphFun_bipartite]
+    exact hC.2.1 x
+  have hfun : ∀ x, wireFn (p+l) (replace C j a b) C.output x =
+      H5Pruning.graphFun (bipartiteEdges E) x := by
+    apply H5Essential.graph_eq_of_positive_and_le (p+l) (bipartiteEdges E) _
+      (wireFn_mono (p+l) _ hD C.output)
+    · intro x
+      rw [← hspec x]
+      exact replace_wire_le (p+l) C hC.1 j hj a b ha hb hle C.output x
+    · intro e he
+      obtain ⟨⟨u,v⟩,huv,rfl⟩ := Finset.mem_image.mp he
+      rw [replace_wire_eq_at (p+l) C j hj a b ha hb _ (hedge u v huv) C.output,
+        hspec,graphFun_bipartite]
+      exact decide_eq_true ⟨u,v,huv,by simp [pairInput],by simp [pairInput]⟩
+  apply admissible_of_keeps E C (replace C j a b) hC hD
+    (fun x => (hfun x).trans (hspec x).symm)
+  · rw [replace_tCount (p+l) C hC.1 j hj a b ha hb hop]
+    exact hC.2.2.1
+  · exact replace_keepsStars (p+l) C hC.1 j hj a b ha hb hle hsingle
+
+lemma replacement_fixed {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : H5Owners.scoreMinimal E C)
+    (j : ℕ) (hj : j < C.gates.length) (a b : ℕ) (ha : a < p+l+j) (hb : b < p+l+j)
+    (hop : (gateAt C j).op = .and)
+    (hle : ∀ x, product (p+l) C a b x ≤ wireFn (p+l) C (p+l+j) x)
+    (hedge : ∀ u v, (u,v) ∈ E →
+      product (p+l) C a b (pairInput (Fin.castAdd l u) (Fin.natAdd p v)) =
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l u) (Fin.natAdd p v)))
+    (hsingle : ∀ u, product (p+l) C a b (singletonInput u) =
+      wireFn (p+l) C (p+l+j) (singletonInput u)) :
+    ∀ x, wireFn (p+l) C (p+l+j) x = (wireFn (p+l) C a x && wireFn (p+l) C b x) := by
+  let D := replace C j a b
+  have hD := replace_admissible E C hC j hj a b ha hb hop hle hedge hsingle
+  have hscore := hmin D hD (replace_length C j hj a b)
+    (replace_andCount C j hj a b hop) (replace_andIndexSum C j hj a b hop)
+  intro x
+  have heq := H5SemanticScore.gate_eq_of_score_le (p+l) C D (replace_length C j hj a b)
+    (fun k _ x => replace_wire_le (p+l) C hC.1 j hj a b ha hb hle (p+l+k) x) hscore j hj x
+  exact heq.symm.trans (replace_wire_self (p+l) C j hj a b ha hb x)
+
+end H5AndProduct
+
+namespace H5RectangleOwners
+
+lemma row_owner_injective {α β μ κ : Type*}
+    (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (a : μ → α) (b : μ → β) (ha : Function.Injective a) (hb : Function.Injective b)
+    (owner : μ → κ) (cols : κ → β → Prop)
+    (hmem : ∀ i, cols (owner i) (b i))
+    (hcontrol : ∀ i y, cols (owner i) y → E (a i) y) : Function.Injective owner := by
+  intro i j hij
+  by_contra hne
+  have ha' : a i ≠ a j := fun h => hne (ha h)
+  have hb' : b i ≠ b j := fun h => hne (hb h)
+  have hcross : E (a i) (b j) := hcontrol i (b j) (by rw [hij]; exact hmem j)
+  have hcross' : E (a j) (b i) := hcontrol j (b i) (by rw [← hij]; exact hmem i)
+  exact hfour (a i) (a j) (b i) (b j) ha' hb'
+    ⟨hcontrol i (b i) (hmem i),hcross,hcross',hcontrol j (b j) (hmem j)⟩
+
+lemma col_owner_injective {α β μ κ : Type*}
+    (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (a : μ → α) (b : μ → β) (ha : Function.Injective a) (hb : Function.Injective b)
+    (owner : μ → κ) (rows : κ → α → Prop)
+    (hmem : ∀ i, rows (owner i) (a i))
+    (hcontrol : ∀ i x, rows (owner i) x → E x (b i)) : Function.Injective owner := by
+  intro i j hij
+  by_contra hne
+  have ha' : a i ≠ a j := fun h => hne (ha h)
+  have hb' : b i ≠ b j := fun h => hne (hb h)
+  have hcross : E (a i) (b j) := hcontrol j (a i) (by rw [← hij]; exact hmem i)
+  have hcross' : E (a j) (b i) := hcontrol i (a j) (by rw [hij]; exact hmem j)
+  exact hfour (a i) (a j) (b i) (b j) ha' hb'
+    ⟨hcontrol i (a i) (hmem i),hcross,hcross',hcontrol j (a j) (hmem j)⟩
+
+lemma matching_card_le_pred {α β μ κ : Type*} [Fintype μ] [Fintype κ]
+    (E : α → β → Prop)
+    (hfour : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (a : μ → α) (b : μ → β) (ha : Function.Injective a) (hb : Function.Injective b)
+    (hedge : ∀ i, E (a i) (b i))
+    (rows : κ → α → Prop) (cols : κ → β → Prop) (color : κ → Bool)
+    (hcover : ∀ c x y, E x y → ∃ k, color k = c ∧ rows k x ∧ cols k y)
+    (hrow : ∀ i, ∃ c, ∀ y,
+      (∃ k, color k = c ∧ rows k (a i) ∧ cols k y) → E (a i) y)
+    (hcol : ∀ i, ∃ c, ∀ x,
+      (∃ k, color k = c ∧ rows k x ∧ cols k (b i)) → E x (b i)) :
+    Fintype.card μ ≤ Fintype.card κ - 1 := by
+  classical
+  have hrow' : ∀ i, ∃ k, rows k (a i) ∧ cols k (b i) ∧
+      ∀ y, cols k y → E (a i) y := by
+    intro i
+    obtain ⟨c,hc⟩ := hrow i
+    obtain ⟨k,hkc,hka,hkb⟩ := hcover c (a i) (b i) (hedge i)
+    exact ⟨k,hka,hkb,fun y hy => hc y ⟨k,hkc,hka,hy⟩⟩
+  have hcol' : ∀ i, ∃ k, rows k (a i) ∧ cols k (b i) ∧
+      ∀ x, rows k x → E x (b i) := by
+    intro i
+    obtain ⟨c,hc⟩ := hcol i
+    obtain ⟨k,hkc,hka,hkb⟩ := hcover c (a i) (b i) (hedge i)
+    exact ⟨k,hka,hkb,fun x hx => hc x ⟨k,hkc,hx,hkb⟩⟩
+  choose rp hrA hrB hrControl using hrow'
+  choose cp hcA hcB hcControl using hcol'
+  have hrInj := row_owner_injective E hfour a b ha hb rp cols hrB hrControl
+  have hcInj := col_owner_injective E hfour a b ha hb cp rows hcA hcControl
+  have hle : Fintype.card μ ≤ Fintype.card κ := Fintype.card_le_of_injective rp hrInj
+  by_cases hzero : Fintype.card μ = 0
+  · omega
+  have hstrict : Fintype.card μ < Fintype.card κ := by
+    by_contra hn
+    have heq : Fintype.card μ = Fintype.card κ := by omega
+    have hrSurj : Function.Surjective rp :=
+      ((Fintype.bijective_iff_injective_and_card rp).mpr ⟨hrInj,heq⟩).2
+    have hcSurj : Function.Surjective cp :=
+      ((Fintype.bijective_iff_injective_and_card cp).mpr ⟨hcInj,heq⟩).2
+    have hnonempty : Nonempty μ := Fintype.card_pos_iff.mp (by omega)
+    let p : μ := Classical.choice hnonempty
+    let K := rp p
+    obtain ⟨q,hcq⟩ := hcSurj K
+    have hKq : cols K (b q) := by simpa [hcq] using hcB q
+    have hpq : E (a p) (b q) := hrControl p (b q) hKq
+    obtain ⟨L,hcolor,hLp,hLq⟩ := hcover (!(color K)) (a p) (b q) hpq
+    have hcolorNe : color L ≠ color K := by
+      rw [hcolor]
+      cases color K <;> decide
+    obtain ⟨r,hrr⟩ := hrSurj L
+    obtain ⟨s,hcs⟩ := hcSurj L
+    have hpr : p ≠ r := by
+      intro h
+      have hLK : L = K := by rw [← hrr, ← h]
+      exact hcolorNe (congrArg color hLK)
+    have hqs : q ≠ s := by
+      intro h
+      have hLK : L = K := by rw [← hcs, ← h]; exact hcq
+      exact hcolorNe (congrArg color hLK)
+    have hps : E (a p) (b s) := hcControl s (a p) (by simpa [hcs] using hLp)
+    have hrq : E (a r) (b q) := hrControl r (b q) (by simpa [hrr] using hLq)
+    have hLbs : cols L (b s) := by simpa [hcs] using hcB s
+    have hrs : E (a r) (b s) := hrControl r (b s) (by simpa [hrr] using hLbs)
+    exact hfour (a p) (a r) (b q) (b s) (fun h => hpr (ha h)) (fun h => hqs (hb h))
+      ⟨hpq,hps,hrq,hrs⟩
+  omega
+
+end H5RectangleOwners
+
 end PEqualNP.Outside.L_meta_4970_aux
