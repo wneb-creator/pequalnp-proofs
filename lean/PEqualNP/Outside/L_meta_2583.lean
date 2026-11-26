@@ -8082,4 +8082,1330 @@ lemma restricted_residual_cover {n p l : ℕ}
 
 end ThreeClauseResidual
 
+
+namespace FourClauseMatching
+
+namespace MatchingCNF
+
+lemma separated_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hzero : ∃ c : Fin k, ∀ i : Fin r, ¬ Sp c (p i))
+    (hline : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sl c (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp c (p j)) :
+    r + 1 ≤ k := by
+  classical
+  obtain ⟨c0, hc0⟩ := hzero
+  choose c hc using hline
+  let f : Option (Fin r) → Fin k := fun i => i.elim c0 c
+  have hinj : Function.Injective f := by
+    intro a b hab
+    cases a with
+    | none =>
+      cases b with
+      | none => rfl
+      | some i =>
+        change c0 = c i at hab
+        rcases hcover (c i) i with hp | hl
+        · rw [← hab] at hp
+          exact False.elim (hc0 i hp)
+        · exact False.elim ((hc i).1 hl)
+    | some i =>
+      cases b with
+      | none =>
+        change c i = c0 at hab
+        rcases hcover (c i) i with hp | hl
+        · rw [hab] at hp
+          exact False.elim (hc0 i hp)
+        · exact False.elim ((hc i).1 hl)
+      | some j =>
+        change c i = c j at hab
+        by_cases hij : i = j
+        · subst j
+          rfl
+        · have hpi : Sp (c i) (p i) := (hcover (c i) i).resolve_right (hc i).1
+          have hpj : Sp (c j) (p j) := (hcover (c j) j).resolve_right (hc j).1
+          have hsep : ¬ I (p i) (l j) ∨ ¬ I (p j) (l i) := not_and_or.mp (hcross i j hij)
+          rcases hsep with hsep | hsep
+          · rw [hab] at hpi
+            exact False.elim ((hc j).2 i hsep hpi)
+          · rw [← hab] at hpj
+            exact False.elim ((hc i).2 j hsep hpj)
+  have hcard := Fintype.card_le_of_injective f hinj
+  simpa only [Fintype.card_option, Fintype.card_fin] using hcard
+
+lemma full_safety_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  classical
+  apply separated_clause_count I p l Sp Sl hcross hcover
+  · by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (true : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (false : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sp c (p i) := by
+        by_contra h
+        apply hnone
+        exact ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inl ⟨p i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => true) (fun _ => false) hhits
+    cases hb
+  · intro i
+    let x : Fin P → Bool := fun a => decide (¬ I a (l i))
+    let y : Fin L → Bool := fun b => decide (b = l i)
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hli : Sl c (l i)
+      · exact Or.inr ⟨l i, hli, by simp [y]⟩
+      · have hex : ∃ j : Fin r, ¬ I (p j) (l i) ∧ Sp c (p j) := by
+          by_contra h
+          apply hnone
+          exact ⟨c, hli, fun j hj hSp => h ⟨j, hj, hSp⟩⟩
+        obtain ⟨j, hj, hSp⟩ := hex
+        exact Or.inl ⟨p j, hSp, by simp [x, hj]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+    have heq : b = l i := by simpa only [y, decide_eq_true_eq] using hb
+    have hnot : ¬ I a (l i) := by simpa only [x, decide_eq_true_eq] using ha
+    exact hnot (heq ▸ hab)
+
+lemma no_four_cycle_full_safety_clause_count {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true) :
+    r + 1 ≤ k := by
+  apply full_safety_clause_count I p l Sp Sl ?_ hcover hsafe
+  intro i j hij hcross
+  have hpp : p i ≠ p j := fun h => hij (hp h)
+  have hll : l i = l j := hfour (p i) (p j) hpp (l i) (l j)
+    (hdiag i) hcross.2 hcross.1 (hdiag j)
+  exact hij (hl hll)
+
+lemma unified_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (S : Fin k → Fin (P + L) → Bool)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r,
+      S c (Fin.castAdd L (p i)) = true ∨ S c (Fin.natAdd P (l i)) = true)
+    (hsafe : ∀ z : Fin (P + L) → Bool,
+      (∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true) →
+      ∃ a b, I a b ∧ z (Fin.castAdd L a) = true ∧ z (Fin.natAdd P b) = true) :
+    r + 1 ≤ k := by
+  apply no_four_cycle_full_safety_clause_count I p l hp hl hdiag hfour
+    (fun c a => S c (Fin.castAdd L a) = true)
+    (fun c b => S c (Fin.natAdd P b) = true) hcover
+  intro x y hhits
+  let z : Fin (P + L) → Bool := Fin.addCases x y
+  have hhits' : ∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true := by
+    intro c
+    rcases hhits c with ⟨a, ha, hxa⟩ | ⟨b, hb, hyb⟩
+    · exact ⟨Fin.castAdd L a, ha, by simpa only [z, Fin.addCases_left] using hxa⟩
+    · exact ⟨Fin.natAdd P b, hb, by simpa only [z, Fin.addCases_right] using hyb⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe z hhits'
+  exact ⟨a, b, hab, by simpa only [z, Fin.addCases_left] using ha,
+    by simpa only [z, Fin.addCases_right] using hb⟩
+
+end MatchingCNF
+
+namespace StrictMatchingCNF
+
+lemma selected_clause_injective {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (c0 : Fin k) (hc0 : ∀ i : Fin r, ¬ Sp c0 (p i))
+    (c : Fin r → Fin k) (hc : ∀ i : Fin r,
+      ¬ Sl (c i) (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp (c i) (p j)) :
+    Function.Injective (fun i : Option (Fin r) => i.elim c0 c) := by
+  classical
+  intro a b hab
+  cases a with
+  | none =>
+    cases b with
+    | none => rfl
+    | some i =>
+      change c0 = c i at hab
+      rcases hcover (c i) i with hp | hl
+      · rw [← hab] at hp
+        exact False.elim (hc0 i hp)
+      · exact False.elim ((hc i).1 hl)
+  | some i =>
+    cases b with
+    | none =>
+      change c i = c0 at hab
+      rcases hcover (c i) i with hp | hl
+      · rw [hab] at hp
+        exact False.elim (hc0 i hp)
+      · exact False.elim ((hc i).1 hl)
+    | some j =>
+      change c i = c j at hab
+      by_cases hij : i = j
+      · subst j
+        rfl
+      · have hpi : Sp (c i) (p i) := (hcover (c i) i).resolve_right (hc i).1
+        have hpj : Sp (c j) (p j) := (hcover (c j) j).resolve_right (hc j).1
+        have hsep : ¬ I (p i) (l j) ∨ ¬ I (p j) (l i) := not_and_or.mp (hcross i j hij)
+        rcases hsep with hsep | hsep
+        · rw [hab] at hpi
+          exact False.elim ((hc j).2 i hsep hpi)
+        · rw [← hab] at hpj
+          exact False.elim ((hc i).2 j hsep hpj)
+
+lemma strict_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 3 ≤ r) : r + 2 ≤ k := by
+  classical
+  have hbase := MatchingCNF.no_four_cycle_full_safety_clause_count
+    I p l hp hl hdiag hfour Sp Sl hcover hsafe
+  by_contra hsmall
+  have hkeq : k = r + 1 := by omega
+  have hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)) := by
+    intro i j hij hcross
+    have hpp : p i ≠ p j := fun h => hij (hp h)
+    have hll : l i = l j := hfour (p i) (p j) hpp (l i) (l j)
+      (hdiag i) hcross.2 hcross.1 (hdiag j)
+    exact hij (hl hll)
+  have hzero : ∃ c : Fin k, ∀ i : Fin r, ¬ Sp c (p i) := by
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (true : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (false : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sp c (p i) := by
+        by_contra h
+        exact hnone ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inl ⟨p i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => true) (fun _ => false) hhits
+    cases hb
+  have hline : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sl c (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp c (p j) := by
+    intro i
+    let x : Fin P → Bool := fun a => decide (¬ I a (l i))
+    let y : Fin L → Bool := fun b => decide (b = l i)
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hli : Sl c (l i)
+      · exact Or.inr ⟨l i, hli, by simp [y]⟩
+      · have hex : ∃ j : Fin r, ¬ I (p j) (l i) ∧ Sp c (p j) := by
+          by_contra h
+          exact hnone ⟨c, hli, fun j hj hSp => h ⟨j, hj, hSp⟩⟩
+        obtain ⟨j, hj, hSp⟩ := hex
+        exact Or.inl ⟨p j, hSp, by simp [x, hj]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+    have heq : b = l i := by simpa only [y, decide_eq_true_eq] using hb
+    have hnot : ¬ I a (l i) := by simpa only [x, decide_eq_true_eq] using ha
+    exact hnot (heq ▸ hab)
+  have hall : ∃ c : Fin k, ∀ i : Fin r, ¬ Sl c (l i) := by
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (false : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (true : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sl c (l i) := by
+        by_contra h
+        exact hnone ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inr ⟨l i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => false) (fun _ => true) hhits
+    cases ha
+  obtain ⟨c0, hc0⟩ := hzero
+  choose c hc using hline
+  let f : Option (Fin r) → Fin k := fun i => i.elim c0 c
+  have hinj : Function.Injective f := selected_clause_injective I p l Sp Sl hcross hcover c0 hc0 c hc
+  have hsurj : Function.Surjective f := by
+    by_contra hnot
+    have hc := Fintype.card_lt_of_injective_not_surjective f hinj hnot
+    simp only [Fintype.card_option, Fintype.card_fin] at hc
+    omega
+  obtain ⟨cl, hcl⟩ := hall
+  have hclP : ∀ a : Fin r, Sp cl (p a) := fun a => (hcover cl a).resolve_right (hcl a)
+  have hspecial : ∃ i : Fin r, (∀ a : Fin r, Sp (c i) (p a)) ∧
+      (∀ a : Fin r, ¬ Sl (c i) (l a)) := by
+    obtain ⟨o, ho⟩ := hsurj cl
+    cases o with
+    | none =>
+      change c0 = cl at ho
+      let a : Fin r := ⟨0, by omega⟩
+      exact False.elim (hc0 a (by rw [ho]; exact hclP a))
+    | some i =>
+      change c i = cl at ho
+      exact ⟨i, by simpa only [ho] using hclP, by simpa only [ho] using hcl⟩
+  obtain ⟨i, hiP, hiL⟩ := hspecial
+  have hiUniversal : ∀ a : Fin r, I (p a) (l i) := by
+    intro a
+    by_contra hnot
+    exact (hc i).2 a hnot (hiP a)
+  have hOtherNonedge : ∀ j : Fin r, j ≠ i → ∀ a : Fin r, a ≠ j → ¬ I (p a) (l j) := by
+    intro j hji a haj hcross
+    have hpp : p a ≠ p j := fun h => haj (hp h)
+    have hll : l i = l j := hfour (p a) (p j) hpp (l i) (l j)
+      (hiUniversal a) (hiUniversal j) hcross (hdiag j)
+    exact hji (hl hll).symm
+  have hOtherL : ∀ j : Fin r, j ≠ i → ∀ a : Fin r, a ≠ j → Sl (c j) (l a) := by
+    intro j hji a haj
+    exact (hcover (c j) a).resolve_left ((hc j).2 a (hOtherNonedge j hji a haj))
+  have h0L : ∀ a : Fin r, Sl c0 (l a) := fun a => (hcover c0 a).resolve_left (hc0 a)
+  have hremain : 1 < ((Finset.univ : Finset (Fin r)).erase i).card := by
+    simp only [Finset.card_erase_of_mem (Finset.mem_univ i), Finset.card_univ, Fintype.card_fin]
+    omega
+  obtain ⟨j, hj, t, ht, hjt⟩ := Finset.one_lt_card.mp hremain
+  have hji : j ≠ i := (Finset.mem_erase.mp hj).1
+  have hti : t ≠ i := (Finset.mem_erase.mp ht).1
+  let x : Fin P → Bool := fun a => decide (a = p i)
+  let y : Fin L → Bool := fun b => decide (b = l j ∨ b = l t)
+  have hhits : ∀ d : Fin k,
+      (∃ a : Fin P, Sp d a ∧ x a = true) ∨ (∃ b : Fin L, Sl d b ∧ y b = true) := by
+    intro d
+    obtain ⟨o, ho⟩ := hsurj d
+    cases o with
+    | none =>
+      change c0 = d at ho
+      exact Or.inr ⟨l j, ho ▸ h0L j, by simp [y]⟩
+    | some m =>
+      change c m = d at ho
+      by_cases hmi : m = i
+      · subst m
+        exact Or.inl ⟨p i, ho ▸ hiP i, by simp [x]⟩
+      · by_cases hmj : m = j
+        · subst m
+          exact Or.inr ⟨l t, ho ▸ hOtherL j hji t (Ne.symm hjt), by simp [y]⟩
+        · exact Or.inr ⟨l j, ho ▸ hOtherL m hmi j (Ne.symm hmj), by simp [y]⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+  have haeq : a = p i := by simpa only [x, decide_eq_true_eq] using ha
+  have hbeq : b = l j ∨ b = l t := by simpa only [y, decide_eq_true_eq] using hb
+  rcases hbeq with hb | hb
+  · rw [haeq, hb] at hab
+    exact hOtherNonedge j hji i (Ne.symm hji) hab
+  · rw [haeq, hb] at hab
+    exact hOtherNonedge t hti i (Ne.symm hti) hab
+
+lemma unified_strict_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (S : Fin k → Fin (P + L) → Bool)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r,
+      S c (Fin.castAdd L (p i)) = true ∨ S c (Fin.natAdd P (l i)) = true)
+    (hsafe : ∀ z : Fin (P + L) → Bool,
+      (∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true) →
+      ∃ a b, I a b ∧ z (Fin.castAdd L a) = true ∧ z (Fin.natAdd P b) = true)
+    (hr : 3 ≤ r) : r + 2 ≤ k := by
+  apply strict_full_safety_matching_bound I p l hp hl hdiag hfour
+    (fun c a => S c (Fin.castAdd L a) = true)
+    (fun c b => S c (Fin.natAdd P b) = true) hcover ?_ hr
+  intro x y hhits
+  let z : Fin (P + L) → Bool := Fin.addCases x y
+  have hhits' : ∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true := by
+    intro c
+    rcases hhits c with ⟨a, ha, hxa⟩ | ⟨b, hb, hyb⟩
+    · exact ⟨Fin.castAdd L a, ha, by simpa only [z, Fin.addCases_left] using hxa⟩
+    · exact ⟨Fin.natAdd P b, hb, by simpa only [z, Fin.addCases_right] using hyb⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe z hhits'
+  exact ⟨a, b, hab, by simpa only [z, Fin.addCases_left] using ha,
+    by simpa only [z, Fin.addCases_right] using hb⟩
+
+end StrictMatchingCNF
+
+lemma no_three_matching {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (S : Fin 4 → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, (∀ c : Fin 4, ∃ u ∈ S c, x u = true) →
+      PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ x = true)
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hpside : ∀ i, side (p i) = false) (hlside : ∀ i, side (l i) = true)
+    (hdiag : ∀ i, G.Adj (p i) (l i))
+    (hcover : ∀ c : Fin 4, ∀ i : Fin 3, p i ∈ S c ∨ l i ∈ S c) : False := by
+  classical
+  have hfour' : ∀ a a' : Fin n, a ≠ a' → ∀ b b' : Fin n,
+      G.Adj a b → G.Adj a' b → G.Adj a b' → G.Adj a' b' → b = b' := by
+    intro a a' haa b b' hab ha'b hab' ha'b'
+    exact Finset.card_le_one.mp (hfour a a' haa) b
+      (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hab, ha'b⟩) b'
+      (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hab', ha'b'⟩)
+  have hclause : ∀ c : Fin 4, ∀ i : Fin 3,
+      (side (p i) = false ∧ p i ∈ S c) ∨ (side (l i) = true ∧ l i ∈ S c) := by
+    intro c i
+    exact (hcover c i).elim (fun h => Or.inl ⟨hpside i, h⟩)
+      (fun h => Or.inr ⟨hlside i, h⟩)
+  have hsafety : ∀ (x y : Fin n → Bool),
+      (∀ c : Fin 4, (∃ a, (side a = false ∧ a ∈ S c) ∧ x a = true) ∨
+        (∃ b, (side b = true ∧ b ∈ S c) ∧ y b = true)) →
+      ∃ a b, G.Adj a b ∧ x a = true ∧ y b = true := by
+    intro x y hhits
+    let z : Fin n → Bool := fun u => if side u then y u else x u
+    have hz : ∀ c : Fin 4, ∃ u ∈ S c, z u = true := by
+      intro c
+      rcases hhits c with ⟨a, ⟨ha, ham⟩, hax⟩ | ⟨b, ⟨hb, hbm⟩, hby⟩
+      · exact ⟨a, ham, by simp only [z, ha, Bool.false_eq_true, reduceIte]; exact hax⟩
+      · exact ⟨b, hbm, by simp only [z, hb, reduceIte]; exact hby⟩
+    have hgraph := hsafe z hz
+    have he : ∃ a b, G.Adj a b ∧ z a = true ∧ z b = true := by
+      simpa [PEqualNP.MetaComplexity.NestedCover.graphFun] using hgraph
+    obtain ⟨a, b, hab, hza, hzb⟩ := he
+    cases ha : side a <;> cases hb : side b
+    · exact (hproper a b hab (ha.trans hb.symm)).elim
+    · exact ⟨a, b, hab, by simpa [z, ha] using hza, by simpa [z, hb] using hzb⟩
+    · exact ⟨b, a, hab.symm, by simpa [z, hb] using hzb, by simpa [z, ha] using hza⟩
+    · exact (hproper a b hab (ha.trans hb.symm)).elim
+  have hbound := StrictMatchingCNF.strict_full_safety_matching_bound G.Adj p l hp hl hdiag hfour'
+    (fun c a => side a = false ∧ a ∈ S c) (fun c b => side b = true ∧ b ∈ S c)
+    hclause hsafety (by omega)
+  omega
+
+end FourClauseMatching
+
+
+namespace FourClauseSupports
+
+def Hits {n k : ℕ} (S : Fin k → Finset (Fin n)) (u v : Fin n) : Prop :=
+  ∀ c, u ∈ S c ∨ v ∈ S c
+
+def NoCentre {n k : ℕ} (S : Fin k → Finset (Fin n)) : Prop :=
+  ∀ a : Fin n, ∃ u v, Hits S u v ∧ u ≠ a ∧ v ≠ a
+
+def occurrences {n k : ℕ} (S : Fin k → Finset (Fin n)) (u : Fin n) : Finset (Fin k) :=
+  Finset.univ.filter fun c => u ∈ S c
+
+lemma active_occurrences_nonempty {n k : ℕ} (G : SimpleGraph (Fin n))
+    (S : Fin k → Finset (Fin n)) (hsound : ∀ u v, Hits S u v → G.Adj u v)
+    (u v : Fin n) (h : Hits S u v) : (occurrences S u).Nonempty := by
+  classical
+  by_contra hn
+  have hall : Hits S v v := by
+    intro c
+    have hu : u ∉ S c := by
+      intro hc
+      exact hn ⟨c, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hc⟩⟩
+    exact Or.inl ((h c).resolve_left hu)
+  exact (G.ne_of_adj (hsound v v hall)) rfl
+
+lemma singleton_occurrence_leaf {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (S : Fin k → Finset (Fin n))
+    (hsound : ∀ u v, Hits S u v → G.Adj u v) (hno : NoCentre S)
+    (u v w : Fin n) (c0 : Fin k) (hocc : occurrences S u = {c0})
+    (huv : Hits S u v) (huw : Hits S u w) : v = w := by
+  classical
+  by_contra hvw
+  have hother : ∀ c : Fin k, c ≠ c0 → u ∉ S c := by
+    intro c hc hu
+    have hh : c ∈ occurrences S u := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hu⟩
+    exact hc (by simpa only [hocc, Finset.mem_singleton] using hh)
+  have hsub : ∀ x ∈ S c0, x = u := by
+    intro x hx
+    by_contra hxu
+    have hxv : Hits S x v := by
+      intro c
+      by_cases hc : c = c0
+      · exact Or.inl (hc ▸ hx)
+      · exact Or.inr ((huv c).resolve_left (hother c hc))
+    have hxw : Hits S x w := by
+      intro c
+      by_cases hc : c = c0
+      · exact Or.inl (hc ▸ hx)
+      · exact Or.inr ((huw c).resolve_left (hother c hc))
+    apply hvw
+    exact Finset.card_le_one.mp (hfour u x (Ne.symm hxu)) v
+      (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hsound u v huv, hsound x v hxv⟩) w
+      (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hsound u w huw, hsound x w hxw⟩)
+  obtain ⟨a, b, hab, hau, hbu⟩ := hno u
+  exact (hab c0).elim (fun h => hau (hsub a h)) (fun h => hbu (hsub b h))
+
+lemma low_occurrence_leaf {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (S : Fin k → Finset (Fin n))
+    (hsound : ∀ u v, Hits S u v → G.Adj u v) (hno : NoCentre S)
+    (u v w : Fin n) (hsmall : (occurrences S u).card ≤ 1)
+    (huv : Hits S u v) (huw : Hits S u w) : v = w := by
+  have hpos := Finset.card_pos.mpr (active_occurrences_nonempty G S hsound u v huv)
+  obtain ⟨c0, hc0⟩ := Finset.card_eq_one.mp (show (occurrences S u).card = 1 by omega)
+  exact singleton_occurrence_leaf G hfour S hsound hno u v w c0 hc0 huv huw
+
+lemma low_occurrence_neighbor_large {n k : ℕ} (S : Fin k → Finset (Fin n))
+    (u v : Fin n) (hsmall : (occurrences S u).card ≤ 1) (h : Hits S u v) :
+    k - 1 ≤ (occurrences S v).card := by
+  have hcover : Finset.univ ⊆ occurrences S u ∪ occurrences S v := by
+    intro c hc
+    rcases h c with hu | hv
+    · exact Finset.mem_union_left _ (Finset.mem_filter.mpr ⟨hc, hu⟩)
+    · exact Finset.mem_union_right _ (Finset.mem_filter.mpr ⟨hc, hv⟩)
+  have hc := (Finset.card_le_card hcover).trans (Finset.card_union_le _ _)
+  simp only [Finset.card_univ, Fintype.card_fin] at hc
+  omega
+
+end FourClauseSupports
+
+
+namespace SmallMatchingCover
+
+def NoThree {p l : ℕ} (I : Fin p → Fin l → Prop) : Prop :=
+  ∀ a b c u v w, a ≠ b → a ≠ c → b ≠ c → u ≠ v → u ≠ w → v ≠ w →
+    I a u → I b v → I c w → False
+
+lemma mixed_cover {p l : ℕ} (I : Fin p → Fin l → Prop) (hno : NoThree I)
+    (a b x : Fin p) (u v z : Fin l)
+    (hab : a ≠ b) (hxa : x ≠ a) (hxb : x ≠ b)
+    (huv : u ≠ v) (hzu : z ≠ u) (hzv : z ≠ v)
+    (hau : I a u) (hbv : I b v) (hxu : I x u) (hbz : I b z) :
+    ∀ y w, I y w → y = b ∨ w = u := by
+  intro y w hyw
+  by_cases hyb : y = b
+  · exact Or.inl hyb
+  by_cases hwu : w = u
+  · exact Or.inr hwu
+  by_cases hya : y = a
+  · subst y
+    by_cases hwv : w = v
+    · subst w
+      exact False.elim (hno x a b u v z hxa hxb hab huv (Ne.symm hzu) (Ne.symm hzv) hxu hyw hbz)
+    · exact False.elim (hno x a b u w v hxa hxb hab (Ne.symm hwu) huv hwv hxu hyw hbv)
+  · by_cases hwv : w = v
+    · subst w
+      exact False.elim (hno a y b u v z (Ne.symm hya) hab hyb huv (Ne.symm hzu) (Ne.symm hzv) hau hyw hbz)
+    · exact False.elim (hno a b y u v w hab (Ne.symm hya) (Ne.symm hyb)
+        huv (Ne.symm hwu) (Ne.symm hwv) hau hbv hyw)
+
+lemma cover_with_outer_row {p l : ℕ} (I : Fin p → Fin l → Prop) (hno : NoThree I)
+    (a b x : Fin p) (u v : Fin l) (hab : a ≠ b) (hxa : x ≠ a) (hxb : x ≠ b)
+    (huv : u ≠ v) (hau : I a u) (hbv : I b v) (hxu : I x u) :
+    ∃ A : Finset (Fin p), ∃ B : Finset (Fin l),
+      (∀ y w, I y w → y ∈ A ∨ w ∈ B) ∧ A.card + B.card ≤ 2 := by
+  classical
+  by_cases hcols : ∀ y w, I y w → w = u ∨ w = v
+  · refine ⟨∅, {u, v}, ?_, by simp [huv]⟩
+    intro y w hyw
+    exact Or.inr (by simpa only [Finset.mem_insert, Finset.mem_singleton] using hcols y w hyw)
+  push Not at hcols
+  obtain ⟨y, z, hyz, hzu, hzv⟩ := hcols
+  have hyb : y = b := by
+    by_contra hne
+    by_cases hya : y = a
+    · subst y
+      exact hno x a b u z v hxa hxb hab (Ne.symm hzu) huv hzv hxu hyz hbv
+    · exact hno a b y u v z hab (Ne.symm hya) (Ne.symm hne)
+        huv (Ne.symm hzu) (Ne.symm hzv) hau hbv hyz
+  subst y
+  refine ⟨{b}, {u}, ?_, by simp⟩
+  intro y w hyw
+  simpa only [Finset.mem_singleton] using mixed_cover I hno a b x u v z
+    hab hxa hxb huv hzu hzv hau hbv hxu hyz y w hyw
+
+lemma cover_of_two_edges {p l : ℕ} (I : Fin p → Fin l → Prop) (hno : NoThree I)
+    (a b : Fin p) (u v : Fin l) (hab : a ≠ b) (huv : u ≠ v)
+    (hau : I a u) (hbv : I b v) :
+    ∃ A : Finset (Fin p), ∃ B : Finset (Fin l),
+      (∀ y w, I y w → y ∈ A ∨ w ∈ B) ∧ A.card + B.card ≤ 2 := by
+  classical
+  by_cases hrows : ∀ y w, I y w → y = a ∨ y = b
+  · refine ⟨{a, b}, ∅, ?_, by simp [hab]⟩
+    intro y w hyw
+    exact Or.inl (by simpa only [Finset.mem_insert, Finset.mem_singleton] using hrows y w hyw)
+  push Not at hrows
+  obtain ⟨x, w, hxw, hxa, hxb⟩ := hrows
+  have hw : w = u ∨ w = v := by
+    by_contra h
+    push Not at h
+    exact hno a b x u v w hab (Ne.symm hxa) (Ne.symm hxb)
+      huv (Ne.symm h.1) (Ne.symm h.2) hau hbv hxw
+  rcases hw with hw | hw
+  · subst w
+    exact cover_with_outer_row I hno a b x u v hab hxa hxb huv hau hbv hxw
+  · subst w
+    exact cover_with_outer_row I hno b a x v u (Ne.symm hab) hxb hxa (Ne.symm huv) hbv hau hxw
+
+lemma cover_of_no_three {p l : ℕ} (I : Fin p → Fin l → Prop) (hno : NoThree I) :
+    ∃ A : Finset (Fin p), ∃ B : Finset (Fin l),
+      (∀ y w, I y w → y ∈ A ∨ w ∈ B) ∧ A.card + B.card ≤ 2 := by
+  classical
+  by_cases hedge : ∃ a u, I a u
+  · obtain ⟨a, u, hau⟩ := hedge
+    by_cases hoff : ∃ b v, I b v ∧ b ≠ a ∧ v ≠ u
+    · obtain ⟨b, v, hbv, hba, hvu⟩ := hoff
+      exact cover_of_two_edges I hno a b u v (Ne.symm hba) (Ne.symm hvu) hau hbv
+    · refine ⟨{a}, {u}, ?_, by simp⟩
+      intro y w hyw
+      by_cases hya : y = a
+      · exact Or.inl (Finset.mem_singleton.mpr hya)
+      by_cases hwu : w = u
+      · exact Or.inr (Finset.mem_singleton.mpr hwu)
+      exact False.elim (hoff ⟨y, w, hyw, hya, hwu⟩)
+  · exact ⟨∅, ∅, fun y w hyw => False.elim (hedge ⟨y, w, hyw⟩), by simp⟩
+
+lemma cover_of_no_matching_three {p l : ℕ} (I : Fin p → Fin l → Prop)
+    (hno : ¬∃ a : Fin 3 → Fin p, ∃ b : Fin 3 → Fin l,
+      Function.Injective a ∧ Function.Injective b ∧ ∀ i, I (a i) (b i)) :
+    ∃ A : Finset (Fin p), ∃ B : Finset (Fin l),
+      (∀ y w, I y w → y ∈ A ∨ w ∈ B) ∧ A.card + B.card ≤ 2 := by
+  apply cover_of_no_three I
+  intro a b c u v w hab hac hbc huv huw hvw hau hbv hcw
+  apply hno
+  refine ⟨![a, b, c], ![u, v, w], ?_, ?_, ?_⟩
+  · intro i j hij
+    fin_cases i <;> fin_cases j <;> simp_all
+  · intro i j hij
+    fin_cases i <;> fin_cases j <;> simp_all
+  · intro i
+    fin_cases i <;> simp_all
+
+end SmallMatchingCover
+
+
+namespace FourClauseHighCover
+
+open FourClauseSupports
+
+lemma high_occurrence_cover {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (S : Fin k → Finset (Fin n))
+    (hsound : ∀ u v, Hits S u v → G.Adj u v) (hno : NoCentre S) (hk : 3 ≤ k)
+    (K : Finset (Fin n)) (hcover : ∀ u v, Hits S u v → u ∈ K ∨ v ∈ K) :
+    ∃ T : Finset (Fin n), T.card ≤ K.card ∧
+      (∀ u ∈ T, 2 ≤ (occurrences S u).card) ∧
+      (∀ u v, Hits S u v → u ∈ T ∨ v ∈ T) := by
+  classical
+  let pick (u : Fin n) : Finset (Fin n) :=
+    if 2 ≤ (occurrences S u).card then {u}
+    else if h : ∃ v, Hits S u v then {h.choose} else ∅
+  let T := K.biUnion pick
+  have hsmall (u : Fin n) : (pick u).card ≤ 1 := by
+    by_cases hu : 2 ≤ (occurrences S u).card
+    · simp [pick, hu]
+    · by_cases hh : ∃ v, Hits S u v <;> simp [pick, hu, hh]
+  have hcard : T.card ≤ K.card := by
+    have hh := (Finset.card_biUnion_le (s := K) (t := pick)).trans
+      (Finset.sum_le_sum (fun u _ => hsmall u))
+    simpa only [T, Finset.sum_const_nat, Nat.mul_one] using hh
+  have hhigh : ∀ u ∈ T, 2 ≤ (occurrences S u).card := by
+    intro u hu
+    obtain ⟨v, _, hv⟩ := Finset.mem_biUnion.mp hu
+    by_cases hvhigh : 2 ≤ (occurrences S v).card
+    · have huv : u = v := by simpa only [pick, ite_eq_left hvhigh, Finset.mem_singleton] using hv
+      simpa only [huv] using hvhigh
+    · have hvsmall : (occurrences S v).card ≤ 1 := by omega
+      by_cases hact : ∃ w, Hits S v w
+      · have huchoose : u = hact.choose := by
+          simpa only [pick, ite_eq_right hvhigh, dite_eq_left hact, Finset.mem_singleton] using hv
+        have hlarge := low_occurrence_neighbor_large S v hact.choose hvsmall hact.choose_spec
+        rw [← huchoose] at hlarge
+        omega
+      · simp only [pick, ite_eq_right hvhigh, dite_eq_right hact, Finset.notMem_empty] at hv
+  have hreplace (u v : Fin n) (h : Hits S u v) (huK : u ∈ K) : u ∈ T ∨ v ∈ T := by
+    by_cases hu : 2 ≤ (occurrences S u).card
+    · left
+      exact Finset.mem_biUnion.mpr ⟨u, huK, by simp [pick, hu]⟩
+    · right
+      have hact : ∃ w, Hits S u w := ⟨v, h⟩
+      have heq : v = hact.choose := low_occurrence_leaf G hfour S hsound hno u v hact.choose
+        (by omega) h hact.choose_spec
+      refine Finset.mem_biUnion.mpr ⟨u, huK, ?_⟩
+      simpa only [pick, ite_eq_right hu, dite_eq_left hact, Finset.mem_singleton] using heq
+  refine ⟨T, hcard, hhigh, ?_⟩
+  intro u v h
+  rcases hcover u v h with hu | hv
+  · exact hreplace u v h hu
+  · exact (hreplace v u (fun c => (h c).symm) hv).symm
+
+end FourClauseHighCover
+
+
+namespace FourClauseUsableCover
+
+open PEqualNP.MetaComplexity.NestedCover FourClauseSupports
+
+lemma pair_sound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (S : Fin 4 → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, (∀ c : Fin 4, ∃ u ∈ S c, x u = true) → graphFun G ∅ x = true) :
+    ∀ u v, Hits S u v → G.Adj u v := by
+  intro u v h
+  have hclause : ∀ c : Fin 4, ∃ w ∈ S c, decide (w = u ∨ w = v) = true := by
+    intro c
+    exact (h c).elim (fun hu => ⟨u, hu, by simp⟩) (fun hv => ⟨v, hv, by simp⟩)
+  have hh := hsafe (fun w => decide (w = u ∨ w = v)) hclause
+  have hedge : ∃ a b, G.Adj a b ∧ (a = u ∨ a = v) ∧ (b = u ∨ b = v) := by
+    simpa [graphFun] using hh
+  obtain ⟨a, b, hab, ha | ha, hb | hb⟩ := hedge
+  · subst a; subst b
+    exact False.elim ((G.ne_of_adj hab) rfl)
+  · simpa only [ha, hb] using hab
+  · simpa only [ha, hb] using hab.symm
+  · subst a; subst b
+    exact False.elim ((G.ne_of_adj hab) rfl)
+
+lemma usable_cover {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (S : Fin 4 → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, (∀ c : Fin 4, ∃ u ∈ S c, x u = true) → graphFun G ∅ x = true)
+    (hno : NoCentre S) :
+    ∃ K : Finset (Fin n), K.card ≤ 2 ∧
+      (∀ u ∈ K, (Finset.univ.filter fun c : Fin 4 => u ∉ S c).card ≤ 2) ∧
+      (∀ u v, Hits S u v → u ∈ K ∨ v ∈ K) := by
+  classical
+  have hsound := pair_sound G S hsafe
+  let I : Fin n → Fin n → Prop := fun u v => side u = false ∧ side v = true ∧ Hits S u v
+  have hnomatch : ¬∃ a : Fin 3 → Fin n, ∃ b : Fin 3 → Fin n,
+      Function.Injective a ∧ Function.Injective b ∧ ∀ i, I (a i) (b i) := by
+    rintro ⟨a, b, ha, hb, hab⟩
+    exact FourClauseMatching.no_three_matching G hfour side hproper S hsafe a b ha hb
+      (fun i => (hab i).1) (fun i => (hab i).2.1)
+      (fun i => hsound _ _ (hab i).2.2) (fun c i => (hab i).2.2 c)
+  obtain ⟨A, B, hAB, hcard⟩ := SmallMatchingCover.cover_of_no_matching_three I hnomatch
+  have hcover : ∀ u v, Hits S u v → u ∈ A ∪ B ∨ v ∈ A ∪ B := by
+    intro u v h
+    have huv := hproper u v (hsound u v h)
+    cases hu : side u <;> cases hv : side v
+    · exact (huv (hu.trans hv.symm)).elim
+    · rcases hAB u v ⟨hu, hv, h⟩ with h | h
+      · exact Or.inl (Finset.mem_union_left _ h)
+      · exact Or.inr (Finset.mem_union_right _ h)
+    · rcases hAB v u ⟨hv, hu, fun c => (h c).symm⟩ with h | h
+      · exact Or.inr (Finset.mem_union_left _ h)
+      · exact Or.inl (Finset.mem_union_right _ h)
+    · exact (huv (hu.trans hv.symm)).elim
+  obtain ⟨K, hKcard, hhigh, hKcover⟩ := FourClauseHighCover.high_occurrence_cover
+    G hfour S hsound hno (by omega) (A ∪ B) hcover
+  refine ⟨K, hKcard.trans ((Finset.card_union_le _ _).trans hcard), ?_, hKcover⟩
+  intro u hu
+  have hh := Finset.card_filter_add_card_filter_not (s := (Finset.univ : Finset (Fin 4)))
+    (fun c => u ∈ S c)
+  have he := hhigh u hu
+  change 2 ≤ (Finset.univ.filter fun c => u ∈ S c).card at he
+  simp only [Finset.card_univ, Fintype.card_fin] at hh
+  omega
+
+lemma usable_centers {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (S : Fin 4 → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, (∀ c : Fin 4, ∃ u ∈ S c, x u = true) → graphFun G ∅ x = true)
+    (hno : NoCentre S) (hactive : ∃ u v, Hits S u v) :
+    ∃ a b : Fin n, a ≠ b ∧
+      (Finset.univ.filter fun c : Fin 4 => a ∉ S c).card ≤ 2 ∧
+      (Finset.univ.filter fun c : Fin 4 => b ∉ S c).card ≤ 2 ∧
+      (∀ u v, Hits S u v → u = a ∨ v = a ∨ u = b ∨ v = b) := by
+  classical
+  obtain ⟨K, hcard, hsmall, hcover⟩ := usable_cover G hfour side hproper S hsafe hno
+  have hlarge : 2 ≤ K.card := by
+    obtain ⟨u, v, huv⟩ := hactive
+    obtain ⟨a, ha⟩ : K.Nonempty := (hcover u v huv).elim (fun h => ⟨u, h⟩) (fun h => ⟨v, h⟩)
+    by_contra hh
+    have hsmall : K.card ≤ 1 := by omega
+    obtain ⟨u', v', h, hu, hv⟩ := hno a
+    exact (hcover u' v' h).elim
+      (fun h => hu (Finset.card_le_one.mp hsmall u' h a ha))
+      (fun h => hv (Finset.card_le_one.mp hsmall v' h a ha))
+  obtain ⟨a, b, hab, hK⟩ := Finset.card_eq_two.mp (show K.card = 2 by omega)
+  refine ⟨a, b, hab, hsmall a (by simp [hK]), hsmall b (by simp [hK]), ?_⟩
+  intro u v h
+  have hc := hcover u v h
+  simp only [hK, Finset.mem_insert, Finset.mem_singleton] at hc
+  tauto
+
+end FourClauseUsableCover
+
+
+namespace DoubleEndpointCount
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+
+lemma two_and_endpoint_set (n : ℕ) (C : Circuit) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (T : Finset (Fin B.length))
+    (hloop : ∀ i ∈ T, (B.get i).1 ≠ (B.get i).2)
+    (left right : Fin B.length → ℕ)
+    (hl : ∀ i ∈ T, n + left i = (B.get i).1)
+    (hr : ∀ i ∈ T, n + right i = (B.get i).2)
+    (hkindl : ∀ i ∈ T, left i < C.gates.length ∧ (gateAt C (left i)).op = GateOp.and)
+    (hkindr : ∀ i ∈ T, right i < C.gates.length ∧ (gateAt C (right i)).op = GateOp.and) :
+    ∃ M : Finset ℕ, M.card = 2 * T.card ∧
+      (∀ k ∈ M, k < C.gates.length ∧ (gateAt C k).op = GateOp.and) ∧
+      (∀ i ∈ T, left i ∈ M ∧ right i ∈ M) := by
+  let ML := T.image left
+  let MR := T.image right
+  have hML : ML.card = T.card := MatchingEndpointCount.chosen_gate_image_card n B hB T left
+    (fun i hi => Or.inl (hl i hi))
+  have hMR : MR.card = T.card := MatchingEndpointCount.chosen_gate_image_card n B hB T right
+    (fun i hi => Or.inr (hr i hi))
+  have hdis : Disjoint ML MR := by
+    apply Finset.disjoint_left.mpr
+    intro k hkL hkR
+    obtain ⟨i, hi, hik⟩ := Finset.mem_image.mp hkL
+    obtain ⟨j, hj, hjk⟩ := Finset.mem_image.mp hkR
+    have hij : left i = right j := hik.trans hjk.symm
+    have he : (B.get i).1 = (B.get j).2 :=
+      (hl i hi).symm.trans ((congrArg (fun k => n + k) hij).trans (hr j hj))
+    by_cases h : i = j
+    · subst j
+      exact hloop i hi he
+    · exact (MatchingEndpointCount.distinct_pair_endpoints B hB i j h).2.1 he
+  refine ⟨ML ∪ MR, ?_, ?_, ?_⟩
+  · rw [Finset.card_union_of_disjoint hdis, hML, hMR]
+    omega
+  · intro k hk
+    rcases Finset.mem_union.mp hk with hk | hk
+    · exact MatchingEndpointCount.chosen_gate_image_ands C B T left hkindl k hk
+    · exact MatchingEndpointCount.chosen_gate_image_ands C B T right hkindr k hk
+  · intro i hi
+    exact ⟨Finset.mem_union_left _ (Finset.mem_image_of_mem left hi),
+      Finset.mem_union_right _ (Finset.mem_image_of_mem right hi)⟩
+
+end DoubleEndpointCount
+
+
+namespace FewMissingClauses
+
+open PEqualNP.MetaComplexity.NestedCover StarThreeClause
+
+lemma select_sources {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (hfour : PEqualNP.TopForm.NoFourCycle G) (S : Fin k → Finset (Fin n)) (a : Fin n)
+    (hsafe : ∀ x, (∀ j, clause (S j) x = true) → graphFun G ∅ x = true)
+    (hsmall : (Finset.univ.filter fun j => a ∉ S j).card ≤ 2) :
+    ∃ j l : Fin k, NearColorCases.BAllowed G side a (S j) ∧
+      (∀ u ∈ CProjectionCharges.leaf side a (S l), G.Adj a u) ∧
+      ∀ u, (∀ i, a ∈ S i ∨ u ∈ S i) →
+        u ∈ NearMergeCharges.project G a (S j) ∧
+        u ∈ CProjectionCharges.leaf side a (S l) := by
+  classical
+  let M : Finset (Fin k) := Finset.univ.filter fun j => a ∉ S j
+  have hM : M.Nonempty := by
+    by_contra hn
+    have hall : ∀ j, a ∈ S j := by
+      intro j
+      by_contra hj
+      exact hn ⟨j, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hj⟩⟩
+    have hf := hsafe (fun u => decide (u = a)) (fun j => decide_eq_true ⟨a, hall j, by simp⟩)
+    simp [graphFun] at hf
+  obtain ⟨j, hj⟩ := hM
+  have hpair : ∃ l ∈ M, ∀ i ∈ M, i = j ∨ i = l := by
+    by_cases he : M.erase j = ∅
+    · refine ⟨j, hj, ?_⟩
+      intro i hi
+      left
+      by_contra hij
+      have hie : i ∈ M.erase j := Finset.mem_erase.mpr ⟨hij, hi⟩
+      simp [he] at hie
+    · obtain ⟨l, hl⟩ := Finset.nonempty_iff_ne_empty.mpr he
+      refine ⟨l, (Finset.mem_erase.mp hl).2, ?_⟩
+      intro i hi
+      by_cases hij : i = j
+      · exact Or.inl hij
+      · right
+        have hc : (M.erase j).card ≤ 1 := by
+          have hcard := Finset.card_erase_of_mem hj
+          dsimp [M] at hcard ⊢
+          omega
+        exact Finset.card_le_one.mp hc i (Finset.mem_erase.mpr ⟨hij, hi⟩) l hl
+  obtain ⟨l, hl, hcover⟩ := hpair
+  have hs : ∀ x, starCNF a (S j) (S l) x = true → graphFun G ∅ x = true := by
+    intro x hx
+    have hx' : x a = true ∧ clause (S j) x = true ∧ clause (S l) x = true := by
+      simpa only [starCNF, Bool.and_eq_true] using hx
+    apply hsafe x
+    intro i
+    by_cases hai : a ∈ S i
+    · exact decide_eq_true ⟨a, hai, hx'.1⟩
+    · rcases hcover i (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hai⟩) with rfl | rfl
+      · exact hx'.2.1
+      · exact hx'.2.2
+  obtain ⟨D, E, hD, hE, haD, hvE, hcD, hcE⟩ :=
+    StarClauseSelector.safe_clause_selector_for_budget G side hproper hfour a (S j) (S l) hs
+  have hidx : ∀ T, T = S j ∨ T = S l → ∃ i : Fin k, S i = T := by
+    intro T hT
+    rcases hT with rfl | rfl
+    · exact ⟨j, rfl⟩
+    · exact ⟨l, rfl⟩
+  obtain ⟨d, hd⟩ := hidx D hD
+  obtain ⟨e, he⟩ := hidx E hE
+  refine ⟨d, e, hd ▸ haD, he ▸ hvE, ?_⟩
+  intro u hu
+  have hm : u ∈ S j ∩ S l := Finset.mem_inter.mpr
+    ⟨(hu j).resolve_left (Finset.mem_filter.mp hj).2,
+      (hu l).resolve_left (Finset.mem_filter.mp hl).2⟩
+  exact ⟨hd ▸ hcD hm, he ▸ hcE hm⟩
+
+end FewMissingClauses
+
+
+namespace FewMissingRootFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  StarThreeClause
+
+noncomputable def incidentLeaves {n k : ℕ} (C : Circuit) (v : Fin n)
+    (w : Fin k → ℕ) : Finset (Fin n) := by
+  classical
+  exact Finset.univ.filter fun u => ∀ j, v ∈ orIn n C (w j) ∨ u ∈ orIn n C (w j)
+
+noncomputable def centerLeaves {n m k : ℕ} (C : Circuit) (a : Fin m → Fin n)
+    (w : Fin m → Fin k → ℕ) (v : Fin n) : Finset (Fin n) :=
+  (StarRootFamily.indexFiber a v).biUnion fun i => incidentLeaves C (a i) (w i)
+
+lemma select_source_family {n m k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (a : Fin m → Fin n) (w : Fin m → Fin k → ℕ)
+    (hw : ∀ i j, w i j < n + C.size)
+    (hsafe : ∀ i x, (∀ j, clause (orIn n C (w i j)) x = true) → graphFun G ∅ x = true)
+    (hsmall : ∀ i, (Finset.univ.filter fun j => a i ∉ orIn n C (w i j)).card ≤ 2) :
+    ∃ T U : Fin n → Finset ℕ,
+      (∀ v, T v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, U v ⊆ Finset.range (n + C.size)) ∧
+      (∀ v, ∀ t ∈ T v, NearColorCases.BAllowed G side v (orIn n C t)) ∧
+      (∀ v, ∀ t ∈ U v, ∀ u ∈ CProjectionCharges.leaf side v (orIn n C t), G.Adj v u) ∧
+      (∀ v, centerLeaves C a w v ⊆
+        (T v).biUnion (fun t => NearMergeCharges.project G v (orIn n C t))) ∧
+      (∀ v, centerLeaves C a w v ⊆
+        (U v).biUnion (fun t => CProjectionCharges.leaf side v (orIn n C t))) ∧
+      (∑ v : Fin n, (T v).card) ≤ m ∧ (∑ v : Fin n, (U v).card) ≤ m := by
+  classical
+  have hselect := fun i => FewMissingClauses.select_sources G side hproper hfour
+    (fun j => orIn n C (w i j)) (a i) (hsafe i) (hsmall i)
+  choose p q hallowed hvalid hcoverage using hselect
+  let bp : Fin m → ℕ := fun i => w i (p i)
+  let cp : Fin m → ℕ := fun i => w i (q i)
+  let T := StarRootFamily.rootPool a bp
+  let U := StarRootFamily.rootPool a cp
+  refine ⟨T, U, ?_, ?_, ?_, ?_, ?_, ?_,
+    StarRootFamily.root_pool_card_bound a bp, StarRootFamily.root_pool_card_bound a cp⟩
+  · intro v t ht
+    obtain ⟨i, _, rfl⟩ := (StarRootFamily.root_pool_mem a bp v t).mp ht
+    exact Finset.mem_range.mpr (hw i (p i))
+  · intro v t ht
+    obtain ⟨i, _, rfl⟩ := (StarRootFamily.root_pool_mem a cp v t).mp ht
+    exact Finset.mem_range.mpr (hw i (q i))
+  · intro v t ht
+    obtain ⟨i, hiv, rfl⟩ := (StarRootFamily.root_pool_mem a bp v t).mp ht
+    rw [← hiv]
+    exact hallowed i
+  · intro v t ht
+    obtain ⟨i, hiv, rfl⟩ := (StarRootFamily.root_pool_mem a cp v t).mp ht
+    rw [← hiv]
+    exact hvalid i
+  · intro v u hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiv := (Finset.mem_filter.mp hi).2
+    have hleaf := (hcoverage i u (Finset.mem_filter.mp hui).2).1
+    rw [hiv] at hleaf
+    exact Finset.mem_biUnion.mpr ⟨bp i,
+      (StarRootFamily.root_pool_mem a bp v (bp i)).mpr ⟨i, hiv, rfl⟩, hleaf⟩
+  · intro v u hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    have hiv := (Finset.mem_filter.mp hi).2
+    have hleaf := (hcoverage i u (Finset.mem_filter.mp hui).2).2
+    rw [hiv] at hleaf
+    exact Finset.mem_biUnion.mpr ⟨cp i,
+      (StarRootFamily.root_pool_mem a cp v (cp i)).mpr ⟨i, hiv, rfl⟩, hleaf⟩
+
+lemma shared_clause_budget {n m k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (a : Fin m → Fin n) (w : Fin m → Fin k → ℕ)
+    (hw : ∀ i j, w i j < n + C.size)
+    (hsafe : ∀ i x, (∀ j, clause (orIn n C (w i j)) x = true) → graphFun G ∅ x = true)
+    (hsmall : ∀ i, (Finset.univ.filter fun j => a i ∉ orIn n C (w i j)).card ≤ 2) :
+    (∑ v : Fin n, (centerLeaves C a w v).card) ≤
+      ((Finset.range C.gates.length).filter fun t => 2 ≤ (orIn n C (n + t)).card).card + m := by
+  obtain ⟨T, U, hT, hU, hallowed, hvalid, hcovB, hcovC, hcountB, hcountC⟩ :=
+    select_source_family G hfour side hproper C a w hw hsafe hsmall
+  apply ComplementaryBudget.circuit_two_source_budget G hfour side hproper C hAO Finset.univ T U
+    (fun v _ => hT v) (fun v _ => hU v) (fun v _ => hallowed v) (fun v _ => hvalid v)
+    (∑ v : Fin n, (centerLeaves C a w v).card) m
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovB v)
+  · apply Finset.sum_le_sum
+    intro v hv
+    exact Finset.card_le_card (hcovC v)
+  · omega
+
+lemma mem_centerLeaves_iff_hits {n m k : ℕ}
+    (C : Circuit) (a : Fin m → Fin n) (w : Fin m → Fin k → ℕ) (v u : Fin n) :
+    u ∈ centerLeaves C a w v ↔ ∃ i : Fin m, a i = v ∧
+      ∀ j, a i ∈ orIn n C (w i j) ∨ u ∈ orIn n C (w i j) := by
+  classical
+  constructor
+  · intro hu
+    obtain ⟨i, hi, hui⟩ := Finset.mem_biUnion.mp hu
+    exact ⟨i, (Finset.mem_filter.mp hi).2, (Finset.mem_filter.mp hui).2⟩
+  · rintro ⟨i, hiv, hi⟩
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hiv⟩,
+      Finset.mem_filter.mpr ⟨Finset.mem_univ _, hi⟩⟩
+
+end FewMissingRootFamily
+
+
+namespace FourClauseFamily
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  FourClauseSupports
+
+lemma nonstar_four_clause_cover {n p l r : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (side : Fin n → Bool)
+    (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (w : Fin r → Fin 4 → ℕ)
+    (hw : ∀ i j, w i j < n + C.size)
+    (hsafe : ∀ i x, (∀ j : Fin 4, ∃ u ∈ orIn n C (w i j), x u = true) → graphFun G ∅ x = true)
+    (hno : ∀ i, NoCentre (fun j => orIn n C (w i j)))
+    (hactive : ∀ i, ∃ u v, Hits (fun j => orIn n C (w i j)) u v)
+    (P : Fin p → Fin n) (L : Fin l → Fin n)
+    (hP : Function.Injective P) (hL : Function.Injective L) (hPL : ∀ u v, P u ≠ L v)
+    (E : Finset (Fin p × Fin l))
+    (hcover : ∀ e ∈ E, ∃ i, Hits (fun j => orIn n C (w i j)) (P e.1) (L e.2))
+    (M : Finset ℕ) (hM : ∀ j ∈ M, j < C.gates.length ∧ (gateAt C j).op = GateOp.and)
+    (hcount : 2 * r ≤ M.card) :
+    ∃ A : Finset (Fin p), ∃ B : Finset (Fin l),
+      (∀ e ∈ E, e.1 ∈ A ∨ e.2 ∈ B) ∧ A.card + B.card ≤ 2 * r ∧
+      E.card + A.card + B.card ≤ C.size + 2 * r := by
+  classical
+  have hc := fun i => FourClauseUsableCover.usable_centers G hfour side hproper
+    (fun j => orIn n C (w i j)) (hsafe i) (hno i) (hactive i)
+  choose a b hne hsmallA hsmallB hcenters using hc
+  let center : Fin (r + r) → Fin n := Fin.addCases a b
+  let wires : Fin (r + r) → Fin 4 → ℕ := Fin.addCases w w
+  let H : Fin n → Finset (Fin n) := FewMissingRootFamily.centerLeaves C center wires
+  have hwire : ∀ i j, wires i j < n + C.size := by
+    intro i
+    refine Fin.addCases ?_ ?_ i
+    · intro t
+      simpa only [wires, Fin.addCases_left] using hw t
+    · intro t
+      simpa only [wires, Fin.addCases_right] using hw t
+  have hsafeClause : ∀ i x, (∀ j, StarThreeClause.clause (orIn n C (w i j)) x = true) →
+      graphFun G ∅ x = true := by
+    intro i x hx
+    apply hsafe i x
+    simpa only [StarThreeClause.clause, decide_eq_true_eq] using hx
+  have hsafe' : ∀ i x, (∀ j, StarThreeClause.clause (orIn n C (wires i j)) x = true) →
+      graphFun G ∅ x = true := by
+    intro i
+    refine Fin.addCases ?_ ?_ i
+    · intro t
+      simpa only [wires, Fin.addCases_left] using hsafeClause t
+    · intro t
+      simpa only [wires, Fin.addCases_right] using hsafeClause t
+  have hsmall : ∀ i, (Finset.univ.filter fun j => center i ∉ orIn n C (wires i j)).card ≤ 2 := by
+    intro i
+    refine Fin.addCases ?_ ?_ i
+    · intro t
+      simpa only [center, wires, Fin.addCases_left] using hsmallA t
+    · intro t
+      simpa only [center, wires, Fin.addCases_right] using hsmallB t
+  have hrepresent (i : Fin r) (u v : Fin n) (h : Hits (fun j => orIn n C (w i j)) u v) :
+      ∃ t : Fin (r + r), (center t = u ∨ center t = v) ∧
+        Hits (fun j => orIn n C (wires t j)) u v := by
+    rcases hcenters i u v h with ha | ha | hb | hb
+    · refine ⟨Fin.castAdd r i, Or.inl ?_, ?_⟩
+      · simpa only [center, Fin.addCases_left] using ha.symm
+      · simpa only [wires, Fin.addCases_left] using h
+    · refine ⟨Fin.castAdd r i, Or.inr ?_, ?_⟩
+      · simpa only [center, Fin.addCases_left] using ha.symm
+      · simpa only [wires, Fin.addCases_left] using h
+    · refine ⟨Fin.natAdd r i, Or.inl ?_, ?_⟩
+      · simpa only [center, Fin.addCases_right] using hb.symm
+      · simpa only [wires, Fin.addCases_right] using h
+    · refine ⟨Fin.natAdd r i, Or.inr ?_, ?_⟩
+      · simpa only [center, Fin.addCases_right] using hb.symm
+      · simpa only [wires, Fin.addCases_right] using h
+  let central : Fin 0 → Fin p × Fin l := Fin.elim0
+  have hcentral : ∀ i, central i ∈ E ∧ L (central i).2 ∈ H (P (central i).1) ∧
+      P (central i).1 ∈ H (L (central i).2) := fun i => Fin.elim0 i
+  have hcover' : ∀ e ∈ E,
+      ((∃ i, (central i).1 = e.1) ∨ (∃ i, center i = P e.1)) ∧ L e.2 ∈ H (P e.1) ∨
+      ((∃ i, (central i).2 = e.2) ∨ (∃ i, center i = L e.2)) ∧ P e.1 ∈ H (L e.2) := by
+    intro e he
+    obtain ⟨i, hi⟩ := hcover e he
+    obtain ⟨t, ht | ht, hh⟩ := hrepresent i (P e.1) (L e.2) hi
+    · left
+      refine ⟨Or.inr ⟨t, ht⟩, ?_⟩
+      apply (FewMissingRootFamily.mem_centerLeaves_iff_hits C center wires _ _).mpr
+      exact ⟨t, ht, by simpa only [ht, Hits] using hh⟩
+    · right
+      refine ⟨Or.inr ⟨t, ht⟩, ?_⟩
+      apply (FewMissingRootFamily.mem_centerLeaves_iff_hits C center wires _ _).mpr
+      exact ⟨t, ht, by simpa only [ht, Hits] using (show Hits (fun j => orIn n C (wires t j))
+        (L e.2) (P e.1) from fun j => (hh j).symm)⟩
+  obtain ⟨A, B, hAB, hcard, hbound⟩ := NonstarResidual.assigned_center_cover P L hP hL hPL
+    H E central center hcentral hcover'
+  have hp := FewMissingRootFamily.shared_clause_budget G hfour side hproper C hAO
+    center wires hwire hsafe' hsmall
+  have hg := ThinFamily.nontrivial_gate_accounting (n := n) C M ∅ hM (by simp)
+  refine ⟨A, B, hAB, by omega, ?_⟩
+  dsimp only [H] at hbound
+  omega
+
+end FourClauseFamily
+
+
+namespace FourClauseResidual
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership PEqualNP.BlindGate FourClauseSupports
+
+lemma restricted_nonstar_residual_cover {n p l : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hfour : NoFourCycle G)
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (C : Circuit) (hAO : IsAO2 n C) (B : List (ℕ × ℕ))
+    (hB : B.Pairwise (fun t s => t.1 ≠ s.1 ∧ t.1 ≠ s.2 ∧ t.2 ≠ s.1 ∧ t.2 ≠ s.2))
+    (hloop : ∀ i : Fin B.length, (B.get i).1 ≠ (B.get i).2)
+    (w : Fin B.length → Fin 4 → ℕ) (hw : ∀ i j, w i j < n + C.size)
+    (heval : ∀ i x,
+      (wireValue C n x (B.get i).1 && wireValue C n x (B.get i).2) = true ↔
+        ∀ j : Fin 4, ∃ u ∈ orIn n C (w i j), x u = true)
+    (hF : ∀ x, graphFun G ∅ x = true ↔ ∃ i : Fin B.length,
+      (wireValue C n x (B.get i).1 && wireValue C n x (B.get i).2) = true)
+    (hno : ∀ i, (∃ u v, (wireValue C n (pairInput u v) (B.get i).1 &&
+      wireValue C n (pairInput u v) (B.get i).2) = true) → NoCentre (fun j => orIn n C (w i j)))
+    (hands : ∀ i, (∃ u v, (wireValue C n (pairInput u v) (B.get i).1 &&
+      wireValue C n (pairInput u v) (B.get i).2) = true) →
+      ∃ a b, n + a = (B.get i).1 ∧ n + b = (B.get i).2 ∧
+        (a < C.gates.length ∧ (gateAt C a).op = GateOp.and) ∧
+        (b < C.gates.length ∧ (gateAt C b).op = GateOp.and))
+    (P : Fin p → Fin n) (L : Fin l → Fin n)
+    (hP : Function.Injective P) (hL : Function.Injective L) (hPL : ∀ u v, P u ≠ L v)
+    (E : Finset (Fin p × Fin l)) (hE : ∀ e ∈ E, G.Adj (P e.1) (L e.2)) :
+    ∃ A : Finset (Fin p), ∃ D : Finset (Fin l),
+      (∀ e ∈ E, e.1 ∈ A ∨ e.2 ∈ D) ∧ E.card + A.card + D.card ≤ C.size + 2 * B.length := by
+  classical
+  let Active (i : Fin B.length) : Prop := ∃ u v, Hits (fun j => orIn n C (w i j)) u v
+  let T := Finset.univ.filter Active
+  have hpair (i : Fin B.length) (u v : Fin n) :
+      (wireValue C n (pairInput u v) (B.get i).1 &&
+        wireValue C n (pairInput u v) (B.get i).2) = true ↔
+      Hits (fun j => orIn n C (w i j)) u v := by
+    rw [heval]
+    simp only [Hits, pairInput, decide_eq_true_eq]
+    constructor
+    · intro h j
+      obtain ⟨t, ht, htu | htv⟩ := h j
+      · exact Or.inl (htu ▸ ht)
+      · exact Or.inr (htv ▸ ht)
+    · intro h j
+      rcases h j with hu | hv
+      · exact ⟨u, hu, Or.inl rfl⟩
+      · exact ⟨v, hv, Or.inr rfl⟩
+  have hactual (i : Fin B.length) (hi : Active i) : ∃ u v,
+      (wireValue C n (pairInput u v) (B.get i).1 &&
+        wireValue C n (pairInput u v) (B.get i).2) = true := by
+    obtain ⟨u, v, h⟩ := hi
+    exact ⟨u, v, (hpair i u v).mpr h⟩
+  have hTm (i) : i ∈ T ↔ Active i := by simp [T]
+  have hcard : T.card ≤ B.length :=
+    (Finset.card_le_card (Finset.subset_univ T)).trans_eq (by simp)
+  let et : Fin T.card ≃ {i // i ∈ T} := (Finset.equivFin T).symm
+  let tn (i : Fin T.card) : Fin B.length := (et i).val
+  have htn (i : Fin T.card) : Active (tn i) := (hTm _).mp (et i).property
+  have htonto (i) (hi : Active i) : ∃ j, tn j = i := by
+    obtain ⟨j, hj⟩ := et.surjective ⟨i, (hTm i).mpr hi⟩
+    exact ⟨j, congrArg Subtype.val hj⟩
+  have hchoice : ∀ i : Fin B.length, ∃ a b, i ∈ T →
+      n + a = (B.get i).1 ∧ n + b = (B.get i).2 ∧
+        (a < C.gates.length ∧ (gateAt C a).op = GateOp.and) ∧
+        (b < C.gates.length ∧ (gateAt C b).op = GateOp.and) := by
+    intro i
+    by_cases hi : i ∈ T
+    · obtain ⟨a, b, ha⟩ := hands i (hactual i ((hTm i).mp hi))
+      exact ⟨a, b, fun _ => ha⟩
+    · exact ⟨0, 0, fun h => (hi h).elim⟩
+  choose left right hchoice using hchoice
+  obtain ⟨M, hMcard, hM, _⟩ := DoubleEndpointCount.two_and_endpoint_set n C B hB T
+    (fun i _ => hloop i) left right
+    (fun i hi => (hchoice i hi).1) (fun i hi => (hchoice i hi).2.1)
+    (fun i hi => (hchoice i hi).2.2.1) (fun i hi => (hchoice i hi).2.2.2)
+  have hsafe (i : Fin B.length) (x) (hx : ∀ j : Fin 4, ∃ u ∈ orIn n C (w i j), x u = true) :
+      graphFun G ∅ x = true := (hF x).mpr ⟨i, (heval i x).mpr hx⟩
+  have hcover : ∀ e ∈ E, ∃ i : Fin T.card,
+      Hits (fun j => orIn n C (w (tn i) j)) (P e.1) (L e.2) := by
+    intro e he
+    obtain ⟨i, hi⟩ := (hF (pairInput (P e.1) (L e.2))).mp
+      ((WmaxMatching.graph_pair G _ _).mpr (hE e he))
+    have hhit := (hpair i (P e.1) (L e.2)).mp hi
+    obtain ⟨j, hj⟩ := htonto i ⟨P e.1, L e.2, hhit⟩
+    exact ⟨j, by simpa only [hj] using hhit⟩
+  obtain ⟨A, D, hcoverAD, _, hbound⟩ := FourClauseFamily.nonstar_four_clause_cover
+    G hfour side hproper C hAO (fun i => w (tn i)) (fun i => hw (tn i))
+    (fun i => hsafe (tn i)) (fun i => hno (tn i) (hactual (tn i) (htn i))) htn
+    P L hP hL hPL E hcover M hM (Nat.le_of_eq hMcard.symm)
+  exact ⟨A, D, hcoverAD, by omega⟩
+
+end FourClauseResidual
+
+
+namespace StarManyClauseSelector
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma valid_leaf_source {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (S : Fin k → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, x a = true →
+      (∀ j, ∃ u ∈ S j, x u = true) → graphFun G ∅ x = true) :
+    ∃ j : Fin k, ∀ u ∈ S j, side u ≠ side a → G.Adj a u := by
+  classical
+  by_contra hnone
+  push Not at hnone
+  let x : Fin n → Bool := fun u => decide (u = a ∨ (side u ≠ side a ∧ ¬G.Adj a u))
+  have hxa : x a = true := by simp [x]
+  have hhits : ∀ j, ∃ u ∈ S j, x u = true := by
+    intro j
+    obtain ⟨u, hu, hop, hnot⟩ := hnone j
+    exact ⟨u, hu, by simp [x, hop, hnot]⟩
+  have hg := hsafe x hxa hhits
+  have hedge : ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    simpa [graphFun] using hg
+  obtain ⟨u, v, huv, hxu, hxv⟩ := hedge
+  have hu : u = a ∨ (side u ≠ side a ∧ ¬G.Adj a u) := by
+    simpa only [x, decide_eq_true_eq] using hxu
+  have hv : v = a ∨ (side v ≠ side a ∧ ¬G.Adj a v) := by
+    simpa only [x, decide_eq_true_eq] using hxv
+  rcases hu with rfl | hu
+  · rcases hv with rfl | hv
+    · exact (G.ne_of_adj huv) rfl
+    · exact hv.2 huv
+  · rcases hv with rfl | hv
+    · exact hu.2 huv.symm
+    · have heq : side u = side v := by
+        cases h1 : side u <;> cases h2 : side v <;> cases h3 : side a <;> simp_all
+      exact hproper u v huv heq
+
+lemma bad_pair_sound {n k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (a : Fin n) (S : Fin k → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, x a = true →
+      (∀ j, ∃ u ∈ S j, x u = true) → graphFun G ∅ x = true)
+    (u v : Fin n) (hau : ¬G.Adj a u) (hav : ¬G.Adj a v)
+    (hhits : ∀ j, u ∈ S j ∨ v ∈ S j) : G.Adj u v := by
+  classical
+  let x : Fin n → Bool := fun w => decide (w = a ∨ w = u ∨ w = v)
+  have hxa : x a = true := by simp [x]
+  have hclauses : ∀ j, ∃ w ∈ S j, x w = true := by
+    intro j
+    rcases hhits j with hu | hv
+    · exact ⟨u, hu, by simp [x]⟩
+    · exact ⟨v, hv, by simp [x]⟩
+  have hg := hsafe x hxa hclauses
+  have hedge : ∃ p q, G.Adj p q ∧ x p = true ∧ x q = true := by
+    simpa [graphFun] using hg
+  obtain ⟨p, q, hpq, hxp, hxq⟩ := hedge
+  have hp : p = a ∨ p = u ∨ p = v := by simpa only [x, decide_eq_true_eq] using hxp
+  have hq : q = a ∨ q = u ∨ q = v := by simpa only [x, decide_eq_true_eq] using hxq
+  have hqp := hpq.symm
+  have hself (w : Fin n) : ¬G.Adj w w := fun h => (G.ne_of_adj h) rfl
+  rcases hp with hp | hp | hp <;> subst p <;>
+    rcases hq with hq | hq | hq <;> subst q <;> aesop
+
+lemma clean_pair_intersection {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (side : Fin n → Bool) (hproper : ∀ u v, G.Adj u v → side u ≠ side v)
+    (a : Fin n) (S : Fin 3 → Finset (Fin n))
+    (hsafe : ∀ x : Fin n → Bool, x a = true →
+      (∀ j, ∃ u ∈ S j, x u = true) → graphFun G ∅ x = true) :
+    ∃ i j : Fin 3, i ≠ j ∧ ∀ u ∈ S i ∩ S j, G.Adj a u := by
+  classical
+  by_contra hnone
+  push Not at hnone
+  obtain ⟨x, hx, hax⟩ := hnone (0 : Fin 3) (1 : Fin 3) (by decide)
+  obtain ⟨y, hy, hay⟩ := hnone (0 : Fin 3) (2 : Fin 3) (by decide)
+  obtain ⟨z, hz, haz⟩ := hnone (1 : Fin 3) (2 : Fin 3) (by decide)
+  have hxy : G.Adj x y := by
+    apply bad_pair_sound G a S hsafe x y hax hay
+    intro i
+    fin_cases i
+    · exact Or.inl (Finset.mem_inter.mp hx).1
+    · exact Or.inl (Finset.mem_inter.mp hx).2
+    · exact Or.inr (Finset.mem_inter.mp hy).2
+  have hxz : G.Adj x z := by
+    apply bad_pair_sound G a S hsafe x z hax haz
+    intro i
+    fin_cases i
+    · exact Or.inl (Finset.mem_inter.mp hx).1
+    · exact Or.inl (Finset.mem_inter.mp hx).2
+    · exact Or.inr (Finset.mem_inter.mp hz).2
+  have hyz : G.Adj y z := by
+    apply bad_pair_sound G a S hsafe y z hay haz
+    intro i
+    fin_cases i
+    · exact Or.inl (Finset.mem_inter.mp hy).1
+    · exact Or.inr (Finset.mem_inter.mp hz).1
+    · exact Or.inl (Finset.mem_inter.mp hy).2
+  have h1 := hproper x y hxy
+  have h2 := hproper x z hxz
+  have h3 := hproper y z hyz
+  cases hsx : side x <;> cases hsy : side y <;> cases hsz : side z <;> simp_all
+
+end StarManyClauseSelector
+
+
+namespace StarFourObstruction
+
+open PEqualNP.MetaComplexity.NestedCover StarThreeClause
+
+def edges : Finset (Fin 8 × Fin 8) := {(0,1),(0,2),(0,3),(4,5),(6,5),(6,7)}
+
+def graph : SimpleGraph (Fin 8) where
+  Adj u v := (u,v) ∈ edges ∨ (v,u) ∈ edges
+  symm := ⟨fun _ _ h => h.symm⟩
+  loopless := ⟨by intro u; fin_cases u <;> decide⟩
+
+abbrev graphDecidable : DecidableRel graph.Adj := fun _ _ => inferInstanceAs (Decidable (_ ∨ _))
+
+def side (u : Fin 8) : Bool := decide (u ∈ ({1,2,3,5,7} : Finset (Fin 8)))
+def B : Finset (Fin 8) := {1,2,3,5,6}
+def C : Finset (Fin 8) := {1,2,3,4,6}
+def D : Finset (Fin 8) := {1,2,3,5,7}
+
+lemma proper : ∀ u v, graph.Adj u v → side u ≠ side v := by
+  letI := graphDecidable
+  decide
+lemma no_four : letI := graphDecidable; PEqualNP.TopForm.NoFourCycle graph := by decide
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 2000000 in
+lemma full_safety : letI := graphDecidable; ∀ x : Fin 8 → Bool,
+    x 0 && (clause B x && (clause C x && clause D x)) = true → graphFun graph ∅ x = true := by
+  decide
+
+lemma no_allowed_source : letI := graphDecidable; ¬NearColorCases.BAllowed graph side 0 B ∧
+    ¬NearColorCases.BAllowed graph side 0 C ∧ ¬NearColorCases.BAllowed graph side 0 D := by
+  letI := graphDecidable
+  unfold NearColorCases.BAllowed
+  decide
+
+end StarFourObstruction
+
 end PEqualNP.Outside.L_meta_2583
