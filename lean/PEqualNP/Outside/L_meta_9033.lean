@@ -1,4 +1,5 @@
 import Mathlib.Data.Fin.Basic
+import Mathlib.Data.Finset.Card
 
 namespace PEqualNP.Outside.L_meta_9033_aux
 
@@ -112,5 +113,22 @@ theorem abc_separating_pair : ∀ v w : Fin 3, v ≠ w → ∃ z : Fin 8,
     readerGraph (fun u => decide (u = readerABC v ∨ u = z)) = true ∧
     readerGraph (fun u => decide (u = readerABC w ∨ u = z)) = false := by
   decide +kernel
+
+
+lemma nonatom_values_le_or_wires {α β γ : Type*}
+    [DecidableEq α] [DecidableEq β] [DecidableEq γ]
+    (value : α → β) (orValue : γ → β)
+    (required : Finset α) (orWires : Finset γ) (atoms : Finset β)
+    (cover : ∀ i ∈ required, value i ∈ atoms ∨
+      ∃ j ∈ orWires, orValue j = value i) :
+    ((required.image value) \ atoms).card ≤ orWires.card := by
+  have subset : (required.image value) \ atoms ⊆ orWires.image orValue := by
+    intro x hx
+    obtain ⟨himage, hnot⟩ := Finset.mem_sdiff.mp hx
+    obtain ⟨i, hi, hix⟩ := Finset.mem_image.mp himage
+    rcases cover i hi with hatom | ⟨j, hj, hji⟩
+    · exact False.elim (hnot (hix ▸ hatom))
+    · exact Finset.mem_image.mpr ⟨j, hj, hji.trans hix⟩
+  exact (Finset.card_le_card subset).trans (Finset.card_image_le)
 
 end PEqualNP.Outside.L_meta_9033_aux
