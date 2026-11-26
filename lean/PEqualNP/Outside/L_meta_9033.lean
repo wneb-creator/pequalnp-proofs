@@ -134,4 +134,77 @@ lemma crossing_gate_exists
   apply causal_merge_agreement a b op merge w₀ w₁ wm ha hb hraw heval₀ heval₁ hevalm
     (fun j hop hc => h ⟨j, hop, hc⟩) out hout
 
+def boundaryCube {r : Nat} (l u : Fin r → Bool) : Finset (Fin r → Bool) :=
+  Finset.univ.filter (fun c => ∀ i, l i ≠ u i → c i = l i)
+
+lemma boundaryCube_disjoint {r : Nat} (l₀ u₀ l₁ u₁ : Fin r → Bool)
+    (h : ∃ i, crossed (l₀ i) (u₀ i) (l₁ i) (u₁ i)) :
+    Disjoint (boundaryCube l₀ u₀) (boundaryCube l₁ u₁) := by
+  apply Finset.disjoint_left.mpr
+  intro c hc₀ hc₁
+  have h₀ := (Finset.mem_filter.mp hc₀).2
+  have h₁ := (Finset.mem_filter.mp hc₁).2
+  obtain ⟨i, hi⟩ := h
+  rcases hi with ⟨hl₀, hu₀, hl₁, hu₁⟩ | ⟨hl₀, hu₀, hl₁, hu₁⟩
+  · have hc₀ := h₀ i (by simp [hl₀, hu₀])
+    have hc₁ := h₁ i (by simp [hl₁, hu₁])
+    simp_all
+  · have hc₀ := h₀ i (by simp [hl₀, hu₀])
+    have hc₁ := h₁ i (by simp [hl₁, hu₁])
+    simp_all
+
+lemma boundaryCube_card {r : Nat} (l u : Fin r → Bool) :
+    (boundaryCube l u).card = 2 ^ ((Finset.univ.filter (fun i => l i = u i)).card) := by
+  classical
+  let e : {c : Fin r → Bool // ∀ i, l i ≠ u i → c i = l i} ≃
+      ({i : Fin r // l i = u i} → Bool) :=
+    { toFun := fun c i => c.val i.val
+      invFun := fun f => ⟨fun i => if h : l i = u i then f ⟨i, h⟩ else l i,
+        fun i h => by simp [h]⟩
+      left_inv := by
+        intro c
+        apply Subtype.ext
+        funext i
+        by_cases h : l i = u i
+        · simp [h]
+        · simp [h, c.property i h]
+      right_inv := by
+        intro f
+        funext i
+        simp [i.property] }
+  have he := Fintype.card_congr e
+  simpa [Fintype.card_subtype, Fintype.card_fun, boundaryCube] using he
+
+lemma boundaryCube_packing {m r : Nat} (l u : Fin m → Fin r → Bool)
+    (h : ∀ i j, i ≠ j → ∃ g, crossed (l i g) (u i g) (l j g) (u j g)) :
+    (∑ i : Fin m, 2 ^ ((Finset.univ.filter (fun g => l i g = u i g)).card)) ≤ 2 ^ r := by
+  classical
+  have hd : (↑(Finset.univ : Finset (Fin m)) : Set (Fin m)).PairwiseDisjoint
+      (fun i => boundaryCube (l i) (u i)) := by
+    intro i _ j _ hij
+    exact boundaryCube_disjoint _ _ _ _ (h i j hij)
+  have hc := Finset.card_le_card
+    (Finset.subset_univ ((Finset.univ : Finset (Fin m)).biUnion (fun i => boundaryCube (l i) (u i))))
+  rw [Finset.card_biUnion hd] at hc
+  simpa [boundaryCube_card, Fintype.card_fun] using hc
+
+def coreHigh (s : Fin 32) : Nat :=
+  (List.range 5).foldl (fun z i => if s.val.testBit i then z ||| ([74, 140, 272, 608, 896].getD i 0) else z) 0
+
+def mateHighAllowance (v : Fin 3) : Nat := [24, 640, 80].getD v.val 0
+
+def earliestMatePairs (v : Fin 3) : List (Nat × Nat) :=
+  [[(1, 2), (1, 6), (1, 18), (1, 22), (2, 5), (2, 9), (2, 13), (6, 9)],
+   [(2, 16), (2, 20), (2, 24), (2, 28), (3, 16), (3, 20), (8, 16), (8, 18), (8, 20), (8, 22), (9, 16), (9, 20), (10, 16), (10, 20), (11, 16), (11, 20)],
+   [(1, 8), (1, 12), (1, 24), (1, 28), (3, 8), (3, 12), (5, 8), (7, 8)]].getD v.val []
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma earliest_mate_classification : ∀ (v : Fin 3) (a b : Fin 32),
+    a.val ≤ b.val → a.val &&& b.val = 0 →
+    (coreHigh a &&& coreHigh b) ≠ 0 →
+    (coreHigh a &&& coreHigh b) &&& mateHighAllowance v = (coreHigh a &&& coreHigh b) →
+    (a.val, b.val) ∈ earliestMatePairs v := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_9033
