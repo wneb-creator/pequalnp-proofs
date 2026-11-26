@@ -7451,4 +7451,688 @@ lemma valid_rectangles_no_trace {n : Nat} (out : Fin n → Nat)
 
 end R3NoUnion
 
+
+namespace CommonRowsSemantics
+
+lemma mask255_bit {w : Nat} (hw : w < 8) : (255 : Nat).testBit w = true := by
+  have h : ∀ i : Fin 8, (255 : Nat).testBit i = true := by decide
+  exact h ⟨w, hw⟩
+
+lemma selected_cons (m a w : Nat) (rows : List Nat) :
+    (∀ u < (m :: rows).length, a.testBit u = true →
+      ((m :: rows).getD u 0).testBit w = true) ↔
+    ((a.testBit 0 = true → m.testBit w = true) ∧
+      ∀ u < rows.length, (a / 2).testBit u = true →
+        (rows.getD u 0).testBit w = true) := by
+  constructor
+  · intro h
+    constructor
+    · simpa using h 0 (by simp)
+    · intro u hu ha
+      have h' := h (u + 1) (by simp; omega)
+      simpa [Nat.testBit_succ] using h' (by simpa [Nat.testBit_succ] using ha)
+  · rintro ⟨hzero, hsucc⟩ u hu ha
+    cases u with
+    | zero => simpa using hzero ha
+    | succ u =>
+      have hu' : u < rows.length := by simpa using hu
+      have ha' : (a / 2).testBit u = true := by simpa [Nat.testBit_succ] using ha
+      simpa using hsucc u hu' ha'
+
+lemma commonRows_testBit (rows : List Nat) (a : Nat) {w : Nat} (hw : w < 8) :
+    (R3Finite.commonRows rows a).testBit w = true ↔
+      ∀ u < rows.length, a.testBit u = true → (rows.getD u 0).testBit w = true := by
+  induction rows generalizing a with
+  | nil => simp [R3Finite.commonRows, mask255_bit hw]
+  | cons m rows ih =>
+    rw [selected_cons]
+    simp only [R3Finite.commonRows, Nat.testBit_and, Bool.and_eq_true, ih]
+    apply and_congr
+    · by_cases ha : a % 2 = 1 <;> simp [ha, Nat.testBit_zero, mask255_bit hw]
+    · rfl
+
+lemma commonRows_le (rows : List Nat) (a : Nat) : R3Finite.commonRows rows a ≤ 255 := by
+  induction rows generalizing a with
+  | nil => exact Nat.le_refl _
+  | cons m rows ih =>
+    exact Nat.le_trans Nat.and_le_right (ih (a / 2))
+
+end CommonRowsSemantics
+
+namespace SingletonReplayUnionTrace
+
+open CofactorSimplification NatWordReplay SingletonUnionTransport
+
+def initial (i : Nat) : Nat := if i < 8 then 1 <<< i else 0
+
+def masks (gs : List Gate) : Nat → Nat := runWords gs 8 initial
+
+def gateMasks (gs : List Gate) : Fin gs.length → Nat :=
+  GateMaskUnionTrace.outputsAt gs.length 8 (masks gs)
+
+lemma initial_bit (i : Nat) (r : Fin 8) :
+    (initial i).testBit r.val = decide (i = r.val) := by
+  by_cases hi : i < 8
+  · have h : ∀ i r : Fin 8, ((1 : Nat) <<< i.val).testBit r.val =
+        decide (i.val = r.val) := by decide +kernel
+    simpa [initial, hi] using h ⟨i, hi⟩ r
+  · have hir : i ≠ r.val := by have := r.isLt; omega
+    simp [initial, hi, hir]
+
+lemma masks_bit (gs : List Gate) (wire : Nat) (r : Fin 8) :
+    (masks gs wire).testBit r.val =
+      run gs 8 (fun i => decide (i = r.val)) wire := by
+  rw [masks, runWords_bit]
+  congr 1
+  funext i
+  exact initial_bit i r
+
+lemma initial_bound (i : Nat) : initial i < 2 ^ 8 := by
+  by_cases hi : i < 8
+  · have h : ∀ i : Fin 8, (1 : Nat) <<< i.val < 2 ^ 8 := by decide +kernel
+    simpa [initial, hi] using h ⟨i, hi⟩
+  · simp [initial, hi]
+
+lemma masks_bound (gs : List Gate) (wire : Nat) : masks gs wire < 256 := by
+  exact runWords_bound gs 8 8 initial initial_bound wire
+
+lemma raw_preserved (gs : List Gate) (i : Nat) (hi : i < 8) :
+    masks gs i = 1 <<< i := by
+  rw [masks, runWords_below gs 8 i initial hi]
+  simp [initial, hi]
+
+lemma raw_atom_mem (i : Nat) (hi : i < 8) :
+    (1 : Nat) <<< i ∈ R3Local.atoms.toFinset := by
+  have h : ∀ i : Fin 8, (1 : Nat) <<< i.val ∈ R3Local.atoms.toFinset := by
+    decide +kernel
+  exact h ⟨i, hi⟩
+
+lemma raw_free (gs : List Gate) (i : Nat) (hi : i < 8) :
+    masks gs i ∈ R3NoUnion.freeAtoms := by
+  rw [raw_preserved gs i hi]
+  exact Finset.mem_insert_of_mem (raw_atom_mem i hi)
+
+lemma output_equation (gs : List Gate) (hw : WellFormed gs 8) (i : Fin gs.length) :
+    masks gs (8 + i.val) = evalWord (gs.get i) (masks gs) := by
+  have hc := runWords_consistent gs 8 initial hw
+  have hg : gs[i.val]? = some (gs.get i) := by simp
+  exact (wordConsistent_lookup gs 8 (masks gs) hc i.val (gs.get i) hg).symm
+
+lemma or_output (gs : List Gate) (hw : WellFormed gs 8) (i : Fin gs.length)
+    (hop : (gs.get i).1 = false) :
+    masks gs (8 + i.val) = masks gs (gs.get i).2.1 ||| masks gs (gs.get i).2.2 := by
+  simpa only [evalWord, hop, Bool.false_eq_true, ite_false] using output_equation gs hw i
+
+lemma trace (gs : List Gate) (hw : WellFormed gs 8)
+    (hand : ∀ i : Fin gs.length, (gs.get i).1 = true → gateMasks gs i = 0) :
+    UnionTrace R3NoUnion.freeAtoms (gateMasks gs) := by
+  apply GateMaskUnionTrace.trace_of_wellFormed_zero_and
+    gs 8 R3Local.atoms.toFinset (masks gs) hw
+  · exact raw_free gs
+  · exact hand
+  · exact or_output gs hw
+
+lemma valid_rectangles_impossible (gs : List Gate) (hw : WellFormed gs 8)
+    (hand : ∀ i : Fin gs.length, (gs.get i).1 = true → gateMasks gs i = 0)
+    {c : Nat × Nat × Nat} {a b d e f : R3Finite.Rect}
+    (hc : c ∈ R3Finite.caseIndices)
+    (ha : R3NoUnion.DirtyGuard (R3Finite.getData c.1) a)
+    (hb : R3NoUnion.DirtyGuard (R3Finite.getData c.2.1) b)
+    (hd : R3NoUnion.DirtyGuard (R3Finite.getData c.2.2) d)
+    (he : R3NoUnion.CleanGuard e) (hf : R3NoUnion.CleanGuard f)
+    (hcover : (2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d)) &&&
+      (R3Finite.coverage e ||| R3Finite.coverage f) =
+      2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d))
+    (reserved : Finset (Fin gs.length))
+    (hfree : ∀ i ∈ reserved, gateMasks gs i ∈ R3NoUnion.freeAtoms)
+    (hcard : gs.length - 5 ≤ reserved.card)
+    (havailable : (R3NoUnion.requiredFive a b d e f).toFinset ⊆
+      R3NoUnion.freeAtoms ∪ outputs (gateMasks gs)) : False := by
+  exact R3NoUnion.valid_rectangles_no_trace (gateMasks gs) (trace gs hw hand)
+    hc ha hb hd he hf hcover reserved hfree hcard havailable
+
+end SingletonReplayUnionTrace
+
+namespace R3ReservedSlots
+
+open SingletonUnionTransport R3NoUnion
+
+lemma and_card_eq (op : Fin 14 → Bool) :
+    Nat.card {i : Fin 14 // op i = true} =
+      ((Finset.univ : Finset (Fin 14)).filter (fun i => op i = true)).card := by
+  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
+
+lemma reader_masks_distinct : Function.Injective (fun i : Fin 3 => (1 : Nat) <<< i.val) := by
+  decide +kernel
+
+lemma reader_masks_nonzero (i : Fin 3) : (1 : Nat) <<< i.val ≠ 0 := by
+  have h : ∀ i : Fin 3, (1 : Nat) <<< i.val ≠ 0 := by decide +kernel
+  exact h i
+
+lemma reader_masks_free (i : Fin 3) : (1 : Nat) <<< i.val ∈ freeAtoms := by
+  have h : ∀ i : Fin 3, (1 : Nat) <<< i.val ∈ freeAtoms := by decide +kernel
+  exact h i
+
+lemma nine_free_slots (op : Fin 14 → Bool) (out : Fin 14 → Nat) (reader : Fin 3 → Fin 14)
+    (hcount : ((Finset.univ : Finset (Fin 14)).filter (fun i => op i = true)).card = 5)
+    (hand : ∀ i, op i = true → out i = 0)
+    (hreader : ∀ v, op (reader v) = false ∧ out (reader v) = (1 : Nat) <<< v.val)
+    (hlast : op 13 = false ∧ out 13 = 0) :
+    ∃ reserved : Finset (Fin 14), reserved.card = 9 ∧ ∀ i ∈ reserved, out i ∈ freeAtoms := by
+  classical
+  let ands := (Finset.univ : Finset (Fin 14)).filter (fun i => op i = true)
+  let readers := (Finset.univ : Finset (Fin 3)).image reader
+  have hinj : Function.Injective reader := by
+    intro a b he
+    apply reader_masks_distinct
+    calc
+      (1 : Nat) <<< a.val = out (reader a) := (hreader a).2.symm
+      _ = out (reader b) := congrArg out he
+      _ = (1 : Nat) <<< b.val := (hreader b).2
+  have hrcard : readers.card = 3 := by
+    dsimp [readers]
+    rw [Finset.card_image_of_injective _ hinj]
+    simp
+  have had : Disjoint ands readers := by
+    apply Finset.disjoint_left.mpr
+    intro i hi hj
+    obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hj
+    subst i
+    have ht := (Finset.mem_filter.mp hi).2
+    have hf := (hreader v).1
+    rw [hf] at ht
+    cases ht
+  have hlastA : (13 : Fin 14) ∉ ands := by
+    intro hi
+    have ht := (Finset.mem_filter.mp hi).2
+    rw [hlast.1] at ht
+    cases ht
+  have hlastR : (13 : Fin 14) ∉ readers := by
+    intro hi
+    obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hi
+    have hvalue := (hreader v).2
+    rw [hv, hlast.2] at hvalue
+    exact reader_masks_nonzero v hvalue.symm
+  refine ⟨insert 13 (ands ∪ readers), ?_, ?_⟩
+  · rw [Finset.card_insert_of_notMem (by simp only [Finset.mem_union, not_or]; exact ⟨hlastA,hlastR⟩),
+      Finset.card_union_of_disjoint had, hrcard]
+    change ((Finset.univ : Finset (Fin 14)).filter (fun i => op i = true)).card + 3 + 1 = 9
+    omega
+  · intro i hi
+    rcases Finset.mem_insert.mp hi with he | hi
+    · subst i
+      rw [hlast.2]
+      simp [freeAtoms]
+    · rcases Finset.mem_union.mp hi with hi | hi
+      · rw [hand i (Finset.mem_filter.mp hi).2]
+        simp [freeAtoms]
+      · obtain ⟨v, _, hv⟩ := Finset.mem_image.mp hi
+        subst i
+        rw [(hreader v).2]
+        exact reader_masks_free v
+
+lemma paid_budget (op : Fin 14 → Bool) (out : Fin 14 → Nat) (reader : Fin 3 → Fin 14)
+    (hcount : ((Finset.univ : Finset (Fin 14)).filter (fun i => op i = true)).card = 5)
+    (hand : ∀ i, op i = true → out i = 0)
+    (hreader : ∀ v, op (reader v) = false ∧ out (reader v) = (1 : Nat) <<< v.val)
+    (hlast : op 13 = false ∧ out 13 = 0) : (paid freeAtoms out).card ≤ 5 := by
+  obtain ⟨reserved, hc, hf⟩ := nine_free_slots op out reader hcount hand hreader hlast
+  exact PaidNonfreeBudget.paid_card_le_of_reserved_count freeAtoms out reserved hf 5 (by omega)
+
+end R3ReservedSlots
+
+namespace SingletonReplayReserved14
+
+open CofactorSimplification SingletonUnionTransport SingletonReplayUnionTrace
+
+def lastSlot (n : Nat) (hn : n = 14) : Fin n :=
+  Fin.cast hn.symm (13 : Fin 14)
+
+lemma lastSlot_val (n : Nat) (hn : n = 14) : (lastSlot n hn).val = 13 := rfl
+
+lemma nine_free_of_length {n : Nat} (hn : n = 14)
+    (op : Fin n → Bool) (out : Fin n → Nat) (reader : Fin 3 → Fin n)
+    (hcount : Nat.card {i : Fin n // op i = true} = 5)
+    (hand : ∀ i, op i = true → out i = 0)
+    (hreader : ∀ v, op (reader v) = false ∧ out (reader v) = (1 : Nat) <<< v.val)
+    (hlast : op (lastSlot n hn) = false ∧ out (lastSlot n hn) = 0) :
+    ∃ reserved : Finset (Fin n), reserved.card = 9 ∧
+      ∀ i ∈ reserved, out i ∈ R3NoUnion.freeAtoms := by
+  subst n
+  rw [R3ReservedSlots.and_card_eq] at hcount
+  exact R3ReservedSlots.nine_free_slots op out reader hcount hand hreader hlast
+
+lemma actual_nine_free (gs : List Gate) (hlen : gs.length = 14)
+    (reader : Fin 3 → Fin gs.length)
+    (hcount : Nat.card {i : Fin gs.length // (gs.get i).1 = true} = 5)
+    (hand : ∀ i : Fin gs.length, (gs.get i).1 = true → gateMasks gs i = 0)
+    (hreader : ∀ v, (gs.get (reader v)).1 = false ∧
+      gateMasks gs (reader v) = (1 : Nat) <<< v.val)
+    (hlast : (gs.get (lastSlot gs.length hlen)).1 = false ∧
+      gateMasks gs (lastSlot gs.length hlen) = 0) :
+    ∃ reserved : Finset (Fin gs.length), reserved.card = 9 ∧
+      ∀ i ∈ reserved, gateMasks gs i ∈ R3NoUnion.freeAtoms :=
+  nine_free_of_length hlen (fun i => (gs.get i).1) (gateMasks gs) reader
+    hcount hand hreader hlast
+
+lemma actual_paid_budget (gs : List Gate) (hlen : gs.length = 14)
+    (reader : Fin 3 → Fin gs.length)
+    (hcount : Nat.card {i : Fin gs.length // (gs.get i).1 = true} = 5)
+    (hand : ∀ i : Fin gs.length, (gs.get i).1 = true → gateMasks gs i = 0)
+    (hreader : ∀ v, (gs.get (reader v)).1 = false ∧
+      gateMasks gs (reader v) = (1 : Nat) <<< v.val)
+    (hlast : (gs.get (lastSlot gs.length hlen)).1 = false ∧
+      gateMasks gs (lastSlot gs.length hlen) = 0) :
+    (paid R3NoUnion.freeAtoms (gateMasks gs)).card ≤ 5 := by
+  obtain ⟨reserved, hcard, hfree⟩ :=
+    actual_nine_free gs hlen reader hcount hand hreader hlast
+  exact PaidNonfreeBudget.paid_card_le_of_reserved_count
+    R3NoUnion.freeAtoms (gateMasks gs) reserved hfree 5 (by omega)
+
+lemma valid_rectangles_impossible (gs : List Gate) (hw : WellFormed gs 8)
+    (hlen : gs.length = 14) (reader : Fin 3 → Fin gs.length)
+    (hcount : Nat.card {i : Fin gs.length // (gs.get i).1 = true} = 5)
+    (hand : ∀ i : Fin gs.length, (gs.get i).1 = true → gateMasks gs i = 0)
+    (hreader : ∀ v, (gs.get (reader v)).1 = false ∧
+      gateMasks gs (reader v) = (1 : Nat) <<< v.val)
+    (hlast : (gs.get (lastSlot gs.length hlen)).1 = false ∧
+      gateMasks gs (lastSlot gs.length hlen) = 0)
+    {c : Nat × Nat × Nat} {a b d e f : R3Finite.Rect}
+    (hc : c ∈ R3Finite.caseIndices)
+    (ha : R3NoUnion.DirtyGuard (R3Finite.getData c.1) a)
+    (hb : R3NoUnion.DirtyGuard (R3Finite.getData c.2.1) b)
+    (hd : R3NoUnion.DirtyGuard (R3Finite.getData c.2.2) d)
+    (he : R3NoUnion.CleanGuard e) (hf : R3NoUnion.CleanGuard f)
+    (hcover : (2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d)) &&&
+      (R3Finite.coverage e ||| R3Finite.coverage f) =
+      2047 - (R3Finite.coverage a ||| R3Finite.coverage b ||| R3Finite.coverage d))
+    (havailable : (R3NoUnion.requiredFive a b d e f).toFinset ⊆
+      R3NoUnion.freeAtoms ∪ outputs (gateMasks gs)) : False := by
+  obtain ⟨reserved, hcard, hfree⟩ :=
+    actual_nine_free gs hlen reader hcount hand hreader hlast
+  exact SingletonReplayUnionTrace.valid_rectangles_impossible gs hw hand
+    hc ha hb hd he hf hcover reserved hfree (by omega) havailable
+
+end SingletonReplayReserved14
+
+namespace R3SemanticGuards
+
+open R3Finite
+
+def Support (mask : Nat) (u : Fin 8) : Prop := mask.testBit u.val = true
+
+def EdgeIn (es : List Rect) (u w : Nat) : Prop := (u,w) ∈ es ∨ (w,u) ∈ es
+
+def DisjointSupport (a b : Nat) : Prop :=
+  ∀ u : Fin 8, ¬ (Support a u ∧ Support b u)
+
+def AvailableSupport (a b available : Nat) : Prop :=
+  ∀ u : Fin 8, (Support a u ∨ Support b u) → Support available u
+
+def CrossAllowed (es : List Rect) (a b : Nat) : Prop :=
+  ∀ u w : Fin 8, Support a u → Support b w → EdgeIn es u.val w.val
+
+def HasCross (es : List Rect) (a b : Nat) : Prop :=
+  ∃ u w : Fin 8, Support a u ∧ Support b w ∧ EdgeIn es u.val w.val
+
+lemma bit_false_of_bound {a i : Nat} (ha : a < 256) (hi : 8 ≤ i) :
+    a.testBit i = false := by
+  apply Nat.testBit_eq_false_of_lt
+  have hp : 256 ≤ 2 ^ i := by
+    calc
+      256 = 2 ^ 8 := by decide
+      _ ≤ 2 ^ i := Nat.pow_le_pow_right (by decide) hi
+  exact ha.trans_le hp
+
+lemma land_eq_of_support {a b : Nat} (ha : a < 256)
+    (hs : ∀ u : Fin 8, Support a u → Support b u) : a &&& b = a := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_land]
+  by_cases hi : i < 8
+  · cases hai : a.testBit i
+    · rfl
+    · have hbi := hs ⟨i,hi⟩ hai
+      change b.testBit i = true at hbi
+      rw [hbi]
+      rfl
+  · rw [bit_false_of_bound ha (Nat.le_of_not_gt hi)]
+    rfl
+
+lemma land_zero_of_disjoint {a b : Nat} (ha : a < 256)
+    (hs : DisjointSupport a b) : a &&& b = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_land, Nat.zero_testBit]
+  by_cases hi : i < 8
+  · cases hai : a.testBit i <;> cases hbi : b.testBit i <;> try rfl
+    exact (hs ⟨i,hi⟩ ⟨hai,hbi⟩).elim
+  · rw [bit_false_of_bound ha (Nat.le_of_not_gt hi)]
+    rfl
+
+lemma available_land {a b available : Nat} (ha : a < 256) (hb : b < 256)
+    (hs : AvailableSupport a b available) : (a ||| b) &&& available = a ||| b := by
+  have hu : a ||| b < 256 :=
+    Nat.bitwise_lt_two_pow (f := Bool.or) (n := 8) ha hb
+  apply land_eq_of_support hu
+  intro u h
+  apply hs u
+  change (a ||| b).testBit u.val = true at h
+  rw [Nat.testBit_lor] at h
+  exact Bool.or_eq_true_iff.mp h
+
+lemma edgePresent_iff (es : List Rect) (u w : Nat) :
+    edgePresent es u w = true ↔ EdgeIn es u w := by
+  unfold edgePresent EdgeIn
+  constructor
+  · intro h
+    obtain ⟨e,he,hpair⟩ := List.any_eq_true.mp h
+    rcases Bool.or_eq_true_iff.mp hpair with h | h
+    · obtain ⟨h1,h2⟩ := Bool.and_eq_true_iff.mp h
+      have hu : e.1 = u := beq_iff_eq.mp h1
+      have hw : e.2 = w := beq_iff_eq.mp h2
+      left
+      simpa only [← hu, ← hw, Prod.eta] using he
+    · obtain ⟨h1,h2⟩ := Bool.and_eq_true_iff.mp h
+      have hw : e.1 = w := beq_iff_eq.mp h1
+      have hu : e.2 = u := beq_iff_eq.mp h2
+      right
+      simpa only [← hu, ← hw, Prod.eta] using he
+  · rintro (h | h)
+    · exact List.any_eq_true.mpr ⟨(u,w),h,by simp⟩
+    · exact List.any_eq_true.mpr ⟨(w,u),h,by simp⟩
+
+lemma adjacency_bit {v u w : Nat} (hv : v < 4) (hu : u < 8) (hw : w < 8) :
+    ((allowedRows v).getD u 0).testBit w = true ↔ EdgeIn (edges ++ filled v) u w := by
+  have h := adjacency_checked
+  unfold adjacencyCheck at h
+  have hbit := (List.all_eq_true.mp ((List.all_eq_true.mp
+    ((List.all_eq_true.mp h) v (List.mem_range.mpr hv))) u (List.mem_range.mpr hu)))
+      w (List.mem_range.mpr hw)
+  have heq : ((allowedRows v).getD u 0).testBit w = edgePresent (edges ++ filled v) u w :=
+    beq_iff_eq.mp hbit
+  rw [heq]
+  exact edgePresent_iff _ _ _
+
+lemma allowedRows_length (v : Nat) : (allowedRows v).length = 8 := by
+  unfold allowedRows
+  split <;> try rfl
+  split <;> try rfl
+  split <;> rfl
+
+lemma common_land_of_cross {v a b : Nat} (hv : v < 4) (hb : b < 256)
+    (hc : CrossAllowed (edges ++ filled v) a b) :
+    b &&& commonRows (allowedRows v) a = b := by
+  apply land_eq_of_support hb
+  intro w hw
+  apply (CommonRowsSemantics.commonRows_testBit (allowedRows v) a w.isLt).mpr
+  intro u hu hau
+  have hu8 : u < 8 := by simpa only [allowedRows_length] using hu
+  exact (adjacency_bit hv hu8 w.isLt).mpr (hc ⟨u,hu8⟩ w hau hw)
+
+lemma crossHas_of_semantics {es : List Rect} {a b : Nat} (h : HasCross es a b) :
+    crossHas es a b = true := by
+  obtain ⟨u,w,ha,hb,hedge⟩ := h
+  unfold crossHas
+  rcases hedge with he | he
+  · apply List.any_eq_true.mpr
+    exact ⟨(u.val,w.val),he,by simp [Support] at ha hb; simp [ha,hb]⟩
+  · apply List.any_eq_true.mpr
+    exact ⟨(w.val,u.val),he,by simp [Support] at ha hb; simp [ha,hb]⟩
+
+lemma validDirty_of_semantics {v available a b : Nat} (hv : v < 3)
+    (ha : a < 256) (hb : b < 256) (hpos : 0 < a) (horder : a < b)
+    (hdisj : DisjointSupport a b) (hav : AvailableSupport a b available)
+    (hedges : CrossAllowed (edges ++ filled v) a b)
+    (hbad : HasCross (filled v) a b) : validDirty v available a b = true := by
+  have hd := land_zero_of_disjoint ha hdisj
+  have hsub := available_land ha hb hav
+  have hrows := common_land_of_cross (by omega : v < 4) hb hedges
+  have hcross := crossHas_of_semantics hbad
+  simp [validDirty, hpos, horder, hd, hsub, hrows, hcross]
+
+lemma validClean_of_semantics {a b : Nat} (ha : a < 256) (hb : b < 256)
+    (hpos : 0 < a) (horder : a < b) (hdisj : DisjointSupport a b)
+    (hedges : CrossAllowed edges a b) : validClean a b = true := by
+  have hd := land_zero_of_disjoint ha hdisj
+  have hc : CrossAllowed (edges ++ filled 3) a b := by simpa [filled] using hedges
+  have hrows := common_land_of_cross (by decide : 3 < 4) hb hc
+  simp [validClean, hpos, horder, hd, hrows]
+
+lemma dirtyGuard_of_semantics {datum : Nat × Nat × List Rect} {a b : Nat}
+    (hv : datum.1 < 3) (ha : a < 256) (hb : b < 256)
+    (hpos : 0 < a) (horder : a < b)
+    (hdisj : DisjointSupport a b) (hav : AvailableSupport a b datum.2.1)
+    (hedges : CrossAllowed (edges ++ filled datum.1) a b)
+    (hbad : HasCross (filled datum.1) a b) : R3NoUnion.DirtyGuard datum (a,b) :=
+  ⟨ha,hb,validDirty_of_semantics hv ha hb hpos horder hdisj hav hedges hbad⟩
+
+def collapseEmpty (a b : Nat) : Rect := if a = 0 ∨ b = 0 then (0,0) else (a,b)
+
+lemma cleanGuard_of_semantics {a b : Nat} (ha : a < 256) (hb : b < 256)
+    (horder : a ≤ b) (hdisj : DisjointSupport a b) (hedges : CrossAllowed edges a b) :
+    R3NoUnion.CleanGuard (collapseEmpty a b) := by
+  by_cases hz : a = 0 ∨ b = 0
+  · left
+    simp [collapseEmpty,hz]
+  · have hpos : 0 < a := by omega
+    have hneq : a ≠ b := by
+      intro he
+      have hzero := land_zero_of_disjoint ha hdisj
+      rw [he, Nat.and_self] at hzero
+      exact hz (Or.inr hzero)
+    have hlt : a < b := by omega
+    right
+    simpa [collapseEmpty,hz] using
+      And.intro ha (And.intro hb (validClean_of_semantics ha hb hpos hlt hdisj hedges))
+
+end R3SemanticGuards
+
+namespace SingletonReplaySemanticGuards
+
+open CofactorSimplification NatWordReplay SingletonReplayUnionTrace R3SemanticGuards
+
+lemma and_support_disjoint (gs : List Gate) (hw : WellFormed gs 8)
+    (i : Fin gs.length) (hop : (gs.get i).1 = true) (hz : gateMasks gs i = 0) :
+    DisjointSupport (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2) := by
+  have heq := output_equation gs hw i
+  simp only [evalWord, hop, ite_true] at heq
+  change masks gs (8 + i.val) = 0 at hz
+  have hzand : masks gs (gs.get i).2.1 &&& masks gs (gs.get i).2.2 = 0 := by
+    rw [← heq]
+    exact hz
+  intro u h
+  obtain ⟨hl,hr⟩ := h
+  change (masks gs (gs.get i).2.1).testBit u.val = true at hl
+  change (masks gs (gs.get i).2.2).testBit u.val = true at hr
+  have hbit := congrArg (fun n : Nat => n.testBit u.val) hzand
+  simp only [Nat.testBit_land, hl, hr, Bool.true_and, Nat.zero_testBit] at hbit
+  cases hbit
+
+lemma dirty_guard (gs : List Gate) (hw : WellFormed gs 8)
+    (i : Fin gs.length) (hop : (gs.get i).1 = true) (hz : gateMasks gs i = 0)
+    {datum : Nat × Nat × List R3Finite.Rect}
+    (hv : datum.1 < 3)
+    (hpos : 0 < masks gs (gs.get i).2.1)
+    (horder : masks gs (gs.get i).2.1 < masks gs (gs.get i).2.2)
+    (hav : AvailableSupport (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2) datum.2.1)
+    (hedges : CrossAllowed (R3Finite.edges ++ R3Finite.filled datum.1)
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2))
+    (hbad : HasCross (R3Finite.filled datum.1)
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) :
+    R3NoUnion.DirtyGuard datum (masks gs (gs.get i).2.1, masks gs (gs.get i).2.2) := by
+  exact dirtyGuard_of_semantics hv (masks_bound _ _) (masks_bound _ _)
+    hpos horder (and_support_disjoint gs hw i hop hz) hav hedges hbad
+
+lemma clean_guard (gs : List Gate) (hw : WellFormed gs 8)
+    (i : Fin gs.length) (hop : (gs.get i).1 = true) (hz : gateMasks gs i = 0)
+    (horder : masks gs (gs.get i).2.1 ≤ masks gs (gs.get i).2.2)
+    (hedges : CrossAllowed R3Finite.edges
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) :
+    R3NoUnion.CleanGuard
+      (collapseEmpty (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) := by
+  exact cleanGuard_of_semantics (masks_bound _ _) (masks_bound _ _)
+    horder (and_support_disjoint gs hw i hop hz) hedges
+
+end SingletonReplaySemanticGuards
+
+namespace R3SemanticGuards
+
+lemma edgeIn_symm {es : List R3Finite.Rect} {u w : Nat} (h : EdgeIn es u w) :
+    EdgeIn es w u := h.symm
+
+lemma disjoint_swap {a b : Nat} (h : DisjointSupport a b) : DisjointSupport b a := by
+  intro u hpair
+  exact h u hpair.symm
+
+lemma available_swap {a b av : Nat} (h : AvailableSupport a b av) :
+    AvailableSupport b a av := by
+  intro u hu
+  exact h u hu.symm
+
+lemma crossAllowed_swap {es : List R3Finite.Rect} {a b : Nat} (h : CrossAllowed es a b) :
+    CrossAllowed es b a := by
+  intro u w hu hw
+  exact edgeIn_symm (h w u hw hu)
+
+lemma hasCross_swap {es : List R3Finite.Rect} {a b : Nat} (h : HasCross es a b) :
+    HasCross es b a := by
+  obtain ⟨u,w,hu,hw,he⟩ := h
+  exact ⟨w,u,hw,hu,edgeIn_symm he⟩
+
+lemma hasCross_positive {es : List R3Finite.Rect} {a b : Nat} (h : HasCross es a b) :
+    0 < a ∧ 0 < b := by
+  obtain ⟨u,w,hu,hw,_⟩ := h
+  constructor
+  · by_contra hn
+    have hz : a = 0 := by omega
+    simp [Support,hz] at hu
+  · by_contra hn
+    have hz : b = 0 := by omega
+    simp [Support,hz] at hw
+
+lemma disjoint_hasCross_ne {es : List R3Finite.Rect} {a b : Nat}
+    (hd : DisjointSupport a b) (hc : HasCross es a b) : a ≠ b := by
+  intro heq
+  obtain ⟨u,w,hu,hw,_⟩ := hc
+  exact hd u ⟨hu,by simpa only [← heq] using hu⟩
+
+def sortedRect (a b : Nat) : R3Finite.Rect := (min a b, max a b)
+
+def sortedCleanRect (a b : Nat) : R3Finite.Rect := collapseEmpty (min a b) (max a b)
+
+lemma dirtyGuard_sorted {datum : Nat × Nat × List R3Finite.Rect} {a b : Nat}
+    (hv : datum.1 < 3) (ha : a < 256) (hb : b < 256)
+    (hd : DisjointSupport a b) (hav : AvailableSupport a b datum.2.1)
+    (he : CrossAllowed (R3Finite.edges ++ R3Finite.filled datum.1) a b)
+    (hc : HasCross (R3Finite.filled datum.1) a b) :
+    R3NoUnion.DirtyGuard datum (sortedRect a b) := by
+  obtain ⟨hpa,hpb⟩ := hasCross_positive hc
+  have hne := disjoint_hasCross_ne hd hc
+  by_cases hab : a ≤ b
+  · have hlt : a < b := by omega
+    simpa only [sortedRect, min_eq_left hab, max_eq_right hab] using
+      dirtyGuard_of_semantics hv ha hb hpa hlt hd hav he hc
+  · have hba : b ≤ a := by omega
+    have hlt : b < a := by omega
+    simpa only [sortedRect, min_eq_right hba, max_eq_left hba] using
+      dirtyGuard_of_semantics hv hb ha hpb hlt (disjoint_swap hd)
+        (available_swap hav) (crossAllowed_swap he) (hasCross_swap hc)
+
+lemma cleanGuard_sorted {a b : Nat} (ha : a < 256) (hb : b < 256)
+    (hd : DisjointSupport a b) (he : CrossAllowed R3Finite.edges a b) :
+    R3NoUnion.CleanGuard (sortedCleanRect a b) := by
+  by_cases hab : a ≤ b
+  · simpa only [sortedCleanRect, min_eq_left hab, max_eq_right hab] using
+      cleanGuard_of_semantics ha hb hab hd he
+  · have hba : b ≤ a := by omega
+    simpa only [sortedCleanRect, min_eq_right hba, max_eq_left hba] using
+      cleanGuard_of_semantics hb ha hba (disjoint_swap hd) (crossAllowed_swap he)
+
+end R3SemanticGuards
+
+namespace SingletonReplaySemanticGuards
+
+open CofactorSimplification SingletonReplayUnionTrace R3SemanticGuards
+
+lemma dirty_guard_sorted (gs : List Gate) (hw : WellFormed gs 8)
+    (i : Fin gs.length) (hop : (gs.get i).1 = true) (hz : gateMasks gs i = 0)
+    {datum : Nat × Nat × List R3Finite.Rect} (hv : datum.1 < 3)
+    (hav : AvailableSupport (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2) datum.2.1)
+    (he : CrossAllowed (R3Finite.edges ++ R3Finite.filled datum.1)
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2))
+    (hc : HasCross (R3Finite.filled datum.1)
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) :
+    R3NoUnion.DirtyGuard datum (sortedRect (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) := by
+  exact dirtyGuard_sorted hv (masks_bound _ _) (masks_bound _ _)
+    (and_support_disjoint gs hw i hop hz) hav he hc
+
+lemma clean_guard_sorted (gs : List Gate) (hw : WellFormed gs 8)
+    (i : Fin gs.length) (hop : (gs.get i).1 = true) (hz : gateMasks gs i = 0)
+    (he : CrossAllowed R3Finite.edges
+      (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) :
+    R3NoUnion.CleanGuard
+      (sortedCleanRect (masks gs (gs.get i).2.1) (masks gs (gs.get i).2.2)) := by
+  exact cleanGuard_sorted (masks_bound _ _) (masks_bound _ _)
+    (and_support_disjoint gs hw i hop hz) he
+
+end SingletonReplaySemanticGuards
+
+namespace CleanSingletonMask
+
+open CofactorSimplification NatWordReplay NegativeRowReduction WordCleanBridge
+open SingletonReplayUnionTrace CleanWireSinkStep
+
+lemma singleton_negative_dominated :
+    ∀ i : Fin 8, ∃ r : Fin 40, 16 ≤ r.val ∧ gapTarget r = false ∧ gapRows r i = true := by
+  decide +kernel
+
+lemma clean_singleton_bit_false (gs : List Gate) (wire : Nat)
+    (hc : Normalization.Clean gapTarget
+      (fun r => (runWords gs 8 inputWords wire).testBit r.val)) (i : Fin 8) :
+    (masks gs wire).testBit i.val = false := by
+  obtain ⟨r, _, hr, hri⟩ := singleton_negative_dominated i
+  rw [masks_bit]
+  cases hv : run gs 8 (fun j => decide (j = i.val)) wire with
+  | false => rfl
+  | true =>
+    have hm : ∀ j, decide (j = i.val) = true → (inputWords j).testBit r.val = true := by
+      intro j hj
+      have he : j = i.val := of_decide_eq_true hj
+      subst j
+      exact hri
+    have ht := run_mono gs 8 _ _ hm wire hv
+    have ht' : (runWords gs 8 inputWords wire).testBit r.val = true :=
+      (runWords_bit gs 8 inputWords wire r.val).trans ht
+    have hz : (runWords gs 8 inputWords wire).testBit r.val = false := hc r hr
+    rw [hz] at ht'
+    cases ht'
+
+lemma masks_eq_zero_of_clean (gs : List Gate) (wire : Nat)
+    (hc : Normalization.Clean gapTarget
+      (fun r => (runWords gs 8 inputWords wire).testBit r.val)) : masks gs wire = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  simp only [Nat.zero_testBit]
+  by_cases hi : i < 8
+  · exact clean_singleton_bit_false gs wire hc ⟨i, hi⟩
+  · exact Nat.testBit_lt_two_pow ((masks_bound gs wire).trans_le
+      (Nat.pow_le_pow_right Nat.zero_lt_two (by omega : 8 ≤ i)))
+
+lemma masks_eq_zero_of_small (gs : List Gate) (wire : Nat)
+    (hc : runWords gs 8 inputWords wire < 65536) : masks gs wire = 0 :=
+  masks_eq_zero_of_clean gs wire ((wire_clean_iff_small gs wire).mpr hc)
+
+lemma gateMasks_eq_zero_of_small (gs : List Gate) (i : Fin gs.length)
+    (hc : runWords gs 8 inputWords (8 + i.val) < 65536) : gateMasks gs i = 0 :=
+  masks_eq_zero_of_small gs (8 + i.val) hc
+
+lemma output_mask_eq_zero (gs : List Gate) (output : Nat)
+    (he : ExactRows 8 gapRows gapTarget gs output) : masks gs output = 0 := by
+  apply masks_eq_zero_of_small gs output
+  rw [exact_words_target gs output he]
+  decide
+
+end CleanSingletonMask
+
 end PEqualNP.Outside.L_meta_9033_aux
