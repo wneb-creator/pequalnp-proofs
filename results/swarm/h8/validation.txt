@@ -50,7 +50,15 @@ The named Lean helper file is unchanged from the prior successful build and axio
 Frozen native snapshots retain their exact reviewed hashes; git diff --check reports
 three cosmetic whitespace warnings in those snapshots (two trailing spaces, one final blank line).
 
+Certificate18 research checkpoint: complete conditional Replay assembly compiles,
+including all120automorphism checks and compact data decoding. Native Lean evaluation
+independently matches every5230pool/link row to the emitter (no proof claim from it).
+Actual literal-hint kernel node checks: node0PASS52.97s/8324364KiB, node292PASS33.32s/7087392KiB.
+The full5230-node forest remains unverified; no unconditional18binary bound is claimed.
+Prepared inverse links, literal coordinates and Boolean set checks all compile and passed
+independent semantic review. Sources/build instructions are in certificate18/.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=47.9 subagents=8
+TIMING total=69.0 subagents=8

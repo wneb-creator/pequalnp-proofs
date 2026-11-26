@@ -1,0 +1,45 @@
+{
+  "parts": [
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/supported/StateData.lean",
+      "bytes": 41867,
+      "sha256": "95f929e2f7e1dec97056b6741edfd3201d3374c14b869fb5c1d0c9a737c88a4e"
+    },
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/AutoData.lean",
+      "bytes": 4805,
+      "sha256": "03457d5da9956c2ff2aa06c40bddf22728805dbcaaf44eeccdc4fa8e5779e123"
+    },
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/compression/supported/GlobalCollisionData.lean",
+      "bytes": 2166,
+      "sha256": "27234668d1183749fe59219cc18bd67fd4986f5d347469d00e263bf0b451c5ab"
+    },
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/supported/LinkData.lean",
+      "bytes": 74730,
+      "sha256": "a3532546de917e38ad0c4acd103fcb02303a01e41ddb34bd804757a5e329040b"
+    },
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/compression/supported/PoolHintData.lean",
+      "bytes": 55362,
+      "sha256": "c7218f026c4454e153c4db7f20732e318e70bf810a909c9c97e75b41823493a3"
+    },
+    {
+      "path": "/tmp/oec/pnp-swarm-2373-8/cert18/emitter/compression/supported/PoolHintDecoder.lean",
+      "bytes": 1931,
+      "sha256": "da56b7b6e08175dfff94e90a54bcf090f8ba1d353bc8f65843c8fe324cf14bed"
+    }
+  ],
+  "total_bytes": 180972,
+  "sha256": "259e42c63375a498a30deab2782b8e357e1d5673d5c44ad85dbbe377c8261866",
+  "native_checked_states": 5230,
+  "native_checked_links": 21243,
+  "selected_pool_hints": 29197,
+  "global_collision_pairs": 419,
+  "known_limitations": [
+    "Actual whole-forest Lean replay not yet run",
+    "Pool decoder elaborated but kernel evaluation not yet benchmarked",
+    "Link decoder elaborated; native roundtrip verified; whole-forest Lean replay supplies authoritative coverage"
+  ]
+}

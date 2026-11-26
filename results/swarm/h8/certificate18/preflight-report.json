@@ -1,0 +1,14 @@
+{
+  "pools": {
+    "rows": 5230,
+    "entries": 29197,
+    "exact_match": true,
+    "sha256": "4f62a4a83f23fe462639538c722b8d4ee031b2a6f49ba9e46fbeb07b010c4ba3"
+  },
+  "explicit_links": {
+    "rows": 5230,
+    "entries": 16014,
+    "exact_match": true,
+    "sha256": "2d9158b44a8d12171d93379c3469a7e98f83b20dbe5805482fb89717067bf53d"
+  }
+}

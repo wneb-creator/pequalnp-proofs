@@ -81,3 +81,7 @@ prepared separately. The larger budget-18 experiment is ongoing.
 Neither native closure proves the posted gap. In particular, the signed
 budget-17 result would establish a binary-gate floor of 18 only after the
 complete certificate and circuit-to-live bridge have passed Lean checking.
+
+`certificate18/` publishes the compiling conditional Lean replay, compact data,
+proofs for its optimizations, and a portable build helper. Two individual
+budget-17 nodes pass kernel checking; the complete forest is still unverified.
