@@ -349,6 +349,168 @@ lemma one_not_split (gs : List Gate)
       dsimp only
       omega
 
+lemma source_refinement {α : Type*} (F h k : α → Bool) (P : α → Bool → Bool)
+    (mono : ∀ x, P x false = true → P x true = true)
+    (correct : ∀ x, P x (!(h x)) = F x)
+    (onTrue : ∀ x, F x = true → k x = true → h x = true)
+    (onFalse : ∀ x, F x = false → h x = true → k x = true) :
+    ∀ x, P x (!(k x)) = F x := by
+  intro x
+  have hm := mono x
+  have hc := correct x
+  have ht := onTrue x
+  have hf := onFalse x
+  cases hF : F x <;> cases hh : h x <;> cases hk : k x <;> simp_all
+  cases hp : P x false <;> simp_all
+
+lemma remove_sound_or_branch {α : Type*} (F a b : α → Bool) (P : α → Bool → Bool)
+    (mono : ∀ x, P x false = true → P x true = true)
+    (correct : ∀ x, P x (!(a x || b x)) = F x)
+    (sound : ∀ x, a x = true → F x = true) :
+    ∀ x, P x (!(b x)) = F x := by
+  apply source_refinement F (fun x => a x || b x) b P mono correct
+  · intro x _ hb
+    simp [hb]
+  · intro x hf hab
+    have ha : a x = false := by
+      cases ha : a x with
+      | false => rfl
+      | true => have := sound x ha; simp_all
+    simpa [ha] using hab
+
+lemma remove_covering_and_branch {α : Type*} (F a b : α → Bool) (P : α → Bool → Bool)
+    (mono : ∀ x, P x false = true → P x true = true)
+    (correct : ∀ x, P x (!(a x && b x)) = F x)
+    (covers : ∀ x, F x = true → a x = true) :
+    ∀ x, P x (!(b x)) = F x := by
+  apply source_refinement F (fun x => a x && b x) b P mono correct
+  · intro x hf hb
+    simp [covers x hf, hb]
+  · intro x _ hab
+    have hab' : a x = true ∧ b x = true := by simpa only [Bool.and_eq_true] using hab
+    exact hab'.2
+
+lemma rewire_not {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
+    (hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (F : α → Bool)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).eval (input x) = F x)
+    (onTrue : ∀ x, F x = true → lastInput pre [j] (input x) = true →
+      lastInput pre ins (input x) = true)
+    (onFalse : ∀ x, F x = false → lastInput pre ins (input x) = true →
+      lastInput pre [j] (input x) = true) :
+    ∀ x, (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).eval (input x) = F x := by
+  intro x
+  rw [negated_split]
+  exact source_refinement F (fun x => lastInput pre ins (input x))
+    (fun x => lastInput pre [j] (input x))
+    (fun x b => (⟨post, out⟩ : Circuit).eval (((⟨pre, 0⟩ : Circuit).wires (input x)) ++ [b]))
+    (fun x => context_monotone post hpost _ out false true (by simp))
+    (fun x => (negated_split pre post ins out (input x)).symm.trans (correct x))
+    onTrue onFalse x
+
+lemma rewire_not_costs (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
+    (hfan : FanInTwo (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit)) :
+    FanInTwo (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit) ∧
+    (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).size =
+      (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).size ∧
+    PEqualNP.NotBracket.notCount (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit) =
+      PEqualNP.NotBracket.notCount (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit) := by
+  refine ⟨?_, by simp [Circuit.size], ?_⟩
+  · intro g hg
+    simp only [List.mem_append, List.mem_cons] at hg
+    rcases hg with hg | rfl | hg
+    · exact hfan g (by simp [hg])
+    · simp
+    · exact hfan g (by simp [hg])
+  · simp [PEqualNP.NotBracket.notCount, List.filter_append]
+
+lemma rewire_sound_or_branch {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
+    (hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (F a : α → Bool)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).eval (input x) = F x)
+    (source : ∀ x, lastInput pre ins (input x) = (a x || lastInput pre [j] (input x)))
+    (sound : ∀ x, a x = true → F x = true) :
+    ∀ x, (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).eval (input x) = F x := by
+  apply rewire_not input pre post ins out j hpost F correct
+  · intro x _ hj
+    simp [source x, hj]
+  · intro x hf hi
+    have ha : a x = false := by
+      cases ha : a x with
+      | false => rfl
+      | true => have := sound x ha; simp_all
+    simpa [source x, ha] using hi
+
+lemma rewire_covering_and_branch {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
+    (hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (F a : α → Bool)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).eval (input x) = F x)
+    (source : ∀ x, lastInput pre ins (input x) = (a x && lastInput pre [j] (input x)))
+    (covers : ∀ x, F x = true → a x = true) :
+    ∀ x, (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).eval (input x) = F x := by
+  apply rewire_not input pre post ins out j hpost F correct
+  · intro x hf hj
+    simp [source x, covers x hf, hj]
+  · intro x _ hi
+    have hi' : a x = true ∧ lastInput pre [j] (input x) = true := by
+      simpa only [source x, Bool.and_eq_true] using hi
+    exact hi'.2
+
+lemma exists_minimum_rewire {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (out i : ℕ) (F : α → Bool)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, [i]⟩ :: post, out⟩ : Circuit).eval (input x) = F x) :
+    ∃ j, j ≤ i ∧
+      (∀ x, (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).eval (input x) = F x) ∧
+      ∀ k, (∀ x, (⟨pre ++ ⟨GateOp.not, [k]⟩ :: post, out⟩ : Circuit).eval (input x) = F x) →
+        j ≤ k := by
+  classical
+  let good : ℕ → Prop := fun j =>
+    ∀ x, (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit).eval (input x) = F x
+  have ex : ∃ j, good j := ⟨i, correct⟩
+  exact ⟨Nat.find ex, Nat.find_min' ex correct, Nat.find_spec ex,
+    fun k hk => Nat.find_min' ex hk⟩
+
+lemma minimum_rewire_or_obstruction {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (out i j : ℕ) (F a : α → Bool)
+    (hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, [i]⟩ :: post, out⟩ : Circuit).eval (input x) = F x)
+    (minimal : ∀ k,
+      (∀ x, (⟨pre ++ ⟨GateOp.not, [k]⟩ :: post, out⟩ : Circuit).eval (input x) = F x) → i ≤ k)
+    (earlier : j < i)
+    (source : ∀ x, lastInput pre [i] (input x) = (a x || lastInput pre [j] (input x))) :
+    ∃ x, a x = true ∧ F x = false := by
+  classical
+  by_contra absent
+  have sound : ∀ x, a x = true → F x = true := by
+    intro x ha
+    cases hf : F x with
+    | false => exact False.elim (absent ⟨x, ha, hf⟩)
+    | true => rfl
+  have hc := rewire_sound_or_branch input pre post [i] out j hpost F a correct source sound
+  exact Nat.not_le_of_gt earlier (minimal j hc)
+
+lemma minimum_rewire_and_obstruction {α : Type*} (input : α → List Bool)
+    (pre post : List Gate) (out i j : ℕ) (F a : α → Bool)
+    (hpost : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (correct : ∀ x, (⟨pre ++ ⟨GateOp.not, [i]⟩ :: post, out⟩ : Circuit).eval (input x) = F x)
+    (minimal : ∀ k,
+      (∀ x, (⟨pre ++ ⟨GateOp.not, [k]⟩ :: post, out⟩ : Circuit).eval (input x) = F x) → i ≤ k)
+    (earlier : j < i)
+    (source : ∀ x, lastInput pre [i] (input x) = (a x && lastInput pre [j] (input x))) :
+    ∃ x, F x = true ∧ a x = false := by
+  classical
+  by_contra absent
+  have covers : ∀ x, F x = true → a x = true := by
+    intro x hf
+    cases ha : a x with
+    | false => exact False.elim (absent ⟨x, hf, ha⟩)
+    | true => rfl
+  have hc := rewire_covering_and_branch input pre post [i] out j hpost F a correct source covers
+  exact Nat.not_le_of_gt earlier (minimal j hc)
+
 end LastNot
 
 namespace Boundary
@@ -2599,5 +2761,309 @@ lemma cofactor_nonconstant (v : Fin 10) (b : Bool) :
     cases b <;> simp [cofactor_false, cofactor_true]
 
 end Transport
+
+namespace SafeOr
+
+def h9 (x : Fin 9 → Bool) : Bool :=
+  x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 ||
+  x 0 && x 5 || x 1 && x 6 || x 2 && x 7 || x 3 && x 8 ||
+  x 5 && x 7 || x 6 && x 8 || x 8 && x 5
+
+def neighbors (x : Fin 9 → Bool) : Bool := x 4 || x 6 || x 7
+
+def evenSeed (i : Fin 9) : Bool := decide (i = 0 ∨ i = 2 ∨ i = 8)
+
+def oddSeed (i : Fin 9) : Bool := decide (i = 1 ∨ i = 3 ∨ i = 5)
+
+set_option maxRecDepth 20000 in
+set_option maxHeartbeats 4000000 in
+lemma independent_dominating_seed : ∀ y : Fin 9 → Bool,
+    h9 y = false → neighbors y = false →
+    h9 (Function.update y 4 true) = true →
+    h9 (Function.update y 6 true) = true →
+    h9 (Function.update y 7 true) = true →
+    y = evenSeed ∨ y = oddSeed := by
+  decide +kernel
+
+lemma monotone_update_true {n : ℕ} (A : (Fin n → Bool) → Bool) (mono : Monotone A)
+    (y : Fin n → Bool) (i : Fin n) (hy : A y = true) : A (Function.update y i true) = true := by
+  have hle : y ≤ Function.update y i true := by
+    intro j
+    by_cases hj : j = i
+    · subst j
+      simp only [Function.update_self]
+      cases y i with
+      | false => exact (by decide : (false : Bool) ≤ true)
+      | true => exact le_rfl
+    · simp only [Function.update_of_ne hj]
+      exact le_rfl
+  have h := mono hle
+  rw [hy] at h
+  cases he : A (Function.update y i true) with
+  | false => rw [he] at h; exact False.elim ((by decide : ¬ (true : Bool) ≤ false) h)
+  | true => rfl
+
+lemma safe_or_false_positives (A : (Fin 9 → Bool) → Bool) (mono : Monotone A)
+    (safe : ∀ y, A y = true → neighbors y = true → h9 y = true) :
+    ∀ y, h9 y = false → A y = true → y = evenSeed ∨ y = oddSeed := by
+  intro y hy hA
+  have hn : neighbors y = false := by
+    cases he : neighbors y with
+    | false => rfl
+    | true => have bad := safe y hA he; rw [hy] at bad; contradiction
+  apply independent_dominating_seed y hy hn
+  · apply safe _ (monotone_update_true A mono y 4 hA)
+    simp [neighbors]
+  · apply safe _ (monotone_update_true A mono y 6 hA)
+    simp [neighbors]
+  · apply safe _ (monotone_update_true A mono y 7 hA)
+    simp [neighbors]
+
+lemma safe_or_bound (A : (Fin 9 → Bool) → Bool) (mono : Monotone A)
+    (safe : ∀ y, A y = true → neighbors y = true → h9 y = true) :
+    ∀ y, A y = true →
+      (h9 y || (y 0 && y 2 && y 8) || (y 1 && y 3 && y 5)) = true := by
+  intro y hA
+  cases hy : h9 y with
+  | true => simp
+  | false =>
+    rcases safe_or_false_positives A mono safe y hy hA with rfl | rfl <;>
+      decide
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma gate_order_except (k : ℕ) (g : Gate) (A B : ℕ → Bool)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (order : ∀ i ∈ g.inputs, i ≠ k → A i = true → B i = true)
+    (saturated : A k = true → B k = false → k ∈ g.inputs →
+      g.op.eval (g.inputs.map B) = true) :
+    g.op.eval (g.inputs.map A) = true → g.op.eval (g.inputs.map B) = true := by
+  by_cases hbad : A k = true ∧ B k = false ∧ k ∈ g.inputs
+  · intro _
+    exact saturated hbad.1 hbad.2.1 hbad.2.2
+  have every : ∀ i ∈ g.inputs, A i = true → B i = true := by
+    intro i hi hai
+    by_cases heq : i = k
+    · subst i
+      cases hbk : B k with
+      | true => rfl
+      | false => exact False.elim (hbad ⟨hai, hbk, hi⟩)
+    · exact order i hi heq hai
+  rcases hop with hop | hop
+  · rw [hop]
+    simp only [GateOp.eval, List.all_eq_true, List.mem_map, id]
+    intro hall b hb
+    obtain ⟨j, hj, rfl⟩ := hb
+    exact every j hj (hall _ ⟨j, hj, rfl⟩)
+  · rw [hop]
+    simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+    rintro ⟨b, ⟨j, hj, rfl⟩, hb⟩
+    exact ⟨_, ⟨j, hj, rfl⟩, every j hj hb⟩
+
+lemma semantic_order_except (n k : ℕ) (gs : List Gate) (A B : ℕ → Bool)
+    (inputs : ∀ i, i < n → i ≠ k → A i = true → B i = true)
+    (rawReverse : B k = true → A k = true)
+    (basis : ∀ p : Fin gs.length,
+      (gs.get p).op = GateOp.and ∨ (gs.get p).op = GateOp.or ∨ (gs.get p).op = GateOp.not)
+    (back : ∀ p : Fin gs.length, ∀ i ∈ (gs.get p).inputs, i < n + p.val)
+    (evalA : ∀ p : Fin gs.length, A (n + p.val) =
+      (gs.get p).op.eval ((gs.get p).inputs.map A))
+    (evalB : ∀ p : Fin gs.length, B (n + p.val) =
+      (gs.get p).op.eval ((gs.get p).inputs.map B))
+    (notRaw : ∀ p : Fin gs.length, (gs.get p).op = GateOp.not →
+      ∃ rest, (gs.get p).inputs = k :: rest)
+    (saturated : ∀ p : Fin gs.length, (gs.get p).op ≠ GateOp.not → k ∈ (gs.get p).inputs →
+      A k = true → B k = false → B (n + p.val) = true) :
+    ∀ i, i < n + gs.length → i ≠ k → A i = true → B i = true := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi hik hai
+    by_cases hin : i < n
+    · exact inputs i hin hik hai
+    let p : Fin gs.length := ⟨i - n, by omega⟩
+    have heq : n + p.val = i := by dsimp [p]; omega
+    have ha : A (n + p.val) = true := by simpa only [heq] using hai
+    have hb : B (n + p.val) = true := by
+      rcases basis p with hop | hop | hop
+      · rw [evalA p] at ha
+        rw [evalB p]
+        exact gate_order_except k (gs.get p) A B (Or.inl hop)
+          (fun j hj hjk => ih j (by have := back p j hj; omega) (by have := back p j hj; omega) hjk)
+          (fun hak hbk hread => by
+            rw [← evalB p]
+            exact saturated p (by rw [hop]; intro h; cases h) hread hak hbk) ha
+      · rw [evalA p] at ha
+        rw [evalB p]
+        exact gate_order_except k (gs.get p) A B (Or.inr hop)
+          (fun j hj hjk => ih j (by have := back p j hj; omega) (by have := back p j hj; omega) hjk)
+          (fun hak hbk hread => by
+            rw [← evalB p]
+            exact saturated p (by rw [hop]; intro h; cases h) hread hak hbk) ha
+      · obtain ⟨rest, hins⟩ := notRaw p hop
+        rw [evalA p, hop, hins] at ha
+        rw [evalB p, hop, hins]
+        simp only [GateOp.eval, List.map_cons, List.headD_cons] at ha ⊢
+        cases hak : A k <;> cases hbk : B k <;> simp_all
+    simpa only [heq] using hb
+
+lemma circuit_order_except (n k : ℕ) (C : Circuit) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = n) (hk : k < n)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + j)
+    (inputs : ∀ i, i < n → i ≠ k → x.getD i false = true → y.getD i false = true)
+    (rawReverse : y.getD k false = true → x.getD k false = true)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = k :: rest)
+    (saturated : ∀ p : Fin C.gates.length,
+      (C.gates.get p).op ≠ GateOp.not → k ∈ (C.gates.get p).inputs →
+      x.getD k false = true → y.getD k false = false →
+      (C.wires y).getD (n + p.val) false = true) :
+    ∀ i, i ≠ k → (C.wires x).getD i false = true → (C.wires y).getD i false = true := by
+  let A (i : ℕ) := (C.wires x).getD i false
+  let B (i : ℕ) := (C.wires y).getD i false
+  have ainput (i : ℕ) (hi : i < n) : A i = x.getD i false :=
+    NandRestriction.getD_wiresFrom C.gates x i (by omega)
+  have binput (i : ℕ) (hi : i < n) : B i = y.getD i false :=
+    NandRestriction.getD_wiresFrom C.gates y i (by omega)
+  have order := semantic_order_except n k C.gates A B
+    (by intro i hi hik; rw [ainput i hi, binput i hi]; exact inputs i hi hik)
+    (by rw [ainput k hk, binput k hk]; exact rawReverse)
+    (fun p => (fan _ (List.get_mem _ p)).1)
+    (fun p => back p.val (C.gates.get p) (by simp))
+    (fun p => NandRestriction.global_gate_value n C.gates p x hx
+      (back p.val (C.gates.get p) (by simp)))
+    (fun p => NandRestriction.global_gate_value n C.gates p y hy
+      (back p.val (C.gates.get p) (by simp)))
+    (fun p => notRaw _ (List.get_mem _ p))
+    (by
+      intro p hop hread hak hbk
+      rw [ainput k hk] at hak
+      rw [binput k hk] at hbk
+      exact saturated p hop hread hak hbk)
+  intro i hik hai
+  by_cases hi : i < n + C.gates.length
+  · exact order i hi hik hai
+  · rw [List.getD_eq_default _ _ (by
+      change (NandRestriction.wiresFrom C.gates x).length ≤ i
+      rw [NandRestriction.length_wiresFrom, hx]
+      omega)] at hai
+    contradiction
+
+lemma bool_le_of_true_imp (a b : Bool) (h : a = true → b = true) : a ≤ b := by
+  cases a with
+  | false =>
+    cases b with
+    | false => exact le_rfl
+    | true => exact (by decide : (false : Bool) ≤ true)
+  | true => rw [h rfl]
+
+lemma bool_true_of_le {a b : Bool} (h : a ≤ b) (ha : a = true) : b = true := by
+  cases hb : b with
+  | true => rfl
+  | false =>
+    rw [ha, hb] at h
+    exact False.elim ((by decide : ¬ (true : Bool) ≤ false) h)
+
+lemma snoc_read_before {n : ℕ} (x : Fin n → Bool) (b : Bool) (i : ℕ) (hi : i < n) :
+    (List.ofFn x ++ [b]).getD i false = x ⟨i, hi⟩ := by
+  rw [List.getD_append _ _ _ _ (by simp; omega)]
+  rw [List.getD_eq_getElem _ _ (by simpa using hi), List.getElem_ofFn]
+
+lemma snoc_read_last {n : ℕ} (x : Fin n → Bool) (b : Bool) :
+    (List.ofFn x ++ [b]).getD n false = b :=
+  NandRestriction.getD_snoc_len _ _ _ _ (by simp)
+
+def zeroWire (n : ℕ) (C : Circuit) (p : Fin C.gates.length) (y : Fin n → Bool) : Bool :=
+  (C.wires (List.ofFn y ++ [false])).getD (n + 1 + p.val) false
+
+lemma zeroWire_monotone (n : ℕ) (C : Circuit) (p : Fin C.gates.length)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < n + 1 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = n :: rest) :
+    Monotone (zeroWire n C p) := by
+  intro y z hyz
+  apply bool_le_of_true_imp
+  intro hy
+  exact circuit_order_except (n + 1) n C (List.ofFn y ++ [false]) (List.ofFn z ++ [false])
+    (by simp) (by simp) (by omega) fan back
+    (by
+      intro i hi hin hyi
+      have hil : i < n := by omega
+      rw [snoc_read_before y false i hil] at hyi
+      rw [snoc_read_before z false i hil]
+      exact bool_true_of_le (hyz ⟨i, hil⟩) hyi)
+    (by simp only [snoc_read_last]; intro h; contradiction) notRaw
+    (by intro q hop hread htrue hfalse; rw [snoc_read_last] at htrue; contradiction)
+    (n + 1 + p.val) (by omega) hy
+
+lemma positive_reader_safe (C : Circuit) (p : Fin C.gates.length)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ y, zeroWire 9 C p y = true → neighbors y = true → h9 y = true := by
+  have hout : C.output ≠ 9 := by
+    intro heq
+    let z : Fin 9 → Bool := fun _ => false
+    have he := oneCorrect z
+    have hv : C.eval (List.ofFn z ++ [true]) = true := by
+      unfold Circuit.eval
+      rw [heq]
+      change (NandRestriction.wiresFrom C.gates (List.ofFn z ++ [true])).getD 9 false = true
+      rw [NandRestriction.getD_wiresFrom _ _ _ (by simp), snoc_read_last]
+    rw [hv] at he
+    have hz : (h9 z || neighbors z) = false := by rfl
+    rw [hz] at he
+    contradiction
+  intro y hp hn
+  have hyes : C.eval (List.ofFn y ++ [true]) = true := by
+    rw [oneCorrect, hn, Bool.or_true]
+  have hzero := circuit_order_except 10 9 C (List.ofFn y ++ [true]) (List.ofFn y ++ [false])
+    (by simp) (by simp) (by decide) fan back
+    (by
+      intro i hi hin hai
+      have hil : i < 9 := by omega
+      rw [snoc_read_before y true i hil] at hai
+      rw [snoc_read_before y false i hil]
+      exact hai)
+    (by simp only [snoc_read_last]; intro h; contradiction) notRaw
+    (by
+      intro q hop hread _ _
+      have heq := positiveOnly q hop hread
+      subst q
+      exact hp)
+    C.output hout hyes
+  change C.eval (List.ofFn y ++ [false]) = true at hzero
+  rwa [zeroCorrect] at hzero
+
+lemma positive_reader_false_positives (C : Circuit) (p : Fin C.gates.length)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ y, h9 y = false → zeroWire 9 C p y = true → y = evenSeed ∨ y = oddSeed := by
+  exact safe_or_false_positives (zeroWire 9 C p) (zeroWire_monotone 9 C p fan back notRaw)
+    (positive_reader_safe C p fan back notRaw positiveOnly zeroCorrect oneCorrect)
+
+lemma positive_reader_bound (C : Circuit) (p : Fin C.gates.length)
+    (fan : FanInTwo C)
+    (back : ∀ j g, C.gates[j]? = some g → ∀ i ∈ g.inputs, i < 10 + j)
+    (notRaw : ∀ g ∈ C.gates, g.op = GateOp.not → ∃ rest, g.inputs = 9 :: rest)
+    (positiveOnly : ∀ q : Fin C.gates.length, (C.gates.get q).op ≠ GateOp.not →
+      9 ∈ (C.gates.get q).inputs → q = p)
+    (zeroCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [false]) = h9 y)
+    (oneCorrect : ∀ y : Fin 9 → Bool, C.eval (List.ofFn y ++ [true]) = (h9 y || neighbors y)) :
+    ∀ y, zeroWire 9 C p y = true →
+      (h9 y || (y 0 && y 2 && y 8) || (y 1 && y 3 && y 5)) = true := by
+  exact safe_or_bound (zeroWire 9 C p) (zeroWire_monotone 9 C p fan back notRaw)
+    (positive_reader_safe C p fan back notRaw positiveOnly zeroCorrect oneCorrect)
+
+end SafeOr
 
 end PEqualNP.Outside.L_meta_2373_aux
