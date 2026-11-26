@@ -4083,3 +4083,340 @@ lemma singleton_eq_raw_iff_and_singleton_empty (n : ℕ) (C : Circuit) (hC : IsA
   · exact singleton_eq_raw_of_and_singleton_empty n C hC
 
 end PEqualNP.Outside.L_meta_4970.RawSingleton
+
+namespace PEqualNP.Outside.L_meta_4970.RectanglePrivate
+
+/-- A rectangle with both neighborhood controllers meets the graph only in its center's stars. -/
+lemma edge_touches_center {α β : Type*} (E : Finset (α × β))
+    (hC4 : ∀ a a' : α, ∀ b b' : β, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : Finset α) (B : Finset β) (p : α) (q : β)
+    (hp : p ∈ A) (_hq : q ∈ B)
+    (hA : ∀ a ∈ A, (a,q) ∈ E) (hB : ∀ b ∈ B, (p,b) ∈ E)
+    (a : α) (b : β) (ha : a ∈ A) (hb : b ∈ B) (he : (a,b) ∈ E) :
+    a = p ∨ b = q := by
+  classical
+  by_cases hap : a = p
+  · exact Or.inl hap
+  by_cases hbq : b = q
+  · exact Or.inr hbq
+  exact False.elim (hC4 a p b q hap hbq ⟨he, hA a ha, hB b hb, hA p hp⟩)
+
+/-- Injective row and column controllers give each rectangle an edge private to that rectangle. -/
+lemma center_unique {α β ι : Type*} (E : Finset (α × β))
+    (hC4 : ∀ a a' : α, ∀ b b' : β, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset α) (B : ι → Finset β) (p : ι → α) (q : ι → β)
+    (hp : ∀ g, p g ∈ A g) (hq : ∀ g, q g ∈ B g)
+    (hA : ∀ g a, a ∈ A g → (a,q g) ∈ E)
+    (hB : ∀ g b, b ∈ B g → (p g,b) ∈ E)
+    (hpi : Function.Injective p) (hqi : Function.Injective q)
+    (g h : ι) (hpg : p g ∈ A h) (hqg : q g ∈ B h) : g = h := by
+  have hc : (p g,q g) ∈ E := hA g (p g) (hp g)
+  rcases edge_touches_center E hC4 (A h) (B h) (p h) (q h) (hp h) (hq h)
+    (hA h) (hB h) (p g) (q g) hpg hqg hc with he | he
+  · exact hpi he
+  · exact hqi he
+
+/-- Two disjoint rectangle families cannot both cover every edge when all controllers saturate. -/
+lemma no_disjoint_double_cover {α β ι : Type*} (E : Finset (α × β))
+    (hC4 : ∀ a a' : α, ∀ b b' : β, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset α) (B : ι → Finset β) (p : ι → α) (q : ι → β)
+    (hp : ∀ g, p g ∈ A g) (hq : ∀ g, q g ∈ B g)
+    (hA : ∀ g a, a ∈ A g → (a,q g) ∈ E)
+    (hB : ∀ g b, b ∈ B g → (p g,b) ∈ E)
+    (hpi : Function.Injective p) (hqi : Function.Injective q)
+    (R S : Finset ι) (hRS : Disjoint R S) (g : ι)
+    (hcover : ∀ a b, (a,b) ∈ E →
+      (∃ h ∈ R, a ∈ A h ∧ b ∈ B h) ∧ (∃ h ∈ S, a ∈ A h ∧ b ∈ B h)) :
+    False := by
+  obtain ⟨⟨r,hr,hpr,hqr⟩,⟨s,hs,hps,hqs⟩⟩ := hcover (p g) (q g) (hA g (p g) (hp g))
+  have hgr := center_unique E hC4 A B p q hp hq hA hB hpi hqi g r hpr hqr
+  have hgs := center_unique E hC4 A B p q hp hq hA hB hpi hqi g s hps hqs
+  subst r; subst s
+  exact Finset.disjoint_left.mp hRS hr hs
+
+end PEqualNP.Outside.L_meta_4970.RectanglePrivate
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+def RectAccept {p l : ℕ} {ι : Type*} (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (I : Finset ι) (X : Finset (Fin p))
+    (Y : Finset (Fin l)) : Prop :=
+  ∃ i ∈ I, ∃ a ∈ A i, ∃ b ∈ B i, a ∈ X ∧ b ∈ Y
+
+def EdgeAccept {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (X : Finset (Fin p)) (Y : Finset (Fin l)) : Prop :=
+  ∃ a ∈ X, ∃ b ∈ Y, (a,b) ∈ E
+
+lemma rectAccept_singletons {p l : ℕ} {ι : Type*}
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (I : Finset ι)
+    (a : Fin p) (b : Fin l) :
+    RectAccept A B I {a} {b} ↔ ∃ i ∈ I, a ∈ A i ∧ b ∈ B i := by
+  constructor
+  · rintro ⟨i,hi,a',ha,b',hb,hax,hby⟩
+    have ea : a' = a := Finset.mem_singleton.mp hax
+    have eb : b' = b := Finset.mem_singleton.mp hby
+    subst a'; subst b'
+    exact ⟨i,hi,ha,hb⟩
+  · rintro ⟨i,hi,ha,hb⟩
+    exact ⟨i,hi,a,ha,b,hb,Finset.mem_singleton_self a,Finset.mem_singleton_self b⟩
+
+lemma point_controller {p l : ℕ} {ι : Type*} [DecidableEq ι]
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (R S : Finset ι)
+    (hfull : ∀ X Y, (RectAccept A B R X Y ∧ RectAccept A B S X Y) ↔
+      EdgeAccept E X Y)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ g ∈ R ∪ S, a ∈ A g ∧ b ∈ B g ∧ ∀ a' ∈ A g, (a',b) ∈ E := by
+  classical
+  have hpair := (hfull {a} {b}).mpr
+    (show EdgeAccept E {a} {b} from ⟨a,by simp,b,by simp,hab⟩)
+  obtain ⟨i,hi,hai,hbi⟩ := (rectAccept_singletons A B R a b).mp hpair.1
+  obtain ⟨j,hj,haj,hbj⟩ := (rectAccept_singletons A B S a b).mp hpair.2
+  let X : Finset (Fin p) := Finset.univ.filter (fun a' => (a',b) ∉ E)
+  have hfalse : ¬ (RectAccept A B R X {b} ∧ RectAccept A B S X {b}) := by
+    intro hh
+    obtain ⟨a',ha',b',hb',he⟩ := (hfull X {b}).mp hh
+    have hb : b' = b := Finset.mem_singleton.mp hb'
+    subst b'
+    exact (Finset.mem_filter.mp ha').2 he
+  by_cases hR : RectAccept A B R X {b}
+  · refine ⟨j,Finset.mem_union_right R hj,haj,hbj,?_⟩
+    intro a' ha'
+    by_contra hn
+    exact hfalse ⟨hR,j,hj,a',ha',b,hbj,by simp [X,hn],by simp⟩
+  · refine ⟨i,Finset.mem_union_left S hi,hai,hbi,?_⟩
+    intro a' ha'
+    by_contra hn
+    exact hR ⟨i,hi,a',ha',b,hbi,by simp [X,hn],by simp⟩
+
+lemma line_controller {p l : ℕ} {ι : Type*} [DecidableEq ι]
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (R S : Finset ι)
+    (hfull : ∀ X Y, (RectAccept A B R X Y ∧ RectAccept A B S X Y) ↔
+      EdgeAccept E X Y)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ g ∈ R ∪ S, a ∈ A g ∧ b ∈ B g ∧ ∀ b' ∈ B g, (a,b') ∈ E := by
+  classical
+  have hpair := (hfull {a} {b}).mpr
+    (show EdgeAccept E {a} {b} from ⟨a,by simp,b,by simp,hab⟩)
+  obtain ⟨i,hi,hai,hbi⟩ := (rectAccept_singletons A B R a b).mp hpair.1
+  obtain ⟨j,hj,haj,hbj⟩ := (rectAccept_singletons A B S a b).mp hpair.2
+  let Y : Finset (Fin l) := Finset.univ.filter (fun b' => (a,b') ∉ E)
+  have hfalse : ¬ (RectAccept A B R {a} Y ∧ RectAccept A B S {a} Y) := by
+    intro hh
+    obtain ⟨a',ha',b',hb',he⟩ := (hfull {a} Y).mp hh
+    have ha : a' = a := Finset.mem_singleton.mp ha'
+    subst a'
+    exact (Finset.mem_filter.mp hb').2 he
+  by_cases hR : RectAccept A B R {a} Y
+  · refine ⟨j,Finset.mem_union_right R hj,haj,hbj,?_⟩
+    intro b' hb'
+    by_contra hn
+    exact hfalse ⟨hR,j,hj,a,haj,b',hb',by simp,by simp [Y,hn]⟩
+  · refine ⟨i,Finset.mem_union_left S hi,hai,hbi,?_⟩
+    intro b' hb'
+    by_contra hn
+    exact hR ⟨i,hi,a,hai,b',hb',by simp,by simp [Y,hn]⟩
+
+lemma point_controller_injective {p l : ℕ} {ι : Type*}
+    (E M : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (f : {e // e ∈ M} → ι)
+    (hf : ∀ e, e.val.1 ∈ A (f e) ∧ ∀ a ∈ A (f e), (a,e.val.2) ∈ E) :
+    Function.Injective f := by
+  intro e d hed
+  apply Subtype.ext
+  by_contra hne
+  have ha : e.val.1 ≠ d.val.1 := fun h => hne (hleft _ e.property _ d.property h)
+  have hb : e.val.2 ≠ d.val.2 := fun h => hne (hright _ e.property _ d.property h)
+  have he := hf e
+  have hd := hf d
+  exact hC4 _ _ _ _ ha hb
+    ⟨he.2 _ he.1, hd.2 _ (hed ▸ he.1), he.2 _ (hed.symm ▸ hd.1), hd.2 _ hd.1⟩
+
+lemma line_controller_injective {p l : ℕ} {ι : Type*}
+    (E M : Finset (Fin p × Fin l)) (B : ι → Finset (Fin l))
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (f : {e // e ∈ M} → ι)
+    (hf : ∀ e, e.val.2 ∈ B (f e) ∧ ∀ b ∈ B (f e), (e.val.1,b) ∈ E) :
+    Function.Injective f := by
+  intro e d hed
+  apply Subtype.ext
+  by_contra hne
+  have ha : e.val.1 ≠ d.val.1 := fun h => hne (hleft _ e.property _ d.property h)
+  have hb : e.val.2 ≠ d.val.2 := fun h => hne (hright _ e.property _ d.property h)
+  have he := hf e
+  have hd := hf d
+  exact hC4 _ _ _ _ ha hb
+    ⟨he.2 _ he.1, he.2 _ (hed.symm ▸ hd.1), hd.2 _ (hed ▸ he.1), hd.2 _ hd.1⟩
+
+end PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+lemma matching_card_le_union_and_saturation {p l : ℕ} {ι : Type*} [DecidableEq ι]
+    (E M : Finset (Fin p × Fin l)) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (R S : Finset ι)
+    (hfull : ∀ X Y, (RectAccept A B R X Y ∧ RectAccept A B S X Y) ↔
+      EdgeAccept E X Y) :
+    M.card ≤ (R ∪ S).card ∧ (M.card = (R ∪ S).card → R = S) := by
+  classical
+  let G := R ∪ S
+  have hexP : ∀ e : {e // e ∈ M}, ∃ g : {g // g ∈ G},
+      e.val.1 ∈ A g.val ∧ e.val.2 ∈ B g.val ∧
+        ∀ a ∈ A g.val, (a,e.val.2) ∈ E := by
+    intro e
+    obtain ⟨g,hg,ha,hb,hn⟩ := point_controller E A B R S hfull
+      e.val.1 e.val.2 (hME e.property)
+    exact ⟨⟨g,hg⟩,ha,hb,hn⟩
+  have hexL : ∀ e : {e // e ∈ M}, ∃ g : {g // g ∈ G},
+      e.val.1 ∈ A g.val ∧ e.val.2 ∈ B g.val ∧
+        ∀ b ∈ B g.val, (e.val.1,b) ∈ E := by
+    intro e
+    obtain ⟨g,hg,ha,hb,hn⟩ := line_controller E A B R S hfull
+      e.val.1 e.val.2 (hME e.property)
+    exact ⟨⟨g,hg⟩,ha,hb,hn⟩
+  let fp := fun e : {e // e ∈ M} => Classical.choose (hexP e)
+  let fl := fun e : {e // e ∈ M} => Classical.choose (hexL e)
+  have hfp := fun e : {e // e ∈ M} => Classical.choose_spec (hexP e)
+  have hfl := fun e : {e // e ∈ M} => Classical.choose_spec (hexL e)
+  have hpi : Function.Injective fp := point_controller_injective E M
+    (fun g : {g // g ∈ G} => A g.val) hleft hright hC4 fp
+    (fun e => ⟨(hfp e).1,(hfp e).2.2⟩)
+  have hli : Function.Injective fl := line_controller_injective E M
+    (fun g : {g // g ∈ G} => B g.val) hleft hright hC4 fl
+    (fun e => ⟨(hfl e).2.1,(hfl e).2.2⟩)
+  have hle : M.card ≤ G.card := by
+    simpa only [Fintype.card_coe] using Fintype.card_le_of_injective fp hpi
+  refine ⟨hle,?_⟩
+  intro heq
+  have hcard : Fintype.card {e // e ∈ M} = Fintype.card {g // g ∈ G} := by
+    simpa only [Fintype.card_coe] using heq
+  have hps : Function.Surjective fp :=
+    ((Fintype.bijective_iff_injective_and_card fp).mpr ⟨hpi,hcard⟩).2
+  have hls : Function.Surjective fl :=
+    ((Fintype.bijective_iff_injective_and_card fl).mpr ⟨hli,hcard⟩).2
+  let ep := fun g : {g // g ∈ G} => Classical.choose (hps g)
+  let el := fun g : {g // g ∈ G} => Classical.choose (hls g)
+  have hep : ∀ g, fp (ep g) = g := fun g => Classical.choose_spec (hps g)
+  have hel : ∀ g, fl (el g) = g := fun g => Classical.choose_spec (hls g)
+  let pc := fun g : {g // g ∈ G} => (el g).val.1
+  let qc := fun g : {g // g ∈ G} => (ep g).val.2
+  have hpc : ∀ g, pc g ∈ A g.val := by
+    intro g
+    have hh := (hfl (el g)).1
+    change (el g).val.1 ∈ A (fl (el g)).val at hh
+    simpa only [hel] using hh
+  have hqc : ∀ g, qc g ∈ B g.val := by
+    intro g
+    have hh := (hfp (ep g)).2.1
+    change (ep g).val.2 ∈ B (fp (ep g)).val at hh
+    simpa only [hep] using hh
+  have hA : ∀ g a, a ∈ A g.val → (a,qc g) ∈ E := by
+    intro g a ha
+    have hh := (hfp (ep g)).2.2
+    change (∀ a ∈ A (fp (ep g)).val, (a,(ep g).val.2) ∈ E) at hh
+    rw [hep] at hh
+    exact hh a ha
+  have hB : ∀ g b, b ∈ B g.val → (pc g,b) ∈ E := by
+    intro g b hb
+    have hh := (hfl (el g)).2.2
+    change (∀ b ∈ B (fl (el g)).val, ((el g).val.1,b) ∈ E) at hh
+    rw [hel] at hh
+    exact hh b hb
+  have hpci : Function.Injective pc := by
+    intro g h he
+    have hmatch : el g = el h := Subtype.ext
+      (hleft _ (el g).property _ (el h).property he)
+    calc
+      g = fl (el g) := (hel g).symm
+      _ = fl (el h) := congrArg fl hmatch
+      _ = h := hel h
+  have hqci : Function.Injective qc := by
+    intro g h he
+    have hmatch : ep g = ep h := Subtype.ext
+      (hright _ (ep g).property _ (ep h).property he)
+    calc
+      g = fp (ep g) := (hep g).symm
+      _ = fp (ep h) := congrArg fp hmatch
+      _ = h := hep h
+  have hshared : ∀ g : {g // g ∈ G}, g.val ∈ R ∧ g.val ∈ S := by
+    intro g
+    have hc : (pc g,qc g) ∈ E := hA g _ (hpc g)
+    have hpair := (hfull {pc g} {qc g}).mpr
+      (show EdgeAccept E {pc g} {qc g} from ⟨pc g,by simp,qc g,by simp,hc⟩)
+    obtain ⟨r,hr,har,hbr⟩ := (rectAccept_singletons A B R _ _).mp hpair.1
+    obtain ⟨s,hs,has,hbs⟩ := (rectAccept_singletons A B S _ _).mp hpair.2
+    let rr : {g // g ∈ G} := ⟨r,Finset.mem_union_left S hr⟩
+    let ss : {g // g ∈ G} := ⟨s,Finset.mem_union_right R hs⟩
+    have hgr : g = rr := RectanglePrivate.center_unique E hC4
+      (fun g : {g // g ∈ G} => A g.val) (fun g : {g // g ∈ G} => B g.val)
+      pc qc hpc hqc hA hB hpci hqci g rr har hbr
+    have hgs : g = ss := RectanglePrivate.center_unique E hC4
+      (fun g : {g // g ∈ G} => A g.val) (fun g : {g // g ∈ G} => B g.val)
+      pc qc hpc hqc hA hB hpci hqci g ss has hbs
+    exact ⟨hgr.symm ▸ hr,hgs.symm ▸ hs⟩
+  apply Finset.ext
+  intro g
+  constructor
+  · intro hg
+    exact (hshared ⟨g,Finset.mem_union_left S hg⟩).2
+  · intro hg
+    exact (hshared ⟨g,Finset.mem_union_right R hg⟩).1
+
+lemma matching_card_lt_union_of_ne {p l : ℕ} {ι : Type*} [DecidableEq ι]
+    (E M : Finset (Fin p × Fin l)) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (R S : Finset ι)
+    (hfull : ∀ X Y, (RectAccept A B R X Y ∧ RectAccept A B S X Y) ↔
+      EdgeAccept E X Y) (hne : R ≠ S) :
+    M.card < (R ∪ S).card := by
+  obtain ⟨hle,hsat⟩ := matching_card_le_union_and_saturation E M hME hleft hright
+    hC4 A B R S hfull
+  by_contra hn
+  exact hne (hsat (Nat.le_antisymm hle (Nat.le_of_not_gt hn)))
+
+end PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+/-- For disjoint nonempty factors, every matching has size at most the total rectangle count minus one. -/
+lemma matching_card_add_one_le_sum {p l : ℕ} {ι : Type*} [DecidableEq ι]
+    (E M : Finset (Fin p × Fin l)) (hE : E.Nonempty) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (R S : Finset ι)
+    (hRS : Disjoint R S)
+    (hfull : ∀ X Y, (RectAccept A B R X Y ∧ RectAccept A B S X Y) ↔
+      EdgeAccept E X Y) :
+    M.card + 1 ≤ R.card + S.card := by
+  have hne : R ≠ S := by
+    intro hrs
+    obtain ⟨e,he⟩ := hE
+    have hpair := (hfull {e.1} {e.2}).mpr
+      (show EdgeAccept E {e.1} {e.2} from ⟨e.1,by simp,e.2,by simp,he⟩)
+    obtain ⟨r,hr,_,_⟩ := (rectAccept_singletons A B R _ _).mp hpair.1
+    exact Finset.disjoint_left.mp hRS hr (hrs ▸ hr)
+  have hlt := matching_card_lt_union_of_ne E M hME hleft hright hC4 A B R S hfull hne
+  rw [Finset.card_union_of_disjoint hRS] at hlt
+  exact Nat.succ_le_of_lt hlt
+
+end PEqualNP.Outside.L_meta_4970.RectangleControllers
