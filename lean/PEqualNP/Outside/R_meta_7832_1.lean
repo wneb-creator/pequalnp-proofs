@@ -1,0 +1,18 @@
+import Mathlib
+import PEqualNP.Defs
+
+theorem PEqualNP.Outside.R_meta_7832_1
+    (children : have x1 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x1 x2 : Fin (13 : ℕ)) => x1 = x2 ∨ x1 = x2 + (1 : Fin (13 : ℕ)) ∨ x1 = x2 + (3 : Fin (13 : ℕ)) ∨ x1 = x2 + (9 : Fin (13 : ℕ)); have x2 : (Fin (13 : ℕ) → Bool) → Fin (13 : ℕ) → Bool := fun (x2 : Fin (13 : ℕ) → Bool) (x3 : Fin (13 : ℕ)) => !(x2 x3 || x2 (x3 + (1 : Fin (13 : ℕ))) || x2 (x3 + (3 : Fin (13 : ℕ))) || x2 (x3 + (9 : Fin (13 : ℕ)))); ∃ (x3 : PEqualNP.CircuitLowerBounds.Circuit) (x5 x6 : ℕ), x3.size ≤ 63 ∧ PEqualNP.TopForm.IsAO2 26 x3 ∧ (∀ g ∈ x3.gates, g.inputs.Nodup) ∧ x5 ≠ x6 ∧ x5 < 26 + x3.size ∧ x6 < 26 + x3.size ∧ (∀ (x7 x8 : Fin (13 : ℕ)),                 x1 x7 x8 →                   have x10 : Fin (26 : ℕ) → Bool := fun (x10 : Fin (26 : ℕ)) => Decidable.decide (x10 = Fin.castAdd (13 : ℕ) x7 ∨ x10 = Fin.natAdd (13 : ℕ) x8);                   PEqualNP.BlindGate.wireValue x3 (26 : ℕ) x10 x5 = Bool.true ∧ PEqualNP.BlindGate.wireValue x3 (26 : ℕ) x10 x6 = Bool.true) ∧               ∀ (x7 : Fin (13 : ℕ) → Bool), (∀ (x8 : Fin (13 : ℕ)), x7 x8 = Bool.false → ∃ (x10 : Fin (13 : ℕ)), x1 x8 x10 ∧ x2 x7 x10 = Bool.true) → PEqualNP.BlindGate.wireValue x3 (26 : ℕ) (Fin.append x7 (x2 x7)) (if x2 x7 (0 : Fin (13 : ℕ)) = Bool.true then x5 else x6) = Bool.false)
+    (cap : ∀ (C : PEqualNP.CircuitLowerBounds.Circuit) (a b : ℕ), PEqualNP.TopForm.IsAO2 26 C → (∀ g ∈ C.gates, g.inputs.Nodup) → a ≠ b → a < 26 + C.size → b < 26 + C.size →
+      ∃ (D : PEqualNP.CircuitLowerBounds.Circuit) (j : ℕ), D.size ≤ C.size + 1 ∧ PEqualNP.TopForm.IsAO2 26 D ∧ (∀ g ∈ D.gates, g.inputs.Nodup) ∧ D.output = 26 + j ∧
+      D.gates[j]? = some { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [a,b] : PEqualNP.CircuitLowerBounds.Gate } ∧
+      ∀ (x : Fin 26 → Bool) (i : ℕ), i < 26 + C.size → PEqualNP.BlindGate.wireValue D 26 x i = PEqualNP.BlindGate.wireValue C 26 x i) :
+    have x1 : Fin (13 : ℕ) → Fin (13 : ℕ) → Prop := fun (x1 x2 : Fin (13 : ℕ)) => x1 = x2 ∨ x1 = x2 + (1 : Fin (13 : ℕ)) ∨ x1 = x2 + (3 : Fin (13 : ℕ)) ∨ x1 = x2 + (9 : Fin (13 : ℕ)); have x2 : (Fin (13 : ℕ) → Bool) → Fin (13 : ℕ) → Bool := fun (x2 : Fin (13 : ℕ) → Bool) (x3 : Fin (13 : ℕ)) => !(x2 x3 || x2 (x3 + (1 : Fin (13 : ℕ))) || x2 (x3 + (3 : Fin (13 : ℕ))) || x2 (x3 + (9 : Fin (13 : ℕ)))); ∃ (x3 : PEqualNP.CircuitLowerBounds.Circuit) (x4 : ℕ) (x5 : ℕ) (x6 : ℕ),   x3.size ≤ (64 : ℕ) ∧     PEqualNP.TopForm.IsAO2 (26 : ℕ) x3 ∧       (∀ x7 ∈ x3.gates, x7.inputs.Nodup) ∧         x3.output = (26 : ℕ) + x4 ∧           x3.gates[x4]? = Option.some { op := PEqualNP.CircuitLowerBounds.GateOp.and, inputs := [x5, x6] : PEqualNP.CircuitLowerBounds.Gate } ∧             (∀ (x7 x8 : Fin (13 : ℕ)),                 x1 x7 x8 →                   have x10 : Fin (26 : ℕ) → Bool := fun (x10 : Fin (26 : ℕ)) => Decidable.decide (x10 = Fin.castAdd (13 : ℕ) x7 ∨ x10 = Fin.natAdd (13 : ℕ) x8);                   PEqualNP.BlindGate.wireValue x3 (26 : ℕ) x10 x5 = Bool.true ∧ PEqualNP.BlindGate.wireValue x3 (26 : ℕ) x10 x6 = Bool.true) ∧               ∀ (x7 : Fin (13 : ℕ) → Bool), (∀ (x8 : Fin (13 : ℕ)), x7 x8 = Bool.false → ∃ (x10 : Fin (13 : ℕ)), x1 x8 x10 ∧ x2 x7 x10 = Bool.true) → PEqualNP.BlindGate.wireValue x3 (26 : ℕ) (Fin.append x7 (x2 x7)) (if x2 x7 (0 : Fin (13 : ℕ)) = Bool.true then x5 else x6) = Bool.false := by
+  dsimp only at children ⊢
+  obtain ⟨C, a, b, hs, hf, hn, hab, ha, hb, hp, hm⟩ := children
+  obtain ⟨D, j, hd, hf', hn', ho, hg, hw⟩ := cap C a b hf hn hab ha hb
+  refine ⟨D, j, a, b, by omega, hf', hn', ho, hg, ?_, ?_⟩
+  · intro p l h
+    exact ⟨(hw _ a ha).trans (hp p l h).1, (hw _ b hb).trans (hp p l h).2⟩
+  · intro x hx
+    exact (hw _ _ (by split <;> assumption)).trans (hm x hx)
