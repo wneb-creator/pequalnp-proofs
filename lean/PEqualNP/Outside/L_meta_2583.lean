@@ -8882,22 +8882,22 @@ lemma minimum_gate_has_reader {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel 
   have hsize := erase_size n C k p hk
   omega
 
-lemma least_unsafe_has_reader {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+lemma least_not_below_has_reader {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
     {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k < C.gates.length)
-    (hunsafe : ¬ BelowF G C k) :
+    (hnot_below : ¬ BelowF G C k) :
     ∃ r < C.gates.length, n + k ∈ (gateAt C r).inputs := by
   apply minimum_gate_has_reader hmin hk
   intro heq
-  apply hunsafe
+  apply hnot_below
   intro x hx
   rw [← hmin.2.1]
   change val C (List.ofFn x) C.output = true
   rw [heq]
   exact hx
 
-lemma least_unsafe_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+lemma least_not_below_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
     {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k < C.gates.length)
-    (hunsafe : ¬ BelowF G C k) :
+    (hnot_below : ¬ BelowF G C k) :
     ∃ a < C.gates.length, (gateAt C a).op = GateOp.and ∧ InCone n C k a := by
   have aux : ∀ m : ℕ, ∀ k : ℕ, C.gates.length - k = m → k < C.gates.length →
       ¬ BelowF G C k →
@@ -8905,32 +8905,32 @@ lemma least_unsafe_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [Decidab
     intro m
     induction m using Nat.strong_induction_on with
     | ind m ih =>
-      intro k hmeasure hk hunsafe
-      obtain ⟨r, hr, hin⟩ := least_unsafe_has_reader hmin hk hunsafe
+      intro k hmeasure hk hnot_below
+      obtain ⟨r, hr, hin⟩ := least_not_below_has_reader hmin hk hnot_below
       have hbound : n + k < n + r := hmin.1.2.1 r hr (n + k) hin
       have hkr : k < r := by omega
       have hcone : InCone n C k r := (Frontier.inCone_iff n C k r).mpr
         ⟨hr, k, hkr, hin, Or.inl rfl⟩
       rcases hmin.1.1 _ (gateAt_mem hr) with hand | hor
       · exact ⟨r, hr, hand, hcone⟩
-      · have hunsafeR : ¬ BelowF G C r := by
+      · have hnot_belowR : ¬ BelowF G C r := by
           intro hbelow
-          apply hunsafe
+          apply hnot_below
           intro x hx
           apply hbelow x
           change Frontier.val C (List.ofFn x) (n + r) = true
           apply (Frontier.val_or (by simp) hr hor).mpr
           exact ⟨n + k, hin, hbound, hx⟩
-        obtain ⟨a, ha, hopa, hra⟩ := ih (C.gates.length - r) (by omega) r rfl hr hunsafeR
+        obtain ⟨a, ha, hopa, hra⟩ := ih (C.gates.length - r) (by omega) r rfl hr hnot_belowR
         exact ⟨a, ha, hopa, CleanBudget.inCone_trans n C k r hcone a hra⟩
-  exact aux (C.gates.length - k) k rfl hk hunsafe
+  exact aux (C.gates.length - k) k rfl hk hnot_below
 
 lemma least_orN_has_and_ancestor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
     {C : Circuit} (hmin : IsLeastAO G C) {k : ℕ} (hk : k ∈ orN G C) :
     ∃ a < C.gates.length, (gateAt C a).op = GateOp.and ∧ InCone n C k a := by
   have hdata : k < C.gates.length ∧ (gateAt C k).op = GateOp.or ∧ ¬ BelowF G C k := by
     simpa only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] using hk
-  exact least_unsafe_has_and_ancestor hmin hdata.1 hdata.2.2
+  exact least_not_below_has_and_ancestor hmin hdata.1 hdata.2.2
 
 lemma least_orN_or_boundaries_dirty {n : ℕ} {G : SimpleGraph (Fin n)}
     [DecidableRel G.Adj] {C : Circuit} (hmin : IsLeastAO G C) (hTop : TopForm G C)
