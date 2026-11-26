@@ -10972,3 +10972,33 @@ lemma exists_first_not_seed_representative (C : Circuit)
 end SingleOrEnergy
 
 end PEqualNP.Outside.L_meta_2373_aux
+
+
+namespace PEqualNP.Outside.L_meta_2373_aux
+
+lemma matching_clause_count (n m : Nat) (l : Fin m → Fin n → Bool → Bool)
+    (covers : ∀ i k, ∃ b : Bool, l i k b = true)
+    (separates : ∀ x : Fin n → Bool, ∃ i : Fin m, ∀ k, l i k (x k) = false) :
+    2 ^ n ≤ m := by
+  classical
+  let f : (Fin n → Bool) → Fin m := fun x => Classical.choose (separates x)
+  have hf (x : Fin n → Bool) (k : Fin n) : l (f x) k (x k) = false :=
+    Classical.choose_spec (separates x) k
+  have hinj : Function.Injective f := by
+    intro x y hxy
+    funext k
+    have hx := hf x k
+    have hy := hf y k
+    rw [← hxy] at hy
+    by_contra hne
+    obtain ⟨b, hb⟩ := covers (f x) k
+    have htwo : ∀ a c d : Bool, a ≠ c → d = a ∨ d = c := by decide
+    rcases htwo (x k) (y k) b hne with rfl | rfl
+    · rw [hx] at hb
+      cases hb
+    · rw [hy] at hb
+      cases hb
+  have hcard := Fintype.card_le_of_injective f hinj
+  simpa only [Fintype.card_pi_const, Fintype.card_bool, Fintype.card_fin] using hcard
+
+end PEqualNP.Outside.L_meta_2373_aux
