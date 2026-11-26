@@ -943,4 +943,257 @@ lemma disjoint_of_encoded_singletons (f g : Fin 256 → Bool) (left right : Fin 
 
 end SingletonMaskBridge
 
+namespace RawPairClassification
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma singleton_submask_iff_bit : ∀ (k : Fin 8) (row : Fin 256),
+    submask (pairAssignment k k) row ↔ row.val.testBit k.val = true := by
+  decide +kernel
+
+lemma singleton_self_bit : ∀ k : Fin 8,
+    (pairAssignment k k).val.testBit k.val = true := by
+  decide +kernel
+
+lemma true_row_has_raw_singleton
+    (n : Nat) (value : Nat → Fin 256 → Bool)
+    (op : Nat → Bool) (left right : Nat → Nat) (row : Fin 256)
+    (rawValues : ∀ i, i < 8 → ∀ x, value i x = x.val.testBit i)
+    (orEarlier : ∀ i, 8 ≤ i → i < n → op i = false → left i < i ∧ right i < i)
+    (orValues : ∀ i, 8 ≤ i → i < n → op i = false →
+      ∀ x, value i x = (value (left i) x || value (right i) x))
+    (andFalse : ∀ i, 8 ≤ i → i < n → op i = true → value i row = false) :
+    ∀ i, i < n → value i row = true →
+      ∃ k : Fin 8, submask (pairAssignment k k) row ∧
+        value i (pairAssignment k k) = true := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi htrue
+    by_cases hraw : i < 8
+    · refine ⟨⟨i, hraw⟩, ?_, ?_⟩
+      · exact (singleton_submask_iff_bit ⟨i, hraw⟩ row).mpr
+          ((rawValues i hraw row).symm.trans htrue)
+      · exact (rawValues i hraw (pairAssignment ⟨i, hraw⟩ ⟨i, hraw⟩)).trans
+          (singleton_self_bit ⟨i, hraw⟩)
+    · have hgate : 8 ≤ i := Nat.le_of_not_gt hraw
+      cases hop : op i with
+      | false =>
+        obtain ⟨hl, hr⟩ := orEarlier i hgate hi hop
+        have hchildren : value (left i) row = true ∨ value (right i) row = true := by
+          simpa only [Bool.or_eq_true] using
+            ((orValues i hgate hi hop row).symm.trans htrue)
+        rcases hchildren with hleft | hright
+        · obtain ⟨k, hsub, hk⟩ := ih (left i) hl (Nat.lt_trans hl hi) hleft
+          refine ⟨k, hsub, ?_⟩
+          rw [orValues i hgate hi hop (pairAssignment k k)]
+          simp only [Bool.or_eq_true]
+          exact Or.inl hk
+        · obtain ⟨k, hsub, hk⟩ := ih (right i) hr (Nat.lt_trans hr hi) hright
+          refine ⟨k, hsub, ?_⟩
+          rw [orValues i hgate hi hop (pairAssignment k k)]
+          simp only [Bool.or_eq_true]
+          exact Or.inr hk
+      | true =>
+        have hfalse := andFalse i hgate hi hop
+        rw [hfalse] at htrue
+        contradiction
+
+lemma critical_pair_of_causal_inputs
+    (v : Fin 3) (n p q : Nat) (hp : p < n) (hq : q < n)
+    (value : Nat → Fin 256 → Bool) (op : Nat → Bool) (left right : Nat → Nat)
+    (rawValues : ∀ i, i < 8 → ∀ x, value i x = x.val.testBit i)
+    (orEarlier : ∀ i, 8 ≤ i → i < n → op i = false → left i < i ∧ right i < i)
+    (orValues : ∀ i, 8 ≤ i → i < n → op i = false →
+      ∀ x, value i x = (value (left i) x || value (right i) x))
+    (monoP : ∀ a b, submask a b → value p a = true → value p b = true)
+    (monoQ : ∀ a b, submask a b → value q a = true → value q b = true)
+    (negative : ∀ row ∈ negatives, (allowedNegatives v).contains row.val = false →
+      (value p row && value q row) = false)
+    (ownP : value p (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (ownQ : value q (pairAssignment (ownVariable v) (ownVariable v)) = false)
+    (earlierAndFalse : ∀ row ∈ negatives, (value p row && value q row) = true →
+      ∀ i, 8 ≤ i → i < n → op i = true → value i row = false)
+    (dirty : ∃ row ∈ negatives, (value p row && value q row) = true) :
+    ∃ i j : Fin 8, value p (pairAssignment i i) = true ∧
+      value q (pairAssignment j j) = true ∧ pairMask i j ∈ criticalPairs v := by
+  refine critical_pair_of_negative_linear v (value p) (value q)
+    monoP monoQ negative ownP ownQ ?_ ?_ dirty
+  · intro row hrow hboth
+    have hvalues : value p row = true ∧ value q row = true := by
+      simpa only [Bool.and_eq_true] using hboth
+    exact true_row_has_raw_singleton n value op left right row rawValues orEarlier orValues
+      (earlierAndFalse row hrow hboth) p hp hvalues.1
+  · intro row hrow hboth
+    have hvalues : value p row = true ∧ value q row = true := by
+      simpa only [Bool.and_eq_true] using hboth
+    exact true_row_has_raw_singleton n value op left right row rawValues orEarlier orValues
+      (earlierAndFalse row hrow hboth) q hq hvalues.2
+
+end RawPairClassification
+
+namespace RectangleRequirements
+
+def insertMask (s : Nat) : List Nat → List Nat
+  | [] => [s]
+  | t :: ts => if s ≤ t then s :: t :: ts else t :: insertMask s ts
+
+def nontrivial (s : Nat) : Bool := s &&& (s - 1) != 0
+
+def addMask (m : Nat) (targets : List Nat) : List Nat :=
+  if nontrivial m && !targets.contains m then insertMask m targets else targets
+
+def reqRect (r : Nat × Nat) : List Nat := addMask r.1 (addMask r.2 [])
+
+def mergeReq (xs ys : List Nat) : List Nat :=
+  xs.foldl (fun acc s => addMask s acc) ys
+
+def baseMasks : Finset Nat := [0, 1, 2, 4, 8, 16, 32, 64, 128].toFinset
+
+lemma nontrivial_iff_not_base : ∀ m : Fin 256,
+    nontrivial m.val = true ↔ m.val ∉ baseMasks := by
+  decide +kernel
+
+lemma mem_insertMask (s x : Nat) (xs : List Nat) :
+    x ∈ insertMask s xs ↔ x = s ∨ x ∈ xs := by
+  induction xs with
+  | nil => simp [insertMask]
+  | cons t ts ih =>
+      simp only [insertMask]
+      split <;> simp [ih, or_left_comm]
+
+lemma insertMask_nodup (s : Nat) (xs : List Nat)
+    (hxs : xs.Nodup) (hs : s ∉ xs) : (insertMask s xs).Nodup := by
+  induction xs with
+  | nil => simp [insertMask]
+  | cons t ts ih =>
+      have ht : t ∉ ts := (List.nodup_cons.mp hxs).1
+      have htail : ts.Nodup := (List.nodup_cons.mp hxs).2
+      have hst : s ≠ t := by
+        intro he
+        exact hs (by simp [he])
+      have hsts : s ∉ ts := fun hm => hs (List.mem_cons_of_mem t hm)
+      simp only [insertMask]
+      split
+      · exact List.nodup_cons.mpr ⟨hs, hxs⟩
+      · apply List.nodup_cons.mpr
+        constructor
+        · intro hm
+          rcases (mem_insertMask s t ts).mp hm with he | hm
+          · exact hst he.symm
+          · exact ht hm
+        · exact ih htail hsts
+
+lemma addMask_nodup (m : Nat) (xs : List Nat) (hxs : xs.Nodup) :
+    (addMask m xs).Nodup := by
+  unfold addMask
+  split
+  · rename_i h
+    have hnot : m ∉ xs := by
+      have hh := (Bool.and_eq_true_iff.mp h).2
+      simpa using hh
+    exact insertMask_nodup m xs hxs hnot
+  · exact hxs
+
+lemma reqRect_nodup (r : Nat × Nat) : (reqRect r).Nodup := by
+  exact addMask_nodup r.1 _ (addMask_nodup r.2 [] (by simp))
+
+lemma mergeReq_nodup (xs ys : List Nat) (hys : ys.Nodup) :
+    (mergeReq xs ys).Nodup := by
+  induction xs generalizing ys with
+  | nil => simpa [mergeReq] using hys
+  | cons x xs ih =>
+      change (mergeReq xs (addMask x ys)).Nodup
+      exact ih _ (addMask_nodup x ys hys)
+
+lemma addMask_toFinset_subset (m : Nat) (xs : List Nat) (P : Finset Nat)
+    (hxs : xs.toFinset ⊆ P) (hm : nontrivial m = true → m ∈ P) :
+    (addMask m xs).toFinset ⊆ P := by
+  intro x hx
+  have hx' : x ∈ addMask m xs := List.mem_toFinset.mp hx
+  unfold addMask at hx'
+  split at hx'
+  · rename_i h
+    rcases (mem_insertMask m x xs).mp hx' with he | hx'
+    · subst x
+      exact hm (Bool.and_eq_true_iff.mp h).1
+    · exact hxs (List.mem_toFinset.mpr hx')
+  · exact hxs (List.mem_toFinset.mpr hx')
+
+lemma reqRect_toFinset_subset (r : Nat × Nat) (P : Finset Nat)
+    (hl : nontrivial r.1 = true → r.1 ∈ P)
+    (hr : nontrivial r.2 = true → r.2 ∈ P) :
+    (reqRect r).toFinset ⊆ P := by
+  exact addMask_toFinset_subset r.1 _ P
+    (addMask_toFinset_subset r.2 [] P (by simp) hr) hl
+
+lemma mergeReq_toFinset_subset (xs ys : List Nat) (P : Finset Nat)
+    (hxs : xs.toFinset ⊆ P) (hys : ys.toFinset ⊆ P) :
+    (mergeReq xs ys).toFinset ⊆ P := by
+  induction xs generalizing ys with
+  | nil => simpa [mergeReq] using hys
+  | cons x xs ih =>
+      change (mergeReq xs (addMask x ys)).toFinset ⊆ P
+      apply ih
+      · intro z hz
+        exact hxs (List.mem_toFinset.mpr (List.mem_cons_of_mem x
+          (List.mem_toFinset.mp hz)))
+      · apply addMask_toFinset_subset x ys P hys
+        intro _
+        exact hxs (by simp)
+
+lemma nodup_length_le_card (xs : List Nat) (P : Finset Nat)
+    (hxs : xs.Nodup) (hsub : xs.toFinset ⊆ P) : xs.length ≤ P.card := by
+  rw [← List.toFinset_card_of_nodup hxs]
+  exact Finset.card_le_card hsub
+
+lemma mergeReq_length_le_card (xs ys : List Nat) (P : Finset Nat)
+    (hys : ys.Nodup) (hsub : (mergeReq xs ys).toFinset ⊆ P) :
+    (mergeReq xs ys).length ≤ P.card := by
+  exact nodup_length_le_card _ P (mergeReq_nodup xs ys hys) hsub
+
+lemma three_dirty_budget (a b d : Nat × Nat) (P : Finset Nat)
+    (hcard : P.card ≤ 5)
+    (hmem : ∀ r ∈ [a, b, d],
+      (nontrivial r.1 = true → r.1 ∈ P) ∧
+      (nontrivial r.2 = true → r.2 ∈ P)) :
+    (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5 := by
+  have hrect : ∀ r ∈ [a, b, d], (reqRect r).toFinset ⊆ P := by
+    intro r hr
+    exact reqRect_toFinset_subset r P (hmem r hr).1 (hmem r hr).2
+  apply (mergeReq_length_le_card _ _ P
+    (mergeReq_nodup _ _ (reqRect_nodup d)) _).trans hcard
+  exact mergeReq_toFinset_subset _ _ P (hrect a (by simp))
+    (mergeReq_toFinset_subset _ _ P (hrect b (by simp)) (hrect d (by simp)))
+
+lemma five_rectangle_budgets (a b d e f : Nat × Nat) (P : Finset Nat)
+    (hcard : P.card ≤ 5)
+    (hmem : ∀ r ∈ [a, b, d, e, f],
+      (nontrivial r.1 = true → r.1 ∈ P) ∧
+      (nontrivial r.2 = true → r.2 ∈ P)) :
+    (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d))).length ≤ 5 ∧
+      (mergeReq (mergeReq (reqRect a) (mergeReq (reqRect b) (reqRect d)))
+        (mergeReq (reqRect e) (reqRect f))).length ≤ 5 := by
+  have hrect : ∀ r ∈ [a, b, d, e, f], (reqRect r).toFinset ⊆ P := by
+    intro r hr
+    exact reqRect_toFinset_subset r P (hmem r hr).1 (hmem r hr).2
+  constructor
+  · apply three_dirty_budget a b d P hcard
+    intro r hr
+    apply hmem r
+    rcases List.mem_cons.mp hr with he | hr
+    · simp [he]
+    rcases List.mem_cons.mp hr with he | hr
+    · simp [he]
+    have he := List.mem_singleton.mp hr
+    simp [he]
+  · apply (mergeReq_length_le_card _ _ P
+      (mergeReq_nodup _ _ (reqRect_nodup f)) _).trans hcard
+    apply mergeReq_toFinset_subset _ _ P
+    · exact mergeReq_toFinset_subset _ _ P (hrect a (by simp))
+        (mergeReq_toFinset_subset _ _ P (hrect b (by simp)) (hrect d (by simp)))
+    · exact mergeReq_toFinset_subset _ _ P (hrect e (by simp)) (hrect f (by simp))
+
+end RectangleRequirements
+
 end PEqualNP.Outside.L_meta_9033_aux
