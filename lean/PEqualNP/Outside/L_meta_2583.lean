@@ -10302,3 +10302,170 @@ lemma sharedCircuit_second_cnf (x : Fin 14 → Bool) :
   exact (common_two_points_shared_three (x 0) (x 1) (x 7) (x 8) (x 4) (x 11)).symm
 
 end PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+namespace PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+open Finset
+open PEqualNP.Outside.L_meta_2583.ThinBlock
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+def incidence (p l : Fin 7) : Prop :=
+  (p.val + 7 - l.val) % 7 = 0 ∨ (p.val + 7 - l.val) % 7 = 1 ∨
+    (p.val + 7 - l.val) % 7 = 3
+
+def clauses0 : Finset (Finset (Bool × Fin 7)) :=
+  {{(false, 0), (false, 1), (false, 2)},
+   {(true, 0), (true, 1), (true, 6)},
+   {(false, 1), (false, 2), (true, 0)},
+   {(false, 0), (false, 2), (true, 1)},
+   {(false, 0), (false, 1), (true, 6)}}
+
+def clauses1 : Finset (Finset (Bool × Fin 7)) :=
+  {{(false, 0), (false, 1), (false, 4)},
+   {(true, 0), (true, 1), (true, 4)},
+   {(false, 1), (false, 4), (true, 0)},
+   {(false, 0), (false, 4), (true, 1)},
+   {(false, 0), (false, 1), (true, 4)}}
+
+def points0 : Fin 3 → Fin 7 := ![0, 1, 2]
+def points1 : Fin 3 → Fin 7 := ![0, 1, 4]
+def lines0 : Fin 3 → Fin 7 := ![0, 1, 6]
+def lines1 : Fin 3 → Fin 7 := ![0, 1, 4]
+
+def inputEmbedding (u : Bool × Fin 7) : Fin 14 :=
+  if u.1 then Fin.natAdd 7 u.2 else Fin.castAdd 7 u.2
+
+lemma inputEmbedding_injective : Function.Injective inputEmbedding := by decide
+
+set_option synthInstance.maxSize 4096 in
+lemma incidence_no_four : ∀ a b c d : Fin 7, a ≠ b → c ≠ d →
+    ¬ (incidence a c ∧ incidence a d ∧ incidence b c ∧ incidence b d) := by
+  unfold incidence
+  decide
+
+lemma clauses0_holds (z : Bool × Fin 7 → Bool) : CnfLogic.Holds clauses0 z ↔
+    ((z (false, 0) || z (false, 1) || z (false, 2)) &&
+      (z (true, 0) || z (true, 1) || z (true, 6)) &&
+      (z (false, 1) || z (false, 2) || z (true, 0)) &&
+      (z (false, 0) || z (false, 2) || z (true, 1)) &&
+      (z (false, 0) || z (false, 1) || z (true, 6))) = true := by
+  simp [CnfLogic.Holds, CnfLogic.Clause, clauses0, and_assoc, or_assoc]
+
+lemma clauses1_holds (z : Bool × Fin 7 → Bool) : CnfLogic.Holds clauses1 z ↔
+    ((z (false, 0) || z (false, 1) || z (false, 4)) &&
+      (z (true, 0) || z (true, 1) || z (true, 4)) &&
+      (z (false, 1) || z (false, 4) || z (true, 0)) &&
+      (z (false, 0) || z (false, 4) || z (true, 1)) &&
+      (z (false, 0) || z (false, 1) || z (true, 4))) = true := by
+  simp [CnfLogic.Holds, CnfLogic.Clause, clauses1, and_assoc, or_assoc]
+
+lemma cycle_safety : ∀ a b x y r t : Bool,
+    ((a || b || r) && (x || y || t) && (b || r || x) &&
+      (a || r || y) && (a || b || t)) = true →
+    (a = true ∧ x = true) ∨ (b = true ∧ x = true) ∨
+      (b = true ∧ y = true) ∨ (r = true ∧ y = true) ∨
+      (r = true ∧ t = true) ∨ (a = true ∧ t = true) := by
+  intro a b x y r t
+  cases a <;> cases b <;> cases x <;> cases y <;> cases r <;> cases t <;> decide
+
+lemma clauses0_safe : Safe incidence clauses0 := by
+  intro z hz
+  have h := cycle_safety (z (false, 0)) (z (false, 1)) (z (true, 0))
+    (z (true, 1)) (z (false, 2)) (z (true, 6)) ((clauses0_holds z).mp hz)
+  rcases h with h | h | h | h | h | h
+  · exact ⟨0, 0, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨1, 0, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨1, 1, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨2, 1, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨2, 6, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨0, 6, by unfold incidence; decide, h.1, h.2⟩
+
+lemma clauses1_safe : Safe incidence clauses1 := by
+  intro z hz
+  have h := cycle_safety (z (false, 0)) (z (false, 1)) (z (true, 0))
+    (z (true, 1)) (z (false, 4)) (z (true, 4)) ((clauses1_holds z).mp hz)
+  rcases h with h | h | h | h | h | h
+  · exact ⟨0, 0, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨1, 0, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨1, 1, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨4, 1, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨4, 4, by unfold incidence; decide, h.1, h.2⟩
+  · exact ⟨0, 4, by unfold incidence; decide, h.1, h.2⟩
+
+lemma clauses0_thin : Thin clauses0 := by
+  intro W hW hpoint
+  simp only [clauses0, mem_insert, mem_singleton] at hW
+  rcases hW with rfl | rfl | rfl | rfl | rfl
+  all_goals simp at hpoint
+  all_goals decide
+
+lemma clauses1_thin : Thin clauses1 := by
+  intro W hW hpoint
+  simp only [clauses1, mem_insert, mem_singleton] at hW
+  rcases hW with rfl | rfl | rfl | rfl | rfl
+  all_goals simp at hpoint
+  all_goals decide
+
+lemma clause_counts : clauses0.card = 5 ∧ clauses1.card = 5 := by decide
+
+lemma endpoint_injections : Function.Injective points0 ∧ Function.Injective lines0 ∧
+    Function.Injective points1 ∧ Function.Injective lines1 := by decide
+
+lemma matching0_accepts : ∀ i, Accept clauses0 (points0 i) (lines0 i) := by
+  intro i
+  fin_cases i <;> simp [Accept, clauses0, points0, lines0]
+
+lemma matching1_accepts : ∀ i, Accept clauses1 (points1 i) (lines1 i) := by
+  intro i
+  fin_cases i <;> simp [Accept, clauses1, points1, lines1]
+
+lemma clauses0_pairs : ∀ a b, Accept clauses0 a b ↔ ∃ i, a = points0 i ∧ b = lines0 i :=
+  matching_three_classification incidence clauses0 clauses0_thin clauses0_safe
+    incidence_no_four points0 lines0 endpoint_injections.1 endpoint_injections.2.1 matching0_accepts
+
+lemma clauses1_pairs : ∀ a b, Accept clauses1 a b ↔ ∃ i, a = points1 i ∧ b = lines1 i :=
+  matching_three_classification incidence clauses1 clauses1_thin clauses1_safe
+    incidence_no_four points1 lines1 endpoint_injections.2.2.1 endpoint_injections.2.2.2 matching1_accepts
+
+lemma actual_cnf_outputs : ∀ x : Fin 14 → Bool,
+    (val sharedCircuit (List.ofFn x) 23 = true ↔
+      CnfLogic.Holds clauses0 (fun u => x (inputEmbedding u))) ∧
+    (val sharedCircuit (List.ofFn x) 26 = true ↔
+      CnfLogic.Holds clauses1 (fun u => x (inputEmbedding u))) := by
+  intro x
+  rw [sharedCircuit_first_cnf, sharedCircuit_second_cnf, clauses0_holds, clauses1_holds]
+  exact ⟨Iff.rfl, Iff.rfl⟩
+
+def matchingUnion : Finset (Fin 7 × Fin 7) :=
+  (univ.image fun i => (points0 i, lines0 i)) ∪
+    (univ.image fun i => (points1 i, lines1 i))
+
+def lineFamilies : Finset (Finset (Fin 7)) :=
+  {univ.image lines0, univ.image lines1}
+
+lemma matching_union_exact : matchingUnion = {(0, 0), (1, 1), (2, 6), (4, 4)} := by decide
+
+lemma union_counts : matchingUnion.card = 4 ∧ lineFamilies.card = 2 := by decide
+
+lemma unrestricted_and_budget_fails :
+    (sharedCircuit.gates.filter (fun g => match g.op with | .and => true | _ => false)).length <
+      matchingUnion.card + lineFamilies.card := by decide
+
+end PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+namespace PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+lemma embedded_matching_count :
+    (matchingUnion.image fun e => s(inputEmbedding (false, e.1),
+      inputEmbedding (true, e.2))).card = 4 := by decide
+
+lemma embedded_line_families_count :
+    (lineFamilies.image fun L => L.image fun l => inputEmbedding (true, l)).card = 2 := by decide
+
+lemma embedded_and_budget_fails :
+    (sharedCircuit.gates.filter (fun g => match g.op with | .and => true | _ => false)).length <
+      (matchingUnion.image fun e => s(inputEmbedding (false, e.1),
+        inputEmbedding (true, e.2))).card +
+      (lineFamilies.image fun L => L.image fun l => inputEmbedding (true, l)).card := by decide
+
+end PEqualNP.Outside.L_meta_2583.ThinMixedContext
