@@ -4420,3 +4420,339 @@ lemma matching_card_add_one_le_sum {p l : ℕ} {ι : Type*} [DecidableEq ι]
   exact Nat.succ_le_of_lt hlt
 
 end PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+noncomputable def atomSet {p l : ℕ} {ι : Type*} (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι) (X : Finset (Fin p))
+    (Y : Finset (Fin l)) : Finset ι := by
+  classical
+  exact G.filter (fun g => RectAccept A B {g} X Y)
+
+lemma mem_atomSet {p l : ℕ} {ι : Type*} (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι) (X : Finset (Fin p))
+    (Y : Finset (Fin l)) (g : ι) :
+    g ∈ atomSet A B G X Y ↔ g ∈ G ∧ RectAccept A B {g} X Y := by
+  classical
+  simp [atomSet]
+
+lemma mem_atomSet_singletons {p l : ℕ} {ι : Type*}
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (G : Finset ι)
+    (a : Fin p) (b : Fin l) (g : ι) :
+    g ∈ atomSet A B G {a} {b} ↔ g ∈ G ∧ a ∈ A g ∧ b ∈ B g := by
+  simp [mem_atomSet,rectAccept_singletons]
+
+lemma atomSet_empty {p l : ℕ} {ι : Type*}
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (G : Finset ι) :
+    atomSet A B G ∅ ∅ = ∅ := by
+  classical
+  simp [atomSet,RectAccept]
+
+lemma point_controller {p l : ℕ} {ι : Type*}
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι) (D : Finset ι → Prop)
+    (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (atomSet A B G X Y) ↔ EdgeAccept E X Y)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ g ∈ G, a ∈ A g ∧ b ∈ B g ∧ ∀ a' ∈ A g, (a',b) ∈ E := by
+  classical
+  have hp : D (atomSet A B G {a} {b}) := (hfull {a} {b}).mpr
+    ⟨a,by simp,b,by simp,hab⟩
+  let X : Finset (Fin p) := Finset.univ.filter (fun a' => (a',b) ∉ E)
+  have hn : ¬ D (atomSet A B G X {b}) := by
+    intro hh
+    obtain ⟨a',ha',b',hb',he⟩ := (hfull X {b}).mp hh
+    have eb : b' = b := Finset.mem_singleton.mp hb'
+    subst b'
+    exact (Finset.mem_filter.mp ha').2 he
+  have hex : ∃ g, g ∈ atomSet A B G {a} {b} ∧ g ∉ atomSet A B G X {b} := by
+    by_contra hh
+    apply hn
+    apply hmono _ _ _ hp
+    intro g hg
+    by_contra hng
+    exact hh ⟨g,hg,hng⟩
+  obtain ⟨g,hg,hng⟩ := hex
+  obtain ⟨hgG,ha,hb⟩ := (mem_atomSet_singletons A B G a b g).mp hg
+  refine ⟨g,hgG,ha,hb,?_⟩
+  intro a' ha'
+  by_contra he
+  apply hng
+  apply (mem_atomSet A B G X {b} g).mpr
+  exact ⟨hgG,g,by simp,a',ha',b,hb,by simp [X,he],by simp⟩
+
+lemma line_controller {p l : ℕ} {ι : Type*}
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι) (D : Finset ι → Prop)
+    (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (atomSet A B G X Y) ↔ EdgeAccept E X Y)
+    (a : Fin p) (b : Fin l) (hab : (a,b) ∈ E) :
+    ∃ g ∈ G, a ∈ A g ∧ b ∈ B g ∧ ∀ b' ∈ B g, (a,b') ∈ E := by
+  classical
+  have hp : D (atomSet A B G {a} {b}) := (hfull {a} {b}).mpr
+    ⟨a,by simp,b,by simp,hab⟩
+  let Y : Finset (Fin l) := Finset.univ.filter (fun b' => (a,b') ∉ E)
+  have hn : ¬ D (atomSet A B G {a} Y) := by
+    intro hh
+    obtain ⟨a',ha',b',hb',he⟩ := (hfull {a} Y).mp hh
+    have ea : a' = a := Finset.mem_singleton.mp ha'
+    subst a'
+    exact (Finset.mem_filter.mp hb').2 he
+  have hex : ∃ g, g ∈ atomSet A B G {a} {b} ∧ g ∉ atomSet A B G {a} Y := by
+    by_contra hh
+    apply hn
+    apply hmono _ _ _ hp
+    intro g hg
+    by_contra hng
+    exact hh ⟨g,hg,hng⟩
+  obtain ⟨g,hg,hng⟩ := hex
+  obtain ⟨hgG,ha,hb⟩ := (mem_atomSet_singletons A B G a b g).mp hg
+  refine ⟨g,hgG,ha,hb,?_⟩
+  intro b' hb'
+  by_contra he
+  apply hng
+  apply (mem_atomSet A B G {a} Y g).mpr
+  exact ⟨hgG,g,by simp,a,ha,b',hb',by simp,by simp [Y,he]⟩
+
+end PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+
+/-- A monotone decoder needs at least one rectangle atom per matching edge. At equality,
+its truth value on every atom set contained in G is exactly nonemptiness, and every atom is safe. -/
+lemma matching_card_le_atoms_and_saturation {p l : ℕ} {ι : Type*}
+    (E M : Finset (Fin p × Fin l)) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (G : Finset ι)
+    (D : Finset ι → Prop) (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (atomSet A B G X Y) ↔ EdgeAccept E X Y) :
+    M.card ≤ G.card ∧ (M.card = G.card →
+      (∀ V, V ⊆ G → (D V ↔ V.Nonempty)) ∧
+      (∀ g ∈ G, ∀ a ∈ A g, ∀ b ∈ B g, (a,b) ∈ E)) := by
+  classical
+  have hexP : ∀ e : {e // e ∈ M}, ∃ g : {g // g ∈ G},
+      e.val.1 ∈ A g.val ∧ e.val.2 ∈ B g.val ∧
+        ∀ a ∈ A g.val, (a,e.val.2) ∈ E := by
+    intro e
+    obtain ⟨g,hg,ha,hb,hn⟩ := point_controller E A B G D hmono hfull
+      e.val.1 e.val.2 (hME e.property)
+    exact ⟨⟨g,hg⟩,ha,hb,hn⟩
+  have hexL : ∀ e : {e // e ∈ M}, ∃ g : {g // g ∈ G},
+      e.val.1 ∈ A g.val ∧ e.val.2 ∈ B g.val ∧
+        ∀ b ∈ B g.val, (e.val.1,b) ∈ E := by
+    intro e
+    obtain ⟨g,hg,ha,hb,hn⟩ := line_controller E A B G D hmono hfull
+      e.val.1 e.val.2 (hME e.property)
+    exact ⟨⟨g,hg⟩,ha,hb,hn⟩
+  let fp := fun e : {e // e ∈ M} => Classical.choose (hexP e)
+  let fl := fun e : {e // e ∈ M} => Classical.choose (hexL e)
+  have hfp := fun e : {e // e ∈ M} => Classical.choose_spec (hexP e)
+  have hfl := fun e : {e // e ∈ M} => Classical.choose_spec (hexL e)
+  have hpi : Function.Injective fp := point_controller_injective E M
+    (fun g : {g // g ∈ G} => A g.val) hleft hright hC4 fp
+    (fun e => ⟨(hfp e).1,(hfp e).2.2⟩)
+  have hli : Function.Injective fl := line_controller_injective E M
+    (fun g : {g // g ∈ G} => B g.val) hleft hright hC4 fl
+    (fun e => ⟨(hfl e).2.1,(hfl e).2.2⟩)
+  have hle : M.card ≤ G.card := by
+    simpa only [Fintype.card_coe] using Fintype.card_le_of_injective fp hpi
+  refine ⟨hle,?_⟩
+  intro heq
+  have hcard : Fintype.card {e // e ∈ M} = Fintype.card {g // g ∈ G} := by
+    simpa only [Fintype.card_coe] using heq
+  have hps : Function.Surjective fp :=
+    ((Fintype.bijective_iff_injective_and_card fp).mpr ⟨hpi,hcard⟩).2
+  have hls : Function.Surjective fl :=
+    ((Fintype.bijective_iff_injective_and_card fl).mpr ⟨hli,hcard⟩).2
+  let ep := fun g : {g // g ∈ G} => Classical.choose (hps g)
+  let el := fun g : {g // g ∈ G} => Classical.choose (hls g)
+  have hep : ∀ g, fp (ep g) = g := fun g => Classical.choose_spec (hps g)
+  have hel : ∀ g, fl (el g) = g := fun g => Classical.choose_spec (hls g)
+  let pc := fun g : {g // g ∈ G} => (el g).val.1
+  let qc := fun g : {g // g ∈ G} => (ep g).val.2
+  have hpc : ∀ g, pc g ∈ A g.val := by
+    intro g
+    have hh := (hfl (el g)).1
+    change (el g).val.1 ∈ A (fl (el g)).val at hh
+    simpa only [hel] using hh
+  have hqc : ∀ g, qc g ∈ B g.val := by
+    intro g
+    have hh := (hfp (ep g)).2.1
+    change (ep g).val.2 ∈ B (fp (ep g)).val at hh
+    simpa only [hep] using hh
+  have hA : ∀ g a, a ∈ A g.val → (a,qc g) ∈ E := by
+    intro g a ha
+    have hh := (hfp (ep g)).2.2
+    change (∀ a ∈ A (fp (ep g)).val, (a,(ep g).val.2) ∈ E) at hh
+    rw [hep] at hh
+    exact hh a ha
+  have hB : ∀ g b, b ∈ B g.val → (pc g,b) ∈ E := by
+    intro g b hb
+    have hh := (hfl (el g)).2.2
+    change (∀ b ∈ B (fl (el g)).val, ((el g).val.1,b) ∈ E) at hh
+    rw [hel] at hh
+    exact hh b hb
+  have hpci : Function.Injective pc := by
+    intro g h he
+    have hmatch : el g = el h := Subtype.ext
+      (hleft _ (el g).property _ (el h).property he)
+    calc
+      g = fl (el g) := (hel g).symm
+      _ = fl (el h) := congrArg fl hmatch
+      _ = h := hel h
+  have hqci : Function.Injective qc := by
+    intro g h he
+    have hmatch : ep g = ep h := Subtype.ext
+      (hright _ (ep g).property _ (ep h).property he)
+    calc
+      g = fp (ep g) := (hep g).symm
+      _ = fp (ep h) := congrArg fp hmatch
+      _ = h := hep h
+  have hsingle : ∀ g ∈ G, D {g} := by
+    intro i hi
+    let g : {g // g ∈ G} := ⟨i,hi⟩
+    have hc : (pc g,qc g) ∈ E := hA g _ (hpc g)
+    have hatom : atomSet A B G {pc g} {qc g} = {i} := by
+      apply Finset.ext
+      intro j
+      constructor
+      · intro hj
+        obtain ⟨hjG,haj,hbj⟩ := (mem_atomSet_singletons A B G _ _ j).mp hj
+        let jj : {g // g ∈ G} := ⟨j,hjG⟩
+        have he : g = jj := RectanglePrivate.center_unique E hC4
+          (fun g : {g // g ∈ G} => A g.val) (fun g : {g // g ∈ G} => B g.val)
+          pc qc hpc hqc hA hB hpci hqci g jj haj hbj
+        exact Finset.mem_singleton.mpr (congrArg Subtype.val he).symm
+      · intro hj
+        have hji : j = i := Finset.mem_singleton.mp hj
+        subst j
+        exact (mem_atomSet_singletons A B G _ _ i).mpr ⟨hi,hpc g,hqc g⟩
+    have hd := (hfull {pc g} {qc g}).mpr
+      (show EdgeAccept E {pc g} {qc g} from ⟨pc g,by simp,qc g,by simp,hc⟩)
+    rwa [hatom] at hd
+  have hzero : ¬ D ∅ := by
+    intro hd
+    have he := (hfull ∅ ∅).mp (show D (atomSet A B G ∅ ∅) by
+      simpa only [atomSet_empty] using hd)
+    simp [EdgeAccept] at he
+  refine ⟨?_,?_⟩
+  · intro V hVG
+    constructor
+    · intro hd
+      by_contra hn
+      have hempty : V = ∅ := Finset.eq_empty_iff_forall_notMem.mpr
+        (fun i hi => hn ⟨i,hi⟩)
+      exact hzero (hempty ▸ hd)
+    · rintro ⟨i,hi⟩
+      exact hmono {i} V (Finset.singleton_subset_iff.mpr hi) (hsingle i (hVG hi))
+  · intro g hg a ha b hb
+    have hmem : g ∈ atomSet A B G {a} {b} :=
+      (mem_atomSet_singletons A B G a b g).mpr ⟨hg,ha,hb⟩
+    have hd := hmono {g} (atomSet A B G {a} {b})
+      (Finset.singleton_subset_iff.mpr hmem) (hsingle g hg)
+    simpa [EdgeAccept] using (hfull {a} {b}).mp hd
+
+end PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+namespace PEqualNP.Outside.L_meta_4970.RectangleHull
+
+open PEqualNP.Outside.L_meta_4970.RectangleControllers
+open PEqualNP.Outside.L_meta_4970.RectangleDecoder
+
+noncomputable def actualSet {p l : ℕ} {ι : Type*}
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop) (G : Finset ι)
+    (X : Finset (Fin p)) (Y : Finset (Fin l)) : Finset ι := by
+  classical
+  exact G.filter (fun g => f g X Y)
+
+lemma mem_actualSet {p l : ℕ} {ι : Type*}
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop) (G : Finset ι)
+    (X : Finset (Fin p)) (Y : Finset (Fin l)) (g : ι) :
+    g ∈ actualSet f G X Y ↔ g ∈ G ∧ f g X Y := by
+  classical
+  simp [actualSet]
+
+/-- Replacing monotone atoms by their exact rectangular pair shadows preserves a quadratic output. -/
+lemma monotone_hull_reduction {p l : ℕ} {ι : Type*}
+    (E : Finset (Fin p × Fin l)) (A : ι → Finset (Fin p))
+    (B : ι → Finset (Fin l)) (G : Finset ι)
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop)
+    (hfmono : ∀ g ∈ G, ∀ X Y X' Y', X ⊆ X' → Y ⊆ Y' → f g X Y → f g X' Y')
+    (hpair : ∀ g ∈ G, ∀ a b, f g {a} {b} ↔ a ∈ A g ∧ b ∈ B g)
+    (D : Finset ι → Prop) (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (actualSet f G X Y) ↔ EdgeAccept E X Y) :
+    ∀ X Y, D (atomSet A B G X Y) ↔ EdgeAccept E X Y := by
+  classical
+  have hle : ∀ X Y, atomSet A B G X Y ⊆ actualSet f G X Y := by
+    intro X Y g hg
+    obtain ⟨hgG,i,hi,a,ha,b,hb,hax,hby⟩ := (mem_atomSet A B G X Y g).mp hg
+    have hig : i = g := Finset.mem_singleton.mp hi
+    subst i
+    have hp : f g {a} {b} := (hpair g hgG a b).mpr ⟨ha,hb⟩
+    exact (mem_actualSet f G X Y g).mpr ⟨hgG,
+      hfmono g hgG {a} {b} X Y (Finset.singleton_subset_iff.mpr hax)
+        (Finset.singleton_subset_iff.mpr hby) hp⟩
+  have hpeq : ∀ a b, actualSet f G {a} {b} = atomSet A B G {a} {b} := by
+    intro a b
+    apply Finset.ext
+    intro g
+    rw [mem_actualSet,mem_atomSet_singletons]
+    constructor
+    · rintro ⟨hg,hf⟩
+      exact ⟨hg,(hpair g hg a b).mp hf⟩
+    · rintro ⟨hg,ha,hb⟩
+      exact ⟨hg,(hpair g hg a b).mpr ⟨ha,hb⟩⟩
+  intro X Y
+  constructor
+  · intro hd
+    exact (hfull X Y).mp (hmono _ _ (hle X Y) hd)
+  · rintro ⟨a,ha,b,hb,hab⟩
+    have hd : D (actualSet f G {a} {b}) := (hfull {a} {b}).mpr
+      ⟨a,by simp,b,by simp,hab⟩
+    rw [hpeq] at hd
+    apply hmono _ _ _ hd
+    intro g hg
+    obtain ⟨hgG,hag,hbg⟩ := (mem_atomSet_singletons A B G a b g).mp hg
+    exact (mem_atomSet A B G X Y g).mpr ⟨hgG,g,by simp,a,hag,b,hbg,ha,hb⟩
+
+/-- The matching bound and decoder rigidity extend to arbitrary monotone atoms with rectangular
+pair shadows. At saturation every full atom, not just its pair shadow, is below the graph function. -/
+lemma matching_card_le_atoms_and_full_saturation {p l : ℕ} {ι : Type*}
+    (E M : Finset (Fin p × Fin l)) (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ d ∈ M, e.1 = d.1 → e = d)
+    (hright : ∀ e ∈ M, ∀ d ∈ M, e.2 = d.2 → e = d)
+    (hC4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (A : ι → Finset (Fin p)) (B : ι → Finset (Fin l)) (G : Finset ι)
+    (f : ι → Finset (Fin p) → Finset (Fin l) → Prop)
+    (hfmono : ∀ g ∈ G, ∀ X Y X' Y', X ⊆ X' → Y ⊆ Y' → f g X Y → f g X' Y')
+    (hpair : ∀ g ∈ G, ∀ a b, f g {a} {b} ↔ a ∈ A g ∧ b ∈ B g)
+    (D : Finset ι → Prop) (hmono : ∀ U V, U ⊆ V → D U → D V)
+    (hfull : ∀ X Y, D (actualSet f G X Y) ↔ EdgeAccept E X Y) :
+    M.card ≤ G.card ∧ (M.card = G.card →
+      (∀ V, V ⊆ G → (D V ↔ V.Nonempty)) ∧
+      (∀ g ∈ G, ∀ X Y, f g X Y → EdgeAccept E X Y)) := by
+  classical
+  have hhull := monotone_hull_reduction E A B G f hfmono hpair D hmono hfull
+  obtain ⟨hle,hsat⟩ := matching_card_le_atoms_and_saturation E M hME hleft hright
+    hC4 A B G D hmono hhull
+  refine ⟨hle,?_⟩
+  intro heq
+  obtain ⟨hdecode,_⟩ := hsat heq
+  refine ⟨hdecode,?_⟩
+  intro g hg X Y hf
+  have hsub : actualSet f G X Y ⊆ G := by
+    intro i hi
+    exact ((mem_actualSet f G X Y i).mp hi).1
+  have hnonempty : (actualSet f G X Y).Nonempty :=
+    ⟨g,(mem_actualSet f G X Y g).mpr ⟨hg,hf⟩⟩
+  exact (hfull X Y).mp ((hdecode _ hsub).mpr hnonempty)
+
+end PEqualNP.Outside.L_meta_4970.RectangleHull
