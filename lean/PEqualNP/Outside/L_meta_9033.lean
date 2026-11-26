@@ -1857,3 +1857,433 @@ theorem q_eq_of_mate_eq (q h m : Bool → Fin 32 → Bool)
   rw [hq, hm]
 
 end PEqualNP.Outside.L_meta_9033_aux.QMateExtraction
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalOrPorts
+
+def rawIndex (i : Fin 8) : Nat :=
+  if i.val < 3 then i.val else if i.val = 3 then 4 else if i.val = 4 then 5
+  else if i.val = 5 then 8 else if i.val = 6 then 9 else 10
+
+def rawSlots : Finset Nat := {0, 1, 2, 4, 5, 8, 9, 10}
+
+theorem rawSlots_iff : ∀ w : Fin 11,
+    w.val ∈ rawSlots ↔ ∃ i : Fin 8, rawIndex i = w.val := by
+  decide +kernel
+
+def usable (v : Fin 3) (w : Nat) : Prop :=
+  w ≠ v.val ∧ (11 ≤ w ∨ w ∈ rawSlots)
+
+def sourceIndex {m : Nat} (h g q : Fin m) (b : Fin 8) : Nat :=
+  if hb : b.val < 5 then rawIndex ⟨b.val + 3, by omega⟩
+  else if b.val = 5 then 11 + h.val else if b.val = 6 then 11 + g.val else 11 + q.val
+
+def basisLabels : Finset (Fin 8) := {0, 1, 2, 3, 4, 5, 6, 7}
+
+theorem basisLabels_complete : ∀ b : Fin 8, b ∈ basisLabels := by decide +kernel
+
+def allowedSources {m : Nat} (h g q : Fin m) (limit : Nat) : Finset (Fin 8) :=
+  basisLabels.filter (fun b => sourceIndex h g q b < 11 + limit)
+
+theorem trace_prefix_final_port {m : Nat} (v : Fin 3) (limit : Nat)
+    (hlimit : limit ≤ m) (a b : Fin m → Nat) (op : Fin m → Bool)
+    (h g q : Fin m) (value : Nat → (Bool × Fin 32) → Bool)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hand : ∀ i, i.val < limit → op i = true →
+      i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false)
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q) :
+    ∀ w : Fin (11 + limit), usable v w.val →
+      ∃ support : Finset (Fin 8), support ⊆ allowedSources h g q limit ∧
+        ∀ s : Bool × Fin 32,
+          value w.val s = HFirst.finalSide (ConcreteOrPorts.supportRawMask support)
+            (decide (5 ∈ support)) (decide (6 ∈ support)) (decide (7 ∈ support))
+            (value (11 + h.val) s) (value (11 + g.val) s)
+            (value (11 + q.val) s) s.2 := by
+  let basis := ConcreteOrPorts.portBasis (fun s : Bool × Fin 32 => s.2)
+    (value (11 + h.val)) (value (11 + g.val)) (value (11 + q.val))
+  have step : ∀ w : Fin (11 + limit), usable v w.val →
+      (∀ s, value w.val s = false) ∨
+      (∃ c ∈ allowedSources h g q limit, ∀ s, value w.val s = basis c s) ∨
+      (∃ j k : Fin (11 + limit), j.val < w.val ∧ k.val < w.val ∧
+        usable v j.val ∧ usable v k.val ∧
+        ∀ s, value w.val s = (value j.val s || value k.val s)) := by
+    intro w hw
+    have cutoff (c : Fin 8) (hc : sourceIndex h g q c = w.val) :
+        c ∈ allowedSources h g q limit := by
+      unfold allowedSources
+      apply Finset.mem_filter.mpr
+      refine ⟨basisLabels_complete c, ?_⟩
+      rw [hc]
+      exact w.isLt
+    by_cases hwr : w.val < 11
+    · have hslot : w.val ∈ rawSlots := by
+        rcases hw.2 with hlarge | hslot
+        · omega
+        · exact hslot
+      obtain ⟨r, hr⟩ := (rawSlots_iff ⟨w.val, hwr⟩).mp hslot
+      by_cases habc : r.val < 3
+      · left
+        have hridx : rawIndex r = r.val := by simp [rawIndex, habc]
+        have hrv : r.val ≠ v.val := by
+          intro heq
+          apply hw.1
+          exact hr.symm.trans (hridx.trans heq)
+        intro s
+        have hx := hraw r s
+        rw [hr] at hx
+        simpa [ReaderCofactorBridge.embed, habc, hrv] using hx
+      · let c : Fin 8 := ⟨r.val - 3, by omega⟩
+        have hc : c.val < 5 := by dsimp [c]; omega
+        have hcr : (⟨c.val + 3, by omega⟩ : Fin 8) = r := by
+          apply Fin.ext
+          dsimp [c]
+          omega
+        have hsource : sourceIndex h g q c = w.val := by
+          simp only [sourceIndex, hc, dite_eq_left]
+          rw [hcr]
+          exact hr
+        right
+        left
+        refine ⟨c, cutoff c hsource, ?_⟩
+        intro s
+        have hx := hraw r s
+        rw [hr] at hx
+        rw [hx]
+        simp [basis, ConcreteOrPorts.portBasis, ReaderCofactorBridge.embed, habc, hc, c]
+    · let i : Fin m := ⟨w.val - 11, by omega⟩
+      have hi : 11 + i.val = w.val := by dsimp [i]; omega
+      have hilimit : i.val < limit := by dsimp [i]; omega
+      by_cases hih : i = h
+      · right
+        left
+        refine ⟨5, cutoff 5 ?_, ?_⟩
+        · simpa [sourceIndex, hih] using hi
+        · intro s
+          simp only [basis, ConcreteOrPorts.portBasis]
+          simpa [hih] using congrArg (fun z => value z s) hi.symm
+      · by_cases hig : i = g
+        · right
+          left
+          refine ⟨6, cutoff 6 ?_, ?_⟩
+          · simpa [sourceIndex, hig] using hi
+          · intro s
+            simp only [basis, ConcreteOrPorts.portBasis]
+            simpa [hig] using congrArg (fun z => value z s) hi.symm
+        · by_cases hiq : i = q
+          · right
+            left
+            refine ⟨7, cutoff 7 ?_, ?_⟩
+            · simpa [sourceIndex, hiq] using hi
+            · intro s
+              simp only [basis, ConcreteOrPorts.portBasis]
+              simpa [hiq] using congrArg (fun z => value z s) hi.symm
+          · by_cases hand_i : op i = true
+            · left
+              rcases hand i hilimit hand_i with he | he | hz
+              · exact False.elim (hih he)
+              · exact False.elim (hig he)
+              · intro s
+                simpa only [hi] using hz s
+            · have hop : op i = false := by
+                cases he : op i
+                · rfl
+                · exact False.elim (hand_i he)
+              have hja : a i < w.val := by simpa only [hi] using ha i
+              have hjb : b i < w.val := by simpa only [hi] using hb i
+              let j : Fin (11 + limit) := ⟨a i, by omega⟩
+              let k : Fin (11 + limit) := ⟨b i, by omega⟩
+              have hjgood : usable v j.val := by
+                constructor
+                · intro he
+                  exact hiq (hsole i (Or.inl he))
+                · by_cases he : 11 ≤ a i
+                  · exact Or.inl he
+                  · exact Or.inr (hav i (by omega))
+              have hkgood : usable v k.val := by
+                constructor
+                · intro he
+                  exact hiq (hsole i (Or.inr he))
+                · by_cases he : 11 ≤ b i
+                  · exact Or.inl he
+                  · exact Or.inr (hbv i (by omega))
+              right
+              right
+              refine ⟨j, k, hja, hjb, hjgood, hkgood, ?_⟩
+              intro s
+              have hx := hgate i s
+              simpa [hop, hi, j, k] using hx
+  exact ConcreteOrPorts.causal_final_port
+    (fun w : Fin (11 + limit) => value w.val) (fun s : Bool × Fin 32 => s.2)
+    (value (11 + h.val)) (value (11 + g.val)) (value (11 + q.val))
+    (fun w => usable v w.val) (allowedSources h g q limit) step
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalOrPorts
+
+namespace PEqualNP.Outside.L_meta_9033_aux.PhysicalQMateExtraction
+
+open PhysicalOrPorts
+
+theorem raw_retained_value (v : Fin 3) (value : Nat → (Bool × Fin 32) → Bool)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (s : Bool × Fin 32) : value v.val s = s.1 := by
+  have hi : rawIndex (ReaderCofactorBridge.abcIndex v) = v.val := by
+    simp [rawIndex, ReaderCofactorBridge.abcIndex, v.isLt]
+  have hv := hraw (ReaderCofactorBridge.abcIndex v) s
+  rw [hi, ReaderCofactorBridge.embed_abc] at hv
+  simpa using hv
+
+theorem sole_or_reader_exact_h {m : Nat} (v : Fin 3)
+    (a b : Fin m → Nat) (op : Fin m → Bool) (h g q : Fin m)
+    (value : Nat → (Bool × Fin 32) → Bool)
+    (ha : ∀ i, a i < 11 + i.val) (hb : ∀ i, b i < 11 + i.val)
+    (hav : ∀ i, a i < 11 → a i ∈ rawSlots)
+    (hbv : ∀ i, b i < 11 → b i ∈ rawSlots)
+    (hraw : ∀ (i : Fin 8) (s : Bool × Fin 32),
+      value (rawIndex i) s = ReaderCofactorBridge.embed v s.1 s.2 i)
+    (hgate : ∀ (i : Fin m) (s : Bool × Fin 32),
+      value (11 + i.val) s =
+        if op i then (value (a i) s && value (b i) s)
+        else (value (a i) s || value (b i) s))
+    (hand : ∀ i, i.val < q.val → op i = true →
+      i = h ∨ i = g ∨ ∀ s : Bool × Fin 32, value (11 + i.val) s = false)
+    (hsole : ∀ i, a i = v.val ∨ b i = v.val → i = q)
+    (hopq : op q = false) (haq : a q = v.val)
+    (hcore : ∀ i : Fin 5, value (b q) (false, HFirst.unit i) = false)
+    (hretained : value (b q) (true, 0) = false)
+    (hgsingleton : (∃ i : Fin 5, value (11 + g.val) (false, HFirst.unit i) = true) ∨
+      value (11 + g.val) (true, 0) = true)
+    (hpositive : ∃ s : Bool × Fin 32, value (b q) s = true) :
+    h.val < q.val ∧
+      (∀ s : Bool × Fin 32, value (b q) s = value (11 + h.val) s) ∧
+      ∀ s : Bool × Fin 32, value (11 + q.val) s = (s.1 || value (11 + h.val) s) := by
+  have hbq_ne : b q ≠ v.val := by
+    intro he
+    have hz := hretained
+    rw [he, raw_retained_value v value hraw] at hz
+    contradiction
+  have hbq_usable : usable v (b q) := by
+    refine ⟨hbq_ne, ?_⟩
+    by_cases hl : 11 ≤ b q
+    · exact Or.inl hl
+    · exact Or.inr (hbv q (by omega))
+  obtain ⟨support, hallowed, hrepr⟩ :=
+    trace_prefix_final_port v q.val (by omega) a b op h g q value
+      ha hb hav hbv hraw hgate hand hsole ⟨b q, hb q⟩ hbq_usable
+  have hqnot : (7 : Fin 8) ∉ support := by
+    intro hmem
+    have hbirth := (Finset.mem_filter.mp (hallowed hmem)).2
+    simp [sourceIndex] at hbirth
+  let hf : Bool → Fin 32 → Bool := fun c x => value (11 + h.val) (c, x)
+  let gf : Bool → Fin 32 → Bool := fun c x => value (11 + g.val) (c, x)
+  have hmate : ∀ c x, value (b q) (c, x) =
+      QMateExtraction.mate (ConcreteOrPorts.supportRawMask support)
+        (decide (5 ∈ support)) (decide (6 ∈ support)) hf gf c x := by
+    intro c x
+    have hr := hrepr (c, x)
+    simpa [HFirst.finalSide, QMateExtraction.mate, hqnot, hf, gf] using hr
+  have hmate_core : ∀ i : Fin 5,
+      QMateExtraction.mate (ConcreteOrPorts.supportRawMask support)
+        (decide (5 ∈ support)) (decide (6 ∈ support)) hf gf false (HFirst.unit i) = false := by
+    intro i
+    rw [← hmate]
+    exact hcore i
+  have hmate_retained : QMateExtraction.mate (ConcreteOrPorts.supportRawMask support)
+      (decide (5 ∈ support)) (decide (6 ∈ support)) hf gf true 0 = false := by
+    rw [← hmate]
+    exact hretained
+  have hmate_positive : ∃ c x, QMateExtraction.mate (ConcreteOrPorts.supportRawMask support)
+      (decide (5 ∈ support)) (decide (6 ∈ support)) hf gf c x = true := by
+    obtain ⟨⟨c, x⟩, hx⟩ := hpositive
+    refine ⟨c, x, ?_⟩
+    rw [← hmate]
+    exact hx
+  obtain ⟨_, _, hhflag, hexact⟩ :=
+    QMateExtraction.mate_exact_h (ConcreteOrPorts.supportRawMask support)
+      (decide (5 ∈ support)) (decide (6 ∈ support)) hf gf
+      hmate_core hmate_retained hgsingleton hmate_positive
+  have hhmem : (5 : Fin 8) ∈ support := of_decide_eq_true hhflag
+  have hbirth := (Finset.mem_filter.mp (hallowed hhmem)).2
+  have hhbefore : h.val < q.val := by
+    simpa [sourceIndex] using hbirth
+  have hmate_exact : ∀ s : Bool × Fin 32, value (b q) s = value (11 + h.val) s := by
+    rintro ⟨c, x⟩
+    exact (hmate c x).trans (hexact c x)
+  refine ⟨hhbefore, hmate_exact, ?_⟩
+  intro s
+  calc
+    value (11 + q.val) s = (value (a q) s || value (b q) s) := by
+      simpa [hopq] using hgate q s
+    _ = (s.1 || value (11 + h.val) s) := by
+      rw [haq, raw_retained_value v value hraw, hmate_exact]
+
+end PEqualNP.Outside.L_meta_9033_aux.PhysicalQMateExtraction
+
+namespace PEqualNP.Outside.L_meta_9033_aux.GlobalMaskCostTransport
+
+open MaskSignatureTransport
+open PackedCofactorBridge
+
+lemma signature5_eq_or : ∀ a b c d e : Bool,
+    (if a then 1 else 0) + (if b then 2 else 0) + (if c then 4 else 0) +
+      (if d then 8 else 0) + (if e then 16 else 0) =
+    ((if a then 1 else 0) ||| (if b then 2 else 0) ||| (if c then 4 else 0) |||
+      (if d then 8 else 0) ||| (if e then 16 else 0)) := by
+  decide +kernel
+
+theorem localMask_of_packed_cofactor (v : Fin 3)
+    (truth : (Fin 8 → Bool) → Bool) (packed : Nat)
+    (hcofactor : ∀ b x, truth (ReaderCofactorBridge.embed v b x) = packed.testBit x.val)
+    (hzero : packed.testBit 0 = false) :
+    localMask v truth = BcofactorClassification.singletonMask packed := by
+  simpa [localMask, signature6, hcofactor, hzero, HFirst.unit,
+    BcofactorClassification.singletonMask] using
+    signature5_eq_or (packed.testBit 1) (packed.testBit 2) (packed.testBit 4)
+      (packed.testBit 8) (packed.testBit 16)
+
+lemma raw_singletonMask : ∀ p : Fin 32,
+    BcofactorClassification.singletonMask (BcofactorClassification.coreUnion p.val 0) = p.val := by
+  decide +kernel
+
+lemma upper_singletonMask : BcofactorClassification.singletonMask
+    BcofactorClassification.upperTarget = 5 := by decide +kernel
+
+lemma raw_zero_bit (p : Fin 32) :
+    (BcofactorClassification.coreUnion p.val 0).testBit 0 = false := by
+  exact (rawMask_testBit p 0).trans (HFirst.raw_zero p)
+
+lemma g_zero_bit (p q : Fin 32) : (GFirstModel.gValue p q).testBit 0 = false := by
+  simpa [GFirstModel.gValue, HFirst.raw_zero] using rawAnd_testBit p q 0
+
+lemma source_zero_bit (s : Fin 64) (g : Nat) (hzero : g.testBit 0 = false) :
+    (BcofactorClassification.coreUnion s.val g).testBit 0 = false := by
+  simpa [HFirst.raw_zero, hzero] using coreUnion_testBit s g 0
+
+def requiredLabels : Finset (Fin 7) := {0, 1, 2, 3, 4, 5, 6}
+
+def packedPort (p q : Fin 32) (u w : Fin 64) (a b : Fin 32) (i : Fin 7) : Nat :=
+  if i = 0 then BcofactorClassification.coreUnion p.val 0
+  else if i = 1 then BcofactorClassification.coreUnion q.val 0
+  else if i = 2 then BcofactorClassification.coreUnion u.val (GFirstModel.gValue p q)
+  else if i = 3 then BcofactorClassification.coreUnion w.val (GFirstModel.gValue p q)
+  else if i = 4 then BcofactorClassification.upperTarget
+  else if i = 5 then BcofactorClassification.coreUnion a.val 0
+  else BcofactorClassification.coreUnion b.val 0
+
+lemma packedPort_zero_bit (p q : Fin 32) (u w : Fin 64) (a b : Fin 32) (i : Fin 7) :
+    (packedPort p q u w a b i).testBit 0 = false := by
+  unfold packedPort
+  split
+  · exact raw_zero_bit p
+  split
+  · exact raw_zero_bit q
+  split
+  · exact source_zero_bit u _ (g_zero_bit p q)
+  split
+  · exact source_zero_bit w _ (g_zero_bit p q)
+  split
+  · decide +kernel
+  split
+  · exact raw_zero_bit a
+  · exact raw_zero_bit b
+
+theorem global_budget_to_maskCount_of_local_masks
+    (v : Fin 3) (p q : Fin 32) (u w : Fin 64) (a b : Fin 32)
+    (truth : Fin 7 → (Fin 8 → Bool) → Bool) (exceptional : (Fin 8 → Bool) → Bool)
+    (hi : ∀ i, localMask v (truth i) =
+      BcofactorClassification.singletonMask (packedPort p q u w a b i))
+    (he : localMask v exceptional = BcofactorClassification.singletonMask (GFirstModel.gValue p q))
+    (hbudget : ((requiredLabels.image (fun i => globalMask (truth i))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ 6) :
+    GFirstModel.maskCount p q u w a.val b.val ≤ 6 := by
+  have hp := cofactor_signature_budget v truth requiredLabels exceptional 6 hbudget
+  simp only [he, hi] at hp
+  have hatoms : insert (BcofactorClassification.singletonMask (GFirstModel.gValue p q))
+      MaskProjection.localRawAtoms =
+      {0, 1, 2, 4, 8, 16, 32, BcofactorClassification.singletonMask (GFirstModel.gValue p q)} := by
+    ext z
+    simp [MaskProjection.localRawAtoms, or_comm, or_assoc]
+  rw [hatoms] at hp
+  simpa [requiredLabels, packedPort, raw_singletonMask, upper_singletonMask,
+    GFirstModel.maskCount] using hp
+
+theorem global_function_budget_to_maskCount
+    (v : Fin 3) (p q : Fin 32) (u w : Fin 64) (a b : Fin 32)
+    (truth : Fin 7 → (Fin 8 → Bool) → Bool) (exceptional : (Fin 8 → Bool) → Bool)
+    (hports : ∀ i retained x, truth i (ReaderCofactorBridge.embed v retained x) =
+      (packedPort p q u w a b i).testBit x.val)
+    (hexceptional : ∀ retained x, exceptional (ReaderCofactorBridge.embed v retained x) =
+      (GFirstModel.gValue p q).testBit x.val)
+    (hbudget : ((requiredLabels.image (fun i => globalMask (truth i))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ 6) :
+    GFirstModel.maskCount p q u w a.val b.val ≤ 6 := by
+  apply global_budget_to_maskCount_of_local_masks v p q u w a b truth exceptional
+  · intro i
+    exact localMask_of_packed_cofactor v (truth i) _ (hports i)
+      (packedPort_zero_bit p q u w a b i)
+  · exact localMask_of_packed_cofactor v exceptional _ hexceptional (g_zero_bit p q)
+  · exact hbudget
+
+theorem global_cofactor_budget_to_maskCount
+    (v : Fin 3) (p q : Fin 32) (u w : Fin 64) (a b : Fin 32)
+    (truth : Fin 7 → (Fin 8 → Bool) → Bool) (exceptional : (Fin 8 → Bool) → Bool)
+    (hports : ∀ i, i.val < 5 → ∀ retained x,
+      truth i (ReaderCofactorBridge.embed v retained x) =
+        (packedPort p q u w a b i).testBit x.val)
+    (hstarA : localMask v (truth 5) = a.val)
+    (hstarB : localMask v (truth 6) = b.val)
+    (hexceptional : ∀ retained x, exceptional (ReaderCofactorBridge.embed v retained x) =
+      (GFirstModel.gValue p q).testBit x.val)
+    (hbudget : ((requiredLabels.image (fun i => globalMask (truth i))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ 6) :
+    GFirstModel.maskCount p q u w a.val b.val ≤ 6 := by
+  apply global_budget_to_maskCount_of_local_masks v p q u w a b truth exceptional
+  · intro i
+    by_cases hi : i.val < 5
+    · exact localMask_of_packed_cofactor v (truth i) _ (hports i hi)
+        (packedPort_zero_bit p q u w a b i)
+    · have hc : i = 5 ∨ i = 6 := by
+        have hiv := i.isLt
+        have hival : i.val = 5 ∨ i.val = 6 := by omega
+        rcases hival with hv | hv
+        · left; exact Fin.ext hv
+        · right; exact Fin.ext hv
+      rcases hc with rfl | rfl
+      · simpa [packedPort, raw_singletonMask] using hstarA
+      · simpa [packedPort, raw_singletonMask] using hstarB
+  · exact localMask_of_packed_cofactor v exceptional _ hexceptional (g_zero_bit p q)
+  · exact hbudget
+
+lemma project_core_mask : ∀ (v : Fin 3) (a : Fin 32),
+    MaskProjection.projectNat v (8 * a.val) = a.val := by decide +kernel
+
+lemma localMask_of_core_globalMask (v : Fin 3) (a : Fin 32)
+    (truth : (Fin 8 → Bool) → Bool) (hmask : globalMask truth = 8 * a.val) :
+    localMask v truth = a.val := by
+  rw [localMask_eq_projection, hmask, project_core_mask]
+
+theorem global_cofactor_and_star_budget_to_maskCount
+    (v : Fin 3) (p q : Fin 32) (u w : Fin 64) (a b : Fin 32)
+    (truth : Fin 7 → (Fin 8 → Bool) → Bool) (exceptional : (Fin 8 → Bool) → Bool)
+    (hports : ∀ i, i.val < 5 → ∀ retained x,
+      truth i (ReaderCofactorBridge.embed v retained x) =
+        (packedPort p q u w a b i).testBit x.val)
+    (hstarA : globalMask (truth 5) = 8 * a.val)
+    (hstarB : globalMask (truth 6) = 8 * b.val)
+    (hexceptional : ∀ retained x, exceptional (ReaderCofactorBridge.embed v retained x) =
+      (GFirstModel.gValue p q).testBit x.val)
+    (hbudget : ((requiredLabels.image (fun i => globalMask (truth i))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ 6) :
+    GFirstModel.maskCount p q u w a.val b.val ≤ 6 := by
+  exact global_cofactor_budget_to_maskCount v p q u w a b truth exceptional hports
+    (localMask_of_core_globalMask v a (truth 5) hstarA)
+    (localMask_of_core_globalMask v b (truth 6) hstarB) hexceptional hbudget
+
+end PEqualNP.Outside.L_meta_9033_aux.GlobalMaskCostTransport
