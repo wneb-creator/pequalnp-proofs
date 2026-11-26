@@ -1,4 +1,3 @@
-import Mathlib.Data.Fin.Basic
 import Mathlib.Data.Tree.Basic
 
 -- Helper-only RUP checking infrastructure; this does not prove the posted gap.
