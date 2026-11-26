@@ -1,0 +1,97 @@
+[
+  {
+    "module": "Checker",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "10eeb1036f36fa40488c3247154ab50922c3e171b17b0e14d75389335f94a110"
+  },
+  {
+    "module": "Half",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "00bfdacacadc120f43a9c490f1e541f62b2b60ad78b67d9ab2eef31db1e02241"
+  },
+  {
+    "module": "Initial",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "2ffa7107ef02d81b1f42a8700aa9caf94914c92069fb21505b404dca05c34f3f"
+  },
+  {
+    "module": "Coordinates",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "5e6399a8d1a52d7b96704c9143089abfaabe9366c66e8bd40ad7a13a21963a56"
+  },
+  {
+    "module": "PreparedLinks",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "edc562c9f7d92f165af1768fb643d6722c68e0d36dc9a3eb3848da9437795237"
+  },
+  {
+    "module": "SameSet",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "07ca2d89e03b124255ab7964707b4a1c88486ccba92a84735894196f7ef57858"
+  },
+  {
+    "module": "Replay",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "ed9a8ebf00aa0c8cf529836f2f669084652b4cc5440634b953f23f3dc92dcd0a"
+  },
+  {
+    "module": "CheckNode",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "330a85c5d9235cd58cc7c89398eacd95ef0e4a5965551eae3a466b4f58af8dc0"
+  },
+  {
+    "module": "BlockReplay",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "93689a98aa5264ff26d17e97fe38cc235479a7b24c90fe8c9245213d26ba3872"
+  },
+  {
+    "module": "DirectDecode",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "9f6f3ae6491b5fac631cdfe2e7985bc56f977a7fe4b0118e4a23892a41d2d004"
+  },
+  {
+    "module": "DirectReplay",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "8b5dc30f42ae0c80a33a16413fa4d4e9e67c221ddc01af1e619d2736b9737685"
+  },
+  {
+    "module": "FastCofactorPools",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "9f1e1b28f6efb266a717271c5b1bc2a5bfe4f0d33fabb098b11c24ce8f2286b3"
+  },
+  {
+    "module": "CollisionProfiles",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "b22a8e94b1d00797983e2e65f9e461a49209b442a526f8b3a238df1a94eac10c"
+  },
+  {
+    "module": "FastDirect",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "ad6e3f050f7d244660589a31554e53edbe00f16f3956fd4ae2ac85ce2bcd637c"
+  },
+  {
+    "module": "DecodeHom",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "15bdfb1dd6be91095390185e9e985244f81be32d3c1cacd6d5c900c11c067e5b"
+  },
+  {
+    "module": "GenericDecodeHom",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "cdd29bf0f2bcdd54bd4ac4f7f6d872303f39489fe5a0753b389c748efa188af9"
+  },
+  {
+    "module": "PackedCollision",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "e4e0517ce2ea8f958ded49134aa19710b2e8bb14cee52cbb3a6d284142ff4b8b"
+  },
+  {
+    "module": "PackedRows",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "303f6e9bbfdf9d96f704a6b52202dc6f2fcbad401cc23319cd8cc01906d0a699"
+  },
+  {
+    "module": "PackedDirect",
+    "matches_frozen_with_namespace_adaptation": true,
+    "sha256": "3fac66fbb294d689af864b9dbe7a25b6c9d3be15cf62e1be5e5c0be8b4faecfd"
+  }
+]
