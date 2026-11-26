@@ -63,7 +63,12 @@ preflights match all5230state/hint rows. Actualcompressedroot FullDataBlock0 ker
 PASS49skernel using block32hints and originalstatecodec. No fullforest claim.
 Optional symmetry-prefix replay modules compile but show no measured node speed gain.
 
+Fastcofactor/directstate/block32 actualnode292PASS23.52s/5939032KiB. Addingcached
+collisionprofilesPASS17.15s/5075116KiB; actualrootnode0PASS27.87s/5576916KiB.
+Allthreegenericoptimizationmodules compiled and independentlysource-reviewedPASS.
+The closure theorem still assumes all5230nodechecks, which remain unproved.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=87.9 subagents=8
+TIMING total=91.7 subagents=8

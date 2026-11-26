@@ -11,8 +11,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--repo', type=Path, required=True)
 parser.add_argument('--output', type=Path, required=True)
 parser.add_argument('--lean', default='lean')
-parser.add_argument('--memory', type=int, default=11000)
-parser.add_argument('--modules', nargs='+', default=['Checker', 'Half', 'Initial', 'Coordinates', 'PreparedLinks', 'SameSet', 'Replay', 'CheckNode', 'BlockReplay', 'DirectDecode', 'DirectReplay'])
+parser.add_argument('--memory', type=int, default=9000)
+parser.add_argument('--modules', nargs='+', default=['Checker', 'Half', 'Initial', 'Coordinates', 'PreparedLinks', 'SameSet', 'Replay', 'CheckNode', 'BlockReplay', 'DirectDecode', 'DirectReplay', 'FastCofactorPools', 'CollisionProfiles', 'FastDirect'])
 args = parser.parse_args()
 source = Path(__file__).resolve().parent
 repo = args.repo.resolve() / 'lean'

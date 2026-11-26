@@ -38,7 +38,8 @@ the generic proofs require the resulting Boolean checks to return true.
 
 The original `manifest.json` pins the frozen, built core and its full logs.
 `optimized-manifest.json` pins the subsequent direct-state/block32 modules and
-complete build logs. All published files are listed in `SHA256SUMS`.
+complete build logs. `fast-manifest.json` pins the later cofactor/profile
+optimization and its separate node measurements. All published files are listed in `SHA256SUMS`.
 Large native traces and compiled libraries are deliberately absent.
 
 ## Reproduce the modular builds
@@ -59,7 +60,7 @@ python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo 
 
 The builder invokes Lean directly using the existing library directories and
 saves complete stdout/stderr per module. It serializes builds and defaults to
-an 11,000 MB Lean limit because this job's container has 16 GiB total memory.
+a 9,000 MB Lean limit because this job's container has 16 GiB total memory.
 `--modules Probe16` reruns the smaller finite sanity check after the default
 modules have been built in that same scratch directory. `--modules FullDataBlock0`
 checks the compressed root. The optional symmetry modules must be built in order:
@@ -100,3 +101,28 @@ A separate root-node check with literal projection hints and links passed in
 node only. Checks using the compressed data also include decoder costs, and
 large batches have not yet been benchmarked. Compile serially within a 16 GiB
 container until representative checks establish a safe batch size.
+
+## Measured cofactor and collision optimizations
+
+The default build also includes `FastCofactorPools.lean`, `CollisionProfiles.lean`
+and `FastDirect.lean`. Fast cofactor materialization is proved equal to the old
+implementation; cached collision supports have their own soundness proof.
+The resulting `profileClosed` still requires every one of the 5,230 node checks.
+
+Actual compressed-data node 292 passed with fast cofactors in 23.52 seconds
+(5,939,032 KiB peak RSS), and with collision profiles as well in 17.15 seconds
+(5,075,116 KiB). Root node 0 also passed with both optimizations in 27.87 seconds
+(5,576,916 KiB peak RSS). Additional nodes 2000, 4000 and 5229 passed in
+6.68, 12.72 and 3.90 seconds respectively. These are individual serialized
+measurements, not an estimate
+of the entire forest. Sources and complete stdout/stderr are included. To
+repeat the faster check after the default modules build, use
+`--modules ProfileDirectNode292`. Its entry point is:
+
+```lean
+import FastDirect
+open PEqualNP.Outside.L_meta_2373_aux.Cert18.Replay.DirectMode.Fast
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+example : profileCheckNode 292 = true := by decide +kernel
+```
