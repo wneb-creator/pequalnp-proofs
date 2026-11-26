@@ -9404,3 +9404,312 @@ lemma pure_gate_not_base {D : Dag} (e q : Nat × Bool) (f : V → Nat × Bool) (
     exact base_bar_closed e q f (baseRep_mem e q f i)
 
 end PEqualNP.Outside.L_meta_2590_aux.S50ExtraDistinct
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraTyped7
+open DagTools Four S50Private S50SplitT S50ExtraSeed S50ExtraPrivate S50ExtraCoverage
+open S50ExtraMatching S50ExtraDistinct S50ThreeMatching
+
+def leafRep (r : V → Nat × Bool) (u : V) (i k : Fin 3) (l : Fin 2) : Nat × Bool :=
+  if l = 0 then r (vertex u i) else r (vertex u k)
+
+def reps (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V) (i k : Fin 3) : Fin 7 → Nat × Bool :=
+  Fin.append (baseRep e q f) (leafRep r u i k)
+
+def left (u : V) (i k : Fin 3) : Fin 7 → Finset V :=
+  Fin.append (sideA u) (fun l : Fin 2 => if l = 0 then {vertex u i} else {vertex u k})
+
+def right (u : V) (j : Fin 3) : Fin 7 → Finset V :=
+  Fin.append (sideB u) (fun l : Fin 2 => if l = 0 then {vertex u j} else ∅)
+
+lemma base_gate_represented (e q : Nat × Bool) (f : V → Nat × Bool)
+    {a : Nat × Bool} (ha : a ∈ baseArcs e q f) :
+    ∃ i : Fin 5, (baseRep e q f i).1 = a.1 := by
+  simp only [baseArcs,Finset.mem_insert,Finset.mem_singleton] at ha
+  rcases ha with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨0,rfl⟩
+  · exact ⟨0,rfl⟩
+  · exact ⟨1,rfl⟩
+  · exact ⟨1,rfl⟩
+  · exact ⟨2,rfl⟩
+  · exact ⟨2,rfl⟩
+  · exact ⟨3,rfl⟩
+  · exact ⟨3,rfl⟩
+  · exact ⟨4,rfl⟩
+  · exact ⟨4,rfl⟩
+
+lemma typed_seven_gates {D : Dag} (h : Strict 10 D)
+    (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x})
+    (rpure : ∀ b ∈ oppositeColor u, supp 10 D (src D (r b)) = {b})
+    (zero : sem_W 10 D 0 = {e})
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (sourceSide : ∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))})
+    (oppositeSide : ∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x})
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅)
+    (i j k : Fin 3) (hij : i ≠ j) (hki : k ≠ i) (hkj : k ≠ j)
+    (pair : r (vertex u j) = sem_bar (r (vertex u i)))
+    (third : supp 10 D (src D (sem_bar (r (vertex u k)))) = ∅) :
+    Function.Injective (fun l : Fin 7 => (reps e q f r u i k l).1) ∧
+    (∀ l : Fin 7, (reps e q f r u i k l).1 < D.length ∧ tag D (reps e q f r u i k l).1 = true) ∧
+    (∀ l : Fin 7, supp 10 D (src D (reps e q f r u i k l)) = left u i k l) ∧
+    (∀ l : Fin 7, supp 10 D (src D (sem_bar (reps e q f r u i k l))) = right u j l) ∧
+    (∀ g : Nat, g < D.length → tag D g = true →
+      (∀ l : Fin 7, (reps e q f r u i k l).1 ≠ g) →
+      supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅) := by
+  classical
+  obtain ⟨vinj,vmem,vsurj⟩ := vertices_geometry u
+  have rinj : Function.Injective (fun l : Fin 3 => r (vertex u l)) := by
+    intro a b eq
+    apply vinj
+    exact S50MateMatching.pure_arcs_injective (oppositeColor u) r rpure (vmem a) (vmem b) eq
+  have kine : (r (vertex u k)).1 ≠ (r (vertex u i)).1 :=
+    paired_gate_ne_third (fun l => r (vertex u l)) rinj hki hkj pair
+  have leafinj : Function.Injective (fun l : Fin 2 => (leafRep r u i k l).1) := by
+    intro a b eq
+    fin_cases a <;> fin_cases b
+    · rfl
+    · exact False.elim (kine (by simpa [leafRep] using eq.symm))
+    · exact False.elim (kine (by simpa [leafRep] using eq))
+    · rfl
+  have baseinj := actual_base_injective e q f u epure ebar qsrc qbar fpure fbar
+  have disjoint (a : Fin 5) (b : Fin 2) : (baseRep e q f a).1 ≠ (leafRep r u i k b).1 := by
+    fin_cases b
+    · exact Ne.symm (pure_gate_not_base e q f u epure ebar qsrc qbar fpure fbar (vmem i) (rpure _ (vmem i)) a)
+    · exact Ne.symm (pure_gate_not_base e q f u epure ebar qsrc qbar fpure fbar (vmem k) (rpure _ (vmem k)) a)
+  have funEq : (fun l : Fin 7 => (reps e q f r u i k l).1) =
+      Fin.append (fun l => (baseRep e q f l).1) (fun l => (leafRep r u i k l).1) := by
+    funext l
+    cases l using (Fin.addCases (m := 5) (n := 2)) <;> simp [reps]
+  have inj : Function.Injective (fun l : Fin 7 => (reps e q f r u i k l).1) := by
+    rw [funEq,Fin.append_injective_iff]
+    exact ⟨baseinj,leafinj,disjoint⟩
+  have emem : e ∈ sem_W 10 D (0 : V) := by rw [zero]; simp
+  have qmem : q ∈ sem_W 10 D (1 : V) := by rw [cover 1 (by decide +kernel)]; simp
+  have fmem (x : V) (hx : Adj 0 x) : f x ∈ sem_W 10 D x := by rw [cover x hx]; simp
+  have rmem (l : Fin 3) : r (vertex u l) ∈ sem_W 10 D (vertex u l) := by rw [oppositeSide _ (vmem l)]; simp
+  have valid {x : V} {a : Nat × Bool} (ha : a ∈ sem_W 10 D x) : a.1 < D.length ∧ tag D a.1 = true :=
+    ⟨(sem_mem_W.mp ha).1,sem_W_and h ha⟩
+  have baseValid (l : Fin 5) : (baseRep e q f l).1 < D.length ∧ tag D (baseRep e q f l).1 = true := by
+    fin_cases l
+    · exact valid emem
+    · exact valid qmem
+    · exact valid (fmem 1 (by decide +kernel))
+    · exact valid (fmem 4 (by decide +kernel))
+    · exact valid (fmem 5 (by decide +kernel))
+  have baseLeft (l : Fin 5) : supp 10 D (src D (baseRep e q f l)) = sideA u l := by
+    fin_cases l
+    · simpa [baseRep,sideA] using epure
+    · simpa [baseRep,sideA] using qsrc
+    · simpa [baseRep,sideA] using fpure 1 (by decide +kernel)
+    · simpa [baseRep,sideA] using fpure 4 (by decide +kernel)
+    · simpa [baseRep,sideA] using fpure 5 (by decide +kernel)
+  have baseRight (l : Fin 5) : supp 10 D (src D (sem_bar (baseRep e q f l))) = sideB u l := by
+    fin_cases l
+    · simpa [baseRep,sideB] using ebar
+    · simpa [baseRep,sideB] using qbar
+    · simpa [baseRep,sideB] using fbar 1 (by decide +kernel)
+    · simpa [baseRep,sideB] using fbar 4 (by decide +kernel)
+    · simpa [baseRep,sideB] using fbar 5 (by decide +kernel)
+  refine ⟨inj,?_,?_,?_,?_⟩
+  · intro l
+    cases l using (Fin.addCases (m := 5) (n := 2)) with
+    | left a => simpa [reps] using baseValid a
+    | right b =>
+      fin_cases b
+      · change (r (vertex u i)).1 < D.length ∧ tag D (r (vertex u i)).1 = true
+        exact valid (rmem i)
+      · change (r (vertex u k)).1 < D.length ∧ tag D (r (vertex u k)).1 = true
+        exact valid (rmem k)
+  · intro l
+    cases l using (Fin.addCases (m := 5) (n := 2)) with
+    | left a => simpa [reps,left] using baseLeft a
+    | right b =>
+      fin_cases b
+      · change supp 10 D (src D (r (vertex u i))) = {vertex u i}
+        exact rpure _ (vmem i)
+      · change supp 10 D (src D (r (vertex u k))) = {vertex u k}
+        exact rpure _ (vmem k)
+  · intro l
+    cases l using (Fin.addCases (m := 5) (n := 2)) with
+    | left a => simpa [reps,right] using baseRight a
+    | right b =>
+      fin_cases b
+      · change supp 10 D (src D (sem_bar (r (vertex u i)))) = {vertex u j}
+        rw [← pair]
+        exact rpure _ (vmem j)
+      · change supp 10 D (src D (sem_bar (r (vertex u k)))) = ∅
+        exact third
+  · intro g hg ht hn
+    apply noncanonical_and_empty e q f r u zero cover sourceSide oppositeSide empty hg ht
+    intro hm
+    obtain ⟨a,ha,hag⟩ := Finset.mem_image.mp hm
+    rcases Finset.mem_union.mp ha with hbase | hrange
+    · obtain ⟨b,hb⟩ := base_gate_represented e q f hbase
+      apply hn (Fin.castAdd 2 b)
+      simpa [reps] using hb.trans hag
+    · obtain ⟨b,hb,hba⟩ := Finset.mem_image.mp hrange
+      obtain ⟨l,hl⟩ := vsurj b hb
+      have eq : (r (vertex u l)).1 = g := by rw [hl,hba]; exact hag
+      rcases three_indices i j k hij hki hkj l with hli | hlj | hlk
+      · subst l
+        apply hn (Fin.natAdd 5 (0 : Fin 2))
+        change (r (vertex u i)).1 = g
+        exact eq
+      · subst l
+        apply hn (Fin.natAdd 5 (0 : Fin 2))
+        have he := congrArg Prod.fst pair
+        have eq' : (r (vertex u i)).1 = g := he.symm.trans eq
+        change (r (vertex u i)).1 = g
+        exact eq'
+      · subst l
+        apply hn (Fin.natAdd 5 (1 : Fin 2))
+        change (r (vertex u k)).1 = g
+        exact eq
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraTyped7
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraTyped8
+open DagTools Four S50Private S50SplitT S50ExtraSeed S50ExtraPrivate
+open S50ExtraCoverage S50ExtraMatching S50ExtraDistinct
+
+def arcs (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V) : Fin 8 → Nat × Bool :=
+  Fin.append (baseRep e q f) (fun i : Fin 3 => r (vertex u i))
+
+def sideA (u : V) : Fin 8 → Finset V :=
+  Fin.append (S50ExtraDistinct.sideA u) (fun i : Fin 3 => {vertex u i})
+
+def sideB (u : V) : Fin 8 → Finset V :=
+  Fin.append (S50ExtraDistinct.sideB u) (fun _ : Fin 3 => ∅)
+
+lemma all_gates_covered (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V) :
+    ∀ j ∈ allGates e q f r u, ∃ i : Fin 8, (arcs e q f r u i).1 = j := by
+  have base (i : Fin 5) : ∃ k : Fin 8,
+      (arcs e q f r u k).1 = (baseRep e q f i).1 :=
+    ⟨Fin.castAdd 3 i,by simp [arcs]⟩
+  have leaf (i : Fin 3) : ∃ k : Fin 8,
+      (arcs e q f r u k).1 = (r (vertex u i)).1 :=
+    ⟨Fin.natAdd 5 i,by simp [arcs]⟩
+  intro j hj
+  obtain ⟨a,ha,rfl⟩ := Finset.mem_image.mp hj
+  rcases Finset.mem_union.mp ha with ha | ha
+  · simp only [baseArcs,Finset.mem_insert,Finset.mem_singleton] at ha
+    rcases ha with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+    · simpa [baseRep] using base 0
+    · simpa [baseRep,sem_bar] using base 0
+    · simpa [baseRep] using base 1
+    · simpa [baseRep,sem_bar] using base 1
+    · simpa [baseRep] using base 2
+    · simpa [baseRep,sem_bar] using base 2
+    · simpa [baseRep] using base 3
+    · simpa [baseRep,sem_bar] using base 3
+    · simpa [baseRep] using base 4
+    · simpa [baseRep,sem_bar] using base 4
+  · obtain ⟨b,hb,rfl⟩ := Finset.mem_image.mp ha
+    obtain ⟨i,hi⟩ := (vertices_geometry u).2.2 b hb
+    simpa only [hi] using leaf i
+
+lemma typed_eight_gates {D : Dag} (h : Strict 10 D)
+    (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x})
+    (rpure : ∀ b ∈ oppositeColor u, supp 10 D (src D (r b)) = {b})
+    (rempty : ∀ i : Fin 3, supp 10 D (src D (sem_bar (r (vertex u i)))) = ∅)
+    (zero : sem_W 10 D 0 = {e})
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (sourceSide : ∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))})
+    (oppositeSide : ∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x})
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) :
+    let g := arcs e q f r u
+    Function.Injective (fun i => (g i).1) ∧
+      (∀ i, (g i).1 < D.length ∧ tag D (g i).1 = true) ∧
+      (∀ i, supp 10 D (src D (g i)) = sideA u i) ∧
+      (∀ i, supp 10 D (src D (sem_bar (g i))) = sideB u i) ∧
+      ∀ j : Nat, j < D.length → tag D j = true → (∀ i, (g i).1 ≠ j) →
+        supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅ := by
+  classical
+  let a := fun i : Fin 3 => r (vertex u i)
+  let g := arcs e q f r u
+  obtain ⟨vinj,vmem,_⟩ := vertices_geometry u
+  have ainj : Function.Injective a := by
+    intro i j eq
+    apply vinj
+    exact S50MateMatching.pure_arcs_injective (oppositeColor u) r rpure (vmem i) (vmem j) eq
+  have noPair (i j : Fin 3) (_hne : i ≠ j) : a i ≠ sem_bar (a j) := by
+    intro eq
+    have hx : vertex u i ∈ supp 10 D (src D (a i)) := by rw [rpure _ (vmem i)]; simp
+    rw [eq,rempty j] at hx
+    exact Finset.notMem_empty _ hx
+  have leafinj := S50ThreeMatching.no_pair_gates_injective a ainj noPair
+  have baseinj := actual_base_injective e q f u epure ebar qsrc qbar fpure fbar
+  have cross (i : Fin 5) (j : Fin 3) : (baseRep e q f i).1 ≠ (a j).1 :=
+    Ne.symm (pure_gate_not_base e q f u epure ebar qsrc qbar fpure fbar
+      (vmem j) (rpure _ (vmem j)) i)
+  have mapped : (fun i : Fin 8 => (g i).1) =
+      Fin.append (fun i : Fin 5 => (baseRep e q f i).1) (fun i : Fin 3 => (a i).1) := by
+    funext i
+    cases i using (Fin.addCases (m := 5) (n := 3)) <;> simp [g,arcs,a]
+  have ginj : Function.Injective (fun i : Fin 8 => (g i).1) := by
+    rw [mapped]
+    exact Fin.append_injective_iff.mpr ⟨baseinj,leafinj,cross⟩
+  have leftBase (i : Fin 5) : supp 10 D (src D (baseRep e q f i)) = S50ExtraDistinct.sideA u i := by
+    fin_cases i
+    · simpa [baseRep,S50ExtraDistinct.sideA] using epure
+    · simpa [baseRep,S50ExtraDistinct.sideA] using qsrc
+    · simpa [baseRep,S50ExtraDistinct.sideA] using fpure 1 (by decide +kernel)
+    · simpa [baseRep,S50ExtraDistinct.sideA] using fpure 4 (by decide +kernel)
+    · simpa [baseRep,S50ExtraDistinct.sideA] using fpure 5 (by decide +kernel)
+  have rightBase (i : Fin 5) : supp 10 D (src D (sem_bar (baseRep e q f i))) = S50ExtraDistinct.sideB u i := by
+    fin_cases i
+    · simpa [baseRep,S50ExtraDistinct.sideB] using ebar
+    · simpa [baseRep,S50ExtraDistinct.sideB] using qbar
+    · simpa [baseRep,S50ExtraDistinct.sideB] using fbar 1 (by decide +kernel)
+    · simpa [baseRep,S50ExtraDistinct.sideB] using fbar 4 (by decide +kernel)
+    · simpa [baseRep,S50ExtraDistinct.sideB] using fbar 5 (by decide +kernel)
+  have baseMember (i : Fin 5) : ∃ x : V, baseRep e q f i ∈ sem_W 10 D x := by
+    have he : e ∈ sem_W 10 D 0 := by rw [zero]; simp
+    have hq : q ∈ sem_W 10 D 1 := by rw [cover 1 (by decide +kernel)]; simp
+    have hf (x : V) (hx : Adj 0 x) : f x ∈ sem_W 10 D x := by rw [cover x hx]; simp
+    fin_cases i
+    · exact ⟨0,by simpa [baseRep] using he⟩
+    · exact ⟨1,by simpa [baseRep] using hq⟩
+    · exact ⟨1,by simpa [baseRep] using hf 1 (by decide +kernel)⟩
+    · exact ⟨4,by simpa [baseRep] using hf 4 (by decide +kernel)⟩
+    · exact ⟨5,by simpa [baseRep] using hf 5 (by decide +kernel)⟩
+  have members (i : Fin 8) : ∃ x : V, g i ∈ sem_W 10 D x := by
+    cases i using (Fin.addCases (m := 5) (n := 3)) with
+    | left i => simpa [g,arcs] using baseMember i
+    | right i =>
+        refine ⟨vertex u i,?_⟩
+        simp only [g,arcs,Fin.append_right]
+        rw [oppositeSide _ (vmem i)]
+        simp
+  refine ⟨ginj,?_,?_,?_,?_⟩
+  · intro i
+    obtain ⟨x,hx⟩ := members i
+    exact ⟨(sem_mem_W.mp hx).1,sem_W_and h hx⟩
+  · intro i
+    cases i using (Fin.addCases (m := 5) (n := 3)) with
+    | left i => simpa [g,arcs,sideA] using leftBase i
+    | right i => simpa [g,arcs,sideA] using rpure _ (vmem i)
+  · intro i
+    cases i using (Fin.addCases (m := 5) (n := 3)) with
+    | left i => simpa [g,arcs,sideB] using rightBase i
+    | right i => simpa [g,arcs,sideB] using rempty i
+  · intro j hj ht hn
+    apply noncanonical_and_empty e q f r u zero cover sourceSide oppositeSide empty hj ht
+    intro hm
+    obtain ⟨i,hi⟩ := all_gates_covered e q f r u j hm
+    exact hn i hi
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraTyped8
