@@ -346,4 +346,138 @@ lemma petersen_restriction_free_or_lower (n : ℕ)
   intro x
   rw [hcompute, petersen_matching_restriction]
 
+lemma capacity_required {α : Type*} (T : Finset α)
+    (q : α → (Fin 6 → Bool) → Bool)
+    (hdep : ∀ x y, (∀ a ∈ T, q a x = q a y) → matching x = matching y) :
+    24 ≤ ∑ a ∈ T, (separated3 (q a)).card := by
+  classical
+  let U := T.biUnion fun a => separated3 (q a)
+  have hsub : (Finset.univ : Finset ((Fin 3 → Bool) × Fin 3)) ⊆ U := by
+    intro w _
+    by_contra hw
+    have he : ∀ a ∈ T, q a (independent3 w.1) = q a (augmented3 w.1 w.2) := by
+      intro a ha
+      by_contra hne
+      exact hw (Finset.mem_biUnion.mpr
+        ⟨a, ha, Finset.mem_filter.mpr ⟨Finset.mem_univ w, hne⟩⟩)
+    have hm := hdep (independent3 w.1) (augmented3 w.1 w.2) he
+    rw [independent3_false w.1, augmented3_true w.1 w.2] at hm
+    cases hm
+  calc
+    24 = (Finset.univ : Finset ((Fin 3 → Bool) × Fin 3)).card := obligations3_card.symm
+    _ ≤ U.card := Finset.card_le_card hsub
+    _ ≤ ∑ a ∈ T, (separated3 (q a)).card := Finset.card_biUnion_le
+
+lemma six_capacity_card_eq {α : Type*} (T : Finset α)
+    (q : α → (Fin 6 → Bool) → Bool) (hcard : T.card ≤ 6)
+    (hq : ∀ a ∈ T, (separated3 (q a)).card ≤ 4)
+    (hdep : ∀ x y, (∀ a ∈ T, q a x = q a y) → matching x = matching y) :
+    T.card = 6 := by
+  have hreq := capacity_required T q hdep
+  have hsum : (∑ a ∈ T, (separated3 (q a)).card) ≤ T.card * 4 := by
+    calc
+      (∑ a ∈ T, (separated3 (q a)).card) ≤ ∑ _a ∈ T, 4 := Finset.sum_le_sum hq
+      _ = T.card * 4 := by simp
+  omega
+
+lemma six_capacity_saturated {α : Type*} (T : Finset α)
+    (q : α → (Fin 6 → Bool) → Bool) (hcard : T.card ≤ 6)
+    (hq : ∀ a ∈ T, (separated3 (q a)).card ≤ 4)
+    (hdep : ∀ x y, (∀ a ∈ T, q a x = q a y) → matching x = matching y) :
+    ∀ a ∈ T, (separated3 (q a)).card = 4 := by
+  intro a ha
+  have hreq := capacity_required T q hdep
+  have hle := hq a ha
+  by_contra hne
+  have hlt : (separated3 (q a)).card < 4 := by omega
+  have hslt : (∑ b ∈ T, (separated3 (q b)).card) < ∑ _b ∈ T, 4 :=
+    Finset.sum_lt_sum hq ⟨a, ha, hlt⟩
+  have heq : (∑ _b ∈ T, 4) = T.card * 4 := by simp
+  rw [heq] at hslt
+  omega
+
+lemma separated3_not (q : (Fin 6 → Bool) → Bool) :
+    separated3 (fun x => !q x) = separated3 q := by
+  ext w
+  simp only [separated3, Finset.mem_filter, Finset.mem_univ, true_and]
+  cases q (independent3 w.1) <;> cases q (augmented3 w.1 w.2) <;> decide
+
+lemma signed_or_capacity_le (S : Finset (Fin 6)) (b : Bool) :
+    (separated3 (fun x => Bool.xor b (orSignal3 S x))).card ≤ 4 := by
+  cases b
+  · simpa only [distinguished3, Bool.false_xor] using distinguished3_card_le S
+  · simpa only [distinguished3, Bool.true_xor, separated3_not] using distinguished3_card_le S
+
+
+set_option maxRecDepth 20000 in
+lemma or_capacity_four_iff : ∀ S : Finset (Fin 6),
+    (distinguished3 S).card = 4 ↔
+      S.card = 1 ∨ (S.card = 2 ∧ matching (fun i => decide (i ∈ S)) = false) := by
+  decide
+
+lemma matching_five_gate_sources (n : ℕ)
+    (signals : Fin n → (Fin 6 → Bool) → Bool)
+    (hsignals : ∀ j, (∃ S, signals j = orSignal3 S) ∨ signals j = fun _ => true)
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hsize : C.size ≤ 5)
+    (hcompute : ∀ x, C.eval (List.ofFn (fun j => signals j x)) = matching x) :
+    ∃ T : Finset (Fin n), T.card = 6 ∧
+      (∀ j ∈ T, (separated3 (signals j)).card = 4) ∧
+      ∀ x y, (∀ j ∈ T, signals j x = signals j y) → matching x = matching y := by
+  obtain ⟨T, hT, hagree⟩ := exists_small_support n C hfanin
+  have hT6 : T.card ≤ 6 := by omega
+  have hdep : ∀ x y, (∀ j ∈ T, signals j x = signals j y) → matching x = matching y := by
+    intro x y hxy
+    rw [← hcompute x, ← hcompute y]
+    exact hagree _ _ hxy
+  have hcap : ∀ j ∈ T, (separated3 (signals j)).card ≤ 4 := by
+    intro j _
+    rcases hsignals j with ⟨S, hs⟩ | ht
+    · rw [hs]
+      exact distinguished3_card_le S
+    · simp [separated3, ht]
+  exact ⟨T, six_capacity_card_eq T signals hT6 hcap hdep,
+    six_capacity_saturated T signals hT6 hcap hdep, hdep⟩
+
+lemma matching_five_gate_source_shapes (n : ℕ)
+    (signals : Fin n → (Fin 6 → Bool) → Bool)
+    (hsignals : ∀ j, (∃ S, signals j = orSignal3 S) ∨ signals j = fun _ => true)
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hsize : C.size ≤ 5)
+    (hcompute : ∀ x, C.eval (List.ofFn (fun j => signals j x)) = matching x) :
+    ∃ T : Finset (Fin n), T.card = 6 ∧
+      (∀ j ∈ T, ∃ S : Finset (Fin 6), signals j = orSignal3 S ∧
+        (S.card = 1 ∨ (S.card = 2 ∧ matching (fun i => decide (i ∈ S)) = false))) ∧
+      ∀ x y, (∀ j ∈ T, signals j x = signals j y) → matching x = matching y := by
+  obtain ⟨T, hT, hcap, hdep⟩ :=
+    matching_five_gate_sources n signals hsignals C hfanin hsize hcompute
+  refine ⟨T, hT, ?_, hdep⟩
+  intro j hj
+  have hc := hcap j hj
+  rcases hsignals j with ⟨S, hs⟩ | ht
+  · refine ⟨S, hs, (or_capacity_four_iff S).mp ?_⟩
+    rw [hs] at hc
+    exact hc
+  · simp [separated3, ht] at hc
+
+lemma matching_free_signed_or_lower (n : ℕ)
+    (signals : Fin n → (Fin 6 → Bool) → Bool)
+    (hsignals : ∀ j, ∃ (S : Finset (Fin 6)) (b : Bool),
+      signals j = fun x => Bool.xor b (orSignal3 S x))
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hcompute : ∀ x, C.eval (List.ofFn (fun j => signals j x)) = matching x) :
+    5 ≤ C.size := by
+  apply circuit_lower_of_observation_collisions n 5
+    (fun x j => signals j x) matching ?_ C hfanin hcompute
+  intro T hT
+  have hcap : ∀ j ∈ T, (separated3 (signals j)).card ≤ 4 := by
+    intro j _
+    obtain ⟨S, b, hs⟩ := hsignals j
+    rw [hs]
+    exact signed_or_capacity_le S b
+  obtain ⟨b, i, hbi⟩ := four_capacity_collision T signals hT hcap
+  refine ⟨independent3 b, augmented3 b i, hbi, ?_⟩
+  rw [independent3_false, augmented3_true]
+  decide
+
 end PEqualNP.Outside.L_meta_2373_aux
