@@ -2,13 +2,13 @@ Job: pnp-swarm-4970-9
 Gap: L-meta-4970
 Branch: pnp/swarm-L-meta-4970-h9
 Artifact: results/swarm/H9RedTeam.lean
-Status: checked helper diagnostics only; no proof or refutation of the posted statement.
+Status: checked helper lemmas and route audits; no proof or refutation of the posted statement.
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
 All 138 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
-Independent exhaustive circuit evaluation passed.
+Independent exhaustive evaluation of the small diagnostic circuits passed.
 Independent mathematical and plain-file review passed.
 
 The examples show that zero syntactic mixed-OR count need not imply semantic
@@ -66,6 +66,8 @@ An independently checked 15-gate diagnostic shows the pair-only extension to
 two BAD ORs is false: its pair relation is a four-edge matching, but its full
 truth table also accepts 18 unwanted higher-weight assignments. It is not a
 counterexample to an exact graph-function theorem or to the posted gap.
+The subsequent full-truth searches for two-BAD-OR circuits ended UNKNOWN;
+positive controls passed. No finite exclusion is claimed from those searches.
 
 FullProductNesting proves that if one graph-existence function is exactly the
 conjunction of two graph-existence functions, its edge relation is their
@@ -120,6 +122,26 @@ This refutes the broad matrix lemma with arbitrary pure nonstar sources,
 not the posted lower bound. Its eligible-star-only repair passed a separate
 mathematical review; no general source-cost ledger is established.
 
+Peer h3 186027fbc: exact unchanged source and five main union-controller,
+decoder and hull axiom audits passed. The full-input hypotheses and counted
+rectangle-atom assumptions are explicit. Its new doc comments require
+indentation cleanup before transplantation into a desk proof file.
+Peer h4 264498e5 and e6bc8598: exact unchanged sources and the six union-closure
+and five new cover-lemma axiom audits passed. For a C4-free bipartite graph, the
+final Lean corollary proves that twice any matching size is at most the number
+of inclusion-minimal vertex covers plus one. These are not minimum-cardinality
+covers.
+
+Peer h6 PG(2,5) augmented-component obstruction was independently reconstructed.
+Both the 293-gate version (69 ANDs) and a 292-gate refinement (68 ANDs) have
+91 augmented witness components. Exact symbolic DNF evaluation through every
+gate gives precisely the 186 graph-edge monomials. Independent checks include
+AO2, C4, T0, TopForm, all gates live and edge-active, and all 93 pair witnesses
+used. No 2^62 enumeration is claimed. This refutes the unconditional auxiliary
+component-count bound, not minimum-circuit versions or the posted size bound.
+Complete independent scripts, circuit artifacts and logs are retained in
+/tmp/oec/pnp-swarm-4970-9/.
+
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=105.0 subagents=2
+TIMING total=134.8 subagents=2
