@@ -1,0 +1,66 @@
+Job: pnp-swarm-4970-3; helper-3; gap L-meta-4970
+KIT-MESSAGE-ID acknowledged: msg-1c167129d0df8a00bf951a44
+Snapshot UTC: 2026-11-26T01:05:58.464225+00:00
+Status: PARTIAL HELPER RESULTS. No full proof or counterexample to the posted gap. No PR, lease, or checker submission.
+Branch: pnp/swarm-L-meta-4970-h3, pushed only to origin fork.
+Latest pushed functional commit: 84b7e59e668adca81c7648bd1e759b397501bcbc
+
+Published artifacts:
+- results/swarm/Helper3StarCount.lean: 5252 lines; SHA256 09803be397c637b459112eb33e7efe60604272105a9cb078474b7cf7782078f0
+- results/swarm/Helper3BoundedTrace.lean: 673 lines; SHA256 9978efa5dd7df9bd6c8c4cde7e296a505f748795bc436fa03b7681e89f538ce9
+- results/swarm/Helper3CofactorCounterexamples.py: 179 lines; SHA256 c84b713c3e9fac9f5b189eeb44c5995eaa6ad17fb340a8791060497c277721ab
+- results/swarm/Helper3BlendedBasisCounterexample.py: 119 lines; SHA256 62a6d96706ad20c82ea39c2de69107c4d60747a20d5298f16ca666cfa2dfb948
+- results/swarm/Helper3SingletonDefectFamily.py: 72 lines; SHA256 883a1c220a4f408cafed460e0f12f9ec2276f254b76bd5a507cc95222a1b1086
+
+Checked Lean results in Helper3StarCount.lean:
+- Semantic Safe-Q support counting, connected/overlap components, productive OR labels, chosen forests, mapped embeddings, and exact global rank/component budget.
+- Blended raw/semantic support bridge and productive blended labels; both operands have nonempty singleton support. This excludes empty-child ORs, not mixed-semantic ORs.
+- Actual pure-pair OR append infrastructure with explicit output validity, size/wire/semantics preservation.
+- Conditional paired-completion reduction: the exact posted statement appears ONLY as an explicit hypothesis. A balanced diagonal graph with E=2k and a supplied neighbor-pair cover then gives k<=original size+1. This is not a proof of the posted statement.
+- Every AND has empty singleton support iff singleton support equals official raw OR reach at every valid wire; equivalent global disjointness of raw AND operands. Matching tightness is NOT proved to imply these hypotheses.
+- Rectangle controllers and private centers. For exact conjunction of two rectangle-union functions on a C4-free graph, matching size <= number of distinct rectangle indices in their union; equality forces the two index sets equal. Different sets give strict inequality. For disjoint factors and nonempty graph: matching size+1 <= sum of rectangle counts.
+- Arbitrary monotone decoder of rectangle atoms: matching <= atom count; saturation forces the decoder to be OR on every abstract atom subset within its index set and makes every atom safe.
+- The decoder bound extends to full monotone atoms with rectangular pair hulls. The weaker final theorem requires hull containment on all pairs and agreement only on target-edge pairs; it does not assume agreement on all nonedges.
+- Official OR-frontier decomposition: an exact nonzero output is OR over actual terminal AND gate indices, with shared paths counted once. The actual-circuit matching/frontier bound explicitly assumes inscribed positive hulls; those assumptions are not automatic.
+- P6RawDecoder gives a kernel-checked axiom-free obstruction: two assignments have equal raw-atom vectors but different actual formula outputs, so no decoder of those fixed three raw atoms exists.
+- No counted atom representation or positive-hull construction for arbitrary shared circuits has been proved.
+- Final independently reviewed paper clarification: for an actual safe output-terminal AND, positive-hull existence is equivalent to its accepted pair set being empty or a star (using C4-freeness). The checked P6 terminal pair set {cb,cf,ef} is not a star; safety alone cannot supply this hypothesis.
+
+Checked Lean results in Helper3BoundedTrace.lean:
+- Bounded separating trace with ancestor n+j<=wire, raw-or-eligible dichotomy, earlier eligible AND, eligible-parent falsity, first-distinguishing behavior, and other-operand baseline truth.
+- Eligibility uniqueness is an explicit premise; matching saturation and source/sink exclusion are not established.
+- Exact copied h4 dependency bodies independently verified; final standalone imports only PEqualNP.Defs.
+
+Validation (log paths below are relative to /tmp/oec/pnp-swarm-4970-3/):
+- Cache fetched before first build; Mathlib was never built from source. Lean 4.36.0 restored under this job's scratch directory.
+- Full main-file build passes cleanly at the final 5252-line hash above. Root command: lake env lean ../results/swarm/Helper3StarCount.lean. Complete final log: final-main-build.log (empty, exit 0).
+- Independent exact-source/concatenation/mathematics/build/axiom review PASS throughout. Initial rectangle logs: library-bridge-rectangle-private-audit.log, library-bridge-rectangle-controllers-audit.log, library-bridge-rectangle-shared-audit.log, library-bridge-rectangle-disjoint-audit.log.
+- Decoder, exact-hull and positive-hull independent logs: library-bridge-rectangle-decoder-audit.log, library-bridge-rectangle-hull-audit.log, library-bridge-positive-hull-audit.log. The actual adapter/frontier/wrapper is independently checked in semantic-CircuitFrontierBound-review.log and semantic-CircuitFrontierBound-audit.log; all 23 appended lemmas use standard axioms. P6 formula/collision proofs are independently axiom-free in library-bridge-p6-raw-decoder-audit-2.log.
+- Bounded trace root build on published file PASS with empty published-bounded-trace-root-build.log; separate whole-source review and all six new axiom checks PASS in H3BoundedTrace-independent-axioms.log.
+- All audited Lean lemmas depend only on propext, Classical.choice, Quot.sound, or a subset. No sorry, custom axioms, unsafe proof bypass, or native_decide added.
+- git diff --check passes; every pushed change independently reviewed before push.
+- Both new Python publication verifiers independently rerun, full JSON compared to original reports, and exact published-source deltas approved.
+
+Scoped counterexamples, NOT full-gap counterexamples:
+- Cofactor verifier: all262144 assignments for 18-variable K4-minus/private-leaf examples and all72 maximal independent sets; disproves raw cofactor deletion and available-center-restricted pruning intermediates.
+- Blended-basis verifier: all64 assignments; every eligible spanning tree uses a mixed-semantic BAD label. Nonminimum circuit, so no minimum-circuit conclusion.
+- Singleton-defect family: arbitrary m>=2 has matching/cover m, AND=m+1, and m singleton-positive ANDs. T0/C4/served/all-AND-live hold; augmented component count is1. General Boolean-algebra proof and full16/64/256/1024 assignment checks for m2..5. Does not refute the defect-zero conjecture.
+- P6 exact/T0/served/TopForm AND=tau dirty-AND example, shared-BAD-ancestor example, and component-projection obstruction verified separately; each refutes only its stated intermediate claim.
+- Independent fresh PG(2,5) reconstruction: 62 inputs, 186 edges, 69 ANDs, 224 ORs, 293 gates; exact minimal-true-set propagation at every wire proves full output semantics. AO2/T0/served/all-live/all-E-active pass. Full all-center/all-wire blended augmentation has 91 components (90 pairs and one six-edge anchor star), refuting unconditional component-count<=AND. The posted lower bound is216, so this is not a full-gap or minimum-circuit counterexample. Scratch verifier library-bridge-pg5-augmented-counter.py (230 lines, SHA256 8aece04c7e3dca3f865715323215780344c34b7f6d46f154d58c5761b3dab162) and complete .stdout/.stderr retained; parent independently reviewed the source.
+
+- A further exact PG rewrite audit removes all31 right-input identity AND buffers while preserving AO2/T0/served/exact output/live/E-active: AND38, OR224, and augmented components31. Thus this example is eliminated by an admissible simplification. Direct anchor-buffer removal instead breaks T0 at six ORs. Complete scratch audit: library-bridge-pg5-buffer-rewrite.py and .stdout/.stderr; no general minimum-circuit component bound follows.
+
+Finite evidence:
+- Audited3+3 unrestricted-OR/T0/exact3AND census:120 C4-free perfect-matching graphs,714798000 normalized presentations;507492 exact realizations, no singleton-positive AND. Finite evidence only.
+- Fixed3+5 E8/A3 and4+5 E10/A4 component probes exhaust their four possible served adjacent-pair partitions and return UNSAT; all positive controls verified.
+- Singleton-positive AND probes for fixed3+5 E8/A3,3+6 E9/A3,4+6 E12/A4 return UNSAT in independently audited normalized unrestricted-OR models; A+1 controls pass full truth/CNF checks.
+- Fano7+7/A7 singleton-positive probe was inconclusive (recorded UNKNOWN_OR_ERROR, exit0) after600.124 seconds. Its complete monotone boundary model (21 edges,37 maximal independent sets,14 singletons) and A8 positive control were independently audited; no exclusion claimed.
+- Other bounded OR/BAD searches that timed out remain UNKNOWN. Restricted prefix searches are never treated as unrestricted exclusions.
+
+Final subdivision-library check found cover shifts and cover-based circuits, but no original-circuit-to-subdivision compiler with the required gate budget. Using a cover to meet that budget is circular. The subdivision matching identity is valid; naive substitution fails even on a served star.
+
+Remaining full-gap obligation: charge the residual OR connectors (or prove a joint forest/residual-OR/AND-surplus bound) for arbitrary served circuits. No full named gap file or desk checker verdict exists.
+At this snapshot, all stated artifact builds and independent audits are complete; only final handoff and orchestrator monitoring remain. No unfinished proof is included in the source.
+
+Sub-agents: library_bridge, semantic_review, toolchain; nested library_bridge/potential_counterexample, toolchain/matching_invariant, library_bridge/augmented_search (6 total).
+TIMING total=176.6 subagents=6
