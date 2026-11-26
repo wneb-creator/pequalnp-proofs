@@ -6113,4 +6113,68 @@ lemma exists_exact_oriented_flat_private_normalization {n : ℕ}
 
 end H8OrPatch
 
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma positive_initial_term_classification {n : ℕ}
+    (gs : List Node) (s : Finset ℕ) (P : Finset (Finset (Fin n)))
+    (hP : ∀ Q ∈ P, Q.card ≤ 2) (hs : s.Nonempty)
+    (hb : ∀ i ∈ s, i < n)
+    (ht : ∃ Q ∈ Tests P, term n gs s (H8Active.assignmentOf Q) = true) :
+    (∃ a : Fin n, s = {a.val}) ∨
+      ∃ Q ∈ P, Q.card = 2 ∧ s = Q.image Fin.val := by
+  classical
+  by_cases hsingle : s.card = 1
+  · obtain ⟨i,hi⟩ := Finset.card_eq_one.mp hsingle
+    have his : i ∈ s := by simp [hi]
+    exact Or.inl ⟨⟨i,hb i his⟩,hi⟩
+  · obtain ⟨Q,hQ,hQt⟩ := ht
+    have hsub : s ⊆ Q.image Fin.val := by
+      intro i hi
+      have ha := term_literal_support gs s Q hQt ⟨i,hb i hi⟩ hi
+      exact Finset.mem_image.mpr ⟨⟨i,hb i hi⟩,ha,rfl⟩
+    have hQbound : Q.card ≤ 2 := by
+      rcases Finset.mem_union.mp hQ with hQP | hQS
+      · exact hP Q hQP
+      · obtain ⟨a,ha,he⟩ := Finset.mem_image.mp hQS
+        subst Q
+        simp
+    have himage : (Q.image Fin.val).card ≤ Q.card := Finset.card_image_le
+    have hscard := Finset.card_le_card hsub
+    have hspos := Finset.card_pos.mpr hs
+    have hQtwo : Q.card = 2 := by omega
+    have he : s = Q.image Fin.val :=
+      Finset.eq_of_subset_of_card_le hsub (by omega)
+    have hQP : Q ∈ P := by
+      rcases Finset.mem_union.mp hQ with hQP | hQS
+      · exact hQP
+      · obtain ⟨a,ha,heQ⟩ := Finset.mem_image.mp hQS
+        subst Q
+        simp at hQtwo
+    exact Or.inr ⟨Q,hQP,hQtwo,he⟩
+
+lemma first_node_operand_classification {n : ℕ}
+    (gs : List Node) (P : Finset (Finset (Fin n)))
+    (hP : ∀ Q ∈ P, Q.card ≤ 2)
+    (hv : Valid n gs) (hp : PrivateNormal n gs (TestInputs P))
+    (hgs : 0 < gs.length) :
+    ((∃ a : Fin n, gs[0].1 = {a.val}) ∨
+      ∃ Q ∈ P, Q.card = 2 ∧ gs[0].1 = Q.image Fin.val) ∧
+    ((∃ a : Fin n, gs[0].2 = {a.val}) ∨
+      ∃ Q ∈ P, Q.card = 2 ∧ gs[0].2 = Q.image Fin.val) := by
+  obtain ⟨ha,hb,hba,hbb⟩ := hv 0 hgs
+  obtain ⟨⟨x,hx,hxa,hxb⟩,⟨y,hy,hyb,hya⟩⟩ := hp 0 hgs
+  obtain ⟨Q,hQ,hxQ⟩ := hx
+  obtain ⟨R,hR,hyR⟩ := hy
+  constructor
+  · apply positive_initial_term_classification gs gs[0].1 P hP ha
+      (by simpa only [Nat.add_zero] using hba)
+    exact ⟨Q,hQ,hxQ ▸ hxa⟩
+  · apply positive_initial_term_classification gs gs[0].2 P hP hb
+      (by simpa only [Nat.add_zero] using hbb)
+    exact ⟨R,hR,hyR ▸ hyb⟩
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
