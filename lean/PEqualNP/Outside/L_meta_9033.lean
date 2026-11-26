@@ -1,3 +1,5 @@
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.List.Basic
 import Mathlib.Data.Tree.Basic
 
 -- Helper-only RUP checking infrastructure; this does not prove the posted gap.
@@ -714,5 +716,385 @@ lemma original_unsat : ¬ FormulaSat originalFormula :=
   unsat_map_literals formula (fun index => variableLookup.getD index 0) contradiction
 
 end K2R3CAB
+
+-- These finite family lemmas assume membership in the encoded catalog.
+-- The circuit-to-catalog implication and the posted gap remain unproved.
+
+namespace UnionBudget
+
+def ProperPair (base values : Finset Nat) (x : Nat) : Prop :=
+  ∃ a ∈ base ∪ values, ∃ b ∈ base ∪ values,
+    a < x ∧ b < x ∧ x = a ||| b
+
+def Closed (base values : Finset Nat) : Prop :=
+  ∀ x ∈ values, x ∈ base ∨ ProperPair base values x
+
+def Produced (base : Finset Nat) (outputs : List Nat) : Prop :=
+  ∀ (i : Nat) (hi : i < outputs.length),
+    ∃ a ∈ base ∪ (outputs.take i).toFinset,
+    ∃ b ∈ base ∪ (outputs.take i).toFinset,
+    outputs[i] = a ||| b
+
+lemma properPair_mono {base values larger : Finset Nat} {x : Nat}
+    (h : ProperPair base values x) (hs : values ⊆ larger) :
+    ProperPair base larger x := by
+  obtain ⟨a, ha, b, hb, hax, hbx, hx⟩ := h
+  refine ⟨a, ?_, b, ?_, hax, hbx, hx⟩
+  · exact Finset.mem_union.mpr ((Finset.mem_union.mp ha).imp_right (fun h => hs h))
+  · exact Finset.mem_union.mpr ((Finset.mem_union.mp hb).imp_right (fun h => hs h))
+
+lemma first_occurrence {base : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) {x : Nat} (hx : x ∈ outputs) :
+    x ∈ base ∨ ProperPair base outputs.toFinset x := by
+  by_cases hbase : x ∈ base
+  · exact Or.inl hbase
+  right
+  have hi := List.idxOf_lt_length_of_mem hx
+  obtain ⟨a, ha, b, hb, heq⟩ := hp (outputs.idxOf x) hi
+  have heq' : x = a ||| b := by
+    simpa only [List.getElem_idxOf] using heq
+  have notEarlier : x ∉ outputs.take (outputs.idxOf x) := by
+    rw [List.mem_take_iff_idxOf_lt hx]
+    exact Nat.lt_irrefl _
+  have source_mem : ∀ y ∈ base ∪ (outputs.take (outputs.idxOf x)).toFinset,
+      y ∈ base ∪ outputs.toFinset := by
+    intro y hy
+    rcases Finset.mem_union.mp hy with hy | hy
+    · exact Finset.mem_union_left _ hy
+    · exact Finset.mem_union_right _ (List.mem_toFinset.mpr
+        (List.mem_of_mem_take (List.mem_toFinset.mp hy)))
+  have source_ne : ∀ y ∈ base ∪ (outputs.take (outputs.idxOf x)).toFinset,
+      y ≠ x := by
+    intro y hy he
+    subst y
+    rcases Finset.mem_union.mp hy with hy | hy
+    · exact hbase hy
+    · exact notEarlier (List.mem_toFinset.mp hy)
+  refine ⟨a, source_mem a ha, b, source_mem b hb, ?_, ?_, heq'⟩
+  · exact lt_of_le_of_ne (heq' ▸ Nat.left_le_or) (source_ne a ha)
+  · exact lt_of_le_of_ne (heq' ▸ Nat.right_le_or) (source_ne b hb)
+
+lemma closed_outputs {base : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) : Closed base outputs.toFinset := by
+  intro x hx
+  exact first_occurrence hp (List.mem_toFinset.mp hx)
+
+lemma exact_budget {base required : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) (hr : required ⊆ outputs.toFinset)
+    (hlen : outputs.length ≤ required.card) : Closed base required := by
+  have heq : required = outputs.toFinset :=
+    Finset.eq_of_subset_of_card_le hr ((List.toFinset_card_le outputs).trans hlen)
+  rw [heq]
+  exact closed_outputs hp
+
+lemma closed_insert_base {base values : Finset Nat} {extra : Nat}
+    (hc : Closed base values) (he : extra ∈ base) :
+    Closed base (insert extra values) := by
+  intro x hx
+  rcases Finset.mem_insert.mp hx with rfl | hx
+  · exact Or.inl he
+  rcases hc x hx with hb | hp
+  · exact Or.inl hb
+  · exact Or.inr (properPair_mono hp (Finset.subset_insert _ _))
+
+lemma one_extra_budget {base required : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) (hr : required ⊆ outputs.toFinset)
+    (hlen : outputs.length ≤ required.card + 1) (hzero : 0 ∈ base)
+    (hbound : ∀ x ∈ outputs, x < 256) :
+    ∃ extra < 256, outputs.toFinset ⊆ insert extra required ∧
+      Closed base (insert extra required) := by
+  have hc : (outputs.toFinset \ required).card ≤ 1 := by
+    have hsum := Finset.card_sdiff_add_card_eq_card hr
+    have hout := (List.toFinset_card_le outputs)
+    omega
+  by_cases hextra : (outputs.toFinset \ required).Nonempty
+  · obtain ⟨extra, he⟩ := hextra
+    have ho : extra ∈ outputs.toFinset := (Finset.mem_sdiff.mp he).1
+    have heq : outputs.toFinset = insert extra required := by
+      apply Finset.Subset.antisymm
+      · intro y hy
+        by_cases hyr : y ∈ required
+        · exact Finset.mem_insert_of_mem hyr
+        · have hey := (Finset.card_le_one.mp hc) y (Finset.mem_sdiff.mpr ⟨hy, hyr⟩) extra he
+          exact Finset.mem_insert.mpr (Or.inl hey)
+      · intro y hy
+        rcases Finset.mem_insert.mp hy with rfl | hy
+        · exact ho
+        · exact hr hy
+    refine ⟨extra, hbound extra (List.mem_toFinset.mp ho), heq.subset, ?_⟩
+    rw [← heq]
+    exact closed_outputs hp
+  · have heq : outputs.toFinset = required := by
+      apply Finset.Subset.antisymm
+      · intro y hy
+        by_contra hyr
+        exact hextra ⟨y, Finset.mem_sdiff.mpr ⟨hy, hyr⟩⟩
+      · exact hr
+    refine ⟨0, by decide, ?_, ?_⟩
+    · rw [heq]
+      exact Finset.subset_insert _ _
+    · apply closed_insert_base _ hzero
+      rw [← heq]
+      exact closed_outputs hp
+
+lemma exact_budget_proper {base required : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) (hr : required ⊆ outputs.toFinset)
+    (hlen : outputs.length ≤ required.card) (hd : Disjoint required base) :
+    ∀ x ∈ required, ProperPair base required x := by
+  intro x hx
+  rcases exact_budget hp hr hlen x hx with hb | hpair
+  · exact False.elim (Finset.disjoint_left.mp hd hx hb)
+  · exact hpair
+
+lemma closed_lt_two_pow {base values : Finset Nat} {n : Nat}
+    (hc : Closed base values) (hb : ∀ x ∈ base, x < 2 ^ n) :
+    ∀ x ∈ values, x < 2 ^ n := by
+  intro x
+  induction x using Nat.strong_induction_on with
+  | ind x ih =>
+    intro hx
+    rcases hc x hx with hxb | hpair
+    · exact hb x hxb
+    obtain ⟨a, ha, b, hb', hax, hbx, heq⟩ := hpair
+    have bound : ∀ y ∈ base ∪ values, y < x → y < 2 ^ n := by
+      intro y hy hyx
+      rcases Finset.mem_union.mp hy with hy | hy
+      · exact hb y hy
+      · exact ih y hyx hy
+    rw [heq]
+    exact Nat.or_lt_two_pow (bound a ha hax) (bound b hb' hbx)
+
+lemma one_extra_budget_of_base_bound {base required : Finset Nat} {outputs : List Nat}
+    (hp : Produced base outputs) (hr : required ⊆ outputs.toFinset)
+    (hlen : outputs.length ≤ required.card + 1) (hzero : 0 ∈ base)
+    (hbound : ∀ x ∈ base, x < 256) :
+    ∃ extra < 256, outputs.toFinset ⊆ insert extra required ∧
+      Closed base (insert extra required) := by
+  apply one_extra_budget hp hr hlen hzero
+  intro x hx
+  exact closed_lt_two_pow (n := 8) (closed_outputs hp) hbound x (List.mem_toFinset.mpr hx)
+
+end UnionBudget
+
+namespace FiniteFamilies
+
+open UnionBudget
+
+def base : List Nat := [0, 1, 2, 4, 8, 16, 32, 64, 128]
+
+def blocked (values : List Nat) (index : Nat) : Bool :=
+  let x := values.getD index 0
+  values.contains x && !base.contains x &&
+    !(base ++ values).any (fun a => (base ++ values).any
+      (fun b => decide (a < x ∧ b < x ∧ x = a ||| b)))
+
+lemma blocked_sound (values : List Nat) (index : Nat)
+    (h : blocked values index = true) : ¬ Closed base.toFinset values.toFinset := by
+  simp only [blocked, Bool.and_eq_true, Bool.not_eq_true', List.contains_iff_mem] at h
+  intro hc
+  obtain ⟨⟨hx, hb⟩, hp⟩ := h
+  rcases hc _ (by simpa using hx) with hm | ⟨a, ha, b, hb', ha', hb'', heq⟩
+  · have : base.contains (values.getD index 0) = true := by
+      simpa using hm
+    exact Bool.noConfusion (this.symm.trans hb)
+  · have ham : a ∈ base ++ values := by simpa using ha
+    have hbm : b ∈ base ++ values := by simpa using hb'
+    have ht : (base ++ values).any (fun a => (base ++ values).any
+        (fun b => decide (a < values.getD index 0 ∧ b < values.getD index 0 ∧
+          values.getD index 0 = a ||| b))) = true := by
+      apply List.any_eq_true.mpr
+      refine ⟨a, ham, List.any_eq_true.mpr ⟨b, hbm, ?_⟩⟩
+      exact decide_eq_true ⟨ha', hb'', heq⟩
+    exact Bool.noConfusion (ht.symm.trans hp)
+
+def family (n code : Nat) : List Nat :=
+  (List.range n).map (fun i => (code >>> (8 * i)) &&& 255)
+
+def check5 (code : Nat) : Bool := blocked (family 5 code) (code >>> 40)
+
+def check4 (code witnesses : Nat) : Bool :=
+  (List.range 256).all (fun h =>
+    blocked (family 4 code ++ [h]) ((witnesses >>> (3 * h)) &&& 7))
+
+lemma check5_sound (code : Nat) (h : check5 code = true) :
+    ¬ Closed base.toFinset (family 5 code).toFinset :=
+  blocked_sound _ _ h
+
+lemma check4_sound (code witnesses : Nat) (h : check4 code witnesses = true)
+    (x : Nat) (hx : x < 256) :
+    ¬ Closed base.toFinset (insert x (family 4 code).toFinset) := by
+  have hb := List.all_eq_true.mp h x (List.mem_range.mpr hx)
+  simpa using blocked_sound _ _ hb
+
+def r4_0 : Nat × Nat := (0xc0b05a11, 0x24924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924a249289249289249249249249249249249249249249249289249249249249249249)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_0 : check4 r4_0.1 r4_0.2 = true := by decide +kernel
+
+def r4_1 : Nat × Nat := (0xc0905b11, 0x249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249249321249849249909249249249249249249249249249249249849249249249249249249)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_1 : check4 r4_1.1 r4_1.2 = true := by decide +kernel
+
+def r4_2 : Nat × Nat := (0xe2c0b012, 0x24924924924924924924924924924924924924924924924924924924924924924924924b24924924924b24924924924924924924924924924924924924924924924924924924924924924924924b249249249249249249249249249249249249)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_2 : check4 r4_2.1 r4_2.2 = true := by decide +kernel
+
+def r4_3 : Nat × Nat := (0xc2c0b01a, 0x1000040000040000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_3 : check4 r4_3.1 r4_3.2 = true := by decide +kernel
+
+def r4_4 : Nat × Nat := (0xe2c0b01a, 0x1000040000040000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_4 : check4 r4_4.1 r4_4.2 = true := by decide +kernel
+
+def r4_5 : Nat × Nat := (0xe0b29042, 0x4924924924924924924924924924924924924924924924924924924924934924924924d24924924924d24924924924924924924924924924924924924924924924924924924924924924924924d24924924924d2492492492492492492492492)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_5 : check4 r4_5.1 r4_5.2 = true := by decide +kernel
+
+def r4_6 : Nat × Nat := (0xe0905a44, 0x24924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924b2492c92492c92492492492492492492492492492492492c9249249249249249249)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_6 : check4 r4_6.1 r4_6.2 = true := by decide +kernel
+
+def r4_7 : Nat × Nat := (0xc0905e44, 0x24924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924924c309309249309249249249249249249249249249249249309309249249249249249249)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_7 : check4 r4_7.1 r4_7.2 = true := by decide +kernel
+
+def r4_8 : Nat × Nat := (0xe092904a, 0x30000c00000000000000000000000000000000000000000c0000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_8 : check4 r4_8.1 r4_8.2 = true := by decide +kernel
+
+def r4_9 : Nat × Nat := (0xe0b2904a, 0x2000080000000000000000000000000000000000000000080000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_9 : check4 r4_9.1 r4_9.2 = true := by decide +kernel
+
+def r4_10 : Nat × Nat := (0xe0b29052, 0x2000000000080000000000000000000000000000000000080000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_10 : check4 r4_10.1 r4_10.2 = true := by decide +kernel
+
+def r4_11 : Nat × Nat := (0xe2c0b052, 0x1000000000040000000000000000000000000000000000040000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_11 : check4 r4_11.1 r4_11.2 = true := by decide +kernel
+
+def r4_12 : Nat × Nat := (0xc0b29053, 0x90000000000400000000000000000000000000000000000400000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_12 : check4 r4_12.1 r4_12.2 = true := by decide +kernel
+
+def r4_13 : Nat × Nat := (0xe2c09056, 0x30c00000000c00000000000000000000000000000000000c0000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_13 : check4 r4_13.1 r4_13.2 = true := by decide +kernel
+
+def r4_14 : Nat × Nat := (0xe092905a, 0x30000c00000c00000000000000000000000000000000000c0000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_14 : check4 r4_14.1 r4_14.2 = true := by decide +kernel
+
+def r4_15 : Nat × Nat := (0xe0b2905a, 0x2000080000080000000000000000000000000000000000080000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_15 : check4 r4_15.1 r4_15.2 = true := by decide +kernel
+
+def r4_16 : Nat × Nat := (0xc2c0b05a, 0x1000040000040000000000000000000000000000000000040000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_16 : check4 r4_16.1 r4_16.2 = true := by decide +kernel
+
+def r4_17 : Nat × Nat := (0xe2c0b05a, 0x1000040000040000000000000000000000000000000000040000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_17 : check4 r4_17.1 r4_17.2 = true := by decide +kernel
+
+def r4_18 : Nat × Nat := (0xc092905b, 0x120000800000800000000000000000000000000000000000800000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_18 : check4 r4_18.1 r4_18.2 = true := by decide +kernel
+
+def r4_19 : Nat × Nat := (0xc0b2905b, 0x90000400000400000000000000000000000000000000000400000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_19 : check4 r4_19.1 r4_19.2 = true := by decide +kernel
+
+def r4_20 : Nat × Nat := (0xc2c0905e, 0x4100100000100000000000000000000000000000000000100000000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_20 : check4 r4_20.1 r4_20.2 = true := by decide +kernel
+
+def r4_21 : Nat × Nat := (0xe2c0905e, 0x30c00c00000c00000000000000000000000000000000000c0000000000000000000000)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h4_21 : check4 r4_21.1 r4_21.2 = true := by decide +kernel
+
+def rows4 : List (Nat × Nat) := [r4_0, r4_1, r4_2, r4_3, r4_4, r4_5, r4_6, r4_7, r4_8, r4_9, r4_10, r4_11, r4_12, r4_13, r4_14, r4_15, r4_16, r4_17, r4_18, r4_19, r4_20, r4_21]
+lemma checked4 : rows4.all (fun r => check4 r.1 r.2) = true := by
+  simp only [rows4, List.all_cons, List.all_nil, h4_0, h4_1, h4_2, h4_3, h4_4, h4_5, h4_6, h4_7, h4_8, h4_9, h4_10, h4_11, h4_12, h4_13, h4_14, h4_15, h4_16, h4_17, h4_18, h4_19, h4_20, h4_21, Bool.and_self]
+
+def r5_0 : List Nat := [0x3e4b0292805, 0x3e0b12c2805, 0x2b0a4392805, 0x2e4b0392805, 0x2e0a16c2805, 0x2e0b16c2805, 0x4e090281209, 0x3e0b0281209, 0x4e090421209, 0x2e0904a1209, 0x4e090521209, 0x2c0905a1209, 0x2e0905a1209, 0x4e0b0901209, 0x4e090442809, 0x4b1a0902809, 0x4e0b0902809, 0x3e0b1902809, 0x1e090423209, 0x1e0904a3209, 0x1c090523209, 0x1e090523209, 0x1c0905a3209, 0x1e0905a3209, 0x4e092904209, 0x3e0b2904209, 0x2e090524409, 0x2c0905a4409, 0x2e0905a4409, 0x1e092904a09, 0x1e0b2904a09, 0x1e092905209, 0x1c0b2905209, 0x1e0b2905209, 0x1c092905a09, 0x1e092905a09, 0x1c0b2905a09, 0x1e0b2905a09, 0x3c0b028110c, 0x2c0b052110c, 0x2c0905a110c, 0x2c0b05a110c, 0x3c0b042120c, 0x2c0b062120c, 0x2c2c0b0120c, 0x2e2c0b0120c, 0x1c0b0421a0c, 0x1c0b0621a0c, 0x1c2c0b01a0c, 0x1e2c0b01a0c, 0x3c0b042280c, 0x3e0b042280c, 0x4e4c0a0280c, 0x2e0c0b0280c, 0x2e4c0b0280c, 0x3c0b052420c, 0x2c0905a420c]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h5_0 : r5_0.all check5 = true := by decide +kernel
+
+def r5_1 : List Nat := [0x2c0b05a420c, 0x2e0c0b0420c, 0x1c09062520c, 0x1c0b062520c, 0x1e2c090520c, 0x1c2c0b0520c, 0x1e2c0b0520c, 0x1c090625a0c, 0x1c0b0625a0c, 0x1c2c0905a0c, 0x1e2c0905a0c, 0x1c2c0b05a0c, 0x1e2c0b05a0c, 0xe43029280d, 0xe4b029280d, 0xb1602c280d, 0xe0b12c280d, 0xa43930280d, 0xe43930280d, 0xb0a439280d, 0xe4b039280d, 0xa16c60280d, 0xb16c60280d, 0xe0a16c280d, 0xe0b16c280d, 0x2c0b0522211, 0x2c090532211, 0x2c0b05a2211, 0x2c0905b2211, 0x2c0b0582811, 0x2c090592811, 0x2c0b05a2811, 0x2c0905b2811, 0x2c0905c2811, 0x2c0905a4211, 0x1c090625211, 0x1e2c0905211, 0x1c0b0a25211, 0x1e0c0b05211, 0x1c0a2905311, 0x1c0b0905311, 0x1c090625a11, 0x1c0b0825a11, 0x1c2c0905a11, 0x1e2c0905a11, 0x1c0b0a25a11, 0x1e0c0b05a11, 0x1c090825b11, 0x1c0a2905b11, 0x1c0b0905b11, 0x2c0905a4412, 0x4e0b2b09012, 0xc0b2b09013, 0xe06c282115, 0xb039282415, 0xb064292815, 0xe0312c2815]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h5_1 : r5_1.all check5 = true := by decide +kernel
+
+def r5_2 : List Nat := [0xe06c312815, 0xb064392815, 0xe2c0b09016, 0xe0b092901a, 0xe0b2b0901a, 0xc0b092901b, 0xc0b2b0901b, 0x6c6028211d, 0xe06c28211d, 0x393028241d, 0xb03928241d, 0x643029281d, 0xb06429281d, 0x60312c281d, 0xe0312c281d, 0x643930281d, 0x6c6031281d, 0xe06c31281d, 0xb06439281d, 0xc2c0b0901e, 0xe2c0b0901e, 0x2e06c452821, 0x26c604d2821, 0x2e06c4d2821, 0x2e06c552821, 0x26c605d2821, 0x2e06c5d2821, 0x2e090524422, 0x2c090564422, 0x2e0905a4422, 0x2c0905e4422, 0x34d39302824, 0x35d39302824, 0x2b045392824, 0x2b04d392824, 0x2b055392824, 0x2b05d392824, 0x3644d302928, 0x3645d302928, 0x2b064452928, 0x2b0644d2928, 0x2b064552928, 0x2b0645d2928, 0x2e045312c28, 0x2604d312c28, 0x2e04d312c28, 0x2e055312c28, 0x2605d312c28, 0x2e05d312c28, 0x2644d393028, 0x2645d393028, 0x1e06c453128, 0x16c604d3128, 0x1e06c4d3128, 0x1e06c553128, 0x16c605d3128, 0x1e06c5d3128]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h5_2 : r5_2.all check5 = true := by decide +kernel
+
+def r5_3 : List Nat := [0x1b064453928, 0x1b0644d3928, 0x1b064553928, 0x1b0645d3928, 0x2e090584428, 0x2c090594428, 0x2e0905a4428, 0x2c0905c4428, 0x2c0905e4428, 0xc090524432, 0xc0905a4432, 0x1e2e0c0b042, 0xe0c0b29043, 0x1e0a2905244, 0x1e0b0905244, 0x1c0b2905244, 0x1c0a2905644, 0x1e0c0905644, 0x1e090825a44, 0x1c092905a44, 0x1e0a2905a44, 0x1e0b0905a44, 0x1c0b2905a44, 0x1c090825e44, 0x1c0a2905e44, 0x1e0c0905e44, 0xe2e0c09046, 0xe0c2c0b04a, 0xe2e0c0b04a, 0xe0c092904b, 0xe0c0b2904b, 0xe0c2c0904e, 0xe2e0c0904e, 0xe0b2b09052, 0xe2c0b09052, 0xe0c0b29052, 0xe2e0c0b052, 0xc0b2b09053, 0xe0c0b29053, 0xe2c0b09056, 0xe2e0c09056, 0xe0b092905a, 0xe0c092905a, 0xe0b2b0905a, 0xc2c0b0905a, 0xe2c0b0905a, 0xe0c0b2905a, 0xe0c2c0b05a, 0xe2e0c0b05a, 0xc0b092905b, 0xe0c092905b, 0xc0b2b0905b, 0xe0c0b2905b, 0xc2c0b0905e, 0xe2c0b0905e, 0xe0c2c0905e, 0xe2e0c0905e]
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma h5_3 : r5_3.all check5 = true := by decide +kernel
+
+def rows5 : List Nat := r5_0 ++ r5_1 ++ r5_2 ++ r5_3
+lemma checked5 : rows5.all check5 = true := by
+  simp only [rows5, List.all_append, h5_0, h5_1, h5_2, h5_3, Bool.and_self]
+
+def families4 : List (List Nat) := rows4.map (fun r => family 4 r.1)
+def families5 : List (List Nat) := rows5.map (family 5)
+
+lemma families4_not_closed (f : List Nat) (hf : f ∈ families4)
+    (x : Nat) (hx : x < 256) :
+    ¬ Closed base.toFinset (insert x f.toFinset) := by
+  obtain ⟨r, hr, rfl⟩ := List.mem_map.mp hf
+  exact check4_sound r.1 r.2 (List.all_eq_true.mp checked4 r hr) x hx
+
+lemma families5_not_closed (f : List Nat) (hf : f ∈ families5) :
+    ¬ Closed base.toFinset f.toFinset := by
+  obtain ⟨r, hr, rfl⟩ := List.mem_map.mp hf
+  exact check5_sound r (List.all_eq_true.mp checked5 r hr)
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma family_cards :
+    families4.all (fun f => decide (f.toFinset.card = 4)) = true ∧
+    families5.all (fun f => decide (f.toFinset.card = 5)) = true := by
+  decide +kernel
+
+lemma no_five_or_production (f outputs : List Nat)
+    (hf : f ∈ families4 ++ families5) (hp : Produced base.toFinset outputs)
+    (hr : f.toFinset ⊆ outputs.toFinset) (hlen : outputs.length ≤ 5) : False := by
+  rcases List.mem_append.mp hf with h4 | h5
+  · have hc : f.toFinset.card = 4 := of_decide_eq_true (List.all_eq_true.mp family_cards.1 f h4)
+    obtain ⟨x, hx, _, hs⟩ := one_extra_budget_of_base_bound hp hr
+      (by simpa only [hc] using hlen) (by decide +kernel) (by decide +kernel)
+    exact families4_not_closed f h4 x hx hs
+  · have hc : f.toFinset.card = 5 := of_decide_eq_true (List.all_eq_true.mp family_cards.2 f h5)
+    exact families5_not_closed f h5 (exact_budget hp hr (by simpa only [hc] using hlen))
+
+end FiniteFamilies
 
 end PEqualNP.Outside.L_meta_9033_aux
