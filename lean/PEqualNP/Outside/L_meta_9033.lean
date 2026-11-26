@@ -161,4 +161,22 @@ lemma causal_values_le_representatives {n : Nat} {β : Type*} [DecidableEq β]
   intro i _
   exact causal_values_covered value atoms representatives step i
 
+def readerMaximalIndependentMasks : List Nat :=
+  [7, 13, 19, 25, 37, 70, 76, 146, 160, 194]
+
+def avoidingNegativeCount (support : Nat) : Nat :=
+  readerMaximalIndependentMasks.countP (fun m => support &&& m == 0)
+
+def singletonSupportSize (support : Nat) : Nat :=
+  [1, 2, 4, 8, 16, 32, 64, 128].countP (fun b => support &&& b != 0)
+
+theorem two_avoiding_negatives_support_size : ∀ support : Fin 256,
+    2 ≤ avoidingNegativeCount support.val → singletonSupportSize support.val ≤ 4 := by
+  decide +kernel
+
+theorem core_two_avoiding_negatives_exclusions : ∀ support : Fin 256,
+    support.val &&& 7 = 0 → 2 ≤ avoidingNegativeCount support.val →
+    support.val ≠ 120 ∧ support.val ≠ 248 := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_9033_aux
