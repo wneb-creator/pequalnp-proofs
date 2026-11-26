@@ -4378,4 +4378,509 @@ lemma primary_growth_bad : ∀ j : Fin 26, 1 ≤ j.val → j.val ≤ 8 → bad j
 
 end AugmentedBadObstruction
 
+
+namespace UnionHelpers
+
+lemma two_mul_le_two_pow (n : ℕ) : 2 * n ≤ 2 ^ n := by
+  induction n with
+  | zero => norm_num
+  | succ n ih =>
+      cases n with
+      | zero => norm_num
+      | succ k =>
+          calc
+            2 * (Nat.succ (Nat.succ k)) ≤
+                2 * Nat.succ k + 2 * Nat.succ k := by omega
+            _ ≤ 2 ^ Nat.succ k + 2 ^ Nat.succ k := Nat.add_le_add ih ih
+            _ = 2 ^ Nat.succ (Nat.succ k) := by rw [pow_succ]; omega
+
+lemma image_card_add_one_le_of_collision
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (U : Finset α) (f : α → β) {a b : α}
+    (ha : a ∈ U) (hb : b ∈ U) (hab : a ≠ b) (hf : f a = f b) :
+    (U.image f).card + 1 ≤ U.card := by
+  have hb' : b ∈ U.erase a := Finset.mem_erase.mpr ⟨Ne.symm hab, hb⟩
+  have himage : (U.erase a).image f = U.image f := by
+    ext y
+    constructor
+    · intro hy
+      obtain ⟨x, hx, rfl⟩ := Finset.mem_image.mp hy
+      exact Finset.mem_image.mpr ⟨x, (Finset.mem_erase.mp hx).2, rfl⟩
+    · intro hy
+      obtain ⟨x, hx, rfl⟩ := Finset.mem_image.mp hy
+      by_cases hxa : x = a
+      · subst x
+        exact Finset.mem_image.mpr ⟨b, hb', hf.symm⟩
+      · exact Finset.mem_image.mpr ⟨x, Finset.mem_erase.mpr ⟨hxa, hx⟩, rfl⟩
+  have hcard := Finset.card_image_le (s := U.erase a) (f := f)
+  rw [himage] at hcard
+  have herase := Finset.card_erase_of_mem ha
+  have hpos : 0 < U.card := Finset.card_pos.mpr ⟨a, ha⟩
+  omega
+
+lemma card_plus_two_le {α : Type*} [DecidableEq α]
+    {U V : Finset α} {a b : α} (hUV : U ⊆ V)
+    (ha : a ∈ V) (hb : b ∈ V) (haU : a ∉ U) (hbU : b ∉ U)
+    (hab : a ≠ b) : U.card + 2 ≤ V.card := by
+  have hsub : insert a (insert b U) ⊆ V :=
+    Finset.insert_subset_iff.mpr ⟨ha, Finset.insert_subset_iff.mpr ⟨hb, hUV⟩⟩
+  have hnot : a ∉ insert b U := by simp [hab, haU]
+  have hc := Finset.card_le_card hsub
+  rw [Finset.card_insert_of_notMem hnot, Finset.card_insert_of_notMem hbU] at hc
+  omega
+
+end UnionHelpers
+
+namespace UnionClosure
+
+noncomputable def closure {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α) : Finset (Finset α) :=
+  S.powerset.image (fun I => I.biUnion F)
+
+lemma mem_closure {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α) (A : Finset α) :
+    A ∈ closure S F ↔ ∃ I ⊆ S, I.biUnion F = A := by
+  classical
+  simp only [closure, Finset.mem_image, Finset.mem_powerset]
+
+lemma empty_mem {α : Type*} [DecidableEq α] (S : Finset α) (F : α → Finset α) :
+    ∅ ∈ closure S F := by
+  exact (mem_closure S F ∅).mpr ⟨∅, Finset.empty_subset _, by simp⟩
+
+lemma row_mem {α : Type*} [DecidableEq α] (S : Finset α) (F : α → Finset α)
+    {i : α} (hi : i ∈ S) : F i ∈ closure S F := by
+  exact (mem_closure S F _).mpr ⟨{i}, by simpa, by simp⟩
+
+lemma mono {α : Type*} [DecidableEq α] (S T : Finset α) (F : α → Finset α)
+    (hST : S ⊆ T) : closure S F ⊆ closure T F := by
+  intro A hA
+  obtain ⟨I, hI, rfl⟩ := (mem_closure S F A).mp hA
+  exact (mem_closure T F _).mpr ⟨I, hI.trans hST, rfl⟩
+
+lemma union_mem {α : Type*} [DecidableEq α] (S : Finset α) (F : α → Finset α)
+    {A B : Finset α} (hA : A ∈ closure S F) (hB : B ∈ closure S F) :
+    A ∪ B ∈ closure S F := by
+  obtain ⟨I, hI, rfl⟩ := (mem_closure S F A).mp hA
+  obtain ⟨J, hJ, rfl⟩ := (mem_closure S F B).mp hB
+  refine (mem_closure S F _).mpr ⟨I ∪ J, Finset.union_subset hI hJ, ?_⟩
+  ext y
+  simp only [Finset.mem_biUnion, Finset.mem_union]
+  aesop
+
+lemma erase_image {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α) (x : α) :
+    (closure S F).image (fun A => A.erase x) = closure S (fun i => (F i).erase x) := by
+  classical
+  ext A
+  simp only [Finset.mem_image, mem_closure]
+  constructor
+  · rintro ⟨B, ⟨I, hI, rfl⟩, rfl⟩
+    refine ⟨I, hI, ?_⟩
+    ext y
+    simp only [Finset.mem_biUnion, Finset.mem_erase]
+    aesop
+  · rintro ⟨I, hI, rfl⟩
+    refine ⟨I.biUnion F, ⟨I, hI, rfl⟩, ?_⟩
+    ext y
+    simp only [Finset.mem_biUnion, Finset.mem_erase]
+    aesop
+
+lemma linear_common_eq {α : Type*} [DecidableEq α]
+    (A B : Finset α) (hlin : (A ∩ B).card ≤ 1)
+    {x y : α} (hxA : x ∈ A) (hxB : x ∈ B) (hyA : y ∈ A) (hyB : y ∈ B) : x = y := by
+  exact Finset.card_le_one.mp hlin x (Finset.mem_inter.mpr ⟨hxA, hxB⟩)
+    y (Finset.mem_inter.mpr ⟨hyA, hyB⟩)
+
+lemma erase_hypotheses {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α)
+    (hown : ∀ i ∈ S, i ∈ F i) (hsub : ∀ i ∈ S, F i ⊆ S)
+    (hlin : ∀ i ∈ S, ∀ j ∈ S, i ≠ j → (F i ∩ F j).card ≤ 1) (x : α) :
+    (∀ i ∈ S.erase x, i ∈ (F i).erase x) ∧
+    (∀ i ∈ S.erase x, (F i).erase x ⊆ S.erase x) ∧
+    (∀ i ∈ S.erase x, ∀ j ∈ S.erase x, i ≠ j →
+      ((F i).erase x ∩ (F j).erase x).card ≤ 1) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro i hi
+    exact Finset.mem_erase.mpr ⟨(Finset.mem_erase.mp hi).1,
+      hown i (Finset.mem_erase.mp hi).2⟩
+  · intro i hi y hy
+    exact Finset.mem_erase.mpr ⟨(Finset.mem_erase.mp hy).1,
+      hsub i (Finset.mem_erase.mp hi).2 (Finset.mem_erase.mp hy).2⟩
+  · intro i hi j hj hij
+    apply le_trans (Finset.card_le_card ?_) (hlin i (Finset.mem_erase.mp hi).2
+      j (Finset.mem_erase.mp hj).2 hij)
+    exact Finset.inter_subset_inter (Finset.erase_subset _ _) (Finset.erase_subset _ _)
+
+lemma row_not_other_closure {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α)
+    (hown : ∀ i ∈ S, i ∈ F i)
+    (hlin : ∀ i ∈ S, ∀ j ∈ S, i ≠ j → (F i ∩ F j).card ≤ 1)
+    (hlarge : ∀ i ∈ S, 2 ≤ (F i).card) (x : α) (hx : x ∈ S) :
+    F x ∉ closure (S.erase x) F := by
+  intro hh
+  obtain ⟨I, hI, heq⟩ := (mem_closure _ _ _).mp hh
+  have hxm : x ∈ I.biUnion F := heq.symm ▸ hown x hx
+  obtain ⟨i, hi, hxi⟩ := Finset.mem_biUnion.mp hxm
+  have his := hI hi
+  have hix := (Finset.mem_erase.mp his).1
+  have hsubset : F i ⊆ F x := by
+    intro y hy
+    rw [← heq]
+    exact Finset.mem_biUnion.mpr ⟨i, hi, hy⟩
+  have hcard := hlin i (Finset.mem_erase.mp his).2 x hx hix
+  rw [Finset.inter_eq_left.mpr hsubset] at hcard
+  have := hlarge i (Finset.mem_erase.mp his).2
+  omega
+
+lemma add_two_card {α : Type*} [DecidableEq α]
+    (U V : Finset α) (hUV : U ⊆ V) {a b : α}
+    (ha : a ∈ V) (hb : b ∈ V) (haU : a ∉ U) (hbU : b ∉ U) (hab : a ≠ b) :
+    U.card + 2 ≤ V.card := by
+  have hsub : insert a (insert b U) ⊆ V := by
+    intro z hz
+    rcases Finset.mem_insert.mp hz with rfl | hz
+    · exact ha
+    rcases Finset.mem_insert.mp hz with rfl | hz
+    · exact hb
+    · exact hUV hz
+  have hh := Finset.card_le_card hsub
+  simp [haU, hbU, hab] at hh
+  omega
+
+lemma nonsingleton_step {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α)
+    (hown : ∀ i ∈ S, i ∈ F i) (hsub : ∀ i ∈ S, F i ⊆ S)
+    (hlin : ∀ i ∈ S, ∀ j ∈ S, i ≠ j → (F i ∩ F j).card ≤ 1)
+    (hlarge : ∀ i ∈ S, 2 ≤ (F i).card) (x : α) (hx : x ∈ S) :
+    (closure (S.erase x) (fun i => (F i).erase x)).card + 2 ≤ (closure S F).card := by
+  classical
+  have hyex : ∃ y ∈ F x, y ≠ x := by
+    by_contra hn
+    have hs : F x ⊆ {x} := by
+      intro y hy
+      apply Finset.mem_singleton.mpr
+      by_contra hyx
+      exact hn ⟨y, hy, hyx⟩
+    have hc := Finset.card_le_card hs
+    simp only [Finset.card_singleton] at hc
+    have := hlarge x hx
+    omega
+  obtain ⟨y, hyA, hyx⟩ := hyex
+  have hyS := hsub x hx hyA
+  have hxB : x ∉ F y := by
+    intro hh
+    exact hyx (linear_common_eq (F x) (F y) (hlin x hx y hyS hyx.symm)
+      (hown x hx) hh hyA (hown y hyS)).symm
+  have hBsub : ¬ F y ⊆ F x := by
+    intro hh
+    have hc := hlin y hyS x hx hyx
+    rw [Finset.inter_eq_left.mpr hh] at hc
+    have := hlarge y hyS
+    omega
+  have hneq : F x ≠ F x ∪ F y := by
+    intro hh
+    apply hBsub
+    rw [hh]
+    exact Finset.subset_union_right
+  let U := closure (S.erase x) F
+  let V := closure (S.erase x) (fun i => (F i).erase x)
+  have hUsub : U ⊆ closure S F := mono _ _ _ (Finset.erase_subset _ _)
+  have hA : F x ∉ U := row_not_other_closure S F hown hlin hlarge x hx
+  have hB : F y ∈ U := row_mem _ _ (Finset.mem_erase.mpr ⟨hyx, hyS⟩)
+  have hAc : F x ∈ closure S F := row_mem S F hx
+  have hABc : F x ∪ F y ∈ closure S F := union_mem _ _ hAc (hUsub hB)
+  have himage : U.image (fun A => A.erase x) = V := erase_image _ _ _
+  by_cases hAB : F x ∪ F y ∈ U
+  · obtain ⟨I, hI, heq⟩ := (mem_closure _ _ _).mp hAB
+    have hxm : x ∈ I.biUnion F := by rw [heq]; exact Finset.mem_union_left _ (hown x hx)
+    obtain ⟨i, hi, hxi⟩ := Finset.mem_biUnion.mp hxm
+    have hiS := (Finset.mem_erase.mp (hI hi)).2
+    have hix := (Finset.mem_erase.mp (hI hi)).1
+    have hFi : F i ∈ U := row_mem _ _ (hI hi)
+    have hC : F y ∪ F i ∈ U := union_mem _ _ hB hFi
+    have hCi : F i ⊆ insert x (F y) := by
+      intro z hz
+      by_cases hzx : z = x
+      · exact Finset.mem_insert.mpr (Or.inl hzx)
+      have hzU : z ∈ F x ∪ F y := by
+        rw [← heq]
+        exact Finset.mem_biUnion.mpr ⟨i, hi, hz⟩
+      rcases Finset.mem_union.mp hzU with hzA | hzB
+      · exact False.elim (hzx (linear_common_eq (F i) (F x)
+          (hlin i hiS x hx hix) hz hzA hxi (hown x hx)))
+      · exact Finset.mem_insert_of_mem hzB
+    have hCeq : F y ∪ F i = insert x (F y) := by
+      ext z
+      constructor
+      · intro hz
+        exact (Finset.mem_union.mp hz).elim Finset.mem_insert_of_mem (fun hz => hCi hz)
+      · intro hz
+        rcases Finset.mem_insert.mp hz with rfl | hz
+        · exact Finset.mem_union_right _ hxi
+        · exact Finset.mem_union_left _ hz
+    have hBC : F y ≠ F y ∪ F i := by
+      rw [hCeq]
+      intro hh
+      exact hxB (hh.symm ▸ Finset.mem_insert_self x (F y))
+    have hproj : (F y).erase x = (F y ∪ F i).erase x := by
+      rw [hCeq]
+      simp
+    have hcard := UnionHelpers.image_card_add_one_le_of_collision U
+      (fun A => A.erase x) hB hC hBC hproj
+    rw [himage] at hcard
+    have hplus : U.card + 1 ≤ (closure S F).card := by
+      have hsub : insert (F x) U ⊆ closure S F := by
+        intro z hz
+        exact (Finset.mem_insert.mp hz).elim (fun hz => hz ▸ hAc) (fun hz => hUsub hz)
+      have hh := Finset.card_le_card hsub
+      simp [hA] at hh
+      omega
+    change V.card + 2 ≤ (closure S F).card
+    omega
+  · have hcard := Finset.card_image_le (s := U) (f := fun A => A.erase x)
+    rw [himage] at hcard
+    have hplus := add_two_card U (closure S F) hUsub hAc hABc hA hAB hneq
+    change V.card + 2 ≤ (closure S F).card
+    omega
+
+lemma singleton_step {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α) (x : α) (hx : x ∈ S)
+    (hFx : F x = {x}) (y : α) (hy : y ∈ S) (hyx : y ≠ x)
+    (hoy : y ∈ F y) (hxB : x ∉ F y) :
+    (closure (S.erase x) (fun i => (F i).erase x)).card + 2 ≤ (closure S F).card := by
+  classical
+  let V := closure (S.erase x) (fun i => (F i).erase x)
+  let U := V.image (fun A => insert x A)
+  have hno : ∀ A ∈ V, x ∉ A := by
+    intro A hA
+    obtain ⟨I, _, rfl⟩ := (mem_closure _ _ _).mp hA
+    simp only [Finset.mem_biUnion, Finset.mem_erase]
+    aesop
+  have hcard : U.card = V.card := by
+    apply Finset.card_image_iff.mpr
+    intro A hA B hB heq
+    have hh := congrArg (fun W : Finset α => W.erase x) heq
+    simpa [hno A hA, hno B hB] using hh
+  have hUsub : U ⊆ closure S F := by
+    intro A hA
+    obtain ⟨B, hB, rfl⟩ := Finset.mem_image.mp hA
+    obtain ⟨I, hI, rfl⟩ := (mem_closure _ _ _).mp hB
+    refine (mem_closure S F _).mpr ⟨insert x I, ?_, ?_⟩
+    · intro z hz
+      exact (Finset.mem_insert.mp hz).elim (fun hz => hz ▸ hx)
+        (fun hz => (Finset.mem_erase.mp (hI hz)).2)
+    · ext z
+      simp only [Finset.mem_biUnion, Finset.mem_insert, Finset.mem_erase]
+      constructor
+      · rintro ⟨a, (rfl | ha), hz⟩
+        · exact Or.inl (by simpa [hFx] using hz)
+        · by_cases hzx : z = x
+          · exact Or.inl hzx
+          · exact Or.inr ⟨a, ha, hzx, hz⟩
+      · rintro (rfl | ⟨a, ha, hzx, hz⟩)
+        · exact ⟨z, Or.inl rfl, by simp [hFx]⟩
+        · exact ⟨a, Or.inr ha, hz⟩
+  have hE : (∅ : Finset α) ∉ U := by
+    intro hh
+    obtain ⟨A, _, heq⟩ := Finset.mem_image.mp hh
+    have := heq ▸ Finset.mem_insert_self x A
+    exact Finset.notMem_empty x this
+  have hB : F y ∉ U := by
+    intro hh
+    obtain ⟨A, _, heq⟩ := Finset.mem_image.mp hh
+    exact hxB (heq ▸ Finset.mem_insert_self x A)
+  have hEB : (∅ : Finset α) ≠ F y := by
+    intro hh
+    rw [← hh] at hoy
+    exact Finset.notMem_empty y hoy
+  have hh := add_two_card U (closure S F) hUsub (empty_mem S F)
+    (row_mem S F hy) hE hB hEB
+  rw [hcard] at hh
+  exact hh
+
+end UnionClosure
+
+namespace UnionSingleton
+
+open PEqualNP.Outside.L_meta_4970.UnionClosure
+open PEqualNP.Outside.L_meta_4970.UnionHelpers
+
+lemma singleton_all_containing {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α)
+    (hown : ∀ i ∈ S, i ∈ F i) (hsub : ∀ i ∈ S, F i ⊆ S)
+    (hlin : ∀ i ∈ S, ∀ j ∈ S, i ≠ j → (F i ∩ F j).card ≤ 1)
+    (x : α) (hx : x ∈ S) (_hFx : F x = {x})
+    (hall : ∀ i ∈ S, x ∈ F i) :
+    2 * S.card ≤ (closure S F).card + 1 := by
+  classical
+  have hrow (i : α) (hi : i ∈ S) : F i = {x, i} := by
+    apply Finset.Subset.antisymm
+    · intro y hy
+      by_cases hiy : i = y
+      · subst y
+        simp
+      · have hys := hsub i hi hy
+        have hxy := linear_common_eq (F i) (F y) (hlin i hi y hys hiy)
+          (hall i hi) (hall y hys) hy (hown y hys)
+        simp [← hxy]
+    · intro y hy
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hy
+      rcases hy with hy | hy
+      · rw [hy]
+        exact hall i hi
+      · rw [hy]
+        exact hown i hi
+  let U : Finset (Finset α) := (S.erase x).powerset.image (fun I => insert x I)
+  have hU : U ⊆ closure S F := by
+    intro J hJ
+    obtain ⟨I, hI, rfl⟩ := Finset.mem_image.mp hJ
+    have hIS := Finset.mem_powerset.mp hI
+    have hJS : insert x I ⊆ S :=
+      Finset.insert_subset_iff.mpr ⟨hx, hIS.trans (Finset.erase_subset _ _)⟩
+    refine (mem_closure S F _).mpr ⟨insert x I, hJS, ?_⟩
+    ext y
+    constructor
+    · intro hy
+      obtain ⟨i, hi, hyi⟩ := Finset.mem_biUnion.mp hy
+      rw [hrow i (hJS hi)] at hyi
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hyi
+      rcases hyi with rfl | rfl
+      · exact Finset.mem_insert_self _ _
+      · exact hi
+    · intro hy
+      exact Finset.mem_biUnion.mpr ⟨y, hy, hown y (hJS hy)⟩
+  have hinj : Set.InjOn (fun I : Finset α => insert x I) (S.erase x).powerset := by
+    intro I hI J hJ heq
+    have hxI : x ∉ I := by
+      intro hh
+      exact (Finset.mem_erase.mp ((Finset.mem_powerset.mp hI) hh)).1 rfl
+    have hxJ : x ∉ J := by
+      intro hh
+      exact (Finset.mem_erase.mp ((Finset.mem_powerset.mp hJ) hh)).1 rfl
+    simpa [hxI, hxJ] using congrArg (fun K : Finset α => K.erase x) heq
+  have hcardU : U.card = 2 ^ (S.erase x).card := by
+    dsimp [U]
+    rw [Finset.card_image_of_injOn hinj, Finset.card_powerset]
+  have hnil : ∅ ∉ U := by
+    intro hh
+    obtain ⟨I, _, heq⟩ := Finset.mem_image.mp hh
+    have hm : x ∈ insert x I := Finset.mem_insert_self _ _
+    rw [heq] at hm
+    simp at hm
+  have hsub' : insert ∅ U ⊆ closure S F :=
+    Finset.insert_subset_iff.mpr ⟨empty_mem S F, hU⟩
+  have hcard := Finset.card_le_card hsub'
+  rw [Finset.card_insert_of_notMem hnil, hcardU] at hcard
+  have hpow := two_mul_le_two_pow (S.erase x).card
+  have herase := Finset.card_erase_of_mem hx
+  have hpos : 0 < S.card := Finset.card_pos.mpr ⟨x, hx⟩
+  omega
+
+end UnionSingleton
+
+namespace UnionBound
+
+open PEqualNP.Outside.L_meta_4970.UnionClosure
+
+lemma linear_sdr_bound {α : Type*} [DecidableEq α]
+    (S : Finset α) (F : α → Finset α)
+    (hown : ∀ i ∈ S, i ∈ F i) (hsub : ∀ i ∈ S, F i ⊆ S)
+    (hlin : ∀ i ∈ S, ∀ j ∈ S, i ≠ j → (F i ∩ F j).card ≤ 1) :
+    2 * S.card ≤ (closure S F).card + 1 := by
+  classical
+  revert F
+  refine Finset.strongInductionOn S ?_
+  intro S ih F hown hsub hlin
+  by_cases hS : S = ∅
+  · simp [hS]
+  by_cases hsing : ∃ x ∈ S, F x = {x}
+  · obtain ⟨x, hx, hFx⟩ := hsing
+    by_cases hall : ∀ i ∈ S, x ∈ F i
+    · exact UnionSingleton.singleton_all_containing S F hown hsub hlin x hx hFx hall
+    · push Not at hall
+      obtain ⟨y, hy, hxy⟩ := hall
+      have hyx : y ≠ x := by
+        intro he
+        subst y
+        exact hxy (hown x hx)
+      obtain ⟨ho, hs, hl⟩ := erase_hypotheses S F hown hsub hlin x
+      have hrec := ih (S.erase x) (Finset.erase_ssubset hx)
+        (fun i => (F i).erase x) ho hs hl
+      have hstep := singleton_step S F x hx hFx y hy hyx (hown y hy) hxy
+      have hcard := Finset.card_erase_of_mem hx
+      have hpos := Finset.card_pos.mpr ⟨x, hx⟩
+      omega
+  · have hlarge : ∀ i ∈ S, 2 ≤ (F i).card := by
+      intro i hi
+      by_contra hn
+      have hcard : (F i).card ≤ 1 := by omega
+      have he : F i = {i} := by
+        ext z
+        constructor
+        · intro hz
+          exact Finset.mem_singleton.mpr (Finset.card_le_one.mp hcard z hz i (hown i hi))
+        · intro hz
+          exact (Finset.mem_singleton.mp hz) ▸ hown i hi
+      exact hsing ⟨i, hi, he⟩
+    obtain ⟨x, hx⟩ := Finset.nonempty_iff_ne_empty.mpr hS
+    obtain ⟨ho, hs, hl⟩ := erase_hypotheses S F hown hsub hlin x
+    have hrec := ih (S.erase x) (Finset.erase_ssubset hx)
+      (fun i => (F i).erase x) ho hs hl
+    have hstep := nonsingleton_step S F hown hsub hlin hlarge x hx
+    have hcard := Finset.card_erase_of_mem hx
+    have hpos := Finset.card_pos.mpr ⟨x, hx⟩
+    omega
+
+lemma fin_linear_sdr_bound (m : ℕ) (F : Fin m → Finset (Fin m))
+    (hown : ∀ i, i ∈ F i)
+    (hlin : ∀ i j, i ≠ j → (F i ∩ F j).card ≤ 1) :
+    2 * m ≤ (closure Finset.univ F).card + 1 := by
+  have h := linear_sdr_bound Finset.univ F (fun i _ => hown i)
+    (fun i _ => Finset.subset_univ _) (fun i _ j _ hij => hlin i j hij)
+  simpa using h
+
+end UnionBound
+
+namespace GraphUnionBound
+
+noncomputable def row {p l : ℕ} (E M : Finset (Fin p × Fin l))
+    (e : {e // e ∈ M}) : Finset {e // e ∈ M} := by
+  classical
+  exact Finset.univ.filter fun f => (e.val.1, f.val.2) ∈ E
+
+lemma matching_neighborhood_union_bound {p l : ℕ}
+    (E M : Finset (Fin p × Fin l))
+    (hc4 : ∀ a a' : Fin p, ∀ b b' : Fin l, a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hME : M ⊆ E)
+    (hleft : ∀ e ∈ M, ∀ f ∈ M, e.1 = f.1 → e = f)
+    (hright : ∀ e ∈ M, ∀ f ∈ M, e.2 = f.2 → e = f) :
+    2 * M.card ≤ (UnionClosure.closure Finset.univ (row E M)).card + 1 := by
+  classical
+  have hown : ∀ e : {e // e ∈ M}, e ∈ row E M e := by
+    intro e
+    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hME e.property⟩
+  have hlin : ∀ e f : {e // e ∈ M}, e ≠ f →
+      (row E M e ∩ row E M f).card ≤ 1 := by
+    intro e f hef
+    apply Finset.card_le_one.mpr
+    intro x hx y hy
+    apply Subtype.ext
+    apply hright x.val x.property y.val y.property
+    by_contra hxy
+    have hef' : e.val.1 ≠ f.val.1 := by
+      intro heq
+      exact hef (Subtype.ext (hleft e.val e.property f.val f.property heq))
+    have hx' := Finset.mem_inter.mp hx
+    have hy' := Finset.mem_inter.mp hy
+    exact hc4 e.val.1 f.val.1 x.val.2 y.val.2 hef' hxy
+      ⟨(Finset.mem_filter.mp hx'.1).2, (Finset.mem_filter.mp hy'.1).2,
+        (Finset.mem_filter.mp hx'.2).2, (Finset.mem_filter.mp hy'.2).2⟩
+  have h := UnionBound.linear_sdr_bound Finset.univ (row E M)
+    (fun e _ => hown e) (fun e _ => Finset.subset_univ _)
+    (fun e _ f _ hef => hlin e f hef)
+  simpa only [Finset.card_univ, Fintype.card_coe] using h
+
+end GraphUnionBound
+
 end PEqualNP.Outside.L_meta_4970
