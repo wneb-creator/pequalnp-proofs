@@ -131,4 +131,34 @@ lemma nonatom_values_le_or_wires {α β γ : Type*}
     · exact Finset.mem_image.mpr ⟨j, hj, hji.trans hix⟩
   exact (Finset.card_le_card subset).trans (Finset.card_image_le)
 
+lemma causal_values_covered {n : Nat} {β : Type*} [DecidableEq β]
+    (value : Fin n → β) (atoms : Finset β) (representatives : Finset (Fin n))
+    (step : ∀ i, value i ∈ atoms ∨ i ∈ representatives ∨
+      ∃ j, j.val < i.val ∧ value j = value i) :
+    ∀ i, value i ∈ atoms ∨ ∃ j ∈ representatives, value j = value i := by
+  have cover : ∀ m, ∀ i : Fin n, i.val = m →
+      value i ∈ atoms ∨ ∃ j ∈ representatives, value j = value i := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro i hi
+      rcases step i with hatom | hrep | ⟨j, hj, heq⟩
+      · exact Or.inl hatom
+      · exact Or.inr ⟨i, hrep, rfl⟩
+      · rcases ih j.val (by omega) j rfl with hatom | ⟨k, hk, hki⟩
+        · exact Or.inl (heq ▸ hatom)
+        · exact Or.inr ⟨k, hk, hki.trans heq⟩
+  intro i
+  exact cover i.val i rfl
+
+lemma causal_values_le_representatives {n : Nat} {β : Type*} [DecidableEq β]
+    (value : Fin n → β) (atoms : Finset β)
+    (required representatives : Finset (Fin n))
+    (step : ∀ i, value i ∈ atoms ∨ i ∈ representatives ∨
+      ∃ j, j.val < i.val ∧ value j = value i) :
+    ((required.image value) \ atoms).card ≤ representatives.card := by
+  apply nonatom_values_le_or_wires value value required representatives atoms
+  intro i _
+  exact causal_values_covered value atoms representatives step i
+
 end PEqualNP.Outside.L_meta_9033_aux
