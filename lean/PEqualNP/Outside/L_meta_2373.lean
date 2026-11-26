@@ -947,4 +947,48 @@ lemma input_readers_le_of_cofactor_lower (n q s : ℕ) (v : Fin (n + 1)) (b : Bo
   have := hlower E hE hev
   omega
 
+namespace Graph2373
+
+def f (x : Fin 10 → Bool) : Bool := (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 4 && x 9) || (x 5 && x 7) || (x 7 && x 9) || (x 9 && x 6) || (x 6 && x 8) || (x 8 && x 5)
+
+def table (v i : Fin 10) : Fin 10 :=
+  (([[9, 7, 2, 3, 4, 6, 5, 1, 8, 0], [7, 9, 6, 8, 5, 2, 4, 1, 3, 0], [0, 4, 9, 7, 5, 1, 3, 6, 2, 8], [0, 1, 6, 9, 4, 5, 2, 8, 7, 3], [7, 2, 3, 4, 9, 5, 1, 8, 0, 6], [7, 2, 3, 8, 5, 9, 1, 4, 6, 0], [0, 4, 3, 8, 5, 1, 9, 2, 6, 7], [0, 1, 6, 8, 5, 4, 2, 9, 3, 7], [0, 1, 2, 7, 5, 4, 6, 3, 9, 8], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]] : List (List (Fin 10))).getD v.val []).getD i.val 0
+
+lemma table_properties : ∀ v : Fin 10, Function.Bijective (table v) ∧
+    table v v = Fin.last 9 := by
+  decide +kernel
+
+noncomputable def symmetry (v : Fin 10) : Equiv.Perm (Fin 10) :=
+  Equiv.ofBijective (table v) (table_properties v).1
+
+lemma symmetry_at (v : Fin 10) : symmetry v v = Fin.last 9 :=
+  (table_properties v).2
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 0 in
+lemma table_invariant : ∀ (v : Fin 10) (x : Fin 10 → Bool),
+    f (x ∘ table v) = f x := by
+  decide +kernel
+
+lemma symmetry_invariant (v : Fin 10) (x : Fin 10 → Bool) :
+    f (x ∘ symmetry v) = f x := table_invariant v x
+
+noncomputable def fromZero (v : Fin 10) : Equiv.Perm (Fin 10) :=
+  (symmetry 0).trans (symmetry v).symm
+
+lemma fromZero_at (v : Fin 10) : fromZero v 0 = v := by
+  change (symmetry v).symm (symmetry 0 0) = v
+  rw [symmetry_at 0]
+  apply (symmetry v).injective
+  simpa only [Equiv.apply_symm_apply] using (symmetry_at v).symm
+
+lemma fromZero_invariant (v : Fin 10) (x : Fin 10 → Bool) :
+    f (x ∘ fromZero v) = f x := by
+  have hi : f (x ∘ (symmetry v).symm) = f x := by
+    simpa [Function.comp_def] using (symmetry_invariant v (x ∘ (symmetry v).symm)).symm
+  change f ((x ∘ (symmetry v).symm) ∘ symmetry 0) = f x
+  rw [symmetry_invariant 0, hi]
+
+end Graph2373
+
 end PEqualNP.Outside.L_meta_2373
