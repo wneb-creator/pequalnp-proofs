@@ -1,7 +1,6 @@
 import Mathlib
 import PEqualNP.Defs
 
-
 namespace PEqualNP.Outside.L_meta_9033_aux
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.AndCount PEqualNP.AndCount.AndCountCircuit
@@ -2115,7 +2114,458 @@ lemma witness_and_count_ge_five
     ((convertedGates ops (fun i => (a i).val) (fun i => (b i).val)).get j).op = GateOp.and} at hcount
   rwa [count_converted] at hcount
 
+namespace Pin
+open PEqualNP.CircuitLowerBounds
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+theorem wiresFrom_append (gs gs' : List Gate) (w : List Bool) :
+    wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w) := by
+  simp [wiresFrom, List.foldl_append]
+
+theorem wiresFrom_prefix (gs : List Gate) : ∀ w : List Bool,
+    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
+  | cons g gs ih =>
+    intro w
+    obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
+    have : wiresFrom (g :: gs) w
+        = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
+    rw [this, ht]; simp
+
+theorem length_wiresFrom (gs : List Gate) (w : List Bool) :
+    (wiresFrom gs w).length = w.length + gs.length := by
+  obtain ⟨t, ht, hl⟩ := wiresFrom_prefix gs w
+  rw [ht]; simp [hl]
+
+theorem getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+theorem getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+def Ok (g : Gate) : Prop := (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2
+
+abbrev Stat := Sum Bool ℕ
+
+def Stat.val (w : List Bool) : Stat → Bool
+  | Sum.inl c => c
+  | Sum.inr j => w.getD j false
+
+def Stat.Valid (m : ℕ) : Stat → Prop
+  | Sum.inl _ => True
+  | Sum.inr j => j < m
+
+def simpAnd (m : ℕ) : List Stat → Option Gate × Stat
+  | [] => (none, Sum.inl true)
+  | [Sum.inl c] => (none, Sum.inl c)
+  | [Sum.inr j] => (none, Sum.inr j)
+  | [Sum.inl c, Sum.inl d] => (none, Sum.inl (c && d))
+  | [Sum.inl c, Sum.inr j] => (none, bif c then Sum.inr j else Sum.inl false)
+  | [Sum.inr j, Sum.inl c] => (none, bif c then Sum.inr j else Sum.inl false)
+  | [Sum.inr j, Sum.inr k] => (some ⟨GateOp.and, [j, k]⟩, Sum.inr m)
+  | _ => (none, Sum.inl false)
+
+def simpOr (m : ℕ) : List Stat → Option Gate × Stat
+  | [] => (none, Sum.inl false)
+  | [Sum.inl c] => (none, Sum.inl c)
+  | [Sum.inr j] => (none, Sum.inr j)
+  | [Sum.inl c, Sum.inl d] => (none, Sum.inl (c || d))
+  | [Sum.inl c, Sum.inr j] => (none, bif c then Sum.inl true else Sum.inr j)
+  | [Sum.inr j, Sum.inl c] => (none, bif c then Sum.inl true else Sum.inr j)
+  | [Sum.inr j, Sum.inr k] => (some ⟨GateOp.or, [j, k]⟩, Sum.inr m)
+  | _ => (none, Sum.inl false)
+
+def simplify (op : GateOp) (m : ℕ) (ins : List Stat) : Option Gate × Stat :=
+  match op with
+  | GateOp.and => simpAnd m ins
+  | GateOp.or => simpOr m ins
+  | _ => (none, Sum.inl false)
+
+theorem simplify_ok (op : GateOp) (m : ℕ) (ins : List Stat) :
+    ∀ g ∈ (simplify op m ins).1, Ok g := by
+  intro g hg
+  cases op <;> simp only [simplify] at hg
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpAnd] at hg <;> (subst hg; simp [Ok])
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp [simpOr] at hg <;> (subst hg; simp [Ok])
+  all_goals simp at hg
+
+theorem simplify_count (op : GateOp) (m : ℕ) (ins : List Stat)
+    (hop : op = GateOp.and ∨ op = GateOp.or) (hlen : ins.length ≤ 2)
+    (hc : ∃ c, Sum.inl c ∈ ins) :
+    (simplify op m ins).1 = none := by
+  obtain ⟨c, hc⟩ := hc
+  rcases hop with rfl | rfl
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp_all [simplify, simpAnd]
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
+      simp_all [simplify, simpOr]
+
+theorem simplify_sound (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (w : List Bool) (ins : List Stat) (hlen : ins.length ≤ 2)
+    (hv : ∀ s ∈ ins, s.Valid w.length) :
+    ((simplify op w.length ins).2).Valid (w.length + (simplify op w.length ins).1.toList.length) ∧
+    ((simplify op w.length ins).2).val (wiresFrom (simplify op w.length ins).1.toList w)
+      = op.eval (ins.map (Stat.val w)) := by
+  rcases hop with rfl | rfl
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
+    · simp [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval]
+    · cases a <;> simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · cases a <;> cases b <;> (try rename_i c e; cases c) <;> (try cases e) <;>
+        simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · simp at hlen
+  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
+    · simp [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval]
+    · cases a <;> simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · cases a <;> cases b <;> (try rename_i c e; cases c) <;> (try cases e) <;>
+        simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · simp at hlen
+
+def elimStep (n : ℕ) (acc : List Stat × List Gate) (g : Gate) : List Stat × List Gate :=
+  (acc.1 ++ [(simplify g.op (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).2],
+    acc.2 ++ (simplify g.op (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList)
+
+def elim (n : ℕ) (gs : List Gate) (acc : List Stat × List Gate) : List Stat × List Gate :=
+  gs.foldl (elimStep n) acc
+
+theorem toList_length_le {α : Type} (o : Option α) : o.toList.length ≤ 1 := by
+  cases o <;> simp
+
+theorem elim_ok (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
+    (∀ g ∈ acc.2, Ok g) → ∀ g ∈ (elim n gs acc).2, Ok g := by
+  induction gs with
+  | nil => intro acc h; exact h
+  | cons g gs ih =>
+    intro acc h
+    apply ih (elimStep n acc g)
+    intro g' hg'
+    rcases List.mem_append.1 hg' with h1 | h1
+    · exact h g' h1
+    · exact simplify_ok _ _ _ g' (by simpa using h1)
+
+theorem Stat.valid_mono {m m' : ℕ} (h : m ≤ m') : ∀ s : Stat, s.Valid m → s.Valid m'
+  | Sum.inl _, _ => trivial
+  | Sum.inr _, hj => lt_of_lt_of_le hj h
+
+theorem Stat.val_append (w t : List Bool) : ∀ s : Stat, s.Valid w.length →
+    s.val (w ++ t) = s.val w
+  | Sum.inl _, _ => rfl
+  | Sum.inr _, hj => List.getD_append _ _ _ _ hj
+
+def Inv (n : ℕ) (y : List Bool) (w : List Bool) (acc : List Stat × List Gate) : Prop :=
+  acc.1.length = w.length ∧ ∀ i : ℕ,
+    (acc.1.getD i (Sum.inl false)).Valid (n + acc.2.length) ∧
+    (acc.1.getD i (Sum.inl false)).val (wiresFrom acc.2 y) = w.getD i false
+
+theorem inv_elim (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
+    ∀ (w : List Bool) (acc : List Stat × List Gate), (∀ g ∈ gs, Ok g) → Inv n y w acc →
+      Inv n y (wiresFrom gs w) (elim n gs acc) := by
+  induction gs with
+  | nil => intro w acc _ h; exact h
+  | cons g gs ih =>
+    intro w acc hok h
+    apply ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (elimStep n acc g)
+      (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+    obtain ⟨hl, hi⟩ := h
+    set w' := wiresFrom acc.2 y with hw'
+    have lw' : w'.length = n + acc.2.length := by rw [hw', length_wiresFrom, hy]
+    set ins := g.inputs.map fun i => acc.1.getD i (Sum.inl false) with hins
+    have hgok := hok g List.mem_cons_self
+    have hs := simplify_sound g.op hgok.1 w' ins (by simpa [hins] using hgok.2)
+      (by
+        intro s hs
+        obtain ⟨a, _, rfl⟩ := List.mem_map.1 hs
+        rw [lw']; exact (hi a).1)
+    rw [lw'] at hs
+    set r := simplify g.op (n + acc.2.length) ins with hr
+    have hvals : ins.map (Stat.val w') = g.inputs.map fun i => w.getD i false := by
+      rw [hins, List.map_map]
+      apply List.map_congr_left
+      intro a _
+      exact (hi a).2
+    have hnew : wiresFrom (acc.2 ++ r.1.toList) y = wiresFrom r.1.toList w' := by
+      rw [wiresFrom_append]
+    obtain ⟨t, ht, htl⟩ := wiresFrom_prefix r.1.toList w'
+    refine ⟨by simp [elimStep, hl], ?_⟩
+    intro i
+    show ((acc.1 ++ [r.2]).getD i (Sum.inl false)).Valid (n + (acc.2 ++ r.1.toList).length) ∧
+      ((acc.1 ++ [r.2]).getD i (Sum.inl false)).val (wiresFrom (acc.2 ++ r.1.toList) y) = _
+    rw [hnew, List.length_append, ← Nat.add_assoc]
+    by_cases hil : i = acc.1.length
+    · subst hil
+      rw [getD_snoc_eq, hl, getD_snoc_eq]
+      exact ⟨hs.1, by rw [hs.2, hvals]⟩
+    · rw [getD_snoc_ne _ _ _ _ hil, getD_snoc_ne _ _ _ _ (by omega)]
+      refine ⟨Stat.valid_mono (by omega) _ (hi i).1, ?_⟩
+      rw [ht, Stat.val_append _ _ _ (by rw [lw']; exact (hi i).1)]
+      exact (hi i).2
+
+def initStats (n : ℕ) (v : Fin n) (b : Bool) : List Stat :=
+  List.ofFn (fun i : Fin n => if i = v then Sum.inl b else Sum.inr i)
+
+theorem inv_init (n : ℕ) (v : Fin n) (b : Bool) (y : Fin n → Bool) :
+    Inv n (List.ofFn y) (List.ofFn (Function.update y v b)) (initStats n v b, []) := by
+  refine ⟨by simp [initStats], ?_⟩
+  intro i
+  by_cases hlt : i < n
+  · by_cases hv : (⟨i, hlt⟩ : Fin n) = v
+    · subst hv
+      simp [initStats, hlt, Stat.Valid, Stat.val]
+    · simp [initStats, hlt, hv, Stat.Valid, Stat.val, wiresFrom, Function.update_of_ne hv]
+  · rw [List.getD_eq_default _ _ (by simp [initStats]; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+    exact ⟨trivial, rfl⟩
+
+def isOr : GateOp → Bool
+  | .or => true
+  | _ => false
+
+def orCount (gs : List Gate) : ℕ := gs.countP (fun g => isOr g.op)
+
+theorem simplify_or_le (op : GateOp) (m : ℕ) (ins : List Stat) :
+    orCount (simplify op m ins).1.toList ≤ if isOr op then 1 else 0 := by
+  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
+    (try cases a) <;> (try cases b) <;>
+    simp [simplify, simpAnd, simpOr, orCount, isOr]
+
+theorem simplify_unpinned_eval (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (m : ℕ) (w : List Bool) (ins : List Stat) (vs : List Bool)
+    (hlen : ins.length ≤ 2)
+    (hr : List.Forall₂ (fun (s : Stat) b => s ≠ Sum.inl false → s.val w = b) ins vs)
+    (hkeep : orCount (simplify op m ins).1.toList = if isOr op then 1 else 0)
+    (hnf : (simplify op m ins).2 ≠ Sum.inl false) :
+    op.eval (ins.map (Stat.val w)) = op.eval vs := by
+  rcases hop with rfl | rfl
+  all_goals
+    rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩
+    · cases hr; rfl
+    · cases hr with
+      | cons ha ht =>
+        cases ht
+        cases a with
+        | inl a => cases a <;> simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+        | inr a => simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+    · cases hr with
+      | cons ha ht =>
+        cases ht with
+        | cons hb htt =>
+          cases htt
+          rcases a with ca | ia <;> rcases b with cb | ib
+          · cases ca <;> cases cb <;>
+              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+          · cases ca <;>
+              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+          · cases cb <;>
+              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+          · simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
+    · simp at hlen
+theorem orCount_append (gs hs : List Gate) : orCount (gs ++ hs) = orCount gs + orCount hs := by
+  simp [orCount]
+
+theorem orCount_cons (g : Gate) (gs : List Gate) :
+    orCount (g :: gs) = (if isOr g.op then 1 else 0) + orCount gs := by
+  simp [orCount, List.countP_cons, Nat.add_comm]
+
+theorem elim_or_le (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
+    orCount (elim n gs acc).2 ≤ orCount acc.2 + orCount gs := by
+  induction gs with
+  | nil => intro acc; simp [elim, orCount]
+  | cons g gs ih =>
+    intro acc
+    have h1 := ih (elimStep n acc g)
+    have h2 := simplify_or_le g.op (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+    change orCount (elim n gs (elimStep n acc g)).2 ≤ _
+    rw [orCount_cons]
+    have hstep : orCount (elimStep n acc g).2 = orCount acc.2 +
+        orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
+      simp only [elimStep, orCount_append]
+    rw [hstep] at h1
+    omega
+
+def UInv (n : ℕ) (y : List Bool) (w : List Bool) (acc : List Stat × List Gate) : Prop :=
+  acc.1.length = w.length ∧ ∀ i : ℕ,
+    (acc.1.getD i (Sum.inl false)).Valid (n + acc.2.length) ∧
+    ((acc.1.getD i (Sum.inl false)) ≠ Sum.inl false →
+      (acc.1.getD i (Sum.inl false)).val (wiresFrom acc.2 y) = w.getD i false)
+
+theorem uinv_elim (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
+    ∀ (w : List Bool) (acc : List Stat × List Gate), (∀ g ∈ gs, Ok g) → UInv n y w acc →
+      orCount (elim n gs acc).2 = orCount acc.2 + orCount gs →
+      UInv n y (wiresFrom gs w) (elim n gs acc) := by
+  induction gs with
+  | nil => intro w acc _ h _; exact h
+  | cons g gs ih =>
+    intro w acc hok h hcount
+    have hle := elim_or_le n gs (elimStep n acc g)
+    have hlocal := simplify_or_le g.op (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+    have hcount' : orCount (elim n gs (elimStep n acc g)).2 =
+        orCount acc.2 + ((if isOr g.op then 1 else 0) + orCount gs) := by
+      simpa only [elim, List.foldl_cons, orCount_cons] using hcount
+    have hstep : orCount (elimStep n acc g).2 = orCount acc.2 +
+        orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
+      simp only [elimStep, orCount_append]
+    rw [hstep] at hle
+    have hkeep : orCount (simplify g.op (n + acc.2.length)
+        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList =
+        if isOr g.op then 1 else 0 := by omega
+    apply ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (elimStep n acc g)
+      (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+    · obtain ⟨hl, hi⟩ := h
+      set w' := wiresFrom acc.2 y with hw'
+      have lw' : w'.length = n + acc.2.length := by rw [hw', length_wiresFrom, hy]
+      set ins := g.inputs.map fun i => acc.1.getD i (Sum.inl false) with hins
+      have hgok := hok g List.mem_cons_self
+      have hs := simplify_sound g.op hgok.1 w' ins (by simpa [hins] using hgok.2)
+        (by
+          intro s hs
+          obtain ⟨a, _, rfl⟩ := List.mem_map.1 hs
+          rw [lw']; exact (hi a).1)
+      rw [lw'] at hs
+      set r := simplify g.op (n + acc.2.length) ins with hr
+      have hrel : List.Forall₂ (fun (s : Stat) b => s ≠ Sum.inl false → s.val w' = b)
+          ins (g.inputs.map fun i => w.getD i false) := by
+        rw [hins]
+        induction g.inputs with
+        | nil => exact List.Forall₂.nil
+        | cons i is ih => exact List.Forall₂.cons (hi i).2 ih
+      have hnew : wiresFrom (acc.2 ++ r.1.toList) y = wiresFrom r.1.toList w' := by
+        rw [wiresFrom_append]
+      obtain ⟨t, ht, htl⟩ := wiresFrom_prefix r.1.toList w'
+      refine ⟨by simp [elimStep, hl], ?_⟩
+      intro i
+      show ((acc.1 ++ [r.2]).getD i (Sum.inl false)).Valid
+          (n + (acc.2 ++ r.1.toList).length) ∧
+        (((acc.1 ++ [r.2]).getD i (Sum.inl false)) ≠ Sum.inl false →
+          ((acc.1 ++ [r.2]).getD i (Sum.inl false)).val
+            (wiresFrom (acc.2 ++ r.1.toList) y) = _)
+      rw [hnew, List.length_append, ← Nat.add_assoc]
+      by_cases hil : i = acc.1.length
+      · subst hil
+        rw [getD_snoc_eq, hl, getD_snoc_eq]
+        refine ⟨hs.1, ?_⟩
+        intro hnf
+        rw [hs.2]
+        exact simplify_unpinned_eval g.op hgok.1 (n + acc.2.length) w' ins _
+          (by simpa [hins] using hgok.2) hrel hkeep hnf
+      · rw [getD_snoc_ne _ _ _ _ hil, getD_snoc_ne _ _ _ _ (by omega)]
+        refine ⟨Stat.valid_mono (by omega) _ (hi i).1, ?_⟩
+        intro hnf
+        rw [ht, Stat.val_append _ _ _ (by rw [lw']; exact (hi i).1)]
+        exact (hi i).2 hnf
+    · rw [hstep]
+      omega
+
+theorem uinv_init (n : ℕ) (v : Fin n) (y : Fin n → Bool) :
+    UInv n (List.ofFn y) (List.ofFn y) (initStats n v false, []) := by
+  refine ⟨by simp [initStats], ?_⟩
+  intro i
+  by_cases hlt : i < n
+  · by_cases hv : (⟨i, hlt⟩ : Fin n) = v
+    · subst hv
+      simp [initStats, hlt, Stat.Valid, Stat.val]
+    · simp [initStats, hlt, hv, Stat.Valid, Stat.val, wiresFrom]
+  · rw [List.getD_eq_default _ _ (by simp [initStats]; omega)]
+    exact ⟨trivial, by simp⟩
+
+theorem pin_or_strict (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (v : Fin n)
+    (hmono : PEqualNP.MetaComplexity.Monotone2 C)
+    (hdep : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn x) ≠ C.eval (List.ofFn (Function.update x v false)))
+    (htrue : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = true)
+    (hfalse : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = false) :
+    ∃ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 D ∧
+      orCount D.gates + 1 ≤ orCount C.gates ∧
+      ∀ x : Fin n → Bool,
+        D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false)) := by
+  have hok : ∀ g ∈ C.gates, Ok g := by
+    intro g hg
+    obtain ⟨h1, h2⟩ := hmono g hg
+    refine ⟨?_, h2⟩
+    simpa using h1
+  set acc := elim n C.gates (initStats n v false, []) with hacc
+  have hinv : ∀ y : Fin n → Bool,
+      Inv n (List.ofFn y) (wiresFrom C.gates (List.ofFn (Function.update y v false))) acc := by
+    intro y
+    exact inv_elim n _ (by simp) C.gates _ _ hok (inv_init n v false y)
+  have hval : ∀ y : Fin n → Bool,
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn y))
+        = C.eval (List.ofFn (Function.update y v false)) := by
+    intro y
+    exact ((hinv y).2 C.output).2
+  have hbound : orCount acc.2 ≤ orCount C.gates := by
+    simpa only [← hacc, orCount, List.countP_nil, Nat.zero_add] using
+      elim_or_le n C.gates (initStats n v false, [])
+  have hstrict : orCount acc.2 < orCount C.gates := by
+    by_contra hn
+    have heq : orCount acc.2 = orCount C.gates := by omega
+    obtain ⟨x, hx⟩ := hdep
+    have hu : UInv n (List.ofFn x) (wiresFrom C.gates (List.ofFn x)) acc :=
+      uinv_elim n _ (by simp) C.gates _ _ hok (uinv_init n v x)
+        (by simpa only [← hacc, orCount, List.countP_nil, Nat.zero_add] using heq)
+    have hst : acc.1.getD C.output (Sum.inl false) = Sum.inl false := by
+      by_contra hh
+      have ho := (hu.2 C.output).2 hh
+      exact hx (ho.symm.trans (hval x))
+    obtain ⟨y, hy⟩ := htrue
+    have hv := hval y
+    rw [hst] at hv
+    simp only [Stat.val] at hv
+    exact Bool.false_ne_true (hv.trans hy)
+  have hmD : ∀ out : ℕ, PEqualNP.MetaComplexity.Monotone2 ⟨acc.2, out⟩ := by
+    intro out g hg
+    obtain ⟨h1, h2⟩ := elim_ok n C.gates _ (by simp) g hg
+    refine ⟨?_, h2⟩
+    rcases h1 with h | h <;> simp [h]
+  cases hst : acc.1.getD C.output (Sum.inl false) with
+  | inl c =>
+    cases c with
+    | true =>
+      exfalso
+      obtain ⟨y, hy⟩ := hfalse
+      have hv := hval y
+      rw [hst] at hv
+      simp only [Stat.val] at hv
+      exact Bool.false_ne_true (hv.trans hy).symm
+    | false =>
+      exfalso
+      obtain ⟨y, hy⟩ := htrue
+      have hv := hval y
+      rw [hst] at hv
+      simp only [Stat.val] at hv
+      exact Bool.false_ne_true (hv.trans hy)
+  | inr j =>
+    refine ⟨⟨acc.2, j⟩, hmD _, by change orCount acc.2 + 1 ≤ orCount C.gates; omega, ?_⟩
+    intro x
+    have hv := hval x
+    rw [hst] at hv
+    exact hv
+
+end Pin
 namespace OrYF
+
+private def pd (n b z : Nat) : List Nat :=
+  List.ofFn (fun i : Fin n => z / b ^ i.val % b)
+
+private def pl (n b z : Nat) (t : List Nat) : List Nat :=
+  List.ofFn (fun i : Fin n => t.getD (z / b ^ i.val % b) 0)
+
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -2156,13 +2606,6 @@ theorem freeMap {X Y : Type} {B : Set (Set X)} {D : Set (Set Y)} (π : Y → X)
     rcases Set.mem_insert_iff.mp hg with rfl | hg
     · exact Meet.atom (Set.mem_insert _ _)
     · exact weaken (Set.subset_insert _ _) (atoms _ hg)
-
-theorem run_weaken {X : Type} {B D : Set (Set X)} (hd : B ⊆ D) {k f}
-    (h : Run B k f) : Run D k f :=
-  freeMap id (fun _ hf => Meet.atom (hd hf)) h
-
-theorem run_succ {X : Type} {B : Set (Set X)} {k f} (h : Run B k f) : Run B (k + 1) f :=
-  Run.add Meet.bot Meet.bot (run_weaken (Set.subset_insert _ _) h)
 
 def Good {X Y : Type} (π : Y → X) (p q : X) (f : Set X) : Prop :=
   (p ∈ f ↔ q ∈ f) ∨ π ⁻¹' f = ∅
@@ -2366,19 +2809,10 @@ def masksTTYF (n : ℕ) (H : List (ℕ × ℕ)) (maskYF : ℕ) : List ℕ :=
 def undirEq (e₁ e₂ : ℕ × ℕ) : Bool :=
   (e₁.1 == e₂.1 && e₁.2 == e₂.2) || (e₁.1 == e₂.2 && e₁.2 == e₂.1)
 
-def ValidState (n : ℕ) (H F : List (ℕ × ℕ)) : Prop :=
+abbrev ValidState (n : ℕ) (H F : List (ℕ × ℕ)) : Prop :=
   (∀ e ∈ H, e.1 < n ∧ e.2 < n ∧ e.1 ≠ e.2) ∧
   (∀ e ∈ F, e.1 < n ∧ e.2 < n ∧ e.1 ≠ e.2) ∧
   (∀ e ∈ H, ∀ f ∈ F, undirEq e f = false)
-
-def NoDupEdges (H : List (ℕ × ℕ)) : Prop :=
-  H.Pairwise (fun e₁ e₂ => undirEq e₁ e₂ = false)
-
-instance (n : ℕ) (H F : List (ℕ × ℕ)) : Decidable (ValidState n H F) := by
-  unfold ValidState; infer_instance
-
-instance (H : List (ℕ × ℕ)) : Decidable (NoDupEdges H) := by
-  unfold NoDupEdges; infer_instance
 
 theorem testBit_univYF (n : ℕ) (F : List (ℕ × ℕ)) (s : ℕ) :
     (univYF n F).testBit s = (decide (s < 2 ^ n) && !hasEdge F s) :=
@@ -2470,18 +2904,6 @@ theorem edgePt_mem_edgeTTYF {n : ℕ} {H F : List (ℕ × ℕ)} (hv : ValidState
   rw [hasEdge_eq_true]
   exact ⟨e, he, (twoBit_testBit _ _ _).mpr (Or.inl rfl), (twoBit_testBit _ _ _).mpr (Or.inr rfl)⟩
 
-theorem edgePtsMask_and_univYF {n : ℕ} {H F : List (ℕ × ℕ)} (hv : ValidState n H F) :
-    edgePtsMaskYF H &&& univYF n F = edgePtsMaskYF H := by
-  apply Nat.eq_of_testBit_eq
-  intro s
-  rw [Nat.testBit_and]
-  cases h : (edgePtsMaskYF H).testBit s
-  · simp
-  · rw [testBit_edgePtsMaskYF, List.any_eq_true] at h
-    obtain ⟨e, heH, heq⟩ := h
-    rw [decide_eq_true_eq] at heq
-    rw [← heq, edgePt_mem_univYF hv heH, Bool.true_and]
-
 theorem edgeTTYF_and_univYF (n : ℕ) (H F : List (ℕ × ℕ)) :
     edgeTTYF n H (univYF n F) &&& univYF n F = edgeTTYF n H (univYF n F) := by
   apply Nat.eq_of_testBit_eq
@@ -2510,7 +2932,7 @@ abbrev Dom (maskYF : ℕ) := { s : ℕ // maskYF.testBit s = true }
 def decM (maskYF : ℕ) (g : ℕ) : Set (Dom maskYF) :=
   { s | g.testBit s.1 = true }
 
-@[simp] theorem mem_decM (maskYF g : ℕ) (s : Dom maskYF) :
+@[local simp] theorem mem_decM (maskYF g : ℕ) (s : Dom maskYF) :
     s ∈ decM maskYF g ↔ g.testBit s.1 = true := Iff.rfl
 
 def rawSet (n : ℕ) (F : List (ℕ × ℕ)) : Set (Set (Dom (univYF n F))) :=
@@ -2596,10 +3018,6 @@ theorem decM_encM {N M : ℕ} (hM : ∀ s, M.testBit s = true → s < N) (S : Se
   ext ⟨s, hs⟩
   simp only [decM, encM, testBit_mkBitmask, Set.mem_ofPred_eq]
   simp [hM s hs, hs]
-
-theorem encM_decM {N M g : ℕ} (hM : ∀ s, M.testBit s = true → s < N) (hg : g &&& M = g) :
-    encM N M (decM M g) = g :=
-  (decM_inj (encM_and_self _) hg).mp (decM_encM hM _)
 
 theorem rawSet_eq_image (n : ℕ) (F : List (ℕ × ℕ)) :
     rawSet n F = decM (univYF n F) '' { x | x ∈ rawYF n (univYF n F) } := by
@@ -2746,22 +3164,6 @@ theorem ofCircuitYF {n : ℕ} (H : List (ℕ × ℕ)) (C : Circuit) (hc : Monoto
       obtain ⟨hu, hv⟩ := hH e heH
       exact ⟨e, heH, hu, hv, h1, h2⟩
   exact compileSig C.gates C.output (rawSet n []) w (targetSet n H []) hc hw hval
-
-theorem countOr_add_countAnd_list (gs : List Gate)
-    (hmem : ∀ g ∈ gs, g.op = .and ∨ g.op = .or) :
-    (gs.filter (fun g => match g.op with | .and => true | _ => false)).length +
-      countOrGates gs = gs.length := by
-  induction gs with
-  | nil => simp [countOrGates]
-  | cons g gs ih =>
-    have hg := hmem g (by simp)
-    have ih' := ih (fun x hx => hmem x (by simp [hx]))
-    rcases hg with h | h <;> simp [countOrGates, isOrGate, h] at ih' ⊢ <;> omega
-
-theorem countOr_add_countAnd (C : Circuit) (hc : Monotone2 C) :
-    (C.gates.filter (fun g => match g.op with | .and => true | _ => false)).length +
-      countOrGates C.gates = C.size :=
-  countOr_add_countAnd_list C.gates (fun g hg => (hc g hg).1)
 
 
 
@@ -3045,17 +3447,6 @@ theorem runListFrom_equiv_basis {M target : ℕ} {B₁ B₂ gs : List ℕ}
     refine ⟨⟨a, b, meetNat_weaken (fun x hx => (heq x).mp hx) ha,
       meetNat_weaken (fun x hx => (heq x).mp hx) hb, rfl⟩, ?_⟩
     exact ih (fun x => by simp [heq x]) hrest
-
-theorem validPrefix_mem_sub_mask {M : ℕ} {B pre : List ℕ} (hp : ValidPrefix M B pre) :
-    ∀ g ∈ pre, g &&& M = g := by
-  induction pre generalizing B with
-  | nil => intro g hg; simp at hg
-  | cons g rest ih =>
-    rcases hp with ⟨⟨a, b, ha, hb, rfl⟩, hrest⟩
-    intro x hx
-    rcases List.mem_cons.mp hx with rfl | hx
-    · exact or_and_mask ha.1 hb.1
-    · exact ih hrest x hx
 
 theorem validPrefix_to_run {M target : ℕ} {B pre : List ℕ} (hp : ValidPrefix M B pre)
     {k : ℕ} (hr : Run (decM M '' { x | x ∈ B ++ pre }) k (decM M target)) :
@@ -3585,34 +3976,6 @@ theorem lex_append_left {α : Type} {r : α → α → Prop} :
   | [], _, _, h => h
   | _ :: rest, l₁, l₂, h => List.Lex.cons (lex_append_left rest l₁ l₂ h)
 
-theorem lexMin_commSwap {n : ℕ} {H F : List (ℕ × ℕ)} {pre0 suf : List ℕ} {lastG g a b : ℕ}
-    (hrun : RunListFrom (univYF n F) (rawYF n (univYF n F)) (edgeTTYF n H (univYF n F))
-      (pre0 ++ lastG :: g :: suf))
-    (hlex : ∀ gs', gs'.length = (pre0 ++ lastG :: g :: suf).length →
-      RunListFrom (univYF n F) (rawYF n (univYF n F)) (edgeTTYF n H (univYF n F)) gs' →
-      ¬ List.Lex (· < ·) gs' (pre0 ++ lastG :: g :: suf))
-    (ha : MeetNat (univYF n F) (rawYF n (univYF n F) ++ pre0) a)
-    (hb : MeetNat (univYF n F) (rawYF n (univYF n F) ++ pre0) b)
-    (hg : g = a ||| b) :
-    ¬ (g < lastG) := by
-  intro hlt
-  set M := univYF n F
-  set raw := rawYF n M
-  set target := edgeTTYF n H M
-  obtain ⟨hp0, ⟨a0, b0, ha0, hb0, hlg⟩, _, hsuf⟩ := runListFrom_append.mp hrun
-  let gs' := pre0 ++ g :: lastG :: suf
-  have hlen : gs'.length = (pre0 ++ lastG :: g :: suf).length := by simp [gs']
-  have hrun' : RunListFrom M raw target gs' := by
-    apply runListFrom_append.mpr
-    refine ⟨hp0, ⟨a, b, ha, hb, hg⟩, ?_, ?_⟩
-    · refine ⟨a0, b0, meetNat_weaken (fun x hx => List.mem_append_left _ hx) ha0,
-        meetNat_weaken (fun x hx => List.mem_append_left _ hx) hb0, hlg⟩
-    · apply runListFrom_equiv_basis (B₁ := (raw ++ pre0) ++ [lastG] ++ [g]) _ hsuf
-      intro x; simp; tauto
-  have hl : List.Lex (· < ·) gs' (pre0 ++ lastG :: g :: suf) :=
-    lex_append_left pre0 (g :: lastG :: suf) (lastG :: g :: suf) (List.Lex.rel hlt)
-  exact hlex gs' hlen hrun' hl
-
 
 
 def applyPermLoop (tbl : List ℕ) (f : ℕ) (s : ℕ) (acc : ℕ) : ℕ :=
@@ -3695,12 +4058,9 @@ theorem applyPerm_and {tbl : List ℕ} (hnd : tbl.Nodup) (a b : ℕ) :
     subst hij
     exact ⟨i, hi, hgeti, ha, hb⟩
 
-def ValidAutTbl (M edgeTT : ℕ) (raw tbl : List ℕ) : Prop :=
+abbrev ValidAutTbl (M edgeTT : ℕ) (raw tbl : List ℕ) : Prop :=
   tbl.Nodup ∧ applyPerm tbl M = M ∧ applyPerm tbl edgeTT = edgeTT ∧
     ∀ r ∈ raw, applyPerm tbl r ∈ raw
-
-instance (M edgeTT : ℕ) (raw tbl : List ℕ) : Decidable (ValidAutTbl M edgeTT raw tbl) := by
-  unfold ValidAutTbl; infer_instance
 
 theorem applyPerm_isMeetLoop {tbl : List ℕ} (hnd : tbl.Nodup) (M : ℕ)
     {B B' : List ℕ} (hB : ∀ b ∈ B, applyPerm tbl b ∈ B') {t acc : ℕ}
@@ -3899,12 +4259,6 @@ theorem lexMin_not_eg_sub {n : ℕ} {H F : List (ℕ × ℕ)} {pre suf : List �
     cases a.testBit s <;> cases b.testBit s <;> cases ep.testBit s <;> decide
   exact lexMin_eliminate_step hv hrun hmin (meetNat_iff.mp hb).2 hbg heq
 
-
-
-theorem baseZeroOneEdgesYF {n : ℕ} {H F : List (ℕ × ℕ)} (h : H.length ≤ 1) :
-    OrCostLB n H F (H.length - 1) := by
-  intro k _; omega
-
 theorem mkBitmask_lt_two_pow (n : ℕ) (p : ℕ → Bool) : mkBitmask n p < 2 ^ n := by
   induction n with
   | zero => simp [mkBitmask]
@@ -3915,96 +4269,6 @@ theorem mkBitmask_lt_two_pow (n : ℕ) (p : ℕ → Bool) : mkBitmask n p < 2 ^ 
     split_ifs
     · exact Nat.or_lt_two_pow h1 (oneBit_lt_two_pow (by omega))
     · exact h1
-
-theorem baseTwoEdgesYF {n : ℕ} {H F : List (ℕ × ℕ)}
-    (hv : ValidState n H F) (hnd : NoDupEdges H) (hlen : H.length = 2) :
-    OrCostLB n H F 1 := by
-  intro k hr
-  by_contra hlt
-  have hk0 : k = 0 := by omega
-  subst hk0
-  cases hr with
-  | done hm =>
-    have hM : ∀ s, (univYF n F).testBit s = true → s < 2 ^ n := fun _ => univYF_testBit_lt
-    have hm' : Meet (decM (univYF n F) '' { x | x ∈ rawYF n (univYF n F) ++ [] })
-        (targetSet n H F) := by
-      simpa only [List.append_nil, ← rawSet_eq_image] using hm
-    match H, hlen, hv, hnd, hm' with
-    | [e₁, e₂], _, hv, hnd, hm' =>
-      have hne12 : undirEq e₁ e₂ = false := by
-        simp only [NoDupEdges, List.pairwise_cons, List.mem_singleton, forall_eq] at hnd
-        exact hnd.1
-      let s₁ := (1 <<< e₁.1) ||| (1 <<< e₁.2)
-      let s₂ := (1 <<< e₂.1) ||| (1 <<< e₂.2)
-      have hs₁M : (univYF n F).testBit s₁ = true := edgePt_mem_univYF hv (by simp)
-      have hs₂M : (univYF n F).testBit s₂ = true := edgePt_mem_univYF hv (by simp)
-      have hs₁T : (⟨s₁, hs₁M⟩ : Dom (univYF n F)) ∈ targetSet n [e₁, e₂] F :=
-        edgePt_mem_edgeTTYF hv (by simp)
-      have hs₂T : (⟨s₂, hs₂M⟩ : Dom (univYF n F)) ∈ targetSet n [e₁, e₂] F :=
-        edgePt_mem_edgeTTYF hv (by simp)
-      rcases meet_decompose_nat hm' with hemp | ⟨rMask, P, hP, hS⟩
-      · rw [hemp] at hs₁T; exact hs₁T
-      · have hPnil : P = [] := by
-          cases P with
-          | nil => rfl
-          | cons p _ => exfalso; exact List.not_mem_nil (hP p (by simp))
-        subst hPnil
-        simp only [List.foldl_nil, ttNeedYF_and_mask hM] at hS
-        have hs₁R : s₁ &&& rMask = rMask := by
-          rw [hS, mem_decM, testBit_ttNeedYF hM, hs₁M, Bool.true_and, beq_iff_eq] at hs₁T
-          exact hs₁T
-        have hs₂R : s₂ &&& rMask = rMask := by
-          rw [hS, mem_decM, testBit_ttNeedYF hM, hs₂M, Bool.true_and, beq_iff_eq] at hs₂T
-          exact hs₂T
-        have hrSub1 : ∀ w, rMask.testBit w = true → w = e₁.1 ∨ w = e₁.2 := by
-          intro w hw
-          have := congrArg (fun z => z.testBit w) hs₁R
-          rw [Nat.testBit_and, hw, Bool.and_true] at this
-          exact (twoBit_testBit e₁.1 e₁.2 w).mp this
-        have hrSub2 : ∀ w, rMask.testBit w = true → w = e₂.1 ∨ w = e₂.2 := by
-          intro w hw
-          have := congrArg (fun z => z.testBit w) hs₂R
-          rw [Nat.testBit_and, hw, Bool.and_true] at this
-          exact (twoBit_testBit e₂.1 e₂.2 w).mp this
-        have hrAtMostOne : ∀ w₁ w₂, rMask.testBit w₁ = true → rMask.testBit w₂ = true → w₁ = w₂ := by
-          intro w₁ w₂ hw₁ hw₂
-          by_contra hne
-          rcases hrSub1 w₁ hw₁ with rfl | rfl <;> rcases hrSub1 w₂ hw₂ with rfl | rfl
-          · exact hne rfl
-          · rcases hrSub2 _ hw₁ with h1 | h1 <;> rcases hrSub2 _ hw₂ with h2 | h2
-            · exact hne (h1.trans h2.symm)
-            · simp [undirEq, h1, h2] at hne12
-            · simp [undirEq, h1, h2] at hne12
-            · exact hne (h1.trans h2.symm)
-          · rcases hrSub2 _ hw₁ with h1 | h1 <;> rcases hrSub2 _ hw₂ with h2 | h2
-            · exact hne (h1.trans h2.symm)
-            · simp [undirEq, h1, h2] at hne12
-            · simp [undirEq, h1, h2] at hne12
-            · exact hne (h1.trans h2.symm)
-          · exact hne rfl
-        have hrLt : rMask < 2 ^ n := by
-          have hrEq : rMask = mkBitmask n (fun w => rMask.testBit w) := by
-            apply Nat.eq_of_testBit_eq; intro w
-            rw [testBit_mkBitmask]
-            cases hw : rMask.testBit w
-            · simp
-            · obtain ⟨he1, he2, _⟩ := hv.1 e₁ (by simp)
-              have hwn : w < n := by rcases hrSub1 w hw with rfl | rfl <;> assumption
-              simp [hwn]
-          rw [hrEq]; exact mkBitmask_lt_two_pow n _
-        have hrDom : (univYF n F).testBit rMask = true := by
-          rw [testBit_univYF, Bool.and_eq_true, decide_eq_true_eq, Bool.not_eq_true']
-          refine ⟨hrLt, Bool.eq_false_iff.mpr fun hf => ?_⟩
-          rw [hasEdge_eq_true] at hf
-          obtain ⟨f, hfF, h1, h2⟩ := hf
-          exact (hv.2.1 f hfF).2.2 (hrAtMostOne f.1 f.2 h1 h2)
-        have hrInNeed : (⟨rMask, hrDom⟩ : Dom (univYF n F)) ∈ targetSet n [e₁, e₂] F := by
-          rw [hS, mem_decM, testBit_ttNeedYF hM, hrDom, Bool.true_and, Nat.and_self,
-            beq_self_eq_true]
-        rw [targetSet, mem_decM, testBit_edgeTTYF hM, hrDom, Bool.true_and,
-          hasEdge_eq_true] at hrInNeed
-        obtain ⟨e, heH, h1, h2⟩ := hrInNeed
-        exact (hv.1 e heH).2.2 (hrAtMostOne e.1 e.2 h1 h2)
 
 
 
@@ -5097,146 +5361,6 @@ theorem or_bound_of_eval_eq {n lb : ℕ} {H : List (ℕ × ℕ)} {f : (Fin n →
   obtain ⟨k, hk, hrun⟩ := ofCircuitYF H C hc he' hH
   exact (hlb k hrun).trans hk
 
-def g0_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (3, 4), (3, 5), (4, 5)]
-def g0_fn (x : Fin 6 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 5)
-theorem g0_fn_eq : ∀ x : Fin 6 → Bool, g0_fn x = edgeFnList 6 g0_edges x := by
-  intro x; simp [g0_fn, edgeFnList, g0_edges, Bool.or_assoc]
-
-def g1_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (3, 4), (5, 6)]
-def g1_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
-theorem g1_fn_eq : ∀ x : Fin 7 → Bool, g1_fn x = edgeFnList 7 g1_edges x := by
-  intro x; simp [g1_fn, edgeFnList, g1_edges, Bool.or_assoc]
-
-def g2_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (3, 5), (4, 6)]
-def g2_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 4 && x 6)
-theorem g2_fn_eq : ∀ x : Fin 7 → Bool, g2_fn x = edgeFnList 7 g2_edges x := by
-  intro x; simp [g2_fn, edgeFnList, g2_edges, Bool.or_assoc]
-
-def g3_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (4, 6)]
-def g3_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 6)
-theorem g3_fn_eq : ∀ x : Fin 7 → Bool, g3_fn x = edgeFnList 7 g3_edges x := by
-  intro x; simp [g3_fn, edgeFnList, g3_edges, Bool.or_assoc]
-
-def g4_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (3, 4), (3, 5), (4, 6)]
-def g4_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 6)
-theorem g4_fn_eq : ∀ x : Fin 7 → Bool, g4_fn x = edgeFnList 7 g4_edges x := by
-  intro x; simp [g4_fn, edgeFnList, g4_edges, Bool.or_assoc]
-
-def g5_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (3, 4), (4, 5), (5, 6)]
-def g5_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 4 && x 5) || (x 5 && x 6)
-theorem g5_fn_eq : ∀ x : Fin 7 → Bool, g5_fn x = edgeFnList 7 g5_edges x := by
-  intro x; simp [g5_fn, edgeFnList, g5_edges, Bool.or_assoc]
-
-def g6_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (4, 5), (4, 6), (5, 6)]
-def g6_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 4 && x 5) || (x 4 && x 6) || (x 5 && x 6)
-theorem g6_fn_eq : ∀ x : Fin 7 → Bool, g6_fn x = edgeFnList 7 g6_edges x := by
-  intro x; simp [g6_fn, edgeFnList, g6_edges, Bool.or_assoc]
-
-def g7_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 4), (2, 5), (3, 6), (4, 5)]
-def g7_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 5)
-theorem g7_fn_eq : ∀ x : Fin 7 → Bool, g7_fn x = edgeFnList 7 g7_edges x := by
-  intro x; simp [g7_fn, edgeFnList, g7_edges, Bool.or_assoc]
-
-def g8_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (1, 3), (2, 4), (3, 5), (4, 6), (5, 6)]
-def g8_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 1 && x 3) || (x 2 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
-theorem g8_fn_eq : ∀ x : Fin 7 → Bool, g8_fn x = edgeFnList 7 g8_edges x := by
-  intro x; simp [g8_fn, edgeFnList, g8_edges, Bool.or_assoc]
-
-def g9_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 2), (3, 4)]
-def g9_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4)
-theorem g9_fn_eq : ∀ x : Fin 7 → Bool, g9_fn x = edgeFnList 7 g9_edges x := by
-  intro x; simp [g9_fn, edgeFnList, g9_edges, Bool.or_assoc]
-
-def g10_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (1, 6), (3, 4)]
-def g10_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 1 && x 6) || (x 3 && x 4)
-theorem g10_fn_eq : ∀ x : Fin 7 → Bool, g10_fn x = edgeFnList 7 g10_edges x := by
-  intro x; simp [g10_fn, edgeFnList, g10_edges, Bool.or_assoc]
-
-def g11_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (3, 4), (5, 6)]
-def g11_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
-theorem g11_fn_eq : ∀ x : Fin 7 → Bool, g11_fn x = edgeFnList 7 g11_edges x := by
-  intro x; simp [g11_fn, edgeFnList, g11_edges, Bool.or_assoc]
-
-def g12_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (1, 6), (3, 4)]
-def g12_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 1 && x 6) || (x 3 && x 4)
-theorem g12_fn_eq : ∀ x : Fin 7 → Bool, g12_fn x = edgeFnList 7 g12_edges x := by
-  intro x; simp [g12_fn, edgeFnList, g12_edges, Bool.or_assoc]
-
-def g13_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (2, 6), (3, 4)]
-def g13_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 2 && x 6) || (x 3 && x 4)
-theorem g13_fn_eq : ∀ x : Fin 7 → Bool, g13_fn x = edgeFnList 7 g13_edges x := by
-  intro x; simp [g13_fn, edgeFnList, g13_edges, Bool.or_assoc]
-
-def g14_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (3, 4), (3, 6)]
-def g14_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 3 && x 6)
-theorem g14_fn_eq : ∀ x : Fin 7 → Bool, g14_fn x = edgeFnList 7 g14_edges x := by
-  intro x; simp [g14_fn, edgeFnList, g14_edges, Bool.or_assoc]
-
-def g15_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (3, 4), (5, 6)]
-def g15_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 5 && x 6)
-theorem g15_fn_eq : ∀ x : Fin 7 → Bool, g15_fn x = edgeFnList 7 g15_edges x := by
-  intro x; simp [g15_fn, edgeFnList, g15_edges, Bool.or_assoc]
-
-def g16_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (3, 6), (5, 6)]
-def g16_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 6) || (x 5 && x 6)
-theorem g16_fn_eq : ∀ x : Fin 7 → Bool, g16_fn x = edgeFnList 7 g16_edges x := by
-  intro x; simp [g16_fn, edgeFnList, g16_edges, Bool.or_assoc]
-
-def g17_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (3, 5), (3, 6), (5, 6)]
-def g17_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 3 && x 6) || (x 5 && x 6)
-theorem g17_fn_eq : ∀ x : Fin 7 → Bool, g17_fn x = edgeFnList 7 g17_edges x := by
-  intro x; simp [g17_fn, edgeFnList, g17_edges, Bool.or_assoc]
-
-def g18_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (3, 5), (4, 6), (5, 6)]
-def g18_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
-theorem g18_fn_eq : ∀ x : Fin 7 → Bool, g18_fn x = edgeFnList 7 g18_edges x := by
-  intro x; simp [g18_fn, edgeFnList, g18_edges, Bool.or_assoc]
-
-def g19_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (2, 5), (3, 6), (4, 6)]
-def g19_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6)
-theorem g19_fn_eq : ∀ x : Fin 7 → Bool, g19_fn x = edgeFnList 7 g19_edges x := by
-  intro x; simp [g19_fn, edgeFnList, g19_edges, Bool.or_assoc]
-
-def g20_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (3, 6), (4, 5)]
-def g20_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5)
-theorem g20_fn_eq : ∀ x : Fin 7 → Bool, g20_fn x = edgeFnList 7 g20_edges x := by
-  intro x; simp [g20_fn, edgeFnList, g20_edges, Bool.or_assoc]
-
-def g21_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (3, 6), (5, 6)]
-def g21_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 5 && x 6)
-theorem g21_fn_eq : ∀ x : Fin 7 → Bool, g21_fn x = edgeFnList 7 g21_edges x := by
-  intro x; simp [g21_fn, edgeFnList, g21_edges, Bool.or_assoc]
-
-def g22_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (4, 5), (5, 6)]
-def g22_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 5) || (x 5 && x 6)
-theorem g22_fn_eq : ∀ x : Fin 7 → Bool, g22_fn x = edgeFnList 7 g22_edges x := by
-  intro x; simp [g22_fn, edgeFnList, g22_edges, Bool.or_assoc]
-
-def g23_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (4, 6), (5, 6)]
-def g23_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 5 && x 6)
-theorem g23_fn_eq : ∀ x : Fin 7 → Bool, g23_fn x = edgeFnList 7 g23_edges x := by
-  intro x; simp [g23_fn, edgeFnList, g23_edges, Bool.or_assoc]
-
-def g24_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (3, 4), (4, 5), (4, 6), (5, 6)]
-def g24_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 4 && x 5) || (x 4 && x 6) || (x 5 && x 6)
-theorem g24_fn_eq : ∀ x : Fin 7 → Bool, g24_fn x = edgeFnList 7 g24_edges x := by
-  intro x; simp [g24_fn, edgeFnList, g24_edges, Bool.or_assoc]
-
-def g25_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 4), (2, 5), (3, 6), (4, 5), (4, 6)]
-def g25_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 4 && x 6)
-theorem g25_fn_eq : ∀ x : Fin 7 → Bool, g25_fn x = edgeFnList 7 g25_edges x := by
-  intro x; simp [g25_fn, edgeFnList, g25_edges, Bool.or_assoc]
-
-def g26_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 2), (3, 4), (5, 6)]
-def g26_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 0 && x 6) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6)
-theorem g26_fn_eq : ∀ x : Fin 7 → Bool, g26_fn x = edgeFnList 7 g26_edges x := by
-  intro x; simp [g26_fn, edgeFnList, g26_edges, Bool.or_assoc]
-
-def g27_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (1, 6), (3, 4), (5, 6)]
-def g27_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 1 && x 6) || (x 3 && x 4) || (x 5 && x 6)
-theorem g27_fn_eq : ∀ x : Fin 7 → Bool, g27_fn x = edgeFnList 7 g27_edges x := by
-  intro x; simp [g27_fn, edgeFnList, g27_edges, Bool.or_assoc]
-
 def g28_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 5), (3, 4), (3, 6), (5, 6)]
 def g28_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 3 && x 6) || (x 5 && x 6)
 theorem g28_fn_eq : ∀ x : Fin 7 → Bool, g28_fn x = edgeFnList 7 g28_edges x := by
@@ -5246,11 +5370,6 @@ def g29_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (2
 def g29_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6) || (x 5 && x 6)
 theorem g29_fn_eq : ∀ x : Fin 7 → Bool, g29_fn x = edgeFnList 7 g29_edges x := by
   intro x; simp [g29_fn, edgeFnList, g29_edges, Bool.or_assoc]
-
-def g30_edges : List (ℕ × ℕ) := [(0, 1), (0, 2), (0, 3), (1, 2), (1, 4), (3, 5), (3, 6), (4, 5), (5, 6)]
-def g30_fn (x : Fin 7 → Bool) : Bool := (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 5) || (x 5 && x 6)
-theorem g30_fn_eq : ∀ x : Fin 7 → Bool, g30_fn x = edgeFnList 7 g30_edges x := by
-  intro x; simp [g30_fn, edgeFnList, g30_edges, Bool.or_assoc]
 
 
 
@@ -7343,7 +7462,7 @@ def s1_autIdxTbls : List (List Nat) := []
 def s1_auts : List (List Nat) := []
 def s1_cutSpecs : List CutSpecData := [⟨0,[(3,4)],[3,2],2,[0,1,4]⟩,⟨2,[],[0],2,[2,3,4]⟩,⟨3,[],[],2,[2,3,4]⟩,⟨12,[],[],2,[0,1,4]⟩]
 def s1_cuts : List CutDefData := chkMkCuts s1_maskYF s1_raw [(1,[.e [(3,4)]]),(2,[.v 1 [9,16]]),(3,[.v 0 [6,16,10],.v 1 [16]]),(3,[.v 2 [10,16],.v 3 [16]])]
-def s1_cert : CertNode := .branch [2,3,1,0] [[11,11,19,3,3,27,27,27,11,11,3,3,11,11,11,11,3,3,11,11,11,3,3,19,19,19,3,3,3,3,3,3,3,12,11,19,3,11,19,3,11,3,3]] (.nil)
+def s1_cert : CertNode := .branch [2,3,1,0] [(pl 43 5 0x1ffee23df008368085a80297 [3,11,19,27,12])] (.nil)
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_1 : chkCheckNode s1_maskYF s1_edgePts s1_edgeTT s1_raw s1_masksTT s1_cuts [] s1_auts s1_cert = true := by decide +kernel
@@ -7373,7 +7492,7 @@ def s4_autIdxTbls : List (List Nat) := []
 def s4_auts : List (List Nat) := []
 def s4_cutSpecs : List CutSpecData := [⟨0,[(2,4)],[2,0,1],17,[3,4]⟩,⟨24,[],[1],17,[0,2]⟩,⟨7,[],[],17,[3,4]⟩]
 def s4_cuts : List CutDefData := chkMkCuts s4_maskYF s4_raw [(1,[.e [(2,4)]]),(3,[.v 3 [6,16],.v 4 [6]]),(4,[.v 0 [12,18],.v 1 [12],.v 2 [16]])]
-def s4_cert : CertNode := .branch [2,1,0] [[11,11,3,3,11,11,11,11,3,3,19,19,19,3,3,11,11,11,3,3,3,3,3,3,3,11,12,12,3,11,11,3,4,3,3]] (.nil)
+def s4_cert : CertNode := .branch [2,1,0] [(pl 35 5 0x13f6c3b5f66b9316aa6c [3,11,19,12,4])] (.nil)
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_4 : chkCheckNode s4_maskYF s4_edgePts s4_edgeTT s4_raw s4_masksTT s4_cuts [] s4_auts s4_cert = true := by decide +kernel
@@ -7388,7 +7507,7 @@ def s6_autIdxTbls : List (List Nat) := []
 def s6_auts : List (List Nat) := []
 def s6_cutSpecs : List CutSpecData := [⟨8,[],[],4,[0,1,2,4,5]⟩,⟨0,[(4,5)],[],18,[0,1,2,3,4,5]⟩,⟨5,[],[1],2,[3,4,5]⟩,⟨44,[],[0],17,[1,4]⟩,⟨7,[],[],2,[3,4,5]⟩,⟨27,[],[],17,[2,5]⟩]
 def s6_cuts : List CutDefData := chkMkCuts s6_maskYF s6_raw [(2,[.v 3 [17,32,20]]),(1,[.e [(4,5)]]),(3,[.v 2 [17,32],.v 0 [34]]),(5,[.v 2 [1,32],.v 3 [34],.v 5 [16]]),(4,[.v 1 [9,20,33],.v 0 [20],.v 2 [32]]),(6,[.v 1 [1,20],.v 3 [17,20,32],.v 0 [20],.v 4 [32]])]
-def s6_cert : CertNode := .branch [4,0,2,1] [[11,11,19,3,19,3,27,27,27,27,11,11,3,11,3,11,11,11,11,11,3,11,3,11,11,11,11,3,19,3,19,19,19,19,3,3,3,3,3,3,3,19,19,19,19,3,3,3,3,0,11,19,3,20,11,19,3,4,11,3,11,3,19,3]] (.cons 0xffffffffffff0000 (.branch [5,3,1] [[11,3,19,11,3,11,3,4,4,4,12,4,3,11,11,11,3,11,3,11,11,3,11,3,3,3,3,3,3,3,3,3,3,11,3,11,3,5,1]] (.nil)) (.nil))
+def s6_cert : CertNode := .branch [4,0,2,1] [(pl 64 7 0x8678df1b24cbc03214cc35f06c9c278f7f1a9f61d566 [3,11,19,27,0,4,20])] (.cons 0xffffffffffff0000 (.branch [5,3,1] [(pd 39 20 0x17ad5ea588c12a2e490b538f17058286a6835494b7)] (.nil)) (.nil))
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_6 : chkCheckNode s6_maskYF s6_edgePts s6_edgeTT s6_raw s6_masksTT s6_cuts [] s6_auts s6_cert = true := by decide +kernel
@@ -7405,10 +7524,27 @@ def s13_cutSpecs : List CutSpecData := [⟨4,[],[],6,[0,1,4,3,5,6]⟩,⟨8,[],[]
 def s13_cuts : List CutDefData := chkMkCuts s13_maskYF s13_raw [(2,[.v 2 [26,65]]),(2,[.v 3 [37,65,48]]),(1,[.e [(4,6)]]),(1,[.e [(5,6)]]),(3,[.v 0 [6,48,66],.v 1 [48,36]]),(5,[.e [(5,6)],.v 4 [33],.v 0 [2,66]]),(5,[.e [(5,6)],.v 4 [33],.v 2 [65]]),(6,[.v 2 [65,26,48],.v 4 [],.v 6 [33]]),(5,[.v 0 [66,16,18],.v 1 [48],.v 5 [24]]),(5,[.v 1 [65,48,36],.v 5 [24],.v 3 [64]]),(5,[.v 2 [65,26],.v 4 [33],.v 0 [2]]),(7,[.v 3 [37,66,48,65],.v 2 [65],.v 6 [48],.v 4 [33]]),(7,[.v 3 [36,48],.v 2 [18,65,48,66],.v 6 [48],.v 5 [18]]),(7,[.v 3 [37,48,65,66],.v 4 [64],.v 2 [64],.v 6 [33]]),(7,[.v 4 [33,36],.v 0 [6],.v 1 [32],.v 5 [8]]),(7,[.v 6 [9,37,6,16],.v 2 [26,48],.v 3 [32],.v 4 [33]]),(6,[.v 0 [2,24,48],.v 2 [48,26,64],.v 1 [32],.v 4 [64]]),(6,[.v 1 [48,1],.v 2 [65],.v 0 [16],.v 4 [64]]),(8,[.v 0 [2,24,48],.v 2 [48,66,24],.v 1 [32],.v 5 [24],.v 4 [64]]),(8,[.v 1 [1,36,33],.v 2 [65,48,24],.v 5 [65],.v 0 [24],.v 4 [64]]),(8,[.v 1 [32,65,33],.v 5 [24],.v 3 [64],.v 6 [4],.v 0 [16]]),(8,[.v 2 [],.v 0 [2,48],.v 1 [32],.v 5 [24],.v 4 [64]]),(8,[.v 2 [16,66,48],.v 1 [48,1],.v 3 [32],.v 5 [64],.v 6 [16]]),(8,[.v 4 [33,36],.v 0 [2],.v 1 [32],.v 3 [32],.v 5 [64]]),(8,[.v 4 [36,33],.v 2 [64],.v 6 [33],.v 3 [32],.v 0 [2]]),(8,[.v 6 [],.v 2 [26,48],.v 3 [32],.v 5 [18],.v 4 [1]])]
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
-def s13_cert : CertNode := .branch [0,4,2,1,3] [[19,2,2,2,2,2,2,2,35,2,2,2,2,19,19,3,3,19,11,11,2,19,19,19,19,2,3,3,2,2,2,2,27,27,2,2,2,3,2,2,2,2,27,2,2,2,3,3,3,3,2,3,2,3,3,3,3,3,3,2,3,3,3,11],[2,2,12,2,12,2,11,11,2,2,11,11,11,2,11,2,11,2,0,2,3,2,11,0,2,2,2,2,27,3,12,11,3,2,2,3,3,11]] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [16,1,2,3,17] [[11,4,3,19,11,11,4,4,35,3,3,27,11,4,35,3,11,3,11,11,11,11,11,11,3,3,11,11,11,11,3,3,27,19,11,11,35,3,3,4,4,4,4,4,36,3,3,3,3,3,3,3,3,3,3,3,3,3,11,35,3,0,11,35],[3,0,1]] (.cons 0xffffffffffffffffffffffffffff0000 (.branch [19,13,2,3] [[11,3,11,11,4,11,11,27,19,4,4,3,6,3,11,11,11,11,11,11,3,4,4,11,4,27,19,11,11,3,12,3,4,4,4,11,3,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,5,11,4,27,19,11,11],[4,4,3,3,14,5,11,4,3,3,3,6,1]] (.nil)) (.cons 0xffffffffffffffffffffffff00000000 (.branch [22,11,4,2,3] [[3,11,3,11,11,11,11,11,11,1,3,3,11,11,11,11,11,11,11,11,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,11,4,3,19,11,3,4,19,19,1,1,11,3,4,19,11,3,4,27,11,3,19,27,11,11],[3,3,4,19,19,27,11,3,4,19,3,11,11,0,11,11,35,27,3,3,4,19,19,11,11,11,11,11,11,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,4,11,3,19,4,35,27,11,11,3,3,19,19,4,4,11,3,19],[3,19,6,3,19,19,6,3,4,19,6,1]] (.cons 0xfff0fff0fff0fff0fff0ff00f0f00000 (.branch [12,22,4,2,3] [[1,3,1,1,1,11,1,11,11,1,11,11,11,1,3,1,11,11,11,11,11,1,11,11,1,1,1,3,4,4,4,1,19,3,35,27,1,4,19,19,4,4,4,1,4,4,1,1,1,1,4,1,4,4,1,19,35,27,1,1,4,19,19,4],[4,1,1,4,4,1,3,1,1,3,1,3,3,1,3,3,3,1,1,3,3,3,3,3,3,1,3,3,1,1,11,4,1,4,11,4,19,35,27,1,12,19,19,4,4,4,1,4,4,1,1,3,3,4,3,4,4,3,19,35,27,3,3,4],[19,19,4,4,3,3,4,4,4,3,1,3,3,4,3,4,3,1,3,19,3,35,27,1,3,11,4,19,19,4,4,3,4,4,3,3,1,11,11,3,1,4,11,4,3,19,35,27,3,3,1,4,19,19,4,4,3,4,4,1,1,3,3,1],[3,3,1,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,1,11,11,1,11,11,11,1,11,11,11,3,3,11,11,11,11,11,11,1,11,11,4,4,4,11,4,19,3,35,27,12,19,19,4,4,4,4,4,3,3,3,3,3,3,11],[11,11,11,11,11,1,3,12,11,19,3,11,12,19,19,1,1,3,11,12,19,3,11,12,27,3,11,19,27,3,3,11,11,12,19,19,27,3,11,12,19,1,3,1,3,3,3,3,3,3,1,11,11,11,11,11,1,12,12,35,27,12,12,11],[19,6,11,19,19,6,11,12,19,6,1]] (.nil)) (.nil))) (.nil)))) (.cons 0xffffffffffff0000ffffffffffff0000 (.branch [10,8] [[2,3,2,11,2,2,3,3,2,11,11,2,13,2,0,2,0,3,2,2,2,4,2,3,3,2,2,2,2,13,3,2,2,3,3,2,3,2,2,3,3,3,3,3,2,2,3,3,11,2,4,2,2,3,3,11,2,2,12,2,3,11,2,11],[2,2,3,3,2,11,11,2,2,11,2,2,3,11,0,2,3,2,11,2,3,2,11,11,2,0,2,3,2,11,1]] (.cons 0xfffffffffffff0f0f0f0f0f0f0f0f0f0 (.branch [15,14,9,1,6] [[3,27,19,12,3,27,3,19,11,19,3,11,11,27,1,19,37,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,1,27,3,19,4,1,3,27,3,3,19,11,19,11,27,3,19,4,3,11,11,11,3,3,11,3,11,11,11],[11,11,11,3,11,11,27,19,12,4,3,27,19,11,19,3,4,11,27,19,12,3,3,1,27,3,19,3,3,3,3,27,4,27,11,19,11,19,3,0,3,3,3,3]] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [21,11,6,9,15] [[4,3,11,4,11,27,4,3,11,11,27,4,27,3,36,3,36,36,21,3,4,11,3,4,1,11,3,27,4,1,11,11,3,3,27,4,27,1,20,3,20,20,4,11,1,4,1,11,27,4,11,11,1,27,4,27,3,20,1,20,1,20,20,3],[3,3,3,1,3,1,3,3,3,3,1,3,3,1,3,3,3,3,3,3,3,3,4,11,3,4,35,4,4,4,35,11,3,27,19,35,11,11,3,3,27,27,35,4,4,3,4,11,3,3,3,11,27,11,11,3,27,27,1,1,11,3,27,4],[11,3,4,1,11,3,27,4,1,11,11,3,3,27,4,27,1,11,3,27,4,3,11,11,11,11,11,11,11,11,3,11,11,11,11,11,11,3,3,11,11,11,11,11,3,11,11,3,1,1,3,3,1,3,3,3,3,3,3,3,3,3,3,3],[3,3,3,3,3,3,4,35,4,4,4,35,11,3,27,19,35,11,11,3,3,27,27,35,4,11,3,27,11,27,35,11,27,27,35,11,27,4,35,35,1]] (.nil)) (.nil))) (.cons 0xffffffffffffaaaaaaaaaaaaaaaaaaaa (.branch [24,20,10,1,5] [[11,27,19,11,27,27,19,3,11,11,5,3,3,27,37,11,1,3,11,27,19,11,1,27,27,19,3,11,3,11,5,14,27,19,11,1,1,11,27,19,11,3,1,27,27,19,3,11,3,11,3,27,12,11,3,3,3,3,3,3,3,3,3,3],[3,3,3,3,3,3,3,3,3,11,11,11,11,11,11,11,3,11,11,11,3,11,3,11,11,11,11,11,27,19,11,21,27,27,19,3,11,5,21,3,27,19,11,27,19,36,36,36,1,27,19,11,5,27,19,5,27,19,11,21,27,3,11,3],[11,5,0,27,19,11,5]] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [7,5,9,1] [[3,27,3,19,27,3,19,27,27,3,3,19,19,4,5,1,27,3,19,1,3,11,27,12,11,1,19,27,3,19,11,1,27,27,3,3,19,11,19,1,12,12,12,11,3,27,12,19,27,3,19,27,27,3,3,19,19,4,4,1,12,12,12,1],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,4,27,12,1,11,19,1,27,3,19,11,1,27,27,3,3,19,19,4,4,12,12,12,27,3,19,4,27,19,27,27,3,19,19,1,1,27],[3,19,4,27,3,4,1,19,27,3,19,4,1,27,27,3,3,19,4,19,1,27,3,19,4,3,27,27,27,27,27,19,27,27,27,3,19,27,27,11,27,27,3,3,19,27,19,27,27,3,27,27,3,13,3,20,12,19,3,12,3,3,13,3],[11,12,27,27,19,12,19,3,3,3,3,3,3,1,20,19,1,27,3,19,11,1,27,27,3,3,19,19,4,5,27,3,19,19,5,27,19,20,27,19,19,20,27,19,5,20,5,1]] (.nil)) (.nil))) (.cons 0xffffffffffffffffffffffffffff0000 (.branch [23,12,4,15] [[11,2,2,2,2,2,2,2,2,3,2,3,2,2,2,2,2,11,11,2,2,12,19,27,11,12,19,27,2,3,11,2,20,3,19,27,2,3,2,12,12,19,2,2,12,2,2,3,2,2,27,3,3,2,2,20,2,12,19,19,2,19,19,2],[3,2,2,19,3,2,19,19,2,2,19,2,19,2,19,1]] (.nil)) (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [18,11,9,2] [[3,4,11,3,4,11,19,3,4,27,11,11,1,19,3,3,4,4,4,4,12,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,11,4,11,19,11,11,4,19,3,1,1,11,4,19,3,11,4,3,11,4,19,3,1],[11,11,4,4,19,3,3,1,11,4,19,3,11,3,11,11,11,11,3,11,11,11,11,11,11,11,3,3,11,11,11,11,3,3,0,11,19,3,4,20,27,11,11,19,3,3,4,4,4,4,4,12,3,3,3,3,3,3,3,3,3,3,3,3],[3,3,3,3,3,11,19,20,11,19,3,20,11,19,3,20,13,1]] (.cons 0xfffffffffffff0f0f0f00000f0f00000 (.branch [25,5,9,1,6] [[1,12,27,1,12,27,19,12,3,27,1,19,12,19,3,4,1,4,1,4,12,1,1,3,3,3,1,3,3,1,3,3,3,3,3,1,3,3,3,3,3,3,1,3,3,1,3,4,27,3,4,27,3,19,4,1,3,27,3,3,19,4,19,1],[4,3,4,4,12,1,27,3,12,1,27,19,12,1,3,27,3,19,12,19,3,4,4,3,4,12,12,3,27,13,27,19,13,3,3,27,19,12,19,3,4,3,4,4,37,3,3,3,3,3,3,1,27,4,3,3,1,3,3,3,27,19,3,27],[19,19,3,27,19,13,3,3,1]] (.nil)) (.nil))) (.nil)))))) (.nil)))
+def s13_cert : CertNode := .branch [0,4,2,1,3] [(pl 64 6 0x171bd0f81aad716d1b9f7160f3080d6212e8e7e502 [2,3,19,11,27,35]),(pl 38 6 0x115ca0022983e9fa5240dd75c [2,11,3,12,0,27])] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [16,1,2,3,17] [(pl 64 8 0x6706400000000074924032650092402492410d1a03489811 [3,11,4,35,19,27,0,36]),[3,0,1]] (.cons 0xffffffffffffffffffffffffffff0000 (.branch [19,13,2,3] [(pl 64 8 0x25c4680000000000000102921c12e229024924609384a241 [3,11,4,19,27,5,6,12]),(pd 13 15 0xa6e41c3881de)] (.nil)) (.cons 0xffffffffffffffffffffffff00000000 (.branch [22,11,4,2,3] [(pl 64 6 0x97fbcc02748edd0d6271724d59d661d17ccfc430e [3,11,19,1,4,27]),(pl 64 8 0x40b69004cad02c00000380000012492930252712130624c0 [3,11,19,4,27,35,0,1]),(pd 12 20 0xfb16a5b3a79f)] (.cons 0xfff0fff0fff0fff0fff0ff00f0f00000 (.branch [12,22,4,2,3] [(pl 64 7 0x2b73a8fc4901188e42c5062b4a1469cb989b89d258456 [1,4,11,19,3,27,35]),(pl 64 8 0x405cc241004a4524df37351150900800004800804120a44a [3,1,4,19,11,27,35,12]),(pl 64 7 0x3a69a14577207f357a65f6e6c2681e731c1a1e3eea001 [3,4,1,19,11,27,35]),(pl 64 8 0x20000249292ee222922592492012592592c06000000000c0 [3,11,4,1,19,12,27,35]),(pl 64 7 0xa018401fb00628fe391a046bcf1868042271e9306701 [11,3,12,19,1,27,35]),(pd 11 20 0xc906f8dee7b)] (.nil)) (.nil))) (.nil)))) (.cons 0xffffffffffff0000ffffffffffff0000 (.branch [10,8] [(pd 64 14 0xa3023fda240ac719e733f3ec09ec3412d2977afe24d71040c12d32b5a34bc),(pd 31 12 0x169da6a47b9c02b00000da4b2c0a)] (.cons 0xfffffffffffff0f0f0f0f0f0f0f0f0f0 (.branch [15,14,9,1,6] [(pl 64 8 0x2482012454194500c4a83804000000000007519211418c98 [3,11,19,27,1,4,12,37]),(pl 44 8 0xc1145c600083e054cc08a6254c9049 [3,11,19,27,4,12,0,1])] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [21,11,6,9,15] [(pl 64 8 0x16cb2865c48b50c46d1632c04a16142111f61832d205a281 [3,4,11,27,1,20,36,21]),(pl 64 7 0x29cf2ff56f32461fc06acdbd7575eeafa7739122b8f9c [3,4,11,27,1,35,19]),(pl 64 5 0x613c0fbffb56d7ac8b8551b934e6fdde5ec20 [11,3,1,4,27]),(pl 41 7 0x68be480fffb71ff0115e895379cd4 [3,27,35,11,4,1,19])] (.nil)) (.nil))) (.cons 0xffffffffffffaaaaaaaaaaaaaaaaaaaa (.branch [24,20,10,1,5] [(pl 64 9 0x1b2d6e25bb4814a740faf0dcd1de6fd22629bdc7fc7 [3,11,27,19,1,5,12,14,37]),(pl 64 8 0x20aa1a8d40d7db341a3602d2a1a000041001000001249249 [11,3,27,19,5,21,36,1]),[11,5,0,27,19,11,5]] (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [7,5,9,1] [(pl 64 8 0x8db9b12024422d0adb8690129484656a88429f1202442210 [3,19,27,12,1,11,4,5]),(pl 64 7 0x2b8f4af738551d3a6dd45bdd95322b10bc64758e34b9f [3,27,19,1,4,12,11]),(pl 64 9 0x15edb603f583d98343bf10629b8c3bac845e1c0734e78e9f307 [27,3,19,4,1,12,13,11,20]),(pd 48 28 0x4a3ad385b40d12eac61b33735b601b2b7029afa575917445c7487524b)] (.nil)) (.nil))) (.cons 0xffffffffffffffffffffffffffff0000 (.branch [23,12,4,15] [(pl 64 7 0x98882a623821b356525d0c2d69aa169a1be8d99256ea [2,3,19,12,11,27,20]),(pd 16 20 0x37a1e9743da95c00b)] (.nil)) (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [18,11,9,2] [(pl 64 7 0x76532bd444b059f6227bdcc97f53af073824ec6e06e13 [3,4,11,19,1,12,27]),(pl 64 9 0x13d5f30bab69721b1d1d8b02108050af16554cfc42 [3,11,4,19,0,1,12,20,27]),(pd 18 21 0xa974b202d09b9e9f271)] (.cons 0xfffffffffffff0f0f0f00000f0f00000 (.branch [25,5,9,1,6] [(pl 64 6 0xb5647baa481a0dc4cc819a6e75aa68ca6509fc697 [3,1,4,19,27,12]),(pl 64 8 0x42200500aa0000724111c4068b20d90488e042b8ab0ab241 [3,4,27,12,19,1,13,37]),(pd 9 28 0x61c7b6a597)] (.nil)) (.nil))) (.nil)))))) (.nil)))
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_13 : chkCheckNode s13_maskYF s13_edgePts s13_edgeTT s13_raw s13_masksTT s13_cuts [] s13_auts s13_cert = true := by decide +kernel
+
+def s14_desc : StateDesc := ⟨7,[(0,3),(0,4),(1,3),(1,5),(2,3),(2,6),(4,5),(4,6),(5,6)],[]⟩
+def s14_maskYF : Nat := 0xffffffffffffffffffffffffffffffff
+def s14_edgePts : Nat := 0x1000100100001000400021600
+def s14_edgeTT : Nat := 0xfffffffffffffef0fffffeccfeaafe00
+def s14_raw : List Nat := chkMkRaw 7 s14_maskYF
+def s14_masksTT : List Nat := chkMkMasksTT 7 s14_desc.edges s14_maskYF
+def s14_autIdxTbls : List (List Nat) := chkMkAutIdxTbls 7 [[0,2,1,3,4,6,5],[1,0,2,3,5,4,6],[1,2,0,3,5,6,4],[2,0,1,3,6,4,5],[2,1,0,3,6,5,4]]
+def s14_auts : List (List Nat) := chkMkAutMaskTbls s14_autIdxTbls
+def s14_cutSpecs : List CutSpecData := [⟨8,[],[0,1,2],2,[4,5,6]⟩,⟨32,[],[1],4,[0,3,4,2,6]⟩,⟨64,[],[2],4,[0,3,4,1,5]⟩,⟨1,[],[],6,[3,1,2,4,5,6]⟩,⟨2,[],[],6,[3,0,2,5,4,6]⟩,⟨4,[],[],6,[3,0,1,6,4,5]⟩,⟨0,[(4,5)],[],23,[0,1,2,4,5,3,6]⟩,⟨0,[(4,6)],[],23,[0,2,1,4,6,3,5]⟩,⟨0,[(5,6)],[],23,[1,2,0,5,6,3,4]⟩,⟨48,[],[0,1,3],17,[2,6]⟩,⟨48,[],[0,1,3],17,[2,6]⟩,⟨80,[],[0,2,3],17,[1,5]⟩,⟨24,[],[1,2],17,[5,6]⟩,⟨24,[],[1,2],17,[5,6]⟩,⟨40,[],[0,2],17,[4,6]⟩,⟨17,[],[],4,[1,3,5,2,6]⟩,⟨34,[],[],4,[0,3,4,2,6]⟩,⟨17,[],[],4,[1,3,5,2,6]⟩,⟨25,[],[1,2],17,[5,6]⟩,⟨81,[],[2,3],17,[1,5]⟩,⟨112,[],[0,1],17,[2,3]⟩,⟨112,[],[0,1],17,[2,3]⟩,⟨13,[],[1],2,[4,5,6]⟩,⟨14,[],[0],2,[4,5,6]⟩,⟨14,[],[0],2,[4,5,6]⟩,⟨51,[],[3],17,[2,6]⟩,⟨29,[],[1],17,[5,6]⟩,⟨102,[],[3],17,[0,4]⟩,⟨102,[],[3],17,[0,4]⟩,⟨43,[],[2],17,[4,6]⟩,⟨78,[],[0],17,[4,5]⟩,⟨116,[],[0],17,[1,3]⟩,⟨51,[],[3],17,[2,6]⟩,⟨106,[],[],17,[0,4]⟩,⟨92,[],[],17,[1,5]⟩,⟨92,[],[],17,[1,5]⟩,⟨92,[],[],17,[1,5]⟩,⟨89,[],[],17,[1,5]⟩,⟨15,[],[],2,[4,5,6]⟩,⟨15,[],[],2,[4,5,6]⟩,⟨59,[],[],17,[2,6]⟩,⟨93,[],[],17,[1,5]⟩,⟨93,[],[],17,[1,5]⟩,⟨93,[],[],17,[1,5]⟩,⟨93,[],[],17,[1,5]⟩,⟨59,[],[],17,[2,6]⟩,⟨115,[],[],17,[2,3]⟩,⟨59,[],[],17,[2,6]⟩,⟨110,[],[],17,[0,4]⟩,⟨110,[],[],17,[0,4]⟩,⟨110,[],[],17,[0,4]⟩,⟨93,[],[],17,[1,5]⟩,⟨79,[],[],17,[4,5]⟩,⟨93,[],[],17,[1,5]⟩,⟨59,[],[],17,[2,6]⟩,⟨115,[],[],17,[2,3]⟩,⟨93,[],[],17,[1,5]⟩,⟨93,[],[],17,[1,5]⟩,⟨93,[],[],17,[1,5]⟩]
+def s14_cuts : List CutDefData := chkMkCuts s14_maskYF s14_raw [(3,[.v 3 [18,37,65]]),(3,[.v 5 [24,22,72]]),(3,[.v 6 [40,7,24,20,33]]),(2,[.v 0 [72,22]]),(2,[.v 1 [24,32,8]]),(2,[.v 2 [24,64]]),(1,[.e [(4,5)]]),(1,[.e [(4,6)]]),(1,[.e [(5,6)]]),(5,[.v 4 [40,72,32],.v 5 [2,72]]),(5,[.v 5 [16],.v 4 [65]]),(5,[.v 6 [20,16],.v 4 [40,33]]),(6,[.v 3 [20,18],.v 4 [37,3,32]]),(6,[.v 4 [40,72],.v 3 []]),(6,[.v 5 [24,72],.v 3 []]),(4,[.v 0 [72,18],.v 4 [32]]),(4,[.v 1 [72,32,24,40],.v 5 [72,16,64]]),(4,[.v 4 [40,37,72],.v 0 [8]]),(6,[.v 0 [8],.v 3 [18],.v 4 [36,66]]),(6,[.v 0 [8,16,40,72],.v 4 [],.v 6 [36]]),(6,[.v 4 [],.v 5 [67,72],.v 6 [6]]),(6,[.v 5 [24,72],.v 6 [24],.v 4 []]),(5,[.v 0 [40,18],.v 2 [40,64],.v 3 [18]]),(5,[.v 1 [37,8,24],.v 2 [65],.v 3 [65]]),(5,[.v 2 [64,24,72],.v 1 [33],.v 3 []]),(7,[.v 0 [40,16],.v 1 [40,32,8],.v 4 [40],.v 5 [72]]),(7,[.v 0 [],.v 2 [],.v 4 [40],.v 3 []]),(7,[.v 1 [37,72,24],.v 2 [64],.v 5 [24],.v 6 [24]]),(7,[.v 1 [32,8,24],.v 2 [64,24,40,72],.v 6 [24,40],.v 5 [24]]),(7,[.v 1 [72,37,24,40],.v 5 [72,16],.v 0 [20],.v 3 [20]]),(7,[.v 2 [67,24,40,72],.v 1 [32],.v 6 [24],.v 3 []]),(7,[.v 2 [],.v 6 [24],.v 4 [40],.v 5 []]),(7,[.v 4 [],.v 1 [33,72,40],.v 0 [40],.v 5 [72]]),(8,[.v 1 [32,8,24],.v 5 [24],.v 3 [65],.v 6 [16,5]]),(8,[.v 2 [8],.v 3 [18],.v 4 [3,33],.v 6 [32]]),(8,[.v 2 [65,40,72],.v 6 [32],.v 3 [18],.v 4 [1]]),(8,[.v 6 [4,32],.v 2 [40],.v 3 [18],.v 4 [3]]),(8,[.v 6 [],.v 3 [1,18],.v 0 [16],.v 4 [32]]),(6,[.v 0 [],.v 2 [64,24,72],.v 3 [],.v 1 [32]]),(6,[.v 1 [32,72,40],.v 0 [8],.v 3 [20],.v 2 [64]]),(8,[.v 0 [16,72,24,40],.v 1 [36,24,40,72],.v 5 [24,72],.v 3 [20],.v 4 [64]]),(8,[.v 0 [40,16],.v 2 [8],.v 3 [18],.v 4 [66],.v 6 [32]]),(8,[.v 0 [],.v 2 [],.v 4 [40],.v 3 [],.v 6 [32]]),(8,[.v 0 [22,72,8,24],.v 2 [66,24,72,8],.v 6 [40,24],.v 3 [18],.v 4 [32]]),(8,[.v 0 [20,72,24],.v 6 [4],.v 2 [24,8],.v 3 [18],.v 4 [32]]),(8,[.v 1 [8,36,40],.v 0 [16,40,24],.v 4 [40],.v 3 [36],.v 5 [64]]),(8,[.v 1 [8,72,32],.v 0 [8],.v 4 [72],.v 5 [72],.v 6 [4]]),(8,[.v 1 [],.v 0 [20,72,40,24],.v 5 [24],.v 3 [20],.v 4 [64]]),(8,[.v 1 [8,37,72],.v 2 [8,64,40],.v 3 [65,33],.v 6 [33],.v 5 [16]]),(8,[.v 1 [],.v 2 [],.v 5 [24],.v 3 [],.v 6 [16]]),(8,[.v 1 [33,24],.v 6 [24,4],.v 2 [8],.v 3 [33],.v 5 [16]]),(8,[.v 2 [64,8,72],.v 0 [18,72,40,24],.v 6 [24,40],.v 3 [18],.v 4 [32]]),(8,[.v 2 [],.v 1 [33,24,72,40],.v 6 [40],.v 3 [],.v 0 [16]]),(8,[.v 2 [],.v 6 [],.v 0 [40,16],.v 3 [18],.v 4 [32]]),(8,[.v 4 [72,40],.v 1 [33,8,40],.v 0 [40],.v 3 [36],.v 5 [64]]),(8,[.v 4 [],.v 1 [37,8,40],.v 0 [72,8,40],.v 5 [72],.v 6 [4]]),(8,[.v 4 [40,72],.v 6 [40,4],.v 0 [8,40],.v 2 [40],.v 3 [2]]),(8,[.v 6 [6,33],.v 0 [8,20,40],.v 2 [24,40],.v 3 [18],.v 4 [32]]),(8,[.v 6 [37,22,4],.v 2 [],.v 0 [40],.v 3 [2],.v 4 [32]])]
+set_option maxRecDepth 200000 in
+set_option maxHeartbeats 0 in
+def s14_cert : CertNode := .branch [3,4,6,7,8] [(pl 64 6 0x73bffa999648b84ed467405b298dae1b11b7d4500 [2,3,11,19,27,35]),(pl 38 4 0x4106300c00010441881 [2,3,11,0])] (.cons 0xffffffffffff0000ffffffffffff0000 (.branch [15,5,6,1] [(pl 64 8 0xc434812038434886c1209209241028040038282541203708 [2,3,0,11,19,27,1,4])] (.cons 0xffffffffffffff00ff00ff00ff00ff00 (.branch [43,6,27] [(pl 64 8 0x4a334d4001800000c0003213e090128410884f02404a1042 [2,3,4,1,11,19,21,5]),(pl 64 7 0xae513adebbedfbe77d03ed3b30c853e0d238d2dfc97 [2,3,4,19,5,11,20]),(pd 29 12 0x4287b14491071529da378b777b)] (.nil)) (.cons 0xfffffffffffff0f0f0f0f0f0f0f0f0f0 (.branch [44,6,5,2] [(pl 64 8 0x4d02526ec290002000004004c27c0901d64322240901ca43 [2,3,5,19,1,11,27,0]),(pd 51 28 0x3f702172b9dd531ab456646b01086ccd0e0fc824a7bd0cba1479589d76477)] (.cons 0xfffffffffffffff0ff00ff00ff00ff00 (.branch [44,28,6,9] [(pd 64 28 0x1663a19f45aaf0b63347722159db281d31edfe7f53922afeae3386547246726f109aca553c7b6),(pl 64 9 0x824f26ef3fb3a1d76952adb951000c60c07896b02624757 [2,1,3,4,19,12,5,27,28]),(pl 64 8 0x600000600347a212064291109082d204b69685a85a000400 [2,3,27,11,1,12,19,4]),(pl 62 8 0x149900955829207906e04804004000800000810c248249 [3,2,1,4,11,19,6,27])] (.cons 0xfffffffffffffafafaaafaaafaaafaaa (.branch [53,27,6] [(pl 64 6 0x138991a5e3990e2f96769f63f41234382e9df11927 [1,4,5,11,3,19]),(pl 64 6 0x196533dc0385b6a0b398423529d6daebb730cd091b [1,3,11,4,5,19]),(pl 64 5 0x1519e0dc9429247a28abb97a4de3f24a021927 [4,1,3,11,19]),(pl 64 6 0x1692ef8039d91e92c86b49c35c939991f8f5d92ccb [3,4,11,1,5,19]),(pl 64 6 0x1855bee9df0519ff9cf0ab0f1321f309cab4376254 [4,5,3,11,1,19]),(pl 64 6 0x19863449d042d87c19ddd38e3aeaecb3f67a0c575c [3,5,1,11,4,19]),(pd 58 20 0x17357cb8cc80a9489a7996ed5933c3bdb1d0fe005c026593adae2ca10ee449f)] (.nil)) (.nil))) (.cons 0xffaaffaaffaafaaafaaafaaafaaafaaa (.branch [58,23,17,6,0] [(pl 64 6 0x436b6bda4d3fae5089830f78003f002bae4367c02 [19,3,4,11,35,1]),(pl 64 8 0xa1b040ac43040cc08b6081230609924916d7012611491249 [3,19,35,11,4,5,1,27]),(pl 64 8 0x90c40452d04094c4a546e66d02576daa6201025414a350 [19,11,35,3,1,4,0,27]),(pl 51 7 0x22ac859c5676f2665def034f2e625417f05 [3,35,11,19,4,1,27])] (.cons 0xfffffffffffffff0ff00ff00ff00ff00 (.branch [37,1,3] [(pl 64 5 0xd5612748f777cbe4e9d1e8bf4ec7af5be376 [4,3,19,11,1]),(pl 64 5 0x631e96c5c68c90c758cf0a4788612d56e923a [4,3,1,19,11]),(pl 64 5 0xd4f93bb87f03555c16d8f68a56ce46eee594e [3,11,4,19,1]),(pl 64 5 0x613c19aedceffa69fa2c31db38b860cfefdfe [3,11,1,4,19]),(pl 64 5 0xecc6c46e60acac46a75af950804f6f3ad94ad [4,11,3,19,1]),(pl 64 5 0x409c97a8267cfd0b1a7a9e7b52fd250de18 [19,4,3,11,1]),(pl 37 5 0x93e9677db7e697954e1c [3,1,19,4,11])] (.nil)) (.nil))) (.cons 0xffffffffffffffffff00ff00ff00ff00 (.branch [44,33,6] [(pd 64 20 0x3c7ccb37344d8a535a30df7be44ae28e1969933e32320847725bde55644c925a2f21e),(pd 64 20 0x660cf387be52fd19c9396f9d7a65add5d22a5603edf81c5836c479ef3179f418bd2e7),(pl 64 8 0x249209410008002000002001c2c0c903d108703641528252 [2,3,11,1,5,4,14,19]),(pd 30 20 0x30c43bc4188c18f00d07a128b331601f)] (.nil)) (.nil))))) (.cons 0xffffffffffffaaaaaaaaaaaaaaaaaaaa (.branch [57,48,6,10] [(pl 64 7 0x22054718054274f385c2b733448d08e2df44111399ecf [3,4,11,27,1,19,28]),(pl 60 8 0x4c2649d29c0980b80000892424c5289261488a01280 [3,4,11,12,13,19,28,1])] (.nil)) (.cons 0xffffffffffffffffffffffffffff0000 (.branch [43,4] [(pd 58 12 0x19b34a69a1f420c3165fea2e7727d32275e3e74716a3e74a52e6)] (.nil)) (.cons 0xffffffffffffff00ffffffffffffff00 (.branch [51,50,6,3] [(pl 64 7 0x58124fd422bbf665687fbd15d4bcca0589716caf84923 [2,3,27,11,12,19,5]),(pd 25 28 0x1193320a782617bd4f802e28b4f0143)] (.nil)) (.cons 0xffffffffffffffffffff0000ffff0000 (.branch [43,16,6,1,11] [(pl 64 8 0x89804ca9a050edbd40262a0d0c19f604c450000000000000 [3,11,35,27,4,19,1,36]),(pd 31 37 0x13dc6d794ac66cb362cfecfc445bc82f37737254)] (.cons 0xffffffffffffffffffffffff00000000 (.branch [48,20,19] [(pd 64 20 0xea638b4dd334e840cb12a8f59bf37ad36f5e9082158eaa6f635ab2c5998ed068aad40),(pl 64 7 0x22a36a992eb257723263cb0b064a2e21d4a9d53ddf7dd [3,11,1,4,12,19,21]),(pl 64 6 0x1e5910547d0cfae0ece80668d950b2d45207b5312f [3,11,4,19,1,5])] (.nil)) (.nil))) (.cons 0xffffffffffffffffff00ff00ff00ff00 (.branch [43,6,23,2] [(pl 64 9 0x5418d5d418c3b47a51d2f35ae68d4772605992edd54eeff0a8c [2,3,4,19,27,1,11,6,0]),(pl 60 9 0x3bc96dd56d103d79f71c3abd23ffcbee6466e7827c435210 [2,3,19,27,4,6,11,1,20])] (.cons 0xfffffffffffff0f0f000f000f000f000 (.branch [57,33,6] [(pd 64 20 0x58a1d526ecf25d0c0ab5d819ef4c86cbffed07ec8bee49e55f2127db84a178a79a237),(pd 64 20 0x78acfa9ab0032ac8b488d21d4fb64abf78e0b0bf435bb5b0d19472ab62bec5b8212ab),(pd 12 20 0xd735874f92fb)] (.nil)) (.nil))) (.nil))))))))) (.cons 0xffffff00ffffff00ffffff00ffffff00 (.branch [39,8,22,17] [(pl 64 7 0x15664ca933e1951854ff5566cc9c746474eef585f4d3b [2,3,19,20,0,11,27]),(pl 55 8 0x1d9b300008c3040a28c904922404088084c36c1206 [2,3,11,19,0,20,27,1])] (.cons 0xffffff00ffffff00ffffff0000000000 (.branch [25,57,18] [(pd 64 22 0x435b702c236eadd000100ea06dac3f394cfa078042ae66ba8ae3c635ed45f799517aac2),(pd 36 21 0x3d43773df6c3035ce5f5f8ad0e2d8baaa779ef2)] (.cons 0xffffaa00ffffaa00ffffaa00aaaaaa00 (.branch [56,16,18] [(pl 64 6 0xfda27de1e0e21440f57636f80bd3fe698f50819dd [2,3,1,11,4,5]),(pd 64 22 0x622318088331ffb7c4ee71ff7f9e361afdc573e8882adbf2e131c6730f06f8643576af0),(pd 64 22 0x4080ff1b3097d16eda473149e56149d43537a8e75f32d0dbbae8682533efca59897ec10),[2,3,12,6,11,19,1]] (.nil)) (.cons 0xffffaaaaffffaaaaffffaaaaaaaaaaaa (.branch [32,36] [(pl 64 6 0x437bcc240714d2c031f173e3d6e8aa56882205706 [2,1,3,4,11,14]),(pl 64 7 0x897c2eb692da04ba0a02112f0ec94379dacadf88a56eb [2,3,1,5,11,4,14]),(pd 64 14 0x3d20a33e403101bbeb52b49a0b07e6dd3f08d97c7dc932fbd21f0e3e3b124),(pd 57 13 0xd37a9c4adba7146a3f377425646a4c5bd1022fa4550f43e35cec)] (.nil)) (.nil)))) (.cons 0xffffffffffffff00ffffffff00000000 (.branch [46,43,2,18] [(pl 64 8 0x127a6a40326061024e48024940905077148064a0c1 [3,19,11,12,0,5,1,29]),(pd 44 30 0x58bf14a0bdf9bf7ff12287eaa728c664a6b504ac05b30ca46e1d61)] (.cons 0xffffaa00ffffaa00ffffaa00aaaaaa00 (.branch [55,12,2] [(pl 64 6 0x30a0fb4b887a69ea0e2c6adf76ce6c5685af2ea [3,19,1,11,12,4]),(pl 64 7 0x588ffbccb79a86b226573397d298d1d16d9da37433e64 [11,3,1,19,4,12,5]),(pd 64 20 0x188559301557354418f228efa578514814cdc8b8b4fc4eb59e21603ec4c1e6cc4ecfd),(pd 18 20 0x3782c897957457774143)] (.nil)) (.cons 0xffffccccffffccccffffcccccccccccc (.branch [55,43,2] [(pl 64 5 0x10f9cd37980f187f90de7943ea3ec57f54708b [19,4,1,3,11]),(pl 64 5 0x96ebb9818fde194a9125c35774ac996d88bc [19,3,4,1,11]),(pl 64 5 0x645379dd8f2725f5d9f1938b7e4bae31a1bb2 [3,4,19,1,11]),(pl 64 6 0x13ee4136100d3c189e4ab844966152237a94144e99 [19,4,3,11,1,12]),(pl 52 7 0x1c994c11857fdf3ebefc1e410775d71670d85 [3,19,4,11,12,1,6])] (.nil)) (.cons 0xffffaaaaffffaaaaffffaaaaaaaaaaaa (.branch [55,35,12,2] [(pl 64 8 0x68036ab50a364470d13f45051b22385524a5516c2258280 [1,27,19,11,4,3,20,5]),(pl 64 8 0x9300263390cfaa42a94190c275498353a0b201c4e093c42 [27,3,11,1,20,4,19,5]),(pl 64 8 0x44b6012c9241280002000080002176841ada9eb56111c841 [3,19,1,11,27,4,5,20]),(pl 64 7 0x43eb3a7ab8aa52b411368fc14e1d4828f1cbaf2022b25 [27,11,3,19,4,1,5]),(pd 50 28 0x14a15aab2771178b9c9a8ad505464c20e566ae40f8b9fa2e13a31e6e4f1c7)] (.nil)) (.nil))))) (.cons 0xffffffffffffff00ffffffffffffff00 (.branch [51,29,9] [(pl 64 7 0x78c9a2e32a01fb13f8ca364875ae3163406aa9dad6949 [3,11,4,19,12,5,20]),(pd 33 20 0x1679513a5b5e4e6136ee5a70367981879aff)] (.nil)) (.cons 0xffffffffffffffffffffffff00000000 (.branch [45,41,8] [(pd 64 20 0x3d694d3fc6c64b726c6f774b39e31cf2331ab6c13133965f4da0b153f579bfb41981e),(pd 25 12 0x7f80da54f244fdeefacd0b)] (.cons 0xffffaa00ffffaa00ffffaa00aaaaaa00 (.branch [54,41,8] [(pl 64 7 0x42d1b48609066b7b161d158fd96128873309f2bb1a8d1 [2,4,3,1,14,5,19]),(pd 64 20 0xd717cb92d02e7ad26518f9754f94ecb6ad5e4b49cd7e6bea20ba7ffe91b7df433598e),(pd 52 20 0x215cbe09259f1f380483332a1de3ec8e122fee64a9dd3a32888bbbaa)] (.nil)) (.cons 0xffffaaaaffffaaaaffffaaaaaaaaaaaa (.branch [54,34,8] [(pl 64 8 0x21a1808012020084404960e068903a2086889054481d1045 [2,4,1,3,5,12,13,19]),(pd 64 20 0x28ef18ee3a1ce200397c91a7f759f7a3c0adcec64398c9f36c8f1cd14e5e300db3b29),(pl 64 7 0x17ca260f8f934a73ce86b8181a85bee707f8c4b1ead91 [2,3,4,1,12,5,19]),(pd 64 20 0x18823c7e99f3711b88a55bf8da7b70045b992a829c9760eba8cd6fcd4341f9cde0cec)] (.nil)) (.nil)))) (.cons 0xffffffffff00ff00ffffffffff00ff00 (.branch [40,24,54,1] [(pl 64 7 0x412ced8510c99bcf8593fa38ed16c1e6adfa1182ec3 [3,11,4,1,12,19,27]),(pl 64 7 0x215be00489635cd63b45f9b00208a61e0b9915fc157fe [3,11,19,27,4,1,0]),(pl 64 9 0x3a4be3c084e6a2faeeae7f59e8c9a1a2b4f43ec70581297a728 [3,11,19,4,27,0,1,12,23]),(pd 23 28 0x5b4c18d7a15168772f16a5ebfeb)] (.cons 0xffffffffffffffffffffff00ff00ff00 (.branch [40,30,2] [(pl 64 6 0x8c65c0ac0da63957a9ddc94891319c5c3b5386c5e [11,3,4,1,12,19]),(pl 64 5 0x805982ad22ead895f9ab033b3f8f27d9b09df [3,11,19,1,4]),(pl 64 6 0x15ab92ed73dd6e17d233484238b3cb5c2ccbbdc212 [3,4,11,19,1,12]),(pl 64 6 0x40b12c46809e9b5de7baec0507424bcafd12d41b [4,11,3,19,1,5]),(pl 64 8 0x249e1244d0137c24424410000094b3622001800288285cc9 [11,3,4,19,0,1,5,12]),(pl 33 4 0x15c9491800c000000 [3,19,4,1])] (.cons 0xfcfcfcfcfcf0fcf0fcfcfcccfc00fc00 (.branch [52,45,14] [(pl 64 5 0x616fce0e21648f3e9ed2719af7d9d2fc3bff6 [11,4,1,3,19]),(pl 64 4 0x88aa2a2a22a208105543755154550045 [1,4,3,19]),(pl 64 7 0x1a2f9efa022fa9e52874a134d3409565e0de1053e89 [4,3,1,19,12,11,20]),(pl 64 5 0x655b535a9c063cf1e1a16c91390a12068b18a [11,4,3,1,19]),(pl 64 5 0xb76aa5d2fec40c492d3abb1db1e4c59befb96 [4,3,1,19,11]),(pl 64 5 0xc29d11b806c8d5517b892e8a084d9e84b7056 [19,4,3,1,11]),(pl 64 3 0x15971dbf4301b686a6c67f06a1 [3,11,1]),(pd 64 20 0xfc73a6bb34c146efe7638794d9ecb53816d2416f7553580d547b718831f8b13687c4f),(pl 64 5 0xf45afd96bf37980f962dc72bbd69e4278ab5b [12,3,11,19,1]),(pl 64 7 0x12de27420fb2346162cb2e0835e1d2247b655dafffeb0 [3,11,12,19,1,20,5]),(pl 55 6 0x2f57ac11b339de5bc612345d5b605d9ad99d [3,11,12,19,1,5])] (.cons 0xfefefefcfefafef0fefefeccfeaafe00 (.branch [49,26,39,56,21] [(pl 64 3 0x94e59bf95fe4bad31465367b4 [3,1,11]),(pd 64 38 0xe5a876efa66941035576be9b147ae638fd884ba2fe9cf3b4688af309ecfbb20e878628009ed3c964e099),(pl 64 8 0x1d8d40049242248000009000040040040001041040041020 [3,1,4,6,11,14,21,37]),(pl 64 9 0x5789c3aa2cf743890ccf4d95d980595af8c749d156af36383 [11,3,1,6,14,27,4,21,35]),(pl 64 10 0xc95438cb30219af7a8d65e781b384e979b29cfb4756d81323a0 [11,1,3,4,6,37,21,27,14,35]),(pl 64 10 0xab7a2980743e076ff7bb80d4cfbc93f1dce2de3eb607ccd8272 [11,3,1,27,35,6,37,4,21,14]),(pl 64 8 0x24316e6122d220848821e00177005a9396adc6773a90b408 [1,11,4,3,21,27,35,6]),(pl 64 8 0xaa0fa22020800800000090000400400400010410400440db [3,1,27,4,11,6,14,21]),(pd 64 38 0x12f0c65b75f8e52d0e4ad2179efe61f2dbf62b997a06ac0e590d78f4c64e495120eed7ff1a43496ddff3),(pl 64 7 0x79cabcffdc2c5881cf835b35ecc4d3ec7dfa938dfc3fa [35,1,11,3,27,28,36]),(pl 64 5 0x157d17e3c51318d37c0188d19f9966ac1abdf3 [27,3,11,1,4]),(pl 64 7 0x429aa787c5d6a14774378b3113dd5bf9bd1888defe6cf [3,4,11,21,1,27,35]),(pl 64 4 0xa92a8040000000040004000500549ff [3,1,11,4]),(pd 64 38 0x12eefa8515753a071fe4f215f2c0724796abd1acc1e7696c01d498df51be49c7ded2460db0f6c8c70f67),(pl 64 6 0x75fe7ac2cafb986331f4a4798850fc518b9e4f5b9 [4,1,27,3,35,11]),(pl 64 5 0xc4076a99ef1054c594fccedf9e09c0bdb03e2 [4,3,27,35,11]),(pl 64 5 0xc27818c769b17262f34059f1938296d9808fc [4,35,3,27,11]),(pl 64 6 0x1155eca523fb9f1039457b1b6578182cf49df44d33 [4,3,11,27,1,35]),(pl 64 6 0x3ed2f05b32bfabd664685aa3da1ad1dfb3aa9b3e0 [11,3,4,27,1,35]),(pl 64 6 0x212f33b1368f53c178cb863a0f6ccda02a277bdf99 [3,4,11,27,1,35]),(pl 51 6 0xb0288661a6cfcc61bd9a4cc2311969636 [3,11,4,27,35,1])] (.nil)) (.nil))) (.cons 0xfafafaf0fafafaf0fafafa00faaafa00 (.branch [51,40,13] [(pl 64 5 0x646fa8e4fef9dbc31fdb55d6d70a86e13797e [11,4,1,3,19]),(pl 64 5 0xbffad59b182d70da95f593668b9aedaaeef79 [4,1,11,3,19]),(pl 64 5 0x3290bc620c2e293bcea34dbf92f3dc284bc1 [4,3,1,11,19]),(pl 64 7 0x64cafed35f4fcb9739f621148b61b0ed27d92176211f7 [3,1,4,12,19,11,20]),(pl 64 5 0xb96855d133357230b8b293b8d589c1fd3f4e1 [4,3,19,1,11]),(pl 64 5 0x11047e03c71d1d05c0370afa3bb48221db1241 [19,4,3,1,11]),(pl 64 3 0x159724d4402d9aeeda404cf8db [3,11,1]),(pl 64 8 0x900900000000000c0018003049252b78249c4951125151c [3,4,12,1,11,19,0,13]),(pl 64 5 0x66b97d228b207fe4804adbf33d [3,11,12,19,1]),(pl 64 6 0x1c6114968c3ed937897e82b4224312e5f9800c29c [11,12,3,19,1,20]),(pl 64 7 0x3068618d3dee915fb64995ad0d91096926ea3cc [3,11,12,19,1,5,20]),(pl 46 6 0x7142d101e02f25d89bc3be4d8020be [11,12,3,19,1,5])] (.cons 0xfefefefcfefafef0fefefeccfeaafe00 (.branch [42,33,39,21,56] [(pl 64 3 0x1b33568dcea06d1820300b986d [11,3,1]),(pl 64 9 0x5eb050e5f087271936a794e88b89585f780c56a05a68c97cb24 [3,1,6,13,28,4,27,29,35]),(pl 64 4 0x223a90058004040440541209a6142114 [11,3,1,4]),(pl 64 8 0x804000100100100004104100800955c652df18d369c469 [3,1,11,13,6,4,27,35]),(pl 64 9 0x1a49c4a5c7bcc413bbd24cb4a4974c9b2e80c8e322f47493816 [1,3,4,11,13,27,35,21,6]),(pl 64 6 0xe7535b62e83d99ecd5ca28e9587131ad71f30241b [3,1,27,4,11,35]),(pl 64 9 0x371e87e00bfb0ebdc3ce6b4c86e252c2312ad4d9ba64c628ee6 [3,13,11,27,1,4,21,35,6]),(pl 64 8 0xac8d0b00003920004a00004004004100124021008a450240 [11,3,1,35,6,13,21,27]),(pl 64 10 0x158f4c91c288c605c1ac826e5ba1db0b7467e421695485312528 [11,1,3,4,27,28,35,6,13,36]),(pl 64 6 0x15b61dcebfc5fb963c5ca2f372370160a9b511ca5b [27,3,11,1,28,36]),(pl 64 6 0x276855b87a7ff3f88edd40c40cdc8a364497158f7a [35,1,11,3,27,4]),(pl 64 8 0x12be96892012426892d10980c00db0119a046fa34521990 [3,4,11,1,13,27,21,35]),(pl 64 4 0x596900140010100414041250009158ff [11,3,1,4]),(pl 64 12 0xcf431cb15ed6eb63d47805aff283673a74f819001338c5101 [3,1,13,6,29,27,4,20,22,28,35,39]),(pl 64 6 0xb86276dfc53df004d7dfceda84b02e8b162b [4,3,27,35,1,11]),(pl 64 5 0x62bd17adc4832a8d9e962b5b249bff378f074 [4,35,27,3,11]),(pl 64 5 0x1c013b72ab91a92304ccb97dd6002ff65906f [4,3,35,27,11]),(pl 64 6 0x21faa45d99be56da8ab5d09c31f1b2722ea0b34810 [4,3,11,27,1,35]),(pl 64 6 0x1d2960ac77c901ce30d21a37958de1851b27aca093 [3,11,4,27,1,35]),(pl 64 6 0x73a07bc8047401bcaefbd42b412fa3c74fdbe8a36 [4,11,3,27,35,1]),(pl 33 5 0xd5fb46fdcb4fe2bffe1 [3,11,27,35,1])] (.nil)) (.nil))) (.nil)))) (.cons 0xeeeeeecceeaaee00eeeeeecceeaaee00 (.branch [47,38,54,1] [(pl 64 6 0x8a2676d70c4b60890e5ffe40eda6582ac3835dbb2 [1,4,11,3,19,27]),(pl 64 7 0xa4be18f1bd984adaeb738defb80a136991b943c9e951 [1,3,4,19,12,11,27]),(pl 64 6 0x2b2383723b22a2e27290318278eb21f7f124e699f3 [3,19,27,1,11,4]),(pl 64 6 0x3da6b28983f2abf50a8f38b3bf9f1bf0c82a495a [3,11,4,1,19,27]),(pl 64 7 0x70fd796f53074a65dbd9dd2aff12cc8d2b [3,11,12,4,19,27,1]),(pl 64 7 0x49158ce108406fec161dbef1ba7fc88567660fa6fc374 [11,3,12,19,27,1,0]),(pl 64 6 0x199b0643713ff19668b91d62563e7ddaa05da0c30a [3,11,12,19,1,27]),(pd 32 28 0x373adeb26e0c374fa10dc5a3067ae4bf1a54f0)] (.cons 0xffffffffffffffffffffff00ff00ff00 (.branch [40,28,45] [(pl 64 3 0x2afa5f35e167b96c6aae5ba6c1 [1,11,3]),(pl 64 4 0x8a8a88c0a8880550554545500554ff0f [1,4,11,3]),(pl 64 4 0xa8a8820a8881541551515401553fc8ff [1,4,3,11]),(pl 64 5 0x1500bc57d0f2b2c90acbad2910cf21ac71626a [4,3,1,11,12]),(pl 64 4 0x5a99006400404046540463fa07f8f8f8 [11,1,3,12]),(pl 64 6 0x19ff871807df62f618bf121d92974e25461fc0b63a [3,1,11,4,5,12]),(pl 64 4 0x96a40190010101195018fe81fe3e3e38 [11,1,3,12]),(pl 64 6 0x27d07a9d8585235fe1ca607485fca22e3d96a01e5f [3,1,11,4,5,12]),(pd 64 14 0xa418768d7487e802c49d480ec50797a77153a2c14aac3dedfa8d340fb7329),(pl 64 9 0xe6b87ee9e3f7e924726bfd149480c1cc6783e832fa96434f [11,3,12,1,4,5,0,20,21]),(pd 50 14 0x231fba8b2b038aabdc00f7b3c784da7a9fe5d51d27181535)] (.cons 0xfefefefcfefafef0fefefeccfeaafe00 (.branch [40,31,21,13] [(pl 64 6 0x8762084ecff2161875737de18a19e5d090b3ca308 [1,3,11,4,19,27]),(pd 64 29 0x13acc1a94de956c5cf33fe6576fd89ed17649c124c9b0c2290fffa5539a7429720e7f9b560a38a),(pl 64 8 0xc421043f044000a48304cb014814810c00520c1001a13043 [1,11,4,3,19,27,28,21]),(pl 64 8 0x248001200001001001048240041049040201d2b6545d16d5 [3,1,19,28,11,21,4,27]),(pl 64 7 0x149822c3a13543f5a20315a2cd04eaca939a9058023b [3,11,1,28,21,19,27]),(pl 64 3 0x66bde6f10df6c8d3e9dd2bd65 [3,1,11]),(pd 64 29 0xe142c5735ee495a5896ec54490fe28b98b4c9851fed63025db5df60b1b4fc8293f388729eef18),(pl 64 7 0xb8d569f840678ad87674d50402060be574dc83b43e938 [11,3,1,4,28,21,27]),(pl 64 8 0x165da0fa00031f380064248b2059484884882c92122c8248 [11,1,4,3,27,19,28,21]),(pl 64 9 0xdc036a6961be3442fd5a5a60a5b9ac6575ef56f79a8d4d528b [4,3,12,11,19,1,27,28,21]),(pl 64 6 0x16e2ff42993a5f7594ebd494ec3693567716e9129a [19,1,3,11,12,4]),(pl 64 8 0xddd41100889410200108004206024b2130c840844904808b [27,1,11,3,19,4,21,28]),(pl 64 8 0x4800884800004900020100810824d1922c3eca4f2068000 [11,3,28,19,1,4,21,27]),(pl 64 6 0x115781dbda2c388f919a496f95390503ce6b6d7688 [11,1,4,3,19,27]),(pd 64 29 0x52cb1ce169254b3aa7e0cab95a168a378df6b9166ba04d929e458772420db7d6aadf242e880492),(pl 64 8 0x26800000026800008004d00000492492492004d00001f5 [4,3,19,27,1,6,14,21]),(pl 64 5 0x113adf8beeda063fee59c4cee2e60ad5d5afb1 [3,4,11,19,27]),(pl 64 6 0x282d5b6c68a09cdde145cb2f55f49ba6db19977c2 [3,11,4,19,1,27]),(pl 64 6 0xe728ed0d638304f429c1554ee182e47647085c294 [4,3,19,11,1,27]),(pl 64 6 0x8aaf764d3c62c133f2b5a7819ba6f0a1d06c8ff4d [11,3,4,19,1,27]),(pl 22 5 0x113246c0a7262 [19,3,4,27,1])] (.nil)) (.nil))) (.nil))) (.nil)))) (.nil))))))) (.nil)))
+set_option maxRecDepth 200000 in
+set_option maxHeartbeats 0 in
+theorem cert_ok_14 : chkCheckNode s14_maskYF s14_edgePts s14_edgeTT s14_raw s14_masksTT s14_cuts [] s14_auts s14_cert = true := by decide +kernel
 
 def s17_desc : StateDesc := ⟨2,[(0,1)],[]⟩
 
@@ -7422,7 +7558,7 @@ def s18_autIdxTbls : List (List Nat) := []
 def s18_auts : List (List Nat) := []
 def s18_cutSpecs : List CutSpecData := [⟨0,[(0,2)],[0,1,2,4],17,[3,5]⟩,⟨0,[(3,4)],[3,4,1,0],17,[2,5]⟩,⟨8,[],[4,1,0],17,[2,5]⟩,⟨40,[],[2,0],17,[1,4]⟩,⟨23,[],[],17,[3,5]⟩]
 def s18_cuts : List CutDefData := chkMkCuts s18_maskYF s18_raw [(1,[.e [(0,2)]]),(1,[.e [(3,4)]]),(2,[.v 3 [20,17,34]]),(3,[.v 5 [9,4],.v 3 [20]]),(5,[.v 1 [9,20,33],.v 0 [20,12],.v 4 [12],.v 2 [32]])]
-def s18_cert : CertNode := .branch [4,3,0,1] [[11,11,3,11,3,11,11,11,11,11,3,19,3,27,27,27,27,3,11,3,11,11,11,11,3,3,3,3,3,3,3,19,19,19,19,3,3,3,3,0,11,11,3,11,12,5,3,4,12,3,4,3,4,3]] (.cons 0xffffffff0000 (.branch [4,3,0,2] [[27,3,11,3,19,3,11,11,27,27,27,3,11,27,3,19,3,11,27,3,4,3,3,3,3,3,3,3,3,3,19,3,6,3,4,1]] (.nil)) (.nil))
+def s18_cert : CertNode := .branch [4,3,0,1] [(pl 54 8 0x410583d209c000924000002490436d8409248209 [3,11,19,27,4,12,0,5])] (.cons 0xffffffff0000 (.branch [4,3,0,2] [(pd 36 28 0x15efaa30a3971652428df45d1d87a9880debda11a5f)] (.nil)) (.nil))
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_18 : chkCheckNode s18_maskYF s18_edgePts s18_edgeTT s18_raw s18_masksTT s18_cuts [] s18_auts s18_cert = true := by decide +kernel
@@ -7437,10 +7573,27 @@ def s22_autIdxTbls : List (List Nat) := []
 def s22_auts : List (List Nat) := []
 def s22_cutSpecs : List CutSpecData := [⟨32,[],[1,0,3,4],17,[2,6]⟩,⟨2,[],[0,4,2],2,[3,5,6]⟩,⟨4,[],[4,0,1],2,[3,5,6]⟩,⟨8,[],[],18,[1,0,5,2,4,6]⟩,⟨0,[(5,6)],[],26,[0,1,2,3,4,5,6]⟩,⟨76,[],[4,0],17,[1,5]⟩,⟨84,[],[0,1],17,[3,5]⟩,⟨104,[],[1,0],17,[2,4]⟩,⟨85,[],[1],17,[3,5]⟩,⟨108,[],[1],17,[0,4]⟩,⟨23,[],[],2,[3,5,6]⟩,⟨59,[],[],17,[2,6]⟩,⟨59,[],[],17,[2,6]⟩]
 def s22_cuts : List CutDefData := chkMkCuts s22_maskYF s22_raw [(3,[.v 5 [64,26,66]]),(2,[.v 1 [65,48,1]]),(2,[.v 2 [48,66,24,65]]),(2,[.v 3 [37,66,48]]),(1,[.e [(5,6)]]),(5,[.v 2 [16,64],.v 3 [66],.v 6 [32]]),(5,[.v 2 [26,66,48,65],.v 6 [],.v 4 [33]]),(5,[.v 3 [37,66,48,65],.v 5 [64],.v 6 []]),(6,[.v 0 [2,48],.v 4 [],.v 2 [],.v 6 [32]]),(6,[.v 3 [],.v 2 [48,66,65],.v 6 [],.v 5 [2]]),(5,[.v 0 [14,48,24,66],.v 1 [32],.v 4 [36],.v 2 [64]]),(7,[.v 0 [2,24,18],.v 3 [66,48],.v 1 [48],.v 4 [],.v 5 [64]]),(7,[.v 1 [1,36],.v 3 [37,48,64],.v 0 [16],.v 4 [4],.v 5 [64]])]
-def s22_cert : CertNode := .branch [10,3,2,4,1] [[11,11,19,19,27,3,3,27,27,27,27,27,11,11,11,11,3,3,11,11,11,11,11,11,11,11,3,3,11,11,11,11,11,19,19,3,3,19,19,19,19,19,19,3,3,19,19,19,19,19,3,3,35,35,35,35,35,3,3,3,3,3,3,3],[3,3,3,3,0,0,11,19,35,3,5,11,19,35,3,11,19,35,3,11,11,3,19,3,3]] (.cons 0xffff0000ffffffffffff00000000 (.branch [12,5,4,10] [[11,3,19,11,11,3,27,3,4,4,4,4,12,4,3,11,11,11,11,3,11,3,11,11,11,3,11,3,3,3,3,3,3,3,3,3,3,3,3,11,27,3,29,11,3,27,1]] (.nil)) (.cons 0xffff0000ffffffff0000ffff0000 (.branch [10,3,2,1,4] [[11,19,3,11,11,19,19,27,3,3,35,11,19,27,3,11,3,11,11,11,11,11,3,3,11,11,11,11,3,3,35,11,11,27,3,3,19,19,19,19,19,19,3,3,3,3,3,3,3,3,3,3,3,3,11,27,3,0,11,27,3,0,1]] (.cons 0xffff0000ffffffffffffffff0000 (.branch [11,6,0] [[11,4,3,19,11,3,19,19,11,11,19,3,3,4,19,4,11,4,3,11,3,11,11,3,19,4,19,19,3,3,11,11,11,11,11,11,3,19,4,11,3,19,19,4,19,11,11,3,3,12,5,4,11,3,3,3,3,3,3,3,3,3,3,3],[3,3,3,3,3,3,5,3,1]] (.nil)) (.cons 0xffff0000ffffffffffff00000000 (.branch [7,6,1,10] [[3,3,3,3,3,3,3,1,3,3,3,3,3,3,3,3,3,3,11,11,11,3,11,11,3,3,1,11,11,11,11,11,11,11,11,3,19,11,27,3,11,19,27,19,1,1,3,11,19,27,3,3,3,0,3,3,12,11,11,19,27,19,3,3],[3,3,3,3,11,11,3,11,11,3,3,1,11,11,11,11,11,3,11,11,19,3,11,19,19,19,3,3,11,11,19,19,19,19,3,11,19,11,27,4,11,27,19,4,11,19,27,4,1]] (.cons 0xfff00000fff0fff0ff00f0f00000 (.branch [9,8,0,4] [[1,3,1,1,1,1,4,4,1,11,27,1,3,1,19,11,11,4,4,1,4,4,1,1,1,3,4,4,1,11,3,27,1,19,11,11,19,4,4,1,4,4,1,1,1,1,1,4,4,1,11,27,1,1,19,11,11,4,4,1,1,4,4,1],[3,1,1,1,3,3,1,3,3,1,1,3,3,3,3,3,3,1,3,3,1,1,4,1,4,4,4,11,27,1,19,11,11,4,4,4,1,4,4,1,1,3,3,3,4,4,3,11,27,3,3,19,11,11,4,4,3,3,4,4,19,3,1,3],[3,3,19,3,1,3,11,3,19,1,3,19,19,11,11,19,19,3,19,19,3,3,1,4,3,1,4,4,4,3,11,27,3,3,1,19,11,11,4,4,3,4,4,1,1,3,1,3,3,1,3,3,3,3,3,3,3,3,3,3,3,1,3,3],[1,4,1,4,4,4,1,11,27,3,3,19,11,11,4,4,4,1,4,4,4,4,4,4,11,3,27,19,11,11,4,4,4,4,4,3,3,3,4,27,4,1,3,19,4,11,3,4,19,11,11,1,1,3,4,6,11,1,3,1,3,3,3,3],[1,4,27,4,1,19,19,19,19,4,11,19,4,11,11,19,4,6,11,19,1]] (.nil)) (.nil))) (.nil)))) (.nil)))
+def s22_cert : CertNode := .branch [10,3,2,4,1] [(pl 64 5 0x14629b434e355369f0eb1e237b1461f0f7 [3,11,19,27,35]),(pl 25 6 0x3b695bbf99a7e00 [3,11,19,35,0,5])] (.cons 0xffff0000ffffffffffff00000000 (.branch [12,5,4,10] [(pd 47 30 0x642313fd0a43bc669d46f3769efc0f8677929e2c55c401cd6779beee9)] (.nil)) (.cons 0xffff0000ffffffff0000ffff0000 (.branch [10,3,2,1,4] [(pl 63 7 0x1b5d83e19c856e1cc062a9edd4cadec7f7659ad541919 [3,11,19,27,0,35,1])] (.cons 0xffff0000ffffffffffffffff0000 (.branch [11,6,0] [(pl 64 6 0x8bc02530bc4cd2c8bd9d3c84675209cd53 [3,11,19,4,5,12]),(pd 9 6 0x2a6e19)] (.nil)) (.cons 0xffff0000ffffffffffff00000000 (.branch [7,6,1,10] [(pl 64 7 0x18dd241dfb870f6dad2266835e93c3519201af65b465 [3,11,19,1,27,0,12]),(pl 49 6 0x5ef13a4c4f4b2ed1216f77ced95a5943 [11,3,19,4,27,1])] (.cons 0xfff00000fff0fff0ff00f0f00000 (.branch [9,8,0,4] [(pl 64 6 0x167d929614552099c2ec65cea0eb8d71ee2faebd2 [1,4,11,3,19,27]),(pl 64 6 0x159c3d30abb4541d0d16456bda69cc3f89f2b2142 [3,1,4,11,19,27]),(pl 64 6 0x335d6dd9f36e57125772c9bea47022349e953658 [3,1,19,4,11,27]),(pl 64 7 0x21fc0960c7351597f6eb5dad2924e5bb21739fc589a3c [4,3,11,1,19,27,6]),(pd 21 28 0x1dfe59bcac330f812a58d0f21)] (.nil)) (.nil))) (.nil)))) (.nil)))
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_22 : chkCheckNode s22_maskYF s22_edgePts s22_edgeTT s22_raw s22_masksTT s22_cuts [] s22_auts s22_cert = true := by decide +kernel
+
+def s23_desc : StateDesc := ⟨7,[(0,3),(0,5),(1,4),(1,5),(2,5),(2,6),(3,6),(4,6)],[(3,4)]⟩
+def s23_maskYF : Nat := 0xffffff00ffffff00ffffff00ffffff
+def s23_edgePts : Nat := 0x101100000001600040200
+def s23_edgeTT : Nat := 0xfffffe00fffff000fefefe00ccaa00
+def s23_raw : List Nat := chkMkRaw 7 s23_maskYF
+def s23_masksTT : List Nat := chkMkMasksTT 7 s23_desc.edges s23_maskYF
+def s23_autIdxTbls : List (List Nat) := chkMkAutIdxTbls 7 [[1,0,2,4,3,5,6]]
+def s23_auts : List (List Nat) := chkMkAutMaskTbls s23_autIdxTbls
+def s23_cutSpecs : List CutSpecData := [⟨64,[],[2,3,0,4],17,[1,5]⟩,⟨0,[(0,5)],[0,3],4,[1,4,5,6,2]⟩,⟨0,[(4,6)],[4,1],4,[0,3,5,6,2]⟩,⟨2,[],[4],4,[0,3,5,6,2]⟩,⟨4,[],[],18,[5,0,1,6,3,4]⟩,⟨33,[],[1,2,3],17,[4,6]⟩,⟨34,[],[0,2,3],17,[4,6]⟩,⟨36,[],[0,1,3],17,[4,6]⟩,⟨9,[],[],4,[1,4,5,6,2]⟩,⟨9,[],[],4,[1,4,5,6,2]⟩,⟨38,[],[0,3],17,[4,6]⟩,⟨26,[],[0,5],17,[2,6]⟩,⟨26,[],[0,5],17,[2,6]⟩,⟨84,[],[1,3],17,[0,5]⟩,⟨100,[],[0],17,[1,4]⟩,⟨43,[],[2],17,[4,6]⟩,⟨77,[],[4],17,[1,5]⟩,⟨77,[],[4],17,[1,5]⟩,⟨77,[],[4],17,[1,5]⟩,⟨77,[],[4],17,[1,5]⟩,⟨86,[],[3],17,[0,5]⟩,⟨45,[],[1],17,[4,6]⟩,⟨77,[],[4],17,[1,5]⟩,⟨114,[],[],17,[0,3]⟩,⟨58,[],[],17,[2,6]⟩,⟨105,[],[],17,[1,4]⟩,⟨114,[],[],17,[0,3]⟩,⟨101,[],[],17,[1,4]⟩,⟨109,[],[],17,[1,4]⟩,⟨109,[],[],17,[1,4]⟩,⟨118,[],[],17,[0,3]⟩,⟨91,[],[],17,[2,5]⟩,⟨109,[],[],17,[1,4]⟩,⟨109,[],[],17,[1,4]⟩,⟨118,[],[],17,[0,3]⟩,⟨109,[],[],17,[1,4]⟩,⟨59,[],[],17,[2,6]⟩,⟨109,[],[],17,[1,4]⟩,⟨91,[],[],17,[2,5]⟩]
+def s23_cuts : List CutDefData := chkMkCuts s23_maskYF s23_raw [(3,[.v 6 [7,40,17,48,12,4]]),(1,[.e [(0,5)]]),(1,[.e [(4,6)]]),(2,[.v 1 [21,96]]),(2,[.v 2 [65,40,96]]),(4,[.v 0 [96,12],.v 5 [66,10]]),(4,[.v 5 [66,21,10,65],.v 1 [16]]),(4,[.v 5 [20,67,10],.v 2 [67]]),(3,[.v 0 [14,96],.v 3 []]),(3,[.v 3 [7,96],.v 0 [96]]),(5,[.v 1 [21,40,96],.v 2 [40,65,96],.v 5 [1]]),(5,[.v 1 [17,40],.v 3 [],.v 4 [96]]),(5,[.v 1 [21,96,40],.v 4 [],.v 3 [1]]),(5,[.v 2 [65,40],.v 4 [2],.v 6 [40]]),(6,[.v 2 [67,40,48,96],.v 6 [],.v 5 [10,17]]),(6,[.v 0 [],.v 1 [48,16,32],.v 3 [],.v 5 []]),(6,[.v 0 [96,8,40],.v 2 [66,40],.v 3 [],.v 6 [48]]),(6,[.v 0 [8,32,40],.v 3 [],.v 2 [32],.v 6 [48]]),(6,[.v 0 [96,12],.v 3 [],.v 6 [4],.v 2 [32]]),(6,[.v 2 [],.v 0 [8,96,40],.v 3 [],.v 6 [48]]),(6,[.v 2 [65,40],.v 6 [17],.v 4 [],.v 1 [32]]),(6,[.v 3 [1,66,65],.v 2 [32],.v 0 [32],.v 5 [66]]),(6,[.v 3 [],.v 2 [67,48],.v 6 [],.v 0 [32]]),(7,[.v 1 [16,32,40,48],.v 4 [],.v 5 [65],.v 6 [5,8]]),(7,[.v 1 [21,96,40,48],.v 5 [17,12],.v 4 [],.v 3 [65,1,64]]),(7,[.v 5 [21,10],.v 0 [8],.v 3 [],.v 6 [6,20]]),(7,[.v 5 [66,65],.v 1 [16],.v 4 [],.v 6 [5,12]]),(7,[.v 6 [7,21,17,4,12],.v 0 [14,32,8,48,40],.v 2 [48,40],.v 5 [10]]),(7,[.v 0 [32,14],.v 2 [32,40],.v 3 [],.v 5 [66],.v 6 [16]]),(7,[.v 0 [],.v 3 [],.v 6 [6,16],.v 2 [48],.v 5 [2]]),(7,[.v 1 [40,16],.v 2 [40,65],.v 4 [],.v 5 [65],.v 6 [8]]),(7,[.v 1 [16,32,40,48],.v 4 [],.v 3 [1],.v 6 [],.v 0 [32]]),(7,[.v 2 [],.v 0 [10,96,48,40],.v 3 [],.v 6 [48],.v 5 []]),(7,[.v 2 [64,32,96],.v 0 [8],.v 5 [10],.v 3 [],.v 6 [16]]),(7,[.v 2 [],.v 1 [96,16,40,48],.v 4 [],.v 6 [],.v 5 [1]]),(7,[.v 2 [],.v 3 [],.v 6 [],.v 0 [32,48],.v 5 [2]]),(7,[.v 3 [],.v 4 [7,65,2],.v 0 [32],.v 1 [32],.v 5 [4]]),(7,[.v 3 [],.v 6 [21,6],.v 2 [],.v 0 [48],.v 5 [2]]),(7,[.v 4 [],.v 3 [1,65],.v 0 [],.v 6 [],.v 1 [32]])]
+set_option maxRecDepth 200000 in
+set_option maxHeartbeats 0 in
+def s23_cert : CertNode := .branch [9,4,3,1,2] [(pl 64 6 0x829d53ed05d88a5ee1e7e3646ef18e38b8d685501 [2,3,11,19,27,35]),(pd 25 20 0x102d04126d79eef9e729fd017a9b)] (.cons 0xffffff00ffffff00ffffff00000000 (.branch [21,6,13] [(pl 64 6 0x4495f48abcd3d11fc50d34a90f7951df205ae5001 [2,3,19,11,12,20]),(pd 13 20 0x1244afbdf14cbf)] (.nil)) (.cons 0xffff0000ffff0000ffff0000ffff00 (.branch [8,4] [(pl 64 5 0x5694acdb77a0035eb05285aefff514d9bfea2 [2,3,11,0,4]),[2,4,11,2,3,1]] (.cons 0xffffff00ffff0000ffffff00000000 (.branch [16,11,4] [(pl 64 6 0x9607da3ea470062e22c851b1e69fd0c0e1e3b0076 [2,3,19,1,11,12]),(pl 64 7 0x114323c6930b198b56b5f5d173902578bfe3bbf344d10 [2,3,19,11,6,12,13]),(pd 20 20 0xda81bbac6db81feb16b68)] (.nil)) (.cons 0xfffff000fffff000f0f0f000f0f0f0 (.branch [18,4,0] [(pl 64 8 0x800800000603c204480a8442828746240488443839202642 [2,3,11,1,4,19,0,6]),(pd 56 20 0xa34a38572debbbf6f38de7d86d386583988f7d5ae802c1978cbd26fded07)] (.cons 0xffffff00fffff000ffffff00000000 (.branch [19,12] [(pd 64 14 0x2052ca217c02c72b87b87fba53526e5ef9b4d6f46d0b6317fb0930c5ca112),(pd 64 14 0x2017099640bab20a974f16cb30228b3d32b90802053e38676f7190f6bd852),(pl 64 6 0x26b3bc459cf90ecee05420f7cf294102dc38e179e [2,3,11,1,4,5]),(pd 49 12 0x468c43527d494bdf463f3179db0fbd0ca236312c2f7b)] (.cons 0xfffffa00fffffa00fafafa00aaaaaa (.branch [35,12,26] [(pd 64 20 0x172ac5f305a8baf3757a45afbb6e9dbbe44de3279917a8f766f13a3471ca936277a299),(pl 64 6 0x1347df9df9aa70492faeda5873530e8c967768e4b6 [1,3,4,11,19,6]),(pl 64 5 0xbc066232a142a6c9ad4df1f5d2962b4195fec [3,1,4,11,19]),(pl 64 8 0x28304a209409115ea96d48d1695418a616c0600d9880181a [3,19,1,11,5,4,6,12]),(pl 64 6 0x19c08cbef2f7e28ffd713a635fa86b2c5917fc5a19 [4,19,3,11,1,12]),(pd 64 20 0xe0ac643c7fc0b41d31b8b6e87ce3b9c41749ad6976cf7afd381736255db3251f63e13),(pd 43 20 0xfefc16670b2b10504f08d4701cb8faf784e89d69c700f3)] (.cons 0xfffffe00fffffc00fefefe00cccccc (.term) (.cons 0xffffff00fffff000ffffff00ffff00 (.term) (.nil)))) (.cons 0xffffff00fffff000ffffff00ffff00 (.branch [27,10,11] [(pl 64 8 0xa00000c00140c430d12040c85024430928082384480c8208 [2,4,1,12,3,5,11,20]),(pd 64 22 0x5f495b49b09c656a7f2b1446e5cd7ff615103fc1e8f1e3c4d83605070debe3bf82990e6),[3,1,2,3,1,2,3]] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.nil))) (.nil)))) (.cons 0xfffffa00aaaaaa00fafafa00aaaaaa (.branch [37,10,6] [(pl 64 7 0x42ca6c63d669dd9e4bfe17a5e6fd425286abeae55f0e [19,3,11,4,12,5,1]),(pl 64 8 0x5131a1488391a29b106444882da21960000000000000003c [3,4,11,12,19,5,6,1]),(pd 43 20 0x383e5537d49ad9aaf91f531ac18cd03f5e5f0fe8ce00a53)] (.cons 0xffffff00fffff000ffffff00000000 (.branch [34,25,8] [(pl 64 6 0x447ed3aba5ee40515125cdcc9a06039ab839c94 [3,12,11,1,19,4]),(pd 64 21 0x1f874243e3b109a9006ea1c224af9b75902d99176d5b7b7fcaa567179f0a7c878300a3b),(pd 64 21 0x6b8d2b6d72d6cfd801995a7a8a7a66c00b21ed44f99b04bb313d19ff3b7b884a2ebee1),(pd 64 21 0x1250a27d00852c782c9bf05330d64ac0120f0c9db4a38950ab2be6be13dc6d096e1fa34),(pl 64 7 0x2623e91e05c6aa8a7f80c58bf3b383d18c8c4da51670f [3,4,11,19,1,20,12]),(pd 64 21 0xa016de9c833b874a76468c966b92e052926bd41abb6001845e7c690b87d670d19a195a),(pd 21 21 0x1141761ea885c3bc4fed999e)] (.nil)) (.nil))) (.cons 0xffffff00ffff0000ffffff00ffff00 (.branch [27,25,8] [(pl 64 6 0x20c5dd3d5ff70557f10e25e96adf2bd833efa73898 [3,2,1,19,11,20]),(pl 64 7 0xed4400f9664de55c24c930d5ce0c8e3543e0012000aa [2,3,19,11,20,5,0]),(pd 14 20 0x3870f28230bd38f)] (.cons 0xffffff00fffff000ffffff00000000 (.branch [19,26] [(pl 64 6 0x90921c73a16dccb884b5222134b225a82cdfeb4c3 [2,11,12,4,3,1]),(pl 64 6 0x7b2ab5cd6bc02ec99c216fbc5ced9e82d63805adb [1,2,3,4,11,5]),(pd 64 15 0xa48ca227779b62e9f765b48245f87f811302c26690da91e9f2174fb7c58be3),(pd 64 15 0x168f2a5be640e6e725f3ee181518d4a75f3b492df7d990a1b40030b0bb52ef5),(pd 64 13 0xcd0fb1e0f76e3264b43a65c5ed97d83c15fa94fe39e5e7b3da34807e315),(pd 64 13 0xacb9f378b02a6081a8abfc72384fccd2d3c0abb310442dc74fcb1d489e8),(pd 64 12 0xf158fe5f705c94eec28b7b124d0a7e9ff23fadbeb015264c58a2dd4e4)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.nil))) (.cons 0xffffff00ffffff00ffffff00000000 (.branch [19,26] [(pl 64 6 0x26c4e610506cba826ceaf85f65bd93f2c34af05d22 [2,11,4,12,3,1]),(pl 64 6 0xea78baf5858f87841e37da122ee48ad4cd3ddc6b6 [3,2,1,4,11,5]),(pd 64 15 0x35937a7965aa5e5e3a5ea2f6ac6ce37e05e094bcb9df678d3be2ba9df5d0f40),(pd 64 15 0x92717f78a68bc4baa23b18b53bc76cbc1c64aceba469c327e2eeb9e1ac1aa1),(pd 64 13 0x6eba5c7869968538d706782f21b9d36e1b7001f1a7fa063a93f195e655e),(pl 64 6 0x74be4871d7228633636cb7396169db84a09d7bc82 [2,4,3,12,1,11]),(pd 12 7 0xe5737710)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.nil))) (.nil)))) (.cons 0xffffff00ffffff00ffffff00000000 (.branch [19,26] [(pd 64 15 0x9aea112631857b70ead49c7c93de7cebaeeef876b83fba7b897b7d7f3249ae),(pd 64 15 0xddba532c7d0974e286b9414617cad6afa87adad37a2dfbe7cac2542b7c8812),(pd 64 13 0x938d85aec9a7d64c5a718057c88f2073ab9929128875c3d16e897d09db7),(pd 15 15 0x847390bc0b083a)] (.nil)) (.nil)))))) (.cons 0xffffaa00ffffaa00aaaaaa00aaaaaa (.branch [36,20,3,1] [(pl 64 9 0xea8bb0f0a379d32ff5dd3ce25a75e0d941abd34172ad4f7fd2 [19,3,4,11,27,1,0,5,13]),(pd 63 28 0x17ac21e44b099e57dc88235fa5266c18c2fdb87e8a0c14ee9862b484c0f1302f5e4df31c71c7)] (.cons 0xfffffa00f0f0f000fafafa00f0f0f0 (.branch [29,6,3] [(pl 64 6 0x241f1e805a3a2aeaf06507b37380cc6e6070bed5c3 [11,3,5,4,19,1]),(pl 64 7 0x1d541f3c05d09e3a006fb649a1db20f8303a75e581566 [3,5,11,4,19,6,1]),(pd 22 20 0x18407ada1dc717095a1409ef)] (.nil)) (.cons 0xffffee00cccccc00eeeeee00cccccc (.branch [36,7,0] [(pl 64 6 0x26b3c3c9a229e568c1c99ce52ca1d33a2ebed5fc3 [11,4,3,19,1,12]),(pl 64 7 0x5e4f11bf228eb413dc9c6bd9d390186dace5d94ac49f6 [4,19,3,11,5,12,1]),(pl 58 7 0x24986a84cb9ebc657183a0088e0ca3198398f00 [11,19,4,3,1,5,12])] (.nil)) (.cons 0xffffff00ffff0000ffffff00ffff00 (.branch [24,27,4] [(pl 64 6 0x2d83d96ed7505500140872ed8f9e825e7c5c2ab8c [11,3,19,1,4,12]),(pl 64 7 0xf1e40a2762f542ac60014fe358424d29ea9c0332652 [11,3,19,12,4,1,6]),(pd 12 20 0x8221fc77cdfed)] (.cons 0xffffff00ffffff00ffffff00000000 (.branch [23,27,16] [(pl 64 7 0x18f332ecf06bfc6a41f208c662e1cd2db1aaa72c0eac9 [3,20,11,12,19,4,1]),(pl 64 6 0x453ca95f4cb10ba4b07650e97c9b5c45366b333 [19,3,1,11,4,20]),(pl 64 6 0x1b2b9015d7452ed67406ae02fcfcc0f9e2fb278c7c [12,1,3,11,19,4]),(pl 64 7 0x54c61363658c17f0ed2e3b873ad9f38ca1d0db4abb7e [1,3,12,11,4,19,20]),(pl 64 8 0x5a687cf0822a8c816361e2291484a12028c84884426c5499 [3,19,4,1,11,20,12,0]),(pl 64 8 0xa48b0c96c96c000000000060000000000c9522404a10b7 [3,19,11,1,20,4,6,12]),(pd 24 22 0x91f7d6f67036da5619f308d5c9)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.cons 0xfcfcfc00fcfcf000fcfcfc00cccc00 (.term) (.nil)))) (.nil))) (.cons 0xffffff00ffffff00ffffff00000000 (.branch [31,22,5,36] [(pl 64 9 0x37576ff8d6299bcdb31a9e61d0797b250c4deb4b5de7fc1f7c5 [11,3,1,4,19,12,28,0,13]),(pl 64 7 0x15f98291a192741efc155e0c2f5559297e32ade2d9c4 [11,3,1,19,4,12,28]),(pl 64 8 0x4842a200000000000000000266b65006b43337bc81049840 [3,11,19,12,1,4,28,20]),(pd 25 29 0x2800b7335cb1e9b1a9da5dda72f497)] (.cons 0xffffee00ffffee00eeeeee00cccccc (.branch [38,16,18,27] [(pl 64 6 0x2f306d8b74f896f0586385c104c111eeae809e88e [3,1,4,11,27,12]),(pl 64 7 0x85116489a788f9fa70f51637e72898f80ecdbfec6206 [3,11,1,4,27,28,12]),(pl 64 5 0xfe4f7911913454bb98df145724f6f300da747 [3,4,1,11,27]),(pd 64 31 0xc06dbe013a4541f8eafd98ce065d5ee965af6494e806287108d111fd2f229ab1e1636bdb79b77c9),(pl 64 7 0x580135618fb4cbd96de2bb9d8f1deea1e6b86632200db [3,1,4,11,27,0,20]),(pd 64 31 0xdf083b5f2d400b1f5b458a7d0664045c22665fa9939f80917ccfd45977df5245a0c89ca001c4e1e),(pd 17 31 0xd586be4c394218daca89)] (.cons 0xfffffe00f0f0f000fefefe00000000 (.term) (.cons 0xfffffe00f0f0f000fefefe00f0f0f0 (.term) (.nil)))) (.nil))) (.nil)))))) (.cons 0xffffff00ffffff00ffff0000ffff00 (.branch [28] [(pd 56 7 0x20e3ccc3af34e2b9c0310373945de6b6be87ab09)] (.nil)) (.cons 0xffffff00ffff0000ffffff00ffff00 (.branch [33,11,5] [(pl 64 8 0x4120c9813ac3002006000641049009048242060e9004a081 [2,3,19,11,12,0,6,13]),(pd 20 20 0x52df4418acef5a4bf3caab)] (.cons 0xffffaa00ffff0000aaaaaa00aaaa00 (.branch [27,24] [(pl 64 5 0x21105a3b8aee476dfc77cf594a7f551b9fadb [3,4,1,11,12]),(pl 64 6 0x10e07b87d82d103bcc5f38139d81e02764b517b1cd [3,4,11,1,12,14]),(pd 23 15 0xc720c2f46ca5b57582af1a)] (.cons 0xffffff00ffffff00ffffff00000000 (.branch [24,14,11] [(pd 64 22 0x18452f57f4dfa062a44cead4950dd5a4c97abfc008712095bc2831ec276a8201708f9579),(pd 64 21 0x12509e41d2c3d14ac139ab43bc84af212d734ee4eb6e2103deb9a0b7e5988eabfa248ee),(pd 64 21 0xb708a9352bea7a92fe068e954d484929bc13f6fbbf185f1c8e0c6cff39a451c1667c03),(pl 64 7 0x9271e8ff552e84a97a5b0a05ce2120b7d4a3459a2d2b6 [3,11,1,20,4,5,13]),(pd 64 22 0x60a0c9be7304c28de70fbc6e03546dec50166afb23a89310f13b8b557fc109247b9166d),(pd 52 21 0x19c4675117b43a05d3542b1de9844d32d2cd154f63c04cc47369dbfb2)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.cons 0xfcfcfc00fcfcf000fcfcfc00cccc00 (.term) (.nil)))) (.nil))) (.cons 0xffffff00ffffff00ffffff00000000 (.branch [17,10] [(pl 64 6 0x20baf044ae204b661d333fd60a303bcc0ea5d7ede [2,3,12,11,1,4]),(pl 64 5 0x13726bf9d45a176353197e7b9aba5579ddeba9 [2,3,12,1,4]),(pd 64 13 0x63f4abbe59f458802cf74af7ca6248aee206f7aa8cc4eec90e65df4b456),(pd 34 12 0x78406ff8f27f170c8946f56b783d1f)] (.cons 0xfafafa00fafaf000fafafa00aaaa00 (.branch [32,15,0] [(pl 64 5 0x51b5650bd46d228aa19360fe58e94ba475b12 [11,1,4,3,19]),(pl 64 6 0xfe7f4e1164eb059cf83015fd06176768a22386794 [3,4,1,11,19,12]),(pl 64 7 0x47661aeef22875091ec8eb3bf0cf0b6a491b2b33992b6 [4,3,19,1,11,12,14]),(pl 64 5 0x9bb7c3aba9328af2980a4c90fe2867dc865ff [4,3,19,11,1]),(pl 64 5 0x61346a0eaff33f8fead4d9660033430107d2a [3,11,1,4,19]),(pl 64 7 0x3d7be2103eb1bf63482ed8e0e6070791e6873e5177374 [3,4,12,11,19,1,0]),(pl 64 6 0x9ad73e3b7ce3b839632d72264e7d892438bc2239 [3,11,12,1,5,19]),(pd 42 20 0x48b2bd6236de163a74ed337cd5f2e7f7dc56094a4a1af)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.nil))) (.cons 0xfffff000fffff000f0f0f000000000 (.branch [23,27] [(pl 64 6 0xe7cc44f48a03f9853d6e43cd23b4dac786f75b9df [2,1,12,11,6,5]),(pd 64 13 0x4b97685e0a31aa480f215609e923ab182085bf2d52794109cea39c37039),(pd 64 14 0xc02b1a57978a4efbc6a6b4cf1d48349dbaddb61f867849958834344839e68),(pd 53 14 0x74d4e6eaeadc6a7e634ce6e61dc76f581944dd7ac74fea25f2)] (.cons 0xfffffa00fffff000fafafa00aaaa00 (.term) (.nil))) (.nil)))) (.nil)))) (.cons 0xffffff00ffffff00ffffff00000000 (.branch [17,30] [(pd 64 13 0x716762029c675bf3abd67af12aed36b9f1efef6c9e01f4f36821b7c0934),(pd 49 16 0x1324232f322332332333323333b2b2232222b222223c242cc)] (.cons 0xfffff000fffff000f0f0f000000000 (.branch [16,23] [(pd 64 15 0x967b34d0ff9634bea0ce28c255076724c8f7d43eefb6d966ce2f155d62d851),(pd 64 15 0x9b6f9510f96beda9d53d1c50d3ee686b0f18c51ab7b69fa38fd38d43714a3b),[5,2,3,1]] (.nil)) (.nil))) (.nil)))))))) (.nil)))
+set_option maxRecDepth 200000 in
+set_option maxHeartbeats 0 in
+theorem cert_ok_23 : chkCheckNode s23_maskYF s23_edgePts s23_edgeTT s23_raw s23_masksTT s23_cuts [] s23_auts s23_cert = true := by decide +kernel
 
 def s26_desc : StateDesc := ⟨7,[(0,1),(0,4),(1,5),(2,4),(2,6),(3,5),(3,6)],[(4,6),(5,6)]⟩
 def s26_maskYF : Nat := 0xffffffffffffffffffff
@@ -7452,14 +7605,15 @@ def s26_autIdxTbls : List (List Nat) := []
 def s26_auts : List (List Nat) := []
 def s26_cutSpecs : List CutSpecData := [⟨0,[(1,5)],[1,0,4,2,5],17,[3,6]⟩,⟨4,[],[4,0,1,5],17,[3,6]⟩,⟨34,[],[0,3,4],17,[2,6]⟩,⟨84,[],[0,1],17,[3,5]⟩,⟨76,[],[4,0],17,[1,5]⟩,⟨55,[],[],17,[3,6]⟩,⟨55,[],[],17,[3,6]⟩]
 def s26_cuts : List CutDefData := chkMkCuts s26_maskYF s26_raw [(1,[.e [(1,5)]]),(2,[.v 2 [26,64,48]]),(3,[.v 5 [24,2],.v 1 [65]]),(4,[.v 2 [26,65,48],.v 6 [],.v 4 [1]]),(4,[.v 3 [37,66,48],.v 6 [6],.v 2 [16]]),(6,[.v 0 [14,48,24,66],.v 1 [48],.v 4 [36],.v 5 [8],.v 2 [64]]),(6,[.v 1 [1,36],.v 0 [16],.v 4 [36],.v 5 [],.v 2 [64]])]
-def s26_cert : CertNode := .branch [5,4,1,0] [[11,11,11,11,3,3,11,11,11,11,11,11,11,11,3,3,11,11,11,11,11,19,19,3,3,19,19,19,19,19,19,3,3,19,19,19,19,19,3,3,27,27,27,27,27,3,3,3,3,3,3,3,3,3,3,3,0,0,11,19,12,3,5,11],[19,4,3,11,19,4,3,11,11,3,19,3,3]] (.cons 0xffffffffffff00000000 (.branch [6,4,1,5] [[11,3,19,19,3,27,3,11,11,11,11,11,11,3,11,11,19,3,19,3,19,19,11,3,19,3,3,3,3,3,3,3,3,3,3,3,19,27,3,5,19,3,27,1]] (.nil)) (.cons 0xffffffff0000ffff0000 (.branch [3,2,5,4] [[3,19,11,3,3,11,19,19,11,27,3,27,19,3,27,11,11,19,19,3,3,3,3,3,3,19,11,3,3,11,19,19,19,19,3,19,11,11,19,11,27,12,19,4,1]] (.nil)) (.nil)))
+def s26_cert : CertNode := .branch [5,4,1,0] [(pl 64 7 0x326fb05fed45fd6e1858fd3953d6600acd06335f6c273 [3,11,19,27,0,5,12]),(pd 13 20 0x2e894825777fd3)] (.cons 0xffffffffffff00000000 (.branch [6,4,1,5] [(pl 44 6 0x2827df28a0a7351609d6673af5599 [3,11,19,27,1,5])] (.nil)) (.cons 0xffffffff0000ffff0000 (.branch [3,2,5,4] [(pl 45 7 0x36ab0777970c886f6c0fcef12eba6859 [3,19,11,27,1,4,12])] (.nil)) (.nil)))
 set_option maxRecDepth 200000 in
 set_option maxHeartbeats 0 in
 theorem cert_ok_26 : chkCheckNode s26_maskYF s26_edgePts s26_edgeTT s26_raw s26_masksTT s26_cuts [] s26_auts s26_cert = true := by decide +kernel
 
-def allStates : List StateDesc := [s17_desc,s1_desc,s2_desc,s17_desc,s4_desc,s17_desc,s6_desc,s17_desc,s17_desc,s17_desc,s17_desc,s17_desc,s17_desc,s13_desc,s17_desc,s17_desc,s17_desc,s17_desc,s18_desc,s17_desc,s17_desc,s17_desc,s22_desc,s17_desc,s17_desc,s17_desc,s26_desc,s17_desc]
+def allStates : List StateDesc := [s17_desc,s1_desc,s2_desc,s17_desc,s4_desc,s17_desc,s6_desc,s17_desc,s17_desc,s17_desc,s17_desc,s17_desc,s17_desc,s13_desc,s14_desc,s17_desc,s17_desc,s17_desc,s18_desc,s17_desc,s17_desc,s17_desc,s22_desc,s23_desc,s17_desc,s17_desc,s26_desc,s17_desc]
 def allGraphCores : List GraphCoreSpec := [
-  ⟨28,7,[(0,1),(0,2),(0,3),(0,4),(1,2),(1,5),(3,4),(3,6),(5,6)],12,13,[],[5,6,2,4,1,3,0]⟩
+  ⟨28,7,[(0,1),(0,2),(0,3),(0,4),(1,2),(1,5),(3,4),(3,6),(5,6)],12,13,[],[5,6,2,4,1,3,0]⟩,
+  ⟨29,7,[(0,1),(0,2),(0,3),(1,2),(1,4),(2,5),(3,6),(4,6),(5,6)],12,14,[],[3,4,5,6,0,1,2]⟩
 ]
 
 def allEntries : List StateCertEntry := [
@@ -7477,7 +7631,7 @@ def allEntries : List StateCertEntry := [
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s13_desc, s13_maskYF, s13_edgePts, s13_edgeTT, s13_raw, s13_masksTT, s13_autIdxTbls, s13_auts, s13_cuts, s13_cutSpecs, s13_cert⟩,
-  ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
+  ⟨s14_desc, s14_maskYF, s14_edgePts, s14_edgeTT, s14_raw, s14_masksTT, s14_autIdxTbls, s14_auts, s14_cuts, s14_cutSpecs, s14_cert⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
@@ -7486,7 +7640,7 @@ def allEntries : List StateCertEntry := [
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s22_desc, s22_maskYF, s22_edgePts, s22_edgeTT, s22_raw, s22_masksTT, s22_autIdxTbls, s22_auts, s22_cuts, s22_cutSpecs, s22_cert⟩,
-  ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
+  ⟨s23_desc, s23_maskYF, s23_edgePts, s23_edgeTT, s23_raw, s23_masksTT, s23_autIdxTbls, s23_auts, s23_cuts, s23_cutSpecs, s23_cert⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s17_desc, 0, 0, 0, [], [], [], [], [], [], .term⟩,
   ⟨s26_desc, s26_maskYF, s26_edgePts, s26_edgeTT, s26_raw, s26_masksTT, s26_autIdxTbls, s26_auts, s26_cuts, s26_cutSpecs, s26_cert⟩,
@@ -7516,7 +7670,7 @@ theorem allEntries_certs : ∀ e ∈ allEntries, e.desc.edges.length ≤ 1 ∨
   · exact Or.inl (by decide)
   · exact Or.inl (by decide)
   · exact Or.inr cert_ok_13
-  · exact Or.inl (by decide)
+  · exact Or.inr cert_ok_14
   · exact Or.inl (by decide)
   · exact Or.inl (by decide)
   · exact Or.inl (by decide)
@@ -7525,7 +7679,7 @@ theorem allEntries_certs : ∀ e ∈ allEntries, e.desc.edges.length ≤ 1 ∨
   · exact Or.inl (by decide)
   · exact Or.inl (by decide)
   · exact Or.inr cert_ok_22
-  · exact Or.inl (by decide)
+  · exact Or.inr cert_ok_23
   · exact Or.inl (by decide)
   · exact Or.inl (by decide)
   · exact Or.inr cert_ok_26
@@ -7546,450 +7700,11 @@ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
     8 ≤ OrYF.countOrGates C.gates := by
   exact OrYF.graph_or_bound_of_entry OrYF.g28_fn_eq OrYF.allStates_lb
     OrYF.allGraphCores_ok 0 _ rfl rfl rfl C hc he
-namespace Pin
-open PEqualNP.CircuitLowerBounds
-
-def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
-  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
-
-theorem wiresFrom_append (gs gs' : List Gate) (w : List Bool) :
-    wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w) := by
-  simp [wiresFrom, List.foldl_append]
-
-theorem wiresFrom_prefix (gs : List Gate) : ∀ w : List Bool,
-    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
-  induction gs with
-  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
-  | cons g gs ih =>
-    intro w
-    obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
-    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
-    have : wiresFrom (g :: gs) w
-        = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
-    rw [this, ht]; simp
-
-theorem length_wiresFrom (gs : List Gate) (w : List Bool) :
-    (wiresFrom gs w).length = w.length + gs.length := by
-  obtain ⟨t, ht, hl⟩ := wiresFrom_prefix gs w
-  rw [ht]; simp [hl]
-
-theorem getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
-    (L ++ [S]).getD j d = L.getD j d := by
-  by_cases hj : j < L.length
-  · exact List.getD_append _ _ _ _ hj
-  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
-
-theorem getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
-  simp
-
-def Ok (g : Gate) : Prop := (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2
-
-abbrev Stat := Sum Bool ℕ
-
-def Stat.val (w : List Bool) : Stat → Bool
-  | Sum.inl c => c
-  | Sum.inr j => w.getD j false
-
-def Stat.Valid (m : ℕ) : Stat → Prop
-  | Sum.inl _ => True
-  | Sum.inr j => j < m
-
-def simpAnd (m : ℕ) : List Stat → Option Gate × Stat
-  | [] => (none, Sum.inl true)
-  | [Sum.inl c] => (none, Sum.inl c)
-  | [Sum.inr j] => (none, Sum.inr j)
-  | [Sum.inl c, Sum.inl d] => (none, Sum.inl (c && d))
-  | [Sum.inl c, Sum.inr j] => (none, bif c then Sum.inr j else Sum.inl false)
-  | [Sum.inr j, Sum.inl c] => (none, bif c then Sum.inr j else Sum.inl false)
-  | [Sum.inr j, Sum.inr k] => (some ⟨GateOp.and, [j, k]⟩, Sum.inr m)
-  | _ => (none, Sum.inl false)
-
-def simpOr (m : ℕ) : List Stat → Option Gate × Stat
-  | [] => (none, Sum.inl false)
-  | [Sum.inl c] => (none, Sum.inl c)
-  | [Sum.inr j] => (none, Sum.inr j)
-  | [Sum.inl c, Sum.inl d] => (none, Sum.inl (c || d))
-  | [Sum.inl c, Sum.inr j] => (none, bif c then Sum.inl true else Sum.inr j)
-  | [Sum.inr j, Sum.inl c] => (none, bif c then Sum.inl true else Sum.inr j)
-  | [Sum.inr j, Sum.inr k] => (some ⟨GateOp.or, [j, k]⟩, Sum.inr m)
-  | _ => (none, Sum.inl false)
-
-def simplify (op : GateOp) (m : ℕ) (ins : List Stat) : Option Gate × Stat :=
-  match op with
-  | GateOp.and => simpAnd m ins
-  | GateOp.or => simpOr m ins
-  | _ => (none, Sum.inl false)
-
-theorem simplify_ok (op : GateOp) (m : ℕ) (ins : List Stat) :
-    ∀ g ∈ (simplify op m ins).1, Ok g := by
-  intro g hg
-  cases op <;> simp only [simplify] at hg
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
-      simp [simpAnd] at hg <;> (subst hg; simp [Ok])
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
-      simp [simpOr] at hg <;> (subst hg; simp [Ok])
-  all_goals simp at hg
-
-theorem simplify_count (op : GateOp) (m : ℕ) (ins : List Stat)
-    (hop : op = GateOp.and ∨ op = GateOp.or) (hlen : ins.length ≤ 2)
-    (hc : ∃ c, Sum.inl c ∈ ins) :
-    (simplify op m ins).1 = none := by
-  obtain ⟨c, hc⟩ := hc
-  rcases hop with rfl | rfl
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
-      simp_all [simplify, simpAnd]
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩ <;> (try cases a) <;> (try cases b) <;>
-      simp_all [simplify, simpOr]
-
-theorem simplify_sound (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
-    (w : List Bool) (ins : List Stat) (hlen : ins.length ≤ 2)
-    (hv : ∀ s ∈ ins, s.Valid w.length) :
-    ((simplify op w.length ins).2).Valid (w.length + (simplify op w.length ins).1.toList.length) ∧
-    ((simplify op w.length ins).2).val (wiresFrom (simplify op w.length ins).1.toList w)
-      = op.eval (ins.map (Stat.val w)) := by
-  rcases hop with rfl | rfl
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
-    · simp [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval]
-    · cases a <;> simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
-    · cases a <;> cases b <;> (try rename_i c e; cases c) <;> (try cases e) <;>
-        simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
-    · simp at hlen
-  · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
-    · simp [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval]
-    · cases a <;> simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
-    · cases a <;> cases b <;> (try rename_i c e; cases c) <;> (try cases e) <;>
-        simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
-    · simp at hlen
-
-def elimStep (n : ℕ) (acc : List Stat × List Gate) (g : Gate) : List Stat × List Gate :=
-  (acc.1 ++ [(simplify g.op (n + acc.2.length)
-      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).2],
-    acc.2 ++ (simplify g.op (n + acc.2.length)
-      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList)
-
-def elim (n : ℕ) (gs : List Gate) (acc : List Stat × List Gate) : List Stat × List Gate :=
-  gs.foldl (elimStep n) acc
-
-theorem toList_length_le {α : Type} (o : Option α) : o.toList.length ≤ 1 := by
-  cases o <;> simp
-
-theorem elim_ok (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
-    (∀ g ∈ acc.2, Ok g) → ∀ g ∈ (elim n gs acc).2, Ok g := by
-  induction gs with
-  | nil => intro acc h; exact h
-  | cons g gs ih =>
-    intro acc h
-    apply ih (elimStep n acc g)
-    intro g' hg'
-    rcases List.mem_append.1 hg' with h1 | h1
-    · exact h g' h1
-    · exact simplify_ok _ _ _ g' (by simpa using h1)
-
-theorem Stat.valid_mono {m m' : ℕ} (h : m ≤ m') : ∀ s : Stat, s.Valid m → s.Valid m'
-  | Sum.inl _, _ => trivial
-  | Sum.inr _, hj => lt_of_lt_of_le hj h
-
-theorem Stat.val_append (w t : List Bool) : ∀ s : Stat, s.Valid w.length →
-    s.val (w ++ t) = s.val w
-  | Sum.inl _, _ => rfl
-  | Sum.inr _, hj => List.getD_append _ _ _ _ hj
-
-def Inv (n : ℕ) (y : List Bool) (w : List Bool) (acc : List Stat × List Gate) : Prop :=
-  acc.1.length = w.length ∧ ∀ i : ℕ,
-    (acc.1.getD i (Sum.inl false)).Valid (n + acc.2.length) ∧
-    (acc.1.getD i (Sum.inl false)).val (wiresFrom acc.2 y) = w.getD i false
-
-theorem inv_elim (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
-    ∀ (w : List Bool) (acc : List Stat × List Gate), (∀ g ∈ gs, Ok g) → Inv n y w acc →
-      Inv n y (wiresFrom gs w) (elim n gs acc) := by
-  induction gs with
-  | nil => intro w acc _ h; exact h
-  | cons g gs ih =>
-    intro w acc hok h
-    apply ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (elimStep n acc g)
-      (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
-    obtain ⟨hl, hi⟩ := h
-    set w' := wiresFrom acc.2 y with hw'
-    have lw' : w'.length = n + acc.2.length := by rw [hw', length_wiresFrom, hy]
-    set ins := g.inputs.map fun i => acc.1.getD i (Sum.inl false) with hins
-    have hgok := hok g List.mem_cons_self
-    have hs := simplify_sound g.op hgok.1 w' ins (by simpa [hins] using hgok.2)
-      (by
-        intro s hs
-        obtain ⟨a, _, rfl⟩ := List.mem_map.1 hs
-        rw [lw']; exact (hi a).1)
-    rw [lw'] at hs
-    set r := simplify g.op (n + acc.2.length) ins with hr
-    have hvals : ins.map (Stat.val w') = g.inputs.map fun i => w.getD i false := by
-      rw [hins, List.map_map]
-      apply List.map_congr_left
-      intro a _
-      exact (hi a).2
-    have hnew : wiresFrom (acc.2 ++ r.1.toList) y = wiresFrom r.1.toList w' := by
-      rw [wiresFrom_append]
-    obtain ⟨t, ht, htl⟩ := wiresFrom_prefix r.1.toList w'
-    refine ⟨by simp [elimStep, hl], ?_⟩
-    intro i
-    show ((acc.1 ++ [r.2]).getD i (Sum.inl false)).Valid (n + (acc.2 ++ r.1.toList).length) ∧
-      ((acc.1 ++ [r.2]).getD i (Sum.inl false)).val (wiresFrom (acc.2 ++ r.1.toList) y) = _
-    rw [hnew, List.length_append, ← Nat.add_assoc]
-    by_cases hil : i = acc.1.length
-    · subst hil
-      rw [getD_snoc_eq, hl, getD_snoc_eq]
-      exact ⟨hs.1, by rw [hs.2, hvals]⟩
-    · rw [getD_snoc_ne _ _ _ _ hil, getD_snoc_ne _ _ _ _ (by omega)]
-      refine ⟨Stat.valid_mono (by omega) _ (hi i).1, ?_⟩
-      rw [ht, Stat.val_append _ _ _ (by rw [lw']; exact (hi i).1)]
-      exact (hi i).2
-
-def initStats (n : ℕ) (v : Fin n) (b : Bool) : List Stat :=
-  List.ofFn (fun i : Fin n => if i = v then Sum.inl b else Sum.inr i)
-
-theorem inv_init (n : ℕ) (v : Fin n) (b : Bool) (y : Fin n → Bool) :
-    Inv n (List.ofFn y) (List.ofFn (Function.update y v b)) (initStats n v b, []) := by
-  refine ⟨by simp [initStats], ?_⟩
-  intro i
-  by_cases hlt : i < n
-  · by_cases hv : (⟨i, hlt⟩ : Fin n) = v
-    · subst hv
-      simp [initStats, hlt, Stat.Valid, Stat.val]
-    · simp [initStats, hlt, hv, Stat.Valid, Stat.val, wiresFrom, Function.update_of_ne hv]
-  · rw [List.getD_eq_default _ _ (by simp [initStats]; omega),
-      List.getD_eq_default _ _ (by simp; omega)]
-    exact ⟨trivial, rfl⟩
-
-def isOr : GateOp → Bool
-  | .or => true
-  | _ => false
-
-def orCount (gs : List Gate) : ℕ := gs.countP (fun g => isOr g.op)
-
-theorem simplify_or_le (op : GateOp) (m : ℕ) (ins : List Stat) :
-    orCount (simplify op m ins).1.toList ≤ if isOr op then 1 else 0 := by
-  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
-    (try cases a) <;> (try cases b) <;>
-    simp [simplify, simpAnd, simpOr, orCount, isOr]
-
-theorem simplify_unpinned_eval (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
-    (m : ℕ) (w : List Bool) (ins : List Stat) (vs : List Bool)
-    (hlen : ins.length ≤ 2)
-    (hr : List.Forall₂ (fun (s : Stat) b => s ≠ Sum.inl false → s.val w = b) ins vs)
-    (hkeep : orCount (simplify op m ins).1.toList = if isOr op then 1 else 0)
-    (hnf : (simplify op m ins).2 ≠ Sum.inl false) :
-    op.eval (ins.map (Stat.val w)) = op.eval vs := by
-  rcases hop with rfl | rfl
-  all_goals
-    rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩
-    · cases hr; rfl
-    · cases hr with
-      | cons ha ht =>
-        cases ht
-        cases a with
-        | inl a => cases a <;> simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-        | inr a => simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-    · cases hr with
-      | cons ha ht =>
-        cases ht with
-        | cons hb htt =>
-          cases htt
-          rcases a with ca | ia <;> rcases b with cb | ib
-          · cases ca <;> cases cb <;>
-              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-          · cases ca <;>
-              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-          · cases cb <;>
-              simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-          · simp_all [simplify, simpAnd, simpOr, orCount, isOr, Stat.val, GateOp.eval]
-    · simp at hlen
-theorem orCount_append (gs hs : List Gate) : orCount (gs ++ hs) = orCount gs + orCount hs := by
-  simp [orCount]
-
-theorem orCount_cons (g : Gate) (gs : List Gate) :
-    orCount (g :: gs) = (if isOr g.op then 1 else 0) + orCount gs := by
-  simp [orCount, List.countP_cons, Nat.add_comm]
-
-theorem elim_or_le (n : ℕ) (gs : List Gate) : ∀ acc : List Stat × List Gate,
-    orCount (elim n gs acc).2 ≤ orCount acc.2 + orCount gs := by
-  induction gs with
-  | nil => intro acc; simp [elim, orCount]
-  | cons g gs ih =>
-    intro acc
-    have h1 := ih (elimStep n acc g)
-    have h2 := simplify_or_le g.op (n + acc.2.length)
-      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
-    change orCount (elim n gs (elimStep n acc g)).2 ≤ _
-    rw [orCount_cons]
-    have hstep : orCount (elimStep n acc g).2 = orCount acc.2 +
-        orCount (simplify g.op (n + acc.2.length)
-          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
-      simp only [elimStep, orCount_append]
-    rw [hstep] at h1
-    omega
-
-def UInv (n : ℕ) (y : List Bool) (w : List Bool) (acc : List Stat × List Gate) : Prop :=
-  acc.1.length = w.length ∧ ∀ i : ℕ,
-    (acc.1.getD i (Sum.inl false)).Valid (n + acc.2.length) ∧
-    ((acc.1.getD i (Sum.inl false)) ≠ Sum.inl false →
-      (acc.1.getD i (Sum.inl false)).val (wiresFrom acc.2 y) = w.getD i false)
-
-theorem uinv_elim (n : ℕ) (y : List Bool) (hy : y.length = n) (gs : List Gate) :
-    ∀ (w : List Bool) (acc : List Stat × List Gate), (∀ g ∈ gs, Ok g) → UInv n y w acc →
-      orCount (elim n gs acc).2 = orCount acc.2 + orCount gs →
-      UInv n y (wiresFrom gs w) (elim n gs acc) := by
-  induction gs with
-  | nil => intro w acc _ h _; exact h
-  | cons g gs ih =>
-    intro w acc hok h hcount
-    have hle := elim_or_le n gs (elimStep n acc g)
-    have hlocal := simplify_or_le g.op (n + acc.2.length)
-      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
-    have hcount' : orCount (elim n gs (elimStep n acc g)).2 =
-        orCount acc.2 + ((if isOr g.op then 1 else 0) + orCount gs) := by
-      simpa only [elim, List.foldl_cons, orCount_cons] using hcount
-    have hstep : orCount (elimStep n acc g).2 = orCount acc.2 +
-        orCount (simplify g.op (n + acc.2.length)
-          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
-      simp only [elimStep, orCount_append]
-    rw [hstep] at hle
-    have hkeep : orCount (simplify g.op (n + acc.2.length)
-        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList =
-        if isOr g.op then 1 else 0 := by omega
-    apply ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) (elimStep n acc g)
-      (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
-    · obtain ⟨hl, hi⟩ := h
-      set w' := wiresFrom acc.2 y with hw'
-      have lw' : w'.length = n + acc.2.length := by rw [hw', length_wiresFrom, hy]
-      set ins := g.inputs.map fun i => acc.1.getD i (Sum.inl false) with hins
-      have hgok := hok g List.mem_cons_self
-      have hs := simplify_sound g.op hgok.1 w' ins (by simpa [hins] using hgok.2)
-        (by
-          intro s hs
-          obtain ⟨a, _, rfl⟩ := List.mem_map.1 hs
-          rw [lw']; exact (hi a).1)
-      rw [lw'] at hs
-      set r := simplify g.op (n + acc.2.length) ins with hr
-      have hrel : List.Forall₂ (fun (s : Stat) b => s ≠ Sum.inl false → s.val w' = b)
-          ins (g.inputs.map fun i => w.getD i false) := by
-        rw [hins]
-        induction g.inputs with
-        | nil => exact List.Forall₂.nil
-        | cons i is ih => exact List.Forall₂.cons (hi i).2 ih
-      have hnew : wiresFrom (acc.2 ++ r.1.toList) y = wiresFrom r.1.toList w' := by
-        rw [wiresFrom_append]
-      obtain ⟨t, ht, htl⟩ := wiresFrom_prefix r.1.toList w'
-      refine ⟨by simp [elimStep, hl], ?_⟩
-      intro i
-      show ((acc.1 ++ [r.2]).getD i (Sum.inl false)).Valid
-          (n + (acc.2 ++ r.1.toList).length) ∧
-        (((acc.1 ++ [r.2]).getD i (Sum.inl false)) ≠ Sum.inl false →
-          ((acc.1 ++ [r.2]).getD i (Sum.inl false)).val
-            (wiresFrom (acc.2 ++ r.1.toList) y) = _)
-      rw [hnew, List.length_append, ← Nat.add_assoc]
-      by_cases hil : i = acc.1.length
-      · subst hil
-        rw [getD_snoc_eq, hl, getD_snoc_eq]
-        refine ⟨hs.1, ?_⟩
-        intro hnf
-        rw [hs.2]
-        exact simplify_unpinned_eval g.op hgok.1 (n + acc.2.length) w' ins _
-          (by simpa [hins] using hgok.2) hrel hkeep hnf
-      · rw [getD_snoc_ne _ _ _ _ hil, getD_snoc_ne _ _ _ _ (by omega)]
-        refine ⟨Stat.valid_mono (by omega) _ (hi i).1, ?_⟩
-        intro hnf
-        rw [ht, Stat.val_append _ _ _ (by rw [lw']; exact (hi i).1)]
-        exact (hi i).2 hnf
-    · rw [hstep]
-      omega
-
-theorem uinv_init (n : ℕ) (v : Fin n) (y : Fin n → Bool) :
-    UInv n (List.ofFn y) (List.ofFn y) (initStats n v false, []) := by
-  refine ⟨by simp [initStats], ?_⟩
-  intro i
-  by_cases hlt : i < n
-  · by_cases hv : (⟨i, hlt⟩ : Fin n) = v
-    · subst hv
-      simp [initStats, hlt, Stat.Valid, Stat.val]
-    · simp [initStats, hlt, hv, Stat.Valid, Stat.val, wiresFrom]
-  · rw [List.getD_eq_default _ _ (by simp [initStats]; omega)]
-    exact ⟨trivial, by simp⟩
-
-theorem pin_or_strict (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (v : Fin n)
-    (hmono : PEqualNP.MetaComplexity.Monotone2 C)
-    (hdep : ∃ x : Fin n → Bool,
-      C.eval (List.ofFn x) ≠ C.eval (List.ofFn (Function.update x v false)))
-    (htrue : ∃ x : Fin n → Bool,
-      C.eval (List.ofFn (Function.update x v false)) = true)
-    (hfalse : ∃ x : Fin n → Bool,
-      C.eval (List.ofFn (Function.update x v false)) = false) :
-    ∃ D : PEqualNP.CircuitLowerBounds.Circuit,
-      PEqualNP.MetaComplexity.Monotone2 D ∧
-      orCount D.gates + 1 ≤ orCount C.gates ∧
-      ∀ x : Fin n → Bool,
-        D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false)) := by
-  have hok : ∀ g ∈ C.gates, Ok g := by
-    intro g hg
-    obtain ⟨h1, h2⟩ := hmono g hg
-    refine ⟨?_, h2⟩
-    simpa using h1
-  set acc := elim n C.gates (initStats n v false, []) with hacc
-  have hinv : ∀ y : Fin n → Bool,
-      Inv n (List.ofFn y) (wiresFrom C.gates (List.ofFn (Function.update y v false))) acc := by
-    intro y
-    exact inv_elim n _ (by simp) C.gates _ _ hok (inv_init n v false y)
-  have hval : ∀ y : Fin n → Bool,
-      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn y))
-        = C.eval (List.ofFn (Function.update y v false)) := by
-    intro y
-    exact ((hinv y).2 C.output).2
-  have hbound : orCount acc.2 ≤ orCount C.gates := by
-    simpa only [← hacc, orCount, List.countP_nil, Nat.zero_add] using
-      elim_or_le n C.gates (initStats n v false, [])
-  have hstrict : orCount acc.2 < orCount C.gates := by
-    by_contra hn
-    have heq : orCount acc.2 = orCount C.gates := by omega
-    obtain ⟨x, hx⟩ := hdep
-    have hu : UInv n (List.ofFn x) (wiresFrom C.gates (List.ofFn x)) acc :=
-      uinv_elim n _ (by simp) C.gates _ _ hok (uinv_init n v x)
-        (by simpa only [← hacc, orCount, List.countP_nil, Nat.zero_add] using heq)
-    have hst : acc.1.getD C.output (Sum.inl false) = Sum.inl false := by
-      by_contra hh
-      have ho := (hu.2 C.output).2 hh
-      exact hx (ho.symm.trans (hval x))
-    obtain ⟨y, hy⟩ := htrue
-    have hv := hval y
-    rw [hst] at hv
-    simp only [Stat.val] at hv
-    exact Bool.false_ne_true (hv.trans hy)
-  have hmD : ∀ out : ℕ, PEqualNP.MetaComplexity.Monotone2 ⟨acc.2, out⟩ := by
-    intro out g hg
-    obtain ⟨h1, h2⟩ := elim_ok n C.gates _ (by simp) g hg
-    refine ⟨?_, h2⟩
-    rcases h1 with h | h <;> simp [h]
-  cases hst : acc.1.getD C.output (Sum.inl false) with
-  | inl c =>
-    cases c with
-    | true =>
-      exfalso
-      obtain ⟨y, hy⟩ := hfalse
-      have hv := hval y
-      rw [hst] at hv
-      simp only [Stat.val] at hv
-      exact Bool.false_ne_true (hv.trans hy).symm
-    | false =>
-      exfalso
-      obtain ⟨y, hy⟩ := htrue
-      have hv := hval y
-      rw [hst] at hv
-      simp only [Stat.val] at hv
-      exact Bool.false_ne_true (hv.trans hy)
-  | inr j =>
-    refine ⟨⟨acc.2, j⟩, hmD _, by change orCount acc.2 + 1 ≤ orCount C.gates; omega, ?_⟩
-    intro x
-    have hv := hval x
-    rw [hst] at hv
-    exact hv
-
-end Pin
+theorem g29_or_ge_eight (C : Circuit) (hc : Monotone2 C)
+    (he : ∀ x : Fin 7 → Bool, C.eval (List.ofFn x) = OrYF.g29_fn x) :
+    8 ≤ OrYF.countOrGates C.gates := by
+  exact OrYF.graph_or_bound_of_entry OrYF.g29_fn_eq OrYF.allStates_lb
+    OrYF.allGraphCores_ok 1 _ rfl rfl rfl C hc he
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
 def rewire {n m : Nat} (rho : Fin n → Fin m) (j : Nat) : Nat :=
@@ -8119,6 +7834,55 @@ lemma deleteA_circuit (D : Circuit)
   intro x
   rw [relabelCircuit_eval, hD, deleteA_graph]
 
+
+lemma t1_no_dominance : ∀ u v : Fin 8, u ≠ v → ∃ w : Fin 8,
+    t1Graph (fun i => decide (i = v ∨ i = w)) = true ∧
+    t1Graph (fun i => decide (i = u ∨ i = w)) = false := by
+  decide +kernel
+
+
+lemma t1_substitution_witness : ∀ u v : Fin 8, u ≠ v → ∃ w : Fin 8,
+    t1Graph (Function.update (fun i => decide (i = w)) v true) = true ∧
+    t1Graph (Function.update (Function.update (fun i => decide (i = w)) v false) u true) = false := by
+  decide +kernel
+
+lemma t1_no_variable_subsumption (u v : Fin 8) (hne : u ≠ v)
+    (hsub : ∀ x : Fin 8 → Bool,
+      t1Graph (Function.update x v true) = true →
+      t1Graph (Function.update (Function.update x v false) u true) = true) : False := by
+  obtain ⟨w, hpos, hneg⟩ := t1_substitution_witness u v hne
+  have h := hsub (fun i => decide (i = w)) hpos
+  rw [hneg] at h
+  contradiction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def deleteBmap : Fin 8 → Fin 7 := ![6, 3, 4, 5, 0, 0, 2, 1]
+def deleteCmap : Fin 8 → Fin 7 := ![5, 6, 1, 0, 3, 2, 4, 0]
+
+def g29Graph (x : Fin 7 → Bool) : Bool :=
+  (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) ||
+  (x 1 && x 4) || (x 2 && x 5) || (x 3 && x 6) || (x 4 && x 6) || (x 5 && x 6)
+
+lemma deleteB_graph : ∀ x : Fin 7 → Bool,
+    t1Graph (Function.update (fun i => x (deleteBmap i)) 5 false) = g29Graph x := by
+  decide +kernel
+
+lemma deleteC_graph : ∀ x : Fin 7 → Bool,
+    t1Graph (Function.update (fun i => x (deleteCmap i)) 3 false) = g28Graph x := by
+  decide +kernel
+
+lemma deleteB_circuit (D : Circuit)
+    (hD : ∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = t1Graph (Function.update x 5 false)) :
+    ∀ x : Fin 7 → Bool, (relabelCircuit deleteBmap D).eval (List.ofFn x) = g29Graph x := by
+  intro x
+  rw [relabelCircuit_eval, hD, deleteB_graph]
+
+lemma deleteC_circuit (D : Circuit)
+    (hD : ∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = t1Graph (Function.update x 3 false)) :
+    ∀ x : Fin 7 → Bool, (relabelCircuit deleteCmap D).eval (List.ofFn x) = g28Graph x := by
+  intro x
+  rw [relabelCircuit_eval, hD, deleteC_graph]
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -8258,5 +8022,741 @@ lemma witness_exact_gate_counts
   have hO := witness_or_count_ge_nine ops a b v hbase ha hb hs hout
   have hsum := bool_index_counts ops
   omega
+
+namespace Pin
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+def opCount (p : GateOp → Bool) (gs : List Gate) : ℕ := gs.countP (fun g => p g.op)
+
+def readerCount (p : GateOp → Bool) (k : ℕ) (gs : List Gate) : ℕ :=
+  gs.countP (fun g => p g.op && decide (k ∈ g.inputs))
+
+theorem simplify_op_le (p : GateOp → Bool) (op : GateOp) (m : ℕ) (ins : List Stat) :
+    opCount p (simplify op m ins).1.toList ≤ if p op then 1 else 0 := by
+  cases op <;> rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩ <;>
+    (try cases a) <;> (try cases b) <;>
+    simp [simplify, simpAnd, simpOr, opCount]
+
+theorem opCount_append (p : GateOp → Bool) (gs hs : List Gate) :
+    opCount p (gs ++ hs) = opCount p gs + opCount p hs := by
+  simp [opCount]
+
+theorem opCount_cons (p : GateOp → Bool) (g : Gate) (gs : List Gate) :
+    opCount p (g :: gs) = (if p g.op then 1 else 0) + opCount p gs := by
+  simp [opCount, List.countP_cons, Nat.add_comm]
+
+theorem readerCount_cons (p : GateOp → Bool) (k : ℕ) (g : Gate) (gs : List Gate) :
+    readerCount p k (g :: gs) =
+      (if p g.op && decide (k ∈ g.inputs) then 1 else 0) + readerCount p k gs := by
+  simp [readerCount, List.countP_cons, Nat.add_comm]
+
+theorem elim_reader_op_le (p : GateOp → Bool) (n k : ℕ) (b : Bool) (gs : List Gate) :
+    ∀ acc : List Stat × List Gate, (∀ g ∈ gs, Ok g) → k < acc.1.length →
+      acc.1.getD k (Sum.inl false) = Sum.inl b →
+      opCount p (elim n gs acc).2 + readerCount p k gs ≤ opCount p acc.2 + opCount p gs := by
+  induction gs with
+  | nil => intro acc _ _ _; simp [elim, opCount, readerCount]
+  | cons g gs ih =>
+    intro acc hok hk hc
+    have h1 := ih (elimStep n acc g) (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+      (by simp [elimStep]; omega)
+      (by simp only [elimStep]; rw [getD_snoc_ne _ _ _ _ (by omega)]; exact hc)
+    have hstep : opCount p (elimStep n acc g).2 = opCount p acc.2 +
+        opCount p (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
+      simp only [elimStep, opCount_append]
+    rw [hstep] at h1
+    change opCount p (elim n gs (elimStep n acc g)).2 + readerCount p k (g :: gs) ≤ _
+    rw [opCount_cons, readerCount_cons]
+    by_cases hkg : k ∈ g.inputs
+    · have hnok := hok g List.mem_cons_self
+      have hnone : (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1 = none := by
+        apply simplify_count
+        · exact hnok.1
+        · simpa using hnok.2
+        · exact ⟨b, List.mem_map.2 ⟨k, hkg, hc⟩⟩
+      rw [hnone] at h1
+      simp only [Option.toList_none, show opCount p [] = 0 from rfl, Nat.add_zero] at h1
+      simp only [hkg, decide_true, Bool.and_true]
+      omega
+    · have hlocal := simplify_op_le p g.op (n + acc.2.length)
+        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+      simp only [hkg, decide_false, Bool.and_false, Bool.false_eq_true, ↓reduceIte]
+      omega
+
+def isAnd : GateOp → Bool
+  | .and => true
+  | _ => false
+
+def Corr (t : Bool) (s : Stat) (a b : Bool) : Prop :=
+  (s = Sum.inl false → (a = true → t = true) ∧ (b = true → t = true)) ∧
+  (s ≠ Sum.inl false → a = b)
+
+set_option maxHeartbeats 4000000 in
+theorem simplify_corr (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (m : ℕ) (ins : List Stat) (pairs : List (Bool × Bool)) (t read : Bool)
+    (hlen : ins.length ≤ 2)
+    (hr : List.Forall₂ (fun s p => Corr t s p.1 p.2) ins pairs)
+    (hreadFalse : read = true → Sum.inl false ∈ ins)
+    (hreadVal : read = true → (t, t) ∈ pairs)
+    (hkeep : op = GateOp.or → read = false → orCount (simplify op m ins).1.toList = 1) :
+    Corr t (simplify op m ins).2 (op.eval (pairs.map Prod.fst))
+      (if isAnd op && read then false else op.eval (pairs.map Prod.snd)) := by
+  rcases hop with rfl | rfl
+  all_goals
+    rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨c, l⟩⟩⟩
+    · cases hr
+      cases read <;> cases t <;>
+        simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop
+    · cases hr with
+      | cons ha ht =>
+        cases ht
+        rename_i p
+        rcases p with ⟨p1, p2⟩
+        cases read <;> cases t <;>
+          cases a with
+          | inl ca => cases ca <;>
+              simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop
+          | inr ia =>
+              simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop
+    · cases hr with
+      | cons ha ht =>
+        cases ht with
+        | cons hb htt =>
+          cases htt
+          rename_i p q
+          rcases p with ⟨p1, p2⟩
+          rcases q with ⟨q1, q2⟩
+          cases read <;> cases t <;>
+            rcases a with ca | ia <;> rcases b with cb | ib
+          all_goals first
+            | (cases ca <;> cases cb <;>
+                simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop)
+            | (cases ca <;>
+                simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop)
+            | (cases cb <;>
+                simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop)
+            | simp_all [Corr, simplify, simpAnd, simpOr, orCount, isOr, isAnd, GateOp.eval] <;> aesop
+    · simp at hlen
+
+def patchAndReader (k : ℕ) (g : Gate) : Gate :=
+  if isAnd g.op && decide (k ∈ g.inputs) then ⟨GateOp.or, []⟩ else g
+
+theorem patchAndReader_eval (k : ℕ) (g : Gate) (w : List Bool) :
+    (patchAndReader k g).op.eval ((patchAndReader k g).inputs.map fun i => w.getD i false) =
+    if isAnd g.op && decide (k ∈ g.inputs) then false
+    else g.op.eval (g.inputs.map fun i => w.getD i false) := by
+  cases h1 : isAnd g.op <;> by_cases h2 : k ∈ g.inputs <;>
+    simp [patchAndReader, h1, h2, GateOp.eval]
+
+theorem corr_elim (n k : ℕ) (t : Bool) (gs : List Gate) :
+    ∀ (w w' : List Bool) (acc : List Stat × List Gate),
+      (∀ g ∈ gs, Ok g) → acc.1.length = w.length → w.length = w'.length →
+      (∀ i, Corr t (acc.1.getD i (Sum.inl false)) (w.getD i false) (w'.getD i false)) →
+      k < acc.1.length → acc.1.getD k (Sum.inl false) = Sum.inl false →
+      w.getD k false = t → w'.getD k false = t →
+      orCount (elim n gs acc).2 + readerCount isOr k gs = orCount acc.2 + orCount gs →
+      ∀ i, Corr t ((elim n gs acc).1.getD i (Sum.inl false))
+        ((wiresFrom gs w).getD i false)
+        ((wiresFrom (gs.map (patchAndReader k)) w').getD i false) := by
+  induction gs with
+  | nil => intro w w' acc _ _ _ h _ _ _ _ _ i; exact h i
+  | cons g gs ih =>
+    intro w w' acc hok hlen hlen' hc hk hstat hraw hraw' hcount
+    have hstep : orCount (elimStep n acc g).2 = orCount acc.2 +
+        orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList := by
+      simp only [elimStep, orCount_append]
+    have hstat' : (elimStep n acc g).1.getD k (Sum.inl false) = Sum.inl false := by
+      simp only [elimStep]
+      rw [getD_snoc_ne _ _ _ _ (by omega)]
+      exact hstat
+    have hk' : k < (elimStep n acc g).1.length := by simp only [elimStep, List.length_append, List.length_singleton]; omega
+    have htail : orCount (elim n gs (elimStep n acc g)).2 + readerCount isOr k gs ≤
+        orCount (elimStep n acc g).2 + orCount gs :=
+      elim_reader_op_le isOr n k false gs (elimStep n acc g)
+        (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg')) hk' hstat'
+    rw [hstep] at htail
+    have hlocal := simplify_or_le g.op (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+    have hlocal_le : orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList +
+        (if isOr g.op && decide (k ∈ g.inputs) then 1 else 0) ≤
+        if isOr g.op then 1 else 0 := by
+      by_cases hkg : k ∈ g.inputs
+      · have hnone : (simplify g.op (n + acc.2.length)
+            (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1 = none := by
+          apply simplify_count
+          · exact (hok g List.mem_cons_self).1
+          · simpa using (hok g List.mem_cons_self).2
+          · exact ⟨false, List.mem_map.2 ⟨k, hkg, hstat⟩⟩
+        rw [hnone]
+        simp [orCount, hkg]
+      · simpa [hkg] using hlocal
+    have hcount' : orCount (elim n gs (elimStep n acc g)).2 +
+        ((if isOr g.op && decide (k ∈ g.inputs) then 1 else 0) + readerCount isOr k gs) =
+        orCount acc.2 + ((if isOr g.op then 1 else 0) + orCount gs) := by
+      simpa only [elim, List.foldl_cons, orCount_cons, readerCount_cons] using hcount
+    have hbalance : orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList +
+        (if isOr g.op && decide (k ∈ g.inputs) then 1 else 0) =
+        if isOr g.op then 1 else 0 := by omega
+    have hkeep : g.op = GateOp.or → decide (k ∈ g.inputs) = false →
+        orCount (simplify g.op (n + acc.2.length)
+          (g.inputs.map fun i => acc.1.getD i (Sum.inl false))).1.toList = 1 := by
+      intro hop hread
+      simpa [hop, hread, isOr] using hbalance
+    have hrel : List.Forall₂ (fun s p => Corr t s p.1 p.2)
+        (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+        (g.inputs.map fun i => (w.getD i false, w'.getD i false)) := by
+      induction g.inputs with
+      | nil => exact List.Forall₂.nil
+      | cons i is ih => exact List.Forall₂.cons (hc i) ih
+    have hcorr := simplify_corr g.op (hok g List.mem_cons_self).1 (n + acc.2.length)
+      (g.inputs.map fun i => acc.1.getD i (Sum.inl false))
+      (g.inputs.map fun i => (w.getD i false, w'.getD i false)) t (decide (k ∈ g.inputs))
+      (by simpa using (hok g List.mem_cons_self).2) hrel
+      (by intro h; exact List.mem_map.2 ⟨k, of_decide_eq_true h, hstat⟩)
+      (by intro h; exact List.mem_map.2 ⟨k, of_decide_eq_true h, Prod.ext hraw hraw'⟩) hkeep
+    simp only [List.map_map, Function.comp_def] at hcorr
+    rw [← patchAndReader_eval k g w'] at hcorr
+    apply ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (w' ++ [(patchAndReader k g).op.eval
+        ((patchAndReader k g).inputs.map fun i => w'.getD i false)]) (elimStep n acc g)
+      (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+    · simp [elimStep, hlen]
+    · simp [hlen']
+    · intro i
+      change Corr t ((acc.1 ++ [_]).getD i (Sum.inl false))
+        ((w ++ [_]).getD i false) ((w' ++ [_]).getD i false)
+      by_cases hi : i = acc.1.length
+      · subst hi
+        rw [getD_snoc_eq, hlen, getD_snoc_eq, hlen', getD_snoc_eq]
+        exact hcorr
+      · rw [getD_snoc_ne _ _ _ _ hi, getD_snoc_ne _ _ _ _ (by omega),
+          getD_snoc_ne _ _ _ _ (by omega)]
+        exact hc i
+    · exact hk'
+    · exact hstat'
+    · rw [getD_snoc_ne _ _ _ _ (by omega)]; exact hraw
+    · rw [getD_snoc_ne _ _ _ _ (by omega)]; exact hraw'
+    · rw [hstep]; omega
+
+theorem corr_init (n : ℕ) (v : Fin n) (x : Fin n → Bool) :
+    ∀ i, Corr (x v) ((initStats n v false).getD i (Sum.inl false))
+      ((List.ofFn x).getD i false) ((List.ofFn x).getD i false) := by
+  intro i
+  by_cases hi : i < n
+  · by_cases hv : (⟨i, hi⟩ : Fin n) = v
+    · subst hv
+      simp [initStats, hi, Corr]
+    · simp [initStats, hi, hv, Corr]
+  · have hs : (initStats n v false).getD i (Sum.inl false) = Sum.inl false :=
+      List.getD_eq_default _ _ (by simp only [initStats, List.length_ofFn]; omega)
+    have hx : (List.ofFn x).getD i false = false :=
+      List.getD_eq_default _ _ (by simp only [List.length_ofFn]; omega)
+    rw [hs, hx]
+    simp [Corr]
+
+theorem patchAndReader_ok (k : ℕ) (g : Gate) (h : Ok g) : Ok (patchAndReader k g) := by
+  cases h1 : isAnd g.op <;> by_cases h2 : k ∈ g.inputs
+  all_goals simp [patchAndReader, h1, h2, Ok] at * <;> assumption
+
+theorem no_extra_or_patch (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (v : Fin n)
+    (hmono : PEqualNP.MetaComplexity.Monotone2 C)
+    (htrue : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = true)
+    (heq : orCount (elim n C.gates (initStats n v false, [])).2 +
+        readerCount isOr v.val C.gates = orCount C.gates) :
+    PEqualNP.MetaComplexity.Monotone2 ⟨C.gates.map (patchAndReader v.val), C.output⟩ ∧
+    ∀ x : Fin n → Bool,
+      (⟨C.gates.map (patchAndReader v.val), C.output⟩ : PEqualNP.CircuitLowerBounds.Circuit).eval
+        (List.ofFn x) = C.eval (List.ofFn x) := by
+  have hok : ∀ g ∈ C.gates, Ok g := by
+    intro g hg
+    obtain ⟨h1, h2⟩ := hmono g hg
+    exact ⟨by simpa using h1, h2⟩
+  set acc := elim n C.gates (initStats n v false, []) with hacc
+  have hst : acc.1.getD C.output (Sum.inl false) ≠ Sum.inl false := by
+    intro hh
+    obtain ⟨y, hy⟩ := htrue
+    have hinv := inv_elim n (List.ofFn y) (by simp) C.gates _ _ hok (inv_init n v false y)
+    have hv := (hinv.2 C.output).2
+    change (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn y)) =
+      C.eval (List.ofFn (Function.update y v false)) at hv
+    rw [hh] at hv
+    exact Bool.false_ne_true (hv.trans hy)
+  refine ⟨?_, ?_⟩
+  · intro g hg
+    obtain ⟨g', hg', rfl⟩ := List.mem_map.1 hg
+    obtain ⟨hop, hlen⟩ := patchAndReader_ok v.val g' (hok g' hg')
+    exact ⟨by simpa using hop, hlen⟩
+  · intro x
+    have hcorr := corr_elim n v.val (x v) C.gates (List.ofFn x) (List.ofFn x)
+      (initStats n v false, []) hok (by simp [initStats]) rfl (corr_init n v x)
+      (by simp [initStats]) (by simp [initStats]) (by simp) (by simp)
+      (by simpa only [orCount, List.countP_nil, Nat.zero_add] using heq)
+    have h := (hcorr C.output).2 hst
+    exact h.symm
+
+theorem patch_and_count (k : ℕ) (gs : List Gate) :
+    opCount isAnd (gs.map (patchAndReader k)) + readerCount isAnd k gs = opCount isAnd gs := by
+  induction gs with
+  | nil => simp [opCount, readerCount]
+  | cons g gs ih =>
+    rw [List.map_cons, opCount_cons, opCount_cons, readerCount_cons]
+    by_cases hread : k ∈ g.inputs
+    · cases hop : g.op <;> simp [patchAndReader, hop, isAnd, hread] <;> omega
+    · simp [patchAndReader, hread]
+      omega
+
+theorem and_reader_extra_or (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (v : Fin n)
+    (hmono : PEqualNP.MetaComplexity.Monotone2 C)
+    (htrue : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = true)
+    (hmin : ∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) →
+      opCount isAnd C.gates ≤ opCount isAnd D.gates)
+    (hreader : 0 < readerCount isAnd v.val C.gates) :
+    orCount (elim n C.gates (initStats n v false, [])).2 +
+      readerCount isOr v.val C.gates + 1 ≤ orCount C.gates := by
+  have hok : ∀ g ∈ C.gates, Ok g := by
+    intro g hg
+    obtain ⟨h1, h2⟩ := hmono g hg
+    exact ⟨by simpa using h1, h2⟩
+  have hle : orCount (elim n C.gates (initStats n v false, [])).2 +
+      readerCount isOr v.val C.gates ≤ orCount C.gates := by
+    simpa only [opCount, orCount, List.countP_nil, Nat.zero_add] using
+      elim_reader_op_le isOr n v.val false C.gates (initStats n v false, []) hok
+        (by simp [initStats]) (by simp [initStats])
+  by_contra hn
+  have heq : orCount (elim n C.gates (initStats n v false, [])).2 +
+      readerCount isOr v.val C.gates = orCount C.gates := by omega
+  obtain ⟨hm, he⟩ := no_extra_or_patch n C v hmono htrue heq
+  have hlower := hmin ⟨C.gates.map (patchAndReader v.val), C.output⟩ hm he
+  have hcount := patch_and_count v.val C.gates
+  change opCount isAnd C.gates ≤ opCount isAnd (C.gates.map (patchAndReader v.val)) at hlower
+  omega
+
+theorem reader_cap (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit) (v : Fin n) (b : ℕ)
+    (hmono : PEqualNP.MetaComplexity.Monotone2 C)
+    (htrue : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = true)
+    (hfalse : ∃ x : Fin n → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = false)
+    (hmin : ∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) →
+      opCount isAnd C.gates ≤ opCount isAnd D.gates)
+    (hcoAnd : ∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 D →
+      (∀ x : Fin n → Bool,
+        D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false))) →
+      opCount isAnd C.gates ≤ opCount isAnd D.gates + 1)
+    (hcoOr : ∀ D : PEqualNP.CircuitLowerBounds.Circuit,
+      PEqualNP.MetaComplexity.Monotone2 D →
+      (∀ x : Fin n → Bool,
+        D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false))) →
+      b ≤ orCount D.gates) :
+    readerCount isAnd v.val C.gates + readerCount isOr v.val C.gates + b ≤ orCount C.gates := by
+  have hok : ∀ g ∈ C.gates, Ok g := by
+    intro g hg
+    obtain ⟨h1, h2⟩ := hmono g hg
+    exact ⟨by simpa using h1, h2⟩
+  set acc := elim n C.gates (initStats n v false, []) with hacc
+  have hval : ∀ y : Fin n → Bool,
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn y)) =
+        C.eval (List.ofFn (Function.update y v false)) := by
+    intro y
+    exact ((inv_elim n (List.ofFn y) (by simp) C.gates _ _ hok
+      (inv_init n v false y)).2 C.output).2
+  have hmD : ∀ out : ℕ, PEqualNP.MetaComplexity.Monotone2 ⟨acc.2, out⟩ := by
+    intro out g hg
+    obtain ⟨h1, h2⟩ := elim_ok n C.gates _ (by simp) g hg
+    exact ⟨by simpa using h1, h2⟩
+  have hout : ∃ j, acc.1.getD C.output (Sum.inl false) = Sum.inr j := by
+    cases hst : acc.1.getD C.output (Sum.inl false) with
+    | inr j => exact ⟨j, rfl⟩
+    | inl c =>
+      cases c with
+      | false =>
+        obtain ⟨y, hy⟩ := htrue
+        have hv := hval y
+        rw [hst] at hv
+        exact False.elim (Bool.false_ne_true (hv.trans hy))
+      | true =>
+        obtain ⟨y, hy⟩ := hfalse
+        have hv := hval y
+        rw [hst] at hv
+        exact False.elim (Bool.false_ne_true (hv.trans hy).symm)
+  obtain ⟨j, hj⟩ := hout
+  have he : ∀ y : Fin n → Bool,
+      (⟨acc.2, j⟩ : PEqualNP.CircuitLowerBounds.Circuit).eval (List.ofFn y) =
+      C.eval (List.ofFn (Function.update y v false)) := by
+    intro y
+    have hv := hval y
+    rw [hj] at hv
+    exact hv
+  have ha := hcoAnd ⟨acc.2, j⟩ (hmD _) he
+  have hb := hcoOr ⟨acc.2, j⟩ (hmD _) he
+  change opCount isAnd C.gates ≤ opCount isAnd acc.2 + 1 at ha
+  change b ≤ orCount acc.2 at hb
+  have ha' : opCount isAnd acc.2 + readerCount isAnd v.val C.gates ≤ opCount isAnd C.gates := by
+    simpa only [← hacc, opCount, orCount, List.countP_nil, Nat.zero_add] using
+      elim_reader_op_le isAnd n v.val false C.gates (initStats n v false, []) hok
+        (by simp [initStats]) (by simp [initStats])
+  have hr : readerCount isAnd v.val C.gates ≤ 1 := by omega
+  by_cases hzero : readerCount isAnd v.val C.gates = 0
+  · have ho : orCount acc.2 + readerCount isOr v.val C.gates ≤ orCount C.gates := by
+      simpa only [← hacc, opCount, orCount, List.countP_nil, Nat.zero_add] using
+        elim_reader_op_le isOr n v.val false C.gates (initStats n v false, []) hok
+          (by simp [initStats]) (by simp [initStats])
+    omega
+  · have ho := and_reader_extra_or n C v hmono htrue hmin (by omega)
+    rw [← hacc] at ho
+    omega
+
+end Pin
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma reader_and_or_sum (k : ℕ) (gs : List Gate)
+    (hok : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    Pin.readerCount Pin.isAnd k gs + Pin.readerCount Pin.isOr k gs =
+      gs.countP (fun g => decide (k ∈ g.inputs)) := by
+  induction gs with
+  | nil => simp [Pin.readerCount]
+  | cons g gs ih =>
+    have hg := hok g List.mem_cons_self
+    have ht := ih (fun g' hg' => hok g' (List.mem_cons_of_mem _ hg'))
+    rw [Pin.readerCount_cons, Pin.readerCount_cons, List.countP_cons]
+    rcases hg with hg | hg <;> by_cases hr : k ∈ g.inputs <;>
+      simp [hg, hr, Pin.isAnd, Pin.isOr] <;> omega
+
+lemma list_countP_card {α : Type} (p : α → Bool) (xs : List α) :
+    xs.countP p = Nat.card {i : Fin xs.length // p (xs.get i) = true} := by
+  classical
+  have hsum : xs.countP p = ∑ i : Fin xs.length, if p (xs.get i) = true then 1 else 0 := by
+    induction xs with
+    | nil => simp
+    | cons x xs ih =>
+      simp only [List.get_eq_getElem] at ih ⊢
+      change List.countP p (x :: xs) =
+        ∑ i : Fin (xs.length + 1), if p ((x :: xs)[i.val]) = true then 1 else 0
+      rw [Fin.sum_univ_succ, List.countP_cons]
+      simp only [Fin.val_zero, List.getElem_cons_zero, Fin.val_succ, List.getElem_cons_succ, ← ih]
+      by_cases h : p x = true <;> simp [h, Nat.add_comm]
+  rw [hsum, Nat.card_eq_fintype_card, Fintype.card_subtype, Finset.card_filter]
+
+lemma raw_wire_index_bounded : ∀ r : Fin 11, r.val ∈ allowedInputs → wireIndex r.val < 8 := by
+  decide +kernel
+
+lemma raw_wire_index_injective : ∀ r s : Fin 11,
+    r.val ∈ allowedInputs → s.val ∈ allowedInputs → wireIndex r.val = wireIndex s.val → r = s := by
+  decide +kernel
+
+lemma wireIndex_eq_raw (r : Fin 11) (hr : r.val ∈ allowedInputs) (j : ℕ)
+    (hj : j ∈ allowedInputs ∨ 11 ≤ j) : wireIndex j = wireIndex r.val ↔ j = r.val := by
+  constructor
+  · intro heq
+    by_cases hjlt : j < 11
+    · have hjmem : j ∈ allowedInputs := hj.resolve_right (by omega)
+      exact congrArg Fin.val (raw_wire_index_injective ⟨j, hjlt⟩ r hjmem hr heq)
+    · have hb := raw_wire_index_bounded r hr
+      have hidx : wireIndex j = j - 3 := by simp [wireIndex, hjlt]
+      rw [hidx] at heq
+      omega
+  · intro h; rw [h]
+
+lemma converted_reader_count {n : ℕ} (ops : Fin n → Bool) (a b : Fin n → ℕ)
+    (r : Fin 11) (hr : r.val ∈ allowedInputs)
+    (ha : ∀ i, a i ∈ allowedInputs ∨ 11 ≤ a i)
+    (hb : ∀ i, b i ∈ allowedInputs ∨ 11 ≤ b i) :
+    (convertedGates ops a b).countP (fun g => decide (wireIndex r.val ∈ g.inputs)) =
+      Nat.card {i : Fin n // a i = r.val ∨ b i = r.val} := by
+  rw [list_countP_card]
+  apply Nat.card_congr
+  refine (finCongr (by simp [convertedGates])).subtypeEquiv ?_
+  intro i
+  have hi : i.val < n := by simpa [convertedGates] using i.isLt
+  change decide (wireIndex r.val ∈ ((List.ofFn (convertedGate ops a b))[i.val]'_).inputs) = true ↔ _
+  simp only [List.getElem_ofFn, decide_eq_true_eq, convertedGate, List.mem_cons, List.not_mem_nil, or_false]
+  have h1 := wireIndex_eq_raw r hr (a ⟨i.val, hi⟩) (ha ⟨i.val, hi⟩)
+  have h2 := wireIndex_eq_raw r hr (b ⟨i.val, hi⟩) (hb ⟨i.val, hi⟩)
+  cases i
+  simpa only [eq_comm, finCongr_apply_mk] using h1.or h2
+
+lemma converted_reader_cap {n : ℕ} (ops : Fin n → Bool) (a b : Fin n → ℕ)
+    (r : Fin 11) (hr : r.val ∈ allowedInputs)
+    (ha : ∀ i, a i ∈ allowedInputs ∨ 11 ≤ a i)
+    (hb : ∀ i, b i ∈ allowedInputs ∨ 11 ≤ b i)
+    (hcap : Pin.readerCount Pin.isAnd (wireIndex r.val) (convertedGates ops a b) +
+      Pin.readerCount Pin.isOr (wireIndex r.val) (convertedGates ops a b) ≤ 1) :
+    Nat.card {i : Fin n // a i = r.val ∨ b i = r.val} ≤ 1 := by
+  have h := reader_and_or_sum (wireIndex r.val) (convertedGates ops a b)
+    (by
+      intro g hg
+      exact (convertedGates_ops ops a b g hg).imp And.left id)
+  rw [h, converted_reader_count ops a b r hr ha hb] at hcap
+  exact hcap
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def t1Neighbors : Fin 8 → List (Fin 8) :=
+  ![[1, 2, 3], [0, 4], [0, 5, 7], [0, 6], [1, 6, 7], [2, 7], [3, 4, 7], [2, 4, 5, 6]]
+
+lemma t1_star_split : ∀ (v : Fin 8) (x : Fin 8 → Bool),
+    targetFun x = (targetFun (Function.update x v false) || (x v && (t1Neighbors v).any x)) := by
+  decide +kernel
+
+lemma t1_deleted_true : ∀ v : Fin 8,
+    targetFun (Function.update (fun _ => true) v false) = true := by
+  decide +kernel
+
+lemma cofactor_wires_prefix (gs : List Gate) : ∀ w : List Bool,
+    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
+  | cons g gs ih =>
+    intro w
+    obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
+    have : wiresFrom (g :: gs) w
+        = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
+    rw [this, ht]
+    simp
+
+lemma cofactor_wires_len (D : Circuit) (x : Fin 8 → Bool) :
+    (D.wires (List.ofFn x)).length = 8 + D.gates.length := by
+  obtain ⟨t, ht, hl⟩ := cofactor_wires_prefix D.gates (List.ofFn x)
+  change (wiresFrom D.gates (List.ofFn x)).length = _
+  rw [ht]
+  simp only [List.length_append, List.length_ofFn, hl]
+
+lemma cofactor_wires_input (D : Circuit) (x : Fin 8 → Bool) (i : Fin 8) :
+    (D.wires (List.ofFn x)).getD i.val false = x i := by
+  obtain ⟨t, ht, hl⟩ := cofactor_wires_prefix D.gates (List.ofFn x)
+  change (wiresFrom D.gates (List.ofFn x)).getD i.val false = _
+  rw [ht, List.getD_append _ _ _ _ (by simpa using i.isLt)]
+  rw [List.getD_eq_getElem _ _ (by simpa using i.isLt)]
+  simp only [List.getElem_ofFn]
+
+def restoreStar (D : Circuit) (v : Fin 8) : Circuit :=
+  { gates := D.gates ++
+      [{op := GateOp.or, inputs := (t1Neighbors v).map Fin.val},
+       {op := GateOp.and, inputs := [v.val, 8 + D.gates.length]},
+       {op := GateOp.or, inputs := [D.output, 9 + D.gates.length]}]
+    output := 10 + D.gates.length }
+
+lemma restoreStar_eval (D : Circuit) (v : Fin 8) (hout : D.output < 8 + D.gates.length)
+    (x : Fin 8 → Bool) :
+    (restoreStar D v).eval (List.ofFn x) = (D.eval (List.ofFn x) || (x v && (t1Neighbors v).any x)) := by
+  let w := D.wires (List.ofFn x)
+  have hwlen : w.length = 8 + D.gates.length := cofactor_wires_len D x
+  have hinputs : ∀ i : Fin 8, w.getD i.val false = x i := cofactor_wires_input D x
+  have hmap : ((t1Neighbors v).map Fin.val).map (fun i => w.getD i false) = (t1Neighbors v).map x := by
+    simp only [List.map_map]
+    apply List.map_congr_left
+    intro i _
+    exact hinputs i
+  have hv : v.val < w.length := by have := v.isLt; omega
+  have ho : D.output < w.length := by omega
+  have hidx1 : 8 + D.gates.length = w.length := hwlen.symm
+  have hidx2 : 9 + D.gates.length = w.length + 1 := by omega
+  have hidx3 : 10 + D.gates.length = w.length + 2 := by omega
+  change (List.foldl (fun (acc : List Bool) (g : Gate) => acc ++ [g.op.eval (g.inputs.map fun i => acc.getD i false)])
+    (List.ofFn x) (restoreStar D v).gates).getD (restoreStar D v).output false = _
+  simp only [restoreStar, List.foldl_append, List.foldl_cons, List.foldl_nil]
+  change (List.foldl (fun (acc : List Bool) (g : Gate) => acc ++ [g.op.eval (g.inputs.map fun i => acc.getD i false)]) w
+    [{op := GateOp.or, inputs := (t1Neighbors v).map Fin.val},
+     {op := GateOp.and, inputs := [v.val, 8 + D.gates.length]},
+     {op := GateOp.or, inputs := [D.output, 9 + D.gates.length]}]).getD
+       (10 + D.gates.length) false = _
+  simp only [List.foldl_cons, List.foldl_nil, hmap, GateOp.eval, List.any_map, List.map_cons,
+    List.map_nil, List.all_cons, List.all_nil, id_eq, Bool.and_true, List.any_cons, List.any_nil,
+    Bool.or_false]
+  rw [hidx1, hidx2, hidx3]
+  simp only [List.getD_append _ _ _ _ hv, List.getD_append _ _ _ _ ho,
+    List.getD_append, List.length_append, List.length_singleton]
+  simp [List.getD_append, List.getD_eq_getElem, hv, ho, hinputs, Circuit.eval, w, cofactor_wires_len]
+  change ((w ++ [(t1Neighbors v).any x, w.getD v.val false && (t1Neighbors v).any x]).getD D.output false ||
+    (w.getD v.val false && (t1Neighbors v).any x)) =
+    (w.getD D.output false || (x v && (t1Neighbors v).any x))
+  rw [List.getD_append _ _ _ _ ho, hinputs]
+
+lemma cofactor_and_count_ge_four (D : Circuit) (v : Fin 8) (hm : Monotone2 D)
+    (hfun : ∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = targetFun (Function.update x v false)) :
+    4 ≤ Nat.card {j : Fin D.gates.length // (D.gates.get j).op = GateOp.and} := by
+  have hout : D.output < 8 + D.gates.length := by
+    by_contra h
+    have he := hfun (fun _ => true)
+    rw [t1_deleted_true] at he
+    unfold Circuit.eval at he
+    rw [List.getD_eq_default _ _ (by rw [cofactor_wires_len]; omega)] at he
+    contradiction
+  have hallowed : ∀ g ∈ (restoreStar D v).gates,
+      (g.op = GateOp.and ∧ g.inputs.length ≤ 2) ∨ g.op = GateOp.or := by
+    intro g hg
+    rcases List.mem_append.mp hg with hg | hg
+    · obtain ⟨hop, hlen⟩ := hm g hg
+      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+      exact hop.elim (fun h => Or.inl ⟨h, hlen⟩) Or.inr
+    · simp only [List.mem_cons, List.not_mem_nil, or_false] at hg
+      rcases hg with rfl | rfl | rfl <;> simp
+  have heq : circuitFun 8 (restoreStar D v) = targetFun := by
+    funext x
+    change (restoreStar D v).eval (List.ofFn x) = _
+    rw [restoreStar_eval D v hout x, hfun, ← t1_star_split]
+  have hge := t1_and_count_ge_five (restoreStar D v) hallowed heq
+  rw [← filter_isAnd_length_eq_card] at hge
+  have hcount : ((restoreStar D v).gates.filter (fun g => isAnd g.op)).length =
+      (D.gates.filter (fun g => isAnd g.op)).length + 1 := by
+    simp [restoreStar, isAnd, List.filter_append]
+  rw [hcount, filter_isAnd_length_eq_card] at hge
+  omega
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma t1_cofactor_or_ge_eight (C : Circuit) (v : Fin 8)
+    (hv : v = 1 ∨ v = 5 ∨ v = 3) (hmono : Monotone2 C)
+    (hfun : ∀ x : Fin 8 → Bool,
+      C.eval (List.ofFn x) = t1Graph (Function.update x v false)) :
+    8 ≤ Pin.orCount C.gates := by
+  rcases hv with rfl | rfl | rfl
+  · have hseven : ∀ x : Fin 7 → Bool,
+        (relabelCircuit deleteAmap C).eval (List.ofFn x) = OrYF.g28_fn x :=
+      deleteA_circuit C hfun
+    have h8 := g28_or_ge_eight (relabelCircuit deleteAmap C)
+      (relabelCircuit_mono deleteAmap C hmono) hseven
+    rwa [← or_counts_agree, relabel_or_count] at h8
+  · have hseven : ∀ x : Fin 7 → Bool,
+        (relabelCircuit deleteBmap C).eval (List.ofFn x) = OrYF.g29_fn x :=
+      deleteB_circuit C hfun
+    have h8 := g29_or_ge_eight (relabelCircuit deleteBmap C)
+      (relabelCircuit_mono deleteBmap C hmono) hseven
+    rwa [← or_counts_agree, relabel_or_count] at h8
+  · have hseven : ∀ x : Fin 7 → Bool,
+        (relabelCircuit deleteCmap C).eval (List.ofFn x) = OrYF.g28_fn x :=
+      deleteC_circuit C hfun
+    have h8 := g28_or_ge_eight (relabelCircuit deleteCmap C)
+      (relabelCircuit_mono deleteCmap C hmono) hseven
+    rwa [← or_counts_agree, relabel_or_count] at h8
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma pin_and_count_eq_card (gs : List Gate) :
+    Pin.opCount Pin.isAnd gs = Nat.card {j : Fin gs.length // (gs.get j).op = GateOp.and} := by
+  rw [Pin.opCount, List.countP_eq_length_filter]
+  change (gs.filter (fun g => isAnd g.op)).length = _
+  exact filter_isAnd_length_eq_card gs
+
+lemma t1_raw_reader_cap (C : Circuit) (hmono : Monotone2 C)
+    (hfun : ∀ x : Fin 8 → Bool, C.eval (List.ofFn x) = targetFun x)
+    (hand : Nat.card {j : Fin C.gates.length // (C.gates.get j).op = GateOp.and} = 5)
+    (hor : Pin.orCount C.gates = 9)
+    (v : Fin 8) (hv : v = 1 ∨ v = 5 ∨ v = 3) :
+    Pin.readerCount Pin.isAnd v.val C.gates + Pin.readerCount Pin.isOr v.val C.gates ≤ 1 := by
+  have htarget : targetFun = t1Graph := by
+    funext x
+    simp [targetFun, edgesT1, t1Graph, Bool.or_assoc]
+  have htrue : ∃ x : Fin 8 → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = true := by
+    refine ⟨fun _ => true, ?_⟩
+    rw [hfun, t1_deleted_true]
+  have hfalse : ∃ x : Fin 8 → Bool,
+      C.eval (List.ofFn (Function.update x v false)) = false := by
+    refine ⟨fun _ => false, ?_⟩
+    rw [hfun]
+    have hz : Function.update (fun _ : Fin 8 => false) v false = fun _ => false := by
+      funext i
+      by_cases hi : i = v <;> simp [hi]
+    rw [hz]
+    decide
+  have hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) →
+      Pin.opCount Pin.isAnd C.gates ≤ Pin.opCount Pin.isAnd D.gates := by
+    intro D hm he
+    have hallowed : ∀ g ∈ D.gates,
+        (g.op = GateOp.and ∧ g.inputs.length ≤ 2) ∨ g.op = GateOp.or := by
+      intro g hg
+      obtain ⟨hop, hlen⟩ := hm g hg
+      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hop
+      exact hop.elim (fun h => Or.inl ⟨h, hlen⟩) Or.inr
+    have hf : circuitFun 8 D = targetFun := by
+      funext x
+      exact (he x).trans (hfun x)
+    have h5 := t1_and_count_ge_five D hallowed hf
+    rw [pin_and_count_eq_card, pin_and_count_eq_card, hand]
+    exact h5
+  have hcoAnd : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false))) →
+      Pin.opCount Pin.isAnd C.gates ≤ Pin.opCount Pin.isAnd D.gates + 1 := by
+    intro D hm he
+    have hf : ∀ x : Fin 8 → Bool,
+        D.eval (List.ofFn x) = targetFun (Function.update x v false) := by
+      intro x
+      rw [he, hfun]
+    have h4 := cofactor_and_count_ge_four D v hm hf
+    rw [pin_and_count_eq_card, pin_and_count_eq_card, hand]
+    omega
+  have hcoOr : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn (Function.update x v false))) →
+      8 ≤ Pin.orCount D.gates := by
+    intro D hm he
+    apply t1_cofactor_or_ge_eight D v hv hm
+    intro x
+    rw [he, hfun, htarget]
+  have hr := Pin.reader_cap 8 C v 8 hmono htrue hfalse hmin hcoAnd hcoOr
+  rw [hor] at hr
+  omega
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma witness_reader_cap
+    (ops : Fin 14 → Bool) (a b : Fin 14 → Fin 33) (values : Nat → Nat)
+    (hbase : ∀ i : Fin 11, values i.val = baseValues.getD i.val 0)
+    (ha : ∀ i, (a i).val ∈ allowedInputs ∨ 11 ≤ (a i).val)
+    (hb : ∀ i, (b i).val ∈ allowedInputs ∨ 11 ≤ (b i).val)
+    (hs : ∀ i, (a i).val < 11 + i.val ∧ (b i).val < 11 + i.val ∧
+      values (11 + i.val) = if ops i then values (a i).val &&& values (b i).val
+        else values (a i).val ||| values (b i).val)
+    (hout : values 24 = 36671) (r : Fin 3) :
+    Nat.card {i : Fin 14 // (a i).val = r.val ∨ (b i).val = r.val} ≤ 1 := by
+  let D : Circuit :=
+    { gates := convertedGates ops (fun i => (a i).val) (fun i => (b i).val), output := 21 }
+  have hgates := convertedGates_ops ops (fun i => (a i).val) (fun i => (b i).val)
+  have hmD : Monotone2 D := by
+    intro g hg
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hg
+    cases h : ops i <;> simp [convertedGate, h]
+  have hsample : ∀ k : Fin 40, circuitFun 8 D (sample k) = (36671 : Nat).testBit k.val := by
+    intro k
+    change (wiresFrom (convertedGates ops (fun i => (a i).val) (fun i => (b i).val))
+      (List.ofFn (sample k))).getD 21 false = _
+    rw [converted_eval ops (fun i => (a i).val) (fun i => (b i).val) values hbase ha hb hs k]
+    have hlookup := bitWires_lookup (n := 14) values k 24 hbase (by decide) (Or.inr (by decide))
+    have hidx : wireIndex 24 = 21 := by decide
+    rw [hidx, hout] at hlookup
+    exact hlookup
+  have hcompute := samples_determine (circuitFun 8 D) (circuit_mono D hgates) hsample
+  have hfun : ∀ x : Fin 8 → Bool, D.eval (List.ofFn x) = targetFun x := fun x => congrFun hcompute x
+  obtain ⟨ha5, ho9⟩ := witness_exact_gate_counts ops a b values hbase ha hb hs hout
+  have hand : Nat.card {j : Fin D.gates.length // (D.gates.get j).op = GateOp.and} = 5 := by
+    change Nat.card {j : Fin (convertedGates ops (fun i => (a i).val) (fun i => (b i).val)).length //
+      ((convertedGates ops (fun i => (a i).val) (fun i => (b i).val)).get j).op = GateOp.and} = 5
+    rw [count_converted]
+    exact ha5
+  have hor : Pin.orCount D.gates = 9 := by
+    change Pin.orCount (convertedGates ops (fun i => (a i).val) (fun i => (b i).val)) = 9
+    rw [converted_or_count]
+    exact ho9
+  let raw : Fin 11 := ⟨r.val, by omega⟩
+  have hr : raw.val ∈ allowedInputs := by
+    fin_cases r <;> simp [raw, allowedInputs]
+  let w : Fin 8 := ⟨wireIndex raw.val, raw_wire_index_bounded raw hr⟩
+  have hw : w = 1 ∨ w = 5 ∨ w = 3 := by
+    fin_cases r <;> simp [w, raw, wireIndex, Fin.ext_iff]
+  have hcap := t1_raw_reader_cap D hmD hfun hand hor w hw
+  exact converted_reader_cap ops (fun i => (a i).val) (fun i => (b i).val) raw hr ha hb hcap
 
 end PEqualNP.Outside.L_meta_9033_aux

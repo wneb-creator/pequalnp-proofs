@@ -30,3 +30,9 @@
 - 2026-11-26 00:04:44: Exact-count helper module lake build PASS; independent source/statement/axiom review PASS, axioms exactly propext, Classical.choice, Quot.sound. Still no final posted theorem.
 - 2026-11-26 00:04:44: Sub-agents: nine external bus helpers and four local helpers (including one nested helper), 13 total so far.
 - 2026-11-26 00:04:44: helper-4 clean-case k=3 externally checked UNSAT (DRAT and LRAT); remaining k=1,2 cases open. Certificate too large for direct final-file inclusion.
+- 2026-11-26 00:30:05: Combined exact-count and original-input reader-cap helpers compiled in scratch. Certificate packing saved 25,311 bytes; all 376 packed lists independently checked equal. Actual target-module build pending.
+- 2026-11-26 00:30:05: Two independent encodings report all three normalized cases UNSAT. Large DRAT checks and strict LRAT rechecks remain distinct from a full Lean theorem.
+- 2026-11-26 00:30:05: Negative controls exposed the upstream LRAT checker empty-clause fallback bug; root reproduced it. Guarded and independent RUP rechecks are underway; unmodified LRAT verdicts alone are withdrawn.
+- 2026-11-26 00:30:05: Sub-agents used so far: nine external bus helpers and six local helpers including nested helpers, 15 total.
+
+- 2026-11-26 00:33:32 UTC — Compressed concrete ABC reader caps: actual target module lake build PASS (110s). Independent reviewer checked posted-hypothesis transport, all376 packed table equalities, distinct-reader counting, format, and standard axioms. Helper-only checkpoint; no final posted theorem.
