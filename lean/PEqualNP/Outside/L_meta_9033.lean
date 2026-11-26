@@ -207,4 +207,84 @@ lemma earliest_mate_classification : ∀ (v : Fin 3) (a b : Fin 32),
     (a.val, b.val) ∈ earliestMatePairs v := by
   decide +kernel
 
+/- Counting distinct non-atom port values by their first occurrence. -/
+
+def freshPorts {α : Type} [DecidableEq α] {m : Nat}
+    (atoms : Finset α) (ports : Fin m → α) : Finset (Fin m) :=
+  Finset.univ.filter (fun i => ports i ∉ atoms ∧ ∀ j, j < i → ports j ≠ ports i)
+
+lemma freshPorts_injective {α : Type} [DecidableEq α] {m : Nat}
+    (atoms : Finset α) (ports : Fin m → α) :
+    Set.InjOn ports (↑(freshPorts atoms ports) : Set (Fin m)) := by
+  intro i hi j hj hij
+  have hi' := (Finset.mem_filter.mp hi).2.2
+  have hj' := (Finset.mem_filter.mp hj).2.2
+  by_contra hne
+  rcases lt_or_gt_of_ne hne with hlt | hgt
+  · exact hj' i hlt hij
+  · exact hi' j hgt hij.symm
+
+lemma freshPorts_card_le {α : Type} [DecidableEq α] {m : Nat}
+    (atoms : Finset α) (ports : Fin m → α) :
+    (freshPorts atoms ports).card ≤ ((Finset.univ.image ports) \ atoms).card := by
+  have hinj := freshPorts_injective atoms ports
+  calc
+    (freshPorts atoms ports).card = ((freshPorts atoms ports).image ports).card :=
+      (Finset.card_image_iff.mpr hinj).symm
+    _ ≤ ((Finset.univ.image ports) \ atoms).card := by
+      apply Finset.card_le_card
+      intro x hx
+      obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hx
+      exact Finset.mem_sdiff.mpr ⟨Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩,
+        (Finset.mem_filter.mp hi).2.1⟩
+
+lemma port_cover_complete {α : Type} [DecidableEq α] {m budget : Nat}
+    (atoms : Finset α) (ports : Fin m → α)
+    (h : ((Finset.univ.image ports) \ atoms).card ≤ budget) :
+    ∃ representatives : Finset (Fin m), representatives.card ≤ budget ∧
+      ∀ i, ports i ∈ atoms ∨ (∃ j, j < i ∧ ports j = ports i) ∨ i ∈ representatives := by
+  classical
+  refine ⟨freshPorts atoms ports, (freshPorts_card_le atoms ports).trans h, ?_⟩
+  intro i
+  by_cases hatom : ports i ∈ atoms
+  · exact Or.inl hatom
+  · by_cases hearlier : ∃ j, j < i ∧ ports j = ports i
+    · exact Or.inr (Or.inl hearlier)
+    · right; right
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hatom,
+        fun j hj heq => hearlier ⟨j, hj, heq⟩⟩
+
+lemma port_cover_sound {α : Type} [DecidableEq α] {m : Nat}
+    (atoms : Finset α) (ports : Fin m → α) (representatives : Finset (Fin m))
+    (h : ∀ i, ports i ∈ atoms ∨ (∃ j, j < i ∧ ports j = ports i) ∨ i ∈ representatives) :
+    ((Finset.univ.image ports) \ atoms).card ≤ representatives.card := by
+  have key : ∀ N, ∀ i : Fin m, i.val < N → ports i ∉ atoms →
+      ∃ j ∈ representatives, ports j = ports i := by
+    intro N
+    induction N with
+    | zero => intro i hi; omega
+    | succ N ih =>
+      intro i hi hnot
+      rcases h i with hatom | ⟨j, hji, heq⟩ | hrep
+      · exact (hnot hatom).elim
+      · have hj : j.val < i.val := hji
+        obtain ⟨r, hr, hrj⟩ := ih j (by omega) (by rwa [heq])
+        exact ⟨r, hr, hrj.trans heq⟩
+      · exact ⟨i, hrep, rfl⟩
+  calc
+    ((Finset.univ.image ports) \ atoms).card ≤ (representatives.image ports).card := by
+      apply Finset.card_le_card
+      intro x hx
+      obtain ⟨himage, hnot⟩ := Finset.mem_sdiff.mp hx
+      obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp himage
+      obtain ⟨j, hj, heq⟩ := key (i.val + 1) i (by omega) hnot
+      exact Finset.mem_image.mpr ⟨j, hj, heq⟩
+    _ ≤ representatives.card := Finset.card_image_le
+
+lemma three_atoms_covered : ∀ (g : Fin 3) (S T : Finset (Fin 3)),
+    S.Nonempty → T.Nonempty → Disjoint S T →
+    (g ∈ S → 2 ≤ S.card) → (g ∈ T → 2 ≤ T.card) →
+    ∀ a : Fin 3, a = g ∨ a ∈ S ∨ a ∈ T := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_9033
