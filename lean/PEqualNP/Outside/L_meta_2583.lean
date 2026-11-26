@@ -9425,3 +9425,44 @@ lemma dirty_three_junk_productive_cover {n : Nat} (G : SimpleGraph (Fin n))
   exact ⟨K, hKW, hKcard.trans hcone, hcover⟩
 
 end PEqualNP.Outside.L_meta_2583.TightProductive
+
+namespace PEqualNP.Outside.L_meta_2583.TightMinterm
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.SafeProductTopology
+
+lemma tight_false_support_safe_product_has_or_endpoint
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat)
+    (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1)
+    (F : (Fin n → Bool) → Bool) (hfalse : F (setInput T) = false)
+    (u v : Nat) (hu : u < n + C.gates.length) (hv : v < n + C.gates.length)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → F x = true) :
+    ((∀ k ∈ wireCone n C u, AndSignature.isAnd C k = false) ∧
+      ∃ S : Finset (Fin n), (∀ i ∈ S, i ∉ T) ∧
+        ∀ x, wv n C x u = true ↔ ∃ i ∈ S, x i = true) ∨
+    ((∀ k ∈ wireCone n C v, AndSignature.isAnd C k = false) ∧
+      ∃ S : Finset (Fin n), (∀ i ∈ S, i ∉ T) ∧
+        ∀ x, wv n C x v = true ↔ ∃ i ∈ S, x i = true) := by
+  have hactive := tight_all_ands_true n C hAO T w htrue hmin htight
+  have hendpoint (a : Nat) (ha : a < n + C.gates.length)
+      (haf : wv n C (setInput T) a = false) :
+      (∀ k ∈ wireCone n C a, AndSignature.isAnd C k = false) ∧
+        ∃ S : Finset (Fin n), (∀ i ∈ S, i ∉ T) ∧
+          ∀ x, wv n C x a = true ↔ ∃ i ∈ S, x i = true :=
+    ⟨active_ands_false_wire_has_no_and n C hAO (setInput T) hactive a ha haf,
+      true_ands_false_wire_is_outside_or n C hAO T hactive a haf⟩
+  by_cases hut : wv n C (setInput T) u = true
+  · right
+    apply hendpoint v hv
+    apply Bool.eq_false_iff.mpr
+    intro hvt
+    have hFt := hsafe (setInput T) hut hvt
+    rw [hfalse] at hFt
+    contradiction
+  · exact Or.inl (hendpoint u hu (Bool.eq_false_iff.mpr hut))
+
+end PEqualNP.Outside.L_meta_2583.TightMinterm
