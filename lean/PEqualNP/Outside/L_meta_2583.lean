@@ -7985,3 +7985,384 @@ lemma full_pencil_excludes_lambda_raw {n : ℕ} {G : SimpleGraph (Fin n)} [Decid
   exact (Finset.mem_sdiff.mp (hfull a hadj.symm)).2 (hswap ▸ hstar)
 
 end PEqualNP.Outside.L_meta_2583.CleanBudget
+
+/-! Conditional source erasure preserves the safe repair wire. One final OR
+restores all inputs accepted by that repair, allowing singleton sources and
+pure/mixed copies with the same raw support to be removed together. -/
+
+namespace PEqualNP.Outside.L_meta_2583.ConditionalCopy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.CircuitMoves PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma erase_conditional_clean {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} {k p q : ℕ} (_hAO : IsAO2 n C)
+    (hk : k < C.gates.length) (hq : q < n + k) (_hp : p < n + k)
+    (hpsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) p = true → graphFun G ∅ x = true)
+    (heq : ∀ x : Fin n → Bool, val C (List.ofFn x) p = false →
+      val C (List.ofFn x) q = val C (List.ofFn x) (n + k))
+    (hclean : ∀ i < C.gates.length, (gateAt C i).op = GateOp.and → BelowF G C i) :
+    ∀ i < (eraseGate n C k q).gates.length, (gateAt (eraseGate n C k q) i).op = GateOp.and →
+      BelowF G (eraseGate n C k q) i := by
+  have hlen := erase_length n C k q hk
+  intro i hi hop x hx
+  by_contra hfalse
+  have hpfalse : val C (List.ofFn x) p = false := by
+    apply Bool.eq_false_iff.mpr
+    intro hptrue
+    exact hfalse (hpsafe x hptrue)
+  apply hfalse
+  have hi' : i + 1 < C.gates.length := by omega
+  by_cases hik : i < k
+  · have hg : gateAt (eraseGate n C k q) i = gateAt C i := by
+      rw [erase_gateAt n C k q i hk hi', ite_eq_left hik]
+    have hop' : (gateAt C i).op = GateOp.and := by rwa [hg] at hop
+    apply hclean i (by omega) hop' x
+    have hwire := Duplicate.erase_equal_wires hk hq (heq x hpfalse) (n + i)
+    rw [erase_redirect_lt n k q (n + i) (by omega)] at hwire
+    change val C (List.ofFn x) (n + i) = true
+    rw [← hwire]
+    exact hx
+  · have hg : gateAt (eraseGate n C k q) i =
+        erase_rg (eraseRedirect n k q) (gateAt C (i + 1)) := by
+      rw [erase_gateAt n C k q i hk hi', ite_eq_right hik]
+    have hop' : (gateAt C (i + 1)).op = GateOp.and := by
+      rw [hg] at hop
+      exact hop
+    apply hclean (i + 1) hi' hop' x
+    have hwire := Duplicate.erase_equal_wires hk hq (heq x hpfalse) (n + (i + 1))
+    have hr : eraseRedirect n k q (n + (i + 1)) = n + i := by
+      rw [erase_redirect_gt n k q (n + (i + 1)) (by omega)]
+      omega
+    rw [hr] at hwire
+    change val C (List.ofFn x) (n + (i + 1)) = true
+    rw [← hwire]
+    exact hx
+
+lemma erase_output_valid {n : ℕ} {C : Circuit} {k q : ℕ}
+    (hk : k < C.gates.length) (hq : q < n + k)
+    (hout : C.output < n + C.gates.length) :
+    (eraseGate n C k q).output < n + (eraseGate n C k q).gates.length := by
+  have hlen := erase_length n C k q hk
+  rw [erase_output n C k q hk]
+  by_cases hlt : C.output < n + k
+  · rw [erase_redirect_lt n k q C.output hlt]
+    omega
+  · by_cases heq : C.output = n + k
+    · rw [heq, erase_redirect_self n k q]
+      omega
+    · rw [erase_redirect_gt n k q C.output (by omega)]
+      omega
+
+end PEqualNP.Outside.L_meta_2583.ConditionalCopy
+
+namespace PEqualNP.Outside.L_meta_2583.ConditionalCopy
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CircuitMoves
+
+lemma collapse_conditional_copies {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (S : Finset ℕ) (b p : ℕ) : ∀ C : Circuit, IsAO2 n C →
+    (∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) →
+    C.output < n + C.gates.length → p < b → b ≤ n + C.gates.length →
+    (∀ x : Fin n → Bool, val C (List.ofFn x) p = true → graphFun G ∅ x = true) →
+    (∀ k ∈ S, k < C.gates.length) → (∀ k ∈ S, b ≤ n + k) →
+    (∀ k ∈ S, ∃ q < n + k, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) p = false → val C (List.ofFn x) q = val C (List.ofFn x) (n + k)) →
+    ∃ D : Circuit, IsAO2 n D ∧
+      (∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j) ∧
+      D.output < n + D.gates.length ∧ b ≤ n + D.gates.length ∧
+      D.size + S.card = C.size ∧
+      (∀ x : Fin n → Bool, ∀ q < b, val D (List.ofFn x) q = val C (List.ofFn x) q) ∧
+      (∀ x : Fin n → Bool, val C (List.ofFn x) p = false →
+        circuitFun n D x = circuitFun n C x) := by
+  classical
+  induction S using Finset.strongInductionOn with
+  | _ S ih =>
+    intro C hAO hclean hout hp hbnd hpsafe hbound hcut hred
+    by_cases hzero : S = ∅
+    · exact ⟨C, hAO, hclean, hout, hbnd, by simp [hzero],
+        fun _ _ _ => rfl, fun _ _ => rfl⟩
+    have hne : S.Nonempty := Finset.nonempty_iff_ne_empty.mpr hzero
+    let k := S.max' hne
+    have hkS : k ∈ S := S.max'_mem hne
+    have hk : k < C.gates.length := hbound k hkS
+    have hb : b ≤ n + k := hcut k hkS
+    obtain ⟨q, hq, heq⟩ := hred k hkS
+    let E := eraseGate n C k q
+    have hEAO : IsAO2 n E := erase_isAO2 n C k q hk hq hAO
+    have hEclean : ∀ j < E.gates.length, (gateAt E j).op = GateOp.and → BelowF G E j :=
+      erase_conditional_clean hAO hk hq (by omega : p < n + k) hpsafe heq hclean
+    have hEout : E.output < n + E.gates.length := erase_output_valid hk hq hout
+    have hlen : E.gates.length + 1 = C.gates.length := erase_length n C k q hk
+    have hbndE : b ≤ n + E.gates.length := by omega
+    have hlower (x : Fin n → Bool) (w : ℕ) (hw : w < n + k) :
+        val E (List.ofFn x) w = val C (List.ofFn x) w :=
+      Duplicate.erase_lower_value hk (by simp) hw
+    have hprefixE (x : Fin n → Bool) (w : ℕ) (hw : w < b) :
+        val E (List.ofFn x) w = val C (List.ofFn x) w := hlower x w (by omega)
+    have hpsafeE : ∀ x : Fin n → Bool, val E (List.ofFn x) p = true → graphFun G ∅ x = true := by
+      intro x hx
+      apply hpsafe x
+      rwa [hprefixE x p hp] at hx
+    have hsmall : ∀ i ∈ S.erase k, i < k := by
+      intro i hi
+      obtain ⟨hne, hiS⟩ := Finset.mem_erase.mp hi
+      have hmax := S.le_max' i hiS
+      omega
+    have hboundE : ∀ i ∈ S.erase k, i < E.gates.length := by
+      intro i hi
+      have hiK := hsmall i hi
+      omega
+    have hcutE : ∀ i ∈ S.erase k, b ≤ n + i :=
+      fun i hi => hcut i (Finset.mem_of_mem_erase hi)
+    have hredE : ∀ i ∈ S.erase k, ∃ r < n + i, ∀ x : Fin n → Bool,
+        val E (List.ofFn x) p = false → val E (List.ofFn x) r = val E (List.ofFn x) (n + i) := by
+      intro i hi
+      have hiK := hsmall i hi
+      obtain ⟨r, hr, her⟩ := hred i (Finset.mem_of_mem_erase hi)
+      refine ⟨r, hr, ?_⟩
+      intro x hx
+      rw [hlower x r (by omega), hlower x (n + i) (by omega)]
+      apply her x
+      rwa [hprefixE x p hp] at hx
+    have hEfun : ∀ x : Fin n → Bool, val C (List.ofFn x) p = false →
+        circuitFun n E x = circuitFun n C x := by
+      intro x hx
+      change val (eraseGate n C k q) (List.ofFn x) (eraseGate n C k q).output =
+        val C (List.ofFn x) C.output
+      rw [erase_output n C k q hk]
+      exact Duplicate.erase_equal_wires hk hq (heq x hx) C.output
+    obtain ⟨D, hDAO, hDclean, hDout, hbndD, hDsize, hDprefix, hDfun⟩ :=
+      ih (S.erase k) (Finset.erase_ssubset hkS) E hEAO hEclean hEout hp hbndE hpsafeE
+        hboundE hcutE hredE
+    refine ⟨D, hDAO, hDclean, hDout, hbndD, ?_, ?_, ?_⟩
+    · have hcard := Finset.card_erase_add_one hkS
+      have hEsize : E.size + 1 = C.size := erase_size n C k q hk
+      omega
+    · intro x w hw
+      exact (hDprefix x w hw).trans (hprefixE x w hw)
+    · intro x hx
+      have hEx : val E (List.ofFn x) p = false := by rwa [hprefixE x p hp]
+      exact (hDfun x hEx).trans (hEfun x hx)
+
+end PEqualNP.Outside.L_meta_2583.ConditionalCopy
+
+namespace PEqualNP.Outside.L_meta_2583.SharedRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma lambda_raw_nonempty {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) {j : ℕ} (hj : j ∈ lam G C) :
+    (orIn n C (n + j)).Nonempty := by
+  classical
+  obtain ⟨hN, hleft, _⟩ := Finset.mem_filter.mp hj
+  have hdata : j < C.gates.length ∧ (gateAt C j).op = GateOp.or ∧ ¬ BelowF G C j := by
+    simpa only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] using hN
+  obtain ⟨v, hv⟩ := hleft
+  refine ⟨v, Frontier.reach_mem_orIn v ?_⟩
+  exact Relation.ReflTransGen.head
+    ⟨j, hdata.1, rfl, hdata.2.1, Frontier.opndMem hC hdata.1 0,
+      Frontier.opndBound hC hdata.1 0⟩ (Frontier.mem_orIn_reach v hv)
+
+lemma shared_singleton_lambda_value_when_B_false {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (B C : Circuit) (hC : IsAO2 n C) (hTop : TopForm G C)
+    (hBo : B.output < n + B.gates.length) {j : ℕ} (hj : j ∈ lam G C)
+    (v : Fin n) (hraw : orIn n C (n + j) = {v}) (x : Fin n → Bool)
+    (hBx : circuitFun n B x = false) :
+    val (shared G B C) (List.ofFn x) (n + (B.gates.length + j)) = x v := by
+  apply Bool.eq_iff_iff.mpr
+  have hs := shared_or_signature G B C hC hBo (n + j)
+    (lambda_or_boundaries_dirty G C hC hTop hj) x
+  rw [shift_gate, hraw, hBx] at hs
+  simpa using hs
+
+end PEqualNP.Outside.L_meta_2583.SharedRepair
+
+namespace PEqualNP.Outside.L_meta_2583.SharedRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma shared_equal_lambda_raw_when_B_false {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (B C : Circuit) (hC : IsAO2 n C) (hTop : TopForm G C)
+    (hBo : B.output < n + B.gates.length) {j k : ℕ}
+    (hj : j ∈ lam G C) (hk : k ∈ lam G C)
+    (hraw : orIn n C (n + j) = orIn n C (n + k))
+    (x : Fin n → Bool) (hBx : circuitFun n B x = false) :
+    val (shared G B C) (List.ofFn x) (n + (B.gates.length + j)) =
+      val (shared G B C) (List.ofFn x) (n + (B.gates.length + k)) := by
+  apply Bool.eq_iff_iff.mpr
+  have hjv := shared_or_signature G B C hC hBo (n + j)
+    (lambda_or_boundaries_dirty G C hC hTop hj) x
+  have hkv := shared_or_signature G B C hC hBo (n + k)
+    (lambda_or_boundaries_dirty G C hC hTop hk) x
+  rw [shift_gate, hBx] at hjv hkv
+  rw [hjv, hkv, hraw]
+  simp
+
+lemma shared_exact_of_ustar {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (B C : Circuit) (hB : IsAO2 n B) (hC : IsAO2 n C)
+    (hBo : B.output < n + B.gates.length)
+    (hBsafe : ∀ x, circuitFun n B x = true → graphFun G ∅ x = true)
+    (hfun : circuitFun n C = graphFun G ∅)
+    (hBclean : ∀ j < B.gates.length, (gateAt B j).op = GateOp.and → BelowF G B j)
+    (hlive : ∀ a ∈ tops G C, OrReaches n C C.output a)
+    (hU : ∀ u v : Fin n, s(u, v) ∈ Ustar G C → circuitFun n B (pairInput u v) = true) :
+    circuitFun n (shared G B C) = graphFun G ∅ := by
+  obtain ⟨hAO, _, hsafe, _⟩ := shared_safe_clean G B C hB hC hBo hBsafe
+    (fun x hx => by rwa [← hfun]) hBclean
+  apply eq_graphFun_of_boundary G _ hAO
+    (SourcePool.shared_accepts_edges_of_ustar G B C hC hBo hfun hlive hU)
+  intro x hx
+  apply Bool.eq_false_iff.mpr
+  intro ht
+  have hh := hsafe x ht
+  rw [hx.1] at hh
+  cases hh
+
+lemma shared_collapse_lambda_raw {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (B C : Circuit) (hB : IsAO2 n B) (hC : IsAO2 n C) (hTop : TopForm G C)
+    (hBo : B.output < n + B.gates.length)
+    (hBsafe : ∀ x, circuitFun n B x = true → graphFun G ∅ x = true)
+    (hfun : circuitFun n C = graphFun G ∅)
+    (hBclean : ∀ j < B.gates.length, (gateAt B j).op = GateOp.and → BelowF G B j)
+    (hlive : ∀ a ∈ tops G C, OrReaches n C C.output a)
+    (hU : ∀ u v : Fin n, s(u, v) ∈ Ustar G C → circuitFun n B (pairInput u v) = true)
+    (T : Finset ℕ) (hT : T ⊆ lam G C) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j) ∧
+      D.size + (junk G C).card + (centreless G C).card + T.card =
+        B.size + C.size +
+          ((T.filter fun k => 1 < (orIn n C (n + k)).card).image fun k => orIn n C (n + k)).card + 1 := by
+  classical
+  let label := fun k => orIn n C (n + k)
+  let L := T.filter fun k => 1 < (orIn n C (n + k)).card
+  have hLT : L ⊆ T := Finset.filter_subset _ _
+  obtain ⟨R, hRL, hRcard, hrepresent⟩ := Duplicate.minimum_label_representatives L label
+  have hRT : R ⊆ T := hRL.trans hLT
+  let A := junk G C ∪ centreless G C
+  let S := A ∪ (T \ R)
+  let Q := S.image fun k => B.gates.length + k
+  have hTdata : ∀ k ∈ T, k < C.gates.length ∧ (gateAt C k).op = GateOp.or := by
+    intro k hk
+    have h := (Finset.mem_filter.mp (hT hk)).1
+    simp only [orN, gatesWhere, Finset.mem_filter, Finset.mem_range] at h
+    exact ⟨h.1, h.2.1⟩
+  have hK : ∀ k ∈ centreless G C, k ∈ tops G C := fun _ h => (Finset.mem_filter.mp h).1
+  have hAdata : ∀ k ∈ A, k < C.gates.length ∧ (gateAt C k).op = GateOp.and := by
+    intro k hk
+    rcases Finset.mem_union.mp hk with hk | hk
+    · exact ⟨(Frontier.junkData hk).1, (Frontier.junkData hk).2.1⟩
+    · exact ⟨(Frontier.topData (hK k hk)).1, (Frontier.topData (hK k hk)).2.1⟩
+  obtain ⟨hAO, hsize, _, hclean⟩ := shared_safe_clean G B C hB hC hBo hBsafe
+    (fun x hx => by rwa [← hfun]) hBclean
+  have hCo : C.output < n + C.gates.length := by
+    apply Completion.output_valid_of_true C (fun _ => true)
+    rw [hfun]
+    exact hBsafe _ (Completion.ao2_all_true B hB B.output hBo)
+  have hQbound : ∀ k ∈ Q, k < (shared G B C).gates.length := by
+    intro k hk
+    obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hk
+    have hlen : j < C.gates.length := by
+      rcases Finset.mem_union.mp hj with hj | hj
+      · exact (hAdata j hj).1
+      · exact (hTdata j (Finset.mem_sdiff.mp hj).1).1
+    rw [shared_length]
+    omega
+  have hQcut : ∀ k ∈ Q, n + B.gates.length ≤ n + k := by
+    intro k hk
+    obtain ⟨j, _, rfl⟩ := Finset.mem_image.mp hk
+    omega
+  have hpsafe : ∀ x, val (shared G B C) (List.ofFn x) B.output = true →
+      graphFun G ∅ x = true := by
+    intro x hx
+    rw [prefix_value G B C x hBo] at hx
+    exact hBsafe x hx
+  have hred : ∀ k ∈ Q, ∃ p < n + k, ∀ x : Fin n → Bool,
+      val (shared G B C) (List.ofFn x) B.output = false →
+      val (shared G B C) (List.ofFn x) p = val (shared G B C) (List.ofFn x) (n + k) := by
+    intro k hk
+    obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hk
+    rcases Finset.mem_union.mp hj with hj | hj
+    · refine ⟨B.output, by omega, ?_⟩
+      intro x hBx
+      rw [prefix_value G B C x hBo] at hBx ⊢
+      change circuitFun n B x = false at hBx
+      change circuitFun n B x = val (shared G B C) (List.ofFn x) (n + (B.gates.length + j))
+      rcases Finset.mem_union.mp hj with hj | hj
+      · rw [copied_value G B C hBo (Frontier.junkData hj).1 (Labeling.junk_is_dirty hj) x]
+      · rw [hBx]
+        symm
+        apply Bool.eq_false_iff.mpr
+        intro ht
+        have hf := shared_centreless_dominated_by_B G B C hB hC hTop hBo hj x ht
+        rw [hBx] at hf
+        cases hf
+    · have hjT := (Finset.mem_sdiff.mp hj).1
+      by_cases hjL : j ∈ L
+      · obtain ⟨i, hiL, hij, he⟩ := hrepresent j
+          (Finset.mem_sdiff.mpr ⟨hjL, (Finset.mem_sdiff.mp hj).2⟩)
+        refine ⟨n + (B.gates.length + i), by omega, ?_⟩
+        intro x hBx
+        rw [prefix_value G B C x hBo] at hBx
+        exact shared_equal_lambda_raw_when_B_false G B C hC hTop hBo (hT (hLT hiL)) (hT hjT) he x hBx
+      · have hsmall : (orIn n C (n + j)).card ≤ 1 := by
+          have hn : ¬ 1 < (orIn n C (n + j)).card :=
+            fun h => hjL (Finset.mem_filter.mpr ⟨hjT, h⟩)
+          omega
+        have hpos := Finset.card_pos.mpr (lambda_raw_nonempty hC (hT hjT))
+        obtain ⟨v, hv⟩ := Finset.card_eq_one.mp
+          (show (orIn n C (n + j)).card = 1 by omega)
+        refine ⟨v.val, by omega, ?_⟩
+        intro x hBx
+        rw [prefix_value G B C x hBo] at hBx
+        rw [val_ofFn, shared_singleton_lambda_value_when_B_false G B C hC hTop hBo
+          (hT hjT) v hv x hBx]
+  obtain ⟨E, hEAO, hEclean, hEo, hbnd, hEsize, hEpre, hEfun⟩ :=
+    ConditionalCopy.collapse_conditional_copies G Q (n + B.gates.length) B.output
+      (shared G B C) hAO hclean (shared_output_valid G B C hCo) hBo
+      (by rw [shared_length]; omega) hpsafe hQbound hQcut hred
+  have hpE : B.output < n + E.gates.length := by omega
+  let D := StarCompletion.appendBinary n E GateOp.or B.output E.output
+  have hDAO : IsAO2 n D := StarCompletion.appendBinary_ao n E GateOp.or B.output E.output
+    hEAO (Or.inr rfl) hpE hEo
+  have hDclean : ∀ j < D.gates.length, (gateAt D j).op = GateOp.and → BelowF G D j :=
+    StarCompletion.appendBinary_clean G E GateOp.or B.output E.output hpE hEo hEclean
+      (by intro h; cases h)
+  have hDval (x : Fin n → Bool) : circuitFun n D x = (circuitFun n B x || circuitFun n E x) := by
+    rw [StarCompletion.appendBinary_fun E GateOp.or B.output E.output hpE hEo]
+    rw [hEpre x B.output hBo, prefix_value G B C x hBo]
+    simp only [GateOp.eval, List.any_cons, List.any_nil, id_eq, Bool.or_false]
+    rfl
+  have hDfun : circuitFun n D = graphFun G ∅ := by
+    funext x
+    cases hBx : circuitFun n B x
+    · rw [hDval, hBx, Bool.false_or, hEfun x (by rw [prefix_value G B C x hBo]; exact hBx)]
+      exact congrFun (shared_exact_of_ustar G B C hB hC hBo hBsafe hfun hBclean hlive hU) x
+    · rw [hDval, hBx, Bool.true_or]
+      exact (hBsafe x hBx).symm
+  have hJKdis : Disjoint (junk G C) (centreless G C) := by
+    apply Finset.disjoint_left.mpr
+    intro k hj hk
+    exact (Labeling.junk_is_dirty hj).2 (Frontier.topData (hK k hk)).2.2
+  have hdis : Disjoint A (T \ R) := by
+    apply Finset.disjoint_left.mpr
+    intro k hkA hkT
+    have ha := (hAdata k hkA).2
+    have ho := (hTdata k (Finset.mem_sdiff.mp hkT).1).2
+    cases ha.symm.trans ho
+  have hAcard : A.card = (junk G C).card + (centreless G C).card :=
+    Finset.card_union_of_disjoint hJKdis
+  have hScard : S.card = A.card + (T \ R).card := Finset.card_union_of_disjoint hdis
+  have hQcard : Q.card = S.card :=
+    Finset.card_image_of_injective _ (by intro a b h; exact Nat.add_left_cancel h)
+  have hTR : (T \ R).card + R.card = T.card := Finset.card_sdiff_add_card_eq_card hRT
+  have hDsize : D.size = E.size + 1 := StarCompletion.appendBinary_size n E GateOp.or B.output E.output
+  refine ⟨D, hDAO, hDfun, hDclean, ?_⟩
+  change D.size + (junk G C).card + (centreless G C).card + T.card =
+    B.size + C.size + (L.image label).card + 1
+  omega
+
+end PEqualNP.Outside.L_meta_2583.SharedRepair
