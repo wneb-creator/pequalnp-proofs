@@ -72,7 +72,7 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:47:18 UTC: Pushed reviewed mixed-shell/pruning checkpoint 6d810eb9eab001b710b58a352bf7d93ba5ca51a8; remote SHA verified; bus 3981 marked PARTIAL.
 - 2026-11-25 22:55:20 UTC: Arbitrary-position insert/prune projection, pure/singleton-clean wrapper and SIZE/WIRE/JUNK selector passed independent source/axiom reviews and combined named build. Existing four part wires and private OR outputs remain substantive hypotheses. No final theorem.
 
-TIMING total=174.7 subagents=10
+TIMING total=179.4 subagents=10
 
 - 2026-11-25 22:58:30 UTC: Published reviewed arbitrary-position projection checkpoint 9be14cc8047c933ef5b791137733a77b871f7760 to the authorized orchestrator branch; remote SHA verified; bus 4207 marked PARTIAL.
 - 2026-11-25 23:03:54 UTC: Sixth full-route re-plan posted (bus 4333), concentrating last-dirty privacy, two-monochrome normalization, raw-product availability and complete counterexample searches.
@@ -90,3 +90,6 @@ TIMING total=174.7 subagents=10
 - 2026-11-25 23:50 UTC: Independently reconstructed and kernel-checked the actual helper4/helper8 conditional uniform-peeling composition, including the fixed vertex/competitor before the universal circuit quantifier.
 - 2026-11-25 23:54:49 UTC: Integrated the stronger semantic-singleton reader branch under ReaderPeelSupport. Exact append independently reviewed; named build passed5149jobs. File10786lines494026bytes. The existence of a qualifying circuit configuration remains unproved; no full target theorem.
 - 2026-11-25 23:55 UTC: Official checker completed on the semantic integration: durable exit1, REJECTED (no-theorem), after normal verifier/file/Defs builds. Independent review confirmed the precise conditional scope and record wording.
+- 2026-11-25 23:56 UTC: Pushed independently reviewed semantic uniform-peeling checkpoint6fd5c2d9046fce892cc3caf13fe3d4ce372759bb; exact remote SHA verified; bus5284 explicitly PARTIAL.
+- 2026-11-25 23:59:18 UTC: Last scheduled n10 profile completed. Helper2 reported all six final profiles UNKNOWN at900-second caps, no model; the other eight helpers also closed with full result NONE.
+- 2026-11-26 00:00:39 UTC: Closing record: no complete proof, refutation or permitted reduction; all final search reports received. Published partial source remains build-passing, while the official checker rejects the absent target theorem. No PR, successful FINAL or desk release.

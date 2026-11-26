@@ -1,6 +1,6 @@
 L-meta-3566: partial research support only; no final theorem.
 Sub-agents: 9 external bus helpers; 1 local toolchain and synthesis agent.
-TIMING total=174.7 subagents=10
+TIMING total=179.4 subagents=10
 Pinned Lean 4.36.0 restored; lake exe cache get passed.
 PEqualNP.Defs built without Mathlib source compilation.
 Merged support: lake build PEqualNP.Outside.L_meta_3566 passed (5149 jobs).
@@ -33,3 +33,19 @@ Research read 2026-11-25: Jukna, Disproving the Single Level Conjecture, Theorem
 ReaderPeelSupport: actual conditional full uniform-peeling conclusion now integrated from independently reconstructed helper8 semantic core90391224 and helper4 restriction1f598cca. For one least circuit, the proof retains a positive-degree sole raw input into a dirty AND, standard TopForm, NoFourCycle, no later dirty AND, all direct readers OR, and an actual singleton-positive operand witness v!=a for every reader. It constructs one fixed vertex/competitor before quantifying over all original correct circuits, including the full cover-drop bonus. Every structural premise remains explicit; neither universal branch existence nor the empty-singleton nonlinear sibling case is solved.
 Cross-package verification: immutable semantic artifact183679bytes SHA256cae37bb48e62c7d4321c433e891fc7179029cb5e55f2169bbe05c7d9b80d5e41 independently reconstructed, all selected helper4 proofs, wrapper and exact55/-4 semantic delta read; pinned helper8 core retained from prior reviews, standalone kernel and three new endpoint axiom checks passed with standard3 only. Canonical integration strips only the Defs import and relocates all helper names under ReaderPeelSupport, with no proof edits; exact byte transformation and red-team source review passed. Root independently read the semantic delta. Integrated named build partial16 passed5149jobs, durable exit0. Final canonical10786lines494026bytes, SHA2568f329954ad7785439e581d26d37f1f498d5c78ebe65a74193813d07a8f6d0063, below512KiB.
 Additional independent review: helper6 rebuilt all11 published RailObstruction endpoints using only Defs and standard axioms; helper9 independently checked the published root checkpoint and final helper4/helper5/helper8 conditional results. These reviews do not establish the full gap.
+
+CLOSING RESULT: NONE. All nine external helpers reported no complete proof/refutation. The final six n10 profiles completed UNKNOWN/exit0 after900 seconds each, last completion2026-11-25 23:59:18UTC. Final prism, affine and Book3 searches likewise yielded no satisfying model; UNKNOWN, wall-limit interruption and reconnect interruption provide no lower-bound proof. Earlier finite UNSAT and enumeration results retain their explicit restricted scopes and are not promoted to Lean-certified full-gap results.
+The missing mathematical step is unconditional existence of a sufficient deletion configuration, or a valid aggregate gate-charge argument for shared nonlinear gates. The equivalent m+minimum-vertex-cover-1 bound was not established, and no exact below-bound circuit was found. ReaderPeelSupport proves the complete quantified deletion tail only under its stated structural and singleton-witness premises.
+Final source checkpoint:6fd5c2d9046fce892cc3caf13fe3d4ce372759bb, remote verified. Root named build PASS; root official checker REJECTED(no-theorem), durable exit1. Helper4 separately reported an umbrella-cache checker fault; no helper checker acceptance is claimed. No PR or successful FINAL; lease not released.
+Sub-agent measurement counts direct delegation: nine external helper jobs plus one local toolchain/reviewer agent; helper-internal subteams are not included in this direct count.
+Published helper checkpoints, complete nine-branch remote census2026-11-25 23:58UTC (all partial):
+pnp/swarm-L-meta-3566-h1 df9b4b1d395b7ef4470e512a3d54cc5e1e186c52
+pnp/swarm-L-meta-3566-h2 ae8bbe97613989c2acaa37de14deee629d23d383
+pnp/swarm-L-meta-3566-h3 cc3497c5f655daa66527ca8308abfdec50c981b5
+pnp/swarm-L-meta-3566-h4 2ac93ccd7b4017ad7189fe3bb56985762a34fb20
+pnp/swarm-L-meta-3566-h5 2010d55400720910a254322f87b9daa24a5e559e
+pnp/swarm-L-meta-3566-h6 d9cb546aa430b281a86d87b65ff14b744f756fb5
+pnp/swarm-L-meta-3566-h7 26259ed64602c3d6ec601f935f6189a2e0f8137e
+pnp/swarm-L-meta-3566-h8 90391224236def78a8ff98a2e6f043f7e0c87911
+pnp/swarm-L-meta-3566-h9 62455d7eaebd207a757497fc7346fe540ceaf066
+Closing records timestamp:2026-11-26 00:00:39 UTC.
