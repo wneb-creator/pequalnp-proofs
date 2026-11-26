@@ -9773,3 +9773,532 @@ lemma thin_five_or_frontier_cost {r n t B : ℕ}
 end ThinBlock
 
 end PEqualNP.Outside.L_meta_2583
+
+namespace PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+
+lemma clause_atoms_card_le_and_add_one {n v : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) (tag : ℕ → Option (Fin v))
+    {root : ℕ} (hroot : root < n + C.gates.length) :
+    (clauseAtoms n C tag root).card ≤ (andGates C).card + 1 := by
+  classical
+  let T := clauseAtoms n C tag
+  have hc := union_network_one_target (n := n) (m := C.gates.length) T (T root)
+    (fun w hw => clauseAtoms_input C tag hw)
+    (fun j hj hlarge => (clauseAtoms_large_gate hm rb tag hj hlarge).2)
+    ⟨root, hroot, rfl⟩
+  have hsub : ((range C.gates.length).filter fun j =>
+      2 ≤ (T (n + j)).card ∧ T (n + j) ⊆ T root) ⊆ andGates C := by
+    intro j hj
+    obtain ⟨hj, hlarge, htarget⟩ := mem_filter.mp hj
+    exact mem_filter.mpr ⟨hj, (clauseAtoms_large_gate hm rb tag (mem_range.mp hj) hlarge).1⟩
+  have hcount := card_le_card hsub
+  dsimp only [T] at hc hcount
+  omega
+
+lemma linear_core_cnf_and_count {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R)
+    {root : ℕ} (hroot : root ∈ R) (F : Finset (Finset (Fin n)))
+    (hcard : ∀ W ∈ F, 2 ≤ W.card) (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F x) :
+    F.card ≤ (andGates C).card + 1 := by
+  classical
+  let encode := supportEncoding n
+  have hcover := linear_core_cnf_family rb encode R hcore hroot F hcard hanti hcnf
+  have hf := card_le_card hcover
+  have himage : (F.image encode).card = F.card :=
+    card_image_of_injective F (supportEncoding_injective n)
+  have hc := clause_atoms_card_le_and_add_one hm rb (semanticTag n C encode)
+    (hcore.1 root hroot)
+  rw [himage] at hf
+  omega
+
+lemma embedded_linear_core_cnf_and_count {α : Type*} {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (F : Finset (Finset α)) (e : α → Fin n) (he : Function.Injective e)
+    (hcard : ∀ W ∈ F, 2 ≤ W.card) (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F (fun u => x (e u))) :
+    F.card ≤ (andGates C).card + 1 := by
+  classical
+  have hc := linear_core_cnf_and_count hm rb R hcore hroot
+    (F.image (fun W => W.image e)) (CnfLogic.clause_card_image F e he 2 hcard)
+    (CnfLogic.antichain_image F e he hanti) (fun x => (hcnf x).trans (CnfLogic.holds_image F e x).symm)
+  simpa only [CnfLogic.family_card_image F e he] using hc
+
+end PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+namespace PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.MatchingCertificate
+
+lemma matching_clause_card_two {r : ℕ} (hr : 2 ≤ r)
+    (W : Finset (Bool × Fin r))
+    (hcover : ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W) : 2 ≤ W.card := by
+  let i₀ : Fin r := ⟨0, by omega⟩
+  let i₁ : Fin r := ⟨1, by omega⟩
+  obtain ⟨b₀, h₀⟩ : ∃ b : Bool, (b, i₀) ∈ W := by
+    rcases hcover i₀ with h | h
+    · exact ⟨false, h⟩
+    · exact ⟨true, h⟩
+  obtain ⟨b₁, h₁⟩ : ∃ b : Bool, (b, i₁) ∈ W := by
+    rcases hcover i₁ with h | h
+    · exact ⟨false, h⟩
+    · exact ⟨true, h⟩
+  have hne : (b₀, i₀) ≠ (b₁, i₁) := by
+    intro heq
+    have hval := congrArg (fun u : Bool × Fin r => u.2.val) heq
+    dsimp [i₀, i₁] at hval
+    omega
+  have hc : 1 < W.card := one_lt_card.mpr ⟨(b₀, i₀), h₀, (b₁, i₁), h₁, hne⟩
+  omega
+
+lemma fano_prime_core_and_lower {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (F : Finset (Finset (Bool × Fin 7)))
+    (e : Bool × Fin 7 → Fin n) (he : Function.Injective e)
+    (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F (fun u => x (e u)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin 7 → Bool,
+      CnfLogic.Holds F x →
+      ∃ i j, inc7 i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    22 ≤ (andGates C).card := by
+  have hsize : ∀ W ∈ F, 2 ≤ W.card := fun W hW =>
+    matching_clause_card_two (by decide) W (hcover W hW)
+  have hc := embedded_linear_core_cnf_and_count hm rb R hcore hroot F e he hsize hanti hcnf
+  have hl := safe_matching_cnf_7_lower F hcover hsafe
+  omega
+
+lemma q3_prime_core_and_lower {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (F : Finset (Finset (Bool × Fin 13)))
+    (e : Bool × Fin 13 → Fin n) (he : Function.Injective e)
+    (hanti : CnfLogic.Antichain F)
+    (hcnf : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds F (fun u => x (e u)))
+    (hcover : ∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W)
+    (hsafe : ∀ x : Bool × Fin 13 → Bool,
+      CnfLogic.Holds F x →
+      ∃ i j, inc13 i j ∧ x (false, i) = true ∧ x (true, j) = true) :
+    157 ≤ (andGates C).card := by
+  have hsize : ∀ W ∈ F, 2 ≤ W.card := fun W hW =>
+    matching_clause_card_two (by decide) W (hcover W hW)
+  have hc := embedded_linear_core_cnf_and_count hm rb R hcore hroot F e he hsize hanti hcnf
+  have hl := safe_matching_cnf_13_lower F hcover hsafe
+  omega
+
+end PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+namespace PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+
+lemma linear_core_atoms_semantics {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (encode : Finset (Fin n) → Fin v)
+    (decode : Fin v → Finset (Fin n)) (hdecode : ∀ S, decode (encode S) = S)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (hnounit : ∀ i : Fin n, ∃ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ∧ x i = false) (x : Fin n → Bool) :
+    val C (List.ofFn x) root = true ↔
+      ∀ a ∈ clauseAtoms n C (semanticTag n C encode) root,
+        ∃ i ∈ decode a, x i = true := by
+  classical
+  let tag := semanticTag n C encode
+  have hclosed := linearAndCore_closed encode hcore
+  have aux : ∀ w, w ∈ R →
+      (∀ y : Fin n → Bool, val C (List.ofFn y) root = true → val C (List.ofFn y) w = true) →
+      ∀ y : Fin n → Bool, val C (List.ofFn y) w = true ↔
+        ∀ a ∈ clauseAtoms n C tag w, ∃ i ∈ decode a, y i = true := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | ind w ih =>
+      intro hw himp y
+      cases ht : tag w with
+      | some a =>
+        obtain ⟨S, ha, hlinear⟩ := semanticTag_correct encode ht
+        have hdec : decode a = S := by rw [ha, hdecode]
+        rw [clauseAtoms_tagged C tag ht]
+        simp only [mem_singleton, forall_eq, hdec]
+        rw [hlinear]
+        simp
+      | none =>
+        by_cases hin : w < n
+        · let i : Fin n := ⟨w, hin⟩
+          obtain ⟨z, hz, hzi⟩ := hnounit i
+          have hv := himp z hz
+          change val C (List.ofFn z) i.val = true at hv
+          rw [val_ofFn, hzi] at hv
+          cases hv
+        · have hge : n ≤ w := by omega
+          have hj : w - n < C.gates.length := by have hv := hcore.1 w hw; omega
+          have heq : n + (w - n) = w := Nat.add_sub_of_le hge
+          obtain ⟨hop, hchildren⟩ := hclosed.2 w hw hge ht
+          have hchildimp : ∀ i ∈ (gateAt C (w - n)).inputs,
+              ∀ z : Fin n → Bool, val C (List.ofFn z) root = true →
+                val C (List.ofFn z) i = true := by
+            intro i hi z hz
+            have hv := himp z hz
+            rw [← heq] at hv
+            exact ((val_and (by simp) hj hop).mp hv i hi).2
+          have hchildsem : ∀ i ∈ (gateAt C (w - n)).inputs,
+              val C (List.ofFn y) i = true ↔
+                ∀ a ∈ clauseAtoms n C tag i, ∃ u ∈ decode a, y u = true := by
+            intro i hi
+            have hiless : i < w := by simpa only [heq] using rb (w - n) hj i hi
+            exact ih i hiless (hchildren i hi) (hchildimp i hi) y
+          have hatoms : clauseAtoms n C tag w =
+              (gateAt C (w - n)).inputs.toFinset.biUnion (clauseAtoms n C tag) := by
+            simpa only [heq] using
+              clauseAtoms_and rb tag hj (by simpa only [heq] using ht) hop
+          rw [hatoms]
+          constructor
+          · intro hv a ha
+            obtain ⟨i, hi, hai⟩ := mem_biUnion.mp ha
+            have hi' := List.mem_toFinset.mp hi
+            have hvi : val C (List.ofFn y) i = true := by
+              rw [← heq] at hv
+              exact ((val_and (by simp) hj hop).mp hv i hi').2
+            exact (hchildsem i hi').mp hvi a hai
+          · intro hall
+            rw [← heq, val_and (by simp) hj hop]
+            intro i hi
+            refine ⟨rb (w - n) hj i hi, (hchildsem i hi).mpr ?_⟩
+            intro a ha
+            exact hall a (mem_biUnion.mpr ⟨i, List.mem_toFinset.mpr hi, ha⟩)
+  exact aux root hroot (fun _ hx => hx) x
+
+lemma linear_core_extracted_cnf {n v : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (encode : Finset (Fin n) → Fin v)
+    (decode : Fin v → Finset (Fin n)) (hdecode : ∀ S, decode (encode S) = S)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (hnounit : ∀ i : Fin n, ∃ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ∧ x i = false) :
+    ∀ x : Fin n → Bool, val C (List.ofFn x) root = true ↔
+      CnfLogic.Holds ((clauseAtoms n C (semanticTag n C encode) root).image decode) x := by
+  intro x
+  rw [linear_core_atoms_semantics rb encode decode hdecode R hcore hroot hnounit x]
+  constructor
+  · intro h W hW
+    obtain ⟨a, ha, rfl⟩ := mem_image.mp hW
+    exact h a ha
+  · intro h a ha
+    exact h (decode a) (mem_image.mpr ⟨a, ha, rfl⟩)
+
+end PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+namespace PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndClauseAtoms
+open PEqualNP.Outside.L_meta_2583.SemanticLinearTag
+open PEqualNP.Outside.L_meta_2583.MatchingCertificate
+
+lemma matching_acceptance_no_unit {r n : ℕ} (hr : 2 ≤ r) (C : Circuit) (root : ℕ)
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (hmatch : ∀ i, val C (List.ofFn (pairInput (e (false, i)) (e (true, i)))) root = true) :
+    ∀ u : Fin n, ∃ x : Fin n → Bool, val C (List.ofFn x) root = true ∧ x u = false := by
+  let i₀ : Fin r := ⟨0, by omega⟩
+  let i₁ : Fin r := ⟨1, by omega⟩
+  have hne : i₀ ≠ i₁ := by
+    intro h
+    have hv := congrArg Fin.val h
+    dsimp [i₀, i₁] at hv
+    omega
+  intro u
+  by_cases h₀ : u = e (false, i₀) ∨ u = e (true, i₀)
+  · have h₁ : ¬ (u = e (false, i₁) ∨ u = e (true, i₁)) := by
+      intro h
+      rcases h₀ with h₀ | h₀ <;> rcases h with h | h <;>
+        exact hne (congrArg Prod.snd (he (h₀.symm.trans h)))
+    exact ⟨pairInput (e (false, i₁)) (e (true, i₁)), hmatch i₁, by simp [pairInput, h₁]⟩
+  · exact ⟨pairInput (e (false, i₀)) (e (true, i₀)), hmatch i₀, by simp [pairInput, h₀]⟩
+
+lemma core_matching_cnf_certificate {r n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) (hr : 2 ≤ r)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (I : Fin r → Fin r → Prop) (e : (Bool × Fin r) ≃ Fin n)
+    (hmatch : ∀ i, val C (List.ofFn (pairInput (e (false, i)) (e (true, i)))) root = true)
+    (hsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+      ∃ i j, I i j ∧ x (e (false, i)) = true ∧ x (e (true, j)) = true) :
+    ∃ F : Finset (Finset (Bool × Fin r)),
+      F.card ≤ (andGates C).card + 1 ∧
+      (∀ W ∈ F, ∀ i, (false, i) ∈ W ∨ (true, i) ∈ W) ∧
+      (∀ x : Bool × Fin r → Bool, CnfLogic.Holds F x →
+        ∃ i j, I i j ∧ x (false, i) = true ∧ x (true, j) = true) := by
+  classical
+  let encode := supportEncoding n
+  let decode := (supportEncoding n).symm
+  let A := clauseAtoms n C (semanticTag n C encode) root
+  let D := A.image decode
+  let F := D.image (fun W => W.image e.symm)
+  have hdecode : ∀ S, decode (encode S) = S := fun S => (supportEncoding n).symm_apply_apply S
+  have hnounit := matching_acceptance_no_unit hr C root e e.injective hmatch
+  have hsem : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) root = true ↔ CnfLogic.Holds D x :=
+    linear_core_extracted_cnf rb encode decode hdecode R hcore hroot hnounit
+  have hcard : F.card ≤ (andGates C).card + 1 := by
+    have hFD : F.card ≤ D.card := card_image_le
+    have hDA : D.card ≤ A.card := card_image_le
+    have hA := clause_atoms_card_le_and_add_one hm rb (semanticTag n C encode)
+      (hcore.1 root hroot)
+    dsimp only [A] at hDA
+    omega
+  refine ⟨F, hcard, ?_, ?_⟩
+  · intro W hW i
+    obtain ⟨S, hS, rfl⟩ := mem_image.mp hW
+    obtain ⟨u, hu, huv⟩ := (hsem (pairInput (e (false, i)) (e (true, i)))).mp (hmatch i) S hS
+    have hpair : u = e (false, i) ∨ u = e (true, i) := by simpa [pairInput] using huv
+    rcases hpair with rfl | rfl
+    · exact Or.inl (mem_image.mpr ⟨e (false, i), hu, by simp⟩)
+    · exact Or.inr (mem_image.mpr ⟨e (true, i), hu, by simp⟩)
+  · intro x hx
+    let y : Fin n → Bool := fun u => x (e.symm u)
+    have hD : CnfLogic.Holds D y := (CnfLogic.holds_image D e.symm x).mp hx
+    obtain ⟨i, j, hij, hi, hj⟩ := hsafe y ((hsem y).mpr hD)
+    exact ⟨i, j, hij, by simpa [y] using hi, by simpa [y] using hj⟩
+
+lemma fano_core_and_lower {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (e : (Bool × Fin 7) ≃ Fin n)
+    (hmatch : ∀ i, val C (List.ofFn (pairInput (e (false, i)) (e (true, i)))) root = true)
+    (hsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+      ∃ i j, inc7 i j ∧ x (e (false, i)) = true ∧ x (e (true, j)) = true) :
+    22 ≤ (andGates C).card := by
+  obtain ⟨F, hcount, hcover, hsafeF⟩ :=
+    core_matching_cnf_certificate hm rb (by decide) R hcore hroot inc7 e hmatch hsafe
+  have hlower := safe_matching_cnf_7_lower F hcover hsafeF
+  omega
+
+lemma q3_core_and_lower {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (R : Finset ℕ) (hcore : LinearAndCore n C R) {root : ℕ} (hroot : root ∈ R)
+    (e : (Bool × Fin 13) ≃ Fin n)
+    (hmatch : ∀ i, val C (List.ofFn (pairInput (e (false, i)) (e (true, i)))) root = true)
+    (hsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+      ∃ i j, inc13 i j ∧ x (e (false, i)) = true ∧ x (e (true, j)) = true) :
+    157 ≤ (andGates C).card := by
+  obtain ⟨F, hcount, hcover, hsafeF⟩ :=
+    core_matching_cnf_certificate hm rb (by decide) R hcore hroot inc13 e hmatch hsafe
+  have hlower := safe_matching_cnf_13_lower F hcover hsafeF
+  omega
+
+end PEqualNP.Outside.L_meta_2583.AndCorePrime
+
+namespace PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+lemma common_two_points_factorization : ∀ a b x y r t : Bool,
+    ((a || b || r) && (x || y || t) && (b || r || x) &&
+      (a || r || y) && (a || b || t)) =
+    ((((b || x) && (a || y) && (a || b)) || (r && (a || b || t))) &&
+      (x || y || t)) := by decide
+
+lemma common_two_points_shared_three : ∀ a b x y r t : Bool,
+    ((a || b || r) && (x || y || t) && (b || r || x) &&
+      (a || r || y) && (a || b || t)) =
+    ((((b || x) && (a || y) && (a || b)) || r) &&
+      (((a || b) && (x || y)) || t)) := by decide
+
+end PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+namespace PEqualNP.Outside.L_meta_2583.TightTransferObstruction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
+open PEqualNP.TopForm PEqualNP.ReadK
+
+def cone : Circuit :=
+  { gates := [⟨GateOp.and, [0, 1]⟩, ⟨GateOp.or, [3, 2]⟩], output := 4 }
+
+lemma cone_ao2 : IsAO2 3 cone := by decide
+
+lemma cone_tight :
+    IsPrimeImplicant 3 cone ({0, 1} : Finset (Fin 3)) ∧
+    ({0, 1} : Finset (Fin 3)).card =
+      (cone.gates.filter (fun g => match g.op with | .and => true | _ => false)).length + 1 := by decide
+
+lemma cone_one_or :
+    (cone.gates.filter (fun g => match g.op with | .or => true | _ => false)).length = 1 := by decide
+
+lemma cone_cnf : ∀ x : Fin 3 → Bool,
+    circuitFun 3 cone x = ((x 0 || x 2) && (x 1 || x 2)) := by decide
+
+lemma cone_missing_clauses :
+    (¬ ∃ w : Fin 5, ∀ x : Fin 3 → Bool,
+      circuitFun 3 {cone with output := w.val} x = (x 0 || x 2)) ∧
+    (¬ ∃ w : Fin 5, ∀ x : Fin 3 → Bool,
+      circuitFun 3 {cone with output := w.val} x = (x 1 || x 2)) := by decide
+
+def matchingContext : Circuit :=
+  { gates := [⟨GateOp.and, [0, 1]⟩, ⟨GateOp.or, [4, 2]⟩,
+      ⟨GateOp.and, [5, 3]⟩, ⟨GateOp.or, [4, 6]⟩], output := 7 }
+
+lemma matching_ao2 : IsAO2 4 matchingContext := by decide
+
+lemma matching_semantics : ∀ x : Fin 4 → Bool,
+    circuitFun 4 matchingContext x = ((x 0 && x 1) || (x 2 && x 3)) := by decide
+
+lemma matching_no_four_cycle :
+    NoFourCycle (edgeGraph 4 [(0, 1), (2, 3)]) := by decide
+
+lemma matching_all_gates_essential : ∀ j : Fin 4,
+    ∃ u v : Fin 4, (edgeGraph 4 [(0, 1), (2, 3)]).Adj u v ∧
+      circuitFun 4 matchingContext (pairInput u v) = true ∧
+      circuitFun 4 {matchingContext with gates :=
+        (matchingContext.gates.set j.val ⟨GateOp.or, []⟩)} (pairInput u v) = false := by decide
+
+lemma matching_operand_redundant : ∀ x : Fin 4 → Bool,
+    circuitFun 4 {matchingContext with gates :=
+      (matchingContext.gates.set 1 ⟨GateOp.or, [2]⟩)} x =
+      circuitFun 4 matchingContext x := by decide
+
+end PEqualNP.Outside.L_meta_2583.TightTransferObstruction
+
+namespace PEqualNP.Outside.L_meta_2583.ThinMixedContext
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+def sharedCircuit : Circuit :=
+  { gates := [
+    { op := .or, inputs := [0, 1] },
+    { op := .or, inputs := [7, 8] },
+    { op := .or, inputs := [1, 7] },
+    { op := .or, inputs := [0, 8] },
+    { op := .and, inputs := [16, 17] },
+    { op := .and, inputs := [18, 14] },
+    { op := .and, inputs := [14, 15] },
+    { op := .or, inputs := [19, 2] },
+    { op := .or, inputs := [20, 13] },
+    { op := .and, inputs := [21, 22] },
+    { op := .or, inputs := [19, 4] },
+    { op := .or, inputs := [20, 11] },
+    { op := .and, inputs := [24, 25] }],
+    output := 26 }
+
+lemma sharedCircuit_ao2 : PEqualNP.TopForm.IsAO2 14 sharedCircuit := by decide
+
+lemma sharedCircuit_counts : sharedCircuit.size = 13 ∧
+    (sharedCircuit.gates.filter (fun g => match g.op with | .and => true | _ => false)).length = 5 ∧
+    (sharedCircuit.gates.filter (fun g => match g.op with | .or => true | _ => false)).length = 8 := by
+  decide
+
+lemma sharedCircuit_values (x : Fin 14 → Bool) :
+    val sharedCircuit (List.ofFn x) 23 = (((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 2) && (((x 0 || x 1) && (x 7 || x 8)) || x 13)) ∧
+    val sharedCircuit (List.ofFn x) 26 = (((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 4) && (((x 0 || x 1) && (x 7 || x 8)) || x 11)) := by
+  have h0 : val sharedCircuit (List.ofFn x) 0 = x 0 := val_ofFn sharedCircuit x 0
+  have h1 : val sharedCircuit (List.ofFn x) 1 = x 1 := val_ofFn sharedCircuit x 1
+  have h2 : val sharedCircuit (List.ofFn x) 2 = x 2 := val_ofFn sharedCircuit x 2
+  have h4 : val sharedCircuit (List.ofFn x) 4 = x 4 := val_ofFn sharedCircuit x 4
+  have h7 : val sharedCircuit (List.ofFn x) 7 = x 7 := val_ofFn sharedCircuit x 7
+  have h8 : val sharedCircuit (List.ofFn x) 8 = x 8 := val_ofFn sharedCircuit x 8
+  have h11 : val sharedCircuit (List.ofFn x) 11 = x 11 := val_ofFn sharedCircuit x 11
+  have h13 : val sharedCircuit (List.ofFn x) 13 = x 13 := val_ofFn sharedCircuit x 13
+  have h14 : val sharedCircuit (List.ofFn x) 14 = (x 0 || x 1) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 0) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 0 = { op := .or, inputs := [0, 1] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 0 < 14 + 0), ite_eq_left (by decide : 1 < 14 + 0), h0, h1, Bool.or_false, Bool.and_true] using h
+  have h15 : val sharedCircuit (List.ofFn x) 15 = (x 7 || x 8) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 1) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 1 = { op := .or, inputs := [7, 8] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 7 < 14 + 1), ite_eq_left (by decide : 8 < 14 + 1), h7, h8, Bool.or_false, Bool.and_true] using h
+  have h16 : val sharedCircuit (List.ofFn x) 16 = (x 1 || x 7) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 2) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 2 = { op := .or, inputs := [1, 7] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 1 < 14 + 2), ite_eq_left (by decide : 7 < 14 + 2), h1, h7, Bool.or_false, Bool.and_true] using h
+  have h17 : val sharedCircuit (List.ofFn x) 17 = (x 0 || x 8) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 3) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 3 = { op := .or, inputs := [0, 8] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 0 < 14 + 3), ite_eq_left (by decide : 8 < 14 + 3), h0, h8, Bool.or_false, Bool.and_true] using h
+  have h18 : val sharedCircuit (List.ofFn x) 18 = ((x 1 || x 7) && (x 0 || x 8)) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 4) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 4 = { op := .and, inputs := [16, 17] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 16 < 14 + 4), ite_eq_left (by decide : 17 < 14 + 4), h16, h17, Bool.or_false, Bool.and_true] using h
+  have h19 : val sharedCircuit (List.ofFn x) 19 = (((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 5) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 5 = { op := .and, inputs := [18, 14] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 18 < 14 + 5), ite_eq_left (by decide : 14 < 14 + 5), h18, h14, Bool.or_false, Bool.and_true] using h
+  have h20 : val sharedCircuit (List.ofFn x) 20 = ((x 0 || x 1) && (x 7 || x 8)) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 6) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 6 = { op := .and, inputs := [14, 15] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 14 < 14 + 6), ite_eq_left (by decide : 15 < 14 + 6), h14, h15, Bool.or_false, Bool.and_true] using h
+  have h21 : val sharedCircuit (List.ofFn x) 21 = ((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 2) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 7) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 7 = { op := .or, inputs := [19, 2] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 19 < 14 + 7), ite_eq_left (by decide : 2 < 14 + 7), h19, h2, Bool.or_false, Bool.and_true] using h
+  have h22 : val sharedCircuit (List.ofFn x) 22 = (((x 0 || x 1) && (x 7 || x 8)) || x 13) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 8) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 8 = { op := .or, inputs := [20, 13] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 20 < 14 + 8), ite_eq_left (by decide : 13 < 14 + 8), h20, h13, Bool.or_false, Bool.and_true] using h
+  have h23 : val sharedCircuit (List.ofFn x) 23 = (((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 2) && (((x 0 || x 1) && (x 7 || x 8)) || x 13)) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 9) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 9 = { op := .and, inputs := [21, 22] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 21 < 14 + 9), ite_eq_left (by decide : 22 < 14 + 9), h21, h22, Bool.or_false, Bool.and_true] using h
+  have h24 : val sharedCircuit (List.ofFn x) 24 = ((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 4) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 10) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 10 = { op := .or, inputs := [19, 4] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 19 < 14 + 10), ite_eq_left (by decide : 4 < 14 + 10), h19, h4, Bool.or_false, Bool.and_true] using h
+  have h25 : val sharedCircuit (List.ofFn x) 25 = (((x 0 || x 1) && (x 7 || x 8)) || x 11) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 11) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 11 = { op := .or, inputs := [20, 11] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 20 < 14 + 11), ite_eq_left (by decide : 11 < 14 + 11), h20, h11, Bool.or_false, Bool.and_true] using h
+  have h26 : val sharedCircuit (List.ofFn x) 26 = (((((x 1 || x 7) && (x 0 || x 8)) && (x 0 || x 1)) || x 4) && (((x 0 || x 1) && (x 7 || x 8)) || x 11)) := by
+    have h := val_gate (n := 14) (C := sharedCircuit) (x := List.ofFn x) (j := 12) (by simp) (by decide)
+    have hg : gateAt sharedCircuit 12 = { op := .and, inputs := [24, 25] } := by rfl
+    rw [hg] at h
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil, id_eq, ite_eq_left (by decide : 24 < 14 + 12), ite_eq_left (by decide : 25 < 14 + 12), h24, h25, Bool.or_false, Bool.and_true] using h
+  exact ⟨h23, h26⟩
+
+lemma sharedCircuit_first_cnf (x : Fin 14 → Bool) :
+    val sharedCircuit (List.ofFn x) 23 =
+      ((x 0 || x 1 || x 2) && (x 7 || x 8 || x 13) &&
+        (x 1 || x 2 || x 7) && (x 0 || x 2 || x 8) && (x 0 || x 1 || x 13)) := by
+  rw [(sharedCircuit_values x).1]
+  exact (common_two_points_shared_three (x 0) (x 1) (x 7) (x 8) (x 2) (x 13)).symm
+
+lemma sharedCircuit_second_cnf (x : Fin 14 → Bool) :
+    val sharedCircuit (List.ofFn x) 26 =
+      ((x 0 || x 1 || x 4) && (x 7 || x 8 || x 11) &&
+        (x 1 || x 4 || x 7) && (x 0 || x 4 || x 8) && (x 0 || x 1 || x 11)) := by
+  rw [(sharedCircuit_values x).2]
+  exact (common_two_points_shared_three (x 0) (x 1) (x 7) (x 8) (x 4) (x 11)).symm
+
+end PEqualNP.Outside.L_meta_2583.ThinMixedContext
