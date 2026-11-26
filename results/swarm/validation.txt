@@ -1,0 +1,93 @@
+Job: pnp-swarm-4970-2
+Gap: L-meta-4970
+Role: helper-2, counterexample and finite-search route
+Acknowledged: msg-9abbcfc2d07b4bcc7b4191c3
+
+Status: partial helper artifact; no full proof or counterexample.
+No desk lease requested or held. No PR opened.
+Branch: pnp/swarm-L-meta-4970-h2
+Lean artifact commit: 448fe5e6bf84543e0ba6d7230cb4d61094b3ab17
+Artifact: results/swarm/H2SemanticTests.lean
+SHA256: 66f70c871b63084c6969d01fc497ef40dacf97d0158ad668515bae54778d4ce4
+Lean 4.36.0 compile: PASS.
+Independent source, staged diff, build, and axiom review of all 17 lemmas: PASS.
+Only propext, Classical.choice, and Quot.sound appear in transitive axiom lists.
+The file has one outer auxiliary namespace and no named theorem proving the gap.
+Its 17 auxiliary lemmas cover pure-OR factors, exact sparse semantic tests,
+crown factorization and rectangle obstruction, mandatory inputs, and pair implicates.
+Pair evaluations include diagonals, which supply singleton tests.
+The crown example does not satisfy the posted C4-free hypothesis and is not a refutation.
+
+Separate mathematical note: results/swarm/H2RectangleFactors.md
+Published paper commit: fdc6967508b87330ce2a4794f40a7b52fe344179
+Paper SHA256: 27b0df2191467296b040ea0d6849f489af2649455cdc1cda38e5a5863a45572b
+Independent mathematical and staged-diff review: PASS.
+For an exact full Boolean factorization of a nonempty C4-free graph function into t
+rectangle-DNF factors with N rectangle occurrences, every matching has size
+m <= N - t + 1. The proof constructs controllers, absorbs singleton factors,
+and rules out four factors with exactly one missing owner before applying parity.
+Full Boolean equality is essential; edge-pair agreement alone does not suffice.
+This note contains no Lean proof and provides no named gap theorem.
+It does not reduce arbitrary shared circuits to such factorizations or prove
+or refute the full gap. Its review is mathematical, not a Lean-checker verdict.
+
+Finite census scope: nonempty C4-free bipartite graphs without isolated vertices
+or isolated edges, with 1<=p<=l<=5. Side permutations identify classes;
+transposition is handled by explicit verified maps rather than identifying classes.
+There are 51 classes with l<=4 and 232 additional classes with l=5, 283 total.
+Independently audited exclusions at the snapshot below:
+  Small census: 51/51.
+  Additional census direct OR-budget exclusions: 217.
+  Additional census OR-budget exclusions after verified transfers: 225/232.
+  Combined full-counterexample exclusions: 276/283.
+  Remaining unresolved classes: 7.
+Unresolved graphs (row mask bit b indicates an edge to right vertex b):
+  census5_5_130: p=5, l=5, E=11, tau=5, rows=[1, 3, 6, 13, 26]
+  census5_5_134: p=5, l=5, E=11, tau=5, rows=[1, 3, 12, 21, 26]
+  census5_5_140: p=5, l=5, E=11, tau=5, rows=[1, 6, 10, 19, 28]
+  census5_5_146: p=5, l=5, E=11, tau=5, rows=[3, 5, 6, 9, 26]
+  census5_5_148: p=5, l=5, E=11, tau=5, rows=[3, 5, 9, 14, 18]
+  census5_5_149: p=5, l=5, E=12, tau=5, rows=[3, 5, 9, 17, 30]
+  census5_5_155: p=5, l=5, E=12, tau=5, rows=[3, 5, 10, 22, 25]
+All 51 small cases are closed: 43 by direct full-circuit UNSAT, two by
+independently justified ordered retries, and six by combined AND/OR bounds.
+OR-budget exclusions combine with the independently Lean-checked ordinary AND bound.
+Enumeration, matching certificates, graph maps, solver encoding, normalizations,
+positive controls, partition coverage, and verdict provenance received independent review.
+UNSAT results are finite computational evidence, not Lean proofs of the universal gap.
+Timeouts, cancelled or interrupted jobs, missing results, and incomplete partitions
+never count as exclusions. No solver or heuristic produced a verified counterexample.
+
+Authoritative audit snapshot: 2026-11-26T01:00:24.138773+00:00
+Scratch report: audit/final_results_audit.json
+Report SHA256: adc744d460e38b817105ffdc0c03d9c17170d1bb223d2f3d6afb88bc8df48620
+Independent aggregator review: audit/final_results_independent_review.json
+Complete CNFs, models, stdout/stderr, graph maps, and review reports remain under
+/tmp/oec/pnp-swarm-4970-2/. The published Lean file is self-contained.
+
+Additional checks: existing upstream Fano 27-gate and K4-incidence 15-gate bounds were
+rebuilt and axiom audited. The orchestrator's ordinary AND bound and h5's
+minimum-total-size OR-private theorem were independently rebuilt and axiom audited.
+The latter theorem is not itself a minimum-OR-count theorem.
+H9's external results/swarm/H9RedTeam.lean was independently rebuilt at
+commit c7fed0a91b3af4bb1c50c96197465429c9e5765a.
+External source SHA256: f4b1c3faf8d174e8608a004db56eb242c62fd9e88a1fbcc59dde9e28ba024770
+Three transitive axiom lists were checked: OwnerStrictness.owner_many_tags,
+OwnerStrictness.owner_many_tags_of_large_classes, and
+IndependentFactors.many_factor_matching_bound; all use only propext,
+Classical.choice, and Quot.sound. The last assumes a nonempty diagonal matching
+in a C4-free graph, monotone factors, exact full function equality, and rectangle
+pair restrictions; it does not supply a shared-circuit reduction.
+Restricting and relabeling nonempty matching endpoints gives the corresponding
+paper application; the empty-matching case is trivial separately.
+This external formal confirmation adds no Lean code to our paper or 17-lemma file.
+Full normalized dense5, K5-incidence, and affine3 searches remain incomplete unless
+every required product-count case has an actual supported UNSAT verdict.
+Completed heuristic proposals: 877,227,912; no zero-score candidate.
+These are proposals, not distinct circuits and not exhaustive exclusions.
+An environment restart around 23:19 UTC interrupted jobs; their partial logs were
+retained and never converted into solver verdicts. Superseded searches were also
+cancelled explicitly and recorded without counting them as exclusions.
+
+Sub-agents: toolchain; counterexample_audit; review_helpers; review_helpers/anneal_review (four distinct agents).
+TIMING total=176.5 subagents=4
