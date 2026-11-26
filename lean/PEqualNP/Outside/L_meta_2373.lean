@@ -464,4 +464,297 @@ lemma binary_inputs_read_elsewhere (op : GateOp) (hop : op = .and ∨ op = .or)
   · exact ⟨or_input_read_elsewhere a b hab pre post out hev,
       or_input_read_elsewhere b a hab.symm pre post out hev'⟩
 
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def maskedReadShape (a b c : ℕ) (g : Gate) : Prop :=
+  g = ⟨.and, [a, b]⟩ ∨ g = ⟨.and, [b, a]⟩ ∨
+    g = ⟨.or, [a, c]⟩ ∨ g = ⟨.or, [c, a]⟩
+
+lemma and_or_masked_gate (a b c : ℕ) (xs ys : List Bool) (g : Gate)
+    (hba : b ≠ a) (hca : c ≠ a) (h : agreeExcept a xs ys)
+    (hb : xs.getD b false = false) (hc : xs.getD c false = true)
+    (hshape : a ∈ effectiveInputs g → maskedReadShape a b c g) :
+    g.op.eval (g.inputs.map (fun i => xs.getD i false)) =
+      g.op.eval (g.inputs.map (fun i => ys.getD i false)) := by
+  have hby : ys.getD b false = false := by rw [← h.2 b hba]; exact hb
+  have hcy : ys.getD c false = true := by rw [← h.2 c hca]; exact hc
+  by_cases ha : a ∈ effectiveInputs g
+  · rcases hshape ha with rfl | rfl | rfl | rfl <;>
+      simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+        List.all_nil, List.any_cons, List.any_nil, id_eq, hb, hc, hby, hcy,
+        Bool.and_true, Bool.and_false, Bool.false_and, Bool.or_false,
+        Bool.or_true, Bool.true_or]
+  · exact agreeExcept_gate a xs ys g h ha
+
+lemma and_or_masked_fold (a b c : ℕ) (xs ys : List Bool) (gs : List Gate)
+    (hba : b ≠ a) (hca : c ≠ a) (h : agreeExcept a xs ys)
+    (hbidx : b < xs.length) (hcidx : c < xs.length)
+    (hb : xs.getD b false = false) (hc : xs.getD c false = true)
+    (hshape : ∀ g ∈ gs, a ∈ effectiveInputs g → maskedReadShape a b c g) :
+    agreeExcept a
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) xs)
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) ys) := by
+  induction gs generalizing xs ys with
+  | nil => exact h
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    apply ih
+    · exact agreeExcept_append a xs ys _ _ h
+        (and_or_masked_gate a b c xs ys g hba hca h hb hc (hshape g (by simp)))
+    · simp; omega
+    · simp; omega
+    · rw [List.getD_append _ _ _ _ hbidx]; exact hb
+    · rw [List.getD_append _ _ _ _ hcidx]; exact hc
+    · intro q hq
+      exact hshape q (by simp [hq])
+
+set_option maxHeartbeats 4000000 in
+lemma petersen_and_or_mask_witness : ∀ a b c : Fin 10,
+    a ≠ b → a ≠ c → b ≠ c → ∃ t : Fin 10,
+    t ≠ b ∧ petersen (fun i => decide (i = c ∨ i = t)) = false ∧
+      petersen (fun i => decide (i = a ∨ i = c ∨ i = t)) = true := by
+  decide +kernel
+
+lemma petersen_and_or_raw_read_obstruction (C : Circuit) (a b c : Fin 10)
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (hshape : ∀ g ∈ C.gates, a.val ∈ effectiveInputs g →
+      maskedReadShape a.val b.val c.val g) :
+    ¬ (∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) := by
+  intro hev
+  obtain ⟨t, htb, hx, hy⟩ := petersen_and_or_mask_witness a b c hab hac hbc
+  have e := (and_or_masked_fold a.val b.val c.val
+    (List.ofFn (fun i : Fin 10 => decide (i = c ∨ i = t)))
+    (List.ofFn (fun i : Fin 10 => decide (i = a ∨ i = c ∨ i = t))) C.gates
+    (by intro he; exact hab (Fin.ext he.symm))
+    (by intro he; exact hac (Fin.ext he.symm))
+    (ofFn_agreeExcept a _ _ (by intro i hi; simp [hi]))
+    (by simp) (by simp)
+    (by rw [getD_ofFn_val]; simp [hbc, htb.symm])
+    (by rw [getD_ofFn_val]; simp) hshape).2 C.output
+      (petersen_output_not_input C hev a)
+  change C.eval _ = C.eval _ at e
+  rw [hev, hev, hx, hy] at e
+  exact Bool.false_ne_true e
+
+set_option maxHeartbeats 4000000 in
+lemma two_and_read_mask_witness : ∀ a b c : Fin 10,
+    a ≠ b → a ≠ c → ∃ t : Fin 10,
+      t ≠ b ∧ t ≠ c ∧
+      petersen (fun i => decide (i = t)) = false ∧
+      petersen (fun i => decide (i = a ∨ i = t)) = true := by
+  decide +kernel
+
+set_option maxHeartbeats 4000000 in
+lemma two_or_read_mask_witness : ∀ a b c : Fin 10,
+    a ≠ b → a ≠ c → petersen (fun i => decide (i = b ∨ i = c)) = false →
+    ∃ t : Fin 10,
+      petersen (fun i => decide (i = b ∨ i = c ∨ i = t)) = false ∧
+      petersen (fun i => decide (i = a ∨ i = b ∨ i = c ∨ i = t)) = true := by
+  decide +kernel
+
+open PEqualNP.CircuitLowerBounds
+
+def uniformReadShape (z : Bool) (a b c : ℕ) (g : Gate) : Prop :=
+  let op := if z then GateOp.or else GateOp.and
+  g = ⟨op, [a, b]⟩ ∨ g = ⟨op, [b, a]⟩ ∨
+    g = ⟨op, [a, c]⟩ ∨ g = ⟨op, [c, a]⟩
+
+lemma uniform_masked_gate (z : Bool) (a b c : ℕ) (xs ys : List Bool) (g : Gate)
+    (hba : b ≠ a) (hca : c ≠ a) (h : agreeExcept a xs ys)
+    (hb : xs.getD b false = z) (hc : xs.getD c false = z)
+    (hshape : a ∈ effectiveInputs g → uniformReadShape z a b c g) :
+    g.op.eval (g.inputs.map (fun i => xs.getD i false)) =
+      g.op.eval (g.inputs.map (fun i => ys.getD i false)) := by
+  have hby : ys.getD b false = z := by rw [← h.2 b hba]; exact hb
+  have hcy : ys.getD c false = z := by rw [← h.2 c hca]; exact hc
+  by_cases ha : a ∈ effectiveInputs g
+  · cases z <;> rcases hshape ha with rfl | rfl | rfl | rfl <;>
+      simp only [Bool.false_eq_true, ↓reduceIte, GateOp.eval, List.map_cons,
+        List.map_nil, List.all_cons, List.all_nil, List.any_cons, List.any_nil, id_eq,
+        hb, hc, hby, hcy, Bool.and_true, Bool.and_false, Bool.false_and,
+        Bool.or_false, Bool.or_true, Bool.true_or]
+  · exact agreeExcept_gate a xs ys g h ha
+
+lemma uniform_masked_fold (z : Bool) (a b c : ℕ) (xs ys : List Bool) (gs : List Gate)
+    (hba : b ≠ a) (hca : c ≠ a) (h : agreeExcept a xs ys)
+    (hbidx : b < xs.length) (hcidx : c < xs.length)
+    (hb : xs.getD b false = z) (hc : xs.getD c false = z)
+    (hshape : ∀ g ∈ gs, a ∈ effectiveInputs g → uniformReadShape z a b c g) :
+    agreeExcept a
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) xs)
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) ys) := by
+  induction gs generalizing xs ys with
+  | nil => exact h
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    apply ih
+    · exact agreeExcept_append a xs ys _ _ h
+        (uniform_masked_gate z a b c xs ys g hba hca h hb hc (hshape g (by simp)))
+    · simp; omega
+    · simp; omega
+    · rw [List.getD_append _ _ _ _ hbidx]; exact hb
+    · rw [List.getD_append _ _ _ _ hcidx]; exact hc
+    · intro q hq
+      exact hshape q (by simp [hq])
+
+lemma petersen_two_and_raw_read_obstruction (C : Circuit) (a b c : Fin 10)
+    (hab : a ≠ b) (hac : a ≠ c)
+    (hshape : ∀ g ∈ C.gates, a.val ∈ effectiveInputs g →
+      uniformReadShape false a.val b.val c.val g) :
+    ¬ (∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) := by
+  intro hev
+  obtain ⟨t, htb, htc, hx, hy⟩ := two_and_read_mask_witness a b c hab hac
+  have e := (uniform_masked_fold false a.val b.val c.val
+    (List.ofFn (fun i : Fin 10 => decide (i = t)))
+    (List.ofFn (fun i : Fin 10 => decide (i = a ∨ i = t))) C.gates
+    (by intro he; exact hab (Fin.ext he.symm))
+    (by intro he; exact hac (Fin.ext he.symm))
+    (ofFn_agreeExcept a _ _ (by intro i hi; simp [hi]))
+    (by simp) (by simp)
+    (by rw [getD_ofFn_val]; simp [htb.symm])
+    (by rw [getD_ofFn_val]; simp [htc.symm]) hshape).2 C.output
+      (petersen_output_not_input C hev a)
+  change C.eval _ = C.eval _ at e
+  rw [hev, hev, hx, hy] at e
+  exact Bool.false_ne_true e
+
+lemma petersen_two_or_raw_read_obstruction (C : Circuit) (a b c : Fin 10)
+    (hab : a ≠ b) (hac : a ≠ c)
+    (hbc : petersen (fun i => decide (i = b ∨ i = c)) = false)
+    (hshape : ∀ g ∈ C.gates, a.val ∈ effectiveInputs g →
+      uniformReadShape true a.val b.val c.val g) :
+    ¬ (∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) := by
+  intro hev
+  obtain ⟨t, hx, hy⟩ := two_or_read_mask_witness a b c hab hac hbc
+  have e := (uniform_masked_fold true a.val b.val c.val
+    (List.ofFn (fun i : Fin 10 => decide (i = b ∨ i = c ∨ i = t)))
+    (List.ofFn (fun i : Fin 10 => decide (i = a ∨ i = b ∨ i = c ∨ i = t))) C.gates
+    (by intro he; exact hab (Fin.ext he.symm))
+    (by intro he; exact hac (Fin.ext he.symm))
+    (ofFn_agreeExcept a _ _ (by intro i hi; simp [hi]))
+    (by simp) (by simp)
+    (by rw [getD_ofFn_val]; simp)
+    (by rw [getD_ofFn_val]; simp) hshape).2 C.output
+      (petersen_output_not_input C hev a)
+  change C.eval _ = C.eval _ at e
+  rw [hev, hev, hx, hy] at e
+  exact Bool.false_ne_true e
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def swapAgree (a b : ℕ) (xs ys : List Bool) : Prop :=
+  xs.length = ys.length ∧ xs.getD a false = ys.getD b false ∧
+    xs.getD b false = ys.getD a false ∧
+      ∀ i, i ≠ a → i ≠ b → xs.getD i false = ys.getD i false
+
+def sharedSymmetricReadShape (a b : ℕ) (g : Gate) : Prop :=
+  g = ⟨.and, [a, b]⟩ ∨ g = ⟨.and, [b, a]⟩ ∨
+    g = ⟨.or, [a, b]⟩ ∨ g = ⟨.or, [b, a]⟩
+
+lemma swapAgree_append (a b : ℕ) (xs ys : List Bool) (u v : Bool)
+    (ha : a < xs.length) (hb : b < xs.length)
+    (h : swapAgree a b xs ys) (huv : u = v) :
+    swapAgree a b (xs ++ [u]) (ys ++ [v]) := by
+  subst v
+  refine ⟨by simp [h.1], ?_, ?_, ?_⟩
+  · rw [List.getD_append _ _ _ _ ha,
+      List.getD_append _ _ _ _ (by simpa [h.1] using hb)]
+    exact h.2.1
+  · rw [List.getD_append _ _ _ _ hb,
+      List.getD_append _ _ _ _ (by simpa [h.1] using ha)]
+    exact h.2.2.1
+  · intro i hia hib
+    by_cases hi : i < xs.length
+    · rw [List.getD_append _ _ _ _ hi,
+        List.getD_append _ _ _ _ (by simpa [h.1] using hi)]
+      exact h.2.2.2 i hia hib
+    · rw [List.getD_append_right _ _ _ _ (by omega),
+        List.getD_append_right _ _ _ _ (by have := h.1; omega), h.1]
+
+lemma shared_symmetric_gate (a b : ℕ) (xs ys : List Bool) (g : Gate)
+    (h : swapAgree a b xs ys)
+    (hshape : a ∈ effectiveInputs g ∨ b ∈ effectiveInputs g →
+      sharedSymmetricReadShape a b g) :
+    g.op.eval (g.inputs.map (fun i => xs.getD i false)) =
+      g.op.eval (g.inputs.map (fun i => ys.getD i false)) := by
+  by_cases hab : a ∈ effectiveInputs g ∨ b ∈ effectiveInputs g
+  · rcases hshape hab with rfl | rfl | rfl | rfl <;>
+      simp only [List.map_cons, List.map_nil, GateOp.eval, List.all_cons, List.all_nil,
+        List.any_cons, List.any_nil, id_eq, Bool.true_and, Bool.false_or,
+        h.2.1, h.2.2.1, Bool.and_comm, Bool.or_comm]
+  · rw [eval_effectiveInputs, eval_effectiveInputs]
+    congr 1
+    apply List.map_congr_left
+    intro i hi
+    apply h.2.2.2 i
+    · intro he
+      subst i
+      exact hab (Or.inl hi)
+    · intro he
+      subst i
+      exact hab (Or.inr hi)
+
+lemma shared_symmetric_fold (a b : ℕ) (xs ys : List Bool) (gs : List Gate)
+    (ha : a < xs.length) (hb : b < xs.length) (h : swapAgree a b xs ys)
+    (hshape : ∀ g ∈ gs, a ∈ effectiveInputs g ∨ b ∈ effectiveInputs g →
+      sharedSymmetricReadShape a b g) :
+    swapAgree a b
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) xs)
+      (gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))]) ys) := by
+  induction gs generalizing xs ys with
+  | nil => exact h
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    apply ih
+    · simp; omega
+    · simp; omega
+    · exact swapAgree_append a b xs ys _ _ ha hb h
+        (shared_symmetric_gate a b xs ys g h (hshape g (by simp)))
+    · intro q hq
+      exact hshape q (by simp [hq])
+
+lemma ofFn_swapAgree {n : ℕ} (a b : Fin n) (x y : Fin n → Bool)
+    (ha : x a = y b) (hb : x b = y a)
+    (hrest : ∀ i, i ≠ a → i ≠ b → x i = y i) :
+    swapAgree a.val b.val (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp, by simpa [getD_ofFn_val] using ha,
+    by simpa [getD_ofFn_val] using hb, ?_⟩
+  intro i hia hib
+  by_cases hi : i < n
+  · simpa [List.getD, hi] using hrest ⟨i, hi⟩
+      (by intro he; exact hia (congrArg Fin.val he))
+      (by intro he; exact hib (congrArg Fin.val he))
+  · simp [List.getD, hi]
+
+set_option maxHeartbeats 4000000 in
+lemma petersen_pair_swap_witness : ∀ a b : Fin 10, a ≠ b → ∃ t : Fin 10,
+    t ≠ a ∧ t ≠ b ∧ petersen (fun i => decide (i = b ∨ i = t)) = false ∧
+      petersen (fun i => decide (i = a ∨ i = t)) = true := by
+  decide +kernel
+
+lemma petersen_shared_and_or_read_obstruction (C : Circuit) (a b : Fin 10)
+    (hab : a ≠ b)
+    (hshape : ∀ g ∈ C.gates, a.val ∈ effectiveInputs g ∨ b.val ∈ effectiveInputs g →
+      sharedSymmetricReadShape a.val b.val g) :
+    ¬ (∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) := by
+  intro hev
+  obtain ⟨t, hta, htb, hx, hy⟩ := petersen_pair_swap_witness a b hab
+  have e := (shared_symmetric_fold a.val b.val
+    (List.ofFn (fun i : Fin 10 => decide (i = b ∨ i = t)))
+    (List.ofFn (fun i : Fin 10 => decide (i = a ∨ i = t))) C.gates
+    (by simp) (by simp)
+    (ofFn_swapAgree a b _ _
+      (by simp [hab, hab.symm, hta.symm, htb.symm])
+      (by simp)
+      (by intro i hia hib; simp [hia, hib])) hshape).2.2.2 C.output
+      (petersen_output_not_input C hev a) (petersen_output_not_input C hev b)
+  change C.eval _ = C.eval _ at e
+  rw [hev, hev, hx, hy] at e
+  exact Bool.false_ne_true e
+
+lemma nearMiss_zero_correct :
+    nearMiss.eval (List.ofFn (fun _ : Fin 10 => false)) = false := by
+  rw [nearMiss_formula]
+  rfl
+
 end PEqualNP.Outside.L_meta_2373_aux
