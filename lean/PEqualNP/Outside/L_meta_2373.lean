@@ -3967,4 +3967,455 @@ lemma bank_boundary_transport_reindex {n : ℕ} (C : Circuit) (hm : Monotone2 C)
 
 end BoundaryTransport
 
+namespace BoundaryDominance
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2373.BoundaryTransport
+
+lemma bankEval_order {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A B : Fin n → (Fin 10 → Bool) → Bool) (x : Fin 10 → Bool)
+    (h : ∀ i, A i x = true → B i x = true) :
+    bankEval C A x = true → bankEval C B x = true := by
+  apply eval_mono C hm _ _ (by simp)
+  intro j hj
+  by_cases hlt : j < n
+  · have ha : j < (List.ofFn (fun i => A i x)).length := by simpa using hlt
+    have hb : j < (List.ofFn (fun i => B i x)).length := by simpa using hlt
+    rw [List.getD_eq_getElem _ _ ha, List.getElem_ofFn] at hj
+    rw [List.getD_eq_getElem _ _ hb, List.getElem_ofFn]
+    exact h ⟨j, hlt⟩ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega)] at hj
+    contradiction
+
+lemma rows_pos_or_neg : ∀ r ∈ rows, r ∈ pos ∨ r ∈ neg := by decide +kernel
+
+lemma bank_ordered_transport {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A B : Fin n → (Fin 10 → Bool) → Bool)
+    (hB : ∀ i, InputMono (B i))
+    (hpos : ∀ i, ∀ r ∈ pos, A i (bits r) = true → B i (bits r) = true)
+    (hneg : ∀ i, ∀ r ∈ neg, B i (bits r) = true → A i (bits r) = true)
+    (hAexact : ∀ x : Fin 10 → Bool, bankEval C A x = edge x) :
+    ∀ x : Fin 10 → Bool, bankEval C B x = edge x := by
+  apply (bank_boundary_iff C hm B hB).mp
+  intro r hr
+  by_cases hp : r ∈ pos
+  · have ha : bankEval C A (bits r) = true := by
+      rw [hAexact, boundary_values r hr]
+      simp [hp]
+    have hb := bankEval_order C hm A B (bits r) (fun i => hpos i r hp) ha
+    simpa [hp] using hb
+  · have hn : r ∈ neg := (rows_pos_or_neg r hr).resolve_left hp
+    have ha : bankEval C A (bits r) = false := by
+      rw [hAexact, boundary_values r hr]
+      simp [hp]
+    cases hb : bankEval C B (bits r) with
+    | false => simp [hp]
+    | true =>
+      have hab := bankEval_order C hm B A (bits r) (fun i => hneg i r hn) hb
+      rw [ha] at hab
+      contradiction
+
+lemma bank_replace_transport {n : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (A : Fin n → (Fin 10 → Bool) → Bool) (z w : Fin n)
+    (hA : ∀ i, InputMono (A i))
+    (hpos : ∀ r ∈ pos, A z (bits r) = true → A w (bits r) = true)
+    (hneg : ∀ r ∈ neg, A w (bits r) = true → A z (bits r) = true)
+    (hAexact : ∀ x : Fin 10 → Bool, bankEval C A x = edge x) :
+    ∀ x : Fin 10 → Bool, bankEval C (Function.update A z (A w)) x = edge x := by
+  apply bank_ordered_transport C hm A (Function.update A z (A w)) ?_ ?_ ?_ hAexact
+  · intro i
+    by_cases hi : i = z
+    · subst i
+      simpa using hA w
+    · simpa only [Function.update_of_ne hi] using hA i
+  · intro i r hr h
+    by_cases hi : i = z
+    · subst i
+      simpa using hpos r hr h
+    · simpa only [Function.update_of_ne hi] using h
+  · intro i r hr h
+    by_cases hi : i = z
+    · subst i
+      exact hneg r hr (by simpa using h)
+    · simpa only [Function.update_of_ne hi] using h
+
+end BoundaryDominance
+
+namespace AliasMonotone
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+namespace Base
+
+def down (k i : ℕ) : ℕ := if i < k then i else i - 1
+
+def gateValue (g : Gate) (xs : List Bool) : Bool :=
+  g.op.eval (g.inputs.map fun i => xs.getD i false)
+
+lemma append_agree (k : ℕ) (xs ys : List Bool) (b : Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length)
+    (heq : ∀ i, i ≠ k → xs.getD (down k i) false = ys.getD i false) :
+    ∀ i, i ≠ k → (xs ++ [b]).getD (down k i) false = (ys ++ [b]).getD i false := by
+  intro i hi
+  rcases Nat.lt_trichotomy i ys.length with hlt | he | hgt
+  · have hd : down k i < xs.length := by unfold down; split <;> omega
+    rw [List.getD_append _ _ _ _ hd, List.getD_append _ _ _ _ hlt]
+    exact heq i hi
+  · subst i
+    have hd : down k ys.length = xs.length := by unfold down; split <;> omega
+    rw [hd]
+    simp [List.getD_eq_getElem?_getD]
+  · rw [List.getD_eq_default _ _ (by
+      simp only [List.length_append, List.length_singleton]
+      unfold down; split <;> omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+
+lemma initial_agree (xs : List Bool) (b : Bool) :
+    ∀ i, i ≠ xs.length → xs.getD (down xs.length i) false = (xs ++ [b]).getD i false := by
+  intro i hi
+  by_cases hlt : i < xs.length
+  · simp only [down, ite_eq_left hlt]
+    rw [List.getD_append _ _ _ _ hlt]
+  · have hgt : xs.length < i := by omega
+    rw [List.getD_eq_default _ _ (by unfold down; split <;> omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+
+lemma wires_length (gs : List Gate) (xs : List Bool) :
+    (Circuit.wires ⟨gs, 0⟩ xs).length = xs.length + gs.length := by
+  induction gs generalizing xs with
+  | nil => simp [Circuit.wires]
+  | cons g gs ih =>
+    change (Circuit.wires ⟨gs, 0⟩ (xs ++ [gateValue g xs])).length = _
+    rw [ih]
+    simp only [List.length_append, List.length_cons, List.length_nil]
+    omega
+
+end Base
+
+open Base
+
+def redirect (k p i : ℕ) : ℕ := if i = k then p else down k i
+
+def renamed (k p : ℕ) (g : Gate) : Gate := ⟨g.op, g.inputs.map (redirect k p)⟩
+
+lemma renamed_value (k p : ℕ) (g : Gate) (xs ys : List Bool)
+    (heq : ∀ i, xs.getD (redirect k p i) false = ys.getD i false) :
+    gateValue (renamed k p g) xs = gateValue g ys := by
+  unfold gateValue renamed
+  simp only [List.map_map]
+  congr 1
+  apply List.map_congr_left
+  intro i _
+  exact heq i
+
+lemma append_agree (k p : ℕ) (xs ys : List Bool) (b : Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length) (hp : p < k)
+    (heq : ∀ i, xs.getD (redirect k p i) false = ys.getD i false) :
+    ∀ i, (xs ++ [b]).getD (redirect k p i) false = (ys ++ [b]).getD i false := by
+  intro i
+  by_cases hi : i = k
+  · subst i
+    simp only [redirect, ite_true]
+    rw [List.getD_append _ _ _ _ (by omega), List.getD_append _ _ _ _ hk]
+    simpa [redirect] using heq k
+  · simp only [redirect, ite_eq_right hi]
+    apply Base.append_agree k xs ys b hlen hk _ i hi
+    intro j hj
+    simpa [redirect, hj] using heq j
+
+lemma initial_agree (xs : List Bool) (p : ℕ) (b : Bool)
+    (hcopy : b = xs.getD p false) :
+    ∀ i, xs.getD (redirect xs.length p i) false = (xs ++ [b]).getD i false := by
+  intro i
+  by_cases hi : i = xs.length
+  · subst i
+    simp [redirect, List.getD_eq_getElem?_getD, hcopy]
+  · simpa [redirect, hi] using Base.initial_agree xs b i hi
+
+lemma wires_renamed (k p : ℕ) (gs : List Gate) (xs ys : List Bool)
+    (hlen : xs.length + 1 = ys.length) (hk : k < ys.length) (hp : p < k)
+    (heq : ∀ i, xs.getD (redirect k p i) false = ys.getD i false) :
+    ∀ i, (Circuit.wires ⟨gs.map (renamed k p), 0⟩ xs).getD (redirect k p i) false =
+      (Circuit.wires ⟨gs, 0⟩ ys).getD i false := by
+  induction gs generalizing xs ys with
+  | nil => exact heq
+  | cons g gs ih =>
+    have hg := renamed_value k p g xs ys heq
+    change ∀ i,
+      (Circuit.wires ⟨gs.map (renamed k p), 0⟩ (xs ++ [gateValue (renamed k p g) xs])).getD
+        (redirect k p i) false =
+      (Circuit.wires ⟨gs, 0⟩ (ys ++ [gateValue g ys])).getD i false
+    rw [hg]
+    apply ih _ _
+    · simp only [List.length_append, List.length_singleton]; omega
+    · simp only [List.length_append, List.length_singleton]; omega
+    · exact append_agree k p xs ys _ hlen hk hp heq
+
+lemma wires_input (gs : List Gate) (xs : List Bool) (i : ℕ) (hi : i < xs.length) :
+    (Circuit.wires ⟨gs, 0⟩ xs).getD i false = xs.getD i false := by
+  induction gs generalizing xs with
+  | nil => rfl
+  | cons g gs ih =>
+    change (Circuit.wires ⟨gs, 0⟩ (xs ++ [gateValue g xs])).getD i false = _
+    rw [ih _ (by simp; omega), List.getD_append _ _ _ _ hi]
+
+def erase (n : ℕ) (pre post : List Gate) (p o : ℕ) : Circuit :=
+  ⟨pre ++ post.map (renamed (n + pre.length) p), redirect (n + pre.length) p o⟩
+
+lemma erase_eval (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length)
+    (hcopy : ∀ x : Fin n → Bool,
+      (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD (n + pre.length) false =
+      (Circuit.wires ⟨pre ++ g :: post, o⟩ (List.ofFn x)).getD p false)
+    (x : Fin n → Bool) :
+    (erase n pre post p o).eval (List.ofFn x) =
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) := by
+  let xs := Circuit.wires ⟨pre, 0⟩ (List.ofFn x)
+  have hx : xs.length = n + pre.length := by
+    unfold xs
+    rw [wires_length, List.length_ofFn]
+  have hcopy' : gateValue g xs = xs.getD p false := by
+    have h := hcopy x
+    simp only [Circuit.wires, List.foldl_append, List.foldl_cons] at h
+    change (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD (n + pre.length) false =
+      (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD p false at h
+    rw [wires_input _ _ _ (by simp [hx]), wires_input _ _ _ (by simp [hx]; omega)] at h
+    rw [List.getD_append xs [gateValue g xs] false p (by omega), ← hx] at h
+    simpa [List.getD_eq_getElem?_getD] using h
+  simp only [erase, Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons]
+  change (Circuit.wires ⟨post.map (renamed (n + pre.length) p), 0⟩ xs).getD
+      (redirect (n + pre.length) p o) false =
+    (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD o false
+  apply wires_renamed _ _ _ _ _ (by simp) (by simp [hx]) hp _ o
+  rw [← hx]
+  exact initial_agree xs p _ hcopy'
+
+lemma erase_size (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ) :
+    (erase n pre post p o).size + 1 = (Circuit.mk (pre ++ g :: post) o).size := by
+  simp [erase, Circuit.size]
+  omega
+
+lemma erase_monotone (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hfan : Monotone2 (Circuit.mk (pre ++ g :: post) o)) :
+    Monotone2 (erase n pre post p o) := by
+  intro h hh
+  change h ∈ pre ++ post.map (renamed (n + pre.length) p) at hh
+  rcases List.mem_append.mp hh with hh | hh
+  · exact hfan h (List.mem_append.mpr (Or.inl hh))
+  · obtain ⟨q, hq, heq⟩ := List.mem_map.mp hh
+    subst h
+    have hhf := hfan q (List.mem_append.mpr (Or.inr (List.mem_cons_of_mem _ hq)))
+    simpa [renamed] using hhf
+
+lemma minimal_monotone_no_alias (n : ℕ) (C : Circuit) (hfan : Monotone2 C)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (pre post : List Gate) (g : Gate) (hs : C.gates = pre ++ g :: post)
+    (p : ℕ) (hp : p < n + pre.length) :
+    ¬ ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD (n + pre.length) false =
+      (C.wires (List.ofFn x)).getD p false := by
+  intro hcopy
+  have hC : C = ⟨pre ++ g :: post, C.output⟩ := by cases C; simp_all
+  have hD := erase_monotone n pre post g p C.output (hC ▸ hfan)
+  have hsz := hmin (erase n pre post p C.output) hD (by
+    intro x
+    rw [erase_eval n pre post g p C.output hp (by simpa [← hC] using hcopy) x, ← hC])
+  have hlen := erase_size n pre post g p C.output
+  rw [← hC] at hlen
+  omega
+
+lemma minimal_monotone_no_alias_index (n : ℕ) (C : Circuit) (hfan : Monotone2 C)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn x)) → C.size ≤ D.size)
+    (k : ℕ) (hk : k < C.size) (p : ℕ) (hp : p < n + k) :
+    ¬ ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD (n + k) false = (C.wires (List.ofFn x)).getD p false := by
+  have hk' : k < C.gates.length := hk
+  have hs : C.gates = C.gates.take k ++ C.gates[k] :: C.gates.drop (k + 1) := by
+    rw [List.getElem_cons_drop hk', List.take_append_drop]
+  have hlen : (C.gates.take k).length = k := by simp; omega
+  simpa [hlen] using minimal_monotone_no_alias n C hfan hmin _ _ _ hs p (by simpa [hlen] using hp)
+
+
+lemma erase_or_copy_eval (n : ℕ) (pre post : List Gate) (p o : ℕ)
+    (hp : p < n + pre.length) (x : Fin n → Bool) :
+    (erase n pre post p o).eval (List.ofFn x) =
+      (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval (List.ofFn x) := by
+  apply erase_eval n pre post ⟨GateOp.or, [p]⟩ p o hp ?_ x
+  intro y
+  let xs := Circuit.wires ⟨pre, 0⟩ (List.ofFn y)
+  have hx : xs.length = n + pre.length := by
+    unfold xs
+    rw [Base.wires_length, List.length_ofFn]
+  simp only [Circuit.wires, List.foldl_append, List.foldl_cons]
+  change (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue ⟨GateOp.or, [p]⟩ xs])).getD
+      (n + pre.length) false =
+    (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue ⟨GateOp.or, [p]⟩ xs])).getD p false
+  rw [wires_input _ _ _ (by simp [hx]), wires_input _ _ _ (by simp [hx]; omega)]
+  rw [List.getD_append xs [gateValue ⟨GateOp.or, [p]⟩ xs] false p (by omega), ← hx]
+  simp [gateValue, GateOp.eval, List.getD_eq_getElem?_getD]
+
+lemma copy_replacement_improves (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < n + pre.length)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o))
+    (hreplace : ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval (List.ofFn x) =
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x)) :
+    ∃ D : Circuit, Monotone2 D ∧
+      D.size + 1 = (Circuit.mk (pre ++ g :: post) o).size ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+        (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) := by
+  refine ⟨erase n pre post p o, erase_monotone n pre post g p o hm,
+    erase_size n pre post g p o, ?_⟩
+  intro x
+  exact (erase_or_copy_eval n pre post p o hp x).trans (hreplace x)
+
+lemma minimum_forbids_copy_replacement (n : ℕ) (pre post : List Gate)
+    (g : Gate) (p o : ℕ) (hp : p < n + pre.length)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o))
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+        (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x)) →
+      (Circuit.mk (pre ++ g :: post) o).size ≤ D.size) :
+    ¬ ∀ x : Fin n → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval (List.ofFn x) =
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) := by
+  intro hreplace
+  obtain ⟨D, hD, hsize, heval⟩ := copy_replacement_improves n pre post g p o hp hm hreplace
+  have hle := hmin D hD heval
+  omega
+
+end AliasMonotone
+
+namespace BoundaryDominance
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2373.BoundaryTransport
+
+def prefixWire (pre : List Gate) (p : ℕ) (x : Fin 10 → Bool) : Bool :=
+  (Circuit.wires ⟨pre, 0⟩ (List.ofFn x)).getD p false
+
+def newGateValue (pre : List Gate) (g : Gate) (x : Fin 10 → Bool) : Bool :=
+  g.op.eval (g.inputs.map (fun p => prefixWire pre p x))
+
+lemma split_eval (pre post : List Gate) (g : Gate) (o : ℕ) (x : Fin 10 → Bool) :
+    (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) =
+      (Circuit.mk post o).eval ((Circuit.mk pre 0).wires (List.ofFn x) ++ [newGateValue pre g x]) := by
+  simp only [Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons]
+  rfl
+
+lemma copy_value (pre : List Gate) (p : ℕ) (x : Fin 10 → Bool) :
+    newGateValue pre ⟨GateOp.or, [p]⟩ x = prefixWire pre p x := by
+  simp [newGateValue, GateOp.eval]
+
+lemma append_bool_order (w : List Bool) (a b : Bool) (h : a = true → b = true) :
+    ∀ j, (w ++ [a]).getD j false = true → (w ++ [b]).getD j false = true := by
+  intro j hj
+  by_cases hlt : j < w.length
+  · rw [List.getD_append _ _ _ _ hlt] at hj ⊢
+    exact hj
+  · by_cases heq : j = w.length
+    · subst j
+      rw [getD_snoc_eq] at hj ⊢
+      exact h hj
+    · rw [List.getD_eq_default _ _ (by simp; omega)] at hj
+      contradiction
+
+lemma copy_replacement_monotone (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o)) :
+    Monotone2 (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o) := by
+  intro q hq
+  rcases List.mem_append.mp hq with hpre | hpost
+  · exact hm q (List.mem_append.mpr (Or.inl hpre))
+  · rcases List.mem_cons.mp hpost with rfl | hpost
+    · exact ⟨by simp, by simp⟩
+    · exact hm q (List.mem_append.mpr (Or.inr (List.mem_cons_of_mem _ hpost)))
+
+lemma dominated_copy_computes (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o))
+    (hexact : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) = edge x)
+    (hpos : ∀ r ∈ pos,
+      newGateValue pre g (bits r) = true → prefixWire pre p (bits r) = true)
+    (hneg : ∀ r ∈ neg,
+      prefixWire pre p (bits r) = true → newGateValue pre g (bits r) = true) :
+    ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval (List.ofFn x) = edge x := by
+  let D := Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o
+  have hD : Monotone2 D := copy_replacement_monotone pre post g p o hm
+  have hpost : Monotone2 (Circuit.mk post o) := by
+    intro q hq
+    exact hm q (List.mem_append.mpr (Or.inr (List.mem_cons_of_mem _ hq)))
+  have hmono : InputMono (fun x : Fin 10 → Bool => D.eval (List.ofFn x)) := by
+    intro a b hab
+    have h := bankEval_mono D hD (fun i : Fin 10 => fun x => x i)
+      (fun i a b hab => hab i) a b hab
+    simpa only [bankEval] using h
+  apply liftRows _ hmono
+  intro r hr
+  by_cases hp : r ∈ pos
+  · have ha : (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn (bits r)) = true := by
+      rw [hexact, boundary_values r hr]
+      simp [hp]
+    rw [split_eval] at ha
+    have hb := eval_mono (Circuit.mk post o) hpost _ _ (by simp)
+      (append_bool_order ((Circuit.mk pre 0).wires (List.ofFn (bits r)))
+        (newGateValue pre g (bits r)) (prefixWire pre p (bits r)) (hpos r hp)) ha
+    change (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval _ = _
+    rw [split_eval, copy_value]
+    simpa [hp] using hb
+  · have hn : r ∈ neg := (rows_pos_or_neg r hr).resolve_left hp
+    have ha : (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn (bits r)) = false := by
+      rw [hexact, boundary_values r hr]
+      simp [hp]
+    rw [split_eval] at ha
+    change (Circuit.mk (pre ++ ⟨GateOp.or, [p]⟩ :: post) o).eval _ = _
+    rw [split_eval, copy_value]
+    cases hb : (Circuit.mk post o).eval
+        ((Circuit.mk pre 0).wires (List.ofFn (bits r)) ++ [prefixWire pre p (bits r)]) with
+    | false => simp [hp]
+    | true =>
+      have hc := eval_mono (Circuit.mk post o) hpost _ _ (by simp)
+        (append_bool_order ((Circuit.mk pre 0).wires (List.ofFn (bits r)))
+          (prefixWire pre p (bits r)) (newGateValue pre g (bits r)) (hneg r hn)) hb
+      rw [ha] at hc
+      contradiction
+
+lemma dominated_gate_improves (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < 10 + pre.length)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o))
+    (hexact : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) = edge x)
+    (hpos : ∀ r ∈ pos,
+      newGateValue pre g (bits r) = true → prefixWire pre p (bits r) = true)
+    (hneg : ∀ r ∈ neg,
+      prefixWire pre p (bits r) = true → newGateValue pre g (bits r) = true) :
+    ∃ D : Circuit, Monotone2 D ∧
+      D.size + 1 = (Circuit.mk (pre ++ g :: post) o).size ∧
+      ∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = edge x := by
+  have hcopy := dominated_copy_computes pre post g p o hm hexact hpos hneg
+  obtain ⟨D, hD, hsize, heval⟩ := AliasMonotone.copy_replacement_improves 10 pre post g p o hp hm
+    (fun x => (hcopy x).trans (hexact x).symm)
+  exact ⟨D, hD, hsize, fun x => (heval x).trans (hexact x)⟩
+
+lemma minimum_forbids_dominated_gate (pre post : List Gate) (g : Gate) (p o : ℕ)
+    (hp : p < 10 + pre.length)
+    (hm : Monotone2 (Circuit.mk (pre ++ g :: post) o))
+    (hexact : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ g :: post) o).eval (List.ofFn x) = edge x)
+    (hmin : ∀ D : Circuit, Monotone2 D →
+      (∀ x : Fin 10 → Bool, D.eval (List.ofFn x) = edge x) →
+      (Circuit.mk (pre ++ g :: post) o).size ≤ D.size) :
+    ¬ ((∀ r ∈ pos,
+        newGateValue pre g (bits r) = true → prefixWire pre p (bits r) = true) ∧
+      (∀ r ∈ neg,
+        prefixWire pre p (bits r) = true → newGateValue pre g (bits r) = true)) := by
+  rintro ⟨hpos, hneg⟩
+  obtain ⟨D, hD, hsize, heval⟩ := dominated_gate_improves pre post g p o hp hm hexact hpos hneg
+  have hle := hmin D hD heval
+  omega
+
+end BoundaryDominance
+
 end PEqualNP.Outside.L_meta_2373
