@@ -165,4 +165,113 @@ lemma boundaryNeutral_singleton_zero
       · simp [boundarySingleton, boundaryRaise, heq] at hi
     · exact hrow a ha
 
+def boundaryClear (v : Fin 8) (x : Fin 8 → Bool) : Fin 8 → Bool :=
+  fun i => if i = v then false else x i
+
+lemma boundaryRaise_clear (v : Fin 8) (x : Fin 8 → Bool) :
+    boundaryRaise v (boundaryClear v x) = boundaryRaise v x := by
+  funext i
+  by_cases h : i = v <;> simp [boundaryRaise, boundaryClear, h]
+
+lemma boundaryClear_invariant (v : Fin 8) (M : (Fin 8 → Bool) → Bool)
+    (hindependent : ∀ x, M (boundaryRaise v x) = M x)
+    (x : Fin 8 → Bool) : M (boundaryClear v x) = M x := by
+  have h := hindependent (boundaryClear v x)
+  rw [boundaryRaise_clear, hindependent x] at h
+  exact h.symm
+
+def boundaryNegativeMask (r : Fin 10) : ℕ :=
+  match r.val with
+  | 0 => 7 | 1 => 13 | 2 => 19 | 3 => 25 | 4 => 37
+  | 5 => 70 | 6 => 76 | 7 => 146 | 8 => 160 | 9 => 194
+  | _ => 0
+
+def boundaryNegativeRow (r : Fin 10) : Fin 8 → Bool :=
+  fun i => (boundaryNegativeMask r).testBit i.val
+
+lemma boundaryNegativeRow_false :
+    ∀ r : Fin 10, boundaryGraph8 (boundaryNegativeRow r) = false := by
+  decide
+
+lemma boundaryNegativeRow_maximal :
+    ∀ (r : Fin 10) (v : Fin 8), boundaryNegativeRow r v = false →
+      boundaryGraph8 (boundaryRaise v (boundaryNegativeRow r)) = true := by
+  decide
+
+lemma boundaryNeutral_negative_support
+    (v : Fin 8) (S M : (Fin 8 → Bool) → Bool)
+    (hindependent : ∀ x, M (boundaryRaise v x) = M x)
+    (hcut : ∀ x,
+      (S x || M x) = (S (boundaryRaise v x) || M (boundaryRaise v x)) →
+      boundaryGraph8 x = boundaryGraph8 (boundaryRaise v x)) :
+    ∀ r : Fin 10, M (boundaryNegativeRow r) = true →
+      boundaryNegativeRow r v = true := by
+  intro r hM
+  cases hv : boundaryNegativeRow r v with
+  | true => rfl
+  | false =>
+      have hz := boundaryNeutral_zeroOnDerivative boundaryGraph8 S M
+        (boundaryNegativeRow r) (boundaryRaise v (boundaryNegativeRow r))
+        (by intro h; rw [hindependent]; exact h) (hcut _)
+        (by rw [boundaryNegativeRow_false r, boundaryNegativeRow_maximal r v hv]; decide)
+      rw [hM] at hz
+      cases hz
+
+lemma boundaryNegative_remainder :
+    ∀ (r : Fin 10) (u v : Fin 8), u.val < 3 → v.val < 3 → u ≠ v →
+      boundaryNegativeRow r u = true → boundaryNegativeRow r v = true →
+      ∃ a : Fin 8, ∀ i : Fin 8,
+        boundaryClear u (boundaryClear v (boundaryNegativeRow r)) i = true →
+          boundarySingleton a i = true := by
+  decide
+
+lemma boundaryNeutral_negative_disjoint
+    (u v : Fin 8) (hu : u.val < 3) (hv : v.val < 3) (hne : u ≠ v)
+    (M N : (Fin 8 → Bool) → Bool)
+    (hmono : ∀ x y, (∀ i, x i = true → y i = true) → M x = true → M y = true)
+    (huindependent : ∀ x, M (boundaryRaise u x) = M x)
+    (hvindependent : ∀ x, M (boundaryRaise v x) = M x)
+    (hsingleton : ∀ a : Fin 8, M (boundarySingleton a) = false)
+    (husupport : ∀ r : Fin 10,
+      M (boundaryNegativeRow r) = true → boundaryNegativeRow r u = true)
+    (hvsupport : ∀ r : Fin 10,
+      N (boundaryNegativeRow r) = true → boundaryNegativeRow r v = true) :
+    ∀ r : Fin 10, M (boundaryNegativeRow r) = true →
+      N (boundaryNegativeRow r) = false := by
+  intro r hM
+  cases hN : N (boundaryNegativeRow r) with
+  | false => rfl
+  | true =>
+      obtain ⟨a, hle⟩ := boundaryNegative_remainder r u v hu hv hne
+        (husupport r hM) (hvsupport r hN)
+      have hcleared :
+          M (boundaryClear u (boundaryClear v (boundaryNegativeRow r))) = true := by
+        rw [boundaryClear_invariant u M huindependent,
+          boundaryClear_invariant v M hvindependent]
+        exact hM
+      have h := hmono _ _ hle hcleared
+      rw [hsingleton a] at h
+      cases h
+
+lemma boundaryNeutral_pair_disjoint
+    (u v : Fin 8) (hu : u.val < 3) (hv : v.val < 3) (hne : u ≠ v)
+    (S M T N : (Fin 8 → Bool) → Bool)
+    (hmono : ∀ x y, (∀ i, x i = true → y i = true) → M x = true → M y = true)
+    (huindependent : ∀ x, M (boundaryRaise u x) = M x)
+    (hvindependent : ∀ x, M (boundaryRaise v x) = M x)
+    (hNindependent : ∀ x, N (boundaryRaise v x) = N x)
+    (hMcut : ∀ x,
+      (S x || M x) = (S (boundaryRaise u x) || M (boundaryRaise u x)) →
+      boundaryGraph8 x = boundaryGraph8 (boundaryRaise u x))
+    (hNcut : ∀ x,
+      (T x || N x) = (T (boundaryRaise v x) || N (boundaryRaise v x)) →
+      boundaryGraph8 x = boundaryGraph8 (boundaryRaise v x)) :
+    ∀ r : Fin 10, M (boundaryNegativeRow r) = true →
+      N (boundaryNegativeRow r) = false := by
+  exact boundaryNeutral_negative_disjoint u v hu hv hne M N hmono
+    huindependent hvindependent
+    (boundaryNeutral_singleton_zero u hu S M hmono huindependent hMcut)
+    (boundaryNeutral_negative_support u S M huindependent hMcut)
+    (boundaryNeutral_negative_support v T N hNindependent hNcut)
+
 end PEqualNP.Outside.L_meta_9033_aux
