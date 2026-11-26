@@ -8632,4 +8632,1144 @@ lemma thin_five_linear_core_cost {r n t B : ℕ}
 
 end ThinBlock
 
+namespace ConcreteStarSources
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+
+def centers {n t : ℕ} (center : Fin t → Fin n) : Finset (Fin n) := univ.image center
+
+def leavesAt {n t : ℕ} (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (c : Fin n) : Finset (Fin n) := (univ.filter fun i => center i = c).biUnion leaves
+
+def sourcesAt {n t : ℕ} (center : Fin t → Fin n) (source : Fin t → ℕ)
+    (c : Fin n) : Finset ℕ := (univ.filter fun i => center i = c).image source
+
+lemma centers_card_le {n t : ℕ} (center : Fin t → Fin n) : (centers center).card ≤ t := by
+  simpa [centers] using (card_image_le : (univ.image center).card ≤ univ.card)
+
+lemma grouped_source_count {n t : ℕ} (center : Fin t → Fin n) (source : Fin t → ℕ) :
+    (∑ c : {c // c ∈ centers center}, (sourcesAt center source c.val).card) ≤ t := by
+  classical
+  let S := (univ : Finset {c // c ∈ centers center}).sigma fun c => sourcesAt center source c.val
+  have h : S.card ≤ (univ : Finset (Fin t)).card := by
+    apply union_card_le_relation (fun cw i => center i = cw.1.val ∧ source i = cw.2)
+    · intro cw hcw
+      have hw := (mem_sigma.1 hcw).2
+      obtain ⟨i, hi, hiw⟩ := mem_image.1 hw
+      exact ⟨i, mem_univ _, (mem_filter.1 hi).2, hiw⟩
+    · intro i _ cw hcw cw' hcw'
+      rcases cw with ⟨c, w⟩
+      rcases cw' with ⟨c', w'⟩
+      have hc : c = c' := Subtype.ext (hcw.2.1.symm.trans hcw'.2.1)
+      have hw : w = w' := hcw.2.2.symm.trans hcw'.2.2
+      subst c'
+      subst w'
+      rfl
+  simpa only [S, card_sigma, card_univ, Fintype.card_fin] using h
+
+lemma grouped_sources_valid {n t : ℕ} {C : Circuit}
+    (center : Fin t → Fin n) (source : Fin t → ℕ)
+    (hvalid : ∀ i, source i < n + C.gates.length) :
+    ∀ c : {c // c ∈ centers center}, ∀ w ∈ sourcesAt center source c.val,
+      w < n + C.gates.length := by
+  intro c w hw
+  obtain ⟨i, _, rfl⟩ := mem_image.1 hw
+  exact hvalid i
+
+lemma grouped_sources_positive {n t : ℕ} {C : Circuit}
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n)) (source : Fin t → ℕ)
+    (hcomp : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (source i) = decide (∃ p ∈ leaves i, x p = true)) :
+    ∀ c : {c // c ∈ centers center}, ∀ p ∈ leavesAt center leaves c.val,
+      ∃ w ∈ sourcesAt center source c.val, val C (List.ofFn (pairInput p p)) w = true := by
+  intro c p hp
+  obtain ⟨i, hi, hpi⟩ := mem_biUnion.1 hp
+  refine ⟨source i, mem_image.2 ⟨i, hi, rfl⟩, ?_⟩
+  rw [hcomp i]
+  exact decide_eq_true ⟨p, hpi, by simp [pairInput]⟩
+
+lemma grouped_sources_false {n t : ℕ} {C : Circuit} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj]
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n)) (source : Fin t → ℕ)
+    (hcomp : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (source i) = decide (∃ p ∈ leaves i, x p = true))
+    (hadj : ∀ i, ∀ p ∈ leaves i, G.Adj (center i) p) :
+    ∀ c : {c // c ∈ centers center}, ∀ w ∈ sourcesAt center source c.val,
+      val C (List.ofFn (complementInput (G.neighborFinset c.val))) w = false := by
+  intro c w hw
+  obtain ⟨i, hi, rfl⟩ := mem_image.1 hw
+  have hcenter := (mem_filter.1 hi).2
+  rw [hcomp i]
+  apply Bool.decide_false
+  rintro ⟨p, hp, ht⟩
+  have hpn : p ∈ G.neighborFinset c.val := by simpa [hcenter] using hadj i p hp
+  simp [complementInput, hpn] at ht
+
+lemma group_star_edge {n t : ℕ} (center : Fin t → Fin n)
+    (leaves : Fin t → Finset (Fin n)) (i : Fin t) {p : Fin n} (hp : p ∈ leaves i) :
+    center i ∈ centers center ∧ p ∈ leavesAt center leaves (center i) := by
+  exact ⟨mem_image.2 ⟨i, mem_univ _, rfl⟩,
+    mem_biUnion.2 ⟨i, mem_filter.2 ⟨mem_univ _, rfl⟩, hp⟩⟩
+
+lemma safe_star_leaves_adj {n : ℕ} {C : Circuit} (G : SimpleGraph (Fin n))
+    (rb : ReadsBack n C) {j leaf : ℕ} (center : Fin n)
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.and)
+    (hinputs : ∀ w ∈ (gateAt C j).inputs, w = center.val ∨ w = leaf)
+    (leaves : Finset (Fin n))
+    (hcomp : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) leaf = decide (∃ p ∈ leaves, x p = true))
+    (hsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) (n + j) = true →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    ∀ p ∈ leaves, G.Adj center p := by
+  intro p hp
+  have hout : val C (List.ofFn (pairInput center p)) (n + j) = true := by
+    apply (val_and (by simp) hj hop).2
+    intro w hw
+    refine ⟨rb j hj w hw, ?_⟩
+    rcases hinputs w hw with rfl | rfl
+    · rw [val_ofFn]
+      simp [pairInput]
+    · rw [hcomp]
+      exact decide_eq_true ⟨p, hp, by simp [pairInput]⟩
+  obtain ⟨u, v, huv, hu, hv⟩ := hsafe _ hout
+  have hu' : u = center ∨ u = p := by simpa [pairInput] using hu
+  have hv' : v = center ∨ v = p := by simpa [pairInput] using hv
+  rcases hu' with rfl | rfl <;> rcases hv' with rfl | rfl
+  · simp at huv
+  · exact huv
+  · exact huv.symm
+  · simp at huv
+
+end ConcreteStarSources
+
+namespace ThinBlock
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndCorePrime
+open PEqualNP.Outside.L_meta_2583.ConcreteStarSources
+
+lemma thin_five_concrete_stars_cost {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop)
+    (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hIfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i)) (hcard : ∀ b, (F b).card = 5)
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (blockOutput : Fin B → ℕ) (core : Fin B → Finset ℕ)
+    (hcore : ∀ b, LinearAndCore n C (core b)) (hout : ∀ b, blockOutput b ∈ core b)
+    (hcnf : ∀ b, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (blockOutput b) = true ↔ CnfLogic.Holds (F b) (fun u => x (e u)))
+    (a : Fin t → Fin C.gates.length) (ha : Function.Injective a)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (starCenter : Fin t → Fin n) (starLeaf : Fin t → ℕ)
+    (starSet : Fin t → Finset (Fin n))
+    (hinputs : ∀ i, ∀ w ∈ (gateAt C (a i).val).inputs,
+      w = (starCenter i).val ∨ w = starLeaf i)
+    (hleaf : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (starLeaf i) = decide (∃ p ∈ starSet i, x p = true))
+    (hleafvalid : ∀ i, starLeaf i < n + C.gates.length)
+    (hstarsafe : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (n + (a i).val) = true →
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ i, ∃ q ∈ starSet i,
+        (u = starCenter i ∧ v = q) ∨ (u = q ∧ v = starCenter i)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))))
+    (z : Fin (t + B - 1) → Fin C.gates.length) (hz : Function.Injective z)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  have hadj : ∀ i, ∀ q ∈ starSet i, G.Adj (starCenter i) q := by
+    intro i
+    exact safe_star_leaves_adj G rb (starCenter i) (a i).isLt (haop i)
+      (hinputs i) (starSet i) (hleaf i) (hstarsafe i)
+  have hgroupcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers starCenter, ∃ q ∈ leavesAt starCenter starSet c,
+        (u = c ∧ v = q) ∨ (u = q ∧ v = c)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))) := by
+    intro u v huv
+    rcases hcover u v huv with hstar | hblock
+    · obtain ⟨i, q, hq, horient⟩ := hstar
+      have hc := group_star_edge starCenter starSet i hq
+      exact Or.inl ⟨starCenter i, hc.1, q, hc.2, horient⟩
+    · exact Or.inr hblock
+  exact thin_five_linear_core_cost I F hthin hsafe hIfour p l hp hl hacc hcard
+    e G hfour hcross hline C hm rb blockOutput core hcore hout hcnf
+    (centers starCenter) (leavesAt starCenter starSet) hgroupcover (centers_card_le starCenter)
+    (fun c => sourcesAt starCenter starLeaf c.val)
+    (grouped_sources_valid starCenter starLeaf hleafvalid)
+    (grouped_sources_positive starCenter starSet starLeaf hleaf)
+    (grouped_sources_false G starCenter starSet starLeaf hleaf hadj)
+    (grouped_source_count starCenter starLeaf)
+    a ha haop starCenter starLeaf starSet hinputs hleaf z hz hzop hzsmall hne
+
+end ThinBlock
+
+namespace ThinBlock
+
+open Finset PEqualNP.EdgeOwnership
+
+lemma safe_pair_acceptance {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (hsafe : Safe I F) (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (u v : Fin n)
+    (hF : CnfLogic.Holds F (fun z => pairInput u v (e z))) :
+    ∃ a b, Accept F a b ∧
+      ((u = e (false, a) ∧ v = e (true, b)) ∨
+       (v = e (false, a) ∧ u = e (true, b))) := by
+  obtain ⟨a, b, _, ha, hb⟩ := hsafe _ hF
+  have ha' : e (false, a) = u ∨ e (false, a) = v := by
+    simpa [pairInput] using ha
+  have hb' : e (true, b) = u ∨ e (true, b) = v := by
+    simpa [pairInput] using hb
+  have hne : e (false, a) ≠ e (true, b) := by
+    intro h
+    have hbool := congrArg Prod.fst (he h)
+    cases hbool
+  have horder : (u = e (false, a) ∧ v = e (true, b)) ∨
+      (v = e (false, a) ∧ u = e (true, b)) := by
+    rcases ha' with ha' | ha' <;> rcases hb' with hb' | hb'
+    · exact (hne (ha'.trans hb'.symm)).elim
+    · exact Or.inl ⟨ha'.symm, hb'.symm⟩
+    · exact Or.inr ⟨ha'.symm, hb'.symm⟩
+    · exact (hne (ha'.trans hb'.symm)).elim
+  refine ⟨a, b, ?_, horder⟩
+  intro W hW
+  obtain ⟨z, hz, hx⟩ := hF W hW
+  have hzu : e z = u ∨ e z = v := by simpa [pairInput] using hx
+  have hzab : e z = e (false, a) ∨ e z = e (true, b) := by
+    rcases horder with ⟨hu, hv⟩ | ⟨hv, hu⟩
+    · simpa only [hu, hv] using hzu
+    · simpa only [hu, hv, or_comm] using hzu
+  rcases hzab with hp | hl
+  · exact Or.inl (he hp ▸ hz)
+  · exact Or.inr (he hl ▸ hz)
+
+lemma matching_three_pair_iff {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin r) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e) (u v : Fin n) :
+    CnfLogic.Holds F (fun z => pairInput u v (e z)) ↔
+      ∃ i, (u = e (false, p i) ∧ v = e (true, l i)) ∨
+        (v = e (false, p i) ∧ u = e (true, l i)) := by
+  constructor
+  · intro hF
+    obtain ⟨a, b, hab, horder⟩ := safe_pair_acceptance I F hsafe e he u v hF
+    obtain ⟨i, ha, hb⟩ := (matching_three_classification I F hthin hsafe hfour
+      p l hp hl hacc a b).mp hab
+    exact ⟨i, by simpa only [ha, hb] using horder⟩
+  · rintro ⟨i, horder⟩ W hW
+    rcases hacc i W hW with hpW | hlW
+    · refine ⟨(false, p i), hpW, ?_⟩
+      rcases horder with ⟨hu, _⟩ | ⟨hv, _⟩
+      · simp [pairInput, hu]
+      · simp [pairInput, hv]
+    · refine ⟨(true, l i), hlW, ?_⟩
+      rcases horder with ⟨_, hv⟩ | ⟨_, hu⟩
+      · simp [pairInput, hv]
+      · simp [pairInput, hu]
+
+lemma mapped_matching_three_pair_iff {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin r) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e) (u v : Fin n) :
+    CnfLogic.Holds (F.image (fun W => W.image e)) (pairInput u v) ↔
+      ∃ i, (u = e (false, p i) ∧ v = e (true, l i)) ∨
+        (v = e (false, p i) ∧ u = e (true, l i)) := by
+  rw [CnfLogic.holds_image]
+  exact matching_three_pair_iff I F hthin hsafe hfour p l hp hl hacc e he u v
+
+lemma matching_three_output_pair_iff {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin r) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (f : (Fin n → Bool) → Bool)
+    (hcnf : ∀ x, f x = true ↔ CnfLogic.Holds F (fun z => x (e z)))
+    (u v : Fin n) :
+    f (pairInput u v) = true ↔
+      ∃ i, (u = e (false, p i) ∧ v = e (true, l i)) ∨
+        (v = e (false, p i) ∧ u = e (true, l i)) := by
+  rw [hcnf]
+  exact matching_three_pair_iff I F hthin hsafe hfour p l hp hl hacc e he u v
+
+lemma matching_three_wire_pair_iff {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin r) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (C : PEqualNP.CircuitLowerBounds.Circuit) (w : ℕ)
+    (hcnf : ∀ x, (C.wires (List.ofFn x)).getD w false = true ↔
+      CnfLogic.Holds F (fun z => x (e z))) (u v : Fin n) :
+    (C.wires (List.ofFn (pairInput u v))).getD w false = true ↔
+      ∃ i, (u = e (false, p i) ∧ v = e (true, l i)) ∨
+        (v = e (false, p i) ∧ u = e (true, l i)) := by
+  exact matching_three_output_pair_iff I F hthin hsafe hfour p l hp hl hacc e he
+    (fun x => (C.wires (List.ofFn x)).getD w false) hcnf u v
+
+end ThinBlock
+
+namespace OrFrontier
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+def OrStep (n : ℕ) (C : Circuit) (child parent : ℕ) : Prop :=
+  ∃ j, j < C.gates.length ∧ parent = n + j ∧
+    (gateAt C j).op = GateOp.or ∧ child ∈ (gateAt C j).inputs
+
+def OrAncestor (n : ℕ) (C : Circuit) : ℕ → ℕ → Prop :=
+  Relation.ReflTransGen (OrStep n C)
+
+lemma ancestor_le {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {w root : ℕ} (h : OrAncestor n C w root) : w ≤ root := by
+  induction h with
+  | refl => exact le_rfl
+  | tail hpath hstep ih =>
+    obtain ⟨j, hj, rfl, hop, hi⟩ := hstep
+    exact ih.trans (Nat.le_of_lt (rb j hj _ hi))
+
+lemma ancestor_val {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {w root : ℕ} (h : OrAncestor n C w root) (x : Fin n → Bool)
+    (hv : val C (List.ofFn x) w = true) : val C (List.ofFn x) root = true := by
+  induction h with
+  | refl => exact hv
+  | tail hpath hstep ih =>
+    obtain ⟨j, hj, rfl, hop, hi⟩ := hstep
+    exact (val_or (by simp) hj hop).2 ⟨_, hi, rb j hj _ hi, ih⟩
+
+lemma ancestor_support_empty {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {w root : ℕ} (h : OrAncestor n C w root)
+    (hzero : singletonSupport n C root = ∅) : singletonSupport n C w = ∅ := by
+  ext i
+  constructor
+  · intro hi
+    have hroot := ancestor_val rb h (pairInput i i) (mem_support.mp hi)
+    have hm : i ∈ singletonSupport n C root := mem_support.mpr hroot
+    simpa only [hzero] using hm
+  · intro hi
+    simp at hi
+
+lemma ancestor_not_input {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {w root : ℕ} (h : OrAncestor n C w root)
+    (hzero : singletonSupport n C root = ∅) : ¬ w < n := by
+  intro hw
+  let i : Fin n := ⟨w, hw⟩
+  have hsupport := ancestor_support_empty rb h hzero
+  have hi : i ∈ singletonSupport n C w := by
+    apply mem_support.mpr
+    change val C (List.ofFn (pairInput i i)) i.val = true
+    rw [val_ofFn]
+    simp [pairInput]
+  rw [hsupport] at hi
+  simp at hi
+
+noncomputable def andFrontier (n : ℕ) (C : Circuit) (root : ℕ) :
+    Finset (Fin C.gates.length) := by
+  classical
+  exact univ.filter fun j =>
+    (gateAt C j.val).op = GateOp.and ∧ OrAncestor n C (n + j.val) root
+
+lemma mem_andFrontier {n : ℕ} {C : Circuit} {root : ℕ} {j : Fin C.gates.length} :
+    j ∈ andFrontier n C root ↔
+      (gateAt C j.val).op = GateOp.and ∧ OrAncestor n C (n + j.val) root := by
+  classical
+  simp [andFrontier]
+
+lemma frontier_val_iff {n : ℕ} {C : Circuit}
+    (rb : ReadsBack n C) (hm : Monotone2 C) {root : ℕ}
+    (hroot : root < n + C.gates.length) (hzero : singletonSupport n C root = ∅)
+    (x : Fin n → Bool) :
+    val C (List.ofFn x) root = true ↔
+      ∃ j ∈ andFrontier n C root, val C (List.ofFn x) (n + j.val) = true := by
+  constructor
+  · have hfind : ∀ w, w < n + C.gates.length → OrAncestor n C w root →
+        val C (List.ofFn x) w = true →
+        ∃ j ∈ andFrontier n C root, val C (List.ofFn x) (n + j.val) = true := by
+      intro w
+      induction w using Nat.strong_induction_on with
+      | ind w ih =>
+        intro hvalid hpath hv
+        have hge : n ≤ w := Nat.le_of_not_gt (ancestor_not_input rb hpath hzero)
+        have hj : w - n < C.gates.length := by omega
+        have heq : n + (w - n) = w := Nat.add_sub_of_le hge
+        rcases gate_op hm hj with hand | hor
+        · refine ⟨⟨w - n, hj⟩, mem_andFrontier.mpr ⟨hand, ?_⟩, ?_⟩
+          · simpa only [heq] using hpath
+          · simpa only [heq] using hv
+        · have hv' : val C (List.ofFn x) (n + (w - n)) = true := by
+            simpa only [heq] using hv
+          obtain ⟨i, hi, hilt, hiv⟩ := (val_or (by simp) hj hor).1 hv'
+          have hiless : i < w := by simpa only [heq] using hilt
+          have histep : OrStep n C i w := ⟨w - n, hj, heq.symm, hor, hi⟩
+          exact ih i hiless (lt_trans hiless hvalid) (hpath.head histep) hiv
+    exact hfind root hroot Relation.ReflTransGen.refl
+  · rintro ⟨j, hj, hv⟩
+    exact ancestor_val rb (mem_andFrontier.mp hj).2 x hv
+
+end OrFrontier
+
+namespace OrFrontier
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+noncomputable def frontierAtoms (n : ℕ) (C : Circuit) (root w : ℕ) :
+    Finset (Fin C.gates.length) := by
+  classical
+  exact if OrAncestor n C w root then
+    if w < n then ∅ else
+      if hj : w - n < C.gates.length then
+        if (gateAt C (w - n)).op = GateOp.and then {⟨w - n, hj⟩} else
+          if (gateAt C (w - n)).op = GateOp.or then
+            (gateAt C (w - n)).inputs.toFinset.biUnion fun i =>
+              if hi : i < w then frontierAtoms n C root i else ∅
+          else ∅
+      else ∅
+    else ∅
+termination_by w
+
+lemma frontierAtoms_input {n : ℕ} (C : Circuit) (root : ℕ) {w : ℕ} (hw : w < n) :
+    frontierAtoms n C root w = ∅ := by
+  classical
+  rw [frontierAtoms]
+  split_ifs <;> simp_all
+
+lemma frontierAtoms_unreachable {n : ℕ} (C : Circuit) (root w : ℕ)
+    (h : ¬ OrAncestor n C w root) : frontierAtoms n C root w = ∅ := by
+  rw [frontierAtoms]
+  simp [h]
+
+lemma frontierAtoms_and {n : ℕ} {C : Circuit} {root j : ℕ}
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.and)
+    (hr : OrAncestor n C (n + j) root) :
+    frontierAtoms n C root (n + j) = {⟨j, hj⟩} := by
+  rw [frontierAtoms]
+  have hn : ¬ n + j < n := by omega
+  simp [hr, hn, hj, hop]
+
+lemma frontierAtoms_or {n : ℕ} {C : Circuit} (rb : ReadsBack n C) {root j : ℕ}
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.or)
+    (hr : OrAncestor n C (n + j) root) :
+    frontierAtoms n C root (n + j) =
+      (gateAt C j).inputs.toFinset.biUnion (frontierAtoms n C root) := by
+  rw [frontierAtoms]
+  have hn : ¬ n + j < n := by omega
+  simp only [hr, ite_true, hn, ite_false, Nat.add_sub_cancel_left, hj, dite_true, hop]
+  simp only [Nat.add_sub_cancel_left, hop, reduceCtorEq, ite_false]
+  apply Finset.biUnion_congr rfl
+  intro i hi
+  exact dite_eq_left (rb j hj i (List.mem_toFinset.mp hi))
+
+lemma frontierAtoms_step_subset {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {root child parent : ℕ} (hstep : OrStep n C child parent)
+    (hr : OrAncestor n C parent root) :
+    frontierAtoms n C root child ⊆ frontierAtoms n C root parent := by
+  obtain ⟨j, hj, rfl, hop, hi⟩ := hstep
+  rw [frontierAtoms_or rb hj hop hr]
+  intro a ha
+  exact mem_biUnion.mpr ⟨child, List.mem_toFinset.mpr hi, ha⟩
+
+lemma frontierAtoms_mono {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {root child parent : ℕ} (hpath : OrAncestor n C child parent) :
+    OrAncestor n C parent root →
+      frontierAtoms n C root child ⊆ frontierAtoms n C root parent := by
+  induction hpath with
+  | refl => intro hr; exact Subset.rfl
+  | tail hpath hstep ih =>
+    intro hr
+    exact (ih (hr.head hstep)).trans (frontierAtoms_step_subset rb hstep hr)
+
+lemma andFrontier_subset_atoms {n : ℕ} {C : Circuit} (rb : ReadsBack n C) (root : ℕ) :
+    andFrontier n C root ⊆ frontierAtoms n C root root := by
+  intro j hj
+  obtain ⟨hop, hr⟩ := mem_andFrontier.mp hj
+  have hself : j ∈ frontierAtoms n C root (n + j.val) := by
+    rw [frontierAtoms_and j.isLt hop hr]
+    simp
+  exact frontierAtoms_mono rb hr Relation.ReflTransGen.refl hself
+
+lemma frontierAtoms_large_gate {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) (root : ℕ) {j : ℕ}
+    (hj : j < C.gates.length)
+    (hlarge : 2 ≤ (frontierAtoms n C root (n + j)).card) :
+    OrAncestor n C (n + j) root ∧ (gateAt C j).op = GateOp.or ∧
+      ∃ x y, x < n + j ∧ y < n + j ∧
+        frontierAtoms n C root (n + j) =
+          frontierAtoms n C root x ∪ frontierAtoms n C root y := by
+  classical
+  have hr : OrAncestor n C (n + j) root := by
+    by_contra hnot
+    rw [frontierAtoms_unreachable C root (n + j) hnot] at hlarge
+    simp at hlarge
+  have hop : (gateAt C j).op = GateOp.or := by
+    rcases gate_op hm hj with hand | hor
+    · rw [frontierAtoms_and hj hand hr] at hlarge
+      simp at hlarge
+    · exact hor
+  refine ⟨hr, hop, ?_⟩
+  have hs := frontierAtoms_or rb hj hop hr
+  have hlen := (hm _ (gateAt_mem hj)).2
+  cases he : (gateAt C j).inputs with
+  | nil =>
+    rw [he] at hs
+    simp at hs
+    rw [hs] at hlarge
+    simp at hlarge
+  | cons x tail =>
+    have hx : x < n + j := rb j hj x (by simp [he])
+    cases tail with
+    | nil =>
+      refine ⟨x, x, hx, hx, ?_⟩
+      simpa [he] using hs
+    | cons y tail =>
+      have hy : y < n + j := rb j hj y (by simp [he])
+      cases tail with
+      | nil =>
+        refine ⟨x, y, hx, hy, ?_⟩
+        simpa [he] using hs
+      | cons z rest => simp [he] at hlen
+
+noncomputable def smallOrAncestors (n : ℕ) (C : Circuit) (root : ℕ) : Finset ℕ := by
+  classical
+  exact (range C.gates.length).filter fun j =>
+    (gateAt C j).op = GateOp.or ∧ OrAncestor n C (n + j) root ∧
+      singletonSupport n C (n + j) = ∅
+
+lemma frontier_card_le_small_or_add_one {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) {root : ℕ}
+    (hroot : root < n + C.gates.length) (hzero : singletonSupport n C root = ∅) :
+    (andFrontier n C root).card ≤ (smallOrAncestors n C root).card + 1 := by
+  classical
+  let T := frontierAtoms n C root
+  have hcount := union_network_one_target (n := n) (m := C.gates.length) T (T root)
+    (fun w hw => by simp [T, frontierAtoms_input C root hw])
+    (fun j hj hlarge => (frontierAtoms_large_gate hm rb root hj hlarge).2.2)
+    ⟨root, hroot, rfl⟩
+  have hsub : ((range C.gates.length).filter fun j =>
+      2 ≤ (T (n + j)).card ∧ T (n + j) ⊆ T root) ⊆ smallOrAncestors n C root := by
+    intro j hj
+    obtain ⟨hj, hlarge, htarget⟩ := mem_filter.mp hj
+    have hj' := mem_range.mp hj
+    obtain ⟨hr, hop, hsplit⟩ := frontierAtoms_large_gate hm rb root hj' hlarge
+    exact mem_filter.mpr ⟨hj, hop, hr, ancestor_support_empty rb hr hzero⟩
+  have hle := card_le_card hsub
+  have hfront := card_le_card (andFrontier_subset_atoms rb root)
+  change (andFrontier n C root).card ≤ (smallOrAncestors n C root).card + 1
+  dsimp only [T] at hcount hle
+  omega
+
+end OrFrontier
+
+namespace OrFrontier
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+lemma safe_output_support_empty {n : ℕ} (G : SimpleGraph (Fin n)) (C : Circuit) (root : ℕ)
+    (hsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) root = true →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true) :
+    singletonSupport n C root = ∅ := by
+  ext i
+  constructor
+  · intro hi
+    obtain ⟨u, v, huv, hu, hv⟩ := hsafe (pairInput i i) (mem_support.mp hi)
+    have hui : u = i := by simpa [pairInput] using hu
+    have hvi : v = i := by simpa [pairInput] using hv
+    subst u
+    subst v
+    exact False.elim (G.irrefl huv)
+  · intro hi
+    simp at hi
+
+lemma select_small_or_gates {n k : ℕ} (C : Circuit) (root : ℕ)
+    (hk : k ≤ (smallOrAncestors n C root).card) :
+    ∃ z : Fin k → Fin C.gates.length, Function.Injective z ∧
+      ∀ i, (z i).val ∈ smallOrAncestors n C root := by
+  classical
+  let S := smallOrAncestors n C root
+  let b : Fin k → S := fun i => S.equivFin.symm ⟨i.val, lt_of_lt_of_le i.isLt hk⟩
+  let z : Fin k → Fin C.gates.length := fun i =>
+    ⟨(b i).val, mem_range.mp (mem_filter.mp (b i).property).1⟩
+  refine ⟨z, ?_, ?_⟩
+  · intro i j hij
+    have hb : b i = b j := Subtype.ext (congrArg Fin.val hij)
+    have hi := congrArg (fun u : S => (S.equivFin u).val) hb
+    apply Fin.ext
+    simpa [b] using hi
+  · intro i
+    exact (b i).property
+
+lemma frontier_aggregation_map {n k : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C) {root : ℕ}
+    (hroot : root < n + C.gates.length) (hzero : singletonSupport n C root = ∅)
+    (hk : k ≤ (andFrontier n C root).card - 1) :
+    ∃ z : Fin k → Fin C.gates.length, Function.Injective z ∧
+      (∀ i, (gateAt C (z i).val).op = GateOp.or) ∧
+      (∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1) := by
+  classical
+  have hc := frontier_card_le_small_or_add_one hm rb hroot hzero
+  have hk' : k ≤ (smallOrAncestors n C root).card := by omega
+  obtain ⟨z, hz, hmem⟩ := select_small_or_gates C root hk'
+  refine ⟨z, hz, ?_, ?_⟩
+  · intro i
+    exact (mem_filter.mp (hmem i)).2.1
+  · intro i
+    rw [(mem_filter.mp (hmem i)).2.2.2]
+    simp
+
+end OrFrontier
+
+namespace ThinBlock
+
+open Finset PEqualNP.EdgeOwnership
+
+lemma star_pair_iff {n : ℕ} (c u v : Fin n) (L : Finset (Fin n)) (hc : c ∉ L) :
+    (pairInput u v c = true ∧ ∃ w ∈ L, pairInput u v w = true) ↔
+      (u = c ∧ v ∈ L) ∨ (v = c ∧ u ∈ L) := by
+  constructor
+  · rintro ⟨hcu, w, hw, hwu⟩
+    have hcu' : c = u ∨ c = v := by simpa [pairInput] using hcu
+    have hwu' : w = u ∨ w = v := by simpa [pairInput] using hwu
+    rcases hcu' with hcu' | hcu' <;> rcases hwu' with hwu' | hwu'
+    · exact (hc ((hwu'.trans hcu'.symm) ▸ hw)).elim
+    · exact Or.inl ⟨hcu'.symm, hwu' ▸ hw⟩
+    · exact Or.inr ⟨hcu'.symm, hwu' ▸ hw⟩
+    · exact (hc ((hwu'.trans hcu'.symm) ▸ hw)).elim
+  · rintro (⟨rfl, hv⟩ | ⟨rfl, hu⟩)
+    · exact ⟨by simp [pairInput], v, hv, by simp [pairInput]⟩
+    · exact ⟨by simp [pairInput], u, hu, by simp [pairInput]⟩
+
+lemma frontier_star_matching_pair_cover {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (eval : ℕ → (Fin n → Bool) → Bool) (output : ℕ) (Q : Finset ℕ)
+    (hfrontier : ∀ x, eval output x = true ↔ ∃ w ∈ Q, eval w x = true)
+    (hzero : ∀ u, eval output (pairInput u u) = false)
+    (starOutput : Fin t → ℕ) (blockOutput : Fin B → ℕ)
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (hboundary : ∀ w ∈ Q, (∃ a, w = starOutput a) ∨ (∃ b, w = blockOutput b))
+    (hstar : ∀ a x, eval (starOutput a) x = true ↔
+      x (center a) = true ∧ ∃ v ∈ leaves a, x v = true)
+    (hblock : ∀ b x, eval (blockOutput b) x = true ↔
+      CnfLogic.Holds (F b) (fun z => x (e z)))
+    (u v : Fin n) (huv : eval output (pairInput u v) = true) :
+    (∃ a, (u = center a ∧ v ∈ leaves a) ∨ (v = center a ∧ u ∈ leaves a)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (v = e (false, p b i) ∧ u = e (true, l b i))) := by
+  obtain ⟨w, hwQ, hw⟩ := (hfrontier _).mp huv
+  rcases hboundary w hwQ with ⟨a, rfl⟩ | ⟨b, rfl⟩
+  · have hc : center a ∉ leaves a := by
+      intro hc
+      have hstarone : eval (starOutput a) (pairInput (center a) (center a)) = true := by
+        apply (hstar a _).mpr
+        exact ⟨by simp [pairInput], center a, hc, by simp [pairInput]⟩
+      have houtone := (hfrontier _).mpr ⟨starOutput a, hwQ, hstarone⟩
+      rw [hzero] at houtone
+      cases houtone
+    exact Or.inl ⟨a, (star_pair_iff (center a) u v (leaves a) hc).mp
+      ((hstar a _).mp hw)⟩
+  · exact Or.inr ⟨b, (matching_three_output_pair_iff I (F b) (hthin b) (hsafe b)
+      hfour (p b) (l b) (hp b) (hl b) (hacc b) e he
+      (eval (blockOutput b)) (hblock b) u v).mp hw⟩
+
+lemma frontier_star_matching_graph_cover {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (eval : ℕ → (Fin n → Bool) → Bool) (output : ℕ) (Q : Finset ℕ)
+    (hfrontier : ∀ x, eval output x = true ↔ ∃ w ∈ Q, eval w x = true)
+    (hzero : ∀ u, eval output (pairInput u u) = false)
+    (starOutput : Fin t → ℕ) (blockOutput : Fin B → ℕ)
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (hboundary : ∀ w ∈ Q, (∃ a, w = starOutput a) ∨ (∃ b, w = blockOutput b))
+    (hstar : ∀ a x, eval (starOutput a) x = true ↔
+      x (center a) = true ∧ ∃ v ∈ leaves a, x v = true)
+    (hblock : ∀ b x, eval (blockOutput b) x = true ↔
+      CnfLogic.Holds (F b) (fun z => x (e z)))
+    (G : SimpleGraph (Fin n))
+    (hedge : ∀ u v, G.Adj u v → eval output (pairInput u v) = true)
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (hplacement : ∀ a, center a ∈ centers ∧ leaves a ⊆ L (center a)) :
+    ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))) := by
+  intro u v huv
+  have hcov := frontier_star_matching_pair_cover I F hthin hsafe hfour p l hp hl
+    hacc e he eval output Q hfrontier hzero starOutput blockOutput center leaves
+    hboundary hstar hblock u v (hedge u v huv)
+  rcases hcov with ⟨a, ha⟩ | ⟨b, i, hi⟩
+  · rcases ha with ⟨hu, hv⟩ | ⟨hv, hu⟩
+    · exact Or.inl ⟨center a, (hplacement a).1, v, (hplacement a).2 hv,
+        Or.inl ⟨hu, rfl⟩⟩
+    · exact Or.inl ⟨center a, (hplacement a).1, u, (hplacement a).2 hu,
+        Or.inr ⟨rfl, hv⟩⟩
+  · refine Or.inr ⟨b, i, ?_⟩
+    exact hi.elim Or.inl (fun h => Or.inr ⟨h.2, h.1⟩)
+
+lemma edge_output_zero_and_pairs {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (f : (Fin n → Bool) → Bool)
+    (hcompute : ∀ x, f x = decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) :
+    (∀ u, f (pairInput u u) = false) ∧
+      (∀ u v, G.Adj u v → f (pairInput u v) = true) := by
+  constructor
+  · intro u
+    rw [hcompute]
+    apply decide_eq_false_iff_not.mpr
+    rintro ⟨a, b, hab, ha, hb⟩
+    have hau : a = u := by simpa [pairInput] using ha
+    have hbu : b = u := by simpa [pairInput] using hb
+    exact G.ne_of_adj hab (hau.trans hbu.symm)
+  · intro u v huv
+    rw [hcompute]
+    apply decide_eq_true
+    exact ⟨u, v, huv, by simp [pairInput], by simp [pairInput]⟩
+
+lemma circuit_frontier_graph_cover {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (C : PEqualNP.CircuitLowerBounds.Circuit) (output : ℕ)
+    (Q : Finset (Fin C.gates.length))
+    (hfrontier : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD output false = true ↔
+      ∃ j ∈ Q, (C.wires (List.ofFn x)).getD (n + j.val) false = true)
+    (starOutput : Fin t → ℕ) (blockOutput : Fin B → ℕ)
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (hboundary : ∀ j ∈ Q,
+      (∃ a, n + j.val = starOutput a) ∨ (∃ b, n + j.val = blockOutput b))
+    (hstar : ∀ a x, (C.wires (List.ofFn x)).getD (starOutput a) false = true ↔
+      x (center a) = true ∧ ∃ v ∈ leaves a, x v = true)
+    (hblock : ∀ b x, (C.wires (List.ofFn x)).getD (blockOutput b) false = true ↔
+      CnfLogic.Holds (F b) (fun z => x (e z)))
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcompute : ∀ x, (C.wires (List.ofFn x)).getD output false =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (hplacement : ∀ a, center a ∈ centers ∧ leaves a ⊆ L (center a)) :
+    ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))) := by
+  let eval : ℕ → (Fin n → Bool) → Bool := fun w x =>
+    (C.wires (List.ofFn x)).getD w false
+  let W : Finset ℕ := Q.image (fun j => n + j.val)
+  have hfrontier' : ∀ x, eval output x = true ↔ ∃ w ∈ W, eval w x = true := by
+    intro x
+    rw [hfrontier]
+    constructor
+    · rintro ⟨j, hj, hx⟩
+      exact ⟨n + j.val, mem_image.mpr ⟨j, hj, rfl⟩, hx⟩
+    · rintro ⟨w, hw, hx⟩
+      obtain ⟨j, hj, rfl⟩ := mem_image.mp hw
+      exact ⟨j, hj, hx⟩
+  have hboundary' : ∀ w ∈ W,
+      (∃ a, w = starOutput a) ∨ (∃ b, w = blockOutput b) := by
+    intro w hw
+    obtain ⟨j, hj, rfl⟩ := mem_image.mp hw
+    exact hboundary j hj
+  obtain ⟨hzero, hedge⟩ := edge_output_zero_and_pairs G (eval output) hcompute
+  exact frontier_star_matching_graph_cover I F hthin hsafe hfour p l hp hl hacc
+    e he eval output W hfrontier' hzero starOutput blockOutput center leaves
+    hboundary' hstar hblock G hedge centers L hplacement
+
+lemma circuit_frontier_indexed_graph_cover {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (C : PEqualNP.CircuitLowerBounds.Circuit) (output : ℕ)
+    (Q : Finset (Fin C.gates.length))
+    (hfrontier : ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD output false = true ↔
+      ∃ j ∈ Q, (C.wires (List.ofFn x)).getD (n + j.val) false = true)
+    (starOutput : Fin t → ℕ) (blockOutput : Fin B → ℕ)
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (hboundary : ∀ j ∈ Q,
+      (∃ a, n + j.val = starOutput a) ∨ (∃ b, n + j.val = blockOutput b))
+    (hstar : ∀ a x, (C.wires (List.ofFn x)).getD (starOutput a) false = true ↔
+      x (center a) = true ∧ ∃ v ∈ leaves a, x v = true)
+    (hblock : ∀ b x, (C.wires (List.ofFn x)).getD (blockOutput b) false = true ↔
+      CnfLogic.Holds (F b) (fun z => x (e z)))
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcompute : ∀ x, (C.wires (List.ofFn x)).getD output false =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    : ∀ u v, G.Adj u v →
+      (∃ a, ∃ w ∈ leaves a,
+        (u = center a ∧ v = w) ∨ (u = w ∧ v = center a)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))) := by
+  classical
+  let centers : Finset (Fin n) := univ.image center
+  let L : Fin n → Finset (Fin n) := fun c =>
+    univ.biUnion fun a => if center a = c then leaves a else ∅
+  have hplacement : ∀ a, center a ∈ centers ∧ leaves a ⊆ L (center a) := by
+    intro a
+    refine ⟨mem_image.mpr ⟨a, mem_univ _, rfl⟩, ?_⟩
+    intro w hw
+    exact mem_biUnion.mpr ⟨a, mem_univ _, by simpa using hw⟩
+  have hcover := circuit_frontier_graph_cover I F hthin hsafe hfour p l hp hl hacc
+    e he C output Q hfrontier starOutput blockOutput center leaves hboundary
+    hstar hblock G hcompute centers L hplacement
+  intro u v huv
+  rcases hcover u v huv with ⟨c, _, w, hw, horient⟩ | hmatching
+  · obtain ⟨a, _, hwa⟩ := mem_biUnion.mp hw
+    have hca : center a = c := by
+      by_contra hn
+      simp [hn] at hwa
+    have hwleaf : w ∈ leaves a := by simpa [hca] using hwa
+    exact Or.inl ⟨a, w, hwleaf, by simpa only [hca] using horient⟩
+  · exact Or.inr hmatching
+
+end ThinBlock
+
+namespace ThinBlock
+
+open Finset PEqualNP.EdgeOwnership
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+lemma automatic_and_frontier_graph_cover {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i))
+    (e : Bool × Fin r → Fin n) (he : Function.Injective e)
+    (C : PEqualNP.CircuitLowerBounds.Circuit) (output : ℕ)
+    (rb : ReadsBack n C) (hm : Monotone2 C)
+    (houtput : output < n + C.gates.length)
+    (starOutput : Fin t → ℕ) (blockOutput : Fin B → ℕ)
+    (center : Fin t → Fin n) (leaves : Fin t → Finset (Fin n))
+    (hboundary : ∀ j ∈ OrFrontier.andFrontier n C output,
+      (∃ a, n + j.val = starOutput a) ∨ (∃ b, n + j.val = blockOutput b))
+    (hstar : ∀ a x, (C.wires (List.ofFn x)).getD (starOutput a) false = true ↔
+      x (center a) = true ∧ ∃ v ∈ leaves a, x v = true)
+    (hblock : ∀ b x, (C.wires (List.ofFn x)).getD (blockOutput b) false = true ↔
+      CnfLogic.Holds (F b) (fun z => x (e z)))
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcompute : ∀ x, (C.wires (List.ofFn x)).getD output false =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    : ∀ u v, G.Adj u v →
+      (∃ a, ∃ w ∈ leaves a,
+        (u = center a ∧ v = w) ∨ (u = w ∧ v = center a)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))) := by
+  have hzero := (edge_output_zero_and_pairs G
+    (fun x => val C (List.ofFn x) output) hcompute).1
+  have hsupport : singletonSupport n C output = ∅ := by
+    apply eq_empty_iff_forall_notMem.mpr
+    intro u hu
+    have htrue := mem_support.mp hu
+    rw [hzero] at htrue
+    cases htrue
+  exact circuit_frontier_indexed_graph_cover I F hthin hsafe hfour p l hp hl hacc
+    e he C output (OrFrontier.andFrontier n C output)
+    (OrFrontier.frontier_val_iff rb hm houtput hsupport)
+    starOutput blockOutput center leaves hboundary hstar hblock G hcompute
+
+end ThinBlock
+
+namespace ThinBlock
+
+open Finset PEqualNP.EdgeOwnership
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+lemma mapped_cnf_safe_of_implication {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hpoint : ∀ a b, ¬ G.Adj (e (false, a)) (e (false, b)))
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (f g : (Fin n → Bool) → Bool)
+    (hcnf : ∀ x, g x = true ↔ CnfLogic.Holds F (fun z => x (e z)))
+    (hbelow : ∀ x, g x = true → f x = true)
+    (hcompute : ∀ x, f x = decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) :
+    Safe I F := by
+  intro z hz
+  change CnfLogic.Holds F z at hz
+  let x : Fin n → Bool := fun u => z (e.symm u)
+  have hg : g x = true := (hcnf x).mpr (by simpa [x] using hz)
+  have hf := hbelow x hg
+  rw [hcompute] at hf
+  obtain ⟨u, v, huv, hu, hv⟩ := of_decide_eq_true hf
+  obtain ⟨⟨sa, a⟩, rfl⟩ := e.surjective u
+  obtain ⟨⟨sb, b⟩, rfl⟩ := e.surjective v
+  have hza : z (sa, a) = true := by simpa [x] using hu
+  have hzb : z (sb, b) = true := by simpa [x] using hv
+  cases sa <;> cases sb
+  · exact (hpoint a b huv).elim
+  · exact ⟨a, b, hcross a b huv, hza, hzb⟩
+  · exact ⟨b, a, hcross b a huv.symm, hzb, hza⟩
+  · exact (hline a b huv).elim
+
+lemma or_ancestor_cnf_safe {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hpoint : ∀ a b, ¬ G.Adj (e (false, a)) (e (false, b)))
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (rb : ReadsBack n C) (output blockOutput : ℕ)
+    (hancestor : OrFrontier.OrAncestor n C blockOutput output)
+    (hcnf : ∀ x : Fin n → Bool, val C (List.ofFn x) blockOutput = true ↔
+      CnfLogic.Holds F (fun z => x (e z)))
+    (hcompute : ∀ x : Fin n → Bool, val C (List.ofFn x) output =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) : Safe I F := by
+  exact mapped_cnf_safe_of_implication I F e G hcross hpoint hline
+    (fun x => val C (List.ofFn x) output) (fun x => val C (List.ofFn x) blockOutput)
+    hcnf (fun x hx => OrFrontier.ancestor_val rb hancestor x hx) hcompute
+
+lemma frontier_cnf_safe {r n : ℕ}
+    (I : Fin r → Fin r → Prop) (F : Finset (Finset (Bool × Fin r)))
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hpoint : ∀ a b, ¬ G.Adj (e (false, a)) (e (false, b)))
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (rb : ReadsBack n C) (output : ℕ) (j : Fin C.gates.length)
+    (hj : j ∈ OrFrontier.andFrontier n C output)
+    (hcnf : ∀ x : Fin n → Bool, val C (List.ofFn x) (n + j.val) = true ↔
+      CnfLogic.Holds F (fun z => x (e z)))
+    (hcompute : ∀ x : Fin n → Bool, val C (List.ofFn x) output =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true)) : Safe I F := by
+  exact or_ancestor_cnf_safe I F e G hcross hpoint hline C rb output (n + j.val)
+    (OrFrontier.mem_andFrontier.mp hj).2 hcnf hcompute
+
+end ThinBlock
+
+namespace ConcreteStarSources
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+
+lemma star_value_iff {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {j leaf : ℕ} (center : Fin n) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = GateOp.and)
+    (hinputs : (gateAt C j).inputs = [center.val, leaf] ∨
+      (gateAt C j).inputs = [leaf, center.val])
+    (leaves : Finset (Fin n))
+    (hcomp : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) leaf = decide (∃ p ∈ leaves, x p = true))
+    (x : Fin n → Bool) :
+    val C (List.ofFn x) (n + j) = true ↔ x center = true ∧ ∃ p ∈ leaves, x p = true := by
+  have hcenter : center.val ∈ (gateAt C j).inputs := by
+    rcases hinputs with h | h <;> simp [h]
+  have hleaf : leaf ∈ (gateAt C j).inputs := by
+    rcases hinputs with h | h <;> simp [h]
+  constructor
+  · intro ht
+    have hc := ((val_and (by simp) hj hop).1 ht _ hcenter).2
+    have hl := ((val_and (by simp) hj hop).1 ht _ hleaf).2
+    rw [val_ofFn] at hc
+    rw [hcomp] at hl
+    exact ⟨hc, of_decide_eq_true hl⟩
+  · rintro ⟨hc, hl⟩
+    apply (val_and (by simp) hj hop).2
+    intro w hw
+    refine ⟨rb j hj w hw, ?_⟩
+    have heq : w = center.val ∨ w = leaf := by
+      rcases hinputs with h | h
+      · simpa [h] using hw
+      · have h' : w = leaf ∨ w = center.val := by simpa [h] using hw
+        exact h'.symm
+    rcases heq with rfl | rfl
+    · simpa only [val_ofFn] using hc
+    · rw [hcomp]
+      exact decide_eq_true hl
+
+lemma star_source_valid {n : ℕ} {C : Circuit} (rb : ReadsBack n C)
+    {j leaf : ℕ} (center : Fin n) (hj : j < C.gates.length)
+    (hinputs : (gateAt C j).inputs = [center.val, leaf] ∨
+      (gateAt C j).inputs = [leaf, center.val]) : leaf < n + C.gates.length := by
+  have hleaf : leaf ∈ (gateAt C j).inputs := by
+    rcases hinputs with h | h <;> simp [h]
+  have hlt := rb j hj leaf hleaf
+  omega
+
+lemma star_inputs_classification {C : Circuit} {j center leaf : ℕ}
+    (hinputs : (gateAt C j).inputs = [center, leaf] ∨
+      (gateAt C j).inputs = [leaf, center]) :
+    ∀ w ∈ (gateAt C j).inputs, w = center ∨ w = leaf := by
+  intro w hw
+  rcases hinputs with h | h
+  · simpa [h] using hw
+  · have h' : w = leaf ∨ w = center := by simpa [h] using hw
+    exact h'.symm
+
+end ConcreteStarSources
+
+namespace ThinBlock
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.AndCorePrime
+open PEqualNP.Outside.L_meta_2583.OrFrontier
+open PEqualNP.Outside.L_meta_2583.ConcreteStarSources
+
+def frontierStarGate {n t B : ℕ} {C : Circuit} {output : ℕ}
+    (frontier : (Fin t ⊕ Fin B) ≃ {j : Fin C.gates.length // j ∈ andFrontier n C output})
+    (i : Fin t) : Fin C.gates.length := (frontier (Sum.inl i)).val
+
+def frontierBlockGate {n t B : ℕ} {C : Circuit} {output : ℕ}
+    (frontier : (Fin t ⊕ Fin B) ≃ {j : Fin C.gates.length // j ∈ andFrontier n C output})
+    (b : Fin B) : Fin C.gates.length := (frontier (Sum.inr b)).val
+
+lemma thin_five_or_frontier_cost {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop)
+    (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b))
+    (hIfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i)) (hcard : ∀ b, (F b).card = 5)
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hpoint : ∀ a b, ¬ G.Adj (e (false, a)) (e (false, b)))
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (output : ℕ) (houtput : output < n + C.gates.length)
+    (hcompute : ∀ x : Fin n → Bool, val C (List.ofFn x) output =
+      decide (∃ a b, G.Adj a b ∧ x a = true ∧ x b = true))
+    (frontier : (Fin t ⊕ Fin B) ≃ {j : Fin C.gates.length // j ∈ andFrontier n C output})
+    (core : Fin B → Finset ℕ) (hcore : ∀ b, LinearAndCore n C (core b))
+    (hout : ∀ b, n + (frontierBlockGate frontier b).val ∈ core b)
+    (hcnf : ∀ b, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (n + (frontierBlockGate frontier b).val) = true ↔
+        CnfLogic.Holds (F b) (fun u => x (e u)))
+    (starCenter : Fin t → Fin n) (starLeaf : Fin t → ℕ)
+    (starSet : Fin t → Finset (Fin n))
+    (hinputs : ∀ i, (gateAt C (frontierStarGate frontier i).val).inputs =
+        [(starCenter i).val, starLeaf i] ∨
+      (gateAt C (frontierStarGate frontier i).val).inputs = [starLeaf i, (starCenter i).val])
+    (hleaf : ∀ i, ∀ x : Fin n → Bool,
+      val C (List.ofFn x) (starLeaf i) = decide (∃ p ∈ starSet i, x p = true)) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  have hsafe : ∀ b, Safe I (F b) := by
+    intro b
+    exact frontier_cnf_safe I (F b) e G hcross hpoint hline C rb output
+      (frontierBlockGate frontier b) (frontier (Sum.inr b)).property (hcnf b) hcompute
+  let a := frontierStarGate frontier
+  let blockOutput := fun b => n + (frontierBlockGate frontier b).val
+  have ha : Function.Injective a := by
+    intro i j hij
+    have h := frontier.injective (Subtype.ext hij)
+    exact Sum.inl.inj h
+  have hstarfront : ∀ i, a i ∈ andFrontier n C output := fun i =>
+    (frontier (Sum.inl i)).property
+  have haop : ∀ i, (gateAt C (a i).val).op = GateOp.and := fun i =>
+    (mem_andFrontier.1 (hstarfront i)).1
+  have hfrontcard : (andFrontier n C output).card = t + B := by
+    simpa only [Fintype.card_sum, Fintype.card_fin, Fintype.card_coe] using
+      (Fintype.card_congr frontier).symm
+  have houtsafe : ∀ x : Fin n → Bool, val C (List.ofFn x) output = true →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    intro x hx
+    rw [hcompute] at hx
+    exact of_decide_eq_true hx
+  have hzero := safe_output_support_empty G C output houtsafe
+  have hfront : ∀ x : Fin n → Bool, val C (List.ofFn x) output = true ↔
+      ∃ j ∈ andFrontier n C output, val C (List.ofFn x) (n + j.val) = true :=
+    frontier_val_iff rb hm houtput hzero
+  have hboundary : ∀ j ∈ andFrontier n C output,
+      (∃ i, n + j.val = n + (a i).val) ∨ (∃ b, n + j.val = blockOutput b) := by
+    intro j hj
+    obtain ⟨s, hs⟩ := frontier.surjective ⟨j, hj⟩
+    cases s with
+    | inl i =>
+      left
+      refine ⟨i, ?_⟩
+      have hi : a i = j := congrArg Subtype.val hs
+      exact congrArg (fun k : Fin C.gates.length => n + k.val) hi.symm
+    | inr b =>
+      right
+      refine ⟨b, ?_⟩
+      have hb : frontierBlockGate frontier b = j := congrArg Subtype.val hs
+      exact congrArg (fun k : Fin C.gates.length => n + k.val) hb.symm
+  have hstar : ∀ i x, val C (List.ofFn x) (n + (a i).val) = true ↔
+      x (starCenter i) = true ∧ ∃ v ∈ starSet i, x v = true := by
+    intro i x
+    exact star_value_iff rb (starCenter i) (a i).isLt (haop i) (hinputs i) (starSet i) (hleaf i) x
+  have hstarsafe : ∀ i, ∀ x : Fin n → Bool, val C (List.ofFn x) (n + (a i).val) = true →
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+    intro i x hx
+    exact houtsafe x (ancestor_val rb (mem_andFrontier.1 (hstarfront i)).2 x hx)
+  have hcover := circuit_frontier_indexed_graph_cover I F hthin hsafe hIfour p l hp hl hacc
+    e e.injective C output (andFrontier n C output) hfront
+    (fun i => n + (a i).val) blockOutput starCenter starSet hboundary hstar hcnf G hcompute
+  by_cases hne : 1 ≤ t + B
+  · obtain ⟨z, hz, hzop, hzsmall⟩ := frontier_aggregation_map hm rb houtput hzero
+      (by rw [hfrontcard] : t + B - 1 ≤ (andFrontier n C output).card - 1)
+    exact thin_five_concrete_stars_cost I F hthin hsafe hIfour p l hp hl hacc hcard
+      e G hfour hcross hline C hm rb blockOutput core hcore hout hcnf
+      a ha haop starCenter starLeaf starSet (fun i => star_inputs_classification (hinputs i))
+      hleaf (fun i => star_source_valid rb (starCenter i) (a i).isLt (hinputs i))
+      hstarsafe hcover z hz hzop hzsmall hne
+  · have hcovempty : Cnf.Covers G ∅ := by
+      intro u v huv
+      rcases hcover u v huv with ⟨i, hi⟩ | ⟨b, hb⟩
+      · have hlt := i.isLt
+        omega
+      · have hlt := b.isLt
+        omega
+    have he := Cnf.edges_le_cover_degrees G ∅ hcovempty
+    have hedge : G.edgeFinset.card ≤ 0 := by simpa using he
+    exact ⟨∅, hcovempty, by simp only [card_empty]; omega⟩
+
+end ThinBlock
+
 end PEqualNP.Outside.L_meta_2583
