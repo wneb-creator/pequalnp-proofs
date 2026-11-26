@@ -1335,3 +1335,525 @@ theorem readerGraph_pin_true (v : Fin 3) (x : Fin 32) :
   simpa [GFirst.target, HFirst.upper] using readerGraph_embed v true x
 
 end PEqualNP.Outside.L_meta_9033_aux.ReaderCofactorBridge
+
+
+namespace PEqualNP.Outside.L_meta_9033_aux.MaskProjection
+
+theorem nonatom_image_card_le {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (project : α → β) (required globalAtoms : Finset α) (localAtoms : Finset β)
+    (atom_map : ∀ a ∈ globalAtoms, project a ∈ localAtoms) :
+    ((required.image project) \ localAtoms).card ≤ (required \ globalAtoms).card := by
+  have subset : (required.image project) \ localAtoms ⊆
+      (required \ globalAtoms).image project := by
+    intro x hx
+    obtain ⟨himage, hnot⟩ := Finset.mem_sdiff.mp hx
+    obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp himage
+    apply Finset.mem_image.mpr
+    refine ⟨a, Finset.mem_sdiff.mpr ⟨ha, ?_⟩, rfl⟩
+    intro hatom
+    exact hnot (atom_map a hatom)
+  exact (Finset.card_le_card subset).trans Finset.card_image_le
+
+theorem nonatom_image_budget {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (project : α → β) (required globalAtoms : Finset α) (localAtoms : Finset β)
+    (atom_map : ∀ a ∈ globalAtoms, project a ∈ localAtoms) (n : Nat)
+    (hbudget : (required \ globalAtoms).card ≤ n) :
+    ((required.image project) \ localAtoms).card ≤ n := by
+  exact (nonatom_image_card_le project required globalAtoms localAtoms atom_map).trans hbudget
+
+def projectNat (v : Fin 3) (mask : Nat) : Nat :=
+  (mask / 8 % 32) ||| (if mask.testBit v.val then 32 else 0)
+
+theorem projectNat_lt64 (v : Fin 3) (mask : Nat) : projectNat v mask < 64 := by
+  have hc : mask / 8 % 32 < 2 ^ 6 := by
+    have hm := Nat.mod_lt (mask / 8) (by decide : 0 < 32)
+    omega
+  have hv : (if mask.testBit v.val then 32 else 0) < 2 ^ 6 := by
+    split <;> decide
+  exact Nat.or_lt_two_pow hc hv
+
+def projectMask (v : Fin 3) (mask : Fin 256) : Fin 64 :=
+  ⟨projectNat v mask.val, projectNat_lt64 v mask.val⟩
+
+def globalRawAtoms : Finset Nat := {0, 1, 2, 4, 8, 16, 32, 64, 128}
+def localRawAtoms : Finset Nat := {0, 1, 2, 4, 8, 16, 32}
+
+theorem projectNat_zero : ∀ v : Fin 3, projectNat v 0 = 0 := by decide +kernel
+
+theorem projectNat_singleton : ∀ (v : Fin 3) (i : Fin 8),
+    projectNat v (2 ^ i.val) =
+      if i.val < 3 then (if i.val = v.val then 32 else 0) else 2 ^ (i.val - 3) := by
+  decide +kernel
+
+theorem raw_atoms_map : ∀ v : Fin 3, ∀ a ∈ globalRawAtoms,
+    projectNat v a ∈ localRawAtoms := by
+  decide +kernel
+
+theorem exceptional_atoms_map (v : Fin 3) (exceptional : Nat) :
+    ∀ a ∈ insert exceptional globalRawAtoms,
+      projectNat v a ∈ insert (projectNat v exceptional) localRawAtoms := by
+  intro a ha
+  rcases Finset.mem_insert.mp ha with rfl | ha
+  · exact Finset.mem_insert_self _ _
+  · exact Finset.mem_insert_of_mem (raw_atoms_map v a ha)
+
+theorem projected_mask_card_le (v : Fin 3) (required : Finset Nat) (exceptional : Nat) :
+    ((required.image (projectNat v)) \ insert (projectNat v exceptional) localRawAtoms).card ≤
+      (required \ insert exceptional globalRawAtoms).card := by
+  exact nonatom_image_card_le (projectNat v) required (insert exceptional globalRawAtoms)
+    (insert (projectNat v exceptional) localRawAtoms) (exceptional_atoms_map v exceptional)
+
+theorem projected_mask_budget (v : Fin 3) (required : Finset Nat) (exceptional n : Nat)
+    (hbudget : (required \ insert exceptional globalRawAtoms).card ≤ n) :
+    ((required.image (projectNat v)) \ insert (projectNat v exceptional) localRawAtoms).card ≤ n := by
+  exact (projected_mask_card_le v required exceptional).trans hbudget
+
+def globalRawAtoms256 : Finset (Fin 256) := {0, 1, 2, 4, 8, 16, 32, 64, 128}
+def localRawAtoms64 : Finset (Fin 64) := {0, 1, 2, 4, 8, 16, 32}
+
+theorem bounded_raw_atoms_map : ∀ v : Fin 3, ∀ a ∈ globalRawAtoms256,
+    projectMask v a ∈ localRawAtoms64 := by
+  decide +kernel
+
+theorem bounded_exceptional_atoms_map (v : Fin 3) (exceptional : Fin 256) :
+    ∀ a ∈ insert exceptional globalRawAtoms256,
+      projectMask v a ∈ insert (projectMask v exceptional) localRawAtoms64 := by
+  intro a ha
+  rcases Finset.mem_insert.mp ha with rfl | ha
+  · exact Finset.mem_insert_self _ _
+  · exact Finset.mem_insert_of_mem (bounded_raw_atoms_map v a ha)
+
+theorem bounded_projected_mask_budget (v : Fin 3) (required : Finset (Fin 256))
+    (exceptional : Fin 256) (n : Nat)
+    (hbudget : (required \ insert exceptional globalRawAtoms256).card ≤ n) :
+    ((required.image (projectMask v)) \
+      insert (projectMask v exceptional) localRawAtoms64).card ≤ n := by
+  exact nonatom_image_budget (projectMask v) required (insert exceptional globalRawAtoms256)
+    (insert (projectMask v exceptional) localRawAtoms64)
+    (bounded_exceptional_atoms_map v exceptional) n hbudget
+
+end PEqualNP.Outside.L_meta_9033_aux.MaskProjection
+
+namespace PEqualNP.Outside.L_meta_9033_aux.MaskSignatureTransport
+
+def signature8 (f : Fin 8 → Bool) : Nat :=
+  (if f 0 then 1 else 0) + (if f 1 then 2 else 0) +
+  (if f 2 then 4 else 0) + (if f 3 then 8 else 0) +
+  (if f 4 then 16 else 0) + (if f 5 then 32 else 0) +
+  (if f 6 then 64 else 0) + (if f 7 then 128 else 0)
+
+def signature6 (core : Fin 5 → Bool) (retained : Bool) : Nat :=
+  (if core 0 then 1 else 0) + (if core 1 then 2 else 0) +
+  (if core 2 then 4 else 0) + (if core 3 then 8 else 0) +
+  (if core 4 then 16 else 0) + (if retained then 32 else 0)
+
+theorem project_signature_values : ∀ (v : Fin 3) (a b c d e f g h : Bool),
+    MaskProjection.projectNat v
+      ((if a then 1 else 0) + (if b then 2 else 0) +
+       (if c then 4 else 0) + (if d then 8 else 0) +
+       (if e then 16 else 0) + (if f then 32 else 0) +
+       (if g then 64 else 0) + (if h then 128 else 0)) =
+      ((if d then 1 else 0) + (if e then 2 else 0) +
+       (if f then 4 else 0) + (if g then 8 else 0) + (if h then 16 else 0) +
+       (if (if v.val = 0 then a else if v.val = 1 then b else c) then 32 else 0)) := by
+  decide +kernel
+
+theorem project_signature8 : ∀ (v : Fin 3) (f : Fin 8 → Bool),
+    MaskProjection.projectNat v (signature8 f) =
+      signature6 (fun i => f (ReaderCofactorBridge.coreIndex i))
+        (f (ReaderCofactorBridge.abcIndex v)) := by
+  intro v f
+  have hp := project_signature_values v (f 0) (f 1) (f 2) (f 3) (f 4) (f 5) (f 6) (f 7)
+  have cases_v : ∀ z : Fin 3, z = 0 ∨ z = 1 ∨ z = 2 := by decide +kernel
+  have hv : f (ReaderCofactorBridge.abcIndex v) =
+      (if v.val = 0 then f 0 else if v.val = 1 then f 1 else f 2) := by
+    rcases cases_v v with rfl | rfl | rfl <;> rfl
+  have h0 : f (ReaderCofactorBridge.coreIndex 0) = f 3 := rfl
+  have h1 : f (ReaderCofactorBridge.coreIndex 1) = f 4 := rfl
+  have h2 : f (ReaderCofactorBridge.coreIndex 2) = f 5 := rfl
+  have h3 : f (ReaderCofactorBridge.coreIndex 3) = f 6 := rfl
+  have h4 : f (ReaderCofactorBridge.coreIndex 4) = f 7 := rfl
+  simpa only [signature8, signature6, h0, h1, h2, h3, h4, hv] using hp
+
+def globalUnit (i j : Fin 8) : Bool := decide (j = i)
+
+def globalMask (truth : (Fin 8 → Bool) → Bool) : Nat :=
+  signature8 (fun i => truth (globalUnit i))
+
+def localMask (v : Fin 3) (truth : (Fin 8 → Bool) → Bool) : Nat :=
+  signature6 (fun i => truth (ReaderCofactorBridge.embed v false (HFirst.unit i)))
+    (truth (ReaderCofactorBridge.embed v true 0))
+
+theorem embed_core_as_globalUnit (v : Fin 3) (i : Fin 5) :
+    ReaderCofactorBridge.embed v false (HFirst.unit i) =
+      globalUnit (ReaderCofactorBridge.coreIndex i) := by
+  funext j
+  simpa only [globalUnit, ReaderCofactorBridge.coreIndex, Fin.ext_iff]
+    using ReaderCofactorBridge.embed_core_singleton v i j
+
+theorem embed_retained_as_globalUnit (v : Fin 3) :
+    ReaderCofactorBridge.embed v true 0 = globalUnit (ReaderCofactorBridge.abcIndex v) := by
+  funext j
+  simpa only [globalUnit, ReaderCofactorBridge.abcIndex, Fin.ext_iff]
+    using ReaderCofactorBridge.embed_distinguished_singleton v j
+
+theorem localMask_eq_projection (v : Fin 3) (truth : (Fin 8 → Bool) → Bool) :
+    localMask v truth = MaskProjection.projectNat v (globalMask truth) := by
+  unfold localMask globalMask
+  rw [project_signature8]
+  simp only [embed_core_as_globalUnit, embed_retained_as_globalUnit]
+
+theorem cofactor_signature_budget {α : Type*} [DecidableEq α]
+    (v : Fin 3) (truth : α → (Fin 8 → Bool) → Bool) (required : Finset α)
+    (exceptional : (Fin 8 → Bool) → Bool) (n : Nat)
+    (hbudget : ((required.image (fun i => globalMask (truth i))) \
+      insert (globalMask exceptional) MaskProjection.globalRawAtoms).card ≤ n) :
+    ((required.image (fun i => localMask v (truth i))) \
+      insert (localMask v exceptional) MaskProjection.localRawAtoms).card ≤ n := by
+  have hp := MaskProjection.projected_mask_budget v
+    (required.image (fun i => globalMask (truth i))) (globalMask exceptional) n hbudget
+  simpa only [Finset.image_image, Function.comp_def, localMask_eq_projection] using hp
+
+end PEqualNP.Outside.L_meta_9033_aux.MaskSignatureTransport
+
+namespace PEqualNP.Outside.L_meta_9033_aux.CausalOrFlattening
+
+def basisOr {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (support : Finset β) (x : α) : Bool :=
+  decide (∃ b ∈ support, basis b x = true)
+
+lemma basisOr_true {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (support : Finset β) (x : α) :
+    basisOr basis support x = true ↔ ∃ b ∈ support, basis b x = true := by
+  simp [basisOr]
+
+lemma basisOr_empty {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (x : α) : basisOr basis ∅ x = false := by
+  simp [basisOr]
+
+lemma basisOr_singleton {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (b : β) (x : α) :
+    basisOr basis {b} x = basis b x := by
+  cases hb : basis b x <;> simp [basisOr, hb]
+
+lemma bool_or_true {a b : Bool} : (a || b) = true ↔ a = true ∨ b = true := by
+  cases a <;> cases b <;> simp
+
+lemma bool_eq_of_true_iff {a b : Bool} (h : a = true ↔ b = true) : a = b := by
+  cases a <;> cases b <;> simp_all
+
+lemma basisOr_union {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (s t : Finset β) (x : α) :
+    basisOr basis (s ∪ t) x = (basisOr basis s x || basisOr basis t x) := by
+  apply bool_eq_of_true_iff
+  rw [basisOr_true, bool_or_true, basisOr_true, basisOr_true]
+  constructor
+  · rintro ⟨b, hb, hx⟩
+    rcases Finset.mem_union.mp hb with hs | ht
+    · exact Or.inl ⟨b, hs, hx⟩
+    · exact Or.inr ⟨b, ht, hx⟩
+  · rintro (⟨b, hb, hx⟩ | ⟨b, hb, hx⟩)
+    · exact ⟨b, Finset.mem_union.mpr (Or.inl hb), hx⟩
+    · exact ⟨b, Finset.mem_union.mpr (Or.inr hb), hx⟩
+
+theorem causal_or_flatten_allowed {n : Nat} {α β : Type*}
+    [DecidableEq β]
+    (value : Fin n → α → Bool) (basis : β → α → Bool) (allowed : Finset β)
+    (step : ∀ i,
+      (∀ x, value i x = false) ∨
+      (∃ b ∈ allowed, ∀ x, value i x = basis b x) ∨
+      (∃ j k : Fin n, j.val < i.val ∧ k.val < i.val ∧
+        ∀ x, value i x = (value j x || value k x))) :
+    ∀ i, ∃ support : Finset β, support ⊆ allowed ∧
+      ∀ x, value i x = basisOr basis support x := by
+  have cover : ∀ m, ∀ i : Fin n, i.val = m →
+      ∃ support : Finset β, support ⊆ allowed ∧
+        ∀ x, value i x = basisOr basis support x := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro i hi
+      rcases step i with hz | ⟨b, hb, heq⟩ | ⟨j, k, hj, hk, heq⟩
+      · refine ⟨∅, Finset.empty_subset allowed, ?_⟩
+        intro x
+        rw [hz x, basisOr_empty]
+      · refine ⟨{b}, ?_, ?_⟩
+        · intro c hc
+          have hcb : c = b := Finset.mem_singleton.mp hc
+          simpa only [hcb] using hb
+        · intro x
+          rw [basisOr_singleton]
+          exact heq x
+      · obtain ⟨sj, hsj, hej⟩ := ih j.val (by omega) j rfl
+        obtain ⟨sk, hsk, hek⟩ := ih k.val (by omega) k rfl
+        refine ⟨sj ∪ sk, ?_, ?_⟩
+        · intro b hb
+          rcases Finset.mem_union.mp hb with hb | hb
+          · exact hsj hb
+          · exact hsk hb
+        · intro x
+          rw [heq x, hej x, hek x, basisOr_union]
+  intro i
+  exact cover i.val i rfl
+
+theorem causal_or_flatten {n : Nat} {α β : Type*}
+    [Fintype β] [DecidableEq β]
+    (value : Fin n → α → Bool) (basis : β → α → Bool)
+    (step : ∀ i,
+      (∀ x, value i x = false) ∨
+      (∃ b, ∀ x, value i x = basis b x) ∨
+      (∃ j k : Fin n, j.val < i.val ∧ k.val < i.val ∧
+        ∀ x, value i x = (value j x || value k x))) :
+    ∀ i, ∃ support : Finset β, ∀ x, value i x = basisOr basis support x := by
+  have hstep : ∀ i,
+      (∀ x, value i x = false) ∨
+      (∃ b ∈ (Finset.univ : Finset β), ∀ x, value i x = basis b x) ∨
+      (∃ j k : Fin n, j.val < i.val ∧ k.val < i.val ∧
+        ∀ x, value i x = (value j x || value k x)) := by
+    intro i
+    rcases step i with hz | ⟨b, hb⟩ | hor
+    · exact Or.inl hz
+    · exact Or.inr (Or.inl ⟨b, Finset.mem_univ b, hb⟩)
+    · exact Or.inr (Or.inr hor)
+  intro i
+  obtain ⟨support, _, hsupport⟩ :=
+    causal_or_flatten_allowed value basis Finset.univ hstep i
+  exact ⟨support, hsupport⟩
+
+theorem selected_basis_below {α β : Type*} [DecidableEq β]
+    (basis : β → α → Bool) (support : Finset β) (b : β) (hb : b ∈ support) :
+    ∀ x, basis b x = true → basisOr basis support x = true := by
+  intro x hx
+  exact (basisOr_true basis support x).mpr ⟨b, hb, hx⟩
+
+theorem causal_or_flatten_good {n : Nat} {α β : Type*}
+    [DecidableEq β]
+    (value : Fin n → α → Bool) (basis : β → α → Bool)
+    (good : Fin n → Prop) (allowed : Finset β)
+    (step : ∀ i, good i →
+      (∀ x, value i x = false) ∨
+      (∃ b ∈ allowed, ∀ x, value i x = basis b x) ∨
+      (∃ j k : Fin n, j.val < i.val ∧ k.val < i.val ∧ good j ∧ good k ∧
+        ∀ x, value i x = (value j x || value k x))) :
+    ∀ i, good i → ∃ support : Finset β, support ⊆ allowed ∧
+      ∀ x, value i x = basisOr basis support x := by
+  have cover : ∀ m, ∀ i : Fin n, i.val = m → good i →
+      ∃ support : Finset β, support ⊆ allowed ∧
+        ∀ x, value i x = basisOr basis support x := by
+    intro m
+    induction m using Nat.strong_induction_on with
+    | ind m ih =>
+      intro i hi hgood
+      rcases step i hgood with hz | ⟨b, hb, heq⟩ | ⟨j, k, hj, hk, hgj, hgk, heq⟩
+      · refine ⟨∅, Finset.empty_subset allowed, ?_⟩
+        intro x
+        rw [hz x, basisOr_empty]
+      · refine ⟨{b}, ?_, ?_⟩
+        · intro c hc
+          have hcb : c = b := Finset.mem_singleton.mp hc
+          simpa only [hcb] using hb
+        · intro x
+          rw [basisOr_singleton]
+          exact heq x
+      · obtain ⟨sj, hsj, hej⟩ := ih j.val (by omega) j rfl hgj
+        obtain ⟨sk, hsk, hek⟩ := ih k.val (by omega) k rfl hgk
+        refine ⟨sj ∪ sk, ?_, ?_⟩
+        · intro b hb
+          rcases Finset.mem_union.mp hb with hb | hb
+          · exact hsj hb
+          · exact hsk hb
+        · intro x
+          rw [heq x, hej x, hek x, basisOr_union]
+  intro i hgood
+  exact cover i.val i rfl hgood
+
+end PEqualNP.Outside.L_meta_9033_aux.CausalOrFlattening
+
+namespace PEqualNP.Outside.L_meta_9033_aux.ConcreteOrPorts
+
+open CausalOrFlattening
+
+def rawMask (a b c d e : Bool) : Fin 32 :=
+  ⟨(if a then 1 else 0) + (if b then 2 else 0) + (if c then 4 else 0) +
+    (if d then 8 else 0) + (if e then 16 else 0), by
+    have h : ∀ a b c d e : Bool,
+        (if a then 1 else 0) + (if b then 2 else 0) + (if c then 4 else 0) +
+          (if d then 8 else 0) + (if e then 16 else 0) < 32 := by decide +kernel
+    exact h a b c d e⟩
+
+theorem rawMask_eval : ∀ (a b c d e : Bool) (x : Fin 32),
+    HFirst.raw (rawMask a b c d e) x =
+      ((a && x.val.testBit 0) || (b && x.val.testBit 1) ||
+        (c && x.val.testBit 2) || (d && x.val.testBit 3) || (e && x.val.testBit 4)) := by
+  decide +kernel
+
+def supportRawMask (support : Finset (Fin 8)) : Fin 32 :=
+  rawMask (decide (0 ∈ support)) (decide (1 ∈ support)) (decide (2 ∈ support))
+    (decide (3 ∈ support)) (decide (4 ∈ support))
+
+def portBasis {α : Type*} (row : α → Fin 32) (h g q : α → Bool)
+    (i : Fin 8) (x : α) : Bool :=
+  if i.val < 5 then (row x).val.testBit i.val
+  else if i.val = 5 then h x else if i.val = 6 then g x else q x
+
+lemma fin8_exists (P : Fin 8 → Prop) :
+    (∃ i, P i) ↔ P 0 ∨ P 1 ∨ P 2 ∨ P 3 ∨ P 4 ∨ P 5 ∨ P 6 ∨ P 7 := by
+  constructor
+  · rintro ⟨i, hi⟩
+    have hc : ∀ i : Fin 8,
+        i = 0 ∨ i = 1 ∨ i = 2 ∨ i = 3 ∨ i = 4 ∨ i = 5 ∨ i = 6 ∨ i = 7 := by
+      decide +kernel
+    rcases hc i with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> simp_all
+  · intro h
+    rcases h with h | h | h | h | h | h | h | h
+    · exact ⟨0, h⟩
+    · exact ⟨1, h⟩
+    · exact ⟨2, h⟩
+    · exact ⟨3, h⟩
+    · exact ⟨4, h⟩
+    · exact ⟨5, h⟩
+    · exact ⟨6, h⟩
+    · exact ⟨7, h⟩
+
+theorem basisOr_fin8 {α : Type*} (basis : Fin 8 → α → Bool)
+    (support : Finset (Fin 8)) (x : α) :
+    basisOr basis support x =
+      ((decide (0 ∈ support) && basis 0 x) || (decide (1 ∈ support) && basis 1 x) ||
+       (decide (2 ∈ support) && basis 2 x) || (decide (3 ∈ support) && basis 3 x) ||
+       (decide (4 ∈ support) && basis 4 x) || (decide (5 ∈ support) && basis 5 x) ||
+       (decide (6 ∈ support) && basis 6 x) || (decide (7 ∈ support) && basis 7 x)) := by
+  apply bool_eq_of_true_iff
+  rw [basisOr_true, fin8_exists]
+  simp [or_assoc]
+
+theorem basisOr_portBasis {α : Type*} (row : α → Fin 32) (h g q : α → Bool)
+    (support : Finset (Fin 8)) (x : α) :
+    basisOr (portBasis row h g q) support x =
+      HFirst.finalSide (supportRawMask support)
+        (decide (5 ∈ support)) (decide (6 ∈ support)) (decide (7 ∈ support))
+        (h x) (g x) (q x) (row x) := by
+  rw [basisOr_fin8]
+  simp [portBasis, HFirst.finalSide, supportRawMask, rawMask_eval]
+
+theorem exists_final_port {α : Type*} (row : α → Fin 32) (h g q : α → Bool)
+    (support : Finset (Fin 8)) :
+    ∃ p : Fin 32, ∃ takeH takeG takeQ : Bool, ∀ x,
+      basisOr (portBasis row h g q) support x =
+        HFirst.finalSide p takeH takeG takeQ (h x) (g x) (q x) (row x) := by
+  exact ⟨supportRawMask support, decide (5 ∈ support), decide (6 ∈ support),
+    decide (7 ∈ support), basisOr_portBasis row h g q support⟩
+
+theorem basisOr_portBasis_no_g {α : Type*} (row : α → Fin 32) (h g q : α → Bool)
+    (support : Finset (Fin 8)) (hno : (6 : Fin 8) ∉ support) (x : α) :
+    basisOr (portBasis row h g q) support x =
+      (HFirst.raw (supportRawMask support) (row x) ||
+        (decide (5 ∈ support) && h x) || (decide (7 ∈ support) && q x)) := by
+  rw [basisOr_portBasis]
+  simp [HFirst.finalSide, hno]
+
+theorem basisOr_portBasis_raw_only {α : Type*} (row : α → Fin 32) (h g q : α → Bool)
+    (support : Finset (Fin 8))
+    (h5 : (5 : Fin 8) ∉ support) (h6 : (6 : Fin 8) ∉ support) (h7 : (7 : Fin 8) ∉ support)
+    (x : α) : basisOr (portBasis row h g q) support x =
+      HFirst.raw (supportRawMask support) (row x) := by
+  rw [basisOr_portBasis]
+  simp [HFirst.finalSide, h5, h6, h7]
+
+def sourceSelector (p : Fin 32) (takeG : Bool) : Fin 64 :=
+  ⟨p.val + (if takeG then 32 else 0), by cases takeG <;> simp <;> omega⟩
+
+theorem sourceSelector_low5 : ∀ (p : Fin 32) (takeG : Bool),
+    PackedCofactorBridge.low5 (sourceSelector p takeG) = p := by
+  decide +kernel
+
+theorem sourceSelector_bit5 : ∀ (p : Fin 32) (takeG : Bool),
+    (sourceSelector p takeG).val.testBit 5 = takeG := by
+  decide +kernel
+
+theorem sourceOr_selector (p : Fin 32) (takeG : Bool) (g : Fin 32 → Bool) (x : Fin 32) :
+    PackedCofactorBridge.sourceOr (sourceSelector p takeG) g x =
+      (HFirst.raw p x || (takeG && g x)) := by
+  simp [PackedCofactorBridge.sourceOr, sourceSelector_low5, sourceSelector_bit5]
+
+theorem basisOr_portBasis_g_only (h g q : Fin 32 → Bool)
+    (support : Finset (Fin 8))
+    (h5 : (5 : Fin 8) ∉ support) (h7 : (7 : Fin 8) ∉ support) (x : Fin 32) :
+    basisOr (portBasis (fun z => z) h g q) support x =
+      PackedCofactorBridge.sourceOr
+        (sourceSelector (supportRawMask support) (decide (6 ∈ support))) g x := by
+  rw [basisOr_portBasis, sourceOr_selector]
+  simp [HFirst.finalSide, h5, h7]
+
+theorem causal_final_port {n : Nat} {α : Type*}
+    (value : Fin n → α → Bool) (row : α → Fin 32) (h g q : α → Bool)
+    (good : Fin n → Prop) (allowed : Finset (Fin 8))
+    (step : ∀ i, good i →
+      (∀ x, value i x = false) ∨
+      (∃ b ∈ allowed, ∀ x, value i x = portBasis row h g q b x) ∨
+      (∃ j k : Fin n, j.val < i.val ∧ k.val < i.val ∧ good j ∧ good k ∧
+        ∀ x, value i x = (value j x || value k x))) :
+    ∀ i, good i → ∃ support : Finset (Fin 8), support ⊆ allowed ∧
+      ∀ x, value i x = HFirst.finalSide (supportRawMask support)
+        (decide (5 ∈ support)) (decide (6 ∈ support)) (decide (7 ∈ support))
+        (h x) (g x) (q x) (row x) := by
+  intro i hi
+  obtain ⟨support, hallowed, hvalue⟩ :=
+    causal_or_flatten_good value (portBasis row h g q) good allowed step i hi
+  refine ⟨support, hallowed, ?_⟩
+  intro x
+  exact (hvalue x).trans (basisOr_portBasis row h g q support x)
+
+end PEqualNP.Outside.L_meta_9033_aux.ConcreteOrPorts
+
+namespace PEqualNP.Outside.L_meta_9033_aux.QMateExtraction
+
+open PEqualNP.Outside.L_meta_9033_aux.HFirst
+
+def mate (p : Fin 32) (takeH takeG : Bool)
+    (h g : Bool → Fin 32 → Bool) (b : Bool) (x : Fin 32) : Bool :=
+  raw p x || (takeH && h b x) || (takeG && g b x)
+
+theorem raw_zero_of_singletons : ∀ p : Fin 32,
+    (∀ i : Fin 5, raw p (unit i) = false) → p = 0 := by
+  decide +kernel
+
+theorem mate_exact_h (p : Fin 32) (takeH takeG : Bool)
+    (h g : Bool → Fin 32 → Bool)
+    (hcore : ∀ i : Fin 5, mate p takeH takeG h g false (unit i) = false)
+    (hretained : mate p takeH takeG h g true 0 = false)
+    (hgsingleton : (∃ i : Fin 5, g false (unit i) = true) ∨ g true 0 = true)
+    (hpositive : ∃ b x, mate p takeH takeG h g b x = true) :
+    p = 0 ∧ takeG = false ∧ takeH = true ∧
+      ∀ b x, mate p takeH takeG h g b x = h b x := by
+  have hp : p = 0 := by
+    apply raw_zero_of_singletons p
+    intro i
+    have hi := hcore i
+    cases hr : raw p (unit i)
+    · rfl
+    · simp [mate, hr] at hi
+  have hg : takeG = false := by
+    cases he : takeG
+    · rfl
+    · exfalso
+      rcases hgsingleton with ⟨i, hi⟩ | hi
+      · have hz := hcore i
+        simp [mate, he, hi] at hz
+      · simp [mate, he, hi] at hretained
+  have hh : takeH = true := by
+    cases he : takeH
+    · obtain ⟨b, x, hx⟩ := hpositive
+      simp [mate, hp, hg, he, zero_raw] at hx
+    · rfl
+  refine ⟨hp, hg, hh, ?_⟩
+  intro b x
+  simp [mate, hp, hg, hh, zero_raw]
+
+theorem q_eq_of_mate_eq (q h m : Bool → Fin 32 → Bool)
+    (hq : ∀ b x, q b x = (b || m b x))
+    (hm : ∀ b x, m b x = h b x) :
+    ∀ b x, q b x = (b || h b x) := by
+  intro b x
+  rw [hq, hm]
+
+end PEqualNP.Outside.L_meta_9033_aux.QMateExtraction
