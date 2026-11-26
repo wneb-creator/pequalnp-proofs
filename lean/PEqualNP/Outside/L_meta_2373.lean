@@ -365,4 +365,60 @@ lemma twoRaw_boundary_row_count : twoRawPositiveRows.length + twoRawNegativeRows
 lemma twoRaw_boundary_rows_nodup : (twoRawPositiveRows ++ twoRawNegativeRows).Nodup := by
   decide
 
+lemma and_operand_replacement {ι : Type*} (f a b : ι → Bool)
+    (k : ι → Bool → Bool)
+    (hk : ∀ x u v, BoolLe u v → BoolLe (k x u) (k x v))
+    (hcorrect : ∀ x, k x (a x && b x) = f x)
+    (hnegative : ∀ x, f x = false → a x = true → b x = true) :
+    ∀ x, k x (a x) = f x := by
+  intro x
+  have hm := hk x false true (by simp [BoolLe])
+  have hc := hcorrect x
+  have hn := hnegative x
+  cases ha : a x <;> cases hb : b x <;> cases hf : f x <;>
+    cases h0 : k x false <;> cases h1 : k x true <;> simp_all [BoolLe]
+
+lemma or_operand_replacement {ι : Type*} (f a b : ι → Bool)
+    (k : ι → Bool → Bool)
+    (hk : ∀ x u v, BoolLe u v → BoolLe (k x u) (k x v))
+    (hcorrect : ∀ x, k x (a x || b x) = f x)
+    (hpositive : ∀ x, f x = true → b x = true → a x = true) :
+    ∀ x, k x (a x) = f x := by
+  intro x
+  have hm := hk x false true (by simp [BoolLe])
+  have hc := hcorrect x
+  have hp := hpositive x
+  cases ha : a x <;> cases hb : b x <;> cases hf : f x <;>
+    cases h0 : k x false <;> cases h1 : k x true <;> simp_all [BoolLe]
+
+lemma and_operand_negative_witness {ι : Type*} (f a b : ι → Bool)
+    (k : ι → Bool → Bool)
+    (hk : ∀ x u v, BoolLe u v → BoolLe (k x u) (k x v))
+    (hcorrect : ∀ x, k x (a x && b x) = f x)
+    (hnecessary : ¬ ∀ x, k x (a x) = f x) :
+    ∃ x, f x = false ∧ a x = true ∧ b x = false := by
+  classical
+  by_contra h
+  apply hnecessary
+  apply and_operand_replacement f a b k hk hcorrect
+  intro x hf ha
+  cases hb : b x
+  · exact False.elim (h ⟨x, hf, ha, hb⟩)
+  · rfl
+
+lemma or_operand_positive_witness {ι : Type*} (f a b : ι → Bool)
+    (k : ι → Bool → Bool)
+    (hk : ∀ x u v, BoolLe u v → BoolLe (k x u) (k x v))
+    (hcorrect : ∀ x, k x (a x || b x) = f x)
+    (hnecessary : ¬ ∀ x, k x (a x) = f x) :
+    ∃ x, f x = true ∧ a x = false ∧ b x = true := by
+  classical
+  by_contra h
+  apply hnecessary
+  apply or_operand_replacement f a b k hk hcorrect
+  intro x hf hb
+  cases ha : a x
+  · exact False.elim (h ⟨x, hf, ha, hb⟩)
+  · rfl
+
 end PEqualNP.Outside.L_meta_2373_aux
