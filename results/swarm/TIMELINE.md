@@ -36,3 +36,7 @@
 - 2026-11-26 00:30:05: Sub-agents used so far: nine external bus helpers and six local helpers including nested helpers, 15 total.
 
 - 2026-11-26 00:33:32 UTC — Compressed concrete ABC reader caps: actual target module lake build PASS (110s). Independent reviewer checked posted-hypothesis transport, all376 packed table equalities, distinct-reader counting, format, and standard axioms. Helper-only checkpoint; no final posted theorem.
+
+- 2026-11-26 00:39:01 UTC — Kernel checked a generic five-union family extension lemma and a concrete blocked family. All original external UNSAT certificates now have independently reviewed strict-RUP evidence; complete Lean theorem remains open. Random witness searches stopped after no exact candidate.
+
+- 2026-11-26 00:55:36 UTC — Integrated and minified exact ABC OR-reader existence. Actual target lake build PASS;447650bytes after merging23 repeated outer namespace pairs. Independent literal-premise/reader-injection/source-inverse review PASS; minified fullbuild/six axiom audits standard3. Partial only: posted theorem absent.
