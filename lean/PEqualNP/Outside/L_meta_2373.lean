@@ -239,4 +239,130 @@ lemma oneNegEval_boundary_suffices {n : ℕ} (pre : Circuit) (j : ℕ) (C : Circ
     (fun hxy => oneNegEval_partial_monotone pre j C hpre hC hxy.1 hxy.2)
     hp hn hcoverp hcovern
 
+def manyNotEval {n : ℕ} (negative : List (Fin n)) (C : Circuit)
+    (x : Fin n → Bool) : Bool :=
+  C.eval (List.ofFn x ++ negative.map (fun i => !(x i)))
+
+lemma negative_values_related {n : ℕ} (negative : List (Fin n))
+    (x y : Fin n → Bool) (h : ∀ i ∈ negative, x i = y i) :
+    List.Forall₂ BoolLe (negative.map (fun i => !(x i)))
+      (negative.map (fun i => !(y i))) := by
+  induction negative with
+  | nil => exact List.Forall₂.nil
+  | cons i is ih =>
+    apply List.Forall₂.cons
+    · have hi := h i (by simp)
+      simp [BoolLe, hi]
+    · exact ih (fun j hj => h j (List.mem_cons_of_mem i hj))
+
+lemma manyNotEval_partial_monotone {n : ℕ} (negative : List (Fin n))
+    (C : Circuit) (hC : Monotone2 C) {x y : Fin n → Bool}
+    (hxy : InputLe x y) (hsame : ∀ i ∈ negative, x i = y i) :
+    BoolLe (manyNotEval negative C x) (manyNotEval negative C y) := by
+  exact monotone2_eval_related C hC
+    (related_append (related_ofFn x y hxy) (negative_values_related negative x y hsame))
+
+lemma manyNotEval_boundary_suffices {n : ℕ} (negativeInputs : List (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (target : (Fin n → Bool) → Bool) (positive negative : List (Fin n → Bool))
+    (hp : ∀ p ∈ positive, manyNotEval negativeInputs C p = true)
+    (hn : ∀ p ∈ negative, manyNotEval negativeInputs C p = false)
+    (hcoverp : ∀ x, target x = true → ∃ p ∈ positive,
+      InputLe p x ∧ ∀ i ∈ negativeInputs, p i = x i)
+    (hcovern : ∀ x, target x = false → ∃ p ∈ negative,
+      InputLe x p ∧ ∀ i ∈ negativeInputs, x i = p i) :
+    ∀ x, manyNotEval negativeInputs C x = target x := by
+  exact boundary_suffices
+    (fun x y => InputLe x y ∧ ∀ i ∈ negativeInputs, x i = y i)
+    (manyNotEval negativeInputs C) target positive negative
+    (fun hxy => manyNotEval_partial_monotone negativeInputs C hC hxy.1 hxy.2)
+    hp hn hcoverp hcovern
+
+lemma input_getD_append {n : ℕ} (x : Fin n → Bool) (extra : List Bool) (i : Fin n) :
+    (List.ofFn x ++ extra).getD i.val false = x i := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_append_left (by simp)]
+  simp
+
+def rawNotGates {n : ℕ} (negative : List (Fin n)) : List Gate :=
+  negative.map (fun i => { op := GateOp.not, inputs := [i.val] })
+
+lemma rawNot_fold {n : ℕ} (negative : List (Fin n)) (x : Fin n → Bool)
+    (extra : List Bool) :
+    (rawNotGates negative).foldl
+      (fun w g => w ++ [g.op.eval (g.inputs.map (fun i => w.getD i false))])
+      (List.ofFn x ++ extra) =
+    List.ofFn x ++ (extra ++ negative.map (fun i => !(x i))) := by
+  induction negative generalizing extra with
+  | nil => simp [rawNotGates]
+  | cons i is ih =>
+    have hlookup := input_getD_append x extra i
+    simp only [List.getD_eq_getElem?_getD] at hlookup
+    simpa [rawNotGates, GateOp.eval, List.append_assoc, hlookup]
+      using ih (extra ++ [!(x i)])
+
+lemma manyNotEval_eq_circuit {n : ℕ} (negative : List (Fin n)) (C : Circuit)
+    (x : Fin n → Bool) :
+    manyNotEval negative C x =
+      (Circuit.mk (rawNotGates negative ++ C.gates) C.output).eval (List.ofFn x) := by
+  have hp := rawNot_fold negative x []
+  simp only [List.append_nil, List.nil_append] at hp
+  simp only [manyNotEval, Circuit.eval, Circuit.wires, List.foldl_append, hp]
+
+def twoRawInputs : List (Fin 10) := [0, 2]
+
+def twoRawPositiveRows : List ℕ := [3, 6, 7, 12, 13, 17, 21, 24, 33, 37, 66, 132, 133, 160, 264, 265, 288, 292, 320, 321, 324, 325, 528, 532, 576, 577, 580, 581, 640, 641]
+
+def twoRawNegativeRows : List ℕ := [50, 69, 104, 112, 116, 138, 200, 201, 208, 276, 385, 402, 521, 548, 554, 769, 770, 772, 773]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma twoRaw_positive_rows_true : ∀ m ∈ twoRawPositiveRows, graphF (row m) = true := by
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma twoRaw_negative_rows_false : ∀ m ∈ twoRawNegativeRows, graphF (row m) = false := by
+  decide
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma twoRaw_rows_cover : ∀ x : Fin 10 → Bool,
+    (graphF x = true → ∃ m ∈ twoRawPositiveRows,
+      InputLe (row m) x ∧ ∀ i ∈ twoRawInputs, row m i = x i) ∧
+    (graphF x = false → ∃ m ∈ twoRawNegativeRows,
+      InputLe x (row m) ∧ ∀ i ∈ twoRawInputs, x i = row m i) := by
+  unfold InputLe BoolLe
+  simp only [twoRawInputs, List.forall_mem_cons, List.not_mem_nil, false_implies, forall_const, and_true]
+  decide
+
+lemma twoRawNotEval_boundary_iff (C : Circuit) (hC : Monotone2 C) :
+    (∀ x, manyNotEval twoRawInputs C x = graphF x) ↔
+      (∀ m ∈ twoRawPositiveRows, manyNotEval twoRawInputs C (row m) = true) ∧
+      (∀ m ∈ twoRawNegativeRows, manyNotEval twoRawInputs C (row m) = false) := by
+  constructor
+  · intro h
+    exact ⟨fun m hm => (h (row m)).trans (twoRaw_positive_rows_true m hm),
+      fun m hm => (h (row m)).trans (twoRaw_negative_rows_false m hm)⟩
+  · rintro ⟨hp, hn⟩
+    apply manyNotEval_boundary_suffices twoRawInputs C hC graphF
+      (twoRawPositiveRows.map row) (twoRawNegativeRows.map row)
+    · intro p hp'
+      obtain ⟨m, hm, rfl⟩ := List.mem_map.mp hp'
+      exact hp m hm
+    · intro p hn'
+      obtain ⟨m, hm, rfl⟩ := List.mem_map.mp hn'
+      exact hn m hm
+    · intro x hx
+      obtain ⟨m, hm, hmx⟩ := (twoRaw_rows_cover x).1 hx
+      exact ⟨row m, List.mem_map.mpr ⟨m, hm, rfl⟩, hmx⟩
+    · intro x hx
+      obtain ⟨m, hm, hxm⟩ := (twoRaw_rows_cover x).2 hx
+      exact ⟨row m, List.mem_map.mpr ⟨m, hm, rfl⟩, hxm⟩
+
+lemma twoRaw_boundary_row_count : twoRawPositiveRows.length + twoRawNegativeRows.length = 49 := by
+  decide
+
+lemma twoRaw_boundary_rows_nodup : (twoRawPositiveRows ++ twoRawNegativeRows).Nodup := by
+  decide
+
 end PEqualNP.Outside.L_meta_2373_aux
