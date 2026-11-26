@@ -79,3 +79,11 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local se
 - 2026-11-25T23:56:26Z: Exact seven-prefix h3 relocation passed its fresh kernel build and three standard-axiom audits (119.14 seconds, peak 4.64 GiB), making the research modules import-compatible.
 - 2026-11-25T23:56:44Z: Restored r0 adapter and canonical one-ineligible-to-three-case endpoint passed kernel/type/standard-axiom checks (4.70 seconds). The previously omitted r0 bridge is now connected.
 - 2026-11-25T23:58:36Z: Confirmed the complete imported actual-circuit-to-three-profiles composition passed its kernel build, exact theorem type, standard-three-axiom audit, and independent review. No r0, relabeling, or census premise remains. The three canonical exclusions and compliant final source-size requirement remain unfinished. Eight-module source reproduction and script syntax checks passed.
+
+- 2026-11-26T00:00:42Z: Sixteenth partial push confirmed at e1f962fb73 after independent eight-file review. It archives the complete actual-circuit-to-three-profiles research composition, restored r0 proof, and exact eight-module reproduction recipe. No FINAL or PR.
+- 2026-11-26T00:04:00Z (approximately): Helper-2 reported the last focused exact-19 S50 T68 search ended UNKNOWN at its 1200.016-second limit. No counterexample or UNSAT verdict; root keeps the full gap open.
+
+- 2026-11-26T00:07:49Z: Root reached the three-hour checkpoint. Strongest archived result is the checked actual-circuit-to-three-profiles research composition; the canonical exclusions and compliant single-file assembly remain unfinished. Result: none for the posted gap. No FINAL, pull request, full-gap checker run, or lease release. Existing lease renewed; helper continuation sources are recorded in HANDOFF.md.
+
+Sub-agents: nine external helper jobs plus four local workers, including one nested local worker; external helpers own descendants excluded from this root-job count.
+TIMING total=180 subagents=13

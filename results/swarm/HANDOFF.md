@@ -26,8 +26,8 @@ Helper branches are on the fork under `pnp/swarm-L-meta-2590-h1` through `-h9`. 
 - h5 `ea83c08f77253d819e9ec157f69ef97313e5fe9a`: complete cardinality-3 case, 376910 bytes, including a smaller full-neighborhood proof. Earlier virtual construction is retained in `fda4c8cfdc19047759abeafca2793140ac9d4f12` and bus 4862/4872. Source wire IDs must be deduplicated; its cost inequality correctly accounts for this.
 - h7 `d1daedf4911a826470fc33649823562daa5a4337`: positive-Bzero canonical-neighborhood case reduces to at most three center exits.
 - h3 `f06c5b441bb366d79fd53a6385718d7ff5cb43ea`: actual three-case census and full-A source witnesses, now independently rebuilt and archived by root. Three canonical exclusions remain in progress.
-- h6 `a1da66a9621c13e4c6b5dbc80ea1341c2f4d6770`: complete cardinality-4 exclusion plus both actual normalized S50 source classifications, including the omitted paired-leaf layouts. This is not a full S50 resource exclusion.
-- h8 `37dce1c17aac0e1e6c452339ed44da0cfa18b46d`: actual resource exclusion for one S18 profile; full S18 profile exhaustiveness remains separate. Further S200 and S50 resource work is ongoing.
+- h6 `8b323d4fe6a9eeb9988197a6329954c3bd7d8c94`: complete cardinality-4 exclusion plus both actual normalized S50 source classifications and typed six/seven/eight-gate interfaces, including paired-leaf layouts. This is not a full S50 resource exclusion.
+- h8 `71ed99ea76778d562eb50f29afac9ef237877e55`: actual resource exclusion for one S18 profile and the actual six-gate representative S200 contradiction. S200 still needs its concrete connection to h3 normalization in the root composition; S50 actual resource simulation remains open.
 - h9 `11daf304237854f82708c45904d42c3897790e82`: zero-ineligible proof, general six births, and designated-wire pruning. This publication includes the guard-only identifier corrections.
 
 ## Remaining blockers and cautions
@@ -59,3 +59,13 @@ bash results/swarm/reproduce_remaining_three.sh /tmp/oec/pnp-swarm-2590-orch/rep
 This prepares and builds eight modules, including the exact seven-prefix h3 relocation and restored r0 bridge. Source preparation was executed independently and all eight materialized proof sources matched the checked sources exactly; Python/Bash syntax checks passed. The full script has not been rerun as a duplicate complete build.
 
 Late research caution: helper 3 reports that the remaining pure-frame analysis for support `{1,4}` (mask 18, called S14 in helper messages) includes a branch where one designated AND gate has singleton support `{5}`. Its complete resource exclusion is still open. Do not extend S50's all-AND-empty-support assumptions to that branch. Helper finite resource certificates and Python model exhaustion do not by themselves prove actual-circuit simulation.
+
+## Continuation snapshots at the root checkpoint
+
+- S200: h3 `87176b7481e9c547a713daf1109ea6c96ef4f61c` supplies actual normalization to the representative six-gate profile; h8 `71ed99ea76778d562eb50f29afac9ef237877e55` supplies its actual resource contradiction. These are peer-checked publications, not yet connected in the archived root `RemainingThree` theorem.
+- S50: h6 `8b323d4fe6a9eeb9988197a6329954c3bd7d8c94` supplies actual normalized profiles and typed gate interfaces. H1's abstract finite certificates are preserved at `0da109537301e0ecf8a6705bdcf64d1f4176178a`; its full-I2 branch head `8daeece00e6ec98f7094754e482f8fba283da954` restores the compact I2 source. Actual 10-to-3 profile transport is checked by the helper (bus 5314), but the positive-pool callbacks and actual program-invariant simulation remain open. H8's two extra-profile finite models likewise still need actual simulation.
+- Support `{1,4}`: helper 5 reports computational closure for six representative pure-frame resource models, including positive-q updates, with matching controls. These are not Lean or actual-circuit exclusions. The actual profile/gate interfaces and every-other-AND-both-inputs-empty condition must be established; empty output support alone does not establish that input condition.
+
+The last focused exact-19 S50 T68 search finished UNKNOWN after 1200.016 seconds. It found no counterexample and supplied no UNSAT verdict. Earlier broad exact-19 searches were also UNKNOWN. No refutation is claimed.
+
+Root checkpoint: 2026-11-26T00:07:49Z, approximately 180 minutes. The posted gap remains open; root delivered checked partial research on `pnp/swarm-L-meta-2590-orch`. No FINAL or pull request was issued, and the coordinator lease was not released. The full-gap checker was not run because no compliant final proof/refutation file exists.
