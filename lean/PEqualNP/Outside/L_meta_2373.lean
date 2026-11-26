@@ -181,4 +181,62 @@ lemma boundary_row_count : positiveRows.length + negativeRows.length = 38 := by
 lemma boundary_rows_nodup : (positiveRows ++ negativeRows).Nodup := by
   decide
 
+lemma monotone2_wires_related (C : Circuit) (hC : Monotone2 C)
+    {xs ys : List Bool} (h : List.Forall₂ BoolLe xs ys) :
+    List.Forall₂ BoolLe (C.wires xs) (C.wires ys) := by
+  apply gates_related C.gates ?_ h
+  intro g hg
+  have hp := (hC g hg).1
+  simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using hp
+
+def negSource {n : ℕ} (pre : Circuit) (j : ℕ) (x : Fin n → Bool) : Bool :=
+  (pre.wires (List.ofFn x)).getD j false
+
+def oneNegEval {n : ℕ} (pre : Circuit) (j : ℕ) (C : Circuit)
+    (x : Fin n → Bool) : Bool :=
+  C.eval (pre.wires (List.ofFn x) ++ [!(negSource pre j x)])
+
+lemma negSource_monotone {n : ℕ} (pre : Circuit) (j : ℕ)
+    (hpre : Monotone2 pre) {x y : Fin n → Bool} (hxy : InputLe x y) :
+    BoolLe (negSource pre j x) (negSource pre j y) := by
+  exact related_getD
+    (monotone2_wires_related pre hpre (related_ofFn x y hxy)) j
+
+lemma oneNegEval_partial_monotone {n : ℕ} (pre : Circuit) (j : ℕ) (C : Circuit)
+    (hpre : Monotone2 pre) (hC : Monotone2 C)
+    {x y : Fin n → Bool} (hxy : InputLe x y)
+    (hsame : negSource pre j x = negSource pre j y) :
+    BoolLe (oneNegEval pre j C x) (oneNegEval pre j C y) := by
+  apply monotone2_eval_related C hC
+  apply related_append
+    (monotone2_wires_related pre hpre (related_ofFn x y hxy))
+  apply List.Forall₂.cons
+  · simp [BoolLe, hsame]
+  · exact List.Forall₂.nil
+
+lemma oneNegEval_eq_circuit {n : ℕ} (pre : Circuit) (j : ℕ) (C : Circuit)
+    (x : Fin n → Bool) :
+    oneNegEval pre j C x =
+      (Circuit.mk
+        (pre.gates ++ (({ op := GateOp.not, inputs := [j] } : Gate) :: C.gates))
+        C.output).eval (List.ofFn x) := by
+  simp [oneNegEval, negSource, Circuit.eval, Circuit.wires, List.foldl_append,
+    GateOp.eval]
+
+lemma oneNegEval_boundary_suffices {n : ℕ} (pre : Circuit) (j : ℕ) (C : Circuit)
+    (hpre : Monotone2 pre) (hC : Monotone2 C)
+    (target : (Fin n → Bool) → Bool) (positive negative : List (Fin n → Bool))
+    (hp : ∀ p ∈ positive, oneNegEval pre j C p = true)
+    (hn : ∀ p ∈ negative, oneNegEval pre j C p = false)
+    (hcoverp : ∀ x, target x = true → ∃ p ∈ positive,
+      InputLe p x ∧ negSource pre j p = negSource pre j x)
+    (hcovern : ∀ x, target x = false → ∃ p ∈ negative,
+      InputLe x p ∧ negSource pre j x = negSource pre j p) :
+    ∀ x, oneNegEval pre j C x = target x := by
+  exact boundary_suffices
+    (fun x y => InputLe x y ∧ negSource pre j x = negSource pre j y)
+    (oneNegEval pre j C) target positive negative
+    (fun hxy => oneNegEval_partial_monotone pre j C hpre hC hxy.1 hxy.2)
+    hp hn hcoverp hcovern
+
 end PEqualNP.Outside.L_meta_2373_aux
