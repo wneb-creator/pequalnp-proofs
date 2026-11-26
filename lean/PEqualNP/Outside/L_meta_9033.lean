@@ -287,4 +287,74 @@ lemma three_atoms_covered : ∀ (g : Fin 3) (S T : Finset (Fin 3)),
     ∀ a : Fin 3, a = g ∨ a ∈ S ∨ a ∈ T := by
   decide +kernel
 
+/- Causal cuts for reader-dependency arguments. -/
+
+lemma causal_cut_agreement
+    {n k : Nat} (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w₀ w₁ : Nat → Bool) (blocked : Finset Nat)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → i ∉ blocked → w₀ i = w₁ i)
+    (heval₀ : ∀ j, w₀ (n + j.val) = boolGate (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = boolGate (op j) (w₁ (a j)) (w₁ (b j)))
+    (hcut : ∀ j, n + j.val ∉ blocked →
+      (a j ∈ blocked ∨ b j ∈ blocked) → w₀ (n + j.val) = w₁ (n + j.val)) :
+    ∀ i, i < n + k → i ∉ blocked → w₀ i = w₁ i := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi hioutside
+    by_cases hin : i < n
+    · exact hraw i hin hioutside
+    · let j : Fin k := ⟨i - n, by omega⟩
+      have hij : i = n + j.val := by dsimp [j]; omega
+      by_cases hblocked : a j ∈ blocked ∨ b j ∈ blocked
+      · rw [hij]
+        exact hcut j (by simpa [← hij] using hioutside) hblocked
+      · have haoutside : a j ∉ blocked := fun h => hblocked (Or.inl h)
+        have hboutside : b j ∉ blocked := fun h => hblocked (Or.inr h)
+        have hea : w₀ (a j) = w₁ (a j) :=
+          ih (a j) (by simpa [← hij] using ha j)
+            (by have := ha j; omega) haoutside
+        have heb : w₀ (b j) = w₁ (b j) :=
+          ih (b j) (by simpa [← hij] using hb j)
+            (by have := hb j; omega) hboutside
+        rw [hij, heval₀, heval₁, hea, heb]
+
+lemma two_reader_dependency_agreement
+    {n k v u : Nat} (p q : Fin k) (a b : Fin k → Nat) (op : Fin k → Bool)
+    (w₀ w₁ : Nat → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (hraw : ∀ i, i < n → i ≠ v → i ≠ u → w₀ i = w₁ i)
+    (hsolev : ∀ j, j ≠ p → a j ≠ v ∧ b j ≠ v)
+    (hsoleu : ∀ j, j ≠ q → a j ≠ u ∧ b j ≠ u)
+    (hsolep : ∀ j, j ≠ q → a j ≠ n + p.val ∧ b j ≠ n + p.val)
+    (heval₀ : ∀ j, w₀ (n + j.val) = boolGate (op j) (w₀ (a j)) (w₀ (b j)))
+    (heval₁ : ∀ j, w₁ (n + j.val) = boolGate (op j) (w₁ (a j)) (w₁ (b j)))
+    (hq : w₀ (n + q.val) = w₁ (n + q.val)) :
+    ∀ i, i < n + k → i ≠ v → i ≠ u → i ≠ n + p.val → w₀ i = w₁ i := by
+  have hagree := causal_cut_agreement a b op w₀ w₁ ({v, u, n + p.val} : Finset Nat)
+    ha hb (fun i hi hioutside => by
+      apply hraw i hi
+      · intro hiv
+        subst i
+        simp at hioutside
+      · intro hiu
+        subst i
+        simp at hioutside) heval₀ heval₁ (by
+      intro j hjoutside hsource
+      by_cases hjq : j = q
+      · simpa [hjq] using hq
+      · have hjp : j ≠ p := by
+          intro hjp
+          subst j
+          simp at hjoutside
+        obtain ⟨hav, hbv⟩ := hsolev j hjp
+        obtain ⟨hau, hbu⟩ := hsoleu j hjq
+        obtain ⟨hap, hbp⟩ := hsolep j hjq
+        rcases hsource with hsource | hsource
+        · simp [hav, hau, hap] at hsource
+        · simp [hbv, hbu, hbp] at hsource)
+  intro i hi hiv hiu hip
+  exact hagree i hi (by simp [hiv, hiu, hip])
+
 end PEqualNP.Outside.L_meta_9033
