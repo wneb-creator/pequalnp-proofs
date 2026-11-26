@@ -7205,4 +7205,250 @@ lemma or_operand_private_test {p l : ℕ} (E : Finset (Fin p × Fin l))
 
 end H5DeleteOr
 
+namespace H5OrOutputEssential
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover PEqualNP.TwoColour
+open H5Pruning H5Bridge H5Stars H5OrLift H5Owners H5DeleteOr
+
+lemma or_child_output_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (g r : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = .or)
+    (hr : r ∈ (gateAt C g).inputs)
+    (hsingle : ∀ u, wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) =
+      wireFn (p+l) C r (H5Pruning.singletonInput u)) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) (delGate (p+l) g r C) (delGate (p+l) g r C).output
+        (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  classical
+  by_contra hbad
+  let D := delGate (p+l) g r C
+  have hrlt : r < p+l+g := hC.1.2.1 g hg r hr
+  have hAO : IsAO2 (p+l) D := delGate_isAO2 (p+l) g r C hC.1 hg hrlt
+  have hchild : ∀ x, wireFn (p+l) C r x = true → wireFn (p+l) C (p+l+g) x = true :=
+    or_child_imp C hC.1 g hg hop r hr
+  have hreach : orIn (p+l) C r ⊆ orIn (p+l) C (p+l+g) := by
+    intro a ha
+    exact H5Reach.orIn_up (p+l) C g r a hg hop hr hrlt ha
+  have hT := delGate_tCount_zero (p+l) C hC.1 g r hg hrlt hreach
+    (fun i => decide (p ≤ i)) hC.2.2.1
+  have hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    intro x
+    rw [graphFun_bipartite]
+    exact hC.2.1 x
+  have hfun : ∀ x, wireFn (p+l) D D.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    apply H5Essential.graph_eq_of_positive_and_le (p+l) (bipartiteEdges E)
+      (wireFn (p+l) D D.output) (wireFn_mono (p+l) D hAO D.output)
+    · intro x
+      rw [← hspec x]
+      exact delGate_mapped_le_all (p+l) g r C x hC.1 hg hrlt (hchild x) C.output
+    · intro e he
+      obtain ⟨⟨a,b⟩, hab, rfl⟩ := Finset.mem_image.mp he
+      cases hv : wireFn (p+l) D D.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) with
+      | true => rfl
+      | false => exact False.elim (hbad ⟨a,b,hab,hv⟩)
+  have hD : admissible p l E D := by
+    apply admissible_of_keeps E C D hC hAO _ hT
+      (delGate_keepsStars (p+l) g r C hC.1 hg hrlt hchild hsingle)
+    intro x
+    exact (hfun x).trans (hspec x).symm
+  have hsize := hmin D hD
+  change C.gates.length ≤ (delGate (p+l) g r C).gates.length at hsize
+  rw [delGate_length (p+l) g r C hg] at hsize
+  omega
+
+lemma or_child_output_essential_values {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (g r : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = .or)
+    (hr : r ∈ (gateAt C g).inputs)
+    (hsingle : ∀ u, wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) =
+      wireFn (p+l) C r (H5Pruning.singletonInput u)) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false ∧
+      wireFn (p+l) (delGate (p+l) g r C) (delGate (p+l) g r C).output
+        (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  obtain ⟨a,b,hab,hnew⟩ := or_child_output_essential E C hC hmin g r hg hop hr hsingle
+  have hrlt : r < p+l+g := hC.1.2.1 g hg r hr
+  have hold : wireFn (p+l) C C.output (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+    change PEqualNP.MetaComplexity.circuitFun (p+l) C
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true
+    rw [hC.2.1]
+    exact decide_eq_true ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+  have hneq : wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) ≠
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) := by
+    intro heq
+    have he := delGate_mapped_eq_all (p+l) g r C _ hC.1.2.1 hg hrlt heq C.output
+    change wireFn (p+l) (delGate (p+l) g r C) (delGate (p+l) g r C).output _ = _ at he
+    rw [hnew,hold] at he
+    cases he
+  have hchild := or_child_imp C hC.1 g hg hop r hr
+    (pairInput (Fin.castAdd l a) (Fin.natAdd p b))
+  cases hgval : wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) <;>
+    cases hrval : wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b))
+  · exact False.elim (hneq (hgval.trans hrval.symm))
+  · have he := hchild hrval
+    rw [hgval] at he
+    cases he
+  · exact ⟨a,b,hab,hgval,hrval,hnew⟩
+  · exact False.elim (hneq (hgval.trans hrval.symm))
+
+end H5OrOutputEssential
+
+namespace H5PaletteSlots
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open H5Pruning H5LiftGlue H5Owners
+
+def RightOnly {p l : ℕ} (f : (Fin (p+l) → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ b : Fin l, x (Fin.natAdd p b) = y (Fin.natAdd p b)) → f x = f y
+
+def LeftOnly {p l : ℕ} (f : (Fin (p+l) → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ a : Fin p, x (Fin.castAdd l a) = y (Fin.castAdd l a)) → f x = f y
+
+lemma rightOnly_pair {p l : ℕ} (f : (Fin (p+l) → Bool) → Bool) (hf : RightOnly f)
+    (a : Fin p) (b : Fin l) :
+    f (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = f (singletonInput (Fin.natAdd p b)) := by
+  apply hf
+  intro c
+  simp [pairInput, singletonInput, Ne.symm (left_right_distinct a c)]
+
+lemma leftOnly_pair {p l : ℕ} (f : (Fin (p+l) → Bool) → Bool) (hf : LeftOnly f)
+    (a : Fin p) (b : Fin l) :
+    f (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = f (singletonInput (Fin.castAdd l a)) := by
+  apply hf
+  intro c
+  simp [pairInput, singletonInput, left_right_distinct c b]
+
+lemma and_operand_false_excludes_singleton (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (v : ℕ) (hv : v ∈ (gateAt C j).inputs) (z : Fin n → Bool)
+    (hz : wireFn n C v z = false) (q : Fin n)
+    (hq : wireFn n C (n+j) (singletonInput q) = true) : z q = false := by
+  cases hqz : z q with
+  | false => rfl
+  | true =>
+      have hg : wireFn n C (n+j) z = true :=
+        Bool.le_iff_imp.mp (wireFn_mono n C hC (n+j) (singletonInput_le q z hqz)) hq
+      have ht := and_reader_implies n C hC.2.1 j hj hop v hv z hg
+      rw [hz] at ht
+      cases ht
+
+lemma rightOnly_slot_endpoint_false {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (honly : RightOnly (wireFn (p+l) C (p+l+j)))
+    (a : Fin p) (b : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (v : ℕ) (hv : v ∈ (gateAt C j).inputs) (z : Fin (p+l) → Bool)
+    (hz : wireFn (p+l) C v z = false) : z (Fin.natAdd p b) = false := by
+  apply and_operand_false_excludes_singleton (p+l) C hC j hj hop v hv z hz (Fin.natAdd p b)
+  rw [← rightOnly_pair _ honly a b]
+  exact hpair
+
+lemma leftOnly_slot_endpoint_false {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (honly : LeftOnly (wireFn (p+l) C (p+l+j)))
+    (a : Fin p) (b : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (v : ℕ) (hv : v ∈ (gateAt C j).inputs) (z : Fin (p+l) → Bool)
+    (hz : wireFn (p+l) C v z = false) : z (Fin.castAdd l a) = false := by
+  apply and_operand_false_excludes_singleton (p+l) C hC j hj hop v hv z hz (Fin.castAdd l a)
+  rw [← leftOnly_pair _ honly a b]
+  exact hpair
+
+lemma rightOnly_no_opposite_slot {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (honly : RightOnly (wireFn (p+l) C (p+l+j)))
+    (a : Fin p) (b : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (v : ℕ) (hv : v ∈ (gateAt C j).inputs) (z : Fin (p+l) → Bool)
+    (hcenter : z (Fin.natAdd p b) = true) (hz : wireFn (p+l) C v z = false) : False := by
+  have h := rightOnly_slot_endpoint_false C hC j hj hop honly a b hpair v hv z hz
+  rw [hcenter] at h
+  cases h
+
+lemma leftOnly_no_opposite_slot {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (honly : LeftOnly (wireFn (p+l) C (p+l+j)))
+    (a : Fin p) (b : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (v : ℕ) (hv : v ∈ (gateAt C j).inputs) (z : Fin (p+l) → Bool)
+    (hcenter : z (Fin.castAdd l a) = true) (hz : wireFn (p+l) C v z = false) : False := by
+  have h := leftOnly_slot_endpoint_false C hC j hj hop honly a b hpair v hv z hz
+  rw [hcenter] at h
+  cases h
+
+lemma rightOnly_collision {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (hfour : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (C : Circuit) (hC : IsAO2 (p+l) C) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (honly : RightOnly (wireFn (p+l) C (p+l+j)))
+    (a a' : Fin p) (b b' : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (hpair' : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a') (Fin.natAdd p b')) = true)
+    (v v' : ℕ) (hv : v ∈ (gateAt C j).inputs) (hv' : v' ∈ (gateAt C j).inputs)
+    (z z' : Fin (p+l) → Bool) (hz : wireFn (p+l) C v z = false)
+    (hz' : wireFn (p+l) C v' z' = false)
+    (hnon : ∀ c : Fin l, (a,c) ∉ E → z (Fin.natAdd p c) = true)
+    (hnon' : ∀ c : Fin l, (a',c) ∉ E → z' (Fin.natAdd p c) = true) :
+    a = a' ∨ b = b' := by
+  classical
+  by_contra hne
+  have ha : a ≠ a' := fun h => hne (Or.inl h)
+  have hb : b ≠ b' := fun h => hne (Or.inr h)
+  have edge : ∀ c d, wireFn (p+l) C (p+l+j)
+      (pairInput (Fin.castAdd l c) (Fin.natAdd p d)) = true →
+      (a,d) ∈ E ∧ (a',d) ∈ E := by
+    intro c d hp
+    constructor
+    · by_contra hnot
+      have hzero := rightOnly_slot_endpoint_false C hC j hj hop honly c d hp v hv z hz
+      rw [hnon d hnot] at hzero
+      cases hzero
+    · by_contra hnot
+      have hzero := rightOnly_slot_endpoint_false C hC j hj hop honly c d hp v' hv' z' hz'
+      rw [hnon' d hnot] at hzero
+      cases hzero
+  have he := edge a b hpair
+  have he' := edge a' b' hpair'
+  exact hfour a a' b b' ha hb ⟨he.1,he'.1,he.2,he'.2⟩
+
+lemma leftOnly_collision {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (hfour : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (C : Circuit) (hC : IsAO2 (p+l) C) (j : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (honly : LeftOnly (wireFn (p+l) C (p+l+j)))
+    (a a' : Fin p) (b b' : Fin l)
+    (hpair : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true)
+    (hpair' : wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a') (Fin.natAdd p b')) = true)
+    (v v' : ℕ) (hv : v ∈ (gateAt C j).inputs) (hv' : v' ∈ (gateAt C j).inputs)
+    (z z' : Fin (p+l) → Bool) (hz : wireFn (p+l) C v z = false)
+    (hz' : wireFn (p+l) C v' z' = false)
+    (hnon : ∀ c : Fin p, (c,b) ∉ E → z (Fin.castAdd l c) = true)
+    (hnon' : ∀ c : Fin p, (c,b') ∉ E → z' (Fin.castAdd l c) = true) :
+    a = a' ∨ b = b' := by
+  classical
+  by_contra hne
+  have ha : a ≠ a' := fun h => hne (Or.inl h)
+  have hb : b ≠ b' := fun h => hne (Or.inr h)
+  have edge : ∀ c d, wireFn (p+l) C (p+l+j)
+      (pairInput (Fin.castAdd l c) (Fin.natAdd p d)) = true →
+      (c,b) ∈ E ∧ (c,b') ∈ E := by
+    intro c d hp
+    constructor
+    · by_contra hnot
+      have hzero := leftOnly_slot_endpoint_false C hC j hj hop honly c d hp v hv z hz
+      rw [hnon c hnot] at hzero
+      cases hzero
+    · by_contra hnot
+      have hzero := leftOnly_slot_endpoint_false C hC j hj hop honly c d hp v' hv' z' hz'
+      rw [hnon' c hnot] at hzero
+      cases hzero
+  have he := edge a b hpair
+  have he' := edge a' b' hpair'
+  exact hfour a a' b b' ha hb ⟨he.1,he.2,he'.1,he'.2⟩
+
+end H5PaletteSlots
+
 end PEqualNP.Outside.L_meta_4970_aux
