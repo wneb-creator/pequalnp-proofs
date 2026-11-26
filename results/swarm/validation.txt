@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 128 helper lemmas compile and pass an axiom audit.
+All 130 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -84,6 +84,12 @@ count minus one. Individual factors need not be graph-existence functions.
 The C4 condition and full assignment equality are explicit. This does not
 count the cost of sharing or resolve arbitrary dependent exceptional OR gates.
 
+The owner core also proves that a doubly owned rectangle has a central edge
+accepted by no other doubly owned rectangle, and excludes four distinct
+factors that each have a doubly owned rectangle and at most one exceptional
+rectangle with a row or column owner. This is the combinatorial core of the
+many-factor deficit argument; a full arbitrary-circuit bound is not claimed.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -95,6 +101,15 @@ Peer h8 5d19fdc7: source and main-lemma axiom audit passed; compilation passed
 after deleting only the redundant Mathlib umbrella line, with the same cache
 limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
+Peer h1 matrix counterexample (bus 5757/5826): independent graph and actual
+circuit replay checked all 3,160 input pairs, topology, T0, liveness, edge
+activity, 80 actual serving-star sources and the 80-component/79-rank defect.
+Full truth equality follows from the independently recovered CNF equations
+and all 1,440 complement-edge certificates; no 2^80 enumeration is claimed.
+This refutes the broad matrix lemma with arbitrary pure nonstar sources,
+not the posted lower bound. Its eligible-star-only repair passed a separate
+mathematical review; no general source-cost ledger is established.
+
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=96.0 subagents=2
+TIMING total=99.0 subagents=2

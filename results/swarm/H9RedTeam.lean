@@ -2224,4 +2224,115 @@ lemma two_factor_matching_bound
 
 end IndependentFactors
 
+namespace OwnerStrictness
+
+variable {M K I : Type*}
+
+def DoubleOwned (r c : M → K) (k : K) : Prop := ∃ p q, r p = k ∧ c q = k
+
+lemma double_center_not_covered
+    (A B : K → M → Prop) (E : M → M → Prop) (r c : M → K)
+    (hrowMem : ∀ p, A (r p) p ∧ B (r p) p)
+    (hcolMem : ∀ p, A (c p) p ∧ B (c p) p)
+    (hrowCtrl : ∀ p q, A (r p) p → B (r p) q → E p q)
+    (hcolCtrl : ∀ p q, A (c q) p → B (c q) q → E p q)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b))
+    (k l : K) (hkl : k ≠ l) (p q : M) (hp : r p = k) (hq : c q = k)
+    (hl : DoubleOwned r c l) (hap : A l p) (hbq : B l q) : False := by
+  obtain ⟨a,b,ha,hb⟩ := hl
+  have hpa : p ≠ a := by intro he; apply hkl; rw [← hp,he,ha]
+  have hqb : q ≠ b := by intro he; apply hkl; rw [← hq,he,hb]
+  have epq := hrowCtrl p q (hrowMem p).1 (by rw [hp,← hq]; exact (hcolMem q).2)
+  have epb := hcolCtrl p b (by rw [hb]; exact hap) (hcolMem b).2
+  have eaq := hrowCtrl a q (hrowMem a).1 (by rw [ha]; exact hbq)
+  have eab := hrowCtrl a b (hrowMem a).1 (by rw [ha,← hb]; exact (hcolMem b).2)
+  exact hno p a q b hpa hqb ⟨epq,epb,eaq,eab⟩
+
+lemma four_thin_impossible
+    (A B : K → M → Prop) (E : M → M → Prop) (tag : K → I) (r c : M → K)
+    (hrowMem : ∀ p, A (r p) p ∧ B (r p) p)
+    (hcolMem : ∀ p, A (c p) p ∧ B (c p) p)
+    (hrowCtrl : ∀ p q, A (r p) p → B (r p) q → E p q)
+    (hcolCtrl : ∀ p q, A (c q) p → B (c q) q → E p q)
+    (hcover : ∀ p q, E p q → ∀ t : I, ∃ k, tag k = t ∧ A k p ∧ B k q)
+    (hno : ∀ p a q b, p ≠ a → q ≠ b → ¬ (E p q ∧ E p b ∧ E a q ∧ E a b))
+    (factor : Fin 4 → I) (hfactor : Function.Injective factor)
+    (single double : Fin 4 → K) (orient : Fin 4 → Bool)
+    (hsTag : ∀ i, tag (single i) = factor i)
+    (hdTag : ∀ i, tag (double i) = factor i)
+    (hdOwned : ∀ i, DoubleOwned r c (double i))
+    (hsRow : ∀ i, orient i = false → ∃ p, r p = single i)
+    (hsCol : ∀ i, orient i = true → ∃ q, c q = single i)
+    (hothers : ∀ i k, tag k = factor i → k ≠ single i → DoubleOwned r c k) : False := by
+  classical
+  have hsing (i j : Fin 4) (hij : i ≠ j) (p q : M)
+      (hp : r p = double j) (hq : c q = double j) : A (single i) p ∧ B (single i) q := by
+    have epq := hrowCtrl p q (hrowMem p).1 (by rw [hp,← hq]; exact (hcolMem q).2)
+    obtain ⟨k,hkt,hkp,hkq⟩ := hcover p q epq (factor i)
+    by_cases hk : k = single i
+    · simpa [hk] using And.intro hkp hkq
+    · have hdk : double j ≠ k := by
+        intro he
+        have heq : factor j = factor i := by rw [← hdTag j,he,hkt]
+        exact hij (hfactor heq).symm
+      exact (double_center_not_covered A B E r c hrowMem hcolMem hrowCtrl hcolCtrl hno
+        (double j) k hdk p q hp hq (hothers i k hkt hk) hkp hkq).elim
+  have hsame (i j k l : Fin 4) (hij : i ≠ j) (hkl : k ≠ l)
+      (hik : i ≠ k) (hil : i ≠ l) (hjk : j ≠ k) (hjl : j ≠ l)
+      (ho : orient i = orient j) : False := by
+    obtain ⟨pk,qk,hpk,hqk⟩ := hdOwned k
+    obtain ⟨pl,ql,hpl,hql⟩ := hdOwned l
+    have hikc := hsing i k hik pk qk hpk hqk
+    have hilc := hsing i l hil pl ql hpl hql
+    have hjkc := hsing j k hjk pk qk hpk hqk
+    have hjlc := hsing j l hjl pl ql hpl hql
+    cases hi : orient i with
+    | false =>
+      have hj : orient j = false := ho.symm.trans hi
+      obtain ⟨pi,hpi⟩ := hsRow i hi
+      obtain ⟨pj,hpj⟩ := hsRow j hj
+      have hpij : pi ≠ pj := by
+        intro he
+        apply hij
+        apply hfactor
+        rw [← hsTag i,← hsTag j,← hpi,← hpj,he]
+      have hqkl : qk ≠ ql := by
+        intro he
+        apply hkl
+        apply hfactor
+        rw [← hdTag k,← hdTag l,← hqk,← hql,he]
+      apply hno pi pj qk ql hpij hqkl
+      exact ⟨hrowCtrl pi qk (hrowMem pi).1 (by rw [hpi]; exact hikc.2),
+        hrowCtrl pi ql (hrowMem pi).1 (by rw [hpi]; exact hilc.2),
+        hrowCtrl pj qk (hrowMem pj).1 (by rw [hpj]; exact hjkc.2),
+        hrowCtrl pj ql (hrowMem pj).1 (by rw [hpj]; exact hjlc.2)⟩
+    | true =>
+      have hj : orient j = true := ho.symm.trans hi
+      obtain ⟨qi,hqi⟩ := hsCol i hi
+      obtain ⟨qj,hqj⟩ := hsCol j hj
+      have hpkpl : pk ≠ pl := by
+        intro he
+        apply hkl
+        apply hfactor
+        rw [← hdTag k,← hdTag l,← hpk,← hpl,he]
+      have hqij : qi ≠ qj := by
+        intro he
+        apply hij
+        apply hfactor
+        rw [← hsTag i,← hsTag j,← hqi,← hqj,he]
+      apply hno pk pl qi qj hpkpl hqij
+      exact ⟨hcolCtrl pk qi (by rw [hqi]; exact hikc.1) (hcolMem qi).2,
+        hcolCtrl pk qj (by rw [hqj]; exact hjkc.1) (hcolMem qj).2,
+        hcolCtrl pl qi (by rw [hqi]; exact hilc.1) (hcolMem qi).2,
+        hcolCtrl pl qj (by rw [hqj]; exact hjlc.1) (hcolMem qj).2⟩
+  by_cases h01 : orient 0 = orient 1
+  · exact hsame 0 1 2 3 (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) h01
+  by_cases h02 : orient 0 = orient 2
+  · exact hsame 0 2 1 3 (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) h02
+  have h12 : orient 1 = orient 2 := by
+    cases h0 : orient 0 <;> cases h1 : orient 1 <;> cases h2 : orient 2 <;> simp_all
+  exact hsame 1 2 0 3 (by decide) (by decide) (by decide) (by decide) (by decide) (by decide) h12
+
+end OwnerStrictness
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
