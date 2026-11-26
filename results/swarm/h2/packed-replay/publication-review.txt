@@ -1,0 +1,33 @@
+Independent publication review: PASS
+Reviewer: /root/setup/coverage
+Bundle: /workspace/pequalnp-proofs/results/swarm/h2/packed-replay
+Frozen dependency source: 36375ce3bb56c227c81ecae98f6641800006b8c2
+Method: static source review, byte comparisons, local hash/JSON checks; no new Lean execution or build.
+
+All 16 bundle files are regular, non-executable UTF-8 files, with no links. SHA256SUMS covers exactly the other 15 files, with no duplicate/missing/extra entries; every digest matches. All 12 copied source/stdout/stderr/measurement artifacts are byte-identical to accepted scratch artifacts. All three source hashes and all three local compiled-object hashes match manifest.json. No credential content was observed; known token/private-key/authenticated-URL pattern checks returned zero matches. No network or credential access was performed.
+
+The source statements are blockCheck 1536 4 = true and blockCheck 1540 128 = true. Their union is exactly 1536..1667 inclusive, 132 unique nodes; no hole, overlap, or Fin.ofNat wraparound occurs. blockCheck_at extracts every member. The imported listPieces_all proof reconstructs take/drop halves, so depth-5 splitting omits no element. Kernel decide is used; no sorry/native_decide/custom axiom occurs in the supplied sources. Both complete theorem stdout files report exactly propext, Classical.choice, Quot.sound; all three stderr files are empty. All three receipt exit codes are zero and match the manifest. The 128-node receipt records 859.2107232369999 seconds and 6283380 KiB peak RSS.
+
+The README correction is present: the extractor is H2PackedReplay.blockCheck_at. README and validation.txt explicitly disclaim the full 5230 checks, complete certificate closure, and the posted L-meta-2373 theorem. Research-only external imports and #print diagnostics are clearly distinguished from the one-file gap-submission format. This review approves publication as a partial research bundle only, not submission as a proof of the gap. No running/unverified tail artifact is included.
+
+Tail source identity: H2Tail2180_2303.lean is exactly H2Nodes2180_2303.lean after replacing nodes2180_2303 by tail2180_2303 in the declaration and axiom-print name. The statement remains blockCheck 2180 124 = true. This source equality is not a claim of successful completion.
+
+No remaining blocking correction found. README TIMING total=120 and validation total=121 are different checkpoint timestamps as the publisher explained; normalize them at the final publication checkpoint if desired and refresh SHA256SUMS. Any subsequent source/receipt/scope change requires renewed comparison. Claims about the separate named helper's 37 lemmas and all 19 dependency-module builds were not re-executed during this publication review.
+
+Reviewed file hashes:
+1d5fcf69af3d5bfeb5ffc23a5828c6f2ea7c3d46e65a465a8c99f6a408f7b3b8  H2ChunkDefs.lean
+768a266ceeecf0f5348b455f03ca03207c6bfdb6b2fc017b2a9ed5f71c47940e  H2ChunkDefs.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2ChunkDefs.lean.stderr
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2ChunkDefs.lean.stdout
+db45e0095eff739e19b737bca3dc64528fe0e2bd62824cf40221ce295fb9d3ab  H2Nodes1536_1539.lean
+995408518bfb28fe01c00da27555a321ab8effc3c3b6e250d01a5b7f0e258754  H2Nodes1536_1539.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2Nodes1536_1539.lean.stderr
+7dc4c5235d68f1bd0d361b90f6624fddb74f275d8b2adf1c8d1acc35794eb3aa  H2Nodes1536_1539.lean.stdout
+aa362dde178a3ff2ae1767f6fe7ef53e3b9f1ee0e1cae642045254726270d195  H2Nodes1540_1667.lean
+88c7d2e5bd125472c0efb4d3761648e8a0971a02d56aedbfc34d8d8741cc9e30  H2Nodes1540_1667.lean.measurement.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  H2Nodes1540_1667.lean.stderr
+b968d1ae53762f543d6ac6dfbef616c48295edad514d4d2ed430f071eb18ef4e  H2Nodes1540_1667.lean.stdout
+8515fb5780675e81d43111d1ee78bc6d0b92eaff8ea387539639b2335cb1275f  README.md
+6060a16e402a48a885e5fb5e76cbf8f845235ace1c1d3f6a65ccc71266278761  SHA256SUMS
+f7fdae2814995accc6eb5992df6d0af6c3c9eb25654e366ee62b2975b951f9db  manifest.json
+ec061b527d9b95a529d40a55cb004384d14c26abb435e89e1747f135895a95c7  validation.txt

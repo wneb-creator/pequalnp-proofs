@@ -1,0 +1,50 @@
+{
+  "scope": "Partial research replay only; not a proof of L-meta-2373 or of all5230 certificate nodes",
+  "frozen_certificate_commit": "36375ce3bb56c227c81ecae98f6641800006b8c2",
+  "certificate_path": "results/swarm/h8/certificate18",
+  "lean_version": "4.36.0",
+  "accepted_intervals": [
+    [
+      1536,
+      1667
+    ]
+  ],
+  "accepted_count": 132,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "measurements": [
+    {
+      "exit_code": 0,
+      "wall_seconds": 5.454149966999466,
+      "max_rss_kib": 2975836,
+      "module": "H2ChunkDefs",
+      "start": null,
+      "count": null,
+      "source_sha256": "1d5fcf69af3d5bfeb5ffc23a5828c6f2ea7c3d46e65a465a8c99f6a408f7b3b8",
+      "olean_sha256": "a7f8d80cd2bd6b5cabca769f2c41953c86cdade1dd76c5ec4cd81a56e8ad8286"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 24.487181853999573,
+      "max_rss_kib": 5025992,
+      "module": "H2Nodes1536_1539",
+      "start": 1536,
+      "count": 4,
+      "source_sha256": "db45e0095eff739e19b737bca3dc64528fe0e2bd62824cf40221ce295fb9d3ab",
+      "olean_sha256": "83314e87124254e5d727f978d4d38907027b6ff2719fea820c5bac012e459988"
+    },
+    {
+      "exit_code": 0,
+      "wall_seconds": 859.2107232369999,
+      "max_rss_kib": 6283380,
+      "module": "H2Nodes1540_1667",
+      "start": 1540,
+      "count": 128,
+      "source_sha256": "aa362dde178a3ff2ae1767f6fe7ef53e3b9f1ee0e1cae642045254726270d195",
+      "olean_sha256": "076c5407efba983660642aa2b7e793156173d9f5b8c7b5ba33b688b41769f1c2"
+    }
+  ]
+}

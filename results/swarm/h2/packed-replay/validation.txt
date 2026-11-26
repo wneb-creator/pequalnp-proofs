@@ -1,0 +1,8 @@
+Partial research certificate replay only.
+Named helper checkpoint2e7af2a8 has37 checked lemmas and independent source/axiom review; the posted theorem is absent.
+Frozen packed dependency36375ce3: all19 required modules compiled; selected source hashes matched.
+Accepted nodes1536..1667 inclusive:132. All supplied chunk builds exit0; stdout records only propext, Classical.choice, Quot.sound. Complete logs and source/object hashes are included.
+Independent chunk/range source review passed contiguous planned endpoints and no Fin.ofNat wraparound. Independent publication review PASS for source identity, complete logs, source/object hashes and exact accepted scope.
+This does not prove all5230 node checks, the18-gate certificate closure, or L-meta-2373.
+Sub-agents: setup, coverage, sat, constructive
+TIMING total=121 subagents=4
