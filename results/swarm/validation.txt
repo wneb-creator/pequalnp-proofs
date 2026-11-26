@@ -15,7 +15,7 @@ Official full-gap checker: not run, because no full candidate exists.
 Initial gap-list reduction guard: REFUSED, row lacks reductions:true.
 
 Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
-TIMING total=89.1 subagents=19
+TIMING total=122.0 subagents=19
 
 RootEdgeCount now also constructs a witness-center cover of size <= OR count; its full-bound closure has an explicit additional budget premise, not established universally.
 Helper3StarCountV2 connected-component and one-center toolkit: independent build and source review PASS.
@@ -39,3 +39,8 @@ OrdinaryAnd SHA256: f5ddca8c01c874994a394642845748f411fffaec6322b3781fbb48493546
 OrdinaryAnd uses dual safe traces, two slots per matching edge, and an inlined namespace-renamed Konig proof from existing L_meta_6510.lean.
 Its count partition proves AND count + OR count = circuit size. full_bound_of_or_count explicitly assumes E.card <= OR count + 1; that assumption remains unproved.
 Independent audit of final principal lemmas reports only propext, Classical.choice, Quot.sound. The file is an auxiliary prefix, not a complete posted-gap submission.
+
+FlagComponents: pinned and independent Lean builds PASS; deprecation warning only. Only local C4 flag and unique-center facts; no global connector theorem.
+H3ForestLatest at helper SHA c69a0313823ca80db1b5968e71213ea32c75cdac: independent root full source/build/critical-axiom audit PASS; SHA256 919020f9f8a583d9772d6def4e62e0abb384cd0e547eb1b44785634f76180b1d.
+The forest toolkit requires witness-family parameterization; remaining residual/joint gate count is not proved. Its BAD exclusion uses semantic singleton support, not raw OR reach.
+Root K5-incidence and affine stochastic search controls PASS at sizes24 and35, with134 and631 exact monotone test rows respectively. Target sizes23 and34 searches remain running; no heuristic exclusion is claimed.

@@ -5,7 +5,7 @@ Swarm L-meta-4970 timeline (UTC)
 - 2026-11-25T22:11:01Z: Updated fork checkout from upstream; confirmed canonical desk module PEqualNP.Outside.L_meta_4970. Build setup lacks promised Lean/cache; restoring while proof work continues.
 
 Sub-agents: external helper-1 through helper-9; local independent_audit, restore_lean, bipartite_refutation, cofactor_full_route, and_matching_bound, or_served_bound, cofactor_full_route/deadprune_search, or_served_bound/or_math_check, cofactor_full_route/matching_and_math, cofactor_full_route/matching_and_search.
-TIMING total=89.1 subagents=19
+TIMING total=122.0 subagents=19
 
 - 2026-11-25T22:11:14+00:00: helper-1 first result: reusable L_meta_4990 leaf-count machinery; semantic star witnesses may contain AND bypasses.
 - 2026-11-25T22:12:11+00:00: helper-2 first result: IsAO2 excludes malformed-gate shortcuts; T resets at AND; finite counterexample search in preparation.
@@ -34,3 +34,6 @@ TIMING total=89.1 subagents=19
 - 2026-11-25T23:23:08Z: Workspace recovered after environment restart; watcher restarted from saved bus cursor and interrupted local proof tasks resumed.
 - 2026-11-25T23:31:02Z: Replanned around two-colour matching-slot injection; external helpers independently confirmed the mathematical argument.
 - 2026-11-25T23:38:22Z: OrdinaryAnd.lean full helper build, independent semantic review, axiom audit, and format audit PASS. Exact posted AO2, C4-free, output, and T0 assumptions imply an ordinary cover with size at most the actual AND count. Full gap still lacks OR-count bound.
+- 2026-11-25T23:41:21Z: Independently reviewed ordinary-AND checkpoint 1df5ab34a38f19cf282a5c1606e0c16869fbf3ec pushed successfully to the fork orch branch.
+- 2026-11-25T23:51:02Z: FlagComponents local graph lemmas compiled with a deprecation warning only; global connector inequality remains open.
+- 2026-11-26T00:11:13Z: Root reviewed and independently compiled helper-3 productive forest toolkit at c69a0313; ordinary AND half also independently rebuilt by several external helpers. Full proof and refutation searches continue.
