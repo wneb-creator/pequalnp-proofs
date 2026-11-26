@@ -556,4 +556,97 @@ lemma boundaryA1Catalog_notLocallyClosed (i : Fin 112) :
   · obtain ⟨a, ha, b, hb, ham, hbm, hab⟩ := hpair
     exact hblocked a ha b hb ham hbm hab
 
+def boundaryOrSequence (base outputs : List ℕ) : Prop :=
+  ∀ j (hj : j < outputs.length),
+    ∃ a ∈ base ++ outputs.take j, ∃ b ∈ base ++ outputs.take j,
+      Nat.lor a b = outputs[j]
+
+lemma boundaryNotMem_take_idxOf (m : ℕ) (outputs : List ℕ) :
+    m ∉ outputs.take (outputs.idxOf m) := by
+  induction outputs with
+  | nil => simp
+  | cons x xs ih =>
+      by_cases h : x = m
+      · subst x
+        simp
+      · simp [List.idxOf_cons, h, Ne.symm h, ih]
+
+lemma boundaryOrSequence_first_nonraw
+    (base outputs pool : List ℕ)
+    (hseq : boundaryOrSequence base outputs)
+    (hbase : ∀ x ∈ base, x ∈ pool)
+    (hpool : ∀ x ∈ outputs, x ∈ pool)
+    (m : ℕ) (hm : m ∈ outputs) (hnonraw : m ∉ base) :
+    ∃ a ∈ pool, ∃ b ∈ pool, a < m ∧ b < m ∧ Nat.lor a b = m := by
+  have hj := List.idxOf_lt_length_of_mem hm
+  obtain ⟨a, ha, b, hb, hab⟩ := hseq (outputs.idxOf m) hj
+  have habm : Nat.lor a b = m := hab.trans (List.getElem_idxOf hj)
+  have hbefore : ∀ x ∈ base ++ outputs.take (outputs.idxOf m),
+      x ∈ pool ∧ x ≠ m := by
+    intro x hx
+    rcases List.mem_append.mp hx with hx | hx
+    · refine ⟨hbase x hx, ?_⟩
+      intro h
+      exact hnonraw (h ▸ hx)
+    · refine ⟨hpool x (List.mem_of_mem_take hx), ?_⟩
+      intro h
+      exact boundaryNotMem_take_idxOf m outputs (h ▸ hx)
+  have hane := (hbefore a ha).2
+  have hbne := (hbefore b hb).2
+  have hale : a ≤ m := by
+    rw [← habm]
+    exact Nat.left_le_or
+  have hble : b ≤ m := by
+    rw [← habm]
+    exact Nat.right_le_or
+  exact ⟨a, (hbefore a ha).1, b, (hbefore b hb).1,
+    by omega, by omega, habm⟩
+
+lemma boundaryA1Catalog_no_orSequence (i : Fin 112) (outputs : List ℕ)
+    (hseq : boundaryOrSequence boundaryA1RawMasks outputs)
+    (hrequired : ∀ m ∈ boundaryA1Family i, m ∈ outputs)
+    (hnoaux : ∀ m ∈ outputs, m ∈ boundaryA1Pool (boundaryA1Family i)) :
+    False := by
+  obtain ⟨m, hm, hnonraw, hblocked⟩ := boundaryA1Catalog_obstruction i
+  obtain ⟨a, ha, b, hb, ham, hbm, hab⟩ :=
+    boundaryOrSequence_first_nonraw boundaryA1RawMasks outputs
+      (boundaryA1Pool (boundaryA1Family i)) hseq
+      (fun x hx => List.mem_append.mpr (Or.inr hx)) hnoaux
+      m (hrequired m hm) hnonraw
+  exact hblocked a ha b hb ham hbm hab
+
+lemma boundaryList_noAux_of_length (family outputs : List ℕ)
+    (hnodup : family.Nodup)
+    (hrequired : ∀ m ∈ family, m ∈ outputs)
+    (hlength : outputs.length ≤ family.length) :
+    ∀ m ∈ outputs, m ∈ family := by
+  intro m hm
+  by_contra hnot
+  have hnodup' : (m :: family).Nodup := List.nodup_cons.mpr ⟨hnot, hnodup⟩
+  have hsubset : m :: family ⊆ outputs := by
+    intro x hx
+    rcases List.mem_cons.mp hx with h | h
+    · exact h ▸ hm
+    · exact hrequired x h
+  have hle := hnodup'.length_le_of_subset hsubset
+  simp only [List.length_cons] at hle
+  omega
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 4000000 in
+lemma boundaryA1Catalog_nodup :
+    ∀ i : Fin 112, (boundaryA1Family i).Nodup := by
+  decide
+
+lemma boundaryA1Catalog_no_short_orSequence (i : Fin 112) (outputs : List ℕ)
+    (hseq : boundaryOrSequence boundaryA1RawMasks outputs)
+    (hrequired : ∀ m ∈ boundaryA1Family i, m ∈ outputs)
+    (hlength : outputs.length ≤ (boundaryA1Family i).length) :
+    False := by
+  apply boundaryA1Catalog_no_orSequence i outputs hseq hrequired
+  intro m hm
+  exact List.mem_append.mpr (Or.inl
+    (boundaryList_noAux_of_length (boundaryA1Family i) outputs
+      (boundaryA1Catalog_nodup i) hrequired hlength m hm))
+
 end PEqualNP.Outside.L_meta_9033_aux
