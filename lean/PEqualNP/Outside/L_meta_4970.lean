@@ -6619,4 +6619,150 @@ lemma first_or_dirty_operands_literals {n : ℕ}
 
 end H8OrPatch
 
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma first_or_split_below {n : ℕ} (gs : List Gate) (hl : Layout n gs)
+    (k : ℕ) (hk : k ≤ gs.length)
+    (hex : ∃ (j : ℕ) (hj : j < gs.length), j < k ∧ gs[j].op = .or) :
+    ∃ (pre post : List Gate) (u v : ℕ),
+      gs = pre ++ [binary false u v] ++ post ∧ pre.length < k ∧
+      Layout n pre ∧ orCount pre = 0 ∧ (∀ g ∈ pre, g.op = .and) ∧
+      u < n + pre.length ∧ v < n + pre.length := by
+  classical
+  have hfind : ∃ j : ℕ, j < k ∧ ∃ hj : j < gs.length, gs[j].op = .or := by
+    obtain ⟨j,hj,hjk,hop⟩ := hex
+    exact ⟨j,hjk,hj,hop⟩
+  let j := Nat.find hfind
+  have hspec : j < k ∧ ∃ hj : j < gs.length, gs[j].op = .or := Nat.find_spec hfind
+  obtain ⟨hjk,hj,hop⟩ := hspec
+  obtain ⟨b,u,v,hgate,hu,hv⟩ := hl j hj
+  have hb : b = false := by
+    cases b with
+    | false => rfl
+    | true => simp [hgate,binary] at hop
+  have hgate' : gs[j] = binary false u v := by simpa only [hb] using hgate
+  let pre := gs.take j
+  let post := gs.drop (j+1)
+  have hlen : pre.length = j := by
+    simp [pre,List.length_take,Nat.min_eq_left (Nat.le_of_lt hj)]
+  have he : gs = pre ++ [binary false u v] ++ post := by
+    calc
+      gs = gs.take j ++ gs.drop j := (List.take_append_drop j gs).symm
+      _ = pre ++ [binary false u v] ++ post := by
+        rw [List.drop_eq_getElem_cons hj,hgate']
+        simp [pre,post]
+  have hpl : Layout n pre := by
+    apply layout_prefix pre ([binary false u v] ++ post)
+    rw [← List.append_assoc,← he]
+    exact hl
+  have hpand : ∀ g ∈ pre, g.op = .and := by
+    intro g hg
+    obtain ⟨i,hi,rfl⟩ := List.getElem_of_mem hg
+    obtain ⟨b',u',v',hgatei,hu',hv'⟩ := hpl i hi
+    cases b' with
+    | true => simp [hgatei,binary]
+    | false =>
+      exfalso
+      have hij : i < j := by omega
+      have hig : i < gs.length := lt_of_lt_of_le (lt_trans hij hjk) hk
+      have hget : pre[i] = gs[i] := by simp [pre]
+      have hior : gs[i].op = .or := by rw [← hget,hgatei]; rfl
+      have hpred : i < k ∧ ∃ hi : i < gs.length, gs[i].op = .or :=
+        ⟨by omega,hig,hior⟩
+      have hmin : j ≤ i := Nat.find_min' hfind hpred
+      omega
+  have hzero : orCount pre = 0 := by
+    unfold orCount
+    apply List.countP_eq_zero.mpr
+    intro g hg
+    rw [hpand g hg]
+    simp
+  refine ⟨pre,post,u,v,he,?_,hpl,hzero,hpand,?_,?_⟩ <;> omega
+
+end H8OrPatch
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma dirty_prefix_operand {n : ℕ} (D : Circuit)
+    (P : Finset (Finset (Fin n)))
+    (hsingle : ∀ a : Fin n, H8Active.dnf P (H8TaggedCounts.singleton a) = false)
+    (k : ℕ) (pre tail : List Gate) (he : D.gates = pre ++ tail)
+    (hpk : pre.length < k) (hand : ∀ g ∈ pre, g.op = .and)
+    (hdirty : ∀ i (hi : i < D.gates.length), i < k → D.gates[i].op = .and →
+      ∃ x : Fin n → Bool, original n D.gates (n+i) x = true ∧ H8Active.dnf P x = false)
+    (u : ℕ) (hu : u < n + pre.length) :
+    ∃ x : Fin n → Bool, original n pre u x = true ∧ H8Active.dnf P x = false := by
+  by_cases hun : u < n
+  · let a : Fin n := ⟨u,hun⟩
+    refine ⟨H8TaggedCounts.singleton a,?_,hsingle a⟩
+    have hold := original_append_old ([] : List Gate) pre u (by simpa using hun)
+      (H8TaggedCounts.singleton a)
+    simp only [List.nil_append] at hold
+    rw [hold]
+    change wire n [] u (H8TaggedCounts.singleton a) = true
+    rw [normal_wire_input n [] u hun]
+    simp [H8TaggedCounts.singleton,a]
+  · let i := u-n
+    have hi : i < pre.length := by dsimp [i]; omega
+    have hiD : i < D.gates.length := by rw [he]; simp only [List.length_append]; omega
+    have hop : D.gates[i].op = .and := by
+      have hh := hand pre[i] (List.getElem_mem hi)
+      simpa only [he,List.getElem_append_left hi] using hh
+    obtain ⟨x,hx,hf⟩ := hdirty i hiD (by omega) hop
+    have hni : n+i = u := by dsimp [i]; omega
+    rw [he,original_append_old pre tail (n+i) (by omega),hni] at hx
+    exact ⟨x,hx,hf⟩
+
+lemma exists_normalization_with_pure_pair {n : ℕ} (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hP : ∀ Q ∈ P, Q.card ≤ 2)
+    (hpos : ∃ x : Fin n → Bool, H8Active.dnf P x = true)
+    (hsingle : ∀ a : Fin n, H8Active.dnf P (H8TaggedCounts.singleton a) = false)
+    (hwitness : ∃ Q : Finset (Fin n), 2 ≤ Q.card ∧ HasPureOr n C Q) :
+    ∃ D : Circuit, PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      PreservesPureOr n C D ∧ orCount D.gates ≤ orCount C.gates ∧
+      ∃ a b : Fin n, a ≠ b ∧ HasPureOr n D {a,b} := by
+  classical
+  obtain ⟨D,k,hD,hDF,hCD,hcount,hk,hbound,hdirty,hroots,hmin,hprivate⟩ :=
+    exists_minimum_dirty_prefix C hC P hF hpos hsingle
+  have hex : ∃ (j : ℕ) (hj : j < D.gates.length), j < k ∧ D.gates[j].op = .or := by
+    obtain ⟨Q,hQ,hQC⟩ := hwitness
+    obtain ⟨j,hj,hjo,hjf⟩ := hroots Q hQ hQC
+    have hjD : j < D.gates.length := by omega
+    refine ⟨j,hjD,hj,?_⟩
+    simpa only [H8TopBridgeCounts.gateAt_eq_getElem D j hjD] using hjo
+  obtain ⟨pre,post,u,v,he,hpk,hpre,hzero,hand,hu,hv⟩ :=
+    first_or_split_below D.gates (layout_of hD) k hk hex
+  have he' : D.gates = pre ++ ([binary false u v] ++ post) := by
+    simpa only [List.append_assoc] using he
+  have hdu := dirty_prefix_operand D P hsingle k pre ([binary false u v] ++ post)
+    he' hpk hand hdirty u hu
+  have hdv := dirty_prefix_operand D P hsingle k pre ([binary false u v] ++ post)
+    he' hpk hand hdirty v hv
+  have hp := private_of_global_minimum C D hD P hDF hCD hmin pre post u v he
+  obtain ⟨a,b,hab,ha,hb,hpair⟩ :=
+    first_or_dirty_operands_literals pre hpre hzero P hP u v hu hv hp hdu hdv
+  refine ⟨D,hD,hDF,hCD,hcount,a,b,hab,pre.length,?_,?_,?_⟩
+  · rw [he]
+    simp
+  · have hjD : pre.length < D.gates.length := by rw [he]; simp
+    rw [H8TopBridgeCounts.gateAt_eq_getElem D pre.length hjD]
+    have hjpre : pre.length < (pre ++ [binary false u v]).length := by simp
+    simp only [he,List.getElem_append_left hjpre,
+      List.getElem_append_right (Nat.le_refl _),Nat.sub_self,List.getElem_cons_zero]
+    rfl
+  · intro x
+    change original n D.gates (n+pre.length) x = H8Active.disjunction {a,b} x
+    rw [he,original_append_old (pre ++ [binary false u v]) post (n+pre.length) (by simp)]
+    exact hpair x
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
