@@ -457,4 +457,543 @@ lemma positive_symmetry : (positiveA.map swapRectangle).Perm positiveC := by
 
 end FirstDirty
 
+namespace R3Family
+
+def singletonMasks : List Nat := [1, 2, 4, 8, 16, 32, 64, 128]
+
+def singleBit (m : Nat) : Bool :=
+  m != 0 && (m &&& (m - 1) == 0)
+
+def canUnion (m : Nat) (known : List Nat) : Bool :=
+  singleBit (m &&& (m - 1)) ||
+  known.any fun a => a != m && (a &&& m == a) &&
+    (singleBit (m ^^^ a) || known.any fun b => b != m && (a ||| b == m))
+
+def insertMask (e : Nat) : List Nat → List Nat
+  | [] => [e]
+  | x :: xs => if e < x then e :: x :: xs else x :: insertMask e xs
+
+def addExtra (e : Nat) (f : List Nat) : List Nat :=
+  if e == 0 || singletonMasks.contains e || f.contains e then f else insertMask e f
+
+def closeMasks (f : List Nat) : List Nat :=
+  f.foldl (fun known m => if canUnion m known then m :: known else known) []
+
+def generated (f permitted : List Nat) : Bool :=
+  f.all fun m => (closeMasks permitted).contains m
+
+def possibleWithFive (f : List Nat) : Bool :=
+  if f.length = 5 then generated f f
+  else if f.length = 4 then (List.range 256).any fun e => generated f (addExtra e f)
+  else true
+
+lemma positive_controls : generated [3, 12, 15] [3, 12, 15] = true ∧
+    generated [7] [7] = false ∧
+    generated [7] (addExtra 3 [7]) = true ∧
+    generated [7] (addExtra 24 [7]) = false := by
+  decide +kernel
+
+def block00 : List (List Nat) :=
+  [[17, 90, 176, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block00_checked : block00.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block01 : List (List Nat) :=
+  [[17, 91, 144, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block01_checked : block01.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block02 : List (List Nat) :=
+  [[18, 176, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block02_checked : block02.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block03 : List (List Nat) :=
+  [[26, 176, 192, 194]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block03_checked : block03.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block04 : List (List Nat) :=
+  [[26, 176, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block04_checked : block04.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block05 : List (List Nat) :=
+  [[66, 144, 178, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block05_checked : block05.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block06 : List (List Nat) :=
+  [[68, 90, 144, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block06_checked : block06.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block07 : List (List Nat) :=
+  [[68, 94, 144, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block07_checked : block07.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block08 : List (List Nat) :=
+  [[74, 144, 146, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block08_checked : block08.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block09 : List (List Nat) :=
+  [[74, 144, 178, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block09_checked : block09.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block10 : List (List Nat) :=
+  [[82, 144, 178, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block10_checked : block10.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block11 : List (List Nat) :=
+  [[82, 176, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block11_checked : block11.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block12 : List (List Nat) :=
+  [[83, 144, 178, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block12_checked : block12.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block13 : List (List Nat) :=
+  [[86, 144, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block13_checked : block13.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block14 : List (List Nat) :=
+  [[90, 144, 146, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block14_checked : block14.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block15 : List (List Nat) :=
+  [[90, 144, 178, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block15_checked : block15.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block16 : List (List Nat) :=
+  [[90, 176, 192, 194]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block16_checked : block16.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block17 : List (List Nat) :=
+  [[90, 176, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block17_checked : block17.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block18 : List (List Nat) :=
+  [[91, 144, 146, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block18_checked : block18.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block19 : List (List Nat) :=
+  [[91, 144, 178, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block19_checked : block19.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block20 : List (List Nat) :=
+  [[94, 144, 192, 194]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block20_checked : block20.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block21 : List (List Nat) :=
+  [[94, 144, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block21_checked : block21.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block22 : List (List Nat) :=
+  [[5, 40, 41, 176, 228],
+    [5, 40, 44, 177, 224],
+    [5, 40, 57, 164, 176],
+    [5, 40, 57, 176, 228],
+    [5, 40, 108, 161, 224],
+    [5, 40, 108, 177, 224],
+    [9, 18, 40, 144, 224],
+    [9, 18, 40, 176, 224],
+    [9, 18, 66, 144, 224],
+    [9, 18, 74, 144, 224],
+    [9, 18, 82, 144, 224],
+    [9, 18, 90, 144, 192],
+    [9, 18, 90, 144, 224],
+    [9, 18, 144, 176, 224],
+    [9, 40, 68, 144, 224],
+    [9, 40, 144, 160, 177],
+    [9, 40, 144, 176, 224],
+    [9, 40, 144, 177, 224],
+    [9, 50, 66, 144, 224],
+    [9, 50, 74, 144, 224],
+    [9, 50, 82, 144, 192],
+    [9, 50, 82, 144, 224],
+    [9, 50, 90, 144, 192],
+    [9, 50, 90, 144, 224],
+    [9, 66, 144, 146, 224]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block22_checked : block22.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block23 : List (List Nat) :=
+  [[9, 66, 144, 178, 224],
+    [9, 68, 82, 144, 224],
+    [9, 68, 90, 144, 192],
+    [9, 68, 90, 144, 224],
+    [9, 74, 144, 146, 224],
+    [9, 74, 144, 178, 224],
+    [9, 82, 144, 146, 224],
+    [9, 82, 144, 178, 192],
+    [9, 82, 144, 178, 224],
+    [9, 90, 144, 146, 192],
+    [9, 90, 144, 146, 224],
+    [9, 90, 144, 178, 192],
+    [9, 90, 144, 178, 224],
+    [12, 17, 40, 176, 192],
+    [12, 17, 82, 176, 192],
+    [12, 17, 90, 144, 192],
+    [12, 17, 90, 176, 192],
+    [12, 18, 66, 176, 192],
+    [12, 18, 98, 176, 192],
+    [12, 18, 176, 192, 194],
+    [12, 18, 176, 192, 226],
+    [12, 26, 66, 176, 192],
+    [12, 26, 98, 176, 192],
+    [12, 26, 176, 192, 194],
+    [12, 26, 176, 192, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block23_checked : block23.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block24 : List (List Nat) :=
+  [[12, 40, 66, 176, 192],
+    [12, 40, 66, 176, 224],
+    [12, 40, 160, 192, 228],
+    [12, 40, 176, 192, 224],
+    [12, 40, 176, 192, 228],
+    [12, 66, 82, 176, 192],
+    [12, 66, 90, 144, 192],
+    [12, 66, 90, 176, 192],
+    [12, 66, 176, 192, 224],
+    [12, 82, 98, 144, 192],
+    [12, 82, 98, 176, 192],
+    [12, 82, 144, 192, 226],
+    [12, 82, 176, 192, 194],
+    [12, 82, 176, 192, 226],
+    [12, 90, 98, 144, 192],
+    [12, 90, 98, 176, 192],
+    [12, 90, 144, 192, 194],
+    [12, 90, 144, 192, 226],
+    [12, 90, 176, 192, 194],
+    [12, 90, 176, 192, 226],
+    [13, 40, 41, 48, 228],
+    [13, 40, 41, 176, 228],
+    [13, 40, 44, 96, 177],
+    [13, 40, 44, 177, 224],
+    [13, 40, 48, 57, 164]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block24_checked : block24.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block25 : List (List Nat) :=
+  [[13, 40, 48, 57, 228],
+    [13, 40, 57, 164, 176],
+    [13, 40, 57, 176, 228],
+    [13, 40, 96, 108, 161],
+    [13, 40, 96, 108, 177],
+    [13, 40, 108, 161, 224],
+    [13, 40, 108, 177, 224],
+    [17, 34, 82, 176, 192],
+    [17, 34, 83, 144, 192],
+    [17, 34, 90, 176, 192],
+    [17, 34, 91, 144, 192],
+    [17, 40, 88, 176, 192],
+    [17, 40, 89, 144, 192],
+    [17, 40, 90, 176, 192],
+    [17, 40, 91, 144, 192],
+    [17, 40, 92, 144, 192],
+    [17, 66, 90, 144, 192],
+    [17, 82, 98, 144, 192],
+    [17, 82, 144, 192, 226],
+    [17, 82, 162, 176, 192],
+    [17, 82, 176, 192, 224],
+    [17, 83, 144, 162, 192],
+    [17, 83, 144, 176, 192],
+    [17, 90, 98, 144, 192],
+    [17, 90, 130, 176, 192]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block25_checked : block25.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block26 : List (List Nat) :=
+  [[17, 90, 144, 192, 194],
+    [17, 90, 144, 192, 226],
+    [17, 90, 162, 176, 192],
+    [17, 90, 176, 192, 224],
+    [17, 91, 130, 144, 192],
+    [17, 91, 144, 162, 192],
+    [17, 91, 144, 176, 192],
+    [18, 68, 90, 144, 192],
+    [18, 144, 176, 178, 224],
+    [19, 144, 176, 178, 192],
+    [21, 33, 40, 108, 224],
+    [21, 36, 40, 57, 176],
+    [21, 40, 41, 100, 176],
+    [21, 40, 44, 49, 224],
+    [21, 40, 49, 108, 224],
+    [21, 40, 57, 100, 176],
+    [22, 144, 176, 192, 226],
+    [26, 144, 146, 176, 224],
+    [26, 144, 176, 178, 224],
+    [27, 144, 146, 176, 192],
+    [27, 144, 176, 178, 192],
+    [29, 33, 40, 96, 108],
+    [29, 33, 40, 108, 224],
+    [29, 36, 40, 48, 57],
+    [29, 36, 40, 57, 176]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block26_checked : block26.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block27 : List (List Nat) :=
+  [[29, 40, 41, 48, 100],
+    [29, 40, 41, 100, 176],
+    [29, 40, 44, 49, 96],
+    [29, 40, 44, 49, 224],
+    [29, 40, 48, 57, 100],
+    [29, 40, 49, 96, 108],
+    [29, 40, 49, 108, 224],
+    [29, 40, 57, 100, 176],
+    [30, 144, 176, 192, 194],
+    [30, 144, 176, 192, 226],
+    [33, 40, 69, 108, 224],
+    [33, 40, 77, 96, 108],
+    [33, 40, 77, 108, 224],
+    [33, 40, 85, 108, 224],
+    [33, 40, 93, 96, 108],
+    [33, 40, 93, 108, 224],
+    [34, 68, 82, 144, 224],
+    [34, 68, 86, 144, 192],
+    [34, 68, 90, 144, 224],
+    [34, 68, 94, 144, 192],
+    [36, 40, 48, 57, 77],
+    [36, 40, 48, 57, 93],
+    [36, 40, 57, 69, 176],
+    [36, 40, 57, 77, 176],
+    [36, 40, 57, 85, 176]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block27_checked : block27.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block28 : List (List Nat) :=
+  [[36, 40, 57, 93, 176],
+    [40, 41, 48, 77, 100],
+    [40, 41, 48, 93, 100],
+    [40, 41, 69, 100, 176],
+    [40, 41, 77, 100, 176],
+    [40, 41, 85, 100, 176],
+    [40, 41, 93, 100, 176],
+    [40, 44, 49, 69, 224],
+    [40, 44, 49, 77, 96],
+    [40, 44, 49, 77, 224],
+    [40, 44, 49, 85, 224],
+    [40, 44, 49, 93, 96],
+    [40, 44, 49, 93, 224],
+    [40, 48, 57, 77, 100],
+    [40, 48, 57, 93, 100],
+    [40, 49, 69, 108, 224],
+    [40, 49, 77, 96, 108],
+    [40, 49, 77, 108, 224],
+    [40, 49, 85, 108, 224],
+    [40, 49, 93, 96, 108],
+    [40, 49, 93, 108, 224],
+    [40, 57, 69, 100, 176],
+    [40, 57, 77, 100, 176],
+    [40, 57, 85, 100, 176],
+    [40, 57, 93, 100, 176]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block28_checked : block28.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block29 : List (List Nat) :=
+  [[40, 68, 88, 144, 224],
+    [40, 68, 89, 144, 192],
+    [40, 68, 90, 144, 224],
+    [40, 68, 92, 144, 192],
+    [40, 68, 94, 144, 192],
+    [50, 68, 82, 144, 192],
+    [50, 68, 90, 144, 192],
+    [66, 176, 192, 224, 226],
+    [67, 144, 178, 192, 224],
+    [68, 82, 144, 162, 224],
+    [68, 82, 144, 176, 224],
+    [68, 82, 144, 178, 192],
+    [68, 86, 144, 162, 192],
+    [68, 86, 144, 192, 224],
+    [68, 90, 130, 144, 224],
+    [68, 90, 144, 146, 192],
+    [68, 90, 144, 162, 224],
+    [68, 90, 144, 176, 224],
+    [68, 90, 144, 178, 192],
+    [68, 94, 130, 144, 192],
+    [68, 94, 144, 162, 192],
+    [68, 94, 144, 192, 224],
+    [70, 144, 192, 224, 226],
+    [74, 176, 192, 194, 224],
+    [74, 176, 192, 224, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block29_checked : block29.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block30 : List (List Nat) :=
+  [[75, 144, 146, 192, 224],
+    [75, 144, 178, 192, 224],
+    [78, 144, 192, 194, 224],
+    [78, 144, 192, 224, 226],
+    [82, 144, 176, 178, 224],
+    [82, 144, 176, 192, 226],
+    [82, 144, 178, 192, 224],
+    [82, 176, 192, 224, 226],
+    [83, 144, 176, 178, 192],
+    [83, 144, 178, 192, 224],
+    [86, 144, 176, 192, 226],
+    [86, 144, 192, 224, 226],
+    [90, 144, 146, 176, 224],
+    [90, 144, 146, 192, 224],
+    [90, 144, 176, 178, 224],
+    [90, 144, 176, 192, 194],
+    [90, 144, 176, 192, 226],
+    [90, 144, 178, 192, 224],
+    [90, 176, 192, 194, 224],
+    [90, 176, 192, 224, 226],
+    [91, 144, 146, 176, 192],
+    [91, 144, 146, 192, 224],
+    [91, 144, 176, 178, 192],
+    [91, 144, 178, 192, 224],
+    [94, 144, 176, 192, 194]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block30_checked : block30.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def block31 : List (List Nat) :=
+  [[94, 144, 176, 192, 226],
+    [94, 144, 192, 194, 224],
+    [94, 144, 192, 224, 226]]
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 8000000 in
+lemma block31_checked : block31.all (fun f => !possibleWithFive f) = true := by
+  decide +kernel
+
+def families : List (List Nat) :=
+  block00 ++ block01 ++ block02 ++ block03 ++ block04 ++ block05 ++ block06 ++ block07 ++ block08 ++ block09 ++ block10 ++ block11 ++ block12 ++ block13 ++ block14 ++ block15 ++ block16 ++ block17 ++ block18 ++ block19 ++ block20 ++ block21 ++ block22 ++ block23 ++ block24 ++ block25 ++ block26 ++ block27 ++ block28 ++ block29 ++ block30 ++ block31
+
+set_option maxRecDepth 8192 in
+lemma census : families.length = 250 ∧
+    (families.filter fun f => f.length == 4).length = 22 ∧
+    (families.filter fun f => f.length == 5).length = 228 := by
+  decide +kernel
+
+def strictlySorted : List Nat → Bool
+  | [] => true
+  | [_] => true
+  | a :: b :: xs => (a < b) && strictlySorted (b :: xs)
+
+set_option maxRecDepth 8192 in
+lemma families_valid : families.all (fun f => strictlySorted f &&
+    f.all (fun m => m < 256 && m != 0 && !singleBit m)) = true := by
+  decide +kernel
+
+lemma no_five_or_construction : families.all (fun f => !possibleWithFive f) = true := by
+  unfold families
+  simp only [List.all_append, block00_checked, block01_checked, block02_checked, block03_checked, block04_checked, block05_checked, block06_checked, block07_checked, block08_checked, block09_checked, block10_checked, block11_checked, block12_checked, block13_checked, block14_checked, block15_checked, block16_checked, block17_checked, block18_checked, block19_checked, block20_checked, block21_checked, block22_checked, block23_checked, block24_checked, block25_checked, block26_checked, block27_checked, block28_checked, block29_checked, block30_checked, block31_checked, Bool.true_and]
+
+set_option maxRecDepth 8192 in
+lemma families_nodup : families.Nodup := by
+  decide +kernel
+
+end R3Family
+
 end PEqualNP.Outside.L_meta_9033_aux
