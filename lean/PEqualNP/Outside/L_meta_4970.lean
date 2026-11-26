@@ -8328,4 +8328,431 @@ lemma matching_card_le_pred {α β μ κ : Type*} [Fintype μ] [Fintype κ]
 
 end H5RectangleOwners
 
+namespace H5OwnerPartition
+
+lemma one_owner_card_eq {κ : Type*} [DecidableEq κ]
+    (R C : Finset κ) (m : ℕ) (hR : R.card = m) (hC : C.card = m) :
+    (R \ C).card = (C \ R).card := by
+  apply Finset.card_sdiff_eq_card_sdiff_iff.mpr
+  exact hR.trans hC.symm
+
+lemma owner_card {κ : Type*} [DecidableEq κ]
+    (R C : Finset κ) (m : ℕ) (hR : R.card = m) :
+    m = (R ∩ C).card + (R \ C).card := by
+  exact hR.symm.trans (Finset.card_inter_add_card_sdiff R C).symm
+
+lemma sum_partition {κ : Type*} [Fintype κ] [DecidableEq κ]
+    (R C : Finset κ) (w : κ → ℕ) :
+    (∑ k, w k) = (∑ k ∈ R ∩ C, w k) + (∑ k ∈ R \ C, w k) +
+      (∑ k ∈ C \ R, w k) + (∑ k ∈ Finset.univ \ (R ∪ C), w k) := by
+  calc
+    (∑ k, w k) = ∑ k,
+        ((if k ∈ R ∩ C then w k else 0) +
+          (if k ∈ R \ C then w k else 0) +
+          (if k ∈ C \ R then w k else 0) +
+          (if k ∈ Finset.univ \ (R ∪ C) then w k else 0)) := by
+      apply Finset.sum_congr rfl
+      intro k _
+      by_cases hr : k ∈ R <;> by_cases hc : k ∈ C <;> simp [hr, hc]
+    _ = _ := by
+      simp only [Finset.sum_add_distrib, Finset.sum_ite_mem, Finset.univ_inter]
+
+lemma card_partition {κ : Type*} [Fintype κ] [DecidableEq κ]
+    (R C : Finset κ) (m : ℕ) (hR : R.card = m) (hC : C.card = m) :
+    Fintype.card κ = (R ∩ C).card + 2 * (R \ C).card +
+      (Finset.univ \ (R ∪ C)).card := by
+  have hs := sum_partition R C (fun _ => 1)
+  simp only [Finset.sum_const, smul_eq_mul, mul_one, Finset.card_univ] at hs
+  have heq := one_owner_card_eq R C m hR hC
+  omega
+
+end H5OwnerPartition
+
+namespace H5OwnerSupports
+
+lemma inter_biUnion_card_le {μ κ : Type*} [DecidableEq μ] [DecidableEq κ]
+    (I : Finset κ) (U : κ → Finset μ) (W : Finset μ)
+    (h : ∀ k ∈ I, (W ∩ U k).card ≤ 1) :
+    (W ∩ I.biUnion U).card ≤ I.card := by
+  rw [Finset.inter_biUnion]
+  calc
+    (I.biUnion (fun k => W ∩ U k)).card ≤ ∑ k ∈ I, (W ∩ U k).card :=
+      Finset.card_biUnion_le
+    _ ≤ ∑ k ∈ I, 1 := Finset.sum_le_sum h
+    _ = I.card := by simp
+
+lemma linear_support_sum_le_union {μ κ : Type*} [DecidableEq μ] [DecidableEq κ]
+    (I : Finset κ) (U : κ → Finset μ)
+    (hlin : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    (∑ k ∈ I, (U k).card) ≤ (I.biUnion U).card + I.card.choose 2 := by
+  induction I using Finset.induction_on with
+  | empty => simp
+  | @insert a I ha ih =>
+      have hlinI : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (U i ∩ U j).card ≤ 1 := by
+        intro i hi j hj hij
+        exact hlin i (Finset.mem_insert_of_mem hi) j (Finset.mem_insert_of_mem hj) hij
+      have hIH := ih hlinI
+      have hover : (U a ∩ I.biUnion U).card ≤ I.card := by
+        apply inter_biUnion_card_le I U (U a)
+        intro k hk
+        exact hlin a (Finset.mem_insert_self a I) k (Finset.mem_insert_of_mem hk)
+          (fun h => ha (h ▸ hk))
+      have hcard := Finset.card_union_add_card_inter (U a) (I.biUnion U)
+      have hchoose : (I.card + 1).choose 2 = I.card + I.card.choose 2 := by
+        simpa using Nat.choose_succ_succ' I.card 1
+      rw [Finset.sum_insert ha, Finset.biUnion_insert, Finset.card_insert_of_notMem ha, hchoose]
+      omega
+
+lemma linear_support_sum_le {μ κ : Type*} [Fintype μ] [DecidableEq μ] [DecidableEq κ]
+    (I : Finset κ) (U : κ → Finset μ)
+    (hlin : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    (∑ k ∈ I, (U k).card) ≤ Fintype.card μ + I.card.choose 2 := by
+  exact le_trans (linear_support_sum_le_union I U hlin)
+    (Nat.add_le_add_right (Finset.card_le_univ (I.biUnion U)) _)
+
+lemma linear_support_sum_twice_le {μ κ : Type*} [Fintype μ] [DecidableEq μ] [DecidableEq κ]
+    (I : Finset κ) (U : κ → Finset μ)
+    (hlin : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (U i ∩ U j).card ≤ 1) :
+    2 * (∑ k ∈ I, (U k).card) ≤ 2 * Fintype.card μ + I.card * (I.card - 1) := by
+  have hs := linear_support_sum_le I U hlin
+  have hc : 2 * I.card.choose 2 ≤ I.card * (I.card - 1) := by
+    rw [Nat.choose_two_right]
+    omega
+  omega
+
+end H5OwnerSupports
+
+namespace H5ManyOwners
+
+open scoped BigOperators
+
+lemma sum_fibers {κ γ : Type*} [Fintype κ] [Fintype γ] [DecidableEq γ]
+    (color : κ → γ) (w : κ → ℕ) :
+    (∑ c : γ, ∑ k ∈ Finset.univ.filter (fun k => color k = c), w k) = ∑ k : κ, w k := by
+  classical
+  simp only [Finset.sum_filter]
+  rw [Finset.sum_comm]
+  simp
+
+lemma full_support_le_two {μ κ : Type*} [DecidableEq μ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (hdiag : ∀ i, E i i) (rows cols : κ → Finset μ) (rp cp : μ → κ)
+    (_hrA : ∀ i, i ∈ rows (rp i)) (hcB : ∀ i, i ∈ cols (cp i))
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i)
+    (p q : μ) (k : κ) (hp : rp p = k) (hq : cp q = k) :
+    (rows k ∩ cols k).card ≤ 2 := by
+  have hsub : rows k ∩ cols k ⊆ {p,q} := by
+    intro i hi
+    simp only [Finset.mem_inter] at hi
+    by_contra hn
+    have hne : i ≠ p ∧ i ≠ q := by simpa using hn
+    have hpq : E p q := hrControl p q (by rw [hp, ← hq]; exact hcB q)
+    have hpi : E p i := hrControl p i (by rw [hp]; exact hi.2)
+    have hiq : E i q := hcControl q i (by rw [hq]; exact hi.1)
+    exact hfour p i q i (Ne.symm hne.1) (Ne.symm hne.2) ⟨hpq,hpi,hiq,hdiag i⟩
+  calc
+    (rows k ∩ cols k).card ≤ ({p,q} : Finset μ).card := Finset.card_le_card hsub
+    _ ≤ 2 := by simpa using Finset.card_insert_le p ({q} : Finset μ)
+
+lemma row_support_inter_le_one {μ κ : Type*} [DecidableEq μ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (rows cols : κ → Finset μ) (rp : μ → κ)
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (p q : μ) (k l : κ) (hp : rp p = k) (hq : rp q = l) (hkl : k ≠ l) :
+    ((rows k ∩ cols k) ∩ (rows l ∩ cols l)).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro i hi j hj
+  simp only [Finset.mem_inter] at hi hj
+  by_contra hij
+  have hpq : p ≠ q := by intro h; apply hkl; rw [← hp, ← hq, h]
+  exact hfour p q i j hpq hij
+    ⟨hrControl p i (by rw [hp]; exact hi.1.2),
+      hrControl p j (by rw [hp]; exact hj.1.2),
+      hrControl q i (by rw [hq]; exact hi.2.2),
+      hrControl q j (by rw [hq]; exact hj.2.2)⟩
+
+lemma col_support_inter_le_one {μ κ : Type*} [DecidableEq μ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (rows cols : κ → Finset μ) (cp : μ → κ)
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i)
+    (p q : μ) (k l : κ) (hp : cp p = k) (hq : cp q = l) (hkl : k ≠ l) :
+    ((rows k ∩ cols k) ∩ (rows l ∩ cols l)).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro i hi j hj
+  simp only [Finset.mem_inter] at hi hj
+  by_contra hij
+  have hpq : p ≠ q := by intro h; apply hkl; rw [← hp, ← hq, h]
+  exact hfour i j p q hij hpq
+    ⟨hcControl p i (by rw [hp]; exact hi.1.1),
+      hcControl q i (by rw [hq]; exact hi.2.1),
+      hcControl p j (by rw [hp]; exact hj.1.1),
+      hcControl q j (by rw [hq]; exact hj.2.1)⟩
+
+lemma full_center_private {μ κ : Type*} [DecidableEq μ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (rows cols : κ → Finset μ) (rp cp : μ → κ)
+    (hcB : ∀ i, i ∈ cols (cp i))
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i)
+    (p q r s : μ) (k l : κ) (hp : rp p = k) (hq : cp q = k)
+    (hr : rp r = l) (hs : cp s = l) (hkl : k ≠ l)
+    (hLp : p ∈ rows l) (hLq : q ∈ cols l) : False := by
+  have hpr : p ≠ r := by intro h; apply hkl; rw [← hp, ← hr, h]
+  have hqs : q ≠ s := by intro h; apply hkl; rw [← hq, ← hs, h]
+  have hpq : E p q := hrControl p q (by rw [hp, ← hq]; exact hcB q)
+  have hps : E p s := hcControl s p (by rw [hs]; exact hLp)
+  have hrq : E r q := hrControl r q (by rw [hr]; exact hLq)
+  have hrs : E r s := hrControl r s (by rw [hr, ← hs]; exact hcB s)
+  exact hfour p r q s hpr hqs ⟨hpq,hps,hrq,hrs⟩
+
+lemma many_factor_owner_bound {μ κ γ : Type*}
+    [Fintype μ] [Fintype κ] [Fintype γ] [DecidableEq μ] [DecidableEq κ] [DecidableEq γ]
+    (E : μ → μ → Prop)
+    (hfour : ∀ p r q s, p ≠ r → q ≠ s → ¬ (E p q ∧ E p s ∧ E r q ∧ E r s))
+    (hdiag : ∀ i, E i i) (rows cols : κ → Finset μ) (color : κ → γ)
+    (hcover : ∀ c i j, E i j → ∃ k, color k = c ∧ i ∈ rows k ∧ j ∈ cols k)
+    (hsize : ∀ c, 2 ≤ (Finset.univ.filter (fun k => color k = c)).card)
+    (rp cp : μ → κ)
+    (hrA : ∀ i, i ∈ rows (rp i)) (hrB : ∀ i, i ∈ cols (rp i))
+    (hcA : ∀ i, i ∈ rows (cp i)) (hcB : ∀ i, i ∈ cols (cp i))
+    (hrControl : ∀ i j, j ∈ cols (rp i) → E i j)
+    (hcControl : ∀ i j, j ∈ rows (cp i) → E j i) :
+    Fintype.card μ + Fintype.card γ ≤ Fintype.card κ + 1 := by
+  classical
+  let R := Finset.univ.image rp
+  let C := Finset.univ.image cp
+  let F := R ∩ C
+  let U := R \ C
+  let V := C \ R
+  let Z := Finset.univ \ (R ∪ C)
+  let fiber := fun c => Finset.univ.filter (fun k => color k = c)
+  let supp := fun k => rows k ∩ cols k
+  let m := Fintype.card μ
+  let t := Fintype.card γ
+  let N := Fintype.card κ
+  let f := F.card
+  let a := U.card
+  let z := Z.card
+  have hrInj : Function.Injective rp :=
+    H5RectangleOwners.row_owner_injective E hfour id id Function.injective_id Function.injective_id
+      rp (fun k j => j ∈ cols k) hrB hrControl
+  have hcInj : Function.Injective cp :=
+    H5RectangleOwners.col_owner_injective E hfour id id Function.injective_id Function.injective_id
+      cp (fun k j => j ∈ rows k) hcA hcControl
+  have hRcard : R.card = m := by simp [R, Finset.card_image_of_injective _ hrInj, m]
+  have hCcard : C.card = m := by simp [C, Finset.card_image_of_injective _ hcInj, m]
+  have hUV : U.card = V.card := H5OwnerPartition.one_owner_card_eq R C m hRcard hCcard
+  have hm : m = f+a := H5OwnerPartition.owner_card R C m hRcard
+  have hN : N = f+2*a+z := H5OwnerPartition.card_partition R C m hRcard hCcard
+  have hfull : ∀ k ∈ F, (supp k).card ≤ 2 := by
+    intro k hk
+    obtain ⟨p,_,hp⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hk).1
+    obtain ⟨q,_,hq⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hk).2
+    exact full_support_le_two E hfour hdiag rows cols rp cp hrA hcB hrControl hcControl p q k hp hq
+  have hrowlin : ∀ k ∈ U, ∀ l ∈ U, k ≠ l → ((supp k) ∩ (supp l)).card ≤ 1 := by
+    intro k hk l hl hkl
+    obtain ⟨p,_,hp⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hk).1
+    obtain ⟨q,_,hq⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hl).1
+    exact row_support_inter_le_one E hfour rows cols rp hrControl p q k l hp hq hkl
+  have hcollin : ∀ k ∈ V, ∀ l ∈ V, k ≠ l → ((supp k) ∩ (supp l)).card ≤ 1 := by
+    intro k hk l hl hkl
+    obtain ⟨p,_,hp⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hk).1
+    obtain ⟨q,_,hq⟩ := Finset.mem_image.mp (Finset.mem_sdiff.mp hl).1
+    exact col_support_inter_le_one E hfour rows cols cp hcControl p q k l hp hq hkl
+  have hUVsum : (∑ k ∈ U, (supp k).card) + (∑ k ∈ V, (supp k).card) ≤ 2*m+a*(a-1) := by
+    have hU := H5OwnerSupports.linear_support_sum_twice_le U supp hrowlin
+    have hV := H5OwnerSupports.linear_support_sum_twice_le V supp hcollin
+    rw [← hUV] at hV
+    change 2 * (∑ k ∈ U, (supp k).card) ≤ 2*m+a*(a-1) at hU
+    change 2 * (∑ k ∈ V, (supp k).card) ≤ 2*m+a*(a-1) at hV
+    omega
+  have hFsum : (∑ k ∈ F, (supp k).card) ≤ 2*f := by
+    calc
+      _ ≤ ∑ _k ∈ F, 2 := Finset.sum_le_sum hfull
+      _ = 2*f := by simp [f, Nat.mul_comm]
+  have hZsum : (∑ k ∈ Z, (supp k).card) ≤ z*m := by
+    calc
+      _ ≤ ∑ _k ∈ Z, m := Finset.sum_le_sum (fun k _ => Finset.card_le_univ (supp k))
+      _ = z*m := by simp [z]
+  have hpart := H5OwnerPartition.sum_partition R C (fun k => (supp k).card)
+  have htotal : (∑ k : κ, (supp k).card) ≤ 2*f+2*m+a*(a-1)+z*m := by
+    change (∑ k : κ, (supp k).card) =
+      (∑ k ∈ F, (supp k).card)+(∑ k ∈ U, (supp k).card)+
+      (∑ k ∈ V, (supp k).card)+(∑ k ∈ Z, (supp k).card) at hpart
+    omega
+  have hfactor : ∀ c, m ≤ ∑ k ∈ fiber c, (supp k).card := by
+    intro c
+    have hsub : (Finset.univ : Finset μ) ⊆ (fiber c).biUnion supp := by
+      intro i _
+      obtain ⟨k,hkc,hri,hci⟩ := hcover c i i (hdiag i)
+      apply Finset.mem_biUnion.mpr
+      exact ⟨k, by simp [fiber,hkc], Finset.mem_inter.mpr ⟨hri,hci⟩⟩
+    exact le_trans (by simpa [m] using Finset.card_le_card hsub) (Finset.card_biUnion_le)
+  have hbudget : t*m ≤ 2*f+2*m+a*(a-1)+z*m := by
+    have h := Finset.sum_le_sum (fun c (_ : c ∈ (Finset.univ : Finset γ)) => hfactor c)
+    rw [show (∑ c : γ, ∑ k ∈ fiber c, (supp k).card) = ∑ k : κ, (supp k).card from
+      sum_fibers color (fun k => (supp k).card)] at h
+    have ht : t*m ≤ ∑ k : κ, (supp k).card := by simpa [t] using h
+    exact ht.trans htotal
+  by_contra hbad
+  have ht : a+z+2 ≤ t := by change ¬(m+t ≤ N+1) at hbad; omega
+  have hnotfull : ∀ c, ¬ fiber c ⊆ F := by
+    intro c hcf
+    have hFc : F ⊆ fiber c := by
+      intro k hk
+      by_contra hkc
+      have hcolor : color k ≠ c := by simpa [fiber] using hkc
+      obtain ⟨p,_,hp⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hk).1
+      obtain ⟨q,_,hq⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hk).2
+      have hpq : E p q := hrControl p q (by rw [hp, ← hq]; exact hcB q)
+      obtain ⟨l,hlc,hlp,hlq⟩ := hcover c p q hpq
+      have hlF : l ∈ F := hcf (by simp [fiber,hlc])
+      obtain ⟨r,_,hr⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hlF).1
+      obtain ⟨s,_,hs⟩ := Finset.mem_image.mp (Finset.mem_inter.mp hlF).2
+      have hkl : k ≠ l := by intro h; apply hcolor; simpa [h] using hlc
+      exact full_center_private E hfour rows cols rp cp hcB hrControl hcControl p q r s k l hp hq hr hs hkl hlp hlq
+    have hfc : (fiber c).card = f := by apply congrArg Finset.card; exact Finset.Subset.antisymm hcf hFc
+    have hsumcard : (∑ d : γ, (fiber d).card) = N := by
+      simpa [fiber, N] using sum_fibers color (fun _ => 1)
+    have herase := Finset.sum_erase_add (Finset.univ : Finset γ) (fun d => (fiber d).card) (Finset.mem_univ c)
+    have hrest : 2*(t-1) ≤ ∑ d ∈ (Finset.univ : Finset γ).erase c, (fiber d).card := by
+      calc
+        _ = ∑ _d ∈ (Finset.univ : Finset γ).erase c, 2 := by simp [t, Nat.mul_comm]
+        _ ≤ _ := Finset.sum_le_sum (fun d _ => hsize d)
+    rw [hfc, hsumcard] at herase
+    have htpos : 1 ≤ t := by
+      have hpos : 0 < t := by simpa [t] using (Fintype.card_pos_iff.mpr (Nonempty.intro c))
+      omega
+    omega
+  have htNonfull : t ≤ (Finset.univ \ F).card := by
+    have hex : ∀ c, ∃ k ∈ Finset.univ \ F, color k = c := by
+      intro c
+      have hn := hnotfull c
+      obtain ⟨k,hkc,hkf⟩ := Finset.not_subset.mp hn
+      exact ⟨k,Finset.mem_sdiff.mpr ⟨Finset.mem_univ k,hkf⟩,(Finset.mem_filter.mp hkc).2⟩
+    have hsub : (Finset.univ : Finset γ) ⊆ (Finset.univ \ F).image color := by
+      intro c _
+      obtain ⟨k,hk,hkc⟩ := hex c
+      exact Finset.mem_image.mpr ⟨k,hk,hkc⟩
+    exact le_trans (by simpa [t] using Finset.card_le_card hsub) (Finset.card_image_le)
+  have hNonfull : (Finset.univ \ F).card = 2*a+z := by
+    have h := Finset.card_sdiff_add_card_inter (Finset.univ : Finset κ) F
+    simp only [Finset.univ_inter, Finset.card_univ] at h
+    change (Finset.univ \ F).card + f = N at h
+    omega
+  have ha : 2 ≤ a := by rw [hNonfull] at htNonfull; omega
+  have hmul := Nat.mul_le_mul_right m ht
+  have ha' : a-1+1 = a := Nat.sub_add_cancel (by omega)
+  have haf : 2*f ≤ a*f := Nat.mul_le_mul_right f ha
+  nlinarith
+
+end H5ManyOwners
+
+namespace H5SingletonFactor
+
+lemma row_controller_avoid_singleton {μ κ τ : Type*}
+    (E : μ → μ → Prop) (hedge : ∀ i, E i i)
+    (rows cols : κ → μ → Prop) (color : κ → τ)
+    (hcover : ∀ t i j, E i j → ∃ k, color k = t ∧ rows k i ∧ cols k j)
+    (t₀ : τ) (K : κ) (htag : color K = t₀)
+    (hunique : ∀ k, color k = t₀ → k = K) (hother : ∃ t, t ≠ t₀)
+    (hrow : ∀ i, ∃ t, ∀ j,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j) :
+    ∀ i, ∃ t, t ≠ t₀ ∧ ∀ j,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j := by
+  intro i
+  obtain ⟨t,ht⟩ := hrow i
+  by_cases heq : t = t₀
+  · obtain ⟨u,hu⟩ := hother
+    refine ⟨u,hu,?_⟩
+    intro j _
+    obtain ⟨ki,hki,hi,_⟩ := hcover t₀ i i (hedge i)
+    obtain ⟨kj,hkj,_,hj⟩ := hcover t₀ j j (hedge j)
+    have hi' : rows K i := by simpa [hunique ki hki] using hi
+    have hj' : cols K j := by simpa [hunique kj hkj] using hj
+    exact ht j ⟨K,htag.trans heq.symm,hi',hj'⟩
+  · exact ⟨t,heq,ht⟩
+
+lemma col_controller_avoid_singleton {μ κ τ : Type*}
+    (E : μ → μ → Prop) (hedge : ∀ i, E i i)
+    (rows cols : κ → μ → Prop) (color : κ → τ)
+    (hcover : ∀ t i j, E i j → ∃ k, color k = t ∧ rows k i ∧ cols k j)
+    (t₀ : τ) (K : κ) (htag : color K = t₀)
+    (hunique : ∀ k, color k = t₀ → k = K) (hother : ∃ t, t ≠ t₀)
+    (hcol : ∀ j, ∃ t, ∀ i,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j) :
+    ∀ j, ∃ t, t ≠ t₀ ∧ ∀ i,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j := by
+  intro j
+  obtain ⟨t,ht⟩ := hcol j
+  by_cases heq : t = t₀
+  · obtain ⟨u,hu⟩ := hother
+    refine ⟨u,hu,?_⟩
+    intro i _
+    obtain ⟨ki,hki,hi,_⟩ := hcover t₀ i i (hedge i)
+    obtain ⟨kj,hkj,_,hj⟩ := hcover t₀ j j (hedge j)
+    have hi' : rows K i := by simpa [hunique ki hki] using hi
+    have hj' : cols K j := by simpa [hunique kj hkj] using hj
+    exact ht i ⟨K,htag.trans heq.symm,hi',hj'⟩
+  · exact ⟨t,heq,ht⟩
+
+lemma row_controller_keep {μ κ τ : Type*}
+    (E : μ → μ → Prop) (hedge : ∀ i, E i i)
+    (rows cols : κ → μ → Prop) (color : κ → τ)
+    (hcover : ∀ t i j, E i j → ∃ k, color k = t ∧ rows k i ∧ cols k j)
+    (keep : τ → Prop)
+    (hremoved : ∀ t, ¬ keep t → ∃ K, color K = t ∧ ∀ k, color k = t → k = K)
+    (hsome : ∃ t, keep t)
+    (hrow : ∀ i, ∃ t, ∀ j,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j) :
+    ∀ i, ∃ t, keep t ∧ ∀ j,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j := by
+  classical
+  intro i
+  obtain ⟨t,ht⟩ := hrow i
+  by_cases hk : keep t
+  · exact ⟨t,hk,ht⟩
+  · obtain ⟨K,hK,hunique⟩ := hremoved t hk
+    obtain ⟨u,hu⟩ := hsome
+    refine ⟨u,hu,?_⟩
+    intro j _
+    obtain ⟨ki,hki,hi,_⟩ := hcover t i i (hedge i)
+    obtain ⟨kj,hkj,_,hj⟩ := hcover t j j (hedge j)
+    have hi' : rows K i := by simpa [hunique ki hki] using hi
+    have hj' : cols K j := by simpa [hunique kj hkj] using hj
+    exact ht j ⟨K,hK,hi',hj'⟩
+
+lemma col_controller_keep {μ κ τ : Type*}
+    (E : μ → μ → Prop) (hedge : ∀ i, E i i)
+    (rows cols : κ → μ → Prop) (color : κ → τ)
+    (hcover : ∀ t i j, E i j → ∃ k, color k = t ∧ rows k i ∧ cols k j)
+    (keep : τ → Prop)
+    (hremoved : ∀ t, ¬ keep t → ∃ K, color K = t ∧ ∀ k, color k = t → k = K)
+    (hsome : ∃ t, keep t)
+    (hcol : ∀ j, ∃ t, ∀ i,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j) :
+    ∀ j, ∃ t, keep t ∧ ∀ i,
+      (∃ k, color k = t ∧ rows k i ∧ cols k j) → E i j := by
+  classical
+  intro j
+  obtain ⟨t,ht⟩ := hcol j
+  by_cases hk : keep t
+  · exact ⟨t,hk,ht⟩
+  · obtain ⟨K,hK,hunique⟩ := hremoved t hk
+    obtain ⟨u,hu⟩ := hsome
+    refine ⟨u,hu,?_⟩
+    intro i _
+    obtain ⟨ki,hki,hi,_⟩ := hcover t i i (hedge i)
+    obtain ⟨kj,hkj,_,hj⟩ := hcover t j j (hedge j)
+    have hi' : rows K i := by simpa [hunique ki hki] using hi
+    have hj' : cols K j := by simpa [hunique kj hkj] using hj
+    exact ht i ⟨K,hK,hi',hj'⟩
+
+end H5SingletonFactor
+
 end PEqualNP.Outside.L_meta_4970_aux
