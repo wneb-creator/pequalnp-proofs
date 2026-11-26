@@ -357,4 +357,121 @@ lemma two_reader_dependency_agreement
   intro i hi hiv hiu hip
   exact hagree i hi (by simp [hiv, hiu, hip])
 
+/- Structural OR frontiers and a finite single-injection obstruction. -/
+
+def orFrontierAtom {k : Nat} (n : Nat) (op isProtected : Fin k → Bool) (i : Nat) : Prop :=
+  i < n ∨ ∃ j : Fin k, i = n + j.val ∧ (op j = true ∨ isProtected j = true)
+
+lemma or_frontier_avoiding_exists
+    {n k : Nat} (a b : Fin k → Nat) (op isProtected : Fin k → Bool)
+    (blocked : Finset Nat)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val)
+    (havoid : ∀ j, op j = false → isProtected j = false →
+      a j ∉ blocked ∧ b j ∉ blocked) :
+    ∀ i, i < n + k → i ∉ blocked →
+      ∃ frontier : Finset Nat,
+        frontier.Nonempty ∧
+        (∀ x ∈ frontier, orFrontierAtom n op isProtected x) ∧
+        (∀ x ∈ frontier, x ≤ i) ∧
+        (¬ orFrontierAtom n op isProtected i → ∀ x ∈ frontier, x < i) ∧
+        Disjoint frontier blocked ∧
+        ∀ w : Nat → Bool,
+          (∀ j, w (n + j.val) = boolGate (op j) (w (a j)) (w (b j))) →
+          (w i = true ↔ ∃ x ∈ frontier, w x = true) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | ind i ih =>
+    intro hi hioutside
+    by_cases hatom : orFrontierAtom n op isProtected i
+    · refine ⟨{i}, by simp, ?_, ?_, ?_, ?_, ?_⟩
+      · intro x hx
+        have hxi : x = i := Finset.mem_singleton.mp hx
+        simpa [hxi] using hatom
+      · intro x hx
+        have hxi : x = i := Finset.mem_singleton.mp hx
+        exact hxi.le
+      · intro hnot
+        exact (hnot hatom).elim
+      · apply Finset.disjoint_left.mpr
+        intro x hx hblocked
+        have hxi : x = i := Finset.mem_singleton.mp hx
+        exact hioutside (hxi ▸ hblocked)
+      · intro w heval
+        simp
+    · have hin : ¬ i < n := fun h => hatom (Or.inl h)
+      let j : Fin k := ⟨i - n, by omega⟩
+      have hij : i = n + j.val := by dsimp [j]; omega
+      have hop : op j = false := by
+        cases h : op j
+        · rfl
+        · exact (hatom (Or.inr ⟨j, hij, Or.inl h⟩)).elim
+      have hprotected : isProtected j = false := by
+        cases h : isProtected j
+        · rfl
+        · exact (hatom (Or.inr ⟨j, hij, Or.inr h⟩)).elim
+      obtain ⟨haoutside, hboutside⟩ := havoid j hop hprotected
+      obtain ⟨left, hleftne, hleftatom, hleftbound, _, hleftdisjoint, hleftsem⟩ :=
+        ih (a j) (by simpa [← hij] using ha j)
+          (by have := ha j; omega) haoutside
+      obtain ⟨right, _, hrightatom, hrightbound, _, hrightdisjoint, hrightsem⟩ :=
+        ih (b j) (by simpa [← hij] using hb j)
+          (by have := hb j; omega) hboutside
+      have hstrict : ∀ x ∈ left ∪ right, x < i := by
+        intro x hx
+        rcases Finset.mem_union.mp hx with hleft | hright
+        · exact lt_of_le_of_lt (hleftbound x hleft) (by simpa [← hij] using ha j)
+        · exact lt_of_le_of_lt (hrightbound x hright) (by simpa [← hij] using hb j)
+      refine ⟨left ∪ right, ?_, ?_, ?_, ?_, ?_, ?_⟩
+      · obtain ⟨x, hx⟩ := hleftne
+        exact ⟨x, Finset.mem_union.mpr (Or.inl hx)⟩
+      · intro x hx
+        rcases Finset.mem_union.mp hx with hleft | hright
+        · exact hleftatom x hleft
+        · exact hrightatom x hright
+      · intro x hx
+        exact (hstrict x hx).le
+      · intro hnot x hx
+        exact hstrict x hx
+      · apply Finset.disjoint_left.mpr
+        intro x hx hblocked
+        rcases Finset.mem_union.mp hx with hleft | hright
+        · exact Finset.disjoint_left.mp hleftdisjoint hleft hblocked
+        · exact Finset.disjoint_left.mp hrightdisjoint hright hblocked
+      · intro w heval
+        have hsem := or_congr (hleftsem w heval) (hrightsem w heval)
+        rw [hij, heval j]
+        simpa [boolGate, hop, Finset.mem_union, or_and_right, exists_or] using hsem
+
+lemma or_frontier_exists
+    {n k : Nat} (a b : Fin k → Nat) (op isProtected : Fin k → Bool)
+    (ha : ∀ j, a j < n + j.val) (hb : ∀ j, b j < n + j.val) :
+    ∀ i, i < n + k →
+      ∃ frontier : Finset Nat,
+        frontier.Nonempty ∧
+        (∀ x ∈ frontier, orFrontierAtom n op isProtected x) ∧
+        (∀ x ∈ frontier, x ≤ i) ∧
+        (¬ orFrontierAtom n op isProtected i → ∀ x ∈ frontier, x < i) ∧
+        ∀ w : Nat → Bool,
+          (∀ j, w (n + j.val) = boolGate (op j) (w (a j)) (w (b j))) →
+          (w i = true ↔ ∃ x ∈ frontier, w x = true) := by
+  intro i hi
+  obtain ⟨frontier, hnonempty, hatoms, hbound, hstrict, _, hsem⟩ :=
+    or_frontier_avoiding_exists a b op isProtected ∅ ha hb (by simp) i hi (by simp)
+  exact ⟨frontier, hnonempty, hatoms, hbound, hstrict, hsem⟩
+
+def optimisticPort (row injection mask : Nat) : Bool :=
+  decide (row &&& mask ≠ 0 ∨ injection &&& mask = injection)
+
+def optimisticMiddleOutput (row injection : Nat) : Bool :=
+  let h := optimisticPort row injection 88 && optimisticPort row injection 160
+  let q := decide (row &&& 2 ≠ 0) || h || decide (injection &&& 2 = injection)
+  (q && optimisticPort row injection 40) ||
+    (optimisticPort row injection 16 && optimisticPort row injection 64)
+
+lemma single_injection_obstruction : ∀ injection : Fin 256,
+    injection.val ≠ 0 →
+    optimisticMiddleOutput 64 injection.val = false ∨
+      optimisticMiddleOutput 128 injection.val = false := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_9033
