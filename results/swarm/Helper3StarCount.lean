@@ -3958,3 +3958,128 @@ lemma posted_claim_implies_paired_lower_bound
   omega
 
 end PEqualNP.Outside.L_meta_4970.CompletionReduction
+
+namespace PEqualNP.Outside.L_meta_4970.RawSingleton
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+/-- Disjoint raw supports at AND operands prevent semantic singleton leakage everywhere. -/
+lemma singleton_eq_raw_of_and_disjoint (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (hdis : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.and →
+      ∀ a b, (gateAt C j).inputs = [a,b] → Disjoint (orIn n C a) (orIn n C b)) :
+    ∀ w, w < n + C.gates.length → singletonSupport n C w = orIn n C w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hin : w < n
+    · rw [raw_input n C w hin, singletonSupport_input n C w hin]
+    · have hn : n ≤ w := by omega
+      have hj : w - n < C.gates.length := by omega
+      have he : n + (w - n) = w := by omega
+      obtain ⟨a,b,ha,hb,hab,hop,heval⟩ := binary_gate n C hC (w-n) hj
+      rw [he] at ha hb heval
+      have hsa := ih a ha (by omega)
+      have hsb := ih b hb (by omega)
+      rcases hop with hand | hor
+      · rw [raw_and_empty n C w hn hand]
+        apply Finset.eq_empty_iff_forall_notMem.mpr
+        intro i hi
+        rw [mem_singletonSupport, heval, hand] at hi
+        have hi' : wireFn n C a (fun k => decide (k=i)) = true ∧
+            wireFn n C b (fun k => decide (k=i)) = true := by
+          simpa [GateOp.eval] using hi
+        have ha' : i ∈ orIn n C a := by
+          rw [← hsa, mem_singletonSupport]; exact hi'.1
+        have hb' : i ∈ orIn n C b := by
+          rw [← hsb, mem_singletonSupport]; exact hi'.2
+        exact Finset.disjoint_left.mp (hdis (w-n) hj hand a b hab) ha' hb'
+      · rw [raw_or_union n C w a b hw hn hor hab ha hb]
+        ext i
+        rw [mem_singletonSupport, heval, hor]
+        simp only [GateOp.eval, List.any_cons, List.any_nil, Bool.or_false, id_eq,
+          Bool.or_eq_true, Finset.mem_union]
+        rw [← hsa, ← hsb, mem_singletonSupport, mem_singletonSupport]
+
+lemma and_singleton_empty_of_raw_disjoint (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (hdis : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.and →
+      ∀ a b, (gateAt C j).inputs = [a,b] → Disjoint (orIn n C a) (orIn n C b))
+    (j : ℕ) (hj : j < C.gates.length) (hand : (gateAt C j).op = GateOp.and) :
+    singletonSupport n C (n+j) = ∅ := by
+  rw [singleton_eq_raw_of_and_disjoint n C hC hdis (n+j) (by omega)]
+  apply raw_and_empty n C (n+j) (by omega)
+  simpa using hand
+
+/-- Conversely, equality of raw and semantic singleton supports forces disjoint AND operands. -/
+lemma and_disjoint_of_singleton_eq_raw (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (heq : ∀ w, w < n + C.gates.length → singletonSupport n C w = orIn n C w)
+    (j : ℕ) (hj : j < C.gates.length) (hand : (gateAt C j).op = GateOp.and)
+    (a b : ℕ) (hab : (gateAt C j).inputs = [a,b]) :
+    Disjoint (orIn n C a) (orIn n C b) := by
+  obtain ⟨a',b',ha,hb,hab',_,heval⟩ := binary_gate n C hC j hj
+  have hlist : [a,b] = [a',b'] := hab.symm.trans hab'
+  have haa : a = a' := (List.cons.inj hlist).1
+  have hbb : b = b' := (List.cons.inj (List.cons.inj hlist).2).1
+  subst a'; subst b'
+  apply Finset.disjoint_left.mpr
+  intro i hiA hiB
+  rw [← heq a (by omega), mem_singletonSupport] at hiA
+  rw [← heq b (by omega), mem_singletonSupport] at hiB
+  have hi : i ∈ singletonSupport n C (n+j) := by
+    rw [mem_singletonSupport, heval, hand]
+    simp [GateOp.eval, hiA, hiB]
+  rw [heq (n+j) (by omega), raw_and_empty n C (n+j) (by omega) (by simpa using hand)] at hi
+  exact Finset.notMem_empty i hi
+
+end PEqualNP.Outside.L_meta_4970.RawSingleton
+
+namespace PEqualNP.Outside.L_meta_4970.RawSingleton
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970_aux PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+/-- An AND gate false on every singleton has disjoint raw operand supports. -/
+lemma and_raw_disjoint_of_singleton_empty (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (j : ℕ) (hj : j < C.gates.length) (hand : (gateAt C j).op = GateOp.and)
+    (hempty : singletonSupport n C (n+j) = ∅)
+    (a b : ℕ) (hab : (gateAt C j).inputs = [a,b]) :
+    Disjoint (orIn n C a) (orIn n C b) := by
+  obtain ⟨a',b',ha,hb,hab',_,heval⟩ := binary_gate n C hC j hj
+  have hlist : [a,b] = [a',b'] := hab.symm.trans hab'
+  have haa : a = a' := (List.cons.inj hlist).1
+  have hbb : b = b' := (List.cons.inj (List.cons.inj hlist).2).1
+  subst a'; subst b'
+  apply Finset.disjoint_left.mpr
+  intro i hiA hiB
+  have hsA := raw_subset_singletonSupport n C hC a (by omega) hiA
+  have hsB := raw_subset_singletonSupport n C hC b (by omega) hiB
+  rw [mem_singletonSupport] at hsA hsB
+  have hi : i ∈ singletonSupport n C (n+j) := by
+    rw [mem_singletonSupport, heval, hand]
+    simp [GateOp.eval, hsA, hsB]
+  rw [hempty] at hi
+  exact Finset.notMem_empty i hi
+
+/-- Empty semantic singleton supports at every AND imply raw/semantic equality everywhere. -/
+lemma singleton_eq_raw_of_and_singleton_empty (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (hempty : ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.and →
+      singletonSupport n C (n+j) = ∅) :
+    ∀ w, w < n + C.gates.length → singletonSupport n C w = orIn n C w := by
+  apply singleton_eq_raw_of_and_disjoint n C hC
+  intro j hj hand a b hab
+  exact and_raw_disjoint_of_singleton_empty n C hC j hj hand
+    (hempty j hj hand) a b hab
+
+lemma singleton_eq_raw_iff_and_singleton_empty (n : ℕ) (C : Circuit) (hC : IsAO2 n C) :
+    (∀ w, w < n + C.gates.length → singletonSupport n C w = orIn n C w) ↔
+    (∀ j, j < C.gates.length → (gateAt C j).op = GateOp.and →
+      singletonSupport n C (n+j) = ∅) := by
+  constructor
+  · intro heq j hj hand
+    rw [heq (n+j) (by omega)]
+    apply raw_and_empty n C (n+j) (by omega)
+    simpa using hand
+  · exact singleton_eq_raw_of_and_singleton_empty n C hC
+
+end PEqualNP.Outside.L_meta_4970.RawSingleton
