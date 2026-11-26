@@ -3388,3 +3388,161 @@ lemma chosen_productive_blended_family_forest {ι α : Type*} [Fintype ι] [Deci
     exact ⟨i, hi, u, hu, v, hv, huv⟩
 
 end PEqualNP.Outside.L_meta_4970.BlendedSupport
+
+namespace PEqualNP.Outside.L_meta_4970.AppendPurePairs
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970_aux
+
+def pairGate {n : ℕ} (p : Fin n × Fin n) : Gate :=
+  ⟨GateOp.or, [p.1.val, p.2.val]⟩
+
+def appendPurePairs {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n)) : Circuit :=
+  ⟨C.gates ++ P.map pairGate, C.output⟩
+
+lemma appendPurePairs_size {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n)) :
+    (appendPurePairs C P).size = C.size + P.length := by
+  simp [appendPurePairs, Circuit.size]
+
+lemma appendPurePairs_output {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n)) :
+    (appendPurePairs C P).output = C.output := rfl
+
+lemma appendPurePairs_old_gate {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (j : ℕ) (hj : j < C.gates.length) :
+    gateAt (appendPurePairs C P) j = gateAt C j := by
+  unfold gateAt appendPurePairs
+  exact List.getD_append _ _ _ _ hj
+
+lemma appendPurePairs_new_gate {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (j : ℕ) (hj : j < P.length) :
+    gateAt (appendPurePairs C P) (C.gates.length + j) = pairGate P[j] := by
+  simp [gateAt, appendPurePairs, hj]
+
+lemma appendPurePairs_old_wires {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (x : List Bool) (w : ℕ) (hw : w < x.length + C.gates.length) :
+    ((appendPurePairs C P).wires x).getD w false = (C.wires x).getD w false := by
+  change (wiresFrom (C.gates ++ P.map pairGate) x).getD w false =
+    (wiresFrom C.gates x).getD w false
+  rw [wiresFrom_append, getD_wiresFrom_lt]
+  simpa [length_wiresFrom] using hw
+
+lemma appendPurePairs_old_wireFn {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (w : ℕ) (hw : w < n + C.gates.length) (x : Fin n → Bool) :
+    wireFn n (appendPurePairs C P) w x = wireFn n C w x := by
+  apply appendPurePairs_old_wires
+  simpa using hw
+
+lemma appendPurePairs_eval {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (houtput : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    (appendPurePairs C P).eval (List.ofFn x) = C.eval (List.ofFn x) :=
+  appendPurePairs_old_wireFn C P C.output houtput x
+
+lemma appendPurePairs_AO2 {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (hC : IsAO2 n C) : IsAO2 n (appendPurePairs C P) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.1 g hg
+    · obtain ⟨p, hp, rfl⟩ := List.mem_map.mp hg
+      exact Or.inr rfl
+  · intro j hj i hi
+    by_cases hold : j < C.gates.length
+    · rw [appendPurePairs_old_gate C P j hold] at hi
+      exact hC.2.1 j hold i hi
+    · have hjp : j - C.gates.length < P.length := by
+        simp only [appendPurePairs, List.length_append, List.length_map] at hj
+        omega
+      have he : C.gates.length + (j - C.gates.length) = j := by omega
+      have hgate := appendPurePairs_new_gate C P (j - C.gates.length) hjp
+      rw [he] at hgate
+      rw [hgate] at hi
+      simp [pairGate] at hi
+      rcases hi with rfl | rfl <;> omega
+  · intro g hg
+    rcases List.mem_append.mp hg with hg | hg
+    · exact hC.2.2 g hg
+    · obtain ⟨p, hp, rfl⟩ := List.mem_map.mp hg
+      rfl
+
+lemma appendPurePairs_new_wireFn {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (hC : IsAO2 n C) (j : ℕ) (hj : j < P.length) (x : Fin n → Bool) :
+    wireFn n (appendPurePairs C P) (n + C.gates.length + j) x =
+      (x P[j].1 || x P[j].2) := by
+  have hk : C.gates.length + j < (appendPurePairs C P).gates.length := by
+    simp only [appendPurePairs, List.length_append, List.length_map]
+    omega
+  obtain ⟨a, b, ha, hb, hab, hop, heval⟩ :=
+    binary_gate n (appendPurePairs C P) (appendPurePairs_AO2 C P hC)
+      (C.gates.length + j) hk
+  rw [appendPurePairs_new_gate C P j hj] at hab heval
+  have he : [P[j].1.val, P[j].2.val] = [a, b] := hab
+  have ha' := (List.cons.inj he).1
+  have hb' := (List.cons.inj (List.cons.inj he).2).1
+  subst a
+  subst b
+  have hv := heval x
+  simp only [pairGate, GateOp.eval, List.any_cons, List.any_nil, Bool.or_false, id_eq] at hv
+  rw [wireFn_input n _ _ P[j].1.isLt, wireFn_input n _ _ P[j].2.isLt] at hv
+  simpa [Nat.add_assoc] using hv
+
+
+lemma appendPurePairs_new_pureOr {n : ℕ} (C : Circuit) (P : List (Fin n × Fin n))
+    (hC : IsAO2 n C) (j : ℕ) (hj : j < P.length) :
+    SemanticSafe.PureOr {P[j].1, P[j].2}
+      (wireFn n (appendPurePairs C P) (n + C.gates.length + j)) := by
+  intro x
+  rw [appendPurePairs_new_wireFn C P hC j hj x]
+  simp
+
+lemma output_valid_of_true (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hx : C.eval (List.ofFn x) = true) : C.output < n + C.gates.length := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.gates.length := by
+    change (wiresFrom C.gates (List.ofFn x)).length = _
+    simp [length_wiresFrom]
+  by_contra hn
+  have hout : (C.wires (List.ofFn x)).length ≤ C.output := by omega
+  rw [Circuit.eval, List.getD_eq_default _ _ hout] at hx
+  exact Bool.noConfusion hx
+
+end PEqualNP.Outside.L_meta_4970.AppendPurePairs
+
+
+namespace PEqualNP.Outside.L_meta_4970.CompletionReduction
+
+lemma diagonal_cover_card (p : ℕ) (S : Finset (Fin (p + p)))
+    (hS : ∀ a : Fin p, Fin.castAdd p a ∈ S ∨ Fin.natAdd p a ∈ S) :
+    p ≤ S.card := by
+  classical
+  let f : Fin p → Fin (p + p) := fun a =>
+    if Fin.castAdd p a ∈ S then Fin.castAdd p a else Fin.natAdd p a
+  have hf : ∀ a ∈ (Finset.univ : Finset (Fin p)), f a ∈ S := by
+    intro a _
+    dsimp [f]
+    split_ifs with ha
+    · exact ha
+    · exact (hS a).resolve_left ha
+  have hi : ∀ a ∈ (Finset.univ : Finset (Fin p)),
+      ∀ b ∈ (Finset.univ : Finset (Fin p)), f a = f b → a = b := by
+    intro a _ b _ hab
+    apply Fin.ext
+    have hv := congrArg Fin.val hab
+    dsimp [f] at hv
+    split_ifs at hv <;> simp only [Fin.val_castAdd, Fin.val_natAdd] at hv <;> omega
+  have hh := Finset.card_le_card_of_injOn f hf hi
+  simpa using hh
+
+lemma paired_completion_budget (p k : ℕ)
+    (E : Finset (Fin p × Fin p))
+    (C D : PEqualNP.CircuitLowerBounds.Circuit)
+    (hdiag : ∀ a : Fin p, (a, a) ∈ E)
+    (hcard : E.card = 2 * k)
+    (hsize : D.size ≤ C.size + p + k)
+    (hbound : ∃ S : Finset (Fin (p + p)),
+      (∀ a b, (a,b) ∈ E → Fin.castAdd p a ∈ S ∨ Fin.natAdd p b ∈ S) ∧
+        E.card + S.card ≤ D.size + 1) :
+    k ≤ C.size + 1 := by
+  obtain ⟨S, hS, hb⟩ := hbound
+  have hs := diagonal_cover_card p S (fun a => hS a a (hdiag a))
+  omega
+
+end PEqualNP.Outside.L_meta_4970.CompletionReduction
