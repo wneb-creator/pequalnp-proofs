@@ -2149,4 +2149,46 @@ lemma shared_belowOr_guard_pair_palette {α : Type*} [DecidableEq α]
     exact hcw.symm
   · exact hvb.trans hwb.symm
 
+lemma matrix_complement_exactness {α β : Type*} (I : α → β → Prop)
+    (hcross : ∀ a b, ¬ I a b →
+      ∃ c d, I c d ∧ ¬ I c b ∧ ¬ I a d)
+    (X : α → Prop) (Y : β → Prop) :
+    ((∃ a, X a ∧ ((∃ b, I a b ∧ Y b) ∨ (∀ b, ¬ I a b → Y b))) ∧
+      (∃ b, Y b ∧ ((∃ a, I a b ∧ X a) ∨ (∀ a, ¬ I a b → X a)))) ↔
+      ∃ a b, I a b ∧ X a ∧ Y b := by
+  classical
+  constructor
+  · rintro ⟨⟨a, hXa, hRa⟩, ⟨b, hYb, hSb⟩⟩
+    by_contra hF
+    have hab : ¬ I a b := fun hab => hF ⟨a, b, hab, hXa, hYb⟩
+    have hR : ∀ d, ¬ I a d → Y d := by
+      rcases hRa with ⟨d, had, hYd⟩ | hR
+      · exact False.elim (hF ⟨a, d, had, hXa, hYd⟩)
+      · exact hR
+    have hS : ∀ c, ¬ I c b → X c := by
+      rcases hSb with ⟨c, hcb, hXc⟩ | hS
+      · exact False.elim (hF ⟨c, b, hcb, hXc, hYb⟩)
+      · exact hS
+    obtain ⟨c, d, hcd, hcb, had⟩ := hcross a b hab
+    exact hF ⟨c, d, hcd, hS c hcb, hR d had⟩
+  · rintro ⟨a, b, hab, hXa, hYb⟩
+    exact ⟨⟨a, hXa, Or.inl ⟨b, hab, hYb⟩⟩,
+      ⟨b, hYb, Or.inl ⟨a, hab, hXa⟩⟩⟩
+
+lemma or_forall_imp_distrib {γ : Type*} (P : Prop) (N Y : γ → Prop) :
+    (P ∨ ∀ z, N z → Y z) ↔ ∀ z, N z → (P ∨ Y z) := by
+  classical
+  constructor
+  · rintro (hP | hY) z hz
+    · exact Or.inl hP
+    · exact Or.inr (hY z hz)
+  · intro h
+    by_cases hP : P
+    · exact Or.inl hP
+    · apply Or.inr
+      intro z hz
+      rcases h z hz with hP' | hY
+      · exact False.elim (hP hP')
+      · exact hY
+
 end PEqualNP.Outside.L_meta_4970_aux
