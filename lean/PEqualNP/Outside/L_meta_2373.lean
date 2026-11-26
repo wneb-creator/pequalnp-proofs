@@ -2,6 +2,33 @@ import PEqualNP.Defs
 
 namespace PEqualNP.Outside.L_meta_2373_aux
 
+namespace Unfolding
+
+open PEqualNP.CircuitLowerBounds
+
+lemma circuit_wires (C : Circuit) (x : List Bool) :
+    C.wires x = C.gates.foldl
+      (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x := rfl
+
+lemma circuit_eval (C : Circuit) (x : List Bool) :
+    C.eval x = (C.wires x).getD C.output false := rfl
+
+lemma circuit_size (C : Circuit) : C.size = C.gates.length := rfl
+
+lemma gate_and (xs : List Bool) : GateOp.and.eval xs = xs.all id := rfl
+lemma gate_or (xs : List Bool) : GateOp.or.eval xs = xs.any id := rfl
+lemma gate_not (xs : List Bool) : GateOp.not.eval xs = !(xs.headD false) := rfl
+lemma gate_mod (m : ℕ) (xs : List Bool) :
+    (GateOp.mod m).eval xs = decide (xs.count true % m = 0) := rfl
+lemma gate_maj (xs : List Bool) :
+    GateOp.maj.eval xs = decide (xs.length ≤ 2 * xs.count true) := rfl
+
+lemma not_count (C : Circuit) : PEqualNP.NotBracket.notCount C =
+    (C.gates.filter fun g => @decide (g.op = GateOp.not)
+      (lineDegreeGateOpDecEq g.op GateOp.not)).length := rfl
+
+end Unfolding
+
 namespace LastNot
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
@@ -41,12 +68,12 @@ lemma above_wires (gs : List Gate)
     apply above_snoc hab
     rcases hgs g (by simp) with hop | hop
     · rw [hop]
-      simp only [GateOp.eval, List.all_eq_true, List.mem_map, id]
+      simp only [Unfolding.gate_and, List.all_eq_true, List.mem_map, id]
       intro hall v hv
       obtain ⟨j, hj, rfl⟩ := hv
       exact hab.2 j (hall _ ⟨j, hj, rfl⟩)
     · rw [hop]
-      simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+      simp only [Unfolding.gate_or, List.any_eq_true, List.mem_map, id]
       rintro ⟨v, ⟨j, hj, rfl⟩, hv⟩
       exact ⟨_, ⟨j, hj, rfl⟩, hab.2 j hv⟩
 
@@ -99,20 +126,20 @@ lemma constant_eval (b : Bool) (w : List Bool) :
 lemma append_wires (pre post : List Gate) (out : ℕ) (x : List Bool) :
     (⟨pre ++ post, out⟩ : Circuit).wires x =
       (⟨post, out⟩ : Circuit).wires ((⟨pre, 0⟩ : Circuit).wires x) := by
-  simp only [Circuit.wires, List.foldl_append]
+  simp only [Unfolding.circuit_wires, List.foldl_append]
 
 lemma negated_split (pre post : List Gate) (ins : List ℕ) (out : ℕ) (x : List Bool) :
     (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).eval x =
       (⟨post, out⟩ : Circuit).eval
         (((⟨pre, 0⟩ : Circuit).wires x) ++ [!(lastInput pre ins x)]) := by
-  unfold Circuit.eval
+  simp only [Unfolding.circuit_eval]
   rw [append_wires]
   rfl
 
 lemma constant_split (pre post : List Gate) (b : Bool) (out : ℕ) (x : List Bool) :
     (⟨pre ++ constant b :: post, out⟩ : Circuit).eval x =
       (⟨post, out⟩ : Circuit).eval (((⟨pre, 0⟩ : Circuit).wires x) ++ [b]) := by
-  unfold Circuit.eval
+  simp only [Unfolding.circuit_eval]
   rw [append_wires]
   change ((⟨post, out⟩ : Circuit).wires
     (((⟨pre, 0⟩ : Circuit).wires x) ++
@@ -161,12 +188,12 @@ lemma replace_fanInTwo (pre post : List Gate) (ins : List ℕ) (out : ℕ) (b : 
 lemma replace_size (pre post : List Gate) (ins : List ℕ) (out : ℕ) (b : Bool) :
     (⟨pre ++ constant b :: post, out⟩ : Circuit).size =
       (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).size := by
-  simp [Circuit.size]
+  simp [Unfolding.circuit_size]
 
 lemma replace_notCount (pre post : List Gate) (ins : List ℕ) (out : ℕ) (b : Bool) :
     PEqualNP.NotBracket.notCount (⟨pre ++ constant b :: post, out⟩ : Circuit) + 1 =
       PEqualNP.NotBracket.notCount (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit) := by
-  cases b <;> simp [PEqualNP.NotBracket.notCount, constant, List.filter_append] <;> omega
+  cases b <;> simp [Unfolding.not_count, constant, List.filter_append] <;> omega
 
 lemma negated_context_true_change {α : Type*} (F h : α → Bool)
     (P : α → Bool → Bool)
@@ -323,7 +350,7 @@ lemma zero_not_mono (gs : List Gate)
   · exact Or.inl hop
   · exact Or.inr hop
   · have nil : gs.filter (fun h => decide (h.op = GateOp.not)) = [] :=
-      List.length_eq_zero_iff.mp (by simpa [PEqualNP.NotBracket.notCount] using count)
+      List.length_eq_zero_iff.mp (by simpa [Unfolding.not_count] using count)
     have mem : g ∈ gs.filter (fun h => decide (h.op = GateOp.not)) := by simp [hg, hop]
     rw [nil] at mem
     contradiction
@@ -343,10 +370,9 @@ lemma one_not_split (gs : List Gate)
     · intro g hg
       exact basis g (by rw [eq]; simp [hg])
     · rw [eq] at count
-      simp only [PEqualNP.NotBracket.notCount, List.filter_append, List.filter_cons,
+      simp only [Unfolding.not_count, List.filter_append, List.filter_cons,
         List.length_append, decide_true, ↓reduceIte, List.length_cons] at count
-      unfold PEqualNP.NotBracket.notCount
-      dsimp only
+      simp only [Unfolding.not_count]
       omega
 
 lemma source_refinement {α : Type*} (F h k : α → Bool) (P : α → Bool → Bool)
@@ -416,14 +442,14 @@ lemma rewire_not_costs (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
       (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit).size ∧
     PEqualNP.NotBracket.notCount (⟨pre ++ ⟨GateOp.not, [j]⟩ :: post, out⟩ : Circuit) =
       PEqualNP.NotBracket.notCount (⟨pre ++ ⟨GateOp.not, ins⟩ :: post, out⟩ : Circuit) := by
-  refine ⟨?_, by simp [Circuit.size], ?_⟩
+  refine ⟨?_, by simp [Unfolding.circuit_size], ?_⟩
   · intro g hg
     simp only [List.mem_append, List.mem_cons] at hg
     rcases hg with hg | rfl | hg
     · exact hfan g (by simp [hg])
     · simp
     · exact hfan g (by simp [hg])
-  · simp [PEqualNP.NotBracket.notCount, List.filter_append]
+  · simp [Unfolding.not_count, List.filter_append]
 
 lemma rewire_sound_or_branch {α : Type*} (input : α → List Bool)
     (pre post : List Gate) (ins : List ℕ) (out j : ℕ)
@@ -918,20 +944,20 @@ lemma simplify_sound (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or ∨
       = op.eval (ins.map (Stat.val w)) := by
   rcases hop with rfl | rfl | rfl
   · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
-    · simp [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval]
-    · cases a <;> simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · simp [simplify, simpAnd, Stat.Valid, Stat.val, Unfolding.gate_and]
+    · cases a <;> simp_all [simplify, simpAnd, Stat.Valid, Stat.val, Unfolding.gate_and, wiresFrom]
     · rcases a with ⟨_ | _⟩ | _ <;> rcases b with ⟨_ | _⟩ | _ <;>
-        simp_all [simplify, simpAnd, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+        simp_all [simplify, simpAnd, Stat.Valid, Stat.val, Unfolding.gate_and, wiresFrom]
     · simp at hlen
   · rcases ins with _ | ⟨a, _ | ⟨b, _ | ⟨d, l⟩⟩⟩
-    · simp [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval]
-    · cases a <;> simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · simp [simplify, simpOr, Stat.Valid, Stat.val, Unfolding.gate_or]
+    · cases a <;> simp_all [simplify, simpOr, Stat.Valid, Stat.val, Unfolding.gate_or, wiresFrom]
     · rcases a with ⟨_ | _⟩ | _ <;> rcases b with ⟨_ | _⟩ | _ <;>
-        simp_all [simplify, simpOr, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+        simp_all [simplify, simpOr, Stat.Valid, Stat.val, Unfolding.gate_or, wiresFrom]
     · simp at hlen
   · rcases ins with _ | ⟨a, l⟩
-    · simp [simplify, simpNot, Stat.Valid, Stat.val, GateOp.eval]
-    · cases a <;> simp_all [simplify, simpNot, Stat.Valid, Stat.val, GateOp.eval, wiresFrom]
+    · simp [simplify, simpNot, Stat.Valid, Stat.val, Unfolding.gate_not]
+    · cases a <;> simp_all [simplify, simpNot, Stat.Valid, Stat.val, Unfolding.gate_not, wiresFrom]
 
 def elimStep (n : ℕ) (acc : List Stat × List Gate) (g : Gate) : List Stat × List Gate :=
   (acc.1 ++ [(simplify g.op (n + acc.2.length)
@@ -1043,7 +1069,7 @@ lemma normGate_eval (g : Gate) (F : ℕ → Bool) :
     (normGate g).op.eval ((normGate g).inputs.map F) = g.op.eval (g.inputs.map F) := by
   obtain ⟨op, inputs⟩ := g
   cases op <;> simp only [normGate]
-  cases inputs <;> simp [GateOp.eval]
+  cases inputs <;> simp [Unfolding.gate_not]
 
 lemma normGate_nok (g : Gate) (h : Ok g) : NOk (normGate g) := by
   obtain ⟨op, inputs⟩ := g
@@ -1184,7 +1210,7 @@ lemma fix_last_counted (n : ℕ) (b : Bool) (C : Circuit)
       rw [hacc]
       exact elim_ok n gs _ (by simp)
     refine ⟨⟨acc.2, j⟩, hok, ?_, ?_⟩
-    · simpa [hgs, Circuit.size] using hlen
+    · simpa [hgs, Unfolding.circuit_size] using hlen
     · intro y
       have hv := hval y
       rw [hst] at hv
@@ -1447,7 +1473,7 @@ lemma fix_false_and_extra (n : ℕ) (C : Circuit) (pre post : List Gate) (g : Ga
     (by simpa [initStats] using hconsumer)
   have hlen : (pre ++ g :: post).length = C.size := by
     rw [← hgs]
-    simp [Circuit.size]
+    simp [Unfolding.circuit_size]
   have hbudget : (elim n (C.gates.map normGate) (initStats n false, [])).2.length +
       (readerCount n (C.gates.map normGate) + 1) ≤ C.size := by
     simpa only [hgs, hlen, List.length_nil, Nat.zero_add, Nat.add_assoc] using hb
@@ -1498,7 +1524,7 @@ lemma and_value_implies_input {A : Type} (F : A → ℕ → Bool) (g : Gate) (v 
   intro a ha
   rw [heval a, hop] at ha
   have hall : ∀ b ∈ g.inputs.map (F a), b = true := by
-    simpa [GateOp.eval, List.all_eq_true] using ha
+    simpa [Unfolding.gate_and, Unfolding.gate_or, Unfolding.gate_not, Unfolding.gate_mod, Unfolding.gate_maj, List.all_eq_true] using ha
   exact hall _ (List.mem_map.2 ⟨v, hv, rfl⟩)
 
 lemma consumer_absorbs {A : Type} (F : A → ℕ → Bool) (g : Gate) (v w out : ℕ)
@@ -1515,13 +1541,13 @@ lemma consumer_absorbs {A : Type} (F : A → ℕ → Bool) (g : Gate) (v w out :
     rw [heval a, hop]
     rcases hins with hins | hins <;> rw [hins] <;>
       cases hvv : F a v <;> cases hww : F a w <;>
-      simp_all [GateOp.eval]
+      simp_all [Unfolding.gate_and]
   · right
     intro a
     rw [heval a, hop]
     rcases hins with hins | hins <;> rw [hins] <;>
       cases hvv : F a v <;> cases hww : F a w <;>
-      simp_all [GateOp.eval]
+      simp_all [Unfolding.gate_or]
   · have := hnot hop
     rcases hins with hins | hins <;> simp_all
 
@@ -1960,7 +1986,7 @@ lemma fix_last_nand_four (n : ℕ) (C : Circuit) (gs : List Gate)
       simpa [initStats] using live i hne)
   apply fix_last_with_savings n 4 false C hC hnc
   rw [hgs]
-  have hlength : gs.length = C.size := by rw [← hgs]; simp [Circuit.size]
+  have hlength : gs.length = C.size := by rw [← hgs]; simp [Unfolding.circuit_size]
   simpa [hlength] using hbudget
 
 lemma nand_lower_bound (n lower : ℕ) (C : Circuit) (gs : List Gate)
@@ -2110,7 +2136,7 @@ lemma exists_strict_equivalent (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
     refine ⟨⟨acc.2, j⟩, fun g hg => (hnok g hg).1, ?_, ?_,
       fun g hg => (hnok g hg).2, back_lookup n acc.2 hback⟩
     · have := elim_len n C.gates (identityStats n, [])
-      simpa [Circuit.size] using this
+      simpa [Unfolding.circuit_size] using this
     · intro x
       have hv := hval x
       rw [hst] at hv
@@ -2222,7 +2248,7 @@ lemma fix_last_and_and_not_four (n : ℕ) (C : Circuit) (gs : List Gate)
       simpa [initStats] using live i hne)
   apply fix_last_with_savings n 4 false C hC hnc
   rw [hgs]
-  have hlength : gs.length = C.size := by rw [← hgs]; simp [Circuit.size]
+  have hlength : gs.length = C.size := by rw [← hgs]; simp [Unfolding.circuit_size]
   simpa [hlength] using hbudget
 
 lemma and_and_not_lower_bound (n lower : ℕ) (C : Circuit) (gs : List Gate)
@@ -2395,7 +2421,8 @@ def normalizationNotCount (gs : List Gate) : ℕ :=
 
 lemma normalizationNotCount_eq (C : Circuit) :
     normalizationNotCount C.gates = PEqualNP.NotBracket.notCount C := by
-  unfold normalizationNotCount PEqualNP.NotBracket.notCount
+  simp only [Unfolding.not_count]
+  unfold normalizationNotCount
   rw [List.countP_eq_length_filter]
   congr 2
   funext g
@@ -2463,7 +2490,7 @@ lemma exists_strict_equivalent_count (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
     refine ⟨⟨acc.2, j⟩, fun g hg => (hnok g hg).1, ?_, ?_,
       fun g hg => (hnok g hg).2, back_lookup n acc.2 hback, ?_⟩
     · have := elim_len n C.gates (identityStats n, [])
-      simpa [Circuit.size] using this
+      simpa [Unfolding.circuit_size] using this
     · intro x
       have hv := hval x
       rw [hst] at hv
@@ -2851,12 +2878,12 @@ lemma gate_order_except (k : ℕ) (g : Gate) (A B : ℕ → Bool)
     · exact order i hi heq hai
   rcases hop with hop | hop
   · rw [hop]
-    simp only [GateOp.eval, List.all_eq_true, List.mem_map, id]
+    simp only [Unfolding.gate_and, List.all_eq_true, List.mem_map, id]
     intro hall b hb
     obtain ⟨j, hj, rfl⟩ := hb
     exact every j hj (hall _ ⟨j, hj, rfl⟩)
   · rw [hop]
-    simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+    simp only [Unfolding.gate_or, List.any_eq_true, List.mem_map, id]
     rintro ⟨b, ⟨j, hj, rfl⟩, hb⟩
     exact ⟨_, ⟨j, hj, rfl⟩, every j hj hb⟩
 
@@ -2903,7 +2930,7 @@ lemma semantic_order_except (n k : ℕ) (gs : List Gate) (A B : ℕ → Bool)
       · obtain ⟨rest, hins⟩ := notRaw p hop
         rw [evalA p, hop, hins] at ha
         rw [evalB p, hop, hins]
-        simp only [GateOp.eval, List.map_cons, List.headD_cons] at ha ⊢
+        simp only [Unfolding.gate_not, List.map_cons, List.headD_cons] at ha ⊢
         cases hak : A k <;> cases hbk : B k <;> simp_all
     simpa only [heq] using hb
 
@@ -3010,7 +3037,7 @@ lemma positive_reader_safe (C : Circuit) (p : Fin C.gates.length)
     let z : Fin 9 → Bool := fun _ => false
     have he := oneCorrect z
     have hv : C.eval (List.ofFn z ++ [true]) = true := by
-      unfold Circuit.eval
+      simp only [Unfolding.circuit_eval]
       rw [heq]
       change (NandRestriction.wiresFrom C.gates (List.ofFn z ++ [true])).getD 9 false = true
       rw [NandRestriction.getD_wiresFrom _ _ _ (by simp), snoc_read_last]
@@ -3179,7 +3206,7 @@ lemma or_source_sound_of_zero_reader_sound (C : Circuit) (p : Fin C.gates.length
   change (NandRestriction.wiresFrom C.gates (List.ofFn y ++ [false])).getD (10 + p.val) false = true
   rw [NandRestriction.global_gate_value 10 C.gates p _ (by simp)
     (back p.val (C.gates.get p) (by simp)), por]
-  simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+  simp only [Unfolding.gate_or, List.any_eq_true, List.mem_map, id]
   exact ⟨true, ⟨i, pread, hy⟩, rfl⟩
 
 lemma unsafe_or_source_hits_seed (C : Circuit) (p : Fin C.gates.length) (i : ℕ)
@@ -3473,7 +3500,7 @@ lemma raw_not_architecture_of_cofactor (n lower : ℕ) (C : Circuit)
   have hb : (elim n (C.gates.map normGate) (initStats n false, [])).2.length +
       (constantReaders n C.gates acc).card ≤ C.size := by
     rw [hnorm]
-    simpa [acc, Circuit.size] using budget
+    simpa [acc, Unfolding.circuit_size] using budget
   obtain ⟨E, hE, hEc, hEq⟩ := fix_last_with_savings n
     (constantReaders n C.gates acc).card false C hC hnc hb
   have hElower := hlower E hE hEq
@@ -3525,7 +3552,7 @@ lemma petersen_positive_raw_reader (C : Circuit) (q : Fin C.gates.length)
     change (wiresFrom C.gates (List.ofFn y ++ [false])).getD (10 + q.val) false = true
     rw [global_gate_value 10 C.gates q _ (by simp)
       (back q.val (C.gates.get q) (by simp)), qgate]
-    simp only [GateOp.eval, List.map_cons, List.map_nil, List.headD_cons]
+    simp only [Unfolding.gate_not, List.map_cons, List.map_nil, List.headD_cons]
     rw [getD_wiresFrom _ _ _ (by simp), SafeOr.snoc_read_last]
     rfl
   have bad := SafeOr.positive_reader_safe C q hC back notRaw only zeroCorrect oneCorrect y
@@ -3630,7 +3657,7 @@ lemma wires_rename (k : ℕ) (gs : List Gate) (xs ys : List Bool)
 lemma wires_length (gs : List Gate) (xs : List Bool) :
     (Circuit.wires ⟨gs, 0⟩ xs).length = xs.length + gs.length := by
   induction gs generalizing xs with
-  | nil => simp [Circuit.wires]
+  | nil => simp [Unfolding.circuit_wires]
   | cons g gs ih =>
     change (Circuit.wires ⟨gs, 0⟩ (xs ++ [gateValue g xs])).length = _
     rw [ih]
@@ -3649,7 +3676,7 @@ lemma erase_eval (n : ℕ) (pre post : List Gate) (g : Gate) (o : ℕ)
   have hx : xs.length = n + pre.length := by
     unfold xs
     rw [wires_length, List.length_ofFn]
-  simp only [erase, Circuit.eval, Circuit.wires, List.foldl_append,
+  simp only [erase, Unfolding.circuit_eval, Unfolding.circuit_wires, List.foldl_append,
     List.foldl_cons]
   change (Circuit.wires ⟨post.map (rename (n + pre.length)), 0⟩ xs).getD
       (down (n + pre.length) o) false =
@@ -3660,7 +3687,7 @@ lemma erase_eval (n : ℕ) (pre post : List Gate) (g : Gate) (o : ℕ)
 
 lemma erase_size (n : ℕ) (pre post : List Gate) (g : Gate) (o : ℕ) :
     (erase n pre post o).size + 1 = (Circuit.mk (pre ++ g :: post) o).size := by
-  simp [erase, Circuit.size]
+  simp [erase, Unfolding.circuit_size]
   omega
 
 lemma erase_fanin (n : ℕ) (pre post : List Gate) (g : Gate) (o : ℕ)
@@ -3709,7 +3736,7 @@ lemma minimal_output_last (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
     obtain ⟨h, hh, _⟩ := minimal_live n C hfan hmin pre [] g hs hne
     simp at hh
   rw [ho]
-  simp only [Circuit.size, hs, List.length_append, List.length_singleton]
+  simp only [Unfolding.circuit_size, hs, List.length_append, List.length_singleton]
   omega
 
 lemma minimal_live_index (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
@@ -3884,7 +3911,7 @@ lemma minimal_no_constant_wire (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
   apply minimal_no_constant_gate n C hfan hnc hmin pre post g split b
   intro x
   rw [gate_value_eq_full_wire n pre post g C.output x]
-  simpa only [Circuit.wires, ← split] using hconstant x
+  simpa only [Unfolding.circuit_wires, ← split] using hconstant x
 
 lemma minimal_no_constant_wire_index (n : ℕ) (C : Circuit) (hfan : FanInTwo C)
     (hnc : ∃ x y : Fin n → Bool, C.eval (List.ofFn x) ≠ C.eval (List.ofFn y))
@@ -3912,7 +3939,7 @@ lemma minimal_raw_not_readers_disjoint (n : ℕ) (C : Circuit)
   have hq (x : Fin (n + 1) → Bool) : W x (n + 1 + q.val) = !(W x n) := by
     have hv := global_gate_value (n + 1) C.gates q (List.ofFn x) (by simp)
       (back q.val (C.gates.get q) (by simp))
-    simpa only [W, Circuit.wires, wiresFrom, qgate, GateOp.eval,
+    simpa only [W, Unfolding.circuit_wires, wiresFrom, qgate, Unfolding.gate_and, Unfolding.gate_or, Unfolding.gate_not, Unfolding.gate_mod, Unfolding.gate_maj,
       List.map_cons, List.map_nil, List.headD_cons] using hv
   intro p hraw hneg
   have hp (x : Fin (n + 1) → Bool) :
@@ -3929,7 +3956,7 @@ lemma minimal_raw_not_readers_disjoint (n : ℕ) (C : Circuit)
       have he := hp x
       rw [hand] at he
       have hall : ∀ b ∈ (C.gates.get p).inputs.map (W x), b = true := by
-        simpa only [GateOp.eval, List.all_eq_true, id] using he.symm.trans hv
+        simpa only [Unfolding.gate_and, Unfolding.gate_or, Unfolding.gate_not, Unfolding.gate_mod, Unfolding.gate_maj, List.all_eq_true, id] using he.symm.trans hv
       have ha := hall (W x n) (List.mem_map_of_mem hraw)
       have hb := hall (W x (n + 1 + q.val)) (List.mem_map_of_mem hneg)
       rw [hq x, ha] at hb
@@ -3938,7 +3965,7 @@ lemma minimal_raw_not_readers_disjoint (n : ℕ) (C : Circuit)
     intro x
     change W x (n + 1 + p.val) = true
     rw [hp x, hor]
-    simp only [GateOp.eval, List.any_eq_true, id]
+    simp only [Unfolding.gate_or, List.any_eq_true, id]
     cases hx : W x n with
     | false =>
       exact ⟨W x (n + 1 + q.val), List.mem_map_of_mem hneg, by simp [hq x, hx]⟩
@@ -4097,13 +4124,13 @@ lemma erase_eval (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
     rw [wires_length, List.length_ofFn]
   have hcopy' : gateValue g xs = xs.getD p false := by
     have h := hcopy x
-    simp only [Circuit.wires, List.foldl_append, List.foldl_cons] at h
+    simp only [Unfolding.circuit_wires, List.foldl_append, List.foldl_cons] at h
     change (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD (n + pre.length) false =
       (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD p false at h
     rw [wires_input _ _ _ (by simp [hx]), wires_input _ _ _ (by simp [hx]; omega)] at h
     rw [List.getD_append xs [gateValue g xs] false p (by omega), ← hx] at h
     simpa [List.getD_eq_getElem?_getD] using h
-  simp only [erase, Circuit.eval, Circuit.wires, List.foldl_append, List.foldl_cons]
+  simp only [erase, Unfolding.circuit_eval, Unfolding.circuit_wires, List.foldl_append, List.foldl_cons]
   change (Circuit.wires ⟨post.map (renamed (n + pre.length) p), 0⟩ xs).getD
       (redirect (n + pre.length) p o) false =
     (Circuit.wires ⟨post, 0⟩ (xs ++ [gateValue g xs])).getD o false
@@ -4113,7 +4140,7 @@ lemma erase_eval (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
 
 lemma erase_size (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ) :
     (erase n pre post p o).size + 1 = (Circuit.mk (pre ++ g :: post) o).size := by
-  simp [erase, Circuit.size]
+  simp [erase, Unfolding.circuit_size]
   omega
 
 lemma erase_fanin (n : ℕ) (pre post : List Gate) (g : Gate) (p o : ℕ)
@@ -4192,11 +4219,11 @@ lemma minimal_binary_reader_inputs (n : ℕ) (C : Circuit) (p : Fin C.gates.leng
     | cons a tail =>
       have ha : a = k := all a (by rw [hins]; exact List.mem_cons_self)
       cases tail with
-      | nil => rcases hop with hop | hop <;> rw [hop, ha] <;> simp [GateOp.eval]
+      | nil => rcases hop with hop | hop <;> rw [hop, ha] <;> simp [Unfolding.gate_and, Unfolding.gate_or]
       | cons b tail =>
         have hb : b = k := all b (by rw [hins]; exact List.mem_cons_of_mem _ List.mem_cons_self)
         cases tail with
-        | nil => rcases hop with hop | hop <;> rw [hop, ha, hb] <;> simp [GateOp.eval]
+        | nil => rcases hop with hop | hop <;> rw [hop, ha, hb] <;> simp [Unfolding.gate_and, Unfolding.gate_or]
         | cons c tail => rw [hins] at hlen; simp at hlen
   obtain ⟨u, hu, hne⟩ := other
   exact ⟨u, hne, Consumer.two_inputs_of_distinct (C.gates.get p).inputs k u
