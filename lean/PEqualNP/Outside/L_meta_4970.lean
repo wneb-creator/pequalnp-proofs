@@ -6970,4 +6970,239 @@ lemma singleton_remainder_output_essential {p l : ℕ} (E : Finset (Fin p × Fin
 
 end H5ReplacementEssential
 
+namespace H5DeleteOr
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TwoColour
+open H5Pruning H5Bridge H5Stars H5OrLift H5Owners
+
+lemma delGate_orIn_subset (n g r : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hg : g < C.gates.length) (hr : r < n+g)
+    (hgr : orIn n C r ⊆ orIn n C (n+g)) :
+    ∀ w < n+(delGate n g r C).gates.length,
+      orIn n (delGate n g r C) w ⊆ orIn n C (origWire n g w) := by
+  classical
+  have hD := delGate_isAO2 n g r C hAO hg hr
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hwn : w < n
+    · have ho : origWire n g w = w := by unfold origWire; split_ifs <;> omega
+      rw [ho, H5Reach.orIn_input n C w hwn, H5Reach.orIn_input n (delGate n g r C) w hwn]
+    · let k := w-n
+      have he : w = n+k := by unfold k; omega
+      have hk : k < (delGate n g r C).gates.length := by omega
+      have hk' : k < C.gates.length-1 := by rwa [delGate_length n g r C hg] at hk
+      let k0 := if k < g then k else k+1
+      have hk0 : k0 < C.gates.length := by unfold k0; split_ifs <;> omega
+      have ho : origWire n g (n+k) = n+k0 := by
+        unfold origWire k0; split_ifs <;> omega
+      rw [he, ho, H5Reach.orIn_gate n (delGate n g r C) hD.2.1 k hk,
+        H5Reach.orIn_gate n C hAO.2.1 k0 hk0, delGate_gateAt n g r C hg k hk']
+      simp only [mapGate]
+      change (if (gateAt C k0).op = .or then
+        ((gateAt C k0).inputs.map (remap n g r)).toFinset.biUnion
+          (orIn n (delGate n g r C)) else ∅) ⊆
+        (if (gateAt C k0).op = .or then (gateAt C k0).inputs.toFinset.biUnion
+          (orIn n C) else ∅)
+      by_cases hop : (gateAt C k0).op = .or
+      · simp only [hop, ↓reduceIte]
+        have himg : ((gateAt C k0).inputs.map (remap n g r)).toFinset =
+            (gateAt C k0).inputs.toFinset.image (remap n g r) := by
+          ext u
+          simp
+        rw [himg, Finset.image_biUnion]
+        intro a ha
+        obtain ⟨u, hu, hau⟩ := Finset.mem_biUnion.mp ha
+        refine Finset.mem_biUnion.mpr ⟨u, hu, ?_⟩
+        have hu' := List.mem_toFinset.mp hu
+        have hru : remap n g r u < n+k := by
+          apply hD.2.1 k hk
+          rw [delGate_gateAt n g r C hg k hk']
+          exact List.mem_map.mpr ⟨u,hu',rfl⟩
+        have hs := ih _ (by omega) (by omega) hau
+        by_cases hug : u = n+g
+        · rw [hug, origWire_remap_eq n g r hr] at hs
+          rw [hug]
+          exact hgr hs
+        · rwa [origWire_remap_ne n g r u hug] at hs
+      · simp only [hop, ↓reduceIte]
+        exact Finset.Subset.refl _
+
+
+lemma delGate_tCount_zero (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (g r : ℕ) (hg : g < C.gates.length) (hr : r < n+g)
+    (hreach : orIn n C r ⊆ orIn n C (n+g)) (lin : ℕ → Bool)
+    (hT : tCount n C lin = 0) : tCount n (delGate n g r C) lin = 0 := by
+  apply H5Reach.tCount_zero_of_orIn_subsets n C (delGate n g r C) lin hAO.2.1 hT
+  intro j hj _
+  exact ⟨origWire n g (n+j), delGate_orIn_subset n g r C hAO hg hr hreach
+    (n+j) (by omega)⟩
+
+lemma delGate_remap_ge (n g r : ℕ) (C : Circuit) (hg : g < C.gates.length)
+    (w : ℕ) (hw : n+C.gates.length ≤ w) :
+    n+(delGate n g r C).gates.length ≤ remap n g r w := by
+  rw [delGate_length n g r C hg]
+  unfold remap
+  split_ifs <;> omega
+
+lemma delGate_mapped_eq_all (n g r : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hRB : ReadsBack n C) (hg : g < C.gates.length) (hr : r < n+g)
+    (heq : wireFn n C (n+g) x = wireFn n C r x) (w : ℕ) :
+    wireFn n (delGate n g r C) (remap n g r w) x = wireFn n C w x := by
+  by_cases hw : w < n+C.gates.length
+  · exact delGate_mapped_eq n g r C x hRB hg hr heq w hw
+  · rw [wireFn_ge n C w (by omega), wireFn_ge n (delGate n g r C)
+      (remap n g r w) (delGate_remap_ge n g r C hg w (by omega))]
+
+lemma delGate_mapped_le_all (n g r : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hAO : IsAO2 n C) (hg : g < C.gates.length) (hr : r < n+g)
+    (hchild : wireFn n C r x = true → wireFn n C (n+g) x = true) (w : ℕ) :
+    wireFn n (delGate n g r C) (remap n g r w) x ≤ wireFn n C w x := by
+  by_cases hw : w < n+C.gates.length
+  · exact Bool.le_iff_imp.mpr (delGate_mapped_le n g r C x hAO hg hr hchild w hw)
+  · rw [wireFn_ge n C w (by omega), wireFn_ge n (delGate n g r C)
+      (remap n g r w) (delGate_remap_ge n g r C hg w (by omega))]
+
+lemma delGate_keepsStars (n g r : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (hg : g < C.gates.length) (hr : r < n+g)
+    (hchild : ∀ x, wireFn n C r x = true → wireFn n C (n+g) x = true)
+    (hsingle : ∀ u, wireFn n C (n+g) (H5Pruning.singletonInput u) =
+      wireFn n C r (H5Pruning.singletonInput u)) :
+    KeepsStars n C (delGate n g r C) := by
+  intro Q w hQ hs
+  have hw := pure_star_valid n C Q (Finset.card_pos.mp (by omega)) w hs
+  exact ⟨remap n g r w, delGate_pureStar n g r C hAO hg hr hchild hsingle w hw Q hs⟩
+
+lemma delete_equal (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (g r : ℕ) (hg : g < C.gates.length) (hr : r < n+g)
+    (hreach : orIn n C r ⊆ orIn n C (n+g))
+    (heq : ∀ x, wireFn n C (n+g) x = wireFn n C r x)
+    (lin : ℕ → Bool) (hT : tCount n C lin = 0) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size < C.size ∧
+      (∀ x, wireFn n D D.output x = wireFn n C C.output x) ∧
+      tCount n D lin = 0 ∧ KeepsStars n C D := by
+  refine ⟨delGate n g r C, delGate_isAO2 n g r C hAO hg hr, ?_, ?_,
+    delGate_tCount_zero n C hAO g r hg hr hreach lin hT, ?_⟩
+  · change (delGate n g r C).gates.length < C.gates.length
+    rw [delGate_length n g r C hg]
+    omega
+  · intro x
+    exact delGate_mapped_eq_all n g r C x hAO.2.1 hg hr (heq x) C.output
+  · exact delGate_keepsStars n g r C hAO hg hr (fun x hx => (heq x).trans hx)
+      (fun u => heq (H5Pruning.singletonInput u))
+
+lemma delGate_admissible_of_tests {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (g r : ℕ) (hg : g < C.gates.length)
+    (hop : (gateAt C g).op = .or) (hr : r ∈ (gateAt C g).inputs)
+    (hsingle : ∀ u, wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) =
+      wireFn (p+l) C r (H5Pruning.singletonInput u))
+    (hedge : ∀ a b, (a,b) ∈ E →
+      wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) =
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b))) :
+    admissible p l E (delGate (p+l) g r C) := by
+  let D := delGate (p+l) g r C
+  have hrlt : r < p+l+g := hC.1.2.1 g hg r hr
+  have hAO : IsAO2 (p+l) D := delGate_isAO2 (p+l) g r C hC.1 hg hrlt
+  have hchild : ∀ x, wireFn (p+l) C r x = true → wireFn (p+l) C (p+l+g) x = true :=
+    or_child_imp C hC.1 g hg hop r hr
+  have hreach : orIn (p+l) C r ⊆ orIn (p+l) C (p+l+g) := by
+    intro a ha
+    exact H5Reach.orIn_up (p+l) C g r a hg hop hr hrlt ha
+  have hT := delGate_tCount_zero (p+l) C hC.1 g r hg hrlt hreach
+    (fun i => decide (p ≤ i)) hC.2.2.1
+  have hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    intro x
+    rw [graphFun_bipartite]
+    exact hC.2.1 x
+  have hfun : ∀ x, wireFn (p+l) D D.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    apply H5Essential.graph_eq_of_positive_and_le (p+l) (bipartiteEdges E)
+      (wireFn (p+l) D D.output) (wireFn_mono (p+l) D hAO D.output)
+    · intro x
+      rw [← hspec x]
+      exact delGate_mapped_le_all (p+l) g r C x hC.1 hg hrlt (hchild x) C.output
+    · intro e he
+      obtain ⟨⟨a,b⟩, hab, rfl⟩ := Finset.mem_image.mp he
+      change wireFn (p+l) D (remap (p+l) g r C.output)
+        (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true
+      rw [delGate_mapped_eq_all (p+l) g r C _ hC.1.2.1 hg hrlt (hedge a b hab),
+        hspec, graphFun_bipartite]
+      exact decide_eq_true ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+  apply admissible_of_keeps E C D hC hAO _ hT
+    (delGate_keepsStars (p+l) g r C hC.1 hg hrlt hchild hsingle)
+  intro x
+  exact (hfun x).trans (hspec x).symm
+
+lemma or_child_private_test {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (g r : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = .or)
+    (hr : r ∈ (gateAt C g).inputs) :
+    (∃ u, wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) = true ∧
+      wireFn (p+l) C r (H5Pruning.singletonInput u) = false) ∨
+    (∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false) := by
+  by_contra hbad
+  have hchild : ∀ x, wireFn (p+l) C r x = true → wireFn (p+l) C (p+l+g) x = true :=
+    or_child_imp C hC.1 g hg hop r hr
+  have hsingle : ∀ u, wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) =
+      wireFn (p+l) C r (H5Pruning.singletonInput u) := by
+    intro u
+    cases hgval : wireFn (p+l) C (p+l+g) (H5Pruning.singletonInput u) <;>
+      cases hrval : wireFn (p+l) C r (H5Pruning.singletonInput u)
+    · rfl
+    · have he := hchild _ hrval
+      rw [hgval] at he
+      cases he
+    · exact False.elim (hbad (Or.inl ⟨u,hgval,hrval⟩))
+    · rfl
+  have hedge : ∀ a b, (a,b) ∈ E →
+      wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) =
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) := by
+    intro a b hab
+    cases hgval : wireFn (p+l) C (p+l+g) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) <;>
+      cases hrval : wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b))
+    · rfl
+    · have he := hchild _ hrval
+      rw [hgval] at he
+      cases he
+    · exact False.elim (hbad (Or.inr ⟨a,b,hab,hgval,hrval⟩))
+    · rfl
+  have hD := delGate_admissible_of_tests E C hC g r hg hop hr hsingle hedge
+  have hle := hmin (delGate (p+l) g r C) hD
+  change C.gates.length ≤ (delGate (p+l) g r C).gates.length at hle
+  rw [delGate_length (p+l) g r C hg] at hle
+  omega
+
+lemma or_operand_private_test {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C)
+    (hmin : ∀ D, admissible p l E D → C.size ≤ D.size)
+    (g r s : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = .or)
+    (hinp : (gateAt C g).inputs = [r,s] ∨ (gateAt C g).inputs = [s,r]) :
+    (∃ u, wireFn (p+l) C r (H5Pruning.singletonInput u) = true ∧
+      wireFn (p+l) C s (H5Pruning.singletonInput u) = false) ∨
+    (∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C r (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) C s (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false) := by
+  have hs : s ∈ (gateAt C g).inputs := by rcases hinp with h | h <;> simp [h]
+  have hgate : ∀ x, wireFn (p+l) C (p+l+g) x =
+      (wireFn (p+l) C r x || wireFn (p+l) C s x) := by
+    intro x
+    rw [H5LiftGlue.wireFn_gate (p+l) C hC.1.2.1 g hg,hop]
+    rcases hinp with h | h
+    · simp [h,GateOp.eval]
+    · simp [h,GateOp.eval,Bool.or_comm]
+  rcases or_child_private_test E C hC hmin g s hg hop hs with
+      ⟨u, hgu, hsu⟩ | ⟨a,b,hab,hgab,hsab⟩
+  · left
+    refine ⟨u,?_,hsu⟩
+    simpa only [hgate,hsu,Bool.or_false] using hgu
+  · right
+    refine ⟨a,b,hab,?_,hsab⟩
+    simpa only [hgate,hsab,Bool.or_false] using hgab
+
+end H5DeleteOr
+
 end PEqualNP.Outside.L_meta_4970_aux
