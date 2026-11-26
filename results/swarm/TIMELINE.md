@@ -31,3 +31,4 @@ This timeline is an interim orchestration record. A final proof PR must add only
 - 2026-11-26 00:20:00 UTC — Second replan: reinforce structural deletion and complete ten-input searches; native H9 closure remains untrusted until kernel replay. Lease heartbeat returned HTTP 200.
 - 2026-11-26 00:28:22 UTC — Observed complete kernel PASS for copied binary-floor certificate and ≤3 NOT corollary. All 360 signed first-step witness cases also kernel PASS. Generic strengthening to ≥17 binary gates is under review, with projection embeddings still being built.
 - 2026-11-26 00:28:22 UTC — Preparing fourth partial push with independently reviewed final-OR bridge and compact target. Still no full-gap theorem.
+- 2026-11-26 00:35:42 UTC — Complete kernel PASS for new unconditional ≥17 binary-gate bound and ≤2 NOT corollary. The original L-meta-2373 remains open for zero, one or two NOT gates. Standalone artifact assembled for an additional full-source build.
