@@ -1907,4 +1907,50 @@ lemma canonical_dirty_of_semantics
 
 end RectangleAdjacencyBridge
 
+namespace RectangleAdjacencyBridge
+
+def edgeCrossed (r e : Rect) : Bool :=
+  (r.1.testBit e.1 && r.2.testBit e.2) ||
+    (r.1.testBit e.2 && r.2.testBit e.1)
+
+def packEdgeFlags : List Bool → Nat
+  | [] => 0
+  | b :: bs => Nat.bit b (packEdgeFlags bs)
+
+lemma weight_flag (b : Bool) (w : Nat) :
+    (if b then w else 0) = w * b.toNat := by
+  cases b <;> simp
+
+lemma coverage_eq_pack (r : Rect) :
+    coverage r = packEdgeFlags (edges.map (edgeCrossed r)) := by
+  simp only [coverage, coverageAux, weightedEdges, edges, List.map_cons, List.map_nil,
+    packEdgeFlags, edgeCrossed, Nat.bit_val, weight_flag]
+  omega
+
+lemma pack_map_or {α : Type} (xs : List α) (f g : α → Bool) :
+    packEdgeFlags (xs.map f) ||| packEdgeFlags (xs.map g) =
+      packEdgeFlags (xs.map (fun x => f x || g x)) := by
+  induction xs with
+  | nil => simp [packEdgeFlags]
+  | cons x xs ih =>
+      simp only [List.map_cons, packEdgeFlags, Nat.lor_bit, ih]
+
+lemma pack_map_true {α : Type} (xs : List α) (f : α → Bool)
+    (hf : ∀ x ∈ xs, f x = true) :
+    packEdgeFlags (xs.map f) = packEdgeFlags (xs.map (fun _ => true)) := by
+  congr 1
+  exact List.map_congr_left hf
+
+lemma coverage_five_full (r₁ r₂ r₃ r₄ r₅ : Rect)
+    (hfull : ∀ e ∈ edges, edgeCrossed r₁ e = true ∨ edgeCrossed r₂ e = true ∨
+      edgeCrossed r₃ e = true ∨ edgeCrossed r₄ e = true ∨ edgeCrossed r₅ e = true) :
+    coverage r₁ ||| coverage r₂ ||| coverage r₃ ||| coverage r₄ ||| coverage r₅ = 2047 := by
+  simp only [coverage_eq_pack, pack_map_or]
+  rw [pack_map_true edges _ (by
+    intro e he
+    rcases hfull e he with h | h | h | h | h <;> simp [h])]
+  rfl
+
+end RectangleAdjacencyBridge
+
 end PEqualNP.Outside.L_meta_9033_aux
