@@ -100,7 +100,13 @@ peak4652124KiB; individualwalltimes include in-ordercoordinatorwaiting.
 Combinedwithlate622 gives1134distinctverifiedstates. Complete receipt/source/logs:
 certificate18/early-range-manifest.json. Fullforest andpostedgap remain unproved.
 
+Helper8 reassigned tail COMPLETE:256nodes4352..4607, both128-node proofs and
+exactaggregate PASS; fourfinalaxiomreports standard3only. Combinedchecked_late
+alsoPASS for4352<=i.val inFin5230, covering878late states. With512earlystates,
+H8totalcoverage1390. Tail267.77s,peak3985880KiB; combinedbuild/audit3.27s.
+Fullsource/log/hash receipt:certificate18/tail-range-manifest.json.
+
 Sub-agents: eight total (five direct: setup/review, certificate audit, repair proof,
 full monotone search, full signed search; three nested: embedding audit,
 source review, collision-hint compression).
-TIMING total=139.0 subagents=8
+TIMING total=147.0 subagents=8

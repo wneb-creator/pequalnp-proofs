@@ -1,0 +1,180 @@
+{
+  "status": "PASS new256states, exacttailaggregate, combined878stateaggregate; permittedaxiomsonly",
+  "new_range": [
+    4352,
+    4608
+  ],
+  "combined_range": [
+    4352,
+    5230
+  ],
+  "interval": "half-open",
+  "tail_theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked",
+  "combined_theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked_late",
+  "new_range_wall_seconds": 267.766854,
+  "combined_build_seconds": 3.2711077150015626,
+  "maxrss_KiB": 3985880,
+  "build_order": [
+    "RangeAssembly",
+    "H8Tail4352",
+    "H8Tail4480",
+    "H8TailRange",
+    "H8TailAxioms",
+    "H8LateRange",
+    "H8LateAxioms"
+  ],
+  "requires": {
+    "checker": "Frozen packed checker",
+    "prior_bundle": "delivery-h8-range",
+    "H8Range_source_sha256": "79ddb29b854a6e75eee95675e9e8cf65bdbbb11d07a00b38aeb258a27fdde924"
+  },
+  "axioms": [
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.c4352",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.c4480",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked",
+      "propext, Classical.choice, Quot.sound"
+    ],
+    [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked_late",
+      "propext,\n Classical.choice,\n Quot.sound"
+    ]
+  ],
+  "files": [
+    {
+      "file": "RangeAssembly.lean",
+      "bytes": 1110,
+      "sha256": "d7f3e7ffd5234175c13fe5170e165196a94ce4885c70df4d6efbc816002f1195"
+    },
+    {
+      "file": "H8Tail4352.lean",
+      "bytes": 450,
+      "sha256": "4acd35b42bfcb702096f76a1a37c388dadefc1018f4b90e7555e340e81413bbc"
+    },
+    {
+      "file": "H8Tail4480.lean",
+      "bytes": 450,
+      "sha256": "7946c300af95e070797415e3801f454a7f4ef26c62d7feac855fbc708789253f"
+    },
+    {
+      "file": "H8TailRange.lean",
+      "bytes": 587,
+      "sha256": "4358e9c5d90cf4e2c22d605a6b75eddfe5fe1527fbd421000bc8da9387bb2bc4"
+    },
+    {
+      "file": "H8TailAxioms.lean",
+      "bytes": 237,
+      "sha256": "26ab83183cf0614a1eed03639568d9d348bd010bf4ed3afdd74df4bcf6d91dc6"
+    },
+    {
+      "file": "H8LateRange.lean",
+      "bytes": 375,
+      "sha256": "495fd6ce7564648750191d358897fdd41d556de15022fca3287bcff69508197a"
+    },
+    {
+      "file": "H8LateAxioms.lean",
+      "bytes": 98,
+      "sha256": "acdab27e2b3ac77cbafb54baf9839f731da080c3d73ca81799b9cb5cb15c0f13"
+    },
+    {
+      "file": "run-helper8-tail.py",
+      "bytes": 2358,
+      "sha256": "1abff62de5489f375bca6289fc4e2ba767bdb37f18a81993a70717e2f2439933"
+    },
+    {
+      "file": "helper8-tail-report.json",
+      "bytes": 1518,
+      "sha256": "75f668946476c17497d1124f96f76c5fb1dbb50ab42a40d5b2b83020a2c026a3"
+    },
+    {
+      "file": "helper8-late-report.json",
+      "bytes": 452,
+      "sha256": "405befd020ab537c44fe98961488d130bb5b48fe3310b9f272fcc4b051ec596f"
+    },
+    {
+      "file": "helper8-tail-runner.stdout",
+      "bytes": 1040,
+      "sha256": "a50032e67e55eeda3fdb8ad0e8dfe2114010a872f5e12e4f8e4f5c872f3643ea"
+    },
+    {
+      "file": "helper8-tail-runner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "helper8-tail-logs/H8Tail4352.stdout",
+      "bytes": 1591,
+      "sha256": "7dcda3d75cbedf6fc69e5b456ed9e164f2dcaf74a0534c2864d55e50c673bad6"
+    },
+    {
+      "file": "helper8-tail-logs/H8Tail4352.stderr",
+      "bytes": 548,
+      "sha256": "b77d12ca1a12bab29bb01c8ca23dbf034a14a5f36f9cc624bff0dc11db9d4476"
+    },
+    {
+      "file": "helper8-tail-logs/H8Tail4480.stdout",
+      "bytes": 1594,
+      "sha256": "971621cc21e61b418c5fd1d5f41282f6930c985bc489b041a3d9b27eefc2a5b6"
+    },
+    {
+      "file": "helper8-tail-logs/H8Tail4480.stderr",
+      "bytes": 548,
+      "sha256": "a236b262401f5c3c8ebb24158f4e4588c5dddca980274aec819fec3a9cbe3df6"
+    },
+    {
+      "file": "helper8-tail-logs/H8TailRange.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "helper8-tail-logs/H8TailRange.stderr",
+      "bytes": 518,
+      "sha256": "b2f2b34a944aa05762dff5141c13fee8fa387225f573f00132b53414b54c2da3"
+    },
+    {
+      "file": "helper8-tail-logs/H8TailAxioms.stdout",
+      "bytes": 359,
+      "sha256": "7caf4868225c1b4f594bdea8546759ce5a60567340030a2ff55a13bd33949b3f"
+    },
+    {
+      "file": "helper8-tail-logs/H8TailAxioms.stderr",
+      "bytes": 259,
+      "sha256": "9004d5c8ba326e42d03c0b97dac11b29028975c747e1f8944c428b672ce07dd4"
+    },
+    {
+      "file": "helper8-tail-logs/H8LateRange.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "helper8-tail-logs/H8LateRange.stderr",
+      "bytes": 522,
+      "sha256": "c692ecbfdf1a5b3815608f02be4180221ad758778b09e990f97ae36da613aee1"
+    },
+    {
+      "file": "helper8-tail-logs/H8LateAxioms.stdout",
+      "bytes": 128,
+      "sha256": "2ae8c02b6b06f2ac62778ce5fd228eb70387cdd770d055e7590dccecc4806bd1"
+    },
+    {
+      "file": "helper8-tail-logs/H8LateAxioms.stderr",
+      "bytes": 259,
+      "sha256": "c26415224425a552e5d4c81a5f1505b691c515643fcd1992e25e26a5a94cc3ef"
+    },
+    {
+      "file": "tail-range-README.md",
+      "bytes": 1923,
+      "sha256": "2be817277b27da66597ad9343fc0fc9ef594d567a188bec2f6a4e13724a868cd"
+    }
+  ],
+  "publication_renames": {
+    "README.md": "tail-range-README.md"
+  },
+  "original_manifest_sha256": "9619cf46063779362a8a831988af06a8ce39711a2bc81c168035a7dc01503704"
+}

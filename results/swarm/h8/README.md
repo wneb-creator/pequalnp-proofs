@@ -85,5 +85,5 @@ complete certificate and circuit-to-live bridge have passed Lean checking.
 
 `certificate18/` publishes the compiling conditional Lean replay, compact data,
 proofs for its optimizations, and a portable build helper. This helper has
-proved 1,134 budget-17 nodes in Lean: 256–767 and 4608–5229. The complete
-forest is still unverified.
+proved 1,390 budget-17 nodes in Lean: 256–767 and 4352–5229. This bundle
+does not establish the complete forest.

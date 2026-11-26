@@ -1,0 +1,16 @@
+[
+  {
+    "module": "H8LateRange",
+    "returncode": 0,
+    "wall_seconds": 1.8684593770012725,
+    "maxrss_KiB_cumulative": 2905148,
+    "source_sha256": "495fd6ce7564648750191d358897fdd41d556de15022fca3287bcff69508197a"
+  },
+  {
+    "module": "H8LateAxioms",
+    "returncode": 0,
+    "wall_seconds": 1.40264833800029,
+    "maxrss_KiB_cumulative": 2905148,
+    "source_sha256": "acdab27e2b3ac77cbafb54baf9839f731da080c3d73ca81799b9cb5cb15c0f13"
+  }
+]

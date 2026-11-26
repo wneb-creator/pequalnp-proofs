@@ -230,3 +230,27 @@ python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo 
 
 The aggregate API is `Helper8Extra.checked_early` in the same `Cert18`
 namespace, with hypotheses `256 ≤ i.val` and `i.val < 768`.
+
+## Verified tail and combined range
+
+The final reassigned tail, nodes 4352 through 4607, also passed kernel
+checking. `H8TailRange.lean` proves that exact 256-node interval.
+`H8LateRange.lean` combines it with the earlier late proof: the theorem
+`Helper8Tail.checked_late (i : Fin 5230) (lower : 4352 ≤ i.val)` concludes
+`Replay.DirectMode.Packed.checkNode i = true` for all 878 late states.
+Together with the early 512 states, this helper has verified 1,390 states.
+
+The two new proof processes completed in 267.77 seconds overall, with peak
+individual RSS of 3,985,880 KiB. The combined theorem and axiom report added
+3.27 seconds. All four final axiom reports contain only the three permitted
+standard axioms. Complete receipts are in `tail-range-manifest.json`, with
+publication README renamed `tail-range-README.md`.
+
+Build the default checker and the prior late range first, then:
+
+```sh
+python3 /path/to/pequalnp-proofs/results/swarm/h8/certificate18/build.py --repo /path/to/pequalnp-proofs --output /tmp/cert18 --lean /path/to/lean --modules RangeAssembly H8Tail4352 H8Tail4480 H8TailRange H8TailAxioms H8LateRange H8LateAxioms
+```
+
+This package contains verified ranges, not a theorem establishing the complete
+5,230-state forest or the posted gap.

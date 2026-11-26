@@ -1,0 +1,231 @@
+{
+  "status": "PASS",
+  "reviewer": "independent lean_setup agent",
+  "reviewed_utc": "2026-11-26T02:25:31.236177+00:00",
+  "scope": "frozen tail256 and combinedlate878 receipt, plus staged29-file research publication",
+  "failures": [],
+  "source_manifest_sha256": "9619cf46063779362a8a831988af06a8ce39711a2bc81c168035a7dc01503704",
+  "manifest_files": 25,
+  "build_order": [
+    "RangeAssembly",
+    "H8Tail4352",
+    "H8Tail4480",
+    "H8TailRange",
+    "H8TailAxioms",
+    "H8LateRange",
+    "H8LateAxioms"
+  ],
+  "new_interval_half_open": [
+    4352,
+    4608
+  ],
+  "new_nodes": 256,
+  "combined_interval_half_open": [
+    4352,
+    5230
+  ],
+  "combined_late_nodes": 878,
+  "early_plus_late_distinct_nodes": 1390,
+  "tail_theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked",
+  "combined_theorem": "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked_late",
+  "tail_hypotheses": [
+    "i : Fin 5230",
+    "4352 <= i.val",
+    "i.val < 4608"
+  ],
+  "combined_hypotheses": [
+    "i : Fin 5230",
+    "4352 <= i.val"
+  ],
+  "checker_frozen_commit": "36375ce3b",
+  "checker_source_sha256": "0773511daa59fac2a5a20a5c4fee6850b646e7468e736e85f3739cce8b789fe7",
+  "checker_olean_sha256": "438691cebb5bc640b1b87dbf6f833ecf8b7bfe5ff59b51c3e1b33120e1e66f3e",
+  "frozen_checker_dependencies": [
+    "BlockReplay",
+    "CheckNode",
+    "Checker",
+    "CollisionProfiles",
+    "Coordinates",
+    "DecodeHom",
+    "DirectDecode",
+    "DirectReplay",
+    "FastCofactorPools",
+    "FastDirect",
+    "GenericDecodeHom",
+    "Half",
+    "PackedCollision",
+    "PackedDirect",
+    "PackedRows",
+    "PreparedLinks",
+    "Replay",
+    "SameSet"
+  ],
+  "compiled_exports": {
+    "RangeAssembly": {
+      "kernel_declarations": 6,
+      "foreign": []
+    },
+    "H8Tail4352": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8Tail4480": {
+      "kernel_declarations": 65,
+      "foreign": []
+    },
+    "H8TailRange": {
+      "kernel_declarations": 1,
+      "foreign": []
+    },
+    "H8TailAxioms": {
+      "kernel_declarations": 0,
+      "foreign": []
+    },
+    "H8LateRange": {
+      "kernel_declarations": 2,
+      "foreign": []
+    },
+    "H8LateAxioms": {
+      "kernel_declarations": 0,
+      "foreign": []
+    },
+    "H8Range": {
+      "kernel_declarations": 2,
+      "foreign": []
+    }
+  },
+  "compiled_object_hashes": {
+    "RangeAssembly": {
+      "source_sha256": "d7f3e7ffd5234175c13fe5170e165196a94ce4885c70df4d6efbc816002f1195",
+      "olean_sha256": "ae3bf0e8c5d229133fd8285061edffd67210761d570609388e6e026ff9ef758d"
+    },
+    "H8Tail4352": {
+      "source_sha256": "4acd35b42bfcb702096f76a1a37c388dadefc1018f4b90e7555e340e81413bbc",
+      "olean_sha256": "2dc7b37ca5949253e7424b8e355987aafa59547081f677e134e95f805a9be784"
+    },
+    "H8Tail4480": {
+      "source_sha256": "7946c300af95e070797415e3801f454a7f4ef26c62d7feac855fbc708789253f",
+      "olean_sha256": "f8bf27522d3275a9727a8b8fc59572f1c9c3bf2cfb81874c808fd1cd32e46a22"
+    },
+    "H8TailRange": {
+      "source_sha256": "4358e9c5d90cf4e2c22d605a6b75eddfe5fe1527fbd421000bc8da9387bb2bc4",
+      "olean_sha256": "97f48b59d992bff738a236921bd4513fb55fb4d13d309c6b4beb92997285dace"
+    },
+    "H8TailAxioms": {
+      "source_sha256": "26ab83183cf0614a1eed03639568d9d348bd010bf4ed3afdd74df4bcf6d91dc6",
+      "olean_sha256": "9f70a56d7c286553e8bd517a7196227f6551267b2ec1b3761e399999c0ae08a7"
+    },
+    "H8LateRange": {
+      "source_sha256": "495fd6ce7564648750191d358897fdd41d556de15022fca3287bcff69508197a",
+      "olean_sha256": "7c01f53ce8b0554b54c021c562e17f941bdb15f0690439ea6979af4170487bfe"
+    },
+    "H8LateAxioms": {
+      "source_sha256": "acdab27e2b3ac77cbafb54baf9839f731da080c3d73ca81799b9cb5cb15c0f13",
+      "olean_sha256": "30eb359c22e58e2dc178d75a055df44e698fda95ff112577b4f92dc0951a6c0f"
+    },
+    "H8Range": {
+      "source_sha256": "79ddb29b854a6e75eee95675e9e8cf65bdbbb11d07a00b38aeb258a27fdde924",
+      "olean_sha256": "61c1a813217aa156154619d56d019cccc119b6afd27860ca6e00e72da52802e2"
+    }
+  },
+  "axiom_receipts": {
+    "theorems": [
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.c4352",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.c4480",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked",
+      "PEqualNP.Outside.L_meta_2373_aux.Cert18.Helper8Tail.checked_late"
+    ],
+    "allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "timing": {
+    "tail_wall_seconds": 267.766854,
+    "combined_build_seconds": 3.2711077150015626,
+    "tail_peak_process_RSS_KiB": 3985880,
+    "tail_driver_reaps_in_completion_order": true,
+    "combined_receipt_RSS_is_cumulative": true
+  },
+  "review_method": [
+    "manifest and exact current compiled-source hash checks",
+    "dependency source comparison with frozen36375ce3b and prior622-node manifest",
+    "source semantics and interval arithmetic",
+    "existing compiled object metadata: exact theorem types and kernel export names",
+    "complete recorded build, axiom and timing receipts; no finite proof replay"
+  ],
+  "limitations": [
+    "No expensive finite kernel proofs were rerun. Existing compiled objects and complete build receipts were inspected.",
+    "Full5230-node closure and posted gap remain unproved.",
+    "Original driver has job-specific scratch paths; manifest module order is the portable reproduction route."
+  ],
+  "publication_reviewed_utc": "2026-11-26T02:26:01.855340+00:00",
+  "publication_manifest_sha256": "8016fb780752266a9dc7a0b6d0ef10155a5a38e430b8aaddb198110dd7d8f428",
+  "publication_failures": [],
+  "recursive_checksums": [
+    {
+      "file": "results/swarm/h8/certificate18/SHA256SUMS",
+      "entries": 259
+    },
+    {
+      "file": "results/swarm/h8/certificate18/collision-audit/SHA256SUMS",
+      "entries": 11
+    },
+    {
+      "file": "results/swarm/h8/export-audit/SHA256SUMS",
+      "entries": 20
+    },
+    {
+      "file": "results/swarm/h8/full-signed/SHA256SUMS",
+      "entries": 191
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/SHA256SUMS",
+      "entries": 107
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/compact/SHA256SUMS",
+      "entries": 23
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-delivery/evidence/hash/SHA256SUMS",
+      "entries": 22
+    },
+    {
+      "file": "results/swarm/h8/full-signed/cap18-result/SHA256SUMS",
+      "entries": 11
+    }
+  ],
+  "staged_files": [
+    "results/swarm/h8/README.md",
+    "results/swarm/h8/certificate18/H8LateAxioms.lean",
+    "results/swarm/h8/certificate18/H8LateRange.lean",
+    "results/swarm/h8/certificate18/H8Tail4352.lean",
+    "results/swarm/h8/certificate18/H8Tail4480.lean",
+    "results/swarm/h8/certificate18/H8TailAxioms.lean",
+    "results/swarm/h8/certificate18/H8TailRange.lean",
+    "results/swarm/h8/certificate18/README.md",
+    "results/swarm/h8/certificate18/SHA256SUMS",
+    "results/swarm/h8/certificate18/helper8-late-report.json",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8LateAxioms.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8LateAxioms.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8LateRange.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8LateRange.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8Tail4352.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8Tail4352.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8Tail4480.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8Tail4480.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8TailAxioms.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8TailAxioms.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8TailRange.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-logs/H8TailRange.stdout",
+    "results/swarm/h8/certificate18/helper8-tail-report.json",
+    "results/swarm/h8/certificate18/helper8-tail-runner.stderr",
+    "results/swarm/h8/certificate18/helper8-tail-runner.stdout",
+    "results/swarm/h8/certificate18/run-helper8-tail.py",
+    "results/swarm/h8/certificate18/tail-range-README.md",
+    "results/swarm/h8/certificate18/tail-range-manifest.json",
+    "results/swarm/h8/validation.txt"
+  ]
+}

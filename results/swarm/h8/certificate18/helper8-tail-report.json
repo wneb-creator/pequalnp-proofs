@@ -1,0 +1,53 @@
+{
+  "range": [
+    4352,
+    4608
+  ],
+  "interval": "half-open",
+  "started_utc": "2026-11-26T02:18:08.627502+00:00",
+  "status": "all_builds_passed",
+  "builds": [
+    {
+      "module": "H8Tail4480",
+      "pid": 29164,
+      "source_sha256": "7946c300af95e070797415e3801f454a7f4ef26c62d7feac855fbc708789253f",
+      "returncode": 0,
+      "wall_seconds": 258.81107963199975,
+      "maxrss_KiB": 3771556,
+      "user_seconds": 243.061883,
+      "system_seconds": 15.167338
+    },
+    {
+      "module": "H8Tail4352",
+      "pid": 29163,
+      "source_sha256": "4acd35b42bfcb702096f76a1a37c388dadefc1018f4b90e7555e340e81413bbc",
+      "returncode": 0,
+      "wall_seconds": 262.801955121,
+      "maxrss_KiB": 3985880,
+      "user_seconds": 249.058413,
+      "system_seconds": 13.249002
+    },
+    {
+      "module": "H8TailRange",
+      "pid": 29901,
+      "source_sha256": "4358e9c5d90cf4e2c22d605a6b75eddfe5fe1527fbd421000bc8da9387bb2bc4",
+      "returncode": 0,
+      "wall_seconds": 2.9066290889986703,
+      "maxrss_KiB": 2904736,
+      "user_seconds": 1.601926,
+      "system_seconds": 0.9342239999999999
+    },
+    {
+      "module": "H8TailAxioms",
+      "pid": 29912,
+      "source_sha256": "26ab83183cf0614a1eed03639568d9d348bd010bf4ed3afdd74df4bcf6d91dc6",
+      "returncode": 0,
+      "wall_seconds": 2.0555271720004384,
+      "maxrss_KiB": 2895884,
+      "user_seconds": 1.257636,
+      "system_seconds": 0.8012279999999999
+    }
+  ],
+  "running": [],
+  "finished_utc": "2026-11-26T02:22:36.394356+00:00"
+}
