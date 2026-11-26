@@ -6435,4 +6435,188 @@ lemma first_node_dirty_operands_singletons {n : ℕ}
 
 end H8OrPatch
 
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma private_of_global_minimum {n : ℕ} (C D : Circuit)
+    (hD : PEqualNP.TopForm.IsAO2 n D) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x)
+    (hCD : PreservesPureOr n C D)
+    (hmin : ∀ K : Circuit, PEqualNP.TopForm.IsAO2 n K →
+      (∀ x : Fin n → Bool, K.eval (List.ofFn x) = H8Active.dnf P x) →
+      PreservesPureOr n C K → orCount D.gates ≤ orCount K.gates) :
+    ∀ (pre post : List Gate) (u v : ℕ), D.gates = pre ++ [binary false u v] ++ post →
+      (∃ S ∈ Tests P, original n pre u (H8Active.assignmentOf S) = true ∧
+        original n pre v (H8Active.assignmentOf S) = false) ∧
+      (∃ S ∈ Tests P, original n pre v (H8Active.assignmentOf S) = true ∧
+        original n pre u (H8Active.assignmentOf S) = false) := by
+  intro pre post u v he
+  constructor
+  · by_contra hn
+    have hdom := dominates_of_no_private (Tests P)
+      (fun S => original n pre u (H8Active.assignmentOf S))
+      (fun S => original n pre v (H8Active.assignmentOf S)) hn
+    obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit D hD P hF pre post u v he hdom
+    have hk := hmin K hK hKF (preserves_trans hCD hKroots)
+    omega
+  · by_contra hn
+    have hdom := dominates_of_no_private (Tests P)
+      (fun S => original n pre v (H8Active.assignmentOf S))
+      (fun S => original n pre u (H8Active.assignmentOf S)) hn
+    obtain ⟨X,hXg,hX,hXF,hXcount,hXroots⟩ := swap_circuit D hD P hF pre post u v he
+    obtain ⟨K,hK,hKF,hKcount,hKroots⟩ := patch_circuit X hX P hXF pre post v u hXg hdom
+    have hk := hmin K hK hKF (preserves_trans (preserves_trans hCD hXroots) hKroots)
+    omega
+
+lemma exists_minimum_dirty_prefix {n : ℕ} (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (P : Finset (Finset (Fin n)))
+    (hF : ∀ x : Fin n → Bool, C.eval (List.ofFn x) = H8Active.dnf P x)
+    (hpos : ∃ x : Fin n → Bool, H8Active.dnf P x = true)
+    (hsingle : ∀ a : Fin n, H8Active.dnf P (H8TaggedCounts.singleton a) = false) :
+    ∃ (D : Circuit) (k : ℕ), PEqualNP.TopForm.IsAO2 n D ∧
+      (∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x) ∧
+      PreservesPureOr n C D ∧ orCount D.gates ≤ orCount C.gates ∧
+      k ≤ D.gates.length ∧
+      H8AssemblyCounts.AndBound n k D.gates ∧
+      (∀ i (hi : i < D.gates.length), i < k → D.gates[i].op = .and →
+        ∃ x : Fin n → Bool, original n D.gates (n+i) x = true ∧ H8Active.dnf P x = false) ∧
+      (∀ Q : Finset (Fin n), 2 ≤ Q.card → HasPureOr n C Q →
+        ∃ j < k, (gateAt D j).op = .or ∧
+          ∀ x : Fin n → Bool, original n D.gates (n+j) x = H8Active.disjunction Q x) ∧
+      (∀ K : Circuit, PEqualNP.TopForm.IsAO2 n K →
+        (∀ x : Fin n → Bool, K.eval (List.ofFn x) = H8Active.dnf P x) →
+        PreservesPureOr n C K → orCount D.gates ≤ orCount K.gates) ∧
+      PrivateOriginal n D.gates (TestInputs P) := by
+  obtain ⟨M,hM,hMF,hCM,hMC,hmin,hprivate⟩ := exists_global_private_minimum C hC P hF
+  let F : H8TaggedCounts.Test n := fun x => H8Active.dnf P x = true
+  have hs : ∀ a : Fin n, ¬ F (H8TaggedCounts.singleton a) := by
+    intro a
+    simp [F,hsingle a]
+  have hmF : H8TaggedCounts.W n M.gates M.output = F := by
+    funext x
+    change (M.eval (List.ofFn x) = true) = (H8Active.dnf P x = true)
+    rw [hMF x]
+  obtain ⟨D,k,hk,hsize,hA,hO,hD,hDF,hbound,hdirty,hpure,hroots⟩ :=
+    H8AssemblyCounts.normalize_prefix_pure_without_colours F hs M hM hpos hmF
+  have hDFb : ∀ x : Fin n → Bool, D.eval (List.ofFn x) = H8Active.dnf P x := by
+    intro x
+    have hh := congrFun hDF x
+    change (D.eval (List.ofFn x) = true) = (H8Active.dnf P x = true) at hh
+    cases he : D.eval (List.ofFn x) <;> cases hf : H8Active.dnf P x <;> simp_all
+  have hroot : ∀ Q : Finset (Fin n), 2 ≤ Q.card → HasPureOr n C Q →
+      ∃ j < k, (gateAt D j).op = .or ∧
+        ∀ x : Fin n → Bool, original n D.gates (n+j) x = H8Active.disjunction Q x := by
+    intro Q hQ hCQ
+    obtain ⟨i,hi,hop,hif⟩ := hCM Q hQ hCQ
+    have hwi : H8TaggedCounts.W n M.gates (n+i) = H8TaggedCounts.OrOf Q := by
+      funext x
+      apply propext
+      change (original n M.gates (n+i) x = true) ↔ _
+      have hix : original n M.gates (n+i) x = H8Active.disjunction Q x := hif x
+      rw [hix]
+      simp [H8Active.disjunction,H8TaggedCounts.OrOf]
+    obtain ⟨j,hj,hjo,hjf⟩ := hroots Q hQ ⟨n+i,by omega,hwi⟩
+    refine ⟨j,hj,hjo,?_⟩
+    intro x
+    have hh := congrFun hjf x
+    change (original n D.gates (n+j) x = true) = H8TaggedCounts.OrOf Q x at hh
+    have heq : (original n D.gates (n+j) x = true) ↔
+        (H8Active.disjunction Q x = true) := by
+      rw [hh]
+      simp [H8TaggedCounts.OrOf,H8Active.disjunction]
+    cases ha : original n D.gates (n+j) x <;>
+      cases hb : H8Active.disjunction Q x <;> simp_all
+  have hCD : PreservesPureOr n C D := by
+    intro Q hQ hCQ
+    obtain ⟨j,hj,hjo,hjf⟩ := hroot Q hQ hCQ
+    exact ⟨j,by omega,hjo,hjf⟩
+  have hOM : orCount D.gates ≤ orCount M.gates := hO
+  have hDmin : ∀ K : Circuit, PEqualNP.TopForm.IsAO2 n K →
+      (∀ x : Fin n → Bool, K.eval (List.ofFn x) = H8Active.dnf P x) →
+      PreservesPureOr n C K → orCount D.gates ≤ orCount K.gates := by
+    intro K hK hKF hCK
+    exact hOM.trans (hmin K hK hKF hCK)
+  refine ⟨D,k,hD,hDFb,hCD,hOM.trans hMC,hk,hbound,?_,hroot,hDmin,?_⟩
+  · intro i hi hik hop
+    obtain ⟨x,hx,hn⟩ := hdirty i hi hik hop
+    refine ⟨x,hx,?_⟩
+    change ¬ H8Active.dnf P x = true at hn
+    cases he : H8Active.dnf P x <;> simp_all
+  · apply private_original_of_decomposition D.gates (TestInputs P)
+    intro pre post u v he hu hv
+    obtain ⟨⟨S,hS,hSu,hSv⟩,⟨T,hT,hTv,hTu⟩⟩ :=
+      private_of_global_minimum C D hD P hDFb hCD hDmin pre post u v he
+    exact ⟨⟨H8Active.assignmentOf S,⟨S,hS,rfl⟩,hSu,hSv⟩,
+      ⟨H8Active.assignmentOf T,⟨T,hT,rfl⟩,hTv,hTu⟩⟩
+
+end H8OrPatch
+
+namespace H8OrPatch
+
+open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_4970.H8AndFree
+
+lemma zero_or_positive_dirty_literal {n : ℕ}
+    (gs : List Gate) (hl : Layout n gs) (hz : orCount gs = 0)
+    (P : Finset (Finset (Fin n))) (hP : ∀ Q ∈ P, Q.card ≤ 2)
+    (i : ℕ) (hi : i < n + gs.length)
+    (ht : ∃ Q ∈ Tests P, original n gs i (H8Active.assignmentOf Q) = true)
+    (hd : ∃ x : Fin n → Bool, original n gs i x = true ∧ H8Active.dnf P x = false) :
+    ∃ a : Fin n, ∀ x : Fin n → Bool, original n gs i x = x a := by
+  obtain ⟨hs,m,hv,hcount,hsim,hroots⟩ := exists_normalform n gs hl
+  have hnil : hs = [] := List.eq_nil_of_length_eq_zero (hcount.trans hz)
+  subst hs
+  obtain ⟨hmn,hmb,hme⟩ := hsim i hi
+  have hpos : ∃ Q ∈ Tests P, term n [] (m i) (H8Active.assignmentOf Q) = true := by
+    obtain ⟨Q,hQ,hQt⟩ := ht
+    exact ⟨Q,hQ,(hme _).trans hQt⟩
+  have hdirty : ∃ x : Fin n → Bool,
+      term n [] (m i) x = true ∧ H8Active.dnf P x = false := by
+    obtain ⟨x,hx,hf⟩ := hd
+    exact ⟨x,(hme x).trans hx,hf⟩
+  obtain ⟨a,ha⟩ := positive_dirty_initial_term_singleton [] (m i) P hP hmn
+    (by simpa only [List.length_nil,Nat.add_zero] using hmb) hpos hdirty
+  refine ⟨a,?_⟩
+  intro x
+  rw [← hme x,ha]
+  change conj (fun i => wire n [] i x) {a.val} = x a
+  rw [conj_singleton,normal_wire_input n [] a.val a.isLt]
+
+lemma first_or_dirty_operands_literals {n : ℕ}
+    (pre : List Gate) (hl : Layout n pre) (hz : orCount pre = 0)
+    (P : Finset (Finset (Fin n))) (hP : ∀ Q ∈ P, Q.card ≤ 2)
+    (u v : ℕ) (hu : u < n + pre.length) (hv : v < n + pre.length)
+    (hp : (∃ Q ∈ Tests P, original n pre u (H8Active.assignmentOf Q) = true ∧
+        original n pre v (H8Active.assignmentOf Q) = false) ∧
+      (∃ Q ∈ Tests P, original n pre v (H8Active.assignmentOf Q) = true ∧
+        original n pre u (H8Active.assignmentOf Q) = false))
+    (hdu : ∃ x : Fin n → Bool, original n pre u x = true ∧ H8Active.dnf P x = false)
+    (hdv : ∃ x : Fin n → Bool, original n pre v x = true ∧ H8Active.dnf P x = false) :
+    ∃ a b : Fin n, a ≠ b ∧
+      (∀ x : Fin n → Bool, original n pre u x = x a) ∧
+      (∀ x : Fin n → Bool, original n pre v x = x b) ∧
+      (∀ x : Fin n → Bool,
+        original n (pre ++ [binary false u v]) (n+pre.length) x =
+          H8Active.disjunction {a,b} x) := by
+  classical
+  obtain ⟨Q,hQ,hQu,hQv⟩ := hp.1
+  obtain ⟨R,hR,hRv,hRu⟩ := hp.2
+  obtain ⟨a,ha⟩ := zero_or_positive_dirty_literal pre hl hz P hP u hu
+    ⟨Q,hQ,hQu⟩ hdu
+  obtain ⟨b,hb⟩ := zero_or_positive_dirty_literal pre hl hz P hP v hv
+    ⟨R,hR,hRv⟩ hdv
+  refine ⟨a,b,?_,ha,hb,?_⟩
+  · intro he
+    subst b
+    rw [ha] at hQu
+    rw [hb] at hQv
+    rw [hQu] at hQv
+    cases hQv
+  · intro x
+    rw [new_original,ha,hb]
+    simp [H8Active.disjunction]
+
+end H8OrPatch
+
 end PEqualNP.Outside.L_meta_4970
