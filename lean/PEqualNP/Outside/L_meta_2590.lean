@@ -9713,3 +9713,165 @@ lemma typed_eight_gates {D : Dag} (h : Strict 10 D)
     exact hn i hi
 
 end PEqualNP.Outside.L_meta_2590_aux.S50ExtraTyped8
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S14Ledger
+open DagTools Four S50Private
+
+def mask (m : Nat) : Finset V := Finset.univ.filter (fun x => m.testBit x.val = true)
+
+def target (t : Fin 7) : Finset V := mask (([0,4,64,68,8,512,520] : List Nat).getD t.val 0)
+
+def side (t : Fin 7) (positive : Bool) (i : Fin 12) : Finset V :=
+  ([mask 1,mask 50,mask 2,mask 68 \ target t,mask 16,mask 520 \ target t,
+    mask 32,mask 384,(if positive then mask 50 else mask 18),
+    (if positive then mask 32 ∪ target t else target t),mask 200,mask 772] :
+    List (Finset V)).getD i.val ∅
+
+def opposite (i : Fin 12) : Fin 12 :=
+  ⟨(([1,0,3,2,5,4,7,6,9,8,11,10] : List Nat).getD i.val 0) % 12,
+    Nat.mod_lt _ (by decide)⟩
+
+def exitSide (t : Fin 7) (positive : Bool) (i : Fin 12) : Finset V :=
+  side t positive i \ side t positive (opposite i)
+
+def incidence (x : V) : Nat :=
+  ([1,3,2,2,3,2,2,2,2,2] : List Nat).getD x.val 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma profile_incidence : ∀ t : Fin 7, ∀ positive : Bool, ∀ x : V,
+    (Finset.univ.filter (fun i : Fin 12 => x ∈ exitSide t positive i)).card = incidence x := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma indexed_intersections : ∀ t : Fin 7, ∀ positive : Bool, ∀ i : Fin 12,
+    side t positive i ∩ side t positive (opposite i) =
+      if positive = true ∧ (i = 8 ∨ i = 9) then {5} else ∅ := by
+  decide +kernel
+
+def known (t : Fin 7) (positive : Bool) (r : Fin 12 → Nat × Bool) (x : V) : Finset (Nat × Bool) :=
+  (Finset.univ.filter (fun i : Fin 12 => x ∈ exitSide t positive i)).image r
+
+lemma known_card (t : Fin 7) (positive : Bool) (r : Fin 12 → Nat × Bool)
+    (inj : Function.Injective r) (x : V) : (known t positive r x).card = incidence x := by
+  rw [known,Finset.card_image_of_injective _ inj,profile_incidence]
+
+lemma output_support {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i) (i : Fin 12) :
+    supp 10 D (10+(r i).1) = side t positive i ∩ side t positive (opposite i) := by
+  have ha := source i
+  have hb := source (opposite i)
+  rw [paired i] at hb
+  rw [sem_supp_and h (valid i).1 (valid i).2]
+  cases hs : (r i).2
+  · have a : supp 10 D (opA D (r i).1) = side t positive i := by simpa [src,hs] using ha
+    have b : supp 10 D (opB D (r i).1) = side t positive (opposite i) := by simpa [src,sem_bar,hs] using hb
+    rw [a,b]
+  · have a : supp 10 D (opB D (r i).1) = side t positive i := by simpa [src,hs] using ha
+    have b : supp 10 D (opA D (r i).1) = side t positive (opposite i) := by simpa [src,sem_bar,hs] using hb
+    rw [a,b,Finset.inter_comm]
+
+lemma known_subset {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i) (x : V) :
+    known t positive r x ⊆ sem_W 10 D x := by
+  intro a ha
+  obtain ⟨i,hi,rfl⟩ := Finset.mem_image.mp ha
+  have hx := Finset.mem_sdiff.mp ((Finset.mem_filter.mp hi).2 : x ∈ exitSide t positive i)
+  apply sem_mem_W.mpr
+  refine ⟨(valid i).1,?_,?_⟩
+  · rw [source i]
+    exact hx.1
+  · rw [output_support h t positive r valid paired source i]
+    intro hout
+    exact hx.2 (Finset.mem_inter.mp hout).2
+
+lemma upper_counts_cover {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x) :
+    ∀ x : V, sem_W 10 D x = known t positive r x := by
+  intro x
+  apply (Finset.eq_of_subset_of_card_le (known_subset h t positive r valid paired source x) ?_).symm
+  rw [known_card t positive r inj x]
+  exact upper x
+
+lemma nonindexed_inputs_empty {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    {g : Nat} (hg : g < D.length) (hout : supp 10 D (10+g) = ∅)
+    (nonindexed : ∀ i : Fin 12, (r i).1 ≠ g) :
+    supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅ := by
+  have allCover := upper_counts_cover h t positive r inj valid paired source upper
+  have arcEmpty (s : Bool) : supp 10 D (src D (g,s)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro x hx
+    have he : (g,s) ∈ sem_W 10 D x := sem_mem_W.mpr ⟨hg,hx,by rw [hout]; simp⟩
+    rw [allCover x] at he
+    obtain ⟨i,_,eq⟩ := Finset.mem_image.mp he
+    exact nonindexed i (congrArg Prod.fst eq)
+  exact ⟨by simpa only [sb_src_false] using arcEmpty false,
+    by simpa only [sb_src_true] using arcEmpty true⟩
+
+lemma conditional_ledger {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    (extraEmpty : ∀ g, g < D.length → tag D g = true →
+      (∀ i : Fin 12, (r i).1 ≠ g) → supp 10 D (10+g) = ∅) :
+    (∀ x : V, sem_W 10 D x = known t positive r x) ∧
+    (∀ g, g < D.length → tag D g = true → (∀ i : Fin 12, (r i).1 ≠ g) →
+      supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅) := by
+  refine ⟨upper_counts_cover h t positive r inj valid paired source upper,?_⟩
+  intro g hg ht hn
+  exact nonindexed_inputs_empty h t positive r inj valid paired source upper hg (extraEmpty g hg ht hn) hn
+
+lemma target_injective : Function.Injective target := by decide +kernel
+
+lemma target_choices (T : Finset V)
+    (hT : T ∈ ({mask 0,mask 4,mask 64,mask 68,mask 8,mask 512,mask 520} : Finset (Finset V))) :
+    ∃ t : Fin 7, T = target t := by
+  simp only [Finset.mem_insert,Finset.mem_singleton] at hT
+  rcases hT with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  · exact ⟨0,rfl⟩
+  · exact ⟨1,rfl⟩
+  · exact ⟨2,rfl⟩
+  · exact ⟨3,rfl⟩
+  · exact ⟨4,rfl⟩
+  · exact ⟨5,rfl⟩
+  · exact ⟨6,rfl⟩
+
+lemma ledger_of_noncommon_outputs_empty {D : Dag} (h : Strict 10 D) (t : Fin 7) (positive : Bool)
+    (r : Fin 12 → Nat × Bool) (inj : Function.Injective r)
+    (valid : ∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true)
+    (paired : ∀ i, r (opposite i) = sem_bar (r i))
+    (source : ∀ i, supp 10 D (src D (r i)) = side t positive i)
+    (upper : ∀ x : V, (sem_W 10 D x).card ≤ incidence x)
+    (otherEmpty : ∀ g, g < D.length → tag D g = true → g ≠ (r 8).1 →
+      supp 10 D (10+g) = ∅) :
+    (∀ x : V, sem_W 10 D x = known t positive r x) ∧
+    (∀ g, g < D.length → tag D g = true → (∀ i : Fin 12, (r i).1 ≠ g) →
+      supp 10 D (opA D g) = ∅ ∧ supp 10 D (opB D g) = ∅) := by
+  apply conditional_ledger h t positive r inj valid paired source upper
+  intro g hg ht hn
+  exact otherEmpty g hg ht (Ne.symm (hn 8))
+
+end PEqualNP.Outside.L_meta_2590_aux.S14Ledger
